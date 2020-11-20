@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Private IP address of the Azure Firewall.
+        /// The private IP address associated with the Firewall.
         /// </summary>
         public readonly string? PrivateIpAddress;
         /// <summary>

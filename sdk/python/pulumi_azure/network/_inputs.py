@@ -57,6 +57,7 @@ __all__ = [
     'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs',
     'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs',
     'FirewallPolicyThreatIntelligenceAllowlistArgs',
+    'FirewallVirtualHubArgs',
     'LocalNetworkGatewayBgpSettingsArgs',
     'NetworkConnectionMonitorDestinationArgs',
     'NetworkConnectionMonitorEndpointArgs',
@@ -110,6 +111,9 @@ __all__ = [
     'VpnGatewayBgpSettingsArgs',
     'VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs',
     'VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs',
+    'VpnGatewayConnectionRoutingArgs',
+    'VpnGatewayConnectionVpnLinkArgs',
+    'VpnGatewayConnectionVpnLinkIpsecPolicyArgs',
     'VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs',
     'VpnServerConfigurationClientRevokedCertificateArgs',
     'VpnServerConfigurationClientRootCertificateArgs',
@@ -3218,7 +3222,7 @@ class FirewallIpConfigurationArgs:
         """
         :param pulumi.Input[str] name: Specifies the name of the IP Configuration.
         :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP Address associated with the firewall.
-        :param pulumi.Input[str] private_ip_address: The Private IP address of the Azure Firewall.
+        :param pulumi.Input[str] private_ip_address: The private IP address associated with the Firewall.
         :param pulumi.Input[str] subnet_id: Reference to the subnet associated with the IP Configuration.
         """
         pulumi.set(__self__, "name", name)
@@ -3256,7 +3260,7 @@ class FirewallIpConfigurationArgs:
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The Private IP address of the Azure Firewall.
+        The private IP address associated with the Firewall.
         """
         return pulumi.get(self, "private_ip_address")
 
@@ -3288,7 +3292,7 @@ class FirewallManagementIpConfigurationArgs:
         :param pulumi.Input[str] name: Specifies the name of the IP Configuration.
         :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP Address associated with the firewall.
         :param pulumi.Input[str] subnet_id: Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] private_ip_address: The Private IP address of the Azure Firewall.
+        :param pulumi.Input[str] private_ip_address: The private IP address associated with the Firewall.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
@@ -3336,7 +3340,7 @@ class FirewallManagementIpConfigurationArgs:
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The Private IP address of the Azure Firewall.
+        The private IP address associated with the Firewall.
         """
         return pulumi.get(self, "private_ip_address")
 
@@ -3645,10 +3649,12 @@ class FirewallPolicyDnsArgs:
                  proxy_enabled: Optional[pulumi.Input[bool]] = None,
                  servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[bool] network_rule_fqdn_enabled: Whether FQDNS in Network Rules belongs to this Firewall Policy are supported? Defaults to `false`.
         :param pulumi.Input[bool] proxy_enabled: Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] servers: A list of custom DNS servers' IP addresses.
         """
+        if network_rule_fqdn_enabled is not None:
+            warnings.warn("""This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("network_rule_fqdn_enabled is deprecated: This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.")
         if network_rule_fqdn_enabled is not None:
             pulumi.set(__self__, "network_rule_fqdn_enabled", network_rule_fqdn_enabled)
         if proxy_enabled is not None:
@@ -3659,9 +3665,6 @@ class FirewallPolicyDnsArgs:
     @property
     @pulumi.getter(name="networkRuleFqdnEnabled")
     def network_rule_fqdn_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether FQDNS in Network Rules belongs to this Firewall Policy are supported? Defaults to `false`.
-        """
         return pulumi.get(self, "network_rule_fqdn_enabled")
 
     @network_rule_fqdn_enabled.setter
@@ -4332,6 +4335,76 @@ class FirewallPolicyThreatIntelligenceAllowlistArgs:
     @ip_addresses.setter
     def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ip_addresses", value)
+
+
+@pulumi.input_type
+class FirewallVirtualHubArgs:
+    def __init__(__self__, *,
+                 virtual_hub_id: pulumi.Input[str],
+                 private_ip_address: Optional[pulumi.Input[str]] = None,
+                 public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 public_ip_count: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] virtual_hub_id: Specifies the ID of the Virtual Hub where the Firewall resides in.
+        :param pulumi.Input[str] private_ip_address: The private IP address associated with the Firewall.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_addresses: The list of public IP addresses associated with the Firewall.
+        :param pulumi.Input[int] public_ip_count: Specifies the number of public IPs to assign to the Firewall. Defaults to `1`.
+        """
+        pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if public_ip_addresses is not None:
+            pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        if public_ip_count is not None:
+            pulumi.set(__self__, "public_ip_count", public_ip_count)
+
+    @property
+    @pulumi.getter(name="virtualHubId")
+    def virtual_hub_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the ID of the Virtual Hub where the Firewall resides in.
+        """
+        return pulumi.get(self, "virtual_hub_id")
+
+    @virtual_hub_id.setter
+    def virtual_hub_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_hub_id", value)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private IP address associated with the Firewall.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip_address", value)
+
+    @property
+    @pulumi.getter(name="publicIpAddresses")
+    def public_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of public IP addresses associated with the Firewall.
+        """
+        return pulumi.get(self, "public_ip_addresses")
+
+    @public_ip_addresses.setter
+    def public_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "public_ip_addresses", value)
+
+    @property
+    @pulumi.getter(name="publicIpCount")
+    def public_ip_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of public IPs to assign to the Firewall. Defaults to `1`.
+        """
+        return pulumi.get(self, "public_ip_count")
+
+    @public_ip_count.setter
+    def public_ip_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "public_ip_count", value)
 
 
 @pulumi.input_type
@@ -7800,6 +7873,351 @@ class VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs:
     @tunnel_ips.setter
     def tunnel_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "tunnel_ips", value)
+
+
+@pulumi.input_type
+class VpnGatewayConnectionRoutingArgs:
+    def __init__(__self__, *,
+                 associated_route_table: pulumi.Input[str],
+                 propagated_route_tables: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] associated_route_table: The ID of the Route Table associated with this VPN Connection.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] propagated_route_tables: The list IDs of Route Tables to advertise the routes of this VPN Connection.
+        """
+        pulumi.set(__self__, "associated_route_table", associated_route_table)
+        pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
+
+    @property
+    @pulumi.getter(name="associatedRouteTable")
+    def associated_route_table(self) -> pulumi.Input[str]:
+        """
+        The ID of the Route Table associated with this VPN Connection.
+        """
+        return pulumi.get(self, "associated_route_table")
+
+    @associated_route_table.setter
+    def associated_route_table(self, value: pulumi.Input[str]):
+        pulumi.set(self, "associated_route_table", value)
+
+    @property
+    @pulumi.getter(name="propagatedRouteTables")
+    def propagated_route_tables(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The list IDs of Route Tables to advertise the routes of this VPN Connection.
+        """
+        return pulumi.get(self, "propagated_route_tables")
+
+    @propagated_route_tables.setter
+    def propagated_route_tables(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "propagated_route_tables", value)
+
+
+@pulumi.input_type
+class VpnGatewayConnectionVpnLinkArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 vpn_site_link_id: pulumi.Input[str],
+                 bandwidth_mbps: Optional[pulumi.Input[int]] = None,
+                 bgp_enabled: Optional[pulumi.Input[bool]] = None,
+                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]]] = None,
+                 local_azure_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
+                 policy_based_traffic_selector_enabled: Optional[pulumi.Input[bool]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 ratelimit_enabled: Optional[pulumi.Input[bool]] = None,
+                 route_weight: Optional[pulumi.Input[int]] = None,
+                 shared_key: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this VPN Link Connection.
+        :param pulumi.Input[str] vpn_site_link_id: The ID of the connected VPN Site Link. Changing this forces a new VPN Gateway Connection to be created.
+        :param pulumi.Input[int] bandwidth_mbps: The expected connection bandwidth in MBPS. Defaults to `10`.
+        :param pulumi.Input[bool] bgp_enabled: Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]] ipsec_policies: One or more `ipsec_policy` blocks as defined above.
+        :param pulumi.Input[bool] local_azure_ip_address_enabled: Whether to use local azure ip to initiate connection? Defaults to `false`.
+        :param pulumi.Input[bool] policy_based_traffic_selector_enabled: Whether to enable policy-based traffic selectors? Defaults to `false`.
+        :param pulumi.Input[str] protocol: The protocol used for this VPN Link Connection. Possible values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+        :param pulumi.Input[bool] ratelimit_enabled: Should the rate limit be enabled? Defaults to `false`.
+        :param pulumi.Input[int] route_weight: Routing weight for this VPN Link Connection. Defaults to `0`.
+        :param pulumi.Input[str] shared_key: SharedKey for this VPN Link Connection.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "vpn_site_link_id", vpn_site_link_id)
+        if bandwidth_mbps is not None:
+            pulumi.set(__self__, "bandwidth_mbps", bandwidth_mbps)
+        if bgp_enabled is not None:
+            pulumi.set(__self__, "bgp_enabled", bgp_enabled)
+        if ipsec_policies is not None:
+            pulumi.set(__self__, "ipsec_policies", ipsec_policies)
+        if local_azure_ip_address_enabled is not None:
+            pulumi.set(__self__, "local_azure_ip_address_enabled", local_azure_ip_address_enabled)
+        if policy_based_traffic_selector_enabled is not None:
+            pulumi.set(__self__, "policy_based_traffic_selector_enabled", policy_based_traffic_selector_enabled)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if ratelimit_enabled is not None:
+            pulumi.set(__self__, "ratelimit_enabled", ratelimit_enabled)
+        if route_weight is not None:
+            pulumi.set(__self__, "route_weight", route_weight)
+        if shared_key is not None:
+            pulumi.set(__self__, "shared_key", shared_key)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this VPN Link Connection.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="vpnSiteLinkId")
+    def vpn_site_link_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the connected VPN Site Link. Changing this forces a new VPN Gateway Connection to be created.
+        """
+        return pulumi.get(self, "vpn_site_link_id")
+
+    @vpn_site_link_id.setter
+    def vpn_site_link_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpn_site_link_id", value)
+
+    @property
+    @pulumi.getter(name="bandwidthMbps")
+    def bandwidth_mbps(self) -> Optional[pulumi.Input[int]]:
+        """
+        The expected connection bandwidth in MBPS. Defaults to `10`.
+        """
+        return pulumi.get(self, "bandwidth_mbps")
+
+    @bandwidth_mbps.setter
+    def bandwidth_mbps(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "bandwidth_mbps", value)
+
+    @property
+    @pulumi.getter(name="bgpEnabled")
+    def bgp_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
+        """
+        return pulumi.get(self, "bgp_enabled")
+
+    @bgp_enabled.setter
+    def bgp_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bgp_enabled", value)
+
+    @property
+    @pulumi.getter(name="ipsecPolicies")
+    def ipsec_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]]]:
+        """
+        One or more `ipsec_policy` blocks as defined above.
+        """
+        return pulumi.get(self, "ipsec_policies")
+
+    @ipsec_policies.setter
+    def ipsec_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]]]):
+        pulumi.set(self, "ipsec_policies", value)
+
+    @property
+    @pulumi.getter(name="localAzureIpAddressEnabled")
+    def local_azure_ip_address_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to use local azure ip to initiate connection? Defaults to `false`.
+        """
+        return pulumi.get(self, "local_azure_ip_address_enabled")
+
+    @local_azure_ip_address_enabled.setter
+    def local_azure_ip_address_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_azure_ip_address_enabled", value)
+
+    @property
+    @pulumi.getter(name="policyBasedTrafficSelectorEnabled")
+    def policy_based_traffic_selector_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable policy-based traffic selectors? Defaults to `false`.
+        """
+        return pulumi.get(self, "policy_based_traffic_selector_enabled")
+
+    @policy_based_traffic_selector_enabled.setter
+    def policy_based_traffic_selector_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "policy_based_traffic_selector_enabled", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The protocol used for this VPN Link Connection. Possible values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="ratelimitEnabled")
+    def ratelimit_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the rate limit be enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "ratelimit_enabled")
+
+    @ratelimit_enabled.setter
+    def ratelimit_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ratelimit_enabled", value)
+
+    @property
+    @pulumi.getter(name="routeWeight")
+    def route_weight(self) -> Optional[pulumi.Input[int]]:
+        """
+        Routing weight for this VPN Link Connection. Defaults to `0`.
+        """
+        return pulumi.get(self, "route_weight")
+
+    @route_weight.setter
+    def route_weight(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "route_weight", value)
+
+    @property
+    @pulumi.getter(name="sharedKey")
+    def shared_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        SharedKey for this VPN Link Connection.
+        """
+        return pulumi.get(self, "shared_key")
+
+    @shared_key.setter
+    def shared_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_key", value)
+
+
+@pulumi.input_type
+class VpnGatewayConnectionVpnLinkIpsecPolicyArgs:
+    def __init__(__self__, *,
+                 dh_group: pulumi.Input[str],
+                 encryption_algorithm: pulumi.Input[str],
+                 ike_encryption_algorithm: pulumi.Input[str],
+                 ike_integrity_algorithm: pulumi.Input[str],
+                 integrity_algorithm: pulumi.Input[str],
+                 pfs_group: pulumi.Input[str],
+                 sa_data_size_kb: pulumi.Input[int],
+                 sa_lifetime_sec: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] dh_group: The DH Group used in IKE Phase 1 for initial SA. Possible values are `None`, `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384`.
+        :param pulumi.Input[str] encryption_algorithm: The IPSec encryption algorithm (IKE phase 1). Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, `None`.
+        :param pulumi.Input[str] ike_encryption_algorithm: The IKE encryption algorithm (IKE phase 2). Possible values are `DES`, `DES3`, `AES128`, `AES192`, `AES256`, `GCMAES128`, `GCMAES256`.
+        :param pulumi.Input[str] ike_integrity_algorithm: The IKE integrity algorithm (IKE phase 2). Possible values are `MD5`, `SHA1`, `SHA256`, `SHA384`, `GCMAES128`, `GCMAES256`.
+        :param pulumi.Input[str] integrity_algorithm: The IPSec integrity algorithm (IKE phase 1). Possible values are `MD5`, `SHA1`, `SHA256`, `GCMAES128`, `GCMAES192`, `GCMAES256`.
+        :param pulumi.Input[str] pfs_group: The Pfs Group used in IKE Phase 2 for the new child SA. Possible values are `None`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM`, `ECP256`, `ECP384`.
+        :param pulumi.Input[int] sa_data_size_kb: The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for the site to site VPN tunnel.
+        :param pulumi.Input[int] sa_lifetime_sec: The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for the site to site VPN tunnel.
+        """
+        pulumi.set(__self__, "dh_group", dh_group)
+        pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        pulumi.set(__self__, "ike_encryption_algorithm", ike_encryption_algorithm)
+        pulumi.set(__self__, "ike_integrity_algorithm", ike_integrity_algorithm)
+        pulumi.set(__self__, "integrity_algorithm", integrity_algorithm)
+        pulumi.set(__self__, "pfs_group", pfs_group)
+        pulumi.set(__self__, "sa_data_size_kb", sa_data_size_kb)
+        pulumi.set(__self__, "sa_lifetime_sec", sa_lifetime_sec)
+
+    @property
+    @pulumi.getter(name="dhGroup")
+    def dh_group(self) -> pulumi.Input[str]:
+        """
+        The DH Group used in IKE Phase 1 for initial SA. Possible values are `None`, `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384`.
+        """
+        return pulumi.get(self, "dh_group")
+
+    @dh_group.setter
+    def dh_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "dh_group", value)
+
+    @property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> pulumi.Input[str]:
+        """
+        The IPSec encryption algorithm (IKE phase 1). Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, `None`.
+        """
+        return pulumi.get(self, "encryption_algorithm")
+
+    @encryption_algorithm.setter
+    def encryption_algorithm(self, value: pulumi.Input[str]):
+        pulumi.set(self, "encryption_algorithm", value)
+
+    @property
+    @pulumi.getter(name="ikeEncryptionAlgorithm")
+    def ike_encryption_algorithm(self) -> pulumi.Input[str]:
+        """
+        The IKE encryption algorithm (IKE phase 2). Possible values are `DES`, `DES3`, `AES128`, `AES192`, `AES256`, `GCMAES128`, `GCMAES256`.
+        """
+        return pulumi.get(self, "ike_encryption_algorithm")
+
+    @ike_encryption_algorithm.setter
+    def ike_encryption_algorithm(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ike_encryption_algorithm", value)
+
+    @property
+    @pulumi.getter(name="ikeIntegrityAlgorithm")
+    def ike_integrity_algorithm(self) -> pulumi.Input[str]:
+        """
+        The IKE integrity algorithm (IKE phase 2). Possible values are `MD5`, `SHA1`, `SHA256`, `SHA384`, `GCMAES128`, `GCMAES256`.
+        """
+        return pulumi.get(self, "ike_integrity_algorithm")
+
+    @ike_integrity_algorithm.setter
+    def ike_integrity_algorithm(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ike_integrity_algorithm", value)
+
+    @property
+    @pulumi.getter(name="integrityAlgorithm")
+    def integrity_algorithm(self) -> pulumi.Input[str]:
+        """
+        The IPSec integrity algorithm (IKE phase 1). Possible values are `MD5`, `SHA1`, `SHA256`, `GCMAES128`, `GCMAES192`, `GCMAES256`.
+        """
+        return pulumi.get(self, "integrity_algorithm")
+
+    @integrity_algorithm.setter
+    def integrity_algorithm(self, value: pulumi.Input[str]):
+        pulumi.set(self, "integrity_algorithm", value)
+
+    @property
+    @pulumi.getter(name="pfsGroup")
+    def pfs_group(self) -> pulumi.Input[str]:
+        """
+        The Pfs Group used in IKE Phase 2 for the new child SA. Possible values are `None`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM`, `ECP256`, `ECP384`.
+        """
+        return pulumi.get(self, "pfs_group")
+
+    @pfs_group.setter
+    def pfs_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "pfs_group", value)
+
+    @property
+    @pulumi.getter(name="saDataSizeKb")
+    def sa_data_size_kb(self) -> pulumi.Input[int]:
+        """
+        The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for the site to site VPN tunnel.
+        """
+        return pulumi.get(self, "sa_data_size_kb")
+
+    @sa_data_size_kb.setter
+    def sa_data_size_kb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "sa_data_size_kb", value)
+
+    @property
+    @pulumi.getter(name="saLifetimeSec")
+    def sa_lifetime_sec(self) -> pulumi.Input[int]:
+        """
+        The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for the site to site VPN tunnel.
+        """
+        return pulumi.get(self, "sa_lifetime_sec")
+
+    @sa_lifetime_sec.setter
+    def sa_lifetime_sec(self, value: pulumi.Input[int]):
+        pulumi.set(self, "sa_lifetime_sec", value)
 
 
 @pulumi.input_type

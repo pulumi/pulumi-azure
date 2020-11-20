@@ -75,9 +75,12 @@ namespace Pulumi.Azure.Policy
     public sealed class GetPolicySetDefinitionResult
     {
         /// <summary>
-        /// The Description of the Policy Set Definition.
+        /// The description of this policy definition group.
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// The display name of this policy definition group.
+        /// </summary>
         public readonly string DisplayName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -88,11 +91,18 @@ namespace Pulumi.Azure.Policy
         /// Any Metadata defined in the Policy Set Definition.
         /// </summary>
         public readonly string Metadata;
+        /// <summary>
+        /// The name of this policy definition group.
+        /// </summary>
         public readonly string Name;
         /// <summary>
         /// The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
         /// </summary>
         public readonly string Parameters;
+        /// <summary>
+        /// One or more `policy_definition_group` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPolicySetDefinitionPolicyDefinitionGroupResult> PolicyDefinitionGroups;
         /// <summary>
         /// One or more `policy_definition_reference` blocks as defined below.
         /// </summary>
@@ -122,6 +132,8 @@ namespace Pulumi.Azure.Policy
 
             string parameters,
 
+            ImmutableArray<Outputs.GetPolicySetDefinitionPolicyDefinitionGroupResult> policyDefinitionGroups,
+
             ImmutableArray<Outputs.GetPolicySetDefinitionPolicyDefinitionReferenceResult> policyDefinitionReferences,
 
             string policyDefinitions,
@@ -135,6 +147,7 @@ namespace Pulumi.Azure.Policy
             Metadata = metadata;
             Name = name;
             Parameters = parameters;
+            PolicyDefinitionGroups = policyDefinitionGroups;
             PolicyDefinitionReferences = policyDefinitionReferences;
             PolicyDefinitions = policyDefinitions;
             PolicyType = policyType;

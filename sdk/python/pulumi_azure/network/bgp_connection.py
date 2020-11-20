@@ -25,6 +25,42 @@ class BgpConnection(pulumi.CustomResource):
         """
         Manages a Bgp Connection for a Virtual Hub.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Standard")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Dynamic")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.5.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefix="10.5.1.0/24")
+        example_virtual_hub_ip = azure.network.VirtualHubIp("exampleVirtualHubIp",
+            virtual_hub_id=example_virtual_hub.id,
+            private_ip_address="10.5.1.18",
+            private_ip_allocation_method="Static",
+            public_ip_address_id=example_public_ip.id,
+            subnet_id=example_subnet.id)
+        example_bgp_connection = azure.network.BgpConnection("exampleBgpConnection",
+            virtual_hub_id=example_virtual_hub.id,
+            peer_asn=65514,
+            peer_ip="169.254.21.5",
+            opts=ResourceOptions(depends_on=[example_virtual_hub_ip]))
+        ```
+
         ## Import
 
         Virtual Hub Bgp Connections can be imported using the `resource id`, e.g.

@@ -16,6 +16,7 @@ class Blob(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_tier: Optional[pulumi.Input[str]] = None,
+                 content_md5: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -66,6 +67,7 @@ class Blob(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_tier: The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
+        :param pulumi.Input[str] content_md5: The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom blob metadata.
         :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located.
@@ -98,6 +100,7 @@ class Blob(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['access_tier'] = access_tier
+            __props__['content_md5'] = content_md5
             __props__['content_type'] = content_type
             __props__['metadata'] = metadata
             __props__['name'] = name
@@ -127,6 +130,7 @@ class Blob(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             access_tier: Optional[pulumi.Input[str]] = None,
+            content_md5: Optional[pulumi.Input[str]] = None,
             content_type: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -147,6 +151,7 @@ class Blob(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_tier: The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
+        :param pulumi.Input[str] content_md5: The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom blob metadata.
         :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located.
@@ -167,6 +172,7 @@ class Blob(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["access_tier"] = access_tier
+        __props__["content_md5"] = content_md5
         __props__["content_type"] = content_type
         __props__["metadata"] = metadata
         __props__["name"] = name
@@ -188,6 +194,14 @@ class Blob(pulumi.CustomResource):
         The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
         """
         return pulumi.get(self, "access_tier")
+
+    @property
+    @pulumi.getter(name="contentMd5")
+    def content_md5(self) -> pulumi.Output[Optional[str]]:
+        """
+        The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "content_md5")
 
     @property
     @pulumi.getter(name="contentType")

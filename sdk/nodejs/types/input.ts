@@ -26,7 +26,8 @@ export interface ProviderFeaturesTemplateDeployment {
 }
 
 export interface ProviderFeaturesVirtualMachine {
-    deleteOsDiskOnDeletion: pulumi.Input<boolean>;
+    deleteOsDiskOnDeletion?: pulumi.Input<boolean>;
+    gracefulShutdown?: pulumi.Input<boolean>;
 }
 
 export interface ProviderFeaturesVirtualMachineScaleSet {
@@ -53,6 +54,50 @@ export namespace analysisservices {
 }
 
 export namespace apimanagement {
+    export interface ApiDiagnosticBackendRequest {
+        /**
+         * Number of payload bytes to log (up to 8192).
+         */
+        bodyBytes?: pulumi.Input<number>;
+        /**
+         * Specifies a list of headers to log.
+         */
+        headersToLogs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ApiDiagnosticBackendResponse {
+        /**
+         * Number of payload bytes to log (up to 8192).
+         */
+        bodyBytes?: pulumi.Input<number>;
+        /**
+         * Specifies a list of headers to log.
+         */
+        headersToLogs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ApiDiagnosticFrontendRequest {
+        /**
+         * Number of payload bytes to log (up to 8192).
+         */
+        bodyBytes?: pulumi.Input<number>;
+        /**
+         * Specifies a list of headers to log.
+         */
+        headersToLogs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ApiDiagnosticFrontendResponse {
+        /**
+         * Number of payload bytes to log (up to 8192).
+         */
+        bodyBytes?: pulumi.Input<number>;
+        /**
+         * Specifies a list of headers to log.
+         */
+        headersToLogs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface ApiImport {
         /**
          * The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
@@ -4094,6 +4139,14 @@ export namespace compute {
          */
         diskEncryptionSetId?: pulumi.Input<string>;
         /**
+         * Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+         */
+        diskIopsReadWrite?: pulumi.Input<number>;
+        /**
+         * Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+         */
+        diskMbpsReadWrite?: pulumi.Input<number>;
+        /**
          * The size of the Data Disk which should be created.
          */
         diskSizeGb: pulumi.Input<number>;
@@ -5319,6 +5372,14 @@ export namespace compute {
          */
         diskEncryptionSetId?: pulumi.Input<string>;
         /**
+         * Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+         */
+        diskIopsReadWrite?: pulumi.Input<number>;
+        /**
+         * Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+         */
+        diskMbpsReadWrite?: pulumi.Input<number>;
+        /**
          * The size of the Data Disk which should be created.
          */
         diskSizeGb: pulumi.Input<number>;
@@ -5859,6 +5920,10 @@ export namespace containerservice {
          */
         readOnly?: pulumi.Input<boolean>;
         /**
+         * A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+         */
+        secret?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
          * The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
          */
         shareName?: pulumi.Input<string>;
@@ -5998,7 +6063,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterAddonProfileHttpApplicationRouting {
         /**
-         * Is HTTP Application Routing Enabled? Changing this forces a new resource to be created.
+         * Is HTTP Application Routing Enabled?
          */
         enabled: pulumi.Input<boolean>;
         /**
@@ -6097,7 +6162,7 @@ export namespace containerservice {
          */
         enableNodePublicIp?: pulumi.Input<boolean>;
         /**
-         * The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+         * The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
          */
         maxCount?: pulumi.Input<number>;
         /**
@@ -6105,7 +6170,7 @@ export namespace containerservice {
          */
         maxPods?: pulumi.Input<number>;
         /**
-         * The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+         * The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
          */
         minCount?: pulumi.Input<number>;
         /**
@@ -6113,7 +6178,7 @@ export namespace containerservice {
          */
         name: pulumi.Input<string>;
         /**
-         * The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `minCount` and `maxCount`.
+         * The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
          */
         nodeCount?: pulumi.Input<number>;
         /**
@@ -6129,6 +6194,7 @@ export namespace containerservice {
          * The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
          */
         osDiskSizeGb?: pulumi.Input<number>;
+        osDiskType?: pulumi.Input<string>;
         proximityPlacementGroupId?: pulumi.Input<string>;
         /**
          * A mapping of tags to assign to the Node Pool.
@@ -7298,6 +7364,49 @@ export namespace dns {
          * The value of the record. Max length: 1024 characters
          */
         value: pulumi.Input<string>;
+    }
+
+    export interface ZoneSoaRecord {
+        /**
+         * The email contact for the SOA record.
+         */
+        email: pulumi.Input<string>;
+        /**
+         * The expire time for the SOA record. Defaults to `2419200`.
+         */
+        expireTime?: pulumi.Input<number>;
+        /**
+         * The fully qualified domain name of the Record Set.
+         */
+        fqdn?: pulumi.Input<string>;
+        /**
+         * The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+         */
+        hostName: pulumi.Input<string>;
+        /**
+         * The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
+         */
+        minimumTtl?: pulumi.Input<number>;
+        /**
+         * The refresh time for the SOA record. Defaults to `3600`.
+         */
+        refreshTime?: pulumi.Input<number>;
+        /**
+         * The retry time for the SOA record. Defaults to `300`.
+         */
+        retryTime?: pulumi.Input<number>;
+        /**
+         * The serial number for the SOA record. Defaults to `1`.
+         */
+        serialNumber?: pulumi.Input<number>;
+        /**
+         * A mapping of tags to assign to the Record Set.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The Time To Live of the SOA Record in seconds. Defaults to `3600`.
+         */
+        ttl?: pulumi.Input<number>;
     }
 }
 
@@ -11290,6 +11399,23 @@ export namespace lighthouse {
     }
 }
 
+export namespace loganalytics {
+    export interface ClusterIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the identity type of the Log Analytics Cluster. At this time the only allowed value is `SystemAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+}
+
 export namespace logicapps {
     export interface ActionHttpRunAfter {
         /**
@@ -13601,7 +13727,7 @@ export namespace network {
          */
         name: pulumi.Input<string>;
         /**
-         * The Private IP address of the Azure Firewall.
+         * The private IP address associated with the Firewall.
          */
         privateIpAddress?: pulumi.Input<string>;
         /**
@@ -13620,7 +13746,7 @@ export namespace network {
          */
         name: pulumi.Input<string>;
         /**
-         * The Private IP address of the Azure Firewall.
+         * The private IP address associated with the Firewall.
          */
         privateIpAddress?: pulumi.Input<string>;
         /**
@@ -13713,7 +13839,7 @@ export namespace network {
 
     export interface FirewallPolicyDns {
         /**
-         * Whether FQDNS in Network Rules belongs to this Firewall Policy are supported? Defaults to `false`.
+         * @deprecated This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.
          */
         networkRuleFqdnEnabled?: pulumi.Input<boolean>;
         /**
@@ -13900,6 +14026,25 @@ export namespace network {
          * A list of IP addresses or IP address ranges that will be skipped for threat detection.
          */
         ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FirewallVirtualHub {
+        /**
+         * The private IP address associated with the Firewall.
+         */
+        privateIpAddress?: pulumi.Input<string>;
+        /**
+         * The list of public IP addresses associated with the Firewall.
+         */
+        publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the number of public IPs to assign to the Firewall. Defaults to `1`.
+         */
+        publicIpCount?: pulumi.Input<number>;
+        /**
+         * Specifies the ID of the Virtual Hub where the Firewall resides in.
+         */
+        virtualHubId: pulumi.Input<string>;
     }
 
     export interface LocalNetworkGatewayBgpSettings {
@@ -14880,6 +15025,99 @@ export namespace network {
         tunnelIps?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface VpnGatewayConnectionRouting {
+        /**
+         * The ID of the Route Table associated with this VPN Connection.
+         */
+        associatedRouteTable: pulumi.Input<string>;
+        /**
+         * The list IDs of Route Tables to advertise the routes of this VPN Connection.
+         */
+        propagatedRouteTables: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface VpnGatewayConnectionVpnLink {
+        /**
+         * The expected connection bandwidth in MBPS. Defaults to `10`.
+         */
+        bandwidthMbps?: pulumi.Input<number>;
+        /**
+         * Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
+         */
+        bgpEnabled?: pulumi.Input<boolean>;
+        /**
+         * One or more `ipsecPolicy` blocks as defined above.
+         */
+        ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayConnectionVpnLinkIpsecPolicy>[]>;
+        /**
+         * Whether to use local azure ip to initiate connection? Defaults to `false`.
+         */
+        localAzureIpAddressEnabled?: pulumi.Input<boolean>;
+        /**
+         * The name which should be used for this VPN Link Connection.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Whether to enable policy-based traffic selectors? Defaults to `false`.
+         */
+        policyBasedTrafficSelectorEnabled?: pulumi.Input<boolean>;
+        /**
+         * The protocol used for this VPN Link Connection. Possible values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+         */
+        protocol?: pulumi.Input<string>;
+        /**
+         * Should the rate limit be enabled? Defaults to `false`.
+         */
+        ratelimitEnabled?: pulumi.Input<boolean>;
+        /**
+         * Routing weight for this VPN Link Connection. Defaults to `0`.
+         */
+        routeWeight?: pulumi.Input<number>;
+        /**
+         * SharedKey for this VPN Link Connection.
+         */
+        sharedKey?: pulumi.Input<string>;
+        /**
+         * The ID of the connected VPN Site Link. Changing this forces a new VPN Gateway Connection to be created.
+         */
+        vpnSiteLinkId: pulumi.Input<string>;
+    }
+
+    export interface VpnGatewayConnectionVpnLinkIpsecPolicy {
+        /**
+         * The DH Group used in IKE Phase 1 for initial SA. Possible values are `None`, `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384`.
+         */
+        dhGroup: pulumi.Input<string>;
+        /**
+         * The IPSec encryption algorithm (IKE phase 1). Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, `None`.
+         */
+        encryptionAlgorithm: pulumi.Input<string>;
+        /**
+         * The IKE encryption algorithm (IKE phase 2). Possible values are `DES`, `DES3`, `AES128`, `AES192`, `AES256`, `GCMAES128`, `GCMAES256`.
+         */
+        ikeEncryptionAlgorithm: pulumi.Input<string>;
+        /**
+         * The IKE integrity algorithm (IKE phase 2). Possible values are `MD5`, `SHA1`, `SHA256`, `SHA384`, `GCMAES128`, `GCMAES256`.
+         */
+        ikeIntegrityAlgorithm: pulumi.Input<string>;
+        /**
+         * The IPSec integrity algorithm (IKE phase 1). Possible values are `MD5`, `SHA1`, `SHA256`, `GCMAES128`, `GCMAES192`, `GCMAES256`.
+         */
+        integrityAlgorithm: pulumi.Input<string>;
+        /**
+         * The Pfs Group used in IKE Phase 2 for the new child SA. Possible values are `None`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM`, `ECP256`, `ECP384`.
+         */
+        pfsGroup: pulumi.Input<string>;
+        /**
+         * The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for the site to site VPN tunnel.
+         */
+        saDataSizeKb: pulumi.Input<number>;
+        /**
+         * The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for the site to site VPN tunnel.
+         */
+        saLifetimeSec: pulumi.Input<number>;
+    }
+
     export interface VpnServerConfigurationAzureActiveDirectoryAuthentication {
         /**
          * The Audience which should be used for authentication.
@@ -15102,6 +15340,26 @@ export namespace policy {
         type?: pulumi.Input<string>;
     }
 
+    export interface PolicySetDefinitionPolicyDefinitionGroup {
+        additionalMetadataResourceId?: pulumi.Input<string>;
+        /**
+         * The category of this policy definition group.
+         */
+        category?: pulumi.Input<string>;
+        /**
+         * The description of this policy definition group.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The display name of this policy definition group.
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * The name of this policy definition group.
+         */
+        name: pulumi.Input<string>;
+    }
+
     export interface PolicySetDefinitionPolicyDefinitionReference {
         /**
          * Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
@@ -15117,6 +15375,7 @@ export namespace policy {
          * The ID of the policy definition or policy set definition that will be included in this policy set definition.
          */
         policyDefinitionId: pulumi.Input<string>;
+        policyGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A unique ID within this policy set definition for this policy definition reference.
          */
@@ -15156,7 +15415,7 @@ export namespace postgresql {
          */
         geoRedundantBackup?: pulumi.Input<string>;
         /**
-         * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
+         * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
          *
          * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
          */
@@ -15254,6 +15513,49 @@ export namespace privatedns {
          * The value of the TXT record. Max length: 1024 characters
          */
         value: pulumi.Input<string>;
+    }
+
+    export interface ZoneSoaRecord {
+        /**
+         * The email contact for the SOA record.
+         */
+        email: pulumi.Input<string>;
+        /**
+         * The expire time for the SOA record. Defaults to `2419200`.
+         */
+        expireTime?: pulumi.Input<number>;
+        /**
+         * The fully qualified domain name of the Record Set.
+         */
+        fqdn?: pulumi.Input<string>;
+        /**
+         * The domain name of the authoritative name server for the SOA record.
+         */
+        hostName?: pulumi.Input<string>;
+        /**
+         * The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `10`.
+         */
+        minimumTtl?: pulumi.Input<number>;
+        /**
+         * The refresh time for the SOA record. Defaults to `3600`.
+         */
+        refreshTime?: pulumi.Input<number>;
+        /**
+         * The retry time for the SOA record. Defaults to `300`.
+         */
+        retryTime?: pulumi.Input<number>;
+        /**
+         * The serial number for the SOA record.
+         */
+        serialNumber?: pulumi.Input<number>;
+        /**
+         * A mapping of tags to assign to the Record Set.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The Time To Live of the SOA Record in seconds. Defaults to `3600`.
+         */
+        ttl?: pulumi.Input<number>;
     }
 }
 
@@ -15460,6 +15762,64 @@ export namespace search {
          * The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
          */
         name?: pulumi.Input<string>;
+    }
+}
+
+export namespace securitycenter {
+    export interface AutomationAction {
+        /**
+         * A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+         */
+        connectionString?: pulumi.Input<string>;
+        /**
+         * The resource id of the target Logic App, Event Hub namespace or Log Analytics workspace.
+         */
+        resourceId: pulumi.Input<string>;
+        /**
+         * The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
+         */
+        triggerUrl?: pulumi.Input<string>;
+        /**
+         * Type of Azure resource to send data to. Must be set to one of: `LogicApp`, `EventHub` or `LogAnalytics`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface AutomationSource {
+        /**
+         * Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments` or `SubAssessments`. Note. assessments are also referred to as recommendations
+         */
+        eventSource: pulumi.Input<string>;
+        /**
+         * A set of rules which evaluate upon event and data interception. This is defined in one or more `ruleSet` blocks as defined below.
+         */
+        ruleSets?: pulumi.Input<pulumi.Input<inputs.securitycenter.AutomationSourceRuleSet>[]>;
+    }
+
+    export interface AutomationSourceRuleSet {
+        /**
+         * One or more `rule` blocks as defined below.
+         */
+        rules: pulumi.Input<pulumi.Input<inputs.securitycenter.AutomationSourceRuleSetRule>[]>;
+    }
+
+    export interface AutomationSourceRuleSetRule {
+        /**
+         * A value that will be compared with the value in `propertyPath`.
+         */
+        expectedValue: pulumi.Input<string>;
+        /**
+         * The comparison operator to use, must be one of: `Contains`, `EndsWith`, `Equals`, `GreaterThan`, `GreaterThanOrEqualTo`, `LesserThan`, `LesserThanOrEqualTo`, `NotEquals`, `StartsWith`
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * The JPath of the entity model property that should be checked.
+         */
+        propertyPath: pulumi.Input<string>;
+        /**
+         * The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
+         */
+        propertyType: pulumi.Input<string>;
     }
 }
 
@@ -16200,6 +16560,25 @@ export namespace storage {
          * The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
          */
         indexDocument?: pulumi.Input<string>;
+    }
+
+    export interface DataLakeGen2PathAce {
+        /**
+         * Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+         */
+        permissions: pulumi.Input<string>;
+        /**
+         * Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
+         */
+        scope?: pulumi.Input<string>;
+        /**
+         * Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface GetAccountBlobContainerSASPermissions {

@@ -73,6 +73,10 @@ export class Blob extends pulumi.CustomResource {
      */
     public readonly accessTier!: pulumi.Output<string>;
     /**
+     * The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
+     */
+    public readonly contentMd5!: pulumi.Output<string | undefined>;
+    /**
      * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      */
     public readonly contentType!: pulumi.Output<string | undefined>;
@@ -136,6 +140,7 @@ export class Blob extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as BlobState | undefined;
             inputs["accessTier"] = state ? state.accessTier : undefined;
+            inputs["contentMd5"] = state ? state.contentMd5 : undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -160,6 +165,7 @@ export class Blob extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             inputs["accessTier"] = args ? args.accessTier : undefined;
+            inputs["contentMd5"] = args ? args.contentMd5 : undefined;
             inputs["contentType"] = args ? args.contentType : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -192,6 +198,10 @@ export interface BlobState {
      * The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
      */
     readonly accessTier?: pulumi.Input<string>;
+    /**
+     * The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
+     */
+    readonly contentMd5?: pulumi.Input<string>;
     /**
      * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      */
@@ -252,6 +262,10 @@ export interface BlobArgs {
      * The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
      */
     readonly accessTier?: pulumi.Input<string>;
+    /**
+     * The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
+     */
+    readonly contentMd5?: pulumi.Input<string>;
     /**
      * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      */

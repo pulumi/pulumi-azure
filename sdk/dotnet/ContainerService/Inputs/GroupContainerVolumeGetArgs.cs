@@ -36,6 +36,18 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
+        [Input("secret")]
+        private InputMap<string>? _secret;
+
+        /// <summary>
+        /// A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputMap<string> Secret
+        {
+            get => _secret ?? (_secret = new InputMap<string>());
+            set => _secret = value;
+        }
+
         /// <summary>
         /// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
         /// </summary>

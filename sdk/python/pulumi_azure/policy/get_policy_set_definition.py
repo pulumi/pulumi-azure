@@ -20,7 +20,7 @@ class GetPolicySetDefinitionResult:
     """
     A collection of values returned by getPolicySetDefinition.
     """
-    def __init__(__self__, description=None, display_name=None, id=None, management_group_name=None, metadata=None, name=None, parameters=None, policy_definition_references=None, policy_definitions=None, policy_type=None):
+    def __init__(__self__, description=None, display_name=None, id=None, management_group_name=None, metadata=None, name=None, parameters=None, policy_definition_groups=None, policy_definition_references=None, policy_definitions=None, policy_type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -42,6 +42,9 @@ class GetPolicySetDefinitionResult:
         if parameters and not isinstance(parameters, str):
             raise TypeError("Expected argument 'parameters' to be a str")
         pulumi.set(__self__, "parameters", parameters)
+        if policy_definition_groups and not isinstance(policy_definition_groups, list):
+            raise TypeError("Expected argument 'policy_definition_groups' to be a list")
+        pulumi.set(__self__, "policy_definition_groups", policy_definition_groups)
         if policy_definition_references and not isinstance(policy_definition_references, list):
             raise TypeError("Expected argument 'policy_definition_references' to be a list")
         pulumi.set(__self__, "policy_definition_references", policy_definition_references)
@@ -56,13 +59,16 @@ class GetPolicySetDefinitionResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The Description of the Policy Set Definition.
+        The description of this policy definition group.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> str:
+        """
+        The display name of this policy definition group.
+        """
         return pulumi.get(self, "display_name")
 
     @property
@@ -89,6 +95,9 @@ class GetPolicySetDefinitionResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of this policy definition group.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -98,6 +107,14 @@ class GetPolicySetDefinitionResult:
         The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="policyDefinitionGroups")
+    def policy_definition_groups(self) -> Sequence['outputs.GetPolicySetDefinitionPolicyDefinitionGroupResult']:
+        """
+        One or more `policy_definition_group` blocks as defined below.
+        """
+        return pulumi.get(self, "policy_definition_groups")
 
     @property
     @pulumi.getter(name="policyDefinitionReferences")
@@ -137,6 +154,7 @@ class AwaitableGetPolicySetDefinitionResult(GetPolicySetDefinitionResult):
             metadata=self.metadata,
             name=self.name,
             parameters=self.parameters,
+            policy_definition_groups=self.policy_definition_groups,
             policy_definition_references=self.policy_definition_references,
             policy_definitions=self.policy_definitions,
             policy_type=self.policy_type)
@@ -182,6 +200,7 @@ def get_policy_set_definition(display_name: Optional[str] = None,
         metadata=__ret__.metadata,
         name=__ret__.name,
         parameters=__ret__.parameters,
+        policy_definition_groups=__ret__.policy_definition_groups,
         policy_definition_references=__ret__.policy_definition_references,
         policy_definitions=__ret__.policy_definitions,
         policy_type=__ret__.policy_type)

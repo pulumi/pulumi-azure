@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./cluster";
+export * from "./clusterCustomerManagedKey";
 export * from "./dataExportRule";
 export * from "./dataSourceWindowsEvent";
 export * from "./dataSourceWindowsPerformanceCounter";

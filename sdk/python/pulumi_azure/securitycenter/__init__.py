@@ -5,7 +5,10 @@
 # Export this package's modules as members:
 from .advanced_threat_protection import *
 from .auto_provisioning import *
+from .automation import *
 from .contact import *
 from .setting import *
 from .subscription_pricing import *
 from .workspace import *
+from ._inputs import *
+from . import outputs

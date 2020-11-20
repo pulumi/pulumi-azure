@@ -99,7 +99,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly kubernetesClusterId!: pulumi.Output<string>;
     /**
-     * The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be greater than or equal to `minCount`.
+     * The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
      */
     public readonly maxCount!: pulumi.Output<number | undefined>;
     /**
@@ -107,7 +107,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly maxPods!: pulumi.Output<number>;
     /**
-     * The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be less than or equal to `maxCount`.
+     * The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `maxCount`.
      */
     public readonly minCount!: pulumi.Output<number | undefined>;
     /**
@@ -119,7 +119,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be a value in the range `minCount` - `maxCount`.
+     * The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be a value in the range `minCount` - `maxCount`.
      */
     public readonly nodeCount!: pulumi.Output<number>;
     /**
@@ -138,6 +138,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      * The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
      */
     public readonly osDiskSizeGb!: pulumi.Output<number>;
+    /**
+     * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+     */
+    public readonly osDiskType!: pulumi.Output<string | undefined>;
     /**
      * The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
      */
@@ -194,6 +198,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["nodeTaints"] = state ? state.nodeTaints : undefined;
             inputs["orchestratorVersion"] = state ? state.orchestratorVersion : undefined;
             inputs["osDiskSizeGb"] = state ? state.osDiskSizeGb : undefined;
+            inputs["osDiskType"] = state ? state.osDiskType : undefined;
             inputs["osType"] = state ? state.osType : undefined;
             inputs["priority"] = state ? state.priority : undefined;
             inputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
@@ -224,6 +229,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["nodeTaints"] = args ? args.nodeTaints : undefined;
             inputs["orchestratorVersion"] = args ? args.orchestratorVersion : undefined;
             inputs["osDiskSizeGb"] = args ? args.osDiskSizeGb : undefined;
+            inputs["osDiskType"] = args ? args.osDiskType : undefined;
             inputs["osType"] = args ? args.osType : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
@@ -268,7 +274,7 @@ export interface KubernetesClusterNodePoolState {
      */
     readonly kubernetesClusterId?: pulumi.Input<string>;
     /**
-     * The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be greater than or equal to `minCount`.
+     * The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
      */
     readonly maxCount?: pulumi.Input<number>;
     /**
@@ -276,7 +282,7 @@ export interface KubernetesClusterNodePoolState {
      */
     readonly maxPods?: pulumi.Input<number>;
     /**
-     * The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be less than or equal to `maxCount`.
+     * The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `maxCount`.
      */
     readonly minCount?: pulumi.Input<number>;
     /**
@@ -288,7 +294,7 @@ export interface KubernetesClusterNodePoolState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be a value in the range `minCount` - `maxCount`.
+     * The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be a value in the range `minCount` - `maxCount`.
      */
     readonly nodeCount?: pulumi.Input<number>;
     /**
@@ -307,6 +313,10 @@ export interface KubernetesClusterNodePoolState {
      * The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
      */
     readonly osDiskSizeGb?: pulumi.Input<number>;
+    /**
+     * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+     */
+    readonly osDiskType?: pulumi.Input<string>;
     /**
      * The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
      */
@@ -362,7 +372,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     readonly kubernetesClusterId: pulumi.Input<string>;
     /**
-     * The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be greater than or equal to `minCount`.
+     * The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
      */
     readonly maxCount?: pulumi.Input<number>;
     /**
@@ -370,7 +380,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     readonly maxPods?: pulumi.Input<number>;
     /**
-     * The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be less than or equal to `maxCount`.
+     * The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `maxCount`.
      */
     readonly minCount?: pulumi.Input<number>;
     /**
@@ -382,7 +392,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be a value in the range `minCount` - `maxCount`.
+     * The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be a value in the range `minCount` - `maxCount`.
      */
     readonly nodeCount?: pulumi.Input<number>;
     /**
@@ -401,6 +411,10 @@ export interface KubernetesClusterNodePoolArgs {
      * The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
      */
     readonly osDiskSizeGb?: pulumi.Input<number>;
+    /**
+     * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+     */
+    readonly osDiskType?: pulumi.Input<string>;
     /**
      * The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
      */

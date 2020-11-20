@@ -31,6 +31,18 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? DiskEncryptionSetId { get; set; }
 
         /// <summary>
+        /// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+        /// </summary>
+        [Input("diskIopsReadWrite")]
+        public Input<int>? DiskIopsReadWrite { get; set; }
+
+        /// <summary>
+        /// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+        /// </summary>
+        [Input("diskMbpsReadWrite")]
+        public Input<int>? DiskMbpsReadWrite { get; set; }
+
+        /// <summary>
         /// The size of the Data Disk which should be created.
         /// </summary>
         [Input("diskSizeGb", required: true)]

@@ -48,16 +48,36 @@ type LookupFirewallArgs struct {
 	Name string `pulumi:"name"`
 	// The name of the Resource Group in which the Azure Firewall exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The availability zones in which the Azure Firewall is created.
+	Zones []string `pulumi:"zones"`
 }
 
 // A collection of values returned by getFirewall.
 type LookupFirewallResult struct {
+	// The list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+	DnsServers []string `pulumi:"dnsServers"`
+	// The ID of the Firewall Policy applied to the Azure Firewall.
+	FirewallPolicyId string `pulumi:"firewallPolicyId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A `ipConfiguration` block as defined below.
-	IpConfigurations  []GetFirewallIpConfiguration `pulumi:"ipConfigurations"`
-	Location          string                       `pulumi:"location"`
-	Name              string                       `pulumi:"name"`
-	ResourceGroupName string                       `pulumi:"resourceGroupName"`
-	Tags              map[string]string            `pulumi:"tags"`
+	IpConfigurations []GetFirewallIpConfiguration `pulumi:"ipConfigurations"`
+	// The Azure location where the Azure Firewall exists.
+	Location string `pulumi:"location"`
+	// A `managementIpConfiguration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall.
+	ManagementIpConfigurations []GetFirewallManagementIpConfiguration `pulumi:"managementIpConfigurations"`
+	Name                       string                                 `pulumi:"name"`
+	ResourceGroupName          string                                 `pulumi:"resourceGroupName"`
+	// The sku name of the Azure Firewall.
+	SkuName string `pulumi:"skuName"`
+	// The sku tier of the Azure Firewall.
+	SkuTier string `pulumi:"skuTier"`
+	// A mapping of tags assigned to the Azure Firewall.
+	Tags map[string]string `pulumi:"tags"`
+	// The operation mode for threat intelligence-based filtering.
+	ThreatIntelMode string `pulumi:"threatIntelMode"`
+	// A `virtualHub` block as defined below.
+	VirtualHubs []GetFirewallVirtualHub `pulumi:"virtualHubs"`
+	// The availability zones in which the Azure Firewall is created.
+	Zones []string `pulumi:"zones"`
 }

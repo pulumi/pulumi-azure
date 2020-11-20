@@ -21,6 +21,7 @@ class ZipBlob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_tier: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[pulumi.Archive]] = None,
+                 content_md5: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -59,6 +60,7 @@ class ZipBlob(pulumi.CustomResource):
 
             __props__['access_tier'] = access_tier
             __props__['content'] = content
+            __props__['content_md5'] = content_md5
             __props__['content_type'] = content_type
             __props__['metadata'] = metadata
             __props__['name'] = name
@@ -88,6 +90,7 @@ class ZipBlob(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             access_tier: Optional[pulumi.Input[str]] = None,
             content: Optional[pulumi.Input[pulumi.Archive]] = None,
+            content_md5: Optional[pulumi.Input[str]] = None,
             content_type: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -113,6 +116,7 @@ class ZipBlob(pulumi.CustomResource):
 
         __props__["access_tier"] = access_tier
         __props__["content"] = content
+        __props__["content_md5"] = content_md5
         __props__["content_type"] = content_type
         __props__["metadata"] = metadata
         __props__["name"] = name
@@ -135,6 +139,11 @@ class ZipBlob(pulumi.CustomResource):
     @pulumi.getter
     def content(self) -> pulumi.Output[Optional[pulumi.Archive]]:
         return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="contentMd5")
+    def content_md5(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "content_md5")
 
     @property
     @pulumi.getter(name="contentType")

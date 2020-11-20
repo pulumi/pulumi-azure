@@ -83,7 +83,7 @@ type PolicyFileShare struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Configures the policy daily retention as documented in the `retentionDaily` block below.
 	RetentionDaily PolicyFileShareRetentionDailyOutput `pulumi:"retentionDaily"`
-	// Specifies the timezone. Defaults to `UTC`
+	// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
 }
 
@@ -137,7 +137,7 @@ type policyFileShareState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Configures the policy daily retention as documented in the `retentionDaily` block below.
 	RetentionDaily *PolicyFileShareRetentionDaily `pulumi:"retentionDaily"`
-	// Specifies the timezone. Defaults to `UTC`
+	// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -152,7 +152,7 @@ type PolicyFileShareState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Configures the policy daily retention as documented in the `retentionDaily` block below.
 	RetentionDaily PolicyFileShareRetentionDailyPtrInput
-	// Specifies the timezone. Defaults to `UTC`
+	// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone pulumi.StringPtrInput
 }
 
@@ -171,7 +171,7 @@ type policyFileShareArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Configures the policy daily retention as documented in the `retentionDaily` block below.
 	RetentionDaily PolicyFileShareRetentionDaily `pulumi:"retentionDaily"`
-	// Specifies the timezone. Defaults to `UTC`
+	// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -187,7 +187,7 @@ type PolicyFileShareArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Configures the policy daily retention as documented in the `retentionDaily` block below.
 	RetentionDaily PolicyFileShareRetentionDailyInput
-	// Specifies the timezone. Defaults to `UTC`
+	// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone pulumi.StringPtrInput
 }
 

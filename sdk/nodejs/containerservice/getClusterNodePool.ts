@@ -118,6 +118,10 @@ export interface GetClusterNodePoolResult {
      */
     readonly osDiskSizeGb: number;
     /**
+     * The type of the OS Disk on each Node in this Node Pool.
+     */
+    readonly osDiskType: string;
+    /**
      * The operating system used on each Node in this Node Pool.
      */
     readonly osType: string;

@@ -164,7 +164,7 @@ namespace Pulumi.Azure.Backup
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the timezone. Defaults to `UTC`
+        /// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         /// </summary>
         [Output("timezone")]
         public Output<string?> Timezone { get; private set; } = null!;
@@ -282,7 +282,7 @@ namespace Pulumi.Azure.Backup
         }
 
         /// <summary>
-        /// Specifies the timezone. Defaults to `UTC`
+        /// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
@@ -361,7 +361,7 @@ namespace Pulumi.Azure.Backup
         }
 
         /// <summary>
-        /// Specifies the timezone. Defaults to `UTC`
+        /// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }

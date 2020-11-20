@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? EnableNodePublicIp;
         /// <summary>
-        /// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+        /// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         /// </summary>
         public readonly int? MaxCount;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly int? MaxPods;
         /// <summary>
-        /// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+        /// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         /// </summary>
         public readonly int? MinCount;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `min_count` and `max_count`.
+        /// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
         /// </summary>
         public readonly int? NodeCount;
         /// <summary>
@@ -58,6 +58,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
         /// </summary>
         public readonly int? OsDiskSizeGb;
+        public readonly string? OsDiskType;
         public readonly string? ProximityPlacementGroupId;
         /// <summary>
         /// A mapping of tags to assign to the Node Pool.
@@ -102,6 +103,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             int? osDiskSizeGb,
 
+            string? osDiskType,
+
             string? proximityPlacementGroupId,
 
             ImmutableDictionary<string, string>? tags,
@@ -124,6 +127,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             NodeTaints = nodeTaints;
             OrchestratorVersion = orchestratorVersion;
             OsDiskSizeGb = osDiskSizeGb;
+            OsDiskType = osDiskType;
             ProximityPlacementGroupId = proximityPlacementGroupId;
             Tags = tags;
             Type = type;

@@ -5202,7 +5202,7 @@ func (o FirewallApplicationRuleCollectionRuleProtocolArrayOutput) Index(i pulumi
 type FirewallIpConfiguration struct {
 	// Specifies the name of the IP Configuration.
 	Name string `pulumi:"name"`
-	// The Private IP address of the Azure Firewall.
+	// The private IP address associated with the Firewall.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// The ID of the Public IP Address associated with the firewall.
 	PublicIpAddressId string `pulumi:"publicIpAddressId"`
@@ -5224,7 +5224,7 @@ type FirewallIpConfigurationInput interface {
 type FirewallIpConfigurationArgs struct {
 	// Specifies the name of the IP Configuration.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The Private IP address of the Azure Firewall.
+	// The private IP address associated with the Firewall.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 	// The ID of the Public IP Address associated with the firewall.
 	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
@@ -5288,7 +5288,7 @@ func (o FirewallIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Private IP address of the Azure Firewall.
+// The private IP address associated with the Firewall.
 func (o FirewallIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
@@ -5326,7 +5326,7 @@ func (o FirewallIpConfigurationArrayOutput) Index(i pulumi.IntInput) FirewallIpC
 type FirewallManagementIpConfiguration struct {
 	// Specifies the name of the IP Configuration.
 	Name string `pulumi:"name"`
-	// The Private IP address of the Azure Firewall.
+	// The private IP address associated with the Firewall.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// The ID of the Public IP Address associated with the firewall.
 	PublicIpAddressId string `pulumi:"publicIpAddressId"`
@@ -5348,7 +5348,7 @@ type FirewallManagementIpConfigurationInput interface {
 type FirewallManagementIpConfigurationArgs struct {
 	// Specifies the name of the IP Configuration.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The Private IP address of the Azure Firewall.
+	// The private IP address associated with the Firewall.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 	// The ID of the Public IP Address associated with the firewall.
 	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
@@ -5438,7 +5438,7 @@ func (o FirewallManagementIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallManagementIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Private IP address of the Azure Firewall.
+// The private IP address associated with the Firewall.
 func (o FirewallManagementIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallManagementIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
@@ -5481,7 +5481,7 @@ func (o FirewallManagementIpConfigurationPtrOutput) Name() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Private IP address of the Azure Firewall.
+// The private IP address associated with the Firewall.
 func (o FirewallManagementIpConfigurationPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallManagementIpConfiguration) *string {
 		if v == nil {
@@ -5850,7 +5850,7 @@ func (o FirewallNetworkRuleCollectionRuleArrayOutput) Index(i pulumi.IntInput) F
 }
 
 type FirewallPolicyDns struct {
-	// Whether FQDNS in Network Rules belongs to this Firewall Policy are supported? Defaults to `false`.
+	// Deprecated: This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.
 	NetworkRuleFqdnEnabled *bool `pulumi:"networkRuleFqdnEnabled"`
 	// Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
 	ProxyEnabled *bool `pulumi:"proxyEnabled"`
@@ -5870,7 +5870,7 @@ type FirewallPolicyDnsInput interface {
 }
 
 type FirewallPolicyDnsArgs struct {
-	// Whether FQDNS in Network Rules belongs to this Firewall Policy are supported? Defaults to `false`.
+	// Deprecated: This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.
 	NetworkRuleFqdnEnabled pulumi.BoolPtrInput `pulumi:"networkRuleFqdnEnabled"`
 	// Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
 	ProxyEnabled pulumi.BoolPtrInput `pulumi:"proxyEnabled"`
@@ -5955,7 +5955,7 @@ func (o FirewallPolicyDnsOutput) ToFirewallPolicyDnsPtrOutputWithContext(ctx con
 	}).(FirewallPolicyDnsPtrOutput)
 }
 
-// Whether FQDNS in Network Rules belongs to this Firewall Policy are supported? Defaults to `false`.
+// Deprecated: This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.
 func (o FirewallPolicyDnsOutput) NetworkRuleFqdnEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyDns) *bool { return v.NetworkRuleFqdnEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -5988,7 +5988,7 @@ func (o FirewallPolicyDnsPtrOutput) Elem() FirewallPolicyDnsOutput {
 	return o.ApplyT(func(v *FirewallPolicyDns) FirewallPolicyDns { return *v }).(FirewallPolicyDnsOutput)
 }
 
-// Whether FQDNS in Network Rules belongs to this Firewall Policy are supported? Defaults to `false`.
+// Deprecated: This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.
 func (o FirewallPolicyDnsPtrOutput) NetworkRuleFqdnEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicyDns) *bool {
 		if v == nil {
@@ -7128,6 +7128,194 @@ func (o FirewallPolicyThreatIntelligenceAllowlistPtrOutput) IpAddresses() pulumi
 		}
 		return v.IpAddresses
 	}).(pulumi.StringArrayOutput)
+}
+
+type FirewallVirtualHub struct {
+	// The private IP address associated with the Firewall.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The list of public IP addresses associated with the Firewall.
+	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
+	// Specifies the number of public IPs to assign to the Firewall. Defaults to `1`.
+	PublicIpCount *int `pulumi:"publicIpCount"`
+	// Specifies the ID of the Virtual Hub where the Firewall resides in.
+	VirtualHubId string `pulumi:"virtualHubId"`
+}
+
+// FirewallVirtualHubInput is an input type that accepts FirewallVirtualHubArgs and FirewallVirtualHubOutput values.
+// You can construct a concrete instance of `FirewallVirtualHubInput` via:
+//
+//          FirewallVirtualHubArgs{...}
+type FirewallVirtualHubInput interface {
+	pulumi.Input
+
+	ToFirewallVirtualHubOutput() FirewallVirtualHubOutput
+	ToFirewallVirtualHubOutputWithContext(context.Context) FirewallVirtualHubOutput
+}
+
+type FirewallVirtualHubArgs struct {
+	// The private IP address associated with the Firewall.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The list of public IP addresses associated with the Firewall.
+	PublicIpAddresses pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
+	// Specifies the number of public IPs to assign to the Firewall. Defaults to `1`.
+	PublicIpCount pulumi.IntPtrInput `pulumi:"publicIpCount"`
+	// Specifies the ID of the Virtual Hub where the Firewall resides in.
+	VirtualHubId pulumi.StringInput `pulumi:"virtualHubId"`
+}
+
+func (FirewallVirtualHubArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallVirtualHub)(nil)).Elem()
+}
+
+func (i FirewallVirtualHubArgs) ToFirewallVirtualHubOutput() FirewallVirtualHubOutput {
+	return i.ToFirewallVirtualHubOutputWithContext(context.Background())
+}
+
+func (i FirewallVirtualHubArgs) ToFirewallVirtualHubOutputWithContext(ctx context.Context) FirewallVirtualHubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallVirtualHubOutput)
+}
+
+func (i FirewallVirtualHubArgs) ToFirewallVirtualHubPtrOutput() FirewallVirtualHubPtrOutput {
+	return i.ToFirewallVirtualHubPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallVirtualHubArgs) ToFirewallVirtualHubPtrOutputWithContext(ctx context.Context) FirewallVirtualHubPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallVirtualHubOutput).ToFirewallVirtualHubPtrOutputWithContext(ctx)
+}
+
+// FirewallVirtualHubPtrInput is an input type that accepts FirewallVirtualHubArgs, FirewallVirtualHubPtr and FirewallVirtualHubPtrOutput values.
+// You can construct a concrete instance of `FirewallVirtualHubPtrInput` via:
+//
+//          FirewallVirtualHubArgs{...}
+//
+//  or:
+//
+//          nil
+type FirewallVirtualHubPtrInput interface {
+	pulumi.Input
+
+	ToFirewallVirtualHubPtrOutput() FirewallVirtualHubPtrOutput
+	ToFirewallVirtualHubPtrOutputWithContext(context.Context) FirewallVirtualHubPtrOutput
+}
+
+type firewallVirtualHubPtrType FirewallVirtualHubArgs
+
+func FirewallVirtualHubPtr(v *FirewallVirtualHubArgs) FirewallVirtualHubPtrInput {
+	return (*firewallVirtualHubPtrType)(v)
+}
+
+func (*firewallVirtualHubPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallVirtualHub)(nil)).Elem()
+}
+
+func (i *firewallVirtualHubPtrType) ToFirewallVirtualHubPtrOutput() FirewallVirtualHubPtrOutput {
+	return i.ToFirewallVirtualHubPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallVirtualHubPtrType) ToFirewallVirtualHubPtrOutputWithContext(ctx context.Context) FirewallVirtualHubPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallVirtualHubPtrOutput)
+}
+
+type FirewallVirtualHubOutput struct{ *pulumi.OutputState }
+
+func (FirewallVirtualHubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallVirtualHub)(nil)).Elem()
+}
+
+func (o FirewallVirtualHubOutput) ToFirewallVirtualHubOutput() FirewallVirtualHubOutput {
+	return o
+}
+
+func (o FirewallVirtualHubOutput) ToFirewallVirtualHubOutputWithContext(ctx context.Context) FirewallVirtualHubOutput {
+	return o
+}
+
+func (o FirewallVirtualHubOutput) ToFirewallVirtualHubPtrOutput() FirewallVirtualHubPtrOutput {
+	return o.ToFirewallVirtualHubPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallVirtualHubOutput) ToFirewallVirtualHubPtrOutputWithContext(ctx context.Context) FirewallVirtualHubPtrOutput {
+	return o.ApplyT(func(v FirewallVirtualHub) *FirewallVirtualHub {
+		return &v
+	}).(FirewallVirtualHubPtrOutput)
+}
+
+// The private IP address associated with the Firewall.
+func (o FirewallVirtualHubOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallVirtualHub) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The list of public IP addresses associated with the Firewall.
+func (o FirewallVirtualHubOutput) PublicIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallVirtualHub) []string { return v.PublicIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the number of public IPs to assign to the Firewall. Defaults to `1`.
+func (o FirewallVirtualHubOutput) PublicIpCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirewallVirtualHub) *int { return v.PublicIpCount }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the ID of the Virtual Hub where the Firewall resides in.
+func (o FirewallVirtualHubOutput) VirtualHubId() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallVirtualHub) string { return v.VirtualHubId }).(pulumi.StringOutput)
+}
+
+type FirewallVirtualHubPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallVirtualHubPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallVirtualHub)(nil)).Elem()
+}
+
+func (o FirewallVirtualHubPtrOutput) ToFirewallVirtualHubPtrOutput() FirewallVirtualHubPtrOutput {
+	return o
+}
+
+func (o FirewallVirtualHubPtrOutput) ToFirewallVirtualHubPtrOutputWithContext(ctx context.Context) FirewallVirtualHubPtrOutput {
+	return o
+}
+
+func (o FirewallVirtualHubPtrOutput) Elem() FirewallVirtualHubOutput {
+	return o.ApplyT(func(v *FirewallVirtualHub) FirewallVirtualHub { return *v }).(FirewallVirtualHubOutput)
+}
+
+// The private IP address associated with the Firewall.
+func (o FirewallVirtualHubPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallVirtualHub) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of public IP addresses associated with the Firewall.
+func (o FirewallVirtualHubPtrOutput) PublicIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirewallVirtualHub) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIpAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the number of public IPs to assign to the Firewall. Defaults to `1`.
+func (o FirewallVirtualHubPtrOutput) PublicIpCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirewallVirtualHub) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIpCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the ID of the Virtual Hub where the Firewall resides in.
+func (o FirewallVirtualHubPtrOutput) VirtualHubId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallVirtualHub) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VirtualHubId
+	}).(pulumi.StringPtrOutput)
 }
 
 type LocalNetworkGatewayBgpSettings struct {
@@ -15479,6 +15667,459 @@ func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput) TunnelIps() pu
 	}).(pulumi.StringArrayOutput)
 }
 
+type VpnGatewayConnectionRouting struct {
+	// The ID of the Route Table associated with this VPN Connection.
+	AssociatedRouteTable string `pulumi:"associatedRouteTable"`
+	// The list IDs of Route Tables to advertise the routes of this VPN Connection.
+	PropagatedRouteTables []string `pulumi:"propagatedRouteTables"`
+}
+
+// VpnGatewayConnectionRoutingInput is an input type that accepts VpnGatewayConnectionRoutingArgs and VpnGatewayConnectionRoutingOutput values.
+// You can construct a concrete instance of `VpnGatewayConnectionRoutingInput` via:
+//
+//          VpnGatewayConnectionRoutingArgs{...}
+type VpnGatewayConnectionRoutingInput interface {
+	pulumi.Input
+
+	ToVpnGatewayConnectionRoutingOutput() VpnGatewayConnectionRoutingOutput
+	ToVpnGatewayConnectionRoutingOutputWithContext(context.Context) VpnGatewayConnectionRoutingOutput
+}
+
+type VpnGatewayConnectionRoutingArgs struct {
+	// The ID of the Route Table associated with this VPN Connection.
+	AssociatedRouteTable pulumi.StringInput `pulumi:"associatedRouteTable"`
+	// The list IDs of Route Tables to advertise the routes of this VPN Connection.
+	PropagatedRouteTables pulumi.StringArrayInput `pulumi:"propagatedRouteTables"`
+}
+
+func (VpnGatewayConnectionRoutingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayConnectionRouting)(nil)).Elem()
+}
+
+func (i VpnGatewayConnectionRoutingArgs) ToVpnGatewayConnectionRoutingOutput() VpnGatewayConnectionRoutingOutput {
+	return i.ToVpnGatewayConnectionRoutingOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayConnectionRoutingArgs) ToVpnGatewayConnectionRoutingOutputWithContext(ctx context.Context) VpnGatewayConnectionRoutingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionRoutingOutput)
+}
+
+// VpnGatewayConnectionRoutingArrayInput is an input type that accepts VpnGatewayConnectionRoutingArray and VpnGatewayConnectionRoutingArrayOutput values.
+// You can construct a concrete instance of `VpnGatewayConnectionRoutingArrayInput` via:
+//
+//          VpnGatewayConnectionRoutingArray{ VpnGatewayConnectionRoutingArgs{...} }
+type VpnGatewayConnectionRoutingArrayInput interface {
+	pulumi.Input
+
+	ToVpnGatewayConnectionRoutingArrayOutput() VpnGatewayConnectionRoutingArrayOutput
+	ToVpnGatewayConnectionRoutingArrayOutputWithContext(context.Context) VpnGatewayConnectionRoutingArrayOutput
+}
+
+type VpnGatewayConnectionRoutingArray []VpnGatewayConnectionRoutingInput
+
+func (VpnGatewayConnectionRoutingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnGatewayConnectionRouting)(nil)).Elem()
+}
+
+func (i VpnGatewayConnectionRoutingArray) ToVpnGatewayConnectionRoutingArrayOutput() VpnGatewayConnectionRoutingArrayOutput {
+	return i.ToVpnGatewayConnectionRoutingArrayOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayConnectionRoutingArray) ToVpnGatewayConnectionRoutingArrayOutputWithContext(ctx context.Context) VpnGatewayConnectionRoutingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionRoutingArrayOutput)
+}
+
+type VpnGatewayConnectionRoutingOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayConnectionRoutingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayConnectionRouting)(nil)).Elem()
+}
+
+func (o VpnGatewayConnectionRoutingOutput) ToVpnGatewayConnectionRoutingOutput() VpnGatewayConnectionRoutingOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionRoutingOutput) ToVpnGatewayConnectionRoutingOutputWithContext(ctx context.Context) VpnGatewayConnectionRoutingOutput {
+	return o
+}
+
+// The ID of the Route Table associated with this VPN Connection.
+func (o VpnGatewayConnectionRoutingOutput) AssociatedRouteTable() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionRouting) string { return v.AssociatedRouteTable }).(pulumi.StringOutput)
+}
+
+// The list IDs of Route Tables to advertise the routes of this VPN Connection.
+func (o VpnGatewayConnectionRoutingOutput) PropagatedRouteTables() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionRouting) []string { return v.PropagatedRouteTables }).(pulumi.StringArrayOutput)
+}
+
+type VpnGatewayConnectionRoutingArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayConnectionRoutingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnGatewayConnectionRouting)(nil)).Elem()
+}
+
+func (o VpnGatewayConnectionRoutingArrayOutput) ToVpnGatewayConnectionRoutingArrayOutput() VpnGatewayConnectionRoutingArrayOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionRoutingArrayOutput) ToVpnGatewayConnectionRoutingArrayOutputWithContext(ctx context.Context) VpnGatewayConnectionRoutingArrayOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionRoutingArrayOutput) Index(i pulumi.IntInput) VpnGatewayConnectionRoutingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnGatewayConnectionRouting {
+		return vs[0].([]VpnGatewayConnectionRouting)[vs[1].(int)]
+	}).(VpnGatewayConnectionRoutingOutput)
+}
+
+type VpnGatewayConnectionVpnLink struct {
+	// The expected connection bandwidth in MBPS. Defaults to `10`.
+	BandwidthMbps *int `pulumi:"bandwidthMbps"`
+	// Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
+	BgpEnabled *bool `pulumi:"bgpEnabled"`
+	// One or more `ipsecPolicy` blocks as defined above.
+	IpsecPolicies []VpnGatewayConnectionVpnLinkIpsecPolicy `pulumi:"ipsecPolicies"`
+	// Whether to use local azure ip to initiate connection? Defaults to `false`.
+	LocalAzureIpAddressEnabled *bool `pulumi:"localAzureIpAddressEnabled"`
+	// The name which should be used for this VPN Link Connection.
+	Name string `pulumi:"name"`
+	// Whether to enable policy-based traffic selectors? Defaults to `false`.
+	PolicyBasedTrafficSelectorEnabled *bool `pulumi:"policyBasedTrafficSelectorEnabled"`
+	// The protocol used for this VPN Link Connection. Possible values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+	Protocol *string `pulumi:"protocol"`
+	// Should the rate limit be enabled? Defaults to `false`.
+	RatelimitEnabled *bool `pulumi:"ratelimitEnabled"`
+	// Routing weight for this VPN Link Connection. Defaults to `0`.
+	RouteWeight *int `pulumi:"routeWeight"`
+	// SharedKey for this VPN Link Connection.
+	SharedKey *string `pulumi:"sharedKey"`
+	// The ID of the connected VPN Site Link. Changing this forces a new VPN Gateway Connection to be created.
+	VpnSiteLinkId string `pulumi:"vpnSiteLinkId"`
+}
+
+// VpnGatewayConnectionVpnLinkInput is an input type that accepts VpnGatewayConnectionVpnLinkArgs and VpnGatewayConnectionVpnLinkOutput values.
+// You can construct a concrete instance of `VpnGatewayConnectionVpnLinkInput` via:
+//
+//          VpnGatewayConnectionVpnLinkArgs{...}
+type VpnGatewayConnectionVpnLinkInput interface {
+	pulumi.Input
+
+	ToVpnGatewayConnectionVpnLinkOutput() VpnGatewayConnectionVpnLinkOutput
+	ToVpnGatewayConnectionVpnLinkOutputWithContext(context.Context) VpnGatewayConnectionVpnLinkOutput
+}
+
+type VpnGatewayConnectionVpnLinkArgs struct {
+	// The expected connection bandwidth in MBPS. Defaults to `10`.
+	BandwidthMbps pulumi.IntPtrInput `pulumi:"bandwidthMbps"`
+	// Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
+	BgpEnabled pulumi.BoolPtrInput `pulumi:"bgpEnabled"`
+	// One or more `ipsecPolicy` blocks as defined above.
+	IpsecPolicies VpnGatewayConnectionVpnLinkIpsecPolicyArrayInput `pulumi:"ipsecPolicies"`
+	// Whether to use local azure ip to initiate connection? Defaults to `false`.
+	LocalAzureIpAddressEnabled pulumi.BoolPtrInput `pulumi:"localAzureIpAddressEnabled"`
+	// The name which should be used for this VPN Link Connection.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Whether to enable policy-based traffic selectors? Defaults to `false`.
+	PolicyBasedTrafficSelectorEnabled pulumi.BoolPtrInput `pulumi:"policyBasedTrafficSelectorEnabled"`
+	// The protocol used for this VPN Link Connection. Possible values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// Should the rate limit be enabled? Defaults to `false`.
+	RatelimitEnabled pulumi.BoolPtrInput `pulumi:"ratelimitEnabled"`
+	// Routing weight for this VPN Link Connection. Defaults to `0`.
+	RouteWeight pulumi.IntPtrInput `pulumi:"routeWeight"`
+	// SharedKey for this VPN Link Connection.
+	SharedKey pulumi.StringPtrInput `pulumi:"sharedKey"`
+	// The ID of the connected VPN Site Link. Changing this forces a new VPN Gateway Connection to be created.
+	VpnSiteLinkId pulumi.StringInput `pulumi:"vpnSiteLinkId"`
+}
+
+func (VpnGatewayConnectionVpnLinkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayConnectionVpnLink)(nil)).Elem()
+}
+
+func (i VpnGatewayConnectionVpnLinkArgs) ToVpnGatewayConnectionVpnLinkOutput() VpnGatewayConnectionVpnLinkOutput {
+	return i.ToVpnGatewayConnectionVpnLinkOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayConnectionVpnLinkArgs) ToVpnGatewayConnectionVpnLinkOutputWithContext(ctx context.Context) VpnGatewayConnectionVpnLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionVpnLinkOutput)
+}
+
+// VpnGatewayConnectionVpnLinkArrayInput is an input type that accepts VpnGatewayConnectionVpnLinkArray and VpnGatewayConnectionVpnLinkArrayOutput values.
+// You can construct a concrete instance of `VpnGatewayConnectionVpnLinkArrayInput` via:
+//
+//          VpnGatewayConnectionVpnLinkArray{ VpnGatewayConnectionVpnLinkArgs{...} }
+type VpnGatewayConnectionVpnLinkArrayInput interface {
+	pulumi.Input
+
+	ToVpnGatewayConnectionVpnLinkArrayOutput() VpnGatewayConnectionVpnLinkArrayOutput
+	ToVpnGatewayConnectionVpnLinkArrayOutputWithContext(context.Context) VpnGatewayConnectionVpnLinkArrayOutput
+}
+
+type VpnGatewayConnectionVpnLinkArray []VpnGatewayConnectionVpnLinkInput
+
+func (VpnGatewayConnectionVpnLinkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnGatewayConnectionVpnLink)(nil)).Elem()
+}
+
+func (i VpnGatewayConnectionVpnLinkArray) ToVpnGatewayConnectionVpnLinkArrayOutput() VpnGatewayConnectionVpnLinkArrayOutput {
+	return i.ToVpnGatewayConnectionVpnLinkArrayOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayConnectionVpnLinkArray) ToVpnGatewayConnectionVpnLinkArrayOutputWithContext(ctx context.Context) VpnGatewayConnectionVpnLinkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionVpnLinkArrayOutput)
+}
+
+type VpnGatewayConnectionVpnLinkOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayConnectionVpnLinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayConnectionVpnLink)(nil)).Elem()
+}
+
+func (o VpnGatewayConnectionVpnLinkOutput) ToVpnGatewayConnectionVpnLinkOutput() VpnGatewayConnectionVpnLinkOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionVpnLinkOutput) ToVpnGatewayConnectionVpnLinkOutputWithContext(ctx context.Context) VpnGatewayConnectionVpnLinkOutput {
+	return o
+}
+
+// The expected connection bandwidth in MBPS. Defaults to `10`.
+func (o VpnGatewayConnectionVpnLinkOutput) BandwidthMbps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) *int { return v.BandwidthMbps }).(pulumi.IntPtrOutput)
+}
+
+// Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
+func (o VpnGatewayConnectionVpnLinkOutput) BgpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) *bool { return v.BgpEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// One or more `ipsecPolicy` blocks as defined above.
+func (o VpnGatewayConnectionVpnLinkOutput) IpsecPolicies() VpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) []VpnGatewayConnectionVpnLinkIpsecPolicy { return v.IpsecPolicies }).(VpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput)
+}
+
+// Whether to use local azure ip to initiate connection? Defaults to `false`.
+func (o VpnGatewayConnectionVpnLinkOutput) LocalAzureIpAddressEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) *bool { return v.LocalAzureIpAddressEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The name which should be used for this VPN Link Connection.
+func (o VpnGatewayConnectionVpnLinkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether to enable policy-based traffic selectors? Defaults to `false`.
+func (o VpnGatewayConnectionVpnLinkOutput) PolicyBasedTrafficSelectorEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) *bool { return v.PolicyBasedTrafficSelectorEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The protocol used for this VPN Link Connection. Possible values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+func (o VpnGatewayConnectionVpnLinkOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// Should the rate limit be enabled? Defaults to `false`.
+func (o VpnGatewayConnectionVpnLinkOutput) RatelimitEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) *bool { return v.RatelimitEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Routing weight for this VPN Link Connection. Defaults to `0`.
+func (o VpnGatewayConnectionVpnLinkOutput) RouteWeight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) *int { return v.RouteWeight }).(pulumi.IntPtrOutput)
+}
+
+// SharedKey for this VPN Link Connection.
+func (o VpnGatewayConnectionVpnLinkOutput) SharedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) *string { return v.SharedKey }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the connected VPN Site Link. Changing this forces a new VPN Gateway Connection to be created.
+func (o VpnGatewayConnectionVpnLinkOutput) VpnSiteLinkId() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) string { return v.VpnSiteLinkId }).(pulumi.StringOutput)
+}
+
+type VpnGatewayConnectionVpnLinkArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayConnectionVpnLinkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnGatewayConnectionVpnLink)(nil)).Elem()
+}
+
+func (o VpnGatewayConnectionVpnLinkArrayOutput) ToVpnGatewayConnectionVpnLinkArrayOutput() VpnGatewayConnectionVpnLinkArrayOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionVpnLinkArrayOutput) ToVpnGatewayConnectionVpnLinkArrayOutputWithContext(ctx context.Context) VpnGatewayConnectionVpnLinkArrayOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionVpnLinkArrayOutput) Index(i pulumi.IntInput) VpnGatewayConnectionVpnLinkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnGatewayConnectionVpnLink {
+		return vs[0].([]VpnGatewayConnectionVpnLink)[vs[1].(int)]
+	}).(VpnGatewayConnectionVpnLinkOutput)
+}
+
+type VpnGatewayConnectionVpnLinkIpsecPolicy struct {
+	// The DH Group used in IKE Phase 1 for initial SA. Possible values are `None`, `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384`.
+	DhGroup string `pulumi:"dhGroup"`
+	// The IPSec encryption algorithm (IKE phase 1). Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, `None`.
+	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
+	// The IKE encryption algorithm (IKE phase 2). Possible values are `DES`, `DES3`, `AES128`, `AES192`, `AES256`, `GCMAES128`, `GCMAES256`.
+	IkeEncryptionAlgorithm string `pulumi:"ikeEncryptionAlgorithm"`
+	// The IKE integrity algorithm (IKE phase 2). Possible values are `MD5`, `SHA1`, `SHA256`, `SHA384`, `GCMAES128`, `GCMAES256`.
+	IkeIntegrityAlgorithm string `pulumi:"ikeIntegrityAlgorithm"`
+	// The IPSec integrity algorithm (IKE phase 1). Possible values are `MD5`, `SHA1`, `SHA256`, `GCMAES128`, `GCMAES192`, `GCMAES256`.
+	IntegrityAlgorithm string `pulumi:"integrityAlgorithm"`
+	// The Pfs Group used in IKE Phase 2 for the new child SA. Possible values are `None`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM`, `ECP256`, `ECP384`.
+	PfsGroup string `pulumi:"pfsGroup"`
+	// The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for the site to site VPN tunnel.
+	SaDataSizeKb int `pulumi:"saDataSizeKb"`
+	// The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for the site to site VPN tunnel.
+	SaLifetimeSec int `pulumi:"saLifetimeSec"`
+}
+
+// VpnGatewayConnectionVpnLinkIpsecPolicyInput is an input type that accepts VpnGatewayConnectionVpnLinkIpsecPolicyArgs and VpnGatewayConnectionVpnLinkIpsecPolicyOutput values.
+// You can construct a concrete instance of `VpnGatewayConnectionVpnLinkIpsecPolicyInput` via:
+//
+//          VpnGatewayConnectionVpnLinkIpsecPolicyArgs{...}
+type VpnGatewayConnectionVpnLinkIpsecPolicyInput interface {
+	pulumi.Input
+
+	ToVpnGatewayConnectionVpnLinkIpsecPolicyOutput() VpnGatewayConnectionVpnLinkIpsecPolicyOutput
+	ToVpnGatewayConnectionVpnLinkIpsecPolicyOutputWithContext(context.Context) VpnGatewayConnectionVpnLinkIpsecPolicyOutput
+}
+
+type VpnGatewayConnectionVpnLinkIpsecPolicyArgs struct {
+	// The DH Group used in IKE Phase 1 for initial SA. Possible values are `None`, `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384`.
+	DhGroup pulumi.StringInput `pulumi:"dhGroup"`
+	// The IPSec encryption algorithm (IKE phase 1). Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, `None`.
+	EncryptionAlgorithm pulumi.StringInput `pulumi:"encryptionAlgorithm"`
+	// The IKE encryption algorithm (IKE phase 2). Possible values are `DES`, `DES3`, `AES128`, `AES192`, `AES256`, `GCMAES128`, `GCMAES256`.
+	IkeEncryptionAlgorithm pulumi.StringInput `pulumi:"ikeEncryptionAlgorithm"`
+	// The IKE integrity algorithm (IKE phase 2). Possible values are `MD5`, `SHA1`, `SHA256`, `SHA384`, `GCMAES128`, `GCMAES256`.
+	IkeIntegrityAlgorithm pulumi.StringInput `pulumi:"ikeIntegrityAlgorithm"`
+	// The IPSec integrity algorithm (IKE phase 1). Possible values are `MD5`, `SHA1`, `SHA256`, `GCMAES128`, `GCMAES192`, `GCMAES256`.
+	IntegrityAlgorithm pulumi.StringInput `pulumi:"integrityAlgorithm"`
+	// The Pfs Group used in IKE Phase 2 for the new child SA. Possible values are `None`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM`, `ECP256`, `ECP384`.
+	PfsGroup pulumi.StringInput `pulumi:"pfsGroup"`
+	// The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for the site to site VPN tunnel.
+	SaDataSizeKb pulumi.IntInput `pulumi:"saDataSizeKb"`
+	// The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for the site to site VPN tunnel.
+	SaLifetimeSec pulumi.IntInput `pulumi:"saLifetimeSec"`
+}
+
+func (VpnGatewayConnectionVpnLinkIpsecPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayConnectionVpnLinkIpsecPolicy)(nil)).Elem()
+}
+
+func (i VpnGatewayConnectionVpnLinkIpsecPolicyArgs) ToVpnGatewayConnectionVpnLinkIpsecPolicyOutput() VpnGatewayConnectionVpnLinkIpsecPolicyOutput {
+	return i.ToVpnGatewayConnectionVpnLinkIpsecPolicyOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayConnectionVpnLinkIpsecPolicyArgs) ToVpnGatewayConnectionVpnLinkIpsecPolicyOutputWithContext(ctx context.Context) VpnGatewayConnectionVpnLinkIpsecPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionVpnLinkIpsecPolicyOutput)
+}
+
+// VpnGatewayConnectionVpnLinkIpsecPolicyArrayInput is an input type that accepts VpnGatewayConnectionVpnLinkIpsecPolicyArray and VpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput values.
+// You can construct a concrete instance of `VpnGatewayConnectionVpnLinkIpsecPolicyArrayInput` via:
+//
+//          VpnGatewayConnectionVpnLinkIpsecPolicyArray{ VpnGatewayConnectionVpnLinkIpsecPolicyArgs{...} }
+type VpnGatewayConnectionVpnLinkIpsecPolicyArrayInput interface {
+	pulumi.Input
+
+	ToVpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput() VpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput
+	ToVpnGatewayConnectionVpnLinkIpsecPolicyArrayOutputWithContext(context.Context) VpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput
+}
+
+type VpnGatewayConnectionVpnLinkIpsecPolicyArray []VpnGatewayConnectionVpnLinkIpsecPolicyInput
+
+func (VpnGatewayConnectionVpnLinkIpsecPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnGatewayConnectionVpnLinkIpsecPolicy)(nil)).Elem()
+}
+
+func (i VpnGatewayConnectionVpnLinkIpsecPolicyArray) ToVpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput() VpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput {
+	return i.ToVpnGatewayConnectionVpnLinkIpsecPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayConnectionVpnLinkIpsecPolicyArray) ToVpnGatewayConnectionVpnLinkIpsecPolicyArrayOutputWithContext(ctx context.Context) VpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput)
+}
+
+type VpnGatewayConnectionVpnLinkIpsecPolicyOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayConnectionVpnLinkIpsecPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayConnectionVpnLinkIpsecPolicy)(nil)).Elem()
+}
+
+func (o VpnGatewayConnectionVpnLinkIpsecPolicyOutput) ToVpnGatewayConnectionVpnLinkIpsecPolicyOutput() VpnGatewayConnectionVpnLinkIpsecPolicyOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionVpnLinkIpsecPolicyOutput) ToVpnGatewayConnectionVpnLinkIpsecPolicyOutputWithContext(ctx context.Context) VpnGatewayConnectionVpnLinkIpsecPolicyOutput {
+	return o
+}
+
+// The DH Group used in IKE Phase 1 for initial SA. Possible values are `None`, `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384`.
+func (o VpnGatewayConnectionVpnLinkIpsecPolicyOutput) DhGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLinkIpsecPolicy) string { return v.DhGroup }).(pulumi.StringOutput)
+}
+
+// The IPSec encryption algorithm (IKE phase 1). Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, `None`.
+func (o VpnGatewayConnectionVpnLinkIpsecPolicyOutput) EncryptionAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLinkIpsecPolicy) string { return v.EncryptionAlgorithm }).(pulumi.StringOutput)
+}
+
+// The IKE encryption algorithm (IKE phase 2). Possible values are `DES`, `DES3`, `AES128`, `AES192`, `AES256`, `GCMAES128`, `GCMAES256`.
+func (o VpnGatewayConnectionVpnLinkIpsecPolicyOutput) IkeEncryptionAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLinkIpsecPolicy) string { return v.IkeEncryptionAlgorithm }).(pulumi.StringOutput)
+}
+
+// The IKE integrity algorithm (IKE phase 2). Possible values are `MD5`, `SHA1`, `SHA256`, `SHA384`, `GCMAES128`, `GCMAES256`.
+func (o VpnGatewayConnectionVpnLinkIpsecPolicyOutput) IkeIntegrityAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLinkIpsecPolicy) string { return v.IkeIntegrityAlgorithm }).(pulumi.StringOutput)
+}
+
+// The IPSec integrity algorithm (IKE phase 1). Possible values are `MD5`, `SHA1`, `SHA256`, `GCMAES128`, `GCMAES192`, `GCMAES256`.
+func (o VpnGatewayConnectionVpnLinkIpsecPolicyOutput) IntegrityAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLinkIpsecPolicy) string { return v.IntegrityAlgorithm }).(pulumi.StringOutput)
+}
+
+// The Pfs Group used in IKE Phase 2 for the new child SA. Possible values are `None`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM`, `ECP256`, `ECP384`.
+func (o VpnGatewayConnectionVpnLinkIpsecPolicyOutput) PfsGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLinkIpsecPolicy) string { return v.PfsGroup }).(pulumi.StringOutput)
+}
+
+// The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for the site to site VPN tunnel.
+func (o VpnGatewayConnectionVpnLinkIpsecPolicyOutput) SaDataSizeKb() pulumi.IntOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLinkIpsecPolicy) int { return v.SaDataSizeKb }).(pulumi.IntOutput)
+}
+
+// The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for the site to site VPN tunnel.
+func (o VpnGatewayConnectionVpnLinkIpsecPolicyOutput) SaLifetimeSec() pulumi.IntOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLinkIpsecPolicy) int { return v.SaLifetimeSec }).(pulumi.IntOutput)
+}
+
+type VpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnGatewayConnectionVpnLinkIpsecPolicy)(nil)).Elem()
+}
+
+func (o VpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput) ToVpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput() VpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput) ToVpnGatewayConnectionVpnLinkIpsecPolicyArrayOutputWithContext(ctx context.Context) VpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput) Index(i pulumi.IntInput) VpnGatewayConnectionVpnLinkIpsecPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnGatewayConnectionVpnLinkIpsecPolicy {
+		return vs[0].([]VpnGatewayConnectionVpnLinkIpsecPolicy)[vs[1].(int)]
+	}).(VpnGatewayConnectionVpnLinkIpsecPolicyOutput)
+}
+
 type VpnServerConfigurationAzureActiveDirectoryAuthentication struct {
 	// The Audience which should be used for authentication.
 	Audience string `pulumi:"audience"`
@@ -17103,10 +17744,9 @@ func (o GetExpressRouteCircuitSkuOutput) Tier() pulumi.StringOutput {
 }
 
 type GetFirewallIpConfiguration struct {
-	InternalPublicIpAddressId string `pulumi:"internalPublicIpAddressId"`
 	// The name of the Azure Firewall.
 	Name string `pulumi:"name"`
-	// The Private IP Address of the Azure Firewall.
+	// The private IP address associated with the Azure Firewall.
 	PrivateIpAddress  string `pulumi:"privateIpAddress"`
 	PublicIpAddressId string `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet where the Azure Firewall is deployed.
@@ -17125,10 +17765,9 @@ type GetFirewallIpConfigurationInput interface {
 }
 
 type GetFirewallIpConfigurationArgs struct {
-	InternalPublicIpAddressId pulumi.StringInput `pulumi:"internalPublicIpAddressId"`
 	// The name of the Azure Firewall.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The Private IP Address of the Azure Firewall.
+	// The private IP address associated with the Azure Firewall.
 	PrivateIpAddress  pulumi.StringInput `pulumi:"privateIpAddress"`
 	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet where the Azure Firewall is deployed.
@@ -17186,16 +17825,12 @@ func (o GetFirewallIpConfigurationOutput) ToGetFirewallIpConfigurationOutputWith
 	return o
 }
 
-func (o GetFirewallIpConfigurationOutput) InternalPublicIpAddressId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFirewallIpConfiguration) string { return v.InternalPublicIpAddressId }).(pulumi.StringOutput)
-}
-
 // The name of the Azure Firewall.
 func (o GetFirewallIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Private IP Address of the Azure Firewall.
+// The private IP address associated with the Azure Firewall.
 func (o GetFirewallIpConfigurationOutput) PrivateIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpConfiguration) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
@@ -17227,6 +17862,127 @@ func (o GetFirewallIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetFirew
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallIpConfiguration {
 		return vs[0].([]GetFirewallIpConfiguration)[vs[1].(int)]
 	}).(GetFirewallIpConfigurationOutput)
+}
+
+type GetFirewallManagementIpConfiguration struct {
+	// The name of the Azure Firewall.
+	Name string `pulumi:"name"`
+	// The private IP address associated with the Azure Firewall.
+	PrivateIpAddress  string `pulumi:"privateIpAddress"`
+	PublicIpAddressId string `pulumi:"publicIpAddressId"`
+	// The ID of the Subnet where the Azure Firewall is deployed.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// GetFirewallManagementIpConfigurationInput is an input type that accepts GetFirewallManagementIpConfigurationArgs and GetFirewallManagementIpConfigurationOutput values.
+// You can construct a concrete instance of `GetFirewallManagementIpConfigurationInput` via:
+//
+//          GetFirewallManagementIpConfigurationArgs{...}
+type GetFirewallManagementIpConfigurationInput interface {
+	pulumi.Input
+
+	ToGetFirewallManagementIpConfigurationOutput() GetFirewallManagementIpConfigurationOutput
+	ToGetFirewallManagementIpConfigurationOutputWithContext(context.Context) GetFirewallManagementIpConfigurationOutput
+}
+
+type GetFirewallManagementIpConfigurationArgs struct {
+	// The name of the Azure Firewall.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The private IP address associated with the Azure Firewall.
+	PrivateIpAddress  pulumi.StringInput `pulumi:"privateIpAddress"`
+	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
+	// The ID of the Subnet where the Azure Firewall is deployed.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (GetFirewallManagementIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallManagementIpConfiguration)(nil)).Elem()
+}
+
+func (i GetFirewallManagementIpConfigurationArgs) ToGetFirewallManagementIpConfigurationOutput() GetFirewallManagementIpConfigurationOutput {
+	return i.ToGetFirewallManagementIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetFirewallManagementIpConfigurationArgs) ToGetFirewallManagementIpConfigurationOutputWithContext(ctx context.Context) GetFirewallManagementIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallManagementIpConfigurationOutput)
+}
+
+// GetFirewallManagementIpConfigurationArrayInput is an input type that accepts GetFirewallManagementIpConfigurationArray and GetFirewallManagementIpConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetFirewallManagementIpConfigurationArrayInput` via:
+//
+//          GetFirewallManagementIpConfigurationArray{ GetFirewallManagementIpConfigurationArgs{...} }
+type GetFirewallManagementIpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallManagementIpConfigurationArrayOutput() GetFirewallManagementIpConfigurationArrayOutput
+	ToGetFirewallManagementIpConfigurationArrayOutputWithContext(context.Context) GetFirewallManagementIpConfigurationArrayOutput
+}
+
+type GetFirewallManagementIpConfigurationArray []GetFirewallManagementIpConfigurationInput
+
+func (GetFirewallManagementIpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallManagementIpConfiguration)(nil)).Elem()
+}
+
+func (i GetFirewallManagementIpConfigurationArray) ToGetFirewallManagementIpConfigurationArrayOutput() GetFirewallManagementIpConfigurationArrayOutput {
+	return i.ToGetFirewallManagementIpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallManagementIpConfigurationArray) ToGetFirewallManagementIpConfigurationArrayOutputWithContext(ctx context.Context) GetFirewallManagementIpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallManagementIpConfigurationArrayOutput)
+}
+
+type GetFirewallManagementIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallManagementIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallManagementIpConfiguration)(nil)).Elem()
+}
+
+func (o GetFirewallManagementIpConfigurationOutput) ToGetFirewallManagementIpConfigurationOutput() GetFirewallManagementIpConfigurationOutput {
+	return o
+}
+
+func (o GetFirewallManagementIpConfigurationOutput) ToGetFirewallManagementIpConfigurationOutputWithContext(ctx context.Context) GetFirewallManagementIpConfigurationOutput {
+	return o
+}
+
+// The name of the Azure Firewall.
+func (o GetFirewallManagementIpConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallManagementIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The private IP address associated with the Azure Firewall.
+func (o GetFirewallManagementIpConfigurationOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallManagementIpConfiguration) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+func (o GetFirewallManagementIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallManagementIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
+}
+
+// The ID of the Subnet where the Azure Firewall is deployed.
+func (o GetFirewallManagementIpConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallManagementIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type GetFirewallManagementIpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallManagementIpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallManagementIpConfiguration)(nil)).Elem()
+}
+
+func (o GetFirewallManagementIpConfigurationArrayOutput) ToGetFirewallManagementIpConfigurationArrayOutput() GetFirewallManagementIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetFirewallManagementIpConfigurationArrayOutput) ToGetFirewallManagementIpConfigurationArrayOutputWithContext(ctx context.Context) GetFirewallManagementIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetFirewallManagementIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetFirewallManagementIpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallManagementIpConfiguration {
+		return vs[0].([]GetFirewallManagementIpConfiguration)[vs[1].(int)]
+	}).(GetFirewallManagementIpConfigurationOutput)
 }
 
 type GetFirewallPolicyDn struct {
@@ -17433,6 +18189,130 @@ func (o GetFirewallPolicyThreatIntelligenceAllowlistArrayOutput) Index(i pulumi.
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyThreatIntelligenceAllowlist {
 		return vs[0].([]GetFirewallPolicyThreatIntelligenceAllowlist)[vs[1].(int)]
 	}).(GetFirewallPolicyThreatIntelligenceAllowlistOutput)
+}
+
+type GetFirewallVirtualHub struct {
+	// The private IP address associated with the Azure Firewall.
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	// The list of public IP addresses associated with the Azure Firewall.
+	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
+	// The number of public IPs assigned to the Azure Firewall.
+	PublicIpCount int `pulumi:"publicIpCount"`
+	// The ID of the Virtual Hub where the Azure Firewall resides in.
+	VirtualHubId string `pulumi:"virtualHubId"`
+}
+
+// GetFirewallVirtualHubInput is an input type that accepts GetFirewallVirtualHubArgs and GetFirewallVirtualHubOutput values.
+// You can construct a concrete instance of `GetFirewallVirtualHubInput` via:
+//
+//          GetFirewallVirtualHubArgs{...}
+type GetFirewallVirtualHubInput interface {
+	pulumi.Input
+
+	ToGetFirewallVirtualHubOutput() GetFirewallVirtualHubOutput
+	ToGetFirewallVirtualHubOutputWithContext(context.Context) GetFirewallVirtualHubOutput
+}
+
+type GetFirewallVirtualHubArgs struct {
+	// The private IP address associated with the Azure Firewall.
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	// The list of public IP addresses associated with the Azure Firewall.
+	PublicIpAddresses pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
+	// The number of public IPs assigned to the Azure Firewall.
+	PublicIpCount pulumi.IntInput `pulumi:"publicIpCount"`
+	// The ID of the Virtual Hub where the Azure Firewall resides in.
+	VirtualHubId pulumi.StringInput `pulumi:"virtualHubId"`
+}
+
+func (GetFirewallVirtualHubArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallVirtualHub)(nil)).Elem()
+}
+
+func (i GetFirewallVirtualHubArgs) ToGetFirewallVirtualHubOutput() GetFirewallVirtualHubOutput {
+	return i.ToGetFirewallVirtualHubOutputWithContext(context.Background())
+}
+
+func (i GetFirewallVirtualHubArgs) ToGetFirewallVirtualHubOutputWithContext(ctx context.Context) GetFirewallVirtualHubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallVirtualHubOutput)
+}
+
+// GetFirewallVirtualHubArrayInput is an input type that accepts GetFirewallVirtualHubArray and GetFirewallVirtualHubArrayOutput values.
+// You can construct a concrete instance of `GetFirewallVirtualHubArrayInput` via:
+//
+//          GetFirewallVirtualHubArray{ GetFirewallVirtualHubArgs{...} }
+type GetFirewallVirtualHubArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallVirtualHubArrayOutput() GetFirewallVirtualHubArrayOutput
+	ToGetFirewallVirtualHubArrayOutputWithContext(context.Context) GetFirewallVirtualHubArrayOutput
+}
+
+type GetFirewallVirtualHubArray []GetFirewallVirtualHubInput
+
+func (GetFirewallVirtualHubArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallVirtualHub)(nil)).Elem()
+}
+
+func (i GetFirewallVirtualHubArray) ToGetFirewallVirtualHubArrayOutput() GetFirewallVirtualHubArrayOutput {
+	return i.ToGetFirewallVirtualHubArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallVirtualHubArray) ToGetFirewallVirtualHubArrayOutputWithContext(ctx context.Context) GetFirewallVirtualHubArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallVirtualHubArrayOutput)
+}
+
+type GetFirewallVirtualHubOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallVirtualHubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallVirtualHub)(nil)).Elem()
+}
+
+func (o GetFirewallVirtualHubOutput) ToGetFirewallVirtualHubOutput() GetFirewallVirtualHubOutput {
+	return o
+}
+
+func (o GetFirewallVirtualHubOutput) ToGetFirewallVirtualHubOutputWithContext(ctx context.Context) GetFirewallVirtualHubOutput {
+	return o
+}
+
+// The private IP address associated with the Azure Firewall.
+func (o GetFirewallVirtualHubOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallVirtualHub) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+// The list of public IP addresses associated with the Azure Firewall.
+func (o GetFirewallVirtualHubOutput) PublicIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFirewallVirtualHub) []string { return v.PublicIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// The number of public IPs assigned to the Azure Firewall.
+func (o GetFirewallVirtualHubOutput) PublicIpCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallVirtualHub) int { return v.PublicIpCount }).(pulumi.IntOutput)
+}
+
+// The ID of the Virtual Hub where the Azure Firewall resides in.
+func (o GetFirewallVirtualHubOutput) VirtualHubId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallVirtualHub) string { return v.VirtualHubId }).(pulumi.StringOutput)
+}
+
+type GetFirewallVirtualHubArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallVirtualHubArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallVirtualHub)(nil)).Elem()
+}
+
+func (o GetFirewallVirtualHubArrayOutput) ToGetFirewallVirtualHubArrayOutput() GetFirewallVirtualHubArrayOutput {
+	return o
+}
+
+func (o GetFirewallVirtualHubArrayOutput) ToGetFirewallVirtualHubArrayOutputWithContext(ctx context.Context) GetFirewallVirtualHubArrayOutput {
+	return o
+}
+
+func (o GetFirewallVirtualHubArrayOutput) Index(i pulumi.IntInput) GetFirewallVirtualHubOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallVirtualHub {
+		return vs[0].([]GetFirewallVirtualHub)[vs[1].(int)]
+	}).(GetFirewallVirtualHubOutput)
 }
 
 type GetGatewayConnectionIpsecPolicy struct {
@@ -19653,6 +20533,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyThreatIntelligenceAllowlistOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyThreatIntelligenceAllowlistPtrOutput{})
+	pulumi.RegisterOutputType(FirewallVirtualHubOutput{})
+	pulumi.RegisterOutputType(FirewallVirtualHubPtrOutput{})
 	pulumi.RegisterOutputType(LocalNetworkGatewayBgpSettingsOutput{})
 	pulumi.RegisterOutputType(LocalNetworkGatewayBgpSettingsPtrOutput{})
 	pulumi.RegisterOutputType(NetworkConnectionMonitorDestinationOutput{})
@@ -19758,6 +20640,12 @@ func init() {
 	pulumi.RegisterOutputType(VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput{})
 	pulumi.RegisterOutputType(VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput{})
 	pulumi.RegisterOutputType(VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput{})
+	pulumi.RegisterOutputType(VpnGatewayConnectionRoutingOutput{})
+	pulumi.RegisterOutputType(VpnGatewayConnectionRoutingArrayOutput{})
+	pulumi.RegisterOutputType(VpnGatewayConnectionVpnLinkOutput{})
+	pulumi.RegisterOutputType(VpnGatewayConnectionVpnLinkArrayOutput{})
+	pulumi.RegisterOutputType(VpnGatewayConnectionVpnLinkIpsecPolicyOutput{})
+	pulumi.RegisterOutputType(VpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationAzureActiveDirectoryAuthenticationOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationClientRevokedCertificateOutput{})
@@ -19783,10 +20671,14 @@ func init() {
 	pulumi.RegisterOutputType(GetExpressRouteCircuitSkuOutput{})
 	pulumi.RegisterOutputType(GetFirewallIpConfigurationOutput{})
 	pulumi.RegisterOutputType(GetFirewallIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallManagementIpConfigurationOutput{})
+	pulumi.RegisterOutputType(GetFirewallManagementIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyDnOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyDnArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyThreatIntelligenceAllowlistOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyThreatIntelligenceAllowlistArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallVirtualHubOutput{})
+	pulumi.RegisterOutputType(GetFirewallVirtualHubArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayConnectionIpsecPolicyOutput{})
 	pulumi.RegisterOutputType(GetGatewayConnectionIpsecPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayConnectionTrafficSelectorPolicyOutput{})

@@ -38,6 +38,7 @@ export class ZipBlob extends pulumi.CustomResource {
 
     public readonly accessTier!: pulumi.Output<string>;
     public readonly content!: pulumi.Output<pulumi.asset.Archive | undefined>;
+    public readonly contentMd5!: pulumi.Output<string | undefined>;
     public readonly contentType!: pulumi.Output<string | undefined>;
     public readonly metadata!: pulumi.Output<{[key: string]: string}>;
     public readonly name!: pulumi.Output<string>;
@@ -67,6 +68,7 @@ export class ZipBlob extends pulumi.CustomResource {
             const state = argsOrState as ZipBlobState | undefined;
             inputs["accessTier"] = state ? state.accessTier : undefined;
             inputs["content"] = state ? state.content : undefined;
+            inputs["contentMd5"] = state ? state.contentMd5 : undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -91,6 +93,7 @@ export class ZipBlob extends pulumi.CustomResource {
             }
             inputs["accessTier"] = args ? args.accessTier : undefined;
             inputs["content"] = args ? args.content : undefined;
+            inputs["contentMd5"] = args ? args.contentMd5 : undefined;
             inputs["contentType"] = args ? args.contentType : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -120,6 +123,7 @@ export class ZipBlob extends pulumi.CustomResource {
 export interface ZipBlobState {
     readonly accessTier?: pulumi.Input<string>;
     readonly content?: pulumi.Input<pulumi.asset.Archive>;
+    readonly contentMd5?: pulumi.Input<string>;
     readonly contentType?: pulumi.Input<string>;
     readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly name?: pulumi.Input<string>;
@@ -139,6 +143,7 @@ export interface ZipBlobState {
 export interface ZipBlobArgs {
     readonly accessTier?: pulumi.Input<string>;
     readonly content?: pulumi.Input<pulumi.asset.Archive>;
+    readonly contentMd5?: pulumi.Input<string>;
     readonly contentType?: pulumi.Input<string>;
     readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly name?: pulumi.Input<string>;

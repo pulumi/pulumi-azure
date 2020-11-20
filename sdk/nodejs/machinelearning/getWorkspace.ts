@@ -57,6 +57,7 @@ export interface GetWorkspaceResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly identities: outputs.machinelearning.GetWorkspaceIdentity[];
     /**
      * The location where the Machine Learning Workspace exists.
      */

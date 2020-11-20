@@ -18,13 +18,17 @@ class Firewall(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 firewall_policy_id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  management_ip_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_intel_mode: Optional[pulumi.Input[str]] = None,
+                 virtual_hub: Optional[pulumi.Input[pulumi.InputType['FirewallVirtualHubArgs']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -73,13 +77,17 @@ class Firewall(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+        :param pulumi.Input[str] firewall_policy_id: The ID of the Firewall Policy applied to this Firewall.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]] ip_configurations: An `ip_configuration` block as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']] management_ip_configuration: A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Firewall. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_tier: Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] threat_intel_mode: The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
+        :param pulumi.Input[str] threat_intel_mode: The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
+        :param pulumi.Input[pulumi.InputType['FirewallVirtualHubArgs']] virtual_hub: A `virtual_hub` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
@@ -100,8 +108,7 @@ class Firewall(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['dns_servers'] = dns_servers
-            if ip_configurations is None:
-                raise TypeError("Missing required property 'ip_configurations'")
+            __props__['firewall_policy_id'] = firewall_policy_id
             __props__['ip_configurations'] = ip_configurations
             __props__['location'] = location
             __props__['management_ip_configuration'] = management_ip_configuration
@@ -109,8 +116,11 @@ class Firewall(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['sku_name'] = sku_name
+            __props__['sku_tier'] = sku_tier
             __props__['tags'] = tags
             __props__['threat_intel_mode'] = threat_intel_mode
+            __props__['virtual_hub'] = virtual_hub
             __props__['zones'] = zones
         super(Firewall, __self__).__init__(
             'azure:network/firewall:Firewall',
@@ -123,13 +133,17 @@ class Firewall(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            firewall_policy_id: Optional[pulumi.Input[str]] = None,
             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             management_ip_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            sku_name: Optional[pulumi.Input[str]] = None,
+            sku_tier: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             threat_intel_mode: Optional[pulumi.Input[str]] = None,
+            virtual_hub: Optional[pulumi.Input[pulumi.InputType['FirewallVirtualHubArgs']]] = None,
             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Firewall':
         """
         Get an existing Firewall resource's state with the given name, id, and optional extra
@@ -139,13 +153,17 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+        :param pulumi.Input[str] firewall_policy_id: The ID of the Firewall Policy applied to this Firewall.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]] ip_configurations: An `ip_configuration` block as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']] management_ip_configuration: A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Firewall. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_tier: Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] threat_intel_mode: The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
+        :param pulumi.Input[str] threat_intel_mode: The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
+        :param pulumi.Input[pulumi.InputType['FirewallVirtualHubArgs']] virtual_hub: A `virtual_hub` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -153,13 +171,17 @@ class Firewall(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["dns_servers"] = dns_servers
+        __props__["firewall_policy_id"] = firewall_policy_id
         __props__["ip_configurations"] = ip_configurations
         __props__["location"] = location
         __props__["management_ip_configuration"] = management_ip_configuration
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
+        __props__["sku_name"] = sku_name
+        __props__["sku_tier"] = sku_tier
         __props__["tags"] = tags
         __props__["threat_intel_mode"] = threat_intel_mode
+        __props__["virtual_hub"] = virtual_hub
         __props__["zones"] = zones
         return Firewall(resource_name, opts=opts, __props__=__props__)
 
@@ -172,8 +194,16 @@ class Firewall(pulumi.CustomResource):
         return pulumi.get(self, "dns_servers")
 
     @property
+    @pulumi.getter(name="firewallPolicyId")
+    def firewall_policy_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Firewall Policy applied to this Firewall.
+        """
+        return pulumi.get(self, "firewall_policy_id")
+
+    @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> pulumi.Output[Sequence['outputs.FirewallIpConfiguration']]:
+    def ip_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.FirewallIpConfiguration']]]:
         """
         An `ip_configuration` block as documented below.
         """
@@ -212,6 +242,22 @@ class Firewall(pulumi.CustomResource):
         return pulumi.get(self, "resource_group_name")
 
     @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> pulumi.Output[str]:
+        """
+        Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @property
+    @pulumi.getter(name="skuTier")
+    def sku_tier(self) -> pulumi.Output[str]:
+        """
+        Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sku_tier")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
@@ -223,9 +269,17 @@ class Firewall(pulumi.CustomResource):
     @pulumi.getter(name="threatIntelMode")
     def threat_intel_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
+        The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
         """
         return pulumi.get(self, "threat_intel_mode")
+
+    @property
+    @pulumi.getter(name="virtualHub")
+    def virtual_hub(self) -> pulumi.Output[Optional['outputs.FirewallVirtualHub']]:
+        """
+        A `virtual_hub` block as documented below.
+        """
+        return pulumi.get(self, "virtual_hub")
 
     @property
     @pulumi.getter

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -50,6 +51,42 @@ import * as utilities from "../utilities";
  *     apiManagementName: exampleService.name,
  *     apiName: exampleApi.name,
  *     apiManagementLoggerId: exampleLogger.id,
+ *     alwaysLogErrors: true,
+ *     logClientIp: true,
+ *     verbosity: "Verbose",
+ *     httpCorrelationProtocol: "W3C",
+ *     frontendRequest: {
+ *         bodyBytes: 32,
+ *         headersToLogs: [
+ *             "content-type",
+ *             "accept",
+ *             "origin",
+ *         ],
+ *     },
+ *     frontendResponse: {
+ *         bodyBytes: 32,
+ *         headersToLogs: [
+ *             "content-type",
+ *             "content-length",
+ *             "origin",
+ *         ],
+ *     },
+ *     backendRequest: {
+ *         bodyBytes: 32,
+ *         headersToLogs: [
+ *             "content-type",
+ *             "accept",
+ *             "origin",
+ *         ],
+ *     },
+ *     backendResponse: {
+ *         bodyBytes: 32,
+ *         headersToLogs: [
+ *             "content-type",
+ *             "content-length",
+ *             "origin",
+ *         ],
+ *     },
  * });
  * ```
  *
@@ -90,6 +127,10 @@ export class ApiDiagnostic extends pulumi.CustomResource {
     }
 
     /**
+     * Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
+     */
+    public readonly alwaysLogErrors!: pulumi.Output<boolean>;
+    /**
      * The ID (name) of the Diagnostics Logger.
      */
     public readonly apiManagementLoggerId!: pulumi.Output<string>;
@@ -102,13 +143,41 @@ export class ApiDiagnostic extends pulumi.CustomResource {
      */
     public readonly apiName!: pulumi.Output<string>;
     /**
+     * A `backendRequest` block as defined below.
+     */
+    public readonly backendRequest!: pulumi.Output<outputs.apimanagement.ApiDiagnosticBackendRequest>;
+    /**
+     * A `backendResponse` block as defined below.
+     */
+    public readonly backendResponse!: pulumi.Output<outputs.apimanagement.ApiDiagnosticBackendResponse>;
+    /**
+     * A `frontendRequest` block as defined below.
+     */
+    public readonly frontendRequest!: pulumi.Output<outputs.apimanagement.ApiDiagnosticFrontendRequest>;
+    /**
+     * A `frontendResponse` block as defined below.
+     */
+    public readonly frontendResponse!: pulumi.Output<outputs.apimanagement.ApiDiagnosticFrontendResponse>;
+    /**
+     * The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
+     */
+    public readonly httpCorrelationProtocol!: pulumi.Output<string>;
+    /**
      * Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      */
     public readonly identifier!: pulumi.Output<string>;
     /**
+     * Log client IP address.
+     */
+    public readonly logClientIp!: pulumi.Output<boolean>;
+    /**
      * The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * Logging verbosity. Possible values are `verbose`, `information` or `error`.
+     */
+    public readonly verbosity!: pulumi.Output<string>;
 
     /**
      * Create a ApiDiagnostic resource with the given unique name, arguments, and options.
@@ -122,11 +191,19 @@ export class ApiDiagnostic extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ApiDiagnosticState | undefined;
+            inputs["alwaysLogErrors"] = state ? state.alwaysLogErrors : undefined;
             inputs["apiManagementLoggerId"] = state ? state.apiManagementLoggerId : undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["apiName"] = state ? state.apiName : undefined;
+            inputs["backendRequest"] = state ? state.backendRequest : undefined;
+            inputs["backendResponse"] = state ? state.backendResponse : undefined;
+            inputs["frontendRequest"] = state ? state.frontendRequest : undefined;
+            inputs["frontendResponse"] = state ? state.frontendResponse : undefined;
+            inputs["httpCorrelationProtocol"] = state ? state.httpCorrelationProtocol : undefined;
             inputs["identifier"] = state ? state.identifier : undefined;
+            inputs["logClientIp"] = state ? state.logClientIp : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["verbosity"] = state ? state.verbosity : undefined;
         } else {
             const args = argsOrState as ApiDiagnosticArgs | undefined;
             if (!args || args.apiManagementLoggerId === undefined) {
@@ -144,11 +221,19 @@ export class ApiDiagnostic extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["alwaysLogErrors"] = args ? args.alwaysLogErrors : undefined;
             inputs["apiManagementLoggerId"] = args ? args.apiManagementLoggerId : undefined;
             inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
             inputs["apiName"] = args ? args.apiName : undefined;
+            inputs["backendRequest"] = args ? args.backendRequest : undefined;
+            inputs["backendResponse"] = args ? args.backendResponse : undefined;
+            inputs["frontendRequest"] = args ? args.frontendRequest : undefined;
+            inputs["frontendResponse"] = args ? args.frontendResponse : undefined;
+            inputs["httpCorrelationProtocol"] = args ? args.httpCorrelationProtocol : undefined;
             inputs["identifier"] = args ? args.identifier : undefined;
+            inputs["logClientIp"] = args ? args.logClientIp : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["verbosity"] = args ? args.verbosity : undefined;
         }
         if (!opts) {
             opts = {}
@@ -166,6 +251,10 @@ export class ApiDiagnostic extends pulumi.CustomResource {
  */
 export interface ApiDiagnosticState {
     /**
+     * Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
+     */
+    readonly alwaysLogErrors?: pulumi.Input<boolean>;
+    /**
      * The ID (name) of the Diagnostics Logger.
      */
     readonly apiManagementLoggerId?: pulumi.Input<string>;
@@ -178,19 +267,51 @@ export interface ApiDiagnosticState {
      */
     readonly apiName?: pulumi.Input<string>;
     /**
+     * A `backendRequest` block as defined below.
+     */
+    readonly backendRequest?: pulumi.Input<inputs.apimanagement.ApiDiagnosticBackendRequest>;
+    /**
+     * A `backendResponse` block as defined below.
+     */
+    readonly backendResponse?: pulumi.Input<inputs.apimanagement.ApiDiagnosticBackendResponse>;
+    /**
+     * A `frontendRequest` block as defined below.
+     */
+    readonly frontendRequest?: pulumi.Input<inputs.apimanagement.ApiDiagnosticFrontendRequest>;
+    /**
+     * A `frontendResponse` block as defined below.
+     */
+    readonly frontendResponse?: pulumi.Input<inputs.apimanagement.ApiDiagnosticFrontendResponse>;
+    /**
+     * The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
+     */
+    readonly httpCorrelationProtocol?: pulumi.Input<string>;
+    /**
      * Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      */
     readonly identifier?: pulumi.Input<string>;
     /**
+     * Log client IP address.
+     */
+    readonly logClientIp?: pulumi.Input<boolean>;
+    /**
      * The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * Logging verbosity. Possible values are `verbose`, `information` or `error`.
+     */
+    readonly verbosity?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a ApiDiagnostic resource.
  */
 export interface ApiDiagnosticArgs {
+    /**
+     * Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
+     */
+    readonly alwaysLogErrors?: pulumi.Input<boolean>;
     /**
      * The ID (name) of the Diagnostics Logger.
      */
@@ -204,11 +325,39 @@ export interface ApiDiagnosticArgs {
      */
     readonly apiName: pulumi.Input<string>;
     /**
+     * A `backendRequest` block as defined below.
+     */
+    readonly backendRequest?: pulumi.Input<inputs.apimanagement.ApiDiagnosticBackendRequest>;
+    /**
+     * A `backendResponse` block as defined below.
+     */
+    readonly backendResponse?: pulumi.Input<inputs.apimanagement.ApiDiagnosticBackendResponse>;
+    /**
+     * A `frontendRequest` block as defined below.
+     */
+    readonly frontendRequest?: pulumi.Input<inputs.apimanagement.ApiDiagnosticFrontendRequest>;
+    /**
+     * A `frontendResponse` block as defined below.
+     */
+    readonly frontendResponse?: pulumi.Input<inputs.apimanagement.ApiDiagnosticFrontendResponse>;
+    /**
+     * The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
+     */
+    readonly httpCorrelationProtocol?: pulumi.Input<string>;
+    /**
      * Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      */
     readonly identifier: pulumi.Input<string>;
     /**
+     * Log client IP address.
+     */
+    readonly logClientIp?: pulumi.Input<boolean>;
+    /**
      * The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Logging verbosity. Possible values are `verbose`, `information` or `error`.
+     */
+    readonly verbosity?: pulumi.Input<string>;
 }

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetWorkspaceResult',
@@ -19,10 +20,13 @@ class GetWorkspaceResult:
     """
     A collection of values returned by getWorkspace.
     """
-    def __init__(__self__, id=None, location=None, name=None, resource_group_name=None, tags=None):
+    def __init__(__self__, id=None, identities=None, location=None, name=None, resource_group_name=None, tags=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -43,6 +47,11 @@ class GetWorkspaceResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identities(self) -> Sequence['outputs.GetWorkspaceIdentityResult']:
+        return pulumi.get(self, "identities")
 
     @property
     @pulumi.getter
@@ -78,6 +87,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             yield self
         return GetWorkspaceResult(
             id=self.id,
+            identities=self.identities,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
@@ -116,6 +126,7 @@ def get_workspace(name: Optional[str] = None,
 
     return AwaitableGetWorkspaceResult(
         id=__ret__.id,
+        identities=__ret__.identities,
         location=__ret__.location,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,

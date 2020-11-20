@@ -73,6 +73,7 @@ from .traffic_manager_endpoint import *
 from .traffic_manager_profile import *
 from .virtual_hub import *
 from .virtual_hub_connection import *
+from .virtual_hub_ip import *
 from .virtual_hub_route_table import *
 from .virtual_network import *
 from .virtual_network_gateway import *
@@ -80,6 +81,7 @@ from .virtual_network_gateway_connection import *
 from .virtual_network_peering import *
 from .virtual_wan import *
 from .vpn_gateway import *
+from .vpn_gateway_connection import *
 from .vpn_server_configuration import *
 from .vpn_site import *
 from ._inputs import *

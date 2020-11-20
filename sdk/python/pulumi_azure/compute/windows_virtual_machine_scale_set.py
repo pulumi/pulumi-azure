@@ -43,6 +43,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  os_disk: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetOsDiskArgs']]] = None,
                  overprovision: Optional[pulumi.Input[bool]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetPlanArgs']]] = None,
+                 platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
@@ -154,6 +155,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetOsDiskArgs']] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[bool] overprovision: Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetPlanArgs']] plan: A `plan` block as documented below.
+        :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
@@ -226,6 +228,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             __props__['os_disk'] = os_disk
             __props__['overprovision'] = overprovision
             __props__['plan'] = plan
+            __props__['platform_fault_domain_count'] = platform_fault_domain_count
             __props__['priority'] = priority
             __props__['provision_vm_agent'] = provision_vm_agent
             __props__['proximity_placement_group_id'] = proximity_placement_group_id
@@ -285,6 +288,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             os_disk: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetOsDiskArgs']]] = None,
             overprovision: Optional[pulumi.Input[bool]] = None,
             plan: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetPlanArgs']]] = None,
+            platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
             priority: Optional[pulumi.Input[str]] = None,
             provision_vm_agent: Optional[pulumi.Input[bool]] = None,
             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
@@ -337,6 +341,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetOsDiskArgs']] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[bool] overprovision: Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetPlanArgs']] plan: A `plan` block as documented below.
+        :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
@@ -387,6 +392,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         __props__["os_disk"] = os_disk
         __props__["overprovision"] = overprovision
         __props__["plan"] = plan
+        __props__["platform_fault_domain_count"] = platform_fault_domain_count
         __props__["priority"] = priority
         __props__["provision_vm_agent"] = provision_vm_agent
         __props__["proximity_placement_group_id"] = proximity_placement_group_id
@@ -615,6 +621,14 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         A `plan` block as documented below.
         """
         return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter(name="platformFaultDomainCount")
+    def platform_fault_domain_count(self) -> pulumi.Output[int]:
+        """
+        Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "platform_fault_domain_count")
 
     @property
     @pulumi.getter

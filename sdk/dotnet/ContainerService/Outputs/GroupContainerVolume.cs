@@ -30,6 +30,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? ReadOnly;
         /// <summary>
+        /// A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Secret;
+        /// <summary>
         /// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? ShareName;
@@ -52,6 +56,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             bool? readOnly,
 
+            ImmutableDictionary<string, string>? secret,
+
             string? shareName,
 
             string? storageAccountKey,
@@ -62,6 +68,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             MountPath = mountPath;
             Name = name;
             ReadOnly = readOnly;
+            Secret = secret;
             ShareName = shareName;
             StorageAccountKey = storageAccountKey;
             StorageAccountName = storageAccountName;

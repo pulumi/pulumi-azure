@@ -908,6 +908,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_log_analytics_data_export_rule":       {Tok: azureResource(azureLogAnalytics, "DataExportRule")},
 			"azurerm_log_analytics_linked_storage_account": {Tok: azureResource(azureLogAnalytics, "LinkedStorageAccount")},
 			"azurerm_log_analytics_storage_insights":       {Tok: azureResource(azureLogAnalytics, "StorageInsights")},
+			"azurerm_log_analytics_cluster":                {Tok: azureResource(azureLogAnalytics, "Cluster")},
+			"azurerm_log_analytics_cluster_customer_managed_key": {
+				Tok: azureResource(azureLogAnalytics, "ClusterCustomerManagedKey"),
+			},
 
 			// Logic Apps
 			"azurerm_logic_app_action_custom":        {Tok: azureResource(azureLogicApps, "ActionCustom")},
@@ -1278,11 +1282,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_point_to_site_vpn_gateway":             {Tok: azureResource(azureNetwork, "PointToPointVpnGateway")},
 			"azurerm_virtual_hub":                           {Tok: azureResource(azureNetwork, "VirtualHub")},
 			"azurerm_virtual_hub_connection":                {Tok: azureResource(azureNetwork, "VirtualHubConnection")},
-			"azurerm_virtual_hub_ip_configuration":          {Tok: azureResource(azureNetwork, "VirtualHubIpConfiguration")},
+			"azurerm_virtual_hub_ip":                        {Tok: azureResource(azureNetwork, "VirtualHubIp")},
 			"azurerm_virtual_hub_route_table":               {Tok: azureResource(azureNetwork, "VirtualHubRouteTable")},
 			"azurerm_virtual_hub_security_partner_provider": {Tok: azureResource(azureNetwork, "SecurityPartnerProvider")},
 			"azurerm_virtual_hub_bgp_connection":            {Tok: azureResource(azureNetwork, "BgpConnection")},
 			"azurerm_vpn_gateway":                           {Tok: azureResource(azureNetwork, "VpnGateway")},
+			"azurerm_vpn_gateway_connection":                {Tok: azureResource(azureNetwork, "VpnGatewayConnection")},
 			"azurerm_vpn_server_configuration":              {Tok: azureResource(azureNetwork, "VpnServerConfiguration")},
 			"azurerm_ip_group":                              {Tok: azureResource(azureNetwork, "IPGroup")},
 			"azurerm_vpn_site":                              {Tok: azureResource(azureNetwork, "VpnSite")},
@@ -1303,6 +1308,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_advanced_threat_protection":           {Tok: azureResource(azureSecurityCenter, "AdvancedThreatProtection")},
 			"azurerm_security_center_setting":              {Tok: azureResource(azureSecurityCenter, "Setting")},
 			"azurerm_security_center_auto_provisioning":    {Tok: azureResource(azureSecurityCenter, "AutoProvisioning")},
+			"azurerm_security_center_automation":           {Tok: azureResource(azureSecurityCenter, "Automation")},
 
 			// Service Fabric
 			"azurerm_service_fabric_cluster":            {Tok: azureResource(azureServiceFabric, "Cluster")},
@@ -1407,6 +1413,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_account_customer_managed_key": {Tok: azureResource(azureStorage, "CustomerManagedKey")},
 			"azurerm_storage_sync":                         {Tok: azureResource(azureStorage, "Sync")},
 			"azurerm_storage_sync_group":                   {Tok: azureResource(azureStorage, "SyncGroup")},
+			"azurerm_storage_data_lake_gen2_path":          {Tok: azureResource(azureStorage, "DataLakeGen2Path")},
+			"azurerm_storage_encryption_scope":             {Tok: azureResource(azureStorage, "EncryptionScope")},
 
 			//StreamAnalytics
 			"azurerm_stream_analytics_function_javascript_udf": {
@@ -1791,7 +1799,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_account_blob_container_sas": {
 				Tok: azureDataSource(azureStorage, "getAccountBlobContainerSAS"),
 			},
+
 			"azurerm_storage_management_policy": {Tok: azureDataSource(azureStorage, "getPolicy")},
+			"azurerm_storage_encryption_scope":  {Tok: azureDataSource(azureStorage, "getEncryptionScope")},
 			"azurerm_virtual_machine":           {Tok: azureDataSource(azureCompute, "getVirtualMachine")},
 			"azurerm_hdinsight_cluster":         {Tok: azureDataSource(azureHdInsight, "getCluster")},
 			"azurerm_stream_analytics_job":      {Tok: azureDataSource(azureStreamAnalytics, "getJob")},
@@ -1856,6 +1866,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_app_configuration": {
 				Tok: azureDataSource(azureAppConfiguration, "getConfigurationStore"),
 			},
+			"azurerm_servicebus_subscription":        {Tok: azureDataSource(azureServiceBus, "getSubscription")},
 			"azurerm_machine_learning_workspace":     {Tok: azureDataSource(azureMachineLearning, "getWorkspace")},
 			"azurerm_managed_application_definition": {Tok: azureDataSource(azureManagedApplication, "getDefinition")},
 			"azurerm_spring_cloud_service": {

@@ -1999,6 +1999,130 @@ func (o AccountStaticWebsitePtrOutput) IndexDocument() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type DataLakeGen2PathAce struct {
+	// Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
+	Id *string `pulumi:"id"`
+	// Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+	Permissions string `pulumi:"permissions"`
+	// Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
+	Scope *string `pulumi:"scope"`
+	// Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
+	Type string `pulumi:"type"`
+}
+
+// DataLakeGen2PathAceInput is an input type that accepts DataLakeGen2PathAceArgs and DataLakeGen2PathAceOutput values.
+// You can construct a concrete instance of `DataLakeGen2PathAceInput` via:
+//
+//          DataLakeGen2PathAceArgs{...}
+type DataLakeGen2PathAceInput interface {
+	pulumi.Input
+
+	ToDataLakeGen2PathAceOutput() DataLakeGen2PathAceOutput
+	ToDataLakeGen2PathAceOutputWithContext(context.Context) DataLakeGen2PathAceOutput
+}
+
+type DataLakeGen2PathAceArgs struct {
+	// Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+	Permissions pulumi.StringInput `pulumi:"permissions"`
+	// Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DataLakeGen2PathAceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeGen2PathAce)(nil)).Elem()
+}
+
+func (i DataLakeGen2PathAceArgs) ToDataLakeGen2PathAceOutput() DataLakeGen2PathAceOutput {
+	return i.ToDataLakeGen2PathAceOutputWithContext(context.Background())
+}
+
+func (i DataLakeGen2PathAceArgs) ToDataLakeGen2PathAceOutputWithContext(ctx context.Context) DataLakeGen2PathAceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2PathAceOutput)
+}
+
+// DataLakeGen2PathAceArrayInput is an input type that accepts DataLakeGen2PathAceArray and DataLakeGen2PathAceArrayOutput values.
+// You can construct a concrete instance of `DataLakeGen2PathAceArrayInput` via:
+//
+//          DataLakeGen2PathAceArray{ DataLakeGen2PathAceArgs{...} }
+type DataLakeGen2PathAceArrayInput interface {
+	pulumi.Input
+
+	ToDataLakeGen2PathAceArrayOutput() DataLakeGen2PathAceArrayOutput
+	ToDataLakeGen2PathAceArrayOutputWithContext(context.Context) DataLakeGen2PathAceArrayOutput
+}
+
+type DataLakeGen2PathAceArray []DataLakeGen2PathAceInput
+
+func (DataLakeGen2PathAceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataLakeGen2PathAce)(nil)).Elem()
+}
+
+func (i DataLakeGen2PathAceArray) ToDataLakeGen2PathAceArrayOutput() DataLakeGen2PathAceArrayOutput {
+	return i.ToDataLakeGen2PathAceArrayOutputWithContext(context.Background())
+}
+
+func (i DataLakeGen2PathAceArray) ToDataLakeGen2PathAceArrayOutputWithContext(ctx context.Context) DataLakeGen2PathAceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2PathAceArrayOutput)
+}
+
+type DataLakeGen2PathAceOutput struct{ *pulumi.OutputState }
+
+func (DataLakeGen2PathAceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeGen2PathAce)(nil)).Elem()
+}
+
+func (o DataLakeGen2PathAceOutput) ToDataLakeGen2PathAceOutput() DataLakeGen2PathAceOutput {
+	return o
+}
+
+func (o DataLakeGen2PathAceOutput) ToDataLakeGen2PathAceOutputWithContext(ctx context.Context) DataLakeGen2PathAceOutput {
+	return o
+}
+
+// Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
+func (o DataLakeGen2PathAceOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataLakeGen2PathAce) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+func (o DataLakeGen2PathAceOutput) Permissions() pulumi.StringOutput {
+	return o.ApplyT(func(v DataLakeGen2PathAce) string { return v.Permissions }).(pulumi.StringOutput)
+}
+
+// Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
+func (o DataLakeGen2PathAceOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataLakeGen2PathAce) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
+func (o DataLakeGen2PathAceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DataLakeGen2PathAce) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type DataLakeGen2PathAceArrayOutput struct{ *pulumi.OutputState }
+
+func (DataLakeGen2PathAceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataLakeGen2PathAce)(nil)).Elem()
+}
+
+func (o DataLakeGen2PathAceArrayOutput) ToDataLakeGen2PathAceArrayOutput() DataLakeGen2PathAceArrayOutput {
+	return o
+}
+
+func (o DataLakeGen2PathAceArrayOutput) ToDataLakeGen2PathAceArrayOutputWithContext(ctx context.Context) DataLakeGen2PathAceArrayOutput {
+	return o
+}
+
+func (o DataLakeGen2PathAceArrayOutput) Index(i pulumi.IntInput) DataLakeGen2PathAceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataLakeGen2PathAce {
+		return vs[0].([]DataLakeGen2PathAce)[vs[1].(int)]
+	}).(DataLakeGen2PathAceOutput)
+}
+
 type ManagementPolicyRule struct {
 	// An `actions` block as documented below.
 	Actions ManagementPolicyRuleActions `pulumi:"actions"`
@@ -4111,6 +4235,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountQueuePropertiesMinuteMetricsPtrOutput{})
 	pulumi.RegisterOutputType(AccountStaticWebsiteOutput{})
 	pulumi.RegisterOutputType(AccountStaticWebsitePtrOutput{})
+	pulumi.RegisterOutputType(DataLakeGen2PathAceOutput{})
+	pulumi.RegisterOutputType(DataLakeGen2PathAceArrayOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleActionsOutput{})

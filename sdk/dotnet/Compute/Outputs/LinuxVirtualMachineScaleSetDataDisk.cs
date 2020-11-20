@@ -26,6 +26,14 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? DiskEncryptionSetId;
         /// <summary>
+        /// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+        /// </summary>
+        public readonly int? DiskIopsReadWrite;
+        /// <summary>
+        /// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+        /// </summary>
+        public readonly int? DiskMbpsReadWrite;
+        /// <summary>
         /// The size of the Data Disk which should be created.
         /// </summary>
         public readonly int DiskSizeGb;
@@ -50,6 +58,10 @@ namespace Pulumi.Azure.Compute.Outputs
 
             string? diskEncryptionSetId,
 
+            int? diskIopsReadWrite,
+
+            int? diskMbpsReadWrite,
+
             int diskSizeGb,
 
             int lun,
@@ -61,6 +73,8 @@ namespace Pulumi.Azure.Compute.Outputs
             Caching = caching;
             CreateOption = createOption;
             DiskEncryptionSetId = diskEncryptionSetId;
+            DiskIopsReadWrite = diskIopsReadWrite;
+            DiskMbpsReadWrite = diskMbpsReadWrite;
             DiskSizeGb = diskSizeGb;
             Lun = lun;
             StorageAccountType = storageAccountType;

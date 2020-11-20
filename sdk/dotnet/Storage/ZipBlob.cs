@@ -18,6 +18,9 @@ namespace Pulumi.Azure.Storage
         [Output("content")]
         public Output<Archive?> Content { get; private set; } = null!;
 
+        [Output("contentMd5")]
+        public Output<string?> ContentMd5 { get; private set; } = null!;
+
         [Output("contentType")]
         public Output<string?> ContentType { get; private set; } = null!;
 
@@ -103,6 +106,9 @@ namespace Pulumi.Azure.Storage
         [Input("content")]
         public Input<Archive>? Content { get; set; }
 
+        [Input("contentMd5")]
+        public Input<string>? ContentMd5 { get; set; }
+
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
@@ -150,6 +156,9 @@ namespace Pulumi.Azure.Storage
 
         [Input("content")]
         public Input<Archive>? Content { get; set; }
+
+        [Input("contentMd5")]
+        public Input<string>? ContentMd5 { get; set; }
 
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }

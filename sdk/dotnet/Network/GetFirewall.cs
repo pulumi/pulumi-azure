@@ -60,6 +60,18 @@ namespace Pulumi.Azure.Network
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
+        [Input("zones")]
+        private List<string>? _zones;
+
+        /// <summary>
+        /// The availability zones in which the Azure Firewall is created.
+        /// </summary>
+        public List<string> Zones
+        {
+            get => _zones ?? (_zones = new List<string>());
+            set => _zones = value;
+        }
+
         public GetFirewallArgs()
         {
         }
@@ -70,6 +82,14 @@ namespace Pulumi.Azure.Network
     public sealed class GetFirewallResult
     {
         /// <summary>
+        /// The list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+        /// </summary>
+        public readonly ImmutableArray<string> DnsServers;
+        /// <summary>
+        /// The ID of the Firewall Policy applied to the Azure Firewall.
+        /// </summary>
+        public readonly string FirewallPolicyId;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -77,31 +97,85 @@ namespace Pulumi.Azure.Network
         /// A `ip_configuration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallIpConfigurationResult> IpConfigurations;
+        /// <summary>
+        /// The Azure location where the Azure Firewall exists.
+        /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// A `management_ip_configuration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetFirewallManagementIpConfigurationResult> ManagementIpConfigurations;
         public readonly string Name;
         public readonly string ResourceGroupName;
+        /// <summary>
+        /// The sku name of the Azure Firewall.
+        /// </summary>
+        public readonly string SkuName;
+        /// <summary>
+        /// The sku tier of the Azure Firewall.
+        /// </summary>
+        public readonly string SkuTier;
+        /// <summary>
+        /// A mapping of tags assigned to the Azure Firewall.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// The operation mode for threat intelligence-based filtering.
+        /// </summary>
+        public readonly string ThreatIntelMode;
+        /// <summary>
+        /// A `virtual_hub` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetFirewallVirtualHubResult> VirtualHubs;
+        /// <summary>
+        /// The availability zones in which the Azure Firewall is created.
+        /// </summary>
+        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private GetFirewallResult(
+            ImmutableArray<string> dnsServers,
+
+            string firewallPolicyId,
+
             string id,
 
             ImmutableArray<Outputs.GetFirewallIpConfigurationResult> ipConfigurations,
 
             string location,
 
+            ImmutableArray<Outputs.GetFirewallManagementIpConfigurationResult> managementIpConfigurations,
+
             string name,
 
             string resourceGroupName,
 
-            ImmutableDictionary<string, string> tags)
+            string skuName,
+
+            string skuTier,
+
+            ImmutableDictionary<string, string> tags,
+
+            string threatIntelMode,
+
+            ImmutableArray<Outputs.GetFirewallVirtualHubResult> virtualHubs,
+
+            ImmutableArray<string> zones)
         {
+            DnsServers = dnsServers;
+            FirewallPolicyId = firewallPolicyId;
             Id = id;
             IpConfigurations = ipConfigurations;
             Location = location;
+            ManagementIpConfigurations = managementIpConfigurations;
             Name = name;
             ResourceGroupName = resourceGroupName;
+            SkuName = skuName;
+            SkuTier = skuTier;
             Tags = tags;
+            ThreatIntelMode = threatIntelMode;
+            VirtualHubs = virtualHubs;
+            Zones = zones;
         }
     }
 }

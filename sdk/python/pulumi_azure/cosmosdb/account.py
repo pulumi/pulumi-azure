@@ -30,6 +30,7 @@ class Account(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  offer_type: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountVirtualNetworkRuleArgs']]]]] = None,
@@ -107,6 +108,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountVirtualNetworkRuleArgs']]]] virtual_network_rules: Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
@@ -147,6 +149,7 @@ class Account(pulumi.CustomResource):
             if offer_type is None:
                 raise TypeError("Missing required property 'offer_type'")
             __props__['offer_type'] = offer_type
+            __props__['public_network_access_enabled'] = public_network_access_enabled
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -193,6 +196,7 @@ class Account(pulumi.CustomResource):
             primary_master_key: Optional[pulumi.Input[str]] = None,
             primary_readonly_key: Optional[pulumi.Input[str]] = None,
             primary_readonly_master_key: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             read_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             secondary_key: Optional[pulumi.Input[str]] = None,
@@ -226,6 +230,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
         :param pulumi.Input[str] primary_key: The Primary master key for the CosmosDB Account.
         :param pulumi.Input[str] primary_readonly_key: The Primary read-only master Key for the CosmosDB Account.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_endpoints: A list of read endpoints available for this CosmosDB account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_key: The Secondary master key for the CosmosDB Account.
@@ -257,6 +262,7 @@ class Account(pulumi.CustomResource):
         __props__["primary_master_key"] = primary_master_key
         __props__["primary_readonly_key"] = primary_readonly_key
         __props__["primary_readonly_master_key"] = primary_readonly_master_key
+        __props__["public_network_access_enabled"] = public_network_access_enabled
         __props__["read_endpoints"] = read_endpoints
         __props__["resource_group_name"] = resource_group_name
         __props__["secondary_key"] = secondary_key
@@ -413,6 +419,14 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="primaryReadonlyMasterKey")
     def primary_readonly_master_key(self) -> pulumi.Output[str]:
         return pulumi.get(self, "primary_readonly_master_key")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether or not public network access is allowed for this CosmosDB account.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="readEndpoints")

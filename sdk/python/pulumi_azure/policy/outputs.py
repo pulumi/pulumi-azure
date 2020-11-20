@@ -10,7 +10,9 @@ from .. import _utilities, _tables
 
 __all__ = [
     'AssignmentIdentity',
+    'PolicySetDefinitionPolicyDefinitionGroup',
     'PolicySetDefinitionPolicyDefinitionReference',
+    'GetPolicySetDefinitionPolicyDefinitionGroupResult',
     'GetPolicySetDefinitionPolicyDefinitionReferenceResult',
 ]
 
@@ -61,11 +63,77 @@ class AssignmentIdentity(dict):
 
 
 @pulumi.output_type
+class PolicySetDefinitionPolicyDefinitionGroup(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 additional_metadata_resource_id: Optional[str] = None,
+                 category: Optional[str] = None,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None):
+        """
+        :param str name: The name of this policy definition group.
+        :param str category: The category of this policy definition group.
+        :param str description: The description of this policy definition group.
+        :param str display_name: The display name of this policy definition group.
+        """
+        pulumi.set(__self__, "name", name)
+        if additional_metadata_resource_id is not None:
+            pulumi.set(__self__, "additional_metadata_resource_id", additional_metadata_resource_id)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this policy definition group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="additionalMetadataResourceId")
+    def additional_metadata_resource_id(self) -> Optional[str]:
+        return pulumi.get(self, "additional_metadata_resource_id")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        The category of this policy definition group.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of this policy definition group.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name of this policy definition group.
+        """
+        return pulumi.get(self, "display_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class PolicySetDefinitionPolicyDefinitionReference(dict):
     def __init__(__self__, *,
                  policy_definition_id: str,
                  parameter_values: Optional[str] = None,
                  parameters: Optional[Mapping[str, str]] = None,
+                 policy_group_names: Optional[Sequence[str]] = None,
                  reference_id: Optional[str] = None):
         """
         :param str policy_definition_id: The ID of the policy definition or policy set definition that will be included in this policy set definition.
@@ -78,6 +146,8 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
             pulumi.set(__self__, "parameter_values", parameter_values)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if policy_group_names is not None:
+            pulumi.set(__self__, "policy_group_names", policy_group_names)
         if reference_id is not None:
             pulumi.set(__self__, "reference_id", reference_id)
 
@@ -106,6 +176,11 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
         return pulumi.get(self, "parameters")
 
     @property
+    @pulumi.getter(name="policyGroupNames")
+    def policy_group_names(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "policy_group_names")
+
+    @property
     @pulumi.getter(name="referenceId")
     def reference_id(self) -> Optional[str]:
         """
@@ -118,11 +193,70 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
 
 
 @pulumi.output_type
+class GetPolicySetDefinitionPolicyDefinitionGroupResult(dict):
+    def __init__(__self__, *,
+                 additional_metadata_resource_id: str,
+                 category: str,
+                 description: str,
+                 display_name: str,
+                 name: str):
+        """
+        :param str category: The category of this policy definition group.
+        :param str description: The description of this policy definition group.
+        :param str display_name: Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+        :param str name: Specifies the name of the Policy Set Definition. Conflicts with `display_name`.
+        """
+        pulumi.set(__self__, "additional_metadata_resource_id", additional_metadata_resource_id)
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="additionalMetadataResourceId")
+    def additional_metadata_resource_id(self) -> str:
+        return pulumi.get(self, "additional_metadata_resource_id")
+
+    @property
+    @pulumi.getter
+    def category(self) -> str:
+        """
+        The category of this policy definition group.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of this policy definition group.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Policy Set Definition. Conflicts with `display_name`.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class GetPolicySetDefinitionPolicyDefinitionReferenceResult(dict):
     def __init__(__self__, *,
                  parameter_values: str,
                  parameters: Mapping[str, str],
                  policy_definition_id: str,
+                 policy_group_names: Sequence[str],
                  reference_id: str):
         """
         :param str parameter_values: The parameter values for the referenced policy rule. This field is a json object.
@@ -133,6 +267,7 @@ class GetPolicySetDefinitionPolicyDefinitionReferenceResult(dict):
         pulumi.set(__self__, "parameter_values", parameter_values)
         pulumi.set(__self__, "parameters", parameters)
         pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        pulumi.set(__self__, "policy_group_names", policy_group_names)
         pulumi.set(__self__, "reference_id", reference_id)
 
     @property
@@ -158,6 +293,11 @@ class GetPolicySetDefinitionPolicyDefinitionReferenceResult(dict):
         The ID of the policy definition or policy set definition that is included in this policy set definition.
         """
         return pulumi.get(self, "policy_definition_id")
+
+    @property
+    @pulumi.getter(name="policyGroupNames")
+    def policy_group_names(self) -> Sequence[str]:
+        return pulumi.get(self, "policy_group_names")
 
     @property
     @pulumi.getter(name="referenceId")

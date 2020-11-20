@@ -30,6 +30,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  disable_password_authentication: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
+                 extensions_time_budget: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_bid_price: Optional[pulumi.Input[float]] = None,
@@ -130,10 +131,11 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on.
         :param pulumi.Input[bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
@@ -185,6 +187,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             __props__['disable_password_authentication'] = disable_password_authentication
             __props__['encryption_at_host_enabled'] = encryption_at_host_enabled
             __props__['eviction_policy'] = eviction_policy
+            __props__['extensions_time_budget'] = extensions_time_budget
             __props__['identity'] = identity
             __props__['location'] = location
             __props__['max_bid_price'] = max_bid_price
@@ -239,6 +242,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             disable_password_authentication: Optional[pulumi.Input[bool]] = None,
             encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
+            extensions_time_budget: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             max_bid_price: Optional[pulumi.Input[float]] = None,
@@ -278,10 +282,11 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on.
         :param pulumi.Input[bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
@@ -323,6 +328,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         __props__["disable_password_authentication"] = disable_password_authentication
         __props__["encryption_at_host_enabled"] = encryption_at_host_enabled
         __props__["eviction_policy"] = eviction_policy
+        __props__["extensions_time_budget"] = extensions_time_budget
         __props__["identity"] = identity
         __props__["location"] = location
         __props__["max_bid_price"] = max_bid_price
@@ -424,7 +430,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="dedicatedHostId")
     def dedicated_host_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+        The ID of a Dedicated Host where this machine should be run on.
         """
         return pulumi.get(self, "dedicated_host_id")
 
@@ -451,6 +457,14 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eviction_policy")
+
+    @property
+    @pulumi.getter(name="extensionsTimeBudget")
+    def extensions_time_budget(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        """
+        return pulumi.get(self, "extensions_time_budget")
 
     @property
     @pulumi.getter

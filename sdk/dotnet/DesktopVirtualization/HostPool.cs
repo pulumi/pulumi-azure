@@ -65,8 +65,8 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string?> FriendlyName { get; private set; } = null!;
 
         /// <summary>
-        /// `Breadthfirst` load balancing distributes new user sessions across all available session hosts in the host pool.
-        /// `Depthfirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
+        /// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+        /// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
         /// `Persistent` should be used if the host pool type is `Personal`
         /// </summary>
         [Output("loadBalancerType")]
@@ -196,8 +196,8 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? FriendlyName { get; set; }
 
         /// <summary>
-        /// `Breadthfirst` load balancing distributes new user sessions across all available session hosts in the host pool.
-        /// `Depthfirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
+        /// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+        /// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
         /// `Persistent` should be used if the host pool type is `Personal`
         /// </summary>
         [Input("loadBalancerType", required: true)]
@@ -294,8 +294,8 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? FriendlyName { get; set; }
 
         /// <summary>
-        /// `Breadthfirst` load balancing distributes new user sessions across all available session hosts in the host pool.
-        /// `Depthfirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
+        /// `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+        /// `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
         /// `Persistent` should be used if the host pool type is `Personal`
         /// </summary>
         [Input("loadBalancerType")]

@@ -6,6 +6,7 @@
 from .get_namespace import *
 from .get_namespace_authorization_rule import *
 from .get_queue_authorization_rule import *
+from .get_subscription import *
 from .get_topic_authorization_rule import *
 from .namespace import *
 from .namespace_authorization_rule import *

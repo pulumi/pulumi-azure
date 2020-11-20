@@ -452,6 +452,308 @@ func (o TxtRecordRecordArrayOutput) Index(i pulumi.IntInput) TxtRecordRecordOutp
 	}).(TxtRecordRecordOutput)
 }
 
+type ZoneSoaRecord struct {
+	// The email contact for the SOA record.
+	Email string `pulumi:"email"`
+	// The expire time for the SOA record. Defaults to `2419200`.
+	ExpireTime *int `pulumi:"expireTime"`
+	// The fully qualified domain name of the Record Set.
+	Fqdn *string `pulumi:"fqdn"`
+	// The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+	HostName string `pulumi:"hostName"`
+	// The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
+	MinimumTtl *int `pulumi:"minimumTtl"`
+	// The refresh time for the SOA record. Defaults to `3600`.
+	RefreshTime *int `pulumi:"refreshTime"`
+	// The retry time for the SOA record. Defaults to `300`.
+	RetryTime *int `pulumi:"retryTime"`
+	// The serial number for the SOA record. Defaults to `1`.
+	SerialNumber *int `pulumi:"serialNumber"`
+	// A mapping of tags to assign to the Record Set.
+	Tags map[string]string `pulumi:"tags"`
+	// The Time To Live of the SOA Record in seconds. Defaults to `3600`.
+	Ttl *int `pulumi:"ttl"`
+}
+
+// ZoneSoaRecordInput is an input type that accepts ZoneSoaRecordArgs and ZoneSoaRecordOutput values.
+// You can construct a concrete instance of `ZoneSoaRecordInput` via:
+//
+//          ZoneSoaRecordArgs{...}
+type ZoneSoaRecordInput interface {
+	pulumi.Input
+
+	ToZoneSoaRecordOutput() ZoneSoaRecordOutput
+	ToZoneSoaRecordOutputWithContext(context.Context) ZoneSoaRecordOutput
+}
+
+type ZoneSoaRecordArgs struct {
+	// The email contact for the SOA record.
+	Email pulumi.StringInput `pulumi:"email"`
+	// The expire time for the SOA record. Defaults to `2419200`.
+	ExpireTime pulumi.IntPtrInput `pulumi:"expireTime"`
+	// The fully qualified domain name of the Record Set.
+	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
+	// The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
+	MinimumTtl pulumi.IntPtrInput `pulumi:"minimumTtl"`
+	// The refresh time for the SOA record. Defaults to `3600`.
+	RefreshTime pulumi.IntPtrInput `pulumi:"refreshTime"`
+	// The retry time for the SOA record. Defaults to `300`.
+	RetryTime pulumi.IntPtrInput `pulumi:"retryTime"`
+	// The serial number for the SOA record. Defaults to `1`.
+	SerialNumber pulumi.IntPtrInput `pulumi:"serialNumber"`
+	// A mapping of tags to assign to the Record Set.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The Time To Live of the SOA Record in seconds. Defaults to `3600`.
+	Ttl pulumi.IntPtrInput `pulumi:"ttl"`
+}
+
+func (ZoneSoaRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZoneSoaRecord)(nil)).Elem()
+}
+
+func (i ZoneSoaRecordArgs) ToZoneSoaRecordOutput() ZoneSoaRecordOutput {
+	return i.ToZoneSoaRecordOutputWithContext(context.Background())
+}
+
+func (i ZoneSoaRecordArgs) ToZoneSoaRecordOutputWithContext(ctx context.Context) ZoneSoaRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZoneSoaRecordOutput)
+}
+
+func (i ZoneSoaRecordArgs) ToZoneSoaRecordPtrOutput() ZoneSoaRecordPtrOutput {
+	return i.ToZoneSoaRecordPtrOutputWithContext(context.Background())
+}
+
+func (i ZoneSoaRecordArgs) ToZoneSoaRecordPtrOutputWithContext(ctx context.Context) ZoneSoaRecordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZoneSoaRecordOutput).ToZoneSoaRecordPtrOutputWithContext(ctx)
+}
+
+// ZoneSoaRecordPtrInput is an input type that accepts ZoneSoaRecordArgs, ZoneSoaRecordPtr and ZoneSoaRecordPtrOutput values.
+// You can construct a concrete instance of `ZoneSoaRecordPtrInput` via:
+//
+//          ZoneSoaRecordArgs{...}
+//
+//  or:
+//
+//          nil
+type ZoneSoaRecordPtrInput interface {
+	pulumi.Input
+
+	ToZoneSoaRecordPtrOutput() ZoneSoaRecordPtrOutput
+	ToZoneSoaRecordPtrOutputWithContext(context.Context) ZoneSoaRecordPtrOutput
+}
+
+type zoneSoaRecordPtrType ZoneSoaRecordArgs
+
+func ZoneSoaRecordPtr(v *ZoneSoaRecordArgs) ZoneSoaRecordPtrInput {
+	return (*zoneSoaRecordPtrType)(v)
+}
+
+func (*zoneSoaRecordPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ZoneSoaRecord)(nil)).Elem()
+}
+
+func (i *zoneSoaRecordPtrType) ToZoneSoaRecordPtrOutput() ZoneSoaRecordPtrOutput {
+	return i.ToZoneSoaRecordPtrOutputWithContext(context.Background())
+}
+
+func (i *zoneSoaRecordPtrType) ToZoneSoaRecordPtrOutputWithContext(ctx context.Context) ZoneSoaRecordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZoneSoaRecordPtrOutput)
+}
+
+type ZoneSoaRecordOutput struct{ *pulumi.OutputState }
+
+func (ZoneSoaRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZoneSoaRecord)(nil)).Elem()
+}
+
+func (o ZoneSoaRecordOutput) ToZoneSoaRecordOutput() ZoneSoaRecordOutput {
+	return o
+}
+
+func (o ZoneSoaRecordOutput) ToZoneSoaRecordOutputWithContext(ctx context.Context) ZoneSoaRecordOutput {
+	return o
+}
+
+func (o ZoneSoaRecordOutput) ToZoneSoaRecordPtrOutput() ZoneSoaRecordPtrOutput {
+	return o.ToZoneSoaRecordPtrOutputWithContext(context.Background())
+}
+
+func (o ZoneSoaRecordOutput) ToZoneSoaRecordPtrOutputWithContext(ctx context.Context) ZoneSoaRecordPtrOutput {
+	return o.ApplyT(func(v ZoneSoaRecord) *ZoneSoaRecord {
+		return &v
+	}).(ZoneSoaRecordPtrOutput)
+}
+
+// The email contact for the SOA record.
+func (o ZoneSoaRecordOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v ZoneSoaRecord) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// The expire time for the SOA record. Defaults to `2419200`.
+func (o ZoneSoaRecordOutput) ExpireTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ZoneSoaRecord) *int { return v.ExpireTime }).(pulumi.IntPtrOutput)
+}
+
+// The fully qualified domain name of the Record Set.
+func (o ZoneSoaRecordOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ZoneSoaRecord) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
+}
+
+// The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+func (o ZoneSoaRecordOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v ZoneSoaRecord) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
+func (o ZoneSoaRecordOutput) MinimumTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ZoneSoaRecord) *int { return v.MinimumTtl }).(pulumi.IntPtrOutput)
+}
+
+// The refresh time for the SOA record. Defaults to `3600`.
+func (o ZoneSoaRecordOutput) RefreshTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ZoneSoaRecord) *int { return v.RefreshTime }).(pulumi.IntPtrOutput)
+}
+
+// The retry time for the SOA record. Defaults to `300`.
+func (o ZoneSoaRecordOutput) RetryTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ZoneSoaRecord) *int { return v.RetryTime }).(pulumi.IntPtrOutput)
+}
+
+// The serial number for the SOA record. Defaults to `1`.
+func (o ZoneSoaRecordOutput) SerialNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ZoneSoaRecord) *int { return v.SerialNumber }).(pulumi.IntPtrOutput)
+}
+
+// A mapping of tags to assign to the Record Set.
+func (o ZoneSoaRecordOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ZoneSoaRecord) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The Time To Live of the SOA Record in seconds. Defaults to `3600`.
+func (o ZoneSoaRecordOutput) Ttl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ZoneSoaRecord) *int { return v.Ttl }).(pulumi.IntPtrOutput)
+}
+
+type ZoneSoaRecordPtrOutput struct{ *pulumi.OutputState }
+
+func (ZoneSoaRecordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ZoneSoaRecord)(nil)).Elem()
+}
+
+func (o ZoneSoaRecordPtrOutput) ToZoneSoaRecordPtrOutput() ZoneSoaRecordPtrOutput {
+	return o
+}
+
+func (o ZoneSoaRecordPtrOutput) ToZoneSoaRecordPtrOutputWithContext(ctx context.Context) ZoneSoaRecordPtrOutput {
+	return o
+}
+
+func (o ZoneSoaRecordPtrOutput) Elem() ZoneSoaRecordOutput {
+	return o.ApplyT(func(v *ZoneSoaRecord) ZoneSoaRecord { return *v }).(ZoneSoaRecordOutput)
+}
+
+// The email contact for the SOA record.
+func (o ZoneSoaRecordPtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ZoneSoaRecord) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// The expire time for the SOA record. Defaults to `2419200`.
+func (o ZoneSoaRecordPtrOutput) ExpireTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ZoneSoaRecord) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExpireTime
+	}).(pulumi.IntPtrOutput)
+}
+
+// The fully qualified domain name of the Record Set.
+func (o ZoneSoaRecordPtrOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ZoneSoaRecord) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Fqdn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+func (o ZoneSoaRecordPtrOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ZoneSoaRecord) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HostName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
+func (o ZoneSoaRecordPtrOutput) MinimumTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ZoneSoaRecord) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumTtl
+	}).(pulumi.IntPtrOutput)
+}
+
+// The refresh time for the SOA record. Defaults to `3600`.
+func (o ZoneSoaRecordPtrOutput) RefreshTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ZoneSoaRecord) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshTime
+	}).(pulumi.IntPtrOutput)
+}
+
+// The retry time for the SOA record. Defaults to `300`.
+func (o ZoneSoaRecordPtrOutput) RetryTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ZoneSoaRecord) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetryTime
+	}).(pulumi.IntPtrOutput)
+}
+
+// The serial number for the SOA record. Defaults to `1`.
+func (o ZoneSoaRecordPtrOutput) SerialNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ZoneSoaRecord) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SerialNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// A mapping of tags to assign to the Record Set.
+func (o ZoneSoaRecordPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ZoneSoaRecord) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// The Time To Live of the SOA Record in seconds. Defaults to `3600`.
+func (o ZoneSoaRecordPtrOutput) Ttl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ZoneSoaRecord) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Ttl
+	}).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CaaRecordRecordOutput{})
 	pulumi.RegisterOutputType(CaaRecordRecordArrayOutput{})
@@ -461,4 +763,6 @@ func init() {
 	pulumi.RegisterOutputType(SrvRecordRecordArrayOutput{})
 	pulumi.RegisterOutputType(TxtRecordRecordOutput{})
 	pulumi.RegisterOutputType(TxtRecordRecordArrayOutput{})
+	pulumi.RegisterOutputType(ZoneSoaRecordOutput{})
+	pulumi.RegisterOutputType(ZoneSoaRecordPtrOutput{})
 }

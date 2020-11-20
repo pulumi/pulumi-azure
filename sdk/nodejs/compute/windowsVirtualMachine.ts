@@ -139,7 +139,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly customData!: pulumi.Output<string | undefined>;
     /**
-     * The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+     * The ID of a Dedicated Host where this machine should be run on.
      */
     public readonly dedicatedHostId!: pulumi.Output<string | undefined>;
     /**
@@ -154,6 +154,10 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+     */
+    public readonly extensionsTimeBudget!: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
@@ -182,6 +186,10 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      * A `osDisk` block as defined below.
      */
     public readonly osDisk!: pulumi.Output<outputs.compute.WindowsVirtualMachineOsDisk>;
+    /**
+     * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
+     */
+    public readonly patchMode!: pulumi.Output<string | undefined>;
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
@@ -284,6 +292,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             inputs["enableAutomaticUpdates"] = state ? state.enableAutomaticUpdates : undefined;
             inputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
             inputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
+            inputs["extensionsTimeBudget"] = state ? state.extensionsTimeBudget : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["licenseType"] = state ? state.licenseType : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -291,6 +300,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
             inputs["osDisk"] = state ? state.osDisk : undefined;
+            inputs["patchMode"] = state ? state.patchMode : undefined;
             inputs["plan"] = state ? state.plan : undefined;
             inputs["priority"] = state ? state.priority : undefined;
             inputs["privateIpAddress"] = state ? state.privateIpAddress : undefined;
@@ -343,6 +353,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             inputs["enableAutomaticUpdates"] = args ? args.enableAutomaticUpdates : undefined;
             inputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
             inputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
+            inputs["extensionsTimeBudget"] = args ? args.extensionsTimeBudget : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["licenseType"] = args ? args.licenseType : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -350,6 +361,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["networkInterfaceIds"] = args ? args.networkInterfaceIds : undefined;
             inputs["osDisk"] = args ? args.osDisk : undefined;
+            inputs["patchMode"] = args ? args.patchMode : undefined;
             inputs["plan"] = args ? args.plan : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["provisionVmAgent"] = args ? args.provisionVmAgent : undefined;
@@ -422,7 +434,7 @@ export interface WindowsVirtualMachineState {
      */
     readonly customData?: pulumi.Input<string>;
     /**
-     * The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+     * The ID of a Dedicated Host where this machine should be run on.
      */
     readonly dedicatedHostId?: pulumi.Input<string>;
     /**
@@ -437,6 +449,10 @@ export interface WindowsVirtualMachineState {
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
      */
     readonly evictionPolicy?: pulumi.Input<string>;
+    /**
+     * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+     */
+    readonly extensionsTimeBudget?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */
@@ -465,6 +481,10 @@ export interface WindowsVirtualMachineState {
      * A `osDisk` block as defined below.
      */
     readonly osDisk?: pulumi.Input<inputs.compute.WindowsVirtualMachineOsDisk>;
+    /**
+     * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
+     */
+    readonly patchMode?: pulumi.Input<string>;
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
@@ -584,7 +604,7 @@ export interface WindowsVirtualMachineArgs {
      */
     readonly customData?: pulumi.Input<string>;
     /**
-     * The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+     * The ID of a Dedicated Host where this machine should be run on.
      */
     readonly dedicatedHostId?: pulumi.Input<string>;
     /**
@@ -599,6 +619,10 @@ export interface WindowsVirtualMachineArgs {
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
      */
     readonly evictionPolicy?: pulumi.Input<string>;
+    /**
+     * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+     */
+    readonly extensionsTimeBudget?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */
@@ -627,6 +651,10 @@ export interface WindowsVirtualMachineArgs {
      * A `osDisk` block as defined below.
      */
     readonly osDisk: pulumi.Input<inputs.compute.WindowsVirtualMachineOsDisk>;
+    /**
+     * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
+     */
+    readonly patchMode?: pulumi.Input<string>;
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      */

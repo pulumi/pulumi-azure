@@ -72,6 +72,50 @@ namespace Pulumi.Azure.ApiManagement
     ///             ApiManagementName = exampleService.Name,
     ///             ApiName = exampleApi.Name,
     ///             ApiManagementLoggerId = exampleLogger.Id,
+    ///             AlwaysLogErrors = true,
+    ///             LogClientIp = true,
+    ///             Verbosity = "Verbose",
+    ///             HttpCorrelationProtocol = "W3C",
+    ///             FrontendRequest = new Azure.ApiManagement.Inputs.ApiDiagnosticFrontendRequestArgs
+    ///             {
+    ///                 BodyBytes = 32,
+    ///                 HeadersToLogs = 
+    ///                 {
+    ///                     "content-type",
+    ///                     "accept",
+    ///                     "origin",
+    ///                 },
+    ///             },
+    ///             FrontendResponse = new Azure.ApiManagement.Inputs.ApiDiagnosticFrontendResponseArgs
+    ///             {
+    ///                 BodyBytes = 32,
+    ///                 HeadersToLogs = 
+    ///                 {
+    ///                     "content-type",
+    ///                     "content-length",
+    ///                     "origin",
+    ///                 },
+    ///             },
+    ///             BackendRequest = new Azure.ApiManagement.Inputs.ApiDiagnosticBackendRequestArgs
+    ///             {
+    ///                 BodyBytes = 32,
+    ///                 HeadersToLogs = 
+    ///                 {
+    ///                     "content-type",
+    ///                     "accept",
+    ///                     "origin",
+    ///                 },
+    ///             },
+    ///             BackendResponse = new Azure.ApiManagement.Inputs.ApiDiagnosticBackendResponseArgs
+    ///             {
+    ///                 BodyBytes = 32,
+    ///                 HeadersToLogs = 
+    ///                 {
+    ///                     "content-type",
+    ///                     "content-length",
+    ///                     "origin",
+    ///                 },
+    ///             },
     ///         });
     ///     }
     /// 
@@ -88,6 +132,12 @@ namespace Pulumi.Azure.ApiManagement
     /// </summary>
     public partial class ApiDiagnostic : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
+        /// </summary>
+        [Output("alwaysLogErrors")]
+        public Output<bool> AlwaysLogErrors { get; private set; } = null!;
+
         /// <summary>
         /// The ID (name) of the Diagnostics Logger.
         /// </summary>
@@ -107,16 +157,58 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiName { get; private set; } = null!;
 
         /// <summary>
+        /// A `backend_request` block as defined below.
+        /// </summary>
+        [Output("backendRequest")]
+        public Output<Outputs.ApiDiagnosticBackendRequest> BackendRequest { get; private set; } = null!;
+
+        /// <summary>
+        /// A `backend_response` block as defined below.
+        /// </summary>
+        [Output("backendResponse")]
+        public Output<Outputs.ApiDiagnosticBackendResponse> BackendResponse { get; private set; } = null!;
+
+        /// <summary>
+        /// A `frontend_request` block as defined below.
+        /// </summary>
+        [Output("frontendRequest")]
+        public Output<Outputs.ApiDiagnosticFrontendRequest> FrontendRequest { get; private set; } = null!;
+
+        /// <summary>
+        /// A `frontend_response` block as defined below.
+        /// </summary>
+        [Output("frontendResponse")]
+        public Output<Outputs.ApiDiagnosticFrontendResponse> FrontendResponse { get; private set; } = null!;
+
+        /// <summary>
+        /// The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
+        /// </summary>
+        [Output("httpCorrelationProtocol")]
+        public Output<string> HttpCorrelationProtocol { get; private set; } = null!;
+
+        /// <summary>
         /// Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
         /// </summary>
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
 
         /// <summary>
+        /// Log client IP address.
+        /// </summary>
+        [Output("logClientIp")]
+        public Output<bool> LogClientIp { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// Logging verbosity. Possible values are `verbose`, `information` or `error`.
+        /// </summary>
+        [Output("verbosity")]
+        public Output<string> Verbosity { get; private set; } = null!;
 
 
         /// <summary>
@@ -165,6 +257,12 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class ApiDiagnosticArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
+        /// </summary>
+        [Input("alwaysLogErrors")]
+        public Input<bool>? AlwaysLogErrors { get; set; }
+
+        /// <summary>
         /// The ID (name) of the Diagnostics Logger.
         /// </summary>
         [Input("apiManagementLoggerId", required: true)]
@@ -183,16 +281,58 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ApiName { get; set; } = null!;
 
         /// <summary>
+        /// A `backend_request` block as defined below.
+        /// </summary>
+        [Input("backendRequest")]
+        public Input<Inputs.ApiDiagnosticBackendRequestArgs>? BackendRequest { get; set; }
+
+        /// <summary>
+        /// A `backend_response` block as defined below.
+        /// </summary>
+        [Input("backendResponse")]
+        public Input<Inputs.ApiDiagnosticBackendResponseArgs>? BackendResponse { get; set; }
+
+        /// <summary>
+        /// A `frontend_request` block as defined below.
+        /// </summary>
+        [Input("frontendRequest")]
+        public Input<Inputs.ApiDiagnosticFrontendRequestArgs>? FrontendRequest { get; set; }
+
+        /// <summary>
+        /// A `frontend_response` block as defined below.
+        /// </summary>
+        [Input("frontendResponse")]
+        public Input<Inputs.ApiDiagnosticFrontendResponseArgs>? FrontendResponse { get; set; }
+
+        /// <summary>
+        /// The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
+        /// </summary>
+        [Input("httpCorrelationProtocol")]
+        public Input<string>? HttpCorrelationProtocol { get; set; }
+
+        /// <summary>
         /// Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
         /// </summary>
         [Input("identifier", required: true)]
         public Input<string> Identifier { get; set; } = null!;
 
         /// <summary>
+        /// Log client IP address.
+        /// </summary>
+        [Input("logClientIp")]
+        public Input<bool>? LogClientIp { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Logging verbosity. Possible values are `verbose`, `information` or `error`.
+        /// </summary>
+        [Input("verbosity")]
+        public Input<string>? Verbosity { get; set; }
 
         public ApiDiagnosticArgs()
         {
@@ -201,6 +341,12 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiDiagnosticState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
+        /// </summary>
+        [Input("alwaysLogErrors")]
+        public Input<bool>? AlwaysLogErrors { get; set; }
+
         /// <summary>
         /// The ID (name) of the Diagnostics Logger.
         /// </summary>
@@ -220,16 +366,58 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiName { get; set; }
 
         /// <summary>
+        /// A `backend_request` block as defined below.
+        /// </summary>
+        [Input("backendRequest")]
+        public Input<Inputs.ApiDiagnosticBackendRequestGetArgs>? BackendRequest { get; set; }
+
+        /// <summary>
+        /// A `backend_response` block as defined below.
+        /// </summary>
+        [Input("backendResponse")]
+        public Input<Inputs.ApiDiagnosticBackendResponseGetArgs>? BackendResponse { get; set; }
+
+        /// <summary>
+        /// A `frontend_request` block as defined below.
+        /// </summary>
+        [Input("frontendRequest")]
+        public Input<Inputs.ApiDiagnosticFrontendRequestGetArgs>? FrontendRequest { get; set; }
+
+        /// <summary>
+        /// A `frontend_response` block as defined below.
+        /// </summary>
+        [Input("frontendResponse")]
+        public Input<Inputs.ApiDiagnosticFrontendResponseGetArgs>? FrontendResponse { get; set; }
+
+        /// <summary>
+        /// The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
+        /// </summary>
+        [Input("httpCorrelationProtocol")]
+        public Input<string>? HttpCorrelationProtocol { get; set; }
+
+        /// <summary>
         /// Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
         /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
 
         /// <summary>
+        /// Log client IP address.
+        /// </summary>
+        [Input("logClientIp")]
+        public Input<bool>? LogClientIp { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// Logging verbosity. Possible values are `verbose`, `information` or `error`.
+        /// </summary>
+        [Input("verbosity")]
+        public Input<string>? Verbosity { get; set; }
 
         public ApiDiagnosticState()
         {

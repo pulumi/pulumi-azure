@@ -54,17 +54,21 @@ type LookupPolicySetDefinitionArgs struct {
 
 // A collection of values returned by getPolicySetDefinition.
 type LookupPolicySetDefinitionResult struct {
-	// The Description of the Policy Set Definition.
+	// The description of this policy definition group.
 	Description string `pulumi:"description"`
+	// The display name of this policy definition group.
 	DisplayName string `pulumi:"displayName"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                  string  `pulumi:"id"`
 	ManagementGroupName *string `pulumi:"managementGroupName"`
 	// Any Metadata defined in the Policy Set Definition.
 	Metadata string `pulumi:"metadata"`
-	Name     string `pulumi:"name"`
+	// The name of this policy definition group.
+	Name string `pulumi:"name"`
 	// The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
 	Parameters string `pulumi:"parameters"`
+	// One or more `policyDefinitionGroup` blocks as defined below.
+	PolicyDefinitionGroups []GetPolicySetDefinitionPolicyDefinitionGroup `pulumi:"policyDefinitionGroups"`
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences []GetPolicySetDefinitionPolicyDefinitionReference `pulumi:"policyDefinitionReferences"`
 	// The policy definitions contained within the policy set definition.

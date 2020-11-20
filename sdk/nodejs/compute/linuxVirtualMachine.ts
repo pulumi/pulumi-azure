@@ -143,7 +143,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly customData!: pulumi.Output<string | undefined>;
     /**
-     * The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+     * The ID of a Dedicated Host where this machine should be run on.
      */
     public readonly dedicatedHostId!: pulumi.Output<string | undefined>;
     /**
@@ -158,6 +158,10 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+     */
+    public readonly extensionsTimeBudget!: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
@@ -276,6 +280,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["disablePasswordAuthentication"] = state ? state.disablePasswordAuthentication : undefined;
             inputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
             inputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
+            inputs["extensionsTimeBudget"] = state ? state.extensionsTimeBudget : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["maxBidPrice"] = state ? state.maxBidPrice : undefined;
@@ -329,6 +334,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["disablePasswordAuthentication"] = args ? args.disablePasswordAuthentication : undefined;
             inputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
             inputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
+            inputs["extensionsTimeBudget"] = args ? args.extensionsTimeBudget : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maxBidPrice"] = args ? args.maxBidPrice : undefined;
@@ -405,7 +411,7 @@ export interface LinuxVirtualMachineState {
      */
     readonly customData?: pulumi.Input<string>;
     /**
-     * The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+     * The ID of a Dedicated Host where this machine should be run on.
      */
     readonly dedicatedHostId?: pulumi.Input<string>;
     /**
@@ -420,6 +426,10 @@ export interface LinuxVirtualMachineState {
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
      */
     readonly evictionPolicy?: pulumi.Input<string>;
+    /**
+     * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+     */
+    readonly extensionsTimeBudget?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */
@@ -555,7 +565,7 @@ export interface LinuxVirtualMachineArgs {
      */
     readonly customData?: pulumi.Input<string>;
     /**
-     * The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+     * The ID of a Dedicated Host where this machine should be run on.
      */
     readonly dedicatedHostId?: pulumi.Input<string>;
     /**
@@ -570,6 +580,10 @@ export interface LinuxVirtualMachineArgs {
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
      */
     readonly evictionPolicy?: pulumi.Input<string>;
+    /**
+     * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+     */
+    readonly extensionsTimeBudget?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */

@@ -13,6 +13,7 @@ __all__ = [
     'MxRecordRecord',
     'SrvRecordRecord',
     'TxtRecordRecord',
+    'ZoneSoaRecord',
 ]
 
 @pulumi.output_type
@@ -160,6 +161,134 @@ class TxtRecordRecord(dict):
         The value of the record. Max length: 1024 characters
         """
         return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ZoneSoaRecord(dict):
+    def __init__(__self__, *,
+                 email: str,
+                 host_name: str,
+                 expire_time: Optional[int] = None,
+                 fqdn: Optional[str] = None,
+                 minimum_ttl: Optional[int] = None,
+                 refresh_time: Optional[int] = None,
+                 retry_time: Optional[int] = None,
+                 serial_number: Optional[int] = None,
+                 tags: Optional[Mapping[str, str]] = None,
+                 ttl: Optional[int] = None):
+        """
+        :param str email: The email contact for the SOA record.
+        :param str host_name: The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+        :param int expire_time: The expire time for the SOA record. Defaults to `2419200`.
+        :param str fqdn: The fully qualified domain name of the Record Set.
+        :param int minimum_ttl: The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
+        :param int refresh_time: The refresh time for the SOA record. Defaults to `3600`.
+        :param int retry_time: The retry time for the SOA record. Defaults to `300`.
+        :param int serial_number: The serial number for the SOA record. Defaults to `1`.
+        :param Mapping[str, str] tags: A mapping of tags to assign to the Record Set.
+        :param int ttl: The Time To Live of the SOA Record in seconds. Defaults to `3600`.
+        """
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "host_name", host_name)
+        if expire_time is not None:
+            pulumi.set(__self__, "expire_time", expire_time)
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if minimum_ttl is not None:
+            pulumi.set(__self__, "minimum_ttl", minimum_ttl)
+        if refresh_time is not None:
+            pulumi.set(__self__, "refresh_time", refresh_time)
+        if retry_time is not None:
+            pulumi.set(__self__, "retry_time", retry_time)
+        if serial_number is not None:
+            pulumi.set(__self__, "serial_number", serial_number)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if ttl is not None:
+            pulumi.set(__self__, "ttl", ttl)
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
+        """
+        The email contact for the SOA record.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> str:
+        """
+        The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+        """
+        return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter(name="expireTime")
+    def expire_time(self) -> Optional[int]:
+        """
+        The expire time for the SOA record. Defaults to `2419200`.
+        """
+        return pulumi.get(self, "expire_time")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[str]:
+        """
+        The fully qualified domain name of the Record Set.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="minimumTtl")
+    def minimum_ttl(self) -> Optional[int]:
+        """
+        The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
+        """
+        return pulumi.get(self, "minimum_ttl")
+
+    @property
+    @pulumi.getter(name="refreshTime")
+    def refresh_time(self) -> Optional[int]:
+        """
+        The refresh time for the SOA record. Defaults to `3600`.
+        """
+        return pulumi.get(self, "refresh_time")
+
+    @property
+    @pulumi.getter(name="retryTime")
+    def retry_time(self) -> Optional[int]:
+        """
+        The retry time for the SOA record. Defaults to `300`.
+        """
+        return pulumi.get(self, "retry_time")
+
+    @property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> Optional[int]:
+        """
+        The serial number for the SOA record. Defaults to `1`.
+        """
+        return pulumi.get(self, "serial_number")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the Record Set.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> Optional[int]:
+        """
+        The Time To Live of the SOA Record in seconds. Defaults to `3600`.
+        """
+        return pulumi.get(self, "ttl")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

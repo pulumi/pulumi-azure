@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterAddonProfileHttpApplicationRoutingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is HTTP Application Routing Enabled? Changing this forces a new resource to be created.
+        /// Is HTTP Application Routing Enabled?
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

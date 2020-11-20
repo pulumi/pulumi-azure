@@ -929,6 +929,8 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
                  storage_account_type: pulumi.Input[str],
                  create_option: Optional[pulumi.Input[str]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 disk_iops_read_write: Optional[pulumi.Input[int]] = None,
+                 disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] caching: The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
@@ -937,6 +939,8 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
         :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
         :param pulumi.Input[str] create_option: The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+        :param pulumi.Input[int] disk_iops_read_write: Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+        :param pulumi.Input[int] disk_mbps_read_write: Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
         :param pulumi.Input[bool] write_accelerator_enabled: Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
         """
         pulumi.set(__self__, "caching", caching)
@@ -947,6 +951,10 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
             pulumi.set(__self__, "create_option", create_option)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if disk_iops_read_write is not None:
+            pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
+        if disk_mbps_read_write is not None:
+            pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
         if write_accelerator_enabled is not None:
             pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
 
@@ -1021,6 +1029,30 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
     @disk_encryption_set_id.setter
     def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "disk_encryption_set_id", value)
+
+    @property
+    @pulumi.getter(name="diskIopsReadWrite")
+    def disk_iops_read_write(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+        """
+        return pulumi.get(self, "disk_iops_read_write")
+
+    @disk_iops_read_write.setter
+    def disk_iops_read_write(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_iops_read_write", value)
+
+    @property
+    @pulumi.getter(name="diskMbpsReadWrite")
+    def disk_mbps_read_write(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+        """
+        return pulumi.get(self, "disk_mbps_read_write")
+
+    @disk_mbps_read_write.setter
+    def disk_mbps_read_write(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_mbps_read_write", value)
 
     @property
     @pulumi.getter(name="writeAcceleratorEnabled")
@@ -5412,6 +5444,8 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
                  storage_account_type: pulumi.Input[str],
                  create_option: Optional[pulumi.Input[str]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 disk_iops_read_write: Optional[pulumi.Input[int]] = None,
+                 disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] caching: The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
@@ -5420,6 +5454,8 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
         :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
         :param pulumi.Input[str] create_option: The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+        :param pulumi.Input[int] disk_iops_read_write: Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+        :param pulumi.Input[int] disk_mbps_read_write: Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
         :param pulumi.Input[bool] write_accelerator_enabled: Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
         """
         pulumi.set(__self__, "caching", caching)
@@ -5430,6 +5466,10 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
             pulumi.set(__self__, "create_option", create_option)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if disk_iops_read_write is not None:
+            pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
+        if disk_mbps_read_write is not None:
+            pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
         if write_accelerator_enabled is not None:
             pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
 
@@ -5504,6 +5544,30 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
     @disk_encryption_set_id.setter
     def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "disk_encryption_set_id", value)
+
+    @property
+    @pulumi.getter(name="diskIopsReadWrite")
+    def disk_iops_read_write(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+        """
+        return pulumi.get(self, "disk_iops_read_write")
+
+    @disk_iops_read_write.setter
+    def disk_iops_read_write(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_iops_read_write", value)
+
+    @property
+    @pulumi.getter(name="diskMbpsReadWrite")
+    def disk_mbps_read_write(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+        """
+        return pulumi.get(self, "disk_mbps_read_write")
+
+    @disk_mbps_read_write.setter
+    def disk_mbps_read_write(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_mbps_read_write", value)
 
     @property
     @pulumi.getter(name="writeAcceleratorEnabled")

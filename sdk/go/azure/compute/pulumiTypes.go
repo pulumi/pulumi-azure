@@ -2497,6 +2497,10 @@ type LinuxVirtualMachineScaleSetDataDisk struct {
 	CreateOption *string `pulumi:"createOption"`
 	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+	DiskIopsReadWrite *int `pulumi:"diskIopsReadWrite"`
+	// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb int `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
@@ -2525,6 +2529,10 @@ type LinuxVirtualMachineScaleSetDataDiskArgs struct {
 	CreateOption pulumi.StringPtrInput `pulumi:"createOption"`
 	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+	DiskIopsReadWrite pulumi.IntPtrInput `pulumi:"diskIopsReadWrite"`
+	// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+	DiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"diskMbpsReadWrite"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
@@ -2599,6 +2607,16 @@ func (o LinuxVirtualMachineScaleSetDataDiskOutput) CreateOption() pulumi.StringP
 // The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+func (o LinuxVirtualMachineScaleSetDataDiskOutput) DiskIopsReadWrite() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *int { return v.DiskIopsReadWrite }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+func (o LinuxVirtualMachineScaleSetDataDiskOutput) DiskMbpsReadWrite() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *int { return v.DiskMbpsReadWrite }).(pulumi.IntPtrOutput)
 }
 
 // The size of the Data Disk which should be created.
@@ -14061,6 +14079,10 @@ type WindowsVirtualMachineScaleSetDataDisk struct {
 	CreateOption *string `pulumi:"createOption"`
 	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+	DiskIopsReadWrite *int `pulumi:"diskIopsReadWrite"`
+	// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb int `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
@@ -14089,6 +14111,10 @@ type WindowsVirtualMachineScaleSetDataDiskArgs struct {
 	CreateOption pulumi.StringPtrInput `pulumi:"createOption"`
 	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+	DiskIopsReadWrite pulumi.IntPtrInput `pulumi:"diskIopsReadWrite"`
+	// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+	DiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"diskMbpsReadWrite"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
@@ -14163,6 +14189,16 @@ func (o WindowsVirtualMachineScaleSetDataDiskOutput) CreateOption() pulumi.Strin
 // The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+func (o WindowsVirtualMachineScaleSetDataDiskOutput) DiskIopsReadWrite() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *int { return v.DiskIopsReadWrite }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+func (o WindowsVirtualMachineScaleSetDataDiskOutput) DiskMbpsReadWrite() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *int { return v.DiskMbpsReadWrite }).(pulumi.IntPtrOutput)
 }
 
 // The size of the Data Disk which should be created.
