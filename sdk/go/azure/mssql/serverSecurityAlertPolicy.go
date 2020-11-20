@@ -4,6 +4,7 @@
 package mssql
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -72,6 +73,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// MS SQL Server Security Alert Policy can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/acceptanceTestResourceGroup1/providers/Microsoft.Sql/servers/mssqlserver/securityAlertPolicies/Default
 // ```
 type ServerSecurityAlertPolicy struct {
 	pulumi.CustomResourceState
@@ -223,4 +232,43 @@ type ServerSecurityAlertPolicyArgs struct {
 
 func (ServerSecurityAlertPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverSecurityAlertPolicyArgs)(nil)).Elem()
+}
+
+type ServerSecurityAlertPolicyInput interface {
+	pulumi.Input
+
+	ToServerSecurityAlertPolicyOutput() ServerSecurityAlertPolicyOutput
+	ToServerSecurityAlertPolicyOutputWithContext(ctx context.Context) ServerSecurityAlertPolicyOutput
+}
+
+func (ServerSecurityAlertPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerSecurityAlertPolicy)(nil)).Elem()
+}
+
+func (i ServerSecurityAlertPolicy) ToServerSecurityAlertPolicyOutput() ServerSecurityAlertPolicyOutput {
+	return i.ToServerSecurityAlertPolicyOutputWithContext(context.Background())
+}
+
+func (i ServerSecurityAlertPolicy) ToServerSecurityAlertPolicyOutputWithContext(ctx context.Context) ServerSecurityAlertPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerSecurityAlertPolicyOutput)
+}
+
+type ServerSecurityAlertPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerSecurityAlertPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerSecurityAlertPolicyOutput)(nil)).Elem()
+}
+
+func (o ServerSecurityAlertPolicyOutput) ToServerSecurityAlertPolicyOutput() ServerSecurityAlertPolicyOutput {
+	return o
+}
+
+func (o ServerSecurityAlertPolicyOutput) ToServerSecurityAlertPolicyOutputWithContext(ctx context.Context) ServerSecurityAlertPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerSecurityAlertPolicyOutput{})
 }

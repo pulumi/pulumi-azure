@@ -54,6 +54,14 @@ class DatasetSqlServerTable(pulumi.CustomResource):
             linked_service_name=example_linked_service_sql_server.name)
         ```
 
+        ## Import
+
+        Data Factory SQL Server Table Datasets can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset SQL Server Table.

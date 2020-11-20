@@ -42,6 +42,14 @@ import * as utilities from "../utilities";
  *     objectId: current.then(current => current.clientId),
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Kusto Database Principals can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:kusto/databasePrincipal:DatabasePrincipal example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/Role/role1/FQN/some-guid
+ * ```
  */
 export class DatabasePrincipal extends pulumi.CustomResource {
     /**

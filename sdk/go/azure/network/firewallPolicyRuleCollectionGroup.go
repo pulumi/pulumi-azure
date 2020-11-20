@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -131,6 +132,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Firewall Policy Rule Collection Groups can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/firewallPolicies/policy1/ruleCollectionGroups/gruop1
+// ```
 type FirewallPolicyRuleCollectionGroup struct {
 	pulumi.CustomResourceState
 
@@ -248,4 +257,43 @@ type FirewallPolicyRuleCollectionGroupArgs struct {
 
 func (FirewallPolicyRuleCollectionGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallPolicyRuleCollectionGroupArgs)(nil)).Elem()
+}
+
+type FirewallPolicyRuleCollectionGroupInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleCollectionGroupOutput() FirewallPolicyRuleCollectionGroupOutput
+	ToFirewallPolicyRuleCollectionGroupOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupOutput
+}
+
+func (FirewallPolicyRuleCollectionGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleCollectionGroup)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleCollectionGroup) ToFirewallPolicyRuleCollectionGroupOutput() FirewallPolicyRuleCollectionGroupOutput {
+	return i.ToFirewallPolicyRuleCollectionGroupOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleCollectionGroup) ToFirewallPolicyRuleCollectionGroupOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (FirewallPolicyRuleCollectionGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleCollectionGroupOutput)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleCollectionGroupOutput) ToFirewallPolicyRuleCollectionGroupOutput() FirewallPolicyRuleCollectionGroupOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupOutput) ToFirewallPolicyRuleCollectionGroupOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupOutput{})
 }

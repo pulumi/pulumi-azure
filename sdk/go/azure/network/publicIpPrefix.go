@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -45,6 +46,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Public IP Prefixes can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/publicIpPrefix:PublicIpPrefix myPublicIpPrefix /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPFixes/myPublicIpPrefix1
 // ```
 type PublicIpPrefix struct {
 	pulumi.CustomResourceState
@@ -176,4 +185,43 @@ type PublicIpPrefixArgs struct {
 
 func (PublicIpPrefixArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*publicIpPrefixArgs)(nil)).Elem()
+}
+
+type PublicIpPrefixInput interface {
+	pulumi.Input
+
+	ToPublicIpPrefixOutput() PublicIpPrefixOutput
+	ToPublicIpPrefixOutputWithContext(ctx context.Context) PublicIpPrefixOutput
+}
+
+func (PublicIpPrefix) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicIpPrefix)(nil)).Elem()
+}
+
+func (i PublicIpPrefix) ToPublicIpPrefixOutput() PublicIpPrefixOutput {
+	return i.ToPublicIpPrefixOutputWithContext(context.Background())
+}
+
+func (i PublicIpPrefix) ToPublicIpPrefixOutputWithContext(ctx context.Context) PublicIpPrefixOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicIpPrefixOutput)
+}
+
+type PublicIpPrefixOutput struct {
+	*pulumi.OutputState
+}
+
+func (PublicIpPrefixOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicIpPrefixOutput)(nil)).Elem()
+}
+
+func (o PublicIpPrefixOutput) ToPublicIpPrefixOutput() PublicIpPrefixOutput {
+	return o
+}
+
+func (o PublicIpPrefixOutput) ToPublicIpPrefixOutputWithContext(ctx context.Context) PublicIpPrefixOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PublicIpPrefixOutput{})
 }

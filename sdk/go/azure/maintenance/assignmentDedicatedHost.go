@@ -4,6 +4,7 @@
 package maintenance
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -68,6 +69,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Maintenance Assignment can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resGroup1/providers/microsoft.compute/hostGroups/group1/hosts/host1/providers/Microsoft.Maintenance/configurationAssignments/assign1
 // ```
 type AssignmentDedicatedHost struct {
 	pulumi.CustomResourceState
@@ -156,4 +165,43 @@ type AssignmentDedicatedHostArgs struct {
 
 func (AssignmentDedicatedHostArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*assignmentDedicatedHostArgs)(nil)).Elem()
+}
+
+type AssignmentDedicatedHostInput interface {
+	pulumi.Input
+
+	ToAssignmentDedicatedHostOutput() AssignmentDedicatedHostOutput
+	ToAssignmentDedicatedHostOutputWithContext(ctx context.Context) AssignmentDedicatedHostOutput
+}
+
+func (AssignmentDedicatedHost) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentDedicatedHost)(nil)).Elem()
+}
+
+func (i AssignmentDedicatedHost) ToAssignmentDedicatedHostOutput() AssignmentDedicatedHostOutput {
+	return i.ToAssignmentDedicatedHostOutputWithContext(context.Background())
+}
+
+func (i AssignmentDedicatedHost) ToAssignmentDedicatedHostOutputWithContext(ctx context.Context) AssignmentDedicatedHostOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentDedicatedHostOutput)
+}
+
+type AssignmentDedicatedHostOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssignmentDedicatedHostOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentDedicatedHostOutput)(nil)).Elem()
+}
+
+func (o AssignmentDedicatedHostOutput) ToAssignmentDedicatedHostOutput() AssignmentDedicatedHostOutput {
+	return o
+}
+
+func (o AssignmentDedicatedHostOutput) ToAssignmentDedicatedHostOutputWithContext(ctx context.Context) AssignmentDedicatedHostOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AssignmentDedicatedHostOutput{})
 }

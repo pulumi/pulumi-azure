@@ -44,6 +44,14 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             retention_in_days=30)
         ```
 
+        ## Import
+
+        Log Analytics Workspaces can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.

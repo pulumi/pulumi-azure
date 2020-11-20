@@ -339,6 +339,14 @@ namespace Pulumi.Azure.Compute
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Virtual Machine Scale Sets can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:compute/scaleSet:ScaleSet scaleset1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
+    /// ```
     /// </summary>
     public partial class ScaleSet : Pulumi.CustomResource
     {

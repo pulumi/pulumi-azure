@@ -4,6 +4,7 @@
 package appservice
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -36,6 +37,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// App Service Source Control Token's can be imported using the `type`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:appservice/sourceCodeToken:SourceCodeToken example GitHub
 // ```
 type SourceCodeToken struct {
 	pulumi.CustomResourceState
@@ -124,4 +133,43 @@ type SourceCodeTokenArgs struct {
 
 func (SourceCodeTokenArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sourceCodeTokenArgs)(nil)).Elem()
+}
+
+type SourceCodeTokenInput interface {
+	pulumi.Input
+
+	ToSourceCodeTokenOutput() SourceCodeTokenOutput
+	ToSourceCodeTokenOutputWithContext(ctx context.Context) SourceCodeTokenOutput
+}
+
+func (SourceCodeToken) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceCodeToken)(nil)).Elem()
+}
+
+func (i SourceCodeToken) ToSourceCodeTokenOutput() SourceCodeTokenOutput {
+	return i.ToSourceCodeTokenOutputWithContext(context.Background())
+}
+
+func (i SourceCodeToken) ToSourceCodeTokenOutputWithContext(ctx context.Context) SourceCodeTokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceCodeTokenOutput)
+}
+
+type SourceCodeTokenOutput struct {
+	*pulumi.OutputState
+}
+
+func (SourceCodeTokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceCodeTokenOutput)(nil)).Elem()
+}
+
+func (o SourceCodeTokenOutput) ToSourceCodeTokenOutput() SourceCodeTokenOutput {
+	return o
+}
+
+func (o SourceCodeTokenOutput) ToSourceCodeTokenOutputWithContext(ctx context.Context) SourceCodeTokenOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SourceCodeTokenOutput{})
 }

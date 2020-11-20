@@ -52,6 +52,14 @@ class Configuration(pulumi.CustomResource):
             value="600")
         ```
 
+        ## Import
+
+        MariaDB Configurations can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:mariadb/configuration:Configuration interactive_timeout /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMariaDB/servers/server1/configurations/interactive_timeout
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Specifies the name of the MariaDB Configuration, which needs [to be a valid MariaDB configuration name](https://mariadb.com/kb/en/library/server-system-variables/). Changing this forces a new resource to be created.

@@ -4,6 +4,7 @@
 package devtest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -44,6 +45,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Dev Test Labs can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:devtest/lab:Lab lab1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1
 // ```
 type Lab struct {
 	pulumi.CustomResourceState
@@ -185,4 +194,43 @@ type LabArgs struct {
 
 func (LabArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*labArgs)(nil)).Elem()
+}
+
+type LabInput interface {
+	pulumi.Input
+
+	ToLabOutput() LabOutput
+	ToLabOutputWithContext(ctx context.Context) LabOutput
+}
+
+func (Lab) ElementType() reflect.Type {
+	return reflect.TypeOf((*Lab)(nil)).Elem()
+}
+
+func (i Lab) ToLabOutput() LabOutput {
+	return i.ToLabOutputWithContext(context.Background())
+}
+
+func (i Lab) ToLabOutputWithContext(ctx context.Context) LabOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabOutput)
+}
+
+type LabOutput struct {
+	*pulumi.OutputState
+}
+
+func (LabOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabOutput)(nil)).Elem()
+}
+
+func (o LabOutput) ToLabOutput() LabOutput {
+	return o
+}
+
+func (o LabOutput) ToLabOutputWithContext(ctx context.Context) LabOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LabOutput{})
 }

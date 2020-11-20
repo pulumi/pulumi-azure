@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -106,6 +107,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Azure Firewall NAT Rule Collections can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/firewallNatRuleCollection:FirewallNatRuleCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/azureFirewalls/myfirewall/natRuleCollections/mycollection
 // ```
 type FirewallNatRuleCollection struct {
 	pulumi.CustomResourceState
@@ -233,4 +242,43 @@ type FirewallNatRuleCollectionArgs struct {
 
 func (FirewallNatRuleCollectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallNatRuleCollectionArgs)(nil)).Elem()
+}
+
+type FirewallNatRuleCollectionInput interface {
+	pulumi.Input
+
+	ToFirewallNatRuleCollectionOutput() FirewallNatRuleCollectionOutput
+	ToFirewallNatRuleCollectionOutputWithContext(ctx context.Context) FirewallNatRuleCollectionOutput
+}
+
+func (FirewallNatRuleCollection) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallNatRuleCollection)(nil)).Elem()
+}
+
+func (i FirewallNatRuleCollection) ToFirewallNatRuleCollectionOutput() FirewallNatRuleCollectionOutput {
+	return i.ToFirewallNatRuleCollectionOutputWithContext(context.Background())
+}
+
+func (i FirewallNatRuleCollection) ToFirewallNatRuleCollectionOutputWithContext(ctx context.Context) FirewallNatRuleCollectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallNatRuleCollectionOutput)
+}
+
+type FirewallNatRuleCollectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (FirewallNatRuleCollectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallNatRuleCollectionOutput)(nil)).Elem()
+}
+
+func (o FirewallNatRuleCollectionOutput) ToFirewallNatRuleCollectionOutput() FirewallNatRuleCollectionOutput {
+	return o
+}
+
+func (o FirewallNatRuleCollectionOutput) ToFirewallNatRuleCollectionOutputWithContext(ctx context.Context) FirewallNatRuleCollectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FirewallNatRuleCollectionOutput{})
 }

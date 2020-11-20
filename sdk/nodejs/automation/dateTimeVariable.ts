@@ -27,6 +27,14 @@ import * as utilities from "../utilities";
  *     value: "2019-04-24T21:40:54.074Z",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Automation DateTime Variable can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:automation/dateTimeVariable:DateTimeVariable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/tfex-example-rg/providers/Microsoft.Automation/automationAccounts/tfex-example-account/variables/tfex-example-var
+ * ```
  */
 export class DateTimeVariable extends pulumi.CustomResource {
     /**

@@ -4,6 +4,7 @@
 package compute
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -49,6 +50,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// An Orchestrated Virtual Machine Scale Set can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/Microsoft.Compute/virtualMachineScaleSets/scaleset1
 // ```
 type OrchestratedVirtualMachineScaleSet struct {
 	pulumi.CustomResourceState
@@ -193,4 +202,43 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 
 func (OrchestratedVirtualMachineScaleSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*orchestratedVirtualMachineScaleSetArgs)(nil)).Elem()
+}
+
+type OrchestratedVirtualMachineScaleSetInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOutput() OrchestratedVirtualMachineScaleSetOutput
+	ToOrchestratedVirtualMachineScaleSetOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOutput
+}
+
+func (OrchestratedVirtualMachineScaleSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSet)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSet) ToOrchestratedVirtualMachineScaleSetOutput() OrchestratedVirtualMachineScaleSetOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSet) ToOrchestratedVirtualMachineScaleSetOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (OrchestratedVirtualMachineScaleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOutput)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOutput) ToOrchestratedVirtualMachineScaleSetOutput() OrchestratedVirtualMachineScaleSetOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOutput) ToOrchestratedVirtualMachineScaleSetOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOutput{})
 }

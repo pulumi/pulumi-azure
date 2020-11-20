@@ -57,6 +57,14 @@ namespace Pulumi.Azure.Lb
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Load Balancer Probes can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:lb/probe:Probe example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/probes/probe1
+    /// ```
     /// </summary>
     public partial class Probe : Pulumi.CustomResource
     {

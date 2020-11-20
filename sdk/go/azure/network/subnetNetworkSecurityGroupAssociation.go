@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -82,6 +83,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Subnet `<->` Network Security Group Associations can be imported using the `resource id` of the Subnet, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
+// ```
 type SubnetNetworkSecurityGroupAssociation struct {
 	pulumi.CustomResourceState
 
@@ -159,4 +168,43 @@ type SubnetNetworkSecurityGroupAssociationArgs struct {
 
 func (SubnetNetworkSecurityGroupAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetNetworkSecurityGroupAssociationArgs)(nil)).Elem()
+}
+
+type SubnetNetworkSecurityGroupAssociationInput interface {
+	pulumi.Input
+
+	ToSubnetNetworkSecurityGroupAssociationOutput() SubnetNetworkSecurityGroupAssociationOutput
+	ToSubnetNetworkSecurityGroupAssociationOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationOutput
+}
+
+func (SubnetNetworkSecurityGroupAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetNetworkSecurityGroupAssociation)(nil)).Elem()
+}
+
+func (i SubnetNetworkSecurityGroupAssociation) ToSubnetNetworkSecurityGroupAssociationOutput() SubnetNetworkSecurityGroupAssociationOutput {
+	return i.ToSubnetNetworkSecurityGroupAssociationOutputWithContext(context.Background())
+}
+
+func (i SubnetNetworkSecurityGroupAssociation) ToSubnetNetworkSecurityGroupAssociationOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetNetworkSecurityGroupAssociationOutput)
+}
+
+type SubnetNetworkSecurityGroupAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (SubnetNetworkSecurityGroupAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetNetworkSecurityGroupAssociationOutput)(nil)).Elem()
+}
+
+func (o SubnetNetworkSecurityGroupAssociationOutput) ToSubnetNetworkSecurityGroupAssociationOutput() SubnetNetworkSecurityGroupAssociationOutput {
+	return o
+}
+
+func (o SubnetNetworkSecurityGroupAssociationOutput) ToSubnetNetworkSecurityGroupAssociationOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SubnetNetworkSecurityGroupAssociationOutput{})
 }

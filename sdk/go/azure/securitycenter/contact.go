@@ -4,6 +4,7 @@
 package securitycenter
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -38,6 +39,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// The contact can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:securitycenter/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/securityContacts/default1
 // ```
 type Contact struct {
 	pulumi.CustomResourceState
@@ -139,4 +148,43 @@ type ContactArgs struct {
 
 func (ContactArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*contactArgs)(nil)).Elem()
+}
+
+type ContactInput interface {
+	pulumi.Input
+
+	ToContactOutput() ContactOutput
+	ToContactOutputWithContext(ctx context.Context) ContactOutput
+}
+
+func (Contact) ElementType() reflect.Type {
+	return reflect.TypeOf((*Contact)(nil)).Elem()
+}
+
+func (i Contact) ToContactOutput() ContactOutput {
+	return i.ToContactOutputWithContext(context.Background())
+}
+
+func (i Contact) ToContactOutputWithContext(ctx context.Context) ContactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactOutput)
+}
+
+type ContactOutput struct {
+	*pulumi.OutputState
+}
+
+func (ContactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactOutput)(nil)).Elem()
+}
+
+func (o ContactOutput) ToContactOutput() ContactOutput {
+	return o
+}
+
+func (o ContactOutput) ToContactOutputWithContext(ctx context.Context) ContactOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ContactOutput{})
 }

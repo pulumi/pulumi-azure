@@ -42,6 +42,14 @@ class VirtualWan(pulumi.CustomResource):
             location=example_resource_group.location)
         ```
 
+        ## Import
+
+        Virtual WAN can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/virtualWan:VirtualWan example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualWans/testvwan
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_branch_to_branch_traffic: Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
@@ -72,7 +80,7 @@ class VirtualWan(pulumi.CustomResource):
 
             __props__['allow_branch_to_branch_traffic'] = allow_branch_to_branch_traffic
             if allow_vnet_to_vnet_traffic is not None:
-                warnings.warn("this property has been removed from the API and will be removed in version 3.0 of the provider", DeprecationWarning)
+                warnings.warn("""this property has been removed from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
                 pulumi.log.warn("allow_vnet_to_vnet_traffic is deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider")
             __props__['allow_vnet_to_vnet_traffic'] = allow_vnet_to_vnet_traffic
             __props__['disable_vpn_encryption'] = disable_vpn_encryption

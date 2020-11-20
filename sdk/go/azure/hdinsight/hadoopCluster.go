@@ -4,6 +4,7 @@
 package hdinsight
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -93,6 +94,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// HDInsight Hadoop Clusters can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:hdinsight/hadoopCluster:HadoopCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1}
 // ```
 type HadoopCluster struct {
 	pulumi.CustomResourceState
@@ -310,4 +319,43 @@ type HadoopClusterArgs struct {
 
 func (HadoopClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hadoopClusterArgs)(nil)).Elem()
+}
+
+type HadoopClusterInput interface {
+	pulumi.Input
+
+	ToHadoopClusterOutput() HadoopClusterOutput
+	ToHadoopClusterOutputWithContext(ctx context.Context) HadoopClusterOutput
+}
+
+func (HadoopCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopCluster)(nil)).Elem()
+}
+
+func (i HadoopCluster) ToHadoopClusterOutput() HadoopClusterOutput {
+	return i.ToHadoopClusterOutputWithContext(context.Background())
+}
+
+func (i HadoopCluster) ToHadoopClusterOutputWithContext(ctx context.Context) HadoopClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterOutput)
+}
+
+type HadoopClusterOutput struct {
+	*pulumi.OutputState
+}
+
+func (HadoopClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterOutput)(nil)).Elem()
+}
+
+func (o HadoopClusterOutput) ToHadoopClusterOutput() HadoopClusterOutput {
+	return o
+}
+
+func (o HadoopClusterOutput) ToHadoopClusterOutputWithContext(ctx context.Context) HadoopClusterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HadoopClusterOutput{})
 }

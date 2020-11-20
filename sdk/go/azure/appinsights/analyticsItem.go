@@ -4,6 +4,7 @@
 package appinsights
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -52,6 +53,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Application Insights Analytics Items can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:appinsights/analyticsItem:AnalyticsItem example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/components/analyticsItems/11111111-1111-1111-1111-111111111111
+// ```
+//
+//  To find the Analytics Item ID you can query the REST API using the [`az rest` CLI command](https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az-rest), e.g. az rest --method GET --uri "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/components/appinsightstest/analyticsItems?api-version=2015-05-01"
 type AnalyticsItem struct {
 	pulumi.CustomResourceState
 
@@ -193,4 +204,43 @@ type AnalyticsItemArgs struct {
 
 func (AnalyticsItemArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyticsItemArgs)(nil)).Elem()
+}
+
+type AnalyticsItemInput interface {
+	pulumi.Input
+
+	ToAnalyticsItemOutput() AnalyticsItemOutput
+	ToAnalyticsItemOutputWithContext(ctx context.Context) AnalyticsItemOutput
+}
+
+func (AnalyticsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsItem)(nil)).Elem()
+}
+
+func (i AnalyticsItem) ToAnalyticsItemOutput() AnalyticsItemOutput {
+	return i.ToAnalyticsItemOutputWithContext(context.Background())
+}
+
+func (i AnalyticsItem) ToAnalyticsItemOutputWithContext(ctx context.Context) AnalyticsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsItemOutput)
+}
+
+type AnalyticsItemOutput struct {
+	*pulumi.OutputState
+}
+
+func (AnalyticsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsItemOutput)(nil)).Elem()
+}
+
+func (o AnalyticsItemOutput) ToAnalyticsItemOutput() AnalyticsItemOutput {
+	return o
+}
+
+func (o AnalyticsItemOutput) ToAnalyticsItemOutputWithContext(ctx context.Context) AnalyticsItemOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AnalyticsItemOutput{})
 }

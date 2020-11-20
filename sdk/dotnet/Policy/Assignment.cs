@@ -76,6 +76,14 @@ namespace Pulumi.Azure.Policy
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Policy Assignments can be imported using the `policy name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:policy/assignment:Assignment assignment1 /subscriptions/00000000-0000-0000-000000000000/providers/Microsoft.Authorization/policyAssignments/assignment1
+    /// ```
     /// </summary>
     public partial class Assignment : Pulumi.CustomResource
     {

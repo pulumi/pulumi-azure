@@ -4,6 +4,7 @@
 package lb
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -69,6 +70,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Load Balancer Rules can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:lb/rule:Rule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/loadBalancingRules/rule1
 // ```
 type Rule struct {
 	pulumi.CustomResourceState
@@ -282,4 +291,43 @@ type RuleArgs struct {
 
 func (RuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleArgs)(nil)).Elem()
+}
+
+type RuleInput interface {
+	pulumi.Input
+
+	ToRuleOutput() RuleOutput
+	ToRuleOutputWithContext(ctx context.Context) RuleOutput
+}
+
+func (Rule) ElementType() reflect.Type {
+	return reflect.TypeOf((*Rule)(nil)).Elem()
+}
+
+func (i Rule) ToRuleOutput() RuleOutput {
+	return i.ToRuleOutputWithContext(context.Background())
+}
+
+func (i Rule) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleOutput)
+}
+
+type RuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (RuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleOutput)(nil)).Elem()
+}
+
+func (o RuleOutput) ToRuleOutput() RuleOutput {
+	return o
+}
+
+func (o RuleOutput) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RuleOutput{})
 }

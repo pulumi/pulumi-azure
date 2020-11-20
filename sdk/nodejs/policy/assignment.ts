@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -60,6 +59,14 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Policy Assignments can be imported using the `policy name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:policy/assignment:Assignment assignment1 /subscriptions/00000000-0000-0000-000000000000/providers/Microsoft.Authorization/policyAssignments/assignment1
  * ```
  */
 export class Assignment extends pulumi.CustomResource {

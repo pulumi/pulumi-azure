@@ -52,6 +52,14 @@ class VpnSite(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        VPN Sites can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/vpnSite:VpnSite example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/vpnSites/site1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_cidrs: Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.

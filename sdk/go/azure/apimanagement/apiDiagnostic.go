@@ -4,6 +4,7 @@
 package apimanagement
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -89,6 +90,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// API Management Service API Diagnostics Logs can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:apimanagement/apiDiagnostic:ApiDiagnostic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/diagnostics/diagnostic1/loggers/logger1
 // ```
 type ApiDiagnostic struct {
 	pulumi.CustomResourceState
@@ -206,4 +215,43 @@ type ApiDiagnosticArgs struct {
 
 func (ApiDiagnosticArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiDiagnosticArgs)(nil)).Elem()
+}
+
+type ApiDiagnosticInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticOutput() ApiDiagnosticOutput
+	ToApiDiagnosticOutputWithContext(ctx context.Context) ApiDiagnosticOutput
+}
+
+func (ApiDiagnostic) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnostic)(nil)).Elem()
+}
+
+func (i ApiDiagnostic) ToApiDiagnosticOutput() ApiDiagnosticOutput {
+	return i.ToApiDiagnosticOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnostic) ToApiDiagnosticOutputWithContext(ctx context.Context) ApiDiagnosticOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticOutput)
+}
+
+type ApiDiagnosticOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiDiagnosticOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticOutput)(nil)).Elem()
+}
+
+func (o ApiDiagnosticOutput) ToApiDiagnosticOutput() ApiDiagnosticOutput {
+	return o
+}
+
+func (o ApiDiagnosticOutput) ToApiDiagnosticOutputWithContext(ctx context.Context) ApiDiagnosticOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiDiagnosticOutput{})
 }

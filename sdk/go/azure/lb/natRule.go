@@ -4,6 +4,7 @@
 package lb
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -71,6 +72,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Load Balancer NAT Rules can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:lb/natRule:NatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/inboundNatRules/rule1
 // ```
 type NatRule struct {
 	pulumi.CustomResourceState
@@ -247,4 +256,43 @@ type NatRuleArgs struct {
 
 func (NatRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*natRuleArgs)(nil)).Elem()
+}
+
+type NatRuleInput interface {
+	pulumi.Input
+
+	ToNatRuleOutput() NatRuleOutput
+	ToNatRuleOutputWithContext(ctx context.Context) NatRuleOutput
+}
+
+func (NatRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatRule)(nil)).Elem()
+}
+
+func (i NatRule) ToNatRuleOutput() NatRuleOutput {
+	return i.ToNatRuleOutputWithContext(context.Background())
+}
+
+func (i NatRule) ToNatRuleOutputWithContext(ctx context.Context) NatRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatRuleOutput)
+}
+
+type NatRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (NatRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatRuleOutput)(nil)).Elem()
+}
+
+func (o NatRuleOutput) ToNatRuleOutput() NatRuleOutput {
+	return o
+}
+
+func (o NatRuleOutput) ToNatRuleOutputWithContext(ctx context.Context) NatRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NatRuleOutput{})
 }

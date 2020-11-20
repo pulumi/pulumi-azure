@@ -4,6 +4,7 @@
 package storage
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -17,6 +18,14 @@ import (
 // > **NOTE:** Only one `storage.AccountNetworkRules` can be tied to an `storage.Account`. Spurious changes will occur if more than `storage.AccountNetworkRules` is tied to the same `storage.Account`.
 //
 // > **NOTE:** Deleting this resource updates the storage account back to the default values it had when the storage account was created.
+//
+// ## Import
+//
+// Storage Account Network Rules can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:storage/accountNetworkRules:AccountNetworkRules storageAcc1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
+// ```
 type AccountNetworkRules struct {
 	pulumi.CustomResourceState
 
@@ -137,4 +146,43 @@ type AccountNetworkRulesArgs struct {
 
 func (AccountNetworkRulesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountNetworkRulesArgs)(nil)).Elem()
+}
+
+type AccountNetworkRulesInput interface {
+	pulumi.Input
+
+	ToAccountNetworkRulesOutput() AccountNetworkRulesOutput
+	ToAccountNetworkRulesOutputWithContext(ctx context.Context) AccountNetworkRulesOutput
+}
+
+func (AccountNetworkRules) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkRules)(nil)).Elem()
+}
+
+func (i AccountNetworkRules) ToAccountNetworkRulesOutput() AccountNetworkRulesOutput {
+	return i.ToAccountNetworkRulesOutputWithContext(context.Background())
+}
+
+func (i AccountNetworkRules) ToAccountNetworkRulesOutputWithContext(ctx context.Context) AccountNetworkRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesOutput)
+}
+
+type AccountNetworkRulesOutput struct {
+	*pulumi.OutputState
+}
+
+func (AccountNetworkRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkRulesOutput)(nil)).Elem()
+}
+
+func (o AccountNetworkRulesOutput) ToAccountNetworkRulesOutput() AccountNetworkRulesOutput {
+	return o
+}
+
+func (o AccountNetworkRulesOutput) ToAccountNetworkRulesOutputWithContext(ctx context.Context) AccountNetworkRulesOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AccountNetworkRulesOutput{})
 }

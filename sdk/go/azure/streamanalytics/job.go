@@ -4,6 +4,7 @@
 package streamanalytics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -54,6 +55,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Stream Analytics Job's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:streamanalytics/job:Job example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1
 // ```
 type Job struct {
 	pulumi.CustomResourceState
@@ -241,4 +250,43 @@ type JobArgs struct {
 
 func (JobArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobArgs)(nil)).Elem()
+}
+
+type JobInput interface {
+	pulumi.Input
+
+	ToJobOutput() JobOutput
+	ToJobOutputWithContext(ctx context.Context) JobOutput
+}
+
+func (Job) ElementType() reflect.Type {
+	return reflect.TypeOf((*Job)(nil)).Elem()
+}
+
+func (i Job) ToJobOutput() JobOutput {
+	return i.ToJobOutputWithContext(context.Background())
+}
+
+func (i Job) ToJobOutputWithContext(ctx context.Context) JobOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobOutput)
+}
+
+type JobOutput struct {
+	*pulumi.OutputState
+}
+
+func (JobOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobOutput)(nil)).Elem()
+}
+
+func (o JobOutput) ToJobOutput() JobOutput {
+	return o
+}
+
+func (o JobOutput) ToJobOutputWithContext(ctx context.Context) JobOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(JobOutput{})
 }

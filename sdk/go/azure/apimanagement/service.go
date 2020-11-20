@@ -4,6 +4,7 @@
 package apimanagement
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -53,6 +54,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// API Management Services can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:apimanagement/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1
 // ```
 type Service struct {
 	pulumi.CustomResourceState
@@ -355,4 +364,43 @@ type ServiceArgs struct {
 
 func (ServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceArgs)(nil)).Elem()
+}
+
+type ServiceInput interface {
+	pulumi.Input
+
+	ToServiceOutput() ServiceOutput
+	ToServiceOutputWithContext(ctx context.Context) ServiceOutput
+}
+
+func (Service) ElementType() reflect.Type {
+	return reflect.TypeOf((*Service)(nil)).Elem()
+}
+
+func (i Service) ToServiceOutput() ServiceOutput {
+	return i.ToServiceOutputWithContext(context.Background())
+}
+
+func (i Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
+}
+
+type ServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceOutput)(nil)).Elem()
+}
+
+func (o ServiceOutput) ToServiceOutput() ServiceOutput {
+	return o
+}
+
+func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceOutput{})
 }

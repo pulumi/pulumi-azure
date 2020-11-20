@@ -62,6 +62,14 @@ class ApplicationGroup(pulumi.CustomResource):
             description="Acceptance Test: An application group")
         ```
 
+        ## Import
+
+        Virtual Desktop Application Groups can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:desktopvirtualization/applicationGroup:ApplicationGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/myapplicationgroup
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Option to set a description for the Virtual Desktop Application Group.

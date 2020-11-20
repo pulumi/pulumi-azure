@@ -4,6 +4,7 @@
 package automation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -45,6 +46,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Automation Accounts can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:automation/account:Account account1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1
 // ```
 type Account struct {
 	pulumi.CustomResourceState
@@ -171,4 +180,43 @@ type AccountArgs struct {
 
 func (AccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountArgs)(nil)).Elem()
+}
+
+type AccountInput interface {
+	pulumi.Input
+
+	ToAccountOutput() AccountOutput
+	ToAccountOutputWithContext(ctx context.Context) AccountOutput
+}
+
+func (Account) ElementType() reflect.Type {
+	return reflect.TypeOf((*Account)(nil)).Elem()
+}
+
+func (i Account) ToAccountOutput() AccountOutput {
+	return i.ToAccountOutputWithContext(context.Background())
+}
+
+func (i Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountOutput)
+}
+
+type AccountOutput struct {
+	*pulumi.OutputState
+}
+
+func (AccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountOutput)(nil)).Elem()
+}
+
+func (o AccountOutput) ToAccountOutput() AccountOutput {
+	return o
+}
+
+func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AccountOutput{})
 }

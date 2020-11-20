@@ -47,6 +47,14 @@ namespace Pulumi.Azure.Storage
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Directories within an Azure Storage File Share can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:storage/shareDirectory:ShareDirectory net/share1/directory1
+    /// ```
     /// </summary>
     public partial class ShareDirectory : Pulumi.CustomResource
     {

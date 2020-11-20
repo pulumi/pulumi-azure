@@ -53,6 +53,14 @@ class RouteTable(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        Route Tables can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/routeTable:RouteTable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/routeTables/mytable1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] disable_bgp_route_propagation: Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.

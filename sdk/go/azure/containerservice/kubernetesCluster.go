@@ -4,6 +4,7 @@
 package containerservice
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -59,6 +60,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:containerservice/kubernetesCluster:KubernetesCluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
 // ```
 type KubernetesCluster struct {
 	pulumi.CustomResourceState
@@ -377,4 +386,43 @@ type KubernetesClusterArgs struct {
 
 func (KubernetesClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*kubernetesClusterArgs)(nil)).Elem()
+}
+
+type KubernetesClusterInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterOutput() KubernetesClusterOutput
+	ToKubernetesClusterOutputWithContext(ctx context.Context) KubernetesClusterOutput
+}
+
+func (KubernetesCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesCluster)(nil)).Elem()
+}
+
+func (i KubernetesCluster) ToKubernetesClusterOutput() KubernetesClusterOutput {
+	return i.ToKubernetesClusterOutputWithContext(context.Background())
+}
+
+func (i KubernetesCluster) ToKubernetesClusterOutputWithContext(ctx context.Context) KubernetesClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterOutput)
+}
+
+type KubernetesClusterOutput struct {
+	*pulumi.OutputState
+}
+
+func (KubernetesClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterOutput)(nil)).Elem()
+}
+
+func (o KubernetesClusterOutput) ToKubernetesClusterOutput() KubernetesClusterOutput {
+	return o
+}
+
+func (o KubernetesClusterOutput) ToKubernetesClusterOutputWithContext(ctx context.Context) KubernetesClusterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(KubernetesClusterOutput{})
 }

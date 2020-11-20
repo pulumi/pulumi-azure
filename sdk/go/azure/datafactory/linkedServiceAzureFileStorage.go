@@ -4,6 +4,7 @@
 package datafactory
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -54,6 +55,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Data Factory Linked Service's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:datafactory/linkedServiceAzureFileStorage:LinkedServiceAzureFileStorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
 // ```
 type LinkedServiceAzureFileStorage struct {
 	pulumi.CustomResourceState
@@ -220,4 +229,43 @@ type LinkedServiceAzureFileStorageArgs struct {
 
 func (LinkedServiceAzureFileStorageArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceAzureFileStorageArgs)(nil)).Elem()
+}
+
+type LinkedServiceAzureFileStorageInput interface {
+	pulumi.Input
+
+	ToLinkedServiceAzureFileStorageOutput() LinkedServiceAzureFileStorageOutput
+	ToLinkedServiceAzureFileStorageOutputWithContext(ctx context.Context) LinkedServiceAzureFileStorageOutput
+}
+
+func (LinkedServiceAzureFileStorage) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureFileStorage)(nil)).Elem()
+}
+
+func (i LinkedServiceAzureFileStorage) ToLinkedServiceAzureFileStorageOutput() LinkedServiceAzureFileStorageOutput {
+	return i.ToLinkedServiceAzureFileStorageOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceAzureFileStorage) ToLinkedServiceAzureFileStorageOutputWithContext(ctx context.Context) LinkedServiceAzureFileStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureFileStorageOutput)
+}
+
+type LinkedServiceAzureFileStorageOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkedServiceAzureFileStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureFileStorageOutput)(nil)).Elem()
+}
+
+func (o LinkedServiceAzureFileStorageOutput) ToLinkedServiceAzureFileStorageOutput() LinkedServiceAzureFileStorageOutput {
+	return o
+}
+
+func (o LinkedServiceAzureFileStorageOutput) ToLinkedServiceAzureFileStorageOutputWithContext(ctx context.Context) LinkedServiceAzureFileStorageOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LinkedServiceAzureFileStorageOutput{})
 }

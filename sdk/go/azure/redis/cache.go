@@ -4,6 +4,7 @@
 package redis
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -76,6 +77,14 @@ import (
 //
 //  - [Azure Redis Cache: SKU specific configuration limitations](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#advanced-settings)
 //  - [Redis: Available Configuration Settings](http://redis.io/topics/config)
+//
+// ## Import
+//
+// Redis Cache's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:redis/cache:Cache cache1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/Redis/cache1
+// ```
 type Cache struct {
 	pulumi.CustomResourceState
 
@@ -341,4 +350,43 @@ type CacheArgs struct {
 
 func (CacheArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cacheArgs)(nil)).Elem()
+}
+
+type CacheInput interface {
+	pulumi.Input
+
+	ToCacheOutput() CacheOutput
+	ToCacheOutputWithContext(ctx context.Context) CacheOutput
+}
+
+func (Cache) ElementType() reflect.Type {
+	return reflect.TypeOf((*Cache)(nil)).Elem()
+}
+
+func (i Cache) ToCacheOutput() CacheOutput {
+	return i.ToCacheOutputWithContext(context.Background())
+}
+
+func (i Cache) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheOutput)
+}
+
+type CacheOutput struct {
+	*pulumi.OutputState
+}
+
+func (CacheOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheOutput)(nil)).Elem()
+}
+
+func (o CacheOutput) ToCacheOutput() CacheOutput {
+	return o
+}
+
+func (o CacheOutput) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CacheOutput{})
 }

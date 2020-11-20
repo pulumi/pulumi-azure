@@ -4,6 +4,7 @@
 package storage
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -57,6 +58,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Directories within an Azure Storage File Share can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:storage/shareDirectory:ShareDirectory net/share1/directory1
 // ```
 type ShareDirectory struct {
 	pulumi.CustomResourceState
@@ -155,4 +164,43 @@ type ShareDirectoryArgs struct {
 
 func (ShareDirectoryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*shareDirectoryArgs)(nil)).Elem()
+}
+
+type ShareDirectoryInput interface {
+	pulumi.Input
+
+	ToShareDirectoryOutput() ShareDirectoryOutput
+	ToShareDirectoryOutputWithContext(ctx context.Context) ShareDirectoryOutput
+}
+
+func (ShareDirectory) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareDirectory)(nil)).Elem()
+}
+
+func (i ShareDirectory) ToShareDirectoryOutput() ShareDirectoryOutput {
+	return i.ToShareDirectoryOutputWithContext(context.Background())
+}
+
+func (i ShareDirectory) ToShareDirectoryOutputWithContext(ctx context.Context) ShareDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShareDirectoryOutput)
+}
+
+type ShareDirectoryOutput struct {
+	*pulumi.OutputState
+}
+
+func (ShareDirectoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareDirectoryOutput)(nil)).Elem()
+}
+
+func (o ShareDirectoryOutput) ToShareDirectoryOutput() ShareDirectoryOutput {
+	return o
+}
+
+func (o ShareDirectoryOutput) ToShareDirectoryOutputWithContext(ctx context.Context) ShareDirectoryOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ShareDirectoryOutput{})
 }

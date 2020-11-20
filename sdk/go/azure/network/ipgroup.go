@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -49,6 +50,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// IP Groups can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/iPGroup:IPGroup ipgroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/ipGroups/myIpGroup
 // ```
 type IPGroup struct {
 	pulumi.CustomResourceState
@@ -154,4 +163,43 @@ type IPGroupArgs struct {
 
 func (IPGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipgroupArgs)(nil)).Elem()
+}
+
+type IPGroupInput interface {
+	pulumi.Input
+
+	ToIPGroupOutput() IPGroupOutput
+	ToIPGroupOutputWithContext(ctx context.Context) IPGroupOutput
+}
+
+func (IPGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPGroup)(nil)).Elem()
+}
+
+func (i IPGroup) ToIPGroupOutput() IPGroupOutput {
+	return i.ToIPGroupOutputWithContext(context.Background())
+}
+
+func (i IPGroup) ToIPGroupOutputWithContext(ctx context.Context) IPGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPGroupOutput)
+}
+
+type IPGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (IPGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPGroupOutput)(nil)).Elem()
+}
+
+func (o IPGroupOutput) ToIPGroupOutput() IPGroupOutput {
+	return o
+}
+
+func (o IPGroupOutput) ToIPGroupOutputWithContext(ctx context.Context) IPGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IPGroupOutput{})
 }

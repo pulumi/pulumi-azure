@@ -4,6 +4,7 @@
 package devtest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -115,6 +116,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// An existing Dev Test Global Shutdown Schedule can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-rg/providers/Microsoft.DevTestLab/schedules/shutdown-computevm-SampleVM
+// ```
+//
+//  The name of the resource within the `resource id` will always follow the format `shutdown-computevm-<VM Name>` where `<VM Name>` is replaced by the name of the target Virtual Machine
 type GlobalVMShutdownSchedule struct {
 	pulumi.CustomResourceState
 
@@ -243,4 +254,43 @@ type GlobalVMShutdownScheduleArgs struct {
 
 func (GlobalVMShutdownScheduleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalVMShutdownScheduleArgs)(nil)).Elem()
+}
+
+type GlobalVMShutdownScheduleInput interface {
+	pulumi.Input
+
+	ToGlobalVMShutdownScheduleOutput() GlobalVMShutdownScheduleOutput
+	ToGlobalVMShutdownScheduleOutputWithContext(ctx context.Context) GlobalVMShutdownScheduleOutput
+}
+
+func (GlobalVMShutdownSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalVMShutdownSchedule)(nil)).Elem()
+}
+
+func (i GlobalVMShutdownSchedule) ToGlobalVMShutdownScheduleOutput() GlobalVMShutdownScheduleOutput {
+	return i.ToGlobalVMShutdownScheduleOutputWithContext(context.Background())
+}
+
+func (i GlobalVMShutdownSchedule) ToGlobalVMShutdownScheduleOutputWithContext(ctx context.Context) GlobalVMShutdownScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalVMShutdownScheduleOutput)
+}
+
+type GlobalVMShutdownScheduleOutput struct {
+	*pulumi.OutputState
+}
+
+func (GlobalVMShutdownScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalVMShutdownScheduleOutput)(nil)).Elem()
+}
+
+func (o GlobalVMShutdownScheduleOutput) ToGlobalVMShutdownScheduleOutput() GlobalVMShutdownScheduleOutput {
+	return o
+}
+
+func (o GlobalVMShutdownScheduleOutput) ToGlobalVMShutdownScheduleOutputWithContext(ctx context.Context) GlobalVMShutdownScheduleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GlobalVMShutdownScheduleOutput{})
 }

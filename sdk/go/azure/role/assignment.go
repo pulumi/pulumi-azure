@@ -4,6 +4,7 @@
 package role
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -208,6 +209,16 @@ import (
 // }
 // ```
 //
+// ## Import
+//
+// Role Assignments can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:role/assignment:Assignment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
+// ```
+//
+//  - for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` - for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
+//
 // Deprecated: azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment
 type Assignment struct {
 	pulumi.CustomResourceState
@@ -332,4 +343,43 @@ type AssignmentArgs struct {
 
 func (AssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*assignmentArgs)(nil)).Elem()
+}
+
+type AssignmentInput interface {
+	pulumi.Input
+
+	ToAssignmentOutput() AssignmentOutput
+	ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput
+}
+
+func (Assignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*Assignment)(nil)).Elem()
+}
+
+func (i Assignment) ToAssignmentOutput() AssignmentOutput {
+	return i.ToAssignmentOutputWithContext(context.Background())
+}
+
+func (i Assignment) ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentOutput)
+}
+
+type AssignmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentOutput)(nil)).Elem()
+}
+
+func (o AssignmentOutput) ToAssignmentOutput() AssignmentOutput {
+	return o
+}
+
+func (o AssignmentOutput) ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AssignmentOutput{})
 }

@@ -4,6 +4,7 @@
 package authorization
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -41,6 +42,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// User Assigned Identities can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:authorization/userAssignedIdentity:UserAssignedIdentity exampleIdentity /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/acceptanceTestResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testIdentity
 // ```
 type UserAssignedIdentity struct {
 	pulumi.CustomResourceState
@@ -169,4 +178,43 @@ type UserAssignedIdentityArgs struct {
 
 func (UserAssignedIdentityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userAssignedIdentityArgs)(nil)).Elem()
+}
+
+type UserAssignedIdentityInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityOutput() UserAssignedIdentityOutput
+	ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput
+}
+
+func (UserAssignedIdentity) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentity)(nil)).Elem()
+}
+
+func (i UserAssignedIdentity) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
+	return i.ToUserAssignedIdentityOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentity) ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityOutput)
+}
+
+type UserAssignedIdentityOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserAssignedIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityOutput)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
+	return o
+}
+
+func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserAssignedIdentityOutput{})
 }

@@ -59,6 +59,14 @@ namespace Pulumi.Azure.ServiceFabric
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Service Fabric Mesh Application can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:servicefabric/meshApplication:MeshApplication application1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceFabricMesh/applications/application1
+    /// ```
     /// </summary>
     public partial class MeshApplication : Pulumi.CustomResource
     {

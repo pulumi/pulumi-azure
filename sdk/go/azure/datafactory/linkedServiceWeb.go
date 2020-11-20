@@ -4,6 +4,7 @@
 package datafactory
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -52,6 +53,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Data Factory Linked Service's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:datafactory/linkedServiceWeb:LinkedServiceWeb example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
 // ```
 type LinkedServiceWeb struct {
 	pulumi.CustomResourceState
@@ -226,4 +235,43 @@ type LinkedServiceWebArgs struct {
 
 func (LinkedServiceWebArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceWebArgs)(nil)).Elem()
+}
+
+type LinkedServiceWebInput interface {
+	pulumi.Input
+
+	ToLinkedServiceWebOutput() LinkedServiceWebOutput
+	ToLinkedServiceWebOutputWithContext(ctx context.Context) LinkedServiceWebOutput
+}
+
+func (LinkedServiceWeb) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceWeb)(nil)).Elem()
+}
+
+func (i LinkedServiceWeb) ToLinkedServiceWebOutput() LinkedServiceWebOutput {
+	return i.ToLinkedServiceWebOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceWeb) ToLinkedServiceWebOutputWithContext(ctx context.Context) LinkedServiceWebOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceWebOutput)
+}
+
+type LinkedServiceWebOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkedServiceWebOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceWebOutput)(nil)).Elem()
+}
+
+func (o LinkedServiceWebOutput) ToLinkedServiceWebOutput() LinkedServiceWebOutput {
+	return o
+}
+
+func (o LinkedServiceWebOutput) ToLinkedServiceWebOutputWithContext(ctx context.Context) LinkedServiceWebOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LinkedServiceWebOutput{})
 }

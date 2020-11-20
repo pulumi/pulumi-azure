@@ -35,6 +35,14 @@ namespace Pulumi.Azure.MixedReality
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Spatial Anchors Account can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:mixedreality/spatialAnchorsAccount:SpatialAnchorsAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.MixedReality/spatialAnchorsAccounts/example
+    /// ```
     /// </summary>
     public partial class SpatialAnchorsAccount : Pulumi.CustomResource
     {

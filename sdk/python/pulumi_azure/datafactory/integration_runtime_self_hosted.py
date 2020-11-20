@@ -43,6 +43,14 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
             data_factory_name="example")
         ```
 
+        ## Import
+
+        Data Factories can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:datafactory/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationruntimes/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_factory_name: Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.

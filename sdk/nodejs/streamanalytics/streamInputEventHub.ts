@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -52,6 +51,14 @@ import * as utilities from "../utilities";
  *         encoding: "UTF8",
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Stream Analytics Stream Input EventHub's can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:streamanalytics/streamInputEventHub:StreamInputEventHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/inputs/input1
  * ```
  */
 export class StreamInputEventHub extends pulumi.CustomResource {

@@ -12,11 +12,11 @@ from ._inputs import *
 
 __all__ = ['EventGridTopic']
 
-warnings.warn("azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic", DeprecationWarning)
+warnings.warn("""azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic""", DeprecationWarning)
 
 
 class EventGridTopic(pulumi.CustomResource):
-    warnings.warn("azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic", DeprecationWarning)
+    warnings.warn("""azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -49,6 +49,14 @@ class EventGridTopic(pulumi.CustomResource):
             tags={
                 "environment": "Production",
             })
+        ```
+
+        ## Import
+
+        EventGrid Topic's can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:eventhub/eventGridTopic:EventGridTopic topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1
         ```
 
         :param str resource_name: The name of the resource.

@@ -95,6 +95,14 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        Front Door Custom Https Configurations can be imported using the `resource id` of the Frontend Endpoint, e.g.
+
+        ```sh
+         $ pulumi import azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration example_custom_https_1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/frontdoors/frontdoor1/frontendEndpoints/endpoint1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] custom_https_configuration: A `custom_https_configuration` block as defined below.
@@ -126,7 +134,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'frontend_endpoint_id'")
             __props__['frontend_endpoint_id'] = frontend_endpoint_id
             if resource_group_name is not None:
-                warnings.warn("This field is no longer used and will be removed in the next major version of the Azure Provider", DeprecationWarning)
+                warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
                 pulumi.log.warn("resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider")
             __props__['resource_group_name'] = resource_group_name
         super(CustomHttpsConfiguration, __self__).__init__(

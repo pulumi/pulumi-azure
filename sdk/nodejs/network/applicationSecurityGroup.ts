@@ -22,6 +22,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Application Security Groups can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:network/applicationSecurityGroup:ApplicationSecurityGroup securitygroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/applicationSecurityGroups/securitygroup1
+ * ```
  */
 export class ApplicationSecurityGroup extends pulumi.CustomResource {
     /**

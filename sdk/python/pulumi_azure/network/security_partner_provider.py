@@ -57,6 +57,14 @@ class SecurityPartnerProvider(pulumi.CustomResource):
             opts=ResourceOptions(depends_on=[example_vpn_gateway]))
         ```
 
+        ## Import
+
+        Security Partner Providers can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/securityPartnerProvider:SecurityPartnerProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/securityPartnerProviders/securityPartnerProvider1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The Azure Region where the Security Partner Provider should exist. Changing this forces a new resource to be created.

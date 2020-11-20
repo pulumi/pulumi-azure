@@ -53,6 +53,14 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// API Management Loggers can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:apimanagement/logger:Logger example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/example-rg/Microsoft.ApiManagement/service/example-apim/loggers/example-logger
+    /// ```
     /// </summary>
     public partial class Logger : Pulumi.CustomResource
     {

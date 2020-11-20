@@ -6,6 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Bgp Connection for a Virtual Hub.
+ *
+ * ## Import
+ *
+ * Virtual Hub Bgp Connections can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:network/bgpConnection:BgpConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/virtualHub1/bgpConnections/connection1
+ * ```
  */
 export class BgpConnection extends pulumi.CustomResource {
     /**

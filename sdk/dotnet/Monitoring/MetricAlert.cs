@@ -89,6 +89,14 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Metric Alerts can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:monitoring/metricAlert:MetricAlert main /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/microsoft.insights/metricalerts/example-metricalert
+    /// ```
     /// </summary>
     public partial class MetricAlert : Pulumi.CustomResource
     {

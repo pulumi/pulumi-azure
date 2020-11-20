@@ -66,6 +66,14 @@ class LinkedServer(pulumi.CustomResource):
             server_role="Secondary")
         ```
 
+        ## Import
+
+        Rediss can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:redis/linkedServer:LinkedServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/Redis/cache1/linkedServers/cache2
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] linked_redis_cache_id: The ID of the linked Redis cache. Changing this forces a new Redis to be created.

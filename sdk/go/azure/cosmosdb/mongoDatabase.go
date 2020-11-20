@@ -4,6 +4,7 @@
 package cosmosdb
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -42,6 +43,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Cosmos Mongo Database can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:cosmosdb/mongoDatabase:MongoDatabase db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/mongodbDatabases/db1
 // ```
 type MongoDatabase struct {
 	pulumi.CustomResourceState
@@ -145,4 +154,43 @@ type MongoDatabaseArgs struct {
 
 func (MongoDatabaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mongoDatabaseArgs)(nil)).Elem()
+}
+
+type MongoDatabaseInput interface {
+	pulumi.Input
+
+	ToMongoDatabaseOutput() MongoDatabaseOutput
+	ToMongoDatabaseOutputWithContext(ctx context.Context) MongoDatabaseOutput
+}
+
+func (MongoDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDatabase)(nil)).Elem()
+}
+
+func (i MongoDatabase) ToMongoDatabaseOutput() MongoDatabaseOutput {
+	return i.ToMongoDatabaseOutputWithContext(context.Background())
+}
+
+func (i MongoDatabase) ToMongoDatabaseOutputWithContext(ctx context.Context) MongoDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDatabaseOutput)
+}
+
+type MongoDatabaseOutput struct {
+	*pulumi.OutputState
+}
+
+func (MongoDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDatabaseOutput)(nil)).Elem()
+}
+
+func (o MongoDatabaseOutput) ToMongoDatabaseOutput() MongoDatabaseOutput {
+	return o
+}
+
+func (o MongoDatabaseOutput) ToMongoDatabaseOutputWithContext(ctx context.Context) MongoDatabaseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MongoDatabaseOutput{})
 }

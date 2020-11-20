@@ -42,6 +42,14 @@ class Namespace(pulumi.CustomResource):
             sku_name="Free")
         ```
 
+        ## Import
+
+        Notification Hub Namespaces can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:notificationhub/namespace:Namespace namespace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Is this Notification Hub Namespace enabled? Defaults to `true`.

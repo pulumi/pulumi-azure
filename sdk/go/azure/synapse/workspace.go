@@ -4,6 +4,7 @@
 package synapse
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -70,6 +71,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Synapse Workspace can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:synapse/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1
 // ```
 type Workspace struct {
 	pulumi.CustomResourceState
@@ -242,4 +251,43 @@ type WorkspaceArgs struct {
 
 func (WorkspaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceArgs)(nil)).Elem()
+}
+
+type WorkspaceInput interface {
+	pulumi.Input
+
+	ToWorkspaceOutput() WorkspaceOutput
+	ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceOutput
+}
+
+func (Workspace) ElementType() reflect.Type {
+	return reflect.TypeOf((*Workspace)(nil)).Elem()
+}
+
+func (i Workspace) ToWorkspaceOutput() WorkspaceOutput {
+	return i.ToWorkspaceOutputWithContext(context.Background())
+}
+
+func (i Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceOutput)
+}
+
+type WorkspaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkspaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceOutput)(nil)).Elem()
+}
+
+func (o WorkspaceOutput) ToWorkspaceOutput() WorkspaceOutput {
+	return o
+}
+
+func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkspaceOutput{})
 }

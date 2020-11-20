@@ -55,6 +55,14 @@ namespace Pulumi.Azure.CostManagement
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Cost Management Export for a Resource Group can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:costmanagement/resourceGroupExport:ResourceGroupExport example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.CostManagement/exports/example
+    /// ```
     /// </summary>
     public partial class ResourceGroupExport : Pulumi.CustomResource
     {

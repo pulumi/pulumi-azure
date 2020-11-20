@@ -24,6 +24,14 @@ import * as utilities from "../utilities";
  *     defaultStoreAccountName: exampleStore.name,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Data Lake Analytics Account can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:datalake/analyticsAccount:AnalyticsAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DataLakeAnalytics/accounts/mydatalakeaccount
+ * ```
  */
 export class AnalyticsAccount extends pulumi.CustomResource {
     /**

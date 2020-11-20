@@ -67,6 +67,14 @@ class EndpointEventhub(pulumi.CustomResource):
             connection_string=example_authorization_rule.primary_connection_string)
         ```
 
+        ## Import
+
+        IoTHub EventHub Endpoint can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:iot/endpointEventhub:EndpointEventhub eventhub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Endpoints/eventhub_endpoint1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_string: The connection string for the endpoint.

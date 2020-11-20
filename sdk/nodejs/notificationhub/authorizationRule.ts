@@ -34,6 +34,14 @@ import * as utilities from "../utilities";
  *     listen: true,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Notification Hub Authorization Rule can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:notificationhub/authorizationRule:AuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}/notificationHubs/hub1/AuthorizationRules/rule1
+ * ```
  */
 export class AuthorizationRule extends pulumi.CustomResource {
     /**

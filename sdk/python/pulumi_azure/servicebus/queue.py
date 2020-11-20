@@ -59,6 +59,14 @@ class Queue(pulumi.CustomResource):
             enable_partitioning=True)
         ```
 
+        ## Import
+
+        Service Bus Queue can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:servicebus/queue:Queue example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1/queues/snqueue1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.

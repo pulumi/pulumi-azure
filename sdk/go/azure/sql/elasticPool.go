@@ -4,6 +4,7 @@
 package sql
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -62,6 +63,14 @@ import (
 // ```
 //
 // > **NOTE on `sql.ElasticPool`:** -  The values of `edition`, `dtu`, and `poolSize` must be consistent with the [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). Any inconsistent argument configuration will be rejected.
+//
+// ## Import
+//
+// SQL Elastic Pool's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:sql/elasticPool:ElasticPool pool1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/elasticPools/pool1
+// ```
 type ElasticPool struct {
 	pulumi.CustomResourceState
 
@@ -231,4 +240,43 @@ type ElasticPoolArgs struct {
 
 func (ElasticPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*elasticPoolArgs)(nil)).Elem()
+}
+
+type ElasticPoolInput interface {
+	pulumi.Input
+
+	ToElasticPoolOutput() ElasticPoolOutput
+	ToElasticPoolOutputWithContext(ctx context.Context) ElasticPoolOutput
+}
+
+func (ElasticPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*ElasticPool)(nil)).Elem()
+}
+
+func (i ElasticPool) ToElasticPoolOutput() ElasticPoolOutput {
+	return i.ToElasticPoolOutputWithContext(context.Background())
+}
+
+func (i ElasticPool) ToElasticPoolOutputWithContext(ctx context.Context) ElasticPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolOutput)
+}
+
+type ElasticPoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (ElasticPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ElasticPoolOutput)(nil)).Elem()
+}
+
+func (o ElasticPoolOutput) ToElasticPoolOutput() ElasticPoolOutput {
+	return o
+}
+
+func (o ElasticPoolOutput) ToElasticPoolOutputWithContext(ctx context.Context) ElasticPoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ElasticPoolOutput{})
 }

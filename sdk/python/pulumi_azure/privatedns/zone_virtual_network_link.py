@@ -41,6 +41,14 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
             virtual_network_id=azurerm_virtual_network["example"]["id"])
         ```
 
+        ## Import
+
+        Private DNS Zone Virtual Network Links can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink link1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/zone1.com/virtualNetworkLinks/myVnetLink1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.

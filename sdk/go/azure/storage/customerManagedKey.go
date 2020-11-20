@@ -4,6 +4,7 @@
 package storage
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages a Customer Managed Key for a Storage Account.
+//
+// ## Import
+//
+// Customer Managed Keys for a Storage Account can be imported using the `resource id` of the Storage Account, e.g.
+//
+// ```sh
+//  $ pulumi import azure:storage/customerManagedKey:CustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
+// ```
 type CustomerManagedKey struct {
 	pulumi.CustomResourceState
 
@@ -111,4 +120,43 @@ type CustomerManagedKeyArgs struct {
 
 func (CustomerManagedKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*customerManagedKeyArgs)(nil)).Elem()
+}
+
+type CustomerManagedKeyInput interface {
+	pulumi.Input
+
+	ToCustomerManagedKeyOutput() CustomerManagedKeyOutput
+	ToCustomerManagedKeyOutputWithContext(ctx context.Context) CustomerManagedKeyOutput
+}
+
+func (CustomerManagedKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerManagedKey)(nil)).Elem()
+}
+
+func (i CustomerManagedKey) ToCustomerManagedKeyOutput() CustomerManagedKeyOutput {
+	return i.ToCustomerManagedKeyOutputWithContext(context.Background())
+}
+
+func (i CustomerManagedKey) ToCustomerManagedKeyOutputWithContext(ctx context.Context) CustomerManagedKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedKeyOutput)
+}
+
+type CustomerManagedKeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (CustomerManagedKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerManagedKeyOutput)(nil)).Elem()
+}
+
+func (o CustomerManagedKeyOutput) ToCustomerManagedKeyOutput() CustomerManagedKeyOutput {
+	return o
+}
+
+func (o CustomerManagedKeyOutput) ToCustomerManagedKeyOutputWithContext(ctx context.Context) CustomerManagedKeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CustomerManagedKeyOutput{})
 }

@@ -60,6 +60,14 @@ class Environment(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        The App Service Environment can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:appservice/environment:Environment myAppServiceEnv /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/hostingEnvironments/myAppServiceEnv
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_user_ip_cidrs: Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
@@ -99,7 +107,7 @@ class Environment(pulumi.CustomResource):
             __props__['subnet_id'] = subnet_id
             __props__['tags'] = tags
             if user_whitelisted_ip_ranges is not None:
-                warnings.warn("this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format", DeprecationWarning)
+                warnings.warn("""this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format""", DeprecationWarning)
                 pulumi.log.warn("user_whitelisted_ip_ranges is deprecated: this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format")
             __props__['user_whitelisted_ip_ranges'] = user_whitelisted_ip_ranges
             __props__['location'] = None

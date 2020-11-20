@@ -14,7 +14,7 @@ __all__ = [
     'get_geographical_location',
 ]
 
-warnings.warn("azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager", DeprecationWarning)
+warnings.warn("""azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager""", DeprecationWarning)
 
 @pulumi.output_type
 class GetGeographicalLocationResult:

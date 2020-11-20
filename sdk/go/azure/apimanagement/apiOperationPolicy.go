@@ -4,6 +4,7 @@
 package apimanagement
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -43,6 +44,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// API Management API Operation Policy can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:apimanagement/apiOperationPolicy:ApiOperationPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/operations/operation1/policies/policy
 // ```
 type ApiOperationPolicy struct {
 	pulumi.CustomResourceState
@@ -162,4 +171,43 @@ type ApiOperationPolicyArgs struct {
 
 func (ApiOperationPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiOperationPolicyArgs)(nil)).Elem()
+}
+
+type ApiOperationPolicyInput interface {
+	pulumi.Input
+
+	ToApiOperationPolicyOutput() ApiOperationPolicyOutput
+	ToApiOperationPolicyOutputWithContext(ctx context.Context) ApiOperationPolicyOutput
+}
+
+func (ApiOperationPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOperationPolicy)(nil)).Elem()
+}
+
+func (i ApiOperationPolicy) ToApiOperationPolicyOutput() ApiOperationPolicyOutput {
+	return i.ToApiOperationPolicyOutputWithContext(context.Background())
+}
+
+func (i ApiOperationPolicy) ToApiOperationPolicyOutputWithContext(ctx context.Context) ApiOperationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationPolicyOutput)
+}
+
+type ApiOperationPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiOperationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOperationPolicyOutput)(nil)).Elem()
+}
+
+func (o ApiOperationPolicyOutput) ToApiOperationPolicyOutput() ApiOperationPolicyOutput {
+	return o
+}
+
+func (o ApiOperationPolicyOutput) ToApiOperationPolicyOutputWithContext(ctx context.Context) ApiOperationPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiOperationPolicyOutput{})
 }

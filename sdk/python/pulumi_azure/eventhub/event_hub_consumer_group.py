@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['EventHubConsumerGroup']
 
-warnings.warn("azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup", DeprecationWarning)
+warnings.warn("""azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup""", DeprecationWarning)
 
 
 class EventHubConsumerGroup(pulumi.CustomResource):
-    warnings.warn("azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup", DeprecationWarning)
+    warnings.warn("""azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -55,6 +55,14 @@ class EventHubConsumerGroup(pulumi.CustomResource):
             eventhub_name=example_event_hub.name,
             resource_group_name=example_resource_group.name,
             user_metadata="some-meta-data")
+        ```
+
+        ## Import
+
+        EventHub Consumer Groups can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup consumerGroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/eventhubs/eventhub1/consumergroups/consumerGroup1
         ```
 
         :param str resource_name: The name of the resource.

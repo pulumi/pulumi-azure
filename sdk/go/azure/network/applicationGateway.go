@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -136,6 +137,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Application Gateway's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/applicationGateway:ApplicationGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/applicationGateways/myGateway1
 // ```
 type ApplicationGateway struct {
 	pulumi.CustomResourceState
@@ -485,4 +494,43 @@ type ApplicationGatewayArgs struct {
 
 func (ApplicationGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationGatewayArgs)(nil)).Elem()
+}
+
+type ApplicationGatewayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayOutput() ApplicationGatewayOutput
+	ToApplicationGatewayOutputWithContext(ctx context.Context) ApplicationGatewayOutput
+}
+
+func (ApplicationGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGateway)(nil)).Elem()
+}
+
+func (i ApplicationGateway) ToApplicationGatewayOutput() ApplicationGatewayOutput {
+	return i.ToApplicationGatewayOutputWithContext(context.Background())
+}
+
+func (i ApplicationGateway) ToApplicationGatewayOutputWithContext(ctx context.Context) ApplicationGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayOutput)
+}
+
+type ApplicationGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayOutput)(nil)).Elem()
+}
+
+func (o ApplicationGatewayOutput) ToApplicationGatewayOutput() ApplicationGatewayOutput {
+	return o
+}
+
+func (o ApplicationGatewayOutput) ToApplicationGatewayOutputWithContext(ctx context.Context) ApplicationGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplicationGatewayOutput{})
 }

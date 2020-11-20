@@ -4,6 +4,7 @@
 package logicapps
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -45,6 +46,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Logic App Integration Accounts can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:logicapps/integrationAccount:IntegrationAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1
 // ```
 type IntegrationAccount struct {
 	pulumi.CustomResourceState
@@ -153,4 +162,43 @@ type IntegrationAccountArgs struct {
 
 func (IntegrationAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountArgs)(nil)).Elem()
+}
+
+type IntegrationAccountInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountOutput() IntegrationAccountOutput
+	ToIntegrationAccountOutputWithContext(ctx context.Context) IntegrationAccountOutput
+}
+
+func (IntegrationAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccount)(nil)).Elem()
+}
+
+func (i IntegrationAccount) ToIntegrationAccountOutput() IntegrationAccountOutput {
+	return i.ToIntegrationAccountOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccount) ToIntegrationAccountOutputWithContext(ctx context.Context) IntegrationAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountOutput)
+}
+
+type IntegrationAccountOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountOutput)(nil)).Elem()
+}
+
+func (o IntegrationAccountOutput) ToIntegrationAccountOutput() IntegrationAccountOutput {
+	return o
+}
+
+func (o IntegrationAccountOutput) ToIntegrationAccountOutputWithContext(ctx context.Context) IntegrationAccountOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IntegrationAccountOutput{})
 }

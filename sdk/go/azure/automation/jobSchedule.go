@@ -4,6 +4,7 @@
 package automation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -42,6 +43,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Automation Job Schedules can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:automation/jobSchedule:JobSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/jobSchedules/10000000-1001-1001-1001-000000000001
 // ```
 type JobSchedule struct {
 	pulumi.CustomResourceState
@@ -171,4 +180,43 @@ type JobScheduleArgs struct {
 
 func (JobScheduleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobScheduleArgs)(nil)).Elem()
+}
+
+type JobScheduleInput interface {
+	pulumi.Input
+
+	ToJobScheduleOutput() JobScheduleOutput
+	ToJobScheduleOutputWithContext(ctx context.Context) JobScheduleOutput
+}
+
+func (JobSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobSchedule)(nil)).Elem()
+}
+
+func (i JobSchedule) ToJobScheduleOutput() JobScheduleOutput {
+	return i.ToJobScheduleOutputWithContext(context.Background())
+}
+
+func (i JobSchedule) ToJobScheduleOutputWithContext(ctx context.Context) JobScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleOutput)
+}
+
+type JobScheduleOutput struct {
+	*pulumi.OutputState
+}
+
+func (JobScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobScheduleOutput)(nil)).Elem()
+}
+
+func (o JobScheduleOutput) ToJobScheduleOutput() JobScheduleOutput {
+	return o
+}
+
+func (o JobScheduleOutput) ToJobScheduleOutputWithContext(ctx context.Context) JobScheduleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(JobScheduleOutput{})
 }

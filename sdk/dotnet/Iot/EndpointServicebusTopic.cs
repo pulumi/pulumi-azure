@@ -73,6 +73,14 @@ namespace Pulumi.Azure.Iot
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// IoTHub ServiceBus Topic Endpoint can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:iot/endpointServicebusTopic:EndpointServicebusTopic servicebus_topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Endpoints/servicebustopic_endpoint1
+    /// ```
     /// </summary>
     public partial class EndpointServicebusTopic : Pulumi.CustomResource
     {

@@ -4,6 +4,7 @@
 package bot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -60,6 +61,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// The Slack Integration for a Bot Channel can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:bot/channelSlack:ChannelSlack example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/channels/SlackChannel
 // ```
 type ChannelSlack struct {
 	pulumi.CustomResourceState
@@ -197,4 +206,43 @@ type ChannelSlackArgs struct {
 
 func (ChannelSlackArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelSlackArgs)(nil)).Elem()
+}
+
+type ChannelSlackInput interface {
+	pulumi.Input
+
+	ToChannelSlackOutput() ChannelSlackOutput
+	ToChannelSlackOutputWithContext(ctx context.Context) ChannelSlackOutput
+}
+
+func (ChannelSlack) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelSlack)(nil)).Elem()
+}
+
+func (i ChannelSlack) ToChannelSlackOutput() ChannelSlackOutput {
+	return i.ToChannelSlackOutputWithContext(context.Background())
+}
+
+func (i ChannelSlack) ToChannelSlackOutputWithContext(ctx context.Context) ChannelSlackOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelSlackOutput)
+}
+
+type ChannelSlackOutput struct {
+	*pulumi.OutputState
+}
+
+func (ChannelSlackOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelSlackOutput)(nil)).Elem()
+}
+
+func (o ChannelSlackOutput) ToChannelSlackOutput() ChannelSlackOutput {
+	return o
+}
+
+func (o ChannelSlackOutput) ToChannelSlackOutputWithContext(ctx context.Context) ChannelSlackOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ChannelSlackOutput{})
 }

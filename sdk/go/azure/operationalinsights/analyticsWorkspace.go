@@ -4,6 +4,7 @@
 package operationalinsights
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -43,6 +44,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Log Analytics Workspaces can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1
 // ```
 type AnalyticsWorkspace struct {
 	pulumi.CustomResourceState
@@ -207,4 +216,43 @@ type AnalyticsWorkspaceArgs struct {
 
 func (AnalyticsWorkspaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyticsWorkspaceArgs)(nil)).Elem()
+}
+
+type AnalyticsWorkspaceInput interface {
+	pulumi.Input
+
+	ToAnalyticsWorkspaceOutput() AnalyticsWorkspaceOutput
+	ToAnalyticsWorkspaceOutputWithContext(ctx context.Context) AnalyticsWorkspaceOutput
+}
+
+func (AnalyticsWorkspace) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsWorkspace)(nil)).Elem()
+}
+
+func (i AnalyticsWorkspace) ToAnalyticsWorkspaceOutput() AnalyticsWorkspaceOutput {
+	return i.ToAnalyticsWorkspaceOutputWithContext(context.Background())
+}
+
+func (i AnalyticsWorkspace) ToAnalyticsWorkspaceOutputWithContext(ctx context.Context) AnalyticsWorkspaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsWorkspaceOutput)
+}
+
+type AnalyticsWorkspaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (AnalyticsWorkspaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsWorkspaceOutput)(nil)).Elem()
+}
+
+func (o AnalyticsWorkspaceOutput) ToAnalyticsWorkspaceOutput() AnalyticsWorkspaceOutput {
+	return o
+}
+
+func (o AnalyticsWorkspaceOutput) ToAnalyticsWorkspaceOutputWithContext(ctx context.Context) AnalyticsWorkspaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AnalyticsWorkspaceOutput{})
 }

@@ -4,6 +4,7 @@
 package iot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -135,6 +136,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// IoTHubs can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:iot/ioTHub:IoTHub hub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1
 // ```
 type IoTHub struct {
 	pulumi.CustomResourceState
@@ -365,4 +374,43 @@ type IoTHubArgs struct {
 
 func (IoTHubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ioTHubArgs)(nil)).Elem()
+}
+
+type IoTHubInput interface {
+	pulumi.Input
+
+	ToIoTHubOutput() IoTHubOutput
+	ToIoTHubOutputWithContext(ctx context.Context) IoTHubOutput
+}
+
+func (IoTHub) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTHub)(nil)).Elem()
+}
+
+func (i IoTHub) ToIoTHubOutput() IoTHubOutput {
+	return i.ToIoTHubOutputWithContext(context.Background())
+}
+
+func (i IoTHub) ToIoTHubOutputWithContext(ctx context.Context) IoTHubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTHubOutput)
+}
+
+type IoTHubOutput struct {
+	*pulumi.OutputState
+}
+
+func (IoTHubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTHubOutput)(nil)).Elem()
+}
+
+func (o IoTHubOutput) ToIoTHubOutput() IoTHubOutput {
+	return o
+}
+
+func (o IoTHubOutput) ToIoTHubOutputWithContext(ctx context.Context) IoTHubOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IoTHubOutput{})
 }

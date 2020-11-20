@@ -4,6 +4,7 @@
 package datafactory
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -61,6 +62,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Data Factory Datasets can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:datafactory/datasetHttp:DatasetHttp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
 // ```
 type DatasetHttp struct {
 	pulumi.CustomResourceState
@@ -252,4 +261,43 @@ type DatasetHttpArgs struct {
 
 func (DatasetHttpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetHttpArgs)(nil)).Elem()
+}
+
+type DatasetHttpInput interface {
+	pulumi.Input
+
+	ToDatasetHttpOutput() DatasetHttpOutput
+	ToDatasetHttpOutputWithContext(ctx context.Context) DatasetHttpOutput
+}
+
+func (DatasetHttp) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetHttp)(nil)).Elem()
+}
+
+func (i DatasetHttp) ToDatasetHttpOutput() DatasetHttpOutput {
+	return i.ToDatasetHttpOutputWithContext(context.Background())
+}
+
+func (i DatasetHttp) ToDatasetHttpOutputWithContext(ctx context.Context) DatasetHttpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetHttpOutput)
+}
+
+type DatasetHttpOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatasetHttpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetHttpOutput)(nil)).Elem()
+}
+
+func (o DatasetHttpOutput) ToDatasetHttpOutput() DatasetHttpOutput {
+	return o
+}
+
+func (o DatasetHttpOutput) ToDatasetHttpOutputWithContext(ctx context.Context) DatasetHttpOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DatasetHttpOutput{})
 }

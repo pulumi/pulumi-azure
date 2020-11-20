@@ -4,6 +4,7 @@
 package monitoring
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages an AlertingAction Scheduled Query Rules resource within Azure Monitor.
+//
+// ## Import
+//
+// Scheduled Query Rule Alerts can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/scheduledQueryRules/myrulename
+// ```
 type ScheduledQueryRulesAlert struct {
 	pulumi.CustomResourceState
 
@@ -228,4 +237,43 @@ type ScheduledQueryRulesAlertArgs struct {
 
 func (ScheduledQueryRulesAlertArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduledQueryRulesAlertArgs)(nil)).Elem()
+}
+
+type ScheduledQueryRulesAlertInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesAlertOutput() ScheduledQueryRulesAlertOutput
+	ToScheduledQueryRulesAlertOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertOutput
+}
+
+func (ScheduledQueryRulesAlert) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesAlert)(nil)).Elem()
+}
+
+func (i ScheduledQueryRulesAlert) ToScheduledQueryRulesAlertOutput() ScheduledQueryRulesAlertOutput {
+	return i.ToScheduledQueryRulesAlertOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRulesAlert) ToScheduledQueryRulesAlertOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertOutput)
+}
+
+type ScheduledQueryRulesAlertOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScheduledQueryRulesAlertOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesAlertOutput)(nil)).Elem()
+}
+
+func (o ScheduledQueryRulesAlertOutput) ToScheduledQueryRulesAlertOutput() ScheduledQueryRulesAlertOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertOutput) ToScheduledQueryRulesAlertOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ScheduledQueryRulesAlertOutput{})
 }

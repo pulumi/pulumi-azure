@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -41,6 +42,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Virtual WAN can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/virtualWan:VirtualWan example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualWans/testvwan
 // ```
 type VirtualWan struct {
 	pulumi.CustomResourceState
@@ -186,4 +195,43 @@ type VirtualWanArgs struct {
 
 func (VirtualWanArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualWanArgs)(nil)).Elem()
+}
+
+type VirtualWanInput interface {
+	pulumi.Input
+
+	ToVirtualWanOutput() VirtualWanOutput
+	ToVirtualWanOutputWithContext(ctx context.Context) VirtualWanOutput
+}
+
+func (VirtualWan) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualWan)(nil)).Elem()
+}
+
+func (i VirtualWan) ToVirtualWanOutput() VirtualWanOutput {
+	return i.ToVirtualWanOutputWithContext(context.Background())
+}
+
+func (i VirtualWan) ToVirtualWanOutputWithContext(ctx context.Context) VirtualWanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualWanOutput)
+}
+
+type VirtualWanOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualWanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualWanOutput)(nil)).Elem()
+}
+
+func (o VirtualWanOutput) ToVirtualWanOutput() VirtualWanOutput {
+	return o
+}
+
+func (o VirtualWanOutput) ToVirtualWanOutputWithContext(ctx context.Context) VirtualWanOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualWanOutput{})
 }

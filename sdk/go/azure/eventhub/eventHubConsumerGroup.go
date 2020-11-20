@@ -4,6 +4,7 @@
 package eventhub
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -64,6 +65,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// EventHub Consumer Groups can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup consumerGroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/eventhubs/eventhub1/consumergroups/consumerGroup1
 // ```
 //
 // Deprecated: azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup
@@ -177,4 +186,43 @@ type EventHubConsumerGroupArgs struct {
 
 func (EventHubConsumerGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventHubConsumerGroupArgs)(nil)).Elem()
+}
+
+type EventHubConsumerGroupInput interface {
+	pulumi.Input
+
+	ToEventHubConsumerGroupOutput() EventHubConsumerGroupOutput
+	ToEventHubConsumerGroupOutputWithContext(ctx context.Context) EventHubConsumerGroupOutput
+}
+
+func (EventHubConsumerGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubConsumerGroup)(nil)).Elem()
+}
+
+func (i EventHubConsumerGroup) ToEventHubConsumerGroupOutput() EventHubConsumerGroupOutput {
+	return i.ToEventHubConsumerGroupOutputWithContext(context.Background())
+}
+
+func (i EventHubConsumerGroup) ToEventHubConsumerGroupOutputWithContext(ctx context.Context) EventHubConsumerGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubConsumerGroupOutput)
+}
+
+type EventHubConsumerGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventHubConsumerGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubConsumerGroupOutput)(nil)).Elem()
+}
+
+func (o EventHubConsumerGroupOutput) ToEventHubConsumerGroupOutput() EventHubConsumerGroupOutput {
+	return o
+}
+
+func (o EventHubConsumerGroupOutput) ToEventHubConsumerGroupOutputWithContext(ctx context.Context) EventHubConsumerGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventHubConsumerGroupOutput{})
 }

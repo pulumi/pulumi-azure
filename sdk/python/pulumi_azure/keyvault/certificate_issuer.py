@@ -51,6 +51,14 @@ class CertificateIssuer(pulumi.CustomResource):
             password="example-password")
         ```
 
+        ## Import
+
+        Key Vault Certificate Issuers can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:keyvault/certificateIssuer:CertificateIssuer example "https://key-vault-name.vault.azure.net/certificates/issuers/example"
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The account number with the third-party Certificate Issuer.

@@ -4,6 +4,7 @@
 package compute
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -118,6 +119,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Virtual Machines can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:compute/virtualMachine:VirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.compute/virtualMachines/machine1
 // ```
 type VirtualMachine struct {
 	pulumi.CustomResourceState
@@ -422,4 +431,43 @@ type VirtualMachineArgs struct {
 
 func (VirtualMachineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualMachineArgs)(nil)).Elem()
+}
+
+type VirtualMachineInput interface {
+	pulumi.Input
+
+	ToVirtualMachineOutput() VirtualMachineOutput
+	ToVirtualMachineOutputWithContext(ctx context.Context) VirtualMachineOutput
+}
+
+func (VirtualMachine) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachine)(nil)).Elem()
+}
+
+func (i VirtualMachine) ToVirtualMachineOutput() VirtualMachineOutput {
+	return i.ToVirtualMachineOutputWithContext(context.Background())
+}
+
+func (i VirtualMachine) ToVirtualMachineOutputWithContext(ctx context.Context) VirtualMachineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOutput)
+}
+
+type VirtualMachineOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualMachineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineOutput)(nil)).Elem()
+}
+
+func (o VirtualMachineOutput) ToVirtualMachineOutput() VirtualMachineOutput {
+	return o
+}
+
+func (o VirtualMachineOutput) ToVirtualMachineOutputWithContext(ctx context.Context) VirtualMachineOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualMachineOutput{})
 }

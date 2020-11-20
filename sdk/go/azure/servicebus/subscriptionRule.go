@@ -4,6 +4,7 @@
 package servicebus
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -142,6 +143,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Service Bus Subscription Rule can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:servicebus/subscriptionRule:SubscriptionRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1/topics/sntopic1/subscriptions/sbsub1/rules/sbrule1
 // ```
 type SubscriptionRule struct {
 	pulumi.CustomResourceState
@@ -305,4 +314,43 @@ type SubscriptionRuleArgs struct {
 
 func (SubscriptionRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionRuleArgs)(nil)).Elem()
+}
+
+type SubscriptionRuleInput interface {
+	pulumi.Input
+
+	ToSubscriptionRuleOutput() SubscriptionRuleOutput
+	ToSubscriptionRuleOutputWithContext(ctx context.Context) SubscriptionRuleOutput
+}
+
+func (SubscriptionRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionRule)(nil)).Elem()
+}
+
+func (i SubscriptionRule) ToSubscriptionRuleOutput() SubscriptionRuleOutput {
+	return i.ToSubscriptionRuleOutputWithContext(context.Background())
+}
+
+func (i SubscriptionRule) ToSubscriptionRuleOutputWithContext(ctx context.Context) SubscriptionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionRuleOutput)
+}
+
+type SubscriptionRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (SubscriptionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionRuleOutput)(nil)).Elem()
+}
+
+func (o SubscriptionRuleOutput) ToSubscriptionRuleOutput() SubscriptionRuleOutput {
+	return o
+}
+
+func (o SubscriptionRuleOutput) ToSubscriptionRuleOutputWithContext(ctx context.Context) SubscriptionRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SubscriptionRuleOutput{})
 }

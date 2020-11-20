@@ -4,6 +4,7 @@
 package logicapps
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -50,6 +51,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Logic App Custom Triggers can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:logicapps/triggerCustom:TriggerCustom custom1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/custom1
 // ```
 type TriggerCustom struct {
 	pulumi.CustomResourceState
@@ -138,4 +147,43 @@ type TriggerCustomArgs struct {
 
 func (TriggerCustomArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*triggerCustomArgs)(nil)).Elem()
+}
+
+type TriggerCustomInput interface {
+	pulumi.Input
+
+	ToTriggerCustomOutput() TriggerCustomOutput
+	ToTriggerCustomOutputWithContext(ctx context.Context) TriggerCustomOutput
+}
+
+func (TriggerCustom) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerCustom)(nil)).Elem()
+}
+
+func (i TriggerCustom) ToTriggerCustomOutput() TriggerCustomOutput {
+	return i.ToTriggerCustomOutputWithContext(context.Background())
+}
+
+func (i TriggerCustom) ToTriggerCustomOutputWithContext(ctx context.Context) TriggerCustomOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerCustomOutput)
+}
+
+type TriggerCustomOutput struct {
+	*pulumi.OutputState
+}
+
+func (TriggerCustomOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerCustomOutput)(nil)).Elem()
+}
+
+func (o TriggerCustomOutput) ToTriggerCustomOutput() TriggerCustomOutput {
+	return o
+}
+
+func (o TriggerCustomOutput) ToTriggerCustomOutputWithContext(ctx context.Context) TriggerCustomOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TriggerCustomOutput{})
 }

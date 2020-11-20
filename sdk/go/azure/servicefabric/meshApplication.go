@@ -4,6 +4,7 @@
 package servicefabric
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -59,6 +60,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Service Fabric Mesh Application can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:servicefabric/meshApplication:MeshApplication application1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceFabricMesh/applications/application1
 // ```
 type MeshApplication struct {
 	pulumi.CustomResourceState
@@ -167,4 +176,43 @@ type MeshApplicationArgs struct {
 
 func (MeshApplicationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*meshApplicationArgs)(nil)).Elem()
+}
+
+type MeshApplicationInput interface {
+	pulumi.Input
+
+	ToMeshApplicationOutput() MeshApplicationOutput
+	ToMeshApplicationOutputWithContext(ctx context.Context) MeshApplicationOutput
+}
+
+func (MeshApplication) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshApplication)(nil)).Elem()
+}
+
+func (i MeshApplication) ToMeshApplicationOutput() MeshApplicationOutput {
+	return i.ToMeshApplicationOutputWithContext(context.Background())
+}
+
+func (i MeshApplication) ToMeshApplicationOutputWithContext(ctx context.Context) MeshApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshApplicationOutput)
+}
+
+type MeshApplicationOutput struct {
+	*pulumi.OutputState
+}
+
+func (MeshApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshApplicationOutput)(nil)).Elem()
+}
+
+func (o MeshApplicationOutput) ToMeshApplicationOutput() MeshApplicationOutput {
+	return o
+}
+
+func (o MeshApplicationOutput) ToMeshApplicationOutputWithContext(ctx context.Context) MeshApplicationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MeshApplicationOutput{})
 }

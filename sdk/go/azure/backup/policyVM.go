@@ -4,6 +4,7 @@
 package backup
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -90,6 +91,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// VM Backup Policies can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:backup/policyVM:PolicyVM policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupPolicies/policy1
 // ```
 type PolicyVM struct {
 	pulumi.CustomResourceState
@@ -261,4 +270,43 @@ type PolicyVMArgs struct {
 
 func (PolicyVMArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyVMArgs)(nil)).Elem()
+}
+
+type PolicyVMInput interface {
+	pulumi.Input
+
+	ToPolicyVMOutput() PolicyVMOutput
+	ToPolicyVMOutputWithContext(ctx context.Context) PolicyVMOutput
+}
+
+func (PolicyVM) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVM)(nil)).Elem()
+}
+
+func (i PolicyVM) ToPolicyVMOutput() PolicyVMOutput {
+	return i.ToPolicyVMOutputWithContext(context.Background())
+}
+
+func (i PolicyVM) ToPolicyVMOutputWithContext(ctx context.Context) PolicyVMOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMOutput)
+}
+
+type PolicyVMOutput struct {
+	*pulumi.OutputState
+}
+
+func (PolicyVMOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMOutput)(nil)).Elem()
+}
+
+func (o PolicyVMOutput) ToPolicyVMOutput() PolicyVMOutput {
+	return o
+}
+
+func (o PolicyVMOutput) ToPolicyVMOutputWithContext(ctx context.Context) PolicyVMOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PolicyVMOutput{})
 }

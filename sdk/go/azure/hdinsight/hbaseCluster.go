@@ -4,6 +4,7 @@
 package hdinsight
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -93,6 +94,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// HDInsight HBase Clusters can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:hdinsight/hBaseCluster:HBaseCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1}
 // ```
 type HBaseCluster struct {
 	pulumi.CustomResourceState
@@ -310,4 +319,43 @@ type HBaseClusterArgs struct {
 
 func (HBaseClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hbaseClusterArgs)(nil)).Elem()
+}
+
+type HBaseClusterInput interface {
+	pulumi.Input
+
+	ToHBaseClusterOutput() HBaseClusterOutput
+	ToHBaseClusterOutputWithContext(ctx context.Context) HBaseClusterOutput
+}
+
+func (HBaseCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseCluster)(nil)).Elem()
+}
+
+func (i HBaseCluster) ToHBaseClusterOutput() HBaseClusterOutput {
+	return i.ToHBaseClusterOutputWithContext(context.Background())
+}
+
+func (i HBaseCluster) ToHBaseClusterOutputWithContext(ctx context.Context) HBaseClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterOutput)
+}
+
+type HBaseClusterOutput struct {
+	*pulumi.OutputState
+}
+
+func (HBaseClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterOutput)(nil)).Elem()
+}
+
+func (o HBaseClusterOutput) ToHBaseClusterOutput() HBaseClusterOutput {
+	return o
+}
+
+func (o HBaseClusterOutput) ToHBaseClusterOutputWithContext(ctx context.Context) HBaseClusterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HBaseClusterOutput{})
 }

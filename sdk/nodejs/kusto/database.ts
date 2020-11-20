@@ -30,6 +30,14 @@ import * as utilities from "../utilities";
  *     softDeletePeriod: "P31D",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Kusto Clusters can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:kusto/database:Database example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1
+ * ```
  */
 export class Database extends pulumi.CustomResource {
     /**

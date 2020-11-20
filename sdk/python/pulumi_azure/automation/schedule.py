@@ -35,6 +35,14 @@ class Schedule(pulumi.CustomResource):
         """
         Manages a Automation Schedule.
 
+        ## Import
+
+        Automation Schedule can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:automation/schedule:Schedule schedule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/schedules/schedule1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.

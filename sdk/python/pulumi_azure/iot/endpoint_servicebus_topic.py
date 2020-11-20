@@ -65,6 +65,14 @@ class EndpointServicebusTopic(pulumi.CustomResource):
             connection_string=example_topic_authorization_rule.primary_connection_string)
         ```
 
+        ## Import
+
+        IoTHub ServiceBus Topic Endpoint can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:iot/endpointServicebusTopic:EndpointServicebusTopic servicebus_topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Endpoints/servicebustopic_endpoint1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_string: The connection string for the endpoint.

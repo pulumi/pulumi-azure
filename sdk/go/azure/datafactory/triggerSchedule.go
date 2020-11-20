@@ -4,6 +4,7 @@
 package datafactory
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -58,6 +59,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Data Factory Schedule Trigger can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:datafactory/triggerSchedule:TriggerSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
 // ```
 type TriggerSchedule struct {
 	pulumi.CustomResourceState
@@ -219,4 +228,43 @@ type TriggerScheduleArgs struct {
 
 func (TriggerScheduleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*triggerScheduleArgs)(nil)).Elem()
+}
+
+type TriggerScheduleInput interface {
+	pulumi.Input
+
+	ToTriggerScheduleOutput() TriggerScheduleOutput
+	ToTriggerScheduleOutputWithContext(ctx context.Context) TriggerScheduleOutput
+}
+
+func (TriggerSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerSchedule)(nil)).Elem()
+}
+
+func (i TriggerSchedule) ToTriggerScheduleOutput() TriggerScheduleOutput {
+	return i.ToTriggerScheduleOutputWithContext(context.Background())
+}
+
+func (i TriggerSchedule) ToTriggerScheduleOutputWithContext(ctx context.Context) TriggerScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerScheduleOutput)
+}
+
+type TriggerScheduleOutput struct {
+	*pulumi.OutputState
+}
+
+func (TriggerScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerScheduleOutput)(nil)).Elem()
+}
+
+func (o TriggerScheduleOutput) ToTriggerScheduleOutput() TriggerScheduleOutput {
+	return o
+}
+
+func (o TriggerScheduleOutput) ToTriggerScheduleOutputWithContext(ctx context.Context) TriggerScheduleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TriggerScheduleOutput{})
 }

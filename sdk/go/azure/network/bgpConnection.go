@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages a Bgp Connection for a Virtual Hub.
+//
+// ## Import
+//
+// Virtual Hub Bgp Connections can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/bgpConnection:BgpConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/virtualHub1/bgpConnections/connection1
+// ```
 type BgpConnection struct {
 	pulumi.CustomResourceState
 
@@ -111,4 +120,43 @@ type BgpConnectionArgs struct {
 
 func (BgpConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bgpConnectionArgs)(nil)).Elem()
+}
+
+type BgpConnectionInput interface {
+	pulumi.Input
+
+	ToBgpConnectionOutput() BgpConnectionOutput
+	ToBgpConnectionOutputWithContext(ctx context.Context) BgpConnectionOutput
+}
+
+func (BgpConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*BgpConnection)(nil)).Elem()
+}
+
+func (i BgpConnection) ToBgpConnectionOutput() BgpConnectionOutput {
+	return i.ToBgpConnectionOutputWithContext(context.Background())
+}
+
+func (i BgpConnection) ToBgpConnectionOutputWithContext(ctx context.Context) BgpConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BgpConnectionOutput)
+}
+
+type BgpConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (BgpConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BgpConnectionOutput)(nil)).Elem()
+}
+
+func (o BgpConnectionOutput) ToBgpConnectionOutput() BgpConnectionOutput {
+	return o
+}
+
+func (o BgpConnectionOutput) ToBgpConnectionOutputWithContext(ctx context.Context) BgpConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BgpConnectionOutput{})
 }

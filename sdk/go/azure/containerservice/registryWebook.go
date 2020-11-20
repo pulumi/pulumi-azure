@@ -4,6 +4,7 @@
 package containerservice
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -60,6 +61,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Container Registry Webhooks can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:containerservice/registryWebook:RegistryWebook example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1/webhooks/mywebhook1
 // ```
 //
 // Deprecated: azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook
@@ -221,4 +230,43 @@ type RegistryWebookArgs struct {
 
 func (RegistryWebookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryWebookArgs)(nil)).Elem()
+}
+
+type RegistryWebookInput interface {
+	pulumi.Input
+
+	ToRegistryWebookOutput() RegistryWebookOutput
+	ToRegistryWebookOutputWithContext(ctx context.Context) RegistryWebookOutput
+}
+
+func (RegistryWebook) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryWebook)(nil)).Elem()
+}
+
+func (i RegistryWebook) ToRegistryWebookOutput() RegistryWebookOutput {
+	return i.ToRegistryWebookOutputWithContext(context.Background())
+}
+
+func (i RegistryWebook) ToRegistryWebookOutputWithContext(ctx context.Context) RegistryWebookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryWebookOutput)
+}
+
+type RegistryWebookOutput struct {
+	*pulumi.OutputState
+}
+
+func (RegistryWebookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryWebookOutput)(nil)).Elem()
+}
+
+func (o RegistryWebookOutput) ToRegistryWebookOutput() RegistryWebookOutput {
+	return o
+}
+
+func (o RegistryWebookOutput) ToRegistryWebookOutputWithContext(ctx context.Context) RegistryWebookOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RegistryWebookOutput{})
 }

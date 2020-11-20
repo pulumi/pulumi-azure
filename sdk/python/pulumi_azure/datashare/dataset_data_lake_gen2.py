@@ -64,6 +64,14 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
             opts=ResourceOptions(depends_on=[example_assignment]))
         ```
 
+        ## Import
+
+        Data Share Data Lake Gen2 Datasets can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:datashare/datasetDataLakeGen2:DatasetDataLakeGen2 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1/dataSets/dataSet1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] file_path: The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folder_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.

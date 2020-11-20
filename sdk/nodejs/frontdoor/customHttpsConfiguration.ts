@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -80,6 +79,14 @@ import * as utilities from "../utilities";
  *         azureKeyVaultCertificateVaultId: vault.then(vault => vault.id),
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Front Door Custom Https Configurations can be imported using the `resource id` of the Frontend Endpoint, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration example_custom_https_1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/frontdoors/frontdoor1/frontendEndpoints/endpoint1
  * ```
  */
 export class CustomHttpsConfiguration extends pulumi.CustomResource {

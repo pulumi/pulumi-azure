@@ -45,6 +45,14 @@ class IotHubDps(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        IoT Device Provisioning Service can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:iot/iotHubDps:IotHubDps example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/provisioningServices/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsLinkedHubArgs']]]] linked_hubs: A `linked_hub` block as defined below.

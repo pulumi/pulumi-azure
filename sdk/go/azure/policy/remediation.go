@@ -4,6 +4,7 @@
 package policy
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -66,6 +67,32 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Policy Remediations can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:policy/remediation:Remediation example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.PolicyInsights/remediations/remediation1
+// ```
+//
+//  or
+//
+// ```sh
+//  $ pulumi import azure:policy/remediation:Remediation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.PolicyInsights/remediations/remediation1
+// ```
+//
+//  or
+//
+// ```sh
+//  $ pulumi import azure:policy/remediation:Remediation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.PolicyInsights/remediations/remediation1
+// ```
+//
+//  or
+//
+// ```sh
+//  $ pulumi import azure:policy/remediation:Remediation example /providers/Microsoft.Management/managementGroups/my-mgmt-group-id/providers/Microsoft.PolicyInsights/remediations/remediation1
 // ```
 type Remediation struct {
 	pulumi.CustomResourceState
@@ -184,4 +211,43 @@ type RemediationArgs struct {
 
 func (RemediationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*remediationArgs)(nil)).Elem()
+}
+
+type RemediationInput interface {
+	pulumi.Input
+
+	ToRemediationOutput() RemediationOutput
+	ToRemediationOutputWithContext(ctx context.Context) RemediationOutput
+}
+
+func (Remediation) ElementType() reflect.Type {
+	return reflect.TypeOf((*Remediation)(nil)).Elem()
+}
+
+func (i Remediation) ToRemediationOutput() RemediationOutput {
+	return i.ToRemediationOutputWithContext(context.Background())
+}
+
+func (i Remediation) ToRemediationOutputWithContext(ctx context.Context) RemediationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationOutput)
+}
+
+type RemediationOutput struct {
+	*pulumi.OutputState
+}
+
+func (RemediationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationOutput)(nil)).Elem()
+}
+
+func (o RemediationOutput) ToRemediationOutput() RemediationOutput {
+	return o
+}
+
+func (o RemediationOutput) ToRemediationOutputWithContext(ctx context.Context) RemediationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RemediationOutput{})
 }

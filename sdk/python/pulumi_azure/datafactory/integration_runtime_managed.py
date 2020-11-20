@@ -53,6 +53,14 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
             node_size="Standard_D8_v3")
         ```
 
+        ## Import
+
+        Data Factory Integration Managed Runtimes can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationruntimes/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCatalogInfoArgs']] catalog_info: A `catalog_info` block as defined below.

@@ -75,6 +75,14 @@ class Key(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        Key Vault Key which is Enabled can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:keyvault/key:Key net/keys/example/fdf067c93bbb4b22bff4d8b7a9a56217
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.

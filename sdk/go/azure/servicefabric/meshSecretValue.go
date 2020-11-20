@@ -4,6 +4,7 @@
 package servicefabric
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -49,6 +50,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Service Fabric Mesh Secret Value can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:servicefabric/meshSecretValue:MeshSecretValue value1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceFabricMesh/secrets/secret1/values/value1
 // ```
 type MeshSecretValue struct {
 	pulumi.CustomResourceState
@@ -157,4 +166,43 @@ type MeshSecretValueArgs struct {
 
 func (MeshSecretValueArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*meshSecretValueArgs)(nil)).Elem()
+}
+
+type MeshSecretValueInput interface {
+	pulumi.Input
+
+	ToMeshSecretValueOutput() MeshSecretValueOutput
+	ToMeshSecretValueOutputWithContext(ctx context.Context) MeshSecretValueOutput
+}
+
+func (MeshSecretValue) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshSecretValue)(nil)).Elem()
+}
+
+func (i MeshSecretValue) ToMeshSecretValueOutput() MeshSecretValueOutput {
+	return i.ToMeshSecretValueOutputWithContext(context.Background())
+}
+
+func (i MeshSecretValue) ToMeshSecretValueOutputWithContext(ctx context.Context) MeshSecretValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshSecretValueOutput)
+}
+
+type MeshSecretValueOutput struct {
+	*pulumi.OutputState
+}
+
+func (MeshSecretValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshSecretValueOutput)(nil)).Elem()
+}
+
+func (o MeshSecretValueOutput) ToMeshSecretValueOutput() MeshSecretValueOutput {
+	return o
+}
+
+func (o MeshSecretValueOutput) ToMeshSecretValueOutputWithContext(ctx context.Context) MeshSecretValueOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MeshSecretValueOutput{})
 }

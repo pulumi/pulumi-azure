@@ -32,6 +32,14 @@ namespace Pulumi.Azure.Marketplace
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Marketplace Agreement can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:marketplace/agreement:Agreement example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.MarketplaceOrdering/agreements/publisher1/offers/offer1/plans/plan1
+    /// ```
     /// </summary>
     public partial class Agreement : Pulumi.CustomResource
     {

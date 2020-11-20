@@ -4,6 +4,7 @@
 package keyvault
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -57,6 +58,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Key Vault Certificate Issuers can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:keyvault/certificateIssuer:CertificateIssuer example "https://key-vault-name.vault.azure.net/certificates/issuers/example"
 // ```
 type CertificateIssuer struct {
 	pulumi.CustomResourceState
@@ -185,4 +194,43 @@ type CertificateIssuerArgs struct {
 
 func (CertificateIssuerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateIssuerArgs)(nil)).Elem()
+}
+
+type CertificateIssuerInput interface {
+	pulumi.Input
+
+	ToCertificateIssuerOutput() CertificateIssuerOutput
+	ToCertificateIssuerOutputWithContext(ctx context.Context) CertificateIssuerOutput
+}
+
+func (CertificateIssuer) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateIssuer)(nil)).Elem()
+}
+
+func (i CertificateIssuer) ToCertificateIssuerOutput() CertificateIssuerOutput {
+	return i.ToCertificateIssuerOutputWithContext(context.Background())
+}
+
+func (i CertificateIssuer) ToCertificateIssuerOutputWithContext(ctx context.Context) CertificateIssuerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateIssuerOutput)
+}
+
+type CertificateIssuerOutput struct {
+	*pulumi.OutputState
+}
+
+func (CertificateIssuerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateIssuerOutput)(nil)).Elem()
+}
+
+func (o CertificateIssuerOutput) ToCertificateIssuerOutput() CertificateIssuerOutput {
+	return o
+}
+
+func (o CertificateIssuerOutput) ToCertificateIssuerOutputWithContext(ctx context.Context) CertificateIssuerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CertificateIssuerOutput{})
 }

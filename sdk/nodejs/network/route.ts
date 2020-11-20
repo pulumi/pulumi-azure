@@ -29,6 +29,14 @@ import * as utilities from "../utilities";
  *     nextHopType: "vnetlocal",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Routes can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:network/route:Route exampleRoute /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/routeTables/mytable1/routes/myroute1
+ * ```
  */
 export class Route extends pulumi.CustomResource {
     /**

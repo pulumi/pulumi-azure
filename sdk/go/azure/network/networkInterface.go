@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -68,6 +69,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Network Interfaces can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/networkInterface:NetworkInterface example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkInterfaces/nic1
 // ```
 type NetworkInterface struct {
 	pulumi.CustomResourceState
@@ -252,4 +261,43 @@ type NetworkInterfaceArgs struct {
 
 func (NetworkInterfaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceArgs)(nil)).Elem()
+}
+
+type NetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceOutput() NetworkInterfaceOutput
+	ToNetworkInterfaceOutputWithContext(ctx context.Context) NetworkInterfaceOutput
+}
+
+func (NetworkInterface) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterface)(nil)).Elem()
+}
+
+func (i NetworkInterface) ToNetworkInterfaceOutput() NetworkInterfaceOutput {
+	return i.ToNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i NetworkInterface) ToNetworkInterfaceOutputWithContext(ctx context.Context) NetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceOutput)
+}
+
+type NetworkInterfaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceOutput)(nil)).Elem()
+}
+
+func (o NetworkInterfaceOutput) ToNetworkInterfaceOutput() NetworkInterfaceOutput {
+	return o
+}
+
+func (o NetworkInterfaceOutput) ToNetworkInterfaceOutputWithContext(ctx context.Context) NetworkInterfaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkInterfaceOutput{})
 }

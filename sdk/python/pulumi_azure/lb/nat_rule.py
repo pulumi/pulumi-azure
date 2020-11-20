@@ -62,6 +62,14 @@ class NatRule(pulumi.CustomResource):
             frontend_ip_configuration_name="PublicIPAddress")
         ```
 
+        ## Import
+
+        Load Balancer NAT Rules can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:lb/natRule:NatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/inboundNatRules/rule1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] backend_port: The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.

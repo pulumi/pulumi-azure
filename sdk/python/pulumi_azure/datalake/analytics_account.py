@@ -43,6 +43,14 @@ class AnalyticsAccount(pulumi.CustomResource):
             default_store_account_name=example_store.name)
         ```
 
+        ## Import
+
+        Data Lake Analytics Account can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:datalake/analyticsAccount:AnalyticsAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DataLakeAnalytics/accounts/mydatalakeaccount
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_store_account_name: Specifies the data lake store to use by default. Changing this forces a new resource to be created.

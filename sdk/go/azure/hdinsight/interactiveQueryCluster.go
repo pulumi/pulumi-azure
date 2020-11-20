@@ -4,6 +4,7 @@
 package hdinsight
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -93,6 +94,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// HDInsight Interactive Query Clusters can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1}
 // ```
 type InteractiveQueryCluster struct {
 	pulumi.CustomResourceState
@@ -310,4 +319,43 @@ type InteractiveQueryClusterArgs struct {
 
 func (InteractiveQueryClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*interactiveQueryClusterArgs)(nil)).Elem()
+}
+
+type InteractiveQueryClusterInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterOutput() InteractiveQueryClusterOutput
+	ToInteractiveQueryClusterOutputWithContext(ctx context.Context) InteractiveQueryClusterOutput
+}
+
+func (InteractiveQueryCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryCluster)(nil)).Elem()
+}
+
+func (i InteractiveQueryCluster) ToInteractiveQueryClusterOutput() InteractiveQueryClusterOutput {
+	return i.ToInteractiveQueryClusterOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryCluster) ToInteractiveQueryClusterOutputWithContext(ctx context.Context) InteractiveQueryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterOutput)
+}
+
+type InteractiveQueryClusterOutput struct {
+	*pulumi.OutputState
+}
+
+func (InteractiveQueryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterOutput)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterOutput) ToInteractiveQueryClusterOutput() InteractiveQueryClusterOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterOutput) ToInteractiveQueryClusterOutputWithContext(ctx context.Context) InteractiveQueryClusterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InteractiveQueryClusterOutput{})
 }

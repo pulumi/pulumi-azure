@@ -100,6 +100,14 @@ class CustomDomain(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        API Management Custom Domains can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:apimanagement/customDomain:CustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_id: The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.

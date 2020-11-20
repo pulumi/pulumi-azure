@@ -4,6 +4,7 @@
 package dashboard
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -65,6 +66,16 @@ import (
 //
 // It is recommended to follow the steps outlined
 // [here](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards-create-programmatically#fetch-the-json-representation-of-the-dashboard) to create a Dashboard in the Portal and extract the relevant JSON to use in this resource. From the extracted JSON, the contents of the `properties: {}` object can used. Variables can be injected as needed - see above example.
+//
+// ## Import
+//
+// Dashboards can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:dashboard/dashboard:Dashboard my-board /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Portal/dashboards/00000000-0000-0000-0000-000000000000
+// ```
+//
+//  Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
 type Dashboard struct {
 	pulumi.CustomResourceState
 
@@ -174,4 +185,43 @@ type DashboardArgs struct {
 
 func (DashboardArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dashboardArgs)(nil)).Elem()
+}
+
+type DashboardInput interface {
+	pulumi.Input
+
+	ToDashboardOutput() DashboardOutput
+	ToDashboardOutputWithContext(ctx context.Context) DashboardOutput
+}
+
+func (Dashboard) ElementType() reflect.Type {
+	return reflect.TypeOf((*Dashboard)(nil)).Elem()
+}
+
+func (i Dashboard) ToDashboardOutput() DashboardOutput {
+	return i.ToDashboardOutputWithContext(context.Background())
+}
+
+func (i Dashboard) ToDashboardOutputWithContext(ctx context.Context) DashboardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardOutput)
+}
+
+type DashboardOutput struct {
+	*pulumi.OutputState
+}
+
+func (DashboardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardOutput)(nil)).Elem()
+}
+
+func (o DashboardOutput) ToDashboardOutput() DashboardOutput {
+	return o
+}
+
+func (o DashboardOutput) ToDashboardOutputWithContext(ctx context.Context) DashboardOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DashboardOutput{})
 }

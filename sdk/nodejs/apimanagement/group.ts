@@ -28,6 +28,14 @@ import * as utilities from "../utilities";
  *     description: "This is an example API management group.",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * API Management Groups can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:apimanagement/group:Group example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/groups/example-apimg
+ * ```
  */
 export class Group extends pulumi.CustomResource {
     /**

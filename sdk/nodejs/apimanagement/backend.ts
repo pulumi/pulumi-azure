@@ -2,12 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Manages a backend within an API Management Service.
+ *
+ * ## Import
+ *
+ * API Management backends can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:apimanagement/backend:Backend example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/backends/backend1
+ * ```
  */
 export class Backend extends pulumi.CustomResource {
     /**

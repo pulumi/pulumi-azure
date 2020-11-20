@@ -4,6 +4,7 @@
 package dns
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -59,6 +60,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// TXT records can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:dns/txtRecord:TxtRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/TXT/myrecord1
 // ```
 type TxtRecord struct {
 	pulumi.CustomResourceState
@@ -189,4 +198,43 @@ type TxtRecordArgs struct {
 
 func (TxtRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*txtRecordArgs)(nil)).Elem()
+}
+
+type TxtRecordInput interface {
+	pulumi.Input
+
+	ToTxtRecordOutput() TxtRecordOutput
+	ToTxtRecordOutputWithContext(ctx context.Context) TxtRecordOutput
+}
+
+func (TxtRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*TxtRecord)(nil)).Elem()
+}
+
+func (i TxtRecord) ToTxtRecordOutput() TxtRecordOutput {
+	return i.ToTxtRecordOutputWithContext(context.Background())
+}
+
+func (i TxtRecord) ToTxtRecordOutputWithContext(ctx context.Context) TxtRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordOutput)
+}
+
+type TxtRecordOutput struct {
+	*pulumi.OutputState
+}
+
+func (TxtRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TxtRecordOutput)(nil)).Elem()
+}
+
+func (o TxtRecordOutput) ToTxtRecordOutput() TxtRecordOutput {
+	return o
+}
+
+func (o TxtRecordOutput) ToTxtRecordOutputWithContext(ctx context.Context) TxtRecordOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TxtRecordOutput{})
 }

@@ -71,6 +71,14 @@ class VirtualHubRouteTable(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        Virtual Hub Route Tables can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/virtualHubRouteTable:VirtualHubRouteTable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/routeTable1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels associated with this route table.

@@ -4,6 +4,7 @@
 package dns
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -96,6 +97,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// AAAA records can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:dns/aaaaRecord:AaaaRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/AAAA/myrecord1
 // ```
 type AaaaRecord struct {
 	pulumi.CustomResourceState
@@ -228,4 +237,43 @@ type AaaaRecordArgs struct {
 
 func (AaaaRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*aaaaRecordArgs)(nil)).Elem()
+}
+
+type AaaaRecordInput interface {
+	pulumi.Input
+
+	ToAaaaRecordOutput() AaaaRecordOutput
+	ToAaaaRecordOutputWithContext(ctx context.Context) AaaaRecordOutput
+}
+
+func (AaaaRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*AaaaRecord)(nil)).Elem()
+}
+
+func (i AaaaRecord) ToAaaaRecordOutput() AaaaRecordOutput {
+	return i.ToAaaaRecordOutputWithContext(context.Background())
+}
+
+func (i AaaaRecord) ToAaaaRecordOutputWithContext(ctx context.Context) AaaaRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AaaaRecordOutput)
+}
+
+type AaaaRecordOutput struct {
+	*pulumi.OutputState
+}
+
+func (AaaaRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AaaaRecordOutput)(nil)).Elem()
+}
+
+func (o AaaaRecordOutput) ToAaaaRecordOutput() AaaaRecordOutput {
+	return o
+}
+
+func (o AaaaRecordOutput) ToAaaaRecordOutputWithContext(ctx context.Context) AaaaRecordOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AaaaRecordOutput{})
 }

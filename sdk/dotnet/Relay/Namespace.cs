@@ -40,6 +40,14 @@ namespace Pulumi.Azure.Relay
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Azure Relay Namespace's can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:relay/namespace:Namespace relay1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Relay/namespaces/relay1
+    /// ```
     /// </summary>
     public partial class Namespace : Pulumi.CustomResource
     {

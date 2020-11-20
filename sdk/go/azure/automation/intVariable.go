@@ -4,6 +4,7 @@
 package automation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages a integer variable in Azure Automation
+//
+// ## Import
+//
+// Automation Int Variable can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:automation/intVariable:IntVariable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/tfex-example-rg/providers/Microsoft.Automation/automationAccounts/tfex-example-account/variables/tfex-example-var
+// ```
 type IntVariable struct {
 	pulumi.CustomResourceState
 
@@ -128,4 +137,43 @@ type IntVariableArgs struct {
 
 func (IntVariableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*intVariableArgs)(nil)).Elem()
+}
+
+type IntVariableInput interface {
+	pulumi.Input
+
+	ToIntVariableOutput() IntVariableOutput
+	ToIntVariableOutputWithContext(ctx context.Context) IntVariableOutput
+}
+
+func (IntVariable) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntVariable)(nil)).Elem()
+}
+
+func (i IntVariable) ToIntVariableOutput() IntVariableOutput {
+	return i.ToIntVariableOutputWithContext(context.Background())
+}
+
+func (i IntVariable) ToIntVariableOutputWithContext(ctx context.Context) IntVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntVariableOutput)
+}
+
+type IntVariableOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntVariableOutput)(nil)).Elem()
+}
+
+func (o IntVariableOutput) ToIntVariableOutput() IntVariableOutput {
+	return o
+}
+
+func (o IntVariableOutput) ToIntVariableOutputWithContext(ctx context.Context) IntVariableOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IntVariableOutput{})
 }

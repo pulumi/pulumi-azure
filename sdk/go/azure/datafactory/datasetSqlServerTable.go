@@ -4,6 +4,7 @@
 package datafactory
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -57,6 +58,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Data Factory SQL Server Table Datasets can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
 // ```
 type DatasetSqlServerTable struct {
 	pulumi.CustomResourceState
@@ -228,4 +237,43 @@ type DatasetSqlServerTableArgs struct {
 
 func (DatasetSqlServerTableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetSqlServerTableArgs)(nil)).Elem()
+}
+
+type DatasetSqlServerTableInput interface {
+	pulumi.Input
+
+	ToDatasetSqlServerTableOutput() DatasetSqlServerTableOutput
+	ToDatasetSqlServerTableOutputWithContext(ctx context.Context) DatasetSqlServerTableOutput
+}
+
+func (DatasetSqlServerTable) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetSqlServerTable)(nil)).Elem()
+}
+
+func (i DatasetSqlServerTable) ToDatasetSqlServerTableOutput() DatasetSqlServerTableOutput {
+	return i.ToDatasetSqlServerTableOutputWithContext(context.Background())
+}
+
+func (i DatasetSqlServerTable) ToDatasetSqlServerTableOutputWithContext(ctx context.Context) DatasetSqlServerTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetSqlServerTableOutput)
+}
+
+type DatasetSqlServerTableOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatasetSqlServerTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetSqlServerTableOutput)(nil)).Elem()
+}
+
+func (o DatasetSqlServerTableOutput) ToDatasetSqlServerTableOutput() DatasetSqlServerTableOutput {
+	return o
+}
+
+func (o DatasetSqlServerTableOutput) ToDatasetSqlServerTableOutputWithContext(ctx context.Context) DatasetSqlServerTableOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DatasetSqlServerTableOutput{})
 }

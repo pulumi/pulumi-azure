@@ -24,6 +24,14 @@ import * as utilities from "../utilities";
  *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Data Factory SQL Server Linked Service's can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+ * ```
  */
 export class LinkedServiceSqlServer extends pulumi.CustomResource {
     /**

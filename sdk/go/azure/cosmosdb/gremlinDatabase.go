@@ -4,6 +4,7 @@
 package cosmosdb
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -42,6 +43,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// CosmosDB Gremlin Databases can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:cosmosdb/gremlinDatabase:GremlinDatabase db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/gremlinDatabases/db1
 // ```
 type GremlinDatabase struct {
 	pulumi.CustomResourceState
@@ -145,4 +154,43 @@ type GremlinDatabaseArgs struct {
 
 func (GremlinDatabaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gremlinDatabaseArgs)(nil)).Elem()
+}
+
+type GremlinDatabaseInput interface {
+	pulumi.Input
+
+	ToGremlinDatabaseOutput() GremlinDatabaseOutput
+	ToGremlinDatabaseOutputWithContext(ctx context.Context) GremlinDatabaseOutput
+}
+
+func (GremlinDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinDatabase)(nil)).Elem()
+}
+
+func (i GremlinDatabase) ToGremlinDatabaseOutput() GremlinDatabaseOutput {
+	return i.ToGremlinDatabaseOutputWithContext(context.Background())
+}
+
+func (i GremlinDatabase) ToGremlinDatabaseOutputWithContext(ctx context.Context) GremlinDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinDatabaseOutput)
+}
+
+type GremlinDatabaseOutput struct {
+	*pulumi.OutputState
+}
+
+func (GremlinDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinDatabaseOutput)(nil)).Elem()
+}
+
+func (o GremlinDatabaseOutput) ToGremlinDatabaseOutput() GremlinDatabaseOutput {
+	return o
+}
+
+func (o GremlinDatabaseOutput) ToGremlinDatabaseOutputWithContext(ctx context.Context) GremlinDatabaseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GremlinDatabaseOutput{})
 }

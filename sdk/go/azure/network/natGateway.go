@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -75,6 +76,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// NAT Gateway can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/natGateway:NatGateway test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1
 // ```
 type NatGateway struct {
 	pulumi.CustomResourceState
@@ -236,4 +245,43 @@ type NatGatewayArgs struct {
 
 func (NatGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*natGatewayArgs)(nil)).Elem()
+}
+
+type NatGatewayInput interface {
+	pulumi.Input
+
+	ToNatGatewayOutput() NatGatewayOutput
+	ToNatGatewayOutputWithContext(ctx context.Context) NatGatewayOutput
+}
+
+func (NatGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatGateway)(nil)).Elem()
+}
+
+func (i NatGateway) ToNatGatewayOutput() NatGatewayOutput {
+	return i.ToNatGatewayOutputWithContext(context.Background())
+}
+
+func (i NatGateway) ToNatGatewayOutputWithContext(ctx context.Context) NatGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayOutput)
+}
+
+type NatGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (NatGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatGatewayOutput)(nil)).Elem()
+}
+
+func (o NatGatewayOutput) ToNatGatewayOutput() NatGatewayOutput {
+	return o
+}
+
+func (o NatGatewayOutput) ToNatGatewayOutputWithContext(ctx context.Context) NatGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NatGatewayOutput{})
 }

@@ -4,6 +4,7 @@
 package datashare
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -58,6 +59,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Data Shares can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:datashare/share:Share example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1
 // ```
 type Share struct {
 	pulumi.CustomResourceState
@@ -176,4 +185,43 @@ type ShareArgs struct {
 
 func (ShareArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*shareArgs)(nil)).Elem()
+}
+
+type ShareInput interface {
+	pulumi.Input
+
+	ToShareOutput() ShareOutput
+	ToShareOutputWithContext(ctx context.Context) ShareOutput
+}
+
+func (Share) ElementType() reflect.Type {
+	return reflect.TypeOf((*Share)(nil)).Elem()
+}
+
+func (i Share) ToShareOutput() ShareOutput {
+	return i.ToShareOutputWithContext(context.Background())
+}
+
+func (i Share) ToShareOutputWithContext(ctx context.Context) ShareOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShareOutput)
+}
+
+type ShareOutput struct {
+	*pulumi.OutputState
+}
+
+func (ShareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareOutput)(nil)).Elem()
+}
+
+func (o ShareOutput) ToShareOutput() ShareOutput {
+	return o
+}
+
+func (o ShareOutput) ToShareOutputWithContext(ctx context.Context) ShareOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ShareOutput{})
 }

@@ -52,6 +52,14 @@ class Account(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        Batch Account can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:batch/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Batch/batchAccounts/account1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']] key_vault_reference: A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.

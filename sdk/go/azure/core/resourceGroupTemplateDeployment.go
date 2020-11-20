@@ -4,6 +4,7 @@
 package core
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -39,6 +40,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Resource Group Template Deployments can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Resources/deployments/template1
 // ```
 type ResourceGroupTemplateDeployment struct {
 	pulumi.CustomResourceState
@@ -176,4 +185,43 @@ type ResourceGroupTemplateDeploymentArgs struct {
 
 func (ResourceGroupTemplateDeploymentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceGroupTemplateDeploymentArgs)(nil)).Elem()
+}
+
+type ResourceGroupTemplateDeploymentInput interface {
+	pulumi.Input
+
+	ToResourceGroupTemplateDeploymentOutput() ResourceGroupTemplateDeploymentOutput
+	ToResourceGroupTemplateDeploymentOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentOutput
+}
+
+func (ResourceGroupTemplateDeployment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupTemplateDeployment)(nil)).Elem()
+}
+
+func (i ResourceGroupTemplateDeployment) ToResourceGroupTemplateDeploymentOutput() ResourceGroupTemplateDeploymentOutput {
+	return i.ToResourceGroupTemplateDeploymentOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupTemplateDeployment) ToResourceGroupTemplateDeploymentOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupTemplateDeploymentOutput)
+}
+
+type ResourceGroupTemplateDeploymentOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResourceGroupTemplateDeploymentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupTemplateDeploymentOutput)(nil)).Elem()
+}
+
+func (o ResourceGroupTemplateDeploymentOutput) ToResourceGroupTemplateDeploymentOutput() ResourceGroupTemplateDeploymentOutput {
+	return o
+}
+
+func (o ResourceGroupTemplateDeploymentOutput) ToResourceGroupTemplateDeploymentOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResourceGroupTemplateDeploymentOutput{})
 }

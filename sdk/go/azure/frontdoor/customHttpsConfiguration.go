@@ -4,6 +4,7 @@
 package frontdoor
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -130,6 +131,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Front Door Custom Https Configurations can be imported using the `resource id` of the Frontend Endpoint, e.g.
+//
+// ```sh
+//  $ pulumi import azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration example_custom_https_1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/frontdoors/frontdoor1/frontendEndpoints/endpoint1
+// ```
 type CustomHttpsConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -227,4 +236,43 @@ type CustomHttpsConfigurationArgs struct {
 
 func (CustomHttpsConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*customHttpsConfigurationArgs)(nil)).Elem()
+}
+
+type CustomHttpsConfigurationInput interface {
+	pulumi.Input
+
+	ToCustomHttpsConfigurationOutput() CustomHttpsConfigurationOutput
+	ToCustomHttpsConfigurationOutputWithContext(ctx context.Context) CustomHttpsConfigurationOutput
+}
+
+func (CustomHttpsConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomHttpsConfiguration)(nil)).Elem()
+}
+
+func (i CustomHttpsConfiguration) ToCustomHttpsConfigurationOutput() CustomHttpsConfigurationOutput {
+	return i.ToCustomHttpsConfigurationOutputWithContext(context.Background())
+}
+
+func (i CustomHttpsConfiguration) ToCustomHttpsConfigurationOutputWithContext(ctx context.Context) CustomHttpsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomHttpsConfigurationOutput)
+}
+
+type CustomHttpsConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (CustomHttpsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomHttpsConfigurationOutput)(nil)).Elem()
+}
+
+func (o CustomHttpsConfigurationOutput) ToCustomHttpsConfigurationOutput() CustomHttpsConfigurationOutput {
+	return o
+}
+
+func (o CustomHttpsConfigurationOutput) ToCustomHttpsConfigurationOutputWithContext(ctx context.Context) CustomHttpsConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CustomHttpsConfigurationOutput{})
 }

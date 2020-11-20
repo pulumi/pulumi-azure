@@ -57,6 +57,14 @@ namespace Pulumi.Azure.Synapse
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Synapse Firewall Rule can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:synapse/firewallRule:FirewallRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.Synapse/workspaces/workspace1/firewallRules/rule1
+    /// ```
     /// </summary>
     public partial class FirewallRule : Pulumi.CustomResource
     {

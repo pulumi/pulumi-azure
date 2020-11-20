@@ -2,12 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Manages a Windows Virtual Machine within a Dev Test Lab.
+ *
+ * ## Import
+ *
+ * DevTest Windows Virtual Machines can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:devtest/windowsVirtualMachine:WindowsVirtualMachine machine1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualmachines/machine1
+ * ```
  */
 export class WindowsVirtualMachine extends pulumi.CustomResource {
     /**

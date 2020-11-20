@@ -4,6 +4,7 @@
 package appservice
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -71,6 +72,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// App Services can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:appservice/appService:AppService instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1
 // ```
 type AppService struct {
 	pulumi.CustomResourceState
@@ -333,4 +342,43 @@ type AppServiceArgs struct {
 
 func (AppServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*appServiceArgs)(nil)).Elem()
+}
+
+type AppServiceInput interface {
+	pulumi.Input
+
+	ToAppServiceOutput() AppServiceOutput
+	ToAppServiceOutputWithContext(ctx context.Context) AppServiceOutput
+}
+
+func (AppService) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppService)(nil)).Elem()
+}
+
+func (i AppService) ToAppServiceOutput() AppServiceOutput {
+	return i.ToAppServiceOutputWithContext(context.Background())
+}
+
+func (i AppService) ToAppServiceOutputWithContext(ctx context.Context) AppServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceOutput)
+}
+
+type AppServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (AppServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceOutput)(nil)).Elem()
+}
+
+func (o AppServiceOutput) ToAppServiceOutput() AppServiceOutput {
+	return o
+}
+
+func (o AppServiceOutput) ToAppServiceOutputWithContext(ctx context.Context) AppServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AppServiceOutput{})
 }

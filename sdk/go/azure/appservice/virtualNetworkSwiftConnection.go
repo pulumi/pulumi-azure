@@ -4,6 +4,7 @@
 package appservice
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -93,6 +94,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// App Service Virtual Network Associations can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection myassociation /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/networkconfig/virtualNetwork
+// ```
 type VirtualNetworkSwiftConnection struct {
 	pulumi.CustomResourceState
 
@@ -170,4 +179,43 @@ type VirtualNetworkSwiftConnectionArgs struct {
 
 func (VirtualNetworkSwiftConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkSwiftConnectionArgs)(nil)).Elem()
+}
+
+type VirtualNetworkSwiftConnectionInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkSwiftConnectionOutput() VirtualNetworkSwiftConnectionOutput
+	ToVirtualNetworkSwiftConnectionOutputWithContext(ctx context.Context) VirtualNetworkSwiftConnectionOutput
+}
+
+func (VirtualNetworkSwiftConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkSwiftConnection)(nil)).Elem()
+}
+
+func (i VirtualNetworkSwiftConnection) ToVirtualNetworkSwiftConnectionOutput() VirtualNetworkSwiftConnectionOutput {
+	return i.ToVirtualNetworkSwiftConnectionOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkSwiftConnection) ToVirtualNetworkSwiftConnectionOutputWithContext(ctx context.Context) VirtualNetworkSwiftConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSwiftConnectionOutput)
+}
+
+type VirtualNetworkSwiftConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualNetworkSwiftConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkSwiftConnectionOutput)(nil)).Elem()
+}
+
+func (o VirtualNetworkSwiftConnectionOutput) ToVirtualNetworkSwiftConnectionOutput() VirtualNetworkSwiftConnectionOutput {
+	return o
+}
+
+func (o VirtualNetworkSwiftConnectionOutput) ToVirtualNetworkSwiftConnectionOutputWithContext(ctx context.Context) VirtualNetworkSwiftConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualNetworkSwiftConnectionOutput{})
 }

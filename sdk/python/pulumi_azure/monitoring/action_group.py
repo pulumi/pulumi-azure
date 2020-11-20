@@ -114,6 +114,14 @@ class ActionGroup(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        Action Groups can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:monitoring/actionGroup:ActionGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/actionGroups/myagname
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupArmRoleReceiverArgs']]]] arm_role_receivers: One or more `arm_role_receiver` blocks as defined below.

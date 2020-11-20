@@ -4,6 +4,7 @@
 package keyvault
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -89,6 +90,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Key Vault Key which is Enabled can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:keyvault/key:Key net/keys/example/fdf067c93bbb4b22bff4d8b7a9a56217
 // ```
 type Key struct {
 	pulumi.CustomResourceState
@@ -270,4 +279,43 @@ type KeyArgs struct {
 
 func (KeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyArgs)(nil)).Elem()
+}
+
+type KeyInput interface {
+	pulumi.Input
+
+	ToKeyOutput() KeyOutput
+	ToKeyOutputWithContext(ctx context.Context) KeyOutput
+}
+
+func (Key) ElementType() reflect.Type {
+	return reflect.TypeOf((*Key)(nil)).Elem()
+}
+
+func (i Key) ToKeyOutput() KeyOutput {
+	return i.ToKeyOutputWithContext(context.Background())
+}
+
+func (i Key) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyOutput)
+}
+
+type KeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (KeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyOutput)(nil)).Elem()
+}
+
+func (o KeyOutput) ToKeyOutput() KeyOutput {
+	return o
+}
+
+func (o KeyOutput) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(KeyOutput{})
 }

@@ -60,6 +60,14 @@ class OutputServicebusTopic(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        Stream Analytics Output ServiceBus Topic's can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/outputs/output1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.

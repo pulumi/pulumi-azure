@@ -4,6 +4,7 @@
 package hpc
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,14 @@ import (
 // Manages a NFS Target within a HPC Cache.
 //
 // > **NOTE:**: By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
+//
+// ## Import
+//
+// NFS Target within a HPC Cache can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:hpc/cacheNfsTarget:CacheNfsTarget example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
+// ```
 type CacheNfsTarget struct {
 	pulumi.CustomResourceState
 
@@ -139,4 +148,43 @@ type CacheNfsTargetArgs struct {
 
 func (CacheNfsTargetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cacheNfsTargetArgs)(nil)).Elem()
+}
+
+type CacheNfsTargetInput interface {
+	pulumi.Input
+
+	ToCacheNfsTargetOutput() CacheNfsTargetOutput
+	ToCacheNfsTargetOutputWithContext(ctx context.Context) CacheNfsTargetOutput
+}
+
+func (CacheNfsTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheNfsTarget)(nil)).Elem()
+}
+
+func (i CacheNfsTarget) ToCacheNfsTargetOutput() CacheNfsTargetOutput {
+	return i.ToCacheNfsTargetOutputWithContext(context.Background())
+}
+
+func (i CacheNfsTarget) ToCacheNfsTargetOutputWithContext(ctx context.Context) CacheNfsTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheNfsTargetOutput)
+}
+
+type CacheNfsTargetOutput struct {
+	*pulumi.OutputState
+}
+
+func (CacheNfsTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheNfsTargetOutput)(nil)).Elem()
+}
+
+func (o CacheNfsTargetOutput) ToCacheNfsTargetOutput() CacheNfsTargetOutput {
+	return o
+}
+
+func (o CacheNfsTargetOutput) ToCacheNfsTargetOutputWithContext(ctx context.Context) CacheNfsTargetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CacheNfsTargetOutput{})
 }

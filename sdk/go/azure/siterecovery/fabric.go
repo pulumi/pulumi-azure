@@ -4,6 +4,7 @@
 package siterecovery
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -57,6 +58,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Site Recovery Fabric can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:siterecovery/fabric:Fabric myfabric /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name
 // ```
 type Fabric struct {
 	pulumi.CustomResourceState
@@ -155,4 +164,43 @@ type FabricArgs struct {
 
 func (FabricArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*fabricArgs)(nil)).Elem()
+}
+
+type FabricInput interface {
+	pulumi.Input
+
+	ToFabricOutput() FabricOutput
+	ToFabricOutputWithContext(ctx context.Context) FabricOutput
+}
+
+func (Fabric) ElementType() reflect.Type {
+	return reflect.TypeOf((*Fabric)(nil)).Elem()
+}
+
+func (i Fabric) ToFabricOutput() FabricOutput {
+	return i.ToFabricOutputWithContext(context.Background())
+}
+
+func (i Fabric) ToFabricOutputWithContext(ctx context.Context) FabricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FabricOutput)
+}
+
+type FabricOutput struct {
+	*pulumi.OutputState
+}
+
+func (FabricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FabricOutput)(nil)).Elem()
+}
+
+func (o FabricOutput) ToFabricOutput() FabricOutput {
+	return o
+}
+
+func (o FabricOutput) ToFabricOutputWithContext(ctx context.Context) FabricOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FabricOutput{})
 }

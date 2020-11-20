@@ -44,6 +44,14 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Spring Cloud Application can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:appplatform/springCloudApp:SpringCloudApp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp
+    /// ```
     /// </summary>
     public partial class SpringCloudApp : Pulumi.CustomResource
     {

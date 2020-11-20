@@ -4,6 +4,7 @@
 package servicebus
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -63,6 +64,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// ServiceBus Topic authorization rules can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:servicebus/topicAuthorizationRule:TopicAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/topics/topic1/authorizationRules/rule1
 // ```
 type TopicAuthorizationRule struct {
 	pulumi.CustomResourceState
@@ -224,4 +233,43 @@ type TopicAuthorizationRuleArgs struct {
 
 func (TopicAuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*topicAuthorizationRuleArgs)(nil)).Elem()
+}
+
+type TopicAuthorizationRuleInput interface {
+	pulumi.Input
+
+	ToTopicAuthorizationRuleOutput() TopicAuthorizationRuleOutput
+	ToTopicAuthorizationRuleOutputWithContext(ctx context.Context) TopicAuthorizationRuleOutput
+}
+
+func (TopicAuthorizationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicAuthorizationRule)(nil)).Elem()
+}
+
+func (i TopicAuthorizationRule) ToTopicAuthorizationRuleOutput() TopicAuthorizationRuleOutput {
+	return i.ToTopicAuthorizationRuleOutputWithContext(context.Background())
+}
+
+func (i TopicAuthorizationRule) ToTopicAuthorizationRuleOutputWithContext(ctx context.Context) TopicAuthorizationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicAuthorizationRuleOutput)
+}
+
+type TopicAuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (TopicAuthorizationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicAuthorizationRuleOutput)(nil)).Elem()
+}
+
+func (o TopicAuthorizationRuleOutput) ToTopicAuthorizationRuleOutput() TopicAuthorizationRuleOutput {
+	return o
+}
+
+func (o TopicAuthorizationRuleOutput) ToTopicAuthorizationRuleOutputWithContext(ctx context.Context) TopicAuthorizationRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TopicAuthorizationRuleOutput{})
 }

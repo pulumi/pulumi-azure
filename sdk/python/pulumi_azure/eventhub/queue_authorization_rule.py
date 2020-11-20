@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['QueueAuthorizationRule']
 
-warnings.warn("azure.eventhub.QueueAuthorizationRule has been deprecated in favor of azure.servicebus.QueueAuthorizationRule", DeprecationWarning)
+warnings.warn("""azure.eventhub.QueueAuthorizationRule has been deprecated in favor of azure.servicebus.QueueAuthorizationRule""", DeprecationWarning)
 
 
 class QueueAuthorizationRule(pulumi.CustomResource):
-    warnings.warn("azure.eventhub.QueueAuthorizationRule has been deprecated in favor of azure.servicebus.QueueAuthorizationRule", DeprecationWarning)
+    warnings.warn("""azure.eventhub.QueueAuthorizationRule has been deprecated in favor of azure.servicebus.QueueAuthorizationRule""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -57,6 +57,14 @@ class QueueAuthorizationRule(pulumi.CustomResource):
             listen=True,
             send=True,
             manage=False)
+        ```
+
+        ## Import
+
+        ServiceBus Queue Authorization Rules can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/queues/queue1/authorizationRules/rule1
         ```
 
         :param str resource_name: The name of the resource.

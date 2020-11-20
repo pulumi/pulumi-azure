@@ -4,6 +4,7 @@
 package hpc
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -69,6 +70,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// HPC Caches can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:hpc/cache:Cache example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.StorageCache/caches/cacheName
 // ```
 type Cache struct {
 	pulumi.CustomResourceState
@@ -219,4 +228,43 @@ type CacheArgs struct {
 
 func (CacheArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cacheArgs)(nil)).Elem()
+}
+
+type CacheInput interface {
+	pulumi.Input
+
+	ToCacheOutput() CacheOutput
+	ToCacheOutputWithContext(ctx context.Context) CacheOutput
+}
+
+func (Cache) ElementType() reflect.Type {
+	return reflect.TypeOf((*Cache)(nil)).Elem()
+}
+
+func (i Cache) ToCacheOutput() CacheOutput {
+	return i.ToCacheOutputWithContext(context.Background())
+}
+
+func (i Cache) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheOutput)
+}
+
+type CacheOutput struct {
+	*pulumi.OutputState
+}
+
+func (CacheOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheOutput)(nil)).Elem()
+}
+
+func (o CacheOutput) ToCacheOutput() CacheOutput {
+	return o
+}
+
+func (o CacheOutput) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CacheOutput{})
 }

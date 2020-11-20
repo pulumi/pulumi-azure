@@ -4,6 +4,7 @@
 package hpc
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -118,6 +119,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Blob Targets within an HPC Cache can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:hpc/cacheBlobTarget:CacheBlobTarget example azurerm_hpc_cache_blob_target.example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
+// ```
 type CacheBlobTarget struct {
 	pulumi.CustomResourceState
 
@@ -231,4 +240,43 @@ type CacheBlobTargetArgs struct {
 
 func (CacheBlobTargetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cacheBlobTargetArgs)(nil)).Elem()
+}
+
+type CacheBlobTargetInput interface {
+	pulumi.Input
+
+	ToCacheBlobTargetOutput() CacheBlobTargetOutput
+	ToCacheBlobTargetOutputWithContext(ctx context.Context) CacheBlobTargetOutput
+}
+
+func (CacheBlobTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheBlobTarget)(nil)).Elem()
+}
+
+func (i CacheBlobTarget) ToCacheBlobTargetOutput() CacheBlobTargetOutput {
+	return i.ToCacheBlobTargetOutputWithContext(context.Background())
+}
+
+func (i CacheBlobTarget) ToCacheBlobTargetOutputWithContext(ctx context.Context) CacheBlobTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheBlobTargetOutput)
+}
+
+type CacheBlobTargetOutput struct {
+	*pulumi.OutputState
+}
+
+func (CacheBlobTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheBlobTargetOutput)(nil)).Elem()
+}
+
+func (o CacheBlobTargetOutput) ToCacheBlobTargetOutput() CacheBlobTargetOutput {
+	return o
+}
+
+func (o CacheBlobTargetOutput) ToCacheBlobTargetOutputWithContext(ctx context.Context) CacheBlobTargetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CacheBlobTargetOutput{})
 }

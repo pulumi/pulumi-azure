@@ -4,6 +4,7 @@
 package compute
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -106,6 +107,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Windows Virtual Machines can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:compute/windowsVirtualMachine:WindowsVirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/Microsoft.Compute/virtualMachines/machine1
 // ```
 type WindowsVirtualMachine struct {
 	pulumi.CustomResourceState
@@ -546,4 +555,43 @@ type WindowsVirtualMachineArgs struct {
 
 func (WindowsVirtualMachineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*windowsVirtualMachineArgs)(nil)).Elem()
+}
+
+type WindowsVirtualMachineInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineOutput() WindowsVirtualMachineOutput
+	ToWindowsVirtualMachineOutputWithContext(ctx context.Context) WindowsVirtualMachineOutput
+}
+
+func (WindowsVirtualMachine) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachine)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachine) ToWindowsVirtualMachineOutput() WindowsVirtualMachineOutput {
+	return i.ToWindowsVirtualMachineOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachine) ToWindowsVirtualMachineOutputWithContext(ctx context.Context) WindowsVirtualMachineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineOutput)
+}
+
+type WindowsVirtualMachineOutput struct {
+	*pulumi.OutputState
+}
+
+func (WindowsVirtualMachineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineOutput)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineOutput) ToWindowsVirtualMachineOutput() WindowsVirtualMachineOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineOutput) ToWindowsVirtualMachineOutputWithContext(ctx context.Context) WindowsVirtualMachineOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WindowsVirtualMachineOutput{})
 }

@@ -4,6 +4,7 @@
 package compute
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -44,6 +45,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Availability Sets can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:compute/availabilitySet:AvailabilitySet group1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/availabilitySets/webAvailSet
 // ```
 type AvailabilitySet struct {
 	pulumi.CustomResourceState
@@ -179,4 +188,43 @@ type AvailabilitySetArgs struct {
 
 func (AvailabilitySetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*availabilitySetArgs)(nil)).Elem()
+}
+
+type AvailabilitySetInput interface {
+	pulumi.Input
+
+	ToAvailabilitySetOutput() AvailabilitySetOutput
+	ToAvailabilitySetOutputWithContext(ctx context.Context) AvailabilitySetOutput
+}
+
+func (AvailabilitySet) ElementType() reflect.Type {
+	return reflect.TypeOf((*AvailabilitySet)(nil)).Elem()
+}
+
+func (i AvailabilitySet) ToAvailabilitySetOutput() AvailabilitySetOutput {
+	return i.ToAvailabilitySetOutputWithContext(context.Background())
+}
+
+func (i AvailabilitySet) ToAvailabilitySetOutputWithContext(ctx context.Context) AvailabilitySetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AvailabilitySetOutput)
+}
+
+type AvailabilitySetOutput struct {
+	*pulumi.OutputState
+}
+
+func (AvailabilitySetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AvailabilitySetOutput)(nil)).Elem()
+}
+
+func (o AvailabilitySetOutput) ToAvailabilitySetOutput() AvailabilitySetOutput {
+	return o
+}
+
+func (o AvailabilitySetOutput) ToAvailabilitySetOutputWithContext(ctx context.Context) AvailabilitySetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AvailabilitySetOutput{})
 }

@@ -4,6 +4,7 @@
 package compute
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -53,6 +54,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Virtual Machine Scale Set Extensions can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleSet1/extensions/extension1
 // ```
 type VirtualMachineScaleSetExtension struct {
 	pulumi.CustomResourceState
@@ -217,4 +226,43 @@ type VirtualMachineScaleSetExtensionArgs struct {
 
 func (VirtualMachineScaleSetExtensionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualMachineScaleSetExtensionArgs)(nil)).Elem()
+}
+
+type VirtualMachineScaleSetExtensionInput interface {
+	pulumi.Input
+
+	ToVirtualMachineScaleSetExtensionOutput() VirtualMachineScaleSetExtensionOutput
+	ToVirtualMachineScaleSetExtensionOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionOutput
+}
+
+func (VirtualMachineScaleSetExtension) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSetExtension)(nil)).Elem()
+}
+
+func (i VirtualMachineScaleSetExtension) ToVirtualMachineScaleSetExtensionOutput() VirtualMachineScaleSetExtensionOutput {
+	return i.ToVirtualMachineScaleSetExtensionOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineScaleSetExtension) ToVirtualMachineScaleSetExtensionOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionOutput)
+}
+
+type VirtualMachineScaleSetExtensionOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualMachineScaleSetExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSetExtensionOutput)(nil)).Elem()
+}
+
+func (o VirtualMachineScaleSetExtensionOutput) ToVirtualMachineScaleSetExtensionOutput() VirtualMachineScaleSetExtensionOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetExtensionOutput) ToVirtualMachineScaleSetExtensionOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualMachineScaleSetExtensionOutput{})
 }

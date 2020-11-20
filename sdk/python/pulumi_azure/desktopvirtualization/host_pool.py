@@ -54,6 +54,14 @@ class HostPool(pulumi.CustomResource):
             load_balancer_type="DepthFirst")
         ```
 
+        ## Import
+
+        Virtual Desktop Host Pools can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:desktopvirtualization/hostPool:HostPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/hostpools/myhostpool
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the Virtual Desktop Host Pool.

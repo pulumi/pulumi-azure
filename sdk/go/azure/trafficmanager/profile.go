@@ -4,6 +4,7 @@
 package trafficmanager
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -66,6 +67,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Traffic Manager Profiles can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:trafficmanager/profile:Profile exampleProfile /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/trafficManagerProfiles/mytrafficmanagerprofile1
 // ```
 //
 // Deprecated: azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile
@@ -208,4 +217,43 @@ type ProfileArgs struct {
 
 func (ProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileArgs)(nil)).Elem()
+}
+
+type ProfileInput interface {
+	pulumi.Input
+
+	ToProfileOutput() ProfileOutput
+	ToProfileOutputWithContext(ctx context.Context) ProfileOutput
+}
+
+func (Profile) ElementType() reflect.Type {
+	return reflect.TypeOf((*Profile)(nil)).Elem()
+}
+
+func (i Profile) ToProfileOutput() ProfileOutput {
+	return i.ToProfileOutputWithContext(context.Background())
+}
+
+func (i Profile) ToProfileOutputWithContext(ctx context.Context) ProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileOutput)
+}
+
+type ProfileOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileOutput)(nil)).Elem()
+}
+
+func (o ProfileOutput) ToProfileOutput() ProfileOutput {
+	return o
+}
+
+func (o ProfileOutput) ToProfileOutputWithContext(ctx context.Context) ProfileOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProfileOutput{})
 }

@@ -249,6 +249,14 @@ class AutoscaleSetting(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        AutoScale Setting can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:monitoring/autoscaleSetting:AutoscaleSetting example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/microsoft.insights/autoscalesettings/setting1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.

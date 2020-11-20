@@ -12,11 +12,11 @@ from ._inputs import *
 
 __all__ = ['Certifiate']
 
-warnings.warn("azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate", DeprecationWarning)
+warnings.warn("""azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate""", DeprecationWarning)
 
 
 class Certifiate(pulumi.CustomResource):
-    warnings.warn("azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate", DeprecationWarning)
+    warnings.warn("""azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -138,6 +138,14 @@ class Certifiate(pulumi.CustomResource):
                     validity_in_months=12,
                 ),
             ))
+        ```
+
+        ## Import
+
+        Key Vault Certificates can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:keyvault/certifiate:Certifiate net/certificates/example/fdf067c93bbb4b22bff4d8b7a9a56217
         ```
 
         :param str resource_name: The name of the resource.

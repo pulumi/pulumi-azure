@@ -4,6 +4,7 @@
 package notificationhub
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -51,6 +52,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Notification Hubs can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:notificationhub/hub:Hub hub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}/notificationHubs/hub1
 // ```
 type Hub struct {
 	pulumi.CustomResourceState
@@ -179,4 +188,43 @@ type HubArgs struct {
 
 func (HubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hubArgs)(nil)).Elem()
+}
+
+type HubInput interface {
+	pulumi.Input
+
+	ToHubOutput() HubOutput
+	ToHubOutputWithContext(ctx context.Context) HubOutput
+}
+
+func (Hub) ElementType() reflect.Type {
+	return reflect.TypeOf((*Hub)(nil)).Elem()
+}
+
+func (i Hub) ToHubOutput() HubOutput {
+	return i.ToHubOutputWithContext(context.Background())
+}
+
+func (i Hub) ToHubOutputWithContext(ctx context.Context) HubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubOutput)
+}
+
+type HubOutput struct {
+	*pulumi.OutputState
+}
+
+func (HubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubOutput)(nil)).Elem()
+}
+
+func (o HubOutput) ToHubOutput() HubOutput {
+	return o
+}
+
+func (o HubOutput) ToHubOutputWithContext(ctx context.Context) HubOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(HubOutput{})
 }

@@ -4,6 +4,7 @@
 package privatedns
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -61,6 +62,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Private DNS MX Records can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:privatedns/mxRecord:MxRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/MX/@
 // ```
 type MxRecord struct {
 	pulumi.CustomResourceState
@@ -186,4 +195,43 @@ type MxRecordArgs struct {
 
 func (MxRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mxRecordArgs)(nil)).Elem()
+}
+
+type MxRecordInput interface {
+	pulumi.Input
+
+	ToMxRecordOutput() MxRecordOutput
+	ToMxRecordOutputWithContext(ctx context.Context) MxRecordOutput
+}
+
+func (MxRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*MxRecord)(nil)).Elem()
+}
+
+func (i MxRecord) ToMxRecordOutput() MxRecordOutput {
+	return i.ToMxRecordOutputWithContext(context.Background())
+}
+
+func (i MxRecord) ToMxRecordOutputWithContext(ctx context.Context) MxRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MxRecordOutput)
+}
+
+type MxRecordOutput struct {
+	*pulumi.OutputState
+}
+
+func (MxRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MxRecordOutput)(nil)).Elem()
+}
+
+func (o MxRecordOutput) ToMxRecordOutput() MxRecordOutput {
+	return o
+}
+
+func (o MxRecordOutput) ToMxRecordOutputWithContext(ctx context.Context) MxRecordOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MxRecordOutput{})
 }

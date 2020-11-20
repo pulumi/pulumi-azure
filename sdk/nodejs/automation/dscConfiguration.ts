@@ -28,6 +28,14 @@ import * as utilities from "../utilities";
  *     contentEmbedded: "configuration test {}",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Automation DSC Configuration's can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:automation/dscConfiguration:DscConfiguration configuration1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/configurations/configuration1
+ * ```
  */
 export class DscConfiguration extends pulumi.CustomResource {
     /**

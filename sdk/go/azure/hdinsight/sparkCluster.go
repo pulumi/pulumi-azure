@@ -4,6 +4,7 @@
 package hdinsight
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -93,6 +94,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// HDInsight Spark Clusters can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:hdinsight/sparkCluster:SparkCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1}
 // ```
 type SparkCluster struct {
 	pulumi.CustomResourceState
@@ -310,4 +319,43 @@ type SparkClusterArgs struct {
 
 func (SparkClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sparkClusterArgs)(nil)).Elem()
+}
+
+type SparkClusterInput interface {
+	pulumi.Input
+
+	ToSparkClusterOutput() SparkClusterOutput
+	ToSparkClusterOutputWithContext(ctx context.Context) SparkClusterOutput
+}
+
+func (SparkCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkCluster)(nil)).Elem()
+}
+
+func (i SparkCluster) ToSparkClusterOutput() SparkClusterOutput {
+	return i.ToSparkClusterOutputWithContext(context.Background())
+}
+
+func (i SparkCluster) ToSparkClusterOutputWithContext(ctx context.Context) SparkClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterOutput)
+}
+
+type SparkClusterOutput struct {
+	*pulumi.OutputState
+}
+
+func (SparkClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterOutput)(nil)).Elem()
+}
+
+func (o SparkClusterOutput) ToSparkClusterOutput() SparkClusterOutput {
+	return o
+}
+
+func (o SparkClusterOutput) ToSparkClusterOutputWithContext(ctx context.Context) SparkClusterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SparkClusterOutput{})
 }

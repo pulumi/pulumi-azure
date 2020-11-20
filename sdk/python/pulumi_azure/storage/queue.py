@@ -39,6 +39,14 @@ class Queue(pulumi.CustomResource):
         example_queue = azure.storage.Queue("exampleQueue", storage_account_name=example_account.name)
         ```
 
+        ## Import
+
+        Storage Queue's can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:storage/queue:Queue queue1 https://example.queue.core.windows.net/queue1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData which should be assigned to this Storage Queue.

@@ -4,6 +4,7 @@
 package iot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -54,6 +55,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// IoTHub Device Provisioning Service Shared Access Policies can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy shared_access_policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/provisioningServices/dps1/keys/shared_access_policy1
 // ```
 type DpsSharedAccessPolicy struct {
 	pulumi.CustomResourceState
@@ -216,4 +225,43 @@ type DpsSharedAccessPolicyArgs struct {
 
 func (DpsSharedAccessPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dpsSharedAccessPolicyArgs)(nil)).Elem()
+}
+
+type DpsSharedAccessPolicyInput interface {
+	pulumi.Input
+
+	ToDpsSharedAccessPolicyOutput() DpsSharedAccessPolicyOutput
+	ToDpsSharedAccessPolicyOutputWithContext(ctx context.Context) DpsSharedAccessPolicyOutput
+}
+
+func (DpsSharedAccessPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*DpsSharedAccessPolicy)(nil)).Elem()
+}
+
+func (i DpsSharedAccessPolicy) ToDpsSharedAccessPolicyOutput() DpsSharedAccessPolicyOutput {
+	return i.ToDpsSharedAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i DpsSharedAccessPolicy) ToDpsSharedAccessPolicyOutputWithContext(ctx context.Context) DpsSharedAccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DpsSharedAccessPolicyOutput)
+}
+
+type DpsSharedAccessPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (DpsSharedAccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DpsSharedAccessPolicyOutput)(nil)).Elem()
+}
+
+func (o DpsSharedAccessPolicyOutput) ToDpsSharedAccessPolicyOutput() DpsSharedAccessPolicyOutput {
+	return o
+}
+
+func (o DpsSharedAccessPolicyOutput) ToDpsSharedAccessPolicyOutputWithContext(ctx context.Context) DpsSharedAccessPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DpsSharedAccessPolicyOutput{})
 }

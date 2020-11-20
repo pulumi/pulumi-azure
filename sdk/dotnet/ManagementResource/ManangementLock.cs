@@ -90,6 +90,14 @@ namespace Pulumi.Azure.ManagementResource
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Management Locks can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:managementresource/manangementLock:ManangementLock lock1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Authorization/locks/lock1
+    /// ```
     /// </summary>
     [Obsolete(@"azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock")]
     public partial class ManangementLock : Pulumi.CustomResource

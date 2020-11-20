@@ -4,6 +4,7 @@
 package loganalytics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -64,6 +65,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Log Analytics Linked Storage Accounts can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:loganalytics/linkedStorageAccount:LinkedStorageAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/linkedStorageAccounts/{dataSourceType}
 // ```
 type LinkedStorageAccount struct {
 	pulumi.CustomResourceState
@@ -168,4 +177,43 @@ type LinkedStorageAccountArgs struct {
 
 func (LinkedStorageAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedStorageAccountArgs)(nil)).Elem()
+}
+
+type LinkedStorageAccountInput interface {
+	pulumi.Input
+
+	ToLinkedStorageAccountOutput() LinkedStorageAccountOutput
+	ToLinkedStorageAccountOutputWithContext(ctx context.Context) LinkedStorageAccountOutput
+}
+
+func (LinkedStorageAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedStorageAccount)(nil)).Elem()
+}
+
+func (i LinkedStorageAccount) ToLinkedStorageAccountOutput() LinkedStorageAccountOutput {
+	return i.ToLinkedStorageAccountOutputWithContext(context.Background())
+}
+
+func (i LinkedStorageAccount) ToLinkedStorageAccountOutputWithContext(ctx context.Context) LinkedStorageAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedStorageAccountOutput)
+}
+
+type LinkedStorageAccountOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkedStorageAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedStorageAccountOutput)(nil)).Elem()
+}
+
+func (o LinkedStorageAccountOutput) ToLinkedStorageAccountOutput() LinkedStorageAccountOutput {
+	return o
+}
+
+func (o LinkedStorageAccountOutput) ToLinkedStorageAccountOutputWithContext(ctx context.Context) LinkedStorageAccountOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LinkedStorageAccountOutput{})
 }

@@ -4,6 +4,7 @@
 package dns
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -73,6 +74,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// CAA records can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:dns/caaRecord:CaaRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/CAA/myrecord1
 // ```
 type CaaRecord struct {
 	pulumi.CustomResourceState
@@ -203,4 +212,43 @@ type CaaRecordArgs struct {
 
 func (CaaRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*caaRecordArgs)(nil)).Elem()
+}
+
+type CaaRecordInput interface {
+	pulumi.Input
+
+	ToCaaRecordOutput() CaaRecordOutput
+	ToCaaRecordOutputWithContext(ctx context.Context) CaaRecordOutput
+}
+
+func (CaaRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaaRecord)(nil)).Elem()
+}
+
+func (i CaaRecord) ToCaaRecordOutput() CaaRecordOutput {
+	return i.ToCaaRecordOutputWithContext(context.Background())
+}
+
+func (i CaaRecord) ToCaaRecordOutputWithContext(ctx context.Context) CaaRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CaaRecordOutput)
+}
+
+type CaaRecordOutput struct {
+	*pulumi.OutputState
+}
+
+func (CaaRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaaRecordOutput)(nil)).Elem()
+}
+
+func (o CaaRecordOutput) ToCaaRecordOutput() CaaRecordOutput {
+	return o
+}
+
+func (o CaaRecordOutput) ToCaaRecordOutputWithContext(ctx context.Context) CaaRecordOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CaaRecordOutput{})
 }

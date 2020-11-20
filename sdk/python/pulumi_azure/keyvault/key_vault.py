@@ -86,6 +86,14 @@ class KeyVault(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        Key Vault's can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:keyvault/keyVault:KeyVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/vaults/vault1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]] access_policies: A list of up to 16 objects describing access policies, as described below.

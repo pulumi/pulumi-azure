@@ -64,6 +64,14 @@ class Server(pulumi.CustomResource):
             ssl_enforcement_enabled=True)
         ```
 
+        ## Import
+
+        MariaDB Server's can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:mariadb/server:Server server1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMariaDB/servers/server1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
@@ -119,13 +127,13 @@ class Server(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
             if ssl_enforcement is not None:
-                warnings.warn("this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.", DeprecationWarning)
+                warnings.warn("""this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.""", DeprecationWarning)
                 pulumi.log.warn("ssl_enforcement is deprecated: this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.")
             __props__['ssl_enforcement'] = ssl_enforcement
             __props__['ssl_enforcement_enabled'] = ssl_enforcement_enabled
             __props__['storage_mb'] = storage_mb
             if storage_profile is not None:
-                warnings.warn("all storage_profile properties have been moved to the top level. This block will be removed in version 3.0 of the provider.", DeprecationWarning)
+                warnings.warn("""all storage_profile properties have been moved to the top level. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
                 pulumi.log.warn("storage_profile is deprecated: all storage_profile properties have been moved to the top level. This block will be removed in version 3.0 of the provider.")
             __props__['storage_profile'] = storage_profile
             __props__['tags'] = tags

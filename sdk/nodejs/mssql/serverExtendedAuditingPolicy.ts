@@ -37,6 +37,14 @@ import * as utilities from "../utilities";
  *     retentionInDays: 6,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Ms Sql Server Extended Auditing Policys can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/extendedAuditingSettings/default
+ * ```
  */
 export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
     /**

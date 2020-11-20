@@ -48,6 +48,14 @@ namespace Pulumi.Azure.DataLake
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Data Lake Analytics Firewall Rules can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:datalake/analyticsFirewallRule:AnalyticsFirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DataLakeAnalytics/accounts/mydatalakeaccount/firewallRules/rule1
+    /// ```
     /// </summary>
     public partial class AnalyticsFirewallRule : Pulumi.CustomResource
     {

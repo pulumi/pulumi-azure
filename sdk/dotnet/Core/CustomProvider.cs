@@ -43,6 +43,14 @@ namespace Pulumi.Azure.Core
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Custom Provider can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:core/customProvider:CustomProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.CustomProviders/resourceProviders/example
+    /// ```
     /// </summary>
     public partial class CustomProvider : Pulumi.CustomResource
     {

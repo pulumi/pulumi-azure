@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -103,6 +104,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Firewall Application Rule Collections can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/firewallApplicationRuleCollection:FirewallApplicationRuleCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/azureFirewalls/myfirewall/applicationRuleCollections/mycollection
 // ```
 type FirewallApplicationRuleCollection struct {
 	pulumi.CustomResourceState
@@ -230,4 +239,43 @@ type FirewallApplicationRuleCollectionArgs struct {
 
 func (FirewallApplicationRuleCollectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallApplicationRuleCollectionArgs)(nil)).Elem()
+}
+
+type FirewallApplicationRuleCollectionInput interface {
+	pulumi.Input
+
+	ToFirewallApplicationRuleCollectionOutput() FirewallApplicationRuleCollectionOutput
+	ToFirewallApplicationRuleCollectionOutputWithContext(ctx context.Context) FirewallApplicationRuleCollectionOutput
+}
+
+func (FirewallApplicationRuleCollection) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallApplicationRuleCollection)(nil)).Elem()
+}
+
+func (i FirewallApplicationRuleCollection) ToFirewallApplicationRuleCollectionOutput() FirewallApplicationRuleCollectionOutput {
+	return i.ToFirewallApplicationRuleCollectionOutputWithContext(context.Background())
+}
+
+func (i FirewallApplicationRuleCollection) ToFirewallApplicationRuleCollectionOutputWithContext(ctx context.Context) FirewallApplicationRuleCollectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallApplicationRuleCollectionOutput)
+}
+
+type FirewallApplicationRuleCollectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (FirewallApplicationRuleCollectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallApplicationRuleCollectionOutput)(nil)).Elem()
+}
+
+func (o FirewallApplicationRuleCollectionOutput) ToFirewallApplicationRuleCollectionOutput() FirewallApplicationRuleCollectionOutput {
+	return o
+}
+
+func (o FirewallApplicationRuleCollectionOutput) ToFirewallApplicationRuleCollectionOutputWithContext(ctx context.Context) FirewallApplicationRuleCollectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FirewallApplicationRuleCollectionOutput{})
 }

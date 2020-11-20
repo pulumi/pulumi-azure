@@ -59,6 +59,14 @@ class Job(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## Import
+
+        Stream Analytics Job's can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:streamanalytics/job:Job example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compatibility_level: Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.

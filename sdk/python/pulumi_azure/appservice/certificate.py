@@ -29,6 +29,14 @@ class Certificate(pulumi.CustomResource):
         """
         Manages an App Service certificate.
 
+        ## Import
+
+        App Service Certificates can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:appservice/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/certificates/certificate1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hosting_environment_profile_id: Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.

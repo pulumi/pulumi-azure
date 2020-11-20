@@ -87,6 +87,14 @@ class LinkService(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        Private Link Services can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:privatedns/linkService:LinkService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/privateLinkServices/service1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_approval_subscription_ids: A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.

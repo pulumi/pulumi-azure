@@ -4,6 +4,7 @@
 package sql
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -83,6 +84,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// SQL Failover Groups can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:sql/failoverGroup:FailoverGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/failovergroups/group1
 // ```
 type FailoverGroup struct {
 	pulumi.CustomResourceState
@@ -239,4 +248,43 @@ type FailoverGroupArgs struct {
 
 func (FailoverGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*failoverGroupArgs)(nil)).Elem()
+}
+
+type FailoverGroupInput interface {
+	pulumi.Input
+
+	ToFailoverGroupOutput() FailoverGroupOutput
+	ToFailoverGroupOutputWithContext(ctx context.Context) FailoverGroupOutput
+}
+
+func (FailoverGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverGroup)(nil)).Elem()
+}
+
+func (i FailoverGroup) ToFailoverGroupOutput() FailoverGroupOutput {
+	return i.ToFailoverGroupOutputWithContext(context.Background())
+}
+
+func (i FailoverGroup) ToFailoverGroupOutputWithContext(ctx context.Context) FailoverGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupOutput)
+}
+
+type FailoverGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (FailoverGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverGroupOutput)(nil)).Elem()
+}
+
+func (o FailoverGroupOutput) ToFailoverGroupOutput() FailoverGroupOutput {
+	return o
+}
+
+func (o FailoverGroupOutput) ToFailoverGroupOutputWithContext(ctx context.Context) FailoverGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FailoverGroupOutput{})
 }

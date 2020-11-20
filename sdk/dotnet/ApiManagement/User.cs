@@ -48,6 +48,14 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// API Management Users can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:apimanagement/user:User example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/users/abc123
+    /// ```
     /// </summary>
     public partial class User : Pulumi.CustomResource
     {

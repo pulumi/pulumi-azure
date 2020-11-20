@@ -4,6 +4,7 @@
 package compute
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -147,6 +148,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Virtual Machine Extensions can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:compute/extension:Extension example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/myVM/extensions/hostname
 // ```
 type Extension struct {
 	pulumi.CustomResourceState
@@ -336,4 +345,43 @@ type ExtensionArgs struct {
 
 func (ExtensionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*extensionArgs)(nil)).Elem()
+}
+
+type ExtensionInput interface {
+	pulumi.Input
+
+	ToExtensionOutput() ExtensionOutput
+	ToExtensionOutputWithContext(ctx context.Context) ExtensionOutput
+}
+
+func (Extension) ElementType() reflect.Type {
+	return reflect.TypeOf((*Extension)(nil)).Elem()
+}
+
+func (i Extension) ToExtensionOutput() ExtensionOutput {
+	return i.ToExtensionOutputWithContext(context.Background())
+}
+
+func (i Extension) ToExtensionOutputWithContext(ctx context.Context) ExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionOutput)
+}
+
+type ExtensionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionOutput)(nil)).Elem()
+}
+
+func (o ExtensionOutput) ToExtensionOutput() ExtensionOutput {
+	return o
+}
+
+func (o ExtensionOutput) ToExtensionOutputWithContext(ctx context.Context) ExtensionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ExtensionOutput{})
 }

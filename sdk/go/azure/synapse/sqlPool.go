@@ -4,6 +4,7 @@
 package synapse
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -69,6 +70,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Synapse Sql Pool can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:synapse/sqlPool:SqlPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/sqlPools/sqlPool1
 // ```
 type SqlPool struct {
 	pulumi.CustomResourceState
@@ -212,4 +221,43 @@ type SqlPoolArgs struct {
 
 func (SqlPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlPoolArgs)(nil)).Elem()
+}
+
+type SqlPoolInput interface {
+	pulumi.Input
+
+	ToSqlPoolOutput() SqlPoolOutput
+	ToSqlPoolOutputWithContext(ctx context.Context) SqlPoolOutput
+}
+
+func (SqlPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPool)(nil)).Elem()
+}
+
+func (i SqlPool) ToSqlPoolOutput() SqlPoolOutput {
+	return i.ToSqlPoolOutputWithContext(context.Background())
+}
+
+func (i SqlPool) ToSqlPoolOutputWithContext(ctx context.Context) SqlPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolOutput)
+}
+
+type SqlPoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolOutput)(nil)).Elem()
+}
+
+func (o SqlPoolOutput) ToSqlPoolOutput() SqlPoolOutput {
+	return o
+}
+
+func (o SqlPoolOutput) ToSqlPoolOutputWithContext(ctx context.Context) SqlPoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlPoolOutput{})
 }

@@ -4,6 +4,7 @@
 package core
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -46,6 +47,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Custom Provider can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:core/customProvider:CustomProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.CustomProviders/resourceProviders/example
 // ```
 type CustomProvider struct {
 	pulumi.CustomResourceState
@@ -171,4 +180,43 @@ type CustomProviderArgs struct {
 
 func (CustomProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*customProviderArgs)(nil)).Elem()
+}
+
+type CustomProviderInput interface {
+	pulumi.Input
+
+	ToCustomProviderOutput() CustomProviderOutput
+	ToCustomProviderOutputWithContext(ctx context.Context) CustomProviderOutput
+}
+
+func (CustomProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomProvider)(nil)).Elem()
+}
+
+func (i CustomProvider) ToCustomProviderOutput() CustomProviderOutput {
+	return i.ToCustomProviderOutputWithContext(context.Background())
+}
+
+func (i CustomProvider) ToCustomProviderOutputWithContext(ctx context.Context) CustomProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderOutput)
+}
+
+type CustomProviderOutput struct {
+	*pulumi.OutputState
+}
+
+func (CustomProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomProviderOutput)(nil)).Elem()
+}
+
+func (o CustomProviderOutput) ToCustomProviderOutput() CustomProviderOutput {
+	return o
+}
+
+func (o CustomProviderOutput) ToCustomProviderOutputWithContext(ctx context.Context) CustomProviderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CustomProviderOutput{})
 }

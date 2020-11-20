@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['Queue']
 
-warnings.warn("azure.eventhub.Queue has been deprecated in favor of azure.servicebus.Queue", DeprecationWarning)
+warnings.warn("""azure.eventhub.Queue has been deprecated in favor of azure.servicebus.Queue""", DeprecationWarning)
 
 
 class Queue(pulumi.CustomResource):
-    warnings.warn("azure.eventhub.Queue has been deprecated in favor of azure.servicebus.Queue", DeprecationWarning)
+    warnings.warn("""azure.eventhub.Queue has been deprecated in favor of azure.servicebus.Queue""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -61,6 +61,14 @@ class Queue(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             namespace_name=example_namespace.name,
             enable_partitioning=True)
+        ```
+
+        ## Import
+
+        Service Bus Queue can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:eventhub/queue:Queue example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1/queues/snqueue1
         ```
 
         :param str resource_name: The name of the resource.

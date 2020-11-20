@@ -4,6 +4,7 @@
 package eventhub
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -46,6 +47,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// EventGrid Topic's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:eventhub/eventGridTopic:EventGridTopic topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1
 // ```
 //
 // Deprecated: azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic
@@ -191,4 +200,43 @@ type EventGridTopicArgs struct {
 
 func (EventGridTopicArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventGridTopicArgs)(nil)).Elem()
+}
+
+type EventGridTopicInput interface {
+	pulumi.Input
+
+	ToEventGridTopicOutput() EventGridTopicOutput
+	ToEventGridTopicOutputWithContext(ctx context.Context) EventGridTopicOutput
+}
+
+func (EventGridTopic) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventGridTopic)(nil)).Elem()
+}
+
+func (i EventGridTopic) ToEventGridTopicOutput() EventGridTopicOutput {
+	return i.ToEventGridTopicOutputWithContext(context.Background())
+}
+
+func (i EventGridTopic) ToEventGridTopicOutputWithContext(ctx context.Context) EventGridTopicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicOutput)
+}
+
+type EventGridTopicOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventGridTopicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventGridTopicOutput)(nil)).Elem()
+}
+
+func (o EventGridTopicOutput) ToEventGridTopicOutput() EventGridTopicOutput {
+	return o
+}
+
+func (o EventGridTopicOutput) ToEventGridTopicOutputWithContext(ctx context.Context) EventGridTopicOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventGridTopicOutput{})
 }

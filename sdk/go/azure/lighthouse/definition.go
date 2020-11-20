@@ -4,6 +4,7 @@
 package lighthouse
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -48,6 +49,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Lighthouse Definitions can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:lighthouse/definition:Definition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000
 // ```
 type Definition struct {
 	pulumi.CustomResourceState
@@ -164,4 +173,43 @@ type DefinitionArgs struct {
 
 func (DefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*definitionArgs)(nil)).Elem()
+}
+
+type DefinitionInput interface {
+	pulumi.Input
+
+	ToDefinitionOutput() DefinitionOutput
+	ToDefinitionOutputWithContext(ctx context.Context) DefinitionOutput
+}
+
+func (Definition) ElementType() reflect.Type {
+	return reflect.TypeOf((*Definition)(nil)).Elem()
+}
+
+func (i Definition) ToDefinitionOutput() DefinitionOutput {
+	return i.ToDefinitionOutputWithContext(context.Background())
+}
+
+func (i Definition) ToDefinitionOutputWithContext(ctx context.Context) DefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefinitionOutput)
+}
+
+type DefinitionOutput struct {
+	*pulumi.OutputState
+}
+
+func (DefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefinitionOutput)(nil)).Elem()
+}
+
+func (o DefinitionOutput) ToDefinitionOutput() DefinitionOutput {
+	return o
+}
+
+func (o DefinitionOutput) ToDefinitionOutputWithContext(ctx context.Context) DefinitionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DefinitionOutput{})
 }

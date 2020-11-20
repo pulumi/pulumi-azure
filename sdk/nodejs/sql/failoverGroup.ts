@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -47,6 +46,14 @@ import * as utilities from "../utilities";
  *         graceMinutes: 60,
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * SQL Failover Groups can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:sql/failoverGroup:FailoverGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/failovergroups/group1
  * ```
  */
 export class FailoverGroup extends pulumi.CustomResource {

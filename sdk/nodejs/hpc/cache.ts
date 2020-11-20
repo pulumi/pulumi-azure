@@ -36,6 +36,14 @@ import * as utilities from "../utilities";
  *     skuName: "Standard_2G",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * HPC Caches can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:hpc/cache:Cache example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.StorageCache/caches/cacheName
+ * ```
  */
 export class Cache extends pulumi.CustomResource {
     /**

@@ -4,6 +4,7 @@
 package keyvault
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -15,6 +16,22 @@ import (
 // > **NOTE:** It's possible to define Key Vault Access Policies both within the `keyvault.KeyVault` resource via the `accessPolicy` block and by using the `keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
 //
 // > **NOTE:** Azure permits a maximum of 1024 Access Policies per Key Vault - [more information can be found in this document](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-access-control).
+//
+// ## Import
+//
+// Key Vault Access Policies can be imported using the Resource ID of the Key Vault, plus some additional metadata. If both an `object_id` and `application_id` are specified, then the Access Policy can be imported using the following code
+//
+// ```sh
+//  $ pulumi import azure:keyvault/accessPolicy:AccessPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/vaults/test-vault/objectId/11111111-1111-1111-1111-111111111111/applicationId/22222222-2222-2222-2222-222222222222
+// ```
+//
+//  where `11111111-1111-1111-1111-111111111111` is the `object_id` and `22222222-2222-2222-2222-222222222222` is the `application_id`. --- Access Policies with an `object_id` but no `application_id` can be imported using the following command
+//
+// ```sh
+//  $ pulumi import azure:keyvault/accessPolicy:AccessPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/vaults/test-vault/objectId/11111111-1111-1111-1111-111111111111
+// ```
+//
+//  where `11111111-1111-1111-1111-111111111111` is the `object_id`.
 type AccessPolicy struct {
 	pulumi.CustomResourceState
 
@@ -210,4 +227,43 @@ type AccessPolicyArgs struct {
 
 func (AccessPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessPolicyArgs)(nil)).Elem()
+}
+
+type AccessPolicyInput interface {
+	pulumi.Input
+
+	ToAccessPolicyOutput() AccessPolicyOutput
+	ToAccessPolicyOutputWithContext(ctx context.Context) AccessPolicyOutput
+}
+
+func (AccessPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPolicy)(nil)).Elem()
+}
+
+func (i AccessPolicy) ToAccessPolicyOutput() AccessPolicyOutput {
+	return i.ToAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i AccessPolicy) ToAccessPolicyOutputWithContext(ctx context.Context) AccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyOutput)
+}
+
+type AccessPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (AccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPolicyOutput)(nil)).Elem()
+}
+
+func (o AccessPolicyOutput) ToAccessPolicyOutput() AccessPolicyOutput {
+	return o
+}
+
+func (o AccessPolicyOutput) ToAccessPolicyOutputWithContext(ctx context.Context) AccessPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AccessPolicyOutput{})
 }

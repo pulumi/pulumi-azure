@@ -34,6 +34,14 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
         """
         Manages an Azure Cosmos DB SQL API Dataset inside an Azure Data Factory.
 
+        ## Import
+
+        Data Factory Datasets can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:datafactory/datasetCosmosDBApi:DatasetCosmosDBApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.

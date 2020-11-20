@@ -4,6 +4,7 @@
 package mixedreality
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -41,6 +42,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Spatial Anchors Account can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:mixedreality/spatialAnchorsAccount:SpatialAnchorsAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.MixedReality/spatialAnchorsAccounts/example
 // ```
 type SpatialAnchorsAccount struct {
 	pulumi.CustomResourceState
@@ -136,4 +145,43 @@ type SpatialAnchorsAccountArgs struct {
 
 func (SpatialAnchorsAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*spatialAnchorsAccountArgs)(nil)).Elem()
+}
+
+type SpatialAnchorsAccountInput interface {
+	pulumi.Input
+
+	ToSpatialAnchorsAccountOutput() SpatialAnchorsAccountOutput
+	ToSpatialAnchorsAccountOutputWithContext(ctx context.Context) SpatialAnchorsAccountOutput
+}
+
+func (SpatialAnchorsAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpatialAnchorsAccount)(nil)).Elem()
+}
+
+func (i SpatialAnchorsAccount) ToSpatialAnchorsAccountOutput() SpatialAnchorsAccountOutput {
+	return i.ToSpatialAnchorsAccountOutputWithContext(context.Background())
+}
+
+func (i SpatialAnchorsAccount) ToSpatialAnchorsAccountOutputWithContext(ctx context.Context) SpatialAnchorsAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpatialAnchorsAccountOutput)
+}
+
+type SpatialAnchorsAccountOutput struct {
+	*pulumi.OutputState
+}
+
+func (SpatialAnchorsAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpatialAnchorsAccountOutput)(nil)).Elem()
+}
+
+func (o SpatialAnchorsAccountOutput) ToSpatialAnchorsAccountOutput() SpatialAnchorsAccountOutput {
+	return o
+}
+
+func (o SpatialAnchorsAccountOutput) ToSpatialAnchorsAccountOutputWithContext(ctx context.Context) SpatialAnchorsAccountOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SpatialAnchorsAccountOutput{})
 }

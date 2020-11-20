@@ -4,6 +4,7 @@
 package streamanalytics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -72,6 +73,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Stream Analytics Output ServiceBus Topic's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/outputs/output1
 // ```
 type OutputServicebusTopic struct {
 	pulumi.CustomResourceState
@@ -225,4 +234,43 @@ type OutputServicebusTopicArgs struct {
 
 func (OutputServicebusTopicArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*outputServicebusTopicArgs)(nil)).Elem()
+}
+
+type OutputServicebusTopicInput interface {
+	pulumi.Input
+
+	ToOutputServicebusTopicOutput() OutputServicebusTopicOutput
+	ToOutputServicebusTopicOutputWithContext(ctx context.Context) OutputServicebusTopicOutput
+}
+
+func (OutputServicebusTopic) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputServicebusTopic)(nil)).Elem()
+}
+
+func (i OutputServicebusTopic) ToOutputServicebusTopicOutput() OutputServicebusTopicOutput {
+	return i.ToOutputServicebusTopicOutputWithContext(context.Background())
+}
+
+func (i OutputServicebusTopic) ToOutputServicebusTopicOutputWithContext(ctx context.Context) OutputServicebusTopicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputServicebusTopicOutput)
+}
+
+type OutputServicebusTopicOutput struct {
+	*pulumi.OutputState
+}
+
+func (OutputServicebusTopicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputServicebusTopicOutput)(nil)).Elem()
+}
+
+func (o OutputServicebusTopicOutput) ToOutputServicebusTopicOutput() OutputServicebusTopicOutput {
+	return o
+}
+
+func (o OutputServicebusTopicOutput) ToOutputServicebusTopicOutputWithContext(ctx context.Context) OutputServicebusTopicOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OutputServicebusTopicOutput{})
 }

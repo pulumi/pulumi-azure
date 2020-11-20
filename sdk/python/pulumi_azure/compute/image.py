@@ -63,6 +63,14 @@ class Image(pulumi.CustomResource):
             source_virtual_machine_id="{vm_id}")
         ```
 
+        ## Import
+
+        Images can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:compute/image:Image example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.compute/images/image1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageDataDiskArgs']]]] data_disks: One or more `data_disk` elements as defined below.

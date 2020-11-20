@@ -4,6 +4,7 @@
 package costmanagement
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -62,6 +63,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Cost Management Export for a Resource Group can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:costmanagement/resourceGroupExport:ResourceGroupExport example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.CostManagement/exports/example
 // ```
 type ResourceGroupExport struct {
 	pulumi.CustomResourceState
@@ -212,4 +221,43 @@ type ResourceGroupExportArgs struct {
 
 func (ResourceGroupExportArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceGroupExportArgs)(nil)).Elem()
+}
+
+type ResourceGroupExportInput interface {
+	pulumi.Input
+
+	ToResourceGroupExportOutput() ResourceGroupExportOutput
+	ToResourceGroupExportOutputWithContext(ctx context.Context) ResourceGroupExportOutput
+}
+
+func (ResourceGroupExport) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupExport)(nil)).Elem()
+}
+
+func (i ResourceGroupExport) ToResourceGroupExportOutput() ResourceGroupExportOutput {
+	return i.ToResourceGroupExportOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupExport) ToResourceGroupExportOutputWithContext(ctx context.Context) ResourceGroupExportOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupExportOutput)
+}
+
+type ResourceGroupExportOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResourceGroupExportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupExportOutput)(nil)).Elem()
+}
+
+func (o ResourceGroupExportOutput) ToResourceGroupExportOutput() ResourceGroupExportOutput {
+	return o
+}
+
+func (o ResourceGroupExportOutput) ToResourceGroupExportOutputWithContext(ctx context.Context) ResourceGroupExportOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResourceGroupExportOutput{})
 }

@@ -4,6 +4,7 @@
 package cosmosdb
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -80,6 +81,14 @@ import (
 // ```
 //
 // > **NOTE:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `cosmosdb.Account` resource.
+//
+// ## Import
+//
+// Cosmos Gremlin Graphs can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:cosmosdb/gremlinGraph:GremlinGraph example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/gremlinDatabases/db1/graphs/graphs1
+// ```
 type GremlinGraph struct {
 	pulumi.CustomResourceState
 
@@ -246,4 +255,43 @@ type GremlinGraphArgs struct {
 
 func (GremlinGraphArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gremlinGraphArgs)(nil)).Elem()
+}
+
+type GremlinGraphInput interface {
+	pulumi.Input
+
+	ToGremlinGraphOutput() GremlinGraphOutput
+	ToGremlinGraphOutputWithContext(ctx context.Context) GremlinGraphOutput
+}
+
+func (GremlinGraph) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinGraph)(nil)).Elem()
+}
+
+func (i GremlinGraph) ToGremlinGraphOutput() GremlinGraphOutput {
+	return i.ToGremlinGraphOutputWithContext(context.Background())
+}
+
+func (i GremlinGraph) ToGremlinGraphOutputWithContext(ctx context.Context) GremlinGraphOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphOutput)
+}
+
+type GremlinGraphOutput struct {
+	*pulumi.OutputState
+}
+
+func (GremlinGraphOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinGraphOutput)(nil)).Elem()
+}
+
+func (o GremlinGraphOutput) ToGremlinGraphOutput() GremlinGraphOutput {
+	return o
+}
+
+func (o GremlinGraphOutput) ToGremlinGraphOutputWithContext(ctx context.Context) GremlinGraphOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GremlinGraphOutput{})
 }

@@ -4,6 +4,7 @@
 package privatedns
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -51,6 +52,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Private DNS PTR Records can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:privatedns/pTRRecord:PTRRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/2.0.192.in-addr.arpa/PTR/15
 // ```
 type PTRRecord struct {
 	pulumi.CustomResourceState
@@ -176,4 +185,43 @@ type PTRRecordArgs struct {
 
 func (PTRRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ptrrecordArgs)(nil)).Elem()
+}
+
+type PTRRecordInput interface {
+	pulumi.Input
+
+	ToPTRRecordOutput() PTRRecordOutput
+	ToPTRRecordOutputWithContext(ctx context.Context) PTRRecordOutput
+}
+
+func (PTRRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*PTRRecord)(nil)).Elem()
+}
+
+func (i PTRRecord) ToPTRRecordOutput() PTRRecordOutput {
+	return i.ToPTRRecordOutputWithContext(context.Background())
+}
+
+func (i PTRRecord) ToPTRRecordOutputWithContext(ctx context.Context) PTRRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PTRRecordOutput)
+}
+
+type PTRRecordOutput struct {
+	*pulumi.OutputState
+}
+
+func (PTRRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PTRRecordOutput)(nil)).Elem()
+}
+
+func (o PTRRecordOutput) ToPTRRecordOutput() PTRRecordOutput {
+	return o
+}
+
+func (o PTRRecordOutput) ToPTRRecordOutputWithContext(ctx context.Context) PTRRecordOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PTRRecordOutput{})
 }

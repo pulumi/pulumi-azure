@@ -4,6 +4,7 @@
 package core
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -202,4 +203,43 @@ type TemplateDeploymentArgs struct {
 
 func (TemplateDeploymentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*templateDeploymentArgs)(nil)).Elem()
+}
+
+type TemplateDeploymentInput interface {
+	pulumi.Input
+
+	ToTemplateDeploymentOutput() TemplateDeploymentOutput
+	ToTemplateDeploymentOutputWithContext(ctx context.Context) TemplateDeploymentOutput
+}
+
+func (TemplateDeployment) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateDeployment)(nil)).Elem()
+}
+
+func (i TemplateDeployment) ToTemplateDeploymentOutput() TemplateDeploymentOutput {
+	return i.ToTemplateDeploymentOutputWithContext(context.Background())
+}
+
+func (i TemplateDeployment) ToTemplateDeploymentOutputWithContext(ctx context.Context) TemplateDeploymentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateDeploymentOutput)
+}
+
+type TemplateDeploymentOutput struct {
+	*pulumi.OutputState
+}
+
+func (TemplateDeploymentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateDeploymentOutput)(nil)).Elem()
+}
+
+func (o TemplateDeploymentOutput) ToTemplateDeploymentOutput() TemplateDeploymentOutput {
+	return o
+}
+
+func (o TemplateDeploymentOutput) ToTemplateDeploymentOutputWithContext(ctx context.Context) TemplateDeploymentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TemplateDeploymentOutput{})
 }

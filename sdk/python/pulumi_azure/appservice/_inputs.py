@@ -1564,7 +1564,7 @@ class AppServiceSiteConfigIpRestrictionArgs:
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if subnet_id is not None:
-            warnings.warn("This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider", DeprecationWarning)
+            warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
             pulumi.log.warn("subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider")
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
@@ -1666,7 +1666,7 @@ class AppServiceSiteConfigScmIpRestrictionArgs:
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if subnet_id is not None:
-            warnings.warn("This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider", DeprecationWarning)
+            warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
             pulumi.log.warn("subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider")
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
@@ -2936,7 +2936,7 @@ class FunctionAppSiteConfigIpRestrictionArgs:
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if subnet_id is not None:
-            warnings.warn("This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider", DeprecationWarning)
+            warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
             pulumi.log.warn("subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider")
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
@@ -3038,7 +3038,7 @@ class FunctionAppSiteConfigScmIpRestrictionArgs:
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if subnet_id is not None:
-            warnings.warn("This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider", DeprecationWarning)
+            warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
             pulumi.log.warn("subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider")
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
@@ -4040,7 +4040,7 @@ class FunctionAppSlotSiteConfigIpRestrictionArgs:
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if subnet_id is not None:
-            warnings.warn("This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider", DeprecationWarning)
+            warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
             pulumi.log.warn("subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider")
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
@@ -4142,7 +4142,7 @@ class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if subnet_id is not None:
-            warnings.warn("This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider", DeprecationWarning)
+            warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
             pulumi.log.warn("subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider")
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
@@ -5703,7 +5703,7 @@ class SlotSiteConfigIpRestrictionArgs:
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if subnet_id is not None:
-            warnings.warn("This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider", DeprecationWarning)
+            warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
             pulumi.log.warn("subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider")
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
@@ -5805,7 +5805,7 @@ class SlotSiteConfigScmIpRestrictionArgs:
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if subnet_id is not None:
-            warnings.warn("This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider", DeprecationWarning)
+            warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
             pulumi.log.warn("subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider")
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)

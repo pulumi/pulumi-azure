@@ -138,6 +138,16 @@ import * as utilities from "../utilities";
  *
  * It is recommended to follow the steps outlined
  * [here](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards-create-programmatically#fetch-the-json-representation-of-the-dashboard) to create a Dashboard in the Portal and extract the relevant JSON to use in this resource. From the extracted JSON, the contents of the `properties: {}` object can used. Variables can be injected as needed - see above example.
+ *
+ * ## Import
+ *
+ * Dashboards can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:dashboard/dashboard:Dashboard my-board /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Portal/dashboards/00000000-0000-0000-0000-000000000000
+ * ```
+ *
+ *  Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
  */
 export class Dashboard extends pulumi.CustomResource {
     /**

@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -51,6 +52,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// ExpressRoute circuits can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/expressRouteCircuit:ExpressRouteCircuit myExpressRoute /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteCircuits/myExpressRoute
 // ```
 type ExpressRouteCircuit struct {
 	pulumi.CustomResourceState
@@ -220,4 +229,43 @@ type ExpressRouteCircuitArgs struct {
 
 func (ExpressRouteCircuitArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRouteCircuitArgs)(nil)).Elem()
+}
+
+type ExpressRouteCircuitInput interface {
+	pulumi.Input
+
+	ToExpressRouteCircuitOutput() ExpressRouteCircuitOutput
+	ToExpressRouteCircuitOutputWithContext(ctx context.Context) ExpressRouteCircuitOutput
+}
+
+func (ExpressRouteCircuit) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteCircuit)(nil)).Elem()
+}
+
+func (i ExpressRouteCircuit) ToExpressRouteCircuitOutput() ExpressRouteCircuitOutput {
+	return i.ToExpressRouteCircuitOutputWithContext(context.Background())
+}
+
+func (i ExpressRouteCircuit) ToExpressRouteCircuitOutputWithContext(ctx context.Context) ExpressRouteCircuitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitOutput)
+}
+
+type ExpressRouteCircuitOutput struct {
+	*pulumi.OutputState
+}
+
+func (ExpressRouteCircuitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteCircuitOutput)(nil)).Elem()
+}
+
+func (o ExpressRouteCircuitOutput) ToExpressRouteCircuitOutput() ExpressRouteCircuitOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitOutput) ToExpressRouteCircuitOutputWithContext(ctx context.Context) ExpressRouteCircuitOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ExpressRouteCircuitOutput{})
 }

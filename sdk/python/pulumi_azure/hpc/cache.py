@@ -56,6 +56,14 @@ class Cache(pulumi.CustomResource):
             sku_name="Standard_2G")
         ```
 
+        ## Import
+
+        HPC Caches can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:hpc/cache:Cache example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.StorageCache/caches/cacheName
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.

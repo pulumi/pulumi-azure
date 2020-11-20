@@ -40,6 +40,14 @@ class Contact(pulumi.CustomResource):
             phone="+1-555-555-5555")
         ```
 
+        ## Import
+
+        The contact can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:securitycenter/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/securityContacts/default1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] alert_notifications: Whether to send security alerts notifications to the security contact.

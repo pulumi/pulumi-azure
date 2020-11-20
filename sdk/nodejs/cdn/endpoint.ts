@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -30,6 +29,14 @@ import * as utilities from "../utilities";
  *         hostName: "www.contoso.com",
  *     }],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * CDN Endpoints can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:cdn/endpoint:Endpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/myprofile1/endpoints/myendpoint1
  * ```
  */
 export class Endpoint extends pulumi.CustomResource {

@@ -44,6 +44,14 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
             public_ip_address_id=example_public_ip.id)
         ```
 
+        ## Import
+
+        Associations between Nat Gateway and Public IP Addresses can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPAddresses/myPublicIpAddress1"
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] nat_gateway_id: The ID of the Nat Gateway. Changing this forces a new resource to be created.

@@ -4,6 +4,7 @@
 package loganalytics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -63,6 +64,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Log Analytics Storage Insight Configs can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:loganalytics/storageInsights:StorageInsights example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/storageInsightConfigs/storageInsight1
 // ```
 type StorageInsights struct {
 	pulumi.CustomResourceState
@@ -207,4 +216,43 @@ type StorageInsightsArgs struct {
 
 func (StorageInsightsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageInsightsArgs)(nil)).Elem()
+}
+
+type StorageInsightsInput interface {
+	pulumi.Input
+
+	ToStorageInsightsOutput() StorageInsightsOutput
+	ToStorageInsightsOutputWithContext(ctx context.Context) StorageInsightsOutput
+}
+
+func (StorageInsights) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageInsights)(nil)).Elem()
+}
+
+func (i StorageInsights) ToStorageInsightsOutput() StorageInsightsOutput {
+	return i.ToStorageInsightsOutputWithContext(context.Background())
+}
+
+func (i StorageInsights) ToStorageInsightsOutputWithContext(ctx context.Context) StorageInsightsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightsOutput)
+}
+
+type StorageInsightsOutput struct {
+	*pulumi.OutputState
+}
+
+func (StorageInsightsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageInsightsOutput)(nil)).Elem()
+}
+
+func (o StorageInsightsOutput) ToStorageInsightsOutput() StorageInsightsOutput {
+	return o
+}
+
+func (o StorageInsightsOutput) ToStorageInsightsOutputWithContext(ctx context.Context) StorageInsightsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StorageInsightsOutput{})
 }

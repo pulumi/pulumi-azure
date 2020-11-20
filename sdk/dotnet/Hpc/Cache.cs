@@ -60,6 +60,14 @@ namespace Pulumi.Azure.Hpc
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// HPC Caches can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:hpc/cache:Cache example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.StorageCache/caches/cacheName
+    /// ```
     /// </summary>
     public partial class Cache : Pulumi.CustomResource
     {

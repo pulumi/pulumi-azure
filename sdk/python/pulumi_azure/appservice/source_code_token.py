@@ -37,6 +37,14 @@ class SourceCodeToken(pulumi.CustomResource):
             type="GitHub")
         ```
 
+        ## Import
+
+        App Service Source Control Token's can be imported using the `type`, e.g.
+
+        ```sh
+         $ pulumi import azure:appservice/sourceCodeToken:SourceCodeToken example GitHub
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] token: The OAuth access token.

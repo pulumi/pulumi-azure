@@ -4,6 +4,7 @@
 package apimanagement
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -53,6 +54,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// API Management Properties can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:apimanagement/property:Property example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/namedValues/example-apimp
 // ```
 type Property struct {
 	pulumi.CustomResourceState
@@ -187,4 +196,43 @@ type PropertyArgs struct {
 
 func (PropertyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*propertyArgs)(nil)).Elem()
+}
+
+type PropertyInput interface {
+	pulumi.Input
+
+	ToPropertyOutput() PropertyOutput
+	ToPropertyOutputWithContext(ctx context.Context) PropertyOutput
+}
+
+func (Property) ElementType() reflect.Type {
+	return reflect.TypeOf((*Property)(nil)).Elem()
+}
+
+func (i Property) ToPropertyOutput() PropertyOutput {
+	return i.ToPropertyOutputWithContext(context.Background())
+}
+
+func (i Property) ToPropertyOutputWithContext(ctx context.Context) PropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertyOutput)
+}
+
+type PropertyOutput struct {
+	*pulumi.OutputState
+}
+
+func (PropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PropertyOutput)(nil)).Elem()
+}
+
+func (o PropertyOutput) ToPropertyOutput() PropertyOutput {
+	return o
+}
+
+func (o PropertyOutput) ToPropertyOutputWithContext(ctx context.Context) PropertyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PropertyOutput{})
 }

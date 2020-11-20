@@ -45,6 +45,14 @@ class Container(pulumi.CustomResource):
             container_access_type="private")
         ```
 
+        ## Import
+
+        Storage Containers can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:storage/container:Container container1 https://example.blob.core.windows.net/container
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.

@@ -4,6 +4,7 @@
 package iot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -56,6 +57,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Azure IoT Time Series Insights Reference Data Set can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:iot/timeSeriesInsightsReferenceDataSet:TimeSeriesInsightsReferenceDataSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/example/referenceDataSets/example
 // ```
 type TimeSeriesInsightsReferenceDataSet struct {
 	pulumi.CustomResourceState
@@ -174,4 +183,43 @@ type TimeSeriesInsightsReferenceDataSetArgs struct {
 
 func (TimeSeriesInsightsReferenceDataSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*timeSeriesInsightsReferenceDataSetArgs)(nil)).Elem()
+}
+
+type TimeSeriesInsightsReferenceDataSetInput interface {
+	pulumi.Input
+
+	ToTimeSeriesInsightsReferenceDataSetOutput() TimeSeriesInsightsReferenceDataSetOutput
+	ToTimeSeriesInsightsReferenceDataSetOutputWithContext(ctx context.Context) TimeSeriesInsightsReferenceDataSetOutput
+}
+
+func (TimeSeriesInsightsReferenceDataSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeSeriesInsightsReferenceDataSet)(nil)).Elem()
+}
+
+func (i TimeSeriesInsightsReferenceDataSet) ToTimeSeriesInsightsReferenceDataSetOutput() TimeSeriesInsightsReferenceDataSetOutput {
+	return i.ToTimeSeriesInsightsReferenceDataSetOutputWithContext(context.Background())
+}
+
+func (i TimeSeriesInsightsReferenceDataSet) ToTimeSeriesInsightsReferenceDataSetOutputWithContext(ctx context.Context) TimeSeriesInsightsReferenceDataSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsReferenceDataSetOutput)
+}
+
+type TimeSeriesInsightsReferenceDataSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (TimeSeriesInsightsReferenceDataSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeSeriesInsightsReferenceDataSetOutput)(nil)).Elem()
+}
+
+func (o TimeSeriesInsightsReferenceDataSetOutput) ToTimeSeriesInsightsReferenceDataSetOutput() TimeSeriesInsightsReferenceDataSetOutput {
+	return o
+}
+
+func (o TimeSeriesInsightsReferenceDataSetOutput) ToTimeSeriesInsightsReferenceDataSetOutputWithContext(ctx context.Context) TimeSeriesInsightsReferenceDataSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TimeSeriesInsightsReferenceDataSetOutput{})
 }

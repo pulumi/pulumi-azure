@@ -4,6 +4,7 @@
 package dns
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -96,6 +97,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// CNAME records can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:dns/cNameRecord:CNameRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/CNAME/myrecord1
 // ```
 type CNameRecord struct {
 	pulumi.CustomResourceState
@@ -228,4 +237,43 @@ type CNameRecordArgs struct {
 
 func (CNameRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cnameRecordArgs)(nil)).Elem()
+}
+
+type CNameRecordInput interface {
+	pulumi.Input
+
+	ToCNameRecordOutput() CNameRecordOutput
+	ToCNameRecordOutputWithContext(ctx context.Context) CNameRecordOutput
+}
+
+func (CNameRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*CNameRecord)(nil)).Elem()
+}
+
+func (i CNameRecord) ToCNameRecordOutput() CNameRecordOutput {
+	return i.ToCNameRecordOutputWithContext(context.Background())
+}
+
+func (i CNameRecord) ToCNameRecordOutputWithContext(ctx context.Context) CNameRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CNameRecordOutput)
+}
+
+type CNameRecordOutput struct {
+	*pulumi.OutputState
+}
+
+func (CNameRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CNameRecordOutput)(nil)).Elem()
+}
+
+func (o CNameRecordOutput) ToCNameRecordOutput() CNameRecordOutput {
+	return o
+}
+
+func (o CNameRecordOutput) ToCNameRecordOutputWithContext(ctx context.Context) CNameRecordOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CNameRecordOutput{})
 }

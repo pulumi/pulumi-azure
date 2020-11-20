@@ -4,6 +4,7 @@
 package datalake
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -49,6 +50,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Data Lake Analytics Account can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:datalake/analyticsAccount:AnalyticsAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DataLakeAnalytics/accounts/mydatalakeaccount
 // ```
 type AnalyticsAccount struct {
 	pulumi.CustomResourceState
@@ -167,4 +176,43 @@ type AnalyticsAccountArgs struct {
 
 func (AnalyticsAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyticsAccountArgs)(nil)).Elem()
+}
+
+type AnalyticsAccountInput interface {
+	pulumi.Input
+
+	ToAnalyticsAccountOutput() AnalyticsAccountOutput
+	ToAnalyticsAccountOutputWithContext(ctx context.Context) AnalyticsAccountOutput
+}
+
+func (AnalyticsAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsAccount)(nil)).Elem()
+}
+
+func (i AnalyticsAccount) ToAnalyticsAccountOutput() AnalyticsAccountOutput {
+	return i.ToAnalyticsAccountOutputWithContext(context.Background())
+}
+
+func (i AnalyticsAccount) ToAnalyticsAccountOutputWithContext(ctx context.Context) AnalyticsAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsAccountOutput)
+}
+
+type AnalyticsAccountOutput struct {
+	*pulumi.OutputState
+}
+
+func (AnalyticsAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsAccountOutput)(nil)).Elem()
+}
+
+func (o AnalyticsAccountOutput) ToAnalyticsAccountOutput() AnalyticsAccountOutput {
+	return o
+}
+
+func (o AnalyticsAccountOutput) ToAnalyticsAccountOutputWithContext(ctx context.Context) AnalyticsAccountOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AnalyticsAccountOutput{})
 }

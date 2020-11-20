@@ -11,6 +11,14 @@ namespace Pulumi.Azure.Batch
 {
     /// <summary>
     /// Manages an Azure Batch pool.
+    /// 
+    /// ## Import
+    /// 
+    /// Batch Pools can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:batch/pool:Pool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.Batch/batchAccounts/myBatchAccount1/pools/myBatchPool1
+    /// ```
     /// </summary>
     public partial class Pool : Pulumi.CustomResource
     {

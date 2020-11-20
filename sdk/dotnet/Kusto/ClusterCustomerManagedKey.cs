@@ -11,6 +11,14 @@ namespace Pulumi.Azure.Kusto
 {
     /// <summary>
     /// Manages a Customer Managed Key for a Kusto Cluster.
+    /// 
+    /// ## Import
+    /// 
+    /// Customer Managed Keys for a Kusto Cluster can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1
+    /// ```
     /// </summary>
     public partial class ClusterCustomerManagedKey : Pulumi.CustomResource
     {

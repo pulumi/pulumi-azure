@@ -46,6 +46,14 @@ namespace Pulumi.Azure.LogAnalytics
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Log Analytics Windows Event DataSources can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/datasources/datasource1
+    /// ```
     /// </summary>
     public partial class DataSourceWindowsEvent : Pulumi.CustomResource
     {

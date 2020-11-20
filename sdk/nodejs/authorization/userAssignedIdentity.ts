@@ -19,6 +19,14 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * User Assigned Identities can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:authorization/userAssignedIdentity:UserAssignedIdentity exampleIdentity /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/acceptanceTestResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testIdentity
+ * ```
  */
 export class UserAssignedIdentity extends pulumi.CustomResource {
     /**

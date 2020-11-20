@@ -4,6 +4,7 @@
 package devtest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -62,6 +63,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// DevTest Schedule's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:devtest/schedule:Schedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DevTestLab/labs/myDevTestLab/schedules/labvmautostart
 // ```
 type Schedule struct {
 	pulumi.CustomResourceState
@@ -229,4 +238,43 @@ type ScheduleArgs struct {
 
 func (ScheduleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduleArgs)(nil)).Elem()
+}
+
+type ScheduleInput interface {
+	pulumi.Input
+
+	ToScheduleOutput() ScheduleOutput
+	ToScheduleOutputWithContext(ctx context.Context) ScheduleOutput
+}
+
+func (Schedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*Schedule)(nil)).Elem()
+}
+
+func (i Schedule) ToScheduleOutput() ScheduleOutput {
+	return i.ToScheduleOutputWithContext(context.Background())
+}
+
+func (i Schedule) ToScheduleOutputWithContext(ctx context.Context) ScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleOutput)
+}
+
+type ScheduleOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleOutput)(nil)).Elem()
+}
+
+func (o ScheduleOutput) ToScheduleOutput() ScheduleOutput {
+	return o
+}
+
+func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) ScheduleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ScheduleOutput{})
 }

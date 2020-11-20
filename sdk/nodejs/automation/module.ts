@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -30,6 +29,14 @@ import * as utilities from "../utilities";
  *         uri: "https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Automation Modules can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:automation/module:Module module1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/modules/module1
  * ```
  */
 export class Module extends pulumi.CustomResource {

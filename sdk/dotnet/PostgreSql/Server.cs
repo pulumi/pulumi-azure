@@ -46,6 +46,14 @@ namespace Pulumi.Azure.PostgreSql
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// PostgreSQL Server's can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:postgresql/server:Server server1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/servers/server1
+    /// ```
     /// </summary>
     public partial class Server : Pulumi.CustomResource
     {

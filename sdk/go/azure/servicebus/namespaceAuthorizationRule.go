@@ -4,6 +4,7 @@
 package servicebus
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -55,6 +56,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// ServiceBus Namespace authorization rules can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/AuthorizationRules/rule1
 // ```
 type NamespaceAuthorizationRule struct {
 	pulumi.CustomResourceState
@@ -203,4 +212,43 @@ type NamespaceAuthorizationRuleArgs struct {
 
 func (NamespaceAuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*namespaceAuthorizationRuleArgs)(nil)).Elem()
+}
+
+type NamespaceAuthorizationRuleInput interface {
+	pulumi.Input
+
+	ToNamespaceAuthorizationRuleOutput() NamespaceAuthorizationRuleOutput
+	ToNamespaceAuthorizationRuleOutputWithContext(ctx context.Context) NamespaceAuthorizationRuleOutput
+}
+
+func (NamespaceAuthorizationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceAuthorizationRule)(nil)).Elem()
+}
+
+func (i NamespaceAuthorizationRule) ToNamespaceAuthorizationRuleOutput() NamespaceAuthorizationRuleOutput {
+	return i.ToNamespaceAuthorizationRuleOutputWithContext(context.Background())
+}
+
+func (i NamespaceAuthorizationRule) ToNamespaceAuthorizationRuleOutputWithContext(ctx context.Context) NamespaceAuthorizationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceAuthorizationRuleOutput)
+}
+
+type NamespaceAuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (NamespaceAuthorizationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceAuthorizationRuleOutput)(nil)).Elem()
+}
+
+func (o NamespaceAuthorizationRuleOutput) ToNamespaceAuthorizationRuleOutput() NamespaceAuthorizationRuleOutput {
+	return o
+}
+
+func (o NamespaceAuthorizationRuleOutput) ToNamespaceAuthorizationRuleOutputWithContext(ctx context.Context) NamespaceAuthorizationRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NamespaceAuthorizationRuleOutput{})
 }

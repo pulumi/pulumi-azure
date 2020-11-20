@@ -61,6 +61,14 @@ class Subscription(pulumi.CustomResource):
             max_delivery_count=1)
         ```
 
+        ## Import
+
+        Service Bus Subscriptions can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:servicebus/subscription:Subscription example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1/topics/sntopic1/subscriptions/sbsub1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.

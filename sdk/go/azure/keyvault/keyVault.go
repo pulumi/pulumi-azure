@@ -4,6 +4,7 @@
 package keyvault
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -87,6 +88,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Key Vault's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:keyvault/keyVault:KeyVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/vaults/vault1
 // ```
 type KeyVault struct {
 	pulumi.CustomResourceState
@@ -314,4 +323,43 @@ type KeyVaultArgs struct {
 
 func (KeyVaultArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyVaultArgs)(nil)).Elem()
+}
+
+type KeyVaultInput interface {
+	pulumi.Input
+
+	ToKeyVaultOutput() KeyVaultOutput
+	ToKeyVaultOutputWithContext(ctx context.Context) KeyVaultOutput
+}
+
+func (KeyVault) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVault)(nil)).Elem()
+}
+
+func (i KeyVault) ToKeyVaultOutput() KeyVaultOutput {
+	return i.ToKeyVaultOutputWithContext(context.Background())
+}
+
+func (i KeyVault) ToKeyVaultOutputWithContext(ctx context.Context) KeyVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultOutput)
+}
+
+type KeyVaultOutput struct {
+	*pulumi.OutputState
+}
+
+func (KeyVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultOutput)(nil)).Elem()
+}
+
+func (o KeyVaultOutput) ToKeyVaultOutput() KeyVaultOutput {
+	return o
+}
+
+func (o KeyVaultOutput) ToKeyVaultOutputWithContext(ctx context.Context) KeyVaultOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(KeyVaultOutput{})
 }

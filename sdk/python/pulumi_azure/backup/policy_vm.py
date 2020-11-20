@@ -84,6 +84,14 @@ class PolicyVM(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        VM Backup Policies can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:backup/policyVM:PolicyVM policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupPolicies/policy1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.

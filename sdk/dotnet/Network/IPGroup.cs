@@ -45,6 +45,14 @@ namespace Pulumi.Azure.Network
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// IP Groups can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:network/iPGroup:IPGroup ipgroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/ipGroups/myIpGroup
+    /// ```
     /// </summary>
     public partial class IPGroup : Pulumi.CustomResource
     {

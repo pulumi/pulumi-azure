@@ -4,6 +4,7 @@
 package waf
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -134,6 +135,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Web Application Firewall Policy can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:waf/policy:Policy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/example-wafpolicy
+// ```
 type Policy struct {
 	pulumi.CustomResourceState
 
@@ -261,4 +270,43 @@ type PolicyArgs struct {
 
 func (PolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyArgs)(nil)).Elem()
+}
+
+type PolicyInput interface {
+	pulumi.Input
+
+	ToPolicyOutput() PolicyOutput
+	ToPolicyOutputWithContext(ctx context.Context) PolicyOutput
+}
+
+func (Policy) ElementType() reflect.Type {
+	return reflect.TypeOf((*Policy)(nil)).Elem()
+}
+
+func (i Policy) ToPolicyOutput() PolicyOutput {
+	return i.ToPolicyOutputWithContext(context.Background())
+}
+
+func (i Policy) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyOutput)
+}
+
+type PolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (PolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyOutput)(nil)).Elem()
+}
+
+func (o PolicyOutput) ToPolicyOutput() PolicyOutput {
+	return o
+}
+
+func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PolicyOutput{})
 }

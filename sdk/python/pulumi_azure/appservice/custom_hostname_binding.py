@@ -56,6 +56,14 @@ class CustomHostnameBinding(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         ```
 
+        ## Import
+
+        App Service Custom Hostname Bindings can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:appservice/customHostnameBinding:CustomHostnameBinding mywebsite /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/hostNameBindings/mywebsite.com
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_name: The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.

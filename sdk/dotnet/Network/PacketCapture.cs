@@ -13,6 +13,14 @@ namespace Pulumi.Azure.Network
     /// Configures Packet Capturing against a Virtual Machine using a Network Watcher.
     /// 
     /// &gt; **NOTE:** This resource has been deprecated in favour of the `azure.network.NetworkConnectionMonitor` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
+    /// 
+    /// ## Import
+    /// 
+    /// Packet Captures can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:network/packetCapture:PacketCapture capture1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/packetCaptures/capture1
+    /// ```
     /// </summary>
     public partial class PacketCapture : Pulumi.CustomResource
     {

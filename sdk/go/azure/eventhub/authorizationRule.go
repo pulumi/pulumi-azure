@@ -4,6 +4,7 @@
 package eventhub
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -66,6 +67,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// EventHub Authorization Rules can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:eventhub/authorizationRule:AuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/eventhubs/eventhub1/authorizationRules/rule1
 // ```
 type AuthorizationRule struct {
 	pulumi.CustomResourceState
@@ -239,4 +248,43 @@ type AuthorizationRuleArgs struct {
 
 func (AuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*authorizationRuleArgs)(nil)).Elem()
+}
+
+type AuthorizationRuleInput interface {
+	pulumi.Input
+
+	ToAuthorizationRuleOutput() AuthorizationRuleOutput
+	ToAuthorizationRuleOutputWithContext(ctx context.Context) AuthorizationRuleOutput
+}
+
+func (AuthorizationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizationRule)(nil)).Elem()
+}
+
+func (i AuthorizationRule) ToAuthorizationRuleOutput() AuthorizationRuleOutput {
+	return i.ToAuthorizationRuleOutputWithContext(context.Background())
+}
+
+func (i AuthorizationRule) ToAuthorizationRuleOutputWithContext(ctx context.Context) AuthorizationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationRuleOutput)
+}
+
+type AuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (AuthorizationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizationRuleOutput)(nil)).Elem()
+}
+
+func (o AuthorizationRuleOutput) ToAuthorizationRuleOutput() AuthorizationRuleOutput {
+	return o
+}
+
+func (o AuthorizationRuleOutput) ToAuthorizationRuleOutputWithContext(ctx context.Context) AuthorizationRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AuthorizationRuleOutput{})
 }

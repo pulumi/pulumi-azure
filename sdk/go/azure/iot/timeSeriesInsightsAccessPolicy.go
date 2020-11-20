@@ -4,6 +4,7 @@
 package iot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -53,6 +54,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Azure IoT Time Series Insights Access Policy can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/environment1/accessPolicies/example
 // ```
 type TimeSeriesInsightsAccessPolicy struct {
 	pulumi.CustomResourceState
@@ -164,4 +173,43 @@ type TimeSeriesInsightsAccessPolicyArgs struct {
 
 func (TimeSeriesInsightsAccessPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*timeSeriesInsightsAccessPolicyArgs)(nil)).Elem()
+}
+
+type TimeSeriesInsightsAccessPolicyInput interface {
+	pulumi.Input
+
+	ToTimeSeriesInsightsAccessPolicyOutput() TimeSeriesInsightsAccessPolicyOutput
+	ToTimeSeriesInsightsAccessPolicyOutputWithContext(ctx context.Context) TimeSeriesInsightsAccessPolicyOutput
+}
+
+func (TimeSeriesInsightsAccessPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeSeriesInsightsAccessPolicy)(nil)).Elem()
+}
+
+func (i TimeSeriesInsightsAccessPolicy) ToTimeSeriesInsightsAccessPolicyOutput() TimeSeriesInsightsAccessPolicyOutput {
+	return i.ToTimeSeriesInsightsAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i TimeSeriesInsightsAccessPolicy) ToTimeSeriesInsightsAccessPolicyOutputWithContext(ctx context.Context) TimeSeriesInsightsAccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsAccessPolicyOutput)
+}
+
+type TimeSeriesInsightsAccessPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (TimeSeriesInsightsAccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeSeriesInsightsAccessPolicyOutput)(nil)).Elem()
+}
+
+func (o TimeSeriesInsightsAccessPolicyOutput) ToTimeSeriesInsightsAccessPolicyOutput() TimeSeriesInsightsAccessPolicyOutput {
+	return o
+}
+
+func (o TimeSeriesInsightsAccessPolicyOutput) ToTimeSeriesInsightsAccessPolicyOutputWithContext(ctx context.Context) TimeSeriesInsightsAccessPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TimeSeriesInsightsAccessPolicyOutput{})
 }

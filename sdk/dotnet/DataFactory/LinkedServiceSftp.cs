@@ -47,6 +47,14 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Data Factory Linked Service's can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:datafactory/linkedServiceSftp:LinkedServiceSftp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+    /// ```
     /// </summary>
     public partial class LinkedServiceSftp : Pulumi.CustomResource
     {

@@ -4,6 +4,7 @@
 package automation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages an Automation Connection with type `AzureServicePrincipal`.
+//
+// ## Import
+//
+// Automation Connection can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:automation/connectionServicePrincipal:ConnectionServicePrincipal conn1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
+// ```
 type ConnectionServicePrincipal struct {
 	pulumi.CustomResourceState
 
@@ -160,4 +169,43 @@ type ConnectionServicePrincipalArgs struct {
 
 func (ConnectionServicePrincipalArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionServicePrincipalArgs)(nil)).Elem()
+}
+
+type ConnectionServicePrincipalInput interface {
+	pulumi.Input
+
+	ToConnectionServicePrincipalOutput() ConnectionServicePrincipalOutput
+	ToConnectionServicePrincipalOutputWithContext(ctx context.Context) ConnectionServicePrincipalOutput
+}
+
+func (ConnectionServicePrincipal) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionServicePrincipal)(nil)).Elem()
+}
+
+func (i ConnectionServicePrincipal) ToConnectionServicePrincipalOutput() ConnectionServicePrincipalOutput {
+	return i.ToConnectionServicePrincipalOutputWithContext(context.Background())
+}
+
+func (i ConnectionServicePrincipal) ToConnectionServicePrincipalOutputWithContext(ctx context.Context) ConnectionServicePrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionServicePrincipalOutput)
+}
+
+type ConnectionServicePrincipalOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConnectionServicePrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionServicePrincipalOutput)(nil)).Elem()
+}
+
+func (o ConnectionServicePrincipalOutput) ToConnectionServicePrincipalOutput() ConnectionServicePrincipalOutput {
+	return o
+}
+
+func (o ConnectionServicePrincipalOutput) ToConnectionServicePrincipalOutputWithContext(ctx context.Context) ConnectionServicePrincipalOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConnectionServicePrincipalOutput{})
 }

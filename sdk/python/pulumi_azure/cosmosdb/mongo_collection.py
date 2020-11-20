@@ -52,6 +52,14 @@ class MongoCollection(pulumi.CustomResource):
             throughput=400)
         ```
 
+        ## Import
+
+        CosmosDB Mongo Collection can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:cosmosdb/mongoCollection:MongoCollection collection1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/mongodbDatabases/db1/collections/collection1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['MongoCollectionAutoscaleSettingsArgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shard_key` to be set.

@@ -58,6 +58,14 @@ namespace Pulumi.Azure.Network
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Subnet NAT Gateway Associations can be imported using the `resource id` of the Subnet, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:network/subnetNatGatewayAssociation:SubnetNatGatewayAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
+    /// ```
     /// </summary>
     public partial class SubnetNatGatewayAssociation : Pulumi.CustomResource
     {

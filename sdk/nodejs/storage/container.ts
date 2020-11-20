@@ -28,6 +28,14 @@ import * as utilities from "../utilities";
  *     containerAccessType: "private",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Storage Containers can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:storage/container:Container container1 https://example.blob.core.windows.net/container
+ * ```
  */
 export class Container extends pulumi.CustomResource {
     /**

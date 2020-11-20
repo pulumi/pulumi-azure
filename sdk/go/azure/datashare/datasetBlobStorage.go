@@ -4,6 +4,7 @@
 package datashare
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -95,6 +96,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Data Share Blob Storage Datasets can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:datashare/datasetBlobStorage:DatasetBlobStorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1/dataSets/dataSet1
 // ```
 type DatasetBlobStorage struct {
 	pulumi.CustomResourceState
@@ -222,4 +231,43 @@ type DatasetBlobStorageArgs struct {
 
 func (DatasetBlobStorageArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetBlobStorageArgs)(nil)).Elem()
+}
+
+type DatasetBlobStorageInput interface {
+	pulumi.Input
+
+	ToDatasetBlobStorageOutput() DatasetBlobStorageOutput
+	ToDatasetBlobStorageOutputWithContext(ctx context.Context) DatasetBlobStorageOutput
+}
+
+func (DatasetBlobStorage) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetBlobStorage)(nil)).Elem()
+}
+
+func (i DatasetBlobStorage) ToDatasetBlobStorageOutput() DatasetBlobStorageOutput {
+	return i.ToDatasetBlobStorageOutputWithContext(context.Background())
+}
+
+func (i DatasetBlobStorage) ToDatasetBlobStorageOutputWithContext(ctx context.Context) DatasetBlobStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetBlobStorageOutput)
+}
+
+type DatasetBlobStorageOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatasetBlobStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetBlobStorageOutput)(nil)).Elem()
+}
+
+func (o DatasetBlobStorageOutput) ToDatasetBlobStorageOutput() DatasetBlobStorageOutput {
+	return o
+}
+
+func (o DatasetBlobStorageOutput) ToDatasetBlobStorageOutputWithContext(ctx context.Context) DatasetBlobStorageOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DatasetBlobStorageOutput{})
 }

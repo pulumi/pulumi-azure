@@ -4,6 +4,7 @@
 package kusto
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -60,6 +61,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Data Explorer Cluster Principal Assignments can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/PrincipalAssignments/assignment1
 // ```
 type ClusterPrincipalAssignment struct {
 	pulumi.CustomResourceState
@@ -207,4 +216,43 @@ type ClusterPrincipalAssignmentArgs struct {
 
 func (ClusterPrincipalAssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterPrincipalAssignmentArgs)(nil)).Elem()
+}
+
+type ClusterPrincipalAssignmentInput interface {
+	pulumi.Input
+
+	ToClusterPrincipalAssignmentOutput() ClusterPrincipalAssignmentOutput
+	ToClusterPrincipalAssignmentOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentOutput
+}
+
+func (ClusterPrincipalAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPrincipalAssignment)(nil)).Elem()
+}
+
+func (i ClusterPrincipalAssignment) ToClusterPrincipalAssignmentOutput() ClusterPrincipalAssignmentOutput {
+	return i.ToClusterPrincipalAssignmentOutputWithContext(context.Background())
+}
+
+func (i ClusterPrincipalAssignment) ToClusterPrincipalAssignmentOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPrincipalAssignmentOutput)
+}
+
+type ClusterPrincipalAssignmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClusterPrincipalAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPrincipalAssignmentOutput)(nil)).Elem()
+}
+
+func (o ClusterPrincipalAssignmentOutput) ToClusterPrincipalAssignmentOutput() ClusterPrincipalAssignmentOutput {
+	return o
+}
+
+func (o ClusterPrincipalAssignmentOutput) ToClusterPrincipalAssignmentOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ClusterPrincipalAssignmentOutput{})
 }

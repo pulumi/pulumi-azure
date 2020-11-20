@@ -4,6 +4,7 @@
 package sql
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -58,6 +59,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// A SQL Active Directory Administrator can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:sql/activeDirectoryAdministrator:ActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/administrators/activeDirectory
 // ```
 type ActiveDirectoryAdministrator struct {
 	pulumi.CustomResourceState
@@ -175,4 +184,43 @@ type ActiveDirectoryAdministratorArgs struct {
 
 func (ActiveDirectoryAdministratorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*activeDirectoryAdministratorArgs)(nil)).Elem()
+}
+
+type ActiveDirectoryAdministratorInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryAdministratorOutput() ActiveDirectoryAdministratorOutput
+	ToActiveDirectoryAdministratorOutputWithContext(ctx context.Context) ActiveDirectoryAdministratorOutput
+}
+
+func (ActiveDirectoryAdministrator) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryAdministrator)(nil)).Elem()
+}
+
+func (i ActiveDirectoryAdministrator) ToActiveDirectoryAdministratorOutput() ActiveDirectoryAdministratorOutput {
+	return i.ToActiveDirectoryAdministratorOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryAdministrator) ToActiveDirectoryAdministratorOutputWithContext(ctx context.Context) ActiveDirectoryAdministratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryAdministratorOutput)
+}
+
+type ActiveDirectoryAdministratorOutput struct {
+	*pulumi.OutputState
+}
+
+func (ActiveDirectoryAdministratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryAdministratorOutput)(nil)).Elem()
+}
+
+func (o ActiveDirectoryAdministratorOutput) ToActiveDirectoryAdministratorOutput() ActiveDirectoryAdministratorOutput {
+	return o
+}
+
+func (o ActiveDirectoryAdministratorOutput) ToActiveDirectoryAdministratorOutputWithContext(ctx context.Context) ActiveDirectoryAdministratorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ActiveDirectoryAdministratorOutput{})
 }

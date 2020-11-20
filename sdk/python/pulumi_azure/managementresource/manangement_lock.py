@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['ManangementLock']
 
-warnings.warn("azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock", DeprecationWarning)
+warnings.warn("""azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock""", DeprecationWarning)
 
 
 class ManangementLock(pulumi.CustomResource):
-    warnings.warn("azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock", DeprecationWarning)
+    warnings.warn("""azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -71,6 +71,14 @@ class ManangementLock(pulumi.CustomResource):
             scope=example_public_ip.id,
             lock_level="CanNotDelete",
             notes="Locked because it's needed by a third-party")
+        ```
+
+        ## Import
+
+        Management Locks can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:managementresource/manangementLock:ManangementLock lock1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Authorization/locks/lock1
         ```
 
         :param str resource_name: The name of the resource.

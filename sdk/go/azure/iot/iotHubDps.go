@@ -4,6 +4,7 @@
 package iot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -45,6 +46,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// IoT Device Provisioning Service can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:iot/iotHubDps:IotHubDps example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/provisioningServices/example
 // ```
 type IotHubDps struct {
 	pulumi.CustomResourceState
@@ -187,4 +196,43 @@ type IotHubDpsArgs struct {
 
 func (IotHubDpsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*iotHubDpsArgs)(nil)).Elem()
+}
+
+type IotHubDpsInput interface {
+	pulumi.Input
+
+	ToIotHubDpsOutput() IotHubDpsOutput
+	ToIotHubDpsOutputWithContext(ctx context.Context) IotHubDpsOutput
+}
+
+func (IotHubDps) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubDps)(nil)).Elem()
+}
+
+func (i IotHubDps) ToIotHubDpsOutput() IotHubDpsOutput {
+	return i.ToIotHubDpsOutputWithContext(context.Background())
+}
+
+func (i IotHubDps) ToIotHubDpsOutputWithContext(ctx context.Context) IotHubDpsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubDpsOutput)
+}
+
+type IotHubDpsOutput struct {
+	*pulumi.OutputState
+}
+
+func (IotHubDpsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubDpsOutput)(nil)).Elem()
+}
+
+func (o IotHubDpsOutput) ToIotHubDpsOutput() IotHubDpsOutput {
+	return o
+}
+
+func (o IotHubDpsOutput) ToIotHubDpsOutputWithContext(ctx context.Context) IotHubDpsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IotHubDpsOutput{})
 }

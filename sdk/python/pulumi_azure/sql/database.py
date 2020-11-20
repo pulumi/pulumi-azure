@@ -82,6 +82,14 @@ class Database(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        SQL Databases can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:sql/database:Database database1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/databases/database1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] collation: The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
@@ -128,7 +136,7 @@ class Database(pulumi.CustomResource):
             __props__['edition'] = edition
             __props__['elastic_pool_name'] = elastic_pool_name
             if extended_auditing_policy is not None:
-                warnings.warn("the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.", DeprecationWarning)
+                warnings.warn("""the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
                 pulumi.log.warn("extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.")
             __props__['extended_auditing_policy'] = extended_auditing_policy
             __props__['import_'] = import_

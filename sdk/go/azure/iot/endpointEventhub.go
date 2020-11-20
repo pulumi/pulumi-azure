@@ -4,6 +4,7 @@
 package iot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -88,6 +89,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// IoTHub EventHub Endpoint can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:iot/endpointEventhub:EndpointEventhub eventhub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Endpoints/eventhub_endpoint1
 // ```
 type EndpointEventhub struct {
 	pulumi.CustomResourceState
@@ -179,4 +188,43 @@ type EndpointEventhubArgs struct {
 
 func (EndpointEventhubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointEventhubArgs)(nil)).Elem()
+}
+
+type EndpointEventhubInput interface {
+	pulumi.Input
+
+	ToEndpointEventhubOutput() EndpointEventhubOutput
+	ToEndpointEventhubOutputWithContext(ctx context.Context) EndpointEventhubOutput
+}
+
+func (EndpointEventhub) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointEventhub)(nil)).Elem()
+}
+
+func (i EndpointEventhub) ToEndpointEventhubOutput() EndpointEventhubOutput {
+	return i.ToEndpointEventhubOutputWithContext(context.Background())
+}
+
+func (i EndpointEventhub) ToEndpointEventhubOutputWithContext(ctx context.Context) EndpointEventhubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventhubOutput)
+}
+
+type EndpointEventhubOutput struct {
+	*pulumi.OutputState
+}
+
+func (EndpointEventhubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointEventhubOutput)(nil)).Elem()
+}
+
+func (o EndpointEventhubOutput) ToEndpointEventhubOutput() EndpointEventhubOutput {
+	return o
+}
+
+func (o EndpointEventhubOutput) ToEndpointEventhubOutputWithContext(ctx context.Context) EndpointEventhubOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EndpointEventhubOutput{})
 }

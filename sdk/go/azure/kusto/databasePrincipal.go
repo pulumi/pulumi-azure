@@ -4,6 +4,7 @@
 package kusto
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -73,6 +74,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Kusto Database Principals can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:kusto/databasePrincipal:DatabasePrincipal example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/Role/role1/FQN/some-guid
 // ```
 type DatabasePrincipal struct {
 	pulumi.CustomResourceState
@@ -240,4 +249,43 @@ type DatabasePrincipalArgs struct {
 
 func (DatabasePrincipalArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*databasePrincipalArgs)(nil)).Elem()
+}
+
+type DatabasePrincipalInput interface {
+	pulumi.Input
+
+	ToDatabasePrincipalOutput() DatabasePrincipalOutput
+	ToDatabasePrincipalOutputWithContext(ctx context.Context) DatabasePrincipalOutput
+}
+
+func (DatabasePrincipal) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasePrincipal)(nil)).Elem()
+}
+
+func (i DatabasePrincipal) ToDatabasePrincipalOutput() DatabasePrincipalOutput {
+	return i.ToDatabasePrincipalOutputWithContext(context.Background())
+}
+
+func (i DatabasePrincipal) ToDatabasePrincipalOutputWithContext(ctx context.Context) DatabasePrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalOutput)
+}
+
+type DatabasePrincipalOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatabasePrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasePrincipalOutput)(nil)).Elem()
+}
+
+func (o DatabasePrincipalOutput) ToDatabasePrincipalOutput() DatabasePrincipalOutput {
+	return o
+}
+
+func (o DatabasePrincipalOutput) ToDatabasePrincipalOutputWithContext(ctx context.Context) DatabasePrincipalOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DatabasePrincipalOutput{})
 }

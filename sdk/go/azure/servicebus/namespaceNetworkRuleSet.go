@@ -4,6 +4,7 @@
 package servicebus
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -88,6 +89,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Service Bus Namespace can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Servicebus/namespaces/sbns1/networkrulesets/default
 // ```
 type NamespaceNetworkRuleSet struct {
 	pulumi.CustomResourceState
@@ -196,4 +205,43 @@ type NamespaceNetworkRuleSetArgs struct {
 
 func (NamespaceNetworkRuleSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*namespaceNetworkRuleSetArgs)(nil)).Elem()
+}
+
+type NamespaceNetworkRuleSetInput interface {
+	pulumi.Input
+
+	ToNamespaceNetworkRuleSetOutput() NamespaceNetworkRuleSetOutput
+	ToNamespaceNetworkRuleSetOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetOutput
+}
+
+func (NamespaceNetworkRuleSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceNetworkRuleSet)(nil)).Elem()
+}
+
+func (i NamespaceNetworkRuleSet) ToNamespaceNetworkRuleSetOutput() NamespaceNetworkRuleSetOutput {
+	return i.ToNamespaceNetworkRuleSetOutputWithContext(context.Background())
+}
+
+func (i NamespaceNetworkRuleSet) ToNamespaceNetworkRuleSetOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetOutput)
+}
+
+type NamespaceNetworkRuleSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (NamespaceNetworkRuleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceNetworkRuleSetOutput)(nil)).Elem()
+}
+
+func (o NamespaceNetworkRuleSetOutput) ToNamespaceNetworkRuleSetOutput() NamespaceNetworkRuleSetOutput {
+	return o
+}
+
+func (o NamespaceNetworkRuleSetOutput) ToNamespaceNetworkRuleSetOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NamespaceNetworkRuleSetOutput{})
 }

@@ -4,6 +4,7 @@
 package compute
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -60,6 +61,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Shared Image Versions can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:compute/sharedImageVersion:SharedImageVersion version /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/galleries/gallery1/images/image1/versions/1.2.3
 // ```
 type SharedImageVersion struct {
 	pulumi.CustomResourceState
@@ -224,4 +233,43 @@ type SharedImageVersionArgs struct {
 
 func (SharedImageVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sharedImageVersionArgs)(nil)).Elem()
+}
+
+type SharedImageVersionInput interface {
+	pulumi.Input
+
+	ToSharedImageVersionOutput() SharedImageVersionOutput
+	ToSharedImageVersionOutputWithContext(ctx context.Context) SharedImageVersionOutput
+}
+
+func (SharedImageVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImageVersion)(nil)).Elem()
+}
+
+func (i SharedImageVersion) ToSharedImageVersionOutput() SharedImageVersionOutput {
+	return i.ToSharedImageVersionOutputWithContext(context.Background())
+}
+
+func (i SharedImageVersion) ToSharedImageVersionOutputWithContext(ctx context.Context) SharedImageVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionOutput)
+}
+
+type SharedImageVersionOutput struct {
+	*pulumi.OutputState
+}
+
+func (SharedImageVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImageVersionOutput)(nil)).Elem()
+}
+
+func (o SharedImageVersionOutput) ToSharedImageVersionOutput() SharedImageVersionOutput {
+	return o
+}
+
+func (o SharedImageVersionOutput) ToSharedImageVersionOutputWithContext(ctx context.Context) SharedImageVersionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SharedImageVersionOutput{})
 }

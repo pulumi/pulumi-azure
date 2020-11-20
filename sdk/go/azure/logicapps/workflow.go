@@ -4,6 +4,7 @@
 package logicapps
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -41,6 +42,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Logic App Workflows can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:logicapps/workflow:Workflow workflow1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1
 // ```
 type Workflow struct {
 	pulumi.CustomResourceState
@@ -216,4 +225,43 @@ type WorkflowArgs struct {
 
 func (WorkflowArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workflowArgs)(nil)).Elem()
+}
+
+type WorkflowInput interface {
+	pulumi.Input
+
+	ToWorkflowOutput() WorkflowOutput
+	ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutput
+}
+
+func (Workflow) ElementType() reflect.Type {
+	return reflect.TypeOf((*Workflow)(nil)).Elem()
+}
+
+func (i Workflow) ToWorkflowOutput() WorkflowOutput {
+	return i.ToWorkflowOutputWithContext(context.Background())
+}
+
+func (i Workflow) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOutput)
+}
+
+type WorkflowOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkflowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowOutput)(nil)).Elem()
+}
+
+func (o WorkflowOutput) ToWorkflowOutput() WorkflowOutput {
+	return o
+}
+
+func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkflowOutput{})
 }

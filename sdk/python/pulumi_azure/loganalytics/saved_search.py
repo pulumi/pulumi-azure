@@ -48,6 +48,14 @@ class SavedSearch(pulumi.CustomResource):
             query="exampleQuery")
         ```
 
+        ## Import
+
+        Log Analytics Saved Searches can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:loganalytics/savedSearch:SavedSearch search1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/savedSearches/search1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] category: The category that the Saved Search will be listed under. Changing this forces a new resource to be created.

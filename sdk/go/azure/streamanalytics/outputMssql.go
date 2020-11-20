@@ -4,6 +4,7 @@
 package streamanalytics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -76,6 +77,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Stream Analytics Outputs to Microsoft SQL Server Database can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:streamanalytics/outputMssql:OutputMssql example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/outputs/output1
 // ```
 type OutputMssql struct {
 	pulumi.CustomResourceState
@@ -224,4 +233,43 @@ type OutputMssqlArgs struct {
 
 func (OutputMssqlArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*outputMssqlArgs)(nil)).Elem()
+}
+
+type OutputMssqlInput interface {
+	pulumi.Input
+
+	ToOutputMssqlOutput() OutputMssqlOutput
+	ToOutputMssqlOutputWithContext(ctx context.Context) OutputMssqlOutput
+}
+
+func (OutputMssql) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputMssql)(nil)).Elem()
+}
+
+func (i OutputMssql) ToOutputMssqlOutput() OutputMssqlOutput {
+	return i.ToOutputMssqlOutputWithContext(context.Background())
+}
+
+func (i OutputMssql) ToOutputMssqlOutputWithContext(ctx context.Context) OutputMssqlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputMssqlOutput)
+}
+
+type OutputMssqlOutput struct {
+	*pulumi.OutputState
+}
+
+func (OutputMssqlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputMssqlOutput)(nil)).Elem()
+}
+
+func (o OutputMssqlOutput) ToOutputMssqlOutput() OutputMssqlOutput {
+	return o
+}
+
+func (o OutputMssqlOutput) ToOutputMssqlOutputWithContext(ctx context.Context) OutputMssqlOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OutputMssqlOutput{})
 }

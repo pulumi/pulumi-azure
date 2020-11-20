@@ -4,6 +4,7 @@
 package eventgrid
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -56,6 +57,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Event Grid System Topic can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:eventgrid/getSystemTopic:getSystemTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/systemTopic1
 // ```
 type GetSystemTopic struct {
 	pulumi.CustomResourceState
@@ -188,4 +197,43 @@ type GetSystemTopicArgs struct {
 
 func (GetSystemTopicArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*getSystemTopicArgs)(nil)).Elem()
+}
+
+type GetSystemTopicInput interface {
+	pulumi.Input
+
+	ToGetSystemTopicOutput() GetSystemTopicOutput
+	ToGetSystemTopicOutputWithContext(ctx context.Context) GetSystemTopicOutput
+}
+
+func (GetSystemTopic) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSystemTopic)(nil)).Elem()
+}
+
+func (i GetSystemTopic) ToGetSystemTopicOutput() GetSystemTopicOutput {
+	return i.ToGetSystemTopicOutputWithContext(context.Background())
+}
+
+func (i GetSystemTopic) ToGetSystemTopicOutputWithContext(ctx context.Context) GetSystemTopicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSystemTopicOutput)
+}
+
+type GetSystemTopicOutput struct {
+	*pulumi.OutputState
+}
+
+func (GetSystemTopicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSystemTopicOutput)(nil)).Elem()
+}
+
+func (o GetSystemTopicOutput) ToGetSystemTopicOutput() GetSystemTopicOutput {
+	return o
+}
+
+func (o GetSystemTopicOutput) ToGetSystemTopicOutputWithContext(ctx context.Context) GetSystemTopicOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSystemTopicOutput{})
 }

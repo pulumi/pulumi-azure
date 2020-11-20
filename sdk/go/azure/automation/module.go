@@ -4,6 +4,7 @@
 package automation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages a Automation Module.
+//
+// ## Import
+//
+// Automation Modules can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:automation/module:Module module1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/modules/module1
+// ```
 type Module struct {
 	pulumi.CustomResourceState
 
@@ -111,4 +120,43 @@ type ModuleArgs struct {
 
 func (ModuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*moduleArgs)(nil)).Elem()
+}
+
+type ModuleInput interface {
+	pulumi.Input
+
+	ToModuleOutput() ModuleOutput
+	ToModuleOutputWithContext(ctx context.Context) ModuleOutput
+}
+
+func (Module) ElementType() reflect.Type {
+	return reflect.TypeOf((*Module)(nil)).Elem()
+}
+
+func (i Module) ToModuleOutput() ModuleOutput {
+	return i.ToModuleOutputWithContext(context.Background())
+}
+
+func (i Module) ToModuleOutputWithContext(ctx context.Context) ModuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleOutput)
+}
+
+type ModuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (ModuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleOutput)(nil)).Elem()
+}
+
+func (o ModuleOutput) ToModuleOutput() ModuleOutput {
+	return o
+}
+
+func (o ModuleOutput) ToModuleOutputWithContext(ctx context.Context) ModuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ModuleOutput{})
 }

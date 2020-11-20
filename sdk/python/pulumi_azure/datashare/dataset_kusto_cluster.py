@@ -24,6 +24,14 @@ class DatasetKustoCluster(pulumi.CustomResource):
         """
         Manages a Data Share Kusto Cluster Dataset.
 
+        ## Import
+
+        Data Share Kusto Cluster Datasets can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:datashare/datasetKustoCluster:DatasetKustoCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1/dataSets/dataSet1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kusto_cluster_id: The resource ID of the Kusto Cluster to be shared with the receiver. Changing this forces a new Data Share Kusto Cluster Dataset to be created.

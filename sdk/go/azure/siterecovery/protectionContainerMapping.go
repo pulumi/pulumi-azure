@@ -4,6 +4,7 @@
 package siterecovery
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -101,6 +102,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Site Recovery Protection Container Mappings can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping mymapping /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name
 // ```
 type ProtectionContainerMapping struct {
 	pulumi.CustomResourceState
@@ -241,4 +250,43 @@ type ProtectionContainerMappingArgs struct {
 
 func (ProtectionContainerMappingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectionContainerMappingArgs)(nil)).Elem()
+}
+
+type ProtectionContainerMappingInput interface {
+	pulumi.Input
+
+	ToProtectionContainerMappingOutput() ProtectionContainerMappingOutput
+	ToProtectionContainerMappingOutputWithContext(ctx context.Context) ProtectionContainerMappingOutput
+}
+
+func (ProtectionContainerMapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionContainerMapping)(nil)).Elem()
+}
+
+func (i ProtectionContainerMapping) ToProtectionContainerMappingOutput() ProtectionContainerMappingOutput {
+	return i.ToProtectionContainerMappingOutputWithContext(context.Background())
+}
+
+func (i ProtectionContainerMapping) ToProtectionContainerMappingOutputWithContext(ctx context.Context) ProtectionContainerMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMappingOutput)
+}
+
+type ProtectionContainerMappingOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProtectionContainerMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionContainerMappingOutput)(nil)).Elem()
+}
+
+func (o ProtectionContainerMappingOutput) ToProtectionContainerMappingOutput() ProtectionContainerMappingOutput {
+	return o
+}
+
+func (o ProtectionContainerMappingOutput) ToProtectionContainerMappingOutputWithContext(ctx context.Context) ProtectionContainerMappingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProtectionContainerMappingOutput{})
 }

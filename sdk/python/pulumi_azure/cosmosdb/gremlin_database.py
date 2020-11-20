@@ -42,6 +42,14 @@ class GremlinDatabase(pulumi.CustomResource):
             throughput=400)
         ```
 
+        ## Import
+
+        CosmosDB Gremlin Databases can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:cosmosdb/gremlinDatabase:GremlinDatabase db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/gremlinDatabases/db1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.

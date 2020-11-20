@@ -45,6 +45,14 @@ class AAAARecord(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        Private DNS AAAA Records can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:privatedns/aAAARecord:AAAARecord test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/zone1/AAAA/myrecord1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS A Record.

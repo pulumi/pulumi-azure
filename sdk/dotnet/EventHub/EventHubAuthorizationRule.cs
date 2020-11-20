@@ -57,6 +57,14 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// EventHub Authorization Rules can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/eventhubs/eventhub1/authorizationRules/rule1
+    /// ```
     /// </summary>
     [Obsolete(@"azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule")]
     public partial class EventHubAuthorizationRule : Pulumi.CustomResource

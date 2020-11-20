@@ -99,6 +99,14 @@ import * as utilities from "../utilities";
  *     backendAddressPoolId: network.backendAddressPools.apply(backendAddressPools => backendAddressPools[0].id),
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Associations between Network Interfaces and Application Gateway Backend Address Pools can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.network/networkInterfaces/nic1/ipConfigurations/example|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/applicationGateways/gateway1/backendAddressPools/pool1
+ * ```
  */
 export class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation extends pulumi.CustomResource {
     /**

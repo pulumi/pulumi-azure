@@ -4,6 +4,7 @@
 package appinsights
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -44,6 +45,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Application Insights instances can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:appinsights/insights:Insights instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/components/instance1
 // ```
 type Insights struct {
 	pulumi.CustomResourceState
@@ -230,4 +239,43 @@ type InsightsArgs struct {
 
 func (InsightsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*insightsArgs)(nil)).Elem()
+}
+
+type InsightsInput interface {
+	pulumi.Input
+
+	ToInsightsOutput() InsightsOutput
+	ToInsightsOutputWithContext(ctx context.Context) InsightsOutput
+}
+
+func (Insights) ElementType() reflect.Type {
+	return reflect.TypeOf((*Insights)(nil)).Elem()
+}
+
+func (i Insights) ToInsightsOutput() InsightsOutput {
+	return i.ToInsightsOutputWithContext(context.Background())
+}
+
+func (i Insights) ToInsightsOutputWithContext(ctx context.Context) InsightsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightsOutput)
+}
+
+type InsightsOutput struct {
+	*pulumi.OutputState
+}
+
+func (InsightsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightsOutput)(nil)).Elem()
+}
+
+func (o InsightsOutput) ToInsightsOutput() InsightsOutput {
+	return o
+}
+
+func (o InsightsOutput) ToInsightsOutputWithContext(ctx context.Context) InsightsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InsightsOutput{})
 }

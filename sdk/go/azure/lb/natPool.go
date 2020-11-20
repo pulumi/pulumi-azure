@@ -4,6 +4,7 @@
 package lb
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -72,6 +73,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Load Balancer NAT Pools can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:lb/natPool:NatPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/inboundNatPools/pool1
 // ```
 type NatPool struct {
 	pulumi.CustomResourceState
@@ -228,4 +237,43 @@ type NatPoolArgs struct {
 
 func (NatPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*natPoolArgs)(nil)).Elem()
+}
+
+type NatPoolInput interface {
+	pulumi.Input
+
+	ToNatPoolOutput() NatPoolOutput
+	ToNatPoolOutputWithContext(ctx context.Context) NatPoolOutput
+}
+
+func (NatPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatPool)(nil)).Elem()
+}
+
+func (i NatPool) ToNatPoolOutput() NatPoolOutput {
+	return i.ToNatPoolOutputWithContext(context.Background())
+}
+
+func (i NatPool) ToNatPoolOutputWithContext(ctx context.Context) NatPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatPoolOutput)
+}
+
+type NatPoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (NatPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatPoolOutput)(nil)).Elem()
+}
+
+func (o NatPoolOutput) ToNatPoolOutput() NatPoolOutput {
+	return o
+}
+
+func (o NatPoolOutput) ToNatPoolOutputWithContext(ctx context.Context) NatPoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NatPoolOutput{})
 }

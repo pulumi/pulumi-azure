@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['Topic']
 
-warnings.warn("azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic", DeprecationWarning)
+warnings.warn("""azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic""", DeprecationWarning)
 
 
 class Topic(pulumi.CustomResource):
-    warnings.warn("azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic", DeprecationWarning)
+    warnings.warn("""azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -58,6 +58,14 @@ class Topic(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             namespace_name=example_namespace.name,
             enable_partitioning=True)
+        ```
+
+        ## Import
+
+        Service Bus Topics can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:eventhub/topic:Topic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1/topics/sntopic1
         ```
 
         :param str resource_name: The name of the resource.

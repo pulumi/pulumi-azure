@@ -12,11 +12,11 @@ from ._inputs import *
 
 __all__ = ['SubscriptionRule']
 
-warnings.warn("azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule", DeprecationWarning)
+warnings.warn("""azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule""", DeprecationWarning)
 
 
 class SubscriptionRule(pulumi.CustomResource):
-    warnings.warn("azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule", DeprecationWarning)
+    warnings.warn("""azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -104,6 +104,14 @@ class SubscriptionRule(pulumi.CustomResource):
                     "customProperty": "value",
                 },
             ))
+        ```
+
+        ## Import
+
+        Service Bus Subscription Rule can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:eventhub/subscriptionRule:SubscriptionRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1/topics/sntopic1/subscriptions/sbsub1/rules/sbrule1
         ```
 
         :param str resource_name: The name of the resource.

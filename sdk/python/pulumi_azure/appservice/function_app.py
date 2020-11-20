@@ -128,6 +128,14 @@ class FunctionApp(pulumi.CustomResource):
             os_type="linux")
         ```
 
+        ## Import
+
+        Function Apps can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:appservice/functionApp:FunctionApp functionapp1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/functionapp1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App.
@@ -191,7 +199,7 @@ class FunctionApp(pulumi.CustomResource):
             __props__['storage_account_access_key'] = storage_account_access_key
             __props__['storage_account_name'] = storage_account_name
             if storage_connection_string is not None:
-                warnings.warn("Deprecated in favour of `storage_account_name` and `storage_account_access_key`", DeprecationWarning)
+                warnings.warn("""Deprecated in favour of `storage_account_name` and `storage_account_access_key`""", DeprecationWarning)
                 pulumi.log.warn("storage_connection_string is deprecated: Deprecated in favour of `storage_account_name` and `storage_account_access_key`")
             __props__['storage_connection_string'] = storage_connection_string
             __props__['tags'] = tags

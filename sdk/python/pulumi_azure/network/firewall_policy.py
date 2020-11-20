@@ -42,6 +42,14 @@ class FirewallPolicy(pulumi.CustomResource):
             resource_group_name="example")
         ```
 
+        ## Import
+
+        networks can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/firewallPolicy:FirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/firewallPolicies/policy1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] base_policy_id: The ID of the base Firewall Policy.

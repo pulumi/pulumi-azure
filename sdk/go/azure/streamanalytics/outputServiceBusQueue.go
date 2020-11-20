@@ -4,6 +4,7 @@
 package streamanalytics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -72,6 +73,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Stream Analytics Output ServiceBus Queue's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/outputs/output1
 // ```
 type OutputServiceBusQueue struct {
 	pulumi.CustomResourceState
@@ -225,4 +234,43 @@ type OutputServiceBusQueueArgs struct {
 
 func (OutputServiceBusQueueArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*outputServiceBusQueueArgs)(nil)).Elem()
+}
+
+type OutputServiceBusQueueInput interface {
+	pulumi.Input
+
+	ToOutputServiceBusQueueOutput() OutputServiceBusQueueOutput
+	ToOutputServiceBusQueueOutputWithContext(ctx context.Context) OutputServiceBusQueueOutput
+}
+
+func (OutputServiceBusQueue) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputServiceBusQueue)(nil)).Elem()
+}
+
+func (i OutputServiceBusQueue) ToOutputServiceBusQueueOutput() OutputServiceBusQueueOutput {
+	return i.ToOutputServiceBusQueueOutputWithContext(context.Background())
+}
+
+func (i OutputServiceBusQueue) ToOutputServiceBusQueueOutputWithContext(ctx context.Context) OutputServiceBusQueueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputServiceBusQueueOutput)
+}
+
+type OutputServiceBusQueueOutput struct {
+	*pulumi.OutputState
+}
+
+func (OutputServiceBusQueueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputServiceBusQueueOutput)(nil)).Elem()
+}
+
+func (o OutputServiceBusQueueOutput) ToOutputServiceBusQueueOutput() OutputServiceBusQueueOutput {
+	return o
+}
+
+func (o OutputServiceBusQueueOutput) ToOutputServiceBusQueueOutputWithContext(ctx context.Context) OutputServiceBusQueueOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OutputServiceBusQueueOutput{})
 }

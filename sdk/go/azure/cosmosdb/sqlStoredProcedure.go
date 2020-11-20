@@ -4,6 +4,7 @@
 package cosmosdb
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -61,6 +62,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// CosmosDB SQL Stored Procedures can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:cosmosdb/sqlStoredProcedure:SqlStoredProcedure db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/db1/containers/c1/storedProcedures/sp1
 // ```
 type SqlStoredProcedure struct {
 	pulumi.CustomResourceState
@@ -188,4 +197,43 @@ type SqlStoredProcedureArgs struct {
 
 func (SqlStoredProcedureArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlStoredProcedureArgs)(nil)).Elem()
+}
+
+type SqlStoredProcedureInput interface {
+	pulumi.Input
+
+	ToSqlStoredProcedureOutput() SqlStoredProcedureOutput
+	ToSqlStoredProcedureOutputWithContext(ctx context.Context) SqlStoredProcedureOutput
+}
+
+func (SqlStoredProcedure) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlStoredProcedure)(nil)).Elem()
+}
+
+func (i SqlStoredProcedure) ToSqlStoredProcedureOutput() SqlStoredProcedureOutput {
+	return i.ToSqlStoredProcedureOutputWithContext(context.Background())
+}
+
+func (i SqlStoredProcedure) ToSqlStoredProcedureOutputWithContext(ctx context.Context) SqlStoredProcedureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlStoredProcedureOutput)
+}
+
+type SqlStoredProcedureOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlStoredProcedureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlStoredProcedureOutput)(nil)).Elem()
+}
+
+func (o SqlStoredProcedureOutput) ToSqlStoredProcedureOutput() SqlStoredProcedureOutput {
+	return o
+}
+
+func (o SqlStoredProcedureOutput) ToSqlStoredProcedureOutputWithContext(ctx context.Context) SqlStoredProcedureOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlStoredProcedureOutput{})
 }

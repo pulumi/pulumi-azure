@@ -35,6 +35,14 @@ import * as utilities from "../utilities";
  *     displayName: "Parser API",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * API Management Subscriptions can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:apimanagement/subscription:Subscription example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/subscriptions/subscription-name
+ * ```
  */
 export class Subscription extends pulumi.CustomResource {
     /**

@@ -4,6 +4,7 @@
 package automation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages a Automation DSC Configuration.
+//
+// ## Import
+//
+// Automation DSC Configuration's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:automation/dscConfiguration:DscConfiguration configuration1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/configurations/configuration1
+// ```
 type DscConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -154,4 +163,43 @@ type DscConfigurationArgs struct {
 
 func (DscConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dscConfigurationArgs)(nil)).Elem()
+}
+
+type DscConfigurationInput interface {
+	pulumi.Input
+
+	ToDscConfigurationOutput() DscConfigurationOutput
+	ToDscConfigurationOutputWithContext(ctx context.Context) DscConfigurationOutput
+}
+
+func (DscConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*DscConfiguration)(nil)).Elem()
+}
+
+func (i DscConfiguration) ToDscConfigurationOutput() DscConfigurationOutput {
+	return i.ToDscConfigurationOutputWithContext(context.Background())
+}
+
+func (i DscConfiguration) ToDscConfigurationOutputWithContext(ctx context.Context) DscConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DscConfigurationOutput)
+}
+
+type DscConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (DscConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DscConfigurationOutput)(nil)).Elem()
+}
+
+func (o DscConfigurationOutput) ToDscConfigurationOutput() DscConfigurationOutput {
+	return o
+}
+
+func (o DscConfigurationOutput) ToDscConfigurationOutputWithContext(ctx context.Context) DscConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DscConfigurationOutput{})
 }

@@ -4,6 +4,7 @@
 package securitycenter
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -38,6 +39,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// The setting can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:securitycenter/setting:Setting example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/settings/<setting_name>
 // ```
 type Setting struct {
 	pulumi.CustomResourceState
@@ -116,4 +125,43 @@ type SettingArgs struct {
 
 func (SettingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*settingArgs)(nil)).Elem()
+}
+
+type SettingInput interface {
+	pulumi.Input
+
+	ToSettingOutput() SettingOutput
+	ToSettingOutputWithContext(ctx context.Context) SettingOutput
+}
+
+func (Setting) ElementType() reflect.Type {
+	return reflect.TypeOf((*Setting)(nil)).Elem()
+}
+
+func (i Setting) ToSettingOutput() SettingOutput {
+	return i.ToSettingOutputWithContext(context.Background())
+}
+
+func (i Setting) ToSettingOutputWithContext(ctx context.Context) SettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingOutput)
+}
+
+type SettingOutput struct {
+	*pulumi.OutputState
+}
+
+func (SettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingOutput)(nil)).Elem()
+}
+
+func (o SettingOutput) ToSettingOutput() SettingOutput {
+	return o
+}
+
+func (o SettingOutput) ToSettingOutputWithContext(ctx context.Context) SettingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SettingOutput{})
 }

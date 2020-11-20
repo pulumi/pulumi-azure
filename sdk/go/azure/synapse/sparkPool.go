@@ -4,6 +4,7 @@
 package synapse
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -80,6 +81,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Synapse Spark Pool can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:synapse/sparkPool:SparkPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/bigDataPools/sparkPool1
 // ```
 type SparkPool struct {
 	pulumi.CustomResourceState
@@ -261,4 +270,43 @@ type SparkPoolArgs struct {
 
 func (SparkPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sparkPoolArgs)(nil)).Elem()
+}
+
+type SparkPoolInput interface {
+	pulumi.Input
+
+	ToSparkPoolOutput() SparkPoolOutput
+	ToSparkPoolOutputWithContext(ctx context.Context) SparkPoolOutput
+}
+
+func (SparkPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkPool)(nil)).Elem()
+}
+
+func (i SparkPool) ToSparkPoolOutput() SparkPoolOutput {
+	return i.ToSparkPoolOutputWithContext(context.Background())
+}
+
+func (i SparkPool) ToSparkPoolOutputWithContext(ctx context.Context) SparkPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolOutput)
+}
+
+type SparkPoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (SparkPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkPoolOutput)(nil)).Elem()
+}
+
+func (o SparkPoolOutput) ToSparkPoolOutput() SparkPoolOutput {
+	return o
+}
+
+func (o SparkPoolOutput) ToSparkPoolOutputWithContext(ctx context.Context) SparkPoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SparkPoolOutput{})
 }

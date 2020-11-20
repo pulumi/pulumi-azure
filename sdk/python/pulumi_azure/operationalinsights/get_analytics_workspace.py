@@ -35,7 +35,7 @@ class GetAnalyticsWorkspaceResult:
         if portal_url and not isinstance(portal_url, str):
             raise TypeError("Expected argument 'portal_url' to be a str")
         if portal_url is not None:
-            warnings.warn("this property has been removed from the API and will be removed in version 3.0 of the provider", DeprecationWarning)
+            warnings.warn("""this property has been removed from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
             pulumi.log.warn("portal_url is deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider")
 
         pulumi.set(__self__, "portal_url", portal_url)

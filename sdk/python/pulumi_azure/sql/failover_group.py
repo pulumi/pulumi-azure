@@ -67,6 +67,14 @@ class FailoverGroup(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        SQL Failover Groups can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:sql/failoverGroup:FailoverGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/failovergroups/group1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] databases: A list of database ids to add to the failover group

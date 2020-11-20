@@ -4,6 +4,7 @@
 package datalake
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -50,6 +51,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Data Lake Store Firewall Rules can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:datalake/storeFirewallRule:StoreFirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DataLakeStore/accounts/mydatalakeaccount/firewallRules/rule1
 // ```
 type StoreFirewallRule struct {
 	pulumi.CustomResourceState
@@ -164,4 +173,43 @@ type StoreFirewallRuleArgs struct {
 
 func (StoreFirewallRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*storeFirewallRuleArgs)(nil)).Elem()
+}
+
+type StoreFirewallRuleInput interface {
+	pulumi.Input
+
+	ToStoreFirewallRuleOutput() StoreFirewallRuleOutput
+	ToStoreFirewallRuleOutputWithContext(ctx context.Context) StoreFirewallRuleOutput
+}
+
+func (StoreFirewallRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*StoreFirewallRule)(nil)).Elem()
+}
+
+func (i StoreFirewallRule) ToStoreFirewallRuleOutput() StoreFirewallRuleOutput {
+	return i.ToStoreFirewallRuleOutputWithContext(context.Background())
+}
+
+func (i StoreFirewallRule) ToStoreFirewallRuleOutputWithContext(ctx context.Context) StoreFirewallRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StoreFirewallRuleOutput)
+}
+
+type StoreFirewallRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (StoreFirewallRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StoreFirewallRuleOutput)(nil)).Elem()
+}
+
+func (o StoreFirewallRuleOutput) ToStoreFirewallRuleOutput() StoreFirewallRuleOutput {
+	return o
+}
+
+func (o StoreFirewallRuleOutput) ToStoreFirewallRuleOutputWithContext(ctx context.Context) StoreFirewallRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StoreFirewallRuleOutput{})
 }

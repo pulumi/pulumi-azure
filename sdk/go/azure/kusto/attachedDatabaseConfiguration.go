@@ -4,6 +4,7 @@
 package kusto
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages a Kusto (also known as Azure Data Explorer) Attached Database Configuration
+//
+// ## Import
+//
+// Kusto Attached Database Configurations can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/AttachedDatabaseConfigurations/configuration1
+// ```
 type AttachedDatabaseConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -150,4 +159,43 @@ type AttachedDatabaseConfigurationArgs struct {
 
 func (AttachedDatabaseConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*attachedDatabaseConfigurationArgs)(nil)).Elem()
+}
+
+type AttachedDatabaseConfigurationInput interface {
+	pulumi.Input
+
+	ToAttachedDatabaseConfigurationOutput() AttachedDatabaseConfigurationOutput
+	ToAttachedDatabaseConfigurationOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationOutput
+}
+
+func (AttachedDatabaseConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*AttachedDatabaseConfiguration)(nil)).Elem()
+}
+
+func (i AttachedDatabaseConfiguration) ToAttachedDatabaseConfigurationOutput() AttachedDatabaseConfigurationOutput {
+	return i.ToAttachedDatabaseConfigurationOutputWithContext(context.Background())
+}
+
+func (i AttachedDatabaseConfiguration) ToAttachedDatabaseConfigurationOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AttachedDatabaseConfigurationOutput)
+}
+
+type AttachedDatabaseConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (AttachedDatabaseConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AttachedDatabaseConfigurationOutput)(nil)).Elem()
+}
+
+func (o AttachedDatabaseConfigurationOutput) ToAttachedDatabaseConfigurationOutput() AttachedDatabaseConfigurationOutput {
+	return o
+}
+
+func (o AttachedDatabaseConfigurationOutput) ToAttachedDatabaseConfigurationOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AttachedDatabaseConfigurationOutput{})
 }

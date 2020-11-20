@@ -4,6 +4,7 @@
 package policy
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -45,6 +46,20 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Policy Set Definitions can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
+// ```
+//
+//  or
+//
+// ```sh
+//  $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /providers/Microsoft.Management/managementGroups/my-mgmt-group-id/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
 // ```
 type PolicySetDefinition struct {
 	pulumi.CustomResourceState
@@ -223,4 +238,43 @@ type PolicySetDefinitionArgs struct {
 
 func (PolicySetDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policySetDefinitionArgs)(nil)).Elem()
+}
+
+type PolicySetDefinitionInput interface {
+	pulumi.Input
+
+	ToPolicySetDefinitionOutput() PolicySetDefinitionOutput
+	ToPolicySetDefinitionOutputWithContext(ctx context.Context) PolicySetDefinitionOutput
+}
+
+func (PolicySetDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySetDefinition)(nil)).Elem()
+}
+
+func (i PolicySetDefinition) ToPolicySetDefinitionOutput() PolicySetDefinitionOutput {
+	return i.ToPolicySetDefinitionOutputWithContext(context.Background())
+}
+
+func (i PolicySetDefinition) ToPolicySetDefinitionOutputWithContext(ctx context.Context) PolicySetDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySetDefinitionOutput)
+}
+
+type PolicySetDefinitionOutput struct {
+	*pulumi.OutputState
+}
+
+func (PolicySetDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySetDefinitionOutput)(nil)).Elem()
+}
+
+func (o PolicySetDefinitionOutput) ToPolicySetDefinitionOutput() PolicySetDefinitionOutput {
+	return o
+}
+
+func (o PolicySetDefinitionOutput) ToPolicySetDefinitionOutputWithContext(ctx context.Context) PolicySetDefinitionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PolicySetDefinitionOutput{})
 }

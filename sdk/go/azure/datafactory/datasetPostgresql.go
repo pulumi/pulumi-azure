@@ -4,6 +4,7 @@
 package datafactory
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -57,6 +58,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Data Factory PostgreSQL Datasets can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:datafactory/datasetPostgresql:DatasetPostgresql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
 // ```
 type DatasetPostgresql struct {
 	pulumi.CustomResourceState
@@ -228,4 +237,43 @@ type DatasetPostgresqlArgs struct {
 
 func (DatasetPostgresqlArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetPostgresqlArgs)(nil)).Elem()
+}
+
+type DatasetPostgresqlInput interface {
+	pulumi.Input
+
+	ToDatasetPostgresqlOutput() DatasetPostgresqlOutput
+	ToDatasetPostgresqlOutputWithContext(ctx context.Context) DatasetPostgresqlOutput
+}
+
+func (DatasetPostgresql) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetPostgresql)(nil)).Elem()
+}
+
+func (i DatasetPostgresql) ToDatasetPostgresqlOutput() DatasetPostgresqlOutput {
+	return i.ToDatasetPostgresqlOutputWithContext(context.Background())
+}
+
+func (i DatasetPostgresql) ToDatasetPostgresqlOutputWithContext(ctx context.Context) DatasetPostgresqlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetPostgresqlOutput)
+}
+
+type DatasetPostgresqlOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatasetPostgresqlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetPostgresqlOutput)(nil)).Elem()
+}
+
+func (o DatasetPostgresqlOutput) ToDatasetPostgresqlOutput() DatasetPostgresqlOutput {
+	return o
+}
+
+func (o DatasetPostgresqlOutput) ToDatasetPostgresqlOutputWithContext(ctx context.Context) DatasetPostgresqlOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DatasetPostgresqlOutput{})
 }

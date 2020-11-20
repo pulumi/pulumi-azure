@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -77,6 +78,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Azure Firewalls can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/firewall:Firewall example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/azureFirewalls/testfirewall
 // ```
 type Firewall struct {
 	pulumi.CustomResourceState
@@ -225,4 +234,43 @@ type FirewallArgs struct {
 
 func (FirewallArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallArgs)(nil)).Elem()
+}
+
+type FirewallInput interface {
+	pulumi.Input
+
+	ToFirewallOutput() FirewallOutput
+	ToFirewallOutputWithContext(ctx context.Context) FirewallOutput
+}
+
+func (Firewall) ElementType() reflect.Type {
+	return reflect.TypeOf((*Firewall)(nil)).Elem()
+}
+
+func (i Firewall) ToFirewallOutput() FirewallOutput {
+	return i.ToFirewallOutputWithContext(context.Background())
+}
+
+func (i Firewall) ToFirewallOutputWithContext(ctx context.Context) FirewallOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallOutput)
+}
+
+type FirewallOutput struct {
+	*pulumi.OutputState
+}
+
+func (FirewallOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallOutput)(nil)).Elem()
+}
+
+func (o FirewallOutput) ToFirewallOutput() FirewallOutput {
+	return o
+}
+
+func (o FirewallOutput) ToFirewallOutputWithContext(ctx context.Context) FirewallOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FirewallOutput{})
 }

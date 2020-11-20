@@ -4,6 +4,7 @@
 package compute
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -53,6 +54,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Snapshots can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:compute/snapshot:Snapshot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/snapshots/snapshot1
 // ```
 type Snapshot struct {
 	pulumi.CustomResourceState
@@ -206,4 +215,43 @@ type SnapshotArgs struct {
 
 func (SnapshotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotArgs)(nil)).Elem()
+}
+
+type SnapshotInput interface {
+	pulumi.Input
+
+	ToSnapshotOutput() SnapshotOutput
+	ToSnapshotOutputWithContext(ctx context.Context) SnapshotOutput
+}
+
+func (Snapshot) ElementType() reflect.Type {
+	return reflect.TypeOf((*Snapshot)(nil)).Elem()
+}
+
+func (i Snapshot) ToSnapshotOutput() SnapshotOutput {
+	return i.ToSnapshotOutputWithContext(context.Background())
+}
+
+func (i Snapshot) ToSnapshotOutputWithContext(ctx context.Context) SnapshotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotOutput)
+}
+
+type SnapshotOutput struct {
+	*pulumi.OutputState
+}
+
+func (SnapshotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotOutput)(nil)).Elem()
+}
+
+func (o SnapshotOutput) ToSnapshotOutput() SnapshotOutput {
+	return o
+}
+
+func (o SnapshotOutput) ToSnapshotOutputWithContext(ctx context.Context) SnapshotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SnapshotOutput{})
 }

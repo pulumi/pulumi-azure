@@ -47,6 +47,14 @@ namespace Pulumi.Azure.Bot
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Bot Connection can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:bot/connection:Connection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/connections/example
+    /// ```
     /// </summary>
     public partial class Connection : Pulumi.CustomResource
     {

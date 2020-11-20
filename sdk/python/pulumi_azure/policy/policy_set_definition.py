@@ -66,6 +66,20 @@ class PolicySetDefinition(pulumi.CustomResource):
             policy_type="Custom")
         ```
 
+        ## Import
+
+        Policy Set Definitions can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
+        ```
+
+         or
+
+        ```sh
+         $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /providers/Microsoft.Management/managementGroups/my-mgmt-group-id/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the policy set definition.
@@ -101,7 +115,7 @@ class PolicySetDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             if management_group_id is not None:
-                warnings.warn("Deprecated in favour of `management_group_name`", DeprecationWarning)
+                warnings.warn("""Deprecated in favour of `management_group_name`""", DeprecationWarning)
                 pulumi.log.warn("management_group_id is deprecated: Deprecated in favour of `management_group_name`")
             __props__['management_group_id'] = management_group_id
             __props__['management_group_name'] = management_group_name
@@ -110,7 +124,7 @@ class PolicySetDefinition(pulumi.CustomResource):
             __props__['parameters'] = parameters
             __props__['policy_definition_references'] = policy_definition_references
             if policy_definitions is not None:
-                warnings.warn("Deprecated in favour of `policy_definition_reference`", DeprecationWarning)
+                warnings.warn("""Deprecated in favour of `policy_definition_reference`""", DeprecationWarning)
                 pulumi.log.warn("policy_definitions is deprecated: Deprecated in favour of `policy_definition_reference`")
             __props__['policy_definitions'] = policy_definitions
             if policy_type is None:

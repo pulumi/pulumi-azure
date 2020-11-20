@@ -4,6 +4,7 @@
 package storage
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -59,6 +60,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Storage Blob's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:storage/blob:Blob blob1 https://example.blob.core.windows.net/container/blob.vhd
 // ```
 type Blob struct {
 	pulumi.CustomResourceState
@@ -256,4 +265,43 @@ type BlobArgs struct {
 
 func (BlobArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*blobArgs)(nil)).Elem()
+}
+
+type BlobInput interface {
+	pulumi.Input
+
+	ToBlobOutput() BlobOutput
+	ToBlobOutputWithContext(ctx context.Context) BlobOutput
+}
+
+func (Blob) ElementType() reflect.Type {
+	return reflect.TypeOf((*Blob)(nil)).Elem()
+}
+
+func (i Blob) ToBlobOutput() BlobOutput {
+	return i.ToBlobOutputWithContext(context.Background())
+}
+
+func (i Blob) ToBlobOutputWithContext(ctx context.Context) BlobOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobOutput)
+}
+
+type BlobOutput struct {
+	*pulumi.OutputState
+}
+
+func (BlobOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobOutput)(nil)).Elem()
+}
+
+func (o BlobOutput) ToBlobOutput() BlobOutput {
+	return o
+}
+
+func (o BlobOutput) ToBlobOutputWithContext(ctx context.Context) BlobOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BlobOutput{})
 }

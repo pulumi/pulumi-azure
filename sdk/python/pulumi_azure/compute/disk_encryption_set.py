@@ -31,6 +31,14 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
         > **NOTE:** At this time the Key Vault used to store the Active Key for this Disk Encryption Set must have both Soft Delete & Purge Protection enabled - which are not yet supported by this provider.
 
+        ## Import
+
+        Disk Encryption Sets can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:compute/diskEncryptionSet:DiskEncryptionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/diskEncryptionSets/encryptionSet1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']] identity: A `identity` block defined below.

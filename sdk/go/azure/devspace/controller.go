@@ -4,6 +4,7 @@
 package devspace
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,14 @@ import (
 // Manages a DevSpace Controller.
 //
 // > **NOTE:** Microsoft will be retiring Azure Dev Spaces on 31 October 2023, please see the product [documentation](https://azure.microsoft.com/en-us/updates/azure-dev-spaces-is-retiring-on-31-october-2023/) for more information.
+//
+// ## Import
+//
+// DevSpace Controller's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:devspace/controller:Controller controller1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevSpaces/controllers/controller1Name
+// ```
 type Controller struct {
 	pulumi.CustomResourceState
 
@@ -158,4 +167,43 @@ type ControllerArgs struct {
 
 func (ControllerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*controllerArgs)(nil)).Elem()
+}
+
+type ControllerInput interface {
+	pulumi.Input
+
+	ToControllerOutput() ControllerOutput
+	ToControllerOutputWithContext(ctx context.Context) ControllerOutput
+}
+
+func (Controller) ElementType() reflect.Type {
+	return reflect.TypeOf((*Controller)(nil)).Elem()
+}
+
+func (i Controller) ToControllerOutput() ControllerOutput {
+	return i.ToControllerOutputWithContext(context.Background())
+}
+
+func (i Controller) ToControllerOutputWithContext(ctx context.Context) ControllerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ControllerOutput)
+}
+
+type ControllerOutput struct {
+	*pulumi.OutputState
+}
+
+func (ControllerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ControllerOutput)(nil)).Elem()
+}
+
+func (o ControllerOutput) ToControllerOutput() ControllerOutput {
+	return o
+}
+
+func (o ControllerOutput) ToControllerOutputWithContext(ctx context.Context) ControllerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ControllerOutput{})
 }

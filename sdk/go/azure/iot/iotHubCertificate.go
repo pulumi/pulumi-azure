@@ -4,6 +4,7 @@
 package iot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages an IotHub Device Provisioning Service Certificate.
+//
+// ## Import
+//
+// IoTHub Device Provisioning Service Certificates can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:iot/iotHubCertificate:IotHubCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/provisioningServices/example/certificates/example
+// ```
 type IotHubCertificate struct {
 	pulumi.CustomResourceState
 
@@ -111,4 +120,43 @@ type IotHubCertificateArgs struct {
 
 func (IotHubCertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*iotHubCertificateArgs)(nil)).Elem()
+}
+
+type IotHubCertificateInput interface {
+	pulumi.Input
+
+	ToIotHubCertificateOutput() IotHubCertificateOutput
+	ToIotHubCertificateOutputWithContext(ctx context.Context) IotHubCertificateOutput
+}
+
+func (IotHubCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubCertificate)(nil)).Elem()
+}
+
+func (i IotHubCertificate) ToIotHubCertificateOutput() IotHubCertificateOutput {
+	return i.ToIotHubCertificateOutputWithContext(context.Background())
+}
+
+func (i IotHubCertificate) ToIotHubCertificateOutputWithContext(ctx context.Context) IotHubCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubCertificateOutput)
+}
+
+type IotHubCertificateOutput struct {
+	*pulumi.OutputState
+}
+
+func (IotHubCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubCertificateOutput)(nil)).Elem()
+}
+
+func (o IotHubCertificateOutput) ToIotHubCertificateOutput() IotHubCertificateOutput {
+	return o
+}
+
+func (o IotHubCertificateOutput) ToIotHubCertificateOutputWithContext(ctx context.Context) IotHubCertificateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IotHubCertificateOutput{})
 }

@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['TopicAuthorizationRule']
 
-warnings.warn("azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule", DeprecationWarning)
+warnings.warn("""azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule""", DeprecationWarning)
 
 
 class TopicAuthorizationRule(pulumi.CustomResource):
-    warnings.warn("azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule", DeprecationWarning)
+    warnings.warn("""azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -56,6 +56,14 @@ class TopicAuthorizationRule(pulumi.CustomResource):
             listen=True,
             send=False,
             manage=False)
+        ```
+
+        ## Import
+
+        ServiceBus Topic authorization rules can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/topics/topic1/authorizationRules/rule1
         ```
 
         :param str resource_name: The name of the resource.

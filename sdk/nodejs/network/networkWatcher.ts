@@ -19,6 +19,14 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Network Watchers can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:network/networkWatcher:NetworkWatcher watcher1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1
+ * ```
  */
 export class NetworkWatcher extends pulumi.CustomResource {
     /**

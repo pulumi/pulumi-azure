@@ -4,6 +4,7 @@
 package eventhub
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -64,6 +65,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// EventHub Consumer Groups can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:eventhub/consumerGroup:ConsumerGroup consumerGroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/eventhubs/eventhub1/consumergroups/consumerGroup1
 // ```
 type ConsumerGroup struct {
 	pulumi.CustomResourceState
@@ -181,4 +190,43 @@ type ConsumerGroupArgs struct {
 
 func (ConsumerGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*consumerGroupArgs)(nil)).Elem()
+}
+
+type ConsumerGroupInput interface {
+	pulumi.Input
+
+	ToConsumerGroupOutput() ConsumerGroupOutput
+	ToConsumerGroupOutputWithContext(ctx context.Context) ConsumerGroupOutput
+}
+
+func (ConsumerGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsumerGroup)(nil)).Elem()
+}
+
+func (i ConsumerGroup) ToConsumerGroupOutput() ConsumerGroupOutput {
+	return i.ToConsumerGroupOutputWithContext(context.Background())
+}
+
+func (i ConsumerGroup) ToConsumerGroupOutputWithContext(ctx context.Context) ConsumerGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConsumerGroupOutput)
+}
+
+type ConsumerGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConsumerGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsumerGroupOutput)(nil)).Elem()
+}
+
+func (o ConsumerGroupOutput) ToConsumerGroupOutput() ConsumerGroupOutput {
+	return o
+}
+
+func (o ConsumerGroupOutput) ToConsumerGroupOutputWithContext(ctx context.Context) ConsumerGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConsumerGroupOutput{})
 }

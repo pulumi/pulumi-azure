@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['RegistryWebook']
 
-warnings.warn("azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook", DeprecationWarning)
+warnings.warn("""azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook""", DeprecationWarning)
 
 
 class RegistryWebook(pulumi.CustomResource):
-    warnings.warn("azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook", DeprecationWarning)
+    warnings.warn("""azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -58,6 +58,14 @@ class RegistryWebook(pulumi.CustomResource):
             custom_headers={
                 "Content-Type": "application/json",
             })
+        ```
+
+        ## Import
+
+        Container Registry Webhooks can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:containerservice/registryWebook:RegistryWebook example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1/webhooks/mywebhook1
         ```
 
         :param str resource_name: The name of the resource.

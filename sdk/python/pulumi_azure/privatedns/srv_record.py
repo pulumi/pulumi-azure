@@ -60,6 +60,14 @@ class SRVRecord(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        Private DNS SRV Records can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:privatedns/sRVRecord:SRVRecord test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/SRV/test
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS SRV Record. Changing this forces a new resource to be created.

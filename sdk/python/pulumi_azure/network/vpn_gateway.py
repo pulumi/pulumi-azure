@@ -55,6 +55,14 @@ class VpnGateway(pulumi.CustomResource):
             virtual_hub_id=example_virtual_hub.id)
         ```
 
+        ## Import
+
+        VPN Gateways can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/vpnGateway:VpnGateway gateway1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/vpnGateways/gateway1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['VpnGatewayBgpSettingsArgs']] bgp_settings: A `bgp_settings` block as defined below.

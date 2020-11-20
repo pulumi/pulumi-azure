@@ -4,6 +4,7 @@
 package streamanalytics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -75,6 +76,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Stream Analytics Reference Input Blob's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:streamanalytics/referenceInputBlob:ReferenceInputBlob example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/inputs/input1
 // ```
 type ReferenceInputBlob struct {
 	pulumi.CustomResourceState
@@ -254,4 +263,43 @@ type ReferenceInputBlobArgs struct {
 
 func (ReferenceInputBlobArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*referenceInputBlobArgs)(nil)).Elem()
+}
+
+type ReferenceInputBlobInput interface {
+	pulumi.Input
+
+	ToReferenceInputBlobOutput() ReferenceInputBlobOutput
+	ToReferenceInputBlobOutputWithContext(ctx context.Context) ReferenceInputBlobOutput
+}
+
+func (ReferenceInputBlob) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceInputBlob)(nil)).Elem()
+}
+
+func (i ReferenceInputBlob) ToReferenceInputBlobOutput() ReferenceInputBlobOutput {
+	return i.ToReferenceInputBlobOutputWithContext(context.Background())
+}
+
+func (i ReferenceInputBlob) ToReferenceInputBlobOutputWithContext(ctx context.Context) ReferenceInputBlobOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputBlobOutput)
+}
+
+type ReferenceInputBlobOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReferenceInputBlobOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceInputBlobOutput)(nil)).Elem()
+}
+
+func (o ReferenceInputBlobOutput) ToReferenceInputBlobOutput() ReferenceInputBlobOutput {
+	return o
+}
+
+func (o ReferenceInputBlobOutput) ToReferenceInputBlobOutputWithContext(ctx context.Context) ReferenceInputBlobOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReferenceInputBlobOutput{})
 }

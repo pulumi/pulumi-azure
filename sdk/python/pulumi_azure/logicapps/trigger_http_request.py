@@ -49,6 +49,14 @@ class TriggerHttpRequest(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## Import
+
+        Logic App HTTP Request Triggers can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:logicapps/triggerHttpRequest:TriggerHttpRequest request1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/request1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.

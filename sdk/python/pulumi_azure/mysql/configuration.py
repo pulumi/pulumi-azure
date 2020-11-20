@@ -58,6 +58,14 @@ class Configuration(pulumi.CustomResource):
             value="600")
         ```
 
+        ## Import
+
+        MySQL Configurations can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:mysql/configuration:Configuration interactive_timeout /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/servers/server1/configurations/interactive_timeout
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Specifies the name of the MySQL Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created.

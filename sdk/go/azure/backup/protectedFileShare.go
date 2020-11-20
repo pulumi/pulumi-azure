@@ -4,6 +4,7 @@
 package backup
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -96,6 +97,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Azure Backup Protected File Shares can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:backup/protectedFileShare:ProtectedFileShare item1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;group2;example-storage-account/protectedItems/AzureFileShare;example-share"
+// ```
+//
+//  Note the ID requires quoting as there are semicolons
 type ProtectedFileShare struct {
 	pulumi.CustomResourceState
 
@@ -212,4 +223,43 @@ type ProtectedFileShareArgs struct {
 
 func (ProtectedFileShareArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectedFileShareArgs)(nil)).Elem()
+}
+
+type ProtectedFileShareInput interface {
+	pulumi.Input
+
+	ToProtectedFileShareOutput() ProtectedFileShareOutput
+	ToProtectedFileShareOutputWithContext(ctx context.Context) ProtectedFileShareOutput
+}
+
+func (ProtectedFileShare) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectedFileShare)(nil)).Elem()
+}
+
+func (i ProtectedFileShare) ToProtectedFileShareOutput() ProtectedFileShareOutput {
+	return i.ToProtectedFileShareOutputWithContext(context.Background())
+}
+
+func (i ProtectedFileShare) ToProtectedFileShareOutputWithContext(ctx context.Context) ProtectedFileShareOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectedFileShareOutput)
+}
+
+type ProtectedFileShareOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProtectedFileShareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectedFileShareOutput)(nil)).Elem()
+}
+
+func (o ProtectedFileShareOutput) ToProtectedFileShareOutput() ProtectedFileShareOutput {
+	return o
+}
+
+func (o ProtectedFileShareOutput) ToProtectedFileShareOutputWithContext(ctx context.Context) ProtectedFileShareOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProtectedFileShareOutput{})
 }

@@ -4,6 +4,7 @@
 package devtest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages a Windows Virtual Machine within a Dev Test Lab.
+//
+// ## Import
+//
+// DevTest Windows Virtual Machines can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:devtest/windowsVirtualMachine:WindowsVirtualMachine machine1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualmachines/machine1
+// ```
 type WindowsVirtualMachine struct {
 	pulumi.CustomResourceState
 
@@ -261,4 +270,43 @@ type WindowsVirtualMachineArgs struct {
 
 func (WindowsVirtualMachineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*windowsVirtualMachineArgs)(nil)).Elem()
+}
+
+type WindowsVirtualMachineInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineOutput() WindowsVirtualMachineOutput
+	ToWindowsVirtualMachineOutputWithContext(ctx context.Context) WindowsVirtualMachineOutput
+}
+
+func (WindowsVirtualMachine) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachine)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachine) ToWindowsVirtualMachineOutput() WindowsVirtualMachineOutput {
+	return i.ToWindowsVirtualMachineOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachine) ToWindowsVirtualMachineOutputWithContext(ctx context.Context) WindowsVirtualMachineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineOutput)
+}
+
+type WindowsVirtualMachineOutput struct {
+	*pulumi.OutputState
+}
+
+func (WindowsVirtualMachineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineOutput)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineOutput) ToWindowsVirtualMachineOutput() WindowsVirtualMachineOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineOutput) ToWindowsVirtualMachineOutputWithContext(ctx context.Context) WindowsVirtualMachineOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WindowsVirtualMachineOutput{})
 }

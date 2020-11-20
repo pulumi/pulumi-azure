@@ -4,6 +4,7 @@
 package appplatform
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -141,6 +142,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Spring Cloud Certificate can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:appplatform/springCloudCertificate:SpringCloudCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/Spring/spring1/certificates/cert1
+// ```
 type SpringCloudCertificate struct {
 	pulumi.CustomResourceState
 
@@ -241,4 +250,43 @@ type SpringCloudCertificateArgs struct {
 
 func (SpringCloudCertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*springCloudCertificateArgs)(nil)).Elem()
+}
+
+type SpringCloudCertificateInput interface {
+	pulumi.Input
+
+	ToSpringCloudCertificateOutput() SpringCloudCertificateOutput
+	ToSpringCloudCertificateOutputWithContext(ctx context.Context) SpringCloudCertificateOutput
+}
+
+func (SpringCloudCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudCertificate)(nil)).Elem()
+}
+
+func (i SpringCloudCertificate) ToSpringCloudCertificateOutput() SpringCloudCertificateOutput {
+	return i.ToSpringCloudCertificateOutputWithContext(context.Background())
+}
+
+func (i SpringCloudCertificate) ToSpringCloudCertificateOutputWithContext(ctx context.Context) SpringCloudCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCertificateOutput)
+}
+
+type SpringCloudCertificateOutput struct {
+	*pulumi.OutputState
+}
+
+func (SpringCloudCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudCertificateOutput)(nil)).Elem()
+}
+
+func (o SpringCloudCertificateOutput) ToSpringCloudCertificateOutput() SpringCloudCertificateOutput {
+	return o
+}
+
+func (o SpringCloudCertificateOutput) ToSpringCloudCertificateOutputWithContext(ctx context.Context) SpringCloudCertificateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SpringCloudCertificateOutput{})
 }

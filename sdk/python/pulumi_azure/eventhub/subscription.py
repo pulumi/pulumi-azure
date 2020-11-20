@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['Subscription']
 
-warnings.warn("azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription", DeprecationWarning)
+warnings.warn("""azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription""", DeprecationWarning)
 
 
 class Subscription(pulumi.CustomResource):
-    warnings.warn("azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription", DeprecationWarning)
+    warnings.warn("""azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -63,6 +63,14 @@ class Subscription(pulumi.CustomResource):
             namespace_name=example_namespace.name,
             topic_name=example_topic.name,
             max_delivery_count=1)
+        ```
+
+        ## Import
+
+        Service Bus Subscriptions can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:eventhub/subscription:Subscription example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1/topics/sntopic1/subscriptions/sbsub1
         ```
 
         :param str resource_name: The name of the resource.

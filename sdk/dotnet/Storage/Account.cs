@@ -105,6 +105,14 @@ namespace Pulumi.Azure.Storage
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Storage Accounts can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:storage/account:Account storageAcc1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
+    /// ```
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {

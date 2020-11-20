@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -30,6 +29,14 @@ import * as utilities from "../utilities";
  *     accountId: "0000",
  *     password: "example-password",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Key Vault Certificate Issuers can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:keyvault/certificateIssuer:CertificateIssuer example "https://key-vault-name.vault.azure.net/certificates/issuers/example"
  * ```
  */
 export class CertificateIssuer extends pulumi.CustomResource {

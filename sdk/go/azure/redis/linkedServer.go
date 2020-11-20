@@ -4,6 +4,7 @@
 package redis
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -82,6 +83,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Rediss can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:redis/linkedServer:LinkedServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/Redis/cache1/linkedServers/cache2
 // ```
 type LinkedServer struct {
 	pulumi.CustomResourceState
@@ -205,4 +214,43 @@ type LinkedServerArgs struct {
 
 func (LinkedServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServerArgs)(nil)).Elem()
+}
+
+type LinkedServerInput interface {
+	pulumi.Input
+
+	ToLinkedServerOutput() LinkedServerOutput
+	ToLinkedServerOutputWithContext(ctx context.Context) LinkedServerOutput
+}
+
+func (LinkedServer) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServer)(nil)).Elem()
+}
+
+func (i LinkedServer) ToLinkedServerOutput() LinkedServerOutput {
+	return i.ToLinkedServerOutputWithContext(context.Background())
+}
+
+func (i LinkedServer) ToLinkedServerOutputWithContext(ctx context.Context) LinkedServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServerOutput)
+}
+
+type LinkedServerOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkedServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServerOutput)(nil)).Elem()
+}
+
+func (o LinkedServerOutput) ToLinkedServerOutput() LinkedServerOutput {
+	return o
+}
+
+func (o LinkedServerOutput) ToLinkedServerOutputWithContext(ctx context.Context) LinkedServerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LinkedServerOutput{})
 }
