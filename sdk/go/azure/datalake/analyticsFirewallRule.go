@@ -4,6 +4,7 @@
 package datalake
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -58,6 +59,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Data Lake Analytics Firewall Rules can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:datalake/analyticsFirewallRule:AnalyticsFirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DataLakeAnalytics/accounts/mydatalakeaccount/firewallRules/rule1
 // ```
 type AnalyticsFirewallRule struct {
 	pulumi.CustomResourceState
@@ -172,4 +181,43 @@ type AnalyticsFirewallRuleArgs struct {
 
 func (AnalyticsFirewallRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyticsFirewallRuleArgs)(nil)).Elem()
+}
+
+type AnalyticsFirewallRuleInput interface {
+	pulumi.Input
+
+	ToAnalyticsFirewallRuleOutput() AnalyticsFirewallRuleOutput
+	ToAnalyticsFirewallRuleOutputWithContext(ctx context.Context) AnalyticsFirewallRuleOutput
+}
+
+func (AnalyticsFirewallRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsFirewallRule)(nil)).Elem()
+}
+
+func (i AnalyticsFirewallRule) ToAnalyticsFirewallRuleOutput() AnalyticsFirewallRuleOutput {
+	return i.ToAnalyticsFirewallRuleOutputWithContext(context.Background())
+}
+
+func (i AnalyticsFirewallRule) ToAnalyticsFirewallRuleOutputWithContext(ctx context.Context) AnalyticsFirewallRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsFirewallRuleOutput)
+}
+
+type AnalyticsFirewallRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (AnalyticsFirewallRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsFirewallRuleOutput)(nil)).Elem()
+}
+
+func (o AnalyticsFirewallRuleOutput) ToAnalyticsFirewallRuleOutput() AnalyticsFirewallRuleOutput {
+	return o
+}
+
+func (o AnalyticsFirewallRuleOutput) ToAnalyticsFirewallRuleOutputWithContext(ctx context.Context) AnalyticsFirewallRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AnalyticsFirewallRuleOutput{})
 }

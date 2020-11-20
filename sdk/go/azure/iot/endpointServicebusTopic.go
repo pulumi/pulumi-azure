@@ -4,6 +4,7 @@
 package iot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -86,6 +87,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// IoTHub ServiceBus Topic Endpoint can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:iot/endpointServicebusTopic:EndpointServicebusTopic servicebus_topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Endpoints/servicebustopic_endpoint1
 // ```
 type EndpointServicebusTopic struct {
 	pulumi.CustomResourceState
@@ -177,4 +186,43 @@ type EndpointServicebusTopicArgs struct {
 
 func (EndpointServicebusTopicArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointServicebusTopicArgs)(nil)).Elem()
+}
+
+type EndpointServicebusTopicInput interface {
+	pulumi.Input
+
+	ToEndpointServicebusTopicOutput() EndpointServicebusTopicOutput
+	ToEndpointServicebusTopicOutputWithContext(ctx context.Context) EndpointServicebusTopicOutput
+}
+
+func (EndpointServicebusTopic) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointServicebusTopic)(nil)).Elem()
+}
+
+func (i EndpointServicebusTopic) ToEndpointServicebusTopicOutput() EndpointServicebusTopicOutput {
+	return i.ToEndpointServicebusTopicOutputWithContext(context.Background())
+}
+
+func (i EndpointServicebusTopic) ToEndpointServicebusTopicOutputWithContext(ctx context.Context) EndpointServicebusTopicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointServicebusTopicOutput)
+}
+
+type EndpointServicebusTopicOutput struct {
+	*pulumi.OutputState
+}
+
+func (EndpointServicebusTopicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointServicebusTopicOutput)(nil)).Elem()
+}
+
+func (o EndpointServicebusTopicOutput) ToEndpointServicebusTopicOutput() EndpointServicebusTopicOutput {
+	return o
+}
+
+func (o EndpointServicebusTopicOutput) ToEndpointServicebusTopicOutputWithContext(ctx context.Context) EndpointServicebusTopicOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EndpointServicebusTopicOutput{})
 }

@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -50,6 +51,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Virtual Hub's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/virtualHub:VirtualHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/hub1
 // ```
 type VirtualHub struct {
 	pulumi.CustomResourceState
@@ -185,4 +194,43 @@ type VirtualHubArgs struct {
 
 func (VirtualHubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualHubArgs)(nil)).Elem()
+}
+
+type VirtualHubInput interface {
+	pulumi.Input
+
+	ToVirtualHubOutput() VirtualHubOutput
+	ToVirtualHubOutputWithContext(ctx context.Context) VirtualHubOutput
+}
+
+func (VirtualHub) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHub)(nil)).Elem()
+}
+
+func (i VirtualHub) ToVirtualHubOutput() VirtualHubOutput {
+	return i.ToVirtualHubOutputWithContext(context.Background())
+}
+
+func (i VirtualHub) ToVirtualHubOutputWithContext(ctx context.Context) VirtualHubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubOutput)
+}
+
+type VirtualHubOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualHubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubOutput)(nil)).Elem()
+}
+
+func (o VirtualHubOutput) ToVirtualHubOutput() VirtualHubOutput {
+	return o
+}
+
+func (o VirtualHubOutput) ToVirtualHubOutputWithContext(ctx context.Context) VirtualHubOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualHubOutput{})
 }

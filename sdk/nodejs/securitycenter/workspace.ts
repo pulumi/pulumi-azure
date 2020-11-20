@@ -28,6 +28,14 @@ import * as utilities from "../utilities";
  *     workspaceId: exampleAnalyticsWorkspace.id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * The contact can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:securitycenter/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/workspaceSettings/default
+ * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

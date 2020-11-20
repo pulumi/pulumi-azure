@@ -4,6 +4,7 @@
 package monitoring
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -123,6 +124,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Action Groups can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:monitoring/actionGroup:ActionGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/actionGroups/myagname
 // ```
 type ActionGroup struct {
 	pulumi.CustomResourceState
@@ -331,4 +340,43 @@ type ActionGroupArgs struct {
 
 func (ActionGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionGroupArgs)(nil)).Elem()
+}
+
+type ActionGroupInput interface {
+	pulumi.Input
+
+	ToActionGroupOutput() ActionGroupOutput
+	ToActionGroupOutputWithContext(ctx context.Context) ActionGroupOutput
+}
+
+func (ActionGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionGroup)(nil)).Elem()
+}
+
+func (i ActionGroup) ToActionGroupOutput() ActionGroupOutput {
+	return i.ToActionGroupOutputWithContext(context.Background())
+}
+
+func (i ActionGroup) ToActionGroupOutputWithContext(ctx context.Context) ActionGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupOutput)
+}
+
+type ActionGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ActionGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionGroupOutput)(nil)).Elem()
+}
+
+func (o ActionGroupOutput) ToActionGroupOutput() ActionGroupOutput {
+	return o
+}
+
+func (o ActionGroupOutput) ToActionGroupOutputWithContext(ctx context.Context) ActionGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ActionGroupOutput{})
 }

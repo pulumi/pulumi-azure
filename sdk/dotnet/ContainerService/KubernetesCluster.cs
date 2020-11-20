@@ -58,6 +58,14 @@ namespace Pulumi.Azure.ContainerService
     ///     public Output&lt;string&gt; KubeConfig { get; set; }
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:containerservice/kubernetesCluster:KubernetesCluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
+    /// ```
     /// </summary>
     public partial class KubernetesCluster : Pulumi.CustomResource
     {

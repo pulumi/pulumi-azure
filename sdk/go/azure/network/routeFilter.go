@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -42,6 +43,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Route Filters can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/routeFilter:RouteFilter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/routeFilters/routeFilter1
 // ```
 type RouteFilter struct {
 	pulumi.CustomResourceState
@@ -147,4 +156,43 @@ type RouteFilterArgs struct {
 
 func (RouteFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeFilterArgs)(nil)).Elem()
+}
+
+type RouteFilterInput interface {
+	pulumi.Input
+
+	ToRouteFilterOutput() RouteFilterOutput
+	ToRouteFilterOutputWithContext(ctx context.Context) RouteFilterOutput
+}
+
+func (RouteFilter) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteFilter)(nil)).Elem()
+}
+
+func (i RouteFilter) ToRouteFilterOutput() RouteFilterOutput {
+	return i.ToRouteFilterOutputWithContext(context.Background())
+}
+
+func (i RouteFilter) ToRouteFilterOutputWithContext(ctx context.Context) RouteFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteFilterOutput)
+}
+
+type RouteFilterOutput struct {
+	*pulumi.OutputState
+}
+
+func (RouteFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteFilterOutput)(nil)).Elem()
+}
+
+func (o RouteFilterOutput) ToRouteFilterOutput() RouteFilterOutput {
+	return o
+}
+
+func (o RouteFilterOutput) ToRouteFilterOutputWithContext(ctx context.Context) RouteFilterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RouteFilterOutput{})
 }

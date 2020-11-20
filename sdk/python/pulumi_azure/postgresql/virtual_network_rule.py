@@ -64,6 +64,14 @@ class VirtualNetworkRule(pulumi.CustomResource):
             ignore_missing_vnet_service_endpoint=True)
         ```
 
+        ## Import
+
+        PostgreSQL Virtual Network Rules can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:postgresql/virtualNetworkRule:VirtualNetworkRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/myserver/virtualNetworkRules/vnetrulename
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.

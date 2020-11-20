@@ -4,6 +4,7 @@
 package datashare
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages a Data Share Kusto Database Dataset.
+//
+// ## Import
+//
+// Data Share Kusto Database Datasets can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:datashare/datasetKustoDatabase:DatasetKustoDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1/dataSets/dataSet1
+// ```
 type DatasetKustoDatabase struct {
 	pulumi.CustomResourceState
 
@@ -110,4 +119,43 @@ type DatasetKustoDatabaseArgs struct {
 
 func (DatasetKustoDatabaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetKustoDatabaseArgs)(nil)).Elem()
+}
+
+type DatasetKustoDatabaseInput interface {
+	pulumi.Input
+
+	ToDatasetKustoDatabaseOutput() DatasetKustoDatabaseOutput
+	ToDatasetKustoDatabaseOutputWithContext(ctx context.Context) DatasetKustoDatabaseOutput
+}
+
+func (DatasetKustoDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetKustoDatabase)(nil)).Elem()
+}
+
+func (i DatasetKustoDatabase) ToDatasetKustoDatabaseOutput() DatasetKustoDatabaseOutput {
+	return i.ToDatasetKustoDatabaseOutputWithContext(context.Background())
+}
+
+func (i DatasetKustoDatabase) ToDatasetKustoDatabaseOutputWithContext(ctx context.Context) DatasetKustoDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetKustoDatabaseOutput)
+}
+
+type DatasetKustoDatabaseOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatasetKustoDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetKustoDatabaseOutput)(nil)).Elem()
+}
+
+func (o DatasetKustoDatabaseOutput) ToDatasetKustoDatabaseOutput() DatasetKustoDatabaseOutput {
+	return o
+}
+
+func (o DatasetKustoDatabaseOutput) ToDatasetKustoDatabaseOutputWithContext(ctx context.Context) DatasetKustoDatabaseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DatasetKustoDatabaseOutput{})
 }

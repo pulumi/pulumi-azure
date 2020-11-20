@@ -98,6 +98,14 @@ class Module(pulumi.CustomResource):
             opts=ResourceOptions(depends_on=[example_virtual_network_gateway]))
         ```
 
+        ## Import
+
+        Dedicated Hardware Security Module can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:hsm/module:Module example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/hsm1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.

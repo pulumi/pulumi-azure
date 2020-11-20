@@ -27,6 +27,14 @@ import * as utilities from "../utilities";
  *     remoteFilePath: "/path/created/for/remote/file",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Data Lake Store File's can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:datalake/storeFile:StoreFile txt
+ * ```
  */
 export class StoreFile extends pulumi.CustomResource {
     /**

@@ -50,6 +50,14 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
             object_id=current.object_id)
         ```
 
+        ## Import
+
+        A MySQL Active Directory Administrator can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:mysql/activeDirectoryAdministrator:ActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver/administrators/activeDirectory
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] login: The login name of the principal to set as the server administrator

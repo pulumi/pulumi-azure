@@ -4,6 +4,7 @@
 package streamanalytics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -73,6 +74,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Stream Analytics Stream Input IoTHub's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:streamanalytics/streamInputIotHub:StreamInputIotHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/inputs/input1
 // ```
 type StreamInputIotHub struct {
 	pulumi.CustomResourceState
@@ -239,4 +248,43 @@ type StreamInputIotHubArgs struct {
 
 func (StreamInputIotHubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamInputIotHubArgs)(nil)).Elem()
+}
+
+type StreamInputIotHubInput interface {
+	pulumi.Input
+
+	ToStreamInputIotHubOutput() StreamInputIotHubOutput
+	ToStreamInputIotHubOutputWithContext(ctx context.Context) StreamInputIotHubOutput
+}
+
+func (StreamInputIotHub) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamInputIotHub)(nil)).Elem()
+}
+
+func (i StreamInputIotHub) ToStreamInputIotHubOutput() StreamInputIotHubOutput {
+	return i.ToStreamInputIotHubOutputWithContext(context.Background())
+}
+
+func (i StreamInputIotHub) ToStreamInputIotHubOutputWithContext(ctx context.Context) StreamInputIotHubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamInputIotHubOutput)
+}
+
+type StreamInputIotHubOutput struct {
+	*pulumi.OutputState
+}
+
+func (StreamInputIotHubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamInputIotHubOutput)(nil)).Elem()
+}
+
+func (o StreamInputIotHubOutput) ToStreamInputIotHubOutput() StreamInputIotHubOutput {
+	return o
+}
+
+func (o StreamInputIotHubOutput) ToStreamInputIotHubOutputWithContext(ctx context.Context) StreamInputIotHubOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StreamInputIotHubOutput{})
 }

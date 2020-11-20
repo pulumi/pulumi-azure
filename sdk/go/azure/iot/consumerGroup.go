@@ -4,6 +4,7 @@
 package iot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -56,6 +57,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// IoTHub Consumer Groups can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:iot/consumerGroup:ConsumerGroup group1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/eventHubEndpoints/events/ConsumerGroups/group1
 // ```
 type ConsumerGroup struct {
 	pulumi.CustomResourceState
@@ -157,4 +166,43 @@ type ConsumerGroupArgs struct {
 
 func (ConsumerGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*consumerGroupArgs)(nil)).Elem()
+}
+
+type ConsumerGroupInput interface {
+	pulumi.Input
+
+	ToConsumerGroupOutput() ConsumerGroupOutput
+	ToConsumerGroupOutputWithContext(ctx context.Context) ConsumerGroupOutput
+}
+
+func (ConsumerGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsumerGroup)(nil)).Elem()
+}
+
+func (i ConsumerGroup) ToConsumerGroupOutput() ConsumerGroupOutput {
+	return i.ToConsumerGroupOutputWithContext(context.Background())
+}
+
+func (i ConsumerGroup) ToConsumerGroupOutputWithContext(ctx context.Context) ConsumerGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConsumerGroupOutput)
+}
+
+type ConsumerGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConsumerGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsumerGroupOutput)(nil)).Elem()
+}
+
+func (o ConsumerGroupOutput) ToConsumerGroupOutput() ConsumerGroupOutput {
+	return o
+}
+
+func (o ConsumerGroupOutput) ToConsumerGroupOutputWithContext(ctx context.Context) ConsumerGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConsumerGroupOutput{})
 }

@@ -4,6 +4,7 @@
 package apimanagement
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -63,6 +64,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// API Management Loggers can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:apimanagement/logger:Logger example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/example-rg/Microsoft.ApiManagement/service/example-apim/loggers/example-logger
 // ```
 type Logger struct {
 	pulumi.CustomResourceState
@@ -191,4 +200,43 @@ type LoggerArgs struct {
 
 func (LoggerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loggerArgs)(nil)).Elem()
+}
+
+type LoggerInput interface {
+	pulumi.Input
+
+	ToLoggerOutput() LoggerOutput
+	ToLoggerOutputWithContext(ctx context.Context) LoggerOutput
+}
+
+func (Logger) ElementType() reflect.Type {
+	return reflect.TypeOf((*Logger)(nil)).Elem()
+}
+
+func (i Logger) ToLoggerOutput() LoggerOutput {
+	return i.ToLoggerOutputWithContext(context.Background())
+}
+
+func (i Logger) ToLoggerOutputWithContext(ctx context.Context) LoggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggerOutput)
+}
+
+type LoggerOutput struct {
+	*pulumi.OutputState
+}
+
+func (LoggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggerOutput)(nil)).Elem()
+}
+
+func (o LoggerOutput) ToLoggerOutput() LoggerOutput {
+	return o
+}
+
+func (o LoggerOutput) ToLoggerOutputWithContext(ctx context.Context) LoggerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LoggerOutput{})
 }

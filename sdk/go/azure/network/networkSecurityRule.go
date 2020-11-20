@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -60,6 +61,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Network Security Rules can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/networkSecurityRule:NetworkSecurityRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkSecurityGroups/mySecurityGroup/securityRules/rule1
 // ```
 type NetworkSecurityRule struct {
 	pulumi.CustomResourceState
@@ -310,4 +319,43 @@ type NetworkSecurityRuleArgs struct {
 
 func (NetworkSecurityRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkSecurityRuleArgs)(nil)).Elem()
+}
+
+type NetworkSecurityRuleInput interface {
+	pulumi.Input
+
+	ToNetworkSecurityRuleOutput() NetworkSecurityRuleOutput
+	ToNetworkSecurityRuleOutputWithContext(ctx context.Context) NetworkSecurityRuleOutput
+}
+
+func (NetworkSecurityRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSecurityRule)(nil)).Elem()
+}
+
+func (i NetworkSecurityRule) ToNetworkSecurityRuleOutput() NetworkSecurityRuleOutput {
+	return i.ToNetworkSecurityRuleOutputWithContext(context.Background())
+}
+
+func (i NetworkSecurityRule) ToNetworkSecurityRuleOutputWithContext(ctx context.Context) NetworkSecurityRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityRuleOutput)
+}
+
+type NetworkSecurityRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkSecurityRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSecurityRuleOutput)(nil)).Elem()
+}
+
+func (o NetworkSecurityRuleOutput) ToNetworkSecurityRuleOutput() NetworkSecurityRuleOutput {
+	return o
+}
+
+func (o NetworkSecurityRuleOutput) ToNetworkSecurityRuleOutputWithContext(ctx context.Context) NetworkSecurityRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkSecurityRuleOutput{})
 }

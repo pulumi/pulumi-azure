@@ -8,6 +8,14 @@ import * as utilities from "../utilities";
  * Manages a Email integration for a Bot Channel
  *
  * > **Note** A bot can only have a single Email Channel associated with it.
+ *
+ * ## Import
+ *
+ * The Email Integration for a Bot Channel can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:bot/channelEmail:ChannelEmail example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/channels/EmailChannel
+ * ```
  */
 export class ChannelEmail extends pulumi.CustomResource {
     /**

@@ -4,6 +4,7 @@
 package datalake
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -14,6 +15,14 @@ import (
 //
 // > **Note:** If you want to change the data in the remote file without changing the `localFilePath`, then
 // taint the resource so the `datalake.StoreFile` gets recreated with the new data.
+//
+// ## Import
+//
+// Data Lake Store File's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:datalake/storeFile:StoreFile txt
+// ```
 type StoreFile struct {
 	pulumi.CustomResourceState
 
@@ -104,4 +113,43 @@ type StoreFileArgs struct {
 
 func (StoreFileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*storeFileArgs)(nil)).Elem()
+}
+
+type StoreFileInput interface {
+	pulumi.Input
+
+	ToStoreFileOutput() StoreFileOutput
+	ToStoreFileOutputWithContext(ctx context.Context) StoreFileOutput
+}
+
+func (StoreFile) ElementType() reflect.Type {
+	return reflect.TypeOf((*StoreFile)(nil)).Elem()
+}
+
+func (i StoreFile) ToStoreFileOutput() StoreFileOutput {
+	return i.ToStoreFileOutputWithContext(context.Background())
+}
+
+func (i StoreFile) ToStoreFileOutputWithContext(ctx context.Context) StoreFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StoreFileOutput)
+}
+
+type StoreFileOutput struct {
+	*pulumi.OutputState
+}
+
+func (StoreFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StoreFileOutput)(nil)).Elem()
+}
+
+func (o StoreFileOutput) ToStoreFileOutput() StoreFileOutput {
+	return o
+}
+
+func (o StoreFileOutput) ToStoreFileOutputWithContext(ctx context.Context) StoreFileOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StoreFileOutput{})
 }

@@ -108,6 +108,14 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Private Link Services can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:privatedns/linkService:LinkService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/privateLinkServices/service1
+    /// ```
     /// </summary>
     public partial class LinkService : Pulumi.CustomResource
     {

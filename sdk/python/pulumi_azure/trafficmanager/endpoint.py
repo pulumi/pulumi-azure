@@ -12,11 +12,11 @@ from ._inputs import *
 
 __all__ = ['Endpoint']
 
-warnings.warn("azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint", DeprecationWarning)
+warnings.warn("""azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint""", DeprecationWarning)
 
 
 class Endpoint(pulumi.CustomResource):
-    warnings.warn("azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint", DeprecationWarning)
+    warnings.warn("""azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -77,6 +77,14 @@ class Endpoint(pulumi.CustomResource):
             profile_name=example_traffic_manager_profile.name,
             type="externalEndpoints",
             weight=100)
+        ```
+
+        ## Import
+
+        Traffic Manager Endpoints can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:trafficmanager/endpoint:Endpoint exampleEndpoints /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/trafficManagerProfiles/mytrafficmanagerprofile1/azureEndpoints/mytrafficmanagerendpoint
         ```
 
         :param str resource_name: The name of the resource.

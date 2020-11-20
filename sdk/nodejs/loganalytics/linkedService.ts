@@ -34,6 +34,14 @@ import * as utilities from "../utilities";
  *     resourceId: exampleAccount.id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Log Analytics Workspaces can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:loganalytics/linkedService:LinkedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/linkedservices/automation
+ * ```
  */
 export class LinkedService extends pulumi.CustomResource {
     /**

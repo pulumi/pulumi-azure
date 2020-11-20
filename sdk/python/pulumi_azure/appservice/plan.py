@@ -101,6 +101,14 @@ class Plan(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        App Service Plan instances can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:appservice/plan:Plan instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/serverfarms/instance1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.

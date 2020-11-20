@@ -4,6 +4,7 @@
 package automation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages a boolean variable in Azure Automation
+//
+// ## Import
+//
+// Automation Bool Variable can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:automation/boolVariable:BoolVariable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/tfex-example-rg/providers/Microsoft.Automation/automationAccounts/tfex-example-account/variables/tfex-example-var
+// ```
 type BoolVariable struct {
 	pulumi.CustomResourceState
 
@@ -128,4 +137,43 @@ type BoolVariableArgs struct {
 
 func (BoolVariableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*boolVariableArgs)(nil)).Elem()
+}
+
+type BoolVariableInput interface {
+	pulumi.Input
+
+	ToBoolVariableOutput() BoolVariableOutput
+	ToBoolVariableOutputWithContext(ctx context.Context) BoolVariableOutput
+}
+
+func (BoolVariable) ElementType() reflect.Type {
+	return reflect.TypeOf((*BoolVariable)(nil)).Elem()
+}
+
+func (i BoolVariable) ToBoolVariableOutput() BoolVariableOutput {
+	return i.ToBoolVariableOutputWithContext(context.Background())
+}
+
+func (i BoolVariable) ToBoolVariableOutputWithContext(ctx context.Context) BoolVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BoolVariableOutput)
+}
+
+type BoolVariableOutput struct {
+	*pulumi.OutputState
+}
+
+func (BoolVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BoolVariableOutput)(nil)).Elem()
+}
+
+func (o BoolVariableOutput) ToBoolVariableOutput() BoolVariableOutput {
+	return o
+}
+
+func (o BoolVariableOutput) ToBoolVariableOutputWithContext(ctx context.Context) BoolVariableOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BoolVariableOutput{})
 }

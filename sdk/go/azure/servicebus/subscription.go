@@ -4,6 +4,7 @@
 package servicebus
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -62,6 +63,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Service Bus Subscriptions can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:servicebus/subscription:Subscription example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1/topics/sntopic1/subscriptions/sbsub1
 // ```
 type Subscription struct {
 	pulumi.CustomResourceState
@@ -282,4 +291,43 @@ type SubscriptionArgs struct {
 
 func (SubscriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionArgs)(nil)).Elem()
+}
+
+type SubscriptionInput interface {
+	pulumi.Input
+
+	ToSubscriptionOutput() SubscriptionOutput
+	ToSubscriptionOutputWithContext(ctx context.Context) SubscriptionOutput
+}
+
+func (Subscription) ElementType() reflect.Type {
+	return reflect.TypeOf((*Subscription)(nil)).Elem()
+}
+
+func (i Subscription) ToSubscriptionOutput() SubscriptionOutput {
+	return i.ToSubscriptionOutputWithContext(context.Background())
+}
+
+func (i Subscription) ToSubscriptionOutputWithContext(ctx context.Context) SubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionOutput)
+}
+
+type SubscriptionOutput struct {
+	*pulumi.OutputState
+}
+
+func (SubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionOutput)(nil)).Elem()
+}
+
+func (o SubscriptionOutput) ToSubscriptionOutput() SubscriptionOutput {
+	return o
+}
+
+func (o SubscriptionOutput) ToSubscriptionOutputWithContext(ctx context.Context) SubscriptionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SubscriptionOutput{})
 }

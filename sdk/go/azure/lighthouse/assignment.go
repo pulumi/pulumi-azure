@@ -4,6 +4,7 @@
 package lighthouse
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -34,6 +35,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Lighthouse Assignments can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:lighthouse/assignment:Assignment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationAssignments/00000000-0000-0000-0000-000000000000
 // ```
 type Assignment struct {
 	pulumi.CustomResourceState
@@ -122,4 +131,43 @@ type AssignmentArgs struct {
 
 func (AssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*assignmentArgs)(nil)).Elem()
+}
+
+type AssignmentInput interface {
+	pulumi.Input
+
+	ToAssignmentOutput() AssignmentOutput
+	ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput
+}
+
+func (Assignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*Assignment)(nil)).Elem()
+}
+
+func (i Assignment) ToAssignmentOutput() AssignmentOutput {
+	return i.ToAssignmentOutputWithContext(context.Background())
+}
+
+func (i Assignment) ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentOutput)
+}
+
+type AssignmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentOutput)(nil)).Elem()
+}
+
+func (o AssignmentOutput) ToAssignmentOutput() AssignmentOutput {
+	return o
+}
+
+func (o AssignmentOutput) ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AssignmentOutput{})
 }

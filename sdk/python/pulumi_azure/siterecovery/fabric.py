@@ -43,6 +43,14 @@ class Fabric(pulumi.CustomResource):
             location=primary.location)
         ```
 
+        ## Import
+
+        Site Recovery Fabric can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:siterecovery/fabric:Fabric myfabric /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: In what region should the fabric be located.

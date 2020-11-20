@@ -54,6 +54,14 @@ class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
             network_security_group_id=example_network_security_group.id)
         ```
 
+        ## Import
+
+        Associations between Network Interfaces and Network Security Group can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/networkInterfaceSecurityGroupAssociation:NetworkInterfaceSecurityGroupAssociation association1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.network/networkInterfaces/example|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/networkSecurityGroups/group1"
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.

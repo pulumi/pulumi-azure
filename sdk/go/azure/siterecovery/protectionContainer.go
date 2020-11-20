@@ -4,6 +4,7 @@
 package siterecovery
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -65,6 +66,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Site Recovery Protection Containers can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:siterecovery/protectionContainer:ProtectionContainer mycontainer /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name/replicationProtectionContainers/protection-container-name
 // ```
 type ProtectionContainer struct {
 	pulumi.CustomResourceState
@@ -166,4 +175,43 @@ type ProtectionContainerArgs struct {
 
 func (ProtectionContainerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectionContainerArgs)(nil)).Elem()
+}
+
+type ProtectionContainerInput interface {
+	pulumi.Input
+
+	ToProtectionContainerOutput() ProtectionContainerOutput
+	ToProtectionContainerOutputWithContext(ctx context.Context) ProtectionContainerOutput
+}
+
+func (ProtectionContainer) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionContainer)(nil)).Elem()
+}
+
+func (i ProtectionContainer) ToProtectionContainerOutput() ProtectionContainerOutput {
+	return i.ToProtectionContainerOutputWithContext(context.Background())
+}
+
+func (i ProtectionContainer) ToProtectionContainerOutputWithContext(ctx context.Context) ProtectionContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerOutput)
+}
+
+type ProtectionContainerOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProtectionContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionContainerOutput)(nil)).Elem()
+}
+
+func (o ProtectionContainerOutput) ToProtectionContainerOutput() ProtectionContainerOutput {
+	return o
+}
+
+func (o ProtectionContainerOutput) ToProtectionContainerOutputWithContext(ctx context.Context) ProtectionContainerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProtectionContainerOutput{})
 }

@@ -41,6 +41,14 @@ class Embedded(pulumi.CustomResource):
             administrators=["azsdktest@microsoft.com"])
         ```
 
+        ## Import
+
+        PowerBI Embedded can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:powerbi/embedded:Embedded example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.PowerBIDedicated/capacities/capacity1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: A set of administrator user identities, which manages the Power BI Embedded and must be a member user or a service principal in your AAD tenant.

@@ -12,11 +12,11 @@ from ._inputs import *
 
 __all__ = ['Domain']
 
-warnings.warn("azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain", DeprecationWarning)
+warnings.warn("""azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain""", DeprecationWarning)
 
 
 class Domain(pulumi.CustomResource):
-    warnings.warn("azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain", DeprecationWarning)
+    warnings.warn("""azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -47,6 +47,14 @@ class Domain(pulumi.CustomResource):
             tags={
                 "environment": "Production",
             })
+        ```
+
+        ## Import
+
+        EventGrid Domains can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:eventhub/domain:Domain domain1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/domains/domain1
         ```
 
         :param str resource_name: The name of the resource.

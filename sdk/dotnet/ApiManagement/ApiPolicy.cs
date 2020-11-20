@@ -11,6 +11,14 @@ namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
     /// Manages an API Management API Policy
+    /// 
+    /// ## Import
+    /// 
+    /// API Management API Policy can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:apimanagement/apiPolicy:ApiPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/exampleId/policies/policy
+    /// ```
     /// </summary>
     public partial class ApiPolicy : Pulumi.CustomResource
     {

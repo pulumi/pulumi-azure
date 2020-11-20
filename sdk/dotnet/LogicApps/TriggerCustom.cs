@@ -47,6 +47,14 @@ namespace Pulumi.Azure.LogicApps
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Logic App Custom Triggers can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:logicapps/triggerCustom:TriggerCustom custom1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/custom1
+    /// ```
     /// </summary>
     public partial class TriggerCustom : Pulumi.CustomResource
     {

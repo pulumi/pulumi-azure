@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -43,6 +42,14 @@ import * as utilities from "../utilities";
  *     firstRowAsHeader: true,
  *     nullValue: "NULL",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Data Factory Datasets can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:datafactory/datasetDelimitedText:DatasetDelimitedText example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
  * ```
  */
 export class DatasetDelimitedText extends pulumi.CustomResource {

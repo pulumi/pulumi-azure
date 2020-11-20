@@ -28,6 +28,14 @@ import * as utilities from "../utilities";
  *     clientSecret: "00000000000000000000000000000000",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * API Management Google Identity Provider can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:apimanagement/identityProviderGoogle:IdentityProviderGoogle example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/google
+ * ```
  */
 export class IdentityProviderGoogle extends pulumi.CustomResource {
     /**

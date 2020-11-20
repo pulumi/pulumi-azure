@@ -4,6 +4,7 @@
 package compute
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -44,6 +45,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Virtual Machine Scale Sets can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:compute/scaleSet:ScaleSet scaleset1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
 // ```
 type ScaleSet struct {
 	pulumi.CustomResourceState
@@ -389,4 +398,43 @@ type ScaleSetArgs struct {
 
 func (ScaleSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scaleSetArgs)(nil)).Elem()
+}
+
+type ScaleSetInput interface {
+	pulumi.Input
+
+	ToScaleSetOutput() ScaleSetOutput
+	ToScaleSetOutputWithContext(ctx context.Context) ScaleSetOutput
+}
+
+func (ScaleSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScaleSet)(nil)).Elem()
+}
+
+func (i ScaleSet) ToScaleSetOutput() ScaleSetOutput {
+	return i.ToScaleSetOutputWithContext(context.Background())
+}
+
+func (i ScaleSet) ToScaleSetOutputWithContext(ctx context.Context) ScaleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOutput)
+}
+
+type ScaleSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScaleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScaleSetOutput)(nil)).Elem()
+}
+
+func (o ScaleSetOutput) ToScaleSetOutput() ScaleSetOutput {
+	return o
+}
+
+func (o ScaleSetOutput) ToScaleSetOutputWithContext(ctx context.Context) ScaleSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ScaleSetOutput{})
 }

@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['Namespace']
 
-warnings.warn("azure.eventhub.Namespace has been deprecated in favor of azure.servicebus.Namespace", DeprecationWarning)
+warnings.warn("""azure.eventhub.Namespace has been deprecated in favor of azure.servicebus.Namespace""", DeprecationWarning)
 
 
 class Namespace(pulumi.CustomResource):
-    warnings.warn("azure.eventhub.Namespace has been deprecated in favor of azure.servicebus.Namespace", DeprecationWarning)
+    warnings.warn("""azure.eventhub.Namespace has been deprecated in favor of azure.servicebus.Namespace""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -46,6 +46,14 @@ class Namespace(pulumi.CustomResource):
             tags={
                 "source": "example",
             })
+        ```
+
+        ## Import
+
+        Service Bus Namespace can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:eventhub/namespace:Namespace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1
         ```
 
         :param str resource_name: The name of the resource.

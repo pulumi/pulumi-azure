@@ -4,6 +4,7 @@
 package eventhub
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -45,6 +46,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Service Bus Namespace can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:eventhub/namespace:Namespace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1
 // ```
 //
 // Deprecated: azure.eventhub.Namespace has been deprecated in favor of azure.servicebus.Namespace
@@ -215,4 +224,43 @@ type NamespaceArgs struct {
 
 func (NamespaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*namespaceArgs)(nil)).Elem()
+}
+
+type NamespaceInput interface {
+	pulumi.Input
+
+	ToNamespaceOutput() NamespaceOutput
+	ToNamespaceOutputWithContext(ctx context.Context) NamespaceOutput
+}
+
+func (Namespace) ElementType() reflect.Type {
+	return reflect.TypeOf((*Namespace)(nil)).Elem()
+}
+
+func (i Namespace) ToNamespaceOutput() NamespaceOutput {
+	return i.ToNamespaceOutputWithContext(context.Background())
+}
+
+func (i Namespace) ToNamespaceOutputWithContext(ctx context.Context) NamespaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceOutput)
+}
+
+type NamespaceOutput struct {
+	*pulumi.OutputState
+}
+
+func (NamespaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceOutput)(nil)).Elem()
+}
+
+func (o NamespaceOutput) ToNamespaceOutput() NamespaceOutput {
+	return o
+}
+
+func (o NamespaceOutput) ToNamespaceOutputWithContext(ctx context.Context) NamespaceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NamespaceOutput{})
 }

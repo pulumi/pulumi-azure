@@ -70,6 +70,14 @@ class ProtectionContainerMapping(pulumi.CustomResource):
             recovery_replication_policy_id=policy.id)
         ```
 
+        ## Import
+
+        Site Recovery Protection Container Mappings can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping mymapping /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the network mapping.

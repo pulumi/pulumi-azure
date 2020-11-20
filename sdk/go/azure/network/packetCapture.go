@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,14 @@ import (
 // Configures Packet Capturing against a Virtual Machine using a Network Watcher.
 //
 // > **NOTE:** This resource has been deprecated in favour of the `network.NetworkConnectionMonitor` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
+//
+// ## Import
+//
+// Packet Captures can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/packetCapture:PacketCapture capture1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/packetCaptures/capture1
+// ```
 type PacketCapture struct {
 	pulumi.CustomResourceState
 
@@ -166,4 +175,43 @@ type PacketCaptureArgs struct {
 
 func (PacketCaptureArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*packetCaptureArgs)(nil)).Elem()
+}
+
+type PacketCaptureInput interface {
+	pulumi.Input
+
+	ToPacketCaptureOutput() PacketCaptureOutput
+	ToPacketCaptureOutputWithContext(ctx context.Context) PacketCaptureOutput
+}
+
+func (PacketCapture) ElementType() reflect.Type {
+	return reflect.TypeOf((*PacketCapture)(nil)).Elem()
+}
+
+func (i PacketCapture) ToPacketCaptureOutput() PacketCaptureOutput {
+	return i.ToPacketCaptureOutputWithContext(context.Background())
+}
+
+func (i PacketCapture) ToPacketCaptureOutputWithContext(ctx context.Context) PacketCaptureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PacketCaptureOutput)
+}
+
+type PacketCaptureOutput struct {
+	*pulumi.OutputState
+}
+
+func (PacketCaptureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PacketCaptureOutput)(nil)).Elem()
+}
+
+func (o PacketCaptureOutput) ToPacketCaptureOutput() PacketCaptureOutput {
+	return o
+}
+
+func (o PacketCaptureOutput) ToPacketCaptureOutputWithContext(ctx context.Context) PacketCaptureOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PacketCaptureOutput{})
 }

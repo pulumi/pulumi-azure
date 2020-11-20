@@ -4,6 +4,7 @@
 package managementresource
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -116,6 +117,14 @@ import (
 // }
 // ```
 //
+// ## Import
+//
+// Management Locks can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:managementresource/manangementLock:ManangementLock lock1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Authorization/locks/lock1
+// ```
+//
 // Deprecated: azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock
 type ManangementLock struct {
 	pulumi.CustomResourceState
@@ -214,4 +223,43 @@ type ManangementLockArgs struct {
 
 func (ManangementLockArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*manangementLockArgs)(nil)).Elem()
+}
+
+type ManangementLockInput interface {
+	pulumi.Input
+
+	ToManangementLockOutput() ManangementLockOutput
+	ToManangementLockOutputWithContext(ctx context.Context) ManangementLockOutput
+}
+
+func (ManangementLock) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManangementLock)(nil)).Elem()
+}
+
+func (i ManangementLock) ToManangementLockOutput() ManangementLockOutput {
+	return i.ToManangementLockOutputWithContext(context.Background())
+}
+
+func (i ManangementLock) ToManangementLockOutputWithContext(ctx context.Context) ManangementLockOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManangementLockOutput)
+}
+
+type ManangementLockOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManangementLockOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManangementLockOutput)(nil)).Elem()
+}
+
+func (o ManangementLockOutput) ToManangementLockOutput() ManangementLockOutput {
+	return o
+}
+
+func (o ManangementLockOutput) ToManangementLockOutputWithContext(ctx context.Context) ManangementLockOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManangementLockOutput{})
 }

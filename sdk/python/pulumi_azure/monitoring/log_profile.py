@@ -66,6 +66,14 @@ class LogProfile(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        A Log Profile can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:monitoring/logProfile:LogProfile example /subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.insights/logprofiles/test
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] categories: List of categories of the logs.

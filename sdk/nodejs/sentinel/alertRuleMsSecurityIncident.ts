@@ -26,6 +26,14 @@ import * as utilities from "../utilities";
  *     severityFilters: ["High"],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Sentinel MS Security Incident Alert Rules can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/alertRules/rule1
+ * ```
  */
 export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
     /**

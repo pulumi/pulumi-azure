@@ -4,6 +4,7 @@
 package eventhub
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -55,6 +56,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// EventHubs can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:eventhub/eventHub:EventHub eventhub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/eventhubs/eventhub1
 // ```
 type EventHub struct {
 	pulumi.CustomResourceState
@@ -185,4 +194,43 @@ type EventHubArgs struct {
 
 func (EventHubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventHubArgs)(nil)).Elem()
+}
+
+type EventHubInput interface {
+	pulumi.Input
+
+	ToEventHubOutput() EventHubOutput
+	ToEventHubOutputWithContext(ctx context.Context) EventHubOutput
+}
+
+func (EventHub) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHub)(nil)).Elem()
+}
+
+func (i EventHub) ToEventHubOutput() EventHubOutput {
+	return i.ToEventHubOutputWithContext(context.Background())
+}
+
+func (i EventHub) ToEventHubOutputWithContext(ctx context.Context) EventHubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubOutput)
+}
+
+type EventHubOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventHubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubOutput)(nil)).Elem()
+}
+
+func (o EventHubOutput) ToEventHubOutput() EventHubOutput {
+	return o
+}
+
+func (o EventHubOutput) ToEventHubOutputWithContext(ctx context.Context) EventHubOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventHubOutput{})
 }

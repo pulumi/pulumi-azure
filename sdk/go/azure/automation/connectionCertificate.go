@@ -4,6 +4,7 @@
 package automation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages an Automation Connection with type `Azure`.
+//
+// ## Import
+//
+// Automation Connection can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:automation/connectionCertificate:ConnectionCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
+// ```
 type ConnectionCertificate struct {
 	pulumi.CustomResourceState
 
@@ -134,4 +143,43 @@ type ConnectionCertificateArgs struct {
 
 func (ConnectionCertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionCertificateArgs)(nil)).Elem()
+}
+
+type ConnectionCertificateInput interface {
+	pulumi.Input
+
+	ToConnectionCertificateOutput() ConnectionCertificateOutput
+	ToConnectionCertificateOutputWithContext(ctx context.Context) ConnectionCertificateOutput
+}
+
+func (ConnectionCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionCertificate)(nil)).Elem()
+}
+
+func (i ConnectionCertificate) ToConnectionCertificateOutput() ConnectionCertificateOutput {
+	return i.ToConnectionCertificateOutputWithContext(context.Background())
+}
+
+func (i ConnectionCertificate) ToConnectionCertificateOutputWithContext(ctx context.Context) ConnectionCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionCertificateOutput)
+}
+
+type ConnectionCertificateOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConnectionCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionCertificateOutput)(nil)).Elem()
+}
+
+func (o ConnectionCertificateOutput) ToConnectionCertificateOutput() ConnectionCertificateOutput {
+	return o
+}
+
+func (o ConnectionCertificateOutput) ToConnectionCertificateOutputWithContext(ctx context.Context) ConnectionCertificateOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConnectionCertificateOutput{})
 }

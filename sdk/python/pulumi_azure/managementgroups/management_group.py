@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['ManagementGroup']
 
-warnings.warn("azure.managementgroups.ManagementGroup has been deprecated in favor of azure.management.Group", DeprecationWarning)
+warnings.warn("""azure.managementgroups.ManagementGroup has been deprecated in favor of azure.management.Group""", DeprecationWarning)
 
 
 class ManagementGroup(pulumi.CustomResource):
-    warnings.warn("azure.managementgroups.ManagementGroup has been deprecated in favor of azure.management.Group", DeprecationWarning)
+    warnings.warn("""azure.managementgroups.ManagementGroup has been deprecated in favor of azure.management.Group""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -47,6 +47,14 @@ class ManagementGroup(pulumi.CustomResource):
         # other subscription IDs can go here
         ```
 
+        ## Import
+
+        Management Groups can be imported using the `management group resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:managementgroups/managementGroup:ManagementGroup example /providers/Microsoft.Management/managementGroups/group1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
@@ -75,7 +83,7 @@ class ManagementGroup(pulumi.CustomResource):
 
             __props__['display_name'] = display_name
             if group_id is not None:
-                warnings.warn("Deprecated in favour of `name`", DeprecationWarning)
+                warnings.warn("""Deprecated in favour of `name`""", DeprecationWarning)
                 pulumi.log.warn("group_id is deprecated: Deprecated in favour of `name`")
             __props__['group_id'] = group_id
             __props__['name'] = name

@@ -36,6 +36,14 @@ import * as utilities from "../utilities";
  *     body: "  	function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\n",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * CosmosDB SQL Stored Procedures can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:cosmosdb/sqlStoredProcedure:SqlStoredProcedure db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/db1/containers/c1/storedProcedures/sp1
+ * ```
  */
 export class SqlStoredProcedure extends pulumi.CustomResource {
     /**

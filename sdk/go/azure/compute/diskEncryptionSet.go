@@ -4,6 +4,7 @@
 package compute
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,14 @@ import (
 // Manages a Disk Encryption Set.
 //
 // > **NOTE:** At this time the Key Vault used to store the Active Key for this Disk Encryption Set must have both Soft Delete & Purge Protection enabled - which are not yet supported by this provider.
+//
+// ## Import
+//
+// Disk Encryption Sets can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:compute/diskEncryptionSet:DiskEncryptionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/diskEncryptionSets/encryptionSet1
+// ```
 type DiskEncryptionSet struct {
 	pulumi.CustomResourceState
 
@@ -133,4 +142,43 @@ type DiskEncryptionSetArgs struct {
 
 func (DiskEncryptionSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*diskEncryptionSetArgs)(nil)).Elem()
+}
+
+type DiskEncryptionSetInput interface {
+	pulumi.Input
+
+	ToDiskEncryptionSetOutput() DiskEncryptionSetOutput
+	ToDiskEncryptionSetOutputWithContext(ctx context.Context) DiskEncryptionSetOutput
+}
+
+func (DiskEncryptionSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskEncryptionSet)(nil)).Elem()
+}
+
+func (i DiskEncryptionSet) ToDiskEncryptionSetOutput() DiskEncryptionSetOutput {
+	return i.ToDiskEncryptionSetOutputWithContext(context.Background())
+}
+
+func (i DiskEncryptionSet) ToDiskEncryptionSetOutputWithContext(ctx context.Context) DiskEncryptionSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetOutput)
+}
+
+type DiskEncryptionSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (DiskEncryptionSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskEncryptionSetOutput)(nil)).Elem()
+}
+
+func (o DiskEncryptionSetOutput) ToDiskEncryptionSetOutput() DiskEncryptionSetOutput {
+	return o
+}
+
+func (o DiskEncryptionSetOutput) ToDiskEncryptionSetOutputWithContext(ctx context.Context) DiskEncryptionSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DiskEncryptionSetOutput{})
 }

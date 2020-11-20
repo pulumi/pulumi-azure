@@ -4,6 +4,7 @@
 package maintenance
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -45,6 +46,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Maintenance Configuration can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:maintenance/configuration:Configuration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.maintenance/maintenanceconfigurations/example-mc
 // ```
 type Configuration struct {
 	pulumi.CustomResourceState
@@ -150,4 +159,43 @@ type ConfigurationArgs struct {
 
 func (ConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationArgs)(nil)).Elem()
+}
+
+type ConfigurationInput interface {
+	pulumi.Input
+
+	ToConfigurationOutput() ConfigurationOutput
+	ToConfigurationOutputWithContext(ctx context.Context) ConfigurationOutput
+}
+
+func (Configuration) ElementType() reflect.Type {
+	return reflect.TypeOf((*Configuration)(nil)).Elem()
+}
+
+func (i Configuration) ToConfigurationOutput() ConfigurationOutput {
+	return i.ToConfigurationOutputWithContext(context.Background())
+}
+
+func (i Configuration) ToConfigurationOutputWithContext(ctx context.Context) ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationOutput)
+}
+
+type ConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationOutput)(nil)).Elem()
+}
+
+func (o ConfigurationOutput) ToConfigurationOutput() ConfigurationOutput {
+	return o
+}
+
+func (o ConfigurationOutput) ToConfigurationOutputWithContext(ctx context.Context) ConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ConfigurationOutput{})
 }

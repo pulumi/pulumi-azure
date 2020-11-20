@@ -4,6 +4,7 @@
 package eventhub
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -66,6 +67,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// EventHub Authorization Rules can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/eventhubs/eventhub1/authorizationRules/rule1
 // ```
 //
 // Deprecated: azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule
@@ -235,4 +244,43 @@ type EventHubAuthorizationRuleArgs struct {
 
 func (EventHubAuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventHubAuthorizationRuleArgs)(nil)).Elem()
+}
+
+type EventHubAuthorizationRuleInput interface {
+	pulumi.Input
+
+	ToEventHubAuthorizationRuleOutput() EventHubAuthorizationRuleOutput
+	ToEventHubAuthorizationRuleOutputWithContext(ctx context.Context) EventHubAuthorizationRuleOutput
+}
+
+func (EventHubAuthorizationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubAuthorizationRule)(nil)).Elem()
+}
+
+func (i EventHubAuthorizationRule) ToEventHubAuthorizationRuleOutput() EventHubAuthorizationRuleOutput {
+	return i.ToEventHubAuthorizationRuleOutputWithContext(context.Background())
+}
+
+func (i EventHubAuthorizationRule) ToEventHubAuthorizationRuleOutputWithContext(ctx context.Context) EventHubAuthorizationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubAuthorizationRuleOutput)
+}
+
+type EventHubAuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventHubAuthorizationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubAuthorizationRuleOutput)(nil)).Elem()
+}
+
+func (o EventHubAuthorizationRuleOutput) ToEventHubAuthorizationRuleOutput() EventHubAuthorizationRuleOutput {
+	return o
+}
+
+func (o EventHubAuthorizationRuleOutput) ToEventHubAuthorizationRuleOutputWithContext(ctx context.Context) EventHubAuthorizationRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventHubAuthorizationRuleOutput{})
 }

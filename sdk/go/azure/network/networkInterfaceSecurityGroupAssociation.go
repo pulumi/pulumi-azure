@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -83,6 +84,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Associations between Network Interfaces and Network Security Group can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/networkInterfaceSecurityGroupAssociation:NetworkInterfaceSecurityGroupAssociation association1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.network/networkInterfaces/example|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/networkSecurityGroups/group1"
+// ```
 type NetworkInterfaceSecurityGroupAssociation struct {
 	pulumi.CustomResourceState
 
@@ -160,4 +169,43 @@ type NetworkInterfaceSecurityGroupAssociationArgs struct {
 
 func (NetworkInterfaceSecurityGroupAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceSecurityGroupAssociationArgs)(nil)).Elem()
+}
+
+type NetworkInterfaceSecurityGroupAssociationInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceSecurityGroupAssociationOutput() NetworkInterfaceSecurityGroupAssociationOutput
+	ToNetworkInterfaceSecurityGroupAssociationOutputWithContext(ctx context.Context) NetworkInterfaceSecurityGroupAssociationOutput
+}
+
+func (NetworkInterfaceSecurityGroupAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceSecurityGroupAssociation)(nil)).Elem()
+}
+
+func (i NetworkInterfaceSecurityGroupAssociation) ToNetworkInterfaceSecurityGroupAssociationOutput() NetworkInterfaceSecurityGroupAssociationOutput {
+	return i.ToNetworkInterfaceSecurityGroupAssociationOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceSecurityGroupAssociation) ToNetworkInterfaceSecurityGroupAssociationOutputWithContext(ctx context.Context) NetworkInterfaceSecurityGroupAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceSecurityGroupAssociationOutput)
+}
+
+type NetworkInterfaceSecurityGroupAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkInterfaceSecurityGroupAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceSecurityGroupAssociationOutput)(nil)).Elem()
+}
+
+func (o NetworkInterfaceSecurityGroupAssociationOutput) ToNetworkInterfaceSecurityGroupAssociationOutput() NetworkInterfaceSecurityGroupAssociationOutput {
+	return o
+}
+
+func (o NetworkInterfaceSecurityGroupAssociationOutput) ToNetworkInterfaceSecurityGroupAssociationOutputWithContext(ctx context.Context) NetworkInterfaceSecurityGroupAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkInterfaceSecurityGroupAssociationOutput{})
 }

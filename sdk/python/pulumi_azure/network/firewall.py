@@ -62,6 +62,14 @@ class Firewall(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        Azure Firewalls can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/firewall:Firewall example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/azureFirewalls/testfirewall
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.

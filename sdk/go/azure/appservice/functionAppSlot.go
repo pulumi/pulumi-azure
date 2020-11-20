@@ -4,6 +4,7 @@
 package appservice
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -77,6 +78,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Function Apps Deployment Slots can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:appservice/functionAppSlot:FunctionAppSlot functionapp1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/functionapp1/slots/staging
 // ```
 type FunctionAppSlot struct {
 	pulumi.CustomResourceState
@@ -374,4 +383,43 @@ type FunctionAppSlotArgs struct {
 
 func (FunctionAppSlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionAppSlotArgs)(nil)).Elem()
+}
+
+type FunctionAppSlotInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotOutput() FunctionAppSlotOutput
+	ToFunctionAppSlotOutputWithContext(ctx context.Context) FunctionAppSlotOutput
+}
+
+func (FunctionAppSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlot)(nil)).Elem()
+}
+
+func (i FunctionAppSlot) ToFunctionAppSlotOutput() FunctionAppSlotOutput {
+	return i.ToFunctionAppSlotOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlot) ToFunctionAppSlotOutputWithContext(ctx context.Context) FunctionAppSlotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotOutput)
+}
+
+type FunctionAppSlotOutput struct {
+	*pulumi.OutputState
+}
+
+func (FunctionAppSlotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotOutput)(nil)).Elem()
+}
+
+func (o FunctionAppSlotOutput) ToFunctionAppSlotOutput() FunctionAppSlotOutput {
+	return o
+}
+
+func (o FunctionAppSlotOutput) ToFunctionAppSlotOutputWithContext(ctx context.Context) FunctionAppSlotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FunctionAppSlotOutput{})
 }

@@ -50,6 +50,14 @@ namespace Pulumi.Azure.Automation
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Automation Runbooks can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:automation/runBook:RunBook Get-AzureVMTutorial /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/runbooks/Get-AzureVMTutorial
+    /// ```
     /// </summary>
     public partial class RunBook : Pulumi.CustomResource
     {

@@ -43,6 +43,14 @@ class TriggerRecurrence(pulumi.CustomResource):
             interval=1)
         ```
 
+        ## Import
+
+        Logic App Recurrence Triggers can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:logicapps/triggerRecurrence:TriggerRecurrence daily /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/daily
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] frequency: Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.

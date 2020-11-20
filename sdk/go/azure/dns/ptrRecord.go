@@ -4,6 +4,7 @@
 package dns
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -51,6 +52,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// PTR records can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:dns/ptrRecord:PtrRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/PTR/myrecord1
 // ```
 type PtrRecord struct {
 	pulumi.CustomResourceState
@@ -181,4 +190,43 @@ type PtrRecordArgs struct {
 
 func (PtrRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ptrRecordArgs)(nil)).Elem()
+}
+
+type PtrRecordInput interface {
+	pulumi.Input
+
+	ToPtrRecordOutput() PtrRecordOutput
+	ToPtrRecordOutputWithContext(ctx context.Context) PtrRecordOutput
+}
+
+func (PtrRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*PtrRecord)(nil)).Elem()
+}
+
+func (i PtrRecord) ToPtrRecordOutput() PtrRecordOutput {
+	return i.ToPtrRecordOutputWithContext(context.Background())
+}
+
+func (i PtrRecord) ToPtrRecordOutputWithContext(ctx context.Context) PtrRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PtrRecordOutput)
+}
+
+type PtrRecordOutput struct {
+	*pulumi.OutputState
+}
+
+func (PtrRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PtrRecordOutput)(nil)).Elem()
+}
+
+func (o PtrRecordOutput) ToPtrRecordOutput() PtrRecordOutput {
+	return o
+}
+
+func (o PtrRecordOutput) ToPtrRecordOutputWithContext(ctx context.Context) PtrRecordOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PtrRecordOutput{})
 }

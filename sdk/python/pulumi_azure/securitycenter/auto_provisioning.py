@@ -33,6 +33,14 @@ class AutoProvisioning(pulumi.CustomResource):
         example = azure.securitycenter.AutoProvisioning("example", auto_provision="On")
         ```
 
+        ## Import
+
+        Security Center Auto Provisioning can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:securitycenter/autoProvisioning:AutoProvisioning example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/autoProvisioningSettings/default
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_provision: Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).

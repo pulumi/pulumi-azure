@@ -52,6 +52,14 @@ class TriggerSchedule(pulumi.CustomResource):
             frequency="Day")
         ```
 
+        ## Import
+
+        Data Factory Schedule Trigger can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:datafactory/triggerSchedule:TriggerSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Schedule Trigger.

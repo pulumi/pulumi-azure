@@ -4,6 +4,7 @@
 package frontdoor
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -151,6 +152,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// FrontDoor Web Application Firewall Policy can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:frontdoor/firewallPolicy:FirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/example-fdwafpolicy
 // ```
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
@@ -318,4 +327,43 @@ type FirewallPolicyArgs struct {
 
 func (FirewallPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallPolicyArgs)(nil)).Elem()
+}
+
+type FirewallPolicyInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyOutput() FirewallPolicyOutput
+	ToFirewallPolicyOutputWithContext(ctx context.Context) FirewallPolicyOutput
+}
+
+func (FirewallPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicy)(nil)).Elem()
+}
+
+func (i FirewallPolicy) ToFirewallPolicyOutput() FirewallPolicyOutput {
+	return i.ToFirewallPolicyOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicy) ToFirewallPolicyOutputWithContext(ctx context.Context) FirewallPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyOutput)
+}
+
+type FirewallPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (FirewallPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyOutput)(nil)).Elem()
+}
+
+func (o FirewallPolicyOutput) ToFirewallPolicyOutput() FirewallPolicyOutput {
+	return o
+}
+
+func (o FirewallPolicyOutput) ToFirewallPolicyOutputWithContext(ctx context.Context) FirewallPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FirewallPolicyOutput{})
 }

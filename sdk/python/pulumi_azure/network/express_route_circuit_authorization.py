@@ -50,6 +50,14 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         ```
 
+        ## Import
+
+        ExpressRoute Circuit Authorizations can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization auth1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteCircuits/myExpressRoute/authorizations/auth1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] express_route_circuit_name: The name of the Express Route Circuit in which to create the Authorization.

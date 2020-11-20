@@ -4,6 +4,7 @@
 package mssql
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -65,6 +66,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// SQL Elastic Pool can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:mssql/elasticPool:ElasticPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/elasticPools/myelasticpoolname
 // ```
 type ElasticPool struct {
 	pulumi.CustomResourceState
@@ -239,4 +248,43 @@ type ElasticPoolArgs struct {
 
 func (ElasticPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*elasticPoolArgs)(nil)).Elem()
+}
+
+type ElasticPoolInput interface {
+	pulumi.Input
+
+	ToElasticPoolOutput() ElasticPoolOutput
+	ToElasticPoolOutputWithContext(ctx context.Context) ElasticPoolOutput
+}
+
+func (ElasticPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*ElasticPool)(nil)).Elem()
+}
+
+func (i ElasticPool) ToElasticPoolOutput() ElasticPoolOutput {
+	return i.ToElasticPoolOutputWithContext(context.Background())
+}
+
+func (i ElasticPool) ToElasticPoolOutputWithContext(ctx context.Context) ElasticPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolOutput)
+}
+
+type ElasticPoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (ElasticPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ElasticPoolOutput)(nil)).Elem()
+}
+
+func (o ElasticPoolOutput) ToElasticPoolOutput() ElasticPoolOutput {
+	return o
+}
+
+func (o ElasticPoolOutput) ToElasticPoolOutputWithContext(ctx context.Context) ElasticPoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ElasticPoolOutput{})
 }

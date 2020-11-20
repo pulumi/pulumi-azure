@@ -47,6 +47,14 @@ class ChannelsRegistration(pulumi.CustomResource):
             microsoft_app_id=current.client_id)
         ```
 
+        ## Import
+
+        Bot Channels Registration can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:bot/channelsRegistration:ChannelsRegistration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights API Key to associate with the Bot Channels Registration.

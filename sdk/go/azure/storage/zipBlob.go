@@ -4,6 +4,7 @@
 package storage
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -134,4 +135,43 @@ type ZipBlobArgs struct {
 
 func (ZipBlobArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*zipBlobArgs)(nil)).Elem()
+}
+
+type ZipBlobInput interface {
+	pulumi.Input
+
+	ToZipBlobOutput() ZipBlobOutput
+	ToZipBlobOutputWithContext(ctx context.Context) ZipBlobOutput
+}
+
+func (ZipBlob) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZipBlob)(nil)).Elem()
+}
+
+func (i ZipBlob) ToZipBlobOutput() ZipBlobOutput {
+	return i.ToZipBlobOutputWithContext(context.Background())
+}
+
+func (i ZipBlob) ToZipBlobOutputWithContext(ctx context.Context) ZipBlobOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZipBlobOutput)
+}
+
+type ZipBlobOutput struct {
+	*pulumi.OutputState
+}
+
+func (ZipBlobOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZipBlobOutput)(nil)).Elem()
+}
+
+func (o ZipBlobOutput) ToZipBlobOutput() ZipBlobOutput {
+	return o
+}
+
+func (o ZipBlobOutput) ToZipBlobOutputWithContext(ctx context.Context) ZipBlobOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ZipBlobOutput{})
 }

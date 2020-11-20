@@ -130,7 +130,7 @@ class AccountGeoLocationArgs:
         if id is not None:
             pulumi.set(__self__, "id", id)
         if prefix is not None:
-            warnings.warn("This is deprecated because the service no longer accepts this as an input since Apr 25, 2019", DeprecationWarning)
+            warnings.warn("""This is deprecated because the service no longer accepts this as an input since Apr 25, 2019""", DeprecationWarning)
             pulumi.log.warn("prefix is deprecated: This is deprecated because the service no longer accepts this as an input since Apr 25, 2019")
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)

@@ -4,6 +4,7 @@
 package streamanalytics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -84,6 +85,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Stream Analytics Stream Input EventHub's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:streamanalytics/streamInputEventHub:StreamInputEventHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/inputs/input1
 // ```
 type StreamInputEventHub struct {
 	pulumi.CustomResourceState
@@ -250,4 +259,43 @@ type StreamInputEventHubArgs struct {
 
 func (StreamInputEventHubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamInputEventHubArgs)(nil)).Elem()
+}
+
+type StreamInputEventHubInput interface {
+	pulumi.Input
+
+	ToStreamInputEventHubOutput() StreamInputEventHubOutput
+	ToStreamInputEventHubOutputWithContext(ctx context.Context) StreamInputEventHubOutput
+}
+
+func (StreamInputEventHub) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamInputEventHub)(nil)).Elem()
+}
+
+func (i StreamInputEventHub) ToStreamInputEventHubOutput() StreamInputEventHubOutput {
+	return i.ToStreamInputEventHubOutputWithContext(context.Background())
+}
+
+func (i StreamInputEventHub) ToStreamInputEventHubOutputWithContext(ctx context.Context) StreamInputEventHubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamInputEventHubOutput)
+}
+
+type StreamInputEventHubOutput struct {
+	*pulumi.OutputState
+}
+
+func (StreamInputEventHubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamInputEventHubOutput)(nil)).Elem()
+}
+
+func (o StreamInputEventHubOutput) ToStreamInputEventHubOutput() StreamInputEventHubOutput {
+	return o
+}
+
+func (o StreamInputEventHubOutput) ToStreamInputEventHubOutputWithContext(ctx context.Context) StreamInputEventHubOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StreamInputEventHubOutput{})
 }

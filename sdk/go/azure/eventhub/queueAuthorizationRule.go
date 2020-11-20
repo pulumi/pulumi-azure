@@ -4,6 +4,7 @@
 package eventhub
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -64,6 +65,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// ServiceBus Queue Authorization Rules can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/queues/queue1/authorizationRules/rule1
 // ```
 //
 // Deprecated: azure.eventhub.QueueAuthorizationRule has been deprecated in favor of azure.servicebus.QueueAuthorizationRule
@@ -221,4 +230,43 @@ type QueueAuthorizationRuleArgs struct {
 
 func (QueueAuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueAuthorizationRuleArgs)(nil)).Elem()
+}
+
+type QueueAuthorizationRuleInput interface {
+	pulumi.Input
+
+	ToQueueAuthorizationRuleOutput() QueueAuthorizationRuleOutput
+	ToQueueAuthorizationRuleOutputWithContext(ctx context.Context) QueueAuthorizationRuleOutput
+}
+
+func (QueueAuthorizationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueAuthorizationRule)(nil)).Elem()
+}
+
+func (i QueueAuthorizationRule) ToQueueAuthorizationRuleOutput() QueueAuthorizationRuleOutput {
+	return i.ToQueueAuthorizationRuleOutputWithContext(context.Background())
+}
+
+func (i QueueAuthorizationRule) ToQueueAuthorizationRuleOutputWithContext(ctx context.Context) QueueAuthorizationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueAuthorizationRuleOutput)
+}
+
+type QueueAuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (QueueAuthorizationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueAuthorizationRuleOutput)(nil)).Elem()
+}
+
+func (o QueueAuthorizationRuleOutput) ToQueueAuthorizationRuleOutput() QueueAuthorizationRuleOutput {
+	return o
+}
+
+func (o QueueAuthorizationRuleOutput) ToQueueAuthorizationRuleOutputWithContext(ctx context.Context) QueueAuthorizationRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(QueueAuthorizationRuleOutput{})
 }

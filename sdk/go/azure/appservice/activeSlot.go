@@ -4,6 +4,7 @@
 package appservice
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -150,4 +151,43 @@ type ActiveSlotArgs struct {
 
 func (ActiveSlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*activeSlotArgs)(nil)).Elem()
+}
+
+type ActiveSlotInput interface {
+	pulumi.Input
+
+	ToActiveSlotOutput() ActiveSlotOutput
+	ToActiveSlotOutputWithContext(ctx context.Context) ActiveSlotOutput
+}
+
+func (ActiveSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveSlot)(nil)).Elem()
+}
+
+func (i ActiveSlot) ToActiveSlotOutput() ActiveSlotOutput {
+	return i.ToActiveSlotOutputWithContext(context.Background())
+}
+
+func (i ActiveSlot) ToActiveSlotOutputWithContext(ctx context.Context) ActiveSlotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveSlotOutput)
+}
+
+type ActiveSlotOutput struct {
+	*pulumi.OutputState
+}
+
+func (ActiveSlotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveSlotOutput)(nil)).Elem()
+}
+
+func (o ActiveSlotOutput) ToActiveSlotOutput() ActiveSlotOutput {
+	return o
+}
+
+func (o ActiveSlotOutput) ToActiveSlotOutputWithContext(ctx context.Context) ActiveSlotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ActiveSlotOutput{})
 }

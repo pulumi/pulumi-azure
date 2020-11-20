@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['NamespaceAuthorizationRule']
 
-warnings.warn("azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule", DeprecationWarning)
+warnings.warn("""azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule""", DeprecationWarning)
 
 
 class NamespaceAuthorizationRule(pulumi.CustomResource):
-    warnings.warn("azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule", DeprecationWarning)
+    warnings.warn("""azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -51,6 +51,14 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             listen=True,
             send=True,
             manage=False)
+        ```
+
+        ## Import
+
+        ServiceBus Namespace authorization rules can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/AuthorizationRules/rule1
         ```
 
         :param str resource_name: The name of the resource.

@@ -65,6 +65,14 @@ class StreamInputBlob(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        Stream Analytics Stream Input Blob's can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:streamanalytics/streamInputBlob:StreamInputBlob example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/inputs/input1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] date_format: The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.

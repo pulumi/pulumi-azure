@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -45,6 +46,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Local Network Gateways can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/localNetworkGateway:LocalNetworkGateway lng1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/localNetworkGateways/lng1
 // ```
 type LocalNetworkGateway struct {
 	pulumi.CustomResourceState
@@ -208,4 +217,43 @@ type LocalNetworkGatewayArgs struct {
 
 func (LocalNetworkGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*localNetworkGatewayArgs)(nil)).Elem()
+}
+
+type LocalNetworkGatewayInput interface {
+	pulumi.Input
+
+	ToLocalNetworkGatewayOutput() LocalNetworkGatewayOutput
+	ToLocalNetworkGatewayOutputWithContext(ctx context.Context) LocalNetworkGatewayOutput
+}
+
+func (LocalNetworkGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalNetworkGateway)(nil)).Elem()
+}
+
+func (i LocalNetworkGateway) ToLocalNetworkGatewayOutput() LocalNetworkGatewayOutput {
+	return i.ToLocalNetworkGatewayOutputWithContext(context.Background())
+}
+
+func (i LocalNetworkGateway) ToLocalNetworkGatewayOutputWithContext(ctx context.Context) LocalNetworkGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalNetworkGatewayOutput)
+}
+
+type LocalNetworkGatewayOutput struct {
+	*pulumi.OutputState
+}
+
+func (LocalNetworkGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalNetworkGatewayOutput)(nil)).Elem()
+}
+
+func (o LocalNetworkGatewayOutput) ToLocalNetworkGatewayOutput() LocalNetworkGatewayOutput {
+	return o
+}
+
+func (o LocalNetworkGatewayOutput) ToLocalNetworkGatewayOutputWithContext(ctx context.Context) LocalNetworkGatewayOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LocalNetworkGatewayOutput{})
 }

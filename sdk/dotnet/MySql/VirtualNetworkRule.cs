@@ -73,6 +73,14 @@ namespace Pulumi.Azure.MySql
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// MySQL Virtual Network Rules can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:mysql/virtualNetworkRule:VirtualNetworkRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver/virtualNetworkRules/vnetrulename
+    /// ```
     /// </summary>
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {

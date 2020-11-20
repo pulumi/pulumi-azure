@@ -4,6 +4,7 @@
 package privatedns
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -65,6 +66,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Private DNS SRV Records can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:privatedns/sRVRecord:SRVRecord test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/SRV/test
 // ```
 type SRVRecord struct {
 	pulumi.CustomResourceState
@@ -190,4 +199,43 @@ type SRVRecordArgs struct {
 
 func (SRVRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*srvrecordArgs)(nil)).Elem()
+}
+
+type SRVRecordInput interface {
+	pulumi.Input
+
+	ToSRVRecordOutput() SRVRecordOutput
+	ToSRVRecordOutputWithContext(ctx context.Context) SRVRecordOutput
+}
+
+func (SRVRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*SRVRecord)(nil)).Elem()
+}
+
+func (i SRVRecord) ToSRVRecordOutput() SRVRecordOutput {
+	return i.ToSRVRecordOutputWithContext(context.Background())
+}
+
+func (i SRVRecord) ToSRVRecordOutputWithContext(ctx context.Context) SRVRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SRVRecordOutput)
+}
+
+type SRVRecordOutput struct {
+	*pulumi.OutputState
+}
+
+func (SRVRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SRVRecordOutput)(nil)).Elem()
+}
+
+func (o SRVRecordOutput) ToSRVRecordOutput() SRVRecordOutput {
+	return o
+}
+
+func (o SRVRecordOutput) ToSRVRecordOutputWithContext(ctx context.Context) SRVRecordOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SRVRecordOutput{})
 }

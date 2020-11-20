@@ -85,6 +85,14 @@ namespace Pulumi.Azure.DataShare
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Data Share Blob Storage Datasets can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:datashare/datasetBlobStorage:DatasetBlobStorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1/dataSets/dataSet1
+    /// ```
     /// </summary>
     public partial class DatasetBlobStorage : Pulumi.CustomResource
     {

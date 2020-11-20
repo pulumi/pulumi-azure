@@ -14,7 +14,7 @@ __all__ = [
     'get_eventhub_namespace',
 ]
 
-warnings.warn("azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace", DeprecationWarning)
+warnings.warn("""azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace""", DeprecationWarning)
 
 @pulumi.output_type
 class GetEventhubNamespaceResult:

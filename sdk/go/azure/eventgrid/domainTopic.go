@@ -4,6 +4,7 @@
 package eventgrid
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -51,6 +52,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// EventGrid Domain Topics can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:eventgrid/domainTopic:DomainTopic topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/domains/domain1/topics/topic1
 // ```
 type DomainTopic struct {
 	pulumi.CustomResourceState
@@ -139,4 +148,43 @@ type DomainTopicArgs struct {
 
 func (DomainTopicArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainTopicArgs)(nil)).Elem()
+}
+
+type DomainTopicInput interface {
+	pulumi.Input
+
+	ToDomainTopicOutput() DomainTopicOutput
+	ToDomainTopicOutputWithContext(ctx context.Context) DomainTopicOutput
+}
+
+func (DomainTopic) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTopic)(nil)).Elem()
+}
+
+func (i DomainTopic) ToDomainTopicOutput() DomainTopicOutput {
+	return i.ToDomainTopicOutputWithContext(context.Background())
+}
+
+func (i DomainTopic) ToDomainTopicOutputWithContext(ctx context.Context) DomainTopicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTopicOutput)
+}
+
+type DomainTopicOutput struct {
+	*pulumi.OutputState
+}
+
+func (DomainTopicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTopicOutput)(nil)).Elem()
+}
+
+func (o DomainTopicOutput) ToDomainTopicOutput() DomainTopicOutput {
+	return o
+}
+
+func (o DomainTopicOutput) ToDomainTopicOutputWithContext(ctx context.Context) DomainTopicOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DomainTopicOutput{})
 }

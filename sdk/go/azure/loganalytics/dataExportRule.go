@@ -4,6 +4,7 @@
 package loganalytics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -65,6 +66,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Log Analytics Data Export Rule can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:loganalytics/dataExportRule:DataExportRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/dataExports/dataExport1
 // ```
 type DataExportRule struct {
 	pulumi.CustomResourceState
@@ -195,4 +204,43 @@ type DataExportRuleArgs struct {
 
 func (DataExportRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataExportRuleArgs)(nil)).Elem()
+}
+
+type DataExportRuleInput interface {
+	pulumi.Input
+
+	ToDataExportRuleOutput() DataExportRuleOutput
+	ToDataExportRuleOutputWithContext(ctx context.Context) DataExportRuleOutput
+}
+
+func (DataExportRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataExportRule)(nil)).Elem()
+}
+
+func (i DataExportRule) ToDataExportRuleOutput() DataExportRuleOutput {
+	return i.ToDataExportRuleOutputWithContext(context.Background())
+}
+
+func (i DataExportRule) ToDataExportRuleOutputWithContext(ctx context.Context) DataExportRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataExportRuleOutput)
+}
+
+type DataExportRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataExportRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataExportRuleOutput)(nil)).Elem()
+}
+
+func (o DataExportRuleOutput) ToDataExportRuleOutput() DataExportRuleOutput {
+	return o
+}
+
+func (o DataExportRuleOutput) ToDataExportRuleOutputWithContext(ctx context.Context) DataExportRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DataExportRuleOutput{})
 }

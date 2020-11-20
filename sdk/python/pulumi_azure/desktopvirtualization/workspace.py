@@ -41,6 +41,14 @@ class Workspace(pulumi.CustomResource):
             description="A description of my workspace")
         ```
 
+        ## Import
+
+        Virtual Desktop Workspaces can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:desktopvirtualization/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the Virtual Desktop Workspace.

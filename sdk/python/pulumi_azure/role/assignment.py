@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['Assignment']
 
-warnings.warn("azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment", DeprecationWarning)
+warnings.warn("""azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment""", DeprecationWarning)
 
 
 class Assignment(pulumi.CustomResource):
-    warnings.warn("azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment", DeprecationWarning)
+    warnings.warn("""azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -112,6 +112,16 @@ class Assignment(pulumi.CustomResource):
             role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example_client_config.object_id)
         ```
+
+        ## Import
+
+        Role Assignments can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:role/assignment:Assignment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
+        ```
+
+         - for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` - for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

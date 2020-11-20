@@ -4,6 +4,7 @@
 package monitoring
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages a LogToMetricAction Scheduled Query Rules resource within Azure Monitor.
+//
+// ## Import
+//
+// Scheduled Query Rule Log can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/scheduledQueryRules/myrulename
+// ```
 type ScheduledQueryRulesLog struct {
 	pulumi.CustomResourceState
 
@@ -146,4 +155,43 @@ type ScheduledQueryRulesLogArgs struct {
 
 func (ScheduledQueryRulesLogArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduledQueryRulesLogArgs)(nil)).Elem()
+}
+
+type ScheduledQueryRulesLogInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesLogOutput() ScheduledQueryRulesLogOutput
+	ToScheduledQueryRulesLogOutputWithContext(ctx context.Context) ScheduledQueryRulesLogOutput
+}
+
+func (ScheduledQueryRulesLog) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesLog)(nil)).Elem()
+}
+
+func (i ScheduledQueryRulesLog) ToScheduledQueryRulesLogOutput() ScheduledQueryRulesLogOutput {
+	return i.ToScheduledQueryRulesLogOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRulesLog) ToScheduledQueryRulesLogOutputWithContext(ctx context.Context) ScheduledQueryRulesLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesLogOutput)
+}
+
+type ScheduledQueryRulesLogOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScheduledQueryRulesLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesLogOutput)(nil)).Elem()
+}
+
+func (o ScheduledQueryRulesLogOutput) ToScheduledQueryRulesLogOutput() ScheduledQueryRulesLogOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesLogOutput) ToScheduledQueryRulesLogOutputWithContext(ctx context.Context) ScheduledQueryRulesLogOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ScheduledQueryRulesLogOutput{})
 }

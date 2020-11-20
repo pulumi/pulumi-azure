@@ -13,6 +13,14 @@ namespace Pulumi.Azure.Compute
     /// Manages a Disk Encryption Set.
     /// 
     /// &gt; **NOTE:** At this time the Key Vault used to store the Active Key for this Disk Encryption Set must have both Soft Delete &amp; Purge Protection enabled - which are not yet supported by this provider.
+    /// 
+    /// ## Import
+    /// 
+    /// Disk Encryption Sets can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:compute/diskEncryptionSet:DiskEncryptionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/diskEncryptionSets/encryptionSet1
+    /// ```
     /// </summary>
     public partial class DiskEncryptionSet : Pulumi.CustomResource
     {

@@ -4,6 +4,7 @@
 package storage
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -53,6 +54,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Storage Containers can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:storage/container:Container container1 https://example.blob.core.windows.net/container
 // ```
 type Container struct {
 	pulumi.CustomResourceState
@@ -166,4 +175,43 @@ type ContainerArgs struct {
 
 func (ContainerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*containerArgs)(nil)).Elem()
+}
+
+type ContainerInput interface {
+	pulumi.Input
+
+	ToContainerOutput() ContainerOutput
+	ToContainerOutputWithContext(ctx context.Context) ContainerOutput
+}
+
+func (Container) ElementType() reflect.Type {
+	return reflect.TypeOf((*Container)(nil)).Elem()
+}
+
+func (i Container) ToContainerOutput() ContainerOutput {
+	return i.ToContainerOutputWithContext(context.Background())
+}
+
+func (i Container) ToContainerOutputWithContext(ctx context.Context) ContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerOutput)
+}
+
+type ContainerOutput struct {
+	*pulumi.OutputState
+}
+
+func (ContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerOutput)(nil)).Elem()
+}
+
+func (o ContainerOutput) ToContainerOutput() ContainerOutput {
+	return o
+}
+
+func (o ContainerOutput) ToContainerOutputWithContext(ctx context.Context) ContainerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ContainerOutput{})
 }

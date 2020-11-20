@@ -69,6 +69,14 @@ class Lock(pulumi.CustomResource):
             notes="Locked because it's needed by a third-party")
         ```
 
+        ## Import
+
+        Management Locks can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:management/lock:Lock lock1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Authorization/locks/lock1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] lock_level: Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.

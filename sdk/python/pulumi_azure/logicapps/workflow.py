@@ -42,6 +42,14 @@ class Workflow(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         ```
 
+        ## Import
+
+        Logic App Workflows can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:logicapps/workflow:Workflow workflow1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] integration_service_environment_id: The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.

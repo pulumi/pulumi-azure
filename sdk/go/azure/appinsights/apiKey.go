@@ -4,6 +4,7 @@
 package appinsights
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -94,6 +95,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Application Insights API keys can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:appinsights/apiKey:ApiKey my_key /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/components/instance1/apikeys/00000000-0000-0000-0000-000000000000
 // ```
 type ApiKey struct {
 	pulumi.CustomResourceState
@@ -200,4 +209,43 @@ type ApiKeyArgs struct {
 
 func (ApiKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiKeyArgs)(nil)).Elem()
+}
+
+type ApiKeyInput interface {
+	pulumi.Input
+
+	ToApiKeyOutput() ApiKeyOutput
+	ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutput
+}
+
+func (ApiKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiKey)(nil)).Elem()
+}
+
+func (i ApiKey) ToApiKeyOutput() ApiKeyOutput {
+	return i.ToApiKeyOutputWithContext(context.Background())
+}
+
+func (i ApiKey) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyOutput)
+}
+
+type ApiKeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiKeyOutput)(nil)).Elem()
+}
+
+func (o ApiKeyOutput) ToApiKeyOutput() ApiKeyOutput {
+	return o
+}
+
+func (o ApiKeyOutput) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiKeyOutput{})
 }

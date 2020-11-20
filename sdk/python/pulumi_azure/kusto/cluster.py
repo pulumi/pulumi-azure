@@ -56,6 +56,14 @@ class Cluster(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        Kusto Clusters can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:kusto/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_disk_encryption: Specifies if the cluster's disks are encrypted.

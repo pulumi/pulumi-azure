@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -160,6 +161,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Associations between Network Interfaces and Application Gateway Backend Address Pools can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.network/networkInterfaces/nic1/ipConfigurations/example|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/applicationGateways/gateway1/backendAddressPools/pool1
+// ```
 type NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation struct {
 	pulumi.CustomResourceState
 
@@ -250,4 +259,43 @@ type NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs struct 
 
 func (NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs)(nil)).Elem()
+}
+
+type NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput() NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput
+	ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutputWithContext(ctx context.Context) NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput
+}
+
+func (NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation)(nil)).Elem()
+}
+
+func (i NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation) ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput() NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput {
+	return i.ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation) ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutputWithContext(ctx context.Context) NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput)
+}
+
+type NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput)(nil)).Elem()
+}
+
+func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput) ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput() NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput {
+	return o
+}
+
+func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput) ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutputWithContext(ctx context.Context) NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput{})
 }

@@ -4,6 +4,7 @@
 package cosmosdb
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -61,6 +62,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Cosmos SQL Containers can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:cosmosdb/sqlContainer:SqlContainer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/database1/containers/container1
 // ```
 type SqlContainer struct {
 	pulumi.CustomResourceState
@@ -217,4 +226,43 @@ type SqlContainerArgs struct {
 
 func (SqlContainerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlContainerArgs)(nil)).Elem()
+}
+
+type SqlContainerInput interface {
+	pulumi.Input
+
+	ToSqlContainerOutput() SqlContainerOutput
+	ToSqlContainerOutputWithContext(ctx context.Context) SqlContainerOutput
+}
+
+func (SqlContainer) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainer)(nil)).Elem()
+}
+
+func (i SqlContainer) ToSqlContainerOutput() SqlContainerOutput {
+	return i.ToSqlContainerOutputWithContext(context.Background())
+}
+
+func (i SqlContainer) ToSqlContainerOutputWithContext(ctx context.Context) SqlContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerOutput)
+}
+
+type SqlContainerOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerOutput)(nil)).Elem()
+}
+
+func (o SqlContainerOutput) ToSqlContainerOutput() SqlContainerOutput {
+	return o
+}
+
+func (o SqlContainerOutput) ToSqlContainerOutputWithContext(ctx context.Context) SqlContainerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlContainerOutput{})
 }

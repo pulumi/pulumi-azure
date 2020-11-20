@@ -4,6 +4,7 @@
 package dns
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -99,6 +100,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// A records can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:dns/aRecord:ARecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/A/myrecord1
 // ```
 type ARecord struct {
 	pulumi.CustomResourceState
@@ -231,4 +240,43 @@ type ARecordArgs struct {
 
 func (ARecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*arecordArgs)(nil)).Elem()
+}
+
+type ARecordInput interface {
+	pulumi.Input
+
+	ToARecordOutput() ARecordOutput
+	ToARecordOutputWithContext(ctx context.Context) ARecordOutput
+}
+
+func (ARecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*ARecord)(nil)).Elem()
+}
+
+func (i ARecord) ToARecordOutput() ARecordOutput {
+	return i.ToARecordOutputWithContext(context.Background())
+}
+
+func (i ARecord) ToARecordOutputWithContext(ctx context.Context) ARecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ARecordOutput)
+}
+
+type ARecordOutput struct {
+	*pulumi.OutputState
+}
+
+func (ARecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ARecordOutput)(nil)).Elem()
+}
+
+func (o ARecordOutput) ToARecordOutput() ARecordOutput {
+	return o
+}
+
+func (o ARecordOutput) ToARecordOutputWithContext(ctx context.Context) ARecordOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ARecordOutput{})
 }

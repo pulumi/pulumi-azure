@@ -4,6 +4,7 @@
 package mssql
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -78,6 +79,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// SQL Database can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:mssql/database:Database example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/databases/example1
 // ```
 type Database struct {
 	pulumi.CustomResourceState
@@ -373,4 +382,43 @@ type DatabaseArgs struct {
 
 func (DatabaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*databaseArgs)(nil)).Elem()
+}
+
+type DatabaseInput interface {
+	pulumi.Input
+
+	ToDatabaseOutput() DatabaseOutput
+	ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutput
+}
+
+func (Database) ElementType() reflect.Type {
+	return reflect.TypeOf((*Database)(nil)).Elem()
+}
+
+func (i Database) ToDatabaseOutput() DatabaseOutput {
+	return i.ToDatabaseOutputWithContext(context.Background())
+}
+
+func (i Database) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseOutput)
+}
+
+type DatabaseOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseOutput)(nil)).Elem()
+}
+
+func (o DatabaseOutput) ToDatabaseOutput() DatabaseOutput {
+	return o
+}
+
+func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DatabaseOutput{})
 }

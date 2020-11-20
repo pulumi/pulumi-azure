@@ -52,6 +52,14 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             }))
         ```
 
+        ## Import
+
+        Virtual Machine Scale Set Extensions can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleSet1/extensions/extension1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.

@@ -62,6 +62,14 @@ namespace Pulumi.Azure.TrafficManager
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Traffic Manager Profiles can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:trafficmanager/profile:Profile exampleProfile /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/trafficManagerProfiles/mytrafficmanagerprofile1
+    /// ```
     /// </summary>
     [Obsolete(@"azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile")]
     public partial class Profile : Pulumi.CustomResource

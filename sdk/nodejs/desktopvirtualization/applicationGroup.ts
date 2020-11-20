@@ -43,6 +43,14 @@ import * as utilities from "../utilities";
  *     description: "Acceptance Test: An application group",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Virtual Desktop Application Groups can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:desktopvirtualization/applicationGroup:ApplicationGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/myapplicationgroup
+ * ```
  */
 export class ApplicationGroup extends pulumi.CustomResource {
     /**

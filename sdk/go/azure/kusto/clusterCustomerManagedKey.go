@@ -4,6 +4,7 @@
 package kusto
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages a Customer Managed Key for a Kusto Cluster.
+//
+// ## Import
+//
+// Customer Managed Keys for a Kusto Cluster can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1
+// ```
 type ClusterCustomerManagedKey struct {
 	pulumi.CustomResourceState
 
@@ -114,4 +123,43 @@ type ClusterCustomerManagedKeyArgs struct {
 
 func (ClusterCustomerManagedKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterCustomerManagedKeyArgs)(nil)).Elem()
+}
+
+type ClusterCustomerManagedKeyInput interface {
+	pulumi.Input
+
+	ToClusterCustomerManagedKeyOutput() ClusterCustomerManagedKeyOutput
+	ToClusterCustomerManagedKeyOutputWithContext(ctx context.Context) ClusterCustomerManagedKeyOutput
+}
+
+func (ClusterCustomerManagedKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCustomerManagedKey)(nil)).Elem()
+}
+
+func (i ClusterCustomerManagedKey) ToClusterCustomerManagedKeyOutput() ClusterCustomerManagedKeyOutput {
+	return i.ToClusterCustomerManagedKeyOutputWithContext(context.Background())
+}
+
+func (i ClusterCustomerManagedKey) ToClusterCustomerManagedKeyOutputWithContext(ctx context.Context) ClusterCustomerManagedKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCustomerManagedKeyOutput)
+}
+
+type ClusterCustomerManagedKeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClusterCustomerManagedKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCustomerManagedKeyOutput)(nil)).Elem()
+}
+
+func (o ClusterCustomerManagedKeyOutput) ToClusterCustomerManagedKeyOutput() ClusterCustomerManagedKeyOutput {
+	return o
+}
+
+func (o ClusterCustomerManagedKeyOutput) ToClusterCustomerManagedKeyOutputWithContext(ctx context.Context) ClusterCustomerManagedKeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ClusterCustomerManagedKeyOutput{})
 }

@@ -4,6 +4,7 @@
 package appinsights
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages an Application Insights WebTest.
+//
+// ## Import
+//
+// Application Insights Web Tests can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:appinsights/webTest:WebTest my_test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/webtests/my_test
+// ```
 type WebTest struct {
 	pulumi.CustomResourceState
 
@@ -210,4 +219,43 @@ type WebTestArgs struct {
 
 func (WebTestArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webTestArgs)(nil)).Elem()
+}
+
+type WebTestInput interface {
+	pulumi.Input
+
+	ToWebTestOutput() WebTestOutput
+	ToWebTestOutputWithContext(ctx context.Context) WebTestOutput
+}
+
+func (WebTest) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTest)(nil)).Elem()
+}
+
+func (i WebTest) ToWebTestOutput() WebTestOutput {
+	return i.ToWebTestOutputWithContext(context.Background())
+}
+
+func (i WebTest) ToWebTestOutputWithContext(ctx context.Context) WebTestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestOutput)
+}
+
+type WebTestOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebTestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestOutput)(nil)).Elem()
+}
+
+func (o WebTestOutput) ToWebTestOutput() WebTestOutput {
+	return o
+}
+
+func (o WebTestOutput) ToWebTestOutputWithContext(ctx context.Context) WebTestOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebTestOutput{})
 }

@@ -47,6 +47,14 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Data Factory MySQL Datasets can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:datafactory/datasetMysql:DatasetMysql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
+    /// ```
     /// </summary>
     public partial class DatasetMysql : Pulumi.CustomResource
     {

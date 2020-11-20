@@ -14,7 +14,7 @@ __all__ = [
     'get_service_bus_namespace',
 ]
 
-warnings.warn("azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace", DeprecationWarning)
+warnings.warn("""azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace""", DeprecationWarning)
 
 @pulumi.output_type
 class GetServiceBusNamespaceResult:

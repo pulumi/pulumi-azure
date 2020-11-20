@@ -4,6 +4,7 @@
 package apimanagement
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -53,6 +54,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// API Management Twitter Identity Provider can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/twitter
 // ```
 type IdentityProviderTwitter struct {
 	pulumi.CustomResourceState
@@ -157,4 +166,43 @@ type IdentityProviderTwitterArgs struct {
 
 func (IdentityProviderTwitterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityProviderTwitterArgs)(nil)).Elem()
+}
+
+type IdentityProviderTwitterInput interface {
+	pulumi.Input
+
+	ToIdentityProviderTwitterOutput() IdentityProviderTwitterOutput
+	ToIdentityProviderTwitterOutputWithContext(ctx context.Context) IdentityProviderTwitterOutput
+}
+
+func (IdentityProviderTwitter) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProviderTwitter)(nil)).Elem()
+}
+
+func (i IdentityProviderTwitter) ToIdentityProviderTwitterOutput() IdentityProviderTwitterOutput {
+	return i.ToIdentityProviderTwitterOutputWithContext(context.Background())
+}
+
+func (i IdentityProviderTwitter) ToIdentityProviderTwitterOutputWithContext(ctx context.Context) IdentityProviderTwitterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderTwitterOutput)
+}
+
+type IdentityProviderTwitterOutput struct {
+	*pulumi.OutputState
+}
+
+func (IdentityProviderTwitterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProviderTwitterOutput)(nil)).Elem()
+}
+
+func (o IdentityProviderTwitterOutput) ToIdentityProviderTwitterOutput() IdentityProviderTwitterOutput {
+	return o
+}
+
+func (o IdentityProviderTwitterOutput) ToIdentityProviderTwitterOutputWithContext(ctx context.Context) IdentityProviderTwitterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IdentityProviderTwitterOutput{})
 }

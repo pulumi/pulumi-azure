@@ -41,6 +41,14 @@ class GroupUser(pulumi.CustomResource):
             api_management_name=example_user.api_management_name)
         ```
 
+        ## Import
+
+        API Management Group Users can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:apimanagement/groupUser:GroupUser example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/groups/groupId/users/user123
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.

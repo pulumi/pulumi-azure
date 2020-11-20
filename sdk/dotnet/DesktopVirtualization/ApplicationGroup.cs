@@ -62,6 +62,14 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Virtual Desktop Application Groups can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:desktopvirtualization/applicationGroup:ApplicationGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/myapplicationgroup
+    /// ```
     /// </summary>
     public partial class ApplicationGroup : Pulumi.CustomResource
     {

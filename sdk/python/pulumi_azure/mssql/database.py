@@ -85,6 +85,14 @@ class Database(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        SQL Database can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:mssql/database:Database example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/databases/example1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] auto_pause_delay_in_minutes: Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
@@ -134,7 +142,7 @@ class Database(pulumi.CustomResource):
             __props__['creation_source_database_id'] = creation_source_database_id
             __props__['elastic_pool_id'] = elastic_pool_id
             if extended_auditing_policy is not None:
-                warnings.warn("the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.", DeprecationWarning)
+                warnings.warn("""the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
                 pulumi.log.warn("extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.")
             __props__['extended_auditing_policy'] = extended_auditing_policy
             __props__['license_type'] = license_type

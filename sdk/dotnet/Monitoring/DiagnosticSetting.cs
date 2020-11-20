@@ -68,6 +68,14 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Diagnostic Settings can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:monitoring/diagnosticSetting:DiagnosticSetting example /subscriptions/XXX/resourcegroups/resource_group/providers/microsoft.keyvault/vaults/vault|logMonitoring
+    /// ```
     /// </summary>
     public partial class DiagnosticSetting : Pulumi.CustomResource
     {

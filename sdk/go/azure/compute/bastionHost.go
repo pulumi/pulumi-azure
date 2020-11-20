@@ -4,6 +4,7 @@
 package compute
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -80,6 +81,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Bastion Hosts can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:compute/bastionHost:BastionHost example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/bastionHosts/instance1
 // ```
 type BastionHost struct {
 	pulumi.CustomResourceState
@@ -191,4 +200,43 @@ type BastionHostArgs struct {
 
 func (BastionHostArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bastionHostArgs)(nil)).Elem()
+}
+
+type BastionHostInput interface {
+	pulumi.Input
+
+	ToBastionHostOutput() BastionHostOutput
+	ToBastionHostOutputWithContext(ctx context.Context) BastionHostOutput
+}
+
+func (BastionHost) ElementType() reflect.Type {
+	return reflect.TypeOf((*BastionHost)(nil)).Elem()
+}
+
+func (i BastionHost) ToBastionHostOutput() BastionHostOutput {
+	return i.ToBastionHostOutputWithContext(context.Background())
+}
+
+func (i BastionHost) ToBastionHostOutputWithContext(ctx context.Context) BastionHostOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BastionHostOutput)
+}
+
+type BastionHostOutput struct {
+	*pulumi.OutputState
+}
+
+func (BastionHostOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BastionHostOutput)(nil)).Elem()
+}
+
+func (o BastionHostOutput) ToBastionHostOutput() BastionHostOutput {
+	return o
+}
+
+func (o BastionHostOutput) ToBastionHostOutputWithContext(ctx context.Context) BastionHostOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BastionHostOutput{})
 }

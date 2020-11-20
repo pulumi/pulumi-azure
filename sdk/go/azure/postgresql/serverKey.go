@@ -4,6 +4,7 @@
 package postgresql
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages a Customer Managed Key for a PostgreSQL Server.
+//
+// ## Import
+//
+// A PostgreSQL Server Key can be imported using the `resource id` of the PostgreSQL Server Key, e.g.
+//
+// ```sh
+//  $ pulumi import azure:postgresql/serverKey:ServerKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/servers/server1/keys/keyvaultname_key-name_keyversion
+// ```
 type ServerKey struct {
 	pulumi.CustomResourceState
 
@@ -88,4 +97,43 @@ type ServerKeyArgs struct {
 
 func (ServerKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverKeyArgs)(nil)).Elem()
+}
+
+type ServerKeyInput interface {
+	pulumi.Input
+
+	ToServerKeyOutput() ServerKeyOutput
+	ToServerKeyOutputWithContext(ctx context.Context) ServerKeyOutput
+}
+
+func (ServerKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerKey)(nil)).Elem()
+}
+
+func (i ServerKey) ToServerKeyOutput() ServerKeyOutput {
+	return i.ToServerKeyOutputWithContext(context.Background())
+}
+
+func (i ServerKey) ToServerKeyOutputWithContext(ctx context.Context) ServerKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerKeyOutput)
+}
+
+type ServerKeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerKeyOutput)(nil)).Elem()
+}
+
+func (o ServerKeyOutput) ToServerKeyOutput() ServerKeyOutput {
+	return o
+}
+
+func (o ServerKeyOutput) ToServerKeyOutputWithContext(ctx context.Context) ServerKeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerKeyOutput{})
 }

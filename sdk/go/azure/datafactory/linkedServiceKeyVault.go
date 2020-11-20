@@ -4,6 +4,7 @@
 package datafactory
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -63,6 +64,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Data Factory Key Vault Linked Service's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:datafactory/linkedServiceKeyVault:LinkedServiceKeyVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
 // ```
 type LinkedServiceKeyVault struct {
 	pulumi.CustomResourceState
@@ -214,4 +223,43 @@ type LinkedServiceKeyVaultArgs struct {
 
 func (LinkedServiceKeyVaultArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceKeyVaultArgs)(nil)).Elem()
+}
+
+type LinkedServiceKeyVaultInput interface {
+	pulumi.Input
+
+	ToLinkedServiceKeyVaultOutput() LinkedServiceKeyVaultOutput
+	ToLinkedServiceKeyVaultOutputWithContext(ctx context.Context) LinkedServiceKeyVaultOutput
+}
+
+func (LinkedServiceKeyVault) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceKeyVault)(nil)).Elem()
+}
+
+func (i LinkedServiceKeyVault) ToLinkedServiceKeyVaultOutput() LinkedServiceKeyVaultOutput {
+	return i.ToLinkedServiceKeyVaultOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceKeyVault) ToLinkedServiceKeyVaultOutputWithContext(ctx context.Context) LinkedServiceKeyVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceKeyVaultOutput)
+}
+
+type LinkedServiceKeyVaultOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkedServiceKeyVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceKeyVaultOutput)(nil)).Elem()
+}
+
+func (o LinkedServiceKeyVaultOutput) ToLinkedServiceKeyVaultOutput() LinkedServiceKeyVaultOutput {
+	return o
+}
+
+func (o LinkedServiceKeyVaultOutput) ToLinkedServiceKeyVaultOutputWithContext(ctx context.Context) LinkedServiceKeyVaultOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LinkedServiceKeyVaultOutput{})
 }

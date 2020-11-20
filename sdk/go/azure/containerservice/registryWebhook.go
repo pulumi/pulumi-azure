@@ -4,6 +4,7 @@
 package containerservice
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -60,6 +61,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Container Registry Webhooks can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:containerservice/registryWebhook:RegistryWebhook example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1/webhooks/mywebhook1
 // ```
 type RegistryWebhook struct {
 	pulumi.CustomResourceState
@@ -225,4 +234,43 @@ type RegistryWebhookArgs struct {
 
 func (RegistryWebhookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryWebhookArgs)(nil)).Elem()
+}
+
+type RegistryWebhookInput interface {
+	pulumi.Input
+
+	ToRegistryWebhookOutput() RegistryWebhookOutput
+	ToRegistryWebhookOutputWithContext(ctx context.Context) RegistryWebhookOutput
+}
+
+func (RegistryWebhook) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryWebhook)(nil)).Elem()
+}
+
+func (i RegistryWebhook) ToRegistryWebhookOutput() RegistryWebhookOutput {
+	return i.ToRegistryWebhookOutputWithContext(context.Background())
+}
+
+func (i RegistryWebhook) ToRegistryWebhookOutputWithContext(ctx context.Context) RegistryWebhookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryWebhookOutput)
+}
+
+type RegistryWebhookOutput struct {
+	*pulumi.OutputState
+}
+
+func (RegistryWebhookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryWebhookOutput)(nil)).Elem()
+}
+
+func (o RegistryWebhookOutput) ToRegistryWebhookOutput() RegistryWebhookOutput {
+	return o
+}
+
+func (o RegistryWebhookOutput) ToRegistryWebhookOutputWithContext(ctx context.Context) RegistryWebhookOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RegistryWebhookOutput{})
 }

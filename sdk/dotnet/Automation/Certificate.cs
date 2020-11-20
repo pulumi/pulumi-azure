@@ -11,6 +11,14 @@ namespace Pulumi.Azure.Automation
 {
     /// <summary>
     /// Manages an Automation Certificate.
+    /// 
+    /// ## Import
+    /// 
+    /// Automation Certificates can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:automation/certificate:Certificate certificate1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/certificates/certificate1
+    /// ```
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {

@@ -52,6 +52,14 @@ class SqlStoredProcedure(pulumi.CustomResource):
             body="  	function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\n")
         ```
 
+        ## Import
+
+        CosmosDB SQL Stored Procedures can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:cosmosdb/sqlStoredProcedure:SqlStoredProcedure db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/db1/containers/c1/storedProcedures/sp1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Account to create the stored procedure within. Changing this forces a new resource to be created.

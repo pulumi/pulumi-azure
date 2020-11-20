@@ -4,6 +4,7 @@
 package recoveryservices
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -43,6 +44,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Recovery Services Vaults can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:recoveryservices/vault:Vault vault1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/vault1
 // ```
 type Vault struct {
 	pulumi.CustomResourceState
@@ -161,4 +170,43 @@ type VaultArgs struct {
 
 func (VaultArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vaultArgs)(nil)).Elem()
+}
+
+type VaultInput interface {
+	pulumi.Input
+
+	ToVaultOutput() VaultOutput
+	ToVaultOutputWithContext(ctx context.Context) VaultOutput
+}
+
+func (Vault) ElementType() reflect.Type {
+	return reflect.TypeOf((*Vault)(nil)).Elem()
+}
+
+func (i Vault) ToVaultOutput() VaultOutput {
+	return i.ToVaultOutputWithContext(context.Background())
+}
+
+func (i Vault) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultOutput)
+}
+
+type VaultOutput struct {
+	*pulumi.OutputState
+}
+
+func (VaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultOutput)(nil)).Elem()
+}
+
+func (o VaultOutput) ToVaultOutput() VaultOutput {
+	return o
+}
+
+func (o VaultOutput) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VaultOutput{})
 }

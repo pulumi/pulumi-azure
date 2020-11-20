@@ -4,6 +4,7 @@
 package management
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -115,6 +116,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Management Locks can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:management/lock:Lock lock1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Authorization/locks/lock1
+// ```
 type Lock struct {
 	pulumi.CustomResourceState
 
@@ -218,4 +227,43 @@ type LockArgs struct {
 
 func (LockArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*lockArgs)(nil)).Elem()
+}
+
+type LockInput interface {
+	pulumi.Input
+
+	ToLockOutput() LockOutput
+	ToLockOutputWithContext(ctx context.Context) LockOutput
+}
+
+func (Lock) ElementType() reflect.Type {
+	return reflect.TypeOf((*Lock)(nil)).Elem()
+}
+
+func (i Lock) ToLockOutput() LockOutput {
+	return i.ToLockOutputWithContext(context.Background())
+}
+
+func (i Lock) ToLockOutputWithContext(ctx context.Context) LockOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LockOutput)
+}
+
+type LockOutput struct {
+	*pulumi.OutputState
+}
+
+func (LockOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LockOutput)(nil)).Elem()
+}
+
+func (o LockOutput) ToLockOutput() LockOutput {
+	return o
+}
+
+func (o LockOutput) ToLockOutputWithContext(ctx context.Context) LockOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LockOutput{})
 }

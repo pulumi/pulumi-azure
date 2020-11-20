@@ -36,6 +36,14 @@ class SyncGroup(pulumi.CustomResource):
         example_sync_group = azure.storage.SyncGroup("exampleSyncGroup", storage_sync_id=example_sync.id)
         ```
 
+        ## Import
+
+        Storage Sync Groups can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:storage/syncGroup:SyncGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StorageSync/storageSyncServices/sync1/syncGroups/group1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name which should be used for this Storage Sync Group. Changing this forces a new Storage Sync Group to be created.

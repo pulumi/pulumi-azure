@@ -46,6 +46,14 @@ class IPGroup(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        IP Groups can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/iPGroup:IPGroup ipgroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/ipGroups/myIpGroup
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidrs: A list of CIDRs or IP addresses.

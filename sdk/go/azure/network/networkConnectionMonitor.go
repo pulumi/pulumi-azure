@@ -4,12 +4,20 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ## Import
+//
+// Network Connection Monitors can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/networkConnectionMonitor:NetworkConnectionMonitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/networkWatchers/watcher1/connectionMonitors/connectionMonitor1
+// ```
 type NetworkConnectionMonitor struct {
 	pulumi.CustomResourceState
 
@@ -203,4 +211,43 @@ type NetworkConnectionMonitorArgs struct {
 
 func (NetworkConnectionMonitorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkConnectionMonitorArgs)(nil)).Elem()
+}
+
+type NetworkConnectionMonitorInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorOutput() NetworkConnectionMonitorOutput
+	ToNetworkConnectionMonitorOutputWithContext(ctx context.Context) NetworkConnectionMonitorOutput
+}
+
+func (NetworkConnectionMonitor) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitor)(nil)).Elem()
+}
+
+func (i NetworkConnectionMonitor) ToNetworkConnectionMonitorOutput() NetworkConnectionMonitorOutput {
+	return i.ToNetworkConnectionMonitorOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitor) ToNetworkConnectionMonitorOutputWithContext(ctx context.Context) NetworkConnectionMonitorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorOutput)
+}
+
+type NetworkConnectionMonitorOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkConnectionMonitorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorOutput)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorOutput) ToNetworkConnectionMonitorOutput() NetworkConnectionMonitorOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorOutput) ToNetworkConnectionMonitorOutputWithContext(ctx context.Context) NetworkConnectionMonitorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NetworkConnectionMonitorOutput{})
 }

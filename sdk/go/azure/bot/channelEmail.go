@@ -4,6 +4,7 @@
 package bot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,14 @@ import (
 // Manages a Email integration for a Bot Channel
 //
 // > **Note** A bot can only have a single Email Channel associated with it.
+//
+// ## Import
+//
+// The Email Integration for a Bot Channel can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:bot/channelEmail:ChannelEmail example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/channels/EmailChannel
+// ```
 type ChannelEmail struct {
 	pulumi.CustomResourceState
 
@@ -126,4 +135,43 @@ type ChannelEmailArgs struct {
 
 func (ChannelEmailArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelEmailArgs)(nil)).Elem()
+}
+
+type ChannelEmailInput interface {
+	pulumi.Input
+
+	ToChannelEmailOutput() ChannelEmailOutput
+	ToChannelEmailOutputWithContext(ctx context.Context) ChannelEmailOutput
+}
+
+func (ChannelEmail) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEmail)(nil)).Elem()
+}
+
+func (i ChannelEmail) ToChannelEmailOutput() ChannelEmailOutput {
+	return i.ToChannelEmailOutputWithContext(context.Background())
+}
+
+func (i ChannelEmail) ToChannelEmailOutputWithContext(ctx context.Context) ChannelEmailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEmailOutput)
+}
+
+type ChannelEmailOutput struct {
+	*pulumi.OutputState
+}
+
+func (ChannelEmailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEmailOutput)(nil)).Elem()
+}
+
+func (o ChannelEmailOutput) ToChannelEmailOutput() ChannelEmailOutput {
+	return o
+}
+
+func (o ChannelEmailOutput) ToChannelEmailOutputWithContext(ctx context.Context) ChannelEmailOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ChannelEmailOutput{})
 }

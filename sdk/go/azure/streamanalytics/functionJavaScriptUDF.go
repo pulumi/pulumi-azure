@@ -4,6 +4,7 @@
 package streamanalytics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -59,6 +60,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Stream Analytics JavaScript UDF Functions can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/outputs/output1
 // ```
 type FunctionJavaScriptUDF struct {
 	pulumi.CustomResourceState
@@ -186,4 +195,43 @@ type FunctionJavaScriptUDFArgs struct {
 
 func (FunctionJavaScriptUDFArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionJavaScriptUDFArgs)(nil)).Elem()
+}
+
+type FunctionJavaScriptUDFInput interface {
+	pulumi.Input
+
+	ToFunctionJavaScriptUDFOutput() FunctionJavaScriptUDFOutput
+	ToFunctionJavaScriptUDFOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutput
+}
+
+func (FunctionJavaScriptUDF) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionJavaScriptUDF)(nil)).Elem()
+}
+
+func (i FunctionJavaScriptUDF) ToFunctionJavaScriptUDFOutput() FunctionJavaScriptUDFOutput {
+	return i.ToFunctionJavaScriptUDFOutputWithContext(context.Background())
+}
+
+func (i FunctionJavaScriptUDF) ToFunctionJavaScriptUDFOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFOutput)
+}
+
+type FunctionJavaScriptUDFOutput struct {
+	*pulumi.OutputState
+}
+
+func (FunctionJavaScriptUDFOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionJavaScriptUDFOutput)(nil)).Elem()
+}
+
+func (o FunctionJavaScriptUDFOutput) ToFunctionJavaScriptUDFOutput() FunctionJavaScriptUDFOutput {
+	return o
+}
+
+func (o FunctionJavaScriptUDFOutput) ToFunctionJavaScriptUDFOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FunctionJavaScriptUDFOutput{})
 }

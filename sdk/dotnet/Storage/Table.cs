@@ -41,6 +41,14 @@ namespace Pulumi.Azure.Storage
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Table's within a Storage Account can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:storage/table:Table table1 "https://example.table.core.windows.net/Tables('replace-with-table-name')"
+    /// ```
     /// </summary>
     public partial class Table : Pulumi.CustomResource
     {

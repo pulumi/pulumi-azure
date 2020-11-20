@@ -34,7 +34,14 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a NetworkConnectionMonitor resource with the given unique name, props, and options.
+        ## Import
+
+        Network Connection Monitors can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/networkConnectionMonitor:NetworkConnectionMonitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/networkWatchers/watcher1/connectionMonitors/connectionMonitor1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorEndpointArgs']]]] endpoints: A `endpoint` block as defined below.
@@ -65,18 +72,18 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             __props__ = dict()
 
             if auto_start is not None:
-                warnings.warn("The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.", DeprecationWarning)
+                warnings.warn("""The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""", DeprecationWarning)
                 pulumi.log.warn("auto_start is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.")
             __props__['auto_start'] = auto_start
             if destination is not None:
-                warnings.warn("The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.", DeprecationWarning)
+                warnings.warn("""The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""", DeprecationWarning)
                 pulumi.log.warn("destination is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.")
             __props__['destination'] = destination
             if endpoints is None:
                 raise TypeError("Missing required property 'endpoints'")
             __props__['endpoints'] = endpoints
             if interval_in_seconds is not None:
-                warnings.warn("The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.", DeprecationWarning)
+                warnings.warn("""The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""", DeprecationWarning)
                 pulumi.log.warn("interval_in_seconds is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.")
             __props__['interval_in_seconds'] = interval_in_seconds
             __props__['location'] = location
@@ -87,7 +94,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             __props__['notes'] = notes
             __props__['output_workspace_resource_ids'] = output_workspace_resource_ids
             if source is not None:
-                warnings.warn("The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.", DeprecationWarning)
+                warnings.warn("""The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""", DeprecationWarning)
                 pulumi.log.warn("source is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.")
             __props__['source'] = source
             __props__['tags'] = tags

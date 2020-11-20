@@ -58,6 +58,14 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// SQL Elastic Pool can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:mssql/elasticPool:ElasticPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/elasticPools/myelasticpoolname
+    /// ```
     /// </summary>
     public partial class ElasticPool : Pulumi.CustomResource
     {

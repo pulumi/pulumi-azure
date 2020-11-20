@@ -42,6 +42,14 @@ class CnameRecord(pulumi.CustomResource):
             record="contoso.com")
         ```
 
+        ## Import
+
+        Private DNS CName Records can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:privatedns/cnameRecord:CnameRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/zone1/CName/myrecord1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS CNAME Record.

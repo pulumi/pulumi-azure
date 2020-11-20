@@ -4,6 +4,7 @@
 package sql
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -63,6 +64,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// SQL Servers can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:sql/sqlServer:SqlServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver
 // ```
 type SqlServer struct {
 	pulumi.CustomResourceState
@@ -243,4 +252,43 @@ type SqlServerArgs struct {
 
 func (SqlServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlServerArgs)(nil)).Elem()
+}
+
+type SqlServerInput interface {
+	pulumi.Input
+
+	ToSqlServerOutput() SqlServerOutput
+	ToSqlServerOutputWithContext(ctx context.Context) SqlServerOutput
+}
+
+func (SqlServer) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlServer)(nil)).Elem()
+}
+
+func (i SqlServer) ToSqlServerOutput() SqlServerOutput {
+	return i.ToSqlServerOutputWithContext(context.Background())
+}
+
+func (i SqlServer) ToSqlServerOutputWithContext(ctx context.Context) SqlServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlServerOutput)
+}
+
+type SqlServerOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlServerOutput)(nil)).Elem()
+}
+
+func (o SqlServerOutput) ToSqlServerOutput() SqlServerOutput {
+	return o
+}
+
+func (o SqlServerOutput) ToSqlServerOutputWithContext(ctx context.Context) SqlServerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlServerOutput{})
 }

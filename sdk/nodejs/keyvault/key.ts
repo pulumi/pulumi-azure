@@ -54,6 +54,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Key Vault Key which is Enabled can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:keyvault/key:Key net/keys/example/fdf067c93bbb4b22bff4d8b7a9a56217
+ * ```
  */
 export class Key extends pulumi.CustomResource {
     /**

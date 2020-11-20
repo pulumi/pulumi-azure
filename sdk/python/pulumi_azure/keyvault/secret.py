@@ -28,6 +28,14 @@ class Secret(pulumi.CustomResource):
         """
         Manages a Key Vault Secret.
 
+        ## Import
+
+        Key Vault Secrets which are Enabled can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:keyvault/secret:Secret example https://example-keyvault.vault.azure.net/secrets/example/fdf067c93bbb4b22bff4d8b7a9a56217
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_type: Specifies the content type for the Key Vault Secret.

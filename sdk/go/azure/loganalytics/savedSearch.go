@@ -4,6 +4,7 @@
 package loganalytics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -53,6 +54,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Log Analytics Saved Searches can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:loganalytics/savedSearch:SavedSearch search1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/savedSearches/search1
 // ```
 type SavedSearch struct {
 	pulumi.CustomResourceState
@@ -197,4 +206,43 @@ type SavedSearchArgs struct {
 
 func (SavedSearchArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*savedSearchArgs)(nil)).Elem()
+}
+
+type SavedSearchInput interface {
+	pulumi.Input
+
+	ToSavedSearchOutput() SavedSearchOutput
+	ToSavedSearchOutputWithContext(ctx context.Context) SavedSearchOutput
+}
+
+func (SavedSearch) ElementType() reflect.Type {
+	return reflect.TypeOf((*SavedSearch)(nil)).Elem()
+}
+
+func (i SavedSearch) ToSavedSearchOutput() SavedSearchOutput {
+	return i.ToSavedSearchOutputWithContext(context.Background())
+}
+
+func (i SavedSearch) ToSavedSearchOutputWithContext(ctx context.Context) SavedSearchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SavedSearchOutput)
+}
+
+type SavedSearchOutput struct {
+	*pulumi.OutputState
+}
+
+func (SavedSearchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SavedSearchOutput)(nil)).Elem()
+}
+
+func (o SavedSearchOutput) ToSavedSearchOutput() SavedSearchOutput {
+	return o
+}
+
+func (o SavedSearchOutput) ToSavedSearchOutputWithContext(ctx context.Context) SavedSearchOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SavedSearchOutput{})
 }

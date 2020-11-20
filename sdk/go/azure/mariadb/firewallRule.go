@@ -4,6 +4,7 @@
 package mariadb
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -62,6 +63,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// MariaDB Firewall rules can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:mariadb/firewallRule:FirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMariaDB/servers/server1/firewallRules/rule1
 // ```
 type FirewallRule struct {
 	pulumi.CustomResourceState
@@ -176,4 +185,43 @@ type FirewallRuleArgs struct {
 
 func (FirewallRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallRuleArgs)(nil)).Elem()
+}
+
+type FirewallRuleInput interface {
+	pulumi.Input
+
+	ToFirewallRuleOutput() FirewallRuleOutput
+	ToFirewallRuleOutputWithContext(ctx context.Context) FirewallRuleOutput
+}
+
+func (FirewallRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRule)(nil)).Elem()
+}
+
+func (i FirewallRule) ToFirewallRuleOutput() FirewallRuleOutput {
+	return i.ToFirewallRuleOutputWithContext(context.Background())
+}
+
+func (i FirewallRule) ToFirewallRuleOutputWithContext(ctx context.Context) FirewallRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleOutput)
+}
+
+type FirewallRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (FirewallRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleOutput)(nil)).Elem()
+}
+
+func (o FirewallRuleOutput) ToFirewallRuleOutput() FirewallRuleOutput {
+	return o
+}
+
+func (o FirewallRuleOutput) ToFirewallRuleOutputWithContext(ctx context.Context) FirewallRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FirewallRuleOutput{})
 }

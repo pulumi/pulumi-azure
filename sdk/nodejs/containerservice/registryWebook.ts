@@ -34,6 +34,14 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## Import
+ *
+ * Container Registry Webhooks can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:containerservice/registryWebook:RegistryWebook example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1/webhooks/mywebhook1
+ * ```
+ *
  * @deprecated azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook
  */
 export class RegistryWebook extends pulumi.CustomResource {

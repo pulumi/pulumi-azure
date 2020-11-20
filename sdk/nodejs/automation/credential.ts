@@ -27,6 +27,14 @@ import * as utilities from "../utilities";
  *     description: "This is an example credential",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Automation Credentials can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:automation/credential:Credential credential1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/credentials/credential1
+ * ```
  */
 export class Credential extends pulumi.CustomResource {
     /**

@@ -20,6 +20,14 @@ import * as utilities from "../utilities";
  * });
  * const exampleSyncGroup = new azure.storage.SyncGroup("exampleSyncGroup", {storageSyncId: exampleSync.id});
  * ```
+ *
+ * ## Import
+ *
+ * Storage Sync Groups can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:storage/syncGroup:SyncGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StorageSync/storageSyncServices/sync1/syncGroups/group1
+ * ```
  */
 export class SyncGroup extends pulumi.CustomResource {
     /**

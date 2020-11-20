@@ -26,6 +26,14 @@ import * as utilities from "../utilities";
  *     platformFaultDomain: 1,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Dedicated Hosts can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:compute/dedicatedHost:DedicatedHost example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/hostGroups/group1/hosts/host1
+ * ```
  */
 export class DedicatedHost extends pulumi.CustomResource {
     /**

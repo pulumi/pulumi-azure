@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -72,6 +73,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Security Partner Providers can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/securityPartnerProvider:SecurityPartnerProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/securityPartnerProviders/securityPartnerProvider1
 // ```
 type SecurityPartnerProvider struct {
 	pulumi.CustomResourceState
@@ -190,4 +199,43 @@ type SecurityPartnerProviderArgs struct {
 
 func (SecurityPartnerProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityPartnerProviderArgs)(nil)).Elem()
+}
+
+type SecurityPartnerProviderInput interface {
+	pulumi.Input
+
+	ToSecurityPartnerProviderOutput() SecurityPartnerProviderOutput
+	ToSecurityPartnerProviderOutputWithContext(ctx context.Context) SecurityPartnerProviderOutput
+}
+
+func (SecurityPartnerProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityPartnerProvider)(nil)).Elem()
+}
+
+func (i SecurityPartnerProvider) ToSecurityPartnerProviderOutput() SecurityPartnerProviderOutput {
+	return i.ToSecurityPartnerProviderOutputWithContext(context.Background())
+}
+
+func (i SecurityPartnerProvider) ToSecurityPartnerProviderOutputWithContext(ctx context.Context) SecurityPartnerProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityPartnerProviderOutput)
+}
+
+type SecurityPartnerProviderOutput struct {
+	*pulumi.OutputState
+}
+
+func (SecurityPartnerProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityPartnerProviderOutput)(nil)).Elem()
+}
+
+func (o SecurityPartnerProviderOutput) ToSecurityPartnerProviderOutput() SecurityPartnerProviderOutput {
+	return o
+}
+
+func (o SecurityPartnerProviderOutput) ToSecurityPartnerProviderOutputWithContext(ctx context.Context) SecurityPartnerProviderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SecurityPartnerProviderOutput{})
 }

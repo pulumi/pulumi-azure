@@ -4,6 +4,7 @@
 package bot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages a Directline integration for a Bot Channel
+//
+// ## Import
+//
+// The Directline Channel for a Bot can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:bot/channelDirectLine:ChannelDirectLine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/channels/DirectlineChannel
+// ```
 type ChannelDirectLine struct {
 	pulumi.CustomResourceState
 
@@ -111,4 +120,43 @@ type ChannelDirectLineArgs struct {
 
 func (ChannelDirectLineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelDirectLineArgs)(nil)).Elem()
+}
+
+type ChannelDirectLineInput interface {
+	pulumi.Input
+
+	ToChannelDirectLineOutput() ChannelDirectLineOutput
+	ToChannelDirectLineOutputWithContext(ctx context.Context) ChannelDirectLineOutput
+}
+
+func (ChannelDirectLine) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelDirectLine)(nil)).Elem()
+}
+
+func (i ChannelDirectLine) ToChannelDirectLineOutput() ChannelDirectLineOutput {
+	return i.ToChannelDirectLineOutputWithContext(context.Background())
+}
+
+func (i ChannelDirectLine) ToChannelDirectLineOutputWithContext(ctx context.Context) ChannelDirectLineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelDirectLineOutput)
+}
+
+type ChannelDirectLineOutput struct {
+	*pulumi.OutputState
+}
+
+func (ChannelDirectLineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelDirectLineOutput)(nil)).Elem()
+}
+
+func (o ChannelDirectLineOutput) ToChannelDirectLineOutput() ChannelDirectLineOutput {
+	return o
+}
+
+func (o ChannelDirectLineOutput) ToChannelDirectLineOutputWithContext(ctx context.Context) ChannelDirectLineOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ChannelDirectLineOutput{})
 }

@@ -73,6 +73,14 @@ class KubernetesCluster(pulumi.CustomResource):
         pulumi.export("kubeConfig", example_kubernetes_cluster.kube_config_raw)
         ```
 
+        ## Import
+
+        Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:containerservice/kubernetesCluster:KubernetesCluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']] addon_profile: A `addon_profile` block as defined below.
@@ -133,7 +141,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__['node_resource_group'] = node_resource_group
             __props__['private_cluster_enabled'] = private_cluster_enabled
             if private_link_enabled is not None:
-                warnings.warn("Deprecated in favour of `private_cluster_enabled`", DeprecationWarning)
+                warnings.warn("""Deprecated in favour of `private_cluster_enabled`""", DeprecationWarning)
                 pulumi.log.warn("private_link_enabled is deprecated: Deprecated in favour of `private_cluster_enabled`")
             __props__['private_link_enabled'] = private_link_enabled
             if resource_group_name is None:

@@ -55,6 +55,14 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
             retention_in_days=6)
         ```
 
+        ## Import
+
+        Ms Sql Database Extended Auditing Policys can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/databases/db1/extendedAuditingSettings/default
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_id: The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.

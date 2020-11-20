@@ -2,12 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Manages a Directline integration for a Bot Channel
+ *
+ * ## Import
+ *
+ * The Directline Channel for a Bot can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:bot/channelDirectLine:ChannelDirectLine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/channels/DirectlineChannel
+ * ```
  */
 export class ChannelDirectLine extends pulumi.CustomResource {
     /**

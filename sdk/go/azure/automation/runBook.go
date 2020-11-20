@@ -4,6 +4,7 @@
 package automation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -57,6 +58,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Automation Runbooks can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:automation/runBook:RunBook Get-AzureVMTutorial /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/runbooks/Get-AzureVMTutorial
 // ```
 type RunBook struct {
 	pulumi.CustomResourceState
@@ -239,4 +248,43 @@ type RunBookArgs struct {
 
 func (RunBookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*runBookArgs)(nil)).Elem()
+}
+
+type RunBookInput interface {
+	pulumi.Input
+
+	ToRunBookOutput() RunBookOutput
+	ToRunBookOutputWithContext(ctx context.Context) RunBookOutput
+}
+
+func (RunBook) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunBook)(nil)).Elem()
+}
+
+func (i RunBook) ToRunBookOutput() RunBookOutput {
+	return i.ToRunBookOutputWithContext(context.Background())
+}
+
+func (i RunBook) ToRunBookOutputWithContext(ctx context.Context) RunBookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunBookOutput)
+}
+
+type RunBookOutput struct {
+	*pulumi.OutputState
+}
+
+func (RunBookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunBookOutput)(nil)).Elem()
+}
+
+func (o RunBookOutput) ToRunBookOutput() RunBookOutput {
+	return o
+}
+
+func (o RunBookOutput) ToRunBookOutputWithContext(ctx context.Context) RunBookOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RunBookOutput{})
 }

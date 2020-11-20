@@ -11,6 +11,14 @@ namespace Pulumi.Azure.Automation
 {
     /// <summary>
     /// Manages a Automation Schedule.
+    /// 
+    /// ## Import
+    /// 
+    /// Automation Schedule can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:automation/schedule:Schedule schedule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/schedules/schedule1
+    /// ```
     /// </summary>
     public partial class Schedule : Pulumi.CustomResource
     {

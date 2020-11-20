@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -75,6 +76,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Traffic Manager Endpoints can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/trafficManagerEndpoint:TrafficManagerEndpoint exampleEndpoints /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/trafficManagerProfiles/mytrafficmanagerprofile1/azureEndpoints/mytrafficmanagerendpoint
 // ```
 type TrafficManagerEndpoint struct {
 	pulumi.CustomResourceState
@@ -400,4 +409,43 @@ type TrafficManagerEndpointArgs struct {
 
 func (TrafficManagerEndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficManagerEndpointArgs)(nil)).Elem()
+}
+
+type TrafficManagerEndpointInput interface {
+	pulumi.Input
+
+	ToTrafficManagerEndpointOutput() TrafficManagerEndpointOutput
+	ToTrafficManagerEndpointOutputWithContext(ctx context.Context) TrafficManagerEndpointOutput
+}
+
+func (TrafficManagerEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficManagerEndpoint)(nil)).Elem()
+}
+
+func (i TrafficManagerEndpoint) ToTrafficManagerEndpointOutput() TrafficManagerEndpointOutput {
+	return i.ToTrafficManagerEndpointOutputWithContext(context.Background())
+}
+
+func (i TrafficManagerEndpoint) ToTrafficManagerEndpointOutputWithContext(ctx context.Context) TrafficManagerEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerEndpointOutput)
+}
+
+type TrafficManagerEndpointOutput struct {
+	*pulumi.OutputState
+}
+
+func (TrafficManagerEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficManagerEndpointOutput)(nil)).Elem()
+}
+
+func (o TrafficManagerEndpointOutput) ToTrafficManagerEndpointOutput() TrafficManagerEndpointOutput {
+	return o
+}
+
+func (o TrafficManagerEndpointOutput) ToTrafficManagerEndpointOutputWithContext(ctx context.Context) TrafficManagerEndpointOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TrafficManagerEndpointOutput{})
 }

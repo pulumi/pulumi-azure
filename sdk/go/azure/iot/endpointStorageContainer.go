@@ -4,6 +4,7 @@
 package iot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -77,6 +78,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// IoTHub Storage Container Endpoint can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:iot/endpointStorageContainer:EndpointStorageContainer storage_container1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Endpoints/storage_container_endpoint1
 // ```
 type EndpointStorageContainer struct {
 	pulumi.CustomResourceState
@@ -236,4 +245,43 @@ type EndpointStorageContainerArgs struct {
 
 func (EndpointStorageContainerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointStorageContainerArgs)(nil)).Elem()
+}
+
+type EndpointStorageContainerInput interface {
+	pulumi.Input
+
+	ToEndpointStorageContainerOutput() EndpointStorageContainerOutput
+	ToEndpointStorageContainerOutputWithContext(ctx context.Context) EndpointStorageContainerOutput
+}
+
+func (EndpointStorageContainer) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointStorageContainer)(nil)).Elem()
+}
+
+func (i EndpointStorageContainer) ToEndpointStorageContainerOutput() EndpointStorageContainerOutput {
+	return i.ToEndpointStorageContainerOutputWithContext(context.Background())
+}
+
+func (i EndpointStorageContainer) ToEndpointStorageContainerOutputWithContext(ctx context.Context) EndpointStorageContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointStorageContainerOutput)
+}
+
+type EndpointStorageContainerOutput struct {
+	*pulumi.OutputState
+}
+
+func (EndpointStorageContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointStorageContainerOutput)(nil)).Elem()
+}
+
+func (o EndpointStorageContainerOutput) ToEndpointStorageContainerOutput() EndpointStorageContainerOutput {
+	return o
+}
+
+func (o EndpointStorageContainerOutput) ToEndpointStorageContainerOutputWithContext(ctx context.Context) EndpointStorageContainerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EndpointStorageContainerOutput{})
 }

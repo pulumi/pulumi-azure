@@ -4,6 +4,7 @@
 package backup
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -60,6 +61,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Azure File Share Backup Policies can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:backup/policyFileShare:PolicyFileShare policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupPolicies/policy1
 // ```
 type PolicyFileShare struct {
 	pulumi.CustomResourceState
@@ -184,4 +193,43 @@ type PolicyFileShareArgs struct {
 
 func (PolicyFileShareArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyFileShareArgs)(nil)).Elem()
+}
+
+type PolicyFileShareInput interface {
+	pulumi.Input
+
+	ToPolicyFileShareOutput() PolicyFileShareOutput
+	ToPolicyFileShareOutputWithContext(ctx context.Context) PolicyFileShareOutput
+}
+
+func (PolicyFileShare) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyFileShare)(nil)).Elem()
+}
+
+func (i PolicyFileShare) ToPolicyFileShareOutput() PolicyFileShareOutput {
+	return i.ToPolicyFileShareOutputWithContext(context.Background())
+}
+
+func (i PolicyFileShare) ToPolicyFileShareOutputWithContext(ctx context.Context) PolicyFileShareOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareOutput)
+}
+
+type PolicyFileShareOutput struct {
+	*pulumi.OutputState
+}
+
+func (PolicyFileShareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyFileShareOutput)(nil)).Elem()
+}
+
+func (o PolicyFileShareOutput) ToPolicyFileShareOutput() PolicyFileShareOutput {
+	return o
+}
+
+func (o PolicyFileShareOutput) ToPolicyFileShareOutputWithContext(ctx context.Context) PolicyFileShareOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PolicyFileShareOutput{})
 }

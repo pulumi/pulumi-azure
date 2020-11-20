@@ -111,6 +111,14 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        Windows Virtual Machines can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:compute/windowsVirtualMachine:WindowsVirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/Microsoft.Compute/virtualMachines/machine1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineAdditionalCapabilitiesArgs']] additional_capabilities: A `additional_capabilities` block as defined below.

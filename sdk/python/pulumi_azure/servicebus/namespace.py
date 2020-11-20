@@ -44,6 +44,14 @@ class Namespace(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        Service Bus Namespace can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:servicebus/namespace:Namespace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] capacity: Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.

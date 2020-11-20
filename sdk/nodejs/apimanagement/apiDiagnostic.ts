@@ -52,6 +52,14 @@ import * as utilities from "../utilities";
  *     apiManagementLoggerId: exampleLogger.id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * API Management Service API Diagnostics Logs can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:apimanagement/apiDiagnostic:ApiDiagnostic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/diagnostics/diagnostic1/loggers/logger1
+ * ```
  */
 export class ApiDiagnostic extends pulumi.CustomResource {
     /**

@@ -43,6 +43,14 @@ class StoreFirewallRule(pulumi.CustomResource):
             end_ip_address="2.3.4.5")
         ```
 
+        ## Import
+
+        Data Lake Store Firewall Rules can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:datalake/storeFirewallRule:StoreFirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DataLakeStore/accounts/mydatalakeaccount/firewallRules/rule1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Specifies the name of the Data Lake Store for which the Firewall Rule should take effect.

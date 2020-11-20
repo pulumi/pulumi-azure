@@ -4,6 +4,7 @@
 package appservice
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -153,6 +154,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// App Service Plan instances can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:appservice/plan:Plan instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/serverfarms/instance1
 // ```
 type Plan struct {
 	pulumi.CustomResourceState
@@ -322,4 +331,43 @@ type PlanArgs struct {
 
 func (PlanArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*planArgs)(nil)).Elem()
+}
+
+type PlanInput interface {
+	pulumi.Input
+
+	ToPlanOutput() PlanOutput
+	ToPlanOutputWithContext(ctx context.Context) PlanOutput
+}
+
+func (Plan) ElementType() reflect.Type {
+	return reflect.TypeOf((*Plan)(nil)).Elem()
+}
+
+func (i Plan) ToPlanOutput() PlanOutput {
+	return i.ToPlanOutputWithContext(context.Background())
+}
+
+func (i Plan) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanOutput)
+}
+
+type PlanOutput struct {
+	*pulumi.OutputState
+}
+
+func (PlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanOutput)(nil)).Elem()
+}
+
+func (o PlanOutput) ToPlanOutput() PlanOutput {
+	return o
+}
+
+func (o PlanOutput) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PlanOutput{})
 }

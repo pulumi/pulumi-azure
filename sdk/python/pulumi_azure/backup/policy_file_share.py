@@ -55,6 +55,14 @@ class PolicyFileShare(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        Azure File Share Backup Policies can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:backup/policyFileShare:PolicyFileShare policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupPolicies/policy1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PolicyFileShareBackupArgs']] backup: Configures the Policy backup frequency and times as documented in the `backup` block below.

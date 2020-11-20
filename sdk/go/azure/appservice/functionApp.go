@@ -4,6 +4,7 @@
 package appservice
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -178,6 +179,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Function Apps can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:appservice/functionApp:FunctionApp functionapp1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/functionapp1
 // ```
 type FunctionApp struct {
 	pulumi.CustomResourceState
@@ -476,4 +485,43 @@ type FunctionAppArgs struct {
 
 func (FunctionAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionAppArgs)(nil)).Elem()
+}
+
+type FunctionAppInput interface {
+	pulumi.Input
+
+	ToFunctionAppOutput() FunctionAppOutput
+	ToFunctionAppOutputWithContext(ctx context.Context) FunctionAppOutput
+}
+
+func (FunctionApp) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionApp)(nil)).Elem()
+}
+
+func (i FunctionApp) ToFunctionAppOutput() FunctionAppOutput {
+	return i.ToFunctionAppOutputWithContext(context.Background())
+}
+
+func (i FunctionApp) ToFunctionAppOutputWithContext(ctx context.Context) FunctionAppOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppOutput)
+}
+
+type FunctionAppOutput struct {
+	*pulumi.OutputState
+}
+
+func (FunctionAppOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppOutput)(nil)).Elem()
+}
+
+func (o FunctionAppOutput) ToFunctionAppOutput() FunctionAppOutput {
+	return o
+}
+
+func (o FunctionAppOutput) ToFunctionAppOutputWithContext(ctx context.Context) FunctionAppOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(FunctionAppOutput{})
 }

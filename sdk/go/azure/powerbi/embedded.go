@@ -4,6 +4,7 @@
 package powerbi
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -45,6 +46,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// PowerBI Embedded can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:powerbi/embedded:Embedded example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.PowerBIDedicated/capacities/capacity1
 // ```
 type Embedded struct {
 	pulumi.CustomResourceState
@@ -166,4 +175,43 @@ type EmbeddedArgs struct {
 
 func (EmbeddedArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*embeddedArgs)(nil)).Elem()
+}
+
+type EmbeddedInput interface {
+	pulumi.Input
+
+	ToEmbeddedOutput() EmbeddedOutput
+	ToEmbeddedOutputWithContext(ctx context.Context) EmbeddedOutput
+}
+
+func (Embedded) ElementType() reflect.Type {
+	return reflect.TypeOf((*Embedded)(nil)).Elem()
+}
+
+func (i Embedded) ToEmbeddedOutput() EmbeddedOutput {
+	return i.ToEmbeddedOutputWithContext(context.Background())
+}
+
+func (i Embedded) ToEmbeddedOutputWithContext(ctx context.Context) EmbeddedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmbeddedOutput)
+}
+
+type EmbeddedOutput struct {
+	*pulumi.OutputState
+}
+
+func (EmbeddedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmbeddedOutput)(nil)).Elem()
+}
+
+func (o EmbeddedOutput) ToEmbeddedOutput() EmbeddedOutput {
+	return o
+}
+
+func (o EmbeddedOutput) ToEmbeddedOutputWithContext(ctx context.Context) EmbeddedOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EmbeddedOutput{})
 }

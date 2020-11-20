@@ -4,6 +4,7 @@
 package backup
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -64,6 +65,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Recovery Services Protected VMs can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:backup/protectedVM:ProtectedVM item1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;group1;vm1/protectedItems/vm;iaasvmcontainerv2;group1;vm1"
+// ```
+//
+//  Note the ID requires quoting as there are semicolons
 type ProtectedVM struct {
 	pulumi.CustomResourceState
 
@@ -177,4 +188,43 @@ type ProtectedVMArgs struct {
 
 func (ProtectedVMArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectedVMArgs)(nil)).Elem()
+}
+
+type ProtectedVMInput interface {
+	pulumi.Input
+
+	ToProtectedVMOutput() ProtectedVMOutput
+	ToProtectedVMOutputWithContext(ctx context.Context) ProtectedVMOutput
+}
+
+func (ProtectedVM) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectedVM)(nil)).Elem()
+}
+
+func (i ProtectedVM) ToProtectedVMOutput() ProtectedVMOutput {
+	return i.ToProtectedVMOutputWithContext(context.Background())
+}
+
+func (i ProtectedVM) ToProtectedVMOutputWithContext(ctx context.Context) ProtectedVMOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectedVMOutput)
+}
+
+type ProtectedVMOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProtectedVMOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectedVMOutput)(nil)).Elem()
+}
+
+func (o ProtectedVMOutput) ToProtectedVMOutput() ProtectedVMOutput {
+	return o
+}
+
+func (o ProtectedVMOutput) ToProtectedVMOutputWithContext(ctx context.Context) ProtectedVMOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProtectedVMOutput{})
 }

@@ -4,6 +4,7 @@
 package apimanagement
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -50,6 +51,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// API Management Authorization Servers can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:apimanagement/authorizationServer:AuthorizationServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/authorizationServers/server1
 // ```
 type AuthorizationServer struct {
 	pulumi.CustomResourceState
@@ -316,4 +325,43 @@ type AuthorizationServerArgs struct {
 
 func (AuthorizationServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*authorizationServerArgs)(nil)).Elem()
+}
+
+type AuthorizationServerInput interface {
+	pulumi.Input
+
+	ToAuthorizationServerOutput() AuthorizationServerOutput
+	ToAuthorizationServerOutputWithContext(ctx context.Context) AuthorizationServerOutput
+}
+
+func (AuthorizationServer) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizationServer)(nil)).Elem()
+}
+
+func (i AuthorizationServer) ToAuthorizationServerOutput() AuthorizationServerOutput {
+	return i.ToAuthorizationServerOutputWithContext(context.Background())
+}
+
+func (i AuthorizationServer) ToAuthorizationServerOutputWithContext(ctx context.Context) AuthorizationServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationServerOutput)
+}
+
+type AuthorizationServerOutput struct {
+	*pulumi.OutputState
+}
+
+func (AuthorizationServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizationServerOutput)(nil)).Elem()
+}
+
+func (o AuthorizationServerOutput) ToAuthorizationServerOutput() AuthorizationServerOutput {
+	return o
+}
+
+func (o AuthorizationServerOutput) ToAuthorizationServerOutputWithContext(ctx context.Context) AuthorizationServerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AuthorizationServerOutput{})
 }

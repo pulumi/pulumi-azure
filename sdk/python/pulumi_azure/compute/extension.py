@@ -111,6 +111,14 @@ class Extension(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        Virtual Machine Extensions can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:compute/extension:Extension example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/myVM/extensions/hostname
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys

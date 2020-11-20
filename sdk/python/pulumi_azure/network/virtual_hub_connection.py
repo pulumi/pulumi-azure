@@ -54,6 +54,14 @@ class VirtualHubConnection(pulumi.CustomResource):
             remote_virtual_network_id=example_virtual_network.id)
         ```
 
+        ## Import
+
+        Virtual Hub Connection's can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/virtualHubConnection:VirtualHubConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/hub1/hubVirtualNetworkConnections/connection1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
@@ -80,7 +88,7 @@ class VirtualHubConnection(pulumi.CustomResource):
             __props__ = dict()
 
             if hub_to_vitual_network_traffic_allowed is not None:
-                warnings.warn("Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider", DeprecationWarning)
+                warnings.warn("""Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider""", DeprecationWarning)
                 pulumi.log.warn("hub_to_vitual_network_traffic_allowed is deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider")
             __props__['hub_to_vitual_network_traffic_allowed'] = hub_to_vitual_network_traffic_allowed
             __props__['internet_security_enabled'] = internet_security_enabled
@@ -93,7 +101,7 @@ class VirtualHubConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'virtual_hub_id'")
             __props__['virtual_hub_id'] = virtual_hub_id
             if vitual_network_to_hub_gateways_traffic_allowed is not None:
-                warnings.warn("Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider", DeprecationWarning)
+                warnings.warn("""Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider""", DeprecationWarning)
                 pulumi.log.warn("vitual_network_to_hub_gateways_traffic_allowed is deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider")
             __props__['vitual_network_to_hub_gateways_traffic_allowed'] = vitual_network_to_hub_gateways_traffic_allowed
         super(VirtualHubConnection, __self__).__init__(

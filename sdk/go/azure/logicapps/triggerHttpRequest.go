@@ -4,6 +4,7 @@
 package logicapps
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -50,6 +51,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Logic App HTTP Request Triggers can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:logicapps/triggerHttpRequest:TriggerHttpRequest request1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/request1
 // ```
 type TriggerHttpRequest struct {
 	pulumi.CustomResourceState
@@ -158,4 +167,43 @@ type TriggerHttpRequestArgs struct {
 
 func (TriggerHttpRequestArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*triggerHttpRequestArgs)(nil)).Elem()
+}
+
+type TriggerHttpRequestInput interface {
+	pulumi.Input
+
+	ToTriggerHttpRequestOutput() TriggerHttpRequestOutput
+	ToTriggerHttpRequestOutputWithContext(ctx context.Context) TriggerHttpRequestOutput
+}
+
+func (TriggerHttpRequest) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerHttpRequest)(nil)).Elem()
+}
+
+func (i TriggerHttpRequest) ToTriggerHttpRequestOutput() TriggerHttpRequestOutput {
+	return i.ToTriggerHttpRequestOutputWithContext(context.Background())
+}
+
+func (i TriggerHttpRequest) ToTriggerHttpRequestOutputWithContext(ctx context.Context) TriggerHttpRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerHttpRequestOutput)
+}
+
+type TriggerHttpRequestOutput struct {
+	*pulumi.OutputState
+}
+
+func (TriggerHttpRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerHttpRequestOutput)(nil)).Elem()
+}
+
+func (o TriggerHttpRequestOutput) ToTriggerHttpRequestOutput() TriggerHttpRequestOutput {
+	return o
+}
+
+func (o TriggerHttpRequestOutput) ToTriggerHttpRequestOutputWithContext(ctx context.Context) TriggerHttpRequestOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TriggerHttpRequestOutput{})
 }

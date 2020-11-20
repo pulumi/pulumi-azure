@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -58,6 +57,14 @@ import * as utilities from "../utilities";
  * }, {
  *     dependsOn: [exampleAssignment],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Data Share Blob Storage Datasets can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:datashare/datasetBlobStorage:DatasetBlobStorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1/dataSets/dataSet1
  * ```
  */
 export class DatasetBlobStorage extends pulumi.CustomResource {

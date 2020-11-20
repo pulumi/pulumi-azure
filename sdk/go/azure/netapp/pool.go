@@ -4,6 +4,7 @@
 package netapp
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -51,6 +52,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// NetApp Pool can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:netapp/pool:Pool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1
 // ```
 type Pool struct {
 	pulumi.CustomResourceState
@@ -185,4 +194,43 @@ type PoolArgs struct {
 
 func (PoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*poolArgs)(nil)).Elem()
+}
+
+type PoolInput interface {
+	pulumi.Input
+
+	ToPoolOutput() PoolOutput
+	ToPoolOutputWithContext(ctx context.Context) PoolOutput
+}
+
+func (Pool) ElementType() reflect.Type {
+	return reflect.TypeOf((*Pool)(nil)).Elem()
+}
+
+func (i Pool) ToPoolOutput() PoolOutput {
+	return i.ToPoolOutputWithContext(context.Background())
+}
+
+func (i Pool) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolOutput)
+}
+
+type PoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (PoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolOutput)(nil)).Elem()
+}
+
+func (o PoolOutput) ToPoolOutput() PoolOutput {
+	return o
+}
+
+func (o PoolOutput) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PoolOutput{})
 }

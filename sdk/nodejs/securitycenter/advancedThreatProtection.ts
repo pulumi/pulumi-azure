@@ -28,6 +28,14 @@ import * as utilities from "../utilities";
  *     enabled: true,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Advanced Threat Protection can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleResourceGroup/providers/Microsoft.Storage/storageAccounts/exampleaccount/providers/Microsoft.Security/advancedThreatProtectionSettings/default
+ * ```
  */
 export class AdvancedThreatProtection extends pulumi.CustomResource {
     /**

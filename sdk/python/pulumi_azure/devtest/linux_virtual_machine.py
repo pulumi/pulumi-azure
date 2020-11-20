@@ -40,6 +40,14 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         Manages a Linux Virtual Machine within a Dev Test Lab.
 
+        ## Import
+
+        Dev Test Linux Virtual Machines can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:devtest/linuxVirtualMachine:LinuxVirtualMachine machine1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualmachines/machine1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_claim: Can this Virtual Machine be claimed by users? Defaults to `true`.

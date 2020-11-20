@@ -78,6 +78,14 @@ class FunctionAppSlot(pulumi.CustomResource):
             storage_account_access_key=example_account.primary_access_key)
         ```
 
+        ## Import
+
+        Function Apps Deployment Slots can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:appservice/functionAppSlot:FunctionAppSlot functionapp1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/functionapp1/slots/staging
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App Slot.

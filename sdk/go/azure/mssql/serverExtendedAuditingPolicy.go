@@ -4,6 +4,7 @@
 package mssql
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -66,6 +67,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Ms Sql Server Extended Auditing Policys can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/extendedAuditingSettings/default
 // ```
 type ServerExtendedAuditingPolicy struct {
 	pulumi.CustomResourceState
@@ -174,4 +183,43 @@ type ServerExtendedAuditingPolicyArgs struct {
 
 func (ServerExtendedAuditingPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverExtendedAuditingPolicyArgs)(nil)).Elem()
+}
+
+type ServerExtendedAuditingPolicyInput interface {
+	pulumi.Input
+
+	ToServerExtendedAuditingPolicyOutput() ServerExtendedAuditingPolicyOutput
+	ToServerExtendedAuditingPolicyOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyOutput
+}
+
+func (ServerExtendedAuditingPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerExtendedAuditingPolicy)(nil)).Elem()
+}
+
+func (i ServerExtendedAuditingPolicy) ToServerExtendedAuditingPolicyOutput() ServerExtendedAuditingPolicyOutput {
+	return i.ToServerExtendedAuditingPolicyOutputWithContext(context.Background())
+}
+
+func (i ServerExtendedAuditingPolicy) ToServerExtendedAuditingPolicyOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerExtendedAuditingPolicyOutput)
+}
+
+type ServerExtendedAuditingPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerExtendedAuditingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerExtendedAuditingPolicyOutput)(nil)).Elem()
+}
+
+func (o ServerExtendedAuditingPolicyOutput) ToServerExtendedAuditingPolicyOutput() ServerExtendedAuditingPolicyOutput {
+	return o
+}
+
+func (o ServerExtendedAuditingPolicyOutput) ToServerExtendedAuditingPolicyOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServerExtendedAuditingPolicyOutput{})
 }

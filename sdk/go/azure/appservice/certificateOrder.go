@@ -4,6 +4,7 @@
 package appservice
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -43,6 +44,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// App Service Certificate Orders can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:appservice/certificateOrder:CertificateOrder example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.CertificateRegistration/certificateOrders/certificateorder1
 // ```
 type CertificateOrder struct {
 	pulumi.CustomResourceState
@@ -252,4 +261,43 @@ type CertificateOrderArgs struct {
 
 func (CertificateOrderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateOrderArgs)(nil)).Elem()
+}
+
+type CertificateOrderInput interface {
+	pulumi.Input
+
+	ToCertificateOrderOutput() CertificateOrderOutput
+	ToCertificateOrderOutputWithContext(ctx context.Context) CertificateOrderOutput
+}
+
+func (CertificateOrder) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateOrder)(nil)).Elem()
+}
+
+func (i CertificateOrder) ToCertificateOrderOutput() CertificateOrderOutput {
+	return i.ToCertificateOrderOutputWithContext(context.Background())
+}
+
+func (i CertificateOrder) ToCertificateOrderOutputWithContext(ctx context.Context) CertificateOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderOutput)
+}
+
+type CertificateOrderOutput struct {
+	*pulumi.OutputState
+}
+
+func (CertificateOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateOrderOutput)(nil)).Elem()
+}
+
+func (o CertificateOrderOutput) ToCertificateOrderOutput() CertificateOrderOutput {
+	return o
+}
+
+func (o CertificateOrderOutput) ToCertificateOrderOutputWithContext(ctx context.Context) CertificateOrderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CertificateOrderOutput{})
 }

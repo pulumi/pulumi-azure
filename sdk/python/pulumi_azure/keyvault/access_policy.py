@@ -33,6 +33,22 @@ class AccessPolicy(pulumi.CustomResource):
 
         > **NOTE:** Azure permits a maximum of 1024 Access Policies per Key Vault - [more information can be found in this document](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-access-control).
 
+        ## Import
+
+        Key Vault Access Policies can be imported using the Resource ID of the Key Vault, plus some additional metadata. If both an `object_id` and `application_id` are specified, then the Access Policy can be imported using the following code
+
+        ```sh
+         $ pulumi import azure:keyvault/accessPolicy:AccessPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/vaults/test-vault/objectId/11111111-1111-1111-1111-111111111111/applicationId/22222222-2222-2222-2222-222222222222
+        ```
+
+         where `11111111-1111-1111-1111-111111111111` is the `object_id` and `22222222-2222-2222-2222-222222222222` is the `application_id`. --- Access Policies with an `object_id` but no `application_id` can be imported using the following command
+
+        ```sh
+         $ pulumi import azure:keyvault/accessPolicy:AccessPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/vaults/test-vault/objectId/11111111-1111-1111-1111-111111111111
+        ```
+
+         where `11111111-1111-1111-1111-111111111111` is the `object_id`.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The object ID of an Application in Azure Active Directory.

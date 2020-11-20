@@ -6,6 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an App Service certificate.
+ *
+ * ## Import
+ *
+ * App Service Certificates can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:appservice/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/certificates/certificate1
+ * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**

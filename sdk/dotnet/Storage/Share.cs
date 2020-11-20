@@ -60,6 +60,14 @@ namespace Pulumi.Azure.Storage
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Storage Shares can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:storage/share:Share exampleShare https://account1.file.core.windows.net/share1
+    /// ```
     /// </summary>
     public partial class Share : Pulumi.CustomResource
     {

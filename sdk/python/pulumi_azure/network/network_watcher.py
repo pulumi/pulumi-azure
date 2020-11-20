@@ -37,6 +37,14 @@ class NetworkWatcher(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         ```
 
+        ## Import
+
+        Network Watchers can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/networkWatcher:NetworkWatcher watcher1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

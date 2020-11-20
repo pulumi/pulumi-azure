@@ -65,6 +65,14 @@ namespace Pulumi.Azure.AppService
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Function Apps Deployment Slots can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:appservice/functionAppSlot:FunctionAppSlot functionapp1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/functionapp1/slots/staging
+    /// ```
     /// </summary>
     public partial class FunctionAppSlot : Pulumi.CustomResource
     {

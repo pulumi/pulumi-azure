@@ -4,6 +4,7 @@
 package iot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -43,6 +44,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Azure IoT Time Series Insights Standard Environment can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:iot/timeSeriesInsightsStandardEnvironment:TimeSeriesInsightsStandardEnvironment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/example
 // ```
 type TimeSeriesInsightsStandardEnvironment struct {
 	pulumi.CustomResourceState
@@ -184,4 +193,43 @@ type TimeSeriesInsightsStandardEnvironmentArgs struct {
 
 func (TimeSeriesInsightsStandardEnvironmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*timeSeriesInsightsStandardEnvironmentArgs)(nil)).Elem()
+}
+
+type TimeSeriesInsightsStandardEnvironmentInput interface {
+	pulumi.Input
+
+	ToTimeSeriesInsightsStandardEnvironmentOutput() TimeSeriesInsightsStandardEnvironmentOutput
+	ToTimeSeriesInsightsStandardEnvironmentOutputWithContext(ctx context.Context) TimeSeriesInsightsStandardEnvironmentOutput
+}
+
+func (TimeSeriesInsightsStandardEnvironment) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeSeriesInsightsStandardEnvironment)(nil)).Elem()
+}
+
+func (i TimeSeriesInsightsStandardEnvironment) ToTimeSeriesInsightsStandardEnvironmentOutput() TimeSeriesInsightsStandardEnvironmentOutput {
+	return i.ToTimeSeriesInsightsStandardEnvironmentOutputWithContext(context.Background())
+}
+
+func (i TimeSeriesInsightsStandardEnvironment) ToTimeSeriesInsightsStandardEnvironmentOutputWithContext(ctx context.Context) TimeSeriesInsightsStandardEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsStandardEnvironmentOutput)
+}
+
+type TimeSeriesInsightsStandardEnvironmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (TimeSeriesInsightsStandardEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeSeriesInsightsStandardEnvironmentOutput)(nil)).Elem()
+}
+
+func (o TimeSeriesInsightsStandardEnvironmentOutput) ToTimeSeriesInsightsStandardEnvironmentOutput() TimeSeriesInsightsStandardEnvironmentOutput {
+	return o
+}
+
+func (o TimeSeriesInsightsStandardEnvironmentOutput) ToTimeSeriesInsightsStandardEnvironmentOutputWithContext(ctx context.Context) TimeSeriesInsightsStandardEnvironmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TimeSeriesInsightsStandardEnvironmentOutput{})
 }

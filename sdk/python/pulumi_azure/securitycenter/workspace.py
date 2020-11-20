@@ -43,6 +43,14 @@ class Workspace(pulumi.CustomResource):
             workspace_id=example_analytics_workspace.id)
         ```
 
+        ## Import
+
+        The contact can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:securitycenter/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/workspaceSettings/default
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] scope: The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.

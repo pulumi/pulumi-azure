@@ -56,6 +56,14 @@ class MxRecord(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        MX records can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:dns/mxRecord:MxRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/MX/myrecord1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.

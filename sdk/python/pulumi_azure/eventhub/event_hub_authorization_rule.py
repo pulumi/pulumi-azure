@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['EventHubAuthorizationRule']
 
-warnings.warn("azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule", DeprecationWarning)
+warnings.warn("""azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule""", DeprecationWarning)
 
 
 class EventHubAuthorizationRule(pulumi.CustomResource):
-    warnings.warn("azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule", DeprecationWarning)
+    warnings.warn("""azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -59,6 +59,14 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
             listen=True,
             send=False,
             manage=False)
+        ```
+
+        ## Import
+
+        EventHub Authorization Rules can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/eventhubs/eventhub1/authorizationRules/rule1
         ```
 
         :param str resource_name: The name of the resource.

@@ -4,6 +4,7 @@
 package devtest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -55,6 +56,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// DevTest Virtual Networks can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:devtest/virtualNetwork:VirtualNetwork network1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualnetworks/network1
 // ```
 type VirtualNetwork struct {
 	pulumi.CustomResourceState
@@ -179,4 +188,43 @@ type VirtualNetworkArgs struct {
 
 func (VirtualNetworkArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkArgs)(nil)).Elem()
+}
+
+type VirtualNetworkInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkOutput() VirtualNetworkOutput
+	ToVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkOutput
+}
+
+func (VirtualNetwork) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetwork)(nil)).Elem()
+}
+
+func (i VirtualNetwork) ToVirtualNetworkOutput() VirtualNetworkOutput {
+	return i.ToVirtualNetworkOutputWithContext(context.Background())
+}
+
+func (i VirtualNetwork) ToVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkOutput)
+}
+
+type VirtualNetworkOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkOutput)(nil)).Elem()
+}
+
+func (o VirtualNetworkOutput) ToVirtualNetworkOutput() VirtualNetworkOutput {
+	return o
+}
+
+func (o VirtualNetworkOutput) ToVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualNetworkOutput{})
 }

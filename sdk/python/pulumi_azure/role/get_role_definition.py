@@ -15,7 +15,7 @@ __all__ = [
     'get_role_definition',
 ]
 
-warnings.warn("azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition", DeprecationWarning)
+warnings.warn("""azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRoleDefinitionResult:

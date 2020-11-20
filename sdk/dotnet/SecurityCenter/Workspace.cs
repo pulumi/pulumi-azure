@@ -45,6 +45,14 @@ namespace Pulumi.Azure.SecurityCenter
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// The contact can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:securitycenter/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/workspaceSettings/default
+    /// ```
     /// </summary>
     public partial class Workspace : Pulumi.CustomResource
     {

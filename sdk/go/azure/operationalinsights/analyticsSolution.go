@@ -4,6 +4,7 @@
 package operationalinsights
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -66,6 +67,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Log Analytics Solutions can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:operationalinsights/analyticsSolution:AnalyticsSolution solution1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationsManagement/solutions/solution1
 // ```
 type AnalyticsSolution struct {
 	pulumi.CustomResourceState
@@ -203,4 +212,43 @@ type AnalyticsSolutionArgs struct {
 
 func (AnalyticsSolutionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyticsSolutionArgs)(nil)).Elem()
+}
+
+type AnalyticsSolutionInput interface {
+	pulumi.Input
+
+	ToAnalyticsSolutionOutput() AnalyticsSolutionOutput
+	ToAnalyticsSolutionOutputWithContext(ctx context.Context) AnalyticsSolutionOutput
+}
+
+func (AnalyticsSolution) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsSolution)(nil)).Elem()
+}
+
+func (i AnalyticsSolution) ToAnalyticsSolutionOutput() AnalyticsSolutionOutput {
+	return i.ToAnalyticsSolutionOutputWithContext(context.Background())
+}
+
+func (i AnalyticsSolution) ToAnalyticsSolutionOutputWithContext(ctx context.Context) AnalyticsSolutionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsSolutionOutput)
+}
+
+type AnalyticsSolutionOutput struct {
+	*pulumi.OutputState
+}
+
+func (AnalyticsSolutionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsSolutionOutput)(nil)).Elem()
+}
+
+func (o AnalyticsSolutionOutput) ToAnalyticsSolutionOutput() AnalyticsSolutionOutput {
+	return o
+}
+
+func (o AnalyticsSolutionOutput) ToAnalyticsSolutionOutputWithContext(ctx context.Context) AnalyticsSolutionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AnalyticsSolutionOutput{})
 }

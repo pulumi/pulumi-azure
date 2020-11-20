@@ -4,6 +4,7 @@
 package monitoring
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -57,6 +58,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Monitor Action Rule can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:monitoring/actionRuleActionGroup:ActionRuleActionGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AlertsManagement/actionRules/actionRule1
 // ```
 type ActionRuleActionGroup struct {
 	pulumi.CustomResourceState
@@ -195,4 +204,43 @@ type ActionRuleActionGroupArgs struct {
 
 func (ActionRuleActionGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionRuleActionGroupArgs)(nil)).Elem()
+}
+
+type ActionRuleActionGroupInput interface {
+	pulumi.Input
+
+	ToActionRuleActionGroupOutput() ActionRuleActionGroupOutput
+	ToActionRuleActionGroupOutputWithContext(ctx context.Context) ActionRuleActionGroupOutput
+}
+
+func (ActionRuleActionGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroup)(nil)).Elem()
+}
+
+func (i ActionRuleActionGroup) ToActionRuleActionGroupOutput() ActionRuleActionGroupOutput {
+	return i.ToActionRuleActionGroupOutputWithContext(context.Background())
+}
+
+func (i ActionRuleActionGroup) ToActionRuleActionGroupOutputWithContext(ctx context.Context) ActionRuleActionGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupOutput)
+}
+
+type ActionRuleActionGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ActionRuleActionGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroupOutput)(nil)).Elem()
+}
+
+func (o ActionRuleActionGroupOutput) ToActionRuleActionGroupOutput() ActionRuleActionGroupOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupOutput) ToActionRuleActionGroupOutputWithContext(ctx context.Context) ActionRuleActionGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ActionRuleActionGroupOutput{})
 }

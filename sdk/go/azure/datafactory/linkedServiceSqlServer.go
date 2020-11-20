@@ -4,6 +4,7 @@
 package datafactory
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -49,6 +50,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Data Factory SQL Server Linked Service's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
 // ```
 type LinkedServiceSqlServer struct {
 	pulumi.CustomResourceState
@@ -200,4 +209,43 @@ type LinkedServiceSqlServerArgs struct {
 
 func (LinkedServiceSqlServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceSqlServerArgs)(nil)).Elem()
+}
+
+type LinkedServiceSqlServerInput interface {
+	pulumi.Input
+
+	ToLinkedServiceSqlServerOutput() LinkedServiceSqlServerOutput
+	ToLinkedServiceSqlServerOutputWithContext(ctx context.Context) LinkedServiceSqlServerOutput
+}
+
+func (LinkedServiceSqlServer) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceSqlServer)(nil)).Elem()
+}
+
+func (i LinkedServiceSqlServer) ToLinkedServiceSqlServerOutput() LinkedServiceSqlServerOutput {
+	return i.ToLinkedServiceSqlServerOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceSqlServer) ToLinkedServiceSqlServerOutputWithContext(ctx context.Context) LinkedServiceSqlServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSqlServerOutput)
+}
+
+type LinkedServiceSqlServerOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkedServiceSqlServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceSqlServerOutput)(nil)).Elem()
+}
+
+func (o LinkedServiceSqlServerOutput) ToLinkedServiceSqlServerOutput() LinkedServiceSqlServerOutput {
+	return o
+}
+
+func (o LinkedServiceSqlServerOutput) ToLinkedServiceSqlServerOutputWithContext(ctx context.Context) LinkedServiceSqlServerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LinkedServiceSqlServerOutput{})
 }

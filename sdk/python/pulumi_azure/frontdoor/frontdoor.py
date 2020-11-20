@@ -91,6 +91,14 @@ class Frontdoor(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        Front Doors can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:frontdoor/frontdoor:Frontdoor example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mygroup1/providers/Microsoft.Network/frontdoors/frontdoor1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolHealthProbeArgs']]]] backend_pool_health_probes: A `backend_pool_health_probe` block as defined below.
@@ -143,7 +151,7 @@ class Frontdoor(pulumi.CustomResource):
             __props__['frontend_endpoints'] = frontend_endpoints
             __props__['load_balancer_enabled'] = load_balancer_enabled
             if location is not None:
-                warnings.warn("Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location", DeprecationWarning)
+                warnings.warn("""Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location""", DeprecationWarning)
                 pulumi.log.warn("location is deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location")
             __props__['location'] = location
             __props__['name'] = name

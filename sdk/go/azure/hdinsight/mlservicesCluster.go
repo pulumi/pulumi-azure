@@ -4,6 +4,7 @@
 package hdinsight
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -98,6 +99,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// HDInsight ML Services Clusters can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:hdinsight/mLServicesCluster:MLServicesCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1}
 // ```
 type MLServicesCluster struct {
 	pulumi.CustomResourceState
@@ -291,4 +300,43 @@ type MLServicesClusterArgs struct {
 
 func (MLServicesClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mlservicesClusterArgs)(nil)).Elem()
+}
+
+type MLServicesClusterInput interface {
+	pulumi.Input
+
+	ToMLServicesClusterOutput() MLServicesClusterOutput
+	ToMLServicesClusterOutputWithContext(ctx context.Context) MLServicesClusterOutput
+}
+
+func (MLServicesCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLServicesCluster)(nil)).Elem()
+}
+
+func (i MLServicesCluster) ToMLServicesClusterOutput() MLServicesClusterOutput {
+	return i.ToMLServicesClusterOutputWithContext(context.Background())
+}
+
+func (i MLServicesCluster) ToMLServicesClusterOutputWithContext(ctx context.Context) MLServicesClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterOutput)
+}
+
+type MLServicesClusterOutput struct {
+	*pulumi.OutputState
+}
+
+func (MLServicesClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLServicesClusterOutput)(nil)).Elem()
+}
+
+func (o MLServicesClusterOutput) ToMLServicesClusterOutput() MLServicesClusterOutput {
+	return o
+}
+
+func (o MLServicesClusterOutput) ToMLServicesClusterOutputWithContext(ctx context.Context) MLServicesClusterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MLServicesClusterOutput{})
 }

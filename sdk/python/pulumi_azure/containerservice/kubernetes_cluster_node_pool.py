@@ -76,6 +76,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool pool1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.

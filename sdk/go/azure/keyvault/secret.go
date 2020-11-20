@@ -4,6 +4,7 @@
 package keyvault
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages a Key Vault Secret.
+//
+// ## Import
+//
+// Key Vault Secrets which are Enabled can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:keyvault/secret:Secret example https://example-keyvault.vault.azure.net/secrets/example/fdf067c93bbb4b22bff4d8b7a9a56217
+// ```
 type Secret struct {
 	pulumi.CustomResourceState
 
@@ -144,4 +153,43 @@ type SecretArgs struct {
 
 func (SecretArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*secretArgs)(nil)).Elem()
+}
+
+type SecretInput interface {
+	pulumi.Input
+
+	ToSecretOutput() SecretOutput
+	ToSecretOutputWithContext(ctx context.Context) SecretOutput
+}
+
+func (Secret) ElementType() reflect.Type {
+	return reflect.TypeOf((*Secret)(nil)).Elem()
+}
+
+func (i Secret) ToSecretOutput() SecretOutput {
+	return i.ToSecretOutputWithContext(context.Background())
+}
+
+func (i Secret) ToSecretOutputWithContext(ctx context.Context) SecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretOutput)
+}
+
+type SecretOutput struct {
+	*pulumi.OutputState
+}
+
+func (SecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretOutput)(nil)).Elem()
+}
+
+func (o SecretOutput) ToSecretOutput() SecretOutput {
+	return o
+}
+
+func (o SecretOutput) ToSecretOutputWithContext(ctx context.Context) SecretOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SecretOutput{})
 }

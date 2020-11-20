@@ -93,6 +93,14 @@ class Assignment(pulumi.CustomResource):
                 ]))
         ```
 
+        ## Import
+
+        Azure Blueprint Assignments can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:blueprint/assignment:Assignment example "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprintAssignments/assignSimpleBlueprint"
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The Azure location of the Assignment.

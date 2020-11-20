@@ -4,6 +4,7 @@
 package kusto
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -71,6 +72,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Kusto Database Principal Assignment can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/PrincipalAssignments/assignment1
 // ```
 type DatabasePrincipalAssignment struct {
 	pulumi.CustomResourceState
@@ -231,4 +240,43 @@ type DatabasePrincipalAssignmentArgs struct {
 
 func (DatabasePrincipalAssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*databasePrincipalAssignmentArgs)(nil)).Elem()
+}
+
+type DatabasePrincipalAssignmentInput interface {
+	pulumi.Input
+
+	ToDatabasePrincipalAssignmentOutput() DatabasePrincipalAssignmentOutput
+	ToDatabasePrincipalAssignmentOutputWithContext(ctx context.Context) DatabasePrincipalAssignmentOutput
+}
+
+func (DatabasePrincipalAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasePrincipalAssignment)(nil)).Elem()
+}
+
+func (i DatabasePrincipalAssignment) ToDatabasePrincipalAssignmentOutput() DatabasePrincipalAssignmentOutput {
+	return i.ToDatabasePrincipalAssignmentOutputWithContext(context.Background())
+}
+
+func (i DatabasePrincipalAssignment) ToDatabasePrincipalAssignmentOutputWithContext(ctx context.Context) DatabasePrincipalAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalAssignmentOutput)
+}
+
+type DatabasePrincipalAssignmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatabasePrincipalAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasePrincipalAssignmentOutput)(nil)).Elem()
+}
+
+func (o DatabasePrincipalAssignmentOutput) ToDatabasePrincipalAssignmentOutput() DatabasePrincipalAssignmentOutput {
+	return o
+}
+
+func (o DatabasePrincipalAssignmentOutput) ToDatabasePrincipalAssignmentOutputWithContext(ctx context.Context) DatabasePrincipalAssignmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DatabasePrincipalAssignmentOutput{})
 }

@@ -17,6 +17,14 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Resource Groups can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:core/resourceGroup:ResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example
+ * ```
  */
 export class ResourceGroup extends pulumi.CustomResource {
     /**

@@ -136,6 +136,14 @@ class Certificate(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        Key Vault Certificates can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:keyvault/certificate:Certificate net/certificates/example/fdf067c93bbb4b22bff4d8b7a9a56217
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CertificateCertificateArgs']] certificate: A `certificate` block as defined below, used to Import an existing certificate.

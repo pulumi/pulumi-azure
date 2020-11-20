@@ -4,6 +4,7 @@
 package datafactory
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -56,6 +57,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Data Factory Data Lake Storage Gen2 Linked Services can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
 // ```
 type LinkedServiceDataLakeStorageGen2 struct {
 	pulumi.CustomResourceState
@@ -247,4 +256,43 @@ type LinkedServiceDataLakeStorageGen2Args struct {
 
 func (LinkedServiceDataLakeStorageGen2Args) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceDataLakeStorageGen2Args)(nil)).Elem()
+}
+
+type LinkedServiceDataLakeStorageGen2Input interface {
+	pulumi.Input
+
+	ToLinkedServiceDataLakeStorageGen2Output() LinkedServiceDataLakeStorageGen2Output
+	ToLinkedServiceDataLakeStorageGen2OutputWithContext(ctx context.Context) LinkedServiceDataLakeStorageGen2Output
+}
+
+func (LinkedServiceDataLakeStorageGen2) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceDataLakeStorageGen2)(nil)).Elem()
+}
+
+func (i LinkedServiceDataLakeStorageGen2) ToLinkedServiceDataLakeStorageGen2Output() LinkedServiceDataLakeStorageGen2Output {
+	return i.ToLinkedServiceDataLakeStorageGen2OutputWithContext(context.Background())
+}
+
+func (i LinkedServiceDataLakeStorageGen2) ToLinkedServiceDataLakeStorageGen2OutputWithContext(ctx context.Context) LinkedServiceDataLakeStorageGen2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceDataLakeStorageGen2Output)
+}
+
+type LinkedServiceDataLakeStorageGen2Output struct {
+	*pulumi.OutputState
+}
+
+func (LinkedServiceDataLakeStorageGen2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceDataLakeStorageGen2Output)(nil)).Elem()
+}
+
+func (o LinkedServiceDataLakeStorageGen2Output) ToLinkedServiceDataLakeStorageGen2Output() LinkedServiceDataLakeStorageGen2Output {
+	return o
+}
+
+func (o LinkedServiceDataLakeStorageGen2Output) ToLinkedServiceDataLakeStorageGen2OutputWithContext(ctx context.Context) LinkedServiceDataLakeStorageGen2Output {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LinkedServiceDataLakeStorageGen2Output{})
 }

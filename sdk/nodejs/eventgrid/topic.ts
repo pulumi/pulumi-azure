@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -25,6 +24,14 @@ import * as utilities from "../utilities";
  *         environment: "Production",
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * EventGrid Topic's can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:eventgrid/topic:Topic topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1
  * ```
  */
 export class Topic extends pulumi.CustomResource {

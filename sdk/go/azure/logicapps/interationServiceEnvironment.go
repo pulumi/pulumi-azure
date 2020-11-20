@@ -4,6 +4,7 @@
 package logicapps
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -111,6 +112,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Integration Service Environments can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:logicapps/interationServiceEnvironment:InterationServiceEnvironment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationServiceEnvironments/ise1
 // ```
 type InterationServiceEnvironment struct {
 	pulumi.CustomResourceState
@@ -266,4 +275,43 @@ type InterationServiceEnvironmentArgs struct {
 
 func (InterationServiceEnvironmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*interationServiceEnvironmentArgs)(nil)).Elem()
+}
+
+type InterationServiceEnvironmentInput interface {
+	pulumi.Input
+
+	ToInterationServiceEnvironmentOutput() InterationServiceEnvironmentOutput
+	ToInterationServiceEnvironmentOutputWithContext(ctx context.Context) InterationServiceEnvironmentOutput
+}
+
+func (InterationServiceEnvironment) ElementType() reflect.Type {
+	return reflect.TypeOf((*InterationServiceEnvironment)(nil)).Elem()
+}
+
+func (i InterationServiceEnvironment) ToInterationServiceEnvironmentOutput() InterationServiceEnvironmentOutput {
+	return i.ToInterationServiceEnvironmentOutputWithContext(context.Background())
+}
+
+func (i InterationServiceEnvironment) ToInterationServiceEnvironmentOutputWithContext(ctx context.Context) InterationServiceEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InterationServiceEnvironmentOutput)
+}
+
+type InterationServiceEnvironmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (InterationServiceEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InterationServiceEnvironmentOutput)(nil)).Elem()
+}
+
+func (o InterationServiceEnvironmentOutput) ToInterationServiceEnvironmentOutput() InterationServiceEnvironmentOutput {
+	return o
+}
+
+func (o InterationServiceEnvironmentOutput) ToInterationServiceEnvironmentOutputWithContext(ctx context.Context) InterationServiceEnvironmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InterationServiceEnvironmentOutput{})
 }

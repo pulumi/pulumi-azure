@@ -4,6 +4,7 @@
 package lb
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -65,6 +66,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Load Balancer Backend Address Pools can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:lb/backendAddressPool:BackendAddressPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/backendAddressPools/pool1
 // ```
 type BackendAddressPool struct {
 	pulumi.CustomResourceState
@@ -165,4 +174,43 @@ type BackendAddressPoolArgs struct {
 
 func (BackendAddressPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*backendAddressPoolArgs)(nil)).Elem()
+}
+
+type BackendAddressPoolInput interface {
+	pulumi.Input
+
+	ToBackendAddressPoolOutput() BackendAddressPoolOutput
+	ToBackendAddressPoolOutputWithContext(ctx context.Context) BackendAddressPoolOutput
+}
+
+func (BackendAddressPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendAddressPool)(nil)).Elem()
+}
+
+func (i BackendAddressPool) ToBackendAddressPoolOutput() BackendAddressPoolOutput {
+	return i.ToBackendAddressPoolOutputWithContext(context.Background())
+}
+
+func (i BackendAddressPool) ToBackendAddressPoolOutputWithContext(ctx context.Context) BackendAddressPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackendAddressPoolOutput)
+}
+
+type BackendAddressPoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (BackendAddressPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendAddressPoolOutput)(nil)).Elem()
+}
+
+func (o BackendAddressPoolOutput) ToBackendAddressPoolOutput() BackendAddressPoolOutput {
+	return o
+}
+
+func (o BackendAddressPoolOutput) ToBackendAddressPoolOutputWithContext(ctx context.Context) BackendAddressPoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BackendAddressPoolOutput{})
 }

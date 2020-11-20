@@ -4,6 +4,7 @@
 package storage
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages an Entity within a Table in an Azure Storage Account.
+//
+// ## Import
+//
+// Entities within a Table in an Azure Storage Account can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:storage/tableEntity:TableEntity entity1 https://example.table.core.windows.net/table1(PartitionKey='samplepartition',RowKey='samplerow')
+// ```
 type TableEntity struct {
 	pulumi.CustomResourceState
 
@@ -137,4 +146,43 @@ type TableEntityArgs struct {
 
 func (TableEntityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableEntityArgs)(nil)).Elem()
+}
+
+type TableEntityInput interface {
+	pulumi.Input
+
+	ToTableEntityOutput() TableEntityOutput
+	ToTableEntityOutputWithContext(ctx context.Context) TableEntityOutput
+}
+
+func (TableEntity) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableEntity)(nil)).Elem()
+}
+
+func (i TableEntity) ToTableEntityOutput() TableEntityOutput {
+	return i.ToTableEntityOutputWithContext(context.Background())
+}
+
+func (i TableEntity) ToTableEntityOutputWithContext(ctx context.Context) TableEntityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableEntityOutput)
+}
+
+type TableEntityOutput struct {
+	*pulumi.OutputState
+}
+
+func (TableEntityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableEntityOutput)(nil)).Elem()
+}
+
+func (o TableEntityOutput) ToTableEntityOutput() TableEntityOutput {
+	return o
+}
+
+func (o TableEntityOutput) ToTableEntityOutputWithContext(ctx context.Context) TableEntityOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TableEntityOutput{})
 }

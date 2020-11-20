@@ -76,6 +76,20 @@ class Definition(pulumi.CustomResource):
             policy_type="Custom")
         ```
 
+        ## Import
+
+        Policy Definitions can be imported using the `policy name`, e.g.
+
+        ```sh
+         $ pulumi import azure:policy/definition:Definition examplePolicy /subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Authorization/policyDefinitions/<POLICY_NAME>
+        ```
+
+         or
+
+        ```sh
+         $ pulumi import azure:policy/definition:Definition examplePolicy /providers/Microsoft.Management/managementgroups/<MANGAGEMENT_GROUP_ID>/providers/Microsoft.Authorization/policyDefinitions/<POLICY_NAME>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the policy definition.
@@ -118,7 +132,7 @@ class Definition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             if management_group_id is not None:
-                warnings.warn("Deprecated in favour of `management_group_name`", DeprecationWarning)
+                warnings.warn("""Deprecated in favour of `management_group_name`""", DeprecationWarning)
                 pulumi.log.warn("management_group_id is deprecated: Deprecated in favour of `management_group_name`")
             __props__['management_group_id'] = management_group_id
             __props__['management_group_name'] = management_group_name

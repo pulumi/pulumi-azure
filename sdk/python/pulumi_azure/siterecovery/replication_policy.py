@@ -44,6 +44,14 @@ class ReplicationPolicy(pulumi.CustomResource):
             application_consistent_snapshot_frequency_in_minutes=4 * 60)
         ```
 
+        ## Import
+
+        Site Recovery Replication Policies can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:siterecovery/replicationPolicy:ReplicationPolicy mypolicy /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationPolicies/policy-name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] application_consistent_snapshot_frequency_in_minutes: Specifies the frequency(in minutes) at which to create application consistent recovery points.

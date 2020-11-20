@@ -4,6 +4,7 @@
 package automation
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages a Automation DSC Node Configuration.
+//
+// ## Import
+//
+// Automation DSC Node Configuration's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:automation/dscNodeConfiguration:DscNodeConfiguration configuration1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/nodeConfigurations/configuration1
+// ```
 type DscNodeConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -114,4 +123,43 @@ type DscNodeConfigurationArgs struct {
 
 func (DscNodeConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dscNodeConfigurationArgs)(nil)).Elem()
+}
+
+type DscNodeConfigurationInput interface {
+	pulumi.Input
+
+	ToDscNodeConfigurationOutput() DscNodeConfigurationOutput
+	ToDscNodeConfigurationOutputWithContext(ctx context.Context) DscNodeConfigurationOutput
+}
+
+func (DscNodeConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*DscNodeConfiguration)(nil)).Elem()
+}
+
+func (i DscNodeConfiguration) ToDscNodeConfigurationOutput() DscNodeConfigurationOutput {
+	return i.ToDscNodeConfigurationOutputWithContext(context.Background())
+}
+
+func (i DscNodeConfiguration) ToDscNodeConfigurationOutputWithContext(ctx context.Context) DscNodeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DscNodeConfigurationOutput)
+}
+
+type DscNodeConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (DscNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DscNodeConfigurationOutput)(nil)).Elem()
+}
+
+func (o DscNodeConfigurationOutput) ToDscNodeConfigurationOutput() DscNodeConfigurationOutput {
+	return o
+}
+
+func (o DscNodeConfigurationOutput) ToDscNodeConfigurationOutputWithContext(ctx context.Context) DscNodeConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DscNodeConfigurationOutput{})
 }

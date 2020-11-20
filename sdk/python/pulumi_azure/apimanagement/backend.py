@@ -35,6 +35,14 @@ class Backend(pulumi.CustomResource):
         """
         Manages a backend within an API Management Service.
 
+        ## Import
+
+        API Management backends can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:apimanagement/backend:Backend example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/backends/backend1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.

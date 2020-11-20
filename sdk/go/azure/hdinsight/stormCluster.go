@@ -4,6 +4,7 @@
 package hdinsight
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -95,6 +96,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// HDInsight Storm Clusters can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:hdinsight/stormCluster:StormCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1}
 // ```
 type StormCluster struct {
 	pulumi.CustomResourceState
@@ -302,4 +311,43 @@ type StormClusterArgs struct {
 
 func (StormClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stormClusterArgs)(nil)).Elem()
+}
+
+type StormClusterInput interface {
+	pulumi.Input
+
+	ToStormClusterOutput() StormClusterOutput
+	ToStormClusterOutputWithContext(ctx context.Context) StormClusterOutput
+}
+
+func (StormCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*StormCluster)(nil)).Elem()
+}
+
+func (i StormCluster) ToStormClusterOutput() StormClusterOutput {
+	return i.ToStormClusterOutputWithContext(context.Background())
+}
+
+func (i StormCluster) ToStormClusterOutputWithContext(ctx context.Context) StormClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StormClusterOutput)
+}
+
+type StormClusterOutput struct {
+	*pulumi.OutputState
+}
+
+func (StormClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StormClusterOutput)(nil)).Elem()
+}
+
+func (o StormClusterOutput) ToStormClusterOutput() StormClusterOutput {
+	return o
+}
+
+func (o StormClusterOutput) ToStormClusterOutputWithContext(ctx context.Context) StormClusterOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(StormClusterOutput{})
 }

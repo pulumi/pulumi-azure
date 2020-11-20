@@ -4,6 +4,7 @@
 package devtest
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages a Linux Virtual Machine within a Dev Test Lab.
+//
+// ## Import
+//
+// Dev Test Linux Virtual Machines can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:devtest/linuxVirtualMachine:LinuxVirtualMachine machine1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualmachines/machine1
+// ```
 type LinuxVirtualMachine struct {
 	pulumi.CustomResourceState
 
@@ -268,4 +277,43 @@ type LinuxVirtualMachineArgs struct {
 
 func (LinuxVirtualMachineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linuxVirtualMachineArgs)(nil)).Elem()
+}
+
+type LinuxVirtualMachineInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineOutput() LinuxVirtualMachineOutput
+	ToLinuxVirtualMachineOutputWithContext(ctx context.Context) LinuxVirtualMachineOutput
+}
+
+func (LinuxVirtualMachine) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachine)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachine) ToLinuxVirtualMachineOutput() LinuxVirtualMachineOutput {
+	return i.ToLinuxVirtualMachineOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachine) ToLinuxVirtualMachineOutputWithContext(ctx context.Context) LinuxVirtualMachineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineOutput)
+}
+
+type LinuxVirtualMachineOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinuxVirtualMachineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineOutput)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineOutput) ToLinuxVirtualMachineOutput() LinuxVirtualMachineOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineOutput) ToLinuxVirtualMachineOutputWithContext(ctx context.Context) LinuxVirtualMachineOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LinuxVirtualMachineOutput{})
 }

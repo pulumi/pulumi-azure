@@ -45,6 +45,14 @@ class IdentityProviderFacebook(pulumi.CustomResource):
             app_secret="00000000000000000000000000000000")
         ```
 
+        ## Import
+
+        API Management Facebook Identity Provider can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/facebook
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this Facebook Identity Provider should be created. Changing this forces a new resource to be created.

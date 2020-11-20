@@ -118,6 +118,14 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        Linux Virtual Machine Scale Sets can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:compute/linuxVirtualMachineScaleSet:LinuxVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/Microsoft.Compute/virtualMachineScaleSets/scaleset1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs']] additional_capabilities: A `additional_capabilities` block as defined below.

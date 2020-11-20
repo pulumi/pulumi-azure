@@ -4,6 +4,7 @@
 package datafactory
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -57,6 +58,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Data Factory MySQL Datasets can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:datafactory/datasetMysql:DatasetMysql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
 // ```
 type DatasetMysql struct {
 	pulumi.CustomResourceState
@@ -228,4 +237,43 @@ type DatasetMysqlArgs struct {
 
 func (DatasetMysqlArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetMysqlArgs)(nil)).Elem()
+}
+
+type DatasetMysqlInput interface {
+	pulumi.Input
+
+	ToDatasetMysqlOutput() DatasetMysqlOutput
+	ToDatasetMysqlOutputWithContext(ctx context.Context) DatasetMysqlOutput
+}
+
+func (DatasetMysql) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetMysql)(nil)).Elem()
+}
+
+func (i DatasetMysql) ToDatasetMysqlOutput() DatasetMysqlOutput {
+	return i.ToDatasetMysqlOutputWithContext(context.Background())
+}
+
+func (i DatasetMysql) ToDatasetMysqlOutputWithContext(ctx context.Context) DatasetMysqlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetMysqlOutput)
+}
+
+type DatasetMysqlOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatasetMysqlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetMysqlOutput)(nil)).Elem()
+}
+
+func (o DatasetMysqlOutput) ToDatasetMysqlOutput() DatasetMysqlOutput {
+	return o
+}
+
+func (o DatasetMysqlOutput) ToDatasetMysqlOutputWithContext(ctx context.Context) DatasetMysqlOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DatasetMysqlOutput{})
 }

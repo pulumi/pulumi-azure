@@ -25,6 +25,14 @@ class CustomerManagedKey(pulumi.CustomResource):
         """
         Manages a Customer Managed Key for a Storage Account.
 
+        ## Import
+
+        Customer Managed Keys for a Storage Account can be imported using the `resource id` of the Storage Account, e.g.
+
+        ```sh
+         $ pulumi import azure:storage/customerManagedKey:CustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.

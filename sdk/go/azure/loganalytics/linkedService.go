@@ -4,6 +4,7 @@
 package loganalytics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -64,6 +65,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Log Analytics Workspaces can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:loganalytics/linkedService:LinkedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/linkedservices/automation
 // ```
 type LinkedService struct {
 	pulumi.CustomResourceState
@@ -181,4 +190,43 @@ type LinkedServiceArgs struct {
 
 func (LinkedServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceArgs)(nil)).Elem()
+}
+
+type LinkedServiceInput interface {
+	pulumi.Input
+
+	ToLinkedServiceOutput() LinkedServiceOutput
+	ToLinkedServiceOutputWithContext(ctx context.Context) LinkedServiceOutput
+}
+
+func (LinkedService) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedService)(nil)).Elem()
+}
+
+func (i LinkedService) ToLinkedServiceOutput() LinkedServiceOutput {
+	return i.ToLinkedServiceOutputWithContext(context.Background())
+}
+
+func (i LinkedService) ToLinkedServiceOutputWithContext(ctx context.Context) LinkedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOutput)
+}
+
+type LinkedServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceOutput)(nil)).Elem()
+}
+
+func (o LinkedServiceOutput) ToLinkedServiceOutput() LinkedServiceOutput {
+	return o
+}
+
+func (o LinkedServiceOutput) ToLinkedServiceOutputWithContext(ctx context.Context) LinkedServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LinkedServiceOutput{})
 }

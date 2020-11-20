@@ -50,6 +50,14 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
             dedicated_host_id=example_dedicated_host.id)
         ```
 
+        ## Import
+
+        Maintenance Assignment can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resGroup1/providers/microsoft.compute/hostGroups/group1/hosts/host1/providers/Microsoft.Maintenance/configurationAssignments/assign1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dedicated_host_id: Specifies the Dedicated Host ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.

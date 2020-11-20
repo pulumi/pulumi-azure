@@ -46,6 +46,14 @@ class LinkedServicePostgresql(pulumi.CustomResource):
             connection_string="Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example")
         ```
 
+        ## Import
+
+        Data Factory PostgreSQL Linked Service's can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service PostgreSQL.

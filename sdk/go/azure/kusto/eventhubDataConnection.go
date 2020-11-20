@@ -4,6 +4,7 @@
 package kusto
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -95,6 +96,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Kusto EventHub Data Connections can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:kusto/eventhubDataConnection:EventhubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/DataConnections/eventHubConnection1
 // ```
 type EventhubDataConnection struct {
 	pulumi.CustomResourceState
@@ -262,4 +271,43 @@ type EventhubDataConnectionArgs struct {
 
 func (EventhubDataConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventhubDataConnectionArgs)(nil)).Elem()
+}
+
+type EventhubDataConnectionInput interface {
+	pulumi.Input
+
+	ToEventhubDataConnectionOutput() EventhubDataConnectionOutput
+	ToEventhubDataConnectionOutputWithContext(ctx context.Context) EventhubDataConnectionOutput
+}
+
+func (EventhubDataConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventhubDataConnection)(nil)).Elem()
+}
+
+func (i EventhubDataConnection) ToEventhubDataConnectionOutput() EventhubDataConnectionOutput {
+	return i.ToEventhubDataConnectionOutputWithContext(context.Background())
+}
+
+func (i EventhubDataConnection) ToEventhubDataConnectionOutputWithContext(ctx context.Context) EventhubDataConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventhubDataConnectionOutput)
+}
+
+type EventhubDataConnectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventhubDataConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventhubDataConnectionOutput)(nil)).Elem()
+}
+
+func (o EventhubDataConnectionOutput) ToEventhubDataConnectionOutput() EventhubDataConnectionOutput {
+	return o
+}
+
+func (o EventhubDataConnectionOutput) ToEventhubDataConnectionOutputWithContext(ctx context.Context) EventhubDataConnectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventhubDataConnectionOutput{})
 }

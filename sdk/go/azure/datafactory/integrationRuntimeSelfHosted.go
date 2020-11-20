@@ -4,6 +4,7 @@
 package datafactory
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -48,6 +49,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Data Factories can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:datafactory/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationruntimes/example
 // ```
 type IntegrationRuntimeSelfHosted struct {
 	pulumi.CustomResourceState
@@ -168,4 +177,43 @@ type IntegrationRuntimeSelfHostedArgs struct {
 
 func (IntegrationRuntimeSelfHostedArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationRuntimeSelfHostedArgs)(nil)).Elem()
+}
+
+type IntegrationRuntimeSelfHostedInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSelfHostedOutput() IntegrationRuntimeSelfHostedOutput
+	ToIntegrationRuntimeSelfHostedOutputWithContext(ctx context.Context) IntegrationRuntimeSelfHostedOutput
+}
+
+func (IntegrationRuntimeSelfHosted) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSelfHosted)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeSelfHosted) ToIntegrationRuntimeSelfHostedOutput() IntegrationRuntimeSelfHostedOutput {
+	return i.ToIntegrationRuntimeSelfHostedOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSelfHosted) ToIntegrationRuntimeSelfHostedOutputWithContext(ctx context.Context) IntegrationRuntimeSelfHostedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSelfHostedOutput)
+}
+
+type IntegrationRuntimeSelfHostedOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationRuntimeSelfHostedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSelfHostedOutput)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSelfHostedOutput) ToIntegrationRuntimeSelfHostedOutput() IntegrationRuntimeSelfHostedOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSelfHostedOutput) ToIntegrationRuntimeSelfHostedOutputWithContext(ctx context.Context) IntegrationRuntimeSelfHostedOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IntegrationRuntimeSelfHostedOutput{})
 }

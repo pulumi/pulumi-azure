@@ -4,6 +4,7 @@
 package appservice
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -172,6 +173,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// App Service Slots can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:appservice/slot:Slot instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/website1/slots/instance1
 // ```
 type Slot struct {
 	pulumi.CustomResourceState
@@ -390,4 +399,43 @@ type SlotArgs struct {
 
 func (SlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*slotArgs)(nil)).Elem()
+}
+
+type SlotInput interface {
+	pulumi.Input
+
+	ToSlotOutput() SlotOutput
+	ToSlotOutputWithContext(ctx context.Context) SlotOutput
+}
+
+func (Slot) ElementType() reflect.Type {
+	return reflect.TypeOf((*Slot)(nil)).Elem()
+}
+
+func (i Slot) ToSlotOutput() SlotOutput {
+	return i.ToSlotOutputWithContext(context.Background())
+}
+
+func (i Slot) ToSlotOutputWithContext(ctx context.Context) SlotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlotOutput)
+}
+
+type SlotOutput struct {
+	*pulumi.OutputState
+}
+
+func (SlotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SlotOutput)(nil)).Elem()
+}
+
+func (o SlotOutput) ToSlotOutput() SlotOutput {
+	return o
+}
+
+func (o SlotOutput) ToSlotOutputWithContext(ctx context.Context) SlotOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SlotOutput{})
 }

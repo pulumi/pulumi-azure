@@ -4,6 +4,7 @@
 package apimanagement
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -54,6 +55,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// API Management API Operation's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:apimanagement/apiOperation:ApiOperation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/operations/operation1
 // ```
 type ApiOperation struct {
 	pulumi.CustomResourceState
@@ -237,4 +246,43 @@ type ApiOperationArgs struct {
 
 func (ApiOperationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiOperationArgs)(nil)).Elem()
+}
+
+type ApiOperationInput interface {
+	pulumi.Input
+
+	ToApiOperationOutput() ApiOperationOutput
+	ToApiOperationOutputWithContext(ctx context.Context) ApiOperationOutput
+}
+
+func (ApiOperation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOperation)(nil)).Elem()
+}
+
+func (i ApiOperation) ToApiOperationOutput() ApiOperationOutput {
+	return i.ToApiOperationOutputWithContext(context.Background())
+}
+
+func (i ApiOperation) ToApiOperationOutputWithContext(ctx context.Context) ApiOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationOutput)
+}
+
+type ApiOperationOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOperationOutput)(nil)).Elem()
+}
+
+func (o ApiOperationOutput) ToApiOperationOutput() ApiOperationOutput {
+	return o
+}
+
+func (o ApiOperationOutput) ToApiOperationOutputWithContext(ctx context.Context) ApiOperationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiOperationOutput{})
 }

@@ -65,6 +65,14 @@ class EndpointStorageContainer(pulumi.CustomResource):
             encoding="JSON")
         ```
 
+        ## Import
+
+        IoTHub Storage Container Endpoint can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:iot/endpointStorageContainer:EndpointStorageContainer storage_container1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Endpoints/storage_container_endpoint1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.

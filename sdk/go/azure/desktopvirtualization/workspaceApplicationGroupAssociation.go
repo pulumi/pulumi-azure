@@ -4,6 +4,7 @@
 package desktopvirtualization
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -66,6 +67,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Associations between Virtual Desktop Workspaces and Virtual Desktop Application Groups can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation association1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/myapplicationgroup"
 // ```
 type WorkspaceApplicationGroupAssociation struct {
 	pulumi.CustomResourceState
@@ -144,4 +153,43 @@ type WorkspaceApplicationGroupAssociationArgs struct {
 
 func (WorkspaceApplicationGroupAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceApplicationGroupAssociationArgs)(nil)).Elem()
+}
+
+type WorkspaceApplicationGroupAssociationInput interface {
+	pulumi.Input
+
+	ToWorkspaceApplicationGroupAssociationOutput() WorkspaceApplicationGroupAssociationOutput
+	ToWorkspaceApplicationGroupAssociationOutputWithContext(ctx context.Context) WorkspaceApplicationGroupAssociationOutput
+}
+
+func (WorkspaceApplicationGroupAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceApplicationGroupAssociation)(nil)).Elem()
+}
+
+func (i WorkspaceApplicationGroupAssociation) ToWorkspaceApplicationGroupAssociationOutput() WorkspaceApplicationGroupAssociationOutput {
+	return i.ToWorkspaceApplicationGroupAssociationOutputWithContext(context.Background())
+}
+
+func (i WorkspaceApplicationGroupAssociation) ToWorkspaceApplicationGroupAssociationOutputWithContext(ctx context.Context) WorkspaceApplicationGroupAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceApplicationGroupAssociationOutput)
+}
+
+type WorkspaceApplicationGroupAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkspaceApplicationGroupAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceApplicationGroupAssociationOutput)(nil)).Elem()
+}
+
+func (o WorkspaceApplicationGroupAssociationOutput) ToWorkspaceApplicationGroupAssociationOutput() WorkspaceApplicationGroupAssociationOutput {
+	return o
+}
+
+func (o WorkspaceApplicationGroupAssociationOutput) ToWorkspaceApplicationGroupAssociationOutputWithContext(ctx context.Context) WorkspaceApplicationGroupAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkspaceApplicationGroupAssociationOutput{})
 }

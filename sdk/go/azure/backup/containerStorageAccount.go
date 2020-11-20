@@ -4,6 +4,7 @@
 package backup
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -64,6 +65,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Backup Storage Account Containers can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:backup/containerStorageAccount:ContainerStorageAccount mycontainer "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/backupFabrics/Azure/protectionContainers/StorageContainer;storage;storage-rg-name;storage-account"
+// ```
+//
+//  Note the ID requires quoting as there are semicolons
 type ContainerStorageAccount struct {
 	pulumi.CustomResourceState
 
@@ -154,4 +165,43 @@ type ContainerStorageAccountArgs struct {
 
 func (ContainerStorageAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*containerStorageAccountArgs)(nil)).Elem()
+}
+
+type ContainerStorageAccountInput interface {
+	pulumi.Input
+
+	ToContainerStorageAccountOutput() ContainerStorageAccountOutput
+	ToContainerStorageAccountOutputWithContext(ctx context.Context) ContainerStorageAccountOutput
+}
+
+func (ContainerStorageAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerStorageAccount)(nil)).Elem()
+}
+
+func (i ContainerStorageAccount) ToContainerStorageAccountOutput() ContainerStorageAccountOutput {
+	return i.ToContainerStorageAccountOutputWithContext(context.Background())
+}
+
+func (i ContainerStorageAccount) ToContainerStorageAccountOutputWithContext(ctx context.Context) ContainerStorageAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerStorageAccountOutput)
+}
+
+type ContainerStorageAccountOutput struct {
+	*pulumi.OutputState
+}
+
+func (ContainerStorageAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerStorageAccountOutput)(nil)).Elem()
+}
+
+func (o ContainerStorageAccountOutput) ToContainerStorageAccountOutput() ContainerStorageAccountOutput {
+	return o
+}
+
+func (o ContainerStorageAccountOutput) ToContainerStorageAccountOutputWithContext(ctx context.Context) ContainerStorageAccountOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ContainerStorageAccountOutput{})
 }

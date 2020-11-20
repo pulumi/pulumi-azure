@@ -4,6 +4,7 @@
 package core
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -36,6 +37,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Subscription Template Deployments can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deployments/template1
 // ```
 type SubscriptionTemplateDeployment struct {
 	pulumi.CustomResourceState
@@ -157,4 +166,43 @@ type SubscriptionTemplateDeploymentArgs struct {
 
 func (SubscriptionTemplateDeploymentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionTemplateDeploymentArgs)(nil)).Elem()
+}
+
+type SubscriptionTemplateDeploymentInput interface {
+	pulumi.Input
+
+	ToSubscriptionTemplateDeploymentOutput() SubscriptionTemplateDeploymentOutput
+	ToSubscriptionTemplateDeploymentOutputWithContext(ctx context.Context) SubscriptionTemplateDeploymentOutput
+}
+
+func (SubscriptionTemplateDeployment) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionTemplateDeployment)(nil)).Elem()
+}
+
+func (i SubscriptionTemplateDeployment) ToSubscriptionTemplateDeploymentOutput() SubscriptionTemplateDeploymentOutput {
+	return i.ToSubscriptionTemplateDeploymentOutputWithContext(context.Background())
+}
+
+func (i SubscriptionTemplateDeployment) ToSubscriptionTemplateDeploymentOutputWithContext(ctx context.Context) SubscriptionTemplateDeploymentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionTemplateDeploymentOutput)
+}
+
+type SubscriptionTemplateDeploymentOutput struct {
+	*pulumi.OutputState
+}
+
+func (SubscriptionTemplateDeploymentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionTemplateDeploymentOutput)(nil)).Elem()
+}
+
+func (o SubscriptionTemplateDeploymentOutput) ToSubscriptionTemplateDeploymentOutput() SubscriptionTemplateDeploymentOutput {
+	return o
+}
+
+func (o SubscriptionTemplateDeploymentOutput) ToSubscriptionTemplateDeploymentOutputWithContext(ctx context.Context) SubscriptionTemplateDeploymentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SubscriptionTemplateDeploymentOutput{})
 }

@@ -4,6 +4,7 @@
 package apimanagement
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -54,6 +55,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// API Management OpenID Connect Providers can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/openidConnectProviders/provider1
 // ```
 type OpenIdConnectProvider struct {
 	pulumi.CustomResourceState
@@ -204,4 +213,43 @@ type OpenIdConnectProviderArgs struct {
 
 func (OpenIdConnectProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*openIdConnectProviderArgs)(nil)).Elem()
+}
+
+type OpenIdConnectProviderInput interface {
+	pulumi.Input
+
+	ToOpenIdConnectProviderOutput() OpenIdConnectProviderOutput
+	ToOpenIdConnectProviderOutputWithContext(ctx context.Context) OpenIdConnectProviderOutput
+}
+
+func (OpenIdConnectProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenIdConnectProvider)(nil)).Elem()
+}
+
+func (i OpenIdConnectProvider) ToOpenIdConnectProviderOutput() OpenIdConnectProviderOutput {
+	return i.ToOpenIdConnectProviderOutputWithContext(context.Background())
+}
+
+func (i OpenIdConnectProvider) ToOpenIdConnectProviderOutputWithContext(ctx context.Context) OpenIdConnectProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectProviderOutput)
+}
+
+type OpenIdConnectProviderOutput struct {
+	*pulumi.OutputState
+}
+
+func (OpenIdConnectProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenIdConnectProviderOutput)(nil)).Elem()
+}
+
+func (o OpenIdConnectProviderOutput) ToOpenIdConnectProviderOutput() OpenIdConnectProviderOutput {
+	return o
+}
+
+func (o OpenIdConnectProviderOutput) ToOpenIdConnectProviderOutputWithContext(ctx context.Context) OpenIdConnectProviderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(OpenIdConnectProviderOutput{})
 }

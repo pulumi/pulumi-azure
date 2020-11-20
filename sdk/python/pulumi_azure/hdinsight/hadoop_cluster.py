@@ -90,6 +90,14 @@ class HadoopCluster(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        HDInsight Hadoop Clusters can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:hdinsight/hadoopCluster:HadoopCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1}
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.

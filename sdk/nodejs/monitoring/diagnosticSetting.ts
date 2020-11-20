@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -41,6 +40,14 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Diagnostic Settings can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:monitoring/diagnosticSetting:DiagnosticSetting example /subscriptions/XXX/resourcegroups/resource_group/providers/microsoft.keyvault/vaults/vault|logMonitoring
  * ```
  */
 export class DiagnosticSetting extends pulumi.CustomResource {

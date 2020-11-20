@@ -57,6 +57,14 @@ namespace Pulumi.Azure.DevTest
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// DevTest Schedule's can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:devtest/schedule:Schedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DevTestLab/labs/myDevTestLab/schedules/labvmautostart
+    /// ```
     /// </summary>
     public partial class Schedule : Pulumi.CustomResource
     {

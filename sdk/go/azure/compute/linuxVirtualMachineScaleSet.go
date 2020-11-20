@@ -4,6 +4,7 @@
 package compute
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -17,6 +18,14 @@ import (
 // > **Note** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` configuration within the Provider configuration block.
 //
 // > **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `compute.ScaleSet` resource instead
+//
+// ## Import
+//
+// Linux Virtual Machine Scale Sets can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:compute/linuxVirtualMachineScaleSet:LinuxVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/Microsoft.Compute/virtualMachineScaleSets/scaleset1
+// ```
 type LinuxVirtualMachineScaleSet struct {
 	pulumi.CustomResourceState
 
@@ -502,4 +511,43 @@ type LinuxVirtualMachineScaleSetArgs struct {
 
 func (LinuxVirtualMachineScaleSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linuxVirtualMachineScaleSetArgs)(nil)).Elem()
+}
+
+type LinuxVirtualMachineScaleSetInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetOutput() LinuxVirtualMachineScaleSetOutput
+	ToLinuxVirtualMachineScaleSetOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOutput
+}
+
+func (LinuxVirtualMachineScaleSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSet)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSet) ToLinuxVirtualMachineScaleSetOutput() LinuxVirtualMachineScaleSetOutput {
+	return i.ToLinuxVirtualMachineScaleSetOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSet) ToLinuxVirtualMachineScaleSetOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetOutput)
+}
+
+type LinuxVirtualMachineScaleSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinuxVirtualMachineScaleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetOutput)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetOutput) ToLinuxVirtualMachineScaleSetOutput() LinuxVirtualMachineScaleSetOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetOutput) ToLinuxVirtualMachineScaleSetOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetOutput{})
 }

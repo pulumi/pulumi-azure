@@ -77,6 +77,14 @@ class EventhubDataConnection(pulumi.CustomResource):
         #(Optional)
         ```
 
+        ## Import
+
+        Kusto EventHub Data Connections can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:kusto/eventhubDataConnection:EventhubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/DataConnections/eventHubConnection1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.

@@ -35,6 +35,14 @@ class Zone(pulumi.CustomResource):
         example_private = azure.privatedns.Zone("example-private", resource_group_name=example.name)
         ```
 
+        ## Import
+
+        DNS Zones can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:dns/zone:Zone zone1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS Zone. Must be a valid domain name.

@@ -29,6 +29,14 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## Import
+ *
+ * Service Bus Queue can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:eventhub/queue:Queue example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1/queues/snqueue1
+ * ```
+ *
  * @deprecated azure.eventhub.Queue has been deprecated in favor of azure.servicebus.Queue
  */
 export class Queue extends pulumi.CustomResource {

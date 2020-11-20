@@ -4,6 +4,7 @@
 package cosmosdb
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -42,6 +43,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Cosmos SQL Database can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:cosmosdb/sqlDatabase:SqlDatabase db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/db1
 // ```
 type SqlDatabase struct {
 	pulumi.CustomResourceState
@@ -145,4 +154,43 @@ type SqlDatabaseArgs struct {
 
 func (SqlDatabaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlDatabaseArgs)(nil)).Elem()
+}
+
+type SqlDatabaseInput interface {
+	pulumi.Input
+
+	ToSqlDatabaseOutput() SqlDatabaseOutput
+	ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDatabaseOutput
+}
+
+func (SqlDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDatabase)(nil)).Elem()
+}
+
+func (i SqlDatabase) ToSqlDatabaseOutput() SqlDatabaseOutput {
+	return i.ToSqlDatabaseOutputWithContext(context.Background())
+}
+
+func (i SqlDatabase) ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseOutput)
+}
+
+type SqlDatabaseOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDatabaseOutput)(nil)).Elem()
+}
+
+func (o SqlDatabaseOutput) ToSqlDatabaseOutput() SqlDatabaseOutput {
+	return o
+}
+
+func (o SqlDatabaseOutput) ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDatabaseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SqlDatabaseOutput{})
 }

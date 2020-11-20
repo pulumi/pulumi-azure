@@ -14,6 +14,14 @@ namespace Pulumi.Azure.DataLake
     /// 
     /// &gt; **Note:** If you want to change the data in the remote file without changing the `local_file_path`, then
     /// taint the resource so the `azure.datalake.StoreFile` gets recreated with the new data.
+    /// 
+    /// ## Import
+    /// 
+    /// Data Lake Store File's can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:datalake/storeFile:StoreFile txt
+    /// ```
     /// </summary>
     public partial class StoreFile : Pulumi.CustomResource
     {

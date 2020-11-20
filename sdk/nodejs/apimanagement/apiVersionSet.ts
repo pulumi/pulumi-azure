@@ -28,6 +28,14 @@ import * as utilities from "../utilities";
  *     versioningScheme: "Segment",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * API Version Set can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:apimanagement/apiVersionSet:ApiVersionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apiVersionSets/set1
+ * ```
  */
 export class ApiVersionSet extends pulumi.CustomResource {
     /**

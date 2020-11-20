@@ -41,6 +41,14 @@ namespace Pulumi.Azure.Storage
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Storage Queue's can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:storage/queue:Queue queue1 https://example.queue.core.windows.net/queue1
+    /// ```
     /// </summary>
     public partial class Queue : Pulumi.CustomResource
     {

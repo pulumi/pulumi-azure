@@ -79,6 +79,14 @@ class MetricAlert(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        Metric Alerts can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:monitoring/metricAlert:MetricAlert main /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/microsoft.insights/metricalerts/example-metricalert
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]] actions: One or more `action` blocks as defined below.

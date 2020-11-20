@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -76,6 +77,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Subnet Route Table Associations can be imported using the `resource id` of the Subnet, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
 // ```
 type SubnetRouteTableAssociation struct {
 	pulumi.CustomResourceState
@@ -154,4 +163,43 @@ type SubnetRouteTableAssociationArgs struct {
 
 func (SubnetRouteTableAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetRouteTableAssociationArgs)(nil)).Elem()
+}
+
+type SubnetRouteTableAssociationInput interface {
+	pulumi.Input
+
+	ToSubnetRouteTableAssociationOutput() SubnetRouteTableAssociationOutput
+	ToSubnetRouteTableAssociationOutputWithContext(ctx context.Context) SubnetRouteTableAssociationOutput
+}
+
+func (SubnetRouteTableAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetRouteTableAssociation)(nil)).Elem()
+}
+
+func (i SubnetRouteTableAssociation) ToSubnetRouteTableAssociationOutput() SubnetRouteTableAssociationOutput {
+	return i.ToSubnetRouteTableAssociationOutputWithContext(context.Background())
+}
+
+func (i SubnetRouteTableAssociation) ToSubnetRouteTableAssociationOutputWithContext(ctx context.Context) SubnetRouteTableAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetRouteTableAssociationOutput)
+}
+
+type SubnetRouteTableAssociationOutput struct {
+	*pulumi.OutputState
+}
+
+func (SubnetRouteTableAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetRouteTableAssociationOutput)(nil)).Elem()
+}
+
+func (o SubnetRouteTableAssociationOutput) ToSubnetRouteTableAssociationOutput() SubnetRouteTableAssociationOutput {
+	return o
+}
+
+func (o SubnetRouteTableAssociationOutput) ToSubnetRouteTableAssociationOutputWithContext(ctx context.Context) SubnetRouteTableAssociationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SubnetRouteTableAssociationOutput{})
 }

@@ -27,6 +27,14 @@ class StoreFile(pulumi.CustomResource):
         > **Note:** If you want to change the data in the remote file without changing the `local_file_path`, then
         taint the resource so the `datalake.StoreFile` gets recreated with the new data.
 
+        ## Import
+
+        Data Lake Store File's can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:datalake/storeFile:StoreFile txt
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Specifies the name of the Data Lake Store for which the File should created.

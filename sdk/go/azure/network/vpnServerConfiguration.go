@@ -4,6 +4,7 @@
 package network
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -52,6 +53,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// VPN Server Configurations can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:network/vpnServerConfiguration:VpnServerConfiguration config1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/vpnServerConfigurations/config1
 // ```
 type VpnServerConfiguration struct {
 	pulumi.CustomResourceState
@@ -220,4 +229,43 @@ type VpnServerConfigurationArgs struct {
 
 func (VpnServerConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnServerConfigurationArgs)(nil)).Elem()
+}
+
+type VpnServerConfigurationInput interface {
+	pulumi.Input
+
+	ToVpnServerConfigurationOutput() VpnServerConfigurationOutput
+	ToVpnServerConfigurationOutputWithContext(ctx context.Context) VpnServerConfigurationOutput
+}
+
+func (VpnServerConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnServerConfiguration)(nil)).Elem()
+}
+
+func (i VpnServerConfiguration) ToVpnServerConfigurationOutput() VpnServerConfigurationOutput {
+	return i.ToVpnServerConfigurationOutputWithContext(context.Background())
+}
+
+func (i VpnServerConfiguration) ToVpnServerConfigurationOutputWithContext(ctx context.Context) VpnServerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationOutput)
+}
+
+type VpnServerConfigurationOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpnServerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnServerConfigurationOutput)(nil)).Elem()
+}
+
+func (o VpnServerConfigurationOutput) ToVpnServerConfigurationOutput() VpnServerConfigurationOutput {
+	return o
+}
+
+func (o VpnServerConfigurationOutput) ToVpnServerConfigurationOutputWithContext(ctx context.Context) VpnServerConfigurationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VpnServerConfigurationOutput{})
 }

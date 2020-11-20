@@ -45,6 +45,14 @@ namespace Pulumi.Azure.MariaDB
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// MariaDB Server's can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:mariadb/server:Server server1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMariaDB/servers/server1
+    /// ```
     /// </summary>
     public partial class Server : Pulumi.CustomResource
     {

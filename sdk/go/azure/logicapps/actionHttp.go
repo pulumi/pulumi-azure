@@ -4,6 +4,7 @@
 package logicapps
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -49,6 +50,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Logic App HTTP Actions can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:logicapps/actionHttp:ActionHttp webhook1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/actions/webhook1
 // ```
 type ActionHttp struct {
 	pulumi.CustomResourceState
@@ -180,4 +189,43 @@ type ActionHttpArgs struct {
 
 func (ActionHttpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionHttpArgs)(nil)).Elem()
+}
+
+type ActionHttpInput interface {
+	pulumi.Input
+
+	ToActionHttpOutput() ActionHttpOutput
+	ToActionHttpOutputWithContext(ctx context.Context) ActionHttpOutput
+}
+
+func (ActionHttp) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionHttp)(nil)).Elem()
+}
+
+func (i ActionHttp) ToActionHttpOutput() ActionHttpOutput {
+	return i.ToActionHttpOutputWithContext(context.Background())
+}
+
+func (i ActionHttp) ToActionHttpOutputWithContext(ctx context.Context) ActionHttpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionHttpOutput)
+}
+
+type ActionHttpOutput struct {
+	*pulumi.OutputState
+}
+
+func (ActionHttpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionHttpOutput)(nil)).Elem()
+}
+
+func (o ActionHttpOutput) ToActionHttpOutput() ActionHttpOutput {
+	return o
+}
+
+func (o ActionHttpOutput) ToActionHttpOutputWithContext(ctx context.Context) ActionHttpOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ActionHttpOutput{})
 }

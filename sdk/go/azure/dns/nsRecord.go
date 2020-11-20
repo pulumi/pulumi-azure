@@ -4,6 +4,7 @@
 package dns
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -55,6 +56,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// NS records can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:dns/nsRecord:NsRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/NS/myrecord1
 // ```
 type NsRecord struct {
 	pulumi.CustomResourceState
@@ -185,4 +194,43 @@ type NsRecordArgs struct {
 
 func (NsRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*nsRecordArgs)(nil)).Elem()
+}
+
+type NsRecordInput interface {
+	pulumi.Input
+
+	ToNsRecordOutput() NsRecordOutput
+	ToNsRecordOutputWithContext(ctx context.Context) NsRecordOutput
+}
+
+func (NsRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*NsRecord)(nil)).Elem()
+}
+
+func (i NsRecord) ToNsRecordOutput() NsRecordOutput {
+	return i.ToNsRecordOutputWithContext(context.Background())
+}
+
+func (i NsRecord) ToNsRecordOutputWithContext(ctx context.Context) NsRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NsRecordOutput)
+}
+
+type NsRecordOutput struct {
+	*pulumi.OutputState
+}
+
+func (NsRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NsRecordOutput)(nil)).Elem()
+}
+
+func (o NsRecordOutput) ToNsRecordOutput() NsRecordOutput {
+	return o
+}
+
+func (o NsRecordOutput) ToNsRecordOutputWithContext(ctx context.Context) NsRecordOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NsRecordOutput{})
 }

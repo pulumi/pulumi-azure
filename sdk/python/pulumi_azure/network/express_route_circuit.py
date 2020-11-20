@@ -54,6 +54,14 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        ExpressRoute circuits can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/expressRouteCircuit:ExpressRouteCircuit myExpressRoute /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteCircuits/myExpressRoute
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.

@@ -46,6 +46,14 @@ class CustomProvider(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        Custom Provider can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:core/customProvider:CustomProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.CustomProviders/resourceProviders/example
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomProviderActionArgs']]]] actions: Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.

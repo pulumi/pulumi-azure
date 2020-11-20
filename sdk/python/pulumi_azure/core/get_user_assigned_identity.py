@@ -14,7 +14,7 @@ __all__ = [
     'get_user_assigned_identity',
 ]
 
-warnings.warn("azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity", DeprecationWarning)
+warnings.warn("""azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity""", DeprecationWarning)
 
 @pulumi.output_type
 class GetUserAssignedIdentityResult:

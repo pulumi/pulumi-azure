@@ -44,6 +44,14 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Private DNS A Records can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:privatedns/aRecord:ARecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/zone1/A/myrecord1
+    /// ```
     /// </summary>
     public partial class ARecord : Pulumi.CustomResource
     {

@@ -4,6 +4,7 @@
 package bot
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -47,6 +48,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Bot Web App's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:bot/webApp:WebApp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example
 // ```
 type WebApp struct {
 	pulumi.CustomResourceState
@@ -238,4 +247,43 @@ type WebAppArgs struct {
 
 func (WebAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppArgs)(nil)).Elem()
+}
+
+type WebAppInput interface {
+	pulumi.Input
+
+	ToWebAppOutput() WebAppOutput
+	ToWebAppOutputWithContext(ctx context.Context) WebAppOutput
+}
+
+func (WebApp) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebApp)(nil)).Elem()
+}
+
+func (i WebApp) ToWebAppOutput() WebAppOutput {
+	return i.ToWebAppOutputWithContext(context.Background())
+}
+
+func (i WebApp) ToWebAppOutputWithContext(ctx context.Context) WebAppOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppOutput)
+}
+
+type WebAppOutput struct {
+	*pulumi.OutputState
+}
+
+func (WebAppOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppOutput)(nil)).Elem()
+}
+
+func (o WebAppOutput) ToWebAppOutput() WebAppOutput {
+	return o
+}
+
+func (o WebAppOutput) ToWebAppOutputWithContext(ctx context.Context) WebAppOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WebAppOutput{})
 }

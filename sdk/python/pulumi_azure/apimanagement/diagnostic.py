@@ -56,6 +56,14 @@ class Diagnostic(pulumi.CustomResource):
             api_management_logger_id=example_logger.id)
         ```
 
+        ## Import
+
+        API Management Diagnostics can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:apimanagement/diagnostic:Diagnostic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/diagnostics/applicationinsights
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_logger_id: The id of the target API Management Logger where the API Management Diagnostic should be saved.
@@ -87,7 +95,7 @@ class Diagnostic(pulumi.CustomResource):
                 raise TypeError("Missing required property 'api_management_name'")
             __props__['api_management_name'] = api_management_name
             if enabled is not None:
-                warnings.warn("this property has been removed from the API and will be removed in version 3.0 of the provider", DeprecationWarning)
+                warnings.warn("""this property has been removed from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
                 pulumi.log.warn("enabled is deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider")
             __props__['enabled'] = enabled
             if identifier is None:

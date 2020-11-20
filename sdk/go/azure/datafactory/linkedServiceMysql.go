@@ -4,6 +4,7 @@
 package datafactory
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -49,6 +50,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Data Factory MySql Linked Service's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:datafactory/linkedServiceMysql:LinkedServiceMysql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
 // ```
 type LinkedServiceMysql struct {
 	pulumi.CustomResourceState
@@ -200,4 +209,43 @@ type LinkedServiceMysqlArgs struct {
 
 func (LinkedServiceMysqlArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceMysqlArgs)(nil)).Elem()
+}
+
+type LinkedServiceMysqlInput interface {
+	pulumi.Input
+
+	ToLinkedServiceMysqlOutput() LinkedServiceMysqlOutput
+	ToLinkedServiceMysqlOutputWithContext(ctx context.Context) LinkedServiceMysqlOutput
+}
+
+func (LinkedServiceMysql) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceMysql)(nil)).Elem()
+}
+
+func (i LinkedServiceMysql) ToLinkedServiceMysqlOutput() LinkedServiceMysqlOutput {
+	return i.ToLinkedServiceMysqlOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceMysql) ToLinkedServiceMysqlOutputWithContext(ctx context.Context) LinkedServiceMysqlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceMysqlOutput)
+}
+
+type LinkedServiceMysqlOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkedServiceMysqlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceMysqlOutput)(nil)).Elem()
+}
+
+func (o LinkedServiceMysqlOutput) ToLinkedServiceMysqlOutput() LinkedServiceMysqlOutput {
+	return o
+}
+
+func (o LinkedServiceMysqlOutput) ToLinkedServiceMysqlOutputWithContext(ctx context.Context) LinkedServiceMysqlOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LinkedServiceMysqlOutput{})
 }

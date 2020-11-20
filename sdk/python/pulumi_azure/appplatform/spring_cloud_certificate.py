@@ -110,6 +110,14 @@ class SpringCloudCertificate(pulumi.CustomResource):
             key_vault_certificate_id=example_certificate.id)
         ```
 
+        ## Import
+
+        Spring Cloud Certificate can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:appplatform/springCloudCertificate:SpringCloudCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/Spring/spring1/certificates/cert1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_vault_certificate_id: Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.

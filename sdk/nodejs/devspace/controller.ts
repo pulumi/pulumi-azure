@@ -8,6 +8,14 @@ import * as utilities from "../utilities";
  * Manages a DevSpace Controller.
  *
  * > **NOTE:** Microsoft will be retiring Azure Dev Spaces on 31 October 2023, please see the product [documentation](https://azure.microsoft.com/en-us/updates/azure-dev-spaces-is-retiring-on-31-october-2023/) for more information.
+ *
+ * ## Import
+ *
+ * DevSpace Controller's can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:devspace/controller:Controller controller1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevSpaces/controllers/controller1Name
+ * ```
  */
 export class Controller extends pulumi.CustomResource {
     /**

@@ -62,6 +62,14 @@ class BastionHost(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        Bastion Hosts can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:compute/bastionHost:BastionHost example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/bastionHosts/instance1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']] ip_configuration: A `ip_configuration` block as defined below.

@@ -4,6 +4,7 @@
 package siterecovery
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages a VM replicated using Azure Site Recovery (Azure to Azure only). A replicated VM keeps a copiously updated image of the VM in another region in order to be able to start the VM in that region in case of a disaster.
+//
+// ## Import
+//
+// Site Recovery Replicated VM's can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:siterecovery/replicatedVM:ReplicatedVM vmreplication /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name/replicationProtectionContainers/protection-container-name/replicationProtectedItems/vm-replication-name
+// ```
 type ReplicatedVM struct {
 	pulumi.CustomResourceState
 
@@ -224,4 +233,43 @@ type ReplicatedVMArgs struct {
 
 func (ReplicatedVMArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicatedVMArgs)(nil)).Elem()
+}
+
+type ReplicatedVMInput interface {
+	pulumi.Input
+
+	ToReplicatedVMOutput() ReplicatedVMOutput
+	ToReplicatedVMOutputWithContext(ctx context.Context) ReplicatedVMOutput
+}
+
+func (ReplicatedVM) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatedVM)(nil)).Elem()
+}
+
+func (i ReplicatedVM) ToReplicatedVMOutput() ReplicatedVMOutput {
+	return i.ToReplicatedVMOutputWithContext(context.Background())
+}
+
+func (i ReplicatedVM) ToReplicatedVMOutputWithContext(ctx context.Context) ReplicatedVMOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMOutput)
+}
+
+type ReplicatedVMOutput struct {
+	*pulumi.OutputState
+}
+
+func (ReplicatedVMOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatedVMOutput)(nil)).Elem()
+}
+
+func (o ReplicatedVMOutput) ToReplicatedVMOutput() ReplicatedVMOutput {
+	return o
+}
+
+func (o ReplicatedVMOutput) ToReplicatedVMOutputWithContext(ctx context.Context) ReplicatedVMOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ReplicatedVMOutput{})
 }

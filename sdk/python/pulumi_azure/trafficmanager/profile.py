@@ -12,11 +12,11 @@ from ._inputs import *
 
 __all__ = ['Profile']
 
-warnings.warn("azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile", DeprecationWarning)
+warnings.warn("""azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile""", DeprecationWarning)
 
 
 class Profile(pulumi.CustomResource):
-    warnings.warn("azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile", DeprecationWarning)
+    warnings.warn("""azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -65,6 +65,14 @@ class Profile(pulumi.CustomResource):
             tags={
                 "environment": "Production",
             })
+        ```
+
+        ## Import
+
+        Traffic Manager Profiles can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:trafficmanager/profile:Profile exampleProfile /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/trafficManagerProfiles/mytrafficmanagerprofile1
         ```
 
         :param str resource_name: The name of the resource.

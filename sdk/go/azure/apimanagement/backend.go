@@ -4,6 +4,7 @@
 package apimanagement
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Manages a backend within an API Management Service.
+//
+// ## Import
+//
+// API Management backends can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:apimanagement/backend:Backend example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/backends/backend1
+// ```
 type Backend struct {
 	pulumi.CustomResourceState
 
@@ -194,4 +203,43 @@ type BackendArgs struct {
 
 func (BackendArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*backendArgs)(nil)).Elem()
+}
+
+type BackendInput interface {
+	pulumi.Input
+
+	ToBackendOutput() BackendOutput
+	ToBackendOutputWithContext(ctx context.Context) BackendOutput
+}
+
+func (Backend) ElementType() reflect.Type {
+	return reflect.TypeOf((*Backend)(nil)).Elem()
+}
+
+func (i Backend) ToBackendOutput() BackendOutput {
+	return i.ToBackendOutputWithContext(context.Background())
+}
+
+func (i Backend) ToBackendOutputWithContext(ctx context.Context) BackendOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackendOutput)
+}
+
+type BackendOutput struct {
+	*pulumi.OutputState
+}
+
+func (BackendOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendOutput)(nil)).Elem()
+}
+
+func (o BackendOutput) ToBackendOutput() BackendOutput {
+	return o
+}
+
+func (o BackendOutput) ToBackendOutputWithContext(ctx context.Context) BackendOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BackendOutput{})
 }

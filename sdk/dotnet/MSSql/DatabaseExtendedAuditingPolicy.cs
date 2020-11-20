@@ -59,6 +59,14 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Ms Sql Database Extended Auditing Policys can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/databases/db1/extendedAuditingSettings/default
+    /// ```
     /// </summary>
     public partial class DatabaseExtendedAuditingPolicy : Pulumi.CustomResource
     {

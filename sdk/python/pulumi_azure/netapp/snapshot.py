@@ -79,6 +79,14 @@ class Snapshot(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         ```
 
+        ## Import
+
+        NetApp Snapshot can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:netapp/snapshot:Snapshot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.

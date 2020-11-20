@@ -58,6 +58,14 @@ class Server(pulumi.CustomResource):
 
         > **NOTE:** The server resource will automatically be started and stopped during an update if it is in `paused` state.
 
+        ## Import
+
+        Analysis Services Server can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:analysisservices/server:Server server /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AnalysisServices/servers/server1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_users: List of email addresses of admin users.

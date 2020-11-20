@@ -46,6 +46,14 @@ class FirewallRule(pulumi.CustomResource):
             end_ip_address="10.0.17.62")
         ```
 
+        ## Import
+
+        SQL Firewall Rules can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:sql/firewallRule:FirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/firewallRules/rule1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] end_ip_address: The ending IP address to allow through the firewall for this rule.

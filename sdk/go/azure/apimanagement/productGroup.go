@@ -4,6 +4,7 @@
 package apimanagement
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -59,6 +60,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// API Management Product Groups can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:apimanagement/productGroup:ProductGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/products/exampleId/groups/groupId
 // ```
 type ProductGroup struct {
 	pulumi.CustomResourceState
@@ -163,4 +172,43 @@ type ProductGroupArgs struct {
 
 func (ProductGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*productGroupArgs)(nil)).Elem()
+}
+
+type ProductGroupInput interface {
+	pulumi.Input
+
+	ToProductGroupOutput() ProductGroupOutput
+	ToProductGroupOutputWithContext(ctx context.Context) ProductGroupOutput
+}
+
+func (ProductGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductGroup)(nil)).Elem()
+}
+
+func (i ProductGroup) ToProductGroupOutput() ProductGroupOutput {
+	return i.ToProductGroupOutputWithContext(context.Background())
+}
+
+func (i ProductGroup) ToProductGroupOutputWithContext(ctx context.Context) ProductGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductGroupOutput)
+}
+
+type ProductGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProductGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductGroupOutput)(nil)).Elem()
+}
+
+func (o ProductGroupOutput) ToProductGroupOutput() ProductGroupOutput {
+	return o
+}
+
+func (o ProductGroupOutput) ToProductGroupOutputWithContext(ctx context.Context) ProductGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProductGroupOutput{})
 }

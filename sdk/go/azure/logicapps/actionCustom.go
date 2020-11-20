@@ -4,6 +4,7 @@
 package logicapps
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -50,6 +51,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Logic App Custom Actions can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:logicapps/actionCustom:ActionCustom custom1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/actions/custom1
 // ```
 type ActionCustom struct {
 	pulumi.CustomResourceState
@@ -138,4 +147,43 @@ type ActionCustomArgs struct {
 
 func (ActionCustomArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionCustomArgs)(nil)).Elem()
+}
+
+type ActionCustomInput interface {
+	pulumi.Input
+
+	ToActionCustomOutput() ActionCustomOutput
+	ToActionCustomOutputWithContext(ctx context.Context) ActionCustomOutput
+}
+
+func (ActionCustom) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionCustom)(nil)).Elem()
+}
+
+func (i ActionCustom) ToActionCustomOutput() ActionCustomOutput {
+	return i.ToActionCustomOutputWithContext(context.Background())
+}
+
+func (i ActionCustom) ToActionCustomOutputWithContext(ctx context.Context) ActionCustomOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionCustomOutput)
+}
+
+type ActionCustomOutput struct {
+	*pulumi.OutputState
+}
+
+func (ActionCustomOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionCustomOutput)(nil)).Elem()
+}
+
+func (o ActionCustomOutput) ToActionCustomOutput() ActionCustomOutput {
+	return o
+}
+
+func (o ActionCustomOutput) ToActionCustomOutputWithContext(ctx context.Context) ActionCustomOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ActionCustomOutput{})
 }

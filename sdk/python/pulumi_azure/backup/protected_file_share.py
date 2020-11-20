@@ -69,6 +69,16 @@ class ProtectedFileShare(pulumi.CustomResource):
             backup_policy_id=example_policy_file_share.id)
         ```
 
+        ## Import
+
+        Azure Backup Protected File Shares can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:backup/protectedFileShare:ProtectedFileShare item1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;group2;example-storage-account/protectedItems/AzureFileShare;example-share"
+        ```
+
+         Note the ID requires quoting as there are semicolons
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_policy_id: Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported.

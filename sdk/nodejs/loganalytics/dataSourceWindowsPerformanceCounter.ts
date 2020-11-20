@@ -28,6 +28,14 @@ import * as utilities from "../utilities";
  *     intervalSeconds: 10,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Log Analytics Windows Performance Counter DataSources can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/datasources/datasource1
+ * ```
  */
 export class DataSourceWindowsPerformanceCounter extends pulumi.CustomResource {
     /**

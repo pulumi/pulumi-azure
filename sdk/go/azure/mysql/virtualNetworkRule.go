@@ -4,6 +4,7 @@
 package mysql
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -83,6 +84,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// MySQL Virtual Network Rules can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:mysql/virtualNetworkRule:VirtualNetworkRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver/virtualNetworkRules/vnetrulename
 // ```
 type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
@@ -184,4 +193,43 @@ type VirtualNetworkRuleArgs struct {
 
 func (VirtualNetworkRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkRuleArgs)(nil)).Elem()
+}
+
+type VirtualNetworkRuleInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkRuleOutput() VirtualNetworkRuleOutput
+	ToVirtualNetworkRuleOutputWithContext(ctx context.Context) VirtualNetworkRuleOutput
+}
+
+func (VirtualNetworkRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkRule)(nil)).Elem()
+}
+
+func (i VirtualNetworkRule) ToVirtualNetworkRuleOutput() VirtualNetworkRuleOutput {
+	return i.ToVirtualNetworkRuleOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkRule) ToVirtualNetworkRuleOutputWithContext(ctx context.Context) VirtualNetworkRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleOutput)
+}
+
+type VirtualNetworkRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualNetworkRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkRuleOutput)(nil)).Elem()
+}
+
+func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutput() VirtualNetworkRuleOutput {
+	return o
+}
+
+func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutputWithContext(ctx context.Context) VirtualNetworkRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualNetworkRuleOutput{})
 }

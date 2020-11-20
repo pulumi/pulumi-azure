@@ -30,6 +30,14 @@ import * as utilities from "../utilities";
  *     subscriptionId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.subscriptionId),
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Automation Connection can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:automation/connectionClassicCertificate:ConnectionClassicCertificate conn1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
+ * ```
  */
 export class ConnectionClassicCertificate extends pulumi.CustomResource {
     /**

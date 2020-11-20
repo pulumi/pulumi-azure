@@ -32,6 +32,14 @@ import * as utilities from "../utilities";
  *     role: "AllDatabasesAdmin",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Data Explorer Cluster Principal Assignments can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/PrincipalAssignments/assignment1
+ * ```
  */
 export class ClusterPrincipalAssignment extends pulumi.CustomResource {
     /**

@@ -22,6 +22,14 @@ import * as utilities from "../utilities";
  * });
  * const exampleQueue = new azure.storage.Queue("exampleQueue", {storageAccountName: exampleAccount.name});
  * ```
+ *
+ * ## Import
+ *
+ * Storage Queue's can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:storage/queue:Queue queue1 https://example.queue.core.windows.net/queue1
+ * ```
  */
 export class Queue extends pulumi.CustomResource {
     /**

@@ -51,6 +51,14 @@ class EventHub(pulumi.CustomResource):
             message_retention=1)
         ```
 
+        ## Import
+
+        EventHubs can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:eventhub/eventHub:EventHub eventhub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/eventhubs/eventhub1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArgs']] capture_description: A `capture_description` block as defined below.

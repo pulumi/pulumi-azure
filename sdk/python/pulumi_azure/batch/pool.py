@@ -39,6 +39,14 @@ class Pool(pulumi.CustomResource):
         """
         Manages an Azure Batch pool.
 
+        ## Import
+
+        Batch Pools can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:batch/pool:Pool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.Batch/batchAccounts/myBatchAccount1/pools/myBatchPool1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.

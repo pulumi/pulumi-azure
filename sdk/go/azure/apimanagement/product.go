@@ -4,6 +4,7 @@
 package apimanagement
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -56,6 +57,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// API Management Products can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:apimanagement/product:Product example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/products/myproduct
 // ```
 type Product struct {
 	pulumi.CustomResourceState
@@ -226,4 +235,43 @@ type ProductArgs struct {
 
 func (ProductArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*productArgs)(nil)).Elem()
+}
+
+type ProductInput interface {
+	pulumi.Input
+
+	ToProductOutput() ProductOutput
+	ToProductOutputWithContext(ctx context.Context) ProductOutput
+}
+
+func (Product) ElementType() reflect.Type {
+	return reflect.TypeOf((*Product)(nil)).Elem()
+}
+
+func (i Product) ToProductOutput() ProductOutput {
+	return i.ToProductOutputWithContext(context.Background())
+}
+
+func (i Product) ToProductOutputWithContext(ctx context.Context) ProductOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductOutput)
+}
+
+type ProductOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProductOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductOutput)(nil)).Elem()
+}
+
+func (o ProductOutput) ToProductOutput() ProductOutput {
+	return o
+}
+
+func (o ProductOutput) ToProductOutputWithContext(ctx context.Context) ProductOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProductOutput{})
 }

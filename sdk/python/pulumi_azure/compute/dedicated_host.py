@@ -47,6 +47,14 @@ class DedicatedHost(pulumi.CustomResource):
             platform_fault_domain=1)
         ```
 
+        ## Import
+
+        Dedicated Hosts can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:compute/dedicatedHost:DedicatedHost example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/hostGroups/group1/hosts/host1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_replace_on_failure: Should the Dedicated Host automatically be replaced in case of a Hardware Failure? Defaults to `true`.

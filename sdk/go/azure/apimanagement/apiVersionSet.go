@@ -4,6 +4,7 @@
 package apimanagement
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -53,6 +54,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// API Version Set can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:apimanagement/apiVersionSet:ApiVersionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apiVersionSets/set1
 // ```
 type ApiVersionSet struct {
 	pulumi.CustomResourceState
@@ -197,4 +206,43 @@ type ApiVersionSetArgs struct {
 
 func (ApiVersionSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiVersionSetArgs)(nil)).Elem()
+}
+
+type ApiVersionSetInput interface {
+	pulumi.Input
+
+	ToApiVersionSetOutput() ApiVersionSetOutput
+	ToApiVersionSetOutputWithContext(ctx context.Context) ApiVersionSetOutput
+}
+
+func (ApiVersionSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiVersionSet)(nil)).Elem()
+}
+
+func (i ApiVersionSet) ToApiVersionSetOutput() ApiVersionSetOutput {
+	return i.ToApiVersionSetOutputWithContext(context.Background())
+}
+
+func (i ApiVersionSet) ToApiVersionSetOutputWithContext(ctx context.Context) ApiVersionSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiVersionSetOutput)
+}
+
+type ApiVersionSetOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiVersionSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiVersionSetOutput)(nil)).Elem()
+}
+
+func (o ApiVersionSetOutput) ToApiVersionSetOutput() ApiVersionSetOutput {
+	return o
+}
+
+func (o ApiVersionSetOutput) ToApiVersionSetOutputWithContext(ctx context.Context) ApiVersionSetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiVersionSetOutput{})
 }

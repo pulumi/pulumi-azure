@@ -79,6 +79,16 @@ namespace Pulumi.Azure.Backup
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Azure Backup Protected File Shares can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:backup/protectedFileShare:ProtectedFileShare item1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;group2;example-storage-account/protectedItems/AzureFileShare;example-share"
+    /// ```
+    /// 
+    ///  Note the ID requires quoting as there are semicolons
     /// </summary>
     public partial class ProtectedFileShare : Pulumi.CustomResource
     {

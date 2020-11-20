@@ -11,6 +11,14 @@ namespace Pulumi.Azure.Storage
 {
     /// <summary>
     /// Manages a Customer Managed Key for a Storage Account.
+    /// 
+    /// ## Import
+    /// 
+    /// Customer Managed Keys for a Storage Account can be imported using the `resource id` of the Storage Account, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:storage/customerManagedKey:CustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
+    /// ```
     /// </summary>
     public partial class CustomerManagedKey : Pulumi.CustomResource
     {

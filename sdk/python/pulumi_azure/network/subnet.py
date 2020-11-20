@@ -63,6 +63,14 @@ class Subnet(pulumi.CustomResource):
             )])
         ```
 
+        ## Import
+
+        Subnets can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/subnet:Subnet exampleSubnet /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The address prefix to use for the subnet.
@@ -93,7 +101,7 @@ class Subnet(pulumi.CustomResource):
             __props__ = dict()
 
             if address_prefix is not None:
-                warnings.warn("Use the `address_prefixes` property instead.", DeprecationWarning)
+                warnings.warn("""Use the `address_prefixes` property instead.""", DeprecationWarning)
                 pulumi.log.warn("address_prefix is deprecated: Use the `address_prefixes` property instead.")
             __props__['address_prefix'] = address_prefix
             __props__['address_prefixes'] = address_prefixes

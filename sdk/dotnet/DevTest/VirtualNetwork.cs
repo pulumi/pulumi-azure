@@ -49,6 +49,14 @@ namespace Pulumi.Azure.DevTest
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// DevTest Virtual Networks can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:devtest/virtualNetwork:VirtualNetwork network1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualnetworks/network1
+    /// ```
     /// </summary>
     public partial class VirtualNetwork : Pulumi.CustomResource
     {

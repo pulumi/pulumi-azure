@@ -62,6 +62,14 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Monitor Action Rule can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:monitoring/actionRuleSuppression:ActionRuleSuppression example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AlertsManagement/actionRules/actionRule1
+    /// ```
     /// </summary>
     public partial class ActionRuleSuppression : Pulumi.CustomResource
     {

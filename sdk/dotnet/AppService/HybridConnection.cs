@@ -69,6 +69,14 @@ namespace Pulumi.Azure.AppService
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// App Service Hybrid Connections can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:appservice/hybridConnection:HybridConnection example /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/exampleResourceGroup1/providers/Microsoft.Web/sites/exampleAppService1/hybridConnectionNamespaces/exampleRN1/relays/exampleRHC1
+    /// ```
     /// </summary>
     public partial class HybridConnection : Pulumi.CustomResource
     {

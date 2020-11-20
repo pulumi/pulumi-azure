@@ -4,6 +4,7 @@
 package apimanagement
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -56,6 +57,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// API Management AAD Identity Provider can be imported using the `resource id`, e.g.
+//
+// ```sh
+//  $ pulumi import azure:apimanagement/identityProviderAad:IdentityProviderAad example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/aad
 // ```
 type IdentityProviderAad struct {
 	pulumi.CustomResourceState
@@ -183,4 +192,43 @@ type IdentityProviderAadArgs struct {
 
 func (IdentityProviderAadArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityProviderAadArgs)(nil)).Elem()
+}
+
+type IdentityProviderAadInput interface {
+	pulumi.Input
+
+	ToIdentityProviderAadOutput() IdentityProviderAadOutput
+	ToIdentityProviderAadOutputWithContext(ctx context.Context) IdentityProviderAadOutput
+}
+
+func (IdentityProviderAad) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProviderAad)(nil)).Elem()
+}
+
+func (i IdentityProviderAad) ToIdentityProviderAadOutput() IdentityProviderAadOutput {
+	return i.ToIdentityProviderAadOutputWithContext(context.Background())
+}
+
+func (i IdentityProviderAad) ToIdentityProviderAadOutputWithContext(ctx context.Context) IdentityProviderAadOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderAadOutput)
+}
+
+type IdentityProviderAadOutput struct {
+	*pulumi.OutputState
+}
+
+func (IdentityProviderAadOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProviderAadOutput)(nil)).Elem()
+}
+
+func (o IdentityProviderAadOutput) ToIdentityProviderAadOutput() IdentityProviderAadOutput {
+	return o
+}
+
+func (o IdentityProviderAadOutput) ToIdentityProviderAadOutputWithContext(ctx context.Context) IdentityProviderAadOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IdentityProviderAadOutput{})
 }

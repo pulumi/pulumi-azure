@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['UserAssignedIdentity']
 
-warnings.warn("azure.msi.UserAssignedIdentity has been deprecated in favor of azure.authorization.UserAssignedIdentity", DeprecationWarning)
+warnings.warn("""azure.msi.UserAssignedIdentity has been deprecated in favor of azure.authorization.UserAssignedIdentity""", DeprecationWarning)
 
 
 class UserAssignedIdentity(pulumi.CustomResource):
-    warnings.warn("azure.msi.UserAssignedIdentity has been deprecated in favor of azure.authorization.UserAssignedIdentity", DeprecationWarning)
+    warnings.warn("""azure.msi.UserAssignedIdentity has been deprecated in favor of azure.authorization.UserAssignedIdentity""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -39,6 +39,14 @@ class UserAssignedIdentity(pulumi.CustomResource):
         example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location)
+        ```
+
+        ## Import
+
+        User Assigned Identities can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:msi/userAssignedIdentity:UserAssignedIdentity exampleIdentity /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/acceptanceTestResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testIdentity
         ```
 
         :param str resource_name: The name of the resource.
