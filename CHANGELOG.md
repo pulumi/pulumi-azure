@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to pulumi-terraform-bridge v2.13.2  
-  *  This adds support for import specific examples in documentation
+_(none)_
 
 ---
+
+## 3.31.1 (2020-11-20)
+* Upgrade to pulumi-terraform-bridge v2.13.2  
+  *  This adds support for import specific examples in documentation
 
 ## 3.31.0 (2020-11-20)
 * Upgrade to v2.36.0 of the AzureRM Terraform Provider
