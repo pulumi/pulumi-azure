@@ -2,9 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.36.0 of the AzureRM Terraform Provider
+_(none)_
 
 ---
+
+## 3.31.0 (2020-11-20)
+* Upgrade to v2.36.0 of the AzureRM Terraform Provider
+  ** PLEASE NOTE:**  
+  In `azure.network.networkConnectionMonitor` the `networkWatcherName` has become `networkWatcherId` due to changes in the upstream API
 
 ## 3.30.1 (2020-11-12)
 * Relax naming conventions on `cdn.Profile` to allow resource names to be up to 260 characters in length
