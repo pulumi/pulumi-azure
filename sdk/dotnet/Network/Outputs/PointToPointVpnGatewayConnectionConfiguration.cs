@@ -18,6 +18,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// A `route` block as defined below.
+        /// </summary>
+        public readonly Outputs.PointToPointVpnGatewayConnectionConfigurationRoute? Route;
+        /// <summary>
         /// A `vpn_client_address_pool` block as defined below.
         /// </summary>
         public readonly Outputs.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool VpnClientAddressPool;
@@ -26,9 +30,12 @@ namespace Pulumi.Azure.Network.Outputs
         private PointToPointVpnGatewayConnectionConfiguration(
             string name,
 
+            Outputs.PointToPointVpnGatewayConnectionConfigurationRoute? route,
+
             Outputs.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool vpnClientAddressPool)
         {
             Name = name;
+            Route = route;
             VpnClientAddressPool = vpnClientAddressPool;
         }
     }

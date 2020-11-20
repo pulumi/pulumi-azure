@@ -44,6 +44,12 @@ namespace Pulumi.Azure.Network
         public Output<Outputs.PointToPointVpnGatewayConnectionConfiguration> ConnectionConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
+        /// </summary>
+        [Output("dnsServers")]
+        public Output<ImmutableArray<string>> DnsServers { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -137,6 +143,18 @@ namespace Pulumi.Azure.Network
         [Input("connectionConfiguration", required: true)]
         public Input<Inputs.PointToPointVpnGatewayConnectionConfigurationArgs> ConnectionConfiguration { get; set; } = null!;
 
+        [Input("dnsServers")]
+        private InputList<string>? _dnsServers;
+
+        /// <summary>
+        /// A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
+        /// </summary>
+        public InputList<string> DnsServers
+        {
+            get => _dnsServers ?? (_dnsServers = new InputList<string>());
+            set => _dnsServers = value;
+        }
+
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
@@ -197,6 +215,18 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("connectionConfiguration")]
         public Input<Inputs.PointToPointVpnGatewayConnectionConfigurationGetArgs>? ConnectionConfiguration { get; set; }
+
+        [Input("dnsServers")]
+        private InputList<string>? _dnsServers;
+
+        /// <summary>
+        /// A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
+        /// </summary>
+        public InputList<string> DnsServers
+        {
+            get => _dnsServers ?? (_dnsServers = new InputList<string>());
+            set => _dnsServers = value;
+        }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

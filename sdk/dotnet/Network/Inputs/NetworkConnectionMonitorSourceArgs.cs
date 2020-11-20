@@ -13,16 +13,16 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class NetworkConnectionMonitorSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The source port used by connection monitor.
+        /// The port for the HTTP connection.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The ID of the virtual machine used as the source by connection monitor.
+        /// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
         /// </summary>
-        [Input("virtualMachineId", required: true)]
-        public Input<string> VirtualMachineId { get; set; } = null!;
+        [Input("virtualMachineId")]
+        public Input<string>? VirtualMachineId { get; set; }
 
         public NetworkConnectionMonitorSourceArgs()
         {

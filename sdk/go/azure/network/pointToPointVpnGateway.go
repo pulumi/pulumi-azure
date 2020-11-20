@@ -43,6 +43,8 @@ type PointToPointVpnGateway struct {
 
 	// A `connectionConfiguration` block as defined below.
 	ConnectionConfiguration PointToPointVpnGatewayConnectionConfigurationOutput `pulumi:"connectionConfiguration"`
+	// A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
+	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
@@ -104,6 +106,8 @@ func GetPointToPointVpnGateway(ctx *pulumi.Context,
 type pointToPointVpnGatewayState struct {
 	// A `connectionConfiguration` block as defined below.
 	ConnectionConfiguration *PointToPointVpnGatewayConnectionConfiguration `pulumi:"connectionConfiguration"`
+	// A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
+	DnsServers []string `pulumi:"dnsServers"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
@@ -123,6 +127,8 @@ type pointToPointVpnGatewayState struct {
 type PointToPointVpnGatewayState struct {
 	// A `connectionConfiguration` block as defined below.
 	ConnectionConfiguration PointToPointVpnGatewayConnectionConfigurationPtrInput
+	// A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
+	DnsServers pulumi.StringArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
@@ -146,6 +152,8 @@ func (PointToPointVpnGatewayState) ElementType() reflect.Type {
 type pointToPointVpnGatewayArgs struct {
 	// A `connectionConfiguration` block as defined below.
 	ConnectionConfiguration PointToPointVpnGatewayConnectionConfiguration `pulumi:"connectionConfiguration"`
+	// A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
+	DnsServers []string `pulumi:"dnsServers"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
@@ -166,6 +174,8 @@ type pointToPointVpnGatewayArgs struct {
 type PointToPointVpnGatewayArgs struct {
 	// A `connectionConfiguration` block as defined below.
 	ConnectionConfiguration PointToPointVpnGatewayConnectionConfigurationInput
+	// A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
+	DnsServers pulumi.StringArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.

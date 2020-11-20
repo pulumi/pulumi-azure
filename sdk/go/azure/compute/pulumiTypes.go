@@ -948,7 +948,7 @@ func (o LinuxVirtualMachineAdminSshKeyArrayOutput) Index(i pulumi.IntInput) Linu
 
 type LinuxVirtualMachineBootDiagnostics struct {
 	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-	StorageAccountUri string `pulumi:"storageAccountUri"`
+	StorageAccountUri *string `pulumi:"storageAccountUri"`
 }
 
 // LinuxVirtualMachineBootDiagnosticsInput is an input type that accepts LinuxVirtualMachineBootDiagnosticsArgs and LinuxVirtualMachineBootDiagnosticsOutput values.
@@ -964,7 +964,7 @@ type LinuxVirtualMachineBootDiagnosticsInput interface {
 
 type LinuxVirtualMachineBootDiagnosticsArgs struct {
 	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-	StorageAccountUri pulumi.StringInput `pulumi:"storageAccountUri"`
+	StorageAccountUri pulumi.StringPtrInput `pulumi:"storageAccountUri"`
 }
 
 func (LinuxVirtualMachineBootDiagnosticsArgs) ElementType() reflect.Type {
@@ -1045,8 +1045,8 @@ func (o LinuxVirtualMachineBootDiagnosticsOutput) ToLinuxVirtualMachineBootDiagn
 }
 
 // The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-func (o LinuxVirtualMachineBootDiagnosticsOutput) StorageAccountUri() pulumi.StringOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
+func (o LinuxVirtualMachineBootDiagnosticsOutput) StorageAccountUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineBootDiagnostics) *string { return v.StorageAccountUri }).(pulumi.StringPtrOutput)
 }
 
 type LinuxVirtualMachineBootDiagnosticsPtrOutput struct{ *pulumi.OutputState }
@@ -1073,7 +1073,7 @@ func (o LinuxVirtualMachineBootDiagnosticsPtrOutput) StorageAccountUri() pulumi.
 		if v == nil {
 			return nil
 		}
-		return &v.StorageAccountUri
+		return v.StorageAccountUri
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2359,7 +2359,7 @@ func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) EnableAuto
 
 type LinuxVirtualMachineScaleSetBootDiagnostics struct {
 	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-	StorageAccountUri string `pulumi:"storageAccountUri"`
+	StorageAccountUri *string `pulumi:"storageAccountUri"`
 }
 
 // LinuxVirtualMachineScaleSetBootDiagnosticsInput is an input type that accepts LinuxVirtualMachineScaleSetBootDiagnosticsArgs and LinuxVirtualMachineScaleSetBootDiagnosticsOutput values.
@@ -2375,7 +2375,7 @@ type LinuxVirtualMachineScaleSetBootDiagnosticsInput interface {
 
 type LinuxVirtualMachineScaleSetBootDiagnosticsArgs struct {
 	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-	StorageAccountUri pulumi.StringInput `pulumi:"storageAccountUri"`
+	StorageAccountUri pulumi.StringPtrInput `pulumi:"storageAccountUri"`
 }
 
 func (LinuxVirtualMachineScaleSetBootDiagnosticsArgs) ElementType() reflect.Type {
@@ -2456,8 +2456,8 @@ func (o LinuxVirtualMachineScaleSetBootDiagnosticsOutput) ToLinuxVirtualMachineS
 }
 
 // The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-func (o LinuxVirtualMachineScaleSetBootDiagnosticsOutput) StorageAccountUri() pulumi.StringOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
+func (o LinuxVirtualMachineScaleSetBootDiagnosticsOutput) StorageAccountUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetBootDiagnostics) *string { return v.StorageAccountUri }).(pulumi.StringPtrOutput)
 }
 
 type LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput struct{ *pulumi.OutputState }
@@ -2486,7 +2486,7 @@ func (o LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput) StorageAccountUri()
 		if v == nil {
 			return nil
 		}
-		return &v.StorageAccountUri
+		return v.StorageAccountUri
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12512,7 +12512,7 @@ func (o WindowsVirtualMachineAdditionalUnattendContentArrayOutput) Index(i pulum
 
 type WindowsVirtualMachineBootDiagnostics struct {
 	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-	StorageAccountUri string `pulumi:"storageAccountUri"`
+	StorageAccountUri *string `pulumi:"storageAccountUri"`
 }
 
 // WindowsVirtualMachineBootDiagnosticsInput is an input type that accepts WindowsVirtualMachineBootDiagnosticsArgs and WindowsVirtualMachineBootDiagnosticsOutput values.
@@ -12528,7 +12528,7 @@ type WindowsVirtualMachineBootDiagnosticsInput interface {
 
 type WindowsVirtualMachineBootDiagnosticsArgs struct {
 	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-	StorageAccountUri pulumi.StringInput `pulumi:"storageAccountUri"`
+	StorageAccountUri pulumi.StringPtrInput `pulumi:"storageAccountUri"`
 }
 
 func (WindowsVirtualMachineBootDiagnosticsArgs) ElementType() reflect.Type {
@@ -12609,8 +12609,8 @@ func (o WindowsVirtualMachineBootDiagnosticsOutput) ToWindowsVirtualMachineBootD
 }
 
 // The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-func (o WindowsVirtualMachineBootDiagnosticsOutput) StorageAccountUri() pulumi.StringOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
+func (o WindowsVirtualMachineBootDiagnosticsOutput) StorageAccountUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineBootDiagnostics) *string { return v.StorageAccountUri }).(pulumi.StringPtrOutput)
 }
 
 type WindowsVirtualMachineBootDiagnosticsPtrOutput struct{ *pulumi.OutputState }
@@ -12637,7 +12637,7 @@ func (o WindowsVirtualMachineBootDiagnosticsPtrOutput) StorageAccountUri() pulum
 		if v == nil {
 			return nil
 		}
-		return &v.StorageAccountUri
+		return v.StorageAccountUri
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -13923,7 +13923,7 @@ func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) EnableAu
 
 type WindowsVirtualMachineScaleSetBootDiagnostics struct {
 	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-	StorageAccountUri string `pulumi:"storageAccountUri"`
+	StorageAccountUri *string `pulumi:"storageAccountUri"`
 }
 
 // WindowsVirtualMachineScaleSetBootDiagnosticsInput is an input type that accepts WindowsVirtualMachineScaleSetBootDiagnosticsArgs and WindowsVirtualMachineScaleSetBootDiagnosticsOutput values.
@@ -13939,7 +13939,7 @@ type WindowsVirtualMachineScaleSetBootDiagnosticsInput interface {
 
 type WindowsVirtualMachineScaleSetBootDiagnosticsArgs struct {
 	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-	StorageAccountUri pulumi.StringInput `pulumi:"storageAccountUri"`
+	StorageAccountUri pulumi.StringPtrInput `pulumi:"storageAccountUri"`
 }
 
 func (WindowsVirtualMachineScaleSetBootDiagnosticsArgs) ElementType() reflect.Type {
@@ -14020,8 +14020,8 @@ func (o WindowsVirtualMachineScaleSetBootDiagnosticsOutput) ToWindowsVirtualMach
 }
 
 // The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-func (o WindowsVirtualMachineScaleSetBootDiagnosticsOutput) StorageAccountUri() pulumi.StringOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
+func (o WindowsVirtualMachineScaleSetBootDiagnosticsOutput) StorageAccountUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetBootDiagnostics) *string { return v.StorageAccountUri }).(pulumi.StringPtrOutput)
 }
 
 type WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput struct{ *pulumi.OutputState }
@@ -14050,7 +14050,7 @@ func (o WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput) StorageAccountUri
 		if v == nil {
 			return nil
 		}
-		return &v.StorageAccountUri
+		return v.StorageAccountUri
 	}).(pulumi.StringPtrOutput)
 }
 

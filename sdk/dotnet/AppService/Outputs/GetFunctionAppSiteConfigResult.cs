@@ -26,6 +26,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// State of FTP / FTPS service for this AppService.
         /// </summary>
         public readonly string FtpsState;
+        public readonly string HealthCheckPath;
         /// <summary>
         /// Is HTTP2 Enabled on this App Service?
         /// </summary>
@@ -77,6 +78,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string ftpsState,
 
+            string healthCheckPath,
+
             bool http2Enabled,
 
             ImmutableArray<Outputs.GetFunctionAppSiteConfigIpRestrictionResult> ipRestrictions,
@@ -101,6 +104,7 @@ namespace Pulumi.Azure.AppService.Outputs
             AutoSwapSlotName = autoSwapSlotName;
             Cors = cors;
             FtpsState = ftpsState;
+            HealthCheckPath = healthCheckPath;
             Http2Enabled = http2Enabled;
             IpRestrictions = ipRestrictions;
             LinuxFxVersion = linuxFxVersion;

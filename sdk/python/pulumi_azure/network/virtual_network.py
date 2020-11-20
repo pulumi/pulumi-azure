@@ -18,6 +18,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 bgp_community: Optional[pulumi.Input[str]] = None,
                  ddos_protection_plan: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkDdosProtectionPlanArgs']]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -25,6 +26,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vm_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -84,6 +86,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
+        :param pulumi.Input[str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkDdosProtectionPlanArgs']] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of IP addresses of DNS servers
         :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
@@ -91,6 +94,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']]]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] vm_protection_enabled: Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -112,6 +116,7 @@ class VirtualNetwork(pulumi.CustomResource):
             if address_spaces is None:
                 raise TypeError("Missing required property 'address_spaces'")
             __props__['address_spaces'] = address_spaces
+            __props__['bgp_community'] = bgp_community
             __props__['ddos_protection_plan'] = ddos_protection_plan
             __props__['dns_servers'] = dns_servers
             __props__['location'] = location
@@ -121,6 +126,7 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['subnets'] = subnets
             __props__['tags'] = tags
+            __props__['vm_protection_enabled'] = vm_protection_enabled
             __props__['guid'] = None
         super(VirtualNetwork, __self__).__init__(
             'azure:network/virtualNetwork:VirtualNetwork',
@@ -133,6 +139,7 @@ class VirtualNetwork(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            bgp_community: Optional[pulumi.Input[str]] = None,
             ddos_protection_plan: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkDdosProtectionPlanArgs']]] = None,
             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             guid: Optional[pulumi.Input[str]] = None,
@@ -140,7 +147,8 @@ class VirtualNetwork(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'VirtualNetwork':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            vm_protection_enabled: Optional[pulumi.Input[bool]] = None) -> 'VirtualNetwork':
         """
         Get an existing VirtualNetwork resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -149,6 +157,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
+        :param pulumi.Input[str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkDdosProtectionPlanArgs']] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of IP addresses of DNS servers
         :param pulumi.Input[str] guid: The GUID of the virtual network.
@@ -157,12 +166,14 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']]]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] vm_protection_enabled: Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
         __props__["address_spaces"] = address_spaces
+        __props__["bgp_community"] = bgp_community
         __props__["ddos_protection_plan"] = ddos_protection_plan
         __props__["dns_servers"] = dns_servers
         __props__["guid"] = guid
@@ -171,6 +182,7 @@ class VirtualNetwork(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["subnets"] = subnets
         __props__["tags"] = tags
+        __props__["vm_protection_enabled"] = vm_protection_enabled
         return VirtualNetwork(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -180,6 +192,14 @@ class VirtualNetwork(pulumi.CustomResource):
         The address space that is used the virtual network. You can supply more than one address space.
         """
         return pulumi.get(self, "address_spaces")
+
+    @property
+    @pulumi.getter(name="bgpCommunity")
+    def bgp_community(self) -> pulumi.Output[Optional[str]]:
+        """
+        The BGP community attribute in format `<as-number>:<community-value>`.
+        """
+        return pulumi.get(self, "bgp_community")
 
     @property
     @pulumi.getter(name="ddosProtectionPlan")
@@ -244,6 +264,14 @@ class VirtualNetwork(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="vmProtectionEnabled")
+    def vm_protection_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+        """
+        return pulumi.get(self, "vm_protection_enabled")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

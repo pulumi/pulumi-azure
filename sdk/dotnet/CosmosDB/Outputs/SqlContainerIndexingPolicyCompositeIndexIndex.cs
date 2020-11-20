@@ -18,7 +18,7 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// </summary>
         public readonly string Order;
         /// <summary>
-        /// Path for which the indexing behavior applies to.
+        /// Path for which the indexing behaviour applies to.
         /// </summary>
         public readonly string Path;
 

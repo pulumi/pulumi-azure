@@ -70,7 +70,7 @@ import (
 type KubernetesClusterNodePool struct {
 	pulumi.CustomResourceState
 
-	// A list of Availability Zones where the Nodes in this Node Pool should be created in.
+	// A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrOutput `pulumi:"enableAutoScaling"`
@@ -104,6 +104,8 @@ type KubernetesClusterNodePool struct {
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
 	// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrOutput `pulumi:"priority"`
+	// The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
+	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
 	SpotMaxPrice pulumi.Float64PtrOutput `pulumi:"spotMaxPrice"`
 	// A mapping of tags to assign to the resource.
@@ -148,7 +150,7 @@ func GetKubernetesClusterNodePool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KubernetesClusterNodePool resources.
 type kubernetesClusterNodePoolState struct {
-	// A list of Availability Zones where the Nodes in this Node Pool should be created in.
+	// A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
@@ -182,6 +184,8 @@ type kubernetesClusterNodePoolState struct {
 	OsType *string `pulumi:"osType"`
 	// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority *string `pulumi:"priority"`
+	// The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
+	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
 	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
 	// A mapping of tags to assign to the resource.
@@ -193,7 +197,7 @@ type kubernetesClusterNodePoolState struct {
 }
 
 type KubernetesClusterNodePoolState struct {
-	// A list of Availability Zones where the Nodes in this Node Pool should be created in.
+	// A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
 	AvailabilityZones pulumi.StringArrayInput
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrInput
@@ -227,6 +231,8 @@ type KubernetesClusterNodePoolState struct {
 	OsType pulumi.StringPtrInput
 	// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrInput
+	// The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
+	ProximityPlacementGroupId pulumi.StringPtrInput
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
 	SpotMaxPrice pulumi.Float64PtrInput
 	// A mapping of tags to assign to the resource.
@@ -242,7 +248,7 @@ func (KubernetesClusterNodePoolState) ElementType() reflect.Type {
 }
 
 type kubernetesClusterNodePoolArgs struct {
-	// A list of Availability Zones where the Nodes in this Node Pool should be created in.
+	// A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
@@ -276,6 +282,8 @@ type kubernetesClusterNodePoolArgs struct {
 	OsType *string `pulumi:"osType"`
 	// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority *string `pulumi:"priority"`
+	// The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
+	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
 	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
 	// A mapping of tags to assign to the resource.
@@ -288,7 +296,7 @@ type kubernetesClusterNodePoolArgs struct {
 
 // The set of arguments for constructing a KubernetesClusterNodePool resource.
 type KubernetesClusterNodePoolArgs struct {
-	// A list of Availability Zones where the Nodes in this Node Pool should be created in.
+	// A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
 	AvailabilityZones pulumi.StringArrayInput
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrInput
@@ -322,6 +330,8 @@ type KubernetesClusterNodePoolArgs struct {
 	OsType pulumi.StringPtrInput
 	// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrInput
+	// The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
+	ProximityPlacementGroupId pulumi.StringPtrInput
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
 	SpotMaxPrice pulumi.Float64PtrInput
 	// A mapping of tags to assign to the resource.

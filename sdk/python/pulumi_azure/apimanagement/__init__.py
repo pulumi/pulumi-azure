@@ -13,6 +13,7 @@ from .api_version_set import *
 from .authorization_server import *
 from .backend import *
 from .certificate import *
+from .custom_domain import *
 from .diagnostic import *
 from .get_api import *
 from .get_api_version_set import *

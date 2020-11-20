@@ -69,7 +69,7 @@ type PolicySetDefinition struct {
 	PolicyDefinitionReferences PolicySetDefinitionPolicyDefinitionReferenceArrayOutput `pulumi:"policyDefinitionReferences"`
 	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
 	//
-	// Deprecated: Deprecated in favor of `policy_definition_reference`
+	// Deprecated: Deprecated in favour of `policy_definition_reference`
 	PolicyDefinitions pulumi.StringOutput `pulumi:"policyDefinitions"`
 	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 	PolicyType pulumi.StringOutput `pulumi:"policyType"`
@@ -129,7 +129,7 @@ type policySetDefinitionState struct {
 	PolicyDefinitionReferences []PolicySetDefinitionPolicyDefinitionReference `pulumi:"policyDefinitionReferences"`
 	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
 	//
-	// Deprecated: Deprecated in favor of `policy_definition_reference`
+	// Deprecated: Deprecated in favour of `policy_definition_reference`
 	PolicyDefinitions *string `pulumi:"policyDefinitions"`
 	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 	PolicyType *string `pulumi:"policyType"`
@@ -156,7 +156,7 @@ type PolicySetDefinitionState struct {
 	PolicyDefinitionReferences PolicySetDefinitionPolicyDefinitionReferenceArrayInput
 	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
 	//
-	// Deprecated: Deprecated in favor of `policy_definition_reference`
+	// Deprecated: Deprecated in favour of `policy_definition_reference`
 	PolicyDefinitions pulumi.StringPtrInput
 	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 	PolicyType pulumi.StringPtrInput
@@ -187,7 +187,7 @@ type policySetDefinitionArgs struct {
 	PolicyDefinitionReferences []PolicySetDefinitionPolicyDefinitionReference `pulumi:"policyDefinitionReferences"`
 	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
 	//
-	// Deprecated: Deprecated in favor of `policy_definition_reference`
+	// Deprecated: Deprecated in favour of `policy_definition_reference`
 	PolicyDefinitions *string `pulumi:"policyDefinitions"`
 	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 	PolicyType string `pulumi:"policyType"`
@@ -215,7 +215,7 @@ type PolicySetDefinitionArgs struct {
 	PolicyDefinitionReferences PolicySetDefinitionPolicyDefinitionReferenceArrayInput
 	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
 	//
-	// Deprecated: Deprecated in favor of `policy_definition_reference`
+	// Deprecated: Deprecated in favour of `policy_definition_reference`
 	PolicyDefinitions pulumi.StringPtrInput
 	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 	PolicyType pulumi.StringInput

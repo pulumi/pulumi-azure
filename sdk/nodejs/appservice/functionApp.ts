@@ -223,7 +223,7 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly storageAccountName!: pulumi.Output<string>;
     /**
-     * @deprecated Deprecated in favor of `storage_account_name` and `storage_account_access_key`
+     * @deprecated Deprecated in favour of `storage_account_name` and `storage_account_access_key`
      */
     public readonly storageConnectionString!: pulumi.Output<string>;
     /**
@@ -416,7 +416,7 @@ export interface FunctionAppState {
      */
     readonly storageAccountName?: pulumi.Input<string>;
     /**
-     * @deprecated Deprecated in favor of `storage_account_name` and `storage_account_access_key`
+     * @deprecated Deprecated in favour of `storage_account_name` and `storage_account_access_key`
      */
     readonly storageConnectionString?: pulumi.Input<string>;
     /**
@@ -506,7 +506,7 @@ export interface FunctionAppArgs {
      */
     readonly storageAccountName?: pulumi.Input<string>;
     /**
-     * @deprecated Deprecated in favor of `storage_account_name` and `storage_account_access_key`
+     * @deprecated Deprecated in favour of `storage_account_name` and `storage_account_access_key`
      */
     readonly storageConnectionString?: pulumi.Input<string>;
     /**

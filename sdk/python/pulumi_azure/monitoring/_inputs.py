@@ -67,6 +67,7 @@ __all__ = [
     'ScheduledQueryRulesAlertTriggerMetricTriggerArgs',
     'ScheduledQueryRulesLogCriteriaArgs',
     'ScheduledQueryRulesLogCriteriaDimensionArgs',
+    'SmartDetectorAlertRuleActionGroupArgs',
 ]
 
 @pulumi.input_type
@@ -3435,5 +3436,59 @@ class ScheduledQueryRulesLogCriteriaDimensionArgs:
     @operator.setter
     def operator(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "operator", value)
+
+
+@pulumi.input_type
+class SmartDetectorAlertRuleActionGroupArgs:
+    def __init__(__self__, *,
+                 ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 email_subject: Optional[pulumi.Input[str]] = None,
+                 webhook_payload: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ids: Specifies the action group ids.
+        :param pulumi.Input[str] email_subject: Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
+        :param pulumi.Input[str] webhook_payload: A JSON String which Specifies the custom webhook payload if Webhook Receiver is specified in Monitor Action Group resource.
+        """
+        pulumi.set(__self__, "ids", ids)
+        if email_subject is not None:
+            pulumi.set(__self__, "email_subject", email_subject)
+        if webhook_payload is not None:
+            pulumi.set(__self__, "webhook_payload", webhook_payload)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies the action group ids.
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "ids", value)
+
+    @property
+    @pulumi.getter(name="emailSubject")
+    def email_subject(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
+        """
+        return pulumi.get(self, "email_subject")
+
+    @email_subject.setter
+    def email_subject(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email_subject", value)
+
+    @property
+    @pulumi.getter(name="webhookPayload")
+    def webhook_payload(self) -> Optional[pulumi.Input[str]]:
+        """
+        A JSON String which Specifies the custom webhook payload if Webhook Receiver is specified in Monitor Action Group resource.
+        """
+        return pulumi.get(self, "webhook_payload")
+
+    @webhook_payload.setter
+    def webhook_payload(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "webhook_payload", value)
 
 

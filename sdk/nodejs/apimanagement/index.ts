@@ -12,6 +12,7 @@ export * from "./apiVersionSet";
 export * from "./authorizationServer";
 export * from "./backend";
 export * from "./certificate";
+export * from "./customDomain";
 export * from "./diagnostic";
 export * from "./getApi";
 export * from "./getApiVersionSet";

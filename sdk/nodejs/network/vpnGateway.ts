@@ -69,7 +69,7 @@ export class VpnGateway extends pulumi.CustomResource {
     /**
      * A `bgpSettings` block as defined below.
      */
-    public readonly bgpSettings!: pulumi.Output<outputs.network.VpnGatewayBgpSetting[]>;
+    public readonly bgpSettings!: pulumi.Output<outputs.network.VpnGatewayBgpSettings>;
     /**
      * The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
      */
@@ -148,7 +148,7 @@ export interface VpnGatewayState {
     /**
      * A `bgpSettings` block as defined below.
      */
-    readonly bgpSettings?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayBgpSetting>[]>;
+    readonly bgpSettings?: pulumi.Input<inputs.network.VpnGatewayBgpSettings>;
     /**
      * The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
      */
@@ -182,7 +182,7 @@ export interface VpnGatewayArgs {
     /**
      * A `bgpSettings` block as defined below.
      */
-    readonly bgpSettings?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayBgpSetting>[]>;
+    readonly bgpSettings?: pulumi.Input<inputs.network.VpnGatewayBgpSettings>;
     /**
      * The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
      */

@@ -97,6 +97,12 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> AddressSpaces { get; private set; } = null!;
 
         /// <summary>
+        /// The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
+        /// </summary>
+        [Output("bgpCommunity")]
+        public Output<string?> BgpCommunity { get; private set; } = null!;
+
+        /// <summary>
         /// A `ddos_protection_plan` block as documented below.
         /// </summary>
         [Output("ddosProtectionPlan")]
@@ -143,6 +149,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+        /// </summary>
+        [Output("vmProtectionEnabled")]
+        public Output<bool?> VmProtectionEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -201,6 +213,12 @@ namespace Pulumi.Azure.Network
             get => _addressSpaces ?? (_addressSpaces = new InputList<string>());
             set => _addressSpaces = value;
         }
+
+        /// <summary>
+        /// The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
+        /// </summary>
+        [Input("bgpCommunity")]
+        public Input<string>? BgpCommunity { get; set; }
 
         /// <summary>
         /// A `ddos_protection_plan` block as documented below.
@@ -262,6 +280,12 @@ namespace Pulumi.Azure.Network
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+        /// </summary>
+        [Input("vmProtectionEnabled")]
+        public Input<bool>? VmProtectionEnabled { get; set; }
+
         public VirtualNetworkArgs()
         {
         }
@@ -280,6 +304,12 @@ namespace Pulumi.Azure.Network
             get => _addressSpaces ?? (_addressSpaces = new InputList<string>());
             set => _addressSpaces = value;
         }
+
+        /// <summary>
+        /// The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
+        /// </summary>
+        [Input("bgpCommunity")]
+        public Input<string>? BgpCommunity { get; set; }
 
         /// <summary>
         /// A `ddos_protection_plan` block as documented below.
@@ -346,6 +376,12 @@ namespace Pulumi.Azure.Network
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+        /// </summary>
+        [Input("vmProtectionEnabled")]
+        public Input<bool>? VmProtectionEnabled { get; set; }
 
         public VirtualNetworkState()
         {

@@ -110,8 +110,8 @@ class PolicySetDefinition(pulumi.CustomResource):
             __props__['parameters'] = parameters
             __props__['policy_definition_references'] = policy_definition_references
             if policy_definitions is not None:
-                warnings.warn("Deprecated in favor of `policy_definition_reference`", DeprecationWarning)
-                pulumi.log.warn("policy_definitions is deprecated: Deprecated in favor of `policy_definition_reference`")
+                warnings.warn("Deprecated in favour of `policy_definition_reference`", DeprecationWarning)
+                pulumi.log.warn("policy_definitions is deprecated: Deprecated in favour of `policy_definition_reference`")
             __props__['policy_definitions'] = policy_definitions
             if policy_type is None:
                 raise TypeError("Missing required property 'policy_type'")

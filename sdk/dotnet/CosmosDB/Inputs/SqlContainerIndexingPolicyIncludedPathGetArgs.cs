@@ -13,7 +13,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
     public sealed class SqlContainerIndexingPolicyIncludedPathGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Path for which the indexing behavior applies to.
+        /// Path for which the indexing behaviour applies to.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;

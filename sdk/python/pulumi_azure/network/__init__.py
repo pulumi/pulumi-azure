@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .application_gateway import *
 from .application_security_group import *
+from .bgp_connection import *
 from .ddos_protection_plan import *
 from .express_route_circuit import *
 from .express_route_circuit_authorization import *
@@ -35,6 +36,7 @@ from .get_route_table import *
 from .get_service_tags import *
 from .get_subnet import *
 from .get_traffic_manager import *
+from .get_traffic_manager_profile import *
 from .get_virtual_hub import *
 from .get_virtual_network import *
 from .get_virtual_network_gateway import *
@@ -62,6 +64,7 @@ from .public_ip_prefix import *
 from .route import *
 from .route_filter import *
 from .route_table import *
+from .security_partner_provider import *
 from .subnet import *
 from .subnet_nat_gateway_association import *
 from .subnet_network_security_group_association import *

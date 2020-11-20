@@ -14,19 +14,19 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class NetworkConnectionMonitorSource
     {
         /// <summary>
-        /// The source port used by connection monitor.
+        /// The port for the HTTP connection.
         /// </summary>
         public readonly int? Port;
         /// <summary>
-        /// The ID of the virtual machine used as the source by connection monitor.
+        /// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
         /// </summary>
-        public readonly string VirtualMachineId;
+        public readonly string? VirtualMachineId;
 
         [OutputConstructor]
         private NetworkConnectionMonitorSource(
             int? port,
 
-            string virtualMachineId)
+            string? virtualMachineId)
         {
             Port = port;
             VirtualMachineId = virtualMachineId;

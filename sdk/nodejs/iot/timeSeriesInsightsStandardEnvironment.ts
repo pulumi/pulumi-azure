@@ -75,7 +75,7 @@ export class TimeSeriesInsightsStandardEnvironment extends pulumi.CustomResource
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
-     * Specifies the behavior the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
+     * Specifies the behaviour the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
      */
     public readonly storageLimitExceededBehavior!: pulumi.Output<string | undefined>;
     /**
@@ -163,7 +163,7 @@ export interface TimeSeriesInsightsStandardEnvironmentState {
      */
     readonly skuName?: pulumi.Input<string>;
     /**
-     * Specifies the behavior the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
+     * Specifies the behaviour the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
      */
     readonly storageLimitExceededBehavior?: pulumi.Input<string>;
     /**
@@ -201,7 +201,7 @@ export interface TimeSeriesInsightsStandardEnvironmentArgs {
      */
     readonly skuName: pulumi.Input<string>;
     /**
-     * Specifies the behavior the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
+     * Specifies the behaviour the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
      */
     readonly storageLimitExceededBehavior?: pulumi.Input<string>;
     /**

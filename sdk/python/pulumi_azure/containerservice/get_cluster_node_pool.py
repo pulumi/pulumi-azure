@@ -19,7 +19,7 @@ class GetClusterNodePoolResult:
     """
     A collection of values returned by getClusterNodePool.
     """
-    def __init__(__self__, availability_zones=None, enable_auto_scaling=None, enable_node_public_ip=None, eviction_policy=None, id=None, kubernetes_cluster_name=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_count=None, node_labels=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_type=None, priority=None, resource_group_name=None, spot_max_price=None, tags=None, vm_size=None, vnet_subnet_id=None):
+    def __init__(__self__, availability_zones=None, enable_auto_scaling=None, enable_node_public_ip=None, eviction_policy=None, id=None, kubernetes_cluster_name=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_count=None, node_labels=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_type=None, priority=None, proximity_placement_group_id=None, resource_group_name=None, spot_max_price=None, tags=None, vm_size=None, vnet_subnet_id=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -74,6 +74,9 @@ class GetClusterNodePoolResult:
         if priority and not isinstance(priority, str):
             raise TypeError("Expected argument 'priority' to be a str")
         pulumi.set(__self__, "priority", priority)
+        if proximity_placement_group_id and not isinstance(proximity_placement_group_id, str):
+            raise TypeError("Expected argument 'proximity_placement_group_id' to be a str")
+        pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -229,6 +232,14 @@ class GetClusterNodePoolResult:
         return pulumi.get(self, "priority")
 
     @property
+    @pulumi.getter(name="proximityPlacementGroupId")
+    def proximity_placement_group_id(self) -> str:
+        """
+        The ID of the Proximity Placement Group where the Virtual Machine Scale Set backing this Node Pool will be placed.
+        """
+        return pulumi.get(self, "proximity_placement_group_id")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
@@ -290,6 +301,7 @@ class AwaitableGetClusterNodePoolResult(GetClusterNodePoolResult):
             os_disk_size_gb=self.os_disk_size_gb,
             os_type=self.os_type,
             priority=self.priority,
+            proximity_placement_group_id=self.proximity_placement_group_id,
             resource_group_name=self.resource_group_name,
             spot_max_price=self.spot_max_price,
             tags=self.tags,
@@ -350,6 +362,7 @@ def get_cluster_node_pool(kubernetes_cluster_name: Optional[str] = None,
         os_disk_size_gb=__ret__.os_disk_size_gb,
         os_type=__ret__.os_type,
         priority=__ret__.priority,
+        proximity_placement_group_id=__ret__.proximity_placement_group_id,
         resource_group_name=__ret__.resource_group_name,
         spot_max_price=__ret__.spot_max_price,
         tags=__ret__.tags,

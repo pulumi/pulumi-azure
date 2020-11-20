@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class NetworkConnectionMonitorDestination
     {
         /// <summary>
-        /// The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
+        /// The IP address or domain name of the Network Connection Monitor endpoint.
         /// </summary>
         public readonly string? Address;
         /// <summary>
-        /// The destination port used by connection monitor.
+        /// The port for the HTTP connection.
         /// </summary>
-        public readonly int Port;
+        public readonly int? Port;
         /// <summary>
-        /// The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
+        /// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
         /// </summary>
         public readonly string? VirtualMachineId;
 
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Network.Outputs
         private NetworkConnectionMonitorDestination(
             string? address,
 
-            int port,
+            int? port,
 
             string? virtualMachineId)
         {

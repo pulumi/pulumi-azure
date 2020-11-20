@@ -68,6 +68,7 @@ __all__ = [
     'ScheduledQueryRulesAlertTriggerMetricTrigger',
     'ScheduledQueryRulesLogCriteria',
     'ScheduledQueryRulesLogCriteriaDimension',
+    'SmartDetectorAlertRuleActionGroup',
     'GetActionGroupArmRoleReceiverResult',
     'GetActionGroupAutomationRunbookReceiverResult',
     'GetActionGroupAzureAppPushReceiverResult',
@@ -2847,6 +2848,51 @@ class ScheduledQueryRulesLogCriteriaDimension(dict):
         Operator for dimension values, - 'Include'.
         """
         return pulumi.get(self, "operator")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SmartDetectorAlertRuleActionGroup(dict):
+    def __init__(__self__, *,
+                 ids: Sequence[str],
+                 email_subject: Optional[str] = None,
+                 webhook_payload: Optional[str] = None):
+        """
+        :param Sequence[str] ids: Specifies the action group ids.
+        :param str email_subject: Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
+        :param str webhook_payload: A JSON String which Specifies the custom webhook payload if Webhook Receiver is specified in Monitor Action Group resource.
+        """
+        pulumi.set(__self__, "ids", ids)
+        if email_subject is not None:
+            pulumi.set(__self__, "email_subject", email_subject)
+        if webhook_payload is not None:
+            pulumi.set(__self__, "webhook_payload", webhook_payload)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Sequence[str]:
+        """
+        Specifies the action group ids.
+        """
+        return pulumi.get(self, "ids")
+
+    @property
+    @pulumi.getter(name="emailSubject")
+    def email_subject(self) -> Optional[str]:
+        """
+        Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
+        """
+        return pulumi.get(self, "email_subject")
+
+    @property
+    @pulumi.getter(name="webhookPayload")
+    def webhook_payload(self) -> Optional[str]:
+        """
+        A JSON String which Specifies the custom webhook payload if Webhook Receiver is specified in Monitor Action Group resource.
+        """
+        return pulumi.get(self, "webhook_payload")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

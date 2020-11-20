@@ -31,6 +31,11 @@ __all__ = [
     'BackendServiceFabricClusterArgs',
     'BackendServiceFabricClusterServerX509NameArgs',
     'BackendTlsArgs',
+    'CustomDomainDeveloperPortalArgs',
+    'CustomDomainManagementArgs',
+    'CustomDomainPortalArgs',
+    'CustomDomainProxyArgs',
+    'CustomDomainScmArgs',
     'LoggerApplicationInsightsArgs',
     'LoggerEventhubArgs',
     'ServiceAdditionalLocationArgs',
@@ -1526,6 +1531,452 @@ class BackendTlsArgs:
     @validate_certificate_name.setter
     def validate_certificate_name(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "validate_certificate_name", value)
+
+
+@pulumi.input_type
+class CustomDomainDeveloperPortalArgs:
+    def __init__(__self__, *,
+                 host_name: pulumi.Input[str],
+                 certificate: Optional[pulumi.Input[str]] = None,
+                 certificate_password: Optional[pulumi.Input[str]] = None,
+                 key_vault_id: Optional[pulumi.Input[str]] = None,
+                 negotiate_client_certificate: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] host_name: The Hostname to use for the corresponding endpoint.
+        :param pulumi.Input[str] certificate: The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        :param pulumi.Input[str] certificate_password: The password associated with the certificate provided above.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+        :param pulumi.Input[bool] negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        """
+        pulumi.set(__self__, "host_name", host_name)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if certificate_password is not None:
+            pulumi.set(__self__, "certificate_password", certificate_password)
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if negotiate_client_certificate is not None:
+            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> pulumi.Input[str]:
+        """
+        The Hostname to use for the corresponding endpoint.
+        """
+        return pulumi.get(self, "host_name")
+
+    @host_name.setter
+    def host_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host_name", value)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        """
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter(name="certificatePassword")
+    def certificate_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password associated with the certificate provided above.
+        """
+        return pulumi.get(self, "certificate_password")
+
+    @certificate_password.setter
+    def certificate_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_password", value)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_id", value)
+
+    @property
+    @pulumi.getter(name="negotiateClientCertificate")
+    def negotiate_client_certificate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        """
+        return pulumi.get(self, "negotiate_client_certificate")
+
+    @negotiate_client_certificate.setter
+    def negotiate_client_certificate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negotiate_client_certificate", value)
+
+
+@pulumi.input_type
+class CustomDomainManagementArgs:
+    def __init__(__self__, *,
+                 host_name: pulumi.Input[str],
+                 certificate: Optional[pulumi.Input[str]] = None,
+                 certificate_password: Optional[pulumi.Input[str]] = None,
+                 key_vault_id: Optional[pulumi.Input[str]] = None,
+                 negotiate_client_certificate: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] host_name: The Hostname to use for the corresponding endpoint.
+        :param pulumi.Input[str] certificate: The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        :param pulumi.Input[str] certificate_password: The password associated with the certificate provided above.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+        :param pulumi.Input[bool] negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        """
+        pulumi.set(__self__, "host_name", host_name)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if certificate_password is not None:
+            pulumi.set(__self__, "certificate_password", certificate_password)
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if negotiate_client_certificate is not None:
+            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> pulumi.Input[str]:
+        """
+        The Hostname to use for the corresponding endpoint.
+        """
+        return pulumi.get(self, "host_name")
+
+    @host_name.setter
+    def host_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host_name", value)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        """
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter(name="certificatePassword")
+    def certificate_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password associated with the certificate provided above.
+        """
+        return pulumi.get(self, "certificate_password")
+
+    @certificate_password.setter
+    def certificate_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_password", value)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_id", value)
+
+    @property
+    @pulumi.getter(name="negotiateClientCertificate")
+    def negotiate_client_certificate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        """
+        return pulumi.get(self, "negotiate_client_certificate")
+
+    @negotiate_client_certificate.setter
+    def negotiate_client_certificate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negotiate_client_certificate", value)
+
+
+@pulumi.input_type
+class CustomDomainPortalArgs:
+    def __init__(__self__, *,
+                 host_name: pulumi.Input[str],
+                 certificate: Optional[pulumi.Input[str]] = None,
+                 certificate_password: Optional[pulumi.Input[str]] = None,
+                 key_vault_id: Optional[pulumi.Input[str]] = None,
+                 negotiate_client_certificate: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] host_name: The Hostname to use for the corresponding endpoint.
+        :param pulumi.Input[str] certificate: The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        :param pulumi.Input[str] certificate_password: The password associated with the certificate provided above.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+        :param pulumi.Input[bool] negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        """
+        pulumi.set(__self__, "host_name", host_name)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if certificate_password is not None:
+            pulumi.set(__self__, "certificate_password", certificate_password)
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if negotiate_client_certificate is not None:
+            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> pulumi.Input[str]:
+        """
+        The Hostname to use for the corresponding endpoint.
+        """
+        return pulumi.get(self, "host_name")
+
+    @host_name.setter
+    def host_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host_name", value)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        """
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter(name="certificatePassword")
+    def certificate_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password associated with the certificate provided above.
+        """
+        return pulumi.get(self, "certificate_password")
+
+    @certificate_password.setter
+    def certificate_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_password", value)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_id", value)
+
+    @property
+    @pulumi.getter(name="negotiateClientCertificate")
+    def negotiate_client_certificate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        """
+        return pulumi.get(self, "negotiate_client_certificate")
+
+    @negotiate_client_certificate.setter
+    def negotiate_client_certificate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negotiate_client_certificate", value)
+
+
+@pulumi.input_type
+class CustomDomainProxyArgs:
+    def __init__(__self__, *,
+                 host_name: pulumi.Input[str],
+                 certificate: Optional[pulumi.Input[str]] = None,
+                 certificate_password: Optional[pulumi.Input[str]] = None,
+                 default_ssl_binding: Optional[pulumi.Input[bool]] = None,
+                 key_vault_id: Optional[pulumi.Input[str]] = None,
+                 negotiate_client_certificate: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] host_name: The Hostname to use for the API Proxy Endpoint.
+        :param pulumi.Input[str] certificate: The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        :param pulumi.Input[str] certificate_password: The password associated with the certificate provided above.
+        :param pulumi.Input[bool] default_ssl_binding: Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+        :param pulumi.Input[bool] negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        """
+        pulumi.set(__self__, "host_name", host_name)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if certificate_password is not None:
+            pulumi.set(__self__, "certificate_password", certificate_password)
+        if default_ssl_binding is not None:
+            pulumi.set(__self__, "default_ssl_binding", default_ssl_binding)
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if negotiate_client_certificate is not None:
+            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> pulumi.Input[str]:
+        """
+        The Hostname to use for the API Proxy Endpoint.
+        """
+        return pulumi.get(self, "host_name")
+
+    @host_name.setter
+    def host_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host_name", value)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        """
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter(name="certificatePassword")
+    def certificate_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password associated with the certificate provided above.
+        """
+        return pulumi.get(self, "certificate_password")
+
+    @certificate_password.setter
+    def certificate_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_password", value)
+
+    @property
+    @pulumi.getter(name="defaultSslBinding")
+    def default_ssl_binding(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+        """
+        return pulumi.get(self, "default_ssl_binding")
+
+    @default_ssl_binding.setter
+    def default_ssl_binding(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "default_ssl_binding", value)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_id", value)
+
+    @property
+    @pulumi.getter(name="negotiateClientCertificate")
+    def negotiate_client_certificate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        """
+        return pulumi.get(self, "negotiate_client_certificate")
+
+    @negotiate_client_certificate.setter
+    def negotiate_client_certificate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negotiate_client_certificate", value)
+
+
+@pulumi.input_type
+class CustomDomainScmArgs:
+    def __init__(__self__, *,
+                 host_name: pulumi.Input[str],
+                 certificate: Optional[pulumi.Input[str]] = None,
+                 certificate_password: Optional[pulumi.Input[str]] = None,
+                 key_vault_id: Optional[pulumi.Input[str]] = None,
+                 negotiate_client_certificate: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] host_name: The Hostname to use for the corresponding endpoint.
+        :param pulumi.Input[str] certificate: The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        :param pulumi.Input[str] certificate_password: The password associated with the certificate provided above.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+        :param pulumi.Input[bool] negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        """
+        pulumi.set(__self__, "host_name", host_name)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if certificate_password is not None:
+            pulumi.set(__self__, "certificate_password", certificate_password)
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if negotiate_client_certificate is not None:
+            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> pulumi.Input[str]:
+        """
+        The Hostname to use for the corresponding endpoint.
+        """
+        return pulumi.get(self, "host_name")
+
+    @host_name.setter
+    def host_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host_name", value)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base64 Encoded Certificate. (Mutually exlusive with `key_vault_id`.)
+        """
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter(name="certificatePassword")
+    def certificate_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password associated with the certificate provided above.
+        """
+        return pulumi.get(self, "certificate_password")
+
+    @certificate_password.setter
+    def certificate_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_password", value)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_id", value)
+
+    @property
+    @pulumi.getter(name="negotiateClientCertificate")
+    def negotiate_client_certificate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        """
+        return pulumi.get(self, "negotiate_client_certificate")
+
+    @negotiate_client_certificate.setter
+    def negotiate_client_certificate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negotiate_client_certificate", value)
 
 
 @pulumi.input_type

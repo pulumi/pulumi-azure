@@ -2832,7 +2832,7 @@ type AppServiceSiteConfig struct {
 	Cors *AppServiceSiteConfigCors `pulumi:"cors"`
 	// The ordering of default documents to load, if an address isn't specified.
 	DefaultDocuments []string `pulumi:"defaultDocuments"`
-	// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+	// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`) and `v5.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
 	DotnetFrameworkVersion *string `pulumi:"dotnetFrameworkVersion"`
 	// State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
 	FtpsState *string `pulumi:"ftpsState"`
@@ -2899,7 +2899,7 @@ type AppServiceSiteConfigArgs struct {
 	Cors AppServiceSiteConfigCorsPtrInput `pulumi:"cors"`
 	// The ordering of default documents to load, if an address isn't specified.
 	DefaultDocuments pulumi.StringArrayInput `pulumi:"defaultDocuments"`
-	// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+	// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`) and `v5.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
 	DotnetFrameworkVersion pulumi.StringPtrInput `pulumi:"dotnetFrameworkVersion"`
 	// State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
 	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
@@ -3046,7 +3046,7 @@ func (o AppServiceSiteConfigOutput) DefaultDocuments() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v AppServiceSiteConfig) []string { return v.DefaultDocuments }).(pulumi.StringArrayOutput)
 }
 
-// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`) and `v5.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
 func (o AppServiceSiteConfigOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.DotnetFrameworkVersion }).(pulumi.StringPtrOutput)
 }
@@ -3223,7 +3223,7 @@ func (o AppServiceSiteConfigPtrOutput) DefaultDocuments() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`) and `v5.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
 func (o AppServiceSiteConfigPtrOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppServiceSiteConfig) *string {
 		if v == nil {
@@ -5962,6 +5962,8 @@ type FunctionAppSiteConfig struct {
 	Cors *FunctionAppSiteConfigCors `pulumi:"cors"`
 	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
 	FtpsState *string `pulumi:"ftpsState"`
+	// Path which will be checked for this function app health.
+	HealthCheckPath *string `pulumi:"healthCheckPath"`
 	// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
 	Http2Enabled *bool `pulumi:"http2Enabled"`
 	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
@@ -6003,6 +6005,8 @@ type FunctionAppSiteConfigArgs struct {
 	Cors FunctionAppSiteConfigCorsPtrInput `pulumi:"cors"`
 	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
 	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
+	// Path which will be checked for this function app health.
+	HealthCheckPath pulumi.StringPtrInput `pulumi:"healthCheckPath"`
 	// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
 	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
 	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
@@ -6121,6 +6125,11 @@ func (o FunctionAppSiteConfigOutput) FtpsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *string { return v.FtpsState }).(pulumi.StringPtrOutput)
 }
 
+// Path which will be checked for this function app health.
+func (o FunctionAppSiteConfigOutput) HealthCheckPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfig) *string { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
+}
+
 // Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
 func (o FunctionAppSiteConfigOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
@@ -6225,6 +6234,16 @@ func (o FunctionAppSiteConfigPtrOutput) FtpsState() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.FtpsState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path which will be checked for this function app health.
+func (o FunctionAppSiteConfigPtrOutput) HealthCheckPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheckPath
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8378,7 +8397,8 @@ type FunctionAppSlotSiteConfig struct {
 	// A `cors` block as defined below.
 	Cors *FunctionAppSlotSiteConfigCors `pulumi:"cors"`
 	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
-	FtpsState *string `pulumi:"ftpsState"`
+	FtpsState       *string `pulumi:"ftpsState"`
+	HealthCheckPath *string `pulumi:"healthCheckPath"`
 	// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
 	Http2Enabled *bool `pulumi:"http2Enabled"`
 	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
@@ -8417,7 +8437,8 @@ type FunctionAppSlotSiteConfigArgs struct {
 	// A `cors` block as defined below.
 	Cors FunctionAppSlotSiteConfigCorsPtrInput `pulumi:"cors"`
 	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
-	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
+	FtpsState       pulumi.StringPtrInput `pulumi:"ftpsState"`
+	HealthCheckPath pulumi.StringPtrInput `pulumi:"healthCheckPath"`
 	// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
 	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
 	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
@@ -8534,6 +8555,10 @@ func (o FunctionAppSlotSiteConfigOutput) FtpsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *string { return v.FtpsState }).(pulumi.StringPtrOutput)
 }
 
+func (o FunctionAppSlotSiteConfigOutput) HealthCheckPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *string { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
+}
+
 // Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
 func (o FunctionAppSlotSiteConfigOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
@@ -8638,6 +8663,15 @@ func (o FunctionAppSlotSiteConfigPtrOutput) FtpsState() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.FtpsState
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FunctionAppSlotSiteConfigPtrOutput) HealthCheckPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheckPath
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -14689,7 +14723,8 @@ type GetFunctionAppSiteConfig struct {
 	// A `cors` block as defined above.
 	Cors GetFunctionAppSiteConfigCors `pulumi:"cors"`
 	// State of FTP / FTPS service for this AppService.
-	FtpsState string `pulumi:"ftpsState"`
+	FtpsState       string `pulumi:"ftpsState"`
+	HealthCheckPath string `pulumi:"healthCheckPath"`
 	// Is HTTP2 Enabled on this App Service?
 	Http2Enabled bool `pulumi:"http2Enabled"`
 	// One or more `ipRestriction` blocks as defined above.
@@ -14730,7 +14765,8 @@ type GetFunctionAppSiteConfigArgs struct {
 	// A `cors` block as defined above.
 	Cors GetFunctionAppSiteConfigCorsInput `pulumi:"cors"`
 	// State of FTP / FTPS service for this AppService.
-	FtpsState pulumi.StringInput `pulumi:"ftpsState"`
+	FtpsState       pulumi.StringInput `pulumi:"ftpsState"`
+	HealthCheckPath pulumi.StringInput `pulumi:"healthCheckPath"`
 	// Is HTTP2 Enabled on this App Service?
 	Http2Enabled pulumi.BoolInput `pulumi:"http2Enabled"`
 	// One or more `ipRestriction` blocks as defined above.
@@ -14821,6 +14857,10 @@ func (o GetFunctionAppSiteConfigOutput) Cors() GetFunctionAppSiteConfigCorsOutpu
 // State of FTP / FTPS service for this AppService.
 func (o GetFunctionAppSiteConfigOutput) FtpsState() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppSiteConfig) string { return v.FtpsState }).(pulumi.StringOutput)
+}
+
+func (o GetFunctionAppSiteConfigOutput) HealthCheckPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) string { return v.HealthCheckPath }).(pulumi.StringOutput)
 }
 
 // Is HTTP2 Enabled on this App Service?

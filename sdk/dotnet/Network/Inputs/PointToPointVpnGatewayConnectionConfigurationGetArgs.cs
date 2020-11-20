@@ -19,6 +19,12 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// A `route` block as defined below.
+        /// </summary>
+        [Input("route")]
+        public Input<Inputs.PointToPointVpnGatewayConnectionConfigurationRouteGetArgs>? Route { get; set; }
+
+        /// <summary>
         /// A `vpn_client_address_pool` block as defined below.
         /// </summary>
         [Input("vpnClientAddressPool", required: true)]

@@ -95,6 +95,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     public readonly addressSpaces!: pulumi.Output<string[]>;
     /**
+     * The BGP community attribute in format `<as-number>:<community-value>`.
+     */
+    public readonly bgpCommunity!: pulumi.Output<string | undefined>;
+    /**
      * A `ddosProtectionPlan` block as documented below.
      */
     public readonly ddosProtectionPlan!: pulumi.Output<outputs.network.VirtualNetworkDdosProtectionPlan | undefined>;
@@ -126,6 +130,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+     */
+    public readonly vmProtectionEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a VirtualNetwork resource with the given unique name, arguments, and options.
@@ -140,6 +148,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as VirtualNetworkState | undefined;
             inputs["addressSpaces"] = state ? state.addressSpaces : undefined;
+            inputs["bgpCommunity"] = state ? state.bgpCommunity : undefined;
             inputs["ddosProtectionPlan"] = state ? state.ddosProtectionPlan : undefined;
             inputs["dnsServers"] = state ? state.dnsServers : undefined;
             inputs["guid"] = state ? state.guid : undefined;
@@ -148,6 +157,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["subnets"] = state ? state.subnets : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["vmProtectionEnabled"] = state ? state.vmProtectionEnabled : undefined;
         } else {
             const args = argsOrState as VirtualNetworkArgs | undefined;
             if (!args || args.addressSpaces === undefined) {
@@ -157,6 +167,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["addressSpaces"] = args ? args.addressSpaces : undefined;
+            inputs["bgpCommunity"] = args ? args.bgpCommunity : undefined;
             inputs["ddosProtectionPlan"] = args ? args.ddosProtectionPlan : undefined;
             inputs["dnsServers"] = args ? args.dnsServers : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -164,6 +175,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["subnets"] = args ? args.subnets : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["vmProtectionEnabled"] = args ? args.vmProtectionEnabled : undefined;
             inputs["guid"] = undefined /*out*/;
         }
         if (!opts) {
@@ -185,6 +197,10 @@ export interface VirtualNetworkState {
      * The address space that is used the virtual network. You can supply more than one address space.
      */
     readonly addressSpaces?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The BGP community attribute in format `<as-number>:<community-value>`.
+     */
+    readonly bgpCommunity?: pulumi.Input<string>;
     /**
      * A `ddosProtectionPlan` block as documented below.
      */
@@ -217,6 +233,10 @@ export interface VirtualNetworkState {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+     */
+    readonly vmProtectionEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -227,6 +247,10 @@ export interface VirtualNetworkArgs {
      * The address space that is used the virtual network. You can supply more than one address space.
      */
     readonly addressSpaces: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The BGP community attribute in format `<as-number>:<community-value>`.
+     */
+    readonly bgpCommunity?: pulumi.Input<string>;
     /**
      * A `ddosProtectionPlan` block as documented below.
      */
@@ -255,4 +279,8 @@ export interface VirtualNetworkArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+     */
+    readonly vmProtectionEnabled?: pulumi.Input<boolean>;
 }

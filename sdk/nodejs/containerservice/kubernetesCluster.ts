@@ -152,7 +152,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly privateFqdn!: pulumi.Output<string>;
     /**
-     * @deprecated Deprecated in favor of `private_cluster_enabled`
+     * @deprecated Deprecated in favour of `private_cluster_enabled`
      */
     public readonly privateLinkEnabled!: pulumi.Output<boolean>;
     /**
@@ -363,7 +363,7 @@ export interface KubernetesClusterState {
      */
     readonly privateFqdn?: pulumi.Input<string>;
     /**
-     * @deprecated Deprecated in favor of `private_cluster_enabled`
+     * @deprecated Deprecated in favour of `private_cluster_enabled`
      */
     readonly privateLinkEnabled?: pulumi.Input<boolean>;
     /**
@@ -454,7 +454,7 @@ export interface KubernetesClusterArgs {
      */
     readonly privateClusterEnabled?: pulumi.Input<boolean>;
     /**
-     * @deprecated Deprecated in favor of `private_cluster_enabled`
+     * @deprecated Deprecated in favour of `private_cluster_enabled`
      */
     readonly privateLinkEnabled?: pulumi.Input<boolean>;
     /**

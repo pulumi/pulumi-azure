@@ -64,7 +64,7 @@ namespace Pulumi.Azure.Network
         /// A `bgp_settings` block as defined below.
         /// </summary>
         [Output("bgpSettings")]
-        public Output<ImmutableArray<Outputs.VpnGatewayBgpSetting>> BgpSettings { get; private set; } = null!;
+        public Output<Outputs.VpnGatewayBgpSettings> BgpSettings { get; private set; } = null!;
 
         /// <summary>
         /// The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
@@ -148,17 +148,11 @@ namespace Pulumi.Azure.Network
 
     public sealed class VpnGatewayArgs : Pulumi.ResourceArgs
     {
-        [Input("bgpSettings")]
-        private InputList<Inputs.VpnGatewayBgpSettingArgs>? _bgpSettings;
-
         /// <summary>
         /// A `bgp_settings` block as defined below.
         /// </summary>
-        public InputList<Inputs.VpnGatewayBgpSettingArgs> BgpSettings
-        {
-            get => _bgpSettings ?? (_bgpSettings = new InputList<Inputs.VpnGatewayBgpSettingArgs>());
-            set => _bgpSettings = value;
-        }
+        [Input("bgpSettings")]
+        public Input<Inputs.VpnGatewayBgpSettingsArgs>? BgpSettings { get; set; }
 
         /// <summary>
         /// The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
@@ -209,17 +203,11 @@ namespace Pulumi.Azure.Network
 
     public sealed class VpnGatewayState : Pulumi.ResourceArgs
     {
-        [Input("bgpSettings")]
-        private InputList<Inputs.VpnGatewayBgpSettingGetArgs>? _bgpSettings;
-
         /// <summary>
         /// A `bgp_settings` block as defined below.
         /// </summary>
-        public InputList<Inputs.VpnGatewayBgpSettingGetArgs> BgpSettings
-        {
-            get => _bgpSettings ?? (_bgpSettings = new InputList<Inputs.VpnGatewayBgpSettingGetArgs>());
-            set => _bgpSettings = value;
-        }
+        [Input("bgpSettings")]
+        public Input<Inputs.VpnGatewayBgpSettingsGetArgs>? BgpSettings { get; set; }
 
         /// <summary>
         /// The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.

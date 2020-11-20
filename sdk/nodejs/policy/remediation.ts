@@ -106,6 +106,10 @@ export class Remediation extends pulumi.CustomResource {
      */
     public readonly policyDefinitionReferenceId!: pulumi.Output<string | undefined>;
     /**
+     * The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+     */
+    public readonly resourceDiscoveryMode!: pulumi.Output<string | undefined>;
+    /**
      * The Scope at which the Policy Remediation should be applied. Changing this forces a new resource to be created. A scope must be a Resource ID out of one of the following list:
      */
     public readonly scope!: pulumi.Output<string>;
@@ -126,6 +130,7 @@ export class Remediation extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["policyAssignmentId"] = state ? state.policyAssignmentId : undefined;
             inputs["policyDefinitionReferenceId"] = state ? state.policyDefinitionReferenceId : undefined;
+            inputs["resourceDiscoveryMode"] = state ? state.resourceDiscoveryMode : undefined;
             inputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as RemediationArgs | undefined;
@@ -139,6 +144,7 @@ export class Remediation extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
             inputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
+            inputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
             inputs["scope"] = args ? args.scope : undefined;
         }
         if (!opts) {
@@ -173,6 +179,10 @@ export interface RemediationState {
      */
     readonly policyDefinitionReferenceId?: pulumi.Input<string>;
     /**
+     * The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+     */
+    readonly resourceDiscoveryMode?: pulumi.Input<string>;
+    /**
      * The Scope at which the Policy Remediation should be applied. Changing this forces a new resource to be created. A scope must be a Resource ID out of one of the following list:
      */
     readonly scope?: pulumi.Input<string>;
@@ -198,6 +208,10 @@ export interface RemediationArgs {
      * The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      */
     readonly policyDefinitionReferenceId?: pulumi.Input<string>;
+    /**
+     * The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+     */
+    readonly resourceDiscoveryMode?: pulumi.Input<string>;
     /**
      * The Scope at which the Policy Remediation should be applied. Changing this forces a new resource to be created. A scope must be a Resource ID out of one of the following list:
      */

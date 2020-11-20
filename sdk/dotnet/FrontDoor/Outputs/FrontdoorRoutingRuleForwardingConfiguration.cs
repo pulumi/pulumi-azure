@@ -22,7 +22,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly bool? CacheEnabled;
         /// <summary>
-        /// Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+        /// Defines cache behaviour in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
         /// </summary>
         public readonly string? CacheQueryParameterStripDirective;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly bool? CacheUseDynamicCompression;
         /// <summary>
-        /// Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
+        /// Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path.
         /// </summary>
         public readonly string? CustomForwardingPath;
         /// <summary>

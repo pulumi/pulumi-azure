@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VpnGatewayBgpSettingGetArgs : Pulumi.ResourceArgs
+    public sealed class VpnGatewayBgpSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ASN of the BGP Speaker. Changing this forces a new resource to be created.
@@ -25,12 +25,24 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? BgpPeeringAddress { get; set; }
 
         /// <summary>
+        /// An `instance_bgp_peering_address` block as defined below.
+        /// </summary>
+        [Input("instance0BgpPeeringAddress")]
+        public Input<Inputs.VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs>? Instance0BgpPeeringAddress { get; set; }
+
+        /// <summary>
+        /// An `instance_bgp_peering_address` block as defined below.
+        /// </summary>
+        [Input("instance1BgpPeeringAddress")]
+        public Input<Inputs.VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs>? Instance1BgpPeeringAddress { get; set; }
+
+        /// <summary>
         /// The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
         /// </summary>
         [Input("peerWeight", required: true)]
         public Input<int> PeerWeight { get; set; } = null!;
 
-        public VpnGatewayBgpSettingGetArgs()
+        public VpnGatewayBgpSettingsArgs()
         {
         }
     }

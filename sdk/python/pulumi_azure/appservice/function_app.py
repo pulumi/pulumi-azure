@@ -191,8 +191,8 @@ class FunctionApp(pulumi.CustomResource):
             __props__['storage_account_access_key'] = storage_account_access_key
             __props__['storage_account_name'] = storage_account_name
             if storage_connection_string is not None:
-                warnings.warn("Deprecated in favor of `storage_account_name` and `storage_account_access_key`", DeprecationWarning)
-                pulumi.log.warn("storage_connection_string is deprecated: Deprecated in favor of `storage_account_name` and `storage_account_access_key`")
+                warnings.warn("Deprecated in favour of `storage_account_name` and `storage_account_access_key`", DeprecationWarning)
+                pulumi.log.warn("storage_connection_string is deprecated: Deprecated in favour of `storage_account_name` and `storage_account_access_key`")
             __props__['storage_connection_string'] = storage_connection_string
             __props__['tags'] = tags
             __props__['version'] = version

@@ -51,9 +51,14 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
     }
 
     /**
-     * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited).
+     * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
      */
     public readonly dailyQuotaGb!: pulumi.Output<number | undefined>;
+    public readonly internetIngestionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+     */
+    public readonly internetQueryEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -108,6 +113,8 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as AnalyticsWorkspaceState | undefined;
             inputs["dailyQuotaGb"] = state ? state.dailyQuotaGb : undefined;
+            inputs["internetIngestionEnabled"] = state ? state.internetIngestionEnabled : undefined;
+            inputs["internetQueryEnabled"] = state ? state.internetQueryEnabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["portalUrl"] = state ? state.portalUrl : undefined;
@@ -124,6 +131,8 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dailyQuotaGb"] = args ? args.dailyQuotaGb : undefined;
+            inputs["internetIngestionEnabled"] = args ? args.internetIngestionEnabled : undefined;
+            inputs["internetQueryEnabled"] = args ? args.internetQueryEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -151,9 +160,14 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
  */
 export interface AnalyticsWorkspaceState {
     /**
-     * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited).
+     * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
      */
     readonly dailyQuotaGb?: pulumi.Input<number>;
+    readonly internetIngestionEnabled?: pulumi.Input<boolean>;
+    /**
+     * Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+     */
+    readonly internetQueryEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -201,9 +215,14 @@ export interface AnalyticsWorkspaceState {
  */
 export interface AnalyticsWorkspaceArgs {
     /**
-     * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited).
+     * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
      */
     readonly dailyQuotaGb?: pulumi.Input<number>;
+    readonly internetIngestionEnabled?: pulumi.Input<boolean>;
+    /**
+     * Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+     */
+    readonly internetQueryEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

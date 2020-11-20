@@ -17,3 +17,4 @@ export * from "./logProfile";
 export * from "./metricAlert";
 export * from "./scheduledQueryRulesAlert";
 export * from "./scheduledQueryRulesLog";
+export * from "./smartDetectorAlertRule";

@@ -73,7 +73,7 @@ type VpnGateway struct {
 	pulumi.CustomResourceState
 
 	// A `bgpSettings` block as defined below.
-	BgpSettings VpnGatewayBgpSettingArrayOutput `pulumi:"bgpSettings"`
+	BgpSettings VpnGatewayBgpSettingsOutput `pulumi:"bgpSettings"`
 	// The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
@@ -123,7 +123,7 @@ func GetVpnGateway(ctx *pulumi.Context,
 // Input properties used for looking up and filtering VpnGateway resources.
 type vpnGatewayState struct {
 	// A `bgpSettings` block as defined below.
-	BgpSettings []VpnGatewayBgpSetting `pulumi:"bgpSettings"`
+	BgpSettings *VpnGatewayBgpSettings `pulumi:"bgpSettings"`
 	// The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
@@ -140,7 +140,7 @@ type vpnGatewayState struct {
 
 type VpnGatewayState struct {
 	// A `bgpSettings` block as defined below.
-	BgpSettings VpnGatewayBgpSettingArrayInput
+	BgpSettings VpnGatewayBgpSettingsPtrInput
 	// The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
@@ -161,7 +161,7 @@ func (VpnGatewayState) ElementType() reflect.Type {
 
 type vpnGatewayArgs struct {
 	// A `bgpSettings` block as defined below.
-	BgpSettings []VpnGatewayBgpSetting `pulumi:"bgpSettings"`
+	BgpSettings *VpnGatewayBgpSettings `pulumi:"bgpSettings"`
 	// The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
@@ -179,7 +179,7 @@ type vpnGatewayArgs struct {
 // The set of arguments for constructing a VpnGateway resource.
 type VpnGatewayArgs struct {
 	// A `bgpSettings` block as defined below.
-	BgpSettings VpnGatewayBgpSettingArrayInput
+	BgpSettings VpnGatewayBgpSettingsPtrInput
 	// The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.

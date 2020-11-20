@@ -1214,9 +1214,9 @@ class FrontdoorRoutingRuleForwardingConfiguration(dict):
         """
         :param str backend_pool_name: Specifies the name of the Backend Pool to forward the incoming traffic to.
         :param bool cache_enabled: Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
-        :param str cache_query_parameter_strip_directive: Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+        :param str cache_query_parameter_strip_directive: Defines cache behaviour in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
         :param bool cache_use_dynamic_compression: Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
-        :param str custom_forwarding_path: Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
+        :param str custom_forwarding_path: Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path.
         :param str forwarding_protocol: Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
         """
         pulumi.set(__self__, "backend_pool_name", backend_pool_name)
@@ -1251,7 +1251,7 @@ class FrontdoorRoutingRuleForwardingConfiguration(dict):
     @pulumi.getter(name="cacheQueryParameterStripDirective")
     def cache_query_parameter_strip_directive(self) -> Optional[str]:
         """
-        Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+        Defines cache behaviour in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
         """
         return pulumi.get(self, "cache_query_parameter_strip_directive")
 
@@ -1267,7 +1267,7 @@ class FrontdoorRoutingRuleForwardingConfiguration(dict):
     @pulumi.getter(name="customForwardingPath")
     def custom_forwarding_path(self) -> Optional[str]:
         """
-        Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
+        Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path.
         """
         return pulumi.get(self, "custom_forwarding_path")
 

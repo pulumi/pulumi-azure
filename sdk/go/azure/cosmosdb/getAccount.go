@@ -70,6 +70,8 @@ type LookupAccountResult struct {
 	IpRangeFilter string `pulumi:"ipRangeFilter"`
 	// If virtual network filtering is enabled for this Cosmos DB account.
 	IsVirtualNetworkFilterEnabled bool `pulumi:"isVirtualNetworkFilterEnabled"`
+	// The Key Vault key URI for CMK encryption.
+	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
 	// The Kind of the CosmosDB account.
 	Kind string `pulumi:"kind"`
 	// The name of the Azure region hosting replicated data.

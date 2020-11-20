@@ -10,116 +10,51 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages a Network Connection Monitor.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
-// 			Name: "example-resources",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNetworkWatcher, err := network.NewNetworkWatcher(ctx, "exampleNetworkWatcher", &network.NetworkWatcherArgs{
-// 			Location:          pulumi.String(exampleResourceGroup.Location),
-// 			ResourceGroupName: pulumi.String(exampleResourceGroup.Name),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		srcVirtualMachine, err := compute.LookupVirtualMachine(ctx, &compute.LookupVirtualMachineArgs{
-// 			Name:              "example-vm",
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		srcExtension, err := compute.NewExtension(ctx, "srcExtension", &compute.ExtensionArgs{
-// 			VirtualMachineId:        pulumi.String(srcVirtualMachine.Id),
-// 			Publisher:               pulumi.String("Microsoft.Azure.NetworkWatcher"),
-// 			Type:                    pulumi.String("NetworkWatcherAgentLinux"),
-// 			TypeHandlerVersion:      pulumi.String("1.4"),
-// 			AutoUpgradeMinorVersion: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewNetworkConnectionMonitor(ctx, "exampleNetworkConnectionMonitor", &network.NetworkConnectionMonitorArgs{
-// 			NetworkWatcherName: exampleNetworkWatcher.Name,
-// 			ResourceGroupName:  pulumi.String(exampleResourceGroup.Name),
-// 			Location:           exampleNetworkWatcher.Location,
-// 			AutoStart:          pulumi.Bool(false),
-// 			IntervalInSeconds:  pulumi.Int(30),
-// 			Source: &network.NetworkConnectionMonitorSourceArgs{
-// 				VirtualMachineId: pulumi.String(srcVirtualMachine.Id),
-// 				Port:             pulumi.Int(20020),
-// 			},
-// 			Destination: &network.NetworkConnectionMonitorDestinationArgs{
-// 				Address: pulumi.String("mycompany.io"),
-// 				Port:    pulumi.Int(443),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"foo": pulumi.String("bar"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			srcExtension,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type NetworkConnectionMonitor struct {
 	pulumi.CustomResourceState
 
-	// Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
-	AutoStart pulumi.BoolPtrOutput `pulumi:"autoStart"`
-	// A `destination` block as defined below.
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
+	AutoStart pulumi.BoolOutput `pulumi:"autoStart"`
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	Destination NetworkConnectionMonitorDestinationOutput `pulumi:"destination"`
-	// Monitoring interval in seconds.
-	IntervalInSeconds pulumi.IntPtrOutput `pulumi:"intervalInSeconds"`
-	// The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
+	// A `endpoint` block as defined below.
+	Endpoints NetworkConnectionMonitorEndpointArrayOutput `pulumi:"endpoints"`
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
+	IntervalInSeconds pulumi.IntOutput `pulumi:"intervalInSeconds"`
+	// The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
+	// The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
-	NetworkWatcherName pulumi.StringOutput `pulumi:"networkWatcherName"`
-	// The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A `source` block as defined below.
+	// The ID of the Network Watcher. Changing this forces a new resource to be created.
+	NetworkWatcherId pulumi.StringOutput `pulumi:"networkWatcherId"`
+	// The description of the Network Connection Monitor.
+	Notes pulumi.StringPtrOutput `pulumi:"notes"`
+	// A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
+	OutputWorkspaceResourceIds pulumi.StringArrayOutput `pulumi:"outputWorkspaceResourceIds"`
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	Source NetworkConnectionMonitorSourceOutput `pulumi:"source"`
 	// A mapping of tags which should be assigned to the Network Connection Monitor.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A `testConfiguration` block as defined below.
+	TestConfigurations NetworkConnectionMonitorTestConfigurationArrayOutput `pulumi:"testConfigurations"`
+	// A `testGroup` block as defined below.
+	TestGroups NetworkConnectionMonitorTestGroupArrayOutput `pulumi:"testGroups"`
 }
 
 // NewNetworkConnectionMonitor registers a new resource with the given unique name, arguments, and options.
 func NewNetworkConnectionMonitor(ctx *pulumi.Context,
 	name string, args *NetworkConnectionMonitorArgs, opts ...pulumi.ResourceOption) (*NetworkConnectionMonitor, error) {
-	if args == nil || args.Destination == nil {
-		return nil, errors.New("missing required argument 'Destination'")
+	if args == nil || args.Endpoints == nil {
+		return nil, errors.New("missing required argument 'Endpoints'")
 	}
-	if args == nil || args.NetworkWatcherName == nil {
-		return nil, errors.New("missing required argument 'NetworkWatcherName'")
+	if args == nil || args.NetworkWatcherId == nil {
+		return nil, errors.New("missing required argument 'NetworkWatcherId'")
 	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	if args == nil || args.TestConfigurations == nil {
+		return nil, errors.New("missing required argument 'TestConfigurations'")
 	}
-	if args == nil || args.Source == nil {
-		return nil, errors.New("missing required argument 'Source'")
+	if args == nil || args.TestGroups == nil {
+		return nil, errors.New("missing required argument 'TestGroups'")
 	}
 	if args == nil {
 		args = &NetworkConnectionMonitorArgs{}
@@ -146,45 +81,61 @@ func GetNetworkConnectionMonitor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkConnectionMonitor resources.
 type networkConnectionMonitorState struct {
-	// Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	AutoStart *bool `pulumi:"autoStart"`
-	// A `destination` block as defined below.
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	Destination *NetworkConnectionMonitorDestination `pulumi:"destination"`
-	// Monitoring interval in seconds.
+	// A `endpoint` block as defined below.
+	Endpoints []NetworkConnectionMonitorEndpoint `pulumi:"endpoints"`
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
-	// The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
+	// The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
+	// The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
-	NetworkWatcherName *string `pulumi:"networkWatcherName"`
-	// The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A `source` block as defined below.
+	// The ID of the Network Watcher. Changing this forces a new resource to be created.
+	NetworkWatcherId *string `pulumi:"networkWatcherId"`
+	// The description of the Network Connection Monitor.
+	Notes *string `pulumi:"notes"`
+	// A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
+	OutputWorkspaceResourceIds []string `pulumi:"outputWorkspaceResourceIds"`
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	Source *NetworkConnectionMonitorSource `pulumi:"source"`
 	// A mapping of tags which should be assigned to the Network Connection Monitor.
 	Tags map[string]string `pulumi:"tags"`
+	// A `testConfiguration` block as defined below.
+	TestConfigurations []NetworkConnectionMonitorTestConfiguration `pulumi:"testConfigurations"`
+	// A `testGroup` block as defined below.
+	TestGroups []NetworkConnectionMonitorTestGroup `pulumi:"testGroups"`
 }
 
 type NetworkConnectionMonitorState struct {
-	// Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	AutoStart pulumi.BoolPtrInput
-	// A `destination` block as defined below.
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	Destination NetworkConnectionMonitorDestinationPtrInput
-	// Monitoring interval in seconds.
+	// A `endpoint` block as defined below.
+	Endpoints NetworkConnectionMonitorEndpointArrayInput
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	IntervalInSeconds pulumi.IntPtrInput
-	// The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
+	// The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
+	// The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
-	NetworkWatcherName pulumi.StringPtrInput
-	// The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
-	ResourceGroupName pulumi.StringPtrInput
-	// A `source` block as defined below.
+	// The ID of the Network Watcher. Changing this forces a new resource to be created.
+	NetworkWatcherId pulumi.StringPtrInput
+	// The description of the Network Connection Monitor.
+	Notes pulumi.StringPtrInput
+	// A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
+	OutputWorkspaceResourceIds pulumi.StringArrayInput
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	Source NetworkConnectionMonitorSourcePtrInput
 	// A mapping of tags which should be assigned to the Network Connection Monitor.
 	Tags pulumi.StringMapInput
+	// A `testConfiguration` block as defined below.
+	TestConfigurations NetworkConnectionMonitorTestConfigurationArrayInput
+	// A `testGroup` block as defined below.
+	TestGroups NetworkConnectionMonitorTestGroupArrayInput
 }
 
 func (NetworkConnectionMonitorState) ElementType() reflect.Type {
@@ -192,46 +143,62 @@ func (NetworkConnectionMonitorState) ElementType() reflect.Type {
 }
 
 type networkConnectionMonitorArgs struct {
-	// Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	AutoStart *bool `pulumi:"autoStart"`
-	// A `destination` block as defined below.
-	Destination NetworkConnectionMonitorDestination `pulumi:"destination"`
-	// Monitoring interval in seconds.
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
+	Destination *NetworkConnectionMonitorDestination `pulumi:"destination"`
+	// A `endpoint` block as defined below.
+	Endpoints []NetworkConnectionMonitorEndpoint `pulumi:"endpoints"`
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
-	// The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
+	// The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
+	// The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
-	NetworkWatcherName string `pulumi:"networkWatcherName"`
-	// The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A `source` block as defined below.
-	Source NetworkConnectionMonitorSource `pulumi:"source"`
+	// The ID of the Network Watcher. Changing this forces a new resource to be created.
+	NetworkWatcherId string `pulumi:"networkWatcherId"`
+	// The description of the Network Connection Monitor.
+	Notes *string `pulumi:"notes"`
+	// A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
+	OutputWorkspaceResourceIds []string `pulumi:"outputWorkspaceResourceIds"`
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
+	Source *NetworkConnectionMonitorSource `pulumi:"source"`
 	// A mapping of tags which should be assigned to the Network Connection Monitor.
 	Tags map[string]string `pulumi:"tags"`
+	// A `testConfiguration` block as defined below.
+	TestConfigurations []NetworkConnectionMonitorTestConfiguration `pulumi:"testConfigurations"`
+	// A `testGroup` block as defined below.
+	TestGroups []NetworkConnectionMonitorTestGroup `pulumi:"testGroups"`
 }
 
 // The set of arguments for constructing a NetworkConnectionMonitor resource.
 type NetworkConnectionMonitorArgs struct {
-	// Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	AutoStart pulumi.BoolPtrInput
-	// A `destination` block as defined below.
-	Destination NetworkConnectionMonitorDestinationInput
-	// Monitoring interval in seconds.
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
+	Destination NetworkConnectionMonitorDestinationPtrInput
+	// A `endpoint` block as defined below.
+	Endpoints NetworkConnectionMonitorEndpointArrayInput
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	IntervalInSeconds pulumi.IntPtrInput
-	// The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
+	// The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
+	// The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
-	NetworkWatcherName pulumi.StringInput
-	// The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
-	ResourceGroupName pulumi.StringInput
-	// A `source` block as defined below.
-	Source NetworkConnectionMonitorSourceInput
+	// The ID of the Network Watcher. Changing this forces a new resource to be created.
+	NetworkWatcherId pulumi.StringInput
+	// The description of the Network Connection Monitor.
+	Notes pulumi.StringPtrInput
+	// A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
+	OutputWorkspaceResourceIds pulumi.StringArrayInput
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
+	Source NetworkConnectionMonitorSourcePtrInput
 	// A mapping of tags which should be assigned to the Network Connection Monitor.
 	Tags pulumi.StringMapInput
+	// A `testConfiguration` block as defined below.
+	TestConfigurations NetworkConnectionMonitorTestConfigurationArrayInput
+	// A `testGroup` block as defined below.
+	TestGroups NetworkConnectionMonitorTestGroupArrayInput
 }
 
 func (NetworkConnectionMonitorArgs) ElementType() reflect.Type {

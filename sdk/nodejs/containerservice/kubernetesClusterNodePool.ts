@@ -71,7 +71,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
     }
 
     /**
-     * A list of Availability Zones where the Nodes in this Node Pool should be created in.
+     * A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
      */
     public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
     /**
@@ -139,6 +139,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly priority!: pulumi.Output<string | undefined>;
     /**
+     * The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
+     */
+    public readonly proximityPlacementGroupId!: pulumi.Output<string | undefined>;
+    /**
      * The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
      */
     public readonly spotMaxPrice!: pulumi.Output<number | undefined>;
@@ -184,6 +188,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["osDiskSizeGb"] = state ? state.osDiskSizeGb : undefined;
             inputs["osType"] = state ? state.osType : undefined;
             inputs["priority"] = state ? state.priority : undefined;
+            inputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
             inputs["spotMaxPrice"] = state ? state.spotMaxPrice : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["vmSize"] = state ? state.vmSize : undefined;
@@ -213,6 +218,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["osDiskSizeGb"] = args ? args.osDiskSizeGb : undefined;
             inputs["osType"] = args ? args.osType : undefined;
             inputs["priority"] = args ? args.priority : undefined;
+            inputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
             inputs["spotMaxPrice"] = args ? args.spotMaxPrice : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vmSize"] = args ? args.vmSize : undefined;
@@ -234,7 +240,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
  */
 export interface KubernetesClusterNodePoolState {
     /**
-     * A list of Availability Zones where the Nodes in this Node Pool should be created in.
+     * A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -302,6 +308,10 @@ export interface KubernetesClusterNodePoolState {
      */
     readonly priority?: pulumi.Input<string>;
     /**
+     * The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
+     */
+    readonly proximityPlacementGroupId?: pulumi.Input<string>;
+    /**
      * The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
      */
     readonly spotMaxPrice?: pulumi.Input<number>;
@@ -324,7 +334,7 @@ export interface KubernetesClusterNodePoolState {
  */
 export interface KubernetesClusterNodePoolArgs {
     /**
-     * A list of Availability Zones where the Nodes in this Node Pool should be created in.
+     * A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -391,6 +401,10 @@ export interface KubernetesClusterNodePoolArgs {
      * The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
      */
     readonly priority?: pulumi.Input<string>;
+    /**
+     * The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
+     */
+    readonly proximityPlacementGroupId?: pulumi.Input<string>;
     /**
      * The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
      */

@@ -2147,7 +2147,7 @@ func (o SqlContainerIndexingPolicyCompositeIndexArrayOutput) Index(i pulumi.IntI
 type SqlContainerIndexingPolicyCompositeIndexIndex struct {
 	// Order of the index. Possible values are `Ascending` or `Descending`.
 	Order string `pulumi:"order"`
-	// Path for which the indexing behavior applies to.
+	// Path for which the indexing behaviour applies to.
 	Path string `pulumi:"path"`
 }
 
@@ -2165,7 +2165,7 @@ type SqlContainerIndexingPolicyCompositeIndexIndexInput interface {
 type SqlContainerIndexingPolicyCompositeIndexIndexArgs struct {
 	// Order of the index. Possible values are `Ascending` or `Descending`.
 	Order pulumi.StringInput `pulumi:"order"`
-	// Path for which the indexing behavior applies to.
+	// Path for which the indexing behaviour applies to.
 	Path pulumi.StringInput `pulumi:"path"`
 }
 
@@ -2225,7 +2225,7 @@ func (o SqlContainerIndexingPolicyCompositeIndexIndexOutput) Order() pulumi.Stri
 	return o.ApplyT(func(v SqlContainerIndexingPolicyCompositeIndexIndex) string { return v.Order }).(pulumi.StringOutput)
 }
 
-// Path for which the indexing behavior applies to.
+// Path for which the indexing behaviour applies to.
 func (o SqlContainerIndexingPolicyCompositeIndexIndexOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlContainerIndexingPolicyCompositeIndexIndex) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -2348,7 +2348,7 @@ func (o SqlContainerIndexingPolicyExcludedPathArrayOutput) Index(i pulumi.IntInp
 }
 
 type SqlContainerIndexingPolicyIncludedPath struct {
-	// Path for which the indexing behavior applies to.
+	// Path for which the indexing behaviour applies to.
 	Path string `pulumi:"path"`
 }
 
@@ -2364,7 +2364,7 @@ type SqlContainerIndexingPolicyIncludedPathInput interface {
 }
 
 type SqlContainerIndexingPolicyIncludedPathArgs struct {
-	// Path for which the indexing behavior applies to.
+	// Path for which the indexing behaviour applies to.
 	Path pulumi.StringInput `pulumi:"path"`
 }
 
@@ -2419,7 +2419,7 @@ func (o SqlContainerIndexingPolicyIncludedPathOutput) ToSqlContainerIndexingPoli
 	return o
 }
 
-// Path for which the indexing behavior applies to.
+// Path for which the indexing behaviour applies to.
 func (o SqlContainerIndexingPolicyIncludedPathOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlContainerIndexingPolicyIncludedPath) string { return v.Path }).(pulumi.StringOutput)
 }

@@ -88,8 +88,10 @@ type GetClusterNodePoolResult struct {
 	// The operating system used on each Node in this Node Pool.
 	OsType string `pulumi:"osType"`
 	// The priority of the Virtual Machines in the Virtual Machine Scale Set backing this Node Pool.
-	Priority          string `pulumi:"priority"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Priority string `pulumi:"priority"`
+	// The ID of the Proximity Placement Group where the Virtual Machine Scale Set backing this Node Pool will be placed.
+	ProximityPlacementGroupId string `pulumi:"proximityPlacementGroupId"`
+	ResourceGroupName         string `pulumi:"resourceGroupName"`
 	// The maximum price being paid for Virtual Machines in this Scale Set. `-1` means the current on-demand price for a Virtual Machine.
 	SpotMaxPrice float64 `pulumi:"spotMaxPrice"`
 	// A mapping of tags assigned to the Kubernetes Cluster Node Pool.

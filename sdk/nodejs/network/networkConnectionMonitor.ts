@@ -6,55 +6,6 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Network Connection Monitor.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = azure.core.getResourceGroup({
- *     name: "example-resources",
- * });
- * const exampleNetworkWatcher = new azure.network.NetworkWatcher("exampleNetworkWatcher", {
- *     location: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.location),
- *     resourceGroupName: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.name),
- * });
- * const srcVirtualMachine = exampleResourceGroup.then(exampleResourceGroup => azure.compute.getVirtualMachine({
- *     name: "example-vm",
- *     resourceGroupName: exampleResourceGroup.name,
- * }));
- * const srcExtension = new azure.compute.Extension("srcExtension", {
- *     virtualMachineId: srcVirtualMachine.then(srcVirtualMachine => srcVirtualMachine.id),
- *     publisher: "Microsoft.Azure.NetworkWatcher",
- *     type: "NetworkWatcherAgentLinux",
- *     typeHandlerVersion: "1.4",
- *     autoUpgradeMinorVersion: true,
- * });
- * const exampleNetworkConnectionMonitor = new azure.network.NetworkConnectionMonitor("exampleNetworkConnectionMonitor", {
- *     networkWatcherName: exampleNetworkWatcher.name,
- *     resourceGroupName: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.name),
- *     location: exampleNetworkWatcher.location,
- *     autoStart: false,
- *     intervalInSeconds: 30,
- *     source: {
- *         virtualMachineId: srcVirtualMachine.then(srcVirtualMachine => srcVirtualMachine.id),
- *         port: 20020,
- *     },
- *     destination: {
- *         address: "mycompany.io",
- *         port: 443,
- *     },
- *     tags: {
- *         foo: "bar",
- *     },
- * }, {
- *     dependsOn: [srcExtension],
- * });
- * ```
- */
 export class NetworkConnectionMonitor extends pulumi.CustomResource {
     /**
      * Get an existing NetworkConnectionMonitor resource's state with the given name, ID, and optional extra
@@ -84,41 +35,57 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
     }
 
     /**
-     * Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
+     * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
      */
-    public readonly autoStart!: pulumi.Output<boolean | undefined>;
+    public readonly autoStart!: pulumi.Output<boolean>;
     /**
-     * A `destination` block as defined below.
+     * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
      */
     public readonly destination!: pulumi.Output<outputs.network.NetworkConnectionMonitorDestination>;
     /**
-     * Monitoring interval in seconds.
+     * A `endpoint` block as defined below.
      */
-    public readonly intervalInSeconds!: pulumi.Output<number | undefined>;
+    public readonly endpoints!: pulumi.Output<outputs.network.NetworkConnectionMonitorEndpoint[]>;
     /**
-     * The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
+     * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
+     */
+    public readonly intervalInSeconds!: pulumi.Output<number>;
+    /**
+     * The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
+     * The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
+     * The ID of the Network Watcher. Changing this forces a new resource to be created.
      */
-    public readonly networkWatcherName!: pulumi.Output<string>;
+    public readonly networkWatcherId!: pulumi.Output<string>;
     /**
-     * The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
+     * The description of the Network Connection Monitor.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    public readonly notes!: pulumi.Output<string | undefined>;
     /**
-     * A `source` block as defined below.
+     * A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
+     */
+    public readonly outputWorkspaceResourceIds!: pulumi.Output<string[]>;
+    /**
+     * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
      */
     public readonly source!: pulumi.Output<outputs.network.NetworkConnectionMonitorSource>;
     /**
      * A mapping of tags which should be assigned to the Network Connection Monitor.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A `testConfiguration` block as defined below.
+     */
+    public readonly testConfigurations!: pulumi.Output<outputs.network.NetworkConnectionMonitorTestConfiguration[]>;
+    /**
+     * A `testGroup` block as defined below.
+     */
+    public readonly testGroups!: pulumi.Output<outputs.network.NetworkConnectionMonitorTestGroup[]>;
 
     /**
      * Create a NetworkConnectionMonitor resource with the given unique name, arguments, and options.
@@ -134,36 +101,44 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
             const state = argsOrState as NetworkConnectionMonitorState | undefined;
             inputs["autoStart"] = state ? state.autoStart : undefined;
             inputs["destination"] = state ? state.destination : undefined;
+            inputs["endpoints"] = state ? state.endpoints : undefined;
             inputs["intervalInSeconds"] = state ? state.intervalInSeconds : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
-            inputs["networkWatcherName"] = state ? state.networkWatcherName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["networkWatcherId"] = state ? state.networkWatcherId : undefined;
+            inputs["notes"] = state ? state.notes : undefined;
+            inputs["outputWorkspaceResourceIds"] = state ? state.outputWorkspaceResourceIds : undefined;
             inputs["source"] = state ? state.source : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["testConfigurations"] = state ? state.testConfigurations : undefined;
+            inputs["testGroups"] = state ? state.testGroups : undefined;
         } else {
             const args = argsOrState as NetworkConnectionMonitorArgs | undefined;
-            if (!args || args.destination === undefined) {
-                throw new Error("Missing required property 'destination'");
+            if (!args || args.endpoints === undefined) {
+                throw new Error("Missing required property 'endpoints'");
             }
-            if (!args || args.networkWatcherName === undefined) {
-                throw new Error("Missing required property 'networkWatcherName'");
+            if (!args || args.networkWatcherId === undefined) {
+                throw new Error("Missing required property 'networkWatcherId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
-                throw new Error("Missing required property 'resourceGroupName'");
+            if (!args || args.testConfigurations === undefined) {
+                throw new Error("Missing required property 'testConfigurations'");
             }
-            if (!args || args.source === undefined) {
-                throw new Error("Missing required property 'source'");
+            if (!args || args.testGroups === undefined) {
+                throw new Error("Missing required property 'testGroups'");
             }
             inputs["autoStart"] = args ? args.autoStart : undefined;
             inputs["destination"] = args ? args.destination : undefined;
+            inputs["endpoints"] = args ? args.endpoints : undefined;
             inputs["intervalInSeconds"] = args ? args.intervalInSeconds : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["networkWatcherId"] = args ? args.networkWatcherId : undefined;
+            inputs["notes"] = args ? args.notes : undefined;
+            inputs["outputWorkspaceResourceIds"] = args ? args.outputWorkspaceResourceIds : undefined;
             inputs["source"] = args ? args.source : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["testConfigurations"] = args ? args.testConfigurations : undefined;
+            inputs["testGroups"] = args ? args.testGroups : undefined;
         }
         if (!opts) {
             opts = {}
@@ -181,41 +156,57 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
  */
 export interface NetworkConnectionMonitorState {
     /**
-     * Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
+     * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
      */
     readonly autoStart?: pulumi.Input<boolean>;
     /**
-     * A `destination` block as defined below.
+     * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
      */
     readonly destination?: pulumi.Input<inputs.network.NetworkConnectionMonitorDestination>;
     /**
-     * Monitoring interval in seconds.
+     * A `endpoint` block as defined below.
+     */
+    readonly endpoints?: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorEndpoint>[]>;
+    /**
+     * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
      */
     readonly intervalInSeconds?: pulumi.Input<number>;
     /**
-     * The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
+     * The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
+     * The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
+     * The ID of the Network Watcher. Changing this forces a new resource to be created.
      */
-    readonly networkWatcherName?: pulumi.Input<string>;
+    readonly networkWatcherId?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
+     * The description of the Network Connection Monitor.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    readonly notes?: pulumi.Input<string>;
     /**
-     * A `source` block as defined below.
+     * A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
+     */
+    readonly outputWorkspaceResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
      */
     readonly source?: pulumi.Input<inputs.network.NetworkConnectionMonitorSource>;
     /**
      * A mapping of tags which should be assigned to the Network Connection Monitor.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `testConfiguration` block as defined below.
+     */
+    readonly testConfigurations?: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorTestConfiguration>[]>;
+    /**
+     * A `testGroup` block as defined below.
+     */
+    readonly testGroups?: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorTestGroup>[]>;
 }
 
 /**
@@ -223,39 +214,55 @@ export interface NetworkConnectionMonitorState {
  */
 export interface NetworkConnectionMonitorArgs {
     /**
-     * Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
+     * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
      */
     readonly autoStart?: pulumi.Input<boolean>;
     /**
-     * A `destination` block as defined below.
+     * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
      */
-    readonly destination: pulumi.Input<inputs.network.NetworkConnectionMonitorDestination>;
+    readonly destination?: pulumi.Input<inputs.network.NetworkConnectionMonitorDestination>;
     /**
-     * Monitoring interval in seconds.
+     * A `endpoint` block as defined below.
+     */
+    readonly endpoints: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorEndpoint>[]>;
+    /**
+     * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
      */
     readonly intervalInSeconds?: pulumi.Input<number>;
     /**
-     * The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
+     * The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
+     * The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
+     * The ID of the Network Watcher. Changing this forces a new resource to be created.
      */
-    readonly networkWatcherName: pulumi.Input<string>;
+    readonly networkWatcherId: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
+     * The description of the Network Connection Monitor.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly notes?: pulumi.Input<string>;
     /**
-     * A `source` block as defined below.
+     * A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
      */
-    readonly source: pulumi.Input<inputs.network.NetworkConnectionMonitorSource>;
+    readonly outputWorkspaceResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
+     */
+    readonly source?: pulumi.Input<inputs.network.NetworkConnectionMonitorSource>;
     /**
      * A mapping of tags which should be assigned to the Network Connection Monitor.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `testConfiguration` block as defined below.
+     */
+    readonly testConfigurations: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorTestConfiguration>[]>;
+    /**
+     * A `testGroup` block as defined below.
+     */
+    readonly testGroups: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorTestGroup>[]>;
 }

@@ -939,7 +939,7 @@ class AppServiceSiteConfig(dict):
         :param str app_command_line: App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
         :param 'AppServiceSiteConfigCorsArgs' cors: A `cors` block as defined below.
         :param Sequence[str] default_documents: The ordering of default documents to load, if an address isn't specified.
-        :param str dotnet_framework_version: The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        :param str dotnet_framework_version: The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`) and `v5.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         :param str ftps_state: State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         :param str health_check_path: The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
         :param bool http2_enabled: Is HTTP2 Enabled on this App Service? Defaults to `false`.
@@ -1058,7 +1058,7 @@ class AppServiceSiteConfig(dict):
     @pulumi.getter(name="dotnetFrameworkVersion")
     def dotnet_framework_version(self) -> Optional[str]:
         """
-        The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`) and `v5.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_framework_version")
 
@@ -2145,6 +2145,7 @@ class FunctionAppSiteConfig(dict):
                  auto_swap_slot_name: Optional[str] = None,
                  cors: Optional['outputs.FunctionAppSiteConfigCors'] = None,
                  ftps_state: Optional[str] = None,
+                 health_check_path: Optional[str] = None,
                  http2_enabled: Optional[bool] = None,
                  ip_restrictions: Optional[Sequence['outputs.FunctionAppSiteConfigIpRestriction']] = None,
                  linux_fx_version: Optional[str] = None,
@@ -2159,6 +2160,7 @@ class FunctionAppSiteConfig(dict):
         :param bool always_on: Should the Function App be loaded at all times? Defaults to `false`.
         :param 'FunctionAppSiteConfigCorsArgs' cors: A `cors` block as defined below.
         :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+        :param str health_check_path: Path which will be checked for this function app health.
         :param bool http2_enabled: Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
         :param Sequence['FunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
         :param str linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
@@ -2178,6 +2180,8 @@ class FunctionAppSiteConfig(dict):
             pulumi.set(__self__, "cors", cors)
         if ftps_state is not None:
             pulumi.set(__self__, "ftps_state", ftps_state)
+        if health_check_path is not None:
+            pulumi.set(__self__, "health_check_path", health_check_path)
         if http2_enabled is not None:
             pulumi.set(__self__, "http2_enabled", http2_enabled)
         if ip_restrictions is not None:
@@ -2227,6 +2231,14 @@ class FunctionAppSiteConfig(dict):
         State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         """
         return pulumi.get(self, "ftps_state")
+
+    @property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> Optional[str]:
+        """
+        Path which will be checked for this function app health.
+        """
+        return pulumi.get(self, "health_check_path")
 
     @property
     @pulumi.getter(name="http2Enabled")
@@ -3018,6 +3030,7 @@ class FunctionAppSlotSiteConfig(dict):
                  auto_swap_slot_name: Optional[str] = None,
                  cors: Optional['outputs.FunctionAppSlotSiteConfigCors'] = None,
                  ftps_state: Optional[str] = None,
+                 health_check_path: Optional[str] = None,
                  http2_enabled: Optional[bool] = None,
                  ip_restrictions: Optional[Sequence['outputs.FunctionAppSlotSiteConfigIpRestriction']] = None,
                  linux_fx_version: Optional[str] = None,
@@ -3049,6 +3062,8 @@ class FunctionAppSlotSiteConfig(dict):
             pulumi.set(__self__, "cors", cors)
         if ftps_state is not None:
             pulumi.set(__self__, "ftps_state", ftps_state)
+        if health_check_path is not None:
+            pulumi.set(__self__, "health_check_path", health_check_path)
         if http2_enabled is not None:
             pulumi.set(__self__, "http2_enabled", http2_enabled)
         if ip_restrictions is not None:
@@ -3101,6 +3116,11 @@ class FunctionAppSlotSiteConfig(dict):
         State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         """
         return pulumi.get(self, "ftps_state")
+
+    @property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> Optional[str]:
+        return pulumi.get(self, "health_check_path")
 
     @property
     @pulumi.getter(name="http2Enabled")
@@ -5483,6 +5503,7 @@ class GetFunctionAppSiteConfigResult(dict):
                  auto_swap_slot_name: str,
                  cors: 'outputs.GetFunctionAppSiteConfigCorsResult',
                  ftps_state: str,
+                 health_check_path: str,
                  http2_enabled: bool,
                  ip_restrictions: Sequence['outputs.GetFunctionAppSiteConfigIpRestrictionResult'],
                  linux_fx_version: str,
@@ -5512,6 +5533,7 @@ class GetFunctionAppSiteConfigResult(dict):
         pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
         pulumi.set(__self__, "cors", cors)
         pulumi.set(__self__, "ftps_state", ftps_state)
+        pulumi.set(__self__, "health_check_path", health_check_path)
         pulumi.set(__self__, "http2_enabled", http2_enabled)
         pulumi.set(__self__, "ip_restrictions", ip_restrictions)
         pulumi.set(__self__, "linux_fx_version", linux_fx_version)
@@ -5551,6 +5573,11 @@ class GetFunctionAppSiteConfigResult(dict):
         State of FTP / FTPS service for this AppService.
         """
         return pulumi.get(self, "ftps_state")
+
+    @property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> str:
+        return pulumi.get(self, "health_check_path")
 
     @property
     @pulumi.getter(name="http2Enabled")

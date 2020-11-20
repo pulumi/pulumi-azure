@@ -2433,11 +2433,11 @@ type FrontdoorRoutingRuleForwardingConfiguration struct {
 	BackendPoolName string `pulumi:"backendPoolName"`
 	// Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
 	CacheEnabled *bool `pulumi:"cacheEnabled"`
-	// Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+	// Defines cache behaviour in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
 	CacheQueryParameterStripDirective *string `pulumi:"cacheQueryParameterStripDirective"`
 	// Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
 	CacheUseDynamicCompression *bool `pulumi:"cacheUseDynamicCompression"`
-	// Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
+	// Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path.
 	CustomForwardingPath *string `pulumi:"customForwardingPath"`
 	// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
 	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
@@ -2459,11 +2459,11 @@ type FrontdoorRoutingRuleForwardingConfigurationArgs struct {
 	BackendPoolName pulumi.StringInput `pulumi:"backendPoolName"`
 	// Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
 	CacheEnabled pulumi.BoolPtrInput `pulumi:"cacheEnabled"`
-	// Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+	// Defines cache behaviour in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
 	CacheQueryParameterStripDirective pulumi.StringPtrInput `pulumi:"cacheQueryParameterStripDirective"`
 	// Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
 	CacheUseDynamicCompression pulumi.BoolPtrInput `pulumi:"cacheUseDynamicCompression"`
-	// Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
+	// Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path.
 	CustomForwardingPath pulumi.StringPtrInput `pulumi:"customForwardingPath"`
 	// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
 	ForwardingProtocol pulumi.StringPtrInput `pulumi:"forwardingProtocol"`
@@ -2556,7 +2556,7 @@ func (o FrontdoorRoutingRuleForwardingConfigurationOutput) CacheEnabled() pulumi
 	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+// Defines cache behaviour in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
 func (o FrontdoorRoutingRuleForwardingConfigurationOutput) CacheQueryParameterStripDirective() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *string {
 		return v.CacheQueryParameterStripDirective
@@ -2568,7 +2568,7 @@ func (o FrontdoorRoutingRuleForwardingConfigurationOutput) CacheUseDynamicCompre
 	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheUseDynamicCompression }).(pulumi.BoolPtrOutput)
 }
 
-// Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
+// Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path.
 func (o FrontdoorRoutingRuleForwardingConfigurationOutput) CustomForwardingPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.CustomForwardingPath }).(pulumi.StringPtrOutput)
 }
@@ -2618,7 +2618,7 @@ func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) CacheEnabled() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+// Defines cache behaviour in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) CacheQueryParameterStripDirective() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRoutingRuleForwardingConfiguration) *string {
 		if v == nil {
@@ -2638,7 +2638,7 @@ func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) CacheUseDynamicCom
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
+// Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path.
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) CustomForwardingPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRoutingRuleForwardingConfiguration) *string {
 		if v == nil {
