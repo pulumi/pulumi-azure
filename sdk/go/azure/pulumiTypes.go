@@ -590,7 +590,8 @@ func (o ProviderFeaturesTemplateDeploymentPtrOutput) DeleteNestedItemsDuringDele
 }
 
 type ProviderFeaturesVirtualMachine struct {
-	DeleteOsDiskOnDeletion bool `pulumi:"deleteOsDiskOnDeletion"`
+	DeleteOsDiskOnDeletion *bool `pulumi:"deleteOsDiskOnDeletion"`
+	GracefulShutdown       *bool `pulumi:"gracefulShutdown"`
 }
 
 // ProviderFeaturesVirtualMachineInput is an input type that accepts ProviderFeaturesVirtualMachineArgs and ProviderFeaturesVirtualMachineOutput values.
@@ -605,7 +606,8 @@ type ProviderFeaturesVirtualMachineInput interface {
 }
 
 type ProviderFeaturesVirtualMachineArgs struct {
-	DeleteOsDiskOnDeletion pulumi.BoolInput `pulumi:"deleteOsDiskOnDeletion"`
+	DeleteOsDiskOnDeletion pulumi.BoolPtrInput `pulumi:"deleteOsDiskOnDeletion"`
+	GracefulShutdown       pulumi.BoolPtrInput `pulumi:"gracefulShutdown"`
 }
 
 func (ProviderFeaturesVirtualMachineArgs) ElementType() reflect.Type {
@@ -684,8 +686,12 @@ func (o ProviderFeaturesVirtualMachineOutput) ToProviderFeaturesVirtualMachinePt
 		return &v
 	}).(ProviderFeaturesVirtualMachinePtrOutput)
 }
-func (o ProviderFeaturesVirtualMachineOutput) DeleteOsDiskOnDeletion() pulumi.BoolOutput {
-	return o.ApplyT(func(v ProviderFeaturesVirtualMachine) bool { return v.DeleteOsDiskOnDeletion }).(pulumi.BoolOutput)
+func (o ProviderFeaturesVirtualMachineOutput) DeleteOsDiskOnDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesVirtualMachine) *bool { return v.DeleteOsDiskOnDeletion }).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesVirtualMachineOutput) GracefulShutdown() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesVirtualMachine) *bool { return v.GracefulShutdown }).(pulumi.BoolPtrOutput)
 }
 
 type ProviderFeaturesVirtualMachinePtrOutput struct{ *pulumi.OutputState }
@@ -711,7 +717,16 @@ func (o ProviderFeaturesVirtualMachinePtrOutput) DeleteOsDiskOnDeletion() pulumi
 		if v == nil {
 			return nil
 		}
-		return &v.DeleteOsDiskOnDeletion
+		return v.DeleteOsDiskOnDeletion
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesVirtualMachinePtrOutput) GracefulShutdown() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesVirtualMachine) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.GracefulShutdown
 	}).(pulumi.BoolPtrOutput)
 }
 

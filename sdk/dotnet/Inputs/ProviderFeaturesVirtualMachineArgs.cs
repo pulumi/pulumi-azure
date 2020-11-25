@@ -12,8 +12,11 @@ namespace Pulumi.Azure.Inputs
 
     public sealed class ProviderFeaturesVirtualMachineArgs : Pulumi.ResourceArgs
     {
-        [Input("deleteOsDiskOnDeletion", required: true)]
-        public Input<bool> DeleteOsDiskOnDeletion { get; set; } = null!;
+        [Input("deleteOsDiskOnDeletion")]
+        public Input<bool>? DeleteOsDiskOnDeletion { get; set; }
+
+        [Input("gracefulShutdown")]
+        public Input<bool>? GracefulShutdown { get; set; }
 
         public ProviderFeaturesVirtualMachineArgs()
         {

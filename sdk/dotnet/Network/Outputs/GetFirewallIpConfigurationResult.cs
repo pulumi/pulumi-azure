@@ -13,13 +13,12 @@ namespace Pulumi.Azure.Network.Outputs
     [OutputType]
     public sealed class GetFirewallIpConfigurationResult
     {
-        public readonly string InternalPublicIpAddressId;
         /// <summary>
         /// The name of the Azure Firewall.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Private IP Address of the Azure Firewall.
+        /// The private IP address associated with the Azure Firewall.
         /// </summary>
         public readonly string PrivateIpAddress;
         public readonly string PublicIpAddressId;
@@ -30,8 +29,6 @@ namespace Pulumi.Azure.Network.Outputs
 
         [OutputConstructor]
         private GetFirewallIpConfigurationResult(
-            string internalPublicIpAddressId,
-
             string name,
 
             string privateIpAddress,
@@ -40,7 +37,6 @@ namespace Pulumi.Azure.Network.Outputs
 
             string subnetId)
         {
-            InternalPublicIpAddressId = internalPublicIpAddressId;
             Name = name;
             PrivateIpAddress = privateIpAddress;
             PublicIpAddressId = publicIpAddressId;

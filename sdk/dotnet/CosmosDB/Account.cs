@@ -198,6 +198,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> PrimaryReadonlyMasterKey { get; private set; } = null!;
 
         /// <summary>
+        /// Whether or not public network access is allowed for this CosmosDB account.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A list of read endpoints available for this CosmosDB account.
         /// </summary>
         [Output("readEndpoints")]
@@ -382,6 +388,12 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> OfferType { get; set; } = null!;
 
         /// <summary>
+        /// Whether or not public network access is allowed for this CosmosDB account.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -543,6 +555,12 @@ namespace Pulumi.Azure.CosmosDB
 
         [Input("primaryReadonlyMasterKey")]
         public Input<string>? PrimaryReadonlyMasterKey { get; set; }
+
+        /// <summary>
+        /// Whether or not public network access is allowed for this CosmosDB account.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         [Input("readEndpoints")]
         private InputList<string>? _readEndpoints;

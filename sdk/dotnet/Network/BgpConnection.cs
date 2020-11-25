@@ -12,6 +12,72 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Bgp Connection for a Virtual Hub.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new Azure.Network.VirtualHubArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             Sku = "Standard",
+    ///         });
+    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AllocationMethod = "Dynamic",
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.5.0.0/16",
+    ///             },
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefix = "10.5.1.0/24",
+    ///         });
+    ///         var exampleVirtualHubIp = new Azure.Network.VirtualHubIp("exampleVirtualHubIp", new Azure.Network.VirtualHubIpArgs
+    ///         {
+    ///             VirtualHubId = exampleVirtualHub.Id,
+    ///             PrivateIpAddress = "10.5.1.18",
+    ///             PrivateIpAllocationMethod = "Static",
+    ///             PublicIpAddressId = examplePublicIp.Id,
+    ///             SubnetId = exampleSubnet.Id,
+    ///         });
+    ///         var exampleBgpConnection = new Azure.Network.BgpConnection("exampleBgpConnection", new Azure.Network.BgpConnectionArgs
+    ///         {
+    ///             VirtualHubId = exampleVirtualHub.Id,
+    ///             PeerAsn = 65514,
+    ///             PeerIp = "169.254.21.5",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleVirtualHubIp,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Virtual Hub Bgp Connections can be imported using the `resource id`, e.g.

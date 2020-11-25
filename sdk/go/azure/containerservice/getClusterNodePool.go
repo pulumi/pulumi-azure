@@ -85,6 +85,8 @@ type GetClusterNodePoolResult struct {
 	OrchestratorVersion string `pulumi:"orchestratorVersion"`
 	// The size of the OS Disk on each Node in this Node Pool.
 	OsDiskSizeGb int `pulumi:"osDiskSizeGb"`
+	// The type of the OS Disk on each Node in this Node Pool.
+	OsDiskType string `pulumi:"osDiskType"`
 	// The operating system used on each Node in this Node Pool.
 	OsType string `pulumi:"osType"`
 	// The priority of the Virtual Machines in the Virtual Machine Scale Set backing this Node Pool.

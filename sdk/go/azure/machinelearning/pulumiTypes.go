@@ -179,7 +179,115 @@ func (o WorkspaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetWorkspaceIdentity struct {
+	PrincipalId string `pulumi:"principalId"`
+	TenantId    string `pulumi:"tenantId"`
+	Type        string `pulumi:"type"`
+}
+
+// GetWorkspaceIdentityInput is an input type that accepts GetWorkspaceIdentityArgs and GetWorkspaceIdentityOutput values.
+// You can construct a concrete instance of `GetWorkspaceIdentityInput` via:
+//
+//          GetWorkspaceIdentityArgs{...}
+type GetWorkspaceIdentityInput interface {
+	pulumi.Input
+
+	ToGetWorkspaceIdentityOutput() GetWorkspaceIdentityOutput
+	ToGetWorkspaceIdentityOutputWithContext(context.Context) GetWorkspaceIdentityOutput
+}
+
+type GetWorkspaceIdentityArgs struct {
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	TenantId    pulumi.StringInput `pulumi:"tenantId"`
+	Type        pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetWorkspaceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkspaceIdentity)(nil)).Elem()
+}
+
+func (i GetWorkspaceIdentityArgs) ToGetWorkspaceIdentityOutput() GetWorkspaceIdentityOutput {
+	return i.ToGetWorkspaceIdentityOutputWithContext(context.Background())
+}
+
+func (i GetWorkspaceIdentityArgs) ToGetWorkspaceIdentityOutputWithContext(ctx context.Context) GetWorkspaceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceIdentityOutput)
+}
+
+// GetWorkspaceIdentityArrayInput is an input type that accepts GetWorkspaceIdentityArray and GetWorkspaceIdentityArrayOutput values.
+// You can construct a concrete instance of `GetWorkspaceIdentityArrayInput` via:
+//
+//          GetWorkspaceIdentityArray{ GetWorkspaceIdentityArgs{...} }
+type GetWorkspaceIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetWorkspaceIdentityArrayOutput() GetWorkspaceIdentityArrayOutput
+	ToGetWorkspaceIdentityArrayOutputWithContext(context.Context) GetWorkspaceIdentityArrayOutput
+}
+
+type GetWorkspaceIdentityArray []GetWorkspaceIdentityInput
+
+func (GetWorkspaceIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkspaceIdentity)(nil)).Elem()
+}
+
+func (i GetWorkspaceIdentityArray) ToGetWorkspaceIdentityArrayOutput() GetWorkspaceIdentityArrayOutput {
+	return i.ToGetWorkspaceIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetWorkspaceIdentityArray) ToGetWorkspaceIdentityArrayOutputWithContext(ctx context.Context) GetWorkspaceIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceIdentityArrayOutput)
+}
+
+type GetWorkspaceIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetWorkspaceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkspaceIdentity)(nil)).Elem()
+}
+
+func (o GetWorkspaceIdentityOutput) ToGetWorkspaceIdentityOutput() GetWorkspaceIdentityOutput {
+	return o
+}
+
+func (o GetWorkspaceIdentityOutput) ToGetWorkspaceIdentityOutputWithContext(ctx context.Context) GetWorkspaceIdentityOutput {
+	return o
+}
+
+func (o GetWorkspaceIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspaceIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o GetWorkspaceIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspaceIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+func (o GetWorkspaceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspaceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetWorkspaceIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWorkspaceIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkspaceIdentity)(nil)).Elem()
+}
+
+func (o GetWorkspaceIdentityArrayOutput) ToGetWorkspaceIdentityArrayOutput() GetWorkspaceIdentityArrayOutput {
+	return o
+}
+
+func (o GetWorkspaceIdentityArrayOutput) ToGetWorkspaceIdentityArrayOutputWithContext(ctx context.Context) GetWorkspaceIdentityArrayOutput {
+	return o
+}
+
+func (o GetWorkspaceIdentityArrayOutput) Index(i pulumi.IntInput) GetWorkspaceIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWorkspaceIdentity {
+		return vs[0].([]GetWorkspaceIdentity)[vs[1].(int)]
+	}).(GetWorkspaceIdentityOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkspaceIdentityOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(GetWorkspaceIdentityOutput{})
+	pulumi.RegisterOutputType(GetWorkspaceIdentityArrayOutput{})
 }

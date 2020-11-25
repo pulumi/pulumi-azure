@@ -72,8 +72,8 @@ export class HostPool extends pulumi.CustomResource {
      */
     public readonly friendlyName!: pulumi.Output<string | undefined>;
     /**
-     * `Breadthfirst` load balancing distributes new user sessions across all available session hosts in the host pool.
-     * `Depthfirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
+     * `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+     * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
      * `Persistent` should be used if the host pool type is `Personal`
      */
     public readonly loadBalancerType!: pulumi.Output<string>;
@@ -197,8 +197,8 @@ export interface HostPoolState {
      */
     readonly friendlyName?: pulumi.Input<string>;
     /**
-     * `Breadthfirst` load balancing distributes new user sessions across all available session hosts in the host pool.
-     * `Depthfirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
+     * `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+     * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
      * `Persistent` should be used if the host pool type is `Personal`
      */
     readonly loadBalancerType?: pulumi.Input<string>;
@@ -262,8 +262,8 @@ export interface HostPoolArgs {
      */
     readonly friendlyName?: pulumi.Input<string>;
     /**
-     * `Breadthfirst` load balancing distributes new user sessions across all available session hosts in the host pool.
-     * `Depthfirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
+     * `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+     * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
      * `Persistent` should be used if the host pool type is `Personal`
      */
     readonly loadBalancerType: pulumi.Input<string>;

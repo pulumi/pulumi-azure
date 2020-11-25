@@ -135,6 +135,10 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly int OsDiskSizeGb;
         /// <summary>
+        /// The type of the OS Disk on each Node in this Node Pool.
+        /// </summary>
+        public readonly string OsDiskType;
+        /// <summary>
         /// The operating system used on each Node in this Node Pool.
         /// </summary>
         public readonly string OsType;
@@ -198,6 +202,8 @@ namespace Pulumi.Azure.ContainerService
 
             int osDiskSizeGb,
 
+            string osDiskType,
+
             string osType,
 
             string priority,
@@ -230,6 +236,7 @@ namespace Pulumi.Azure.ContainerService
             NodeTaints = nodeTaints;
             OrchestratorVersion = orchestratorVersion;
             OsDiskSizeGb = osDiskSizeGb;
+            OsDiskType = osDiskType;
             OsType = osType;
             Priority = priority;
             ProximityPlacementGroupId = proximityPlacementGroupId;

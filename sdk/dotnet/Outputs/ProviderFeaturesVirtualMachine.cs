@@ -13,12 +13,17 @@ namespace Pulumi.Azure.Outputs
     [OutputType]
     public sealed class ProviderFeaturesVirtualMachine
     {
-        public readonly bool DeleteOsDiskOnDeletion;
+        public readonly bool? DeleteOsDiskOnDeletion;
+        public readonly bool? GracefulShutdown;
 
         [OutputConstructor]
-        private ProviderFeaturesVirtualMachine(bool deleteOsDiskOnDeletion)
+        private ProviderFeaturesVirtualMachine(
+            bool? deleteOsDiskOnDeletion,
+
+            bool? gracefulShutdown)
         {
             DeleteOsDiskOnDeletion = deleteOsDiskOnDeletion;
+            GracefulShutdown = gracefulShutdown;
         }
     }
 }

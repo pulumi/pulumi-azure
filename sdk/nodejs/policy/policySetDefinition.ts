@@ -113,6 +113,10 @@ export class PolicySetDefinition extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<string | undefined>;
     /**
+     * One or more `policyDefinitionGroup` blocks as defined below.
+     */
+    public readonly policyDefinitionGroups!: pulumi.Output<outputs.policy.PolicySetDefinitionPolicyDefinitionGroup[] | undefined>;
+    /**
      * One or more `policyDefinitionReference` blocks as defined below.
      */
     public readonly policyDefinitionReferences!: pulumi.Output<outputs.policy.PolicySetDefinitionPolicyDefinitionReference[]>;
@@ -146,6 +150,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
+            inputs["policyDefinitionGroups"] = state ? state.policyDefinitionGroups : undefined;
             inputs["policyDefinitionReferences"] = state ? state.policyDefinitionReferences : undefined;
             inputs["policyDefinitions"] = state ? state.policyDefinitions : undefined;
             inputs["policyType"] = state ? state.policyType : undefined;
@@ -164,6 +169,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
+            inputs["policyDefinitionGroups"] = args ? args.policyDefinitionGroups : undefined;
             inputs["policyDefinitionReferences"] = args ? args.policyDefinitionReferences : undefined;
             inputs["policyDefinitions"] = args ? args.policyDefinitions : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
@@ -214,6 +220,10 @@ export interface PolicySetDefinitionState {
      */
     readonly parameters?: pulumi.Input<string>;
     /**
+     * One or more `policyDefinitionGroup` blocks as defined below.
+     */
+    readonly policyDefinitionGroups?: pulumi.Input<pulumi.Input<inputs.policy.PolicySetDefinitionPolicyDefinitionGroup>[]>;
+    /**
      * One or more `policyDefinitionReference` blocks as defined below.
      */
     readonly policyDefinitionReferences?: pulumi.Input<pulumi.Input<inputs.policy.PolicySetDefinitionPolicyDefinitionReference>[]>;
@@ -263,6 +273,10 @@ export interface PolicySetDefinitionArgs {
      * Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
      */
     readonly parameters?: pulumi.Input<string>;
+    /**
+     * One or more `policyDefinitionGroup` blocks as defined below.
+     */
+    readonly policyDefinitionGroups?: pulumi.Input<pulumi.Input<inputs.policy.PolicySetDefinitionPolicyDefinitionGroup>[]>;
     /**
      * One or more `policyDefinitionReference` blocks as defined below.
      */

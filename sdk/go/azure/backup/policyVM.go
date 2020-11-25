@@ -123,7 +123,7 @@ type PolicyVM struct {
 	RetentionYearly PolicyVMRetentionYearlyPtrOutput `pulumi:"retentionYearly"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the timezone. Defaults to `UTC`
+	// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
 }
 
@@ -184,7 +184,7 @@ type policyVMState struct {
 	RetentionYearly *PolicyVMRetentionYearly `pulumi:"retentionYearly"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the timezone. Defaults to `UTC`
+	// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -209,7 +209,7 @@ type PolicyVMState struct {
 	RetentionYearly PolicyVMRetentionYearlyPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies the timezone. Defaults to `UTC`
+	// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone pulumi.StringPtrInput
 }
 
@@ -238,7 +238,7 @@ type policyVMArgs struct {
 	RetentionYearly *PolicyVMRetentionYearly `pulumi:"retentionYearly"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the timezone. Defaults to `UTC`
+	// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -264,7 +264,7 @@ type PolicyVMArgs struct {
 	RetentionYearly PolicyVMRetentionYearlyPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies the timezone. Defaults to `UTC`
+	// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone pulumi.StringPtrInput
 }
 

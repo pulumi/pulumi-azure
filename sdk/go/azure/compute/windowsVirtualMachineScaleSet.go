@@ -162,6 +162,8 @@ type WindowsVirtualMachineScaleSet struct {
 	Overprovision pulumi.BoolPtrOutput `pulumi:"overprovision"`
 	// A `plan` block as documented below.
 	Plan WindowsVirtualMachineScaleSetPlanPtrOutput `pulumi:"plan"`
+	// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	PlatformFaultDomainCount pulumi.IntOutput `pulumi:"platformFaultDomainCount"`
 	// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 	Priority pulumi.StringPtrOutput `pulumi:"priority"`
 	// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
@@ -303,6 +305,8 @@ type windowsVirtualMachineScaleSetState struct {
 	Overprovision *bool `pulumi:"overprovision"`
 	// A `plan` block as documented below.
 	Plan *WindowsVirtualMachineScaleSetPlan `pulumi:"plan"`
+	// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
 	// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 	Priority *string `pulumi:"priority"`
 	// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
@@ -396,6 +400,8 @@ type WindowsVirtualMachineScaleSetState struct {
 	Overprovision pulumi.BoolPtrInput
 	// A `plan` block as documented below.
 	Plan WindowsVirtualMachineScaleSetPlanPtrInput
+	// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	PlatformFaultDomainCount pulumi.IntPtrInput
 	// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 	Priority pulumi.StringPtrInput
 	// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
@@ -493,6 +499,8 @@ type windowsVirtualMachineScaleSetArgs struct {
 	Overprovision *bool `pulumi:"overprovision"`
 	// A `plan` block as documented below.
 	Plan *WindowsVirtualMachineScaleSetPlan `pulumi:"plan"`
+	// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
 	// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 	Priority *string `pulumi:"priority"`
 	// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
@@ -585,6 +593,8 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	Overprovision pulumi.BoolPtrInput
 	// A `plan` block as documented below.
 	Plan WindowsVirtualMachineScaleSetPlanPtrInput
+	// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	PlatformFaultDomainCount pulumi.IntPtrInput
 	// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 	Priority pulumi.StringPtrInput
 	// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.

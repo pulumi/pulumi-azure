@@ -12,9 +12,6 @@ namespace Pulumi.Azure.Network.Inputs
 
     public sealed class FirewallPolicyDnsArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether FQDNS in Network Rules belongs to this Firewall Policy are supported? Defaults to `false`.
-        /// </summary>
         [Input("networkRuleFqdnEnabled")]
         public Input<bool>? NetworkRuleFqdnEnabled { get; set; }
 

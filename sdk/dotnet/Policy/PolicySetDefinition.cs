@@ -117,6 +117,12 @@ namespace Pulumi.Azure.Policy
         public Output<string?> Parameters { get; private set; } = null!;
 
         /// <summary>
+        /// One or more `policy_definition_group` blocks as defined below.
+        /// </summary>
+        [Output("policyDefinitionGroups")]
+        public Output<ImmutableArray<Outputs.PolicySetDefinitionPolicyDefinitionGroup>> PolicyDefinitionGroups { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `policy_definition_reference` blocks as defined below.
         /// </summary>
         [Output("policyDefinitionReferences")]
@@ -222,6 +228,18 @@ namespace Pulumi.Azure.Policy
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }
 
+        [Input("policyDefinitionGroups")]
+        private InputList<Inputs.PolicySetDefinitionPolicyDefinitionGroupArgs>? _policyDefinitionGroups;
+
+        /// <summary>
+        /// One or more `policy_definition_group` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.PolicySetDefinitionPolicyDefinitionGroupArgs> PolicyDefinitionGroups
+        {
+            get => _policyDefinitionGroups ?? (_policyDefinitionGroups = new InputList<Inputs.PolicySetDefinitionPolicyDefinitionGroupArgs>());
+            set => _policyDefinitionGroups = value;
+        }
+
         [Input("policyDefinitionReferences")]
         private InputList<Inputs.PolicySetDefinitionPolicyDefinitionReferenceArgs>? _policyDefinitionReferences;
 
@@ -294,6 +312,18 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }
+
+        [Input("policyDefinitionGroups")]
+        private InputList<Inputs.PolicySetDefinitionPolicyDefinitionGroupGetArgs>? _policyDefinitionGroups;
+
+        /// <summary>
+        /// One or more `policy_definition_group` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.PolicySetDefinitionPolicyDefinitionGroupGetArgs> PolicyDefinitionGroups
+        {
+            get => _policyDefinitionGroups ?? (_policyDefinitionGroups = new InputList<Inputs.PolicySetDefinitionPolicyDefinitionGroupGetArgs>());
+            set => _policyDefinitionGroups = value;
+        }
 
         [Input("policyDefinitionReferences")]
         private InputList<Inputs.PolicySetDefinitionPolicyDefinitionReferenceGetArgs>? _policyDefinitionReferences;

@@ -30,6 +30,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
+                 extensions_time_budget: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -37,6 +38,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  os_disk: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']]] = None,
+                 patch_mode: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachinePlanArgs']]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
@@ -130,10 +132,11 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on.
         :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[str] location: The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -141,6 +144,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachinePlanArgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
@@ -190,6 +194,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             __props__['enable_automatic_updates'] = enable_automatic_updates
             __props__['encryption_at_host_enabled'] = encryption_at_host_enabled
             __props__['eviction_policy'] = eviction_policy
+            __props__['extensions_time_budget'] = extensions_time_budget
             __props__['identity'] = identity
             __props__['license_type'] = license_type
             __props__['location'] = location
@@ -201,6 +206,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             if os_disk is None:
                 raise TypeError("Missing required property 'os_disk'")
             __props__['os_disk'] = os_disk
+            __props__['patch_mode'] = patch_mode
             __props__['plan'] = plan
             __props__['priority'] = priority
             __props__['provision_vm_agent'] = provision_vm_agent
@@ -247,6 +253,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
             encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
+            extensions_time_budget: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -254,6 +261,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             os_disk: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']]] = None,
+            patch_mode: Optional[pulumi.Input[str]] = None,
             plan: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachinePlanArgs']]] = None,
             priority: Optional[pulumi.Input[str]] = None,
             private_ip_address: Optional[pulumi.Input[str]] = None,
@@ -289,10 +297,11 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on.
         :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[str] location: The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -300,6 +309,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachinePlanArgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_ip_address: The Primary Private IP Address assigned to this Virtual Machine.
@@ -337,6 +347,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__["enable_automatic_updates"] = enable_automatic_updates
         __props__["encryption_at_host_enabled"] = encryption_at_host_enabled
         __props__["eviction_policy"] = eviction_policy
+        __props__["extensions_time_budget"] = extensions_time_budget
         __props__["identity"] = identity
         __props__["license_type"] = license_type
         __props__["location"] = location
@@ -344,6 +355,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__["name"] = name
         __props__["network_interface_ids"] = network_interface_ids
         __props__["os_disk"] = os_disk
+        __props__["patch_mode"] = patch_mode
         __props__["plan"] = plan
         __props__["priority"] = priority
         __props__["private_ip_address"] = private_ip_address
@@ -441,7 +453,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="dedicatedHostId")
     def dedicated_host_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+        The ID of a Dedicated Host where this machine should be run on.
         """
         return pulumi.get(self, "dedicated_host_id")
 
@@ -468,6 +480,14 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eviction_policy")
+
+    @property
+    @pulumi.getter(name="extensionsTimeBudget")
+    def extensions_time_budget(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        """
+        return pulumi.get(self, "extensions_time_budget")
 
     @property
     @pulumi.getter
@@ -524,6 +544,14 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         A `os_disk` block as defined below.
         """
         return pulumi.get(self, "os_disk")
+
+    @property
+    @pulumi.getter(name="patchMode")
+    def patch_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
+        """
+        return pulumi.get(self, "patch_mode")
 
     @property
     @pulumi.getter

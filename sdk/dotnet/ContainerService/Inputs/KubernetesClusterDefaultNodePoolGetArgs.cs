@@ -37,7 +37,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<bool>? EnableNodePublicIp { get; set; }
 
         /// <summary>
-        /// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+        /// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         /// </summary>
         [Input("maxCount")]
         public Input<int>? MaxCount { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<int>? MaxPods { get; set; }
 
         /// <summary>
-        /// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+        /// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         /// </summary>
         [Input("minCount")]
         public Input<int>? MinCount { get; set; }
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `min_count` and `max_count`.
+        /// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
         /// </summary>
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }
@@ -97,6 +97,9 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// </summary>
         [Input("osDiskSizeGb")]
         public Input<int>? OsDiskSizeGb { get; set; }
+
+        [Input("osDiskType")]
+        public Input<string>? OsDiskType { get; set; }
 
         [Input("proximityPlacementGroupId")]
         public Input<string>? ProximityPlacementGroupId { get; set; }

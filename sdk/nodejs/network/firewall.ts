@@ -83,9 +83,13 @@ export class Firewall extends pulumi.CustomResource {
      */
     public readonly dnsServers!: pulumi.Output<string[] | undefined>;
     /**
+     * The ID of the Firewall Policy applied to this Firewall.
+     */
+    public readonly firewallPolicyId!: pulumi.Output<string | undefined>;
+    /**
      * An `ipConfiguration` block as documented below.
      */
-    public readonly ipConfigurations!: pulumi.Output<outputs.network.FirewallIpConfiguration[]>;
+    public readonly ipConfigurations!: pulumi.Output<outputs.network.FirewallIpConfiguration[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -103,13 +107,25 @@ export class Firewall extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+     */
+    public readonly skuName!: pulumi.Output<string>;
+    /**
+     * Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+     */
+    public readonly skuTier!: pulumi.Output<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
+     * The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
      */
     public readonly threatIntelMode!: pulumi.Output<string | undefined>;
+    /**
+     * A `virtualHub` block as documented below.
+     */
+    public readonly virtualHub!: pulumi.Output<outputs.network.FirewallVirtualHub | undefined>;
     /**
      * Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
      */
@@ -128,30 +144,35 @@ export class Firewall extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as FirewallState | undefined;
             inputs["dnsServers"] = state ? state.dnsServers : undefined;
+            inputs["firewallPolicyId"] = state ? state.firewallPolicyId : undefined;
             inputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["managementIpConfiguration"] = state ? state.managementIpConfiguration : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["skuName"] = state ? state.skuName : undefined;
+            inputs["skuTier"] = state ? state.skuTier : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["threatIntelMode"] = state ? state.threatIntelMode : undefined;
+            inputs["virtualHub"] = state ? state.virtualHub : undefined;
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as FirewallArgs | undefined;
-            if (!args || args.ipConfigurations === undefined) {
-                throw new Error("Missing required property 'ipConfigurations'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dnsServers"] = args ? args.dnsServers : undefined;
+            inputs["firewallPolicyId"] = args ? args.firewallPolicyId : undefined;
             inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["managementIpConfiguration"] = args ? args.managementIpConfiguration : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["skuName"] = args ? args.skuName : undefined;
+            inputs["skuTier"] = args ? args.skuTier : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
+            inputs["virtualHub"] = args ? args.virtualHub : undefined;
             inputs["zones"] = args ? args.zones : undefined;
         }
         if (!opts) {
@@ -174,6 +195,10 @@ export interface FirewallState {
      */
     readonly dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The ID of the Firewall Policy applied to this Firewall.
+     */
+    readonly firewallPolicyId?: pulumi.Input<string>;
+    /**
      * An `ipConfiguration` block as documented below.
      */
     readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.FirewallIpConfiguration>[]>;
@@ -194,13 +219,25 @@ export interface FirewallState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
+     * Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+     */
+    readonly skuName?: pulumi.Input<string>;
+    /**
+     * Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+     */
+    readonly skuTier?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
+     * The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
      */
     readonly threatIntelMode?: pulumi.Input<string>;
+    /**
+     * A `virtualHub` block as documented below.
+     */
+    readonly virtualHub?: pulumi.Input<inputs.network.FirewallVirtualHub>;
     /**
      * Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
      */
@@ -216,9 +253,13 @@ export interface FirewallArgs {
      */
     readonly dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The ID of the Firewall Policy applied to this Firewall.
+     */
+    readonly firewallPolicyId?: pulumi.Input<string>;
+    /**
      * An `ipConfiguration` block as documented below.
      */
-    readonly ipConfigurations: pulumi.Input<pulumi.Input<inputs.network.FirewallIpConfiguration>[]>;
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.FirewallIpConfiguration>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -236,13 +277,25 @@ export interface FirewallArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+     */
+    readonly skuName?: pulumi.Input<string>;
+    /**
+     * Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+     */
+    readonly skuTier?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
+     * The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
      */
     readonly threatIntelMode?: pulumi.Input<string>;
+    /**
+     * A `virtualHub` block as documented below.
+     */
+    readonly virtualHub?: pulumi.Input<inputs.network.FirewallVirtualHub>;
     /**
      * Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
      */

@@ -59,9 +59,12 @@ export interface GetPolicySetDefinitionArgs {
  */
 export interface GetPolicySetDefinitionResult {
     /**
-     * The Description of the Policy Set Definition.
+     * The description of this policy definition group.
      */
     readonly description: string;
+    /**
+     * The display name of this policy definition group.
+     */
     readonly displayName: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -72,11 +75,18 @@ export interface GetPolicySetDefinitionResult {
      * Any Metadata defined in the Policy Set Definition.
      */
     readonly metadata: string;
+    /**
+     * The name of this policy definition group.
+     */
     readonly name: string;
     /**
      * The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
      */
     readonly parameters: string;
+    /**
+     * One or more `policyDefinitionGroup` blocks as defined below.
+     */
+    readonly policyDefinitionGroups: outputs.policy.GetPolicySetDefinitionPolicyDefinitionGroup[];
     /**
      * One or more `policyDefinitionReference` blocks as defined below.
      */

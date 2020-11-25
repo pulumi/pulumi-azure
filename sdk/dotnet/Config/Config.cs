@@ -134,7 +134,8 @@ namespace Pulumi.Azure
 
              public class FeaturesVirtualMachine
              {
-                public bool DeleteOsDiskOnDeletion { get; set; }
+                public bool? DeleteOsDiskOnDeletion { get; set; }
+                public bool? GracefulShutdown { get; set; }
             }
 
              public class FeaturesVirtualMachineScaleSet

@@ -164,7 +164,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> CustomData { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+        /// The ID of a Dedicated Host where this machine should be run on.
         /// </summary>
         [Output("dedicatedHostId")]
         public Output<string?> DedicatedHostId { get; private set; } = null!;
@@ -186,6 +186,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("evictionPolicy")]
         public Output<string?> EvictionPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        /// </summary>
+        [Output("extensionsTimeBudget")]
+        public Output<string?> ExtensionsTimeBudget { get; private set; } = null!;
 
         /// <summary>
         /// An `identity` block as defined below.
@@ -228,6 +234,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("osDisk")]
         public Output<Outputs.WindowsVirtualMachineOsDisk> OsDisk { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
+        /// </summary>
+        [Output("patchMode")]
+        public Output<string?> PatchMode { get; private set; } = null!;
 
         /// <summary>
         /// A `plan` block as defined below. Changing this forces a new resource to be created.
@@ -450,7 +462,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? CustomData { get; set; }
 
         /// <summary>
-        /// The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+        /// The ID of a Dedicated Host where this machine should be run on.
         /// </summary>
         [Input("dedicatedHostId")]
         public Input<string>? DedicatedHostId { get; set; }
@@ -472,6 +484,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
+
+        /// <summary>
+        /// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        /// </summary>
+        [Input("extensionsTimeBudget")]
+        public Input<string>? ExtensionsTimeBudget { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below.
@@ -520,6 +538,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("osDisk", required: true)]
         public Input<Inputs.WindowsVirtualMachineOsDiskArgs> OsDisk { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
+        /// </summary>
+        [Input("patchMode")]
+        public Input<string>? PatchMode { get; set; }
 
         /// <summary>
         /// A `plan` block as defined below. Changing this forces a new resource to be created.
@@ -691,7 +715,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? CustomData { get; set; }
 
         /// <summary>
-        /// The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+        /// The ID of a Dedicated Host where this machine should be run on.
         /// </summary>
         [Input("dedicatedHostId")]
         public Input<string>? DedicatedHostId { get; set; }
@@ -713,6 +737,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
+
+        /// <summary>
+        /// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        /// </summary>
+        [Input("extensionsTimeBudget")]
+        public Input<string>? ExtensionsTimeBudget { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below.
@@ -761,6 +791,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("osDisk")]
         public Input<Inputs.WindowsVirtualMachineOsDiskGetArgs>? OsDisk { get; set; }
+
+        /// <summary>
+        /// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
+        /// </summary>
+        [Input("patchMode")]
+        public Input<string>? PatchMode { get; set; }
 
         /// <summary>
         /// A `plan` block as defined below. Changing this forces a new resource to be created.

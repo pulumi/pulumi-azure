@@ -79,10 +79,46 @@ import (
 // 			return err
 // 		}
 // 		_, err = apimanagement.NewApiDiagnostic(ctx, "exampleApiDiagnostic", &apimanagement.ApiDiagnosticArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			ApiManagementName:     exampleService.Name,
-// 			ApiName:               exampleApi.Name,
-// 			ApiManagementLoggerId: exampleLogger.ID(),
+// 			ResourceGroupName:       exampleResourceGroup.Name,
+// 			ApiManagementName:       exampleService.Name,
+// 			ApiName:                 exampleApi.Name,
+// 			ApiManagementLoggerId:   exampleLogger.ID(),
+// 			AlwaysLogErrors:         pulumi.Bool(true),
+// 			LogClientIp:             pulumi.Bool(true),
+// 			Verbosity:               pulumi.String("Verbose"),
+// 			HttpCorrelationProtocol: pulumi.String("W3C"),
+// 			FrontendRequest: &apimanagement.ApiDiagnosticFrontendRequestArgs{
+// 				BodyBytes: pulumi.Int(32),
+// 				HeadersToLogs: pulumi.StringArray{
+// 					pulumi.String("content-type"),
+// 					pulumi.String("accept"),
+// 					pulumi.String("origin"),
+// 				},
+// 			},
+// 			FrontendResponse: &apimanagement.ApiDiagnosticFrontendResponseArgs{
+// 				BodyBytes: pulumi.Int(32),
+// 				HeadersToLogs: pulumi.StringArray{
+// 					pulumi.String("content-type"),
+// 					pulumi.String("content-length"),
+// 					pulumi.String("origin"),
+// 				},
+// 			},
+// 			BackendRequest: &apimanagement.ApiDiagnosticBackendRequestArgs{
+// 				BodyBytes: pulumi.Int(32),
+// 				HeadersToLogs: pulumi.StringArray{
+// 					pulumi.String("content-type"),
+// 					pulumi.String("accept"),
+// 					pulumi.String("origin"),
+// 				},
+// 			},
+// 			BackendResponse: &apimanagement.ApiDiagnosticBackendResponseArgs{
+// 				BodyBytes: pulumi.Int(32),
+// 				HeadersToLogs: pulumi.StringArray{
+// 					pulumi.String("content-type"),
+// 					pulumi.String("content-length"),
+// 					pulumi.String("origin"),
+// 				},
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -102,16 +138,32 @@ import (
 type ApiDiagnostic struct {
 	pulumi.CustomResourceState
 
+	// Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
+	AlwaysLogErrors pulumi.BoolOutput `pulumi:"alwaysLogErrors"`
 	// The ID (name) of the Diagnostics Logger.
 	ApiManagementLoggerId pulumi.StringOutput `pulumi:"apiManagementLoggerId"`
 	// The name of the API Management Service instance. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
 	// The name of the API on which to configure the Diagnostics Logs. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	ApiName pulumi.StringOutput `pulumi:"apiName"`
+	// A `backendRequest` block as defined below.
+	BackendRequest ApiDiagnosticBackendRequestOutput `pulumi:"backendRequest"`
+	// A `backendResponse` block as defined below.
+	BackendResponse ApiDiagnosticBackendResponseOutput `pulumi:"backendResponse"`
+	// A `frontendRequest` block as defined below.
+	FrontendRequest ApiDiagnosticFrontendRequestOutput `pulumi:"frontendRequest"`
+	// A `frontendResponse` block as defined below.
+	FrontendResponse ApiDiagnosticFrontendResponseOutput `pulumi:"frontendResponse"`
+	// The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
+	HttpCorrelationProtocol pulumi.StringOutput `pulumi:"httpCorrelationProtocol"`
 	// Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
+	// Log client IP address.
+	LogClientIp pulumi.BoolOutput `pulumi:"logClientIp"`
 	// The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// Logging verbosity. Possible values are `verbose`, `information` or `error`.
+	Verbosity pulumi.StringOutput `pulumi:"verbosity"`
 }
 
 // NewApiDiagnostic registers a new resource with the given unique name, arguments, and options.
@@ -157,29 +209,61 @@ func GetApiDiagnostic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiDiagnostic resources.
 type apiDiagnosticState struct {
+	// Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
+	AlwaysLogErrors *bool `pulumi:"alwaysLogErrors"`
 	// The ID (name) of the Diagnostics Logger.
 	ApiManagementLoggerId *string `pulumi:"apiManagementLoggerId"`
 	// The name of the API Management Service instance. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	ApiManagementName *string `pulumi:"apiManagementName"`
 	// The name of the API on which to configure the Diagnostics Logs. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	ApiName *string `pulumi:"apiName"`
+	// A `backendRequest` block as defined below.
+	BackendRequest *ApiDiagnosticBackendRequest `pulumi:"backendRequest"`
+	// A `backendResponse` block as defined below.
+	BackendResponse *ApiDiagnosticBackendResponse `pulumi:"backendResponse"`
+	// A `frontendRequest` block as defined below.
+	FrontendRequest *ApiDiagnosticFrontendRequest `pulumi:"frontendRequest"`
+	// A `frontendResponse` block as defined below.
+	FrontendResponse *ApiDiagnosticFrontendResponse `pulumi:"frontendResponse"`
+	// The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
+	HttpCorrelationProtocol *string `pulumi:"httpCorrelationProtocol"`
 	// Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	Identifier *string `pulumi:"identifier"`
+	// Log client IP address.
+	LogClientIp *bool `pulumi:"logClientIp"`
 	// The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// Logging verbosity. Possible values are `verbose`, `information` or `error`.
+	Verbosity *string `pulumi:"verbosity"`
 }
 
 type ApiDiagnosticState struct {
+	// Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
+	AlwaysLogErrors pulumi.BoolPtrInput
 	// The ID (name) of the Diagnostics Logger.
 	ApiManagementLoggerId pulumi.StringPtrInput
 	// The name of the API Management Service instance. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	ApiManagementName pulumi.StringPtrInput
 	// The name of the API on which to configure the Diagnostics Logs. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	ApiName pulumi.StringPtrInput
+	// A `backendRequest` block as defined below.
+	BackendRequest ApiDiagnosticBackendRequestPtrInput
+	// A `backendResponse` block as defined below.
+	BackendResponse ApiDiagnosticBackendResponsePtrInput
+	// A `frontendRequest` block as defined below.
+	FrontendRequest ApiDiagnosticFrontendRequestPtrInput
+	// A `frontendResponse` block as defined below.
+	FrontendResponse ApiDiagnosticFrontendResponsePtrInput
+	// The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
+	HttpCorrelationProtocol pulumi.StringPtrInput
 	// Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	Identifier pulumi.StringPtrInput
+	// Log client IP address.
+	LogClientIp pulumi.BoolPtrInput
 	// The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// Logging verbosity. Possible values are `verbose`, `information` or `error`.
+	Verbosity pulumi.StringPtrInput
 }
 
 func (ApiDiagnosticState) ElementType() reflect.Type {
@@ -187,30 +271,62 @@ func (ApiDiagnosticState) ElementType() reflect.Type {
 }
 
 type apiDiagnosticArgs struct {
+	// Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
+	AlwaysLogErrors *bool `pulumi:"alwaysLogErrors"`
 	// The ID (name) of the Diagnostics Logger.
 	ApiManagementLoggerId string `pulumi:"apiManagementLoggerId"`
 	// The name of the API Management Service instance. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`
 	// The name of the API on which to configure the Diagnostics Logs. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	ApiName string `pulumi:"apiName"`
+	// A `backendRequest` block as defined below.
+	BackendRequest *ApiDiagnosticBackendRequest `pulumi:"backendRequest"`
+	// A `backendResponse` block as defined below.
+	BackendResponse *ApiDiagnosticBackendResponse `pulumi:"backendResponse"`
+	// A `frontendRequest` block as defined below.
+	FrontendRequest *ApiDiagnosticFrontendRequest `pulumi:"frontendRequest"`
+	// A `frontendResponse` block as defined below.
+	FrontendResponse *ApiDiagnosticFrontendResponse `pulumi:"frontendResponse"`
+	// The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
+	HttpCorrelationProtocol *string `pulumi:"httpCorrelationProtocol"`
 	// Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	Identifier string `pulumi:"identifier"`
+	// Log client IP address.
+	LogClientIp *bool `pulumi:"logClientIp"`
 	// The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Logging verbosity. Possible values are `verbose`, `information` or `error`.
+	Verbosity *string `pulumi:"verbosity"`
 }
 
 // The set of arguments for constructing a ApiDiagnostic resource.
 type ApiDiagnosticArgs struct {
+	// Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
+	AlwaysLogErrors pulumi.BoolPtrInput
 	// The ID (name) of the Diagnostics Logger.
 	ApiManagementLoggerId pulumi.StringInput
 	// The name of the API Management Service instance. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	ApiManagementName pulumi.StringInput
 	// The name of the API on which to configure the Diagnostics Logs. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	ApiName pulumi.StringInput
+	// A `backendRequest` block as defined below.
+	BackendRequest ApiDiagnosticBackendRequestPtrInput
+	// A `backendResponse` block as defined below.
+	BackendResponse ApiDiagnosticBackendResponsePtrInput
+	// A `frontendRequest` block as defined below.
+	FrontendRequest ApiDiagnosticFrontendRequestPtrInput
+	// A `frontendResponse` block as defined below.
+	FrontendResponse ApiDiagnosticFrontendResponsePtrInput
+	// The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
+	HttpCorrelationProtocol pulumi.StringPtrInput
 	// Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	Identifier pulumi.StringInput
+	// Log client IP address.
+	LogClientIp pulumi.BoolPtrInput
 	// The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
 	ResourceGroupName pulumi.StringInput
+	// Logging verbosity. Possible values are `verbose`, `information` or `error`.
+	Verbosity pulumi.StringPtrInput
 }
 
 func (ApiDiagnosticArgs) ElementType() reflect.Type {

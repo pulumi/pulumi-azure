@@ -66,8 +66,8 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the Virtual Desktop Host Pool.
         :param pulumi.Input[str] friendly_name: A friendly name for the Virtual Desktop Host Pool.
-        :param pulumi.Input[str] load_balancer_type: `Breadthfirst` load balancing distributes new user sessions across all available session hosts in the host pool.
-               `Depthfirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
+        :param pulumi.Input[str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+               `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
                `Persistent` should be used if the host pool type is `Personal`
         :param pulumi.Input[str] location: The location/region where the Virtual Desktop Host Pool is
                located. Changing the location/region forces a new resource to be created.
@@ -155,8 +155,8 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the Virtual Desktop Host Pool.
         :param pulumi.Input[str] friendly_name: A friendly name for the Virtual Desktop Host Pool.
-        :param pulumi.Input[str] load_balancer_type: `Breadthfirst` load balancing distributes new user sessions across all available session hosts in the host pool.
-               `Depthfirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
+        :param pulumi.Input[str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+               `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
                `Persistent` should be used if the host pool type is `Personal`
         :param pulumi.Input[str] location: The location/region where the Virtual Desktop Host Pool is
                located. Changing the location/region forces a new resource to be created.
@@ -215,8 +215,8 @@ class HostPool(pulumi.CustomResource):
     @pulumi.getter(name="loadBalancerType")
     def load_balancer_type(self) -> pulumi.Output[str]:
         """
-        `Breadthfirst` load balancing distributes new user sessions across all available session hosts in the host pool.
-        `Depthfirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
+        `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+        `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
         `Persistent` should be used if the host pool type is `Personal`
         """
         return pulumi.get(self, "load_balancer_type")

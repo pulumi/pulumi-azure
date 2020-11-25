@@ -37,6 +37,14 @@ namespace Pulumi.Azure.Policy.Inputs
         [Input("policyDefinitionId", required: true)]
         public Input<string> PolicyDefinitionId { get; set; } = null!;
 
+        [Input("policyGroupNames")]
+        private InputList<string>? _policyGroupNames;
+        public InputList<string> PolicyGroupNames
+        {
+            get => _policyGroupNames ?? (_policyGroupNames = new InputList<string>());
+            set => _policyGroupNames = value;
+        }
+
         /// <summary>
         /// A unique ID within this policy set definition for this policy definition reference.
         /// </summary>

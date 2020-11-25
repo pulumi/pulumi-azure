@@ -67,6 +67,12 @@ namespace Pulumi.Azure.Storage
         public Output<string> AccessTier { get; private set; } = null!;
 
         /// <summary>
+        /// The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("contentMd5")]
+        public Output<string?> ContentMd5 { get; private set; } = null!;
+
+        /// <summary>
         /// The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         /// </summary>
         [Output("contentType")]
@@ -193,6 +199,12 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccessTier { get; set; }
 
         /// <summary>
+        /// The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("contentMd5")]
+        public Input<string>? ContentMd5 { get; set; }
+
+        /// <summary>
         /// The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         /// </summary>
         [Input("contentType")]
@@ -278,6 +290,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }
+
+        /// <summary>
+        /// The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("contentMd5")]
+        public Input<string>? ContentMd5 { get; set; }
 
         /// <summary>
         /// The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.

@@ -80,6 +80,8 @@ type PolicySetDefinition struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
 	Parameters pulumi.StringPtrOutput `pulumi:"parameters"`
+	// One or more `policyDefinitionGroup` blocks as defined below.
+	PolicyDefinitionGroups PolicySetDefinitionPolicyDefinitionGroupArrayOutput `pulumi:"policyDefinitionGroups"`
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences PolicySetDefinitionPolicyDefinitionReferenceArrayOutput `pulumi:"policyDefinitionReferences"`
 	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
@@ -140,6 +142,8 @@ type policySetDefinitionState struct {
 	Name *string `pulumi:"name"`
 	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
 	Parameters *string `pulumi:"parameters"`
+	// One or more `policyDefinitionGroup` blocks as defined below.
+	PolicyDefinitionGroups []PolicySetDefinitionPolicyDefinitionGroup `pulumi:"policyDefinitionGroups"`
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences []PolicySetDefinitionPolicyDefinitionReference `pulumi:"policyDefinitionReferences"`
 	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
@@ -167,6 +171,8 @@ type PolicySetDefinitionState struct {
 	Name pulumi.StringPtrInput
 	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
 	Parameters pulumi.StringPtrInput
+	// One or more `policyDefinitionGroup` blocks as defined below.
+	PolicyDefinitionGroups PolicySetDefinitionPolicyDefinitionGroupArrayInput
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences PolicySetDefinitionPolicyDefinitionReferenceArrayInput
 	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
@@ -198,6 +204,8 @@ type policySetDefinitionArgs struct {
 	Name *string `pulumi:"name"`
 	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
 	Parameters *string `pulumi:"parameters"`
+	// One or more `policyDefinitionGroup` blocks as defined below.
+	PolicyDefinitionGroups []PolicySetDefinitionPolicyDefinitionGroup `pulumi:"policyDefinitionGroups"`
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences []PolicySetDefinitionPolicyDefinitionReference `pulumi:"policyDefinitionReferences"`
 	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
@@ -226,6 +234,8 @@ type PolicySetDefinitionArgs struct {
 	Name pulumi.StringPtrInput
 	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
 	Parameters pulumi.StringPtrInput
+	// One or more `policyDefinitionGroup` blocks as defined below.
+	PolicyDefinitionGroups PolicySetDefinitionPolicyDefinitionGroupArrayInput
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences PolicySetDefinitionPolicyDefinitionReferenceArrayInput
 	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.

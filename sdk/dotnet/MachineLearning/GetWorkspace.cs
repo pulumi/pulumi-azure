@@ -73,6 +73,7 @@ namespace Pulumi.Azure.MachineLearning
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly ImmutableArray<Outputs.GetWorkspaceIdentityResult> Identities;
         /// <summary>
         /// The location where the Machine Learning Workspace exists.
         /// </summary>
@@ -88,6 +89,8 @@ namespace Pulumi.Azure.MachineLearning
         private GetWorkspaceResult(
             string id,
 
+            ImmutableArray<Outputs.GetWorkspaceIdentityResult> identities,
+
             string location,
 
             string name,
@@ -97,6 +100,7 @@ namespace Pulumi.Azure.MachineLearning
             ImmutableDictionary<string, string> tags)
         {
             Id = id;
+            Identities = identities;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;

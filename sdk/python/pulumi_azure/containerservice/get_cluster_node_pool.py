@@ -19,7 +19,7 @@ class GetClusterNodePoolResult:
     """
     A collection of values returned by getClusterNodePool.
     """
-    def __init__(__self__, availability_zones=None, enable_auto_scaling=None, enable_node_public_ip=None, eviction_policy=None, id=None, kubernetes_cluster_name=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_count=None, node_labels=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_type=None, priority=None, proximity_placement_group_id=None, resource_group_name=None, spot_max_price=None, tags=None, vm_size=None, vnet_subnet_id=None):
+    def __init__(__self__, availability_zones=None, enable_auto_scaling=None, enable_node_public_ip=None, eviction_policy=None, id=None, kubernetes_cluster_name=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_count=None, node_labels=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, priority=None, proximity_placement_group_id=None, resource_group_name=None, spot_max_price=None, tags=None, vm_size=None, vnet_subnet_id=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -68,6 +68,9 @@ class GetClusterNodePoolResult:
         if os_disk_size_gb and not isinstance(os_disk_size_gb, int):
             raise TypeError("Expected argument 'os_disk_size_gb' to be a int")
         pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
+        if os_disk_type and not isinstance(os_disk_type, str):
+            raise TypeError("Expected argument 'os_disk_type' to be a str")
+        pulumi.set(__self__, "os_disk_type", os_disk_type)
         if os_type and not isinstance(os_type, str):
             raise TypeError("Expected argument 'os_type' to be a str")
         pulumi.set(__self__, "os_type", os_type)
@@ -216,6 +219,14 @@ class GetClusterNodePoolResult:
         return pulumi.get(self, "os_disk_size_gb")
 
     @property
+    @pulumi.getter(name="osDiskType")
+    def os_disk_type(self) -> str:
+        """
+        The type of the OS Disk on each Node in this Node Pool.
+        """
+        return pulumi.get(self, "os_disk_type")
+
+    @property
     @pulumi.getter(name="osType")
     def os_type(self) -> str:
         """
@@ -299,6 +310,7 @@ class AwaitableGetClusterNodePoolResult(GetClusterNodePoolResult):
             node_taints=self.node_taints,
             orchestrator_version=self.orchestrator_version,
             os_disk_size_gb=self.os_disk_size_gb,
+            os_disk_type=self.os_disk_type,
             os_type=self.os_type,
             priority=self.priority,
             proximity_placement_group_id=self.proximity_placement_group_id,
@@ -360,6 +372,7 @@ def get_cluster_node_pool(kubernetes_cluster_name: Optional[str] = None,
         node_taints=__ret__.node_taints,
         orchestrator_version=__ret__.orchestrator_version,
         os_disk_size_gb=__ret__.os_disk_size_gb,
+        os_disk_type=__ret__.os_disk_type,
         os_type=__ret__.os_type,
         priority=__ret__.priority,
         proximity_placement_group_id=__ret__.proximity_placement_group_id,

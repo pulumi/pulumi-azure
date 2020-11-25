@@ -74,6 +74,8 @@ type Blob struct {
 
 	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
 	AccessTier pulumi.StringOutput `pulumi:"accessTier"`
+	// The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
+	ContentMd5 pulumi.StringPtrOutput `pulumi:"contentMd5"`
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
 	// A map of custom blob metadata.
@@ -141,6 +143,8 @@ func GetBlob(ctx *pulumi.Context,
 type blobState struct {
 	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
 	AccessTier *string `pulumi:"accessTier"`
+	// The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
+	ContentMd5 *string `pulumi:"contentMd5"`
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType *string `pulumi:"contentType"`
 	// A map of custom blob metadata.
@@ -172,6 +176,8 @@ type blobState struct {
 type BlobState struct {
 	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
 	AccessTier pulumi.StringPtrInput
+	// The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
+	ContentMd5 pulumi.StringPtrInput
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrInput
 	// A map of custom blob metadata.
@@ -207,6 +213,8 @@ func (BlobState) ElementType() reflect.Type {
 type blobArgs struct {
 	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
 	AccessTier *string `pulumi:"accessTier"`
+	// The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
+	ContentMd5 *string `pulumi:"contentMd5"`
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType *string `pulumi:"contentType"`
 	// A map of custom blob metadata.
@@ -237,6 +245,8 @@ type blobArgs struct {
 type BlobArgs struct {
 	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
 	AccessTier pulumi.StringPtrInput
+	// The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
+	ContentMd5 pulumi.StringPtrInput
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrInput
 	// A map of custom blob metadata.

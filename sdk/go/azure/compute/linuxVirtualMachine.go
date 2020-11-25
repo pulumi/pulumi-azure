@@ -51,7 +51,7 @@ type LinuxVirtualMachine struct {
 	ComputerName pulumi.StringOutput `pulumi:"computerName"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
 	CustomData pulumi.StringPtrOutput `pulumi:"customData"`
-	// The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+	// The ID of a Dedicated Host where this machine should be run on.
 	DedicatedHostId pulumi.StringPtrOutput `pulumi:"dedicatedHostId"`
 	// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	DisablePasswordAuthentication pulumi.BoolPtrOutput `pulumi:"disablePasswordAuthentication"`
@@ -59,6 +59,8 @@ type LinuxVirtualMachine struct {
 	EncryptionAtHostEnabled pulumi.BoolPtrOutput `pulumi:"encryptionAtHostEnabled"`
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
+	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
 	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineIdentityPtrOutput `pulumi:"identity"`
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -168,7 +170,7 @@ type linuxVirtualMachineState struct {
 	ComputerName *string `pulumi:"computerName"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
 	CustomData *string `pulumi:"customData"`
-	// The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+	// The ID of a Dedicated Host where this machine should be run on.
 	DedicatedHostId *string `pulumi:"dedicatedHostId"`
 	// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
@@ -176,6 +178,8 @@ type linuxVirtualMachineState struct {
 	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
+	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// An `identity` block as defined below.
 	Identity *LinuxVirtualMachineIdentity `pulumi:"identity"`
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -243,7 +247,7 @@ type LinuxVirtualMachineState struct {
 	ComputerName pulumi.StringPtrInput
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
 	CustomData pulumi.StringPtrInput
-	// The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+	// The ID of a Dedicated Host where this machine should be run on.
 	DedicatedHostId pulumi.StringPtrInput
 	// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	DisablePasswordAuthentication pulumi.BoolPtrInput
@@ -251,6 +255,8 @@ type LinuxVirtualMachineState struct {
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
+	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+	ExtensionsTimeBudget pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineIdentityPtrInput
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -322,7 +328,7 @@ type linuxVirtualMachineArgs struct {
 	ComputerName *string `pulumi:"computerName"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
 	CustomData *string `pulumi:"customData"`
-	// The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+	// The ID of a Dedicated Host where this machine should be run on.
 	DedicatedHostId *string `pulumi:"dedicatedHostId"`
 	// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
@@ -330,6 +336,8 @@ type linuxVirtualMachineArgs struct {
 	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
+	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// An `identity` block as defined below.
 	Identity *LinuxVirtualMachineIdentity `pulumi:"identity"`
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -388,7 +396,7 @@ type LinuxVirtualMachineArgs struct {
 	ComputerName pulumi.StringPtrInput
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
 	CustomData pulumi.StringPtrInput
-	// The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+	// The ID of a Dedicated Host where this machine should be run on.
 	DedicatedHostId pulumi.StringPtrInput
 	// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	DisablePasswordAuthentication pulumi.BoolPtrInput
@@ -396,6 +404,8 @@ type LinuxVirtualMachineArgs struct {
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
+	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+	ExtensionsTimeBudget pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineIdentityPtrInput
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.

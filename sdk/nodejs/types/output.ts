@@ -27,6 +27,7 @@ export interface ProviderFeaturesTemplateDeployment {
 
 export interface ProviderFeaturesVirtualMachine {
     deleteOsDiskOnDeletion?: boolean;
+    gracefulShutdown?: boolean;
 }
 
 export interface ProviderFeaturesVirtualMachineScaleSet {
@@ -91,6 +92,50 @@ export namespace analysisservices {
 }
 
 export namespace apimanagement {
+    export interface ApiDiagnosticBackendRequest {
+        /**
+         * Number of payload bytes to log (up to 8192).
+         */
+        bodyBytes?: number;
+        /**
+         * Specifies a list of headers to log.
+         */
+        headersToLogs?: string[];
+    }
+
+    export interface ApiDiagnosticBackendResponse {
+        /**
+         * Number of payload bytes to log (up to 8192).
+         */
+        bodyBytes?: number;
+        /**
+         * Specifies a list of headers to log.
+         */
+        headersToLogs?: string[];
+    }
+
+    export interface ApiDiagnosticFrontendRequest {
+        /**
+         * Number of payload bytes to log (up to 8192).
+         */
+        bodyBytes?: number;
+        /**
+         * Specifies a list of headers to log.
+         */
+        headersToLogs?: string[];
+    }
+
+    export interface ApiDiagnosticFrontendResponse {
+        /**
+         * Number of payload bytes to log (up to 8192).
+         */
+        bodyBytes?: number;
+        /**
+         * Specifies a list of headers to log.
+         */
+        headersToLogs?: string[];
+    }
+
     export interface ApiImport {
         /**
          * The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
@@ -5217,6 +5262,14 @@ export namespace compute {
          */
         diskEncryptionSetId?: string;
         /**
+         * Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+         */
+        diskIopsReadWrite: number;
+        /**
+         * Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+         */
+        diskMbpsReadWrite: number;
+        /**
          * The size of the Data Disk which should be created.
          */
         diskSizeGb: number;
@@ -6442,6 +6495,14 @@ export namespace compute {
          */
         diskEncryptionSetId?: string;
         /**
+         * Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+         */
+        diskIopsReadWrite: number;
+        /**
+         * Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+         */
+        diskMbpsReadWrite: number;
+        /**
          * The size of the Data Disk which should be created.
          */
         diskSizeGb: number;
@@ -6818,7 +6879,8 @@ export namespace config {
     }
 
     export interface FeaturesVirtualMachine {
-        deleteOsDiskOnDeletion: boolean;
+        deleteOsDiskOnDeletion?: boolean;
+        gracefulShutdown?: boolean;
     }
 
     export interface FeaturesVirtualMachineScaleSet {
@@ -7324,6 +7386,10 @@ export namespace containerservice {
          */
         readOnly?: boolean;
         /**
+         * A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+         */
+        secret?: {[key: string]: string};
+        /**
          * The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
          */
         shareName?: string;
@@ -7463,7 +7529,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterAddonProfileHttpApplicationRouting {
         /**
-         * Is HTTP Application Routing Enabled? Changing this forces a new resource to be created.
+         * Is HTTP Application Routing Enabled?
          */
         enabled: boolean;
         /**
@@ -7562,7 +7628,7 @@ export namespace containerservice {
          */
         enableNodePublicIp?: boolean;
         /**
-         * The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+         * The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
          */
         maxCount?: number;
         /**
@@ -7570,7 +7636,7 @@ export namespace containerservice {
          */
         maxPods: number;
         /**
-         * The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+         * The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
          */
         minCount?: number;
         /**
@@ -7578,7 +7644,7 @@ export namespace containerservice {
          */
         name: string;
         /**
-         * The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `minCount` and `maxCount`.
+         * The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
          */
         nodeCount: number;
         /**
@@ -7594,6 +7660,7 @@ export namespace containerservice {
          * The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
          */
         osDiskSizeGb: number;
+        osDiskType?: string;
         proximityPlacementGroupId?: string;
         /**
          * A mapping of tags to assign to the Node Pool.
@@ -9002,6 +9069,49 @@ export namespace dns {
          * The value of the record. Max length: 1024 characters
          */
         value: string;
+    }
+
+    export interface ZoneSoaRecord {
+        /**
+         * The email contact for the SOA record.
+         */
+        email: string;
+        /**
+         * The expire time for the SOA record. Defaults to `2419200`.
+         */
+        expireTime?: number;
+        /**
+         * The fully qualified domain name of the Record Set.
+         */
+        fqdn: string;
+        /**
+         * The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+         */
+        hostName: string;
+        /**
+         * The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
+         */
+        minimumTtl?: number;
+        /**
+         * The refresh time for the SOA record. Defaults to `3600`.
+         */
+        refreshTime?: number;
+        /**
+         * The retry time for the SOA record. Defaults to `300`.
+         */
+        retryTime?: number;
+        /**
+         * The serial number for the SOA record. Defaults to `1`.
+         */
+        serialNumber?: number;
+        /**
+         * A mapping of tags to assign to the Record Set.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * The Time To Live of the SOA Record in seconds. Defaults to `3600`.
+         */
+        ttl?: number;
     }
 }
 
@@ -13269,6 +13379,23 @@ export namespace lighthouse {
     }
 }
 
+export namespace loganalytics {
+    export interface ClusterIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+         */
+        tenantId: string;
+        /**
+         * Specifies the identity type of the Log Analytics Cluster. At this time the only allowed value is `SystemAssigned`.
+         */
+        type: string;
+    }
+}
+
 export namespace logicapps {
     export interface ActionHttpRunAfter {
         /**
@@ -13283,6 +13410,12 @@ export namespace logicapps {
 }
 
 export namespace machinelearning {
+    export interface GetWorkspaceIdentity {
+        principalId: string;
+        tenantId: string;
+        type: string;
+    }
+
     export interface WorkspaceIdentity {
         /**
          * The (Client) ID of the Service Principal.
@@ -15920,7 +16053,7 @@ export namespace network {
          */
         name: string;
         /**
-         * The Private IP address of the Azure Firewall.
+         * The private IP address associated with the Firewall.
          */
         privateIpAddress: string;
         /**
@@ -15939,7 +16072,7 @@ export namespace network {
          */
         name: string;
         /**
-         * The Private IP address of the Azure Firewall.
+         * The private IP address associated with the Firewall.
          */
         privateIpAddress: string;
         /**
@@ -16032,9 +16165,9 @@ export namespace network {
 
     export interface FirewallPolicyDns {
         /**
-         * Whether FQDNS in Network Rules belongs to this Firewall Policy are supported? Defaults to `false`.
+         * @deprecated This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.
          */
-        networkRuleFqdnEnabled?: boolean;
+        networkRuleFqdnEnabled: boolean;
         /**
          * Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
          */
@@ -16221,6 +16354,25 @@ export namespace network {
         ipAddresses?: string[];
     }
 
+    export interface FirewallVirtualHub {
+        /**
+         * The private IP address associated with the Firewall.
+         */
+        privateIpAddress: string;
+        /**
+         * The list of public IP addresses associated with the Firewall.
+         */
+        publicIpAddresses: string[];
+        /**
+         * Specifies the number of public IPs to assign to the Firewall. Defaults to `1`.
+         */
+        publicIpCount?: number;
+        /**
+         * Specifies the ID of the Virtual Hub where the Firewall resides in.
+         */
+        virtualHubId: string;
+    }
+
     export interface GetExpressRouteCircuitPeering {
         /**
          * The Either a 16-bit or a 32-bit ASN for Azure.
@@ -16279,13 +16431,28 @@ export namespace network {
     }
 
     export interface GetFirewallIpConfiguration {
-        internalPublicIpAddressId: string;
         /**
          * The name of the Azure Firewall.
          */
         name: string;
         /**
-         * The Private IP Address of the Azure Firewall.
+         * The private IP address associated with the Azure Firewall.
+         */
+        privateIpAddress: string;
+        publicIpAddressId: string;
+        /**
+         * The ID of the Subnet where the Azure Firewall is deployed.
+         */
+        subnetId: string;
+    }
+
+    export interface GetFirewallManagementIpConfiguration {
+        /**
+         * The name of the Azure Firewall.
+         */
+        name: string;
+        /**
+         * The private IP address associated with the Azure Firewall.
          */
         privateIpAddress: string;
         publicIpAddressId: string;
@@ -16304,6 +16471,25 @@ export namespace network {
     export interface GetFirewallPolicyThreatIntelligenceAllowlist {
         fqdns: string[];
         ipAddresses: string[];
+    }
+
+    export interface GetFirewallVirtualHub {
+        /**
+         * The private IP address associated with the Azure Firewall.
+         */
+        privateIpAddress: string;
+        /**
+         * The list of public IP addresses associated with the Azure Firewall.
+         */
+        publicIpAddresses: string[];
+        /**
+         * The number of public IPs assigned to the Azure Firewall.
+         */
+        publicIpCount: number;
+        /**
+         * The ID of the Virtual Hub where the Azure Firewall resides in.
+         */
+        virtualHubId: string;
     }
 
     export interface GetGatewayConnectionIpsecPolicy {
@@ -17681,6 +17867,99 @@ export namespace network {
         tunnelIps: string[];
     }
 
+    export interface VpnGatewayConnectionRouting {
+        /**
+         * The ID of the Route Table associated with this VPN Connection.
+         */
+        associatedRouteTable: string;
+        /**
+         * The list IDs of Route Tables to advertise the routes of this VPN Connection.
+         */
+        propagatedRouteTables: string[];
+    }
+
+    export interface VpnGatewayConnectionVpnLink {
+        /**
+         * The expected connection bandwidth in MBPS. Defaults to `10`.
+         */
+        bandwidthMbps?: number;
+        /**
+         * Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
+         */
+        bgpEnabled?: boolean;
+        /**
+         * One or more `ipsecPolicy` blocks as defined above.
+         */
+        ipsecPolicies?: outputs.network.VpnGatewayConnectionVpnLinkIpsecPolicy[];
+        /**
+         * Whether to use local azure ip to initiate connection? Defaults to `false`.
+         */
+        localAzureIpAddressEnabled?: boolean;
+        /**
+         * The name which should be used for this VPN Link Connection.
+         */
+        name: string;
+        /**
+         * Whether to enable policy-based traffic selectors? Defaults to `false`.
+         */
+        policyBasedTrafficSelectorEnabled?: boolean;
+        /**
+         * The protocol used for this VPN Link Connection. Possible values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+         */
+        protocol?: string;
+        /**
+         * Should the rate limit be enabled? Defaults to `false`.
+         */
+        ratelimitEnabled?: boolean;
+        /**
+         * Routing weight for this VPN Link Connection. Defaults to `0`.
+         */
+        routeWeight?: number;
+        /**
+         * SharedKey for this VPN Link Connection.
+         */
+        sharedKey?: string;
+        /**
+         * The ID of the connected VPN Site Link. Changing this forces a new VPN Gateway Connection to be created.
+         */
+        vpnSiteLinkId: string;
+    }
+
+    export interface VpnGatewayConnectionVpnLinkIpsecPolicy {
+        /**
+         * The DH Group used in IKE Phase 1 for initial SA. Possible values are `None`, `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384`.
+         */
+        dhGroup: string;
+        /**
+         * The IPSec encryption algorithm (IKE phase 1). Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, `None`.
+         */
+        encryptionAlgorithm: string;
+        /**
+         * The IKE encryption algorithm (IKE phase 2). Possible values are `DES`, `DES3`, `AES128`, `AES192`, `AES256`, `GCMAES128`, `GCMAES256`.
+         */
+        ikeEncryptionAlgorithm: string;
+        /**
+         * The IKE integrity algorithm (IKE phase 2). Possible values are `MD5`, `SHA1`, `SHA256`, `SHA384`, `GCMAES128`, `GCMAES256`.
+         */
+        ikeIntegrityAlgorithm: string;
+        /**
+         * The IPSec integrity algorithm (IKE phase 1). Possible values are `MD5`, `SHA1`, `SHA256`, `GCMAES128`, `GCMAES192`, `GCMAES256`.
+         */
+        integrityAlgorithm: string;
+        /**
+         * The Pfs Group used in IKE Phase 2 for the new child SA. Possible values are `None`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM`, `ECP256`, `ECP384`.
+         */
+        pfsGroup: string;
+        /**
+         * The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for the site to site VPN tunnel.
+         */
+        saDataSizeKb: number;
+        /**
+         * The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for the site to site VPN tunnel.
+         */
+        saLifetimeSec: number;
+    }
+
     export interface VpnServerConfigurationAzureActiveDirectoryAuthentication {
         /**
          * The Audience which should be used for authentication.
@@ -17940,6 +18219,26 @@ export namespace policy {
         type?: string;
     }
 
+    export interface GetPolicySetDefinitionPolicyDefinitionGroup {
+        additionalMetadataResourceId: string;
+        /**
+         * The category of this policy definition group.
+         */
+        category: string;
+        /**
+         * The description of this policy definition group.
+         */
+        description: string;
+        /**
+         * Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+         */
+        displayName: string;
+        /**
+         * Specifies the name of the Policy Set Definition. Conflicts with `displayName`.
+         */
+        name: string;
+    }
+
     export interface GetPolicySetDefinitionPolicyDefinitionReference {
         /**
          * The parameter values for the referenced policy rule. This field is a json object.
@@ -17953,10 +18252,31 @@ export namespace policy {
          * The ID of the policy definition or policy set definition that is included in this policy set definition.
          */
         policyDefinitionId: string;
+        policyGroupNames: string[];
         /**
          * The unique ID within this policy set definition for this policy definition reference.
          */
         referenceId: string;
+    }
+
+    export interface PolicySetDefinitionPolicyDefinitionGroup {
+        additionalMetadataResourceId?: string;
+        /**
+         * The category of this policy definition group.
+         */
+        category?: string;
+        /**
+         * The description of this policy definition group.
+         */
+        description?: string;
+        /**
+         * The display name of this policy definition group.
+         */
+        displayName?: string;
+        /**
+         * The name of this policy definition group.
+         */
+        name: string;
     }
 
     export interface PolicySetDefinitionPolicyDefinitionReference {
@@ -17974,6 +18294,7 @@ export namespace policy {
          * The ID of the policy definition or policy set definition that will be included in this policy set definition.
          */
         policyDefinitionId: string;
+        policyGroupNames?: string[];
         /**
          * A unique ID within this policy set definition for this policy definition reference.
          */
@@ -18028,7 +18349,7 @@ export namespace postgresql {
          */
         geoRedundantBackup: string;
         /**
-         * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
+         * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
          *
          * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
          */
@@ -18126,6 +18447,49 @@ export namespace privatedns {
          * The value of the TXT record. Max length: 1024 characters
          */
         value: string;
+    }
+
+    export interface ZoneSoaRecord {
+        /**
+         * The email contact for the SOA record.
+         */
+        email: string;
+        /**
+         * The expire time for the SOA record. Defaults to `2419200`.
+         */
+        expireTime?: number;
+        /**
+         * The fully qualified domain name of the Record Set.
+         */
+        fqdn: string;
+        /**
+         * The domain name of the authoritative name server for the SOA record.
+         */
+        hostName: string;
+        /**
+         * The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `10`.
+         */
+        minimumTtl?: number;
+        /**
+         * The refresh time for the SOA record. Defaults to `3600`.
+         */
+        refreshTime?: number;
+        /**
+         * The retry time for the SOA record. Defaults to `300`.
+         */
+        retryTime?: number;
+        /**
+         * The serial number for the SOA record.
+         */
+        serialNumber: number;
+        /**
+         * A mapping of tags to assign to the Record Set.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * The Time To Live of the SOA Record in seconds. Defaults to `3600`.
+         */
+        ttl?: number;
     }
 }
 
@@ -18469,6 +18833,64 @@ export namespace search {
          * The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
          */
         name: string;
+    }
+}
+
+export namespace securitycenter {
+    export interface AutomationAction {
+        /**
+         * A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+         */
+        connectionString?: string;
+        /**
+         * The resource id of the target Logic App, Event Hub namespace or Log Analytics workspace.
+         */
+        resourceId: string;
+        /**
+         * The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
+         */
+        triggerUrl?: string;
+        /**
+         * Type of Azure resource to send data to. Must be set to one of: `LogicApp`, `EventHub` or `LogAnalytics`.
+         */
+        type: string;
+    }
+
+    export interface AutomationSource {
+        /**
+         * Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments` or `SubAssessments`. Note. assessments are also referred to as recommendations
+         */
+        eventSource: string;
+        /**
+         * A set of rules which evaluate upon event and data interception. This is defined in one or more `ruleSet` blocks as defined below.
+         */
+        ruleSets?: outputs.securitycenter.AutomationSourceRuleSet[];
+    }
+
+    export interface AutomationSourceRuleSet {
+        /**
+         * One or more `rule` blocks as defined below.
+         */
+        rules: outputs.securitycenter.AutomationSourceRuleSetRule[];
+    }
+
+    export interface AutomationSourceRuleSetRule {
+        /**
+         * A value that will be compared with the value in `propertyPath`.
+         */
+        expectedValue: string;
+        /**
+         * The comparison operator to use, must be one of: `Contains`, `EndsWith`, `Equals`, `GreaterThan`, `GreaterThanOrEqualTo`, `LesserThan`, `LesserThanOrEqualTo`, `NotEquals`, `StartsWith`
+         */
+        operator: string;
+        /**
+         * The JPath of the entity model property that should be checked.
+         */
+        propertyPath: string;
+        /**
+         * The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
+         */
+        propertyType: string;
     }
 }
 
@@ -19224,6 +19646,25 @@ export namespace storage {
          * The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
          */
         indexDocument?: string;
+    }
+
+    export interface DataLakeGen2PathAce {
+        /**
+         * Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
+         */
+        id?: string;
+        /**
+         * Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+         */
+        permissions: string;
+        /**
+         * Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
+         */
+        scope?: string;
+        /**
+         * Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
+         */
+        type: string;
     }
 
     export interface GetAccountBlobContainerSASPermissions {

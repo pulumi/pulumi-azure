@@ -168,6 +168,10 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryReadonlyMasterKey!: pulumi.Output<string>;
     /**
+     * Whether or not public network access is allowed for this CosmosDB account.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A list of read endpoints available for this CosmosDB account.
      */
     public /*out*/ readonly readEndpoints!: pulumi.Output<string[]>;
@@ -235,6 +239,7 @@ export class Account extends pulumi.CustomResource {
             inputs["primaryMasterKey"] = state ? state.primaryMasterKey : undefined;
             inputs["primaryReadonlyKey"] = state ? state.primaryReadonlyKey : undefined;
             inputs["primaryReadonlyMasterKey"] = state ? state.primaryReadonlyMasterKey : undefined;
+            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["readEndpoints"] = state ? state.readEndpoints : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secondaryKey"] = state ? state.secondaryKey : undefined;
@@ -271,6 +276,7 @@ export class Account extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["offerType"] = args ? args.offerType : undefined;
+            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
@@ -379,6 +385,10 @@ export interface AccountState {
      */
     readonly primaryReadonlyMasterKey?: pulumi.Input<string>;
     /**
+     * Whether or not public network access is allowed for this CosmosDB account.
+     */
+    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
      * A list of read endpoints available for this CosmosDB account.
      */
     readonly readEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
@@ -472,6 +482,10 @@ export interface AccountArgs {
      * Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
      */
     readonly offerType: pulumi.Input<string>;
+    /**
+     * Whether or not public network access is allowed for this CosmosDB account.
+     */
+    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
      */

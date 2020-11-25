@@ -146,17 +146,30 @@ class ProviderFeaturesTemplateDeploymentArgs:
 @pulumi.input_type
 class ProviderFeaturesVirtualMachineArgs:
     def __init__(__self__, *,
-                 delete_os_disk_on_deletion: pulumi.Input[bool]):
-        pulumi.set(__self__, "delete_os_disk_on_deletion", delete_os_disk_on_deletion)
+                 delete_os_disk_on_deletion: Optional[pulumi.Input[bool]] = None,
+                 graceful_shutdown: Optional[pulumi.Input[bool]] = None):
+        if delete_os_disk_on_deletion is not None:
+            pulumi.set(__self__, "delete_os_disk_on_deletion", delete_os_disk_on_deletion)
+        if graceful_shutdown is not None:
+            pulumi.set(__self__, "graceful_shutdown", graceful_shutdown)
 
     @property
     @pulumi.getter(name="deleteOsDiskOnDeletion")
-    def delete_os_disk_on_deletion(self) -> pulumi.Input[bool]:
+    def delete_os_disk_on_deletion(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "delete_os_disk_on_deletion")
 
     @delete_os_disk_on_deletion.setter
-    def delete_os_disk_on_deletion(self, value: pulumi.Input[bool]):
+    def delete_os_disk_on_deletion(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "delete_os_disk_on_deletion", value)
+
+    @property
+    @pulumi.getter(name="gracefulShutdown")
+    def graceful_shutdown(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "graceful_shutdown")
+
+    @graceful_shutdown.setter
+    def graceful_shutdown(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "graceful_shutdown", value)
 
 
 @pulumi.input_type

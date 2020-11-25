@@ -262,6 +262,12 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.WindowsVirtualMachineScaleSetPlan?> Plan { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("platformFaultDomainCount")]
+        public Output<int> PlatformFaultDomainCount { get; private set; } = null!;
+
+        /// <summary>
         /// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         /// </summary>
         [Output("priority")]
@@ -602,6 +608,12 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineScaleSetPlanArgs>? Plan { get; set; }
 
         /// <summary>
+        /// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("platformFaultDomainCount")]
+        public Input<int>? PlatformFaultDomainCount { get; set; }
+
+        /// <summary>
         /// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         /// </summary>
         [Input("priority")]
@@ -919,6 +931,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("plan")]
         public Input<Inputs.WindowsVirtualMachineScaleSetPlanGetArgs>? Plan { get; set; }
+
+        /// <summary>
+        /// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("platformFaultDomainCount")]
+        public Input<int>? PlatformFaultDomainCount { get; set; }
 
         /// <summary>
         /// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.

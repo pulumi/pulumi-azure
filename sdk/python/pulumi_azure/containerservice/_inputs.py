@@ -679,6 +679,7 @@ class GroupContainerVolumeArgs:
                  name: pulumi.Input[str],
                  git_repo: Optional[pulumi.Input['GroupContainerVolumeGitRepoArgs']] = None,
                  read_only: Optional[pulumi.Input[bool]] = None,
+                 secret: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  storage_account_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None):
@@ -687,6 +688,7 @@ class GroupContainerVolumeArgs:
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input['GroupContainerVolumeGitRepoArgs'] git_repo: A `git_repo` block as defined below.
         :param pulumi.Input[bool] read_only: Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secret: A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
         :param pulumi.Input[str] share_name: The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_key: The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
@@ -697,6 +699,8 @@ class GroupContainerVolumeArgs:
             pulumi.set(__self__, "git_repo", git_repo)
         if read_only is not None:
             pulumi.set(__self__, "read_only", read_only)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
         if share_name is not None:
             pulumi.set(__self__, "share_name", share_name)
         if storage_account_key is not None:
@@ -751,6 +755,18 @@ class GroupContainerVolumeArgs:
     @read_only.setter
     def read_only(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "read_only", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "secret", value)
 
     @property
     @pulumi.getter(name="shareName")
@@ -1241,7 +1257,7 @@ class KubernetesClusterAddonProfileHttpApplicationRoutingArgs:
                  enabled: pulumi.Input[bool],
                  http_application_routing_zone_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enabled: Is HTTP Application Routing Enabled? Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enabled: Is HTTP Application Routing Enabled?
         :param pulumi.Input[str] http_application_routing_zone_name: The Zone Name of the HTTP Application Routing.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -1252,7 +1268,7 @@ class KubernetesClusterAddonProfileHttpApplicationRoutingArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Is HTTP Application Routing Enabled? Changing this forces a new resource to be created.
+        Is HTTP Application Routing Enabled?
         """
         return pulumi.get(self, "enabled")
 
@@ -1571,6 +1587,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 os_disk_type: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -1581,10 +1598,10 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
         :param pulumi.Input[bool] enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
-        :param pulumi.Input[int] max_count: The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+        :param pulumi.Input[int] max_count: The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] min_count: The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
-        :param pulumi.Input[int] node_count: The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `min_count` and `max_count`.
+        :param pulumi.Input[int] min_count: The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
+        :param pulumi.Input[int] node_count: The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
         :param pulumi.Input[int] os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
@@ -1616,6 +1633,8 @@ class KubernetesClusterDefaultNodePoolArgs:
             pulumi.set(__self__, "orchestrator_version", orchestrator_version)
         if os_disk_size_gb is not None:
             pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
+        if os_disk_type is not None:
+            pulumi.set(__self__, "os_disk_type", os_disk_type)
         if proximity_placement_group_id is not None:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if tags is not None:
@@ -1689,7 +1708,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="maxCount")
     def max_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+        The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         """
         return pulumi.get(self, "max_count")
 
@@ -1713,7 +1732,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="minCount")
     def min_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+        The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         """
         return pulumi.get(self, "min_count")
 
@@ -1725,7 +1744,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="nodeCount")
     def node_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `min_count` and `max_count`.
+        The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
         """
         return pulumi.get(self, "node_count")
 
@@ -1777,6 +1796,15 @@ class KubernetesClusterDefaultNodePoolArgs:
     @os_disk_size_gb.setter
     def os_disk_size_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "os_disk_size_gb", value)
+
+    @property
+    @pulumi.getter(name="osDiskType")
+    def os_disk_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "os_disk_type")
+
+    @os_disk_type.setter
+    def os_disk_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "os_disk_type", value)
 
     @property
     @pulumi.getter(name="proximityPlacementGroupId")

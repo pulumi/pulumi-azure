@@ -1191,6 +1191,8 @@ type GroupContainerVolume struct {
 	Name string `pulumi:"name"`
 	// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
 	ReadOnly *bool `pulumi:"readOnly"`
+	// A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+	Secret map[string]string `pulumi:"secret"`
 	// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
 	ShareName *string `pulumi:"shareName"`
 	// The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
@@ -1219,6 +1221,8 @@ type GroupContainerVolumeArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
 	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
+	// A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+	Secret pulumi.StringMapInput `pulumi:"secret"`
 	// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
 	ShareName pulumi.StringPtrInput `pulumi:"shareName"`
 	// The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
@@ -1296,6 +1300,11 @@ func (o GroupContainerVolumeOutput) Name() pulumi.StringOutput {
 // Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
 func (o GroupContainerVolumeOutput) ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupContainerVolume) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+// A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+func (o GroupContainerVolumeOutput) Secret() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GroupContainerVolume) map[string]string { return v.Secret }).(pulumi.StringMapOutput)
 }
 
 // The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
@@ -2767,7 +2776,7 @@ func (o KubernetesClusterAddonProfileAzurePolicyPtrOutput) Enabled() pulumi.Bool
 }
 
 type KubernetesClusterAddonProfileHttpApplicationRouting struct {
-	// Is HTTP Application Routing Enabled? Changing this forces a new resource to be created.
+	// Is HTTP Application Routing Enabled?
 	Enabled bool `pulumi:"enabled"`
 	// The Zone Name of the HTTP Application Routing.
 	HttpApplicationRoutingZoneName *string `pulumi:"httpApplicationRoutingZoneName"`
@@ -2785,7 +2794,7 @@ type KubernetesClusterAddonProfileHttpApplicationRoutingInput interface {
 }
 
 type KubernetesClusterAddonProfileHttpApplicationRoutingArgs struct {
-	// Is HTTP Application Routing Enabled? Changing this forces a new resource to be created.
+	// Is HTTP Application Routing Enabled?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The Zone Name of the HTTP Application Routing.
 	HttpApplicationRoutingZoneName pulumi.StringPtrInput `pulumi:"httpApplicationRoutingZoneName"`
@@ -2868,7 +2877,7 @@ func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) ToKubernetesC
 	}).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
 }
 
-// Is HTTP Application Routing Enabled? Changing this forces a new resource to be created.
+// Is HTTP Application Routing Enabled?
 func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v KubernetesClusterAddonProfileHttpApplicationRouting) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -2900,7 +2909,7 @@ func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) Elem() Kub
 	}).(KubernetesClusterAddonProfileHttpApplicationRoutingOutput)
 }
 
-// Is HTTP Application Routing Enabled? Changing this forces a new resource to be created.
+// Is HTTP Application Routing Enabled?
 func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAddonProfileHttpApplicationRouting) *bool {
 		if v == nil {
@@ -3629,15 +3638,15 @@ type KubernetesClusterDefaultNodePool struct {
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
-	// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+	// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 	MaxCount *int `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods *int `pulumi:"maxPods"`
-	// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+	// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 	MinCount *int `pulumi:"minCount"`
 	// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
-	// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `minCount` and `maxCount`.
+	// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
 	NodeCount *int `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
@@ -3646,6 +3655,7 @@ type KubernetesClusterDefaultNodePool struct {
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
 	OsDiskSizeGb              *int    `pulumi:"osDiskSizeGb"`
+	OsDiskType                *string `pulumi:"osDiskType"`
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// A mapping of tags to assign to the Node Pool.
 	Tags map[string]string `pulumi:"tags"`
@@ -3675,15 +3685,15 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
 	// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
 	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
-	// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+	// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods pulumi.IntPtrInput `pulumi:"maxPods"`
-	// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+	// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 	MinCount pulumi.IntPtrInput `pulumi:"minCount"`
 	// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `minCount` and `maxCount`.
+	// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
 	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
 	NodeLabels pulumi.StringMapInput   `pulumi:"nodeLabels"`
@@ -3692,6 +3702,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
 	OsDiskSizeGb              pulumi.IntPtrInput    `pulumi:"osDiskSizeGb"`
+	OsDiskType                pulumi.StringPtrInput `pulumi:"osDiskType"`
 	ProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"proximityPlacementGroupId"`
 	// A mapping of tags to assign to the Node Pool.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -3795,7 +3806,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) EnableNodePublicIp() pulumi.Bool
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
 }
 
-// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 func (o KubernetesClusterDefaultNodePoolOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
@@ -3805,7 +3816,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) MaxPods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MaxPods }).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 func (o KubernetesClusterDefaultNodePoolOutput) MinCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MinCount }).(pulumi.IntPtrOutput)
 }
@@ -3815,7 +3826,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `minCount` and `maxCount`.
+// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
 func (o KubernetesClusterDefaultNodePoolOutput) NodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
 }
@@ -3837,6 +3848,10 @@ func (o KubernetesClusterDefaultNodePoolOutput) OrchestratorVersion() pulumi.Str
 // The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) OsDiskSizeGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.OsDiskSizeGb }).(pulumi.IntPtrOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolOutput) OsDiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolOutput) ProximityPlacementGroupId() pulumi.StringPtrOutput {
@@ -3911,7 +3926,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableNodePublicIp() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *int {
 		if v == nil {
@@ -3931,7 +3946,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) MaxPods() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) MinCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *int {
 		if v == nil {
@@ -3951,7 +3966,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) Name() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `minCount` and `maxCount`.
+// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *int {
 		if v == nil {
@@ -3998,6 +4013,15 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) OsDiskSizeGb() pulumi.IntPtrO
 		}
 		return v.OsDiskSizeGb
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolPtrOutput) OsDiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OsDiskType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) ProximityPlacementGroupId() pulumi.StringPtrOutput {

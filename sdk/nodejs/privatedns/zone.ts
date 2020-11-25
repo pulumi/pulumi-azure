@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -78,7 +79,11 @@ export class Zone extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * An `soaRecord` block as defined below. Changing this forces a new resource to be created.
+     */
+    public readonly soaRecord!: pulumi.Output<outputs.privatedns.ZoneSoaRecord>;
+    /**
+     * A mapping of tags to assign to the Record Set.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -100,6 +105,7 @@ export class Zone extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["numberOfRecordSets"] = state ? state.numberOfRecordSets : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["soaRecord"] = state ? state.soaRecord : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ZoneArgs | undefined;
@@ -108,6 +114,7 @@ export class Zone extends pulumi.CustomResource {
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["soaRecord"] = args ? args.soaRecord : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["maxNumberOfRecordSets"] = undefined /*out*/;
             inputs["maxNumberOfVirtualNetworkLinks"] = undefined /*out*/;
@@ -154,7 +161,11 @@ export interface ZoneState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * An `soaRecord` block as defined below. Changing this forces a new resource to be created.
+     */
+    readonly soaRecord?: pulumi.Input<inputs.privatedns.ZoneSoaRecord>;
+    /**
+     * A mapping of tags to assign to the Record Set.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -172,7 +183,11 @@ export interface ZoneArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * An `soaRecord` block as defined below. Changing this forces a new resource to be created.
+     */
+    readonly soaRecord?: pulumi.Input<inputs.privatedns.ZoneSoaRecord>;
+    /**
+     * A mapping of tags to assign to the Record Set.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

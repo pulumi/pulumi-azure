@@ -32,6 +32,7 @@ export function getFirewall(args: GetFirewallArgs, opts?: pulumi.InvokeOptions):
     return pulumi.runtime.invoke("azure:network/getFirewall:getFirewall", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "zones": args.zones,
     }, opts);
 }
 
@@ -47,12 +48,24 @@ export interface GetFirewallArgs {
      * The name of the Resource Group in which the Azure Firewall exists.
      */
     readonly resourceGroupName: string;
+    /**
+     * The availability zones in which the Azure Firewall is created.
+     */
+    readonly zones?: string[];
 }
 
 /**
  * A collection of values returned by getFirewall.
  */
 export interface GetFirewallResult {
+    /**
+     * The list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+     */
+    readonly dnsServers: string[];
+    /**
+     * The ID of the Firewall Policy applied to the Azure Firewall.
+     */
+    readonly firewallPolicyId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -61,8 +74,38 @@ export interface GetFirewallResult {
      * A `ipConfiguration` block as defined below.
      */
     readonly ipConfigurations: outputs.network.GetFirewallIpConfiguration[];
+    /**
+     * The Azure location where the Azure Firewall exists.
+     */
     readonly location: string;
+    /**
+     * A `managementIpConfiguration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall.
+     */
+    readonly managementIpConfigurations: outputs.network.GetFirewallManagementIpConfiguration[];
     readonly name: string;
     readonly resourceGroupName: string;
+    /**
+     * The sku name of the Azure Firewall.
+     */
+    readonly skuName: string;
+    /**
+     * The sku tier of the Azure Firewall.
+     */
+    readonly skuTier: string;
+    /**
+     * A mapping of tags assigned to the Azure Firewall.
+     */
     readonly tags: {[key: string]: string};
+    /**
+     * The operation mode for threat intelligence-based filtering.
+     */
+    readonly threatIntelMode: string;
+    /**
+     * A `virtualHub` block as defined below.
+     */
+    readonly virtualHubs: outputs.network.GetFirewallVirtualHub[];
+    /**
+     * The availability zones in which the Azure Firewall is created.
+     */
+    readonly zones: string[];
 }

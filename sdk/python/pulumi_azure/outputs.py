@@ -123,13 +123,22 @@ class ProviderFeaturesTemplateDeployment(dict):
 @pulumi.output_type
 class ProviderFeaturesVirtualMachine(dict):
     def __init__(__self__, *,
-                 delete_os_disk_on_deletion: bool):
-        pulumi.set(__self__, "delete_os_disk_on_deletion", delete_os_disk_on_deletion)
+                 delete_os_disk_on_deletion: Optional[bool] = None,
+                 graceful_shutdown: Optional[bool] = None):
+        if delete_os_disk_on_deletion is not None:
+            pulumi.set(__self__, "delete_os_disk_on_deletion", delete_os_disk_on_deletion)
+        if graceful_shutdown is not None:
+            pulumi.set(__self__, "graceful_shutdown", graceful_shutdown)
 
     @property
     @pulumi.getter(name="deleteOsDiskOnDeletion")
-    def delete_os_disk_on_deletion(self) -> bool:
+    def delete_os_disk_on_deletion(self) -> Optional[bool]:
         return pulumi.get(self, "delete_os_disk_on_deletion")
+
+    @property
+    @pulumi.getter(name="gracefulShutdown")
+    def graceful_shutdown(self) -> Optional[bool]:
+        return pulumi.get(self, "graceful_shutdown")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

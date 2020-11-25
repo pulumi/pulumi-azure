@@ -10,6 +10,606 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type ApiDiagnosticBackendRequest struct {
+	// Number of payload bytes to log (up to 8192).
+	BodyBytes *int `pulumi:"bodyBytes"`
+	// Specifies a list of headers to log.
+	HeadersToLogs []string `pulumi:"headersToLogs"`
+}
+
+// ApiDiagnosticBackendRequestInput is an input type that accepts ApiDiagnosticBackendRequestArgs and ApiDiagnosticBackendRequestOutput values.
+// You can construct a concrete instance of `ApiDiagnosticBackendRequestInput` via:
+//
+//          ApiDiagnosticBackendRequestArgs{...}
+type ApiDiagnosticBackendRequestInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticBackendRequestOutput() ApiDiagnosticBackendRequestOutput
+	ToApiDiagnosticBackendRequestOutputWithContext(context.Context) ApiDiagnosticBackendRequestOutput
+}
+
+type ApiDiagnosticBackendRequestArgs struct {
+	// Number of payload bytes to log (up to 8192).
+	BodyBytes pulumi.IntPtrInput `pulumi:"bodyBytes"`
+	// Specifies a list of headers to log.
+	HeadersToLogs pulumi.StringArrayInput `pulumi:"headersToLogs"`
+}
+
+func (ApiDiagnosticBackendRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticBackendRequest)(nil)).Elem()
+}
+
+func (i ApiDiagnosticBackendRequestArgs) ToApiDiagnosticBackendRequestOutput() ApiDiagnosticBackendRequestOutput {
+	return i.ToApiDiagnosticBackendRequestOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticBackendRequestArgs) ToApiDiagnosticBackendRequestOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendRequestOutput)
+}
+
+func (i ApiDiagnosticBackendRequestArgs) ToApiDiagnosticBackendRequestPtrOutput() ApiDiagnosticBackendRequestPtrOutput {
+	return i.ToApiDiagnosticBackendRequestPtrOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticBackendRequestArgs) ToApiDiagnosticBackendRequestPtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendRequestOutput).ToApiDiagnosticBackendRequestPtrOutputWithContext(ctx)
+}
+
+// ApiDiagnosticBackendRequestPtrInput is an input type that accepts ApiDiagnosticBackendRequestArgs, ApiDiagnosticBackendRequestPtr and ApiDiagnosticBackendRequestPtrOutput values.
+// You can construct a concrete instance of `ApiDiagnosticBackendRequestPtrInput` via:
+//
+//          ApiDiagnosticBackendRequestArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiDiagnosticBackendRequestPtrInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticBackendRequestPtrOutput() ApiDiagnosticBackendRequestPtrOutput
+	ToApiDiagnosticBackendRequestPtrOutputWithContext(context.Context) ApiDiagnosticBackendRequestPtrOutput
+}
+
+type apiDiagnosticBackendRequestPtrType ApiDiagnosticBackendRequestArgs
+
+func ApiDiagnosticBackendRequestPtr(v *ApiDiagnosticBackendRequestArgs) ApiDiagnosticBackendRequestPtrInput {
+	return (*apiDiagnosticBackendRequestPtrType)(v)
+}
+
+func (*apiDiagnosticBackendRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDiagnosticBackendRequest)(nil)).Elem()
+}
+
+func (i *apiDiagnosticBackendRequestPtrType) ToApiDiagnosticBackendRequestPtrOutput() ApiDiagnosticBackendRequestPtrOutput {
+	return i.ToApiDiagnosticBackendRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *apiDiagnosticBackendRequestPtrType) ToApiDiagnosticBackendRequestPtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendRequestPtrOutput)
+}
+
+type ApiDiagnosticBackendRequestOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticBackendRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticBackendRequest)(nil)).Elem()
+}
+
+func (o ApiDiagnosticBackendRequestOutput) ToApiDiagnosticBackendRequestOutput() ApiDiagnosticBackendRequestOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendRequestOutput) ToApiDiagnosticBackendRequestOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendRequestOutput) ToApiDiagnosticBackendRequestPtrOutput() ApiDiagnosticBackendRequestPtrOutput {
+	return o.ToApiDiagnosticBackendRequestPtrOutputWithContext(context.Background())
+}
+
+func (o ApiDiagnosticBackendRequestOutput) ToApiDiagnosticBackendRequestPtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestPtrOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendRequest) *ApiDiagnosticBackendRequest {
+		return &v
+	}).(ApiDiagnosticBackendRequestPtrOutput)
+}
+
+// Number of payload bytes to log (up to 8192).
+func (o ApiDiagnosticBackendRequestOutput) BodyBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendRequest) *int { return v.BodyBytes }).(pulumi.IntPtrOutput)
+}
+
+// Specifies a list of headers to log.
+func (o ApiDiagnosticBackendRequestOutput) HeadersToLogs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendRequest) []string { return v.HeadersToLogs }).(pulumi.StringArrayOutput)
+}
+
+type ApiDiagnosticBackendRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticBackendRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDiagnosticBackendRequest)(nil)).Elem()
+}
+
+func (o ApiDiagnosticBackendRequestPtrOutput) ToApiDiagnosticBackendRequestPtrOutput() ApiDiagnosticBackendRequestPtrOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendRequestPtrOutput) ToApiDiagnosticBackendRequestPtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestPtrOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendRequestPtrOutput) Elem() ApiDiagnosticBackendRequestOutput {
+	return o.ApplyT(func(v *ApiDiagnosticBackendRequest) ApiDiagnosticBackendRequest { return *v }).(ApiDiagnosticBackendRequestOutput)
+}
+
+// Number of payload bytes to log (up to 8192).
+func (o ApiDiagnosticBackendRequestPtrOutput) BodyBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApiDiagnosticBackendRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BodyBytes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies a list of headers to log.
+func (o ApiDiagnosticBackendRequestPtrOutput) HeadersToLogs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApiDiagnosticBackendRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.HeadersToLogs
+	}).(pulumi.StringArrayOutput)
+}
+
+type ApiDiagnosticBackendResponse struct {
+	// Number of payload bytes to log (up to 8192).
+	BodyBytes *int `pulumi:"bodyBytes"`
+	// Specifies a list of headers to log.
+	HeadersToLogs []string `pulumi:"headersToLogs"`
+}
+
+// ApiDiagnosticBackendResponseInput is an input type that accepts ApiDiagnosticBackendResponseArgs and ApiDiagnosticBackendResponseOutput values.
+// You can construct a concrete instance of `ApiDiagnosticBackendResponseInput` via:
+//
+//          ApiDiagnosticBackendResponseArgs{...}
+type ApiDiagnosticBackendResponseInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticBackendResponseOutput() ApiDiagnosticBackendResponseOutput
+	ToApiDiagnosticBackendResponseOutputWithContext(context.Context) ApiDiagnosticBackendResponseOutput
+}
+
+type ApiDiagnosticBackendResponseArgs struct {
+	// Number of payload bytes to log (up to 8192).
+	BodyBytes pulumi.IntPtrInput `pulumi:"bodyBytes"`
+	// Specifies a list of headers to log.
+	HeadersToLogs pulumi.StringArrayInput `pulumi:"headersToLogs"`
+}
+
+func (ApiDiagnosticBackendResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticBackendResponse)(nil)).Elem()
+}
+
+func (i ApiDiagnosticBackendResponseArgs) ToApiDiagnosticBackendResponseOutput() ApiDiagnosticBackendResponseOutput {
+	return i.ToApiDiagnosticBackendResponseOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticBackendResponseArgs) ToApiDiagnosticBackendResponseOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendResponseOutput)
+}
+
+func (i ApiDiagnosticBackendResponseArgs) ToApiDiagnosticBackendResponsePtrOutput() ApiDiagnosticBackendResponsePtrOutput {
+	return i.ToApiDiagnosticBackendResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticBackendResponseArgs) ToApiDiagnosticBackendResponsePtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendResponseOutput).ToApiDiagnosticBackendResponsePtrOutputWithContext(ctx)
+}
+
+// ApiDiagnosticBackendResponsePtrInput is an input type that accepts ApiDiagnosticBackendResponseArgs, ApiDiagnosticBackendResponsePtr and ApiDiagnosticBackendResponsePtrOutput values.
+// You can construct a concrete instance of `ApiDiagnosticBackendResponsePtrInput` via:
+//
+//          ApiDiagnosticBackendResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiDiagnosticBackendResponsePtrInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticBackendResponsePtrOutput() ApiDiagnosticBackendResponsePtrOutput
+	ToApiDiagnosticBackendResponsePtrOutputWithContext(context.Context) ApiDiagnosticBackendResponsePtrOutput
+}
+
+type apiDiagnosticBackendResponsePtrType ApiDiagnosticBackendResponseArgs
+
+func ApiDiagnosticBackendResponsePtr(v *ApiDiagnosticBackendResponseArgs) ApiDiagnosticBackendResponsePtrInput {
+	return (*apiDiagnosticBackendResponsePtrType)(v)
+}
+
+func (*apiDiagnosticBackendResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDiagnosticBackendResponse)(nil)).Elem()
+}
+
+func (i *apiDiagnosticBackendResponsePtrType) ToApiDiagnosticBackendResponsePtrOutput() ApiDiagnosticBackendResponsePtrOutput {
+	return i.ToApiDiagnosticBackendResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *apiDiagnosticBackendResponsePtrType) ToApiDiagnosticBackendResponsePtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendResponsePtrOutput)
+}
+
+type ApiDiagnosticBackendResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticBackendResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticBackendResponse)(nil)).Elem()
+}
+
+func (o ApiDiagnosticBackendResponseOutput) ToApiDiagnosticBackendResponseOutput() ApiDiagnosticBackendResponseOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendResponseOutput) ToApiDiagnosticBackendResponseOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendResponseOutput) ToApiDiagnosticBackendResponsePtrOutput() ApiDiagnosticBackendResponsePtrOutput {
+	return o.ToApiDiagnosticBackendResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ApiDiagnosticBackendResponseOutput) ToApiDiagnosticBackendResponsePtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponsePtrOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendResponse) *ApiDiagnosticBackendResponse {
+		return &v
+	}).(ApiDiagnosticBackendResponsePtrOutput)
+}
+
+// Number of payload bytes to log (up to 8192).
+func (o ApiDiagnosticBackendResponseOutput) BodyBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendResponse) *int { return v.BodyBytes }).(pulumi.IntPtrOutput)
+}
+
+// Specifies a list of headers to log.
+func (o ApiDiagnosticBackendResponseOutput) HeadersToLogs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApiDiagnosticBackendResponse) []string { return v.HeadersToLogs }).(pulumi.StringArrayOutput)
+}
+
+type ApiDiagnosticBackendResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticBackendResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDiagnosticBackendResponse)(nil)).Elem()
+}
+
+func (o ApiDiagnosticBackendResponsePtrOutput) ToApiDiagnosticBackendResponsePtrOutput() ApiDiagnosticBackendResponsePtrOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendResponsePtrOutput) ToApiDiagnosticBackendResponsePtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponsePtrOutput {
+	return o
+}
+
+func (o ApiDiagnosticBackendResponsePtrOutput) Elem() ApiDiagnosticBackendResponseOutput {
+	return o.ApplyT(func(v *ApiDiagnosticBackendResponse) ApiDiagnosticBackendResponse { return *v }).(ApiDiagnosticBackendResponseOutput)
+}
+
+// Number of payload bytes to log (up to 8192).
+func (o ApiDiagnosticBackendResponsePtrOutput) BodyBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApiDiagnosticBackendResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BodyBytes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies a list of headers to log.
+func (o ApiDiagnosticBackendResponsePtrOutput) HeadersToLogs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApiDiagnosticBackendResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.HeadersToLogs
+	}).(pulumi.StringArrayOutput)
+}
+
+type ApiDiagnosticFrontendRequest struct {
+	// Number of payload bytes to log (up to 8192).
+	BodyBytes *int `pulumi:"bodyBytes"`
+	// Specifies a list of headers to log.
+	HeadersToLogs []string `pulumi:"headersToLogs"`
+}
+
+// ApiDiagnosticFrontendRequestInput is an input type that accepts ApiDiagnosticFrontendRequestArgs and ApiDiagnosticFrontendRequestOutput values.
+// You can construct a concrete instance of `ApiDiagnosticFrontendRequestInput` via:
+//
+//          ApiDiagnosticFrontendRequestArgs{...}
+type ApiDiagnosticFrontendRequestInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticFrontendRequestOutput() ApiDiagnosticFrontendRequestOutput
+	ToApiDiagnosticFrontendRequestOutputWithContext(context.Context) ApiDiagnosticFrontendRequestOutput
+}
+
+type ApiDiagnosticFrontendRequestArgs struct {
+	// Number of payload bytes to log (up to 8192).
+	BodyBytes pulumi.IntPtrInput `pulumi:"bodyBytes"`
+	// Specifies a list of headers to log.
+	HeadersToLogs pulumi.StringArrayInput `pulumi:"headersToLogs"`
+}
+
+func (ApiDiagnosticFrontendRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticFrontendRequest)(nil)).Elem()
+}
+
+func (i ApiDiagnosticFrontendRequestArgs) ToApiDiagnosticFrontendRequestOutput() ApiDiagnosticFrontendRequestOutput {
+	return i.ToApiDiagnosticFrontendRequestOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticFrontendRequestArgs) ToApiDiagnosticFrontendRequestOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendRequestOutput)
+}
+
+func (i ApiDiagnosticFrontendRequestArgs) ToApiDiagnosticFrontendRequestPtrOutput() ApiDiagnosticFrontendRequestPtrOutput {
+	return i.ToApiDiagnosticFrontendRequestPtrOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticFrontendRequestArgs) ToApiDiagnosticFrontendRequestPtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendRequestOutput).ToApiDiagnosticFrontendRequestPtrOutputWithContext(ctx)
+}
+
+// ApiDiagnosticFrontendRequestPtrInput is an input type that accepts ApiDiagnosticFrontendRequestArgs, ApiDiagnosticFrontendRequestPtr and ApiDiagnosticFrontendRequestPtrOutput values.
+// You can construct a concrete instance of `ApiDiagnosticFrontendRequestPtrInput` via:
+//
+//          ApiDiagnosticFrontendRequestArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiDiagnosticFrontendRequestPtrInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticFrontendRequestPtrOutput() ApiDiagnosticFrontendRequestPtrOutput
+	ToApiDiagnosticFrontendRequestPtrOutputWithContext(context.Context) ApiDiagnosticFrontendRequestPtrOutput
+}
+
+type apiDiagnosticFrontendRequestPtrType ApiDiagnosticFrontendRequestArgs
+
+func ApiDiagnosticFrontendRequestPtr(v *ApiDiagnosticFrontendRequestArgs) ApiDiagnosticFrontendRequestPtrInput {
+	return (*apiDiagnosticFrontendRequestPtrType)(v)
+}
+
+func (*apiDiagnosticFrontendRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDiagnosticFrontendRequest)(nil)).Elem()
+}
+
+func (i *apiDiagnosticFrontendRequestPtrType) ToApiDiagnosticFrontendRequestPtrOutput() ApiDiagnosticFrontendRequestPtrOutput {
+	return i.ToApiDiagnosticFrontendRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *apiDiagnosticFrontendRequestPtrType) ToApiDiagnosticFrontendRequestPtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendRequestPtrOutput)
+}
+
+type ApiDiagnosticFrontendRequestOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticFrontendRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticFrontendRequest)(nil)).Elem()
+}
+
+func (o ApiDiagnosticFrontendRequestOutput) ToApiDiagnosticFrontendRequestOutput() ApiDiagnosticFrontendRequestOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendRequestOutput) ToApiDiagnosticFrontendRequestOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendRequestOutput) ToApiDiagnosticFrontendRequestPtrOutput() ApiDiagnosticFrontendRequestPtrOutput {
+	return o.ToApiDiagnosticFrontendRequestPtrOutputWithContext(context.Background())
+}
+
+func (o ApiDiagnosticFrontendRequestOutput) ToApiDiagnosticFrontendRequestPtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestPtrOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendRequest) *ApiDiagnosticFrontendRequest {
+		return &v
+	}).(ApiDiagnosticFrontendRequestPtrOutput)
+}
+
+// Number of payload bytes to log (up to 8192).
+func (o ApiDiagnosticFrontendRequestOutput) BodyBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendRequest) *int { return v.BodyBytes }).(pulumi.IntPtrOutput)
+}
+
+// Specifies a list of headers to log.
+func (o ApiDiagnosticFrontendRequestOutput) HeadersToLogs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendRequest) []string { return v.HeadersToLogs }).(pulumi.StringArrayOutput)
+}
+
+type ApiDiagnosticFrontendRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticFrontendRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDiagnosticFrontendRequest)(nil)).Elem()
+}
+
+func (o ApiDiagnosticFrontendRequestPtrOutput) ToApiDiagnosticFrontendRequestPtrOutput() ApiDiagnosticFrontendRequestPtrOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendRequestPtrOutput) ToApiDiagnosticFrontendRequestPtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestPtrOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendRequestPtrOutput) Elem() ApiDiagnosticFrontendRequestOutput {
+	return o.ApplyT(func(v *ApiDiagnosticFrontendRequest) ApiDiagnosticFrontendRequest { return *v }).(ApiDiagnosticFrontendRequestOutput)
+}
+
+// Number of payload bytes to log (up to 8192).
+func (o ApiDiagnosticFrontendRequestPtrOutput) BodyBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApiDiagnosticFrontendRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BodyBytes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies a list of headers to log.
+func (o ApiDiagnosticFrontendRequestPtrOutput) HeadersToLogs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApiDiagnosticFrontendRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.HeadersToLogs
+	}).(pulumi.StringArrayOutput)
+}
+
+type ApiDiagnosticFrontendResponse struct {
+	// Number of payload bytes to log (up to 8192).
+	BodyBytes *int `pulumi:"bodyBytes"`
+	// Specifies a list of headers to log.
+	HeadersToLogs []string `pulumi:"headersToLogs"`
+}
+
+// ApiDiagnosticFrontendResponseInput is an input type that accepts ApiDiagnosticFrontendResponseArgs and ApiDiagnosticFrontendResponseOutput values.
+// You can construct a concrete instance of `ApiDiagnosticFrontendResponseInput` via:
+//
+//          ApiDiagnosticFrontendResponseArgs{...}
+type ApiDiagnosticFrontendResponseInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticFrontendResponseOutput() ApiDiagnosticFrontendResponseOutput
+	ToApiDiagnosticFrontendResponseOutputWithContext(context.Context) ApiDiagnosticFrontendResponseOutput
+}
+
+type ApiDiagnosticFrontendResponseArgs struct {
+	// Number of payload bytes to log (up to 8192).
+	BodyBytes pulumi.IntPtrInput `pulumi:"bodyBytes"`
+	// Specifies a list of headers to log.
+	HeadersToLogs pulumi.StringArrayInput `pulumi:"headersToLogs"`
+}
+
+func (ApiDiagnosticFrontendResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticFrontendResponse)(nil)).Elem()
+}
+
+func (i ApiDiagnosticFrontendResponseArgs) ToApiDiagnosticFrontendResponseOutput() ApiDiagnosticFrontendResponseOutput {
+	return i.ToApiDiagnosticFrontendResponseOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticFrontendResponseArgs) ToApiDiagnosticFrontendResponseOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendResponseOutput)
+}
+
+func (i ApiDiagnosticFrontendResponseArgs) ToApiDiagnosticFrontendResponsePtrOutput() ApiDiagnosticFrontendResponsePtrOutput {
+	return i.ToApiDiagnosticFrontendResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticFrontendResponseArgs) ToApiDiagnosticFrontendResponsePtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendResponseOutput).ToApiDiagnosticFrontendResponsePtrOutputWithContext(ctx)
+}
+
+// ApiDiagnosticFrontendResponsePtrInput is an input type that accepts ApiDiagnosticFrontendResponseArgs, ApiDiagnosticFrontendResponsePtr and ApiDiagnosticFrontendResponsePtrOutput values.
+// You can construct a concrete instance of `ApiDiagnosticFrontendResponsePtrInput` via:
+//
+//          ApiDiagnosticFrontendResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiDiagnosticFrontendResponsePtrInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticFrontendResponsePtrOutput() ApiDiagnosticFrontendResponsePtrOutput
+	ToApiDiagnosticFrontendResponsePtrOutputWithContext(context.Context) ApiDiagnosticFrontendResponsePtrOutput
+}
+
+type apiDiagnosticFrontendResponsePtrType ApiDiagnosticFrontendResponseArgs
+
+func ApiDiagnosticFrontendResponsePtr(v *ApiDiagnosticFrontendResponseArgs) ApiDiagnosticFrontendResponsePtrInput {
+	return (*apiDiagnosticFrontendResponsePtrType)(v)
+}
+
+func (*apiDiagnosticFrontendResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDiagnosticFrontendResponse)(nil)).Elem()
+}
+
+func (i *apiDiagnosticFrontendResponsePtrType) ToApiDiagnosticFrontendResponsePtrOutput() ApiDiagnosticFrontendResponsePtrOutput {
+	return i.ToApiDiagnosticFrontendResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *apiDiagnosticFrontendResponsePtrType) ToApiDiagnosticFrontendResponsePtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendResponsePtrOutput)
+}
+
+type ApiDiagnosticFrontendResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticFrontendResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticFrontendResponse)(nil)).Elem()
+}
+
+func (o ApiDiagnosticFrontendResponseOutput) ToApiDiagnosticFrontendResponseOutput() ApiDiagnosticFrontendResponseOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendResponseOutput) ToApiDiagnosticFrontendResponseOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendResponseOutput) ToApiDiagnosticFrontendResponsePtrOutput() ApiDiagnosticFrontendResponsePtrOutput {
+	return o.ToApiDiagnosticFrontendResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ApiDiagnosticFrontendResponseOutput) ToApiDiagnosticFrontendResponsePtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponsePtrOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendResponse) *ApiDiagnosticFrontendResponse {
+		return &v
+	}).(ApiDiagnosticFrontendResponsePtrOutput)
+}
+
+// Number of payload bytes to log (up to 8192).
+func (o ApiDiagnosticFrontendResponseOutput) BodyBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendResponse) *int { return v.BodyBytes }).(pulumi.IntPtrOutput)
+}
+
+// Specifies a list of headers to log.
+func (o ApiDiagnosticFrontendResponseOutput) HeadersToLogs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApiDiagnosticFrontendResponse) []string { return v.HeadersToLogs }).(pulumi.StringArrayOutput)
+}
+
+type ApiDiagnosticFrontendResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticFrontendResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDiagnosticFrontendResponse)(nil)).Elem()
+}
+
+func (o ApiDiagnosticFrontendResponsePtrOutput) ToApiDiagnosticFrontendResponsePtrOutput() ApiDiagnosticFrontendResponsePtrOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendResponsePtrOutput) ToApiDiagnosticFrontendResponsePtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponsePtrOutput {
+	return o
+}
+
+func (o ApiDiagnosticFrontendResponsePtrOutput) Elem() ApiDiagnosticFrontendResponseOutput {
+	return o.ApplyT(func(v *ApiDiagnosticFrontendResponse) ApiDiagnosticFrontendResponse { return *v }).(ApiDiagnosticFrontendResponseOutput)
+}
+
+// Number of payload bytes to log (up to 8192).
+func (o ApiDiagnosticFrontendResponsePtrOutput) BodyBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApiDiagnosticFrontendResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BodyBytes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies a list of headers to log.
+func (o ApiDiagnosticFrontendResponsePtrOutput) HeadersToLogs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApiDiagnosticFrontendResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.HeadersToLogs
+	}).(pulumi.StringArrayOutput)
+}
+
 type ApiImport struct {
 	// The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
 	ContentFormat string `pulumi:"contentFormat"`
@@ -7883,6 +8483,14 @@ func (o GetServiceIdentityArrayOutput) Index(i pulumi.IntInput) GetServiceIdenti
 }
 
 func init() {
+	pulumi.RegisterOutputType(ApiDiagnosticBackendRequestOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticBackendRequestPtrOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticBackendResponseOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticBackendResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticFrontendRequestOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticFrontendRequestPtrOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticFrontendResponseOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticFrontendResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApiImportOutput{})
 	pulumi.RegisterOutputType(ApiImportPtrOutput{})
 	pulumi.RegisterOutputType(ApiImportWsdlSelectorOutput{})

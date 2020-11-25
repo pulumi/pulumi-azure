@@ -203,6 +203,10 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly plan!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetPlan | undefined>;
     /**
+     * Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     */
+    public readonly platformFaultDomainCount!: pulumi.Output<number>;
+    /**
      * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      */
     public readonly priority!: pulumi.Output<string | undefined>;
@@ -308,6 +312,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["osDisk"] = state ? state.osDisk : undefined;
             inputs["overprovision"] = state ? state.overprovision : undefined;
             inputs["plan"] = state ? state.plan : undefined;
+            inputs["platformFaultDomainCount"] = state ? state.platformFaultDomainCount : undefined;
             inputs["priority"] = state ? state.priority : undefined;
             inputs["provisionVmAgent"] = state ? state.provisionVmAgent : undefined;
             inputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
@@ -370,6 +375,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["osDisk"] = args ? args.osDisk : undefined;
             inputs["overprovision"] = args ? args.overprovision : undefined;
             inputs["plan"] = args ? args.plan : undefined;
+            inputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["provisionVmAgent"] = args ? args.provisionVmAgent : undefined;
             inputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
@@ -503,6 +509,10 @@ export interface LinuxVirtualMachineScaleSetState {
      * A `plan` block as documented below.
      */
     readonly plan?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetPlan>;
+    /**
+     * Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     */
+    readonly platformFaultDomainCount?: pulumi.Input<number>;
     /**
      * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      */
@@ -677,6 +687,10 @@ export interface LinuxVirtualMachineScaleSetArgs {
      * A `plan` block as documented below.
      */
     readonly plan?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetPlan>;
+    /**
+     * Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     */
+    readonly platformFaultDomainCount?: pulumi.Input<number>;
     /**
      * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      */

@@ -82,7 +82,13 @@ namespace Pulumi.Azure.PrivateDns
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// An `soa_record` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("soaRecord")]
+        public Output<Outputs.ZoneSoaRecord> SoaRecord { get; private set; } = null!;
+
+        /// <summary>
+        /// A mapping of tags to assign to the Record Set.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -145,11 +151,17 @@ namespace Pulumi.Azure.PrivateDns
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// An `soa_record` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("soaRecord")]
+        public Input<Inputs.ZoneSoaRecordArgs>? SoaRecord { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the Record Set.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -200,11 +212,17 @@ namespace Pulumi.Azure.PrivateDns
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        /// <summary>
+        /// An `soa_record` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("soaRecord")]
+        public Input<Inputs.ZoneSoaRecordGetArgs>? SoaRecord { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the Record Set.
         /// </summary>
         public InputMap<string> Tags
         {

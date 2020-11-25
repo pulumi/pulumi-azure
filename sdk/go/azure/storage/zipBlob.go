@@ -17,6 +17,7 @@ type ZipBlob struct {
 
 	AccessTier           pulumi.StringOutput    `pulumi:"accessTier"`
 	Content              pulumi.ArchiveOutput   `pulumi:"content"`
+	ContentMd5           pulumi.StringPtrOutput `pulumi:"contentMd5"`
 	ContentType          pulumi.StringPtrOutput `pulumi:"contentType"`
 	Metadata             pulumi.StringMapOutput `pulumi:"metadata"`
 	Name                 pulumi.StringOutput    `pulumi:"name"`
@@ -69,6 +70,7 @@ func GetZipBlob(ctx *pulumi.Context,
 type zipBlobState struct {
 	AccessTier           *string           `pulumi:"accessTier"`
 	Content              pulumi.Archive    `pulumi:"content"`
+	ContentMd5           *string           `pulumi:"contentMd5"`
 	ContentType          *string           `pulumi:"contentType"`
 	Metadata             map[string]string `pulumi:"metadata"`
 	Name                 *string           `pulumi:"name"`
@@ -85,6 +87,7 @@ type zipBlobState struct {
 type ZipBlobState struct {
 	AccessTier           pulumi.StringPtrInput
 	Content              pulumi.ArchiveInput
+	ContentMd5           pulumi.StringPtrInput
 	ContentType          pulumi.StringPtrInput
 	Metadata             pulumi.StringMapInput
 	Name                 pulumi.StringPtrInput
@@ -105,6 +108,7 @@ func (ZipBlobState) ElementType() reflect.Type {
 type zipBlobArgs struct {
 	AccessTier           *string           `pulumi:"accessTier"`
 	Content              pulumi.Archive    `pulumi:"content"`
+	ContentMd5           *string           `pulumi:"contentMd5"`
 	ContentType          *string           `pulumi:"contentType"`
 	Metadata             map[string]string `pulumi:"metadata"`
 	Name                 *string           `pulumi:"name"`
@@ -121,6 +125,7 @@ type zipBlobArgs struct {
 type ZipBlobArgs struct {
 	AccessTier           pulumi.StringPtrInput
 	Content              pulumi.ArchiveInput
+	ContentMd5           pulumi.StringPtrInput
 	ContentType          pulumi.StringPtrInput
 	Metadata             pulumi.StringMapInput
 	Name                 pulumi.StringPtrInput

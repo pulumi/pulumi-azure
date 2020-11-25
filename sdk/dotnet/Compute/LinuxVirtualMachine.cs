@@ -172,7 +172,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> CustomData { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+        /// The ID of a Dedicated Host where this machine should be run on.
         /// </summary>
         [Output("dedicatedHostId")]
         public Output<string?> DedicatedHostId { get; private set; } = null!;
@@ -194,6 +194,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("evictionPolicy")]
         public Output<string?> EvictionPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        /// </summary>
+        [Output("extensionsTimeBudget")]
+        public Output<string?> ExtensionsTimeBudget { get; private set; } = null!;
 
         /// <summary>
         /// An `identity` block as defined below.
@@ -440,7 +446,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? CustomData { get; set; }
 
         /// <summary>
-        /// The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+        /// The ID of a Dedicated Host where this machine should be run on.
         /// </summary>
         [Input("dedicatedHostId")]
         public Input<string>? DedicatedHostId { get; set; }
@@ -462,6 +468,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
+
+        /// <summary>
+        /// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        /// </summary>
+        [Input("extensionsTimeBudget")]
+        public Input<string>? ExtensionsTimeBudget { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below.
@@ -657,7 +669,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? CustomData { get; set; }
 
         /// <summary>
-        /// The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+        /// The ID of a Dedicated Host where this machine should be run on.
         /// </summary>
         [Input("dedicatedHostId")]
         public Input<string>? DedicatedHostId { get; set; }
@@ -679,6 +691,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
+
+        /// <summary>
+        /// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        /// </summary>
+        [Input("extensionsTimeBudget")]
+        public Input<string>? ExtensionsTimeBudget { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below.

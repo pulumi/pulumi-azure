@@ -129,6 +129,8 @@ type Account struct {
 	PrimaryReadonlyKey pulumi.StringOutput `pulumi:"primaryReadonlyKey"`
 	// Deprecated: This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	PrimaryReadonlyMasterKey pulumi.StringOutput `pulumi:"primaryReadonlyMasterKey"`
+	// Whether or not public network access is allowed for this CosmosDB account.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// A list of read endpoints available for this CosmosDB account.
 	ReadEndpoints pulumi.StringArrayOutput `pulumi:"readEndpoints"`
 	// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
@@ -227,6 +229,8 @@ type accountState struct {
 	PrimaryReadonlyKey *string `pulumi:"primaryReadonlyKey"`
 	// Deprecated: This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	PrimaryReadonlyMasterKey *string `pulumi:"primaryReadonlyMasterKey"`
+	// Whether or not public network access is allowed for this CosmosDB account.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A list of read endpoints available for this CosmosDB account.
 	ReadEndpoints []string `pulumi:"readEndpoints"`
 	// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
@@ -286,6 +290,8 @@ type AccountState struct {
 	PrimaryReadonlyKey pulumi.StringPtrInput
 	// Deprecated: This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	PrimaryReadonlyMasterKey pulumi.StringPtrInput
+	// Whether or not public network access is allowed for this CosmosDB account.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A list of read endpoints available for this CosmosDB account.
 	ReadEndpoints pulumi.StringArrayInput
 	// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
@@ -337,6 +343,8 @@ type accountArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
 	OfferType string `pulumi:"offerType"`
+	// Whether or not public network access is allowed for this CosmosDB account.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -373,6 +381,8 @@ type AccountArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
 	OfferType pulumi.StringInput
+	// Whether or not public network access is allowed for this CosmosDB account.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.

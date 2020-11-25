@@ -87,6 +87,12 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> DnsServers { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Firewall Policy applied to this Firewall.
+        /// </summary>
+        [Output("firewallPolicyId")]
+        public Output<string?> FirewallPolicyId { get; private set; } = null!;
+
+        /// <summary>
         /// An `ip_configuration` block as documented below.
         /// </summary>
         [Output("ipConfigurations")]
@@ -117,16 +123,34 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("skuName")]
+        public Output<string> SkuName { get; private set; } = null!;
+
+        /// <summary>
+        /// Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("skuTier")]
+        public Output<string> SkuTier { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
+        /// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
         /// </summary>
         [Output("threatIntelMode")]
         public Output<string?> ThreatIntelMode { get; private set; } = null!;
+
+        /// <summary>
+        /// A `virtual_hub` block as documented below.
+        /// </summary>
+        [Output("virtualHub")]
+        public Output<Outputs.FirewallVirtualHub?> VirtualHub { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
@@ -192,7 +216,13 @@ namespace Pulumi.Azure.Network
             set => _dnsServers = value;
         }
 
-        [Input("ipConfigurations", required: true)]
+        /// <summary>
+        /// The ID of the Firewall Policy applied to this Firewall.
+        /// </summary>
+        [Input("firewallPolicyId")]
+        public Input<string>? FirewallPolicyId { get; set; }
+
+        [Input("ipConfigurations")]
         private InputList<Inputs.FirewallIpConfigurationArgs>? _ipConfigurations;
 
         /// <summary>
@@ -228,6 +258,18 @@ namespace Pulumi.Azure.Network
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
+
+        /// <summary>
+        /// Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("skuTier")]
+        public Input<string>? SkuTier { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -241,10 +283,16 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
+        /// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
         /// </summary>
         [Input("threatIntelMode")]
         public Input<string>? ThreatIntelMode { get; set; }
+
+        /// <summary>
+        /// A `virtual_hub` block as documented below.
+        /// </summary>
+        [Input("virtualHub")]
+        public Input<Inputs.FirewallVirtualHubArgs>? VirtualHub { get; set; }
 
         [Input("zones")]
         private InputList<string>? _zones;
@@ -276,6 +324,12 @@ namespace Pulumi.Azure.Network
             get => _dnsServers ?? (_dnsServers = new InputList<string>());
             set => _dnsServers = value;
         }
+
+        /// <summary>
+        /// The ID of the Firewall Policy applied to this Firewall.
+        /// </summary>
+        [Input("firewallPolicyId")]
+        public Input<string>? FirewallPolicyId { get; set; }
 
         [Input("ipConfigurations")]
         private InputList<Inputs.FirewallIpConfigurationGetArgs>? _ipConfigurations;
@@ -313,6 +367,18 @@ namespace Pulumi.Azure.Network
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        /// <summary>
+        /// Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
+
+        /// <summary>
+        /// Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("skuTier")]
+        public Input<string>? SkuTier { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -326,10 +392,16 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
+        /// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
         /// </summary>
         [Input("threatIntelMode")]
         public Input<string>? ThreatIntelMode { get; set; }
+
+        /// <summary>
+        /// A `virtual_hub` block as documented below.
+        /// </summary>
+        [Input("virtualHub")]
+        public Input<Inputs.FirewallVirtualHubGetArgs>? VirtualHub { get; set; }
 
         [Input("zones")]
         private InputList<string>? _zones;
