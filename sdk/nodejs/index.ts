@@ -38,6 +38,7 @@ import * as datashare from "./datashare";
 import * as desktopvirtualization from "./desktopvirtualization";
 import * as devspace from "./devspace";
 import * as devtest from "./devtest";
+import * as digitaltwins from "./digitaltwins";
 import * as dns from "./dns";
 import * as eventgrid from "./eventgrid";
 import * as eventhub from "./eventhub";
@@ -130,6 +131,7 @@ export {
     desktopvirtualization,
     devspace,
     devtest,
+    digitaltwins,
     dns,
     eventgrid,
     eventhub,

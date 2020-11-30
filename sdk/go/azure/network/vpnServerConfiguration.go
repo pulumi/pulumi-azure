@@ -77,7 +77,11 @@ type VpnServerConfiguration struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A `radius` block as defined below.
+	Radius VpnServerConfigurationRadiusPtrOutput `pulumi:"radius"`
 	// A `radiusServer` block as defined below.
+	//
+	// Deprecated: Deprecated in favour of `radius`
 	RadiusServer VpnServerConfigurationRadiusServerPtrOutput `pulumi:"radiusServer"`
 	// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -135,7 +139,11 @@ type vpnServerConfigurationState struct {
 	Location *string `pulumi:"location"`
 	// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `radius` block as defined below.
+	Radius *VpnServerConfigurationRadius `pulumi:"radius"`
 	// A `radiusServer` block as defined below.
+	//
+	// Deprecated: Deprecated in favour of `radius`
 	RadiusServer *VpnServerConfigurationRadiusServer `pulumi:"radiusServer"`
 	// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -160,7 +168,11 @@ type VpnServerConfigurationState struct {
 	Location pulumi.StringPtrInput
 	// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `radius` block as defined below.
+	Radius VpnServerConfigurationRadiusPtrInput
 	// A `radiusServer` block as defined below.
+	//
+	// Deprecated: Deprecated in favour of `radius`
 	RadiusServer VpnServerConfigurationRadiusServerPtrInput
 	// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -189,7 +201,11 @@ type vpnServerConfigurationArgs struct {
 	Location *string `pulumi:"location"`
 	// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `radius` block as defined below.
+	Radius *VpnServerConfigurationRadius `pulumi:"radius"`
 	// A `radiusServer` block as defined below.
+	//
+	// Deprecated: Deprecated in favour of `radius`
 	RadiusServer *VpnServerConfigurationRadiusServer `pulumi:"radiusServer"`
 	// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -215,7 +231,11 @@ type VpnServerConfigurationArgs struct {
 	Location pulumi.StringPtrInput
 	// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `radius` block as defined below.
+	Radius VpnServerConfigurationRadiusPtrInput
 	// A `radiusServer` block as defined below.
+	//
+	// Deprecated: Deprecated in favour of `radius`
 	RadiusServer VpnServerConfigurationRadiusServerPtrInput
 	// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

@@ -142,6 +142,9 @@ namespace Pulumi.Azure.Network
         [Output("bgpSettings")]
         public Output<Outputs.VirtualNetworkGatewayBgpSettings> BgpSettings { get; private set; } = null!;
 
+        [Output("customRoute")]
+        public Output<Outputs.VirtualNetworkGatewayCustomRoute?> CustomRoute { get; private set; } = null!;
+
         /// <summary>
         /// The ID of the local network gateway
         /// through which outbound Internet traffic from the virtual network in which the
@@ -181,10 +184,17 @@ namespace Pulumi.Azure.Network
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A user-defined name of the revoked certificate.
+        /// A user-defined name of the IP configuration. Defaults to
+        /// `vnetGatewayConfig`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("privateIpAddressEnabled")]
+        public Output<bool?> PrivateIpAddressEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to
@@ -292,6 +302,9 @@ namespace Pulumi.Azure.Network
         [Input("bgpSettings")]
         public Input<Inputs.VirtualNetworkGatewayBgpSettingsArgs>? BgpSettings { get; set; }
 
+        [Input("customRoute")]
+        public Input<Inputs.VirtualNetworkGatewayCustomRouteArgs>? CustomRoute { get; set; }
+
         /// <summary>
         /// The ID of the local network gateway
         /// through which outbound Internet traffic from the virtual network in which the
@@ -337,10 +350,17 @@ namespace Pulumi.Azure.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A user-defined name of the revoked certificate.
+        /// A user-defined name of the IP configuration. Defaults to
+        /// `vnetGatewayConfig`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("privateIpAddressEnabled")]
+        public Input<bool>? PrivateIpAddressEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to
@@ -415,6 +435,9 @@ namespace Pulumi.Azure.Network
         [Input("bgpSettings")]
         public Input<Inputs.VirtualNetworkGatewayBgpSettingsGetArgs>? BgpSettings { get; set; }
 
+        [Input("customRoute")]
+        public Input<Inputs.VirtualNetworkGatewayCustomRouteGetArgs>? CustomRoute { get; set; }
+
         /// <summary>
         /// The ID of the local network gateway
         /// through which outbound Internet traffic from the virtual network in which the
@@ -460,10 +483,17 @@ namespace Pulumi.Azure.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A user-defined name of the revoked certificate.
+        /// A user-defined name of the IP configuration. Defaults to
+        /// `vnetGatewayConfig`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("privateIpAddressEnabled")]
+        public Input<bool>? PrivateIpAddressEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to

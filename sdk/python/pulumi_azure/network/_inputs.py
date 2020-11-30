@@ -40,6 +40,8 @@ __all__ = [
     'ApplicationGatewayWafConfigurationArgs',
     'ApplicationGatewayWafConfigurationDisabledRuleGroupArgs',
     'ApplicationGatewayWafConfigurationExclusionArgs',
+    'ExpressRouteCircuitPeeringIpv6Args',
+    'ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs',
     'ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs',
     'ExpressRouteCircuitSkuArgs',
     'FirewallApplicationRuleCollectionRuleArgs',
@@ -103,6 +105,7 @@ __all__ = [
     'VirtualNetworkGatewayBgpSettingsArgs',
     'VirtualNetworkGatewayConnectionIpsecPolicyArgs',
     'VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs',
+    'VirtualNetworkGatewayCustomRouteArgs',
     'VirtualNetworkGatewayIpConfigurationArgs',
     'VirtualNetworkGatewayVpnClientConfigurationArgs',
     'VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs',
@@ -118,8 +121,11 @@ __all__ = [
     'VpnServerConfigurationClientRevokedCertificateArgs',
     'VpnServerConfigurationClientRootCertificateArgs',
     'VpnServerConfigurationIpsecPolicyArgs',
+    'VpnServerConfigurationRadiusArgs',
+    'VpnServerConfigurationRadiusClientRootCertificateArgs',
     'VpnServerConfigurationRadiusServerArgs',
     'VpnServerConfigurationRadiusServerClientRootCertificateArgs',
+    'VpnServerConfigurationRadiusServerRootCertificateArgs',
     'VpnServerConfigurationRadiusServerServerRootCertificateArgs',
     'VpnSiteLinkArgs',
     'VpnSiteLinkBgpArgs',
@@ -2966,17 +2972,86 @@ class ApplicationGatewayWafConfigurationExclusionArgs:
 
 
 @pulumi.input_type
-class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs:
+class ExpressRouteCircuitPeeringIpv6Args:
     def __init__(__self__, *,
-                 advertised_public_prefixes: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 microsoft_peering: pulumi.Input['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs'],
+                 primary_peer_address_prefix: pulumi.Input[str],
+                 secondary_peer_address_prefix: pulumi.Input[str],
+                 route_filter_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs'] microsoft_peering: A `microsoft_peering` block as defined below.
+        :param pulumi.Input[str] primary_peer_address_prefix: A subnet for the primary link.
+        :param pulumi.Input[str] secondary_peer_address_prefix: A subnet for the secondary link.
+        :param pulumi.Input[str] route_filter_id: The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+        """
+        pulumi.set(__self__, "microsoft_peering", microsoft_peering)
+        pulumi.set(__self__, "primary_peer_address_prefix", primary_peer_address_prefix)
+        pulumi.set(__self__, "secondary_peer_address_prefix", secondary_peer_address_prefix)
+        if route_filter_id is not None:
+            pulumi.set(__self__, "route_filter_id", route_filter_id)
+
+    @property
+    @pulumi.getter(name="microsoftPeering")
+    def microsoft_peering(self) -> pulumi.Input['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs']:
+        """
+        A `microsoft_peering` block as defined below.
+        """
+        return pulumi.get(self, "microsoft_peering")
+
+    @microsoft_peering.setter
+    def microsoft_peering(self, value: pulumi.Input['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs']):
+        pulumi.set(self, "microsoft_peering", value)
+
+    @property
+    @pulumi.getter(name="primaryPeerAddressPrefix")
+    def primary_peer_address_prefix(self) -> pulumi.Input[str]:
+        """
+        A subnet for the primary link.
+        """
+        return pulumi.get(self, "primary_peer_address_prefix")
+
+    @primary_peer_address_prefix.setter
+    def primary_peer_address_prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary_peer_address_prefix", value)
+
+    @property
+    @pulumi.getter(name="secondaryPeerAddressPrefix")
+    def secondary_peer_address_prefix(self) -> pulumi.Input[str]:
+        """
+        A subnet for the secondary link.
+        """
+        return pulumi.get(self, "secondary_peer_address_prefix")
+
+    @secondary_peer_address_prefix.setter
+    def secondary_peer_address_prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secondary_peer_address_prefix", value)
+
+    @property
+    @pulumi.getter(name="routeFilterId")
+    def route_filter_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+        """
+        return pulumi.get(self, "route_filter_id")
+
+    @route_filter_id.setter
+    def route_filter_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "route_filter_id", value)
+
+
+@pulumi.input_type
+class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs:
+    def __init__(__self__, *,
+                 advertised_public_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  customer_asn: Optional[pulumi.Input[int]] = None,
                  routing_registry_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] advertised_public_prefixes: A list of Advertised Public Prefixes
-        :param pulumi.Input[int] customer_asn: The CustomerASN of the peering
-        :param pulumi.Input[str] routing_registry_name: The RoutingRegistryName of the configuration
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] advertised_public_prefixes: A list of Advertised Public Prefixes.
+        :param pulumi.Input[int] customer_asn: The CustomerASN of the peering.
+        :param pulumi.Input[str] routing_registry_name: The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
         """
-        pulumi.set(__self__, "advertised_public_prefixes", advertised_public_prefixes)
+        if advertised_public_prefixes is not None:
+            pulumi.set(__self__, "advertised_public_prefixes", advertised_public_prefixes)
         if customer_asn is not None:
             pulumi.set(__self__, "customer_asn", customer_asn)
         if routing_registry_name is not None:
@@ -2984,21 +3059,21 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs:
 
     @property
     @pulumi.getter(name="advertisedPublicPrefixes")
-    def advertised_public_prefixes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def advertised_public_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Advertised Public Prefixes
+        A list of Advertised Public Prefixes.
         """
         return pulumi.get(self, "advertised_public_prefixes")
 
     @advertised_public_prefixes.setter
-    def advertised_public_prefixes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def advertised_public_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "advertised_public_prefixes", value)
 
     @property
     @pulumi.getter(name="customerAsn")
     def customer_asn(self) -> Optional[pulumi.Input[int]]:
         """
-        The CustomerASN of the peering
+        The CustomerASN of the peering.
         """
         return pulumi.get(self, "customer_asn")
 
@@ -3010,7 +3085,61 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs:
     @pulumi.getter(name="routingRegistryName")
     def routing_registry_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The RoutingRegistryName of the configuration
+        The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+        """
+        return pulumi.get(self, "routing_registry_name")
+
+    @routing_registry_name.setter
+    def routing_registry_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "routing_registry_name", value)
+
+
+@pulumi.input_type
+class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs:
+    def __init__(__self__, *,
+                 advertised_public_prefixes: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 customer_asn: Optional[pulumi.Input[int]] = None,
+                 routing_registry_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] advertised_public_prefixes: A list of Advertised Public Prefixes.
+        :param pulumi.Input[int] customer_asn: The CustomerASN of the peering.
+        :param pulumi.Input[str] routing_registry_name: The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+        """
+        pulumi.set(__self__, "advertised_public_prefixes", advertised_public_prefixes)
+        if customer_asn is not None:
+            pulumi.set(__self__, "customer_asn", customer_asn)
+        if routing_registry_name is not None:
+            pulumi.set(__self__, "routing_registry_name", routing_registry_name)
+
+    @property
+    @pulumi.getter(name="advertisedPublicPrefixes")
+    def advertised_public_prefixes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of Advertised Public Prefixes.
+        """
+        return pulumi.get(self, "advertised_public_prefixes")
+
+    @advertised_public_prefixes.setter
+    def advertised_public_prefixes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "advertised_public_prefixes", value)
+
+    @property
+    @pulumi.getter(name="customerAsn")
+    def customer_asn(self) -> Optional[pulumi.Input[int]]:
+        """
+        The CustomerASN of the peering.
+        """
+        return pulumi.get(self, "customer_asn")
+
+    @customer_asn.setter
+    def customer_asn(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "customer_asn", value)
+
+    @property
+    @pulumi.getter(name="routingRegistryName")
+    def routing_registry_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
         """
         return pulumi.get(self, "routing_registry_name")
 
@@ -7233,6 +7362,29 @@ class VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs:
 
 
 @pulumi.input_type
+class VirtualNetworkGatewayCustomRouteArgs:
+    def __init__(__self__, *,
+                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+        """
+        if address_prefixes is not None:
+            pulumi.set(__self__, "address_prefixes", address_prefixes)
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @address_prefixes.setter
+    def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "address_prefixes", value)
+
+
+@pulumi.input_type
 class VirtualNetworkGatewayIpConfigurationArgs:
     def __init__(__self__, *,
                  public_ip_address_id: pulumi.Input[str],
@@ -7246,7 +7398,8 @@ class VirtualNetworkGatewayIpConfigurationArgs:
                which the virtual network gateway will be created. It is mandatory that
                the associated subnet is named `GatewaySubnet`. Therefore, each virtual
                network can contain at most a single Virtual Network Gateway.
-        :param pulumi.Input[str] name: A user-defined name of the revoked certificate.
+        :param pulumi.Input[str] name: A user-defined name of the IP configuration. Defaults to
+               `vnetGatewayConfig`.
         :param pulumi.Input[str] private_ip_address_allocation: Defines how the private IP address
                of the gateways virtual interface is assigned. Valid options are `Static` or
                `Dynamic`. Defaults to `Dynamic`.
@@ -7290,7 +7443,8 @@ class VirtualNetworkGatewayIpConfigurationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A user-defined name of the revoked certificate.
+        A user-defined name of the IP configuration. Defaults to
+        `vnetGatewayConfig`.
         """
         return pulumi.get(self, "name")
 
@@ -7515,7 +7669,8 @@ class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs:
                  name: pulumi.Input[str],
                  thumbprint: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: A user-defined name of the revoked certificate.
+        :param pulumi.Input[str] name: A user-defined name of the IP configuration. Defaults to
+               `vnetGatewayConfig`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "thumbprint", thumbprint)
@@ -7524,7 +7679,8 @@ class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        A user-defined name of the revoked certificate.
+        A user-defined name of the IP configuration. Defaults to
+        `vnetGatewayConfig`.
         """
         return pulumi.get(self, "name")
 
@@ -7548,8 +7704,12 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs:
                  name: pulumi.Input[str],
                  public_cert_data: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: A user-defined name of the revoked certificate.
-        :param pulumi.Input[str] public_cert_data: The SHA1 thumbprint of the certificate to be
+        :param pulumi.Input[str] name: A user-defined name of the IP configuration. Defaults to
+               `vnetGatewayConfig`.
+        :param pulumi.Input[str] public_cert_data: The public certificate of the root certificate
+               authority. The certificate must be provided in Base-64 encoded X.509 format
+               (PEM). In particular, this argument *must not* include the
+               `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
                revoked.
         """
         pulumi.set(__self__, "name", name)
@@ -7559,7 +7719,8 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        A user-defined name of the revoked certificate.
+        A user-defined name of the IP configuration. Defaults to
+        `vnetGatewayConfig`.
         """
         return pulumi.get(self, "name")
 
@@ -7571,7 +7732,10 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs:
     @pulumi.getter(name="publicCertData")
     def public_cert_data(self) -> pulumi.Input[str]:
         """
-        The SHA1 thumbprint of the certificate to be
+        The public certificate of the root certificate
+        authority. The certificate must be provided in Base-64 encoded X.509 format
+        (PEM). In particular, this argument *must not* include the
+        `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
         revoked.
         """
         return pulumi.get(self, "public_cert_data")
@@ -8474,6 +8638,97 @@ class VpnServerConfigurationIpsecPolicyArgs:
 
 
 @pulumi.input_type
+class VpnServerConfigurationRadiusArgs:
+    def __init__(__self__, *,
+                 server_root_certificates: pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]],
+                 client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgs']]]] = None,
+                 servers: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]] server_root_certificates: One or more `server_root_certificate` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgs']]] client_root_certificates: One or more `client_root_certificate` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgs']]] servers: One or more `server` blocks as defined below.
+        """
+        pulumi.set(__self__, "server_root_certificates", server_root_certificates)
+        if client_root_certificates is not None:
+            pulumi.set(__self__, "client_root_certificates", client_root_certificates)
+        if servers is not None:
+            pulumi.set(__self__, "servers", servers)
+
+    @property
+    @pulumi.getter(name="serverRootCertificates")
+    def server_root_certificates(self) -> pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]]:
+        """
+        One or more `server_root_certificate` blocks as defined below.
+        """
+        return pulumi.get(self, "server_root_certificates")
+
+    @server_root_certificates.setter
+    def server_root_certificates(self, value: pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]]):
+        pulumi.set(self, "server_root_certificates", value)
+
+    @property
+    @pulumi.getter(name="clientRootCertificates")
+    def client_root_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgs']]]]:
+        """
+        One or more `client_root_certificate` blocks as defined above.
+        """
+        return pulumi.get(self, "client_root_certificates")
+
+    @client_root_certificates.setter
+    def client_root_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgs']]]]):
+        pulumi.set(self, "client_root_certificates", value)
+
+    @property
+    @pulumi.getter
+    def servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgs']]]]:
+        """
+        One or more `server` blocks as defined below.
+        """
+        return pulumi.get(self, "servers")
+
+    @servers.setter
+    def servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgs']]]]):
+        pulumi.set(self, "servers", value)
+
+
+@pulumi.input_type
+class VpnServerConfigurationRadiusClientRootCertificateArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 thumbprint: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: A name used to uniquely identify this certificate.
+        :param pulumi.Input[str] thumbprint: The Thumbprint of the Certificate.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A name used to uniquely identify this certificate.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> pulumi.Input[str]:
+        """
+        The Thumbprint of the Certificate.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @thumbprint.setter
+    def thumbprint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "thumbprint", value)
+
+
+@pulumi.input_type
 class VpnServerConfigurationRadiusServerArgs:
     def __init__(__self__, *,
                  address: pulumi.Input[str],
@@ -8576,6 +8831,43 @@ class VpnServerConfigurationRadiusServerClientRootCertificateArgs:
     @thumbprint.setter
     def thumbprint(self, value: pulumi.Input[str]):
         pulumi.set(self, "thumbprint", value)
+
+
+@pulumi.input_type
+class VpnServerConfigurationRadiusServerRootCertificateArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 public_cert_data: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: A name used to uniquely identify this certificate.
+        :param pulumi.Input[str] public_cert_data: The Public Key Data associated with the Certificate.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "public_cert_data", public_cert_data)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A name used to uniquely identify this certificate.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicCertData")
+    def public_cert_data(self) -> pulumi.Input[str]:
+        """
+        The Public Key Data associated with the Certificate.
+        """
+        return pulumi.get(self, "public_cert_data")
+
+    @public_cert_data.setter
+    def public_cert_data(self, value: pulumi.Input[str]):
+        pulumi.set(self, "public_cert_data", value)
 
 
 @pulumi.input_type

@@ -53,8 +53,9 @@ type LookupVirtualNetworkGatewayArgs struct {
 // A collection of values returned by getVirtualNetworkGateway.
 type LookupVirtualNetworkGatewayResult struct {
 	// Is this an Active-Active Gateway?
-	ActiveActive bool                                 `pulumi:"activeActive"`
-	BgpSettings  []GetVirtualNetworkGatewayBgpSetting `pulumi:"bgpSettings"`
+	ActiveActive bool                                  `pulumi:"activeActive"`
+	BgpSettings  []GetVirtualNetworkGatewayBgpSetting  `pulumi:"bgpSettings"`
+	CustomRoutes []GetVirtualNetworkGatewayCustomRoute `pulumi:"customRoutes"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunneling*). Refer to the
@@ -72,8 +73,10 @@ type LookupVirtualNetworkGatewayResult struct {
 	// The location/region where the Virtual Network Gateway is located.
 	Location string `pulumi:"location"`
 	// The user-defined name of the revoked certificate.
-	Name              string `pulumi:"name"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Name string `pulumi:"name"`
+	// Whether a private IP will be used for this  gateway for connections.
+	PrivateIpAddressEnabled bool   `pulumi:"privateIpAddressEnabled"`
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
 	// Configuration of the size and capacity of the Virtual Network Gateway.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags assigned to the resource.

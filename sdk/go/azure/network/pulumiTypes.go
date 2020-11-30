@@ -4619,12 +4619,373 @@ func (o ApplicationGatewayWafConfigurationExclusionArrayOutput) Index(i pulumi.I
 	}).(ApplicationGatewayWafConfigurationExclusionOutput)
 }
 
-type ExpressRouteCircuitPeeringMicrosoftPeeringConfig struct {
-	// A list of Advertised Public Prefixes
+type ExpressRouteCircuitPeeringIpv6 struct {
+	// A `microsoftPeering` block as defined below.
+	MicrosoftPeering ExpressRouteCircuitPeeringIpv6MicrosoftPeering `pulumi:"microsoftPeering"`
+	// A subnet for the primary link.
+	PrimaryPeerAddressPrefix string `pulumi:"primaryPeerAddressPrefix"`
+	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
+	RouteFilterId *string `pulumi:"routeFilterId"`
+	// A subnet for the secondary link.
+	SecondaryPeerAddressPrefix string `pulumi:"secondaryPeerAddressPrefix"`
+}
+
+// ExpressRouteCircuitPeeringIpv6Input is an input type that accepts ExpressRouteCircuitPeeringIpv6Args and ExpressRouteCircuitPeeringIpv6Output values.
+// You can construct a concrete instance of `ExpressRouteCircuitPeeringIpv6Input` via:
+//
+//          ExpressRouteCircuitPeeringIpv6Args{...}
+type ExpressRouteCircuitPeeringIpv6Input interface {
+	pulumi.Input
+
+	ToExpressRouteCircuitPeeringIpv6Output() ExpressRouteCircuitPeeringIpv6Output
+	ToExpressRouteCircuitPeeringIpv6OutputWithContext(context.Context) ExpressRouteCircuitPeeringIpv6Output
+}
+
+type ExpressRouteCircuitPeeringIpv6Args struct {
+	// A `microsoftPeering` block as defined below.
+	MicrosoftPeering ExpressRouteCircuitPeeringIpv6MicrosoftPeeringInput `pulumi:"microsoftPeering"`
+	// A subnet for the primary link.
+	PrimaryPeerAddressPrefix pulumi.StringInput `pulumi:"primaryPeerAddressPrefix"`
+	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
+	RouteFilterId pulumi.StringPtrInput `pulumi:"routeFilterId"`
+	// A subnet for the secondary link.
+	SecondaryPeerAddressPrefix pulumi.StringInput `pulumi:"secondaryPeerAddressPrefix"`
+}
+
+func (ExpressRouteCircuitPeeringIpv6Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteCircuitPeeringIpv6)(nil)).Elem()
+}
+
+func (i ExpressRouteCircuitPeeringIpv6Args) ToExpressRouteCircuitPeeringIpv6Output() ExpressRouteCircuitPeeringIpv6Output {
+	return i.ToExpressRouteCircuitPeeringIpv6OutputWithContext(context.Background())
+}
+
+func (i ExpressRouteCircuitPeeringIpv6Args) ToExpressRouteCircuitPeeringIpv6OutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringIpv6Output {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringIpv6Output)
+}
+
+func (i ExpressRouteCircuitPeeringIpv6Args) ToExpressRouteCircuitPeeringIpv6PtrOutput() ExpressRouteCircuitPeeringIpv6PtrOutput {
+	return i.ToExpressRouteCircuitPeeringIpv6PtrOutputWithContext(context.Background())
+}
+
+func (i ExpressRouteCircuitPeeringIpv6Args) ToExpressRouteCircuitPeeringIpv6PtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringIpv6PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringIpv6Output).ToExpressRouteCircuitPeeringIpv6PtrOutputWithContext(ctx)
+}
+
+// ExpressRouteCircuitPeeringIpv6PtrInput is an input type that accepts ExpressRouteCircuitPeeringIpv6Args, ExpressRouteCircuitPeeringIpv6Ptr and ExpressRouteCircuitPeeringIpv6PtrOutput values.
+// You can construct a concrete instance of `ExpressRouteCircuitPeeringIpv6PtrInput` via:
+//
+//          ExpressRouteCircuitPeeringIpv6Args{...}
+//
+//  or:
+//
+//          nil
+type ExpressRouteCircuitPeeringIpv6PtrInput interface {
+	pulumi.Input
+
+	ToExpressRouteCircuitPeeringIpv6PtrOutput() ExpressRouteCircuitPeeringIpv6PtrOutput
+	ToExpressRouteCircuitPeeringIpv6PtrOutputWithContext(context.Context) ExpressRouteCircuitPeeringIpv6PtrOutput
+}
+
+type expressRouteCircuitPeeringIpv6PtrType ExpressRouteCircuitPeeringIpv6Args
+
+func ExpressRouteCircuitPeeringIpv6Ptr(v *ExpressRouteCircuitPeeringIpv6Args) ExpressRouteCircuitPeeringIpv6PtrInput {
+	return (*expressRouteCircuitPeeringIpv6PtrType)(v)
+}
+
+func (*expressRouteCircuitPeeringIpv6PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressRouteCircuitPeeringIpv6)(nil)).Elem()
+}
+
+func (i *expressRouteCircuitPeeringIpv6PtrType) ToExpressRouteCircuitPeeringIpv6PtrOutput() ExpressRouteCircuitPeeringIpv6PtrOutput {
+	return i.ToExpressRouteCircuitPeeringIpv6PtrOutputWithContext(context.Background())
+}
+
+func (i *expressRouteCircuitPeeringIpv6PtrType) ToExpressRouteCircuitPeeringIpv6PtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringIpv6PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringIpv6PtrOutput)
+}
+
+type ExpressRouteCircuitPeeringIpv6Output struct{ *pulumi.OutputState }
+
+func (ExpressRouteCircuitPeeringIpv6Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteCircuitPeeringIpv6)(nil)).Elem()
+}
+
+func (o ExpressRouteCircuitPeeringIpv6Output) ToExpressRouteCircuitPeeringIpv6Output() ExpressRouteCircuitPeeringIpv6Output {
+	return o
+}
+
+func (o ExpressRouteCircuitPeeringIpv6Output) ToExpressRouteCircuitPeeringIpv6OutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringIpv6Output {
+	return o
+}
+
+func (o ExpressRouteCircuitPeeringIpv6Output) ToExpressRouteCircuitPeeringIpv6PtrOutput() ExpressRouteCircuitPeeringIpv6PtrOutput {
+	return o.ToExpressRouteCircuitPeeringIpv6PtrOutputWithContext(context.Background())
+}
+
+func (o ExpressRouteCircuitPeeringIpv6Output) ToExpressRouteCircuitPeeringIpv6PtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringIpv6PtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitPeeringIpv6) *ExpressRouteCircuitPeeringIpv6 {
+		return &v
+	}).(ExpressRouteCircuitPeeringIpv6PtrOutput)
+}
+
+// A `microsoftPeering` block as defined below.
+func (o ExpressRouteCircuitPeeringIpv6Output) MicrosoftPeering() ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitPeeringIpv6) ExpressRouteCircuitPeeringIpv6MicrosoftPeering {
+		return v.MicrosoftPeering
+	}).(ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput)
+}
+
+// A subnet for the primary link.
+func (o ExpressRouteCircuitPeeringIpv6Output) PrimaryPeerAddressPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitPeeringIpv6) string { return v.PrimaryPeerAddressPrefix }).(pulumi.StringOutput)
+}
+
+// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
+func (o ExpressRouteCircuitPeeringIpv6Output) RouteFilterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitPeeringIpv6) *string { return v.RouteFilterId }).(pulumi.StringPtrOutput)
+}
+
+// A subnet for the secondary link.
+func (o ExpressRouteCircuitPeeringIpv6Output) SecondaryPeerAddressPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitPeeringIpv6) string { return v.SecondaryPeerAddressPrefix }).(pulumi.StringOutput)
+}
+
+type ExpressRouteCircuitPeeringIpv6PtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressRouteCircuitPeeringIpv6PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressRouteCircuitPeeringIpv6)(nil)).Elem()
+}
+
+func (o ExpressRouteCircuitPeeringIpv6PtrOutput) ToExpressRouteCircuitPeeringIpv6PtrOutput() ExpressRouteCircuitPeeringIpv6PtrOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitPeeringIpv6PtrOutput) ToExpressRouteCircuitPeeringIpv6PtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringIpv6PtrOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitPeeringIpv6PtrOutput) Elem() ExpressRouteCircuitPeeringIpv6Output {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeeringIpv6) ExpressRouteCircuitPeeringIpv6 { return *v }).(ExpressRouteCircuitPeeringIpv6Output)
+}
+
+// A `microsoftPeering` block as defined below.
+func (o ExpressRouteCircuitPeeringIpv6PtrOutput) MicrosoftPeering() ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeeringIpv6) *ExpressRouteCircuitPeeringIpv6MicrosoftPeering {
+		if v == nil {
+			return nil
+		}
+		return &v.MicrosoftPeering
+	}).(ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput)
+}
+
+// A subnet for the primary link.
+func (o ExpressRouteCircuitPeeringIpv6PtrOutput) PrimaryPeerAddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeeringIpv6) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrimaryPeerAddressPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
+func (o ExpressRouteCircuitPeeringIpv6PtrOutput) RouteFilterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeeringIpv6) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RouteFilterId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A subnet for the secondary link.
+func (o ExpressRouteCircuitPeeringIpv6PtrOutput) SecondaryPeerAddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeeringIpv6) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecondaryPeerAddressPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExpressRouteCircuitPeeringIpv6MicrosoftPeering struct {
+	// A list of Advertised Public Prefixes.
 	AdvertisedPublicPrefixes []string `pulumi:"advertisedPublicPrefixes"`
-	// The CustomerASN of the peering
+	// The CustomerASN of the peering.
 	CustomerAsn *int `pulumi:"customerAsn"`
-	// The RoutingRegistryName of the configuration
+	// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+	RoutingRegistryName *string `pulumi:"routingRegistryName"`
+}
+
+// ExpressRouteCircuitPeeringIpv6MicrosoftPeeringInput is an input type that accepts ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs and ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput values.
+// You can construct a concrete instance of `ExpressRouteCircuitPeeringIpv6MicrosoftPeeringInput` via:
+//
+//          ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs{...}
+type ExpressRouteCircuitPeeringIpv6MicrosoftPeeringInput interface {
+	pulumi.Input
+
+	ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput() ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput
+	ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutputWithContext(context.Context) ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput
+}
+
+type ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs struct {
+	// A list of Advertised Public Prefixes.
+	AdvertisedPublicPrefixes pulumi.StringArrayInput `pulumi:"advertisedPublicPrefixes"`
+	// The CustomerASN of the peering.
+	CustomerAsn pulumi.IntPtrInput `pulumi:"customerAsn"`
+	// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+	RoutingRegistryName pulumi.StringPtrInput `pulumi:"routingRegistryName"`
+}
+
+func (ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteCircuitPeeringIpv6MicrosoftPeering)(nil)).Elem()
+}
+
+func (i ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs) ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput() ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput {
+	return i.ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutputWithContext(context.Background())
+}
+
+func (i ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs) ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput)
+}
+
+func (i ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs) ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput() ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput {
+	return i.ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutputWithContext(context.Background())
+}
+
+func (i ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs) ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput).ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutputWithContext(ctx)
+}
+
+// ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrInput is an input type that accepts ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs, ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtr and ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput values.
+// You can construct a concrete instance of `ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrInput` via:
+//
+//          ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs{...}
+//
+//  or:
+//
+//          nil
+type ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrInput interface {
+	pulumi.Input
+
+	ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput() ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput
+	ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutputWithContext(context.Context) ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput
+}
+
+type expressRouteCircuitPeeringIpv6MicrosoftPeeringPtrType ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs
+
+func ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtr(v *ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs) ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrInput {
+	return (*expressRouteCircuitPeeringIpv6MicrosoftPeeringPtrType)(v)
+}
+
+func (*expressRouteCircuitPeeringIpv6MicrosoftPeeringPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressRouteCircuitPeeringIpv6MicrosoftPeering)(nil)).Elem()
+}
+
+func (i *expressRouteCircuitPeeringIpv6MicrosoftPeeringPtrType) ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput() ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput {
+	return i.ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutputWithContext(context.Background())
+}
+
+func (i *expressRouteCircuitPeeringIpv6MicrosoftPeeringPtrType) ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput)
+}
+
+type ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput struct{ *pulumi.OutputState }
+
+func (ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteCircuitPeeringIpv6MicrosoftPeering)(nil)).Elem()
+}
+
+func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput) ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput() ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput) ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput) ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput() ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput {
+	return o.ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput) ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitPeeringIpv6MicrosoftPeering) *ExpressRouteCircuitPeeringIpv6MicrosoftPeering {
+		return &v
+	}).(ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput)
+}
+
+// A list of Advertised Public Prefixes.
+func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput) AdvertisedPublicPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitPeeringIpv6MicrosoftPeering) []string { return v.AdvertisedPublicPrefixes }).(pulumi.StringArrayOutput)
+}
+
+// The CustomerASN of the peering.
+func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput) CustomerAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitPeeringIpv6MicrosoftPeering) *int { return v.CustomerAsn }).(pulumi.IntPtrOutput)
+}
+
+// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput) RoutingRegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitPeeringIpv6MicrosoftPeering) *string { return v.RoutingRegistryName }).(pulumi.StringPtrOutput)
+}
+
+type ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressRouteCircuitPeeringIpv6MicrosoftPeering)(nil)).Elem()
+}
+
+func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput) ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput() ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput) ToExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput) Elem() ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeeringIpv6MicrosoftPeering) ExpressRouteCircuitPeeringIpv6MicrosoftPeering {
+		return *v
+	}).(ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput)
+}
+
+// A list of Advertised Public Prefixes.
+func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput) AdvertisedPublicPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeeringIpv6MicrosoftPeering) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdvertisedPublicPrefixes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The CustomerASN of the peering.
+func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput) CustomerAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeeringIpv6MicrosoftPeering) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerAsn
+	}).(pulumi.IntPtrOutput)
+}
+
+// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput) RoutingRegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeeringIpv6MicrosoftPeering) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoutingRegistryName
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExpressRouteCircuitPeeringMicrosoftPeeringConfig struct {
+	// A list of Advertised Public Prefixes.
+	AdvertisedPublicPrefixes []string `pulumi:"advertisedPublicPrefixes"`
+	// The CustomerASN of the peering.
+	CustomerAsn *int `pulumi:"customerAsn"`
+	// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
 	RoutingRegistryName *string `pulumi:"routingRegistryName"`
 }
 
@@ -4640,11 +5001,11 @@ type ExpressRouteCircuitPeeringMicrosoftPeeringConfigInput interface {
 }
 
 type ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs struct {
-	// A list of Advertised Public Prefixes
+	// A list of Advertised Public Prefixes.
 	AdvertisedPublicPrefixes pulumi.StringArrayInput `pulumi:"advertisedPublicPrefixes"`
-	// The CustomerASN of the peering
+	// The CustomerASN of the peering.
 	CustomerAsn pulumi.IntPtrInput `pulumi:"customerAsn"`
-	// The RoutingRegistryName of the configuration
+	// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
 	RoutingRegistryName pulumi.StringPtrInput `pulumi:"routingRegistryName"`
 }
 
@@ -4725,17 +5086,17 @@ func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput) ToExpressRouteCi
 	}).(ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput)
 }
 
-// A list of Advertised Public Prefixes
+// A list of Advertised Public Prefixes.
 func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput) AdvertisedPublicPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringMicrosoftPeeringConfig) []string { return v.AdvertisedPublicPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// The CustomerASN of the peering
+// The CustomerASN of the peering.
 func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput) CustomerAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringMicrosoftPeeringConfig) *int { return v.CustomerAsn }).(pulumi.IntPtrOutput)
 }
 
-// The RoutingRegistryName of the configuration
+// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
 func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput) RoutingRegistryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringMicrosoftPeeringConfig) *string { return v.RoutingRegistryName }).(pulumi.StringPtrOutput)
 }
@@ -4760,7 +5121,7 @@ func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) Elem() Expres
 	}).(ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput)
 }
 
-// A list of Advertised Public Prefixes
+// A list of Advertised Public Prefixes.
 func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) AdvertisedPublicPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeeringMicrosoftPeeringConfig) []string {
 		if v == nil {
@@ -4770,7 +5131,7 @@ func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) AdvertisedPub
 	}).(pulumi.StringArrayOutput)
 }
 
-// The CustomerASN of the peering
+// The CustomerASN of the peering.
 func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) CustomerAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeeringMicrosoftPeeringConfig) *int {
 		if v == nil {
@@ -4780,7 +5141,7 @@ func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) CustomerAsn()
 	}).(pulumi.IntPtrOutput)
 }
 
-// The RoutingRegistryName of the configuration
+// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
 func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) RoutingRegistryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeeringMicrosoftPeeringConfig) *string {
 		if v == nil {
@@ -14217,8 +14578,140 @@ func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput) RemoteAdd
 	}).(pulumi.StringArrayOutput)
 }
 
+type VirtualNetworkGatewayCustomRoute struct {
+	// A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+	AddressPrefixes []string `pulumi:"addressPrefixes"`
+}
+
+// VirtualNetworkGatewayCustomRouteInput is an input type that accepts VirtualNetworkGatewayCustomRouteArgs and VirtualNetworkGatewayCustomRouteOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayCustomRouteInput` via:
+//
+//          VirtualNetworkGatewayCustomRouteArgs{...}
+type VirtualNetworkGatewayCustomRouteInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayCustomRouteOutput() VirtualNetworkGatewayCustomRouteOutput
+	ToVirtualNetworkGatewayCustomRouteOutputWithContext(context.Context) VirtualNetworkGatewayCustomRouteOutput
+}
+
+type VirtualNetworkGatewayCustomRouteArgs struct {
+	// A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+	AddressPrefixes pulumi.StringArrayInput `pulumi:"addressPrefixes"`
+}
+
+func (VirtualNetworkGatewayCustomRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayCustomRoute)(nil)).Elem()
+}
+
+func (i VirtualNetworkGatewayCustomRouteArgs) ToVirtualNetworkGatewayCustomRouteOutput() VirtualNetworkGatewayCustomRouteOutput {
+	return i.ToVirtualNetworkGatewayCustomRouteOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayCustomRouteArgs) ToVirtualNetworkGatewayCustomRouteOutputWithContext(ctx context.Context) VirtualNetworkGatewayCustomRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayCustomRouteOutput)
+}
+
+func (i VirtualNetworkGatewayCustomRouteArgs) ToVirtualNetworkGatewayCustomRoutePtrOutput() VirtualNetworkGatewayCustomRoutePtrOutput {
+	return i.ToVirtualNetworkGatewayCustomRoutePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayCustomRouteArgs) ToVirtualNetworkGatewayCustomRoutePtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayCustomRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayCustomRouteOutput).ToVirtualNetworkGatewayCustomRoutePtrOutputWithContext(ctx)
+}
+
+// VirtualNetworkGatewayCustomRoutePtrInput is an input type that accepts VirtualNetworkGatewayCustomRouteArgs, VirtualNetworkGatewayCustomRoutePtr and VirtualNetworkGatewayCustomRoutePtrOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayCustomRoutePtrInput` via:
+//
+//          VirtualNetworkGatewayCustomRouteArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNetworkGatewayCustomRoutePtrInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayCustomRoutePtrOutput() VirtualNetworkGatewayCustomRoutePtrOutput
+	ToVirtualNetworkGatewayCustomRoutePtrOutputWithContext(context.Context) VirtualNetworkGatewayCustomRoutePtrOutput
+}
+
+type virtualNetworkGatewayCustomRoutePtrType VirtualNetworkGatewayCustomRouteArgs
+
+func VirtualNetworkGatewayCustomRoutePtr(v *VirtualNetworkGatewayCustomRouteArgs) VirtualNetworkGatewayCustomRoutePtrInput {
+	return (*virtualNetworkGatewayCustomRoutePtrType)(v)
+}
+
+func (*virtualNetworkGatewayCustomRoutePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkGatewayCustomRoute)(nil)).Elem()
+}
+
+func (i *virtualNetworkGatewayCustomRoutePtrType) ToVirtualNetworkGatewayCustomRoutePtrOutput() VirtualNetworkGatewayCustomRoutePtrOutput {
+	return i.ToVirtualNetworkGatewayCustomRoutePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNetworkGatewayCustomRoutePtrType) ToVirtualNetworkGatewayCustomRoutePtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayCustomRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayCustomRoutePtrOutput)
+}
+
+type VirtualNetworkGatewayCustomRouteOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayCustomRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayCustomRoute)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayCustomRouteOutput) ToVirtualNetworkGatewayCustomRouteOutput() VirtualNetworkGatewayCustomRouteOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayCustomRouteOutput) ToVirtualNetworkGatewayCustomRouteOutputWithContext(ctx context.Context) VirtualNetworkGatewayCustomRouteOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayCustomRouteOutput) ToVirtualNetworkGatewayCustomRoutePtrOutput() VirtualNetworkGatewayCustomRoutePtrOutput {
+	return o.ToVirtualNetworkGatewayCustomRoutePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNetworkGatewayCustomRouteOutput) ToVirtualNetworkGatewayCustomRoutePtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayCustomRoutePtrOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayCustomRoute) *VirtualNetworkGatewayCustomRoute {
+		return &v
+	}).(VirtualNetworkGatewayCustomRoutePtrOutput)
+}
+
+// A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+func (o VirtualNetworkGatewayCustomRouteOutput) AddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayCustomRoute) []string { return v.AddressPrefixes }).(pulumi.StringArrayOutput)
+}
+
+type VirtualNetworkGatewayCustomRoutePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayCustomRoutePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkGatewayCustomRoute)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayCustomRoutePtrOutput) ToVirtualNetworkGatewayCustomRoutePtrOutput() VirtualNetworkGatewayCustomRoutePtrOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayCustomRoutePtrOutput) ToVirtualNetworkGatewayCustomRoutePtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayCustomRoutePtrOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayCustomRoutePtrOutput) Elem() VirtualNetworkGatewayCustomRouteOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayCustomRoute) VirtualNetworkGatewayCustomRoute { return *v }).(VirtualNetworkGatewayCustomRouteOutput)
+}
+
+// A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+func (o VirtualNetworkGatewayCustomRoutePtrOutput) AddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayCustomRoute) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AddressPrefixes
+	}).(pulumi.StringArrayOutput)
+}
+
 type VirtualNetworkGatewayIpConfiguration struct {
-	// A user-defined name of the revoked certificate.
+	// A user-defined name of the IP configuration. Defaults to
+	// `vnetGatewayConfig`.
 	Name *string `pulumi:"name"`
 	// Defines how the private IP address
 	// of the gateways virtual interface is assigned. Valid options are `Static` or
@@ -14246,7 +14739,8 @@ type VirtualNetworkGatewayIpConfigurationInput interface {
 }
 
 type VirtualNetworkGatewayIpConfigurationArgs struct {
-	// A user-defined name of the revoked certificate.
+	// A user-defined name of the IP configuration. Defaults to
+	// `vnetGatewayConfig`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Defines how the private IP address
 	// of the gateways virtual interface is assigned. Valid options are `Static` or
@@ -14313,7 +14807,8 @@ func (o VirtualNetworkGatewayIpConfigurationOutput) ToVirtualNetworkGatewayIpCon
 	return o
 }
 
-// A user-defined name of the revoked certificate.
+// A user-defined name of the IP configuration. Defaults to
+// `vnetGatewayConfig`.
 func (o VirtualNetworkGatewayIpConfigurationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayIpConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -14741,7 +15236,8 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) VpnClientProtocols
 }
 
 type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate struct {
-	// A user-defined name of the revoked certificate.
+	// A user-defined name of the IP configuration. Defaults to
+	// `vnetGatewayConfig`.
 	Name       string `pulumi:"name"`
 	Thumbprint string `pulumi:"thumbprint"`
 }
@@ -14758,7 +15254,8 @@ type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateInput interfac
 }
 
 type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs struct {
-	// A user-defined name of the revoked certificate.
+	// A user-defined name of the IP configuration. Defaults to
+	// `vnetGatewayConfig`.
 	Name       pulumi.StringInput `pulumi:"name"`
 	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
 }
@@ -14814,7 +15311,8 @@ func (o VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateOutput) ToV
 	return o
 }
 
-// A user-defined name of the revoked certificate.
+// A user-defined name of the IP configuration. Defaults to
+// `vnetGatewayConfig`.
 func (o VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -14844,9 +15342,13 @@ func (o VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayOutput
 }
 
 type VirtualNetworkGatewayVpnClientConfigurationRootCertificate struct {
-	// A user-defined name of the revoked certificate.
+	// A user-defined name of the IP configuration. Defaults to
+	// `vnetGatewayConfig`.
 	Name string `pulumi:"name"`
-	// The SHA1 thumbprint of the certificate to be
+	// The public certificate of the root certificate
+	// authority. The certificate must be provided in Base-64 encoded X.509 format
+	// (PEM). In particular, this argument *must not* include the
+	// `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
 	// revoked.
 	PublicCertData string `pulumi:"publicCertData"`
 }
@@ -14863,9 +15365,13 @@ type VirtualNetworkGatewayVpnClientConfigurationRootCertificateInput interface {
 }
 
 type VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs struct {
-	// A user-defined name of the revoked certificate.
+	// A user-defined name of the IP configuration. Defaults to
+	// `vnetGatewayConfig`.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The SHA1 thumbprint of the certificate to be
+	// The public certificate of the root certificate
+	// authority. The certificate must be provided in Base-64 encoded X.509 format
+	// (PEM). In particular, this argument *must not* include the
+	// `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
 	// revoked.
 	PublicCertData pulumi.StringInput `pulumi:"publicCertData"`
 }
@@ -14921,12 +15427,16 @@ func (o VirtualNetworkGatewayVpnClientConfigurationRootCertificateOutput) ToVirt
 	return o
 }
 
-// A user-defined name of the revoked certificate.
+// A user-defined name of the IP configuration. Defaults to
+// `vnetGatewayConfig`.
 func (o VirtualNetworkGatewayVpnClientConfigurationRootCertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationRootCertificate) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SHA1 thumbprint of the certificate to be
+// The public certificate of the root certificate
+// authority. The certificate must be provided in Base-64 encoded X.509 format
+// (PEM). In particular, this argument *must not* include the
+// `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
 // revoked.
 func (o VirtualNetworkGatewayVpnClientConfigurationRootCertificateOutput) PublicCertData() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationRootCertificate) string { return v.PublicCertData }).(pulumi.StringOutput)
@@ -16711,6 +17221,285 @@ func (o VpnServerConfigurationIpsecPolicyPtrOutput) SaLifetimeSeconds() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+type VpnServerConfigurationRadius struct {
+	// One or more `clientRootCertificate` blocks as defined above.
+	ClientRootCertificates []VpnServerConfigurationRadiusClientRootCertificate `pulumi:"clientRootCertificates"`
+	// One or more `serverRootCertificate` blocks as defined below.
+	ServerRootCertificates []VpnServerConfigurationRadiusServerRootCertificate `pulumi:"serverRootCertificates"`
+	// One or more `server` blocks as defined below.
+	Servers []VpnServerConfigurationRadiusServer `pulumi:"servers"`
+}
+
+// VpnServerConfigurationRadiusInput is an input type that accepts VpnServerConfigurationRadiusArgs and VpnServerConfigurationRadiusOutput values.
+// You can construct a concrete instance of `VpnServerConfigurationRadiusInput` via:
+//
+//          VpnServerConfigurationRadiusArgs{...}
+type VpnServerConfigurationRadiusInput interface {
+	pulumi.Input
+
+	ToVpnServerConfigurationRadiusOutput() VpnServerConfigurationRadiusOutput
+	ToVpnServerConfigurationRadiusOutputWithContext(context.Context) VpnServerConfigurationRadiusOutput
+}
+
+type VpnServerConfigurationRadiusArgs struct {
+	// One or more `clientRootCertificate` blocks as defined above.
+	ClientRootCertificates VpnServerConfigurationRadiusClientRootCertificateArrayInput `pulumi:"clientRootCertificates"`
+	// One or more `serverRootCertificate` blocks as defined below.
+	ServerRootCertificates VpnServerConfigurationRadiusServerRootCertificateArrayInput `pulumi:"serverRootCertificates"`
+	// One or more `server` blocks as defined below.
+	Servers VpnServerConfigurationRadiusServerArrayInput `pulumi:"servers"`
+}
+
+func (VpnServerConfigurationRadiusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnServerConfigurationRadius)(nil)).Elem()
+}
+
+func (i VpnServerConfigurationRadiusArgs) ToVpnServerConfigurationRadiusOutput() VpnServerConfigurationRadiusOutput {
+	return i.ToVpnServerConfigurationRadiusOutputWithContext(context.Background())
+}
+
+func (i VpnServerConfigurationRadiusArgs) ToVpnServerConfigurationRadiusOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationRadiusOutput)
+}
+
+func (i VpnServerConfigurationRadiusArgs) ToVpnServerConfigurationRadiusPtrOutput() VpnServerConfigurationRadiusPtrOutput {
+	return i.ToVpnServerConfigurationRadiusPtrOutputWithContext(context.Background())
+}
+
+func (i VpnServerConfigurationRadiusArgs) ToVpnServerConfigurationRadiusPtrOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationRadiusOutput).ToVpnServerConfigurationRadiusPtrOutputWithContext(ctx)
+}
+
+// VpnServerConfigurationRadiusPtrInput is an input type that accepts VpnServerConfigurationRadiusArgs, VpnServerConfigurationRadiusPtr and VpnServerConfigurationRadiusPtrOutput values.
+// You can construct a concrete instance of `VpnServerConfigurationRadiusPtrInput` via:
+//
+//          VpnServerConfigurationRadiusArgs{...}
+//
+//  or:
+//
+//          nil
+type VpnServerConfigurationRadiusPtrInput interface {
+	pulumi.Input
+
+	ToVpnServerConfigurationRadiusPtrOutput() VpnServerConfigurationRadiusPtrOutput
+	ToVpnServerConfigurationRadiusPtrOutputWithContext(context.Context) VpnServerConfigurationRadiusPtrOutput
+}
+
+type vpnServerConfigurationRadiusPtrType VpnServerConfigurationRadiusArgs
+
+func VpnServerConfigurationRadiusPtr(v *VpnServerConfigurationRadiusArgs) VpnServerConfigurationRadiusPtrInput {
+	return (*vpnServerConfigurationRadiusPtrType)(v)
+}
+
+func (*vpnServerConfigurationRadiusPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnServerConfigurationRadius)(nil)).Elem()
+}
+
+func (i *vpnServerConfigurationRadiusPtrType) ToVpnServerConfigurationRadiusPtrOutput() VpnServerConfigurationRadiusPtrOutput {
+	return i.ToVpnServerConfigurationRadiusPtrOutputWithContext(context.Background())
+}
+
+func (i *vpnServerConfigurationRadiusPtrType) ToVpnServerConfigurationRadiusPtrOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationRadiusPtrOutput)
+}
+
+type VpnServerConfigurationRadiusOutput struct{ *pulumi.OutputState }
+
+func (VpnServerConfigurationRadiusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnServerConfigurationRadius)(nil)).Elem()
+}
+
+func (o VpnServerConfigurationRadiusOutput) ToVpnServerConfigurationRadiusOutput() VpnServerConfigurationRadiusOutput {
+	return o
+}
+
+func (o VpnServerConfigurationRadiusOutput) ToVpnServerConfigurationRadiusOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusOutput {
+	return o
+}
+
+func (o VpnServerConfigurationRadiusOutput) ToVpnServerConfigurationRadiusPtrOutput() VpnServerConfigurationRadiusPtrOutput {
+	return o.ToVpnServerConfigurationRadiusPtrOutputWithContext(context.Background())
+}
+
+func (o VpnServerConfigurationRadiusOutput) ToVpnServerConfigurationRadiusPtrOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusPtrOutput {
+	return o.ApplyT(func(v VpnServerConfigurationRadius) *VpnServerConfigurationRadius {
+		return &v
+	}).(VpnServerConfigurationRadiusPtrOutput)
+}
+
+// One or more `clientRootCertificate` blocks as defined above.
+func (o VpnServerConfigurationRadiusOutput) ClientRootCertificates() VpnServerConfigurationRadiusClientRootCertificateArrayOutput {
+	return o.ApplyT(func(v VpnServerConfigurationRadius) []VpnServerConfigurationRadiusClientRootCertificate {
+		return v.ClientRootCertificates
+	}).(VpnServerConfigurationRadiusClientRootCertificateArrayOutput)
+}
+
+// One or more `serverRootCertificate` blocks as defined below.
+func (o VpnServerConfigurationRadiusOutput) ServerRootCertificates() VpnServerConfigurationRadiusServerRootCertificateArrayOutput {
+	return o.ApplyT(func(v VpnServerConfigurationRadius) []VpnServerConfigurationRadiusServerRootCertificate {
+		return v.ServerRootCertificates
+	}).(VpnServerConfigurationRadiusServerRootCertificateArrayOutput)
+}
+
+// One or more `server` blocks as defined below.
+func (o VpnServerConfigurationRadiusOutput) Servers() VpnServerConfigurationRadiusServerArrayOutput {
+	return o.ApplyT(func(v VpnServerConfigurationRadius) []VpnServerConfigurationRadiusServer { return v.Servers }).(VpnServerConfigurationRadiusServerArrayOutput)
+}
+
+type VpnServerConfigurationRadiusPtrOutput struct{ *pulumi.OutputState }
+
+func (VpnServerConfigurationRadiusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnServerConfigurationRadius)(nil)).Elem()
+}
+
+func (o VpnServerConfigurationRadiusPtrOutput) ToVpnServerConfigurationRadiusPtrOutput() VpnServerConfigurationRadiusPtrOutput {
+	return o
+}
+
+func (o VpnServerConfigurationRadiusPtrOutput) ToVpnServerConfigurationRadiusPtrOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusPtrOutput {
+	return o
+}
+
+func (o VpnServerConfigurationRadiusPtrOutput) Elem() VpnServerConfigurationRadiusOutput {
+	return o.ApplyT(func(v *VpnServerConfigurationRadius) VpnServerConfigurationRadius { return *v }).(VpnServerConfigurationRadiusOutput)
+}
+
+// One or more `clientRootCertificate` blocks as defined above.
+func (o VpnServerConfigurationRadiusPtrOutput) ClientRootCertificates() VpnServerConfigurationRadiusClientRootCertificateArrayOutput {
+	return o.ApplyT(func(v *VpnServerConfigurationRadius) []VpnServerConfigurationRadiusClientRootCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.ClientRootCertificates
+	}).(VpnServerConfigurationRadiusClientRootCertificateArrayOutput)
+}
+
+// One or more `serverRootCertificate` blocks as defined below.
+func (o VpnServerConfigurationRadiusPtrOutput) ServerRootCertificates() VpnServerConfigurationRadiusServerRootCertificateArrayOutput {
+	return o.ApplyT(func(v *VpnServerConfigurationRadius) []VpnServerConfigurationRadiusServerRootCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.ServerRootCertificates
+	}).(VpnServerConfigurationRadiusServerRootCertificateArrayOutput)
+}
+
+// One or more `server` blocks as defined below.
+func (o VpnServerConfigurationRadiusPtrOutput) Servers() VpnServerConfigurationRadiusServerArrayOutput {
+	return o.ApplyT(func(v *VpnServerConfigurationRadius) []VpnServerConfigurationRadiusServer {
+		if v == nil {
+			return nil
+		}
+		return v.Servers
+	}).(VpnServerConfigurationRadiusServerArrayOutput)
+}
+
+type VpnServerConfigurationRadiusClientRootCertificate struct {
+	// A name used to uniquely identify this certificate.
+	Name string `pulumi:"name"`
+	// The Thumbprint of the Certificate.
+	Thumbprint string `pulumi:"thumbprint"`
+}
+
+// VpnServerConfigurationRadiusClientRootCertificateInput is an input type that accepts VpnServerConfigurationRadiusClientRootCertificateArgs and VpnServerConfigurationRadiusClientRootCertificateOutput values.
+// You can construct a concrete instance of `VpnServerConfigurationRadiusClientRootCertificateInput` via:
+//
+//          VpnServerConfigurationRadiusClientRootCertificateArgs{...}
+type VpnServerConfigurationRadiusClientRootCertificateInput interface {
+	pulumi.Input
+
+	ToVpnServerConfigurationRadiusClientRootCertificateOutput() VpnServerConfigurationRadiusClientRootCertificateOutput
+	ToVpnServerConfigurationRadiusClientRootCertificateOutputWithContext(context.Context) VpnServerConfigurationRadiusClientRootCertificateOutput
+}
+
+type VpnServerConfigurationRadiusClientRootCertificateArgs struct {
+	// A name used to uniquely identify this certificate.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Thumbprint of the Certificate.
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+}
+
+func (VpnServerConfigurationRadiusClientRootCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnServerConfigurationRadiusClientRootCertificate)(nil)).Elem()
+}
+
+func (i VpnServerConfigurationRadiusClientRootCertificateArgs) ToVpnServerConfigurationRadiusClientRootCertificateOutput() VpnServerConfigurationRadiusClientRootCertificateOutput {
+	return i.ToVpnServerConfigurationRadiusClientRootCertificateOutputWithContext(context.Background())
+}
+
+func (i VpnServerConfigurationRadiusClientRootCertificateArgs) ToVpnServerConfigurationRadiusClientRootCertificateOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusClientRootCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationRadiusClientRootCertificateOutput)
+}
+
+// VpnServerConfigurationRadiusClientRootCertificateArrayInput is an input type that accepts VpnServerConfigurationRadiusClientRootCertificateArray and VpnServerConfigurationRadiusClientRootCertificateArrayOutput values.
+// You can construct a concrete instance of `VpnServerConfigurationRadiusClientRootCertificateArrayInput` via:
+//
+//          VpnServerConfigurationRadiusClientRootCertificateArray{ VpnServerConfigurationRadiusClientRootCertificateArgs{...} }
+type VpnServerConfigurationRadiusClientRootCertificateArrayInput interface {
+	pulumi.Input
+
+	ToVpnServerConfigurationRadiusClientRootCertificateArrayOutput() VpnServerConfigurationRadiusClientRootCertificateArrayOutput
+	ToVpnServerConfigurationRadiusClientRootCertificateArrayOutputWithContext(context.Context) VpnServerConfigurationRadiusClientRootCertificateArrayOutput
+}
+
+type VpnServerConfigurationRadiusClientRootCertificateArray []VpnServerConfigurationRadiusClientRootCertificateInput
+
+func (VpnServerConfigurationRadiusClientRootCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnServerConfigurationRadiusClientRootCertificate)(nil)).Elem()
+}
+
+func (i VpnServerConfigurationRadiusClientRootCertificateArray) ToVpnServerConfigurationRadiusClientRootCertificateArrayOutput() VpnServerConfigurationRadiusClientRootCertificateArrayOutput {
+	return i.ToVpnServerConfigurationRadiusClientRootCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i VpnServerConfigurationRadiusClientRootCertificateArray) ToVpnServerConfigurationRadiusClientRootCertificateArrayOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusClientRootCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationRadiusClientRootCertificateArrayOutput)
+}
+
+type VpnServerConfigurationRadiusClientRootCertificateOutput struct{ *pulumi.OutputState }
+
+func (VpnServerConfigurationRadiusClientRootCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnServerConfigurationRadiusClientRootCertificate)(nil)).Elem()
+}
+
+func (o VpnServerConfigurationRadiusClientRootCertificateOutput) ToVpnServerConfigurationRadiusClientRootCertificateOutput() VpnServerConfigurationRadiusClientRootCertificateOutput {
+	return o
+}
+
+func (o VpnServerConfigurationRadiusClientRootCertificateOutput) ToVpnServerConfigurationRadiusClientRootCertificateOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusClientRootCertificateOutput {
+	return o
+}
+
+// A name used to uniquely identify this certificate.
+func (o VpnServerConfigurationRadiusClientRootCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnServerConfigurationRadiusClientRootCertificate) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Thumbprint of the Certificate.
+func (o VpnServerConfigurationRadiusClientRootCertificateOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnServerConfigurationRadiusClientRootCertificate) string { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+type VpnServerConfigurationRadiusClientRootCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnServerConfigurationRadiusClientRootCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnServerConfigurationRadiusClientRootCertificate)(nil)).Elem()
+}
+
+func (o VpnServerConfigurationRadiusClientRootCertificateArrayOutput) ToVpnServerConfigurationRadiusClientRootCertificateArrayOutput() VpnServerConfigurationRadiusClientRootCertificateArrayOutput {
+	return o
+}
+
+func (o VpnServerConfigurationRadiusClientRootCertificateArrayOutput) ToVpnServerConfigurationRadiusClientRootCertificateArrayOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusClientRootCertificateArrayOutput {
+	return o
+}
+
+func (o VpnServerConfigurationRadiusClientRootCertificateArrayOutput) Index(i pulumi.IntInput) VpnServerConfigurationRadiusClientRootCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnServerConfigurationRadiusClientRootCertificate {
+		return vs[0].([]VpnServerConfigurationRadiusClientRootCertificate)[vs[1].(int)]
+	}).(VpnServerConfigurationRadiusClientRootCertificateOutput)
+}
+
 type VpnServerConfigurationRadiusServer struct {
 	// The Address of the Radius Server.
 	Address string `pulumi:"address"`
@@ -16795,6 +17584,31 @@ func (i *vpnServerConfigurationRadiusServerPtrType) ToVpnServerConfigurationRadi
 
 func (i *vpnServerConfigurationRadiusServerPtrType) ToVpnServerConfigurationRadiusServerPtrOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationRadiusServerPtrOutput)
+}
+
+// VpnServerConfigurationRadiusServerArrayInput is an input type that accepts VpnServerConfigurationRadiusServerArray and VpnServerConfigurationRadiusServerArrayOutput values.
+// You can construct a concrete instance of `VpnServerConfigurationRadiusServerArrayInput` via:
+//
+//          VpnServerConfigurationRadiusServerArray{ VpnServerConfigurationRadiusServerArgs{...} }
+type VpnServerConfigurationRadiusServerArrayInput interface {
+	pulumi.Input
+
+	ToVpnServerConfigurationRadiusServerArrayOutput() VpnServerConfigurationRadiusServerArrayOutput
+	ToVpnServerConfigurationRadiusServerArrayOutputWithContext(context.Context) VpnServerConfigurationRadiusServerArrayOutput
+}
+
+type VpnServerConfigurationRadiusServerArray []VpnServerConfigurationRadiusServerInput
+
+func (VpnServerConfigurationRadiusServerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnServerConfigurationRadiusServer)(nil)).Elem()
+}
+
+func (i VpnServerConfigurationRadiusServerArray) ToVpnServerConfigurationRadiusServerArrayOutput() VpnServerConfigurationRadiusServerArrayOutput {
+	return i.ToVpnServerConfigurationRadiusServerArrayOutputWithContext(context.Background())
+}
+
+func (i VpnServerConfigurationRadiusServerArray) ToVpnServerConfigurationRadiusServerArrayOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationRadiusServerArrayOutput)
 }
 
 type VpnServerConfigurationRadiusServerOutput struct{ *pulumi.OutputState }
@@ -16903,6 +17717,26 @@ func (o VpnServerConfigurationRadiusServerPtrOutput) ServerRootCertificates() Vp
 	}).(VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput)
 }
 
+type VpnServerConfigurationRadiusServerArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnServerConfigurationRadiusServerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnServerConfigurationRadiusServer)(nil)).Elem()
+}
+
+func (o VpnServerConfigurationRadiusServerArrayOutput) ToVpnServerConfigurationRadiusServerArrayOutput() VpnServerConfigurationRadiusServerArrayOutput {
+	return o
+}
+
+func (o VpnServerConfigurationRadiusServerArrayOutput) ToVpnServerConfigurationRadiusServerArrayOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerArrayOutput {
+	return o
+}
+
+func (o VpnServerConfigurationRadiusServerArrayOutput) Index(i pulumi.IntInput) VpnServerConfigurationRadiusServerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnServerConfigurationRadiusServer {
+		return vs[0].([]VpnServerConfigurationRadiusServer)[vs[1].(int)]
+	}).(VpnServerConfigurationRadiusServerOutput)
+}
+
 type VpnServerConfigurationRadiusServerClientRootCertificate struct {
 	// A name used to uniquely identify this certificate.
 	Name string `pulumi:"name"`
@@ -17007,6 +17841,112 @@ func (o VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput) Inde
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnServerConfigurationRadiusServerClientRootCertificate {
 		return vs[0].([]VpnServerConfigurationRadiusServerClientRootCertificate)[vs[1].(int)]
 	}).(VpnServerConfigurationRadiusServerClientRootCertificateOutput)
+}
+
+type VpnServerConfigurationRadiusServerRootCertificate struct {
+	// A name used to uniquely identify this certificate.
+	Name string `pulumi:"name"`
+	// The Public Key Data associated with the Certificate.
+	PublicCertData string `pulumi:"publicCertData"`
+}
+
+// VpnServerConfigurationRadiusServerRootCertificateInput is an input type that accepts VpnServerConfigurationRadiusServerRootCertificateArgs and VpnServerConfigurationRadiusServerRootCertificateOutput values.
+// You can construct a concrete instance of `VpnServerConfigurationRadiusServerRootCertificateInput` via:
+//
+//          VpnServerConfigurationRadiusServerRootCertificateArgs{...}
+type VpnServerConfigurationRadiusServerRootCertificateInput interface {
+	pulumi.Input
+
+	ToVpnServerConfigurationRadiusServerRootCertificateOutput() VpnServerConfigurationRadiusServerRootCertificateOutput
+	ToVpnServerConfigurationRadiusServerRootCertificateOutputWithContext(context.Context) VpnServerConfigurationRadiusServerRootCertificateOutput
+}
+
+type VpnServerConfigurationRadiusServerRootCertificateArgs struct {
+	// A name used to uniquely identify this certificate.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Public Key Data associated with the Certificate.
+	PublicCertData pulumi.StringInput `pulumi:"publicCertData"`
+}
+
+func (VpnServerConfigurationRadiusServerRootCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnServerConfigurationRadiusServerRootCertificate)(nil)).Elem()
+}
+
+func (i VpnServerConfigurationRadiusServerRootCertificateArgs) ToVpnServerConfigurationRadiusServerRootCertificateOutput() VpnServerConfigurationRadiusServerRootCertificateOutput {
+	return i.ToVpnServerConfigurationRadiusServerRootCertificateOutputWithContext(context.Background())
+}
+
+func (i VpnServerConfigurationRadiusServerRootCertificateArgs) ToVpnServerConfigurationRadiusServerRootCertificateOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerRootCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationRadiusServerRootCertificateOutput)
+}
+
+// VpnServerConfigurationRadiusServerRootCertificateArrayInput is an input type that accepts VpnServerConfigurationRadiusServerRootCertificateArray and VpnServerConfigurationRadiusServerRootCertificateArrayOutput values.
+// You can construct a concrete instance of `VpnServerConfigurationRadiusServerRootCertificateArrayInput` via:
+//
+//          VpnServerConfigurationRadiusServerRootCertificateArray{ VpnServerConfigurationRadiusServerRootCertificateArgs{...} }
+type VpnServerConfigurationRadiusServerRootCertificateArrayInput interface {
+	pulumi.Input
+
+	ToVpnServerConfigurationRadiusServerRootCertificateArrayOutput() VpnServerConfigurationRadiusServerRootCertificateArrayOutput
+	ToVpnServerConfigurationRadiusServerRootCertificateArrayOutputWithContext(context.Context) VpnServerConfigurationRadiusServerRootCertificateArrayOutput
+}
+
+type VpnServerConfigurationRadiusServerRootCertificateArray []VpnServerConfigurationRadiusServerRootCertificateInput
+
+func (VpnServerConfigurationRadiusServerRootCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnServerConfigurationRadiusServerRootCertificate)(nil)).Elem()
+}
+
+func (i VpnServerConfigurationRadiusServerRootCertificateArray) ToVpnServerConfigurationRadiusServerRootCertificateArrayOutput() VpnServerConfigurationRadiusServerRootCertificateArrayOutput {
+	return i.ToVpnServerConfigurationRadiusServerRootCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i VpnServerConfigurationRadiusServerRootCertificateArray) ToVpnServerConfigurationRadiusServerRootCertificateArrayOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerRootCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationRadiusServerRootCertificateArrayOutput)
+}
+
+type VpnServerConfigurationRadiusServerRootCertificateOutput struct{ *pulumi.OutputState }
+
+func (VpnServerConfigurationRadiusServerRootCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnServerConfigurationRadiusServerRootCertificate)(nil)).Elem()
+}
+
+func (o VpnServerConfigurationRadiusServerRootCertificateOutput) ToVpnServerConfigurationRadiusServerRootCertificateOutput() VpnServerConfigurationRadiusServerRootCertificateOutput {
+	return o
+}
+
+func (o VpnServerConfigurationRadiusServerRootCertificateOutput) ToVpnServerConfigurationRadiusServerRootCertificateOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerRootCertificateOutput {
+	return o
+}
+
+// A name used to uniquely identify this certificate.
+func (o VpnServerConfigurationRadiusServerRootCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnServerConfigurationRadiusServerRootCertificate) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Public Key Data associated with the Certificate.
+func (o VpnServerConfigurationRadiusServerRootCertificateOutput) PublicCertData() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnServerConfigurationRadiusServerRootCertificate) string { return v.PublicCertData }).(pulumi.StringOutput)
+}
+
+type VpnServerConfigurationRadiusServerRootCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnServerConfigurationRadiusServerRootCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnServerConfigurationRadiusServerRootCertificate)(nil)).Elem()
+}
+
+func (o VpnServerConfigurationRadiusServerRootCertificateArrayOutput) ToVpnServerConfigurationRadiusServerRootCertificateArrayOutput() VpnServerConfigurationRadiusServerRootCertificateArrayOutput {
+	return o
+}
+
+func (o VpnServerConfigurationRadiusServerRootCertificateArrayOutput) ToVpnServerConfigurationRadiusServerRootCertificateArrayOutputWithContext(ctx context.Context) VpnServerConfigurationRadiusServerRootCertificateArrayOutput {
+	return o
+}
+
+func (o VpnServerConfigurationRadiusServerRootCertificateArrayOutput) Index(i pulumi.IntInput) VpnServerConfigurationRadiusServerRootCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnServerConfigurationRadiusServerRootCertificate {
+		return vs[0].([]VpnServerConfigurationRadiusServerRootCertificate)[vs[1].(int)]
+	}).(VpnServerConfigurationRadiusServerRootCertificateOutput)
 }
 
 type VpnServerConfigurationRadiusServerServerRootCertificate struct {
@@ -19852,6 +20792,103 @@ func (o GetVirtualNetworkGatewayBgpSettingArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetVirtualNetworkGatewayBgpSettingOutput)
 }
 
+type GetVirtualNetworkGatewayCustomRoute struct {
+	// A list of address blocks reserved for this virtual network in CIDR notation.
+	AddressPrefixes []string `pulumi:"addressPrefixes"`
+}
+
+// GetVirtualNetworkGatewayCustomRouteInput is an input type that accepts GetVirtualNetworkGatewayCustomRouteArgs and GetVirtualNetworkGatewayCustomRouteOutput values.
+// You can construct a concrete instance of `GetVirtualNetworkGatewayCustomRouteInput` via:
+//
+//          GetVirtualNetworkGatewayCustomRouteArgs{...}
+type GetVirtualNetworkGatewayCustomRouteInput interface {
+	pulumi.Input
+
+	ToGetVirtualNetworkGatewayCustomRouteOutput() GetVirtualNetworkGatewayCustomRouteOutput
+	ToGetVirtualNetworkGatewayCustomRouteOutputWithContext(context.Context) GetVirtualNetworkGatewayCustomRouteOutput
+}
+
+type GetVirtualNetworkGatewayCustomRouteArgs struct {
+	// A list of address blocks reserved for this virtual network in CIDR notation.
+	AddressPrefixes pulumi.StringArrayInput `pulumi:"addressPrefixes"`
+}
+
+func (GetVirtualNetworkGatewayCustomRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualNetworkGatewayCustomRoute)(nil)).Elem()
+}
+
+func (i GetVirtualNetworkGatewayCustomRouteArgs) ToGetVirtualNetworkGatewayCustomRouteOutput() GetVirtualNetworkGatewayCustomRouteOutput {
+	return i.ToGetVirtualNetworkGatewayCustomRouteOutputWithContext(context.Background())
+}
+
+func (i GetVirtualNetworkGatewayCustomRouteArgs) ToGetVirtualNetworkGatewayCustomRouteOutputWithContext(ctx context.Context) GetVirtualNetworkGatewayCustomRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualNetworkGatewayCustomRouteOutput)
+}
+
+// GetVirtualNetworkGatewayCustomRouteArrayInput is an input type that accepts GetVirtualNetworkGatewayCustomRouteArray and GetVirtualNetworkGatewayCustomRouteArrayOutput values.
+// You can construct a concrete instance of `GetVirtualNetworkGatewayCustomRouteArrayInput` via:
+//
+//          GetVirtualNetworkGatewayCustomRouteArray{ GetVirtualNetworkGatewayCustomRouteArgs{...} }
+type GetVirtualNetworkGatewayCustomRouteArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualNetworkGatewayCustomRouteArrayOutput() GetVirtualNetworkGatewayCustomRouteArrayOutput
+	ToGetVirtualNetworkGatewayCustomRouteArrayOutputWithContext(context.Context) GetVirtualNetworkGatewayCustomRouteArrayOutput
+}
+
+type GetVirtualNetworkGatewayCustomRouteArray []GetVirtualNetworkGatewayCustomRouteInput
+
+func (GetVirtualNetworkGatewayCustomRouteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualNetworkGatewayCustomRoute)(nil)).Elem()
+}
+
+func (i GetVirtualNetworkGatewayCustomRouteArray) ToGetVirtualNetworkGatewayCustomRouteArrayOutput() GetVirtualNetworkGatewayCustomRouteArrayOutput {
+	return i.ToGetVirtualNetworkGatewayCustomRouteArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualNetworkGatewayCustomRouteArray) ToGetVirtualNetworkGatewayCustomRouteArrayOutputWithContext(ctx context.Context) GetVirtualNetworkGatewayCustomRouteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualNetworkGatewayCustomRouteArrayOutput)
+}
+
+type GetVirtualNetworkGatewayCustomRouteOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualNetworkGatewayCustomRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualNetworkGatewayCustomRoute)(nil)).Elem()
+}
+
+func (o GetVirtualNetworkGatewayCustomRouteOutput) ToGetVirtualNetworkGatewayCustomRouteOutput() GetVirtualNetworkGatewayCustomRouteOutput {
+	return o
+}
+
+func (o GetVirtualNetworkGatewayCustomRouteOutput) ToGetVirtualNetworkGatewayCustomRouteOutputWithContext(ctx context.Context) GetVirtualNetworkGatewayCustomRouteOutput {
+	return o
+}
+
+// A list of address blocks reserved for this virtual network in CIDR notation.
+func (o GetVirtualNetworkGatewayCustomRouteOutput) AddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVirtualNetworkGatewayCustomRoute) []string { return v.AddressPrefixes }).(pulumi.StringArrayOutput)
+}
+
+type GetVirtualNetworkGatewayCustomRouteArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualNetworkGatewayCustomRouteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualNetworkGatewayCustomRoute)(nil)).Elem()
+}
+
+func (o GetVirtualNetworkGatewayCustomRouteArrayOutput) ToGetVirtualNetworkGatewayCustomRouteArrayOutput() GetVirtualNetworkGatewayCustomRouteArrayOutput {
+	return o
+}
+
+func (o GetVirtualNetworkGatewayCustomRouteArrayOutput) ToGetVirtualNetworkGatewayCustomRouteArrayOutputWithContext(ctx context.Context) GetVirtualNetworkGatewayCustomRouteArrayOutput {
+	return o
+}
+
+func (o GetVirtualNetworkGatewayCustomRouteArrayOutput) Index(i pulumi.IntInput) GetVirtualNetworkGatewayCustomRouteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualNetworkGatewayCustomRoute {
+		return vs[0].([]GetVirtualNetworkGatewayCustomRoute)[vs[1].(int)]
+	}).(GetVirtualNetworkGatewayCustomRouteOutput)
+}
+
 type GetVirtualNetworkGatewayIpConfiguration struct {
 	// Specifies the name of the Virtual Network Gateway.
 	Name string `pulumi:"name"`
@@ -20499,6 +21536,10 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayWafConfigurationExclusionOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayWafConfigurationExclusionArrayOutput{})
+	pulumi.RegisterOutputType(ExpressRouteCircuitPeeringIpv6Output{})
+	pulumi.RegisterOutputType(ExpressRouteCircuitPeeringIpv6PtrOutput{})
+	pulumi.RegisterOutputType(ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput{})
+	pulumi.RegisterOutputType(ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitSkuOutput{})
@@ -20624,6 +21665,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayCustomRouteOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayCustomRoutePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayIpConfigurationOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationOutput{})
@@ -20654,10 +21697,17 @@ func init() {
 	pulumi.RegisterOutputType(VpnServerConfigurationClientRootCertificateArrayOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationIpsecPolicyOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationIpsecPolicyPtrOutput{})
+	pulumi.RegisterOutputType(VpnServerConfigurationRadiusOutput{})
+	pulumi.RegisterOutputType(VpnServerConfigurationRadiusPtrOutput{})
+	pulumi.RegisterOutputType(VpnServerConfigurationRadiusClientRootCertificateOutput{})
+	pulumi.RegisterOutputType(VpnServerConfigurationRadiusClientRootCertificateArrayOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerPtrOutput{})
+	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerArrayOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerClientRootCertificateOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput{})
+	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerRootCertificateOutput{})
+	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerRootCertificateArrayOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerServerRootCertificateOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput{})
 	pulumi.RegisterOutputType(VpnSiteLinkOutput{})
@@ -20700,6 +21750,8 @@ func init() {
 	pulumi.RegisterOutputType(GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualNetworkGatewayBgpSettingOutput{})
 	pulumi.RegisterOutputType(GetVirtualNetworkGatewayBgpSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualNetworkGatewayCustomRouteOutput{})
+	pulumi.RegisterOutputType(GetVirtualNetworkGatewayCustomRouteArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualNetworkGatewayIpConfigurationOutput{})
 	pulumi.RegisterOutputType(GetVirtualNetworkGatewayIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualNetworkGatewayVpnClientConfigurationOutput{})

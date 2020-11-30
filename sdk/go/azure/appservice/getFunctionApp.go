@@ -58,6 +58,8 @@ type LookupFunctionAppResult struct {
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// An `connectionString` block as defined below.
 	ConnectionStrings []GetFunctionAppConnectionString `pulumi:"connectionStrings"`
+	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+	CustomDomainVerificationId string `pulumi:"customDomainVerificationId"`
 	// The default hostname associated with the Function App.
 	DefaultHostname string `pulumi:"defaultHostname"`
 	// Is the Function App enabled?

@@ -64,6 +64,15 @@ import (
 // 					pulumi.String("123.1.0.0/24"),
 // 				},
 // 			},
+// 			Ipv6: &network.ExpressRouteCircuitPeeringIpv6Args{
+// 				PrimaryPeerAddressPrefix:   pulumi.String("2002:db01::/126"),
+// 				SecondaryPeerAddressPrefix: pulumi.String("2003:db01::/126"),
+// 				MicrosoftPeering: &network.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs{
+// 					AdvertisedPublicPrefixes: pulumi.StringArray{
+// 						pulumi.String("2002:db01::/126"),
+// 					},
+// 				},
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -87,24 +96,25 @@ type ExpressRouteCircuitPeering struct {
 	AzureAsn pulumi.IntOutput `pulumi:"azureAsn"`
 	// The name of the ExpressRoute Circuit in which to create the Peering.
 	ExpressRouteCircuitName pulumi.StringOutput `pulumi:"expressRouteCircuitName"`
+	// A `ipv6` block as defined below.
+	Ipv6 ExpressRouteCircuitPeeringIpv6PtrOutput `pulumi:"ipv6"`
 	// A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
 	MicrosoftPeeringConfig ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput `pulumi:"microsoftPeeringConfig"`
-	// The Either a 16-bit or a 32-bit ASN. Can either be public or private..
+	// The Either a 16-bit or a 32-bit ASN. Can either be public or private.
 	PeerAsn pulumi.IntOutput `pulumi:"peerAsn"`
 	// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
 	PeeringType pulumi.StringOutput `pulumi:"peeringType"`
 	// The Primary Port used by Azure for this Peering.
 	PrimaryAzurePort pulumi.StringOutput `pulumi:"primaryAzurePort"`
-	// A `/30` subnet for the primary link.
+	// A subnet for the primary link.
 	PrimaryPeerAddressPrefix pulumi.StringOutput `pulumi:"primaryPeerAddressPrefix"`
-	// The name of the resource group in which to
-	// create the Express Route Circuit Peering. Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
 	RouteFilterId pulumi.StringPtrOutput `pulumi:"routeFilterId"`
 	// The Secondary Port used by Azure for this Peering.
 	SecondaryAzurePort pulumi.StringOutput `pulumi:"secondaryAzurePort"`
-	// A `/30` subnet for the secondary link.
+	// A subnet for the secondary link.
 	SecondaryPeerAddressPrefix pulumi.StringOutput `pulumi:"secondaryPeerAddressPrefix"`
 	// The shared key. Can be a maximum of 25 characters.
 	SharedKey pulumi.StringPtrOutput `pulumi:"sharedKey"`
@@ -162,24 +172,25 @@ type expressRouteCircuitPeeringState struct {
 	AzureAsn *int `pulumi:"azureAsn"`
 	// The name of the ExpressRoute Circuit in which to create the Peering.
 	ExpressRouteCircuitName *string `pulumi:"expressRouteCircuitName"`
+	// A `ipv6` block as defined below.
+	Ipv6 *ExpressRouteCircuitPeeringIpv6 `pulumi:"ipv6"`
 	// A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
 	MicrosoftPeeringConfig *ExpressRouteCircuitPeeringMicrosoftPeeringConfig `pulumi:"microsoftPeeringConfig"`
-	// The Either a 16-bit or a 32-bit ASN. Can either be public or private..
+	// The Either a 16-bit or a 32-bit ASN. Can either be public or private.
 	PeerAsn *int `pulumi:"peerAsn"`
 	// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
 	PeeringType *string `pulumi:"peeringType"`
 	// The Primary Port used by Azure for this Peering.
 	PrimaryAzurePort *string `pulumi:"primaryAzurePort"`
-	// A `/30` subnet for the primary link.
+	// A subnet for the primary link.
 	PrimaryPeerAddressPrefix *string `pulumi:"primaryPeerAddressPrefix"`
-	// The name of the resource group in which to
-	// create the Express Route Circuit Peering. Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
 	RouteFilterId *string `pulumi:"routeFilterId"`
 	// The Secondary Port used by Azure for this Peering.
 	SecondaryAzurePort *string `pulumi:"secondaryAzurePort"`
-	// A `/30` subnet for the secondary link.
+	// A subnet for the secondary link.
 	SecondaryPeerAddressPrefix *string `pulumi:"secondaryPeerAddressPrefix"`
 	// The shared key. Can be a maximum of 25 characters.
 	SharedKey *string `pulumi:"sharedKey"`
@@ -192,24 +203,25 @@ type ExpressRouteCircuitPeeringState struct {
 	AzureAsn pulumi.IntPtrInput
 	// The name of the ExpressRoute Circuit in which to create the Peering.
 	ExpressRouteCircuitName pulumi.StringPtrInput
+	// A `ipv6` block as defined below.
+	Ipv6 ExpressRouteCircuitPeeringIpv6PtrInput
 	// A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
 	MicrosoftPeeringConfig ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrInput
-	// The Either a 16-bit or a 32-bit ASN. Can either be public or private..
+	// The Either a 16-bit or a 32-bit ASN. Can either be public or private.
 	PeerAsn pulumi.IntPtrInput
 	// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
 	PeeringType pulumi.StringPtrInput
 	// The Primary Port used by Azure for this Peering.
 	PrimaryAzurePort pulumi.StringPtrInput
-	// A `/30` subnet for the primary link.
+	// A subnet for the primary link.
 	PrimaryPeerAddressPrefix pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the Express Route Circuit Peering. Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
 	RouteFilterId pulumi.StringPtrInput
 	// The Secondary Port used by Azure for this Peering.
 	SecondaryAzurePort pulumi.StringPtrInput
-	// A `/30` subnet for the secondary link.
+	// A subnet for the secondary link.
 	SecondaryPeerAddressPrefix pulumi.StringPtrInput
 	// The shared key. Can be a maximum of 25 characters.
 	SharedKey pulumi.StringPtrInput
@@ -224,20 +236,21 @@ func (ExpressRouteCircuitPeeringState) ElementType() reflect.Type {
 type expressRouteCircuitPeeringArgs struct {
 	// The name of the ExpressRoute Circuit in which to create the Peering.
 	ExpressRouteCircuitName string `pulumi:"expressRouteCircuitName"`
+	// A `ipv6` block as defined below.
+	Ipv6 *ExpressRouteCircuitPeeringIpv6 `pulumi:"ipv6"`
 	// A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
 	MicrosoftPeeringConfig *ExpressRouteCircuitPeeringMicrosoftPeeringConfig `pulumi:"microsoftPeeringConfig"`
-	// The Either a 16-bit or a 32-bit ASN. Can either be public or private..
+	// The Either a 16-bit or a 32-bit ASN. Can either be public or private.
 	PeerAsn *int `pulumi:"peerAsn"`
 	// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
 	PeeringType string `pulumi:"peeringType"`
-	// A `/30` subnet for the primary link.
+	// A subnet for the primary link.
 	PrimaryPeerAddressPrefix string `pulumi:"primaryPeerAddressPrefix"`
-	// The name of the resource group in which to
-	// create the Express Route Circuit Peering. Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
 	RouteFilterId *string `pulumi:"routeFilterId"`
-	// A `/30` subnet for the secondary link.
+	// A subnet for the secondary link.
 	SecondaryPeerAddressPrefix string `pulumi:"secondaryPeerAddressPrefix"`
 	// The shared key. Can be a maximum of 25 characters.
 	SharedKey *string `pulumi:"sharedKey"`
@@ -249,20 +262,21 @@ type expressRouteCircuitPeeringArgs struct {
 type ExpressRouteCircuitPeeringArgs struct {
 	// The name of the ExpressRoute Circuit in which to create the Peering.
 	ExpressRouteCircuitName pulumi.StringInput
+	// A `ipv6` block as defined below.
+	Ipv6 ExpressRouteCircuitPeeringIpv6PtrInput
 	// A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
 	MicrosoftPeeringConfig ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrInput
-	// The Either a 16-bit or a 32-bit ASN. Can either be public or private..
+	// The Either a 16-bit or a 32-bit ASN. Can either be public or private.
 	PeerAsn pulumi.IntPtrInput
 	// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
 	PeeringType pulumi.StringInput
-	// A `/30` subnet for the primary link.
+	// A subnet for the primary link.
 	PrimaryPeerAddressPrefix pulumi.StringInput
-	// The name of the resource group in which to
-	// create the Express Route Circuit Peering. Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
 	RouteFilterId pulumi.StringPtrInput
-	// A `/30` subnet for the secondary link.
+	// A subnet for the secondary link.
 	SecondaryPeerAddressPrefix pulumi.StringInput
 	// The shared key. Can be a maximum of 25 characters.
 	SharedKey pulumi.StringPtrInput

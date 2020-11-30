@@ -55,9 +55,11 @@ type GetGatewayConnectionResult struct {
 	// The authorization key associated with the
 	// Express Route Circuit. This field is present only if the type is an
 	// ExpressRoute connection.
-	AuthorizationKey       string `pulumi:"authorizationKey"`
-	ConnectionProtocol     string `pulumi:"connectionProtocol"`
-	EgressBytesTransferred int    `pulumi:"egressBytesTransferred"`
+	AuthorizationKey   string `pulumi:"authorizationKey"`
+	ConnectionProtocol string `pulumi:"connectionProtocol"`
+	// The dead peer detection timeout of this connection in seconds.
+	DpdTimeoutSeconds      int `pulumi:"dpdTimeoutSeconds"`
+	EgressBytesTransferred int `pulumi:"egressBytesTransferred"`
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection.
 	EnableBgp bool `pulumi:"enableBgp"`
@@ -70,6 +72,8 @@ type GetGatewayConnectionResult struct {
 	Id                      string                            `pulumi:"id"`
 	IngressBytesTransferred int                               `pulumi:"ingressBytesTransferred"`
 	IpsecPolicies           []GetGatewayConnectionIpsecPolicy `pulumi:"ipsecPolicies"`
+	// Use private local Azure IP for the connection.
+	LocalAzureIpAddressEnabled bool `pulumi:"localAzureIpAddressEnabled"`
 	// The ID of the local network gateway
 	// when a Site-to-Site connection (i.e. when `type` is `IPsec`).
 	LocalNetworkGatewayId string `pulumi:"localNetworkGatewayId"`

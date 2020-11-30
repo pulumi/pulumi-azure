@@ -61,6 +61,18 @@ namespace Pulumi.Azure.Network
     ///                     "123.1.0.0/24",
     ///                 },
     ///             },
+    ///             Ipv6 = new Azure.Network.Inputs.ExpressRouteCircuitPeeringIpv6Args
+    ///             {
+    ///                 PrimaryPeerAddressPrefix = "2002:db01::/126",
+    ///                 SecondaryPeerAddressPrefix = "2003:db01::/126",
+    ///                 MicrosoftPeering = new Azure.Network.Inputs.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs
+    ///                 {
+    ///                     AdvertisedPublicPrefixes = 
+    ///                     {
+    ///                         "2002:db01::/126",
+    ///                     },
+    ///                 },
+    ///             },
     ///         });
     ///     }
     /// 
@@ -90,13 +102,19 @@ namespace Pulumi.Azure.Network
         public Output<string> ExpressRouteCircuitName { get; private set; } = null!;
 
         /// <summary>
+        /// A `ipv6` block as defined below.
+        /// </summary>
+        [Output("ipv6")]
+        public Output<Outputs.ExpressRouteCircuitPeeringIpv6?> Ipv6 { get; private set; } = null!;
+
+        /// <summary>
         /// A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
         /// </summary>
         [Output("microsoftPeeringConfig")]
         public Output<Outputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfig?> MicrosoftPeeringConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The Either a 16-bit or a 32-bit ASN. Can either be public or private..
+        /// The Either a 16-bit or a 32-bit ASN. Can either be public or private.
         /// </summary>
         [Output("peerAsn")]
         public Output<int> PeerAsn { get; private set; } = null!;
@@ -114,14 +132,13 @@ namespace Pulumi.Azure.Network
         public Output<string> PrimaryAzurePort { get; private set; } = null!;
 
         /// <summary>
-        /// A `/30` subnet for the primary link.
+        /// A subnet for the primary link.
         /// </summary>
         [Output("primaryPeerAddressPrefix")]
         public Output<string> PrimaryPeerAddressPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Express Route Circuit Peering. Changing this forces a new resource to be created.
+        /// The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -139,7 +156,7 @@ namespace Pulumi.Azure.Network
         public Output<string> SecondaryAzurePort { get; private set; } = null!;
 
         /// <summary>
-        /// A `/30` subnet for the secondary link.
+        /// A subnet for the secondary link.
         /// </summary>
         [Output("secondaryPeerAddressPrefix")]
         public Output<string> SecondaryPeerAddressPrefix { get; private set; } = null!;
@@ -209,13 +226,19 @@ namespace Pulumi.Azure.Network
         public Input<string> ExpressRouteCircuitName { get; set; } = null!;
 
         /// <summary>
+        /// A `ipv6` block as defined below.
+        /// </summary>
+        [Input("ipv6")]
+        public Input<Inputs.ExpressRouteCircuitPeeringIpv6Args>? Ipv6 { get; set; }
+
+        /// <summary>
         /// A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
         /// </summary>
         [Input("microsoftPeeringConfig")]
         public Input<Inputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs>? MicrosoftPeeringConfig { get; set; }
 
         /// <summary>
-        /// The Either a 16-bit or a 32-bit ASN. Can either be public or private..
+        /// The Either a 16-bit or a 32-bit ASN. Can either be public or private.
         /// </summary>
         [Input("peerAsn")]
         public Input<int>? PeerAsn { get; set; }
@@ -227,14 +250,13 @@ namespace Pulumi.Azure.Network
         public Input<string> PeeringType { get; set; } = null!;
 
         /// <summary>
-        /// A `/30` subnet for the primary link.
+        /// A subnet for the primary link.
         /// </summary>
         [Input("primaryPeerAddressPrefix", required: true)]
         public Input<string> PrimaryPeerAddressPrefix { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Express Route Circuit Peering. Changing this forces a new resource to be created.
+        /// The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -246,7 +268,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? RouteFilterId { get; set; }
 
         /// <summary>
-        /// A `/30` subnet for the secondary link.
+        /// A subnet for the secondary link.
         /// </summary>
         [Input("secondaryPeerAddressPrefix", required: true)]
         public Input<string> SecondaryPeerAddressPrefix { get; set; } = null!;
@@ -283,13 +305,19 @@ namespace Pulumi.Azure.Network
         public Input<string>? ExpressRouteCircuitName { get; set; }
 
         /// <summary>
+        /// A `ipv6` block as defined below.
+        /// </summary>
+        [Input("ipv6")]
+        public Input<Inputs.ExpressRouteCircuitPeeringIpv6GetArgs>? Ipv6 { get; set; }
+
+        /// <summary>
         /// A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
         /// </summary>
         [Input("microsoftPeeringConfig")]
         public Input<Inputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfigGetArgs>? MicrosoftPeeringConfig { get; set; }
 
         /// <summary>
-        /// The Either a 16-bit or a 32-bit ASN. Can either be public or private..
+        /// The Either a 16-bit or a 32-bit ASN. Can either be public or private.
         /// </summary>
         [Input("peerAsn")]
         public Input<int>? PeerAsn { get; set; }
@@ -307,14 +335,13 @@ namespace Pulumi.Azure.Network
         public Input<string>? PrimaryAzurePort { get; set; }
 
         /// <summary>
-        /// A `/30` subnet for the primary link.
+        /// A subnet for the primary link.
         /// </summary>
         [Input("primaryPeerAddressPrefix")]
         public Input<string>? PrimaryPeerAddressPrefix { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Express Route Circuit Peering. Changing this forces a new resource to be created.
+        /// The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -332,7 +359,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? SecondaryAzurePort { get; set; }
 
         /// <summary>
-        /// A `/30` subnet for the secondary link.
+        /// A subnet for the secondary link.
         /// </summary>
         [Input("secondaryPeerAddressPrefix")]
         public Input<string>? SecondaryPeerAddressPrefix { get; set; }

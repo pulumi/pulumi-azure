@@ -188,6 +188,12 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<Outputs.FunctionAppConnectionString>> ConnectionStrings { get; private set; } = null!;
 
         /// <summary>
+        /// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+        /// </summary>
+        [Output("customDomainVerificationId")]
+        public Output<string> CustomDomainVerificationId { get; private set; } = null!;
+
+        /// <summary>
         /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
         /// </summary>
         [Output("dailyMemoryTimeQuota")]
@@ -545,6 +551,12 @@ namespace Pulumi.Azure.AppService
             get => _connectionStrings ?? (_connectionStrings = new InputList<Inputs.FunctionAppConnectionStringGetArgs>());
             set => _connectionStrings = value;
         }
+
+        /// <summary>
+        /// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+        /// </summary>
+        [Input("customDomainVerificationId")]
+        public Input<string>? CustomDomainVerificationId { get; set; }
 
         /// <summary>
         /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.

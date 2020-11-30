@@ -111,6 +111,10 @@ export class AppService extends pulumi.CustomResource {
      */
     public readonly connectionStrings!: pulumi.Output<outputs.appservice.AppServiceConnectionString[]>;
     /**
+     * An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+     */
+    public /*out*/ readonly customDomainVerificationId!: pulumi.Output<string>;
+    /**
      * The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
      */
     public /*out*/ readonly defaultSiteHostname!: pulumi.Output<string>;
@@ -190,6 +194,7 @@ export class AppService extends pulumi.CustomResource {
             inputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
             inputs["clientCertEnabled"] = state ? state.clientCertEnabled : undefined;
             inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
+            inputs["customDomainVerificationId"] = state ? state.customDomainVerificationId : undefined;
             inputs["defaultSiteHostname"] = state ? state.defaultSiteHostname : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["httpsOnly"] = state ? state.httpsOnly : undefined;
@@ -231,6 +236,7 @@ export class AppService extends pulumi.CustomResource {
             inputs["sourceControl"] = args ? args.sourceControl : undefined;
             inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["customDomainVerificationId"] = undefined /*out*/;
             inputs["defaultSiteHostname"] = undefined /*out*/;
             inputs["outboundIpAddresses"] = undefined /*out*/;
             inputs["possibleOutboundIpAddresses"] = undefined /*out*/;
@@ -279,6 +285,10 @@ export interface AppServiceState {
      * One or more `connectionString` blocks as defined below.
      */
     readonly connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceConnectionString>[]>;
+    /**
+     * An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+     */
+    readonly customDomainVerificationId?: pulumi.Input<string>;
     /**
      * The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
      */

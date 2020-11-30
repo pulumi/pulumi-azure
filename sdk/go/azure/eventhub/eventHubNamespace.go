@@ -97,7 +97,7 @@ type EventHubNamespace struct {
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created.
+	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
 	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
@@ -173,7 +173,7 @@ type eventHubNamespaceState struct {
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created.
+	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
@@ -216,7 +216,7 @@ type EventHubNamespaceState struct {
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created.
+	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
 	ZoneRedundant pulumi.BoolPtrInput
 }
 
@@ -247,7 +247,7 @@ type eventHubNamespaceArgs struct {
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created.
+	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
@@ -275,7 +275,7 @@ type EventHubNamespaceArgs struct {
 	Sku pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created.
+	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
 	ZoneRedundant pulumi.BoolPtrInput
 }
 

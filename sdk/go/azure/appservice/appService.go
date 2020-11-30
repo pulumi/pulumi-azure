@@ -98,6 +98,8 @@ type AppService struct {
 	ClientCertEnabled pulumi.BoolPtrOutput `pulumi:"clientCertEnabled"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings AppServiceConnectionStringArrayOutput `pulumi:"connectionStrings"`
+	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+	CustomDomainVerificationId pulumi.StringOutput `pulumi:"customDomainVerificationId"`
 	// The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
 	DefaultSiteHostname pulumi.StringOutput `pulumi:"defaultSiteHostname"`
 	// Is the App Service Enabled?
@@ -178,6 +180,8 @@ type appServiceState struct {
 	ClientCertEnabled *bool `pulumi:"clientCertEnabled"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings []AppServiceConnectionString `pulumi:"connectionStrings"`
+	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+	CustomDomainVerificationId *string `pulumi:"customDomainVerificationId"`
 	// The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
 	DefaultSiteHostname *string `pulumi:"defaultSiteHostname"`
 	// Is the App Service Enabled?
@@ -225,6 +229,8 @@ type AppServiceState struct {
 	ClientCertEnabled pulumi.BoolPtrInput
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings AppServiceConnectionStringArrayInput
+	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+	CustomDomainVerificationId pulumi.StringPtrInput
 	// The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
 	DefaultSiteHostname pulumi.StringPtrInput
 	// Is the App Service Enabled?

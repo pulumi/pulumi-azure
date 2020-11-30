@@ -56,7 +56,8 @@ type Table struct {
 	pulumi.CustomResourceState
 
 	// The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created.
-	AccountName       pulumi.StringOutput             `pulumi:"accountName"`
+	AccountName pulumi.StringOutput `pulumi:"accountName"`
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	AutoscaleSettings TableAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -101,7 +102,8 @@ func GetTable(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Table resources.
 type tableState struct {
 	// The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created.
-	AccountName       *string                 `pulumi:"accountName"`
+	AccountName *string `pulumi:"accountName"`
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	AutoscaleSettings *TableAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -113,7 +115,8 @@ type tableState struct {
 
 type TableState struct {
 	// The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created.
-	AccountName       pulumi.StringPtrInput
+	AccountName pulumi.StringPtrInput
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	AutoscaleSettings TableAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -129,7 +132,8 @@ func (TableState) ElementType() reflect.Type {
 
 type tableArgs struct {
 	// The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created.
-	AccountName       string                  `pulumi:"accountName"`
+	AccountName string `pulumi:"accountName"`
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	AutoscaleSettings *TableAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -142,7 +146,8 @@ type tableArgs struct {
 // The set of arguments for constructing a Table resource.
 type TableArgs struct {
 	// The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created.
-	AccountName       pulumi.StringInput
+	AccountName pulumi.StringInput
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	AutoscaleSettings TableAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput

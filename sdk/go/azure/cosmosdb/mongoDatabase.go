@@ -56,7 +56,8 @@ type MongoDatabase struct {
 	pulumi.CustomResourceState
 
 	// The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
-	AccountName       pulumi.StringOutput                     `pulumi:"accountName"`
+	AccountName pulumi.StringOutput `pulumi:"accountName"`
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	AutoscaleSettings MongoDatabaseAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Mongo Database. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -101,7 +102,8 @@ func GetMongoDatabase(ctx *pulumi.Context,
 // Input properties used for looking up and filtering MongoDatabase resources.
 type mongoDatabaseState struct {
 	// The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
-	AccountName       *string                         `pulumi:"accountName"`
+	AccountName *string `pulumi:"accountName"`
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	AutoscaleSettings *MongoDatabaseAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Mongo Database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -113,7 +115,8 @@ type mongoDatabaseState struct {
 
 type MongoDatabaseState struct {
 	// The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
-	AccountName       pulumi.StringPtrInput
+	AccountName pulumi.StringPtrInput
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	AutoscaleSettings MongoDatabaseAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB Mongo Database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -129,7 +132,8 @@ func (MongoDatabaseState) ElementType() reflect.Type {
 
 type mongoDatabaseArgs struct {
 	// The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
-	AccountName       string                          `pulumi:"accountName"`
+	AccountName string `pulumi:"accountName"`
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	AutoscaleSettings *MongoDatabaseAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Mongo Database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -142,7 +146,8 @@ type mongoDatabaseArgs struct {
 // The set of arguments for constructing a MongoDatabase resource.
 type MongoDatabaseArgs struct {
 	// The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
-	AccountName       pulumi.StringInput
+	AccountName pulumi.StringInput
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	AutoscaleSettings MongoDatabaseAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB Mongo Database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput

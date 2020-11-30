@@ -55,7 +55,7 @@ import (
 type Service struct {
 	pulumi.CustomResourceState
 
-	// A list of IPv4 addresses that are allowed access to the search service endpoint.
+	// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
 	AllowedIps pulumi.StringArrayOutput `pulumi:"allowedIps"`
 	// A `identity` block as defined below.
 	Identity ServiceIdentityPtrOutput `pulumi:"identity"`
@@ -117,7 +117,7 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
-	// A list of IPv4 addresses that are allowed access to the search service endpoint.
+	// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
 	AllowedIps []string `pulumi:"allowedIps"`
 	// A `identity` block as defined below.
 	Identity *ServiceIdentity `pulumi:"identity"`
@@ -146,7 +146,7 @@ type serviceState struct {
 }
 
 type ServiceState struct {
-	// A list of IPv4 addresses that are allowed access to the search service endpoint.
+	// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
 	AllowedIps pulumi.StringArrayInput
 	// A `identity` block as defined below.
 	Identity ServiceIdentityPtrInput
@@ -179,7 +179,7 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	// A list of IPv4 addresses that are allowed access to the search service endpoint.
+	// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
 	AllowedIps []string `pulumi:"allowedIps"`
 	// A `identity` block as defined below.
 	Identity *ServiceIdentity `pulumi:"identity"`
@@ -203,7 +203,7 @@ type serviceArgs struct {
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// A list of IPv4 addresses that are allowed access to the search service endpoint.
+	// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
 	AllowedIps pulumi.StringArrayInput
 	// A `identity` block as defined below.
 	Identity ServiceIdentityPtrInput

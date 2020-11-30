@@ -83,6 +83,9 @@ export class SqlContainer extends pulumi.CustomResource {
      * The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
      */
     public readonly accountName!: pulumi.Output<string>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+     */
     public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.SqlContainerAutoscaleSettings | undefined>;
     /**
      * The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
@@ -180,6 +183,9 @@ export interface SqlContainerState {
      * The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
      */
     readonly accountName?: pulumi.Input<string>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+     */
     readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlContainerAutoscaleSettings>;
     /**
      * The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
@@ -223,6 +229,9 @@ export interface SqlContainerArgs {
      * The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
      */
     readonly accountName: pulumi.Input<string>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+     */
     readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlContainerAutoscaleSettings>;
     /**
      * The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.

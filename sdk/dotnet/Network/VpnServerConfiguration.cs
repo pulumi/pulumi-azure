@@ -115,6 +115,12 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A `radius` block as defined below.
+        /// </summary>
+        [Output("radius")]
+        public Output<Outputs.VpnServerConfigurationRadius?> Radius { get; private set; } = null!;
+
+        /// <summary>
         /// A `radius_server` block as defined below.
         /// </summary>
         [Output("radiusServer")]
@@ -245,6 +251,12 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// A `radius` block as defined below.
+        /// </summary>
+        [Input("radius")]
+        public Input<Inputs.VpnServerConfigurationRadiusArgs>? Radius { get; set; }
+
+        /// <summary>
         /// A `radius_server` block as defined below.
         /// </summary>
         [Input("radiusServer")]
@@ -346,6 +358,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// A `radius` block as defined below.
+        /// </summary>
+        [Input("radius")]
+        public Input<Inputs.VpnServerConfigurationRadiusGetArgs>? Radius { get; set; }
 
         /// <summary>
         /// A `radius_server` block as defined below.

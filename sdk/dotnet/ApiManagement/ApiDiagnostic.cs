@@ -37,7 +37,7 @@ namespace Pulumi.Azure.ApiManagement
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             PublisherName = "My Company",
-    ///             PublisherEmail = "company@terraform.io",
+    ///             PublisherEmail = "company@mycompany.io",
     ///             SkuName = "Developer_1",
     ///         });
     ///         var exampleApi = new Azure.ApiManagement.Api("exampleApi", new Azure.ApiManagement.ApiArgs

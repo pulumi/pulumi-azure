@@ -40,6 +40,7 @@ from . import (
     desktopvirtualization,
     devspace,
     devtest,
+    digitaltwins,
     dns,
     eventgrid,
     eventhub,

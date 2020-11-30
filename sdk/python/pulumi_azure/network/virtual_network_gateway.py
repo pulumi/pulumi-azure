@@ -19,12 +19,14 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active_active: Optional[pulumi.Input[bool]] = None,
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayBgpSettingsArgs']]] = None,
+                 custom_route: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayCustomRouteArgs']]] = None,
                  default_local_network_gateway_id: Optional[pulumi.Input[str]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  generation: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -132,7 +134,9 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                an active-active gateway requires exactly two `ip_configuration` blocks.
         :param pulumi.Input[str] location: The location/region where the Virtual Network Gateway is
                located. Changing the location/region forces a new resource to be created.
-        :param pulumi.Input[str] name: A user-defined name of the revoked certificate.
+        :param pulumi.Input[str] name: A user-defined name of the IP configuration. Defaults to
+               `vnetGatewayConfig`.
+        :param pulumi.Input[bool] private_ip_address_enabled: Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Virtual Network Gateway. Changing the resource group name forces
                a new resource to be created.
@@ -171,6 +175,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
             __props__['active_active'] = active_active
             __props__['bgp_settings'] = bgp_settings
+            __props__['custom_route'] = custom_route
             __props__['default_local_network_gateway_id'] = default_local_network_gateway_id
             __props__['enable_bgp'] = enable_bgp
             __props__['generation'] = generation
@@ -179,6 +184,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__['ip_configurations'] = ip_configurations
             __props__['location'] = location
             __props__['name'] = name
+            __props__['private_ip_address_enabled'] = private_ip_address_enabled
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -203,12 +209,14 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             active_active: Optional[pulumi.Input[bool]] = None,
             bgp_settings: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayBgpSettingsArgs']]] = None,
+            custom_route: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayCustomRouteArgs']]] = None,
             default_local_network_gateway_id: Optional[pulumi.Input[str]] = None,
             enable_bgp: Optional[pulumi.Input[bool]] = None,
             generation: Optional[pulumi.Input[str]] = None,
             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            private_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -239,7 +247,9 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                an active-active gateway requires exactly two `ip_configuration` blocks.
         :param pulumi.Input[str] location: The location/region where the Virtual Network Gateway is
                located. Changing the location/region forces a new resource to be created.
-        :param pulumi.Input[str] name: A user-defined name of the revoked certificate.
+        :param pulumi.Input[str] name: A user-defined name of the IP configuration. Defaults to
+               `vnetGatewayConfig`.
+        :param pulumi.Input[bool] private_ip_address_enabled: Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Virtual Network Gateway. Changing the resource group name forces
                a new resource to be created.
@@ -265,12 +275,14 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
         __props__["active_active"] = active_active
         __props__["bgp_settings"] = bgp_settings
+        __props__["custom_route"] = custom_route
         __props__["default_local_network_gateway_id"] = default_local_network_gateway_id
         __props__["enable_bgp"] = enable_bgp
         __props__["generation"] = generation
         __props__["ip_configurations"] = ip_configurations
         __props__["location"] = location
         __props__["name"] = name
+        __props__["private_ip_address_enabled"] = private_ip_address_enabled
         __props__["resource_group_name"] = resource_group_name
         __props__["sku"] = sku
         __props__["tags"] = tags
@@ -294,6 +306,11 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @pulumi.getter(name="bgpSettings")
     def bgp_settings(self) -> pulumi.Output['outputs.VirtualNetworkGatewayBgpSettings']:
         return pulumi.get(self, "bgp_settings")
+
+    @property
+    @pulumi.getter(name="customRoute")
+    def custom_route(self) -> pulumi.Output[Optional['outputs.VirtualNetworkGatewayCustomRoute']]:
+        return pulumi.get(self, "custom_route")
 
     @property
     @pulumi.getter(name="defaultLocalNetworkGatewayId")
@@ -347,9 +364,18 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        A user-defined name of the revoked certificate.
+        A user-defined name of the IP configuration. Defaults to
+        `vnetGatewayConfig`.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateIpAddressEnabled")
+    def private_ip_address_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "private_ip_address_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

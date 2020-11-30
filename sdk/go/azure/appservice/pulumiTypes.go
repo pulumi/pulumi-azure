@@ -2206,7 +2206,7 @@ type AppServiceLogsApplicationLogsAzureBlobStorage struct {
 	Level string `pulumi:"level"`
 	// The number of days to retain logs for.
 	RetentionInDays int `pulumi:"retentionInDays"`
-	// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+	// The URL to the storage container with a shared access signature token appended.
 	SasUrl string `pulumi:"sasUrl"`
 }
 
@@ -2226,7 +2226,7 @@ type AppServiceLogsApplicationLogsAzureBlobStorageArgs struct {
 	Level pulumi.StringInput `pulumi:"level"`
 	// The number of days to retain logs for.
 	RetentionInDays pulumi.IntInput `pulumi:"retentionInDays"`
-	// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+	// The URL to the storage container with a shared access signature token appended.
 	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
 }
 
@@ -2317,7 +2317,7 @@ func (o AppServiceLogsApplicationLogsAzureBlobStorageOutput) RetentionInDays() p
 	return o.ApplyT(func(v AppServiceLogsApplicationLogsAzureBlobStorage) int { return v.RetentionInDays }).(pulumi.IntOutput)
 }
 
-// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+// The URL to the storage container with a shared access signature token appended.
 func (o AppServiceLogsApplicationLogsAzureBlobStorageOutput) SasUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceLogsApplicationLogsAzureBlobStorage) string { return v.SasUrl }).(pulumi.StringOutput)
 }
@@ -2362,7 +2362,7 @@ func (o AppServiceLogsApplicationLogsAzureBlobStoragePtrOutput) RetentionInDays(
 	}).(pulumi.IntPtrOutput)
 }
 
-// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+// The URL to the storage container with a shared access signature token appended.
 func (o AppServiceLogsApplicationLogsAzureBlobStoragePtrOutput) SasUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppServiceLogsApplicationLogsAzureBlobStorage) *string {
 		if v == nil {
@@ -2525,7 +2525,7 @@ func (o AppServiceLogsHttpLogsPtrOutput) FileSystem() AppServiceLogsHttpLogsFile
 type AppServiceLogsHttpLogsAzureBlobStorage struct {
 	// The number of days to retain logs for.
 	RetentionInDays int `pulumi:"retentionInDays"`
-	// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+	// The URL to the storage container with a shared access signature token appended.
 	SasUrl string `pulumi:"sasUrl"`
 }
 
@@ -2543,7 +2543,7 @@ type AppServiceLogsHttpLogsAzureBlobStorageInput interface {
 type AppServiceLogsHttpLogsAzureBlobStorageArgs struct {
 	// The number of days to retain logs for.
 	RetentionInDays pulumi.IntInput `pulumi:"retentionInDays"`
-	// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+	// The URL to the storage container with a shared access signature token appended.
 	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
 }
 
@@ -2629,7 +2629,7 @@ func (o AppServiceLogsHttpLogsAzureBlobStorageOutput) RetentionInDays() pulumi.I
 	return o.ApplyT(func(v AppServiceLogsHttpLogsAzureBlobStorage) int { return v.RetentionInDays }).(pulumi.IntOutput)
 }
 
-// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+// The URL to the storage container with a shared access signature token appended.
 func (o AppServiceLogsHttpLogsAzureBlobStorageOutput) SasUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceLogsHttpLogsAzureBlobStorage) string { return v.SasUrl }).(pulumi.StringOutput)
 }
@@ -2662,7 +2662,7 @@ func (o AppServiceLogsHttpLogsAzureBlobStoragePtrOutput) RetentionInDays() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+// The URL to the storage container with a shared access signature token appended.
 func (o AppServiceLogsHttpLogsAzureBlobStoragePtrOutput) SasUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppServiceLogsHttpLogsAzureBlobStorage) *string {
 		if v == nil {

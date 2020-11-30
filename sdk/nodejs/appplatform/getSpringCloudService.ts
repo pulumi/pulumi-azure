@@ -69,6 +69,10 @@ export interface GetSpringCloudServiceResult {
      * The name to identify on the Git repository.
      */
     readonly name: string;
+    /**
+     * A list of the outbound Public IP Addresses used by this Spring Cloud Service.
+     */
+    readonly outboundPublicIpAddresses: string[];
     readonly resourceGroupName: string;
     /**
      * A mapping of tags assigned to Spring Cloud Service.

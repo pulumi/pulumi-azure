@@ -20,13 +20,16 @@ class GetVirtualNetworkGatewayResult:
     """
     A collection of values returned by getVirtualNetworkGateway.
     """
-    def __init__(__self__, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, generation=None, id=None, ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configurations=None, vpn_type=None):
+    def __init__(__self__, active_active=None, bgp_settings=None, custom_routes=None, default_local_network_gateway_id=None, enable_bgp=None, generation=None, id=None, ip_configurations=None, location=None, name=None, private_ip_address_enabled=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configurations=None, vpn_type=None):
         if active_active and not isinstance(active_active, bool):
             raise TypeError("Expected argument 'active_active' to be a bool")
         pulumi.set(__self__, "active_active", active_active)
         if bgp_settings and not isinstance(bgp_settings, list):
             raise TypeError("Expected argument 'bgp_settings' to be a list")
         pulumi.set(__self__, "bgp_settings", bgp_settings)
+        if custom_routes and not isinstance(custom_routes, list):
+            raise TypeError("Expected argument 'custom_routes' to be a list")
+        pulumi.set(__self__, "custom_routes", custom_routes)
         if default_local_network_gateway_id and not isinstance(default_local_network_gateway_id, str):
             raise TypeError("Expected argument 'default_local_network_gateway_id' to be a str")
         pulumi.set(__self__, "default_local_network_gateway_id", default_local_network_gateway_id)
@@ -48,6 +51,9 @@ class GetVirtualNetworkGatewayResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if private_ip_address_enabled and not isinstance(private_ip_address_enabled, bool):
+            raise TypeError("Expected argument 'private_ip_address_enabled' to be a bool")
+        pulumi.set(__self__, "private_ip_address_enabled", private_ip_address_enabled)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -79,6 +85,11 @@ class GetVirtualNetworkGatewayResult:
     @pulumi.getter(name="bgpSettings")
     def bgp_settings(self) -> Sequence['outputs.GetVirtualNetworkGatewayBgpSettingResult']:
         return pulumi.get(self, "bgp_settings")
+
+    @property
+    @pulumi.getter(name="customRoutes")
+    def custom_routes(self) -> Sequence['outputs.GetVirtualNetworkGatewayCustomRouteResult']:
+        return pulumi.get(self, "custom_routes")
 
     @property
     @pulumi.getter(name="defaultLocalNetworkGatewayId")
@@ -141,6 +152,14 @@ class GetVirtualNetworkGatewayResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateIpAddressEnabled")
+    def private_ip_address_enabled(self) -> bool:
+        """
+        Whether a private IP will be used for this  gateway for connections.
+        """
+        return pulumi.get(self, "private_ip_address_enabled")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
@@ -194,6 +213,7 @@ class AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
         return GetVirtualNetworkGatewayResult(
             active_active=self.active_active,
             bgp_settings=self.bgp_settings,
+            custom_routes=self.custom_routes,
             default_local_network_gateway_id=self.default_local_network_gateway_id,
             enable_bgp=self.enable_bgp,
             generation=self.generation,
@@ -201,6 +221,7 @@ class AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
             ip_configurations=self.ip_configurations,
             location=self.location,
             name=self.name,
+            private_ip_address_enabled=self.private_ip_address_enabled,
             resource_group_name=self.resource_group_name,
             sku=self.sku,
             tags=self.tags,
@@ -242,6 +263,7 @@ def get_virtual_network_gateway(name: Optional[str] = None,
     return AwaitableGetVirtualNetworkGatewayResult(
         active_active=__ret__.active_active,
         bgp_settings=__ret__.bgp_settings,
+        custom_routes=__ret__.custom_routes,
         default_local_network_gateway_id=__ret__.default_local_network_gateway_id,
         enable_bgp=__ret__.enable_bgp,
         generation=__ret__.generation,
@@ -249,6 +271,7 @@ def get_virtual_network_gateway(name: Optional[str] = None,
         ip_configurations=__ret__.ip_configurations,
         location=__ret__.location,
         name=__ret__.name,
+        private_ip_address_enabled=__ret__.private_ip_address_enabled,
         resource_group_name=__ret__.resource_group_name,
         sku=__ret__.sku,
         tags=__ret__.tags,

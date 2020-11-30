@@ -34,7 +34,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = lighthouse.NewDefinition(ctx, "example", &lighthouse.DefinitionArgs{
-// 			Description:      pulumi.String("This is a lighthouse definition created via Terraform"),
+// 			Description:      pulumi.String("This is a lighthouse definition created IaC"),
 // 			ManagingTenantId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			Authorizations: lighthouse.DefinitionAuthorizationArray{
 // 				&lighthouse.DefinitionAuthorizationArgs{

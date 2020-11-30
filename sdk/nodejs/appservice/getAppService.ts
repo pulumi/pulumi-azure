@@ -74,6 +74,10 @@ export interface GetAppServiceResult {
      */
     readonly connectionStrings: outputs.appservice.GetAppServiceConnectionString[];
     /**
+     * An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+     */
+    readonly customDomainVerificationId: string;
+    /**
      * The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
      */
     readonly defaultSiteHostname: string;

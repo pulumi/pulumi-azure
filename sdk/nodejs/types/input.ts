@@ -1410,7 +1410,7 @@ export namespace appservice {
          */
         retentionInDays: pulumi.Input<number>;
         /**
-         * The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+         * The URL to the storage container with a shared access signature token appended.
          */
         sasUrl: pulumi.Input<string>;
     }
@@ -1432,7 +1432,7 @@ export namespace appservice {
          */
         retentionInDays: pulumi.Input<number>;
         /**
-         * The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+         * The URL to the storage container with a shared access signature token appended.
          */
         sasUrl: pulumi.Input<string>;
     }
@@ -13653,17 +13653,51 @@ export namespace network {
         selectorMatchOperator?: pulumi.Input<string>;
     }
 
-    export interface ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
+    export interface ExpressRouteCircuitPeeringIpv6 {
         /**
-         * A list of Advertised Public Prefixes
+         * A `microsoftPeering` block as defined below.
          */
-        advertisedPublicPrefixes: pulumi.Input<pulumi.Input<string>[]>;
+        microsoftPeering: pulumi.Input<inputs.network.ExpressRouteCircuitPeeringIpv6MicrosoftPeering>;
         /**
-         * The CustomerASN of the peering
+         * A subnet for the primary link.
+         */
+        primaryPeerAddressPrefix: pulumi.Input<string>;
+        /**
+         * The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
+         */
+        routeFilterId?: pulumi.Input<string>;
+        /**
+         * A subnet for the secondary link.
+         */
+        secondaryPeerAddressPrefix: pulumi.Input<string>;
+    }
+
+    export interface ExpressRouteCircuitPeeringIpv6MicrosoftPeering {
+        /**
+         * A list of Advertised Public Prefixes.
+         */
+        advertisedPublicPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The CustomerASN of the peering.
          */
         customerAsn?: pulumi.Input<number>;
         /**
-         * The RoutingRegistryName of the configuration
+         * The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+         */
+        routingRegistryName?: pulumi.Input<string>;
+    }
+
+    export interface ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
+        /**
+         * A list of Advertised Public Prefixes.
+         */
+        advertisedPublicPrefixes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The CustomerASN of the peering.
+         */
+        customerAsn?: pulumi.Input<number>;
+        /**
+         * The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
          */
         routingRegistryName?: pulumi.Input<string>;
     }
@@ -14838,9 +14872,17 @@ export namespace network {
         remoteAddressCidrs: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface VirtualNetworkGatewayCustomRoute {
+        /**
+         * A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+         */
+        addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface VirtualNetworkGatewayIpConfiguration {
         /**
-         * A user-defined name of the revoked certificate.
+         * A user-defined name of the IP configuration. Defaults to
+         * `vnetGatewayConfig`.
          */
         name?: pulumi.Input<string>;
         /**
@@ -14927,7 +14969,8 @@ export namespace network {
 
     export interface VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate {
         /**
-         * A user-defined name of the revoked certificate.
+         * A user-defined name of the IP configuration. Defaults to
+         * `vnetGatewayConfig`.
          */
         name: pulumi.Input<string>;
         thumbprint: pulumi.Input<string>;
@@ -14935,11 +14978,15 @@ export namespace network {
 
     export interface VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
         /**
-         * A user-defined name of the revoked certificate.
+         * A user-defined name of the IP configuration. Defaults to
+         * `vnetGatewayConfig`.
          */
         name: pulumi.Input<string>;
         /**
-         * The SHA1 thumbprint of the certificate to be
+         * The public certificate of the root certificate
+         * authority. The certificate must be provided in Base-64 encoded X.509 format
+         * (PEM). In particular, this argument *must not* include the
+         * `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
          * revoked.
          */
         publicCertData: pulumi.Input<string>;
@@ -15190,6 +15237,32 @@ export namespace network {
         saLifetimeSeconds: pulumi.Input<number>;
     }
 
+    export interface VpnServerConfigurationRadius {
+        /**
+         * One or more `clientRootCertificate` blocks as defined above.
+         */
+        clientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationRadiusClientRootCertificate>[]>;
+        /**
+         * One or more `serverRootCertificate` blocks as defined below.
+         */
+        serverRootCertificates: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationRadiusServerRootCertificate>[]>;
+        /**
+         * One or more `server` blocks as defined below.
+         */
+        servers?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationRadiusServer>[]>;
+    }
+
+    export interface VpnServerConfigurationRadiusClientRootCertificate {
+        /**
+         * A name used to uniquely identify this certificate.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The Thumbprint of the Certificate.
+         */
+        thumbprint: pulumi.Input<string>;
+    }
+
     export interface VpnServerConfigurationRadiusServer {
         /**
          * The Address of the Radius Server.
@@ -15218,6 +15291,17 @@ export namespace network {
          * The Thumbprint of the Certificate.
          */
         thumbprint: pulumi.Input<string>;
+    }
+
+    export interface VpnServerConfigurationRadiusServerRootCertificate {
+        /**
+         * A name used to uniquely identify this certificate.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The Public Key Data associated with the Certificate.
+         */
+        publicCertData: pulumi.Input<string>;
     }
 
     export interface VpnServerConfigurationRadiusServerServerRootCertificate {

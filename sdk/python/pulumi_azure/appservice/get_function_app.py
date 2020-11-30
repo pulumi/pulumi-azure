@@ -20,7 +20,7 @@ class GetFunctionAppResult:
     """
     A collection of values returned by getFunctionApp.
     """
-    def __init__(__self__, app_service_plan_id=None, app_settings=None, connection_strings=None, default_hostname=None, enabled=None, id=None, identities=None, location=None, name=None, os_type=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_configs=None, site_credentials=None, source_controls=None, tags=None):
+    def __init__(__self__, app_service_plan_id=None, app_settings=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, id=None, identities=None, location=None, name=None, os_type=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_configs=None, site_credentials=None, source_controls=None, tags=None):
         if app_service_plan_id and not isinstance(app_service_plan_id, str):
             raise TypeError("Expected argument 'app_service_plan_id' to be a str")
         pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
@@ -30,6 +30,9 @@ class GetFunctionAppResult:
         if connection_strings and not isinstance(connection_strings, list):
             raise TypeError("Expected argument 'connection_strings' to be a list")
         pulumi.set(__self__, "connection_strings", connection_strings)
+        if custom_domain_verification_id and not isinstance(custom_domain_verification_id, str):
+            raise TypeError("Expected argument 'custom_domain_verification_id' to be a str")
+        pulumi.set(__self__, "custom_domain_verification_id", custom_domain_verification_id)
         if default_hostname and not isinstance(default_hostname, str):
             raise TypeError("Expected argument 'default_hostname' to be a str")
         pulumi.set(__self__, "default_hostname", default_hostname)
@@ -96,6 +99,14 @@ class GetFunctionAppResult:
         An `connection_string` block as defined below.
         """
         return pulumi.get(self, "connection_strings")
+
+    @property
+    @pulumi.getter(name="customDomainVerificationId")
+    def custom_domain_verification_id(self) -> str:
+        """
+        An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+        """
+        return pulumi.get(self, "custom_domain_verification_id")
 
     @property
     @pulumi.getter(name="defaultHostname")
@@ -207,6 +218,7 @@ class AwaitableGetFunctionAppResult(GetFunctionAppResult):
             app_service_plan_id=self.app_service_plan_id,
             app_settings=self.app_settings,
             connection_strings=self.connection_strings,
+            custom_domain_verification_id=self.custom_domain_verification_id,
             default_hostname=self.default_hostname,
             enabled=self.enabled,
             id=self.id,
@@ -258,6 +270,7 @@ def get_function_app(name: Optional[str] = None,
         app_service_plan_id=__ret__.app_service_plan_id,
         app_settings=__ret__.app_settings,
         connection_strings=__ret__.connection_strings,
+        custom_domain_verification_id=__ret__.custom_domain_verification_id,
         default_hostname=__ret__.default_hostname,
         enabled=__ret__.enabled,
         id=__ret__.id,

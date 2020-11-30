@@ -107,7 +107,13 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A `radius` block as defined below.
+     */
+    public readonly radius!: pulumi.Output<outputs.network.VpnServerConfigurationRadius | undefined>;
+    /**
      * A `radiusServer` block as defined below.
+     *
+     * @deprecated Deprecated in favour of `radius`
      */
     public readonly radiusServer!: pulumi.Output<outputs.network.VpnServerConfigurationRadiusServer | undefined>;
     /**
@@ -145,6 +151,7 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
             inputs["ipsecPolicy"] = state ? state.ipsecPolicy : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["radius"] = state ? state.radius : undefined;
             inputs["radiusServer"] = state ? state.radiusServer : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -164,6 +171,7 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
             inputs["ipsecPolicy"] = args ? args.ipsecPolicy : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["radius"] = args ? args.radius : undefined;
             inputs["radiusServer"] = args ? args.radiusServer : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -210,7 +218,13 @@ export interface VpnServerConfigurationState {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * A `radius` block as defined below.
+     */
+    readonly radius?: pulumi.Input<inputs.network.VpnServerConfigurationRadius>;
+    /**
      * A `radiusServer` block as defined below.
+     *
+     * @deprecated Deprecated in favour of `radius`
      */
     readonly radiusServer?: pulumi.Input<inputs.network.VpnServerConfigurationRadiusServer>;
     /**
@@ -260,7 +274,13 @@ export interface VpnServerConfigurationArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * A `radius` block as defined below.
+     */
+    readonly radius?: pulumi.Input<inputs.network.VpnServerConfigurationRadius>;
+    /**
      * A `radiusServer` block as defined below.
+     *
+     * @deprecated Deprecated in favour of `radius`
      */
     readonly radiusServer?: pulumi.Input<inputs.network.VpnServerConfigurationRadiusServer>;
     /**

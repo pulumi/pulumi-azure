@@ -204,6 +204,7 @@ class FunctionApp(pulumi.CustomResource):
             __props__['storage_connection_string'] = storage_connection_string
             __props__['tags'] = tags
             __props__['version'] = version
+            __props__['custom_domain_verification_id'] = None
             __props__['default_hostname'] = None
             __props__['kind'] = None
             __props__['outbound_ip_addresses'] = None
@@ -224,6 +225,7 @@ class FunctionApp(pulumi.CustomResource):
             auth_settings: Optional[pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArgs']]] = None,
             client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArgs']]]]] = None,
+            custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
             daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
             default_hostname: Optional[pulumi.Input[str]] = None,
             enable_builtin_logging: Optional[pulumi.Input[bool]] = None,
@@ -257,6 +259,7 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArgs']]]] connection_strings: An `connection_string` block as defined below.
+        :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
         :param pulumi.Input[str] default_hostname: The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of this Function App be enabled? Defaults to `true`.
@@ -287,6 +290,7 @@ class FunctionApp(pulumi.CustomResource):
         __props__["auth_settings"] = auth_settings
         __props__["client_affinity_enabled"] = client_affinity_enabled
         __props__["connection_strings"] = connection_strings
+        __props__["custom_domain_verification_id"] = custom_domain_verification_id
         __props__["daily_memory_time_quota"] = daily_memory_time_quota
         __props__["default_hostname"] = default_hostname
         __props__["enable_builtin_logging"] = enable_builtin_logging
@@ -349,6 +353,14 @@ class FunctionApp(pulumi.CustomResource):
         An `connection_string` block as defined below.
         """
         return pulumi.get(self, "connection_strings")
+
+    @property
+    @pulumi.getter(name="customDomainVerificationId")
+    def custom_domain_verification_id(self) -> pulumi.Output[str]:
+        """
+        An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+        """
+        return pulumi.get(self, "custom_domain_verification_id")
 
     @property
     @pulumi.getter(name="dailyMemoryTimeQuota")

@@ -51,7 +51,7 @@ class ApiDiagnostic(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             publisher_name="My Company",
-            publisher_email="company@terraform.io",
+            publisher_email="company@mycompany.io",
             sku_name="Developer_1")
         example_api = azure.apimanagement.Api("exampleApi",
             resource_group_name=example_resource_group.name,

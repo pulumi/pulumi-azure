@@ -19,10 +19,12 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  connection_protocol: Optional[pulumi.Input[str]] = None,
+                 dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  express_route_circuit_id: Optional[pulumi.Input[str]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
                  ipsec_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArgs']]] = None,
+                 local_azure_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
                  local_network_gateway_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -180,6 +182,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
                Changing this value will force a resource to be created.
                > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+        :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) is enabled
                for this connection. Defaults to `false`.
         :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit
@@ -189,6 +192,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArgs']] ipsec_policy: A `ipsec_policy` block which is documented below.
                Only a single policy can be defined for a connection. For details on
                custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+        :param pulumi.Input[bool] local_azure_ip_address_enabled: Use private local Azure IP for the connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] local_network_gateway_id: The ID of the local network gateway
                when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
         :param pulumi.Input[str] location: The location/region where the connection is
@@ -239,10 +243,12 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
             __props__['authorization_key'] = authorization_key
             __props__['connection_protocol'] = connection_protocol
+            __props__['dpd_timeout_seconds'] = dpd_timeout_seconds
             __props__['enable_bgp'] = enable_bgp
             __props__['express_route_circuit_id'] = express_route_circuit_id
             __props__['express_route_gateway_bypass'] = express_route_gateway_bypass
             __props__['ipsec_policy'] = ipsec_policy
+            __props__['local_azure_ip_address_enabled'] = local_azure_ip_address_enabled
             __props__['local_network_gateway_id'] = local_network_gateway_id
             __props__['location'] = location
             __props__['name'] = name
@@ -273,10 +279,12 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             authorization_key: Optional[pulumi.Input[str]] = None,
             connection_protocol: Optional[pulumi.Input[str]] = None,
+            dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
             enable_bgp: Optional[pulumi.Input[bool]] = None,
             express_route_circuit_id: Optional[pulumi.Input[str]] = None,
             express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
             ipsec_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArgs']]] = None,
+            local_azure_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
             local_network_gateway_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -303,6 +311,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
                Changing this value will force a resource to be created.
                > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+        :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) is enabled
                for this connection. Defaults to `false`.
         :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit
@@ -312,6 +321,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArgs']] ipsec_policy: A `ipsec_policy` block which is documented below.
                Only a single policy can be defined for a connection. For details on
                custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+        :param pulumi.Input[bool] local_azure_ip_address_enabled: Use private local Azure IP for the connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] local_network_gateway_id: The ID of the local network gateway
                when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
         :param pulumi.Input[str] location: The location/region where the connection is
@@ -349,10 +359,12 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
         __props__["authorization_key"] = authorization_key
         __props__["connection_protocol"] = connection_protocol
+        __props__["dpd_timeout_seconds"] = dpd_timeout_seconds
         __props__["enable_bgp"] = enable_bgp
         __props__["express_route_circuit_id"] = express_route_circuit_id
         __props__["express_route_gateway_bypass"] = express_route_gateway_bypass
         __props__["ipsec_policy"] = ipsec_policy
+        __props__["local_azure_ip_address_enabled"] = local_azure_ip_address_enabled
         __props__["local_network_gateway_id"] = local_network_gateway_id
         __props__["location"] = location
         __props__["name"] = name
@@ -387,6 +399,14 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         """
         return pulumi.get(self, "connection_protocol")
+
+    @property
+    @pulumi.getter(name="dpdTimeoutSeconds")
+    def dpd_timeout_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "dpd_timeout_seconds")
 
     @property
     @pulumi.getter(name="enableBgp")
@@ -424,6 +444,14 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         """
         return pulumi.get(self, "ipsec_policy")
+
+    @property
+    @pulumi.getter(name="localAzureIpAddressEnabled")
+    def local_azure_ip_address_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Use private local Azure IP for the connection. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "local_azure_ip_address_enabled")
 
     @property
     @pulumi.getter(name="localNetworkGatewayId")

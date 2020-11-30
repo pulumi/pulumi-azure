@@ -587,8 +587,8 @@ github.com/pulumi/pulumi/sdk/v2 v2.2.1/go.mod h1:QNbWpL4gvf3X0lUFT7TXA2Jo1ff/Ti2
 github.com/pulumi/pulumi/sdk/v2 v2.2.1/go.mod h1:QNbWpL4gvf3X0lUFT7TXA2Jo1ff/Ti2l97AyFGYwvW4=
 github.com/pulumi/pulumi/sdk/v2 v2.13.3-0.20201109230029-a6f8b9b205cd h1:acvoTtWZHySIlANIlR5LSfRyjYSUadeJcdUZhyx9y4o=
 github.com/pulumi/pulumi/sdk/v2 v2.13.3-0.20201109230029-a6f8b9b205cd/go.mod h1:Z9ifPo/Q0+hUpAyguVx2gp5Sx+CBumnWvYQDhrM8l3E=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20201120184846-d6dd60e991c2 h1:MtQt0vBhgLv6kykOaE7Chg/oRRZXl6LEYBka1qXZyAo=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20201120184846-d6dd60e991c2/go.mod h1:t9nRxSHT47U9NuF8K8N9zYl6oEpXRbvxjpvpSiXXTa4=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20201130120949-25faf7e2cdf0 h1:QYBPDgVeBmmRiSXoMOcvcZfg5EOa6czjEZk2NsW9q5I=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20201130120949-25faf7e2cdf0/go.mod h1:jwWftLwHGetF7AsaapsvFtsTKIDGSZPr93SxZNG+hzY=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9/go.mod h1:L8WrssTzvgYw34/Ppa0JpJfI7KKXZ2cVGI6Djt0brUU=
 github.com/rickb777/plural v1.2.0 h1:5tvEc7UBCZ7l8h/2UeybSkt/uu1DQsZFOFdNevmUhlE=
@@ -650,8 +650,8 @@ github.com/terraform-providers/terraform-provider-http v1.2.0/go.mod h1:2Iot921O
 github.com/texttheater/golang-levenshtein v0.0.0-20191208221605-eb6844b05fc6 h1:9VTskZOIRf2vKF3UL8TuWElry5pgUpV1tFSe/e/0m/E=
 github.com/texttheater/golang-levenshtein v0.0.0-20191208221605-eb6844b05fc6/go.mod h1:XDKHRm5ThF8YJjx001LtgelzsoaEcvnA7lVWz9EeX3g=
 github.com/tmc/grpc-websocket-proxy v0.0.0-20190109142713-0ad062ec5ee5/go.mod h1:ncp9v5uamzpCO7NfCPTXjqaC+bZgJeR0sMTm6dMHP7U=
-github.com/tombuildsstuff/giovanni v0.14.0 h1:vBgZJHNs8p42Nj4GaffPe7nzs2Z2qIyKUN+7793UggA=
-github.com/tombuildsstuff/giovanni v0.14.0/go.mod h1:0TZugJPEtqzPlMpuJHYfXY6Dq2uLPrXf98D2XQSxNbA=
+github.com/tombuildsstuff/giovanni v0.15.0 h1:DMVKSdnKhYRDqeQUg6JhUxOoeCnO2BUNZJM9z/lSigA=
+github.com/tombuildsstuff/giovanni v0.15.0/go.mod h1:0TZugJPEtqzPlMpuJHYfXY6Dq2uLPrXf98D2XQSxNbA=
 github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7 h1:X9dsIWPuuEJlPX//UmRKophhOKCGXc46RVIGuttks68=
 github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7/go.mod h1:UxoP3EypF8JfGEjAII8jx1q8rQyDnX8qdTCs/UQBVIE=
 github.com/uber/jaeger-client-go v2.22.1+incompatible h1:NHcubEkVbahf9t3p75TOCR83gdUHXjRJvjoBh1yACsM=

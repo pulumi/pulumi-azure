@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     publisherName: "My Company",
- *     publisherEmail: "company@terraform.io",
+ *     publisherEmail: "company@mycompany.io",
  *     skuName: "Developer_1",
  * });
  * const exampleApi = new azure.apimanagement.Api("exampleApi", {

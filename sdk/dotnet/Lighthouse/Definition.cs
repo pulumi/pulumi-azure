@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Lighthouse
     ///         }));
     ///         var example = new Azure.Lighthouse.Definition("example", new Azure.Lighthouse.DefinitionArgs
     ///         {
-    ///             Description = "This is a lighthouse definition created via Terraform",
+    ///             Description = "This is a lighthouse definition created IaC",
     ///             ManagingTenantId = "00000000-0000-0000-0000-000000000000",
     ///             Authorizations = 
     ///             {

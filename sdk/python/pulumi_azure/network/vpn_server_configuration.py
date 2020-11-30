@@ -23,6 +23,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
                  ipsec_policy: Optional[pulumi.Input[pulumi.InputType['VpnServerConfigurationIpsecPolicyArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 radius: Optional[pulumi.Input[pulumi.InputType['VpnServerConfigurationRadiusArgs']]] = None,
                  radius_server: Optional[pulumi.Input[pulumi.InputType['VpnServerConfigurationRadiusServerArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -87,6 +88,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VpnServerConfigurationIpsecPolicyArgs']] ipsec_policy: A `ipsec_policy` block as defined below.
         :param pulumi.Input[str] location: The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['VpnServerConfigurationRadiusArgs']] radius: A `radius` block as defined below.
         :param pulumi.Input[pulumi.InputType['VpnServerConfigurationRadiusServerArgs']] radius_server: A `radius_server` block as defined below.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -116,6 +118,10 @@ class VpnServerConfiguration(pulumi.CustomResource):
             __props__['ipsec_policy'] = ipsec_policy
             __props__['location'] = location
             __props__['name'] = name
+            __props__['radius'] = radius
+            if radius_server is not None:
+                warnings.warn("""Deprecated in favour of `radius`""", DeprecationWarning)
+                pulumi.log.warn("radius_server is deprecated: Deprecated in favour of `radius`")
             __props__['radius_server'] = radius_server
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -141,6 +147,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
             ipsec_policy: Optional[pulumi.Input[pulumi.InputType['VpnServerConfigurationIpsecPolicyArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            radius: Optional[pulumi.Input[pulumi.InputType['VpnServerConfigurationRadiusArgs']]] = None,
             radius_server: Optional[pulumi.Input[pulumi.InputType['VpnServerConfigurationRadiusServerArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -159,6 +166,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VpnServerConfigurationIpsecPolicyArgs']] ipsec_policy: A `ipsec_policy` block as defined below.
         :param pulumi.Input[str] location: The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['VpnServerConfigurationRadiusArgs']] radius: A `radius` block as defined below.
         :param pulumi.Input[pulumi.InputType['VpnServerConfigurationRadiusServerArgs']] radius_server: A `radius_server` block as defined below.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -175,6 +183,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
         __props__["ipsec_policy"] = ipsec_policy
         __props__["location"] = location
         __props__["name"] = name
+        __props__["radius"] = radius
         __props__["radius_server"] = radius_server
         __props__["resource_group_name"] = resource_group_name
         __props__["tags"] = tags
@@ -229,6 +238,14 @@ class VpnServerConfiguration(pulumi.CustomResource):
         The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def radius(self) -> pulumi.Output[Optional['outputs.VpnServerConfigurationRadius']]:
+        """
+        A `radius` block as defined below.
+        """
+        return pulumi.get(self, "radius")
 
     @property
     @pulumi.getter(name="radiusServer")

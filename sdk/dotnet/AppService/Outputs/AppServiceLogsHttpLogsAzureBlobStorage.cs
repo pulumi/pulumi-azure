@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly int RetentionInDays;
         /// <summary>
-        /// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+        /// The URL to the storage container with a shared access signature token appended.
         /// </summary>
         public readonly string SasUrl;
 

@@ -45,7 +45,7 @@ import (
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			PublisherName:     pulumi.String("My Company"),
-// 			PublisherEmail:    pulumi.String("company@terraform.io"),
+// 			PublisherEmail:    pulumi.String("company@mycompany.io"),
 // 			SkuName:           pulumi.String("Developer_1"),
 // 		})
 // 		if err != nil {

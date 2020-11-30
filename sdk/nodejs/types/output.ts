@@ -1776,7 +1776,7 @@ export namespace appservice {
          */
         retentionInDays: number;
         /**
-         * The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+         * The URL to the storage container with a shared access signature token appended.
          */
         sasUrl: string;
     }
@@ -1798,7 +1798,7 @@ export namespace appservice {
          */
         retentionInDays: number;
         /**
-         * The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+         * The URL to the storage container with a shared access signature token appended.
          */
         sasUrl: string;
     }
@@ -15979,17 +15979,51 @@ export namespace network {
         selectorMatchOperator?: string;
     }
 
-    export interface ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
+    export interface ExpressRouteCircuitPeeringIpv6 {
         /**
-         * A list of Advertised Public Prefixes
+         * A `microsoftPeering` block as defined below.
          */
-        advertisedPublicPrefixes: string[];
+        microsoftPeering: outputs.network.ExpressRouteCircuitPeeringIpv6MicrosoftPeering;
         /**
-         * The CustomerASN of the peering
+         * A subnet for the primary link.
+         */
+        primaryPeerAddressPrefix: string;
+        /**
+         * The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
+         */
+        routeFilterId?: string;
+        /**
+         * A subnet for the secondary link.
+         */
+        secondaryPeerAddressPrefix: string;
+    }
+
+    export interface ExpressRouteCircuitPeeringIpv6MicrosoftPeering {
+        /**
+         * A list of Advertised Public Prefixes.
+         */
+        advertisedPublicPrefixes?: string[];
+        /**
+         * The CustomerASN of the peering.
          */
         customerAsn?: number;
         /**
-         * The RoutingRegistryName of the configuration
+         * The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+         */
+        routingRegistryName?: string;
+    }
+
+    export interface ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
+        /**
+         * A list of Advertised Public Prefixes.
+         */
+        advertisedPublicPrefixes: string[];
+        /**
+         * The CustomerASN of the peering.
+         */
+        customerAsn?: number;
+        /**
+         * The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
          */
         routingRegistryName?: string;
     }
@@ -16784,6 +16818,13 @@ export namespace network {
          * on the on-premises VPN devices.
          */
         peeringAddress: string;
+    }
+
+    export interface GetVirtualNetworkGatewayCustomRoute {
+        /**
+         * A list of address blocks reserved for this virtual network in CIDR notation.
+         */
+        addressPrefixes: string[];
     }
 
     export interface GetVirtualNetworkGatewayIpConfiguration {
@@ -17680,9 +17721,17 @@ export namespace network {
         remoteAddressCidrs: string[];
     }
 
+    export interface VirtualNetworkGatewayCustomRoute {
+        /**
+         * A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+         */
+        addressPrefixes?: string[];
+    }
+
     export interface VirtualNetworkGatewayIpConfiguration {
         /**
-         * A user-defined name of the revoked certificate.
+         * A user-defined name of the IP configuration. Defaults to
+         * `vnetGatewayConfig`.
          */
         name?: string;
         /**
@@ -17769,7 +17818,8 @@ export namespace network {
 
     export interface VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate {
         /**
-         * A user-defined name of the revoked certificate.
+         * A user-defined name of the IP configuration. Defaults to
+         * `vnetGatewayConfig`.
          */
         name: string;
         thumbprint: string;
@@ -17777,11 +17827,15 @@ export namespace network {
 
     export interface VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
         /**
-         * A user-defined name of the revoked certificate.
+         * A user-defined name of the IP configuration. Defaults to
+         * `vnetGatewayConfig`.
          */
         name: string;
         /**
-         * The SHA1 thumbprint of the certificate to be
+         * The public certificate of the root certificate
+         * authority. The certificate must be provided in Base-64 encoded X.509 format
+         * (PEM). In particular, this argument *must not* include the
+         * `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
          * revoked.
          */
         publicCertData: string;
@@ -18032,6 +18086,32 @@ export namespace network {
         saLifetimeSeconds: number;
     }
 
+    export interface VpnServerConfigurationRadius {
+        /**
+         * One or more `clientRootCertificate` blocks as defined above.
+         */
+        clientRootCertificates?: outputs.network.VpnServerConfigurationRadiusClientRootCertificate[];
+        /**
+         * One or more `serverRootCertificate` blocks as defined below.
+         */
+        serverRootCertificates: outputs.network.VpnServerConfigurationRadiusServerRootCertificate[];
+        /**
+         * One or more `server` blocks as defined below.
+         */
+        servers?: outputs.network.VpnServerConfigurationRadiusServer[];
+    }
+
+    export interface VpnServerConfigurationRadiusClientRootCertificate {
+        /**
+         * A name used to uniquely identify this certificate.
+         */
+        name: string;
+        /**
+         * The Thumbprint of the Certificate.
+         */
+        thumbprint: string;
+    }
+
     export interface VpnServerConfigurationRadiusServer {
         /**
          * The Address of the Radius Server.
@@ -18060,6 +18140,17 @@ export namespace network {
          * The Thumbprint of the Certificate.
          */
         thumbprint: string;
+    }
+
+    export interface VpnServerConfigurationRadiusServerRootCertificate {
+        /**
+         * A name used to uniquely identify this certificate.
+         */
+        name: string;
+        /**
+         * The Public Key Data associated with the Certificate.
+         */
+        publicCertData: string;
     }
 
     export interface VpnServerConfigurationRadiusServerServerRootCertificate {

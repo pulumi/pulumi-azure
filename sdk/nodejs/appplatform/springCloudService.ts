@@ -94,6 +94,10 @@ export class SpringCloudService extends pulumi.CustomResource {
      */
     public readonly network!: pulumi.Output<outputs.appplatform.SpringCloudServiceNetwork | undefined>;
     /**
+     * A list of the outbound Public IP Addresses used by this Spring Cloud Service.
+     */
+    public /*out*/ readonly outboundPublicIpAddresses!: pulumi.Output<string[]>;
+    /**
      * Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -126,6 +130,7 @@ export class SpringCloudService extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["network"] = state ? state.network : undefined;
+            inputs["outboundPublicIpAddresses"] = state ? state.outboundPublicIpAddresses : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -143,6 +148,7 @@ export class SpringCloudService extends pulumi.CustomResource {
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["trace"] = args ? args.trace : undefined;
+            inputs["outboundPublicIpAddresses"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -175,6 +181,10 @@ export interface SpringCloudServiceState {
      * A `network` block as defined below. Changing this forces a new resource to be created.
      */
     readonly network?: pulumi.Input<inputs.appplatform.SpringCloudServiceNetwork>;
+    /**
+     * A list of the outbound Public IP Addresses used by this Spring Cloud Service.
+     */
+    readonly outboundPublicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
      */

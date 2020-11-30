@@ -20,13 +20,16 @@ class GetGatewayConnectionResult:
     """
     A collection of values returned by getGatewayConnection.
     """
-    def __init__(__self__, authorization_key=None, connection_protocol=None, egress_bytes_transferred=None, enable_bgp=None, express_route_circuit_id=None, express_route_gateway_bypass=None, id=None, ingress_bytes_transferred=None, ipsec_policies=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, traffic_selector_policy=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None):
+    def __init__(__self__, authorization_key=None, connection_protocol=None, dpd_timeout_seconds=None, egress_bytes_transferred=None, enable_bgp=None, express_route_circuit_id=None, express_route_gateway_bypass=None, id=None, ingress_bytes_transferred=None, ipsec_policies=None, local_azure_ip_address_enabled=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, traffic_selector_policy=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None):
         if authorization_key and not isinstance(authorization_key, str):
             raise TypeError("Expected argument 'authorization_key' to be a str")
         pulumi.set(__self__, "authorization_key", authorization_key)
         if connection_protocol and not isinstance(connection_protocol, str):
             raise TypeError("Expected argument 'connection_protocol' to be a str")
         pulumi.set(__self__, "connection_protocol", connection_protocol)
+        if dpd_timeout_seconds and not isinstance(dpd_timeout_seconds, int):
+            raise TypeError("Expected argument 'dpd_timeout_seconds' to be a int")
+        pulumi.set(__self__, "dpd_timeout_seconds", dpd_timeout_seconds)
         if egress_bytes_transferred and not isinstance(egress_bytes_transferred, int):
             raise TypeError("Expected argument 'egress_bytes_transferred' to be a int")
         pulumi.set(__self__, "egress_bytes_transferred", egress_bytes_transferred)
@@ -48,6 +51,9 @@ class GetGatewayConnectionResult:
         if ipsec_policies and not isinstance(ipsec_policies, list):
             raise TypeError("Expected argument 'ipsec_policies' to be a list")
         pulumi.set(__self__, "ipsec_policies", ipsec_policies)
+        if local_azure_ip_address_enabled and not isinstance(local_azure_ip_address_enabled, bool):
+            raise TypeError("Expected argument 'local_azure_ip_address_enabled' to be a bool")
+        pulumi.set(__self__, "local_azure_ip_address_enabled", local_azure_ip_address_enabled)
         if local_network_gateway_id and not isinstance(local_network_gateway_id, str):
             raise TypeError("Expected argument 'local_network_gateway_id' to be a str")
         pulumi.set(__self__, "local_network_gateway_id", local_network_gateway_id)
@@ -104,6 +110,14 @@ class GetGatewayConnectionResult:
         return pulumi.get(self, "connection_protocol")
 
     @property
+    @pulumi.getter(name="dpdTimeoutSeconds")
+    def dpd_timeout_seconds(self) -> int:
+        """
+        The dead peer detection timeout of this connection in seconds.
+        """
+        return pulumi.get(self, "dpd_timeout_seconds")
+
+    @property
     @pulumi.getter(name="egressBytesTransferred")
     def egress_bytes_transferred(self) -> int:
         return pulumi.get(self, "egress_bytes_transferred")
@@ -151,6 +165,14 @@ class GetGatewayConnectionResult:
     @pulumi.getter(name="ipsecPolicies")
     def ipsec_policies(self) -> Sequence['outputs.GetGatewayConnectionIpsecPolicyResult']:
         return pulumi.get(self, "ipsec_policies")
+
+    @property
+    @pulumi.getter(name="localAzureIpAddressEnabled")
+    def local_azure_ip_address_enabled(self) -> bool:
+        """
+        Use private local Azure IP for the connection.
+        """
+        return pulumi.get(self, "local_azure_ip_address_enabled")
 
     @property
     @pulumi.getter(name="localNetworkGatewayId")
@@ -261,6 +283,7 @@ class AwaitableGetGatewayConnectionResult(GetGatewayConnectionResult):
         return GetGatewayConnectionResult(
             authorization_key=self.authorization_key,
             connection_protocol=self.connection_protocol,
+            dpd_timeout_seconds=self.dpd_timeout_seconds,
             egress_bytes_transferred=self.egress_bytes_transferred,
             enable_bgp=self.enable_bgp,
             express_route_circuit_id=self.express_route_circuit_id,
@@ -268,6 +291,7 @@ class AwaitableGetGatewayConnectionResult(GetGatewayConnectionResult):
             id=self.id,
             ingress_bytes_transferred=self.ingress_bytes_transferred,
             ipsec_policies=self.ipsec_policies,
+            local_azure_ip_address_enabled=self.local_azure_ip_address_enabled,
             local_network_gateway_id=self.local_network_gateway_id,
             location=self.location,
             name=self.name,
@@ -316,6 +340,7 @@ def get_gateway_connection(name: Optional[str] = None,
     return AwaitableGetGatewayConnectionResult(
         authorization_key=__ret__.authorization_key,
         connection_protocol=__ret__.connection_protocol,
+        dpd_timeout_seconds=__ret__.dpd_timeout_seconds,
         egress_bytes_transferred=__ret__.egress_bytes_transferred,
         enable_bgp=__ret__.enable_bgp,
         express_route_circuit_id=__ret__.express_route_circuit_id,
@@ -323,6 +348,7 @@ def get_gateway_connection(name: Optional[str] = None,
         id=__ret__.id,
         ingress_bytes_transferred=__ret__.ingress_bytes_transferred,
         ipsec_policies=__ret__.ipsec_policies,
+        local_azure_ip_address_enabled=__ret__.local_azure_ip_address_enabled,
         local_network_gateway_id=__ret__.local_network_gateway_id,
         location=__ret__.location,
         name=__ret__.name,

@@ -96,6 +96,12 @@ namespace Pulumi.Azure.AppPlatform
         public Output<Outputs.SpringCloudServiceNetwork?> Network { get; private set; } = null!;
 
         /// <summary>
+        /// A list of the outbound Public IP Addresses used by this Spring Cloud Service.
+        /// </summary>
+        [Output("outboundPublicIpAddresses")]
+        public Output<ImmutableArray<string>> OutboundPublicIpAddresses { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -249,6 +255,18 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("network")]
         public Input<Inputs.SpringCloudServiceNetworkGetArgs>? Network { get; set; }
+
+        [Input("outboundPublicIpAddresses")]
+        private InputList<string>? _outboundPublicIpAddresses;
+
+        /// <summary>
+        /// A list of the outbound Public IP Addresses used by this Spring Cloud Service.
+        /// </summary>
+        public InputList<string> OutboundPublicIpAddresses
+        {
+            get => _outboundPublicIpAddresses ?? (_outboundPublicIpAddresses = new InputList<string>());
+            set => _outboundPublicIpAddresses = value;
+        }
 
         /// <summary>
         /// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.

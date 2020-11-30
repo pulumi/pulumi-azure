@@ -59,7 +59,7 @@ export class Service extends pulumi.CustomResource {
     }
 
     /**
-     * A list of IPv4 addresses that are allowed access to the search service endpoint.
+     * A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
      */
     public readonly allowedIps!: pulumi.Output<string[] | undefined>;
     /**
@@ -174,7 +174,7 @@ export class Service extends pulumi.CustomResource {
  */
 export interface ServiceState {
     /**
-     * A list of IPv4 addresses that are allowed access to the search service endpoint.
+     * A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
      */
     readonly allowedIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -232,7 +232,7 @@ export interface ServiceState {
  */
 export interface ServiceArgs {
     /**
-     * A list of IPv4 addresses that are allowed access to the search service endpoint.
+     * A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
      */
     readonly allowedIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -65,6 +65,9 @@ export class GremlinDatabase extends pulumi.CustomResource {
      * The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
      */
     public readonly accountName!: pulumi.Output<string>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     */
     public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.GremlinDatabaseAutoscaleSettings | undefined>;
     /**
      * Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
@@ -129,6 +132,9 @@ export interface GremlinDatabaseState {
      * The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
      */
     readonly accountName?: pulumi.Input<string>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     */
     readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinDatabaseAutoscaleSettings>;
     /**
      * Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
@@ -152,6 +158,9 @@ export interface GremlinDatabaseArgs {
      * The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
      */
     readonly accountName: pulumi.Input<string>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     */
     readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinDatabaseAutoscaleSettings>;
     /**
      * Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.

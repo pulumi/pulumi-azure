@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class ExpressRouteCircuitPeeringMicrosoftPeeringConfig
     {
         /// <summary>
-        /// A list of Advertised Public Prefixes
+        /// A list of Advertised Public Prefixes.
         /// </summary>
         public readonly ImmutableArray<string> AdvertisedPublicPrefixes;
         /// <summary>
-        /// The CustomerASN of the peering
+        /// The CustomerASN of the peering.
         /// </summary>
         public readonly int? CustomerAsn;
         /// <summary>
-        /// The RoutingRegistryName of the configuration
+        /// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
         /// </summary>
         public readonly string? RoutingRegistryName;
 

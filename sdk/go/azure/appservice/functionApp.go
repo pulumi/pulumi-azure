@@ -201,6 +201,8 @@ type FunctionApp struct {
 	ClientAffinityEnabled pulumi.BoolOutput `pulumi:"clientAffinityEnabled"`
 	// An `connectionString` block as defined below.
 	ConnectionStrings FunctionAppConnectionStringArrayOutput `pulumi:"connectionStrings"`
+	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+	CustomDomainVerificationId pulumi.StringOutput `pulumi:"customDomainVerificationId"`
 	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
 	DailyMemoryTimeQuota pulumi.IntPtrOutput `pulumi:"dailyMemoryTimeQuota"`
 	// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
@@ -289,6 +291,8 @@ type functionAppState struct {
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// An `connectionString` block as defined below.
 	ConnectionStrings []FunctionAppConnectionString `pulumi:"connectionStrings"`
+	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+	CustomDomainVerificationId *string `pulumi:"customDomainVerificationId"`
 	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
 	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
 	// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
@@ -344,6 +348,8 @@ type FunctionAppState struct {
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// An `connectionString` block as defined below.
 	ConnectionStrings FunctionAppConnectionStringArrayInput
+	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+	CustomDomainVerificationId pulumi.StringPtrInput
 	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
 	DailyMemoryTimeQuota pulumi.IntPtrInput
 	// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`

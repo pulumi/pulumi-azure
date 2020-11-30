@@ -58,6 +58,7 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly activeActive: boolean;
     readonly bgpSettings: outputs.network.GetVirtualNetworkGatewayBgpSetting[];
+    readonly customRoutes: outputs.network.GetVirtualNetworkGatewayCustomRoute[];
     /**
      * The ID of the local network gateway
      * through which outbound Internet traffic from the virtual network in which the
@@ -90,6 +91,10 @@ export interface GetVirtualNetworkGatewayResult {
      * The user-defined name of the revoked certificate.
      */
     readonly name: string;
+    /**
+     * Whether a private IP will be used for this  gateway for connections.
+     */
+    readonly privateIpAddressEnabled: boolean;
     readonly resourceGroupName: string;
     /**
      * Configuration of the size and capacity of the Virtual Network Gateway.
