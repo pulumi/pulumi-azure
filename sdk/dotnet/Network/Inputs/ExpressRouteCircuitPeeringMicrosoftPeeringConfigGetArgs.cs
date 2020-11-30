@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _advertisedPublicPrefixes;
 
         /// <summary>
-        /// A list of Advertised Public Prefixes
+        /// A list of Advertised Public Prefixes.
         /// </summary>
         public InputList<string> AdvertisedPublicPrefixes
         {
@@ -25,13 +25,13 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// The CustomerASN of the peering
+        /// The CustomerASN of the peering.
         /// </summary>
         [Input("customerAsn")]
         public Input<int>? CustomerAsn { get; set; }
 
         /// <summary>
-        /// The RoutingRegistryName of the configuration
+        /// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
         /// </summary>
         [Input("routingRegistryName")]
         public Input<string>? RoutingRegistryName { get; set; }

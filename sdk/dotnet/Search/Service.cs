@@ -48,7 +48,7 @@ namespace Pulumi.Azure.Search
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of IPv4 addresses that are allowed access to the search service endpoint.
+        /// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
         /// </summary>
         [Output("allowedIps")]
         public Output<ImmutableArray<string>> AllowedIps { get; private set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.Azure.Search
         private InputList<string>? _allowedIps;
 
         /// <summary>
-        /// A list of IPv4 addresses that are allowed access to the search service endpoint.
+        /// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
         /// </summary>
         public InputList<string> AllowedIps
         {
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.Search
         private InputList<string>? _allowedIps;
 
         /// <summary>
-        /// A list of IPv4 addresses that are allowed access to the search service endpoint.
+        /// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
         /// </summary>
         public InputList<string> AllowedIps
         {

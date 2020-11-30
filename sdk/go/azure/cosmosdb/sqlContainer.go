@@ -75,7 +75,8 @@ type SqlContainer struct {
 	pulumi.CustomResourceState
 
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
-	AccountName       pulumi.StringOutput                    `pulumi:"accountName"`
+	AccountName pulumi.StringOutput `pulumi:"accountName"`
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
 	AutoscaleSettings SqlContainerAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
@@ -133,7 +134,8 @@ func GetSqlContainer(ctx *pulumi.Context,
 // Input properties used for looking up and filtering SqlContainer resources.
 type sqlContainerState struct {
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
-	AccountName       *string                        `pulumi:"accountName"`
+	AccountName *string `pulumi:"accountName"`
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
 	AutoscaleSettings *SqlContainerAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
@@ -155,7 +157,8 @@ type sqlContainerState struct {
 
 type SqlContainerState struct {
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
-	AccountName       pulumi.StringPtrInput
+	AccountName pulumi.StringPtrInput
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
 	AutoscaleSettings SqlContainerAutoscaleSettingsPtrInput
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
@@ -181,7 +184,8 @@ func (SqlContainerState) ElementType() reflect.Type {
 
 type sqlContainerArgs struct {
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
-	AccountName       string                         `pulumi:"accountName"`
+	AccountName string `pulumi:"accountName"`
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
 	AutoscaleSettings *SqlContainerAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
@@ -204,7 +208,8 @@ type sqlContainerArgs struct {
 // The set of arguments for constructing a SqlContainer resource.
 type SqlContainerArgs struct {
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
-	AccountName       pulumi.StringInput
+	AccountName pulumi.StringInput
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
 	AutoscaleSettings SqlContainerAutoscaleSettingsPtrInput
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput

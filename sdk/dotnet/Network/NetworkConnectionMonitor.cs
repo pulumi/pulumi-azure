@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network
 {
     /// <summary>
+    /// Manages a Network Connection Monitor.
+    /// 
+    /// &gt; **NOTE:** Any Network Connection Monitor resource created with API versions 2019-06-01 or earlier (v1) are now incompatible with this provider, which now only supports v2.
+    /// 
     /// ## Import
     /// 
     /// Network Connection Monitors can be imported using the `resource id`, e.g.

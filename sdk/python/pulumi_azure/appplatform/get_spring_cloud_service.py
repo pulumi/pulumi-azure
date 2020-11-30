@@ -20,7 +20,7 @@ class GetSpringCloudServiceResult:
     """
     A collection of values returned by getSpringCloudService.
     """
-    def __init__(__self__, config_server_git_settings=None, id=None, location=None, name=None, resource_group_name=None, tags=None):
+    def __init__(__self__, config_server_git_settings=None, id=None, location=None, name=None, outbound_public_ip_addresses=None, resource_group_name=None, tags=None):
         if config_server_git_settings and not isinstance(config_server_git_settings, list):
             raise TypeError("Expected argument 'config_server_git_settings' to be a list")
         pulumi.set(__self__, "config_server_git_settings", config_server_git_settings)
@@ -33,6 +33,9 @@ class GetSpringCloudServiceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if outbound_public_ip_addresses and not isinstance(outbound_public_ip_addresses, list):
+            raise TypeError("Expected argument 'outbound_public_ip_addresses' to be a list")
+        pulumi.set(__self__, "outbound_public_ip_addresses", outbound_public_ip_addresses)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -73,6 +76,14 @@ class GetSpringCloudServiceResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="outboundPublicIpAddresses")
+    def outbound_public_ip_addresses(self) -> Sequence[str]:
+        """
+        A list of the outbound Public IP Addresses used by this Spring Cloud Service.
+        """
+        return pulumi.get(self, "outbound_public_ip_addresses")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
@@ -96,6 +107,7 @@ class AwaitableGetSpringCloudServiceResult(GetSpringCloudServiceResult):
             id=self.id,
             location=self.location,
             name=self.name,
+            outbound_public_ip_addresses=self.outbound_public_ip_addresses,
             resource_group_name=self.resource_group_name,
             tags=self.tags)
 
@@ -135,5 +147,6 @@ def get_spring_cloud_service(name: Optional[str] = None,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
+        outbound_public_ip_addresses=__ret__.outbound_public_ip_addresses,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags)

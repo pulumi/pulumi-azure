@@ -59,8 +59,10 @@ type LookupSpringCloudServiceResult struct {
 	// The location of Spring Cloud Service.
 	Location string `pulumi:"location"`
 	// The name to identify on the Git repository.
-	Name              string `pulumi:"name"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Name string `pulumi:"name"`
+	// A list of the outbound Public IP Addresses used by this Spring Cloud Service.
+	OutboundPublicIpAddresses []string `pulumi:"outboundPublicIpAddresses"`
+	ResourceGroupName         string   `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to Spring Cloud Service.
 	Tags map[string]string `pulumi:"tags"`
 }

@@ -13,7 +13,8 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class VirtualNetworkGatewayIpConfigurationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A user-defined name of the revoked certificate.
+        /// A user-defined name of the IP configuration. Defaults to
+        /// `vnetGatewayConfig`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

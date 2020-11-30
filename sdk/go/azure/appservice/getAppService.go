@@ -62,6 +62,8 @@ type LookupAppServiceResult struct {
 	ClientCertEnabled bool `pulumi:"clientCertEnabled"`
 	// An `connectionString` block as defined below.
 	ConnectionStrings []GetAppServiceConnectionString `pulumi:"connectionStrings"`
+	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+	CustomDomainVerificationId string `pulumi:"customDomainVerificationId"`
 	// The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
 	DefaultSiteHostname string `pulumi:"defaultSiteHostname"`
 	// Is the App Service Enabled?

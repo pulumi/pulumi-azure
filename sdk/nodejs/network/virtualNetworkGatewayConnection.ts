@@ -196,6 +196,10 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     public readonly connectionProtocol!: pulumi.Output<string>;
     /**
+     * The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
+     */
+    public readonly dpdTimeoutSeconds!: pulumi.Output<number | undefined>;
+    /**
      * If `true`, BGP (Border Gateway Protocol) is enabled
      * for this connection. Defaults to `false`.
      */
@@ -216,6 +220,10 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
      */
     public readonly ipsecPolicy!: pulumi.Output<outputs.network.VirtualNetworkGatewayConnectionIpsecPolicy | undefined>;
+    /**
+     * Use private local Azure IP for the connection. Changing this forces a new resource to be created.
+     */
+    public readonly localAzureIpAddressEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the local network gateway
      * when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
@@ -297,10 +305,12 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             const state = argsOrState as VirtualNetworkGatewayConnectionState | undefined;
             inputs["authorizationKey"] = state ? state.authorizationKey : undefined;
             inputs["connectionProtocol"] = state ? state.connectionProtocol : undefined;
+            inputs["dpdTimeoutSeconds"] = state ? state.dpdTimeoutSeconds : undefined;
             inputs["enableBgp"] = state ? state.enableBgp : undefined;
             inputs["expressRouteCircuitId"] = state ? state.expressRouteCircuitId : undefined;
             inputs["expressRouteGatewayBypass"] = state ? state.expressRouteGatewayBypass : undefined;
             inputs["ipsecPolicy"] = state ? state.ipsecPolicy : undefined;
+            inputs["localAzureIpAddressEnabled"] = state ? state.localAzureIpAddressEnabled : undefined;
             inputs["localNetworkGatewayId"] = state ? state.localNetworkGatewayId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -326,10 +336,12 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             }
             inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
             inputs["connectionProtocol"] = args ? args.connectionProtocol : undefined;
+            inputs["dpdTimeoutSeconds"] = args ? args.dpdTimeoutSeconds : undefined;
             inputs["enableBgp"] = args ? args.enableBgp : undefined;
             inputs["expressRouteCircuitId"] = args ? args.expressRouteCircuitId : undefined;
             inputs["expressRouteGatewayBypass"] = args ? args.expressRouteGatewayBypass : undefined;
             inputs["ipsecPolicy"] = args ? args.ipsecPolicy : undefined;
+            inputs["localAzureIpAddressEnabled"] = args ? args.localAzureIpAddressEnabled : undefined;
             inputs["localNetworkGatewayId"] = args ? args.localNetworkGatewayId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -372,6 +384,10 @@ export interface VirtualNetworkGatewayConnectionState {
      */
     readonly connectionProtocol?: pulumi.Input<string>;
     /**
+     * The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
+     */
+    readonly dpdTimeoutSeconds?: pulumi.Input<number>;
+    /**
      * If `true`, BGP (Border Gateway Protocol) is enabled
      * for this connection. Defaults to `false`.
      */
@@ -392,6 +408,10 @@ export interface VirtualNetworkGatewayConnectionState {
      * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
      */
     readonly ipsecPolicy?: pulumi.Input<inputs.network.VirtualNetworkGatewayConnectionIpsecPolicy>;
+    /**
+     * Use private local Azure IP for the connection. Changing this forces a new resource to be created.
+     */
+    readonly localAzureIpAddressEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the local network gateway
      * when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
@@ -478,6 +498,10 @@ export interface VirtualNetworkGatewayConnectionArgs {
      */
     readonly connectionProtocol?: pulumi.Input<string>;
     /**
+     * The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
+     */
+    readonly dpdTimeoutSeconds?: pulumi.Input<number>;
+    /**
      * If `true`, BGP (Border Gateway Protocol) is enabled
      * for this connection. Defaults to `false`.
      */
@@ -498,6 +522,10 @@ export interface VirtualNetworkGatewayConnectionArgs {
      * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
      */
     readonly ipsecPolicy?: pulumi.Input<inputs.network.VirtualNetworkGatewayConnectionIpsecPolicy>;
+    /**
+     * Use private local Azure IP for the connection. Changing this forces a new resource to be created.
+     */
+    readonly localAzureIpAddressEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the local network gateway
      * when creating Site-to-Site connection (i.e. when `type` is `IPsec`).

@@ -67,6 +67,10 @@ export interface GetFunctionAppResult {
      */
     readonly connectionStrings: outputs.appservice.GetFunctionAppConnectionString[];
     /**
+     * An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+     */
+    readonly customDomainVerificationId: string;
+    /**
      * The default hostname associated with the Function App.
      */
     readonly defaultHostname: string;

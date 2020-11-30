@@ -120,8 +120,9 @@ type VirtualNetworkGateway struct {
 	// will be created. An active-active gateway requires a `HighPerformance` or an
 	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
-	ActiveActive pulumi.BoolOutput                      `pulumi:"activeActive"`
-	BgpSettings  VirtualNetworkGatewayBgpSettingsOutput `pulumi:"bgpSettings"`
+	ActiveActive pulumi.BoolOutput                         `pulumi:"activeActive"`
+	BgpSettings  VirtualNetworkGatewayBgpSettingsOutput    `pulumi:"bgpSettings"`
+	CustomRoute  VirtualNetworkGatewayCustomRoutePtrOutput `pulumi:"customRoute"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunnelling*). Refer to the
@@ -140,8 +141,11 @@ type VirtualNetworkGateway struct {
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// A user-defined name of the revoked certificate.
+	// A user-defined name of the IP configuration. Defaults to
+	// `vnetGatewayConfig`.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
+	PrivateIpAddressEnabled pulumi.BoolPtrOutput `pulumi:"privateIpAddressEnabled"`
 	// The name of the resource group in which to
 	// create the Virtual Network Gateway. Changing the resource group name forces
 	// a new resource to be created.
@@ -214,6 +218,7 @@ type virtualNetworkGatewayState struct {
 	// Defaults to `false`.
 	ActiveActive *bool                             `pulumi:"activeActive"`
 	BgpSettings  *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
+	CustomRoute  *VirtualNetworkGatewayCustomRoute `pulumi:"customRoute"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunnelling*). Refer to the
@@ -232,8 +237,11 @@ type virtualNetworkGatewayState struct {
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// A user-defined name of the revoked certificate.
+	// A user-defined name of the IP configuration. Defaults to
+	// `vnetGatewayConfig`.
 	Name *string `pulumi:"name"`
+	// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
+	PrivateIpAddressEnabled *bool `pulumi:"privateIpAddressEnabled"`
 	// The name of the resource group in which to
 	// create the Virtual Network Gateway. Changing the resource group name forces
 	// a new resource to be created.
@@ -267,6 +275,7 @@ type VirtualNetworkGatewayState struct {
 	// Defaults to `false`.
 	ActiveActive pulumi.BoolPtrInput
 	BgpSettings  VirtualNetworkGatewayBgpSettingsPtrInput
+	CustomRoute  VirtualNetworkGatewayCustomRoutePtrInput
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunnelling*). Refer to the
@@ -285,8 +294,11 @@ type VirtualNetworkGatewayState struct {
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// A user-defined name of the revoked certificate.
+	// A user-defined name of the IP configuration. Defaults to
+	// `vnetGatewayConfig`.
 	Name pulumi.StringPtrInput
+	// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
+	PrivateIpAddressEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to
 	// create the Virtual Network Gateway. Changing the resource group name forces
 	// a new resource to be created.
@@ -324,6 +336,7 @@ type virtualNetworkGatewayArgs struct {
 	// Defaults to `false`.
 	ActiveActive *bool                             `pulumi:"activeActive"`
 	BgpSettings  *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
+	CustomRoute  *VirtualNetworkGatewayCustomRoute `pulumi:"customRoute"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunnelling*). Refer to the
@@ -342,8 +355,11 @@ type virtualNetworkGatewayArgs struct {
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// A user-defined name of the revoked certificate.
+	// A user-defined name of the IP configuration. Defaults to
+	// `vnetGatewayConfig`.
 	Name *string `pulumi:"name"`
+	// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
+	PrivateIpAddressEnabled *bool `pulumi:"privateIpAddressEnabled"`
 	// The name of the resource group in which to
 	// create the Virtual Network Gateway. Changing the resource group name forces
 	// a new resource to be created.
@@ -378,6 +394,7 @@ type VirtualNetworkGatewayArgs struct {
 	// Defaults to `false`.
 	ActiveActive pulumi.BoolPtrInput
 	BgpSettings  VirtualNetworkGatewayBgpSettingsPtrInput
+	CustomRoute  VirtualNetworkGatewayCustomRoutePtrInput
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunnelling*). Refer to the
@@ -396,8 +413,11 @@ type VirtualNetworkGatewayArgs struct {
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// A user-defined name of the revoked certificate.
+	// A user-defined name of the IP configuration. Defaults to
+	// `vnetGatewayConfig`.
 	Name pulumi.StringPtrInput
+	// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
+	PrivateIpAddressEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to
 	// create the Virtual Network Gateway. Changing the resource group name forces
 	// a new resource to be created.

@@ -65,6 +65,9 @@ export class SqlDatabase extends pulumi.CustomResource {
      * The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
      */
     public readonly accountName!: pulumi.Output<string>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     */
     public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.SqlDatabaseAutoscaleSettings | undefined>;
     /**
      * Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
@@ -129,6 +132,9 @@ export interface SqlDatabaseState {
      * The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
      */
     readonly accountName?: pulumi.Input<string>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     */
     readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlDatabaseAutoscaleSettings>;
     /**
      * Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
@@ -152,6 +158,9 @@ export interface SqlDatabaseArgs {
      * The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
      */
     readonly accountName: pulumi.Input<string>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     */
     readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlDatabaseAutoscaleSettings>;
     /**
      * Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.

@@ -60,6 +60,10 @@ export interface GetGatewayConnectionResult {
      */
     readonly authorizationKey: string;
     readonly connectionProtocol: string;
+    /**
+     * The dead peer detection timeout of this connection in seconds.
+     */
+    readonly dpdTimeoutSeconds: number;
     readonly egressBytesTransferred: number;
     /**
      * If `true`, BGP (Border Gateway Protocol) is enabled
@@ -81,6 +85,10 @@ export interface GetGatewayConnectionResult {
     readonly id: string;
     readonly ingressBytesTransferred: number;
     readonly ipsecPolicies: outputs.network.GetGatewayConnectionIpsecPolicy[];
+    /**
+     * Use private local Azure IP for the connection.
+     */
+    readonly localAzureIpAddressEnabled: boolean;
     /**
      * The ID of the local network gateway
      * when a Site-to-Site connection (i.e. when `type` is `IPsec`).

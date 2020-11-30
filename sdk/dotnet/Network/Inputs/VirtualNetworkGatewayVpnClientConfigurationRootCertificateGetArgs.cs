@@ -13,13 +13,17 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class VirtualNetworkGatewayVpnClientConfigurationRootCertificateGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A user-defined name of the revoked certificate.
+        /// A user-defined name of the IP configuration. Defaults to
+        /// `vnetGatewayConfig`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The SHA1 thumbprint of the certificate to be
+        /// The public certificate of the root certificate
+        /// authority. The certificate must be provided in Base-64 encoded X.509 format
+        /// (PEM). In particular, this argument *must not* include the
+        /// `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
         /// revoked.
         /// </summary>
         [Input("publicCertData", required: true)]

@@ -86,6 +86,8 @@ type SpringCloudService struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `network` block as defined below. Changing this forces a new resource to be created.
 	Network SpringCloudServiceNetworkPtrOutput `pulumi:"network"`
+	// A list of the outbound Public IP Addresses used by this Spring Cloud Service.
+	OutboundPublicIpAddresses pulumi.StringArrayOutput `pulumi:"outboundPublicIpAddresses"`
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
@@ -135,6 +137,8 @@ type springCloudServiceState struct {
 	Name *string `pulumi:"name"`
 	// A `network` block as defined below. Changing this forces a new resource to be created.
 	Network *SpringCloudServiceNetwork `pulumi:"network"`
+	// A list of the outbound Public IP Addresses used by this Spring Cloud Service.
+	OutboundPublicIpAddresses []string `pulumi:"outboundPublicIpAddresses"`
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
@@ -154,6 +158,8 @@ type SpringCloudServiceState struct {
 	Name pulumi.StringPtrInput
 	// A `network` block as defined below. Changing this forces a new resource to be created.
 	Network SpringCloudServiceNetworkPtrInput
+	// A list of the outbound Public IP Addresses used by this Spring Cloud Service.
+	OutboundPublicIpAddresses pulumi.StringArrayInput
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.

@@ -158,6 +158,10 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly connectionStrings!: pulumi.Output<outputs.appservice.FunctionAppConnectionString[]>;
     /**
+     * An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+     */
+    public /*out*/ readonly customDomainVerificationId!: pulumi.Output<string>;
+    /**
      * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
      */
     public readonly dailyMemoryTimeQuota!: pulumi.Output<number | undefined>;
@@ -259,6 +263,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["authSettings"] = state ? state.authSettings : undefined;
             inputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
             inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
+            inputs["customDomainVerificationId"] = state ? state.customDomainVerificationId : undefined;
             inputs["dailyMemoryTimeQuota"] = state ? state.dailyMemoryTimeQuota : undefined;
             inputs["defaultHostname"] = state ? state.defaultHostname : undefined;
             inputs["enableBuiltinLogging"] = state ? state.enableBuiltinLogging : undefined;
@@ -309,6 +314,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["storageConnectionString"] = args ? args.storageConnectionString : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
+            inputs["customDomainVerificationId"] = undefined /*out*/;
             inputs["defaultHostname"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["outboundIpAddresses"] = undefined /*out*/;
@@ -350,6 +356,10 @@ export interface FunctionAppState {
      * An `connectionString` block as defined below.
      */
     readonly connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppConnectionString>[]>;
+    /**
+     * An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+     */
+    readonly customDomainVerificationId?: pulumi.Input<string>;
     /**
      * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
      */

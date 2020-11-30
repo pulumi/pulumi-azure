@@ -108,6 +108,7 @@ class SpringCloudService(pulumi.CustomResource):
             __props__['sku_name'] = sku_name
             __props__['tags'] = tags
             __props__['trace'] = trace
+            __props__['outbound_public_ip_addresses'] = None
         super(SpringCloudService, __self__).__init__(
             'azure:appplatform/springCloudService:SpringCloudService',
             resource_name,
@@ -122,6 +123,7 @@ class SpringCloudService(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']]] = None,
+            outbound_public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -137,6 +139,7 @@ class SpringCloudService(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']] network: A `network` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_public_ip_addresses: A list of the outbound Public IP Addresses used by this Spring Cloud Service.
         :param pulumi.Input[str] resource_group_name: Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -150,6 +153,7 @@ class SpringCloudService(pulumi.CustomResource):
         __props__["location"] = location
         __props__["name"] = name
         __props__["network"] = network
+        __props__["outbound_public_ip_addresses"] = outbound_public_ip_addresses
         __props__["resource_group_name"] = resource_group_name
         __props__["sku_name"] = sku_name
         __props__["tags"] = tags
@@ -187,6 +191,14 @@ class SpringCloudService(pulumi.CustomResource):
         A `network` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network")
+
+    @property
+    @pulumi.getter(name="outboundPublicIpAddresses")
+    def outbound_public_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of the outbound Public IP Addresses used by this Spring Cloud Service.
+        """
+        return pulumi.get(self, "outbound_public_ip_addresses")
 
     @property
     @pulumi.getter(name="resourceGroupName")

@@ -76,6 +76,10 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string AuthorizationKey;
         public readonly string ConnectionProtocol;
+        /// <summary>
+        /// The dead peer detection timeout of this connection in seconds.
+        /// </summary>
+        public readonly int DpdTimeoutSeconds;
         public readonly int EgressBytesTransferred;
         /// <summary>
         /// If `true`, BGP (Border Gateway Protocol) is enabled
@@ -97,6 +101,10 @@ namespace Pulumi.Azure.Network
         public readonly string Id;
         public readonly int IngressBytesTransferred;
         public readonly ImmutableArray<Outputs.GetGatewayConnectionIpsecPolicyResult> IpsecPolicies;
+        /// <summary>
+        /// Use private local Azure IP for the connection.
+        /// </summary>
+        public readonly bool LocalAzureIpAddressEnabled;
         /// <summary>
         /// The ID of the local network gateway
         /// when a Site-to-Site connection (i.e. when `type` is `IPsec`).
@@ -152,6 +160,8 @@ namespace Pulumi.Azure.Network
 
             string connectionProtocol,
 
+            int dpdTimeoutSeconds,
+
             int egressBytesTransferred,
 
             bool enableBgp,
@@ -165,6 +175,8 @@ namespace Pulumi.Azure.Network
             int ingressBytesTransferred,
 
             ImmutableArray<Outputs.GetGatewayConnectionIpsecPolicyResult> ipsecPolicies,
+
+            bool localAzureIpAddressEnabled,
 
             string localNetworkGatewayId,
 
@@ -194,6 +206,7 @@ namespace Pulumi.Azure.Network
         {
             AuthorizationKey = authorizationKey;
             ConnectionProtocol = connectionProtocol;
+            DpdTimeoutSeconds = dpdTimeoutSeconds;
             EgressBytesTransferred = egressBytesTransferred;
             EnableBgp = enableBgp;
             ExpressRouteCircuitId = expressRouteCircuitId;
@@ -201,6 +214,7 @@ namespace Pulumi.Azure.Network
             Id = id;
             IngressBytesTransferred = ingressBytesTransferred;
             IpsecPolicies = ipsecPolicies;
+            LocalAzureIpAddressEnabled = localAzureIpAddressEnabled;
             LocalNetworkGatewayId = localNetworkGatewayId;
             Location = location;
             Name = name;

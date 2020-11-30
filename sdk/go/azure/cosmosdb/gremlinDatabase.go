@@ -56,7 +56,8 @@ type GremlinDatabase struct {
 	pulumi.CustomResourceState
 
 	// The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
-	AccountName       pulumi.StringOutput                       `pulumi:"accountName"`
+	AccountName pulumi.StringOutput `pulumi:"accountName"`
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	AutoscaleSettings GremlinDatabaseAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -101,7 +102,8 @@ func GetGremlinDatabase(ctx *pulumi.Context,
 // Input properties used for looking up and filtering GremlinDatabase resources.
 type gremlinDatabaseState struct {
 	// The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
-	AccountName       *string                           `pulumi:"accountName"`
+	AccountName *string `pulumi:"accountName"`
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	AutoscaleSettings *GremlinDatabaseAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -113,7 +115,8 @@ type gremlinDatabaseState struct {
 
 type GremlinDatabaseState struct {
 	// The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
-	AccountName       pulumi.StringPtrInput
+	AccountName pulumi.StringPtrInput
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	AutoscaleSettings GremlinDatabaseAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -129,7 +132,8 @@ func (GremlinDatabaseState) ElementType() reflect.Type {
 
 type gremlinDatabaseArgs struct {
 	// The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
-	AccountName       string                            `pulumi:"accountName"`
+	AccountName string `pulumi:"accountName"`
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	AutoscaleSettings *GremlinDatabaseAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -142,7 +146,8 @@ type gremlinDatabaseArgs struct {
 // The set of arguments for constructing a GremlinDatabase resource.
 type GremlinDatabaseArgs struct {
 	// The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
-	AccountName       pulumi.StringInput
+	AccountName pulumi.StringInput
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	AutoscaleSettings GremlinDatabaseAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput

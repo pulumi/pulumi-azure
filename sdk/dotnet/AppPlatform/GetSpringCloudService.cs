@@ -85,6 +85,10 @@ namespace Pulumi.Azure.AppPlatform
         /// The name to identify on the Git repository.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A list of the outbound Public IP Addresses used by this Spring Cloud Service.
+        /// </summary>
+        public readonly ImmutableArray<string> OutboundPublicIpAddresses;
         public readonly string ResourceGroupName;
         /// <summary>
         /// A mapping of tags assigned to Spring Cloud Service.
@@ -101,6 +105,8 @@ namespace Pulumi.Azure.AppPlatform
 
             string name,
 
+            ImmutableArray<string> outboundPublicIpAddresses,
+
             string resourceGroupName,
 
             ImmutableDictionary<string, string> tags)
@@ -109,6 +115,7 @@ namespace Pulumi.Azure.AppPlatform
             Id = id;
             Location = location;
             Name = name;
+            OutboundPublicIpAddresses = outboundPublicIpAddresses;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
         }

@@ -54,6 +54,9 @@ namespace Pulumi.Azure.CosmosDB
         [Output("accountName")]
         public Output<string> AccountName { get; private set; } = null!;
 
+        /// <summary>
+        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+        /// </summary>
         [Output("autoscaleSettings")]
         public Output<Outputs.SqlDatabaseAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
 
@@ -127,6 +130,9 @@ namespace Pulumi.Azure.CosmosDB
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
+        /// <summary>
+        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+        /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.SqlDatabaseAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
 
@@ -161,6 +167,9 @@ namespace Pulumi.Azure.CosmosDB
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
 
+        /// <summary>
+        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+        /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.SqlDatabaseAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
 

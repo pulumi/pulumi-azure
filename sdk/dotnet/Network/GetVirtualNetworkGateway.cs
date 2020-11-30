@@ -74,6 +74,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly bool ActiveActive;
         public readonly ImmutableArray<Outputs.GetVirtualNetworkGatewayBgpSettingResult> BgpSettings;
+        public readonly ImmutableArray<Outputs.GetVirtualNetworkGatewayCustomRouteResult> CustomRoutes;
         /// <summary>
         /// The ID of the local network gateway
         /// through which outbound Internet traffic from the virtual network in which the
@@ -106,6 +107,10 @@ namespace Pulumi.Azure.Network
         /// The user-defined name of the revoked certificate.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Whether a private IP will be used for this  gateway for connections.
+        /// </summary>
+        public readonly bool PrivateIpAddressEnabled;
         public readonly string ResourceGroupName;
         /// <summary>
         /// Configuration of the size and capacity of the Virtual Network Gateway.
@@ -134,6 +139,8 @@ namespace Pulumi.Azure.Network
 
             ImmutableArray<Outputs.GetVirtualNetworkGatewayBgpSettingResult> bgpSettings,
 
+            ImmutableArray<Outputs.GetVirtualNetworkGatewayCustomRouteResult> customRoutes,
+
             string defaultLocalNetworkGatewayId,
 
             bool enableBgp,
@@ -147,6 +154,8 @@ namespace Pulumi.Azure.Network
             string location,
 
             string name,
+
+            bool privateIpAddressEnabled,
 
             string resourceGroupName,
 
@@ -162,6 +171,7 @@ namespace Pulumi.Azure.Network
         {
             ActiveActive = activeActive;
             BgpSettings = bgpSettings;
+            CustomRoutes = customRoutes;
             DefaultLocalNetworkGatewayId = defaultLocalNetworkGatewayId;
             EnableBgp = enableBgp;
             Generation = generation;
@@ -169,6 +179,7 @@ namespace Pulumi.Azure.Network
             IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;
+            PrivateIpAddressEnabled = privateIpAddressEnabled;
             ResourceGroupName = resourceGroupName;
             Sku = sku;
             Tags = tags;

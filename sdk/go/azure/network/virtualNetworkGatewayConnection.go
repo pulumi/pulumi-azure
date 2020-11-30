@@ -273,6 +273,8 @@ type VirtualNetworkGatewayConnection struct {
 	// Changing this value will force a resource to be created.
 	// > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol pulumi.StringOutput `pulumi:"connectionProtocol"`
+	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
+	DpdTimeoutSeconds pulumi.IntPtrOutput `pulumi:"dpdTimeoutSeconds"`
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection. Defaults to `false`.
 	EnableBgp pulumi.BoolOutput `pulumi:"enableBgp"`
@@ -286,6 +288,8 @@ type VirtualNetworkGatewayConnection struct {
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 	IpsecPolicy VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput `pulumi:"ipsecPolicy"`
+	// Use private local Azure IP for the connection. Changing this forces a new resource to be created.
+	LocalAzureIpAddressEnabled pulumi.BoolPtrOutput `pulumi:"localAzureIpAddressEnabled"`
 	// The ID of the local network gateway
 	// when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
 	LocalNetworkGatewayId pulumi.StringPtrOutput `pulumi:"localNetworkGatewayId"`
@@ -376,6 +380,8 @@ type virtualNetworkGatewayConnectionState struct {
 	// Changing this value will force a resource to be created.
 	// > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
+	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
+	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection. Defaults to `false`.
 	EnableBgp *bool `pulumi:"enableBgp"`
@@ -389,6 +395,8 @@ type virtualNetworkGatewayConnectionState struct {
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 	IpsecPolicy *VirtualNetworkGatewayConnectionIpsecPolicy `pulumi:"ipsecPolicy"`
+	// Use private local Azure IP for the connection. Changing this forces a new resource to be created.
+	LocalAzureIpAddressEnabled *bool `pulumi:"localAzureIpAddressEnabled"`
 	// The ID of the local network gateway
 	// when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
 	LocalNetworkGatewayId *string `pulumi:"localNetworkGatewayId"`
@@ -443,6 +451,8 @@ type VirtualNetworkGatewayConnectionState struct {
 	// Changing this value will force a resource to be created.
 	// > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol pulumi.StringPtrInput
+	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
+	DpdTimeoutSeconds pulumi.IntPtrInput
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection. Defaults to `false`.
 	EnableBgp pulumi.BoolPtrInput
@@ -456,6 +466,8 @@ type VirtualNetworkGatewayConnectionState struct {
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 	IpsecPolicy VirtualNetworkGatewayConnectionIpsecPolicyPtrInput
+	// Use private local Azure IP for the connection. Changing this forces a new resource to be created.
+	LocalAzureIpAddressEnabled pulumi.BoolPtrInput
 	// The ID of the local network gateway
 	// when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
 	LocalNetworkGatewayId pulumi.StringPtrInput
@@ -514,6 +526,8 @@ type virtualNetworkGatewayConnectionArgs struct {
 	// Changing this value will force a resource to be created.
 	// > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
+	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
+	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection. Defaults to `false`.
 	EnableBgp *bool `pulumi:"enableBgp"`
@@ -527,6 +541,8 @@ type virtualNetworkGatewayConnectionArgs struct {
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 	IpsecPolicy *VirtualNetworkGatewayConnectionIpsecPolicy `pulumi:"ipsecPolicy"`
+	// Use private local Azure IP for the connection. Changing this forces a new resource to be created.
+	LocalAzureIpAddressEnabled *bool `pulumi:"localAzureIpAddressEnabled"`
 	// The ID of the local network gateway
 	// when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
 	LocalNetworkGatewayId *string `pulumi:"localNetworkGatewayId"`
@@ -582,6 +598,8 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	// Changing this value will force a resource to be created.
 	// > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol pulumi.StringPtrInput
+	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
+	DpdTimeoutSeconds pulumi.IntPtrInput
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection. Defaults to `false`.
 	EnableBgp pulumi.BoolPtrInput
@@ -595,6 +613,8 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 	IpsecPolicy VirtualNetworkGatewayConnectionIpsecPolicyPtrInput
+	// Use private local Azure IP for the connection. Changing this forces a new resource to be created.
+	LocalAzureIpAddressEnabled pulumi.BoolPtrInput
 	// The ID of the local network gateway
 	// when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
 	LocalNetworkGatewayId pulumi.StringPtrInput

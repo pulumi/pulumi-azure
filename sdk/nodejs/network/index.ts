@@ -39,6 +39,7 @@ export * from "./getTrafficManagerProfile";
 export * from "./getVirtualHub";
 export * from "./getVirtualNetwork";
 export * from "./getVirtualNetworkGateway";
+export * from "./getVirtualWan";
 export * from "./ipgroup";
 export * from "./localNetworkGateway";
 export * from "./natGateway";

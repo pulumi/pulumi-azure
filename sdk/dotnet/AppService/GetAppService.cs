@@ -90,6 +90,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppServiceConnectionStringResult> ConnectionStrings;
         /// <summary>
+        /// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+        /// </summary>
+        public readonly string CustomDomainVerificationId;
+        /// <summary>
         /// The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
         /// </summary>
         public readonly string DefaultSiteHostname;
@@ -148,6 +152,8 @@ namespace Pulumi.Azure.AppService
 
             ImmutableArray<Outputs.GetAppServiceConnectionStringResult> connectionStrings,
 
+            string customDomainVerificationId,
+
             string defaultSiteHostname,
 
             bool enabled,
@@ -179,6 +185,7 @@ namespace Pulumi.Azure.AppService
             ClientAffinityEnabled = clientAffinityEnabled;
             ClientCertEnabled = clientCertEnabled;
             ConnectionStrings = connectionStrings;
+            CustomDomainVerificationId = customDomainVerificationId;
             DefaultSiteHostname = defaultSiteHostname;
             Enabled = enabled;
             HttpsOnly = httpsOnly;

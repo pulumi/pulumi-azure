@@ -19,7 +19,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<int> RetentionInDays { get; set; } = null!;
 
         /// <summary>
-        /// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+        /// The URL to the storage container with a shared access signature token appended.
         /// </summary>
         [Input("sasUrl", required: true)]
         public Input<string> SasUrl { get; set; } = null!;

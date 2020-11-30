@@ -56,7 +56,7 @@ class Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ips: A list of IPv4 addresses that are allowed access to the search service endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ips: A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
         :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: A `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
@@ -131,7 +131,7 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ips: A list of IPv4 addresses that are allowed access to the search service endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ips: A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
         :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: A `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
@@ -168,7 +168,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="allowedIps")
     def allowed_ips(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of IPv4 addresses that are allowed access to the search service endpoint.
+        A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
         """
         return pulumi.get(self, "allowed_ips")
 

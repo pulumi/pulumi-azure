@@ -19,6 +19,7 @@ export * from "./getFunctionApp";
 export * from "./getFunctionAppHostKeys";
 export * from "./hybridConnection";
 export * from "./kind";
+export * from "./managedCertificate";
 export * from "./plan";
 export * from "./slot";
 export * from "./slotVirtualNetworkSwiftConnection";

@@ -772,7 +772,7 @@ class AppServiceLogsApplicationLogsAzureBlobStorage(dict):
         """
         :param str level: The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
         :param int retention_in_days: The number of days to retain logs for.
-        :param str sas_url: The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+        :param str sas_url: The URL to the storage container with a shared access signature token appended.
         """
         pulumi.set(__self__, "level", level)
         pulumi.set(__self__, "retention_in_days", retention_in_days)
@@ -798,7 +798,7 @@ class AppServiceLogsApplicationLogsAzureBlobStorage(dict):
     @pulumi.getter(name="sasUrl")
     def sas_url(self) -> str:
         """
-        The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+        The URL to the storage container with a shared access signature token appended.
         """
         return pulumi.get(self, "sas_url")
 
@@ -847,7 +847,7 @@ class AppServiceLogsHttpLogsAzureBlobStorage(dict):
                  sas_url: str):
         """
         :param int retention_in_days: The number of days to retain logs for.
-        :param str sas_url: The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+        :param str sas_url: The URL to the storage container with a shared access signature token appended.
         """
         pulumi.set(__self__, "retention_in_days", retention_in_days)
         pulumi.set(__self__, "sas_url", sas_url)
@@ -864,7 +864,7 @@ class AppServiceLogsHttpLogsAzureBlobStorage(dict):
     @pulumi.getter(name="sasUrl")
     def sas_url(self) -> str:
         """
-        The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+        The URL to the storage container with a shared access signature token appended.
         """
         return pulumi.get(self, "sas_url")
 

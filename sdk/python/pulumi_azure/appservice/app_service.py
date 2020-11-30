@@ -145,6 +145,7 @@ class AppService(pulumi.CustomResource):
             __props__['source_control'] = source_control
             __props__['storage_accounts'] = storage_accounts
             __props__['tags'] = tags
+            __props__['custom_domain_verification_id'] = None
             __props__['default_site_hostname'] = None
             __props__['outbound_ip_addresses'] = None
             __props__['possible_outbound_ip_addresses'] = None
@@ -166,6 +167,7 @@ class AppService(pulumi.CustomResource):
             client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
             client_cert_enabled: Optional[pulumi.Input[bool]] = None,
             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppServiceConnectionStringArgs']]]]] = None,
+            custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
             default_site_hostname: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             https_only: Optional[pulumi.Input[bool]] = None,
@@ -195,6 +197,7 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[bool] client_affinity_enabled: Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[bool] client_cert_enabled: Does the App Service require client certificates for incoming requests? Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppServiceConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
+        :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[str] default_site_hostname: The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
         :param pulumi.Input[bool] enabled: Is the App Service Enabled?
         :param pulumi.Input[bool] https_only: Can the App Service only be accessed via HTTPS? Defaults to `false`.
@@ -222,6 +225,7 @@ class AppService(pulumi.CustomResource):
         __props__["client_affinity_enabled"] = client_affinity_enabled
         __props__["client_cert_enabled"] = client_cert_enabled
         __props__["connection_strings"] = connection_strings
+        __props__["custom_domain_verification_id"] = custom_domain_verification_id
         __props__["default_site_hostname"] = default_site_hostname
         __props__["enabled"] = enabled
         __props__["https_only"] = https_only
@@ -294,6 +298,14 @@ class AppService(pulumi.CustomResource):
         One or more `connection_string` blocks as defined below.
         """
         return pulumi.get(self, "connection_strings")
+
+    @property
+    @pulumi.getter(name="customDomainVerificationId")
+    def custom_domain_verification_id(self) -> pulumi.Output[str]:
+        """
+        An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+        """
+        return pulumi.get(self, "custom_domain_verification_id")
 
     @property
     @pulumi.getter(name="defaultSiteHostname")

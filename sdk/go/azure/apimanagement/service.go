@@ -77,7 +77,7 @@ type Service struct {
 	// The URL of the Gateway for the API Management Service.
 	GatewayUrl pulumi.StringOutput `pulumi:"gatewayUrl"`
 	// A `hostnameConfiguration` block as defined below.
-	HostnameConfiguration ServiceHostnameConfigurationOutput `pulumi:"hostnameConfiguration"`
+	HostnameConfiguration ServiceHostnameConfigurationPtrOutput `pulumi:"hostnameConfiguration"`
 	// An `identity` block is documented below.
 	Identity ServiceIdentityPtrOutput `pulumi:"identity"`
 	// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
@@ -119,6 +119,7 @@ type Service struct {
 	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration ServiceVirtualNetworkConfigurationPtrOutput `pulumi:"virtualNetworkConfiguration"`
 	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
 	VirtualNetworkType pulumi.StringPtrOutput `pulumi:"virtualNetworkType"`
 }
 
@@ -215,6 +216,7 @@ type serviceState struct {
 	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration *ServiceVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
 	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
 	VirtualNetworkType *string `pulumi:"virtualNetworkType"`
 }
 
@@ -272,6 +274,7 @@ type ServiceState struct {
 	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration ServiceVirtualNetworkConfigurationPtrInput
 	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
 	VirtualNetworkType pulumi.StringPtrInput
 }
 
@@ -317,6 +320,7 @@ type serviceArgs struct {
 	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration *ServiceVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
 	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
 	VirtualNetworkType *string `pulumi:"virtualNetworkType"`
 }
 
@@ -359,6 +363,7 @@ type ServiceArgs struct {
 	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration ServiceVirtualNetworkConfigurationPtrInput
 	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
 	VirtualNetworkType pulumi.StringPtrInput
 }
 

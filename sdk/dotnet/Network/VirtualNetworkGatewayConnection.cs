@@ -250,6 +250,12 @@ namespace Pulumi.Azure.Network
         public Output<string> ConnectionProtocol { get; private set; } = null!;
 
         /// <summary>
+        /// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("dpdTimeoutSeconds")]
+        public Output<int?> DpdTimeoutSeconds { get; private set; } = null!;
+
+        /// <summary>
         /// If `true`, BGP (Border Gateway Protocol) is enabled
         /// for this connection. Defaults to `false`.
         /// </summary>
@@ -277,6 +283,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("ipsecPolicy")]
         public Output<Outputs.VirtualNetworkGatewayConnectionIpsecPolicy?> IpsecPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Use private local Azure IP for the connection. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("localAzureIpAddressEnabled")]
+        public Output<bool?> LocalAzureIpAddressEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the local network gateway
@@ -432,6 +444,12 @@ namespace Pulumi.Azure.Network
         public Input<string>? ConnectionProtocol { get; set; }
 
         /// <summary>
+        /// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("dpdTimeoutSeconds")]
+        public Input<int>? DpdTimeoutSeconds { get; set; }
+
+        /// <summary>
         /// If `true`, BGP (Border Gateway Protocol) is enabled
         /// for this connection. Defaults to `false`.
         /// </summary>
@@ -459,6 +477,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("ipsecPolicy")]
         public Input<Inputs.VirtualNetworkGatewayConnectionIpsecPolicyArgs>? IpsecPolicy { get; set; }
+
+        /// <summary>
+        /// Use private local Azure IP for the connection. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("localAzureIpAddressEnabled")]
+        public Input<bool>? LocalAzureIpAddressEnabled { get; set; }
 
         /// <summary>
         /// The ID of the local network gateway
@@ -581,6 +605,12 @@ namespace Pulumi.Azure.Network
         public Input<string>? ConnectionProtocol { get; set; }
 
         /// <summary>
+        /// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("dpdTimeoutSeconds")]
+        public Input<int>? DpdTimeoutSeconds { get; set; }
+
+        /// <summary>
         /// If `true`, BGP (Border Gateway Protocol) is enabled
         /// for this connection. Defaults to `false`.
         /// </summary>
@@ -608,6 +638,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("ipsecPolicy")]
         public Input<Inputs.VirtualNetworkGatewayConnectionIpsecPolicyGetArgs>? IpsecPolicy { get; set; }
+
+        /// <summary>
+        /// Use private local Azure IP for the connection. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("localAzureIpAddressEnabled")]
+        public Input<bool>? LocalAzureIpAddressEnabled { get; set; }
 
         /// <summary>
         /// The ID of the local network gateway

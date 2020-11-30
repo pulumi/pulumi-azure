@@ -124,6 +124,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly activeActive!: pulumi.Output<boolean>;
     public readonly bgpSettings!: pulumi.Output<outputs.network.VirtualNetworkGatewayBgpSettings>;
+    public readonly customRoute!: pulumi.Output<outputs.network.VirtualNetworkGatewayCustomRoute | undefined>;
     /**
      * The ID of the local network gateway
      * through which outbound Internet traffic from the virtual network in which the
@@ -153,9 +154,14 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * A user-defined name of the revoked certificate.
+     * A user-defined name of the IP configuration. Defaults to
+     * `vnetGatewayConfig`.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
+     */
+    public readonly privateIpAddressEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to
      * create the Virtual Network Gateway. Changing the resource group name forces
@@ -207,12 +213,14 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             const state = argsOrState as VirtualNetworkGatewayState | undefined;
             inputs["activeActive"] = state ? state.activeActive : undefined;
             inputs["bgpSettings"] = state ? state.bgpSettings : undefined;
+            inputs["customRoute"] = state ? state.customRoute : undefined;
             inputs["defaultLocalNetworkGatewayId"] = state ? state.defaultLocalNetworkGatewayId : undefined;
             inputs["enableBgp"] = state ? state.enableBgp : undefined;
             inputs["generation"] = state ? state.generation : undefined;
             inputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["privateIpAddressEnabled"] = state ? state.privateIpAddressEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -235,12 +243,14 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             }
             inputs["activeActive"] = args ? args.activeActive : undefined;
             inputs["bgpSettings"] = args ? args.bgpSettings : undefined;
+            inputs["customRoute"] = args ? args.customRoute : undefined;
             inputs["defaultLocalNetworkGatewayId"] = args ? args.defaultLocalNetworkGatewayId : undefined;
             inputs["enableBgp"] = args ? args.enableBgp : undefined;
             inputs["generation"] = args ? args.generation : undefined;
             inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["privateIpAddressEnabled"] = args ? args.privateIpAddressEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -271,6 +281,7 @@ export interface VirtualNetworkGatewayState {
      */
     readonly activeActive?: pulumi.Input<boolean>;
     readonly bgpSettings?: pulumi.Input<inputs.network.VirtualNetworkGatewayBgpSettings>;
+    readonly customRoute?: pulumi.Input<inputs.network.VirtualNetworkGatewayCustomRoute>;
     /**
      * The ID of the local network gateway
      * through which outbound Internet traffic from the virtual network in which the
@@ -300,9 +311,14 @@ export interface VirtualNetworkGatewayState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * A user-defined name of the revoked certificate.
+     * A user-defined name of the IP configuration. Defaults to
+     * `vnetGatewayConfig`.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
+     */
+    readonly privateIpAddressEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to
      * create the Virtual Network Gateway. Changing the resource group name forces
@@ -353,6 +369,7 @@ export interface VirtualNetworkGatewayArgs {
      */
     readonly activeActive?: pulumi.Input<boolean>;
     readonly bgpSettings?: pulumi.Input<inputs.network.VirtualNetworkGatewayBgpSettings>;
+    readonly customRoute?: pulumi.Input<inputs.network.VirtualNetworkGatewayCustomRoute>;
     /**
      * The ID of the local network gateway
      * through which outbound Internet traffic from the virtual network in which the
@@ -382,9 +399,14 @@ export interface VirtualNetworkGatewayArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * A user-defined name of the revoked certificate.
+     * A user-defined name of the IP configuration. Defaults to
+     * `vnetGatewayConfig`.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
+     */
+    readonly privateIpAddressEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to
      * create the Virtual Network Gateway. Changing the resource group name forces

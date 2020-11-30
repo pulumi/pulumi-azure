@@ -73,6 +73,7 @@ const (
 	azureDesktopVirtualization = "DesktopVirtualization" // Desktop Virtualization
 	azureDevSpace              = "DevSpace"              // DevSpace
 	azureDevTest               = "DevTest"               // Dev Test Labs
+	azureDigitalTwins          = "DigitalTwins"          // Digital Twins
 	azureDNS                   = "Dns"                   // DNS
 	azureFrontdoor             = "FrontDoor"             // Frontdoor
 	azureHdInsight             = "HDInsight"             // nolint:misspell // HDInsight
@@ -454,8 +455,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_app_service_virtual_network_swift_connection": {
 				Tok: azureResource(azureAppService, "VirtualNetworkSwiftConnection"),
 			},
-			"azurerm_app_service_environment":       {Tok: azureResource(azureAppService, "Environment")},
-			"azurerm_app_service_hybrid_connection": {Tok: azureResource(azureAppService, "HybridConnection")},
+			"azurerm_app_service_environment":         {Tok: azureResource(azureAppService, "Environment")},
+			"azurerm_app_service_hybrid_connection":   {Tok: azureResource(azureAppService, "HybridConnection")},
+			"azurerm_app_service_managed_certificate": {Tok: azureResource(azureAppService, "ManagedCertificate")},
 			"azurerm_app_service_slot_virtual_network_swift_connection": {
 				Tok: azureResource(azureAppService, "SlotVirtualNetworkSwiftConnection"),
 			},
@@ -1618,6 +1620,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_virtual_desktop_host_pool": {Tok: azureResource(azureDesktopVirtualization, "HostPool")},
 			"azurerm_virtual_desktop_workspace": {Tok: azureResource(azureDesktopVirtualization, "Workspace")},
+
+			// DigitalTwins
+			"azurerm_digital_twins_instance": {Tok: azureResource(azureDigitalTwins, "Instance")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -1826,6 +1831,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_nat_gateway":                 {Tok: azureDataSource(azureNetwork, "getNatGateway")},
 			"azurerm_virtual_hub":                 {Tok: azureDataSource(azureNetwork, "getVirtualHub")},
+			"azurerm_virtual_wan":                 {Tok: azureDataSource(azureNetwork, "getVirtualWan")},
 			"azurerm_firewall_policy":             {Tok: azureDataSource(azureNetwork, "getFirewallPolicy")},
 			"azurerm_ip_group":                    {Tok: azureDataSource(azureNetwork, "getIpGroup")},
 			"azurerm_traffic_manager_profile":     {Tok: azureDataSource(azureNetwork, "getTrafficManagerProfile")},
@@ -1884,6 +1890,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_databricks_workspace":            {Tok: azureDataSource(azureDataBricks, "getWorkspace")},
 			"azurerm_mysql_server":                    {Tok: azureDataSource(azureMySQL, "getServer")},
 			"azurerm_cognitive_account":               {Tok: azureDataSource(azureCognitive, "getAccount")},
+			"azurerm_digital_twins_instance":          {Tok: azureDataSource(azureDigitalTwins, "getInstance")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{
