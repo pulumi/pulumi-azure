@@ -70,6 +70,8 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
+	// An `identity` block is documented below.
+	Identity AccountIdentityOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
@@ -78,6 +80,12 @@ type Account struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts AccountStorageAccountArrayOutput `pulumi:"storageAccounts"`
+	// Specifies the storage authentication type.
+	// Possible value is  `ManagedIdentity` or `System`.
+	StorageAuthenticationType pulumi.StringOutput `pulumi:"storageAuthenticationType"`
+	// A mapping of tags assigned to the resource.
+	// ---
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -114,6 +122,8 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
+	// An `identity` block is documented below.
+	Identity *AccountIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
@@ -122,9 +132,17 @@ type accountState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []AccountStorageAccount `pulumi:"storageAccounts"`
+	// Specifies the storage authentication type.
+	// Possible value is  `ManagedIdentity` or `System`.
+	StorageAuthenticationType *string `pulumi:"storageAuthenticationType"`
+	// A mapping of tags assigned to the resource.
+	// ---
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type AccountState struct {
+	// An `identity` block is documented below.
+	Identity AccountIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
@@ -133,6 +151,12 @@ type AccountState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts AccountStorageAccountArrayInput
+	// Specifies the storage authentication type.
+	// Possible value is  `ManagedIdentity` or `System`.
+	StorageAuthenticationType pulumi.StringPtrInput
+	// A mapping of tags assigned to the resource.
+	// ---
+	Tags pulumi.StringMapInput
 }
 
 func (AccountState) ElementType() reflect.Type {
@@ -140,6 +164,8 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// An `identity` block is documented below.
+	Identity *AccountIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
@@ -148,10 +174,18 @@ type accountArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []AccountStorageAccount `pulumi:"storageAccounts"`
+	// Specifies the storage authentication type.
+	// Possible value is  `ManagedIdentity` or `System`.
+	StorageAuthenticationType *string `pulumi:"storageAuthenticationType"`
+	// A mapping of tags assigned to the resource.
+	// ---
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// An `identity` block is documented below.
+	Identity AccountIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
@@ -160,6 +194,12 @@ type AccountArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts AccountStorageAccountArrayInput
+	// Specifies the storage authentication type.
+	// Possible value is  `ManagedIdentity` or `System`.
+	StorageAuthenticationType pulumi.StringPtrInput
+	// A mapping of tags assigned to the resource.
+	// ---
+	Tags pulumi.StringMapInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.KeyVault.Outputs
         /// </summary>
         public readonly bool Exportable;
         /// <summary>
-        /// The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
+        /// The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly int KeySize;
         /// <summary>

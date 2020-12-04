@@ -18,6 +18,7 @@ __all__ = [
     'IoTHubSkuArgs',
     'IotHubDpsLinkedHubArgs',
     'IotHubDpsSkuArgs',
+    'TimeSeriesInsightsGen2EnvironmentStorageArgs',
     'TimeSeriesInsightsReferenceDataSetKeyPropertyArgs',
 ]
 
@@ -714,6 +715,43 @@ class IotHubDpsSkuArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the sku. Currently can only be set to `S1`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class TimeSeriesInsightsGen2EnvironmentStorageArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
+        :param pulumi.Input[str] name: Name of storage account for Azure IoT Time Series Insights Gen2 Environment
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of storage account for Azure IoT Time Series Insights Gen2 Environment
         """
         return pulumi.get(self, "name")
 

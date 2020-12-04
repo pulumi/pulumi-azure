@@ -62,6 +62,12 @@ namespace Pulumi.Azure.MediaServices
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
+        /// An `identity` block is documented below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.AccountIdentity> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -84,6 +90,20 @@ namespace Pulumi.Azure.MediaServices
         /// </summary>
         [Output("storageAccounts")]
         public Output<ImmutableArray<Outputs.AccountStorageAccount>> StorageAccounts { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the storage authentication type. 
+        /// Possible value is  `ManagedIdentity` or `System`.
+        /// </summary>
+        [Output("storageAuthenticationType")]
+        public Output<string> StorageAuthenticationType { get; private set; } = null!;
+
+        /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// ---
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -132,6 +152,12 @@ namespace Pulumi.Azure.MediaServices
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An `identity` block is documented below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -161,6 +187,26 @@ namespace Pulumi.Azure.MediaServices
             set => _storageAccounts = value;
         }
 
+        /// <summary>
+        /// Specifies the storage authentication type. 
+        /// Possible value is  `ManagedIdentity` or `System`.
+        /// </summary>
+        [Input("storageAuthenticationType")]
+        public Input<string>? StorageAuthenticationType { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// ---
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public AccountArgs()
         {
         }
@@ -168,6 +214,12 @@ namespace Pulumi.Azure.MediaServices
 
     public sealed class AccountState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `identity` block is documented below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
+
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
@@ -196,6 +248,26 @@ namespace Pulumi.Azure.MediaServices
         {
             get => _storageAccounts ?? (_storageAccounts = new InputList<Inputs.AccountStorageAccountGetArgs>());
             set => _storageAccounts = value;
+        }
+
+        /// <summary>
+        /// Specifies the storage authentication type. 
+        /// Possible value is  `ManagedIdentity` or `System`.
+        /// </summary>
+        [Input("storageAuthenticationType")]
+        public Input<string>? StorageAuthenticationType { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// ---
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
         }
 
         public AccountState()

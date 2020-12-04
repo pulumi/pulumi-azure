@@ -293,7 +293,7 @@ class CertifiateCertificatePolicyKeyPropertiesArgs:
                  reuse_key: pulumi.Input[bool]):
         """
         :param pulumi.Input[bool] exportable: Is this Certificate Exportable? Changing this forces a new resource to be created.
-        :param pulumi.Input[int] key_size: The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] key_size: The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_type: Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] reuse_key: Is the key reusable? Changing this forces a new resource to be created.
         """
@@ -318,7 +318,7 @@ class CertifiateCertificatePolicyKeyPropertiesArgs:
     @pulumi.getter(name="keySize")
     def key_size(self) -> pulumi.Input[int]:
         """
-        The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
+        The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_size")
 
@@ -866,7 +866,7 @@ class CertificateCertificatePolicyKeyPropertiesArgs:
                  reuse_key: pulumi.Input[bool]):
         """
         :param pulumi.Input[bool] exportable: Is this Certificate Exportable? Changing this forces a new resource to be created.
-        :param pulumi.Input[int] key_size: The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] key_size: The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_type: Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] reuse_key: Is the key reusable? Changing this forces a new resource to be created.
         """
@@ -891,7 +891,7 @@ class CertificateCertificatePolicyKeyPropertiesArgs:
     @pulumi.getter(name="keySize")
     def key_size(self) -> pulumi.Input[int]:
         """
-        The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
+        The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_size")
 

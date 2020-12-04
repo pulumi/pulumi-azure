@@ -211,6 +211,9 @@ namespace Pulumi.Azure.Network
         public readonly string Name;
         public readonly string ResourceGroupName;
         public readonly string ReverseFqdn;
+        /// <summary>
+        /// The SKU of the Public IP.
+        /// </summary>
         public readonly string Sku;
         /// <summary>
         /// A mapping of tags to assigned to the resource.

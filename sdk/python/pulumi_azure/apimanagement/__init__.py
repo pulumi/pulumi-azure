@@ -31,6 +31,7 @@ from .identity_provider_twitter import *
 from .logger import *
 from .named_value import *
 from .open_id_connect_provider import *
+from .policy import *
 from .product import *
 from .product_api import *
 from .product_group import *
