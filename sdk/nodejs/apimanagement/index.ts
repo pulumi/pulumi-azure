@@ -30,6 +30,7 @@ export * from "./identityProviderTwitter";
 export * from "./logger";
 export * from "./namedValue";
 export * from "./openIdConnectProvider";
+export * from "./policy";
 export * from "./product";
 export * from "./productApi";
 export * from "./productGroup";

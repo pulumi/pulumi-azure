@@ -68,6 +68,10 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
+     * An `identity` block is documented below.
+     */
+    public readonly identity!: pulumi.Output<outputs.mediaservices.AccountIdentity>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -83,6 +87,16 @@ export class Account extends pulumi.CustomResource {
      * One or more `storageAccount` blocks as defined below.
      */
     public readonly storageAccounts!: pulumi.Output<outputs.mediaservices.AccountStorageAccount[]>;
+    /**
+     * Specifies the storage authentication type. 
+     * Possible value is  `ManagedIdentity` or `System`.
+     */
+    public readonly storageAuthenticationType!: pulumi.Output<string>;
+    /**
+     * A mapping of tags assigned to the resource.
+     * ---
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -96,10 +110,13 @@ export class Account extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AccountState | undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["storageAccounts"] = state ? state.storageAccounts : undefined;
+            inputs["storageAuthenticationType"] = state ? state.storageAuthenticationType : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
@@ -108,10 +125,13 @@ export class Account extends pulumi.CustomResource {
             if (!args || args.storageAccounts === undefined) {
                 throw new Error("Missing required property 'storageAccounts'");
             }
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
+            inputs["storageAuthenticationType"] = args ? args.storageAuthenticationType : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts) {
             opts = {}
@@ -129,6 +149,10 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountState {
     /**
+     * An `identity` block is documented below.
+     */
+    readonly identity?: pulumi.Input<inputs.mediaservices.AccountIdentity>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
@@ -144,12 +168,26 @@ export interface AccountState {
      * One or more `storageAccount` blocks as defined below.
      */
     readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.mediaservices.AccountStorageAccount>[]>;
+    /**
+     * Specifies the storage authentication type. 
+     * Possible value is  `ManagedIdentity` or `System`.
+     */
+    readonly storageAuthenticationType?: pulumi.Input<string>;
+    /**
+     * A mapping of tags assigned to the resource.
+     * ---
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
  * The set of arguments for constructing a Account resource.
  */
 export interface AccountArgs {
+    /**
+     * An `identity` block is documented below.
+     */
+    readonly identity?: pulumi.Input<inputs.mediaservices.AccountIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -166,4 +204,14 @@ export interface AccountArgs {
      * One or more `storageAccount` blocks as defined below.
      */
     readonly storageAccounts: pulumi.Input<pulumi.Input<inputs.mediaservices.AccountStorageAccount>[]>;
+    /**
+     * Specifies the storage authentication type. 
+     * Possible value is  `ManagedIdentity` or `System`.
+     */
+    readonly storageAuthenticationType?: pulumi.Input<string>;
+    /**
+     * A mapping of tags assigned to the resource.
+     * ---
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

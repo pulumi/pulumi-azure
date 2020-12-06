@@ -139,6 +139,9 @@ class GetPublicIPResult:
     @property
     @pulumi.getter
     def sku(self) -> str:
+        """
+        The SKU of the Public IP.
+        """
         return pulumi.get(self, "sku")
 
     @property

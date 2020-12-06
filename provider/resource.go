@@ -344,6 +344,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_named_value":                 {Tok: azureResource(azureAPIManagement, "NamedValue")},
 			"azurerm_api_management_api_diagnostic":              {Tok: azureResource(azureAPIManagement, "ApiDiagnostic")},
 			"azurerm_api_management_custom_domain":               {Tok: azureResource(azureAPIManagement, "CustomDomain")},
+			"azurerm_api_management_policy":                      {Tok: azureResource(azureAPIManagement, "Policy")},
 
 			// Analysis Services
 			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
@@ -840,6 +841,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_iot_time_series_insights_reference_data_set": {
 				Tok: azureResource(azureIot, "TimeSeriesInsightsReferenceDataSet"),
+			},
+			"azurerm_iot_time_series_insights_gen2_environment": {
+				Tok: azureResource(azureIot, "TimeSeriesInsightsGen2Environment"),
 			},
 
 			// KeyVault
@@ -1622,7 +1626,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_desktop_workspace": {Tok: azureResource(azureDesktopVirtualization, "Workspace")},
 
 			// DigitalTwins
-			"azurerm_digital_twins_instance": {Tok: azureResource(azureDigitalTwins, "Instance")},
+			"azurerm_digital_twins_instance":           {Tok: azureResource(azureDigitalTwins, "Instance")},
+			"azurerm_digital_twins_endpoint_eventgrid": {Tok: azureResource(azureDigitalTwins, "EndpointEventGrid")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},

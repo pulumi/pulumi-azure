@@ -18,6 +18,7 @@ __all__ = [
     'IoTHubSku',
     'IotHubDpsLinkedHub',
     'IotHubDpsSku',
+    'TimeSeriesInsightsGen2EnvironmentStorage',
     'TimeSeriesInsightsReferenceDataSetKeyProperty',
 ]
 
@@ -578,6 +579,38 @@ class IotHubDpsSku(dict):
     def name(self) -> str:
         """
         The name of the sku. Currently can only be set to `S1`.
+        """
+        return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TimeSeriesInsightsGen2EnvironmentStorage(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 name: str):
+        """
+        :param str key: Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
+        :param str name: Name of storage account for Azure IoT Time Series Insights Gen2 Environment
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of storage account for Azure IoT Time Series Insights Gen2 Environment
         """
         return pulumi.get(self, "name")
 

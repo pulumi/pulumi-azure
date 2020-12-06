@@ -12602,6 +12602,17 @@ export namespace iot {
         name: string;
     }
 
+    export interface TimeSeriesInsightsGen2EnvironmentStorage {
+        /**
+         * Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
+         */
+        key: string;
+        /**
+         * Name of storage account for Azure IoT Time Series Insights Gen2 Environment
+         */
+        name: string;
+    }
+
     export interface TimeSeriesInsightsReferenceDataSetKeyProperty {
         /**
          * The name of the key property.
@@ -12689,7 +12700,7 @@ export namespace keyvault {
          */
         exportable: boolean;
         /**
-         * The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
+         * The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
          */
         keySize: number;
         /**
@@ -12850,7 +12861,7 @@ export namespace keyvault {
          */
         exportable: boolean;
         /**
-         * The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
+         * The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
          */
         keySize: number;
         /**
@@ -13513,6 +13524,21 @@ export namespace mariadb {
 }
 
 export namespace mediaservices {
+    export interface AccountIdentity {
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
+         */
+        type?: string;
+    }
+
     export interface AccountStorageAccount {
         /**
          * Specifies the ID of the Storage Account that will be associated with the Media Services instance.

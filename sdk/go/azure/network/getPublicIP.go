@@ -157,7 +157,8 @@ type GetPublicIPResult struct {
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	ReverseFqdn       string `pulumi:"reverseFqdn"`
-	Sku               string `pulumi:"sku"`
+	// The SKU of the Public IP.
+	Sku string `pulumi:"sku"`
 	// A mapping of tags to assigned to the resource.
 	Tags  map[string]string `pulumi:"tags"`
 	Zones []string          `pulumi:"zones"`

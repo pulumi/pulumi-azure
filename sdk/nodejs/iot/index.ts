@@ -18,6 +18,7 @@ export * from "./iotHubDps";
 export * from "./route";
 export * from "./sharedAccessPolicy";
 export * from "./timeSeriesInsightsAccessPolicy";
+export * from "./timeSeriesInsightsGen2Environment";
 export * from "./timeSeriesInsightsReferenceDataSet";
 export * from "./timeSeriesInsightsStandardEnvironment";
 export * from "./zMixins";

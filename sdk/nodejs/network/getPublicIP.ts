@@ -140,6 +140,9 @@ export interface GetPublicIPResult {
     readonly name: string;
     readonly resourceGroupName: string;
     readonly reverseFqdn: string;
+    /**
+     * The SKU of the Public IP.
+     */
     readonly sku: string;
     /**
      * A mapping of tags to assigned to the resource.
