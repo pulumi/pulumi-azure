@@ -142,14 +142,14 @@ class SpringCloudCertificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if key_vault_certificate_id is None:
+            if key_vault_certificate_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_certificate_id'")
             __props__['key_vault_certificate_id'] = key_vault_certificate_id
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
         super(SpringCloudCertificate, __self__).__init__(

@@ -109,20 +109,20 @@ class Route(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['condition'] = condition
-            if enabled is None:
+            if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__['enabled'] = enabled
-            if endpoint_names is None:
+            if endpoint_names is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_names'")
             __props__['endpoint_names'] = endpoint_names
-            if iothub_name is None:
+            if iothub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'iothub_name'")
             __props__['iothub_name'] = iothub_name
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if source is None:
+            if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__['source'] = source
         super(Route, __self__).__init__(

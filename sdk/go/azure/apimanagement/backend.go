@@ -52,20 +52,21 @@ type Backend struct {
 // NewBackend registers a new resource with the given unique name, arguments, and options.
 func NewBackend(ctx *pulumi.Context,
 	name string, args *BackendArgs, opts ...pulumi.ResourceOption) (*Backend, error) {
-	if args == nil || args.ApiManagementName == nil {
-		return nil, errors.New("missing required argument 'ApiManagementName'")
-	}
-	if args == nil || args.Protocol == nil {
-		return nil, errors.New("missing required argument 'Protocol'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Url == nil {
-		return nil, errors.New("missing required argument 'Url'")
-	}
 	if args == nil {
-		args = &BackendArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiManagementName == nil {
+		return nil, errors.New("invalid value for required argument 'ApiManagementName'")
+	}
+	if args.Protocol == nil {
+		return nil, errors.New("invalid value for required argument 'Protocol'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Url == nil {
+		return nil, errors.New("invalid value for required argument 'Url'")
 	}
 	var resource Backend
 	err := ctx.RegisterResource("azure:apimanagement/backend:Backend", name, args, &resource, opts...)

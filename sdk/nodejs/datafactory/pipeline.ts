@@ -142,10 +142,10 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as PipelineArgs | undefined;
-            if (!args || args.dataFactoryName === undefined) {
+            if ((!args || args.dataFactoryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataFactoryName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["activitiesJson"] = args ? args.activitiesJson : undefined;

@@ -91,10 +91,10 @@ class Account(pulumi.CustomResource):
             __props__['identity'] = identity
             __props__['location'] = location
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if storage_accounts is None:
+            if storage_accounts is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_accounts'")
             __props__['storage_accounts'] = storage_accounts
             __props__['storage_authentication_type'] = storage_authentication_type

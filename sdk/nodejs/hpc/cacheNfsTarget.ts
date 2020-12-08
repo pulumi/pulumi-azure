@@ -91,19 +91,19 @@ export class CacheNfsTarget extends pulumi.CustomResource {
             inputs["usageModel"] = state ? state.usageModel : undefined;
         } else {
             const args = argsOrState as CacheNfsTargetArgs | undefined;
-            if (!args || args.cacheName === undefined) {
+            if ((!args || args.cacheName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'cacheName'");
             }
-            if (!args || args.namespaceJunctions === undefined) {
+            if ((!args || args.namespaceJunctions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceJunctions'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.targetHostName === undefined) {
+            if ((!args || args.targetHostName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetHostName'");
             }
-            if (!args || args.usageModel === undefined) {
+            if ((!args || args.usageModel === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'usageModel'");
             }
             inputs["cacheName"] = args ? args.cacheName : undefined;

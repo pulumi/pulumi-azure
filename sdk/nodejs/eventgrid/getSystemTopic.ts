@@ -118,13 +118,13 @@ export class GetSystemTopic extends pulumi.CustomResource {
             inputs["topicType"] = state ? state.topicType : undefined;
         } else {
             const args = argsOrState as GetSystemTopicArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sourceArmResourceId === undefined) {
+            if ((!args || args.sourceArmResourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceArmResourceId'");
             }
-            if (!args || args.topicType === undefined) {
+            if ((!args || args.topicType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'topicType'");
             }
             inputs["location"] = args ? args.location : undefined;

@@ -67,11 +67,12 @@ type SpatialAnchorsAccount struct {
 // NewSpatialAnchorsAccount registers a new resource with the given unique name, arguments, and options.
 func NewSpatialAnchorsAccount(ctx *pulumi.Context,
 	name string, args *SpatialAnchorsAccountArgs, opts ...pulumi.ResourceOption) (*SpatialAnchorsAccount, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &SpatialAnchorsAccountArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource SpatialAnchorsAccount
 	err := ctx.RegisterResource("azure:mixedreality/spatialAnchorsAccount:SpatialAnchorsAccount", name, args, &resource, opts...)

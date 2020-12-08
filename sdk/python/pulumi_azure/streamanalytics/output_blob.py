@@ -104,32 +104,32 @@ class OutputBlob(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if date_format is None:
+            if date_format is None and not opts.urn:
                 raise TypeError("Missing required property 'date_format'")
             __props__['date_format'] = date_format
             __props__['name'] = name
-            if path_pattern is None:
+            if path_pattern is None and not opts.urn:
                 raise TypeError("Missing required property 'path_pattern'")
             __props__['path_pattern'] = path_pattern
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if serialization is None:
+            if serialization is None and not opts.urn:
                 raise TypeError("Missing required property 'serialization'")
             __props__['serialization'] = serialization
-            if storage_account_key is None:
+            if storage_account_key is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_key'")
             __props__['storage_account_key'] = storage_account_key
-            if storage_account_name is None:
+            if storage_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_name'")
             __props__['storage_account_name'] = storage_account_name
-            if storage_container_name is None:
+            if storage_container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_container_name'")
             __props__['storage_container_name'] = storage_container_name
-            if stream_analytics_job_name is None:
+            if stream_analytics_job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_analytics_job_name'")
             __props__['stream_analytics_job_name'] = stream_analytics_job_name
-            if time_format is None:
+            if time_format is None and not opts.urn:
                 raise TypeError("Missing required property 'time_format'")
             __props__['time_format'] = time_format
         super(OutputBlob, __self__).__init__(

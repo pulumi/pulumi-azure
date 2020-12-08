@@ -97,16 +97,16 @@ export class GroupUser extends pulumi.CustomResource {
             inputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as GroupUserArgs | undefined;
-            if (!args || args.apiManagementName === undefined) {
+            if ((!args || args.apiManagementName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if (!args || args.groupName === undefined) {
+            if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.userId === undefined) {
+            if ((!args || args.userId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'userId'");
             }
             inputs["apiManagementName"] = args ? args.apiManagementName : undefined;

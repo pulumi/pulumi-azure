@@ -90,20 +90,21 @@ type AlertRuleMsSecurityIncident struct {
 // NewAlertRuleMsSecurityIncident registers a new resource with the given unique name, arguments, and options.
 func NewAlertRuleMsSecurityIncident(ctx *pulumi.Context,
 	name string, args *AlertRuleMsSecurityIncidentArgs, opts ...pulumi.ResourceOption) (*AlertRuleMsSecurityIncident, error) {
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.LogAnalyticsWorkspaceId == nil {
-		return nil, errors.New("missing required argument 'LogAnalyticsWorkspaceId'")
-	}
-	if args == nil || args.ProductFilter == nil {
-		return nil, errors.New("missing required argument 'ProductFilter'")
-	}
-	if args == nil || args.SeverityFilters == nil {
-		return nil, errors.New("missing required argument 'SeverityFilters'")
-	}
 	if args == nil {
-		args = &AlertRuleMsSecurityIncidentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.LogAnalyticsWorkspaceId == nil {
+		return nil, errors.New("invalid value for required argument 'LogAnalyticsWorkspaceId'")
+	}
+	if args.ProductFilter == nil {
+		return nil, errors.New("invalid value for required argument 'ProductFilter'")
+	}
+	if args.SeverityFilters == nil {
+		return nil, errors.New("invalid value for required argument 'SeverityFilters'")
 	}
 	var resource AlertRuleMsSecurityIncident
 	err := ctx.RegisterResource("azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident", name, args, &resource, opts...)

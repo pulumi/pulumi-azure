@@ -114,14 +114,15 @@ type Remediation struct {
 // NewRemediation registers a new resource with the given unique name, arguments, and options.
 func NewRemediation(ctx *pulumi.Context,
 	name string, args *RemediationArgs, opts ...pulumi.ResourceOption) (*Remediation, error) {
-	if args == nil || args.PolicyAssignmentId == nil {
-		return nil, errors.New("missing required argument 'PolicyAssignmentId'")
-	}
-	if args == nil || args.Scope == nil {
-		return nil, errors.New("missing required argument 'Scope'")
-	}
 	if args == nil {
-		args = &RemediationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PolicyAssignmentId == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyAssignmentId'")
+	}
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	var resource Remediation
 	err := ctx.RegisterResource("azure:policy/remediation:Remediation", name, args, &resource, opts...)

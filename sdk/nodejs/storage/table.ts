@@ -91,7 +91,7 @@ export class Table extends pulumi.CustomResource {
             inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
         } else {
             const args = argsOrState as TableArgs | undefined;
-            if (!args || args.storageAccountName === undefined) {
+            if ((!args || args.storageAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
             inputs["acls"] = args ? args.acls : undefined;

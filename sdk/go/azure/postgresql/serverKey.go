@@ -32,14 +32,15 @@ type ServerKey struct {
 // NewServerKey registers a new resource with the given unique name, arguments, and options.
 func NewServerKey(ctx *pulumi.Context,
 	name string, args *ServerKeyArgs, opts ...pulumi.ResourceOption) (*ServerKey, error) {
-	if args == nil || args.KeyVaultKeyId == nil {
-		return nil, errors.New("missing required argument 'KeyVaultKeyId'")
-	}
-	if args == nil || args.ServerId == nil {
-		return nil, errors.New("missing required argument 'ServerId'")
-	}
 	if args == nil {
-		args = &ServerKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.KeyVaultKeyId == nil {
+		return nil, errors.New("invalid value for required argument 'KeyVaultKeyId'")
+	}
+	if args.ServerId == nil {
+		return nil, errors.New("invalid value for required argument 'ServerId'")
 	}
 	var resource ServerKey
 	err := ctx.RegisterResource("azure:postgresql/serverKey:ServerKey", name, args, &resource, opts...)

@@ -131,29 +131,29 @@ class HBaseCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cluster_version is None:
+            if cluster_version is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_version'")
             __props__['cluster_version'] = cluster_version
-            if component_version is None:
+            if component_version is None and not opts.urn:
                 raise TypeError("Missing required property 'component_version'")
             __props__['component_version'] = component_version
-            if gateway is None:
+            if gateway is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway'")
             __props__['gateway'] = gateway
             __props__['location'] = location
             __props__['metastores'] = metastores
             __props__['monitor'] = monitor
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if roles is None:
+            if roles is None and not opts.urn:
                 raise TypeError("Missing required property 'roles'")
             __props__['roles'] = roles
             __props__['storage_account_gen2'] = storage_account_gen2
             __props__['storage_accounts'] = storage_accounts
             __props__['tags'] = tags
-            if tier is None:
+            if tier is None and not opts.urn:
                 raise TypeError("Missing required property 'tier'")
             __props__['tier'] = tier
             __props__['tls_min_version'] = tls_min_version

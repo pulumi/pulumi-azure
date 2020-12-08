@@ -111,10 +111,10 @@ export class MeshApplication extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as MeshApplicationArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.services === undefined) {
+            if ((!args || args.services === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'services'");
             }
             inputs["location"] = args ? args.location : undefined;

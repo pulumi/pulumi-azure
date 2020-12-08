@@ -101,14 +101,14 @@ class AccountNetworkRules(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['bypasses'] = bypasses
-            if default_action is None:
+            if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
             __props__['default_action'] = default_action
             __props__['ip_rules'] = ip_rules
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if storage_account_name is None:
+            if storage_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_name'")
             __props__['storage_account_name'] = storage_account_name
             __props__['virtual_network_subnet_ids'] = virtual_network_subnet_ids

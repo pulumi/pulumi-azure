@@ -64,17 +64,18 @@ type Contact struct {
 // NewContact registers a new resource with the given unique name, arguments, and options.
 func NewContact(ctx *pulumi.Context,
 	name string, args *ContactArgs, opts ...pulumi.ResourceOption) (*Contact, error) {
-	if args == nil || args.AlertNotifications == nil {
-		return nil, errors.New("missing required argument 'AlertNotifications'")
-	}
-	if args == nil || args.AlertsToAdmins == nil {
-		return nil, errors.New("missing required argument 'AlertsToAdmins'")
-	}
-	if args == nil || args.Email == nil {
-		return nil, errors.New("missing required argument 'Email'")
-	}
 	if args == nil {
-		args = &ContactArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AlertNotifications == nil {
+		return nil, errors.New("invalid value for required argument 'AlertNotifications'")
+	}
+	if args.AlertsToAdmins == nil {
+		return nil, errors.New("invalid value for required argument 'AlertsToAdmins'")
+	}
+	if args.Email == nil {
+		return nil, errors.New("invalid value for required argument 'Email'")
 	}
 	var resource Contact
 	err := ctx.RegisterResource("azure:securitycenter/contact:Contact", name, args, &resource, opts...)

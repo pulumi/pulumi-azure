@@ -83,10 +83,10 @@ export class DatasetKustoDatabase extends pulumi.CustomResource {
             inputs["shareId"] = state ? state.shareId : undefined;
         } else {
             const args = argsOrState as DatasetKustoDatabaseArgs | undefined;
-            if (!args || args.kustoDatabaseId === undefined) {
+            if ((!args || args.kustoDatabaseId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kustoDatabaseId'");
             }
-            if (!args || args.shareId === undefined) {
+            if ((!args || args.shareId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'shareId'");
             }
             inputs["kustoDatabaseId"] = args ? args.kustoDatabaseId : undefined;

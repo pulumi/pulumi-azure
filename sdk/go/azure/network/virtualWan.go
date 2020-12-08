@@ -77,11 +77,12 @@ type VirtualWan struct {
 // NewVirtualWan registers a new resource with the given unique name, arguments, and options.
 func NewVirtualWan(ctx *pulumi.Context,
 	name string, args *VirtualWanArgs, opts ...pulumi.ResourceOption) (*VirtualWan, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &VirtualWanArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource VirtualWan
 	err := ctx.RegisterResource("azure:network/virtualWan:VirtualWan", name, args, &resource, opts...)

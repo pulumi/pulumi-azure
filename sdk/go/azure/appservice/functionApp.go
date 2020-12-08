@@ -250,14 +250,15 @@ type FunctionApp struct {
 // NewFunctionApp registers a new resource with the given unique name, arguments, and options.
 func NewFunctionApp(ctx *pulumi.Context,
 	name string, args *FunctionAppArgs, opts ...pulumi.ResourceOption) (*FunctionApp, error) {
-	if args == nil || args.AppServicePlanId == nil {
-		return nil, errors.New("missing required argument 'AppServicePlanId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &FunctionAppArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AppServicePlanId == nil {
+		return nil, errors.New("invalid value for required argument 'AppServicePlanId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource FunctionApp
 	err := ctx.RegisterResource("azure:appservice/functionApp:FunctionApp", name, args, &resource, opts...)

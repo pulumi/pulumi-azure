@@ -118,7 +118,7 @@ export class VirtualHub extends pulumi.CustomResource {
             inputs["virtualWanId"] = state ? state.virtualWanId : undefined;
         } else {
             const args = argsOrState as VirtualHubArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;

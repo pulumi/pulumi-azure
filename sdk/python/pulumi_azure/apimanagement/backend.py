@@ -75,24 +75,24 @@ class Backend(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_management_name is None:
+            if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__['api_management_name'] = api_management_name
             __props__['credentials'] = credentials
             __props__['description'] = description
             __props__['name'] = name
-            if protocol is None:
+            if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__['protocol'] = protocol
             __props__['proxy'] = proxy
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_id'] = resource_id
             __props__['service_fabric_cluster'] = service_fabric_cluster
             __props__['title'] = title
             __props__['tls'] = tls
-            if url is None:
+            if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__['url'] = url
         super(Backend, __self__).__init__(

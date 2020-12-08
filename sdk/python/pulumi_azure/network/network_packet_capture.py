@@ -74,16 +74,16 @@ class NetworkPacketCapture(pulumi.CustomResource):
             __props__['maximum_bytes_per_session'] = maximum_bytes_per_session
             __props__['maximum_capture_duration'] = maximum_capture_duration
             __props__['name'] = name
-            if network_watcher_name is None:
+            if network_watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_watcher_name'")
             __props__['network_watcher_name'] = network_watcher_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if storage_location is None:
+            if storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_location'")
             __props__['storage_location'] = storage_location
-            if target_resource_id is None:
+            if target_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_id'")
             __props__['target_resource_id'] = target_resource_id
         super(NetworkPacketCapture, __self__).__init__(

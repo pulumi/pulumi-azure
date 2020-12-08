@@ -125,13 +125,13 @@ class EventSubscription(pulumi.CustomResource):
             __props__['advanced_filter'] = advanced_filter
             __props__['azure_function_endpoint'] = azure_function_endpoint
             __props__['event_delivery_schema'] = event_delivery_schema
-            if eventhub_endpoint is not None:
+            if eventhub_endpoint is not None and not opts.urn:
                 warnings.warn("""Deprecated in favour of `eventhub_endpoint_id`""", DeprecationWarning)
                 pulumi.log.warn("eventhub_endpoint is deprecated: Deprecated in favour of `eventhub_endpoint_id`")
             __props__['eventhub_endpoint'] = eventhub_endpoint
             __props__['eventhub_endpoint_id'] = eventhub_endpoint_id
             __props__['expiration_time_utc'] = expiration_time_utc
-            if hybrid_connection_endpoint is not None:
+            if hybrid_connection_endpoint is not None and not opts.urn:
                 warnings.warn("""Deprecated in favour of `hybrid_connection_endpoint_id`""", DeprecationWarning)
                 pulumi.log.warn("hybrid_connection_endpoint is deprecated: Deprecated in favour of `hybrid_connection_endpoint_id`")
             __props__['hybrid_connection_endpoint'] = hybrid_connection_endpoint
@@ -140,7 +140,7 @@ class EventSubscription(pulumi.CustomResource):
             __props__['labels'] = labels
             __props__['name'] = name
             __props__['retry_policy'] = retry_policy
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['service_bus_queue_endpoint_id'] = service_bus_queue_endpoint_id
@@ -148,7 +148,7 @@ class EventSubscription(pulumi.CustomResource):
             __props__['storage_blob_dead_letter_destination'] = storage_blob_dead_letter_destination
             __props__['storage_queue_endpoint'] = storage_queue_endpoint
             __props__['subject_filter'] = subject_filter
-            if topic_name is not None:
+            if topic_name is not None and not opts.urn:
                 warnings.warn("""This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.""", DeprecationWarning)
                 pulumi.log.warn("topic_name is deprecated: This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.")
             __props__['topic_name'] = topic_name

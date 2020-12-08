@@ -167,10 +167,10 @@ export class Assignment extends pulumi.CustomResource {
             inputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as AssignmentArgs | undefined;
-            if (!args || args.policyDefinitionId === undefined) {
+            if ((!args || args.policyDefinitionId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyDefinitionId'");
             }
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["description"] = args ? args.description : undefined;

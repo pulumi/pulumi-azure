@@ -124,7 +124,7 @@ export class Share extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ShareArgs | undefined;
-            if (!args || args.storageAccountName === undefined) {
+            if ((!args || args.storageAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
             inputs["acls"] = args ? args.acls : undefined;

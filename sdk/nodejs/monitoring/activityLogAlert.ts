@@ -138,13 +138,13 @@ export class ActivityLogAlert extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ActivityLogAlertArgs | undefined;
-            if (!args || args.criteria === undefined) {
+            if ((!args || args.criteria === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'criteria'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.scopes === undefined) {
+            if ((!args || args.scopes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scopes'");
             }
             inputs["actions"] = args ? args.actions : undefined;

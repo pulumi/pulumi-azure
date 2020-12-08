@@ -119,16 +119,16 @@ export class SavedSearch extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SavedSearchArgs | undefined;
-            if (!args || args.category === undefined) {
+            if ((!args || args.category === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'category'");
             }
-            if (!args || args.displayName === undefined) {
+            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (!args || args.logAnalyticsWorkspaceId === undefined) {
+            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            if (!args || args.query === undefined) {
+            if ((!args || args.query === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'query'");
             }
             inputs["category"] = args ? args.category : undefined;

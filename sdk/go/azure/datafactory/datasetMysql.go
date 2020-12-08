@@ -97,17 +97,18 @@ type DatasetMysql struct {
 // NewDatasetMysql registers a new resource with the given unique name, arguments, and options.
 func NewDatasetMysql(ctx *pulumi.Context,
 	name string, args *DatasetMysqlArgs, opts ...pulumi.ResourceOption) (*DatasetMysql, error) {
-	if args == nil || args.DataFactoryName == nil {
-		return nil, errors.New("missing required argument 'DataFactoryName'")
-	}
-	if args == nil || args.LinkedServiceName == nil {
-		return nil, errors.New("missing required argument 'LinkedServiceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DatasetMysqlArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataFactoryName == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
+	}
+	if args.LinkedServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'LinkedServiceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource DatasetMysql
 	err := ctx.RegisterResource("azure:datafactory/datasetMysql:DatasetMysql", name, args, &resource, opts...)

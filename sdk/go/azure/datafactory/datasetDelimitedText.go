@@ -126,17 +126,18 @@ type DatasetDelimitedText struct {
 // NewDatasetDelimitedText registers a new resource with the given unique name, arguments, and options.
 func NewDatasetDelimitedText(ctx *pulumi.Context,
 	name string, args *DatasetDelimitedTextArgs, opts ...pulumi.ResourceOption) (*DatasetDelimitedText, error) {
-	if args == nil || args.DataFactoryName == nil {
-		return nil, errors.New("missing required argument 'DataFactoryName'")
-	}
-	if args == nil || args.LinkedServiceName == nil {
-		return nil, errors.New("missing required argument 'LinkedServiceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DatasetDelimitedTextArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataFactoryName == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
+	}
+	if args.LinkedServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'LinkedServiceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource DatasetDelimitedText
 	err := ctx.RegisterResource("azure:datafactory/datasetDelimitedText:DatasetDelimitedText", name, args, &resource, opts...)

@@ -114,17 +114,18 @@ type ActivityLogAlert struct {
 // NewActivityLogAlert registers a new resource with the given unique name, arguments, and options.
 func NewActivityLogAlert(ctx *pulumi.Context,
 	name string, args *ActivityLogAlertArgs, opts ...pulumi.ResourceOption) (*ActivityLogAlert, error) {
-	if args == nil || args.Criteria == nil {
-		return nil, errors.New("missing required argument 'Criteria'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Scopes == nil {
-		return nil, errors.New("missing required argument 'Scopes'")
-	}
 	if args == nil {
-		args = &ActivityLogAlertArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Criteria == nil {
+		return nil, errors.New("invalid value for required argument 'Criteria'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Scopes == nil {
+		return nil, errors.New("invalid value for required argument 'Scopes'")
 	}
 	var resource ActivityLogAlert
 	err := ctx.RegisterResource("azure:monitoring/activityLogAlert:ActivityLogAlert", name, args, &resource, opts...)

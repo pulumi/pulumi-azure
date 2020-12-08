@@ -143,16 +143,16 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as EndpointStorageContainerArgs | undefined;
-            if (!args || args.connectionString === undefined) {
+            if ((!args || args.connectionString === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectionString'");
             }
-            if (!args || args.containerName === undefined) {
+            if ((!args || args.containerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if (!args || args.iothubName === undefined) {
+            if ((!args || args.iothubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'iothubName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["batchFrequencyInSeconds"] = args ? args.batchFrequencyInSeconds : undefined;

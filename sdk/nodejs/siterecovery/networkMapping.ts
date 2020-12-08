@@ -139,22 +139,22 @@ export class NetworkMapping extends pulumi.CustomResource {
             inputs["targetRecoveryFabricName"] = state ? state.targetRecoveryFabricName : undefined;
         } else {
             const args = argsOrState as NetworkMappingArgs | undefined;
-            if (!args || args.recoveryVaultName === undefined) {
+            if ((!args || args.recoveryVaultName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sourceNetworkId === undefined) {
+            if ((!args || args.sourceNetworkId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceNetworkId'");
             }
-            if (!args || args.sourceRecoveryFabricName === undefined) {
+            if ((!args || args.sourceRecoveryFabricName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceRecoveryFabricName'");
             }
-            if (!args || args.targetNetworkId === undefined) {
+            if ((!args || args.targetNetworkId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetNetworkId'");
             }
-            if (!args || args.targetRecoveryFabricName === undefined) {
+            if ((!args || args.targetRecoveryFabricName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetRecoveryFabricName'");
             }
             inputs["name"] = args ? args.name : undefined;

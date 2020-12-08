@@ -130,10 +130,10 @@ export class SqlPool extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SqlPoolArgs | undefined;
-            if (!args || args.skuName === undefined) {
+            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if (!args || args.synapseWorkspaceId === undefined) {
+            if ((!args || args.synapseWorkspaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
             inputs["collation"] = args ? args.collation : undefined;

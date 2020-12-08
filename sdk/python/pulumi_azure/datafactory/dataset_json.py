@@ -107,19 +107,19 @@ class DatasetJson(pulumi.CustomResource):
             __props__['additional_properties'] = additional_properties
             __props__['annotations'] = annotations
             __props__['azure_blob_storage_location'] = azure_blob_storage_location
-            if data_factory_name is None:
+            if data_factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_factory_name'")
             __props__['data_factory_name'] = data_factory_name
             __props__['description'] = description
             __props__['encoding'] = encoding
             __props__['folder'] = folder
             __props__['http_server_location'] = http_server_location
-            if linked_service_name is None:
+            if linked_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_service_name'")
             __props__['linked_service_name'] = linked_service_name
             __props__['name'] = name
             __props__['parameters'] = parameters
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['schema_columns'] = schema_columns

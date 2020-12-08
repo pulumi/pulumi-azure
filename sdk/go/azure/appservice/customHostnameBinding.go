@@ -101,17 +101,18 @@ type CustomHostnameBinding struct {
 // NewCustomHostnameBinding registers a new resource with the given unique name, arguments, and options.
 func NewCustomHostnameBinding(ctx *pulumi.Context,
 	name string, args *CustomHostnameBindingArgs, opts ...pulumi.ResourceOption) (*CustomHostnameBinding, error) {
-	if args == nil || args.AppServiceName == nil {
-		return nil, errors.New("missing required argument 'AppServiceName'")
-	}
-	if args == nil || args.Hostname == nil {
-		return nil, errors.New("missing required argument 'Hostname'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &CustomHostnameBindingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AppServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'AppServiceName'")
+	}
+	if args.Hostname == nil {
+		return nil, errors.New("invalid value for required argument 'Hostname'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource CustomHostnameBinding
 	err := ctx.RegisterResource("azure:appservice/customHostnameBinding:CustomHostnameBinding", name, args, &resource, opts...)

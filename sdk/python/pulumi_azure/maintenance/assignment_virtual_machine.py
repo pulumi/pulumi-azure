@@ -109,10 +109,10 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['location'] = location
-            if maintenance_configuration_id is None:
+            if maintenance_configuration_id is None and not opts.urn:
                 raise TypeError("Missing required property 'maintenance_configuration_id'")
             __props__['maintenance_configuration_id'] = maintenance_configuration_id
-            if virtual_machine_id is None:
+            if virtual_machine_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_machine_id'")
             __props__['virtual_machine_id'] = virtual_machine_id
         super(AssignmentVirtualMachine, __self__).__init__(

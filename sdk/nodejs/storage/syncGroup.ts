@@ -82,7 +82,7 @@ export class SyncGroup extends pulumi.CustomResource {
             inputs["storageSyncId"] = state ? state.storageSyncId : undefined;
         } else {
             const args = argsOrState as SyncGroupArgs | undefined;
-            if (!args || args.storageSyncId === undefined) {
+            if ((!args || args.storageSyncId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageSyncId'");
             }
             inputs["name"] = args ? args.name : undefined;

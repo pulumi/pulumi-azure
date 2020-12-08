@@ -107,13 +107,13 @@ export class EventhubNamespaceDisasterRecoveryConfig extends pulumi.CustomResour
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as EventhubNamespaceDisasterRecoveryConfigArgs | undefined;
-            if (!args || args.namespaceName === undefined) {
+            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.partnerNamespaceId === undefined) {
+            if ((!args || args.partnerNamespaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'partnerNamespaceId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["alternateName"] = args ? args.alternateName : undefined;

@@ -155,14 +155,15 @@ type CustomHttpsConfiguration struct {
 // NewCustomHttpsConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewCustomHttpsConfiguration(ctx *pulumi.Context,
 	name string, args *CustomHttpsConfigurationArgs, opts ...pulumi.ResourceOption) (*CustomHttpsConfiguration, error) {
-	if args == nil || args.CustomHttpsProvisioningEnabled == nil {
-		return nil, errors.New("missing required argument 'CustomHttpsProvisioningEnabled'")
-	}
-	if args == nil || args.FrontendEndpointId == nil {
-		return nil, errors.New("missing required argument 'FrontendEndpointId'")
-	}
 	if args == nil {
-		args = &CustomHttpsConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CustomHttpsProvisioningEnabled == nil {
+		return nil, errors.New("invalid value for required argument 'CustomHttpsProvisioningEnabled'")
+	}
+	if args.FrontendEndpointId == nil {
+		return nil, errors.New("invalid value for required argument 'FrontendEndpointId'")
 	}
 	var resource CustomHttpsConfiguration
 	err := ctx.RegisterResource("azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration", name, args, &resource, opts...)

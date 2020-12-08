@@ -57,14 +57,14 @@ class CustomerManagedKey(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if key_name is None:
+            if key_name is None and not opts.urn:
                 raise TypeError("Missing required property 'key_name'")
             __props__['key_name'] = key_name
-            if key_vault_id is None:
+            if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")
             __props__['key_vault_id'] = key_vault_id
             __props__['key_version'] = key_version
-            if storage_account_id is None:
+            if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
             __props__['storage_account_id'] = storage_account_id
         super(CustomerManagedKey, __self__).__init__(

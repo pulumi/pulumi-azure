@@ -126,7 +126,7 @@ class FunctionAppSlot(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if app_service_plan_id is None:
+            if app_service_plan_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_service_plan_id'")
             __props__['app_service_plan_id'] = app_service_plan_id
             __props__['app_settings'] = app_settings
@@ -136,7 +136,7 @@ class FunctionAppSlot(pulumi.CustomResource):
             __props__['daily_memory_time_quota'] = daily_memory_time_quota
             __props__['enable_builtin_logging'] = enable_builtin_logging
             __props__['enabled'] = enabled
-            if function_app_name is None:
+            if function_app_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_app_name'")
             __props__['function_app_name'] = function_app_name
             __props__['https_only'] = https_only
@@ -144,14 +144,14 @@ class FunctionAppSlot(pulumi.CustomResource):
             __props__['location'] = location
             __props__['name'] = name
             __props__['os_type'] = os_type
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['site_config'] = site_config
-            if storage_account_access_key is None:
+            if storage_account_access_key is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_access_key'")
             __props__['storage_account_access_key'] = storage_account_access_key
-            if storage_account_name is None:
+            if storage_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_name'")
             __props__['storage_account_name'] = storage_account_name
             __props__['tags'] = tags

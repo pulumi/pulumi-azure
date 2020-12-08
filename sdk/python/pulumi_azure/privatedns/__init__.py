@@ -16,3 +16,53 @@ from .zone import *
 from .zone_virtual_network_link import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure:privatedns/aAAARecord:AAAARecord":
+                return AAAARecord(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:privatedns/aRecord:ARecord":
+                return ARecord(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:privatedns/cnameRecord:CnameRecord":
+                return CnameRecord(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:privatedns/linkService:LinkService":
+                return LinkService(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:privatedns/mxRecord:MxRecord":
+                return MxRecord(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:privatedns/pTRRecord:PTRRecord":
+                return PTRRecord(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:privatedns/sRVRecord:SRVRecord":
+                return SRVRecord(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:privatedns/txtRecord:TxtRecord":
+                return TxtRecord(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:privatedns/zone:Zone":
+                return Zone(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink":
+                return ZoneVirtualNetworkLink(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure", "privatedns/aAAARecord", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "privatedns/aRecord", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "privatedns/cnameRecord", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "privatedns/linkService", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "privatedns/mxRecord", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "privatedns/pTRRecord", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "privatedns/sRVRecord", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "privatedns/txtRecord", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "privatedns/zone", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "privatedns/zoneVirtualNetworkLink", _module_instance)
+
+_register_module()

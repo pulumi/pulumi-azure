@@ -130,25 +130,25 @@ export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
             inputs["trigger"] = state ? state.trigger : undefined;
         } else {
             const args = argsOrState as ScheduledQueryRulesAlertArgs | undefined;
-            if (!args || args.action === undefined) {
+            if ((!args || args.action === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'action'");
             }
-            if (!args || args.dataSourceId === undefined) {
+            if ((!args || args.dataSourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataSourceId'");
             }
-            if (!args || args.frequency === undefined) {
+            if ((!args || args.frequency === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if (!args || args.query === undefined) {
+            if ((!args || args.query === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'query'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.timeWindow === undefined) {
+            if ((!args || args.timeWindow === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'timeWindow'");
             }
-            if (!args || args.trigger === undefined) {
+            if ((!args || args.trigger === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'trigger'");
             }
             inputs["action"] = args ? args.action : undefined;

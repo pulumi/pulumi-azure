@@ -149,31 +149,31 @@ export class OutputBlob extends pulumi.CustomResource {
             inputs["timeFormat"] = state ? state.timeFormat : undefined;
         } else {
             const args = argsOrState as OutputBlobArgs | undefined;
-            if (!args || args.dateFormat === undefined) {
+            if ((!args || args.dateFormat === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dateFormat'");
             }
-            if (!args || args.pathPattern === undefined) {
+            if ((!args || args.pathPattern === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'pathPattern'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serialization === undefined) {
+            if ((!args || args.serialization === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serialization'");
             }
-            if (!args || args.storageAccountKey === undefined) {
+            if ((!args || args.storageAccountKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountKey'");
             }
-            if (!args || args.storageAccountName === undefined) {
+            if ((!args || args.storageAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            if (!args || args.storageContainerName === undefined) {
+            if ((!args || args.storageContainerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageContainerName'");
             }
-            if (!args || args.streamAnalyticsJobName === undefined) {
+            if ((!args || args.streamAnalyticsJobName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
-            if (!args || args.timeFormat === undefined) {
+            if ((!args || args.timeFormat === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'timeFormat'");
             }
             inputs["dateFormat"] = args ? args.dateFormat : undefined;

@@ -132,7 +132,7 @@ export class ApiKey extends pulumi.CustomResource {
             inputs["writePermissions"] = state ? state.writePermissions : undefined;
         } else {
             const args = argsOrState as ApiKeyArgs | undefined;
-            if (!args || args.applicationInsightsId === undefined) {
+            if ((!args || args.applicationInsightsId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationInsightsId'");
             }
             inputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;

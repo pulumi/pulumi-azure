@@ -121,7 +121,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as LoadBalancerArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["frontendIpConfigurations"] = args ? args.frontendIpConfigurations : undefined;

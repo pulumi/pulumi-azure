@@ -150,17 +150,18 @@ type ManagedDisk struct {
 // NewManagedDisk registers a new resource with the given unique name, arguments, and options.
 func NewManagedDisk(ctx *pulumi.Context,
 	name string, args *ManagedDiskArgs, opts ...pulumi.ResourceOption) (*ManagedDisk, error) {
-	if args == nil || args.CreateOption == nil {
-		return nil, errors.New("missing required argument 'CreateOption'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StorageAccountType == nil {
-		return nil, errors.New("missing required argument 'StorageAccountType'")
-	}
 	if args == nil {
-		args = &ManagedDiskArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CreateOption == nil {
+		return nil, errors.New("invalid value for required argument 'CreateOption'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageAccountType == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccountType'")
 	}
 	var resource ManagedDisk
 	err := ctx.RegisterResource("azure:compute/managedDisk:ManagedDisk", name, args, &resource, opts...)

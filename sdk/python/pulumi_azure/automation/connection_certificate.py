@@ -61,18 +61,18 @@ class ConnectionCertificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if automation_account_name is None:
+            if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
-            if automation_certificate_name is None:
+            if automation_certificate_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_certificate_name'")
             __props__['automation_certificate_name'] = automation_certificate_name
             __props__['description'] = description
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if subscription_id is None:
+            if subscription_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subscription_id'")
             __props__['subscription_id'] = subscription_id
         super(ConnectionCertificate, __self__).__init__(

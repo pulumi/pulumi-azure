@@ -105,18 +105,18 @@ class SqlContainer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['autoscale_settings'] = autoscale_settings
-            if database_name is None:
+            if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['default_ttl'] = default_ttl
             __props__['indexing_policy'] = indexing_policy
             __props__['name'] = name
             __props__['partition_key_path'] = partition_key_path
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['throughput'] = throughput

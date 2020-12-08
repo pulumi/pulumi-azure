@@ -183,10 +183,10 @@ export class Policy extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            if (!args || args.managedRules === undefined) {
+            if ((!args || args.managedRules === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managedRules'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["customRules"] = args ? args.customRules : undefined;

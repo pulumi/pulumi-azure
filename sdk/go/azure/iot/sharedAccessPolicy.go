@@ -94,14 +94,15 @@ type SharedAccessPolicy struct {
 // NewSharedAccessPolicy registers a new resource with the given unique name, arguments, and options.
 func NewSharedAccessPolicy(ctx *pulumi.Context,
 	name string, args *SharedAccessPolicyArgs, opts ...pulumi.ResourceOption) (*SharedAccessPolicy, error) {
-	if args == nil || args.IothubName == nil {
-		return nil, errors.New("missing required argument 'IothubName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &SharedAccessPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IothubName == nil {
+		return nil, errors.New("invalid value for required argument 'IothubName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource SharedAccessPolicy
 	err := ctx.RegisterResource("azure:iot/sharedAccessPolicy:SharedAccessPolicy", name, args, &resource, opts...)

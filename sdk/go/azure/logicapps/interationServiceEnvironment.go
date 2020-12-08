@@ -151,17 +151,18 @@ type InterationServiceEnvironment struct {
 // NewInterationServiceEnvironment registers a new resource with the given unique name, arguments, and options.
 func NewInterationServiceEnvironment(ctx *pulumi.Context,
 	name string, args *InterationServiceEnvironmentArgs, opts ...pulumi.ResourceOption) (*InterationServiceEnvironment, error) {
-	if args == nil || args.AccessEndpointType == nil {
-		return nil, errors.New("missing required argument 'AccessEndpointType'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VirtualNetworkSubnetIds == nil {
-		return nil, errors.New("missing required argument 'VirtualNetworkSubnetIds'")
-	}
 	if args == nil {
-		args = &InterationServiceEnvironmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccessEndpointType == nil {
+		return nil, errors.New("invalid value for required argument 'AccessEndpointType'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VirtualNetworkSubnetIds == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualNetworkSubnetIds'")
 	}
 	var resource InterationServiceEnvironment
 	err := ctx.RegisterResource("azure:logicapps/interationServiceEnvironment:InterationServiceEnvironment", name, args, &resource, opts...)

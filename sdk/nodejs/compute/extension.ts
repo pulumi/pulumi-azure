@@ -198,16 +198,16 @@ export class Extension extends pulumi.CustomResource {
             inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
         } else {
             const args = argsOrState as ExtensionArgs | undefined;
-            if (!args || args.publisher === undefined) {
+            if ((!args || args.publisher === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'publisher'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
-            if (!args || args.typeHandlerVersion === undefined) {
+            if ((!args || args.typeHandlerVersion === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'typeHandlerVersion'");
             }
-            if (!args || args.virtualMachineId === undefined) {
+            if ((!args || args.virtualMachineId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
             inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;

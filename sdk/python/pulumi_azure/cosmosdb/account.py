@@ -131,13 +131,13 @@ class Account(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['capabilities'] = capabilities
-            if consistency_policy is None:
+            if consistency_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'consistency_policy'")
             __props__['consistency_policy'] = consistency_policy
             __props__['enable_automatic_failover'] = enable_automatic_failover
             __props__['enable_free_tier'] = enable_free_tier
             __props__['enable_multiple_write_locations'] = enable_multiple_write_locations
-            if geo_locations is None:
+            if geo_locations is None and not opts.urn:
                 raise TypeError("Missing required property 'geo_locations'")
             __props__['geo_locations'] = geo_locations
             __props__['ip_range_filter'] = ip_range_filter
@@ -146,11 +146,11 @@ class Account(pulumi.CustomResource):
             __props__['kind'] = kind
             __props__['location'] = location
             __props__['name'] = name
-            if offer_type is None:
+            if offer_type is None and not opts.urn:
                 raise TypeError("Missing required property 'offer_type'")
             __props__['offer_type'] = offer_type
             __props__['public_network_access_enabled'] = public_network_access_enabled
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

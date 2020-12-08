@@ -83,6 +83,7 @@ func NewGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &GroupArgs{}
 	}
+
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure:managementgroups/managementGroup:ManagementGroup"),

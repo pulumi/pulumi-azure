@@ -124,20 +124,21 @@ type FallbackRoute struct {
 // NewFallbackRoute registers a new resource with the given unique name, arguments, and options.
 func NewFallbackRoute(ctx *pulumi.Context,
 	name string, args *FallbackRouteArgs, opts ...pulumi.ResourceOption) (*FallbackRoute, error) {
-	if args == nil || args.Enabled == nil {
-		return nil, errors.New("missing required argument 'Enabled'")
-	}
-	if args == nil || args.EndpointNames == nil {
-		return nil, errors.New("missing required argument 'EndpointNames'")
-	}
-	if args == nil || args.IothubName == nil {
-		return nil, errors.New("missing required argument 'IothubName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &FallbackRouteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Enabled == nil {
+		return nil, errors.New("invalid value for required argument 'Enabled'")
+	}
+	if args.EndpointNames == nil {
+		return nil, errors.New("invalid value for required argument 'EndpointNames'")
+	}
+	if args.IothubName == nil {
+		return nil, errors.New("invalid value for required argument 'IothubName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource FallbackRoute
 	err := ctx.RegisterResource("azure:iot/fallbackRoute:FallbackRoute", name, args, &resource, opts...)

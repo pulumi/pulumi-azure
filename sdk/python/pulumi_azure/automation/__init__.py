@@ -27,3 +27,74 @@ from .schedule import *
 from .string_variable import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure:automation/account:Account":
+                return Account(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:automation/boolVariable:BoolVariable":
+                return BoolVariable(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:automation/certificate:Certificate":
+                return Certificate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:automation/connection:Connection":
+                return Connection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:automation/connectionCertificate:ConnectionCertificate":
+                return ConnectionCertificate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:automation/connectionClassicCertificate:ConnectionClassicCertificate":
+                return ConnectionClassicCertificate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:automation/connectionServicePrincipal:ConnectionServicePrincipal":
+                return ConnectionServicePrincipal(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:automation/credential:Credential":
+                return Credential(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:automation/dateTimeVariable:DateTimeVariable":
+                return DateTimeVariable(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:automation/dscConfiguration:DscConfiguration":
+                return DscConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:automation/dscNodeConfiguration:DscNodeConfiguration":
+                return DscNodeConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:automation/intVariable:IntVariable":
+                return IntVariable(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:automation/jobSchedule:JobSchedule":
+                return JobSchedule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:automation/module:Module":
+                return Module(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:automation/runBook:RunBook":
+                return RunBook(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:automation/schedule:Schedule":
+                return Schedule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:automation/stringVariable:StringVariable":
+                return StringVariable(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure", "automation/account", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "automation/boolVariable", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "automation/certificate", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "automation/connection", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "automation/connectionCertificate", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "automation/connectionClassicCertificate", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "automation/connectionServicePrincipal", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "automation/credential", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "automation/dateTimeVariable", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "automation/dscConfiguration", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "automation/dscNodeConfiguration", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "automation/intVariable", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "automation/jobSchedule", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "automation/module", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "automation/runBook", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "automation/schedule", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "automation/stringVariable", _module_instance)
+
+_register_module()

@@ -111,13 +111,13 @@ export class RoleAssignment extends pulumi.CustomResource {
             inputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
         } else {
             const args = argsOrState as RoleAssignmentArgs | undefined;
-            if (!args || args.principalId === undefined) {
+            if ((!args || args.principalId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if (!args || args.roleName === undefined) {
+            if ((!args || args.roleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'roleName'");
             }
-            if (!args || args.synapseWorkspaceId === undefined) {
+            if ((!args || args.synapseWorkspaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
             inputs["principalId"] = args ? args.principalId : undefined;

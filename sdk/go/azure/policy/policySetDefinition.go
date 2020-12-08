@@ -95,14 +95,15 @@ type PolicySetDefinition struct {
 // NewPolicySetDefinition registers a new resource with the given unique name, arguments, and options.
 func NewPolicySetDefinition(ctx *pulumi.Context,
 	name string, args *PolicySetDefinitionArgs, opts ...pulumi.ResourceOption) (*PolicySetDefinition, error) {
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.PolicyType == nil {
-		return nil, errors.New("missing required argument 'PolicyType'")
-	}
 	if args == nil {
-		args = &PolicySetDefinitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.PolicyType == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyType'")
 	}
 	var resource PolicySetDefinition
 	err := ctx.RegisterResource("azure:policy/policySetDefinition:PolicySetDefinition", name, args, &resource, opts...)

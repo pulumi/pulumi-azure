@@ -140,16 +140,16 @@ export class Profile extends pulumi.CustomResource {
             inputs["trafficRoutingMethod"] = state ? state.trafficRoutingMethod : undefined;
         } else {
             const args = argsOrState as ProfileArgs | undefined;
-            if (!args || args.dnsConfig === undefined) {
+            if ((!args || args.dnsConfig === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dnsConfig'");
             }
-            if (!args || args.monitorConfig === undefined) {
+            if ((!args || args.monitorConfig === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'monitorConfig'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.trafficRoutingMethod === undefined) {
+            if ((!args || args.trafficRoutingMethod === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'trafficRoutingMethod'");
             }
             inputs["dnsConfig"] = args ? args.dnsConfig : undefined;

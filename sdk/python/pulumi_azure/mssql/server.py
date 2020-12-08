@@ -114,15 +114,15 @@ class Server(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if administrator_login is None:
+            if administrator_login is None and not opts.urn:
                 raise TypeError("Missing required property 'administrator_login'")
             __props__['administrator_login'] = administrator_login
-            if administrator_login_password is None:
+            if administrator_login_password is None and not opts.urn:
                 raise TypeError("Missing required property 'administrator_login_password'")
             __props__['administrator_login_password'] = administrator_login_password
             __props__['azuread_administrator'] = azuread_administrator
             __props__['connection_policy'] = connection_policy
-            if extended_auditing_policy is not None:
+            if extended_auditing_policy is not None and not opts.urn:
                 warnings.warn("""the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
                 pulumi.log.warn("extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.")
             __props__['extended_auditing_policy'] = extended_auditing_policy
@@ -131,11 +131,11 @@ class Server(pulumi.CustomResource):
             __props__['minimum_tls_version'] = minimum_tls_version
             __props__['name'] = name
             __props__['public_network_access_enabled'] = public_network_access_enabled
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if version is None:
+            if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
             __props__['version'] = version
             __props__['fully_qualified_domain_name'] = None

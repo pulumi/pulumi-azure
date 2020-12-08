@@ -138,16 +138,16 @@ export class CacheBlobTarget extends pulumi.CustomResource {
             inputs["storageContainerId"] = state ? state.storageContainerId : undefined;
         } else {
             const args = argsOrState as CacheBlobTargetArgs | undefined;
-            if (!args || args.cacheName === undefined) {
+            if ((!args || args.cacheName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'cacheName'");
             }
-            if (!args || args.namespacePath === undefined) {
+            if ((!args || args.namespacePath === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespacePath'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.storageContainerId === undefined) {
+            if ((!args || args.storageContainerId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageContainerId'");
             }
             inputs["cacheName"] = args ? args.cacheName : undefined;

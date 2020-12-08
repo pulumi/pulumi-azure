@@ -121,11 +121,11 @@ class Topic(pulumi.CustomResource):
             __props__['enable_partitioning'] = enable_partitioning
             __props__['max_size_in_megabytes'] = max_size_in_megabytes
             __props__['name'] = name
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
             __props__['requires_duplicate_detection'] = requires_duplicate_detection
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status

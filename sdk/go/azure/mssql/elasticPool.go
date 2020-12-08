@@ -105,20 +105,21 @@ type ElasticPool struct {
 // NewElasticPool registers a new resource with the given unique name, arguments, and options.
 func NewElasticPool(ctx *pulumi.Context,
 	name string, args *ElasticPoolArgs, opts ...pulumi.ResourceOption) (*ElasticPool, error) {
-	if args == nil || args.PerDatabaseSettings == nil {
-		return nil, errors.New("missing required argument 'PerDatabaseSettings'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerName == nil {
-		return nil, errors.New("missing required argument 'ServerName'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	if args == nil {
-		args = &ElasticPoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PerDatabaseSettings == nil {
+		return nil, errors.New("invalid value for required argument 'PerDatabaseSettings'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerName == nil {
+		return nil, errors.New("invalid value for required argument 'ServerName'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	var resource ElasticPool
 	err := ctx.RegisterResource("azure:mssql/elasticPool:ElasticPool", name, args, &resource, opts...)

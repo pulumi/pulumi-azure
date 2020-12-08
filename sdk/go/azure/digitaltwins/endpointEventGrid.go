@@ -88,20 +88,21 @@ type EndpointEventGrid struct {
 // NewEndpointEventGrid registers a new resource with the given unique name, arguments, and options.
 func NewEndpointEventGrid(ctx *pulumi.Context,
 	name string, args *EndpointEventGridArgs, opts ...pulumi.ResourceOption) (*EndpointEventGrid, error) {
-	if args == nil || args.DigitalTwinsId == nil {
-		return nil, errors.New("missing required argument 'DigitalTwinsId'")
-	}
-	if args == nil || args.EventgridTopicEndpoint == nil {
-		return nil, errors.New("missing required argument 'EventgridTopicEndpoint'")
-	}
-	if args == nil || args.EventgridTopicPrimaryAccessKey == nil {
-		return nil, errors.New("missing required argument 'EventgridTopicPrimaryAccessKey'")
-	}
-	if args == nil || args.EventgridTopicSecondaryAccessKey == nil {
-		return nil, errors.New("missing required argument 'EventgridTopicSecondaryAccessKey'")
-	}
 	if args == nil {
-		args = &EndpointEventGridArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DigitalTwinsId == nil {
+		return nil, errors.New("invalid value for required argument 'DigitalTwinsId'")
+	}
+	if args.EventgridTopicEndpoint == nil {
+		return nil, errors.New("invalid value for required argument 'EventgridTopicEndpoint'")
+	}
+	if args.EventgridTopicPrimaryAccessKey == nil {
+		return nil, errors.New("invalid value for required argument 'EventgridTopicPrimaryAccessKey'")
+	}
+	if args.EventgridTopicSecondaryAccessKey == nil {
+		return nil, errors.New("invalid value for required argument 'EventgridTopicSecondaryAccessKey'")
 	}
 	var resource EndpointEventGrid
 	err := ctx.RegisterResource("azure:digitaltwins/endpointEventGrid:EndpointEventGrid", name, args, &resource, opts...)

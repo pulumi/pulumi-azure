@@ -175,10 +175,10 @@ class Certifiate(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['certificate'] = certificate
-            if certificate_policy is None:
+            if certificate_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_policy'")
             __props__['certificate_policy'] = certificate_policy
-            if key_vault_id is None:
+            if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")
             __props__['key_vault_id'] = key_vault_id
             __props__['name'] = name

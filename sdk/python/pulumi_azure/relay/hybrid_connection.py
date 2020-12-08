@@ -81,11 +81,11 @@ class HybridConnection(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['name'] = name
-            if relay_namespace_name is None:
+            if relay_namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'relay_namespace_name'")
             __props__['relay_namespace_name'] = relay_namespace_name
             __props__['requires_client_authorization'] = requires_client_authorization
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['user_metadata'] = user_metadata

@@ -110,22 +110,22 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if enabled is None:
+            if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__['enabled'] = enabled
-            if network_security_group_id is None:
+            if network_security_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_security_group_id'")
             __props__['network_security_group_id'] = network_security_group_id
-            if network_watcher_name is None:
+            if network_watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_watcher_name'")
             __props__['network_watcher_name'] = network_watcher_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if retention_policy is None:
+            if retention_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'retention_policy'")
             __props__['retention_policy'] = retention_policy
-            if storage_account_id is None:
+            if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
             __props__['storage_account_id'] = storage_account_id
             __props__['traffic_analytics'] = traffic_analytics

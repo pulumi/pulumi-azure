@@ -117,16 +117,16 @@ export class PolicyFileShare extends pulumi.CustomResource {
             inputs["timezone"] = state ? state.timezone : undefined;
         } else {
             const args = argsOrState as PolicyFileShareArgs | undefined;
-            if (!args || args.backup === undefined) {
+            if ((!args || args.backup === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backup'");
             }
-            if (!args || args.recoveryVaultName === undefined) {
+            if ((!args || args.recoveryVaultName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.retentionDaily === undefined) {
+            if ((!args || args.retentionDaily === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'retentionDaily'");
             }
             inputs["backup"] = args ? args.backup : undefined;

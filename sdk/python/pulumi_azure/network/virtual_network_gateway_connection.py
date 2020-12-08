@@ -253,18 +253,18 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__['location'] = location
             __props__['name'] = name
             __props__['peer_virtual_network_gateway_id'] = peer_virtual_network_gateway_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['routing_weight'] = routing_weight
             __props__['shared_key'] = shared_key
             __props__['tags'] = tags
             __props__['traffic_selector_policy'] = traffic_selector_policy
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['use_policy_based_traffic_selectors'] = use_policy_based_traffic_selectors
-            if virtual_network_gateway_id is None:
+            if virtual_network_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_gateway_id'")
             __props__['virtual_network_gateway_id'] = virtual_network_gateway_id
         super(VirtualNetworkGatewayConnection, __self__).__init__(

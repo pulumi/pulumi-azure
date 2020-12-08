@@ -117,10 +117,10 @@ export class CertificateIssuer extends pulumi.CustomResource {
             inputs["providerName"] = state ? state.providerName : undefined;
         } else {
             const args = argsOrState as CertificateIssuerArgs | undefined;
-            if (!args || args.keyVaultId === undefined) {
+            if ((!args || args.keyVaultId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            if (!args || args.providerName === undefined) {
+            if ((!args || args.providerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'providerName'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;

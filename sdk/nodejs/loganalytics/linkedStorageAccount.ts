@@ -104,16 +104,16 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
             inputs["workspaceResourceId"] = state ? state.workspaceResourceId : undefined;
         } else {
             const args = argsOrState as LinkedStorageAccountArgs | undefined;
-            if (!args || args.dataSourceType === undefined) {
+            if ((!args || args.dataSourceType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataSourceType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.storageAccountIds === undefined) {
+            if ((!args || args.storageAccountIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountIds'");
             }
-            if (!args || args.workspaceResourceId === undefined) {
+            if ((!args || args.workspaceResourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceResourceId'");
             }
             inputs["dataSourceType"] = args ? args.dataSourceType : undefined;

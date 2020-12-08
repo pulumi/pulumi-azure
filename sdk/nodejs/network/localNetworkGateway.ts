@@ -119,10 +119,10 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as LocalNetworkGatewayArgs | undefined;
-            if (!args || args.addressSpaces === undefined) {
+            if ((!args || args.addressSpaces === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'addressSpaces'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["addressSpaces"] = args ? args.addressSpaces : undefined;

@@ -192,13 +192,13 @@ export class KeyVault extends pulumi.CustomResource {
             inputs["vaultUri"] = state ? state.vaultUri : undefined;
         } else {
             const args = argsOrState as KeyVaultArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.skuName === undefined) {
+            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if (!args || args.tenantId === undefined) {
+            if ((!args || args.tenantId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tenantId'");
             }
             inputs["accessPolicies"] = args ? args.accessPolicies : undefined;

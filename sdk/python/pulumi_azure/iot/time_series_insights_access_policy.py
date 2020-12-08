@@ -79,13 +79,13 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['name'] = name
-            if principal_object_id is None:
+            if principal_object_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_object_id'")
             __props__['principal_object_id'] = principal_object_id
-            if roles is None:
+            if roles is None and not opts.urn:
                 raise TypeError("Missing required property 'roles'")
             __props__['roles'] = roles
-            if time_series_insights_environment_id is None:
+            if time_series_insights_environment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'time_series_insights_environment_id'")
             __props__['time_series_insights_environment_id'] = time_series_insights_environment_id
         super(TimeSeriesInsightsAccessPolicy, __self__).__init__(

@@ -61,19 +61,19 @@ class TableEntity(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if entity is None:
+            if entity is None and not opts.urn:
                 raise TypeError("Missing required property 'entity'")
             __props__['entity'] = entity
-            if partition_key is None:
+            if partition_key is None and not opts.urn:
                 raise TypeError("Missing required property 'partition_key'")
             __props__['partition_key'] = partition_key
-            if row_key is None:
+            if row_key is None and not opts.urn:
                 raise TypeError("Missing required property 'row_key'")
             __props__['row_key'] = row_key
-            if storage_account_name is None:
+            if storage_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_name'")
             __props__['storage_account_name'] = storage_account_name
-            if table_name is None:
+            if table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_name'")
             __props__['table_name'] = table_name
         super(TableEntity, __self__).__init__(

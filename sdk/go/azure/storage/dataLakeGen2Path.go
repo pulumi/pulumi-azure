@@ -94,20 +94,21 @@ type DataLakeGen2Path struct {
 // NewDataLakeGen2Path registers a new resource with the given unique name, arguments, and options.
 func NewDataLakeGen2Path(ctx *pulumi.Context,
 	name string, args *DataLakeGen2PathArgs, opts ...pulumi.ResourceOption) (*DataLakeGen2Path, error) {
-	if args == nil || args.FilesystemName == nil {
-		return nil, errors.New("missing required argument 'FilesystemName'")
-	}
-	if args == nil || args.Path == nil {
-		return nil, errors.New("missing required argument 'Path'")
-	}
-	if args == nil || args.Resource == nil {
-		return nil, errors.New("missing required argument 'Resource'")
-	}
-	if args == nil || args.StorageAccountId == nil {
-		return nil, errors.New("missing required argument 'StorageAccountId'")
-	}
 	if args == nil {
-		args = &DataLakeGen2PathArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FilesystemName == nil {
+		return nil, errors.New("invalid value for required argument 'FilesystemName'")
+	}
+	if args.Path == nil {
+		return nil, errors.New("invalid value for required argument 'Path'")
+	}
+	if args.Resource == nil {
+		return nil, errors.New("invalid value for required argument 'Resource'")
+	}
+	if args.StorageAccountId == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccountId'")
 	}
 	var resource DataLakeGen2Path
 	err := ctx.RegisterResource("azure:storage/dataLakeGen2Path:DataLakeGen2Path", name, args, &resource, opts...)

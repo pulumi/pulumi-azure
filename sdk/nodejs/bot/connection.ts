@@ -132,19 +132,19 @@ export class Connection extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
-            if (!args || args.botName === undefined) {
+            if ((!args || args.botName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'botName'");
             }
-            if (!args || args.clientId === undefined) {
+            if ((!args || args.clientId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if (!args || args.clientSecret === undefined) {
+            if ((!args || args.clientSecret === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceProviderName === undefined) {
+            if ((!args || args.serviceProviderName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceProviderName'");
             }
             inputs["botName"] = args ? args.botName : undefined;

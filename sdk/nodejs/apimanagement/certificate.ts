@@ -98,13 +98,13 @@ export class Certificate extends pulumi.CustomResource {
             inputs["thumbprint"] = state ? state.thumbprint : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if (!args || args.apiManagementName === undefined) {
+            if ((!args || args.apiManagementName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if (!args || args.data === undefined) {
+            if ((!args || args.data === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'data'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["apiManagementName"] = args ? args.apiManagementName : undefined;

@@ -76,17 +76,17 @@ class CnameRecord(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['name'] = name
-            if record is None:
+            if record is None and not opts.urn:
                 raise TypeError("Missing required property 'record'")
             __props__['record'] = record
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if ttl is None:
+            if ttl is None and not opts.urn:
                 raise TypeError("Missing required property 'ttl'")
             __props__['ttl'] = ttl
-            if zone_name is None:
+            if zone_name is None and not opts.urn:
                 raise TypeError("Missing required property 'zone_name'")
             __props__['zone_name'] = zone_name
             __props__['fqdn'] = None

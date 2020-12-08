@@ -135,7 +135,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             inputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as AnalyticsWorkspaceArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dailyQuotaGb"] = args ? args.dailyQuotaGb : undefined;

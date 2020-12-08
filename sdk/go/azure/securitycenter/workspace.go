@@ -76,14 +76,15 @@ type Workspace struct {
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
 func NewWorkspace(ctx *pulumi.Context,
 	name string, args *WorkspaceArgs, opts ...pulumi.ResourceOption) (*Workspace, error) {
-	if args == nil || args.Scope == nil {
-		return nil, errors.New("missing required argument 'Scope'")
-	}
-	if args == nil || args.WorkspaceId == nil {
-		return nil, errors.New("missing required argument 'WorkspaceId'")
-	}
 	if args == nil {
-		args = &WorkspaceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
+	}
+	if args.WorkspaceId == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceId'")
 	}
 	var resource Workspace
 	err := ctx.RegisterResource("azure:securitycenter/workspace:Workspace", name, args, &resource, opts...)

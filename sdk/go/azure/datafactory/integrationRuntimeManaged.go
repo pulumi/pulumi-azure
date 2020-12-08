@@ -93,17 +93,18 @@ type IntegrationRuntimeManaged struct {
 // NewIntegrationRuntimeManaged registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationRuntimeManaged(ctx *pulumi.Context,
 	name string, args *IntegrationRuntimeManagedArgs, opts ...pulumi.ResourceOption) (*IntegrationRuntimeManaged, error) {
-	if args == nil || args.DataFactoryName == nil {
-		return nil, errors.New("missing required argument 'DataFactoryName'")
-	}
-	if args == nil || args.NodeSize == nil {
-		return nil, errors.New("missing required argument 'NodeSize'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &IntegrationRuntimeManagedArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataFactoryName == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
+	}
+	if args.NodeSize == nil {
+		return nil, errors.New("invalid value for required argument 'NodeSize'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource IntegrationRuntimeManaged
 	err := ctx.RegisterResource("azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged", name, args, &resource, opts...)

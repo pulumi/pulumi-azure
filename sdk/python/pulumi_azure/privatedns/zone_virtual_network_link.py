@@ -76,15 +76,15 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['name'] = name
-            if private_dns_zone_name is None:
+            if private_dns_zone_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_dns_zone_name'")
             __props__['private_dns_zone_name'] = private_dns_zone_name
             __props__['registration_enabled'] = registration_enabled
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if virtual_network_id is None:
+            if virtual_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_id'")
             __props__['virtual_network_id'] = virtual_network_id
         super(ZoneVirtualNetworkLink, __self__).__init__(

@@ -68,7 +68,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
                 subscription_id="00000000-0000-0000-0000-000000000000",
             ),
             file_path="myfile.txt",
-            opts=ResourceOptions(depends_on=[example_assignment]))
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import
@@ -105,16 +105,16 @@ class DatasetBlobStorage(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if container_name is None:
+            if container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'container_name'")
             __props__['container_name'] = container_name
-            if data_share_id is None:
+            if data_share_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_share_id'")
             __props__['data_share_id'] = data_share_id
             __props__['file_path'] = file_path
             __props__['folder_path'] = folder_path
             __props__['name'] = name
-            if storage_account is None:
+            if storage_account is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account'")
             __props__['storage_account'] = storage_account
             __props__['display_name'] = None

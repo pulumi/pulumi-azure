@@ -118,10 +118,10 @@ export class Application extends pulumi.CustomResource {
             inputs["template"] = state ? state.template : undefined;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.subDomain === undefined) {
+            if ((!args || args.subDomain === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subDomain'");
             }
             inputs["displayName"] = args ? args.displayName : undefined;

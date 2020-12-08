@@ -116,20 +116,21 @@ type Automation struct {
 // NewAutomation registers a new resource with the given unique name, arguments, and options.
 func NewAutomation(ctx *pulumi.Context,
 	name string, args *AutomationArgs, opts ...pulumi.ResourceOption) (*Automation, error) {
-	if args == nil || args.Actions == nil {
-		return nil, errors.New("missing required argument 'Actions'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Scopes == nil {
-		return nil, errors.New("missing required argument 'Scopes'")
-	}
-	if args == nil || args.Sources == nil {
-		return nil, errors.New("missing required argument 'Sources'")
-	}
 	if args == nil {
-		args = &AutomationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Actions == nil {
+		return nil, errors.New("invalid value for required argument 'Actions'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Scopes == nil {
+		return nil, errors.New("invalid value for required argument 'Scopes'")
+	}
+	if args.Sources == nil {
+		return nil, errors.New("invalid value for required argument 'Sources'")
 	}
 	var resource Automation
 	err := ctx.RegisterResource("azure:securitycenter/automation:Automation", name, args, &resource, opts...)

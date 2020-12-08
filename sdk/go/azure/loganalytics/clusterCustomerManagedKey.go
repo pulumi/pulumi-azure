@@ -32,14 +32,15 @@ type ClusterCustomerManagedKey struct {
 // NewClusterCustomerManagedKey registers a new resource with the given unique name, arguments, and options.
 func NewClusterCustomerManagedKey(ctx *pulumi.Context,
 	name string, args *ClusterCustomerManagedKeyArgs, opts ...pulumi.ResourceOption) (*ClusterCustomerManagedKey, error) {
-	if args == nil || args.KeyVaultKeyId == nil {
-		return nil, errors.New("missing required argument 'KeyVaultKeyId'")
-	}
-	if args == nil || args.LogAnalyticsClusterId == nil {
-		return nil, errors.New("missing required argument 'LogAnalyticsClusterId'")
-	}
 	if args == nil {
-		args = &ClusterCustomerManagedKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.KeyVaultKeyId == nil {
+		return nil, errors.New("invalid value for required argument 'KeyVaultKeyId'")
+	}
+	if args.LogAnalyticsClusterId == nil {
+		return nil, errors.New("invalid value for required argument 'LogAnalyticsClusterId'")
 	}
 	var resource ClusterCustomerManagedKey
 	err := ctx.RegisterResource("azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey", name, args, &resource, opts...)

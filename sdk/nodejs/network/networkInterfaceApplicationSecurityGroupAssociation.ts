@@ -104,10 +104,10 @@ export class NetworkInterfaceApplicationSecurityGroupAssociation extends pulumi.
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
         } else {
             const args = argsOrState as NetworkInterfaceApplicationSecurityGroupAssociationArgs | undefined;
-            if (!args || args.applicationSecurityGroupId === undefined) {
+            if ((!args || args.applicationSecurityGroupId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationSecurityGroupId'");
             }
-            if (!args || args.networkInterfaceId === undefined) {
+            if ((!args || args.networkInterfaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
             inputs["applicationSecurityGroupId"] = args ? args.applicationSecurityGroupId : undefined;

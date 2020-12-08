@@ -343,25 +343,25 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as WindowsVirtualMachineScaleSetArgs | undefined;
-            if (!args || args.adminPassword === undefined) {
+            if ((!args || args.adminPassword === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'adminPassword'");
             }
-            if (!args || args.adminUsername === undefined) {
+            if ((!args || args.adminUsername === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'adminUsername'");
             }
-            if (!args || args.instances === undefined) {
+            if ((!args || args.instances === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'instances'");
             }
-            if (!args || args.networkInterfaces === undefined) {
+            if ((!args || args.networkInterfaces === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkInterfaces'");
             }
-            if (!args || args.osDisk === undefined) {
+            if ((!args || args.osDisk === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'osDisk'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sku === undefined) {
+            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;

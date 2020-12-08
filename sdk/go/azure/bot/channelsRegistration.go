@@ -87,17 +87,18 @@ type ChannelsRegistration struct {
 // NewChannelsRegistration registers a new resource with the given unique name, arguments, and options.
 func NewChannelsRegistration(ctx *pulumi.Context,
 	name string, args *ChannelsRegistrationArgs, opts ...pulumi.ResourceOption) (*ChannelsRegistration, error) {
-	if args == nil || args.MicrosoftAppId == nil {
-		return nil, errors.New("missing required argument 'MicrosoftAppId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	if args == nil {
-		args = &ChannelsRegistrationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MicrosoftAppId == nil {
+		return nil, errors.New("invalid value for required argument 'MicrosoftAppId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	var resource ChannelsRegistration
 	err := ctx.RegisterResource("azure:bot/channelsRegistration:ChannelsRegistration", name, args, &resource, opts...)

@@ -68,10 +68,10 @@ export class ServerKey extends pulumi.CustomResource {
             inputs["serverId"] = state ? state.serverId : undefined;
         } else {
             const args = argsOrState as ServerKeyArgs | undefined;
-            if (!args || args.keyVaultKeyId === undefined) {
+            if ((!args || args.keyVaultKeyId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyVaultKeyId'");
             }
-            if (!args || args.serverId === undefined) {
+            if ((!args || args.serverId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverId'");
             }
             inputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;

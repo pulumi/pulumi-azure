@@ -111,16 +111,16 @@ export class Database extends pulumi.CustomResource {
             inputs["serverName"] = state ? state.serverName : undefined;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
-            if (!args || args.charset === undefined) {
+            if ((!args || args.charset === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'charset'");
             }
-            if (!args || args.collation === undefined) {
+            if ((!args || args.collation === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'collation'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["charset"] = args ? args.charset : undefined;

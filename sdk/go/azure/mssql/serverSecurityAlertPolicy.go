@@ -108,17 +108,18 @@ type ServerSecurityAlertPolicy struct {
 // NewServerSecurityAlertPolicy registers a new resource with the given unique name, arguments, and options.
 func NewServerSecurityAlertPolicy(ctx *pulumi.Context,
 	name string, args *ServerSecurityAlertPolicyArgs, opts ...pulumi.ResourceOption) (*ServerSecurityAlertPolicy, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerName == nil {
-		return nil, errors.New("missing required argument 'ServerName'")
-	}
-	if args == nil || args.State == nil {
-		return nil, errors.New("missing required argument 'State'")
-	}
 	if args == nil {
-		args = &ServerSecurityAlertPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerName == nil {
+		return nil, errors.New("invalid value for required argument 'ServerName'")
+	}
+	if args.State == nil {
+		return nil, errors.New("invalid value for required argument 'State'")
 	}
 	var resource ServerSecurityAlertPolicy
 	err := ctx.RegisterResource("azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy", name, args, &resource, opts...)

@@ -109,34 +109,34 @@ class AuthorizationServer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_management_name is None:
+            if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__['api_management_name'] = api_management_name
-            if authorization_endpoint is None:
+            if authorization_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'authorization_endpoint'")
             __props__['authorization_endpoint'] = authorization_endpoint
-            if authorization_methods is None:
+            if authorization_methods is None and not opts.urn:
                 raise TypeError("Missing required property 'authorization_methods'")
             __props__['authorization_methods'] = authorization_methods
             __props__['bearer_token_sending_methods'] = bearer_token_sending_methods
             __props__['client_authentication_methods'] = client_authentication_methods
-            if client_id is None:
+            if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
             __props__['client_id'] = client_id
-            if client_registration_endpoint is None:
+            if client_registration_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'client_registration_endpoint'")
             __props__['client_registration_endpoint'] = client_registration_endpoint
             __props__['client_secret'] = client_secret
             __props__['default_scope'] = default_scope
             __props__['description'] = description
-            if display_name is None:
+            if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
-            if grant_types is None:
+            if grant_types is None and not opts.urn:
                 raise TypeError("Missing required property 'grant_types'")
             __props__['grant_types'] = grant_types
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_owner_password'] = resource_owner_password

@@ -97,14 +97,15 @@ type Assignment struct {
 // NewAssignment registers a new resource with the given unique name, arguments, and options.
 func NewAssignment(ctx *pulumi.Context,
 	name string, args *AssignmentArgs, opts ...pulumi.ResourceOption) (*Assignment, error) {
-	if args == nil || args.PolicyDefinitionId == nil {
-		return nil, errors.New("missing required argument 'PolicyDefinitionId'")
-	}
-	if args == nil || args.Scope == nil {
-		return nil, errors.New("missing required argument 'Scope'")
-	}
 	if args == nil {
-		args = &AssignmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PolicyDefinitionId == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyDefinitionId'")
+	}
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	var resource Assignment
 	err := ctx.RegisterResource("azure:policy/assignment:Assignment", name, args, &resource, opts...)

@@ -108,13 +108,13 @@ export class FirewallRule extends pulumi.CustomResource {
             inputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
         } else {
             const args = argsOrState as FirewallRuleArgs | undefined;
-            if (!args || args.endIpAddress === undefined) {
+            if ((!args || args.endIpAddress === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endIpAddress'");
             }
-            if (!args || args.startIpAddress === undefined) {
+            if ((!args || args.startIpAddress === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'startIpAddress'");
             }
-            if (!args || args.synapseWorkspaceId === undefined) {
+            if ((!args || args.synapseWorkspaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
             inputs["endIpAddress"] = args ? args.endIpAddress : undefined;

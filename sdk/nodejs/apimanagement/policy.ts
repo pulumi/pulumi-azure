@@ -99,7 +99,7 @@ export class Policy extends pulumi.CustomResource {
             inputs["xmlLink"] = state ? state.xmlLink : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            if (!args || args.apiManagementId === undefined) {
+            if ((!args || args.apiManagementId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiManagementId'");
             }
             inputs["apiManagementId"] = args ? args.apiManagementId : undefined;

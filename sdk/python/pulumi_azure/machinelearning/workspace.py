@@ -110,26 +110,26 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if application_insights_id is None:
+            if application_insights_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_insights_id'")
             __props__['application_insights_id'] = application_insights_id
             __props__['container_registry_id'] = container_registry_id
             __props__['description'] = description
             __props__['friendly_name'] = friendly_name
             __props__['high_business_impact'] = high_business_impact
-            if identity is None:
+            if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__['identity'] = identity
-            if key_vault_id is None:
+            if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")
             __props__['key_vault_id'] = key_vault_id
             __props__['location'] = location
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku_name'] = sku_name
-            if storage_account_id is None:
+            if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
             __props__['storage_account_id'] = storage_account_id
             __props__['tags'] = tags

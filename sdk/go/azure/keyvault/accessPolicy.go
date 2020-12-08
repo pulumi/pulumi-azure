@@ -67,17 +67,18 @@ type AccessPolicy struct {
 // NewAccessPolicy registers a new resource with the given unique name, arguments, and options.
 func NewAccessPolicy(ctx *pulumi.Context,
 	name string, args *AccessPolicyArgs, opts ...pulumi.ResourceOption) (*AccessPolicy, error) {
-	if args == nil || args.KeyVaultId == nil {
-		return nil, errors.New("missing required argument 'KeyVaultId'")
-	}
-	if args == nil || args.ObjectId == nil {
-		return nil, errors.New("missing required argument 'ObjectId'")
-	}
-	if args == nil || args.TenantId == nil {
-		return nil, errors.New("missing required argument 'TenantId'")
-	}
 	if args == nil {
-		args = &AccessPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.KeyVaultId == nil {
+		return nil, errors.New("invalid value for required argument 'KeyVaultId'")
+	}
+	if args.ObjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ObjectId'")
+	}
+	if args.TenantId == nil {
+		return nil, errors.New("invalid value for required argument 'TenantId'")
 	}
 	var resource AccessPolicy
 	err := ctx.RegisterResource("azure:keyvault/accessPolicy:AccessPolicy", name, args, &resource, opts...)

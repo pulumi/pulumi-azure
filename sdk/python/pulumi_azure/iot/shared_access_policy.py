@@ -85,13 +85,13 @@ class SharedAccessPolicy(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['device_connect'] = device_connect
-            if iothub_name is None:
+            if iothub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'iothub_name'")
             __props__['iothub_name'] = iothub_name
             __props__['name'] = name
             __props__['registry_read'] = registry_read
             __props__['registry_write'] = registry_write
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['service_connect'] = service_connect

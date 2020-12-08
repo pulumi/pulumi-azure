@@ -136,10 +136,10 @@ export class SharedAccessPolicy extends pulumi.CustomResource {
             inputs["serviceConnect"] = state ? state.serviceConnect : undefined;
         } else {
             const args = argsOrState as SharedAccessPolicyArgs | undefined;
-            if (!args || args.iothubName === undefined) {
+            if ((!args || args.iothubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'iothubName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["deviceConnect"] = args ? args.deviceConnect : undefined;

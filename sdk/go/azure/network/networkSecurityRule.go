@@ -114,26 +114,27 @@ type NetworkSecurityRule struct {
 // NewNetworkSecurityRule registers a new resource with the given unique name, arguments, and options.
 func NewNetworkSecurityRule(ctx *pulumi.Context,
 	name string, args *NetworkSecurityRuleArgs, opts ...pulumi.ResourceOption) (*NetworkSecurityRule, error) {
-	if args == nil || args.Access == nil {
-		return nil, errors.New("missing required argument 'Access'")
-	}
-	if args == nil || args.Direction == nil {
-		return nil, errors.New("missing required argument 'Direction'")
-	}
-	if args == nil || args.NetworkSecurityGroupName == nil {
-		return nil, errors.New("missing required argument 'NetworkSecurityGroupName'")
-	}
-	if args == nil || args.Priority == nil {
-		return nil, errors.New("missing required argument 'Priority'")
-	}
-	if args == nil || args.Protocol == nil {
-		return nil, errors.New("missing required argument 'Protocol'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &NetworkSecurityRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Access == nil {
+		return nil, errors.New("invalid value for required argument 'Access'")
+	}
+	if args.Direction == nil {
+		return nil, errors.New("invalid value for required argument 'Direction'")
+	}
+	if args.NetworkSecurityGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkSecurityGroupName'")
+	}
+	if args.Priority == nil {
+		return nil, errors.New("invalid value for required argument 'Priority'")
+	}
+	if args.Protocol == nil {
+		return nil, errors.New("invalid value for required argument 'Protocol'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource NetworkSecurityRule
 	err := ctx.RegisterResource("azure:network/networkSecurityRule:NetworkSecurityRule", name, args, &resource, opts...)

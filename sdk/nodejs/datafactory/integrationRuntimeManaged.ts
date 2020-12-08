@@ -140,13 +140,13 @@ export class IntegrationRuntimeManaged extends pulumi.CustomResource {
             inputs["vnetIntegration"] = state ? state.vnetIntegration : undefined;
         } else {
             const args = argsOrState as IntegrationRuntimeManagedArgs | undefined;
-            if (!args || args.dataFactoryName === undefined) {
+            if ((!args || args.dataFactoryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataFactoryName'");
             }
-            if (!args || args.nodeSize === undefined) {
+            if ((!args || args.nodeSize === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'nodeSize'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["catalogInfo"] = args ? args.catalogInfo : undefined;

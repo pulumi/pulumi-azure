@@ -14,3 +14,47 @@ from .spark_cluster import *
 from .storm_cluster import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure:hdinsight/hBaseCluster:HBaseCluster":
+                return HBaseCluster(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:hdinsight/hadoopCluster:HadoopCluster":
+                return HadoopCluster(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster":
+                return InteractiveQueryCluster(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:hdinsight/kafkaCluster:KafkaCluster":
+                return KafkaCluster(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:hdinsight/mLServicesCluster:MLServicesCluster":
+                return MLServicesCluster(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:hdinsight/rServerCluster:RServerCluster":
+                return RServerCluster(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:hdinsight/sparkCluster:SparkCluster":
+                return SparkCluster(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:hdinsight/stormCluster:StormCluster":
+                return StormCluster(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure", "hdinsight/hBaseCluster", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "hdinsight/hadoopCluster", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "hdinsight/interactiveQueryCluster", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "hdinsight/kafkaCluster", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "hdinsight/mLServicesCluster", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "hdinsight/rServerCluster", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "hdinsight/sparkCluster", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "hdinsight/stormCluster", _module_instance)
+
+_register_module()

@@ -131,26 +131,27 @@ type NetworkMapping struct {
 // NewNetworkMapping registers a new resource with the given unique name, arguments, and options.
 func NewNetworkMapping(ctx *pulumi.Context,
 	name string, args *NetworkMappingArgs, opts ...pulumi.ResourceOption) (*NetworkMapping, error) {
-	if args == nil || args.RecoveryVaultName == nil {
-		return nil, errors.New("missing required argument 'RecoveryVaultName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SourceNetworkId == nil {
-		return nil, errors.New("missing required argument 'SourceNetworkId'")
-	}
-	if args == nil || args.SourceRecoveryFabricName == nil {
-		return nil, errors.New("missing required argument 'SourceRecoveryFabricName'")
-	}
-	if args == nil || args.TargetNetworkId == nil {
-		return nil, errors.New("missing required argument 'TargetNetworkId'")
-	}
-	if args == nil || args.TargetRecoveryFabricName == nil {
-		return nil, errors.New("missing required argument 'TargetRecoveryFabricName'")
-	}
 	if args == nil {
-		args = &NetworkMappingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RecoveryVaultName == nil {
+		return nil, errors.New("invalid value for required argument 'RecoveryVaultName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SourceNetworkId == nil {
+		return nil, errors.New("invalid value for required argument 'SourceNetworkId'")
+	}
+	if args.SourceRecoveryFabricName == nil {
+		return nil, errors.New("invalid value for required argument 'SourceRecoveryFabricName'")
+	}
+	if args.TargetNetworkId == nil {
+		return nil, errors.New("invalid value for required argument 'TargetNetworkId'")
+	}
+	if args.TargetRecoveryFabricName == nil {
+		return nil, errors.New("invalid value for required argument 'TargetRecoveryFabricName'")
 	}
 	var resource NetworkMapping
 	err := ctx.RegisterResource("azure:siterecovery/networkMapping:NetworkMapping", name, args, &resource, opts...)

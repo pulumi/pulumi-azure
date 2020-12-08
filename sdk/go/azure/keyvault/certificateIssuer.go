@@ -89,14 +89,15 @@ type CertificateIssuer struct {
 // NewCertificateIssuer registers a new resource with the given unique name, arguments, and options.
 func NewCertificateIssuer(ctx *pulumi.Context,
 	name string, args *CertificateIssuerArgs, opts ...pulumi.ResourceOption) (*CertificateIssuer, error) {
-	if args == nil || args.KeyVaultId == nil {
-		return nil, errors.New("missing required argument 'KeyVaultId'")
-	}
-	if args == nil || args.ProviderName == nil {
-		return nil, errors.New("missing required argument 'ProviderName'")
-	}
 	if args == nil {
-		args = &CertificateIssuerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.KeyVaultId == nil {
+		return nil, errors.New("invalid value for required argument 'KeyVaultId'")
+	}
+	if args.ProviderName == nil {
+		return nil, errors.New("invalid value for required argument 'ProviderName'")
 	}
 	var resource CertificateIssuer
 	err := ctx.RegisterResource("azure:keyvault/certificateIssuer:CertificateIssuer", name, args, &resource, opts...)

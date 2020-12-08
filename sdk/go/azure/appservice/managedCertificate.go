@@ -50,11 +50,12 @@ type ManagedCertificate struct {
 // NewManagedCertificate registers a new resource with the given unique name, arguments, and options.
 func NewManagedCertificate(ctx *pulumi.Context,
 	name string, args *ManagedCertificateArgs, opts ...pulumi.ResourceOption) (*ManagedCertificate, error) {
-	if args == nil || args.CustomHostnameBindingId == nil {
-		return nil, errors.New("missing required argument 'CustomHostnameBindingId'")
-	}
 	if args == nil {
-		args = &ManagedCertificateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CustomHostnameBindingId == nil {
+		return nil, errors.New("invalid value for required argument 'CustomHostnameBindingId'")
 	}
 	var resource ManagedCertificate
 	err := ctx.RegisterResource("azure:appservice/managedCertificate:ManagedCertificate", name, args, &resource, opts...)

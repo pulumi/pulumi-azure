@@ -208,35 +208,36 @@ type ApplicationGateway struct {
 // NewApplicationGateway registers a new resource with the given unique name, arguments, and options.
 func NewApplicationGateway(ctx *pulumi.Context,
 	name string, args *ApplicationGatewayArgs, opts ...pulumi.ResourceOption) (*ApplicationGateway, error) {
-	if args == nil || args.BackendAddressPools == nil {
-		return nil, errors.New("missing required argument 'BackendAddressPools'")
-	}
-	if args == nil || args.BackendHttpSettings == nil {
-		return nil, errors.New("missing required argument 'BackendHttpSettings'")
-	}
-	if args == nil || args.FrontendIpConfigurations == nil {
-		return nil, errors.New("missing required argument 'FrontendIpConfigurations'")
-	}
-	if args == nil || args.FrontendPorts == nil {
-		return nil, errors.New("missing required argument 'FrontendPorts'")
-	}
-	if args == nil || args.GatewayIpConfigurations == nil {
-		return nil, errors.New("missing required argument 'GatewayIpConfigurations'")
-	}
-	if args == nil || args.HttpListeners == nil {
-		return nil, errors.New("missing required argument 'HttpListeners'")
-	}
-	if args == nil || args.RequestRoutingRules == nil {
-		return nil, errors.New("missing required argument 'RequestRoutingRules'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	if args == nil {
-		args = &ApplicationGatewayArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BackendAddressPools == nil {
+		return nil, errors.New("invalid value for required argument 'BackendAddressPools'")
+	}
+	if args.BackendHttpSettings == nil {
+		return nil, errors.New("invalid value for required argument 'BackendHttpSettings'")
+	}
+	if args.FrontendIpConfigurations == nil {
+		return nil, errors.New("invalid value for required argument 'FrontendIpConfigurations'")
+	}
+	if args.FrontendPorts == nil {
+		return nil, errors.New("invalid value for required argument 'FrontendPorts'")
+	}
+	if args.GatewayIpConfigurations == nil {
+		return nil, errors.New("invalid value for required argument 'GatewayIpConfigurations'")
+	}
+	if args.HttpListeners == nil {
+		return nil, errors.New("invalid value for required argument 'HttpListeners'")
+	}
+	if args.RequestRoutingRules == nil {
+		return nil, errors.New("invalid value for required argument 'RequestRoutingRules'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	var resource ApplicationGateway
 	err := ctx.RegisterResource("azure:network/applicationGateway:ApplicationGateway", name, args, &resource, opts...)

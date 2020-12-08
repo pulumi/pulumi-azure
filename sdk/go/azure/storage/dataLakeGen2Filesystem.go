@@ -80,11 +80,12 @@ type DataLakeGen2Filesystem struct {
 // NewDataLakeGen2Filesystem registers a new resource with the given unique name, arguments, and options.
 func NewDataLakeGen2Filesystem(ctx *pulumi.Context,
 	name string, args *DataLakeGen2FilesystemArgs, opts ...pulumi.ResourceOption) (*DataLakeGen2Filesystem, error) {
-	if args == nil || args.StorageAccountId == nil {
-		return nil, errors.New("missing required argument 'StorageAccountId'")
-	}
 	if args == nil {
-		args = &DataLakeGen2FilesystemArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.StorageAccountId == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccountId'")
 	}
 	var resource DataLakeGen2Filesystem
 	err := ctx.RegisterResource("azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem", name, args, &resource, opts...)

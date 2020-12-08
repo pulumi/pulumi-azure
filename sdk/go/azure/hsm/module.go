@@ -170,17 +170,18 @@ type Module struct {
 // NewModule registers a new resource with the given unique name, arguments, and options.
 func NewModule(ctx *pulumi.Context,
 	name string, args *ModuleArgs, opts ...pulumi.ResourceOption) (*Module, error) {
-	if args == nil || args.NetworkProfile == nil {
-		return nil, errors.New("missing required argument 'NetworkProfile'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SkuName == nil {
-		return nil, errors.New("missing required argument 'SkuName'")
-	}
 	if args == nil {
-		args = &ModuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NetworkProfile == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkProfile'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SkuName == nil {
+		return nil, errors.New("invalid value for required argument 'SkuName'")
 	}
 	var resource Module
 	err := ctx.RegisterResource("azure:hsm/module:Module", name, args, &resource, opts...)

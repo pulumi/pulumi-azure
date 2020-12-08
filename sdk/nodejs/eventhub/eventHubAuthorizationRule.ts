@@ -161,13 +161,13 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
             inputs["send"] = state ? state.send : undefined;
         } else {
             const args = argsOrState as EventHubAuthorizationRuleArgs | undefined;
-            if (!args || args.eventhubName === undefined) {
+            if ((!args || args.eventhubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventhubName'");
             }
-            if (!args || args.namespaceName === undefined) {
+            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["eventhubName"] = args ? args.eventhubName : undefined;

@@ -98,20 +98,21 @@ type FirewallRule struct {
 // NewFirewallRule registers a new resource with the given unique name, arguments, and options.
 func NewFirewallRule(ctx *pulumi.Context,
 	name string, args *FirewallRuleArgs, opts ...pulumi.ResourceOption) (*FirewallRule, error) {
-	if args == nil || args.EndIp == nil {
-		return nil, errors.New("missing required argument 'EndIp'")
-	}
-	if args == nil || args.RedisCacheName == nil {
-		return nil, errors.New("missing required argument 'RedisCacheName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StartIp == nil {
-		return nil, errors.New("missing required argument 'StartIp'")
-	}
 	if args == nil {
-		args = &FirewallRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EndIp == nil {
+		return nil, errors.New("invalid value for required argument 'EndIp'")
+	}
+	if args.RedisCacheName == nil {
+		return nil, errors.New("invalid value for required argument 'RedisCacheName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StartIp == nil {
+		return nil, errors.New("invalid value for required argument 'StartIp'")
 	}
 	var resource FirewallRule
 	err := ctx.RegisterResource("azure:redis/firewallRule:FirewallRule", name, args, &resource, opts...)

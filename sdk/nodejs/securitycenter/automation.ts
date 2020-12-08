@@ -131,16 +131,16 @@ export class Automation extends pulumi.CustomResource {
             inputs["sources"] = state ? state.sources : undefined;
         } else {
             const args = argsOrState as AutomationArgs | undefined;
-            if (!args || args.actions === undefined) {
+            if ((!args || args.actions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'actions'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.scopes === undefined) {
+            if ((!args || args.scopes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scopes'");
             }
-            if (!args || args.sources === undefined) {
+            if ((!args || args.sources === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sources'");
             }
             inputs["actions"] = args ? args.actions : undefined;

@@ -96,25 +96,25 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if action_group is None:
+            if action_group is None and not opts.urn:
                 raise TypeError("Missing required property 'action_group'")
             __props__['action_group'] = action_group
             __props__['description'] = description
-            if detector_type is None:
+            if detector_type is None and not opts.urn:
                 raise TypeError("Missing required property 'detector_type'")
             __props__['detector_type'] = detector_type
             __props__['enabled'] = enabled
-            if frequency is None:
+            if frequency is None and not opts.urn:
                 raise TypeError("Missing required property 'frequency'")
             __props__['frequency'] = frequency
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if scope_resource_ids is None:
+            if scope_resource_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'scope_resource_ids'")
             __props__['scope_resource_ids'] = scope_resource_ids
-            if severity is None:
+            if severity is None and not opts.urn:
                 raise TypeError("Missing required property 'severity'")
             __props__['severity'] = severity
             __props__['throttling_duration'] = throttling_duration

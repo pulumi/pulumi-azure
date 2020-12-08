@@ -121,30 +121,30 @@ class Volume(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['export_policy_rules'] = export_policy_rules
             __props__['location'] = location
             __props__['name'] = name
-            if pool_name is None:
+            if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")
             __props__['pool_name'] = pool_name
             __props__['protocols'] = protocols
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if service_level is None:
+            if service_level is None and not opts.urn:
                 raise TypeError("Missing required property 'service_level'")
             __props__['service_level'] = service_level
-            if storage_quota_in_gb is None:
+            if storage_quota_in_gb is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_quota_in_gb'")
             __props__['storage_quota_in_gb'] = storage_quota_in_gb
-            if subnet_id is None:
+            if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
             __props__['tags'] = tags
-            if volume_path is None:
+            if volume_path is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_path'")
             __props__['volume_path'] = volume_path
             __props__['mount_ip_addresses'] = None

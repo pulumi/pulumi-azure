@@ -60,11 +60,12 @@ type SubscriptionPricing struct {
 // NewSubscriptionPricing registers a new resource with the given unique name, arguments, and options.
 func NewSubscriptionPricing(ctx *pulumi.Context,
 	name string, args *SubscriptionPricingArgs, opts ...pulumi.ResourceOption) (*SubscriptionPricing, error) {
-	if args == nil || args.Tier == nil {
-		return nil, errors.New("missing required argument 'Tier'")
-	}
 	if args == nil {
-		args = &SubscriptionPricingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Tier == nil {
+		return nil, errors.New("invalid value for required argument 'Tier'")
 	}
 	var resource SubscriptionPricing
 	err := ctx.RegisterResource("azure:securitycenter/subscriptionPricing:SubscriptionPricing", name, args, &resource, opts...)

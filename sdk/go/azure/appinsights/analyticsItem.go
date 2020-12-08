@@ -89,20 +89,21 @@ type AnalyticsItem struct {
 // NewAnalyticsItem registers a new resource with the given unique name, arguments, and options.
 func NewAnalyticsItem(ctx *pulumi.Context,
 	name string, args *AnalyticsItemArgs, opts ...pulumi.ResourceOption) (*AnalyticsItem, error) {
-	if args == nil || args.ApplicationInsightsId == nil {
-		return nil, errors.New("missing required argument 'ApplicationInsightsId'")
-	}
-	if args == nil || args.Content == nil {
-		return nil, errors.New("missing required argument 'Content'")
-	}
-	if args == nil || args.Scope == nil {
-		return nil, errors.New("missing required argument 'Scope'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &AnalyticsItemArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApplicationInsightsId == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationInsightsId'")
+	}
+	if args.Content == nil {
+		return nil, errors.New("invalid value for required argument 'Content'")
+	}
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource AnalyticsItem
 	err := ctx.RegisterResource("azure:appinsights/analyticsItem:AnalyticsItem", name, args, &resource, opts...)

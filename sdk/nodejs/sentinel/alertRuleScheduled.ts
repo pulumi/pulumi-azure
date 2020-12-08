@@ -152,16 +152,16 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
             inputs["triggerThreshold"] = state ? state.triggerThreshold : undefined;
         } else {
             const args = argsOrState as AlertRuleScheduledArgs | undefined;
-            if (!args || args.displayName === undefined) {
+            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (!args || args.logAnalyticsWorkspaceId === undefined) {
+            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            if (!args || args.query === undefined) {
+            if ((!args || args.query === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'query'");
             }
-            if (!args || args.severity === undefined) {
+            if ((!args || args.severity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'severity'");
             }
             inputs["description"] = args ? args.description : undefined;

@@ -100,22 +100,22 @@ export class Certificate extends pulumi.CustomResource {
             inputs["thumbprintAlgorithm"] = state ? state.thumbprintAlgorithm : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.certificate === undefined) {
+            if ((!args || args.certificate === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'certificate'");
             }
-            if (!args || args.format === undefined) {
+            if ((!args || args.format === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'format'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.thumbprint === undefined) {
+            if ((!args || args.thumbprint === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'thumbprint'");
             }
-            if (!args || args.thumbprintAlgorithm === undefined) {
+            if ((!args || args.thumbprintAlgorithm === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'thumbprintAlgorithm'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;

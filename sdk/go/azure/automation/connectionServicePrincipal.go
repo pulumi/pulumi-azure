@@ -44,26 +44,27 @@ type ConnectionServicePrincipal struct {
 // NewConnectionServicePrincipal registers a new resource with the given unique name, arguments, and options.
 func NewConnectionServicePrincipal(ctx *pulumi.Context,
 	name string, args *ConnectionServicePrincipalArgs, opts ...pulumi.ResourceOption) (*ConnectionServicePrincipal, error) {
-	if args == nil || args.ApplicationId == nil {
-		return nil, errors.New("missing required argument 'ApplicationId'")
-	}
-	if args == nil || args.AutomationAccountName == nil {
-		return nil, errors.New("missing required argument 'AutomationAccountName'")
-	}
-	if args == nil || args.CertificateThumbprint == nil {
-		return nil, errors.New("missing required argument 'CertificateThumbprint'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SubscriptionId == nil {
-		return nil, errors.New("missing required argument 'SubscriptionId'")
-	}
-	if args == nil || args.TenantId == nil {
-		return nil, errors.New("missing required argument 'TenantId'")
-	}
 	if args == nil {
-		args = &ConnectionServicePrincipalArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApplicationId == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationId'")
+	}
+	if args.AutomationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
+	}
+	if args.CertificateThumbprint == nil {
+		return nil, errors.New("invalid value for required argument 'CertificateThumbprint'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SubscriptionId == nil {
+		return nil, errors.New("invalid value for required argument 'SubscriptionId'")
+	}
+	if args.TenantId == nil {
+		return nil, errors.New("invalid value for required argument 'TenantId'")
 	}
 	var resource ConnectionServicePrincipal
 	err := ctx.RegisterResource("azure:automation/connectionServicePrincipal:ConnectionServicePrincipal", name, args, &resource, opts...)

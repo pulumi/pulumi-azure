@@ -306,19 +306,19 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["zone"] = state ? state.zone : undefined;
         } else {
             const args = argsOrState as LinuxVirtualMachineArgs | undefined;
-            if (!args || args.adminUsername === undefined) {
+            if ((!args || args.adminUsername === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'adminUsername'");
             }
-            if (!args || args.networkInterfaceIds === undefined) {
+            if ((!args || args.networkInterfaceIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkInterfaceIds'");
             }
-            if (!args || args.osDisk === undefined) {
+            if ((!args || args.osDisk === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'osDisk'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.size === undefined) {
+            if ((!args || args.size === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'size'");
             }
             inputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;

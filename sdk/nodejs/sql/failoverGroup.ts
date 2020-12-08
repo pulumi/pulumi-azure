@@ -149,16 +149,16 @@ export class FailoverGroup extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as FailoverGroupArgs | undefined;
-            if (!args || args.partnerServers === undefined) {
+            if ((!args || args.partnerServers === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'partnerServers'");
             }
-            if (!args || args.readWriteEndpointFailoverPolicy === undefined) {
+            if ((!args || args.readWriteEndpointFailoverPolicy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'readWriteEndpointFailoverPolicy'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["databases"] = args ? args.databases : undefined;

@@ -129,17 +129,18 @@ type CNameRecord struct {
 // NewCNameRecord registers a new resource with the given unique name, arguments, and options.
 func NewCNameRecord(ctx *pulumi.Context,
 	name string, args *CNameRecordArgs, opts ...pulumi.ResourceOption) (*CNameRecord, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Ttl == nil {
-		return nil, errors.New("missing required argument 'Ttl'")
-	}
-	if args == nil || args.ZoneName == nil {
-		return nil, errors.New("missing required argument 'ZoneName'")
-	}
 	if args == nil {
-		args = &CNameRecordArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Ttl == nil {
+		return nil, errors.New("invalid value for required argument 'Ttl'")
+	}
+	if args.ZoneName == nil {
+		return nil, errors.New("invalid value for required argument 'ZoneName'")
 	}
 	var resource CNameRecord
 	err := ctx.RegisterResource("azure:dns/cNameRecord:CNameRecord", name, args, &resource, opts...)

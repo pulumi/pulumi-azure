@@ -100,26 +100,26 @@ class NatRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if backend_port is None:
+            if backend_port is None and not opts.urn:
                 raise TypeError("Missing required property 'backend_port'")
             __props__['backend_port'] = backend_port
             __props__['enable_floating_ip'] = enable_floating_ip
             __props__['enable_tcp_reset'] = enable_tcp_reset
-            if frontend_ip_configuration_name is None:
+            if frontend_ip_configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'frontend_ip_configuration_name'")
             __props__['frontend_ip_configuration_name'] = frontend_ip_configuration_name
-            if frontend_port is None:
+            if frontend_port is None and not opts.urn:
                 raise TypeError("Missing required property 'frontend_port'")
             __props__['frontend_port'] = frontend_port
             __props__['idle_timeout_in_minutes'] = idle_timeout_in_minutes
-            if loadbalancer_id is None:
+            if loadbalancer_id is None and not opts.urn:
                 raise TypeError("Missing required property 'loadbalancer_id'")
             __props__['loadbalancer_id'] = loadbalancer_id
             __props__['name'] = name
-            if protocol is None:
+            if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__['protocol'] = protocol
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['backend_ip_configuration_id'] = None

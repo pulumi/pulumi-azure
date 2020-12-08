@@ -98,19 +98,19 @@ class TrafficManagerProfile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if dns_config is None:
+            if dns_config is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_config'")
             __props__['dns_config'] = dns_config
-            if monitor_config is None:
+            if monitor_config is None and not opts.urn:
                 raise TypeError("Missing required property 'monitor_config'")
             __props__['monitor_config'] = monitor_config
             __props__['name'] = name
             __props__['profile_status'] = profile_status
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if traffic_routing_method is None:
+            if traffic_routing_method is None and not opts.urn:
                 raise TypeError("Missing required property 'traffic_routing_method'")
             __props__['traffic_routing_method'] = traffic_routing_method
             __props__['fqdn'] = None

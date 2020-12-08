@@ -115,22 +115,22 @@ export class DataSourceWindowsPerformanceCounter extends pulumi.CustomResource {
             inputs["workspaceName"] = state ? state.workspaceName : undefined;
         } else {
             const args = argsOrState as DataSourceWindowsPerformanceCounterArgs | undefined;
-            if (!args || args.counterName === undefined) {
+            if ((!args || args.counterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'counterName'");
             }
-            if (!args || args.instanceName === undefined) {
+            if ((!args || args.instanceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'instanceName'");
             }
-            if (!args || args.intervalSeconds === undefined) {
+            if ((!args || args.intervalSeconds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'intervalSeconds'");
             }
-            if (!args || args.objectName === undefined) {
+            if ((!args || args.objectName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'objectName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["counterName"] = args ? args.counterName : undefined;

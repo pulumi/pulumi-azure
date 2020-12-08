@@ -86,7 +86,7 @@ class Insights(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if application_type is None:
+            if application_type is None and not opts.urn:
                 raise TypeError("Missing required property 'application_type'")
             __props__['application_type'] = application_type
             __props__['daily_data_cap_in_gb'] = daily_data_cap_in_gb
@@ -94,7 +94,7 @@ class Insights(pulumi.CustomResource):
             __props__['disable_ip_masking'] = disable_ip_masking
             __props__['location'] = location
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['retention_in_days'] = retention_in_days

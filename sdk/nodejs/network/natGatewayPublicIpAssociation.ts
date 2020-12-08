@@ -92,10 +92,10 @@ export class NatGatewayPublicIpAssociation extends pulumi.CustomResource {
             inputs["publicIpAddressId"] = state ? state.publicIpAddressId : undefined;
         } else {
             const args = argsOrState as NatGatewayPublicIpAssociationArgs | undefined;
-            if (!args || args.natGatewayId === undefined) {
+            if ((!args || args.natGatewayId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'natGatewayId'");
             }
-            if (!args || args.publicIpAddressId === undefined) {
+            if ((!args || args.publicIpAddressId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'publicIpAddressId'");
             }
             inputs["natGatewayId"] = args ? args.natGatewayId : undefined;

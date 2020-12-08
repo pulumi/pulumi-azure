@@ -98,23 +98,24 @@ type AnalyticsSolution struct {
 // NewAnalyticsSolution registers a new resource with the given unique name, arguments, and options.
 func NewAnalyticsSolution(ctx *pulumi.Context,
 	name string, args *AnalyticsSolutionArgs, opts ...pulumi.ResourceOption) (*AnalyticsSolution, error) {
-	if args == nil || args.Plan == nil {
-		return nil, errors.New("missing required argument 'Plan'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SolutionName == nil {
-		return nil, errors.New("missing required argument 'SolutionName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
-	if args == nil || args.WorkspaceResourceId == nil {
-		return nil, errors.New("missing required argument 'WorkspaceResourceId'")
-	}
 	if args == nil {
-		args = &AnalyticsSolutionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Plan == nil {
+		return nil, errors.New("invalid value for required argument 'Plan'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SolutionName == nil {
+		return nil, errors.New("invalid value for required argument 'SolutionName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
+	}
+	if args.WorkspaceResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceResourceId'")
 	}
 	var resource AnalyticsSolution
 	err := ctx.RegisterResource("azure:operationalinsights/analyticsSolution:AnalyticsSolution", name, args, &resource, opts...)

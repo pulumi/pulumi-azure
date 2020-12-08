@@ -86,20 +86,21 @@ type AnalyticsFirewallRule struct {
 // NewAnalyticsFirewallRule registers a new resource with the given unique name, arguments, and options.
 func NewAnalyticsFirewallRule(ctx *pulumi.Context,
 	name string, args *AnalyticsFirewallRuleArgs, opts ...pulumi.ResourceOption) (*AnalyticsFirewallRule, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.EndIpAddress == nil {
-		return nil, errors.New("missing required argument 'EndIpAddress'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StartIpAddress == nil {
-		return nil, errors.New("missing required argument 'StartIpAddress'")
-	}
 	if args == nil {
-		args = &AnalyticsFirewallRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.EndIpAddress == nil {
+		return nil, errors.New("invalid value for required argument 'EndIpAddress'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StartIpAddress == nil {
+		return nil, errors.New("invalid value for required argument 'StartIpAddress'")
 	}
 	var resource AnalyticsFirewallRule
 	err := ctx.RegisterResource("azure:datalake/analyticsFirewallRule:AnalyticsFirewallRule", name, args, &resource, opts...)

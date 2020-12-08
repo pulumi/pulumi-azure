@@ -143,13 +143,13 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['application_rule_collections'] = application_rule_collections
-            if firewall_policy_id is None:
+            if firewall_policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'firewall_policy_id'")
             __props__['firewall_policy_id'] = firewall_policy_id
             __props__['name'] = name
             __props__['nat_rule_collections'] = nat_rule_collections
             __props__['network_rule_collections'] = network_rule_collections
-            if priority is None:
+            if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")
             __props__['priority'] = priority
         super(FirewallPolicyRuleCollectionGroup, __self__).__init__(

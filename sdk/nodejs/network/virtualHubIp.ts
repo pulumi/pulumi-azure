@@ -126,10 +126,10 @@ export class VirtualHubIp extends pulumi.CustomResource {
             inputs["virtualHubId"] = state ? state.virtualHubId : undefined;
         } else {
             const args = argsOrState as VirtualHubIpArgs | undefined;
-            if (!args || args.subnetId === undefined) {
+            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if (!args || args.virtualHubId === undefined) {
+            if ((!args || args.virtualHubId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
             inputs["name"] = args ? args.name : undefined;

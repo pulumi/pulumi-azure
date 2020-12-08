@@ -73,10 +73,10 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
-            if workspace_id is None:
+            if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
             __props__['workspace_id'] = workspace_id
         super(Workspace, __self__).__init__(

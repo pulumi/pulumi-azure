@@ -113,19 +113,19 @@ export class TableEntity extends pulumi.CustomResource {
             inputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as TableEntityArgs | undefined;
-            if (!args || args.entity === undefined) {
+            if ((!args || args.entity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'entity'");
             }
-            if (!args || args.partitionKey === undefined) {
+            if ((!args || args.partitionKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'partitionKey'");
             }
-            if (!args || args.rowKey === undefined) {
+            if ((!args || args.rowKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'rowKey'");
             }
-            if (!args || args.storageAccountName === undefined) {
+            if ((!args || args.storageAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            if (!args || args.tableName === undefined) {
+            if ((!args || args.tableName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tableName'");
             }
             inputs["entity"] = args ? args.entity : undefined;

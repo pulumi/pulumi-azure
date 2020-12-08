@@ -43,20 +43,21 @@ type TimeSeriesInsightsGen2Environment struct {
 // NewTimeSeriesInsightsGen2Environment registers a new resource with the given unique name, arguments, and options.
 func NewTimeSeriesInsightsGen2Environment(ctx *pulumi.Context,
 	name string, args *TimeSeriesInsightsGen2EnvironmentArgs, opts ...pulumi.ResourceOption) (*TimeSeriesInsightsGen2Environment, error) {
-	if args == nil || args.IdProperties == nil {
-		return nil, errors.New("missing required argument 'IdProperties'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SkuName == nil {
-		return nil, errors.New("missing required argument 'SkuName'")
-	}
-	if args == nil || args.Storage == nil {
-		return nil, errors.New("missing required argument 'Storage'")
-	}
 	if args == nil {
-		args = &TimeSeriesInsightsGen2EnvironmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IdProperties == nil {
+		return nil, errors.New("invalid value for required argument 'IdProperties'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SkuName == nil {
+		return nil, errors.New("invalid value for required argument 'SkuName'")
+	}
+	if args.Storage == nil {
+		return nil, errors.New("invalid value for required argument 'Storage'")
 	}
 	var resource TimeSeriesInsightsGen2Environment
 	err := ctx.RegisterResource("azure:iot/timeSeriesInsightsGen2Environment:TimeSeriesInsightsGen2Environment", name, args, &resource, opts...)

@@ -96,23 +96,24 @@ type Connection struct {
 // NewConnection registers a new resource with the given unique name, arguments, and options.
 func NewConnection(ctx *pulumi.Context,
 	name string, args *ConnectionArgs, opts ...pulumi.ResourceOption) (*Connection, error) {
-	if args == nil || args.BotName == nil {
-		return nil, errors.New("missing required argument 'BotName'")
-	}
-	if args == nil || args.ClientId == nil {
-		return nil, errors.New("missing required argument 'ClientId'")
-	}
-	if args == nil || args.ClientSecret == nil {
-		return nil, errors.New("missing required argument 'ClientSecret'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceProviderName == nil {
-		return nil, errors.New("missing required argument 'ServiceProviderName'")
-	}
 	if args == nil {
-		args = &ConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BotName == nil {
+		return nil, errors.New("invalid value for required argument 'BotName'")
+	}
+	if args.ClientId == nil {
+		return nil, errors.New("invalid value for required argument 'ClientId'")
+	}
+	if args.ClientSecret == nil {
+		return nil, errors.New("invalid value for required argument 'ClientSecret'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceProviderName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceProviderName'")
 	}
 	var resource Connection
 	err := ctx.RegisterResource("azure:bot/connection:Connection", name, args, &resource, opts...)

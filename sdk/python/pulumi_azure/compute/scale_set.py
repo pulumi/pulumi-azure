@@ -310,10 +310,10 @@ class ScaleSet(pulumi.CustomResource):
             __props__['license_type'] = license_type
             __props__['location'] = location
             __props__['name'] = name
-            if network_profiles is None:
+            if network_profiles is None and not opts.urn:
                 raise TypeError("Missing required property 'network_profiles'")
             __props__['network_profiles'] = network_profiles
-            if os_profile is None:
+            if os_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'os_profile'")
             __props__['os_profile'] = os_profile
             __props__['os_profile_linux_config'] = os_profile_linux_config
@@ -323,21 +323,21 @@ class ScaleSet(pulumi.CustomResource):
             __props__['plan'] = plan
             __props__['priority'] = priority
             __props__['proximity_placement_group_id'] = proximity_placement_group_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['rolling_upgrade_policy'] = rolling_upgrade_policy
             __props__['single_placement_group'] = single_placement_group
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['storage_profile_data_disks'] = storage_profile_data_disks
             __props__['storage_profile_image_reference'] = storage_profile_image_reference
-            if storage_profile_os_disk is None:
+            if storage_profile_os_disk is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_profile_os_disk'")
             __props__['storage_profile_os_disk'] = storage_profile_os_disk
             __props__['tags'] = tags
-            if upgrade_policy_mode is None:
+            if upgrade_policy_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'upgrade_policy_mode'")
             __props__['upgrade_policy_mode'] = upgrade_policy_mode
             __props__['zones'] = zones

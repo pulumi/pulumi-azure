@@ -169,13 +169,13 @@ export class LinkService extends pulumi.CustomResource {
             inputs["visibilitySubscriptionIds"] = state ? state.visibilitySubscriptionIds : undefined;
         } else {
             const args = argsOrState as LinkServiceArgs | undefined;
-            if (!args || args.loadBalancerFrontendIpConfigurationIds === undefined) {
+            if ((!args || args.loadBalancerFrontendIpConfigurationIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadBalancerFrontendIpConfigurationIds'");
             }
-            if (!args || args.natIpConfigurations === undefined) {
+            if ((!args || args.natIpConfigurations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'natIpConfigurations'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoApprovalSubscriptionIds"] = args ? args.autoApprovalSubscriptionIds : undefined;

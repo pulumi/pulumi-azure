@@ -91,7 +91,7 @@ class PublicIp(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if allocation_method is None:
+            if allocation_method is None and not opts.urn:
                 raise TypeError("Missing required property 'allocation_method'")
             __props__['allocation_method'] = allocation_method
             __props__['domain_name_label'] = domain_name_label
@@ -100,7 +100,7 @@ class PublicIp(pulumi.CustomResource):
             __props__['location'] = location
             __props__['name'] = name
             __props__['public_ip_prefix_id'] = public_ip_prefix_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['reverse_fqdn'] = reverse_fqdn

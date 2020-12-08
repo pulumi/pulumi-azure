@@ -110,17 +110,18 @@ type EndpointServicebusTopic struct {
 // NewEndpointServicebusTopic registers a new resource with the given unique name, arguments, and options.
 func NewEndpointServicebusTopic(ctx *pulumi.Context,
 	name string, args *EndpointServicebusTopicArgs, opts ...pulumi.ResourceOption) (*EndpointServicebusTopic, error) {
-	if args == nil || args.ConnectionString == nil {
-		return nil, errors.New("missing required argument 'ConnectionString'")
-	}
-	if args == nil || args.IothubName == nil {
-		return nil, errors.New("missing required argument 'IothubName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &EndpointServicebusTopicArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConnectionString == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionString'")
+	}
+	if args.IothubName == nil {
+		return nil, errors.New("invalid value for required argument 'IothubName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource EndpointServicebusTopic
 	err := ctx.RegisterResource("azure:iot/endpointServicebusTopic:EndpointServicebusTopic", name, args, &resource, opts...)

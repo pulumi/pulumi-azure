@@ -84,14 +84,14 @@ class FirewallRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if end_ip_address is None:
+            if end_ip_address is None and not opts.urn:
                 raise TypeError("Missing required property 'end_ip_address'")
             __props__['end_ip_address'] = end_ip_address
             __props__['name'] = name
-            if start_ip_address is None:
+            if start_ip_address is None and not opts.urn:
                 raise TypeError("Missing required property 'start_ip_address'")
             __props__['start_ip_address'] = start_ip_address
-            if synapse_workspace_id is None:
+            if synapse_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'synapse_workspace_id'")
             __props__['synapse_workspace_id'] = synapse_workspace_id
         super(FirewallRule, __self__).__init__(

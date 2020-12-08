@@ -85,14 +85,15 @@ type ChannelTeams struct {
 // NewChannelTeams registers a new resource with the given unique name, arguments, and options.
 func NewChannelTeams(ctx *pulumi.Context,
 	name string, args *ChannelTeamsArgs, opts ...pulumi.ResourceOption) (*ChannelTeams, error) {
-	if args == nil || args.BotName == nil {
-		return nil, errors.New("missing required argument 'BotName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ChannelTeamsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BotName == nil {
+		return nil, errors.New("invalid value for required argument 'BotName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ChannelTeams
 	err := ctx.RegisterResource("azure:bot/channelTeams:ChannelTeams", name, args, &resource, opts...)

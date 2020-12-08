@@ -36,17 +36,18 @@ type ChannelDirectLine struct {
 // NewChannelDirectLine registers a new resource with the given unique name, arguments, and options.
 func NewChannelDirectLine(ctx *pulumi.Context,
 	name string, args *ChannelDirectLineArgs, opts ...pulumi.ResourceOption) (*ChannelDirectLine, error) {
-	if args == nil || args.BotName == nil {
-		return nil, errors.New("missing required argument 'BotName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Sites == nil {
-		return nil, errors.New("missing required argument 'Sites'")
-	}
 	if args == nil {
-		args = &ChannelDirectLineArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BotName == nil {
+		return nil, errors.New("invalid value for required argument 'BotName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Sites == nil {
+		return nil, errors.New("invalid value for required argument 'Sites'")
 	}
 	var resource ChannelDirectLine
 	err := ctx.RegisterResource("azure:bot/channelDirectLine:ChannelDirectLine", name, args, &resource, opts...)

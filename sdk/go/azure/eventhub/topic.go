@@ -117,14 +117,15 @@ type Topic struct {
 // NewTopic registers a new resource with the given unique name, arguments, and options.
 func NewTopic(ctx *pulumi.Context,
 	name string, args *TopicArgs, opts ...pulumi.ResourceOption) (*Topic, error) {
-	if args == nil || args.NamespaceName == nil {
-		return nil, errors.New("missing required argument 'NamespaceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &TopicArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NamespaceName == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Topic
 	err := ctx.RegisterResource("azure:eventhub/topic:Topic", name, args, &resource, opts...)

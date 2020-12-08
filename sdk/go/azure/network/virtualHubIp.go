@@ -110,14 +110,15 @@ type VirtualHubIp struct {
 // NewVirtualHubIp registers a new resource with the given unique name, arguments, and options.
 func NewVirtualHubIp(ctx *pulumi.Context,
 	name string, args *VirtualHubIpArgs, opts ...pulumi.ResourceOption) (*VirtualHubIp, error) {
-	if args == nil || args.SubnetId == nil {
-		return nil, errors.New("missing required argument 'SubnetId'")
-	}
-	if args == nil || args.VirtualHubId == nil {
-		return nil, errors.New("missing required argument 'VirtualHubId'")
-	}
 	if args == nil {
-		args = &VirtualHubIpArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.SubnetId == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetId'")
+	}
+	if args.VirtualHubId == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualHubId'")
 	}
 	var resource VirtualHubIp
 	err := ctx.RegisterResource("azure:network/virtualHubIp:VirtualHubIp", name, args, &resource, opts...)

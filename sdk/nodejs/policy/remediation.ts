@@ -160,10 +160,10 @@ export class Remediation extends pulumi.CustomResource {
             inputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as RemediationArgs | undefined;
-            if (!args || args.policyAssignmentId === undefined) {
+            if ((!args || args.policyAssignmentId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyAssignmentId'");
             }
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["locationFilters"] = args ? args.locationFilters : undefined;

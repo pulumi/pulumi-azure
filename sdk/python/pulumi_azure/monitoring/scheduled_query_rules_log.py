@@ -67,17 +67,17 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['authorized_resource_ids'] = authorized_resource_ids
-            if criteria is None:
+            if criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'criteria'")
             __props__['criteria'] = criteria
-            if data_source_id is None:
+            if data_source_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_source_id'")
             __props__['data_source_id'] = data_source_id
             __props__['description'] = description
             __props__['enabled'] = enabled
             __props__['location'] = location
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

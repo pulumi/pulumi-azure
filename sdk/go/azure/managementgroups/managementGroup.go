@@ -85,6 +85,7 @@ func NewManagementGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagementGroupArgs{}
 	}
+
 	var resource ManagementGroup
 	err := ctx.RegisterResource("azure:managementgroups/managementGroup:ManagementGroup", name, args, &resource, opts...)
 	if err != nil {

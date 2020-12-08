@@ -218,7 +218,7 @@ export class Database extends pulumi.CustomResource {
             inputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
-            if (!args || args.serverId === undefined) {
+            if ((!args || args.serverId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverId'");
             }
             inputs["autoPauseDelayInMinutes"] = args ? args.autoPauseDelayInMinutes : undefined;

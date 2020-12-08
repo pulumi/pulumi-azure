@@ -105,16 +105,16 @@ export class Controller extends pulumi.CustomResource {
             inputs["targetContainerHostResourceId"] = state ? state.targetContainerHostResourceId : undefined;
         } else {
             const args = argsOrState as ControllerArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.skuName === undefined) {
+            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if (!args || args.targetContainerHostCredentialsBase64 === undefined) {
+            if ((!args || args.targetContainerHostCredentialsBase64 === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetContainerHostCredentialsBase64'");
             }
-            if (!args || args.targetContainerHostResourceId === undefined) {
+            if ((!args || args.targetContainerHostResourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetContainerHostResourceId'");
             }
             inputs["location"] = args ? args.location : undefined;

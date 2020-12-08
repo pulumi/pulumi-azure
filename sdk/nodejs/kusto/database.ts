@@ -117,10 +117,10 @@ export class Database extends pulumi.CustomResource {
             inputs["softDeletePeriod"] = state ? state.softDeletePeriod : undefined;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
-            if (!args || args.clusterName === undefined) {
+            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;

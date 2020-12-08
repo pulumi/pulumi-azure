@@ -123,19 +123,19 @@ export class WebTest extends pulumi.CustomResource {
             inputs["timeout"] = state ? state.timeout : undefined;
         } else {
             const args = argsOrState as WebTestArgs | undefined;
-            if (!args || args.applicationInsightsId === undefined) {
+            if ((!args || args.applicationInsightsId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationInsightsId'");
             }
-            if (!args || args.configuration === undefined) {
+            if ((!args || args.configuration === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if (!args || args.geoLocations === undefined) {
+            if ((!args || args.geoLocations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'geoLocations'");
             }
-            if (!args || args.kind === undefined) {
+            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;

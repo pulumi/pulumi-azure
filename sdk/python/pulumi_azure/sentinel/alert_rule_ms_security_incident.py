@@ -85,22 +85,22 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            if display_name is None:
+            if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             __props__['display_name_filters'] = display_name_filters
             __props__['enabled'] = enabled
-            if log_analytics_workspace_id is None:
+            if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")
             __props__['log_analytics_workspace_id'] = log_analytics_workspace_id
             __props__['name'] = name
-            if product_filter is None:
+            if product_filter is None and not opts.urn:
                 raise TypeError("Missing required property 'product_filter'")
             __props__['product_filter'] = product_filter
-            if severity_filters is None:
+            if severity_filters is None and not opts.urn:
                 raise TypeError("Missing required property 'severity_filters'")
             __props__['severity_filters'] = severity_filters
-            if text_whitelists is not None:
+            if text_whitelists is not None and not opts.urn:
                 warnings.warn("""this property has been renamed to display_name_filter to better match the SDK & API""", DeprecationWarning)
                 pulumi.log.warn("text_whitelists is deprecated: this property has been renamed to display_name_filter to better match the SDK & API")
             __props__['text_whitelists'] = text_whitelists

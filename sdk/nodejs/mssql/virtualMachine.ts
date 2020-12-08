@@ -142,10 +142,10 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
         } else {
             const args = argsOrState as VirtualMachineArgs | undefined;
-            if (!args || args.sqlLicenseType === undefined) {
+            if ((!args || args.sqlLicenseType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sqlLicenseType'");
             }
-            if (!args || args.virtualMachineId === undefined) {
+            if ((!args || args.virtualMachineId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
             inputs["autoPatching"] = args ? args.autoPatching : undefined;

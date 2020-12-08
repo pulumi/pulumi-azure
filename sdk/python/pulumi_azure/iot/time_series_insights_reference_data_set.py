@@ -85,13 +85,13 @@ class TimeSeriesInsightsReferenceDataSet(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['data_string_comparison_behavior'] = data_string_comparison_behavior
-            if key_properties is None:
+            if key_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'key_properties'")
             __props__['key_properties'] = key_properties
             __props__['location'] = location
             __props__['name'] = name
             __props__['tags'] = tags
-            if time_series_insights_environment_id is None:
+            if time_series_insights_environment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'time_series_insights_environment_id'")
             __props__['time_series_insights_environment_id'] = time_series_insights_environment_id
         super(TimeSeriesInsightsReferenceDataSet, __self__).__init__(

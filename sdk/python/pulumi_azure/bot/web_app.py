@@ -98,14 +98,14 @@ class WebApp(pulumi.CustomResource):
             __props__['location'] = location
             __props__['luis_app_ids'] = luis_app_ids
             __props__['luis_key'] = luis_key
-            if microsoft_app_id is None:
+            if microsoft_app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'microsoft_app_id'")
             __props__['microsoft_app_id'] = microsoft_app_id
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags

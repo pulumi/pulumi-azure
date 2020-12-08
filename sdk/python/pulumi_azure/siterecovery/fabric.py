@@ -77,10 +77,10 @@ class Fabric(pulumi.CustomResource):
 
             __props__['location'] = location
             __props__['name'] = name
-            if recovery_vault_name is None:
+            if recovery_vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_vault_name'")
             __props__['recovery_vault_name'] = recovery_vault_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
         super(Fabric, __self__).__init__(

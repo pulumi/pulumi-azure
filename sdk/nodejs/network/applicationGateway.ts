@@ -275,31 +275,31 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as ApplicationGatewayArgs | undefined;
-            if (!args || args.backendAddressPools === undefined) {
+            if ((!args || args.backendAddressPools === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backendAddressPools'");
             }
-            if (!args || args.backendHttpSettings === undefined) {
+            if ((!args || args.backendHttpSettings === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backendHttpSettings'");
             }
-            if (!args || args.frontendIpConfigurations === undefined) {
+            if ((!args || args.frontendIpConfigurations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'frontendIpConfigurations'");
             }
-            if (!args || args.frontendPorts === undefined) {
+            if ((!args || args.frontendPorts === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'frontendPorts'");
             }
-            if (!args || args.gatewayIpConfigurations === undefined) {
+            if ((!args || args.gatewayIpConfigurations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gatewayIpConfigurations'");
             }
-            if (!args || args.httpListeners === undefined) {
+            if ((!args || args.httpListeners === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'httpListeners'");
             }
-            if (!args || args.requestRoutingRules === undefined) {
+            if ((!args || args.requestRoutingRules === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'requestRoutingRules'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sku === undefined) {
+            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["authenticationCertificates"] = args ? args.authenticationCertificates : undefined;

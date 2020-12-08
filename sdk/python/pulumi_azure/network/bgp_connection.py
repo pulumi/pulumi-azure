@@ -58,7 +58,7 @@ class BgpConnection(pulumi.CustomResource):
             virtual_hub_id=example_virtual_hub.id,
             peer_asn=65514,
             peer_ip="169.254.21.5",
-            opts=ResourceOptions(depends_on=[example_virtual_hub_ip]))
+            opts=pulumi.ResourceOptions(depends_on=[example_virtual_hub_ip]))
         ```
 
         ## Import
@@ -94,13 +94,13 @@ class BgpConnection(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['name'] = name
-            if peer_asn is None:
+            if peer_asn is None and not opts.urn:
                 raise TypeError("Missing required property 'peer_asn'")
             __props__['peer_asn'] = peer_asn
-            if peer_ip is None:
+            if peer_ip is None and not opts.urn:
                 raise TypeError("Missing required property 'peer_ip'")
             __props__['peer_ip'] = peer_ip
-            if virtual_hub_id is None:
+            if virtual_hub_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub_id'")
             __props__['virtual_hub_id'] = virtual_hub_id
         super(BgpConnection, __self__).__init__(

@@ -170,10 +170,10 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
             inputs["priority"] = state ? state.priority : undefined;
         } else {
             const args = argsOrState as FirewallPolicyRuleCollectionGroupArgs | undefined;
-            if (!args || args.firewallPolicyId === undefined) {
+            if ((!args || args.firewallPolicyId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'firewallPolicyId'");
             }
-            if (!args || args.priority === undefined) {
+            if ((!args || args.priority === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'priority'");
             }
             inputs["applicationRuleCollections"] = args ? args.applicationRuleCollections : undefined;

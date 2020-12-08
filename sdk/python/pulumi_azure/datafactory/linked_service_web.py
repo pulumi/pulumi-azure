@@ -92,10 +92,10 @@ class LinkedServiceWeb(pulumi.CustomResource):
 
             __props__['additional_properties'] = additional_properties
             __props__['annotations'] = annotations
-            if authentication_type is None:
+            if authentication_type is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_type'")
             __props__['authentication_type'] = authentication_type
-            if data_factory_name is None:
+            if data_factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_factory_name'")
             __props__['data_factory_name'] = data_factory_name
             __props__['description'] = description
@@ -103,10 +103,10 @@ class LinkedServiceWeb(pulumi.CustomResource):
             __props__['name'] = name
             __props__['parameters'] = parameters
             __props__['password'] = password
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if url is None:
+            if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__['url'] = url
             __props__['username'] = username

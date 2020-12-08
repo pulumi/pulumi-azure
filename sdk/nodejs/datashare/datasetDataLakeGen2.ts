@@ -138,13 +138,13 @@ export class DatasetDataLakeGen2 extends pulumi.CustomResource {
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
             const args = argsOrState as DatasetDataLakeGen2Args | undefined;
-            if (!args || args.fileSystemName === undefined) {
+            if ((!args || args.fileSystemName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'fileSystemName'");
             }
-            if (!args || args.shareId === undefined) {
+            if ((!args || args.shareId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'shareId'");
             }
-            if (!args || args.storageAccountId === undefined) {
+            if ((!args || args.storageAccountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
             inputs["filePath"] = args ? args.filePath : undefined;

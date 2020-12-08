@@ -93,20 +93,21 @@ type LinkedServiceAzureFunction struct {
 // NewLinkedServiceAzureFunction registers a new resource with the given unique name, arguments, and options.
 func NewLinkedServiceAzureFunction(ctx *pulumi.Context,
 	name string, args *LinkedServiceAzureFunctionArgs, opts ...pulumi.ResourceOption) (*LinkedServiceAzureFunction, error) {
-	if args == nil || args.DataFactoryName == nil {
-		return nil, errors.New("missing required argument 'DataFactoryName'")
-	}
-	if args == nil || args.Key == nil {
-		return nil, errors.New("missing required argument 'Key'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Url == nil {
-		return nil, errors.New("missing required argument 'Url'")
-	}
 	if args == nil {
-		args = &LinkedServiceAzureFunctionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataFactoryName == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
+	}
+	if args.Key == nil {
+		return nil, errors.New("invalid value for required argument 'Key'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Url == nil {
+		return nil, errors.New("invalid value for required argument 'Url'")
 	}
 	var resource LinkedServiceAzureFunction
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceAzureFunction:LinkedServiceAzureFunction", name, args, &resource, opts...)

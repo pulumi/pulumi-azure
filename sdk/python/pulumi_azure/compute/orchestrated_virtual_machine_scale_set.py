@@ -85,11 +85,11 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
 
             __props__['location'] = location
             __props__['name'] = name
-            if platform_fault_domain_count is None:
+            if platform_fault_domain_count is None and not opts.urn:
                 raise TypeError("Missing required property 'platform_fault_domain_count'")
             __props__['platform_fault_domain_count'] = platform_fault_domain_count
             __props__['proximity_placement_group_id'] = proximity_placement_group_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['single_placement_group'] = single_placement_group

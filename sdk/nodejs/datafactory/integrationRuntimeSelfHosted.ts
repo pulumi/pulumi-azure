@@ -111,10 +111,10 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as IntegrationRuntimeSelfHostedArgs | undefined;
-            if (!args || args.dataFactoryName === undefined) {
+            if ((!args || args.dataFactoryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataFactoryName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;

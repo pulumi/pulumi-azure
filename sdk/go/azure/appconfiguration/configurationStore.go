@@ -81,11 +81,12 @@ type ConfigurationStore struct {
 // NewConfigurationStore registers a new resource with the given unique name, arguments, and options.
 func NewConfigurationStore(ctx *pulumi.Context,
 	name string, args *ConfigurationStoreArgs, opts ...pulumi.ResourceOption) (*ConfigurationStore, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ConfigurationStoreArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ConfigurationStore
 	err := ctx.RegisterResource("azure:appconfiguration/configurationStore:ConfigurationStore", name, args, &resource, opts...)

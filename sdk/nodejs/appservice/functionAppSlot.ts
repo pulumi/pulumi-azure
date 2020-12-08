@@ -223,19 +223,19 @@ export class FunctionAppSlot extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as FunctionAppSlotArgs | undefined;
-            if (!args || args.appServicePlanId === undefined) {
+            if ((!args || args.appServicePlanId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'appServicePlanId'");
             }
-            if (!args || args.functionAppName === undefined) {
+            if ((!args || args.functionAppName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'functionAppName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.storageAccountAccessKey === undefined) {
+            if ((!args || args.storageAccountAccessKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountAccessKey'");
             }
-            if (!args || args.storageAccountName === undefined) {
+            if ((!args || args.storageAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
             inputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;

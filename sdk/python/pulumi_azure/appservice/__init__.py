@@ -27,3 +27,68 @@ from .source_code_token import *
 from .virtual_network_swift_connection import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure:appservice/activeSlot:ActiveSlot":
+                return ActiveSlot(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appservice/appService:AppService":
+                return AppService(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appservice/certificate:Certificate":
+                return Certificate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appservice/certificateOrder:CertificateOrder":
+                return CertificateOrder(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appservice/customHostnameBinding:CustomHostnameBinding":
+                return CustomHostnameBinding(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appservice/environment:Environment":
+                return Environment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appservice/functionApp:FunctionApp":
+                return FunctionApp(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appservice/functionAppSlot:FunctionAppSlot":
+                return FunctionAppSlot(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appservice/hybridConnection:HybridConnection":
+                return HybridConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appservice/managedCertificate:ManagedCertificate":
+                return ManagedCertificate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appservice/plan:Plan":
+                return Plan(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appservice/slot:Slot":
+                return Slot(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appservice/slotVirtualNetworkSwiftConnection:SlotVirtualNetworkSwiftConnection":
+                return SlotVirtualNetworkSwiftConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appservice/sourceCodeToken:SourceCodeToken":
+                return SourceCodeToken(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection":
+                return VirtualNetworkSwiftConnection(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure", "appservice/activeSlot", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appservice/appService", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appservice/certificate", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appservice/certificateOrder", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appservice/customHostnameBinding", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appservice/environment", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appservice/functionApp", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appservice/functionAppSlot", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appservice/hybridConnection", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appservice/managedCertificate", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appservice/plan", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appservice/slot", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appservice/slotVirtualNetworkSwiftConnection", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appservice/sourceCodeToken", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appservice/virtualNetworkSwiftConnection", _module_instance)
+
+_register_module()

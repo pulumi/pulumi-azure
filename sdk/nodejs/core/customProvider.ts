@@ -111,7 +111,7 @@ export class CustomProvider extends pulumi.CustomResource {
             inputs["validations"] = state ? state.validations : undefined;
         } else {
             const args = argsOrState as CustomProviderArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["actions"] = args ? args.actions : undefined;

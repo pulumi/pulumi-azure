@@ -168,13 +168,13 @@ export class InterationServiceEnvironment extends pulumi.CustomResource {
             inputs["workflowOutboundIpAddresses"] = state ? state.workflowOutboundIpAddresses : undefined;
         } else {
             const args = argsOrState as InterationServiceEnvironmentArgs | undefined;
-            if (!args || args.accessEndpointType === undefined) {
+            if ((!args || args.accessEndpointType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accessEndpointType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.virtualNetworkSubnetIds === undefined) {
+            if ((!args || args.virtualNetworkSubnetIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualNetworkSubnetIds'");
             }
             inputs["accessEndpointType"] = args ? args.accessEndpointType : undefined;

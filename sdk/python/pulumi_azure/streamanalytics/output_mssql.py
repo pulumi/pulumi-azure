@@ -97,26 +97,26 @@ class OutputMssql(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if database is None:
+            if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
             __props__['database'] = database
             __props__['name'] = name
-            if password is None:
+            if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
             __props__['password'] = password
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server is None:
+            if server is None and not opts.urn:
                 raise TypeError("Missing required property 'server'")
             __props__['server'] = server
-            if stream_analytics_job_name is None:
+            if stream_analytics_job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_analytics_job_name'")
             __props__['stream_analytics_job_name'] = stream_analytics_job_name
-            if table is None:
+            if table is None and not opts.urn:
                 raise TypeError("Missing required property 'table'")
             __props__['table'] = table
-            if user is None:
+            if user is None and not opts.urn:
                 raise TypeError("Missing required property 'user'")
             __props__['user'] = user
         super(OutputMssql, __self__).__init__(

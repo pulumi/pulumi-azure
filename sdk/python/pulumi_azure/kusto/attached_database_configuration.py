@@ -63,19 +63,19 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
-            if cluster_resource_id is None:
+            if cluster_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_resource_id'")
             __props__['cluster_resource_id'] = cluster_resource_id
-            if database_name is None:
+            if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['default_principal_modification_kind'] = default_principal_modification_kind
             __props__['location'] = location
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['attached_database_names'] = None

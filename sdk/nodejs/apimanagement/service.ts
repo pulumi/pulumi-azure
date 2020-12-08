@@ -224,16 +224,16 @@ export class Service extends pulumi.CustomResource {
             inputs["virtualNetworkType"] = state ? state.virtualNetworkType : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
-            if (!args || args.publisherEmail === undefined) {
+            if ((!args || args.publisherEmail === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'publisherEmail'");
             }
-            if (!args || args.publisherName === undefined) {
+            if ((!args || args.publisherName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'publisherName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.skuName === undefined) {
+            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'skuName'");
             }
             inputs["additionalLocations"] = args ? args.additionalLocations : undefined;

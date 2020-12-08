@@ -78,13 +78,13 @@ export class IotHubCertificate extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as IotHubCertificateArgs | undefined;
-            if (!args || args.certificateContent === undefined) {
+            if ((!args || args.certificateContent === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'certificateContent'");
             }
-            if (!args || args.iotDpsName === undefined) {
+            if ((!args || args.iotDpsName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'iotDpsName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["certificateContent"] = args ? args.certificateContent : undefined;

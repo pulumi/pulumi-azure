@@ -71,11 +71,12 @@ type DdosProtectionPlan struct {
 // NewDdosProtectionPlan registers a new resource with the given unique name, arguments, and options.
 func NewDdosProtectionPlan(ctx *pulumi.Context,
 	name string, args *DdosProtectionPlanArgs, opts ...pulumi.ResourceOption) (*DdosProtectionPlan, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DdosProtectionPlanArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource DdosProtectionPlan
 	err := ctx.RegisterResource("azure:network/ddosProtectionPlan:DdosProtectionPlan", name, args, &resource, opts...)

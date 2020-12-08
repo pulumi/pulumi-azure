@@ -141,10 +141,10 @@ export class DpsSharedAccessPolicy extends pulumi.CustomResource {
             inputs["serviceConfig"] = state ? state.serviceConfig : undefined;
         } else {
             const args = argsOrState as DpsSharedAccessPolicyArgs | undefined;
-            if (!args || args.iothubDpsName === undefined) {
+            if ((!args || args.iothubDpsName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'iothubDpsName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["enrollmentRead"] = args ? args.enrollmentRead : undefined;

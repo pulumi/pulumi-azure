@@ -162,10 +162,10 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
         } else {
             const args = argsOrState as NetworkInterfaceArgs | undefined;
-            if (!args || args.ipConfigurations === undefined) {
+            if ((!args || args.ipConfigurations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ipConfigurations'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dnsServers"] = args ? args.dnsServers : undefined;

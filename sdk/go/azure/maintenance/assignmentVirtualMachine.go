@@ -34,14 +34,15 @@ type AssignmentVirtualMachine struct {
 // NewAssignmentVirtualMachine registers a new resource with the given unique name, arguments, and options.
 func NewAssignmentVirtualMachine(ctx *pulumi.Context,
 	name string, args *AssignmentVirtualMachineArgs, opts ...pulumi.ResourceOption) (*AssignmentVirtualMachine, error) {
-	if args == nil || args.MaintenanceConfigurationId == nil {
-		return nil, errors.New("missing required argument 'MaintenanceConfigurationId'")
-	}
-	if args == nil || args.VirtualMachineId == nil {
-		return nil, errors.New("missing required argument 'VirtualMachineId'")
-	}
 	if args == nil {
-		args = &AssignmentVirtualMachineArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MaintenanceConfigurationId == nil {
+		return nil, errors.New("invalid value for required argument 'MaintenanceConfigurationId'")
+	}
+	if args.VirtualMachineId == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualMachineId'")
 	}
 	var resource AssignmentVirtualMachine
 	err := ctx.RegisterResource("azure:maintenance/assignmentVirtualMachine:AssignmentVirtualMachine", name, args, &resource, opts...)

@@ -105,13 +105,13 @@ export class Definition extends pulumi.CustomResource {
             inputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as DefinitionArgs | undefined;
-            if (!args || args.authorizations === undefined) {
+            if ((!args || args.authorizations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authorizations'");
             }
-            if (!args || args.managingTenantId === undefined) {
+            if ((!args || args.managingTenantId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managingTenantId'");
             }
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["authorizations"] = args ? args.authorizations : undefined;

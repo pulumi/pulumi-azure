@@ -129,17 +129,18 @@ type NetworkInterfaceBackendAddressPoolAssociation struct {
 // NewNetworkInterfaceBackendAddressPoolAssociation registers a new resource with the given unique name, arguments, and options.
 func NewNetworkInterfaceBackendAddressPoolAssociation(ctx *pulumi.Context,
 	name string, args *NetworkInterfaceBackendAddressPoolAssociationArgs, opts ...pulumi.ResourceOption) (*NetworkInterfaceBackendAddressPoolAssociation, error) {
-	if args == nil || args.BackendAddressPoolId == nil {
-		return nil, errors.New("missing required argument 'BackendAddressPoolId'")
-	}
-	if args == nil || args.IpConfigurationName == nil {
-		return nil, errors.New("missing required argument 'IpConfigurationName'")
-	}
-	if args == nil || args.NetworkInterfaceId == nil {
-		return nil, errors.New("missing required argument 'NetworkInterfaceId'")
-	}
 	if args == nil {
-		args = &NetworkInterfaceBackendAddressPoolAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BackendAddressPoolId == nil {
+		return nil, errors.New("invalid value for required argument 'BackendAddressPoolId'")
+	}
+	if args.IpConfigurationName == nil {
+		return nil, errors.New("invalid value for required argument 'IpConfigurationName'")
+	}
+	if args.NetworkInterfaceId == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkInterfaceId'")
 	}
 	var resource NetworkInterfaceBackendAddressPoolAssociation
 	err := ctx.RegisterResource("azure:network/networkInterfaceBackendAddressPoolAssociation:NetworkInterfaceBackendAddressPoolAssociation", name, args, &resource, opts...)

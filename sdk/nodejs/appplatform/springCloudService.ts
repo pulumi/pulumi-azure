@@ -137,7 +137,7 @@ export class SpringCloudService extends pulumi.CustomResource {
             inputs["trace"] = state ? state.trace : undefined;
         } else {
             const args = argsOrState as SpringCloudServiceArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["configServerGitSetting"] = args ? args.configServerGitSetting : undefined;

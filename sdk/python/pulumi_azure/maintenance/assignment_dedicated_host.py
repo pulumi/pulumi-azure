@@ -81,11 +81,11 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if dedicated_host_id is None:
+            if dedicated_host_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dedicated_host_id'")
             __props__['dedicated_host_id'] = dedicated_host_id
             __props__['location'] = location
-            if maintenance_configuration_id is None:
+            if maintenance_configuration_id is None and not opts.urn:
                 raise TypeError("Missing required property 'maintenance_configuration_id'")
             __props__['maintenance_configuration_id'] = maintenance_configuration_id
         super(AssignmentDedicatedHost, __self__).__init__(

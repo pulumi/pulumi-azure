@@ -230,13 +230,13 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["windowsProfile"] = state ? state.windowsProfile : undefined;
         } else {
             const args = argsOrState as KubernetesClusterArgs | undefined;
-            if (!args || args.defaultNodePool === undefined) {
+            if ((!args || args.defaultNodePool === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'defaultNodePool'");
             }
-            if (!args || args.dnsPrefix === undefined) {
+            if ((!args || args.dnsPrefix === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dnsPrefix'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["addonProfile"] = args ? args.addonProfile : undefined;

@@ -87,11 +87,11 @@ class Application(pulumi.CustomResource):
             __props__['display_name'] = display_name
             __props__['location'] = location
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
-            if sub_domain is None:
+            if sub_domain is None and not opts.urn:
                 raise TypeError("Missing required property 'sub_domain'")
             __props__['sub_domain'] = sub_domain
             __props__['tags'] = tags

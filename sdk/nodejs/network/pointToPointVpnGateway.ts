@@ -119,19 +119,19 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
             inputs["vpnServerConfigurationId"] = state ? state.vpnServerConfigurationId : undefined;
         } else {
             const args = argsOrState as PointToPointVpnGatewayArgs | undefined;
-            if (!args || args.connectionConfiguration === undefined) {
+            if ((!args || args.connectionConfiguration === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectionConfiguration'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.scaleUnit === undefined) {
+            if ((!args || args.scaleUnit === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scaleUnit'");
             }
-            if (!args || args.virtualHubId === undefined) {
+            if ((!args || args.virtualHubId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
-            if (!args || args.vpnServerConfigurationId === undefined) {
+            if ((!args || args.vpnServerConfigurationId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpnServerConfigurationId'");
             }
             inputs["connectionConfiguration"] = args ? args.connectionConfiguration : undefined;

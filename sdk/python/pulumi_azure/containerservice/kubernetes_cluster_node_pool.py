@@ -132,7 +132,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__['enable_auto_scaling'] = enable_auto_scaling
             __props__['enable_node_public_ip'] = enable_node_public_ip
             __props__['eviction_policy'] = eviction_policy
-            if kubernetes_cluster_id is None:
+            if kubernetes_cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'kubernetes_cluster_id'")
             __props__['kubernetes_cluster_id'] = kubernetes_cluster_id
             __props__['max_count'] = max_count
@@ -151,7 +151,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__['proximity_placement_group_id'] = proximity_placement_group_id
             __props__['spot_max_price'] = spot_max_price
             __props__['tags'] = tags
-            if vm_size is None:
+            if vm_size is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_size'")
             __props__['vm_size'] = vm_size
             __props__['vnet_subnet_id'] = vnet_subnet_id

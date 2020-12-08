@@ -83,20 +83,21 @@ type Pool struct {
 // NewPool registers a new resource with the given unique name, arguments, and options.
 func NewPool(ctx *pulumi.Context,
 	name string, args *PoolArgs, opts ...pulumi.ResourceOption) (*Pool, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceLevel == nil {
-		return nil, errors.New("missing required argument 'ServiceLevel'")
-	}
-	if args == nil || args.SizeInTb == nil {
-		return nil, errors.New("missing required argument 'SizeInTb'")
-	}
 	if args == nil {
-		args = &PoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceLevel == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceLevel'")
+	}
+	if args.SizeInTb == nil {
+		return nil, errors.New("invalid value for required argument 'SizeInTb'")
 	}
 	var resource Pool
 	err := ctx.RegisterResource("azure:netapp/pool:Pool", name, args, &resource, opts...)

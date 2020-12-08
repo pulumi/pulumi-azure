@@ -76,11 +76,12 @@ type UserAssignedIdentity struct {
 // NewUserAssignedIdentity registers a new resource with the given unique name, arguments, and options.
 func NewUserAssignedIdentity(ctx *pulumi.Context,
 	name string, args *UserAssignedIdentityArgs, opts ...pulumi.ResourceOption) (*UserAssignedIdentity, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &UserAssignedIdentityArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource UserAssignedIdentity
 	err := ctx.RegisterResource("azure:msi/userAssignedIdentity:UserAssignedIdentity", name, args, &resource, opts...)

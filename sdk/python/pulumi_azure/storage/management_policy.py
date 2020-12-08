@@ -114,7 +114,7 @@ class ManagementPolicy(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['rules'] = rules
-            if storage_account_id is None:
+            if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
             __props__['storage_account_id'] = storage_account_id
         super(ManagementPolicy, __self__).__init__(

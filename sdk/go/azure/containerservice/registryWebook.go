@@ -99,20 +99,21 @@ type RegistryWebook struct {
 // NewRegistryWebook registers a new resource with the given unique name, arguments, and options.
 func NewRegistryWebook(ctx *pulumi.Context,
 	name string, args *RegistryWebookArgs, opts ...pulumi.ResourceOption) (*RegistryWebook, error) {
-	if args == nil || args.Actions == nil {
-		return nil, errors.New("missing required argument 'Actions'")
-	}
-	if args == nil || args.RegistryName == nil {
-		return nil, errors.New("missing required argument 'RegistryName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceUri == nil {
-		return nil, errors.New("missing required argument 'ServiceUri'")
-	}
 	if args == nil {
-		args = &RegistryWebookArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Actions == nil {
+		return nil, errors.New("invalid value for required argument 'Actions'")
+	}
+	if args.RegistryName == nil {
+		return nil, errors.New("invalid value for required argument 'RegistryName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceUri == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceUri'")
 	}
 	var resource RegistryWebook
 	err := ctx.RegisterResource("azure:containerservice/registryWebook:RegistryWebook", name, args, &resource, opts...)

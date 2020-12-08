@@ -80,20 +80,21 @@ type ReplicationPolicy struct {
 // NewReplicationPolicy registers a new resource with the given unique name, arguments, and options.
 func NewReplicationPolicy(ctx *pulumi.Context,
 	name string, args *ReplicationPolicyArgs, opts ...pulumi.ResourceOption) (*ReplicationPolicy, error) {
-	if args == nil || args.ApplicationConsistentSnapshotFrequencyInMinutes == nil {
-		return nil, errors.New("missing required argument 'ApplicationConsistentSnapshotFrequencyInMinutes'")
-	}
-	if args == nil || args.RecoveryPointRetentionInMinutes == nil {
-		return nil, errors.New("missing required argument 'RecoveryPointRetentionInMinutes'")
-	}
-	if args == nil || args.RecoveryVaultName == nil {
-		return nil, errors.New("missing required argument 'RecoveryVaultName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ReplicationPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApplicationConsistentSnapshotFrequencyInMinutes == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationConsistentSnapshotFrequencyInMinutes'")
+	}
+	if args.RecoveryPointRetentionInMinutes == nil {
+		return nil, errors.New("invalid value for required argument 'RecoveryPointRetentionInMinutes'")
+	}
+	if args.RecoveryVaultName == nil {
+		return nil, errors.New("invalid value for required argument 'RecoveryVaultName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ReplicationPolicy
 	err := ctx.RegisterResource("azure:siterecovery/replicationPolicy:ReplicationPolicy", name, args, &resource, opts...)

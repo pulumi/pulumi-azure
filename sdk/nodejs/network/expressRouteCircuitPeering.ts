@@ -173,22 +173,22 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             inputs["vlanId"] = state ? state.vlanId : undefined;
         } else {
             const args = argsOrState as ExpressRouteCircuitPeeringArgs | undefined;
-            if (!args || args.expressRouteCircuitName === undefined) {
+            if ((!args || args.expressRouteCircuitName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'expressRouteCircuitName'");
             }
-            if (!args || args.peeringType === undefined) {
+            if ((!args || args.peeringType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'peeringType'");
             }
-            if (!args || args.primaryPeerAddressPrefix === undefined) {
+            if ((!args || args.primaryPeerAddressPrefix === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'primaryPeerAddressPrefix'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.secondaryPeerAddressPrefix === undefined) {
+            if ((!args || args.secondaryPeerAddressPrefix === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'secondaryPeerAddressPrefix'");
             }
-            if (!args || args.vlanId === undefined) {
+            if ((!args || args.vlanId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vlanId'");
             }
             inputs["expressRouteCircuitName"] = args ? args.expressRouteCircuitName : undefined;

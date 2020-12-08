@@ -171,14 +171,15 @@ type ActionGroup struct {
 // NewActionGroup registers a new resource with the given unique name, arguments, and options.
 func NewActionGroup(ctx *pulumi.Context,
 	name string, args *ActionGroupArgs, opts ...pulumi.ResourceOption) (*ActionGroup, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ShortName == nil {
-		return nil, errors.New("missing required argument 'ShortName'")
-	}
 	if args == nil {
-		args = &ActionGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ShortName == nil {
+		return nil, errors.New("invalid value for required argument 'ShortName'")
 	}
 	var resource ActionGroup
 	err := ctx.RegisterResource("azure:monitoring/actionGroup:ActionGroup", name, args, &resource, opts...)

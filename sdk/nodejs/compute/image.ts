@@ -140,7 +140,7 @@ export class Image extends pulumi.CustomResource {
             inputs["zoneResilient"] = state ? state.zoneResilient : undefined;
         } else {
             const args = argsOrState as ImageArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dataDisks"] = args ? args.dataDisks : undefined;

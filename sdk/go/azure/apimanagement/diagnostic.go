@@ -100,20 +100,21 @@ type Diagnostic struct {
 // NewDiagnostic registers a new resource with the given unique name, arguments, and options.
 func NewDiagnostic(ctx *pulumi.Context,
 	name string, args *DiagnosticArgs, opts ...pulumi.ResourceOption) (*Diagnostic, error) {
-	if args == nil || args.ApiManagementLoggerId == nil {
-		return nil, errors.New("missing required argument 'ApiManagementLoggerId'")
-	}
-	if args == nil || args.ApiManagementName == nil {
-		return nil, errors.New("missing required argument 'ApiManagementName'")
-	}
-	if args == nil || args.Identifier == nil {
-		return nil, errors.New("missing required argument 'Identifier'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DiagnosticArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiManagementLoggerId == nil {
+		return nil, errors.New("invalid value for required argument 'ApiManagementLoggerId'")
+	}
+	if args.ApiManagementName == nil {
+		return nil, errors.New("invalid value for required argument 'ApiManagementName'")
+	}
+	if args.Identifier == nil {
+		return nil, errors.New("invalid value for required argument 'Identifier'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Diagnostic
 	err := ctx.RegisterResource("azure:apimanagement/diagnostic:Diagnostic", name, args, &resource, opts...)

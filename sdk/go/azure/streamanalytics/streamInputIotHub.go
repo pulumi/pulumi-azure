@@ -109,32 +109,33 @@ type StreamInputIotHub struct {
 // NewStreamInputIotHub registers a new resource with the given unique name, arguments, and options.
 func NewStreamInputIotHub(ctx *pulumi.Context,
 	name string, args *StreamInputIotHubArgs, opts ...pulumi.ResourceOption) (*StreamInputIotHub, error) {
-	if args == nil || args.Endpoint == nil {
-		return nil, errors.New("missing required argument 'Endpoint'")
-	}
-	if args == nil || args.EventhubConsumerGroupName == nil {
-		return nil, errors.New("missing required argument 'EventhubConsumerGroupName'")
-	}
-	if args == nil || args.IothubNamespace == nil {
-		return nil, errors.New("missing required argument 'IothubNamespace'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Serialization == nil {
-		return nil, errors.New("missing required argument 'Serialization'")
-	}
-	if args == nil || args.SharedAccessPolicyKey == nil {
-		return nil, errors.New("missing required argument 'SharedAccessPolicyKey'")
-	}
-	if args == nil || args.SharedAccessPolicyName == nil {
-		return nil, errors.New("missing required argument 'SharedAccessPolicyName'")
-	}
-	if args == nil || args.StreamAnalyticsJobName == nil {
-		return nil, errors.New("missing required argument 'StreamAnalyticsJobName'")
-	}
 	if args == nil {
-		args = &StreamInputIotHubArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Endpoint == nil {
+		return nil, errors.New("invalid value for required argument 'Endpoint'")
+	}
+	if args.EventhubConsumerGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'EventhubConsumerGroupName'")
+	}
+	if args.IothubNamespace == nil {
+		return nil, errors.New("invalid value for required argument 'IothubNamespace'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Serialization == nil {
+		return nil, errors.New("invalid value for required argument 'Serialization'")
+	}
+	if args.SharedAccessPolicyKey == nil {
+		return nil, errors.New("invalid value for required argument 'SharedAccessPolicyKey'")
+	}
+	if args.SharedAccessPolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'SharedAccessPolicyName'")
+	}
+	if args.StreamAnalyticsJobName == nil {
+		return nil, errors.New("invalid value for required argument 'StreamAnalyticsJobName'")
 	}
 	var resource StreamInputIotHub
 	err := ctx.RegisterResource("azure:streamanalytics/streamInputIotHub:StreamInputIotHub", name, args, &resource, opts...)

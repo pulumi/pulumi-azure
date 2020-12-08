@@ -61,7 +61,7 @@ class DatasetDataLakeGen1(pulumi.CustomResource):
             data_lake_store_id=example_store.id,
             file_name="myfile.txt",
             folder_path="example",
-            opts=ResourceOptions(depends_on=[example_assignment]))
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import
@@ -97,14 +97,14 @@ class DatasetDataLakeGen1(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if data_lake_store_id is None:
+            if data_lake_store_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_lake_store_id'")
             __props__['data_lake_store_id'] = data_lake_store_id
-            if data_share_id is None:
+            if data_share_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_share_id'")
             __props__['data_share_id'] = data_share_id
             __props__['file_name'] = file_name
-            if folder_path is None:
+            if folder_path is None and not opts.urn:
                 raise TypeError("Missing required property 'folder_path'")
             __props__['folder_path'] = folder_path
             __props__['name'] = name

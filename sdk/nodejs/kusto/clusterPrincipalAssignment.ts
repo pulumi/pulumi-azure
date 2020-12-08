@@ -126,22 +126,22 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
             inputs["tenantName"] = state ? state.tenantName : undefined;
         } else {
             const args = argsOrState as ClusterPrincipalAssignmentArgs | undefined;
-            if (!args || args.clusterName === undefined) {
+            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.principalId === undefined) {
+            if ((!args || args.principalId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if (!args || args.principalType === undefined) {
+            if ((!args || args.principalType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'principalType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.role === undefined) {
+            if ((!args || args.role === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'role'");
             }
-            if (!args || args.tenantId === undefined) {
+            if ((!args || args.tenantId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tenantId'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;

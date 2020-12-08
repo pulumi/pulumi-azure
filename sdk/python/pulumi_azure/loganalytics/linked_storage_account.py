@@ -80,16 +80,16 @@ class LinkedStorageAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if data_source_type is None:
+            if data_source_type is None and not opts.urn:
                 raise TypeError("Missing required property 'data_source_type'")
             __props__['data_source_type'] = data_source_type
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if storage_account_ids is None:
+            if storage_account_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_ids'")
             __props__['storage_account_ids'] = storage_account_ids
-            if workspace_resource_id is None:
+            if workspace_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_resource_id'")
             __props__['workspace_resource_id'] = workspace_resource_id
         super(LinkedStorageAccount, __self__).__init__(

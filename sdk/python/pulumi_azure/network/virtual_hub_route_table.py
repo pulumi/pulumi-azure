@@ -106,7 +106,7 @@ class VirtualHubRouteTable(pulumi.CustomResource):
             __props__['labels'] = labels
             __props__['name'] = name
             __props__['routes'] = routes
-            if virtual_hub_id is None:
+            if virtual_hub_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub_id'")
             __props__['virtual_hub_id'] = virtual_hub_id
         super(VirtualHubRouteTable, __self__).__init__(

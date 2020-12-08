@@ -97,14 +97,14 @@ class EndpointEventhub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if connection_string is None:
+            if connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_string'")
             __props__['connection_string'] = connection_string
-            if iothub_name is None:
+            if iothub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'iothub_name'")
             __props__['iothub_name'] = iothub_name
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
         super(EndpointEventhub, __self__).__init__(

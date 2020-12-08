@@ -117,13 +117,13 @@ export class EndpointServicebusTopic extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as EndpointServicebusTopicArgs | undefined;
-            if (!args || args.connectionString === undefined) {
+            if ((!args || args.connectionString === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectionString'");
             }
-            if (!args || args.iothubName === undefined) {
+            if ((!args || args.iothubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'iothubName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["connectionString"] = args ? args.connectionString : undefined;

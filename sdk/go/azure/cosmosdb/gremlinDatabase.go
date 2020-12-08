@@ -70,14 +70,15 @@ type GremlinDatabase struct {
 // NewGremlinDatabase registers a new resource with the given unique name, arguments, and options.
 func NewGremlinDatabase(ctx *pulumi.Context,
 	name string, args *GremlinDatabaseArgs, opts ...pulumi.ResourceOption) (*GremlinDatabase, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &GremlinDatabaseArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource GremlinDatabase
 	err := ctx.RegisterResource("azure:cosmosdb/gremlinDatabase:GremlinDatabase", name, args, &resource, opts...)

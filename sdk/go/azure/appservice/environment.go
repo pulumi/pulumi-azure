@@ -116,11 +116,12 @@ type Environment struct {
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
 func NewEnvironment(ctx *pulumi.Context,
 	name string, args *EnvironmentArgs, opts ...pulumi.ResourceOption) (*Environment, error) {
-	if args == nil || args.SubnetId == nil {
-		return nil, errors.New("missing required argument 'SubnetId'")
-	}
 	if args == nil {
-		args = &EnvironmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.SubnetId == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
 	var resource Environment
 	err := ctx.RegisterResource("azure:appservice/environment:Environment", name, args, &resource, opts...)

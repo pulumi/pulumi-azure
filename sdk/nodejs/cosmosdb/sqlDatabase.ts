@@ -98,10 +98,10 @@ export class SqlDatabase extends pulumi.CustomResource {
             inputs["throughput"] = state ? state.throughput : undefined;
         } else {
             const args = argsOrState as SqlDatabaseArgs | undefined;
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;

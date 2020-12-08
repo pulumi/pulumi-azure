@@ -145,13 +145,13 @@ export class Schedule extends pulumi.CustomResource {
             inputs["weekDays"] = state ? state.weekDays : undefined;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
-            if (!args || args.automationAccountName === undefined) {
+            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if (!args || args.frequency === undefined) {
+            if ((!args || args.frequency === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;

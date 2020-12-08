@@ -126,7 +126,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
             __props__['annotations'] = annotations
             __props__['azure_blob_storage_location'] = azure_blob_storage_location
             __props__['column_delimiter'] = column_delimiter
-            if data_factory_name is None:
+            if data_factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_factory_name'")
             __props__['data_factory_name'] = data_factory_name
             __props__['description'] = description
@@ -135,14 +135,14 @@ class DatasetDelimitedText(pulumi.CustomResource):
             __props__['first_row_as_header'] = first_row_as_header
             __props__['folder'] = folder
             __props__['http_server_location'] = http_server_location
-            if linked_service_name is None:
+            if linked_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_service_name'")
             __props__['linked_service_name'] = linked_service_name
             __props__['name'] = name
             __props__['null_value'] = null_value
             __props__['parameters'] = parameters
             __props__['quote_character'] = quote_character
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['row_delimiter'] = row_delimiter

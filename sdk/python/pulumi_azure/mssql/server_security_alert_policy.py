@@ -103,14 +103,14 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
             __props__['disabled_alerts'] = disabled_alerts
             __props__['email_account_admins'] = email_account_admins
             __props__['email_addresses'] = email_addresses
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['retention_days'] = retention_days
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
-            if state is None:
+            if state is None and not opts.urn:
                 raise TypeError("Missing required property 'state'")
             __props__['state'] = state
             __props__['storage_account_access_key'] = storage_account_access_key

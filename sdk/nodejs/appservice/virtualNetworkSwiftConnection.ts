@@ -111,10 +111,10 @@ export class VirtualNetworkSwiftConnection extends pulumi.CustomResource {
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as VirtualNetworkSwiftConnectionArgs | undefined;
-            if (!args || args.appServiceId === undefined) {
+            if ((!args || args.appServiceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'appServiceId'");
             }
-            if (!args || args.subnetId === undefined) {
+            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetId'");
             }
             inputs["appServiceId"] = args ? args.appServiceId : undefined;

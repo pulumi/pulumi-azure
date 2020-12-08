@@ -79,13 +79,13 @@ export class ChannelDirectLine extends pulumi.CustomResource {
             inputs["sites"] = state ? state.sites : undefined;
         } else {
             const args = argsOrState as ChannelDirectLineArgs | undefined;
-            if (!args || args.botName === undefined) {
+            if ((!args || args.botName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'botName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sites === undefined) {
+            if ((!args || args.sites === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sites'");
             }
             inputs["botName"] = args ? args.botName : undefined;

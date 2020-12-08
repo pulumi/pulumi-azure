@@ -113,16 +113,16 @@ export class Pool extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as PoolArgs | undefined;
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceLevel === undefined) {
+            if ((!args || args.serviceLevel === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceLevel'");
             }
-            if (!args || args.sizeInTb === undefined) {
+            if ((!args || args.sizeInTb === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sizeInTb'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;

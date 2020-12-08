@@ -219,16 +219,16 @@ export class Cache extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as CacheArgs | undefined;
-            if (!args || args.capacity === undefined) {
+            if ((!args || args.capacity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'capacity'");
             }
-            if (!args || args.family === undefined) {
+            if ((!args || args.family === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'family'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.skuName === undefined) {
+            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'skuName'");
             }
             inputs["capacity"] = args ? args.capacity : undefined;

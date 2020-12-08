@@ -112,13 +112,13 @@ export class ActionHttp extends pulumi.CustomResource {
             inputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as ActionHttpArgs | undefined;
-            if (!args || args.logicAppId === undefined) {
+            if ((!args || args.logicAppId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'logicAppId'");
             }
-            if (!args || args.method === undefined) {
+            if ((!args || args.method === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'method'");
             }
-            if (!args || args.uri === undefined) {
+            if ((!args || args.uri === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'uri'");
             }
             inputs["body"] = args ? args.body : undefined;

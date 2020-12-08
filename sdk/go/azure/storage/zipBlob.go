@@ -34,17 +34,18 @@ type ZipBlob struct {
 // NewZipBlob registers a new resource with the given unique name, arguments, and options.
 func NewZipBlob(ctx *pulumi.Context,
 	name string, args *ZipBlobArgs, opts ...pulumi.ResourceOption) (*ZipBlob, error) {
-	if args == nil || args.StorageAccountName == nil {
-		return nil, errors.New("missing required argument 'StorageAccountName'")
-	}
-	if args == nil || args.StorageContainerName == nil {
-		return nil, errors.New("missing required argument 'StorageContainerName'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &ZipBlobArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.StorageAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
+	}
+	if args.StorageContainerName == nil {
+		return nil, errors.New("invalid value for required argument 'StorageContainerName'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource ZipBlob
 	err := ctx.RegisterResource("azure:storage/zipBlob:ZipBlob", name, args, &resource, opts...)

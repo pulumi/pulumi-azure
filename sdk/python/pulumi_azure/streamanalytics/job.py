@@ -107,14 +107,14 @@ class Job(pulumi.CustomResource):
             __props__['location'] = location
             __props__['name'] = name
             __props__['output_error_policy'] = output_error_policy
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if streaming_units is None:
+            if streaming_units is None and not opts.urn:
                 raise TypeError("Missing required property 'streaming_units'")
             __props__['streaming_units'] = streaming_units
             __props__['tags'] = tags
-            if transformation_query is None:
+            if transformation_query is None and not opts.urn:
                 raise TypeError("Missing required property 'transformation_query'")
             __props__['transformation_query'] = transformation_query
             __props__['job_id'] = None

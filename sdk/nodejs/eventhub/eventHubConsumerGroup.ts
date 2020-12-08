@@ -119,13 +119,13 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
             inputs["userMetadata"] = state ? state.userMetadata : undefined;
         } else {
             const args = argsOrState as EventHubConsumerGroupArgs | undefined;
-            if (!args || args.eventhubName === undefined) {
+            if ((!args || args.eventhubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventhubName'");
             }
-            if (!args || args.namespaceName === undefined) {
+            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["eventhubName"] = args ? args.eventhubName : undefined;

@@ -88,20 +88,20 @@ class Diagnostic(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_management_logger_id is None:
+            if api_management_logger_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_logger_id'")
             __props__['api_management_logger_id'] = api_management_logger_id
-            if api_management_name is None:
+            if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__['api_management_name'] = api_management_name
-            if enabled is not None:
+            if enabled is not None and not opts.urn:
                 warnings.warn("""this property has been removed from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
                 pulumi.log.warn("enabled is deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider")
             __props__['enabled'] = enabled
-            if identifier is None:
+            if identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'identifier'")
             __props__['identifier'] = identifier
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
         super(Diagnostic, __self__).__init__(

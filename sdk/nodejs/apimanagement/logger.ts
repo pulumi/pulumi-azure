@@ -122,10 +122,10 @@ export class Logger extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as LoggerArgs | undefined;
-            if (!args || args.apiManagementName === undefined) {
+            if ((!args || args.apiManagementName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["apiManagementName"] = args ? args.apiManagementName : undefined;

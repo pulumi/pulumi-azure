@@ -163,10 +163,10 @@ export class Topic extends pulumi.CustomResource {
             inputs["supportOrdering"] = state ? state.supportOrdering : undefined;
         } else {
             const args = argsOrState as TopicArgs | undefined;
-            if (!args || args.namespaceName === undefined) {
+            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;

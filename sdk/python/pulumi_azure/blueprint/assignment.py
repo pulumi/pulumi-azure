@@ -87,7 +87,7 @@ class Assignment(pulumi.CustomResource):
               }
             }
         \"\"\",
-            opts=ResourceOptions(depends_on=[
+            opts=pulumi.ResourceOptions(depends_on=[
                     operator,
                     owner,
                 ]))
@@ -136,10 +136,10 @@ class Assignment(pulumi.CustomResource):
             __props__['name'] = name
             __props__['parameter_values'] = parameter_values
             __props__['resource_groups'] = resource_groups
-            if target_subscription_id is None:
+            if target_subscription_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_subscription_id'")
             __props__['target_subscription_id'] = target_subscription_id
-            if version_id is None:
+            if version_id is None and not opts.urn:
                 raise TypeError("Missing required property 'version_id'")
             __props__['version_id'] = version_id
             __props__['blueprint_name'] = None

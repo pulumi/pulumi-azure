@@ -166,17 +166,18 @@ type SpringCloudCertificate struct {
 // NewSpringCloudCertificate registers a new resource with the given unique name, arguments, and options.
 func NewSpringCloudCertificate(ctx *pulumi.Context,
 	name string, args *SpringCloudCertificateArgs, opts ...pulumi.ResourceOption) (*SpringCloudCertificate, error) {
-	if args == nil || args.KeyVaultCertificateId == nil {
-		return nil, errors.New("missing required argument 'KeyVaultCertificateId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &SpringCloudCertificateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.KeyVaultCertificateId == nil {
+		return nil, errors.New("invalid value for required argument 'KeyVaultCertificateId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	var resource SpringCloudCertificate
 	err := ctx.RegisterResource("azure:appplatform/springCloudCertificate:SpringCloudCertificate", name, args, &resource, opts...)

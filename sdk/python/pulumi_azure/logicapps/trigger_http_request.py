@@ -82,13 +82,13 @@ class TriggerHttpRequest(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if logic_app_id is None:
+            if logic_app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'logic_app_id'")
             __props__['logic_app_id'] = logic_app_id
             __props__['method'] = method
             __props__['name'] = name
             __props__['relative_path'] = relative_path
-            if schema is None:
+            if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__['schema'] = schema
         super(TriggerHttpRequest, __self__).__init__(

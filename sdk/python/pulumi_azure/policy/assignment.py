@@ -133,10 +133,10 @@ class Assignment(pulumi.CustomResource):
             __props__['name'] = name
             __props__['not_scopes'] = not_scopes
             __props__['parameters'] = parameters
-            if policy_definition_id is None:
+            if policy_definition_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_definition_id'")
             __props__['policy_definition_id'] = policy_definition_id
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
         super(Assignment, __self__).__init__(

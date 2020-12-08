@@ -106,7 +106,7 @@ class DiagnosticSetting(pulumi.CustomResource):
             __props__['metrics'] = metrics
             __props__['name'] = name
             __props__['storage_account_id'] = storage_account_id
-            if target_resource_id is None:
+            if target_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_id'")
             __props__['target_resource_id'] = target_resource_id
         super(DiagnosticSetting, __self__).__init__(

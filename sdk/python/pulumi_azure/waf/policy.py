@@ -155,12 +155,12 @@ class Policy(pulumi.CustomResource):
 
             __props__['custom_rules'] = custom_rules
             __props__['location'] = location
-            if managed_rules is None:
+            if managed_rules is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_rules'")
             __props__['managed_rules'] = managed_rules
             __props__['name'] = name
             __props__['policy_settings'] = policy_settings
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

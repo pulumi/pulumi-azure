@@ -117,19 +117,19 @@ export class ConnectionClassicCertificate extends pulumi.CustomResource {
             inputs["subscriptionName"] = state ? state.subscriptionName : undefined;
         } else {
             const args = argsOrState as ConnectionClassicCertificateArgs | undefined;
-            if (!args || args.automationAccountName === undefined) {
+            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if (!args || args.certificateAssetName === undefined) {
+            if ((!args || args.certificateAssetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'certificateAssetName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.subscriptionId === undefined) {
+            if ((!args || args.subscriptionId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subscriptionId'");
             }
-            if (!args || args.subscriptionName === undefined) {
+            if ((!args || args.subscriptionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subscriptionName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;

@@ -106,29 +106,30 @@ type OutputServicebusTopic struct {
 // NewOutputServicebusTopic registers a new resource with the given unique name, arguments, and options.
 func NewOutputServicebusTopic(ctx *pulumi.Context,
 	name string, args *OutputServicebusTopicArgs, opts ...pulumi.ResourceOption) (*OutputServicebusTopic, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Serialization == nil {
-		return nil, errors.New("missing required argument 'Serialization'")
-	}
-	if args == nil || args.ServicebusNamespace == nil {
-		return nil, errors.New("missing required argument 'ServicebusNamespace'")
-	}
-	if args == nil || args.SharedAccessPolicyKey == nil {
-		return nil, errors.New("missing required argument 'SharedAccessPolicyKey'")
-	}
-	if args == nil || args.SharedAccessPolicyName == nil {
-		return nil, errors.New("missing required argument 'SharedAccessPolicyName'")
-	}
-	if args == nil || args.StreamAnalyticsJobName == nil {
-		return nil, errors.New("missing required argument 'StreamAnalyticsJobName'")
-	}
-	if args == nil || args.TopicName == nil {
-		return nil, errors.New("missing required argument 'TopicName'")
-	}
 	if args == nil {
-		args = &OutputServicebusTopicArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Serialization == nil {
+		return nil, errors.New("invalid value for required argument 'Serialization'")
+	}
+	if args.ServicebusNamespace == nil {
+		return nil, errors.New("invalid value for required argument 'ServicebusNamespace'")
+	}
+	if args.SharedAccessPolicyKey == nil {
+		return nil, errors.New("invalid value for required argument 'SharedAccessPolicyKey'")
+	}
+	if args.SharedAccessPolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'SharedAccessPolicyName'")
+	}
+	if args.StreamAnalyticsJobName == nil {
+		return nil, errors.New("invalid value for required argument 'StreamAnalyticsJobName'")
+	}
+	if args.TopicName == nil {
+		return nil, errors.New("invalid value for required argument 'TopicName'")
 	}
 	var resource OutputServicebusTopic
 	err := ctx.RegisterResource("azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic", name, args, &resource, opts...)

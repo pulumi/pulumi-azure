@@ -48,20 +48,21 @@ type Controller struct {
 // NewController registers a new resource with the given unique name, arguments, and options.
 func NewController(ctx *pulumi.Context,
 	name string, args *ControllerArgs, opts ...pulumi.ResourceOption) (*Controller, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SkuName == nil {
-		return nil, errors.New("missing required argument 'SkuName'")
-	}
-	if args == nil || args.TargetContainerHostCredentialsBase64 == nil {
-		return nil, errors.New("missing required argument 'TargetContainerHostCredentialsBase64'")
-	}
-	if args == nil || args.TargetContainerHostResourceId == nil {
-		return nil, errors.New("missing required argument 'TargetContainerHostResourceId'")
-	}
 	if args == nil {
-		args = &ControllerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SkuName == nil {
+		return nil, errors.New("invalid value for required argument 'SkuName'")
+	}
+	if args.TargetContainerHostCredentialsBase64 == nil {
+		return nil, errors.New("invalid value for required argument 'TargetContainerHostCredentialsBase64'")
+	}
+	if args.TargetContainerHostResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'TargetContainerHostResourceId'")
 	}
 	var resource Controller
 	err := ctx.RegisterResource("azure:devspace/controller:Controller", name, args, &resource, opts...)

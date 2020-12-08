@@ -161,19 +161,19 @@ export class Workspace extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
-            if (!args || args.applicationInsightsId === undefined) {
+            if ((!args || args.applicationInsightsId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationInsightsId'");
             }
-            if (!args || args.identity === undefined) {
+            if ((!args || args.identity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'identity'");
             }
-            if (!args || args.keyVaultId === undefined) {
+            if ((!args || args.keyVaultId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.storageAccountId === undefined) {
+            if ((!args || args.storageAccountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
             inputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;

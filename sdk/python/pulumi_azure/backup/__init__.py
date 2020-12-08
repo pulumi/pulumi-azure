@@ -11,3 +11,38 @@ from .protected_file_share import *
 from .protected_vm import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure:backup/containerStorageAccount:ContainerStorageAccount":
+                return ContainerStorageAccount(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:backup/policyFileShare:PolicyFileShare":
+                return PolicyFileShare(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:backup/policyVM:PolicyVM":
+                return PolicyVM(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:backup/protectedFileShare:ProtectedFileShare":
+                return ProtectedFileShare(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:backup/protectedVM:ProtectedVM":
+                return ProtectedVM(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure", "backup/containerStorageAccount", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "backup/policyFileShare", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "backup/policyVM", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "backup/protectedFileShare", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "backup/protectedVM", _module_instance)
+
+_register_module()

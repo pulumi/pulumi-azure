@@ -134,17 +134,18 @@ type KubernetesCluster struct {
 // NewKubernetesCluster registers a new resource with the given unique name, arguments, and options.
 func NewKubernetesCluster(ctx *pulumi.Context,
 	name string, args *KubernetesClusterArgs, opts ...pulumi.ResourceOption) (*KubernetesCluster, error) {
-	if args == nil || args.DefaultNodePool == nil {
-		return nil, errors.New("missing required argument 'DefaultNodePool'")
-	}
-	if args == nil || args.DnsPrefix == nil {
-		return nil, errors.New("missing required argument 'DnsPrefix'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &KubernetesClusterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DefaultNodePool == nil {
+		return nil, errors.New("invalid value for required argument 'DefaultNodePool'")
+	}
+	if args.DnsPrefix == nil {
+		return nil, errors.New("invalid value for required argument 'DnsPrefix'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource KubernetesCluster
 	err := ctx.RegisterResource("azure:containerservice/kubernetesCluster:KubernetesCluster", name, args, &resource, opts...)

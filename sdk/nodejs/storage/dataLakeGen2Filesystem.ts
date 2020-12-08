@@ -98,7 +98,7 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
             const args = argsOrState as DataLakeGen2FilesystemArgs | undefined;
-            if (!args || args.storageAccountId === undefined) {
+            if ((!args || args.storageAccountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
             inputs["name"] = args ? args.name : undefined;

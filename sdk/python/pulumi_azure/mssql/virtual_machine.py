@@ -105,12 +105,12 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['sql_connectivity_type'] = sql_connectivity_type
             __props__['sql_connectivity_update_password'] = sql_connectivity_update_password
             __props__['sql_connectivity_update_username'] = sql_connectivity_update_username
-            if sql_license_type is None:
+            if sql_license_type is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_license_type'")
             __props__['sql_license_type'] = sql_license_type
             __props__['storage_configuration'] = storage_configuration
             __props__['tags'] = tags
-            if virtual_machine_id is None:
+            if virtual_machine_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_machine_id'")
             __props__['virtual_machine_id'] = virtual_machine_id
         super(VirtualMachine, __self__).__init__(

@@ -85,17 +85,18 @@ type LinkedServicePostgresql struct {
 // NewLinkedServicePostgresql registers a new resource with the given unique name, arguments, and options.
 func NewLinkedServicePostgresql(ctx *pulumi.Context,
 	name string, args *LinkedServicePostgresqlArgs, opts ...pulumi.ResourceOption) (*LinkedServicePostgresql, error) {
-	if args == nil || args.ConnectionString == nil {
-		return nil, errors.New("missing required argument 'ConnectionString'")
-	}
-	if args == nil || args.DataFactoryName == nil {
-		return nil, errors.New("missing required argument 'DataFactoryName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &LinkedServicePostgresqlArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConnectionString == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionString'")
+	}
+	if args.DataFactoryName == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource LinkedServicePostgresql
 	err := ctx.RegisterResource("azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql", name, args, &resource, opts...)

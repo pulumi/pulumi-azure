@@ -125,23 +125,24 @@ type ProtectedFileShare struct {
 // NewProtectedFileShare registers a new resource with the given unique name, arguments, and options.
 func NewProtectedFileShare(ctx *pulumi.Context,
 	name string, args *ProtectedFileShareArgs, opts ...pulumi.ResourceOption) (*ProtectedFileShare, error) {
-	if args == nil || args.BackupPolicyId == nil {
-		return nil, errors.New("missing required argument 'BackupPolicyId'")
-	}
-	if args == nil || args.RecoveryVaultName == nil {
-		return nil, errors.New("missing required argument 'RecoveryVaultName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SourceFileShareName == nil {
-		return nil, errors.New("missing required argument 'SourceFileShareName'")
-	}
-	if args == nil || args.SourceStorageAccountId == nil {
-		return nil, errors.New("missing required argument 'SourceStorageAccountId'")
-	}
 	if args == nil {
-		args = &ProtectedFileShareArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BackupPolicyId == nil {
+		return nil, errors.New("invalid value for required argument 'BackupPolicyId'")
+	}
+	if args.RecoveryVaultName == nil {
+		return nil, errors.New("invalid value for required argument 'RecoveryVaultName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SourceFileShareName == nil {
+		return nil, errors.New("invalid value for required argument 'SourceFileShareName'")
+	}
+	if args.SourceStorageAccountId == nil {
+		return nil, errors.New("invalid value for required argument 'SourceStorageAccountId'")
 	}
 	var resource ProtectedFileShare
 	err := ctx.RegisterResource("azure:backup/protectedFileShare:ProtectedFileShare", name, args, &resource, opts...)

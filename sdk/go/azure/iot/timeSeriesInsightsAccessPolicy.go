@@ -81,17 +81,18 @@ type TimeSeriesInsightsAccessPolicy struct {
 // NewTimeSeriesInsightsAccessPolicy registers a new resource with the given unique name, arguments, and options.
 func NewTimeSeriesInsightsAccessPolicy(ctx *pulumi.Context,
 	name string, args *TimeSeriesInsightsAccessPolicyArgs, opts ...pulumi.ResourceOption) (*TimeSeriesInsightsAccessPolicy, error) {
-	if args == nil || args.PrincipalObjectId == nil {
-		return nil, errors.New("missing required argument 'PrincipalObjectId'")
-	}
-	if args == nil || args.Roles == nil {
-		return nil, errors.New("missing required argument 'Roles'")
-	}
-	if args == nil || args.TimeSeriesInsightsEnvironmentId == nil {
-		return nil, errors.New("missing required argument 'TimeSeriesInsightsEnvironmentId'")
-	}
 	if args == nil {
-		args = &TimeSeriesInsightsAccessPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PrincipalObjectId == nil {
+		return nil, errors.New("invalid value for required argument 'PrincipalObjectId'")
+	}
+	if args.Roles == nil {
+		return nil, errors.New("invalid value for required argument 'Roles'")
+	}
+	if args.TimeSeriesInsightsEnvironmentId == nil {
+		return nil, errors.New("invalid value for required argument 'TimeSeriesInsightsEnvironmentId'")
 	}
 	var resource TimeSeriesInsightsAccessPolicy
 	err := ctx.RegisterResource("azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy", name, args, &resource, opts...)

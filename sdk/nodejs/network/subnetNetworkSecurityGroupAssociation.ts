@@ -106,10 +106,10 @@ export class SubnetNetworkSecurityGroupAssociation extends pulumi.CustomResource
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as SubnetNetworkSecurityGroupAssociationArgs | undefined;
-            if (!args || args.networkSecurityGroupId === undefined) {
+            if ((!args || args.networkSecurityGroupId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkSecurityGroupId'");
             }
-            if (!args || args.subnetId === undefined) {
+            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetId'");
             }
             inputs["networkSecurityGroupId"] = args ? args.networkSecurityGroupId : undefined;

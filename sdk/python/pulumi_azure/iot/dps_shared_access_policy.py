@@ -88,13 +88,13 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
 
             __props__['enrollment_read'] = enrollment_read
             __props__['enrollment_write'] = enrollment_write
-            if iothub_dps_name is None:
+            if iothub_dps_name is None and not opts.urn:
                 raise TypeError("Missing required property 'iothub_dps_name'")
             __props__['iothub_dps_name'] = iothub_dps_name
             __props__['name'] = name
             __props__['registration_read'] = registration_read
             __props__['registration_write'] = registration_write
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['service_config'] = service_config

@@ -73,14 +73,15 @@ type IntegrationAccount struct {
 // NewIntegrationAccount registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationAccount(ctx *pulumi.Context,
 	name string, args *IntegrationAccountArgs, opts ...pulumi.ResourceOption) (*IntegrationAccount, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SkuName == nil {
-		return nil, errors.New("missing required argument 'SkuName'")
-	}
 	if args == nil {
-		args = &IntegrationAccountArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SkuName == nil {
+		return nil, errors.New("invalid value for required argument 'SkuName'")
 	}
 	var resource IntegrationAccount
 	err := ctx.RegisterResource("azure:logicapps/integrationAccount:IntegrationAccount", name, args, &resource, opts...)

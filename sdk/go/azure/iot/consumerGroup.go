@@ -82,17 +82,18 @@ type ConsumerGroup struct {
 // NewConsumerGroup registers a new resource with the given unique name, arguments, and options.
 func NewConsumerGroup(ctx *pulumi.Context,
 	name string, args *ConsumerGroupArgs, opts ...pulumi.ResourceOption) (*ConsumerGroup, error) {
-	if args == nil || args.EventhubEndpointName == nil {
-		return nil, errors.New("missing required argument 'EventhubEndpointName'")
-	}
-	if args == nil || args.IothubName == nil {
-		return nil, errors.New("missing required argument 'IothubName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ConsumerGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EventhubEndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'EventhubEndpointName'")
+	}
+	if args.IothubName == nil {
+		return nil, errors.New("invalid value for required argument 'IothubName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ConsumerGroup
 	err := ctx.RegisterResource("azure:iot/consumerGroup:ConsumerGroup", name, args, &resource, opts...)

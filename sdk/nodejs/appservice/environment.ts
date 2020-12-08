@@ -142,7 +142,7 @@ export class Environment extends pulumi.CustomResource {
             inputs["userWhitelistedIpRanges"] = state ? state.userWhitelistedIpRanges : undefined;
         } else {
             const args = argsOrState as EnvironmentArgs | undefined;
-            if (!args || args.subnetId === undefined) {
+            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetId'");
             }
             inputs["allowedUserIpCidrs"] = args ? args.allowedUserIpCidrs : undefined;

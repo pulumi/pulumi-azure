@@ -169,7 +169,7 @@ export class CertificateOrder extends pulumi.CustomResource {
             inputs["validityInYears"] = state ? state.validityInYears : undefined;
         } else {
             const args = argsOrState as CertificateOrderArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoRenew"] = args ? args.autoRenew : undefined;

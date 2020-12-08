@@ -109,17 +109,18 @@ type Server struct {
 // NewServer registers a new resource with the given unique name, arguments, and options.
 func NewServer(ctx *pulumi.Context,
 	name string, args *ServerArgs, opts ...pulumi.ResourceOption) (*Server, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SkuName == nil {
-		return nil, errors.New("missing required argument 'SkuName'")
-	}
-	if args == nil || args.Version == nil {
-		return nil, errors.New("missing required argument 'Version'")
-	}
 	if args == nil {
-		args = &ServerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SkuName == nil {
+		return nil, errors.New("invalid value for required argument 'SkuName'")
+	}
+	if args.Version == nil {
+		return nil, errors.New("invalid value for required argument 'Version'")
 	}
 	var resource Server
 	err := ctx.RegisterResource("azure:mariadb/server:Server", name, args, &resource, opts...)

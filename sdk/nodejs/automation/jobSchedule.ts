@@ -110,16 +110,16 @@ export class JobSchedule extends pulumi.CustomResource {
             inputs["scheduleName"] = state ? state.scheduleName : undefined;
         } else {
             const args = argsOrState as JobScheduleArgs | undefined;
-            if (!args || args.automationAccountName === undefined) {
+            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.runbookName === undefined) {
+            if ((!args || args.runbookName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'runbookName'");
             }
-            if (!args || args.scheduleName === undefined) {
+            if ((!args || args.scheduleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scheduleName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;

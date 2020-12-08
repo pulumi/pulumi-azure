@@ -138,7 +138,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
         } else {
             const args = argsOrState as DiagnosticSettingArgs | undefined;
-            if (!args || args.targetResourceId === undefined) {
+            if ((!args || args.targetResourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
             inputs["eventhubAuthorizationRuleId"] = args ? args.eventhubAuthorizationRuleId : undefined;

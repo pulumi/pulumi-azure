@@ -124,23 +124,24 @@ type Workspace struct {
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
 func NewWorkspace(ctx *pulumi.Context,
 	name string, args *WorkspaceArgs, opts ...pulumi.ResourceOption) (*Workspace, error) {
-	if args == nil || args.ApplicationInsightsId == nil {
-		return nil, errors.New("missing required argument 'ApplicationInsightsId'")
-	}
-	if args == nil || args.Identity == nil {
-		return nil, errors.New("missing required argument 'Identity'")
-	}
-	if args == nil || args.KeyVaultId == nil {
-		return nil, errors.New("missing required argument 'KeyVaultId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StorageAccountId == nil {
-		return nil, errors.New("missing required argument 'StorageAccountId'")
-	}
 	if args == nil {
-		args = &WorkspaceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApplicationInsightsId == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationInsightsId'")
+	}
+	if args.Identity == nil {
+		return nil, errors.New("invalid value for required argument 'Identity'")
+	}
+	if args.KeyVaultId == nil {
+		return nil, errors.New("invalid value for required argument 'KeyVaultId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageAccountId == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccountId'")
 	}
 	var resource Workspace
 	err := ctx.RegisterResource("azure:machinelearning/workspace:Workspace", name, args, &resource, opts...)

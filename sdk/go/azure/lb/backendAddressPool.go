@@ -93,14 +93,15 @@ type BackendAddressPool struct {
 // NewBackendAddressPool registers a new resource with the given unique name, arguments, and options.
 func NewBackendAddressPool(ctx *pulumi.Context,
 	name string, args *BackendAddressPoolArgs, opts ...pulumi.ResourceOption) (*BackendAddressPool, error) {
-	if args == nil || args.LoadbalancerId == nil {
-		return nil, errors.New("missing required argument 'LoadbalancerId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &BackendAddressPoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LoadbalancerId == nil {
+		return nil, errors.New("invalid value for required argument 'LoadbalancerId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource BackendAddressPool
 	err := ctx.RegisterResource("azure:lb/backendAddressPool:BackendAddressPool", name, args, &resource, opts...)

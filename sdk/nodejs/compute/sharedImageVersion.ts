@@ -138,16 +138,16 @@ export class SharedImageVersion extends pulumi.CustomResource {
             inputs["targetRegions"] = state ? state.targetRegions : undefined;
         } else {
             const args = argsOrState as SharedImageVersionArgs | undefined;
-            if (!args || args.galleryName === undefined) {
+            if ((!args || args.galleryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if (!args || args.imageName === undefined) {
+            if ((!args || args.imageName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'imageName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.targetRegions === undefined) {
+            if ((!args || args.targetRegions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetRegions'");
             }
             inputs["excludeFromLatest"] = args ? args.excludeFromLatest : undefined;

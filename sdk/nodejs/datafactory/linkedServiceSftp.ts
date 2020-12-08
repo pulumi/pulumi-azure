@@ -147,25 +147,25 @@ export class LinkedServiceSftp extends pulumi.CustomResource {
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as LinkedServiceSftpArgs | undefined;
-            if (!args || args.authenticationType === undefined) {
+            if ((!args || args.authenticationType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authenticationType'");
             }
-            if (!args || args.dataFactoryName === undefined) {
+            if ((!args || args.dataFactoryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataFactoryName'");
             }
-            if (!args || args.host === undefined) {
+            if ((!args || args.host === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'host'");
             }
-            if (!args || args.password === undefined) {
+            if ((!args || args.password === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'password'");
             }
-            if (!args || args.port === undefined) {
+            if ((!args || args.port === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'port'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.username === undefined) {
+            if ((!args || args.username === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'username'");
             }
             inputs["additionalProperties"] = args ? args.additionalProperties : undefined;

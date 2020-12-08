@@ -55,23 +55,24 @@ type WebTest struct {
 // NewWebTest registers a new resource with the given unique name, arguments, and options.
 func NewWebTest(ctx *pulumi.Context,
 	name string, args *WebTestArgs, opts ...pulumi.ResourceOption) (*WebTest, error) {
-	if args == nil || args.ApplicationInsightsId == nil {
-		return nil, errors.New("missing required argument 'ApplicationInsightsId'")
-	}
-	if args == nil || args.Configuration == nil {
-		return nil, errors.New("missing required argument 'Configuration'")
-	}
-	if args == nil || args.GeoLocations == nil {
-		return nil, errors.New("missing required argument 'GeoLocations'")
-	}
-	if args == nil || args.Kind == nil {
-		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &WebTestArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApplicationInsightsId == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationInsightsId'")
+	}
+	if args.Configuration == nil {
+		return nil, errors.New("invalid value for required argument 'Configuration'")
+	}
+	if args.GeoLocations == nil {
+		return nil, errors.New("invalid value for required argument 'GeoLocations'")
+	}
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource WebTest
 	err := ctx.RegisterResource("azure:appinsights/webTest:WebTest", name, args, &resource, opts...)

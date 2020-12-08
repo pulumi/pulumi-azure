@@ -132,12 +132,12 @@ class Remediation(pulumi.CustomResource):
 
             __props__['location_filters'] = location_filters
             __props__['name'] = name
-            if policy_assignment_id is None:
+            if policy_assignment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_assignment_id'")
             __props__['policy_assignment_id'] = policy_assignment_id
             __props__['policy_definition_reference_id'] = policy_definition_reference_id
             __props__['resource_discovery_mode'] = resource_discovery_mode
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
         super(Remediation, __self__).__init__(

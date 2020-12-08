@@ -204,13 +204,13 @@ export class Server extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ServerArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.skuName === undefined) {
+            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if (!args || args.version === undefined) {
+            if ((!args || args.version === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'version'");
             }
             inputs["administratorLogin"] = args ? args.administratorLogin : undefined;

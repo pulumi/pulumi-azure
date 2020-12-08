@@ -56,20 +56,21 @@ type NetworkConnectionMonitor struct {
 // NewNetworkConnectionMonitor registers a new resource with the given unique name, arguments, and options.
 func NewNetworkConnectionMonitor(ctx *pulumi.Context,
 	name string, args *NetworkConnectionMonitorArgs, opts ...pulumi.ResourceOption) (*NetworkConnectionMonitor, error) {
-	if args == nil || args.Endpoints == nil {
-		return nil, errors.New("missing required argument 'Endpoints'")
-	}
-	if args == nil || args.NetworkWatcherId == nil {
-		return nil, errors.New("missing required argument 'NetworkWatcherId'")
-	}
-	if args == nil || args.TestConfigurations == nil {
-		return nil, errors.New("missing required argument 'TestConfigurations'")
-	}
-	if args == nil || args.TestGroups == nil {
-		return nil, errors.New("missing required argument 'TestGroups'")
-	}
 	if args == nil {
-		args = &NetworkConnectionMonitorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Endpoints == nil {
+		return nil, errors.New("invalid value for required argument 'Endpoints'")
+	}
+	if args.NetworkWatcherId == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkWatcherId'")
+	}
+	if args.TestConfigurations == nil {
+		return nil, errors.New("invalid value for required argument 'TestConfigurations'")
+	}
+	if args.TestGroups == nil {
+		return nil, errors.New("invalid value for required argument 'TestGroups'")
 	}
 	var resource NetworkConnectionMonitor
 	err := ctx.RegisterResource("azure:network/networkConnectionMonitor:NetworkConnectionMonitor", name, args, &resource, opts...)

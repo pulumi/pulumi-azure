@@ -184,20 +184,21 @@ type VirtualMachine struct {
 // NewVirtualMachine registers a new resource with the given unique name, arguments, and options.
 func NewVirtualMachine(ctx *pulumi.Context,
 	name string, args *VirtualMachineArgs, opts ...pulumi.ResourceOption) (*VirtualMachine, error) {
-	if args == nil || args.NetworkInterfaceIds == nil {
-		return nil, errors.New("missing required argument 'NetworkInterfaceIds'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StorageOsDisk == nil {
-		return nil, errors.New("missing required argument 'StorageOsDisk'")
-	}
-	if args == nil || args.VmSize == nil {
-		return nil, errors.New("missing required argument 'VmSize'")
-	}
 	if args == nil {
-		args = &VirtualMachineArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NetworkInterfaceIds == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkInterfaceIds'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageOsDisk == nil {
+		return nil, errors.New("invalid value for required argument 'StorageOsDisk'")
+	}
+	if args.VmSize == nil {
+		return nil, errors.New("invalid value for required argument 'VmSize'")
 	}
 	var resource VirtualMachine
 	err := ctx.RegisterResource("azure:compute/virtualMachine:VirtualMachine", name, args, &resource, opts...)

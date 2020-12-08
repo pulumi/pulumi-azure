@@ -96,14 +96,15 @@ type VpnServerConfiguration struct {
 // NewVpnServerConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewVpnServerConfiguration(ctx *pulumi.Context,
 	name string, args *VpnServerConfigurationArgs, opts ...pulumi.ResourceOption) (*VpnServerConfiguration, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VpnAuthenticationTypes == nil {
-		return nil, errors.New("missing required argument 'VpnAuthenticationTypes'")
-	}
 	if args == nil {
-		args = &VpnServerConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VpnAuthenticationTypes == nil {
+		return nil, errors.New("invalid value for required argument 'VpnAuthenticationTypes'")
 	}
 	var resource VpnServerConfiguration
 	err := ctx.RegisterResource("azure:network/vpnServerConfiguration:VpnServerConfiguration", name, args, &resource, opts...)

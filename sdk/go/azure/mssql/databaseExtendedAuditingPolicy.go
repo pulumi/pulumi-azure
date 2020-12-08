@@ -100,14 +100,15 @@ type DatabaseExtendedAuditingPolicy struct {
 // NewDatabaseExtendedAuditingPolicy registers a new resource with the given unique name, arguments, and options.
 func NewDatabaseExtendedAuditingPolicy(ctx *pulumi.Context,
 	name string, args *DatabaseExtendedAuditingPolicyArgs, opts ...pulumi.ResourceOption) (*DatabaseExtendedAuditingPolicy, error) {
-	if args == nil || args.DatabaseId == nil {
-		return nil, errors.New("missing required argument 'DatabaseId'")
-	}
-	if args == nil || args.StorageEndpoint == nil {
-		return nil, errors.New("missing required argument 'StorageEndpoint'")
-	}
 	if args == nil {
-		args = &DatabaseExtendedAuditingPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DatabaseId == nil {
+		return nil, errors.New("invalid value for required argument 'DatabaseId'")
+	}
+	if args.StorageEndpoint == nil {
+		return nil, errors.New("invalid value for required argument 'StorageEndpoint'")
 	}
 	var resource DatabaseExtendedAuditingPolicy
 	err := ctx.RegisterResource("azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy", name, args, &resource, opts...)

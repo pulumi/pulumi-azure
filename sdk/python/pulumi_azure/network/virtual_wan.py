@@ -79,7 +79,7 @@ class VirtualWan(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['allow_branch_to_branch_traffic'] = allow_branch_to_branch_traffic
-            if allow_vnet_to_vnet_traffic is not None:
+            if allow_vnet_to_vnet_traffic is not None and not opts.urn:
                 warnings.warn("""this property has been removed from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
                 pulumi.log.warn("allow_vnet_to_vnet_traffic is deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider")
             __props__['allow_vnet_to_vnet_traffic'] = allow_vnet_to_vnet_traffic
@@ -87,7 +87,7 @@ class VirtualWan(pulumi.CustomResource):
             __props__['location'] = location
             __props__['name'] = name
             __props__['office365_local_breakout_category'] = office365_local_breakout_category
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

@@ -84,11 +84,12 @@ type Lab struct {
 // NewLab registers a new resource with the given unique name, arguments, and options.
 func NewLab(ctx *pulumi.Context,
 	name string, args *LabArgs, opts ...pulumi.ResourceOption) (*Lab, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &LabArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Lab
 	err := ctx.RegisterResource("azure:devtest/lab:Lab", name, args, &resource, opts...)

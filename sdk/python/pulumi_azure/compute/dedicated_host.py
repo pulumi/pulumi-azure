@@ -84,16 +84,16 @@ class DedicatedHost(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['auto_replace_on_failure'] = auto_replace_on_failure
-            if dedicated_host_group_id is None:
+            if dedicated_host_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dedicated_host_group_id'")
             __props__['dedicated_host_group_id'] = dedicated_host_group_id
             __props__['license_type'] = license_type
             __props__['location'] = location
             __props__['name'] = name
-            if platform_fault_domain is None:
+            if platform_fault_domain is None and not opts.urn:
                 raise TypeError("Missing required property 'platform_fault_domain'")
             __props__['platform_fault_domain'] = platform_fault_domain
-            if sku_name is None:
+            if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
             __props__['tags'] = tags

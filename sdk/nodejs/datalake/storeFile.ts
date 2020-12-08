@@ -94,13 +94,13 @@ export class StoreFile extends pulumi.CustomResource {
             inputs["remoteFilePath"] = state ? state.remoteFilePath : undefined;
         } else {
             const args = argsOrState as StoreFileArgs | undefined;
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.localFilePath === undefined) {
+            if ((!args || args.localFilePath === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'localFilePath'");
             }
-            if (!args || args.remoteFilePath === undefined) {
+            if ((!args || args.remoteFilePath === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'remoteFilePath'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;

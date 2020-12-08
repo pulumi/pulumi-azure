@@ -125,16 +125,16 @@ export class StorageInsights extends pulumi.CustomResource {
             inputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as StorageInsightsArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.storageAccountId === undefined) {
+            if ((!args || args.storageAccountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            if (!args || args.storageAccountKey === undefined) {
+            if ((!args || args.storageAccountKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountKey'");
             }
-            if (!args || args.workspaceId === undefined) {
+            if ((!args || args.workspaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceId'");
             }
             inputs["blobContainerNames"] = args ? args.blobContainerNames : undefined;

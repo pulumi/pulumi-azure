@@ -123,7 +123,7 @@ export class Store extends pulumi.CustomResource {
             inputs["tier"] = state ? state.tier : undefined;
         } else {
             const args = argsOrState as StoreArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["encryptionState"] = args ? args.encryptionState : undefined;

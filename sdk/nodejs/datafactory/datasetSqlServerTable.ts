@@ -137,13 +137,13 @@ export class DatasetSqlServerTable extends pulumi.CustomResource {
             inputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as DatasetSqlServerTableArgs | undefined;
-            if (!args || args.dataFactoryName === undefined) {
+            if ((!args || args.dataFactoryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataFactoryName'");
             }
-            if (!args || args.linkedServiceName === undefined) {
+            if ((!args || args.linkedServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'linkedServiceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["additionalProperties"] = args ? args.additionalProperties : undefined;

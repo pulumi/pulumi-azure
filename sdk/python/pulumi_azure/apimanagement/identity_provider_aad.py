@@ -82,19 +82,19 @@ class IdentityProviderAad(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if allowed_tenants is None:
+            if allowed_tenants is None and not opts.urn:
                 raise TypeError("Missing required property 'allowed_tenants'")
             __props__['allowed_tenants'] = allowed_tenants
-            if api_management_name is None:
+            if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__['api_management_name'] = api_management_name
-            if client_id is None:
+            if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
             __props__['client_id'] = client_id
-            if client_secret is None:
+            if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
             __props__['client_secret'] = client_secret
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['signin_tenant'] = signin_tenant

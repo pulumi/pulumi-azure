@@ -59,6 +59,7 @@ func NewResourceGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &ResourceGroupArgs{}
 	}
+
 	var resource ResourceGroup
 	err := ctx.RegisterResource("azure:core/resourceGroup:ResourceGroup", name, args, &resource, opts...)
 	if err != nil {

@@ -169,13 +169,13 @@ export class SpringCloudCertificate extends pulumi.CustomResource {
             inputs["serviceName"] = state ? state.serviceName : undefined;
         } else {
             const args = argsOrState as SpringCloudCertificateArgs | undefined;
-            if (!args || args.keyVaultCertificateId === undefined) {
+            if ((!args || args.keyVaultCertificateId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyVaultCertificateId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["keyVaultCertificateId"] = args ? args.keyVaultCertificateId : undefined;

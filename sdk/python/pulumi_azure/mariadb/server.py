@@ -119,25 +119,25 @@ class Server(pulumi.CustomResource):
             __props__['location'] = location
             __props__['name'] = name
             __props__['public_network_access_enabled'] = public_network_access_enabled
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['restore_point_in_time'] = restore_point_in_time
-            if sku_name is None:
+            if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
-            if ssl_enforcement is not None:
+            if ssl_enforcement is not None and not opts.urn:
                 warnings.warn("""this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.""", DeprecationWarning)
                 pulumi.log.warn("ssl_enforcement is deprecated: this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.")
             __props__['ssl_enforcement'] = ssl_enforcement
             __props__['ssl_enforcement_enabled'] = ssl_enforcement_enabled
             __props__['storage_mb'] = storage_mb
-            if storage_profile is not None:
+            if storage_profile is not None and not opts.urn:
                 warnings.warn("""all storage_profile properties have been moved to the top level. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
                 pulumi.log.warn("storage_profile is deprecated: all storage_profile properties have been moved to the top level. This block will be removed in version 3.0 of the provider.")
             __props__['storage_profile'] = storage_profile
             __props__['tags'] = tags
-            if version is None:
+            if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
             __props__['version'] = version
             __props__['fqdn'] = None

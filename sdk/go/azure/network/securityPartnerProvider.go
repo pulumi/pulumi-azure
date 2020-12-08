@@ -102,14 +102,15 @@ type SecurityPartnerProvider struct {
 // NewSecurityPartnerProvider registers a new resource with the given unique name, arguments, and options.
 func NewSecurityPartnerProvider(ctx *pulumi.Context,
 	name string, args *SecurityPartnerProviderArgs, opts ...pulumi.ResourceOption) (*SecurityPartnerProvider, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SecurityProviderName == nil {
-		return nil, errors.New("missing required argument 'SecurityProviderName'")
-	}
 	if args == nil {
-		args = &SecurityPartnerProviderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SecurityProviderName == nil {
+		return nil, errors.New("invalid value for required argument 'SecurityProviderName'")
 	}
 	var resource SecurityPartnerProvider
 	err := ctx.RegisterResource("azure:network/securityPartnerProvider:SecurityPartnerProvider", name, args, &resource, opts...)

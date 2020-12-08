@@ -159,13 +159,13 @@ export class SparkPool extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SparkPoolArgs | undefined;
-            if (!args || args.nodeSize === undefined) {
+            if ((!args || args.nodeSize === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'nodeSize'");
             }
-            if (!args || args.nodeSizeFamily === undefined) {
+            if ((!args || args.nodeSizeFamily === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'nodeSizeFamily'");
             }
-            if (!args || args.synapseWorkspaceId === undefined) {
+            if ((!args || args.synapseWorkspaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
             inputs["autoPause"] = args ? args.autoPause : undefined;

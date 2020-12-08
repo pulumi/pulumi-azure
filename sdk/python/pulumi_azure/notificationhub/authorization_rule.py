@@ -91,13 +91,13 @@ class AuthorizationRule(pulumi.CustomResource):
             __props__['listen'] = listen
             __props__['manage'] = manage
             __props__['name'] = name
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            if notification_hub_name is None:
+            if notification_hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'notification_hub_name'")
             __props__['notification_hub_name'] = notification_hub_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['send'] = send

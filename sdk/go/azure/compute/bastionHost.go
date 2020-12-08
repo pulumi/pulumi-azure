@@ -110,11 +110,12 @@ type BastionHost struct {
 // NewBastionHost registers a new resource with the given unique name, arguments, and options.
 func NewBastionHost(ctx *pulumi.Context,
 	name string, args *BastionHostArgs, opts ...pulumi.ResourceOption) (*BastionHost, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &BastionHostArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource BastionHost
 	err := ctx.RegisterResource("azure:compute/bastionHost:BastionHost", name, args, &resource, opts...)

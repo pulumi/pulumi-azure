@@ -111,22 +111,22 @@ export class ApiSchema extends pulumi.CustomResource {
             inputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as ApiSchemaArgs | undefined;
-            if (!args || args.apiManagementName === undefined) {
+            if ((!args || args.apiManagementName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if (!args || args.apiName === undefined) {
+            if ((!args || args.apiName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiName'");
             }
-            if (!args || args.contentType === undefined) {
+            if ((!args || args.contentType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'contentType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.schemaId === undefined) {
+            if ((!args || args.schemaId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'schemaId'");
             }
-            if (!args || args.value === undefined) {
+            if ((!args || args.value === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'value'");
             }
             inputs["apiManagementName"] = args ? args.apiManagementName : undefined;

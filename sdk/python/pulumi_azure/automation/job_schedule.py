@@ -81,19 +81,19 @@ class JobSchedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if automation_account_name is None:
+            if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
             __props__['job_schedule_id'] = job_schedule_id
             __props__['parameters'] = parameters
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['run_on'] = run_on
-            if runbook_name is None:
+            if runbook_name is None and not opts.urn:
                 raise TypeError("Missing required property 'runbook_name'")
             __props__['runbook_name'] = runbook_name
-            if schedule_name is None:
+            if schedule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_name'")
             __props__['schedule_name'] = schedule_name
         super(JobSchedule, __self__).__init__(

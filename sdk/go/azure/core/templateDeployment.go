@@ -86,14 +86,15 @@ type TemplateDeployment struct {
 // NewTemplateDeployment registers a new resource with the given unique name, arguments, and options.
 func NewTemplateDeployment(ctx *pulumi.Context,
 	name string, args *TemplateDeploymentArgs, opts ...pulumi.ResourceOption) (*TemplateDeployment, error) {
-	if args == nil || args.DeploymentMode == nil {
-		return nil, errors.New("missing required argument 'DeploymentMode'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &TemplateDeploymentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DeploymentMode == nil {
+		return nil, errors.New("invalid value for required argument 'DeploymentMode'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource TemplateDeployment
 	err := ctx.RegisterResource("azure:core/templateDeployment:TemplateDeployment", name, args, &resource, opts...)

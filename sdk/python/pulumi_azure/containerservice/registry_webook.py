@@ -98,20 +98,20 @@ class RegistryWebook(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if actions is None:
+            if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
             __props__['actions'] = actions
             __props__['custom_headers'] = custom_headers
             __props__['location'] = location
             __props__['name'] = name
-            if registry_name is None:
+            if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['scope'] = scope
-            if service_uri is None:
+            if service_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'service_uri'")
             __props__['service_uri'] = service_uri
             __props__['status'] = status

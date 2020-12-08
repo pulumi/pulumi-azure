@@ -100,17 +100,18 @@ type HostPool struct {
 // NewHostPool registers a new resource with the given unique name, arguments, and options.
 func NewHostPool(ctx *pulumi.Context,
 	name string, args *HostPoolArgs, opts ...pulumi.ResourceOption) (*HostPool, error) {
-	if args == nil || args.LoadBalancerType == nil {
-		return nil, errors.New("missing required argument 'LoadBalancerType'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &HostPoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LoadBalancerType == nil {
+		return nil, errors.New("invalid value for required argument 'LoadBalancerType'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource HostPool
 	err := ctx.RegisterResource("azure:desktopvirtualization/hostPool:HostPool", name, args, &resource, opts...)

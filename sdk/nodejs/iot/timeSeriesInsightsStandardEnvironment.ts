@@ -113,13 +113,13 @@ export class TimeSeriesInsightsStandardEnvironment extends pulumi.CustomResource
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as TimeSeriesInsightsStandardEnvironmentArgs | undefined;
-            if (!args || args.dataRetentionTime === undefined) {
+            if ((!args || args.dataRetentionTime === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataRetentionTime'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.skuName === undefined) {
+            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'skuName'");
             }
             inputs["dataRetentionTime"] = args ? args.dataRetentionTime : undefined;

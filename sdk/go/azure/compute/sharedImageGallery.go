@@ -76,11 +76,12 @@ type SharedImageGallery struct {
 // NewSharedImageGallery registers a new resource with the given unique name, arguments, and options.
 func NewSharedImageGallery(ctx *pulumi.Context,
 	name string, args *SharedImageGalleryArgs, opts ...pulumi.ResourceOption) (*SharedImageGallery, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &SharedImageGalleryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource SharedImageGallery
 	err := ctx.RegisterResource("azure:compute/sharedImageGallery:SharedImageGallery", name, args, &resource, opts...)

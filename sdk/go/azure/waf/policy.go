@@ -165,14 +165,15 @@ type Policy struct {
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
 func NewPolicy(ctx *pulumi.Context,
 	name string, args *PolicyArgs, opts ...pulumi.ResourceOption) (*Policy, error) {
-	if args == nil || args.ManagedRules == nil {
-		return nil, errors.New("missing required argument 'ManagedRules'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &PolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ManagedRules == nil {
+		return nil, errors.New("invalid value for required argument 'ManagedRules'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Policy
 	err := ctx.RegisterResource("azure:waf/policy:Policy", name, args, &resource, opts...)

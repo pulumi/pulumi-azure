@@ -91,10 +91,10 @@ class Service(pulumi.CustomResource):
             __props__['partition_count'] = partition_count
             __props__['public_network_access_enabled'] = public_network_access_enabled
             __props__['replica_count'] = replica_count
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags

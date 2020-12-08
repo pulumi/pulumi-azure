@@ -97,20 +97,21 @@ type RegistryWebhook struct {
 // NewRegistryWebhook registers a new resource with the given unique name, arguments, and options.
 func NewRegistryWebhook(ctx *pulumi.Context,
 	name string, args *RegistryWebhookArgs, opts ...pulumi.ResourceOption) (*RegistryWebhook, error) {
-	if args == nil || args.Actions == nil {
-		return nil, errors.New("missing required argument 'Actions'")
-	}
-	if args == nil || args.RegistryName == nil {
-		return nil, errors.New("missing required argument 'RegistryName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceUri == nil {
-		return nil, errors.New("missing required argument 'ServiceUri'")
-	}
 	if args == nil {
-		args = &RegistryWebhookArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Actions == nil {
+		return nil, errors.New("invalid value for required argument 'Actions'")
+	}
+	if args.RegistryName == nil {
+		return nil, errors.New("invalid value for required argument 'RegistryName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceUri == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceUri'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

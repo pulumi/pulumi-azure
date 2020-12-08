@@ -139,10 +139,10 @@ export class Subnet extends pulumi.CustomResource {
             inputs["virtualNetworkName"] = state ? state.virtualNetworkName : undefined;
         } else {
             const args = argsOrState as SubnetArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.virtualNetworkName === undefined) {
+            if ((!args || args.virtualNetworkName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;

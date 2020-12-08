@@ -86,17 +86,18 @@ type EventhubNamespaceDisasterRecoveryConfig struct {
 // NewEventhubNamespaceDisasterRecoveryConfig registers a new resource with the given unique name, arguments, and options.
 func NewEventhubNamespaceDisasterRecoveryConfig(ctx *pulumi.Context,
 	name string, args *EventhubNamespaceDisasterRecoveryConfigArgs, opts ...pulumi.ResourceOption) (*EventhubNamespaceDisasterRecoveryConfig, error) {
-	if args == nil || args.NamespaceName == nil {
-		return nil, errors.New("missing required argument 'NamespaceName'")
-	}
-	if args == nil || args.PartnerNamespaceId == nil {
-		return nil, errors.New("missing required argument 'PartnerNamespaceId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &EventhubNamespaceDisasterRecoveryConfigArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NamespaceName == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceName'")
+	}
+	if args.PartnerNamespaceId == nil {
+		return nil, errors.New("invalid value for required argument 'PartnerNamespaceId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource EventhubNamespaceDisasterRecoveryConfig
 	err := ctx.RegisterResource("azure:eventhub/eventhubNamespaceDisasterRecoveryConfig:EventhubNamespaceDisasterRecoveryConfig", name, args, &resource, opts...)

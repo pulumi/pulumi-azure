@@ -37,17 +37,18 @@ type StoreFile struct {
 // NewStoreFile registers a new resource with the given unique name, arguments, and options.
 func NewStoreFile(ctx *pulumi.Context,
 	name string, args *StoreFileArgs, opts ...pulumi.ResourceOption) (*StoreFile, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.LocalFilePath == nil {
-		return nil, errors.New("missing required argument 'LocalFilePath'")
-	}
-	if args == nil || args.RemoteFilePath == nil {
-		return nil, errors.New("missing required argument 'RemoteFilePath'")
-	}
 	if args == nil {
-		args = &StoreFileArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.LocalFilePath == nil {
+		return nil, errors.New("invalid value for required argument 'LocalFilePath'")
+	}
+	if args.RemoteFilePath == nil {
+		return nil, errors.New("invalid value for required argument 'RemoteFilePath'")
 	}
 	var resource StoreFile
 	err := ctx.RegisterResource("azure:datalake/storeFile:StoreFile", name, args, &resource, opts...)

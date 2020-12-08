@@ -96,17 +96,18 @@ type TriggerSchedule struct {
 // NewTriggerSchedule registers a new resource with the given unique name, arguments, and options.
 func NewTriggerSchedule(ctx *pulumi.Context,
 	name string, args *TriggerScheduleArgs, opts ...pulumi.ResourceOption) (*TriggerSchedule, error) {
-	if args == nil || args.DataFactoryName == nil {
-		return nil, errors.New("missing required argument 'DataFactoryName'")
-	}
-	if args == nil || args.PipelineName == nil {
-		return nil, errors.New("missing required argument 'PipelineName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &TriggerScheduleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataFactoryName == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
+	}
+	if args.PipelineName == nil {
+		return nil, errors.New("invalid value for required argument 'PipelineName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource TriggerSchedule
 	err := ctx.RegisterResource("azure:datafactory/triggerSchedule:TriggerSchedule", name, args, &resource, opts...)

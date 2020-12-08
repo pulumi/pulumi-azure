@@ -187,22 +187,22 @@ export class RServerCluster extends pulumi.CustomResource {
             inputs["tlsMinVersion"] = state ? state.tlsMinVersion : undefined;
         } else {
             const args = argsOrState as RServerClusterArgs | undefined;
-            if (!args || args.clusterVersion === undefined) {
+            if ((!args || args.clusterVersion === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterVersion'");
             }
-            if (!args || args.gateway === undefined) {
+            if ((!args || args.gateway === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gateway'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.roles === undefined) {
+            if ((!args || args.roles === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'roles'");
             }
-            if (!args || args.rstudio === undefined) {
+            if ((!args || args.rstudio === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'rstudio'");
             }
-            if (!args || args.tier === undefined) {
+            if ((!args || args.tier === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tier'");
             }
             inputs["clusterVersion"] = args ? args.clusterVersion : undefined;

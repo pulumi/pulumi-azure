@@ -94,29 +94,30 @@ type ApiOperation struct {
 // NewApiOperation registers a new resource with the given unique name, arguments, and options.
 func NewApiOperation(ctx *pulumi.Context,
 	name string, args *ApiOperationArgs, opts ...pulumi.ResourceOption) (*ApiOperation, error) {
-	if args == nil || args.ApiManagementName == nil {
-		return nil, errors.New("missing required argument 'ApiManagementName'")
-	}
-	if args == nil || args.ApiName == nil {
-		return nil, errors.New("missing required argument 'ApiName'")
-	}
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.Method == nil {
-		return nil, errors.New("missing required argument 'Method'")
-	}
-	if args == nil || args.OperationId == nil {
-		return nil, errors.New("missing required argument 'OperationId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.UrlTemplate == nil {
-		return nil, errors.New("missing required argument 'UrlTemplate'")
-	}
 	if args == nil {
-		args = &ApiOperationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiManagementName == nil {
+		return nil, errors.New("invalid value for required argument 'ApiManagementName'")
+	}
+	if args.ApiName == nil {
+		return nil, errors.New("invalid value for required argument 'ApiName'")
+	}
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.Method == nil {
+		return nil, errors.New("invalid value for required argument 'Method'")
+	}
+	if args.OperationId == nil {
+		return nil, errors.New("invalid value for required argument 'OperationId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.UrlTemplate == nil {
+		return nil, errors.New("invalid value for required argument 'UrlTemplate'")
 	}
 	var resource ApiOperation
 	err := ctx.RegisterResource("azure:apimanagement/apiOperation:ApiOperation", name, args, &resource, opts...)

@@ -90,7 +90,7 @@ class Logger(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_management_name is None:
+            if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__['api_management_name'] = api_management_name
             __props__['application_insights'] = application_insights
@@ -98,7 +98,7 @@ class Logger(pulumi.CustomResource):
             __props__['description'] = description
             __props__['eventhub'] = eventhub
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
         super(Logger, __self__).__init__(

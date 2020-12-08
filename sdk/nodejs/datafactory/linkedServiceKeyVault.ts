@@ -128,13 +128,13 @@ export class LinkedServiceKeyVault extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as LinkedServiceKeyVaultArgs | undefined;
-            if (!args || args.dataFactoryName === undefined) {
+            if ((!args || args.dataFactoryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataFactoryName'");
             }
-            if (!args || args.keyVaultId === undefined) {
+            if ((!args || args.keyVaultId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["additionalProperties"] = args ? args.additionalProperties : undefined;

@@ -68,10 +68,10 @@ export class ClusterCustomerManagedKey extends pulumi.CustomResource {
             inputs["logAnalyticsClusterId"] = state ? state.logAnalyticsClusterId : undefined;
         } else {
             const args = argsOrState as ClusterCustomerManagedKeyArgs | undefined;
-            if (!args || args.keyVaultKeyId === undefined) {
+            if ((!args || args.keyVaultKeyId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyVaultKeyId'");
             }
-            if (!args || args.logAnalyticsClusterId === undefined) {
+            if ((!args || args.logAnalyticsClusterId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'logAnalyticsClusterId'");
             }
             inputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;

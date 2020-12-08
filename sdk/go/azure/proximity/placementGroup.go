@@ -70,11 +70,12 @@ type PlacementGroup struct {
 // NewPlacementGroup registers a new resource with the given unique name, arguments, and options.
 func NewPlacementGroup(ctx *pulumi.Context,
 	name string, args *PlacementGroupArgs, opts ...pulumi.ResourceOption) (*PlacementGroup, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &PlacementGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource PlacementGroup
 	err := ctx.RegisterResource("azure:proximity/placementGroup:PlacementGroup", name, args, &resource, opts...)

@@ -88,13 +88,13 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if database_id is None:
+            if database_id is None and not opts.urn:
                 raise TypeError("Missing required property 'database_id'")
             __props__['database_id'] = database_id
             __props__['retention_in_days'] = retention_in_days
             __props__['storage_account_access_key'] = storage_account_access_key
             __props__['storage_account_access_key_is_secondary'] = storage_account_access_key_is_secondary
-            if storage_endpoint is None:
+            if storage_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_endpoint'")
             __props__['storage_endpoint'] = storage_endpoint
         super(DatabaseExtendedAuditingPolicy, __self__).__init__(

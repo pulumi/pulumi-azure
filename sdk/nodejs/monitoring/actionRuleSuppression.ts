@@ -131,10 +131,10 @@ export class ActionRuleSuppression extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ActionRuleSuppressionArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.suppression === undefined) {
+            if ((!args || args.suppression === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'suppression'");
             }
             inputs["condition"] = args ? args.condition : undefined;

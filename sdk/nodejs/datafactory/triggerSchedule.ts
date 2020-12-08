@@ -132,13 +132,13 @@ export class TriggerSchedule extends pulumi.CustomResource {
             inputs["startTime"] = state ? state.startTime : undefined;
         } else {
             const args = argsOrState as TriggerScheduleArgs | undefined;
-            if (!args || args.dataFactoryName === undefined) {
+            if ((!args || args.dataFactoryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataFactoryName'");
             }
-            if (!args || args.pipelineName === undefined) {
+            if ((!args || args.pipelineName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'pipelineName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["annotations"] = args ? args.annotations : undefined;

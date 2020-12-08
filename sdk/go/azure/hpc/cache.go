@@ -105,20 +105,21 @@ type Cache struct {
 // NewCache registers a new resource with the given unique name, arguments, and options.
 func NewCache(ctx *pulumi.Context,
 	name string, args *CacheArgs, opts ...pulumi.ResourceOption) (*Cache, error) {
-	if args == nil || args.CacheSizeInGb == nil {
-		return nil, errors.New("missing required argument 'CacheSizeInGb'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SkuName == nil {
-		return nil, errors.New("missing required argument 'SkuName'")
-	}
-	if args == nil || args.SubnetId == nil {
-		return nil, errors.New("missing required argument 'SubnetId'")
-	}
 	if args == nil {
-		args = &CacheArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CacheSizeInGb == nil {
+		return nil, errors.New("invalid value for required argument 'CacheSizeInGb'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SkuName == nil {
+		return nil, errors.New("invalid value for required argument 'SkuName'")
+	}
+	if args.SubnetId == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
 	var resource Cache
 	err := ctx.RegisterResource("azure:hpc/cache:Cache", name, args, &resource, opts...)

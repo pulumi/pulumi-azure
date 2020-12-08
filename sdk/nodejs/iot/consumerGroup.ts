@@ -103,13 +103,13 @@ export class ConsumerGroup extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ConsumerGroupArgs | undefined;
-            if (!args || args.eventhubEndpointName === undefined) {
+            if ((!args || args.eventhubEndpointName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventhubEndpointName'");
             }
-            if (!args || args.iothubName === undefined) {
+            if ((!args || args.iothubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'iothubName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["eventhubEndpointName"] = args ? args.eventhubEndpointName : undefined;

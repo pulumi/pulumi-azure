@@ -103,17 +103,17 @@ class Application(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['application_definition_id'] = application_definition_id
-            if kind is None:
+            if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
             __props__['location'] = location
-            if managed_resource_group_name is None:
+            if managed_resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_resource_group_name'")
             __props__['managed_resource_group_name'] = managed_resource_group_name
             __props__['name'] = name
             __props__['parameters'] = parameters
             __props__['plan'] = plan
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

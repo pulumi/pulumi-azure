@@ -103,14 +103,15 @@ type SubnetNetworkSecurityGroupAssociation struct {
 // NewSubnetNetworkSecurityGroupAssociation registers a new resource with the given unique name, arguments, and options.
 func NewSubnetNetworkSecurityGroupAssociation(ctx *pulumi.Context,
 	name string, args *SubnetNetworkSecurityGroupAssociationArgs, opts ...pulumi.ResourceOption) (*SubnetNetworkSecurityGroupAssociation, error) {
-	if args == nil || args.NetworkSecurityGroupId == nil {
-		return nil, errors.New("missing required argument 'NetworkSecurityGroupId'")
-	}
-	if args == nil || args.SubnetId == nil {
-		return nil, errors.New("missing required argument 'SubnetId'")
-	}
 	if args == nil {
-		args = &SubnetNetworkSecurityGroupAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NetworkSecurityGroupId == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkSecurityGroupId'")
+	}
+	if args.SubnetId == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
 	var resource SubnetNetworkSecurityGroupAssociation
 	err := ctx.RegisterResource("azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation", name, args, &resource, opts...)

@@ -66,32 +66,33 @@ type LinuxVirtualMachine struct {
 // NewLinuxVirtualMachine registers a new resource with the given unique name, arguments, and options.
 func NewLinuxVirtualMachine(ctx *pulumi.Context,
 	name string, args *LinuxVirtualMachineArgs, opts ...pulumi.ResourceOption) (*LinuxVirtualMachine, error) {
-	if args == nil || args.GalleryImageReference == nil {
-		return nil, errors.New("missing required argument 'GalleryImageReference'")
-	}
-	if args == nil || args.LabName == nil {
-		return nil, errors.New("missing required argument 'LabName'")
-	}
-	if args == nil || args.LabSubnetName == nil {
-		return nil, errors.New("missing required argument 'LabSubnetName'")
-	}
-	if args == nil || args.LabVirtualNetworkId == nil {
-		return nil, errors.New("missing required argument 'LabVirtualNetworkId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Size == nil {
-		return nil, errors.New("missing required argument 'Size'")
-	}
-	if args == nil || args.StorageType == nil {
-		return nil, errors.New("missing required argument 'StorageType'")
-	}
-	if args == nil || args.Username == nil {
-		return nil, errors.New("missing required argument 'Username'")
-	}
 	if args == nil {
-		args = &LinuxVirtualMachineArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GalleryImageReference == nil {
+		return nil, errors.New("invalid value for required argument 'GalleryImageReference'")
+	}
+	if args.LabName == nil {
+		return nil, errors.New("invalid value for required argument 'LabName'")
+	}
+	if args.LabSubnetName == nil {
+		return nil, errors.New("invalid value for required argument 'LabSubnetName'")
+	}
+	if args.LabVirtualNetworkId == nil {
+		return nil, errors.New("invalid value for required argument 'LabVirtualNetworkId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Size == nil {
+		return nil, errors.New("invalid value for required argument 'Size'")
+	}
+	if args.StorageType == nil {
+		return nil, errors.New("invalid value for required argument 'StorageType'")
+	}
+	if args.Username == nil {
+		return nil, errors.New("invalid value for required argument 'Username'")
 	}
 	var resource LinuxVirtualMachine
 	err := ctx.RegisterResource("azure:devtest/linuxVirtualMachine:LinuxVirtualMachine", name, args, &resource, opts...)

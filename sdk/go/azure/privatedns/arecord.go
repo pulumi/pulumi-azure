@@ -82,20 +82,21 @@ type ARecord struct {
 // NewARecord registers a new resource with the given unique name, arguments, and options.
 func NewARecord(ctx *pulumi.Context,
 	name string, args *ARecordArgs, opts ...pulumi.ResourceOption) (*ARecord, error) {
-	if args == nil || args.Records == nil {
-		return nil, errors.New("missing required argument 'Records'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Ttl == nil {
-		return nil, errors.New("missing required argument 'Ttl'")
-	}
-	if args == nil || args.ZoneName == nil {
-		return nil, errors.New("missing required argument 'ZoneName'")
-	}
 	if args == nil {
-		args = &ARecordArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Records == nil {
+		return nil, errors.New("invalid value for required argument 'Records'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Ttl == nil {
+		return nil, errors.New("invalid value for required argument 'Ttl'")
+	}
+	if args.ZoneName == nil {
+		return nil, errors.New("invalid value for required argument 'ZoneName'")
 	}
 	var resource ARecord
 	err := ctx.RegisterResource("azure:privatedns/aRecord:ARecord", name, args, &resource, opts...)

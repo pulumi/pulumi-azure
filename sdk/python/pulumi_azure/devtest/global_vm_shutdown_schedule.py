@@ -123,19 +123,19 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if daily_recurrence_time is None:
+            if daily_recurrence_time is None and not opts.urn:
                 raise TypeError("Missing required property 'daily_recurrence_time'")
             __props__['daily_recurrence_time'] = daily_recurrence_time
             __props__['enabled'] = enabled
             __props__['location'] = location
-            if notification_settings is None:
+            if notification_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'notification_settings'")
             __props__['notification_settings'] = notification_settings
             __props__['tags'] = tags
-            if timezone is None:
+            if timezone is None and not opts.urn:
                 raise TypeError("Missing required property 'timezone'")
             __props__['timezone'] = timezone
-            if virtual_machine_id is None:
+            if virtual_machine_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_machine_id'")
             __props__['virtual_machine_id'] = virtual_machine_id
         super(GlobalVMShutdownSchedule, __self__).__init__(

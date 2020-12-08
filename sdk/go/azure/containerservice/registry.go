@@ -93,11 +93,12 @@ type Registry struct {
 // NewRegistry registers a new resource with the given unique name, arguments, and options.
 func NewRegistry(ctx *pulumi.Context,
 	name string, args *RegistryArgs, opts ...pulumi.ResourceOption) (*Registry, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &RegistryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Registry
 	err := ctx.RegisterResource("azure:containerservice/registry:Registry", name, args, &resource, opts...)

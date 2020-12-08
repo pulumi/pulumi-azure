@@ -102,11 +102,11 @@ class ActionRuleSuppression(pulumi.CustomResource):
             __props__['description'] = description
             __props__['enabled'] = enabled
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['scope'] = scope
-            if suppression is None:
+            if suppression is None and not opts.urn:
                 raise TypeError("Missing required property 'suppression'")
             __props__['suppression'] = suppression
             __props__['tags'] = tags

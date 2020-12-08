@@ -90,10 +90,10 @@ export class Workspace extends pulumi.CustomResource {
             inputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
-            if (!args || args.workspaceId === undefined) {
+            if ((!args || args.workspaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceId'");
             }
             inputs["scope"] = args ? args.scope : undefined;

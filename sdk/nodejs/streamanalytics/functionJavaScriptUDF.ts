@@ -118,19 +118,19 @@ export class FunctionJavaScriptUDF extends pulumi.CustomResource {
             inputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
         } else {
             const args = argsOrState as FunctionJavaScriptUDFArgs | undefined;
-            if (!args || args.inputs === undefined) {
+            if ((!args || args.inputs === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'inputs'");
             }
-            if (!args || args.output === undefined) {
+            if ((!args || args.output === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'output'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.script === undefined) {
+            if ((!args || args.script === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'script'");
             }
-            if (!args || args.streamAnalyticsJobName === undefined) {
+            if ((!args || args.streamAnalyticsJobName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
             inputs["inputs"] = args ? args.inputs : undefined;

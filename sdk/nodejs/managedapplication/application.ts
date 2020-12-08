@@ -146,13 +146,13 @@ export class Application extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
-            if (!args || args.kind === undefined) {
+            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (!args || args.managedResourceGroupName === undefined) {
+            if ((!args || args.managedResourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managedResourceGroupName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationDefinitionId"] = args ? args.applicationDefinitionId : undefined;

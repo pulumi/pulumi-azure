@@ -124,16 +124,16 @@ export class TimeSeriesInsightsGen2Environment extends pulumi.CustomResource {
             inputs["warmStoreDataRetentionTime"] = state ? state.warmStoreDataRetentionTime : undefined;
         } else {
             const args = argsOrState as TimeSeriesInsightsGen2EnvironmentArgs | undefined;
-            if (!args || args.idProperties === undefined) {
+            if ((!args || args.idProperties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'idProperties'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.skuName === undefined) {
+            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if (!args || args.storage === undefined) {
+            if ((!args || args.storage === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storage'");
             }
             inputs["idProperties"] = args ? args.idProperties : undefined;

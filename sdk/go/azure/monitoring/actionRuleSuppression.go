@@ -96,14 +96,15 @@ type ActionRuleSuppression struct {
 // NewActionRuleSuppression registers a new resource with the given unique name, arguments, and options.
 func NewActionRuleSuppression(ctx *pulumi.Context,
 	name string, args *ActionRuleSuppressionArgs, opts ...pulumi.ResourceOption) (*ActionRuleSuppression, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Suppression == nil {
-		return nil, errors.New("missing required argument 'Suppression'")
-	}
 	if args == nil {
-		args = &ActionRuleSuppressionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Suppression == nil {
+		return nil, errors.New("invalid value for required argument 'Suppression'")
 	}
 	var resource ActionRuleSuppression
 	err := ctx.RegisterResource("azure:monitoring/actionRuleSuppression:ActionRuleSuppression", name, args, &resource, opts...)

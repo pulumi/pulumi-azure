@@ -120,16 +120,16 @@ export class DataLakeGen2Path extends pulumi.CustomResource {
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
             const args = argsOrState as DataLakeGen2PathArgs | undefined;
-            if (!args || args.filesystemName === undefined) {
+            if ((!args || args.filesystemName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'filesystemName'");
             }
-            if (!args || args.path === undefined) {
+            if ((!args || args.path === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'path'");
             }
-            if (!args || args.resource === undefined) {
+            if ((!args || args.resource === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resource'");
             }
-            if (!args || args.storageAccountId === undefined) {
+            if ((!args || args.storageAccountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
             inputs["aces"] = args ? args.aces : undefined;

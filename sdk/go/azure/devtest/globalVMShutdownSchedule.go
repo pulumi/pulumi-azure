@@ -147,20 +147,21 @@ type GlobalVMShutdownSchedule struct {
 // NewGlobalVMShutdownSchedule registers a new resource with the given unique name, arguments, and options.
 func NewGlobalVMShutdownSchedule(ctx *pulumi.Context,
 	name string, args *GlobalVMShutdownScheduleArgs, opts ...pulumi.ResourceOption) (*GlobalVMShutdownSchedule, error) {
-	if args == nil || args.DailyRecurrenceTime == nil {
-		return nil, errors.New("missing required argument 'DailyRecurrenceTime'")
-	}
-	if args == nil || args.NotificationSettings == nil {
-		return nil, errors.New("missing required argument 'NotificationSettings'")
-	}
-	if args == nil || args.Timezone == nil {
-		return nil, errors.New("missing required argument 'Timezone'")
-	}
-	if args == nil || args.VirtualMachineId == nil {
-		return nil, errors.New("missing required argument 'VirtualMachineId'")
-	}
 	if args == nil {
-		args = &GlobalVMShutdownScheduleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DailyRecurrenceTime == nil {
+		return nil, errors.New("invalid value for required argument 'DailyRecurrenceTime'")
+	}
+	if args.NotificationSettings == nil {
+		return nil, errors.New("invalid value for required argument 'NotificationSettings'")
+	}
+	if args.Timezone == nil {
+		return nil, errors.New("invalid value for required argument 'Timezone'")
+	}
+	if args.VirtualMachineId == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualMachineId'")
 	}
 	var resource GlobalVMShutdownSchedule
 	err := ctx.RegisterResource("azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule", name, args, &resource, opts...)

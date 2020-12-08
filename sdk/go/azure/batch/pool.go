@@ -59,23 +59,24 @@ type Pool struct {
 // NewPool registers a new resource with the given unique name, arguments, and options.
 func NewPool(ctx *pulumi.Context,
 	name string, args *PoolArgs, opts ...pulumi.ResourceOption) (*Pool, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.NodeAgentSkuId == nil {
-		return nil, errors.New("missing required argument 'NodeAgentSkuId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StorageImageReference == nil {
-		return nil, errors.New("missing required argument 'StorageImageReference'")
-	}
-	if args == nil || args.VmSize == nil {
-		return nil, errors.New("missing required argument 'VmSize'")
-	}
 	if args == nil {
-		args = &PoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.NodeAgentSkuId == nil {
+		return nil, errors.New("invalid value for required argument 'NodeAgentSkuId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageImageReference == nil {
+		return nil, errors.New("invalid value for required argument 'StorageImageReference'")
+	}
+	if args.VmSize == nil {
+		return nil, errors.New("invalid value for required argument 'VmSize'")
 	}
 	var resource Pool
 	err := ctx.RegisterResource("azure:batch/pool:Pool", name, args, &resource, opts...)

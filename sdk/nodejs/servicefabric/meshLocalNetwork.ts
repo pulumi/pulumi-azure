@@ -102,10 +102,10 @@ export class MeshLocalNetwork extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as MeshLocalNetworkArgs | undefined;
-            if (!args || args.networkAddressPrefix === undefined) {
+            if ((!args || args.networkAddressPrefix === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkAddressPrefix'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["description"] = args ? args.description : undefined;

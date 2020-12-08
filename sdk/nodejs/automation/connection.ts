@@ -116,16 +116,16 @@ export class Connection extends pulumi.CustomResource {
             inputs["values"] = state ? state.values : undefined;
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
-            if (!args || args.automationAccountName === undefined) {
+            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
-            if (!args || args.values === undefined) {
+            if ((!args || args.values === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'values'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;

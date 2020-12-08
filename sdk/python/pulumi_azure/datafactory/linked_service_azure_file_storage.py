@@ -92,10 +92,10 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
 
             __props__['additional_properties'] = additional_properties
             __props__['annotations'] = annotations
-            if connection_string is None:
+            if connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_string'")
             __props__['connection_string'] = connection_string
-            if data_factory_name is None:
+            if data_factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_factory_name'")
             __props__['data_factory_name'] = data_factory_name
             __props__['description'] = description
@@ -104,7 +104,7 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
             __props__['name'] = name
             __props__['parameters'] = parameters
             __props__['password'] = password
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['user_id'] = user_id

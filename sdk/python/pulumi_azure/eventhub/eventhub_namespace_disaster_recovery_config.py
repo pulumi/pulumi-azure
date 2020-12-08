@@ -82,13 +82,13 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
 
             __props__['alternate_name'] = alternate_name
             __props__['name'] = name
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            if partner_namespace_id is None:
+            if partner_namespace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_namespace_id'")
             __props__['partner_namespace_id'] = partner_namespace_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
         super(EventhubNamespaceDisasterRecoveryConfig, __self__).__init__(

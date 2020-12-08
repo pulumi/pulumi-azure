@@ -77,14 +77,15 @@ type SpringCloudApp struct {
 // NewSpringCloudApp registers a new resource with the given unique name, arguments, and options.
 func NewSpringCloudApp(ctx *pulumi.Context,
 	name string, args *SpringCloudAppArgs, opts ...pulumi.ResourceOption) (*SpringCloudApp, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &SpringCloudAppArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	var resource SpringCloudApp
 	err := ctx.RegisterResource("azure:appplatform/springCloudApp:SpringCloudApp", name, args, &resource, opts...)

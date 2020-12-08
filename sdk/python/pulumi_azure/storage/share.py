@@ -93,7 +93,7 @@ class Share(pulumi.CustomResource):
             __props__['metadata'] = metadata
             __props__['name'] = name
             __props__['quota'] = quota
-            if storage_account_name is None:
+            if storage_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_name'")
             __props__['storage_account_name'] = storage_account_name
             __props__['resource_manager_id'] = None

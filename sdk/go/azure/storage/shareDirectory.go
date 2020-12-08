@@ -83,14 +83,15 @@ type ShareDirectory struct {
 // NewShareDirectory registers a new resource with the given unique name, arguments, and options.
 func NewShareDirectory(ctx *pulumi.Context,
 	name string, args *ShareDirectoryArgs, opts ...pulumi.ResourceOption) (*ShareDirectory, error) {
-	if args == nil || args.ShareName == nil {
-		return nil, errors.New("missing required argument 'ShareName'")
-	}
-	if args == nil || args.StorageAccountName == nil {
-		return nil, errors.New("missing required argument 'StorageAccountName'")
-	}
 	if args == nil {
-		args = &ShareDirectoryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ShareName == nil {
+		return nil, errors.New("invalid value for required argument 'ShareName'")
+	}
+	if args.StorageAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
 	}
 	var resource ShareDirectory
 	err := ctx.RegisterResource("azure:storage/shareDirectory:ShareDirectory", name, args, &resource, opts...)

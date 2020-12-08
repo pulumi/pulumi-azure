@@ -72,11 +72,12 @@ type Sync struct {
 // NewSync registers a new resource with the given unique name, arguments, and options.
 func NewSync(ctx *pulumi.Context,
 	name string, args *SyncArgs, opts ...pulumi.ResourceOption) (*Sync, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &SyncArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Sync
 	err := ctx.RegisterResource("azure:storage/sync:Sync", name, args, &resource, opts...)

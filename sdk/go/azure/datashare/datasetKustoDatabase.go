@@ -38,14 +38,15 @@ type DatasetKustoDatabase struct {
 // NewDatasetKustoDatabase registers a new resource with the given unique name, arguments, and options.
 func NewDatasetKustoDatabase(ctx *pulumi.Context,
 	name string, args *DatasetKustoDatabaseArgs, opts ...pulumi.ResourceOption) (*DatasetKustoDatabase, error) {
-	if args == nil || args.KustoDatabaseId == nil {
-		return nil, errors.New("missing required argument 'KustoDatabaseId'")
-	}
-	if args == nil || args.ShareId == nil {
-		return nil, errors.New("missing required argument 'ShareId'")
-	}
 	if args == nil {
-		args = &DatasetKustoDatabaseArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.KustoDatabaseId == nil {
+		return nil, errors.New("invalid value for required argument 'KustoDatabaseId'")
+	}
+	if args.ShareId == nil {
+		return nil, errors.New("invalid value for required argument 'ShareId'")
 	}
 	var resource DatasetKustoDatabase
 	err := ctx.RegisterResource("azure:datashare/datasetKustoDatabase:DatasetKustoDatabase", name, args, &resource, opts...)

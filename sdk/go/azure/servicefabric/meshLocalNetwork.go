@@ -72,14 +72,15 @@ type MeshLocalNetwork struct {
 // NewMeshLocalNetwork registers a new resource with the given unique name, arguments, and options.
 func NewMeshLocalNetwork(ctx *pulumi.Context,
 	name string, args *MeshLocalNetworkArgs, opts ...pulumi.ResourceOption) (*MeshLocalNetwork, error) {
-	if args == nil || args.NetworkAddressPrefix == nil {
-		return nil, errors.New("missing required argument 'NetworkAddressPrefix'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &MeshLocalNetworkArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NetworkAddressPrefix == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkAddressPrefix'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource MeshLocalNetwork
 	err := ctx.RegisterResource("azure:servicefabric/meshLocalNetwork:MeshLocalNetwork", name, args, &resource, opts...)

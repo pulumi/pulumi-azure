@@ -114,10 +114,10 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
             inputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
         } else {
             const args = argsOrState as ServerExtendedAuditingPolicyArgs | undefined;
-            if (!args || args.serverId === undefined) {
+            if ((!args || args.serverId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverId'");
             }
-            if (!args || args.storageEndpoint === undefined) {
+            if ((!args || args.storageEndpoint === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageEndpoint'");
             }
             inputs["retentionInDays"] = args ? args.retentionInDays : undefined;

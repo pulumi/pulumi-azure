@@ -115,27 +115,27 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if express_route_circuit_name is None:
+            if express_route_circuit_name is None and not opts.urn:
                 raise TypeError("Missing required property 'express_route_circuit_name'")
             __props__['express_route_circuit_name'] = express_route_circuit_name
             __props__['ipv6'] = ipv6
             __props__['microsoft_peering_config'] = microsoft_peering_config
             __props__['peer_asn'] = peer_asn
-            if peering_type is None:
+            if peering_type is None and not opts.urn:
                 raise TypeError("Missing required property 'peering_type'")
             __props__['peering_type'] = peering_type
-            if primary_peer_address_prefix is None:
+            if primary_peer_address_prefix is None and not opts.urn:
                 raise TypeError("Missing required property 'primary_peer_address_prefix'")
             __props__['primary_peer_address_prefix'] = primary_peer_address_prefix
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['route_filter_id'] = route_filter_id
-            if secondary_peer_address_prefix is None:
+            if secondary_peer_address_prefix is None and not opts.urn:
                 raise TypeError("Missing required property 'secondary_peer_address_prefix'")
             __props__['secondary_peer_address_prefix'] = secondary_peer_address_prefix
             __props__['shared_key'] = shared_key
-            if vlan_id is None:
+            if vlan_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vlan_id'")
             __props__['vlan_id'] = vlan_id
             __props__['azure_asn'] = None

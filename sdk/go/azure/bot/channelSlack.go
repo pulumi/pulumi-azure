@@ -92,23 +92,24 @@ type ChannelSlack struct {
 // NewChannelSlack registers a new resource with the given unique name, arguments, and options.
 func NewChannelSlack(ctx *pulumi.Context,
 	name string, args *ChannelSlackArgs, opts ...pulumi.ResourceOption) (*ChannelSlack, error) {
-	if args == nil || args.BotName == nil {
-		return nil, errors.New("missing required argument 'BotName'")
-	}
-	if args == nil || args.ClientId == nil {
-		return nil, errors.New("missing required argument 'ClientId'")
-	}
-	if args == nil || args.ClientSecret == nil {
-		return nil, errors.New("missing required argument 'ClientSecret'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VerificationToken == nil {
-		return nil, errors.New("missing required argument 'VerificationToken'")
-	}
 	if args == nil {
-		args = &ChannelSlackArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BotName == nil {
+		return nil, errors.New("invalid value for required argument 'BotName'")
+	}
+	if args.ClientId == nil {
+		return nil, errors.New("invalid value for required argument 'ClientId'")
+	}
+	if args.ClientSecret == nil {
+		return nil, errors.New("invalid value for required argument 'ClientSecret'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VerificationToken == nil {
+		return nil, errors.New("invalid value for required argument 'VerificationToken'")
 	}
 	var resource ChannelSlack
 	err := ctx.RegisterResource("azure:bot/channelSlack:ChannelSlack", name, args, &resource, opts...)

@@ -95,10 +95,10 @@ export class SubnetNatGatewayAssociation extends pulumi.CustomResource {
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as SubnetNatGatewayAssociationArgs | undefined;
-            if (!args || args.natGatewayId === undefined) {
+            if ((!args || args.natGatewayId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'natGatewayId'");
             }
-            if (!args || args.subnetId === undefined) {
+            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetId'");
             }
             inputs["natGatewayId"] = args ? args.natGatewayId : undefined;

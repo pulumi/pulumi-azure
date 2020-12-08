@@ -113,16 +113,16 @@ export class ProtectedVM extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ProtectedVMArgs | undefined;
-            if (!args || args.backupPolicyId === undefined) {
+            if ((!args || args.backupPolicyId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backupPolicyId'");
             }
-            if (!args || args.recoveryVaultName === undefined) {
+            if ((!args || args.recoveryVaultName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sourceVmId === undefined) {
+            if ((!args || args.sourceVmId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceVmId'");
             }
             inputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;

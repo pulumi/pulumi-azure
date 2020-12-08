@@ -133,23 +133,24 @@ type EventhubDataConnection struct {
 // NewEventhubDataConnection registers a new resource with the given unique name, arguments, and options.
 func NewEventhubDataConnection(ctx *pulumi.Context,
 	name string, args *EventhubDataConnectionArgs, opts ...pulumi.ResourceOption) (*EventhubDataConnection, error) {
-	if args == nil || args.ClusterName == nil {
-		return nil, errors.New("missing required argument 'ClusterName'")
-	}
-	if args == nil || args.ConsumerGroup == nil {
-		return nil, errors.New("missing required argument 'ConsumerGroup'")
-	}
-	if args == nil || args.DatabaseName == nil {
-		return nil, errors.New("missing required argument 'DatabaseName'")
-	}
-	if args == nil || args.EventhubId == nil {
-		return nil, errors.New("missing required argument 'EventhubId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &EventhubDataConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClusterName == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterName'")
+	}
+	if args.ConsumerGroup == nil {
+		return nil, errors.New("invalid value for required argument 'ConsumerGroup'")
+	}
+	if args.DatabaseName == nil {
+		return nil, errors.New("invalid value for required argument 'DatabaseName'")
+	}
+	if args.EventhubId == nil {
+		return nil, errors.New("invalid value for required argument 'EventhubId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource EventhubDataConnection
 	err := ctx.RegisterResource("azure:kusto/eventhubDataConnection:EventhubDataConnection", name, args, &resource, opts...)

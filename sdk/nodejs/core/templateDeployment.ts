@@ -171,10 +171,10 @@ export class TemplateDeployment extends pulumi.CustomResource {
             inputs["templateBody"] = state ? state.templateBody : undefined;
         } else {
             const args = argsOrState as TemplateDeploymentArgs | undefined;
-            if (!args || args.deploymentMode === undefined) {
+            if ((!args || args.deploymentMode === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deploymentMode'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["deploymentMode"] = args ? args.deploymentMode : undefined;

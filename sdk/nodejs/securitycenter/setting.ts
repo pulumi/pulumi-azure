@@ -84,10 +84,10 @@ export class Setting extends pulumi.CustomResource {
             inputs["settingName"] = state ? state.settingName : undefined;
         } else {
             const args = argsOrState as SettingArgs | undefined;
-            if (!args || args.enabled === undefined) {
+            if ((!args || args.enabled === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if (!args || args.settingName === undefined) {
+            if ((!args || args.settingName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'settingName'");
             }
             inputs["enabled"] = args ? args.enabled : undefined;

@@ -65,14 +65,14 @@ class VpnGatewayConnection(pulumi.CustomResource):
 
             __props__['internet_security_enabled'] = internet_security_enabled
             __props__['name'] = name
-            if remote_vpn_site_id is None:
+            if remote_vpn_site_id is None and not opts.urn:
                 raise TypeError("Missing required property 'remote_vpn_site_id'")
             __props__['remote_vpn_site_id'] = remote_vpn_site_id
             __props__['routings'] = routings
-            if vpn_gateway_id is None:
+            if vpn_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpn_gateway_id'")
             __props__['vpn_gateway_id'] = vpn_gateway_id
-            if vpn_links is None:
+            if vpn_links is None and not opts.urn:
                 raise TypeError("Missing required property 'vpn_links'")
             __props__['vpn_links'] = vpn_links
         super(VpnGatewayConnection, __self__).__init__(

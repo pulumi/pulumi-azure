@@ -142,26 +142,27 @@ type StormCluster struct {
 // NewStormCluster registers a new resource with the given unique name, arguments, and options.
 func NewStormCluster(ctx *pulumi.Context,
 	name string, args *StormClusterArgs, opts ...pulumi.ResourceOption) (*StormCluster, error) {
-	if args == nil || args.ClusterVersion == nil {
-		return nil, errors.New("missing required argument 'ClusterVersion'")
-	}
-	if args == nil || args.ComponentVersion == nil {
-		return nil, errors.New("missing required argument 'ComponentVersion'")
-	}
-	if args == nil || args.Gateway == nil {
-		return nil, errors.New("missing required argument 'Gateway'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Roles == nil {
-		return nil, errors.New("missing required argument 'Roles'")
-	}
-	if args == nil || args.Tier == nil {
-		return nil, errors.New("missing required argument 'Tier'")
-	}
 	if args == nil {
-		args = &StormClusterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClusterVersion == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterVersion'")
+	}
+	if args.ComponentVersion == nil {
+		return nil, errors.New("invalid value for required argument 'ComponentVersion'")
+	}
+	if args.Gateway == nil {
+		return nil, errors.New("invalid value for required argument 'Gateway'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Roles == nil {
+		return nil, errors.New("invalid value for required argument 'Roles'")
+	}
+	if args.Tier == nil {
+		return nil, errors.New("invalid value for required argument 'Tier'")
 	}
 	var resource StormCluster
 	err := ctx.RegisterResource("azure:hdinsight/stormCluster:StormCluster", name, args, &resource, opts...)

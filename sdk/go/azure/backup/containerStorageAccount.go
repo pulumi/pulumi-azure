@@ -89,17 +89,18 @@ type ContainerStorageAccount struct {
 // NewContainerStorageAccount registers a new resource with the given unique name, arguments, and options.
 func NewContainerStorageAccount(ctx *pulumi.Context,
 	name string, args *ContainerStorageAccountArgs, opts ...pulumi.ResourceOption) (*ContainerStorageAccount, error) {
-	if args == nil || args.RecoveryVaultName == nil {
-		return nil, errors.New("missing required argument 'RecoveryVaultName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StorageAccountId == nil {
-		return nil, errors.New("missing required argument 'StorageAccountId'")
-	}
 	if args == nil {
-		args = &ContainerStorageAccountArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RecoveryVaultName == nil {
+		return nil, errors.New("invalid value for required argument 'RecoveryVaultName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageAccountId == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccountId'")
 	}
 	var resource ContainerStorageAccount
 	err := ctx.RegisterResource("azure:backup/containerStorageAccount:ContainerStorageAccount", name, args, &resource, opts...)

@@ -109,19 +109,19 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
             inputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as ActiveDirectoryAdministratorArgs | undefined;
-            if (!args || args.login === undefined) {
+            if ((!args || args.login === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'login'");
             }
-            if (!args || args.objectId === undefined) {
+            if ((!args || args.objectId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'objectId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if (!args || args.tenantId === undefined) {
+            if ((!args || args.tenantId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tenantId'");
             }
             inputs["login"] = args ? args.login : undefined;

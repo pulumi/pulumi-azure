@@ -91,15 +91,15 @@ class AccessPolicy(pulumi.CustomResource):
             __props__['application_id'] = application_id
             __props__['certificate_permissions'] = certificate_permissions
             __props__['key_permissions'] = key_permissions
-            if key_vault_id is None:
+            if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")
             __props__['key_vault_id'] = key_vault_id
-            if object_id is None:
+            if object_id is None and not opts.urn:
                 raise TypeError("Missing required property 'object_id'")
             __props__['object_id'] = object_id
             __props__['secret_permissions'] = secret_permissions
             __props__['storage_permissions'] = storage_permissions
-            if tenant_id is None:
+            if tenant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant_id'")
             __props__['tenant_id'] = tenant_id
         super(AccessPolicy, __self__).__init__(

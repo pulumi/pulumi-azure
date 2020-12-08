@@ -86,26 +86,27 @@ type DataSourceWindowsPerformanceCounter struct {
 // NewDataSourceWindowsPerformanceCounter registers a new resource with the given unique name, arguments, and options.
 func NewDataSourceWindowsPerformanceCounter(ctx *pulumi.Context,
 	name string, args *DataSourceWindowsPerformanceCounterArgs, opts ...pulumi.ResourceOption) (*DataSourceWindowsPerformanceCounter, error) {
-	if args == nil || args.CounterName == nil {
-		return nil, errors.New("missing required argument 'CounterName'")
-	}
-	if args == nil || args.InstanceName == nil {
-		return nil, errors.New("missing required argument 'InstanceName'")
-	}
-	if args == nil || args.IntervalSeconds == nil {
-		return nil, errors.New("missing required argument 'IntervalSeconds'")
-	}
-	if args == nil || args.ObjectName == nil {
-		return nil, errors.New("missing required argument 'ObjectName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &DataSourceWindowsPerformanceCounterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CounterName == nil {
+		return nil, errors.New("invalid value for required argument 'CounterName'")
+	}
+	if args.InstanceName == nil {
+		return nil, errors.New("invalid value for required argument 'InstanceName'")
+	}
+	if args.IntervalSeconds == nil {
+		return nil, errors.New("invalid value for required argument 'IntervalSeconds'")
+	}
+	if args.ObjectName == nil {
+		return nil, errors.New("invalid value for required argument 'ObjectName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource DataSourceWindowsPerformanceCounter
 	err := ctx.RegisterResource("azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter", name, args, &resource, opts...)

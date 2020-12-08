@@ -83,14 +83,15 @@ type Fabric struct {
 // NewFabric registers a new resource with the given unique name, arguments, and options.
 func NewFabric(ctx *pulumi.Context,
 	name string, args *FabricArgs, opts ...pulumi.ResourceOption) (*Fabric, error) {
-	if args == nil || args.RecoveryVaultName == nil {
-		return nil, errors.New("missing required argument 'RecoveryVaultName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &FabricArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RecoveryVaultName == nil {
+		return nil, errors.New("invalid value for required argument 'RecoveryVaultName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Fabric
 	err := ctx.RegisterResource("azure:siterecovery/fabric:Fabric", name, args, &resource, opts...)

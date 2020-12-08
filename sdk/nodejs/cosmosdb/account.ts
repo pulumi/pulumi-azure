@@ -251,16 +251,16 @@ export class Account extends pulumi.CustomResource {
             inputs["writeEndpoints"] = state ? state.writeEndpoints : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
-            if (!args || args.consistencyPolicy === undefined) {
+            if ((!args || args.consistencyPolicy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'consistencyPolicy'");
             }
-            if (!args || args.geoLocations === undefined) {
+            if ((!args || args.geoLocations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'geoLocations'");
             }
-            if (!args || args.offerType === undefined) {
+            if ((!args || args.offerType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'offerType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["capabilities"] = args ? args.capabilities : undefined;

@@ -77,16 +77,16 @@ class IdentityProviderTwitter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_key is None:
+            if api_key is None and not opts.urn:
                 raise TypeError("Missing required property 'api_key'")
             __props__['api_key'] = api_key
-            if api_management_name is None:
+            if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__['api_management_name'] = api_management_name
-            if api_secret_key is None:
+            if api_secret_key is None and not opts.urn:
                 raise TypeError("Missing required property 'api_secret_key'")
             __props__['api_secret_key'] = api_secret_key
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
         super(IdentityProviderTwitter, __self__).__init__(

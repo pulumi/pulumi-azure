@@ -74,11 +74,12 @@ type Table struct {
 // NewTable registers a new resource with the given unique name, arguments, and options.
 func NewTable(ctx *pulumi.Context,
 	name string, args *TableArgs, opts ...pulumi.ResourceOption) (*Table, error) {
-	if args == nil || args.StorageAccountName == nil {
-		return nil, errors.New("missing required argument 'StorageAccountName'")
-	}
 	if args == nil {
-		args = &TableArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.StorageAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
 	}
 	var resource Table
 	err := ctx.RegisterResource("azure:storage/table:Table", name, args, &resource, opts...)

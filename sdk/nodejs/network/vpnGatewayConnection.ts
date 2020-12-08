@@ -89,13 +89,13 @@ export class VpnGatewayConnection extends pulumi.CustomResource {
             inputs["vpnLinks"] = state ? state.vpnLinks : undefined;
         } else {
             const args = argsOrState as VpnGatewayConnectionArgs | undefined;
-            if (!args || args.remoteVpnSiteId === undefined) {
+            if ((!args || args.remoteVpnSiteId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'remoteVpnSiteId'");
             }
-            if (!args || args.vpnGatewayId === undefined) {
+            if ((!args || args.vpnGatewayId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpnGatewayId'");
             }
-            if (!args || args.vpnLinks === undefined) {
+            if ((!args || args.vpnLinks === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpnLinks'");
             }
             inputs["internetSecurityEnabled"] = args ? args.internetSecurityEnabled : undefined;

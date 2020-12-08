@@ -100,20 +100,20 @@ class AlertRuleScheduled(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            if display_name is None:
+            if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             __props__['enabled'] = enabled
-            if log_analytics_workspace_id is None:
+            if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")
             __props__['log_analytics_workspace_id'] = log_analytics_workspace_id
             __props__['name'] = name
-            if query is None:
+            if query is None and not opts.urn:
                 raise TypeError("Missing required property 'query'")
             __props__['query'] = query
             __props__['query_frequency'] = query_frequency
             __props__['query_period'] = query_period
-            if severity is None:
+            if severity is None and not opts.urn:
                 raise TypeError("Missing required property 'severity'")
             __props__['severity'] = severity
             __props__['suppression_duration'] = suppression_duration

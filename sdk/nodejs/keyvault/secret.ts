@@ -98,10 +98,10 @@ export class Secret extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as SecretArgs | undefined;
-            if (!args || args.keyVaultId === undefined) {
+            if ((!args || args.keyVaultId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            if (!args || args.value === undefined) {
+            if ((!args || args.value === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'value'");
             }
             inputs["contentType"] = args ? args.contentType : undefined;

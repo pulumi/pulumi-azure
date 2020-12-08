@@ -90,13 +90,13 @@ export class Agreement extends pulumi.CustomResource {
             inputs["publisher"] = state ? state.publisher : undefined;
         } else {
             const args = argsOrState as AgreementArgs | undefined;
-            if (!args || args.offer === undefined) {
+            if ((!args || args.offer === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'offer'");
             }
-            if (!args || args.plan === undefined) {
+            if ((!args || args.plan === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'plan'");
             }
-            if (!args || args.publisher === undefined) {
+            if ((!args || args.publisher === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'publisher'");
             }
             inputs["offer"] = args ? args.offer : undefined;

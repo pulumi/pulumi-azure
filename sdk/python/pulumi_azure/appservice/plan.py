@@ -147,10 +147,10 @@ class Plan(pulumi.CustomResource):
             __props__['name'] = name
             __props__['per_site_scaling'] = per_site_scaling
             __props__['reserved'] = reserved
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
