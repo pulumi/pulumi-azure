@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to pulumi-terraform-bridge v2.15.3
-  * Bug fix: Corrects a panic caused by reading sets with partially-known elements.
+_(none)_
 
 ---
+
+## 3.33.2 (2020-12-08)
+* Upgrade to pulumi-terraform-bridge v2.15.3
+  * Bug fix: Corrects a panic caused by reading sets with partially-known elements.
 
 ## 3.33.1 (2020-12-08)
 * Upgrade to v2.15.2 of pulumi-terraform-bridge
