@@ -120,7 +120,7 @@ export class SubscriptionTemplateDeployment extends pulumi.CustomResource {
             inputs["templateContent"] = state ? state.templateContent : undefined;
         } else {
             const args = argsOrState as SubscriptionTemplateDeploymentArgs | undefined;
-            if (!args || args.templateContent === undefined) {
+            if ((!args || args.templateContent === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'templateContent'");
             }
             inputs["debugLevel"] = args ? args.debugLevel : undefined;

@@ -98,19 +98,19 @@ class HybridConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if app_service_name is None:
+            if app_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'app_service_name'")
             __props__['app_service_name'] = app_service_name
-            if hostname is None:
+            if hostname is None and not opts.urn:
                 raise TypeError("Missing required property 'hostname'")
             __props__['hostname'] = hostname
-            if port is None:
+            if port is None and not opts.urn:
                 raise TypeError("Missing required property 'port'")
             __props__['port'] = port
-            if relay_id is None:
+            if relay_id is None and not opts.urn:
                 raise TypeError("Missing required property 'relay_id'")
             __props__['relay_id'] = relay_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['send_key_name'] = send_key_name

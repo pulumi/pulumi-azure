@@ -112,23 +112,24 @@ type LinkedServer struct {
 // NewLinkedServer registers a new resource with the given unique name, arguments, and options.
 func NewLinkedServer(ctx *pulumi.Context,
 	name string, args *LinkedServerArgs, opts ...pulumi.ResourceOption) (*LinkedServer, error) {
-	if args == nil || args.LinkedRedisCacheId == nil {
-		return nil, errors.New("missing required argument 'LinkedRedisCacheId'")
-	}
-	if args == nil || args.LinkedRedisCacheLocation == nil {
-		return nil, errors.New("missing required argument 'LinkedRedisCacheLocation'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerRole == nil {
-		return nil, errors.New("missing required argument 'ServerRole'")
-	}
-	if args == nil || args.TargetRedisCacheName == nil {
-		return nil, errors.New("missing required argument 'TargetRedisCacheName'")
-	}
 	if args == nil {
-		args = &LinkedServerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LinkedRedisCacheId == nil {
+		return nil, errors.New("invalid value for required argument 'LinkedRedisCacheId'")
+	}
+	if args.LinkedRedisCacheLocation == nil {
+		return nil, errors.New("invalid value for required argument 'LinkedRedisCacheLocation'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerRole == nil {
+		return nil, errors.New("invalid value for required argument 'ServerRole'")
+	}
+	if args.TargetRedisCacheName == nil {
+		return nil, errors.New("invalid value for required argument 'TargetRedisCacheName'")
 	}
 	var resource LinkedServer
 	err := ctx.RegisterResource("azure:redis/linkedServer:LinkedServer", name, args, &resource, opts...)

@@ -208,10 +208,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["vnetSubnetId"] = state ? state.vnetSubnetId : undefined;
         } else {
             const args = argsOrState as KubernetesClusterNodePoolArgs | undefined;
-            if (!args || args.kubernetesClusterId === undefined) {
+            if ((!args || args.kubernetesClusterId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kubernetesClusterId'");
             }
-            if (!args || args.vmSize === undefined) {
+            if ((!args || args.vmSize === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vmSize'");
             }
             inputs["availabilityZones"] = args ? args.availabilityZones : undefined;

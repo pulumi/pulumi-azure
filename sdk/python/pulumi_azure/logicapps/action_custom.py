@@ -84,10 +84,10 @@ class ActionCustom(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if body is None:
+            if body is None and not opts.urn:
                 raise TypeError("Missing required property 'body'")
             __props__['body'] = body
-            if logic_app_id is None:
+            if logic_app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'logic_app_id'")
             __props__['logic_app_id'] = logic_app_id
             __props__['name'] = name

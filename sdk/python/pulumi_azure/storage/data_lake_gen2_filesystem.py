@@ -80,7 +80,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
 
             __props__['name'] = name
             __props__['properties'] = properties
-            if storage_account_id is None:
+            if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
             __props__['storage_account_id'] = storage_account_id
         super(DataLakeGen2Filesystem, __self__).__init__(

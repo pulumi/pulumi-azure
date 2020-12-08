@@ -121,13 +121,13 @@ export class LinkedServiceMysql extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as LinkedServiceMysqlArgs | undefined;
-            if (!args || args.connectionString === undefined) {
+            if ((!args || args.connectionString === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectionString'");
             }
-            if (!args || args.dataFactoryName === undefined) {
+            if ((!args || args.dataFactoryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataFactoryName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["additionalProperties"] = args ? args.additionalProperties : undefined;

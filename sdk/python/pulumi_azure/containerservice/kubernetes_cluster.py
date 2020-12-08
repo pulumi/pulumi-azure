@@ -124,11 +124,11 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__['addon_profile'] = addon_profile
             __props__['api_server_authorized_ip_ranges'] = api_server_authorized_ip_ranges
             __props__['auto_scaler_profile'] = auto_scaler_profile
-            if default_node_pool is None:
+            if default_node_pool is None and not opts.urn:
                 raise TypeError("Missing required property 'default_node_pool'")
             __props__['default_node_pool'] = default_node_pool
             __props__['disk_encryption_set_id'] = disk_encryption_set_id
-            if dns_prefix is None:
+            if dns_prefix is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_prefix'")
             __props__['dns_prefix'] = dns_prefix
             __props__['enable_pod_security_policy'] = enable_pod_security_policy
@@ -140,11 +140,11 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__['network_profile'] = network_profile
             __props__['node_resource_group'] = node_resource_group
             __props__['private_cluster_enabled'] = private_cluster_enabled
-            if private_link_enabled is not None:
+            if private_link_enabled is not None and not opts.urn:
                 warnings.warn("""Deprecated in favour of `private_cluster_enabled`""", DeprecationWarning)
                 pulumi.log.warn("private_link_enabled is deprecated: Deprecated in favour of `private_cluster_enabled`")
             __props__['private_link_enabled'] = private_link_enabled
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['role_based_access_control'] = role_based_access_control

@@ -67,7 +67,7 @@ class SyncGroup(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['name'] = name
-            if storage_sync_id is None:
+            if storage_sync_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_sync_id'")
             __props__['storage_sync_id'] = storage_sync_id
         super(SyncGroup, __self__).__init__(

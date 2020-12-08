@@ -70,7 +70,7 @@ class Certificate(pulumi.CustomResource):
             __props__['name'] = name
             __props__['password'] = password
             __props__['pfx_blob'] = pfx_blob
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

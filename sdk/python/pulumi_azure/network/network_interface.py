@@ -98,12 +98,12 @@ class NetworkInterface(pulumi.CustomResource):
             __props__['enable_accelerated_networking'] = enable_accelerated_networking
             __props__['enable_ip_forwarding'] = enable_ip_forwarding
             __props__['internal_dns_name_label'] = internal_dns_name_label
-            if ip_configurations is None:
+            if ip_configurations is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_configurations'")
             __props__['ip_configurations'] = ip_configurations
             __props__['location'] = location
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

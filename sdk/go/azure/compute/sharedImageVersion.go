@@ -98,20 +98,21 @@ type SharedImageVersion struct {
 // NewSharedImageVersion registers a new resource with the given unique name, arguments, and options.
 func NewSharedImageVersion(ctx *pulumi.Context,
 	name string, args *SharedImageVersionArgs, opts ...pulumi.ResourceOption) (*SharedImageVersion, error) {
-	if args == nil || args.GalleryName == nil {
-		return nil, errors.New("missing required argument 'GalleryName'")
-	}
-	if args == nil || args.ImageName == nil {
-		return nil, errors.New("missing required argument 'ImageName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.TargetRegions == nil {
-		return nil, errors.New("missing required argument 'TargetRegions'")
-	}
 	if args == nil {
-		args = &SharedImageVersionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GalleryName == nil {
+		return nil, errors.New("invalid value for required argument 'GalleryName'")
+	}
+	if args.ImageName == nil {
+		return nil, errors.New("invalid value for required argument 'ImageName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.TargetRegions == nil {
+		return nil, errors.New("invalid value for required argument 'TargetRegions'")
 	}
 	var resource SharedImageVersion
 	err := ctx.RegisterResource("azure:compute/sharedImageVersion:SharedImageVersion", name, args, &resource, opts...)

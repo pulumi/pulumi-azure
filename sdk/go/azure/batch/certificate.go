@@ -45,26 +45,27 @@ type Certificate struct {
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
 func NewCertificate(ctx *pulumi.Context,
 	name string, args *CertificateArgs, opts ...pulumi.ResourceOption) (*Certificate, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.Certificate == nil {
-		return nil, errors.New("missing required argument 'Certificate'")
-	}
-	if args == nil || args.Format == nil {
-		return nil, errors.New("missing required argument 'Format'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Thumbprint == nil {
-		return nil, errors.New("missing required argument 'Thumbprint'")
-	}
-	if args == nil || args.ThumbprintAlgorithm == nil {
-		return nil, errors.New("missing required argument 'ThumbprintAlgorithm'")
-	}
 	if args == nil {
-		args = &CertificateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.Certificate == nil {
+		return nil, errors.New("invalid value for required argument 'Certificate'")
+	}
+	if args.Format == nil {
+		return nil, errors.New("invalid value for required argument 'Format'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Thumbprint == nil {
+		return nil, errors.New("invalid value for required argument 'Thumbprint'")
+	}
+	if args.ThumbprintAlgorithm == nil {
+		return nil, errors.New("invalid value for required argument 'ThumbprintAlgorithm'")
 	}
 	var resource Certificate
 	err := ctx.RegisterResource("azure:batch/certificate:Certificate", name, args, &resource, opts...)

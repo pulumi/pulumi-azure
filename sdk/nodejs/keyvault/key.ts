@@ -176,13 +176,13 @@ export class Key extends pulumi.CustomResource {
             inputs["y"] = state ? state.y : undefined;
         } else {
             const args = argsOrState as KeyArgs | undefined;
-            if (!args || args.keyOpts === undefined) {
+            if ((!args || args.keyOpts === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyOpts'");
             }
-            if (!args || args.keyType === undefined) {
+            if ((!args || args.keyType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyType'");
             }
-            if (!args || args.keyVaultId === undefined) {
+            if ((!args || args.keyVaultId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
             inputs["curve"] = args ? args.curve : undefined;

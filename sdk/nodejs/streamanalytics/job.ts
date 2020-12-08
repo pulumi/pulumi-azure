@@ -150,13 +150,13 @@ export class Job extends pulumi.CustomResource {
             inputs["transformationQuery"] = state ? state.transformationQuery : undefined;
         } else {
             const args = argsOrState as JobArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.streamingUnits === undefined) {
+            if ((!args || args.streamingUnits === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'streamingUnits'");
             }
-            if (!args || args.transformationQuery === undefined) {
+            if ((!args || args.transformationQuery === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'transformationQuery'");
             }
             inputs["compatibilityLevel"] = args ? args.compatibilityLevel : undefined;

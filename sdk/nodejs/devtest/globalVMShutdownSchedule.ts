@@ -155,16 +155,16 @@ export class GlobalVMShutdownSchedule extends pulumi.CustomResource {
             inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
         } else {
             const args = argsOrState as GlobalVMShutdownScheduleArgs | undefined;
-            if (!args || args.dailyRecurrenceTime === undefined) {
+            if ((!args || args.dailyRecurrenceTime === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dailyRecurrenceTime'");
             }
-            if (!args || args.notificationSettings === undefined) {
+            if ((!args || args.notificationSettings === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'notificationSettings'");
             }
-            if (!args || args.timezone === undefined) {
+            if ((!args || args.timezone === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'timezone'");
             }
-            if (!args || args.virtualMachineId === undefined) {
+            if ((!args || args.virtualMachineId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
             inputs["dailyRecurrenceTime"] = args ? args.dailyRecurrenceTime : undefined;

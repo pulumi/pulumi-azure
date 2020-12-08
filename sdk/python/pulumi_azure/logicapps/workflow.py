@@ -84,7 +84,7 @@ class Workflow(pulumi.CustomResource):
             __props__['logic_app_integration_account_id'] = logic_app_integration_account_id
             __props__['name'] = name
             __props__['parameters'] = parameters
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

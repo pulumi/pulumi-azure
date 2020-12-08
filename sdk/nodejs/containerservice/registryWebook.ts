@@ -138,16 +138,16 @@ export class RegistryWebook extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RegistryWebookArgs | undefined;
-            if (!args || args.actions === undefined) {
+            if ((!args || args.actions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'actions'");
             }
-            if (!args || args.registryName === undefined) {
+            if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceUri === undefined) {
+            if ((!args || args.serviceUri === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceUri'");
             }
             inputs["actions"] = args ? args.actions : undefined;

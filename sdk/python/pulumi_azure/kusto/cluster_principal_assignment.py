@@ -86,23 +86,23 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             __props__['name'] = name
-            if principal_id is None:
+            if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")
             __props__['principal_id'] = principal_id
-            if principal_type is None:
+            if principal_type is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_type'")
             __props__['principal_type'] = principal_type
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if role is None:
+            if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
             __props__['role'] = role
-            if tenant_id is None:
+            if tenant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant_id'")
             __props__['tenant_id'] = tenant_id
             __props__['principal_name'] = None

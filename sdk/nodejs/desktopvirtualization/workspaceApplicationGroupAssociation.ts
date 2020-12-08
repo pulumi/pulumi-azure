@@ -97,10 +97,10 @@ export class WorkspaceApplicationGroupAssociation extends pulumi.CustomResource 
             inputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as WorkspaceApplicationGroupAssociationArgs | undefined;
-            if (!args || args.applicationGroupId === undefined) {
+            if ((!args || args.applicationGroupId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationGroupId'");
             }
-            if (!args || args.workspaceId === undefined) {
+            if ((!args || args.workspaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceId'");
             }
             inputs["applicationGroupId"] = args ? args.applicationGroupId : undefined;

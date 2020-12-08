@@ -105,17 +105,17 @@ class FailoverGroup(pulumi.CustomResource):
 
             __props__['databases'] = databases
             __props__['name'] = name
-            if partner_servers is None:
+            if partner_servers is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_servers'")
             __props__['partner_servers'] = partner_servers
-            if read_write_endpoint_failover_policy is None:
+            if read_write_endpoint_failover_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'read_write_endpoint_failover_policy'")
             __props__['read_write_endpoint_failover_policy'] = read_write_endpoint_failover_policy
             __props__['readonly_endpoint_failover_policy'] = readonly_endpoint_failover_policy
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['tags'] = tags

@@ -112,17 +112,17 @@ class InterationServiceEnvironment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if access_endpoint_type is None:
+            if access_endpoint_type is None and not opts.urn:
                 raise TypeError("Missing required property 'access_endpoint_type'")
             __props__['access_endpoint_type'] = access_endpoint_type
             __props__['location'] = location
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku_name'] = sku_name
             __props__['tags'] = tags
-            if virtual_network_subnet_ids is None:
+            if virtual_network_subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_subnet_ids'")
             __props__['virtual_network_subnet_ids'] = virtual_network_subnet_ids
             __props__['connector_endpoint_ip_addresses'] = None

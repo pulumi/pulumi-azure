@@ -86,11 +86,12 @@ type AnalyticsWorkspace struct {
 // NewAnalyticsWorkspace registers a new resource with the given unique name, arguments, and options.
 func NewAnalyticsWorkspace(ctx *pulumi.Context,
 	name string, args *AnalyticsWorkspaceArgs, opts ...pulumi.ResourceOption) (*AnalyticsWorkspace, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &AnalyticsWorkspaceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource AnalyticsWorkspace
 	err := ctx.RegisterResource("azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace", name, args, &resource, opts...)

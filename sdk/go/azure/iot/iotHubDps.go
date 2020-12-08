@@ -83,14 +83,15 @@ type IotHubDps struct {
 // NewIotHubDps registers a new resource with the given unique name, arguments, and options.
 func NewIotHubDps(ctx *pulumi.Context,
 	name string, args *IotHubDpsArgs, opts ...pulumi.ResourceOption) (*IotHubDps, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	if args == nil {
-		args = &IotHubDpsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	var resource IotHubDps
 	err := ctx.RegisterResource("azure:iot/iotHubDps:IotHubDps", name, args, &resource, opts...)

@@ -126,10 +126,10 @@ export class VpnSite extends pulumi.CustomResource {
             inputs["virtualWanId"] = state ? state.virtualWanId : undefined;
         } else {
             const args = argsOrState as VpnSiteArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.virtualWanId === undefined) {
+            if ((!args || args.virtualWanId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualWanId'");
             }
             inputs["addressCidrs"] = args ? args.addressCidrs : undefined;

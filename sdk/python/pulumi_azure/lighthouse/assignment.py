@@ -66,11 +66,11 @@ class Assignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if lighthouse_definition_id is None:
+            if lighthouse_definition_id is None and not opts.urn:
                 raise TypeError("Missing required property 'lighthouse_definition_id'")
             __props__['lighthouse_definition_id'] = lighthouse_definition_id
             __props__['name'] = name
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
         super(Assignment, __self__).__init__(

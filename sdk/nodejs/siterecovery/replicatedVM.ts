@@ -126,31 +126,31 @@ export class ReplicatedVM extends pulumi.CustomResource {
             inputs["targetResourceGroupId"] = state ? state.targetResourceGroupId : undefined;
         } else {
             const args = argsOrState as ReplicatedVMArgs | undefined;
-            if (!args || args.recoveryReplicationPolicyId === undefined) {
+            if ((!args || args.recoveryReplicationPolicyId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'recoveryReplicationPolicyId'");
             }
-            if (!args || args.recoveryVaultName === undefined) {
+            if ((!args || args.recoveryVaultName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sourceRecoveryFabricName === undefined) {
+            if ((!args || args.sourceRecoveryFabricName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceRecoveryFabricName'");
             }
-            if (!args || args.sourceRecoveryProtectionContainerName === undefined) {
+            if ((!args || args.sourceRecoveryProtectionContainerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceRecoveryProtectionContainerName'");
             }
-            if (!args || args.sourceVmId === undefined) {
+            if ((!args || args.sourceVmId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceVmId'");
             }
-            if (!args || args.targetRecoveryFabricId === undefined) {
+            if ((!args || args.targetRecoveryFabricId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetRecoveryFabricId'");
             }
-            if (!args || args.targetRecoveryProtectionContainerId === undefined) {
+            if ((!args || args.targetRecoveryProtectionContainerId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetRecoveryProtectionContainerId'");
             }
-            if (!args || args.targetResourceGroupId === undefined) {
+            if ((!args || args.targetResourceGroupId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetResourceGroupId'");
             }
             inputs["managedDisks"] = args ? args.managedDisks : undefined;

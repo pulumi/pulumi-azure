@@ -105,16 +105,16 @@ class ApplicationGroup(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['friendly_name'] = friendly_name
-            if host_pool_id is None:
+            if host_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'host_pool_id'")
             __props__['host_pool_id'] = host_pool_id
             __props__['location'] = location
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
         super(ApplicationGroup, __self__).__init__(

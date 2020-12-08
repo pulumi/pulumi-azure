@@ -177,22 +177,22 @@ export class NetworkSecurityRule extends pulumi.CustomResource {
             inputs["sourcePortRanges"] = state ? state.sourcePortRanges : undefined;
         } else {
             const args = argsOrState as NetworkSecurityRuleArgs | undefined;
-            if (!args || args.access === undefined) {
+            if ((!args || args.access === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'access'");
             }
-            if (!args || args.direction === undefined) {
+            if ((!args || args.direction === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'direction'");
             }
-            if (!args || args.networkSecurityGroupName === undefined) {
+            if ((!args || args.networkSecurityGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkSecurityGroupName'");
             }
-            if (!args || args.priority === undefined) {
+            if ((!args || args.priority === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'priority'");
             }
-            if (!args || args.protocol === undefined) {
+            if ((!args || args.protocol === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["access"] = args ? args.access : undefined;

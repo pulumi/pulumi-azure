@@ -160,19 +160,19 @@ export class EventhubDataConnection extends pulumi.CustomResource {
             inputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as EventhubDataConnectionArgs | undefined;
-            if (!args || args.clusterName === undefined) {
+            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.consumerGroup === undefined) {
+            if ((!args || args.consumerGroup === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'consumerGroup'");
             }
-            if (!args || args.databaseName === undefined) {
+            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.eventhubId === undefined) {
+            if ((!args || args.eventhubId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventhubId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;

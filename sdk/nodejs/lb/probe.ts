@@ -129,13 +129,13 @@ export class Probe extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ProbeArgs | undefined;
-            if (!args || args.loadbalancerId === undefined) {
+            if ((!args || args.loadbalancerId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadbalancerId'");
             }
-            if (!args || args.port === undefined) {
+            if ((!args || args.port === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'port'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["intervalInSeconds"] = args ? args.intervalInSeconds : undefined;

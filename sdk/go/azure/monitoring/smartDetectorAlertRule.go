@@ -105,26 +105,27 @@ type SmartDetectorAlertRule struct {
 // NewSmartDetectorAlertRule registers a new resource with the given unique name, arguments, and options.
 func NewSmartDetectorAlertRule(ctx *pulumi.Context,
 	name string, args *SmartDetectorAlertRuleArgs, opts ...pulumi.ResourceOption) (*SmartDetectorAlertRule, error) {
-	if args == nil || args.ActionGroup == nil {
-		return nil, errors.New("missing required argument 'ActionGroup'")
-	}
-	if args == nil || args.DetectorType == nil {
-		return nil, errors.New("missing required argument 'DetectorType'")
-	}
-	if args == nil || args.Frequency == nil {
-		return nil, errors.New("missing required argument 'Frequency'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ScopeResourceIds == nil {
-		return nil, errors.New("missing required argument 'ScopeResourceIds'")
-	}
-	if args == nil || args.Severity == nil {
-		return nil, errors.New("missing required argument 'Severity'")
-	}
 	if args == nil {
-		args = &SmartDetectorAlertRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ActionGroup == nil {
+		return nil, errors.New("invalid value for required argument 'ActionGroup'")
+	}
+	if args.DetectorType == nil {
+		return nil, errors.New("invalid value for required argument 'DetectorType'")
+	}
+	if args.Frequency == nil {
+		return nil, errors.New("invalid value for required argument 'Frequency'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ScopeResourceIds == nil {
+		return nil, errors.New("invalid value for required argument 'ScopeResourceIds'")
+	}
+	if args.Severity == nil {
+		return nil, errors.New("invalid value for required argument 'Severity'")
 	}
 	var resource SmartDetectorAlertRule
 	err := ctx.RegisterResource("azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule", name, args, &resource, opts...)

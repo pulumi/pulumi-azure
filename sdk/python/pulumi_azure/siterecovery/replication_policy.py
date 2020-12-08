@@ -77,17 +77,17 @@ class ReplicationPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if application_consistent_snapshot_frequency_in_minutes is None:
+            if application_consistent_snapshot_frequency_in_minutes is None and not opts.urn:
                 raise TypeError("Missing required property 'application_consistent_snapshot_frequency_in_minutes'")
             __props__['application_consistent_snapshot_frequency_in_minutes'] = application_consistent_snapshot_frequency_in_minutes
             __props__['name'] = name
-            if recovery_point_retention_in_minutes is None:
+            if recovery_point_retention_in_minutes is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_point_retention_in_minutes'")
             __props__['recovery_point_retention_in_minutes'] = recovery_point_retention_in_minutes
-            if recovery_vault_name is None:
+            if recovery_vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_vault_name'")
             __props__['recovery_vault_name'] = recovery_vault_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
         super(ReplicationPolicy, __self__).__init__(

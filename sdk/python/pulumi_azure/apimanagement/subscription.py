@@ -90,21 +90,21 @@ class Subscription(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['allow_tracing'] = allow_tracing
-            if api_management_name is None:
+            if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__['api_management_name'] = api_management_name
-            if display_name is None:
+            if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             __props__['primary_key'] = primary_key
             __props__['product_id'] = product_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['secondary_key'] = secondary_key
             __props__['state'] = state
             __props__['subscription_id'] = subscription_id
-            if user_id is None:
+            if user_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_id'")
             __props__['user_id'] = user_id
         super(Subscription, __self__).__init__(

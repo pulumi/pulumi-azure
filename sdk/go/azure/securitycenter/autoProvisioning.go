@@ -55,11 +55,12 @@ type AutoProvisioning struct {
 // NewAutoProvisioning registers a new resource with the given unique name, arguments, and options.
 func NewAutoProvisioning(ctx *pulumi.Context,
 	name string, args *AutoProvisioningArgs, opts ...pulumi.ResourceOption) (*AutoProvisioning, error) {
-	if args == nil || args.AutoProvision == nil {
-		return nil, errors.New("missing required argument 'AutoProvision'")
-	}
 	if args == nil {
-		args = &AutoProvisioningArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AutoProvision == nil {
+		return nil, errors.New("invalid value for required argument 'AutoProvision'")
 	}
 	var resource AutoProvisioning
 	err := ctx.RegisterResource("azure:securitycenter/autoProvisioning:AutoProvisioning", name, args, &resource, opts...)

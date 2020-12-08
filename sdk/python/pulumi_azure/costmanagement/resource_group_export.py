@@ -96,23 +96,23 @@ class ResourceGroupExport(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['active'] = active
-            if delivery_info is None:
+            if delivery_info is None and not opts.urn:
                 raise TypeError("Missing required property 'delivery_info'")
             __props__['delivery_info'] = delivery_info
             __props__['name'] = name
-            if query is None:
+            if query is None and not opts.urn:
                 raise TypeError("Missing required property 'query'")
             __props__['query'] = query
-            if recurrence_period_end is None:
+            if recurrence_period_end is None and not opts.urn:
                 raise TypeError("Missing required property 'recurrence_period_end'")
             __props__['recurrence_period_end'] = recurrence_period_end
-            if recurrence_period_start is None:
+            if recurrence_period_start is None and not opts.urn:
                 raise TypeError("Missing required property 'recurrence_period_start'")
             __props__['recurrence_period_start'] = recurrence_period_start
-            if recurrence_type is None:
+            if recurrence_type is None and not opts.urn:
                 raise TypeError("Missing required property 'recurrence_type'")
             __props__['recurrence_type'] = recurrence_type
-            if resource_group_id is None:
+            if resource_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_id'")
             __props__['resource_group_id'] = resource_group_id
         super(ResourceGroupExport, __self__).__init__(

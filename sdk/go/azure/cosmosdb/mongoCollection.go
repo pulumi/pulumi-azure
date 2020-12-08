@@ -89,17 +89,18 @@ type MongoCollection struct {
 // NewMongoCollection registers a new resource with the given unique name, arguments, and options.
 func NewMongoCollection(ctx *pulumi.Context,
 	name string, args *MongoCollectionArgs, opts ...pulumi.ResourceOption) (*MongoCollection, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.DatabaseName == nil {
-		return nil, errors.New("missing required argument 'DatabaseName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &MongoCollectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.DatabaseName == nil {
+		return nil, errors.New("invalid value for required argument 'DatabaseName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource MongoCollection
 	err := ctx.RegisterResource("azure:cosmosdb/mongoCollection:MongoCollection", name, args, &resource, opts...)

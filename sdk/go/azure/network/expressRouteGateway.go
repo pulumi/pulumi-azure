@@ -92,17 +92,18 @@ type ExpressRouteGateway struct {
 // NewExpressRouteGateway registers a new resource with the given unique name, arguments, and options.
 func NewExpressRouteGateway(ctx *pulumi.Context,
 	name string, args *ExpressRouteGatewayArgs, opts ...pulumi.ResourceOption) (*ExpressRouteGateway, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ScaleUnits == nil {
-		return nil, errors.New("missing required argument 'ScaleUnits'")
-	}
-	if args == nil || args.VirtualHubId == nil {
-		return nil, errors.New("missing required argument 'VirtualHubId'")
-	}
 	if args == nil {
-		args = &ExpressRouteGatewayArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ScaleUnits == nil {
+		return nil, errors.New("invalid value for required argument 'ScaleUnits'")
+	}
+	if args.VirtualHubId == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualHubId'")
 	}
 	var resource ExpressRouteGateway
 	err := ctx.RegisterResource("azure:network/expressRouteGateway:ExpressRouteGateway", name, args, &resource, opts...)

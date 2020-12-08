@@ -152,16 +152,16 @@ class Endpoint(pulumi.CustomResource):
             __props__['min_child_endpoints'] = min_child_endpoints
             __props__['name'] = name
             __props__['priority'] = priority
-            if profile_name is None:
+            if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['subnets'] = subnets
             __props__['target'] = target
             __props__['target_resource_id'] = target_resource_id
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['weight'] = weight

@@ -89,14 +89,14 @@ class ActionRuleActionGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if action_group_id is None:
+            if action_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'action_group_id'")
             __props__['action_group_id'] = action_group_id
             __props__['condition'] = condition
             __props__['description'] = description
             __props__['enabled'] = enabled
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['scope'] = scope

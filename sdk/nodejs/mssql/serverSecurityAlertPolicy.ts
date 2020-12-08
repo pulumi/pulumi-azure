@@ -139,13 +139,13 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
             inputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
         } else {
             const args = argsOrState as ServerSecurityAlertPolicyArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if (!args || args.state === undefined) {
+            if ((!args || args.state === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'state'");
             }
             inputs["disabledAlerts"] = args ? args.disabledAlerts : undefined;

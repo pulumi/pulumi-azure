@@ -190,10 +190,10 @@ export class Assignment extends pulumi.CustomResource {
             inputs["skipServicePrincipalAadCheck"] = state ? state.skipServicePrincipalAadCheck : undefined;
         } else {
             const args = argsOrState as AssignmentArgs | undefined;
-            if (!args || args.principalId === undefined) {
+            if ((!args || args.principalId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["name"] = args ? args.name : undefined;

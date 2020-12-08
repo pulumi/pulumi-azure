@@ -11,3 +11,35 @@ from .policy_set_definition import *
 from .remediation import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure:policy/assignment:Assignment":
+                return Assignment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:policy/definition:Definition":
+                return Definition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:policy/policySetDefinition:PolicySetDefinition":
+                return PolicySetDefinition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:policy/remediation:Remediation":
+                return Remediation(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure", "policy/assignment", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "policy/definition", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "policy/policySetDefinition", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "policy/remediation", _module_instance)
+
+_register_module()

@@ -113,7 +113,7 @@ class Firewall(pulumi.CustomResource):
             __props__['location'] = location
             __props__['management_ip_configuration'] = management_ip_configuration
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku_name'] = sku_name

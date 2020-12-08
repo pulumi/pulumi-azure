@@ -111,16 +111,16 @@ export class Route extends pulumi.CustomResource {
             inputs["routeTableName"] = state ? state.routeTableName : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
-            if (!args || args.addressPrefix === undefined) {
+            if ((!args || args.addressPrefix === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'addressPrefix'");
             }
-            if (!args || args.nextHopType === undefined) {
+            if ((!args || args.nextHopType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'nextHopType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.routeTableName === undefined) {
+            if ((!args || args.routeTableName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'routeTableName'");
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;

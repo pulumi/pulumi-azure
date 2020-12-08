@@ -115,23 +115,23 @@ class EventhubDataConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
-            if consumer_group is None:
+            if consumer_group is None and not opts.urn:
                 raise TypeError("Missing required property 'consumer_group'")
             __props__['consumer_group'] = consumer_group
             __props__['data_format'] = data_format
-            if database_name is None:
+            if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
-            if eventhub_id is None:
+            if eventhub_id is None and not opts.urn:
                 raise TypeError("Missing required property 'eventhub_id'")
             __props__['eventhub_id'] = eventhub_id
             __props__['location'] = location
             __props__['mapping_rule_name'] = mapping_rule_name
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['table_name'] = table_name

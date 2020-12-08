@@ -88,12 +88,12 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['retention_in_days'] = retention_in_days
-            if server_id is None:
+            if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
             __props__['server_id'] = server_id
             __props__['storage_account_access_key'] = storage_account_access_key
             __props__['storage_account_access_key_is_secondary'] = storage_account_access_key_is_secondary
-            if storage_endpoint is None:
+            if storage_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_endpoint'")
             __props__['storage_endpoint'] = storage_endpoint
         super(ServerExtendedAuditingPolicy, __self__).__init__(

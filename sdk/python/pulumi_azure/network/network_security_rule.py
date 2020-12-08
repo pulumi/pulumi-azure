@@ -112,7 +112,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if access is None:
+            if access is None and not opts.urn:
                 raise TypeError("Missing required property 'access'")
             __props__['access'] = access
             __props__['description'] = description
@@ -121,20 +121,20 @@ class NetworkSecurityRule(pulumi.CustomResource):
             __props__['destination_application_security_group_ids'] = destination_application_security_group_ids
             __props__['destination_port_range'] = destination_port_range
             __props__['destination_port_ranges'] = destination_port_ranges
-            if direction is None:
+            if direction is None and not opts.urn:
                 raise TypeError("Missing required property 'direction'")
             __props__['direction'] = direction
             __props__['name'] = name
-            if network_security_group_name is None:
+            if network_security_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_security_group_name'")
             __props__['network_security_group_name'] = network_security_group_name
-            if priority is None:
+            if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")
             __props__['priority'] = priority
-            if protocol is None:
+            if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__['protocol'] = protocol
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['source_address_prefix'] = source_address_prefix

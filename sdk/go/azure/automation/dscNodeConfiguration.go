@@ -37,17 +37,18 @@ type DscNodeConfiguration struct {
 // NewDscNodeConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewDscNodeConfiguration(ctx *pulumi.Context,
 	name string, args *DscNodeConfigurationArgs, opts ...pulumi.ResourceOption) (*DscNodeConfiguration, error) {
-	if args == nil || args.AutomationAccountName == nil {
-		return nil, errors.New("missing required argument 'AutomationAccountName'")
-	}
-	if args == nil || args.ContentEmbedded == nil {
-		return nil, errors.New("missing required argument 'ContentEmbedded'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DscNodeConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AutomationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
+	}
+	if args.ContentEmbedded == nil {
+		return nil, errors.New("invalid value for required argument 'ContentEmbedded'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource DscNodeConfiguration
 	err := ctx.RegisterResource("azure:automation/dscNodeConfiguration:DscNodeConfiguration", name, args, &resource, opts...)

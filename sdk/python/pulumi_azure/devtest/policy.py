@@ -93,22 +93,22 @@ class Policy(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            if evaluator_type is None:
+            if evaluator_type is None and not opts.urn:
                 raise TypeError("Missing required property 'evaluator_type'")
             __props__['evaluator_type'] = evaluator_type
             __props__['fact_data'] = fact_data
-            if lab_name is None:
+            if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
             __props__['name'] = name
-            if policy_set_name is None:
+            if policy_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_set_name'")
             __props__['policy_set_name'] = policy_set_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if threshold is None:
+            if threshold is None and not opts.urn:
                 raise TypeError("Missing required property 'threshold'")
             __props__['threshold'] = threshold
         super(Policy, __self__).__init__(

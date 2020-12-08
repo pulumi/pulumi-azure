@@ -193,13 +193,13 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as ManagedDiskArgs | undefined;
-            if (!args || args.createOption === undefined) {
+            if ((!args || args.createOption === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'createOption'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.storageAccountType === undefined) {
+            if ((!args || args.storageAccountType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountType'");
             }
             inputs["createOption"] = args ? args.createOption : undefined;

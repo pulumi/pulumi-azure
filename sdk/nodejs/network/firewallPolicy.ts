@@ -126,7 +126,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             inputs["threatIntelligenceMode"] = state ? state.threatIntelligenceMode : undefined;
         } else {
             const args = argsOrState as FirewallPolicyArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["basePolicyId"] = args ? args.basePolicyId : undefined;

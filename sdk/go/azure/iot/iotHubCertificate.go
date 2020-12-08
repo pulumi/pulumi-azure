@@ -36,17 +36,18 @@ type IotHubCertificate struct {
 // NewIotHubCertificate registers a new resource with the given unique name, arguments, and options.
 func NewIotHubCertificate(ctx *pulumi.Context,
 	name string, args *IotHubCertificateArgs, opts ...pulumi.ResourceOption) (*IotHubCertificate, error) {
-	if args == nil || args.CertificateContent == nil {
-		return nil, errors.New("missing required argument 'CertificateContent'")
-	}
-	if args == nil || args.IotDpsName == nil {
-		return nil, errors.New("missing required argument 'IotDpsName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &IotHubCertificateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CertificateContent == nil {
+		return nil, errors.New("invalid value for required argument 'CertificateContent'")
+	}
+	if args.IotDpsName == nil {
+		return nil, errors.New("invalid value for required argument 'IotDpsName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource IotHubCertificate
 	err := ctx.RegisterResource("azure:iot/iotHubCertificate:IotHubCertificate", name, args, &resource, opts...)

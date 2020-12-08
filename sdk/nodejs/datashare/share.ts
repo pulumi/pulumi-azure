@@ -116,10 +116,10 @@ export class Share extends pulumi.CustomResource {
             inputs["terms"] = state ? state.terms : undefined;
         } else {
             const args = argsOrState as ShareArgs | undefined;
-            if (!args || args.accountId === undefined) {
+            if ((!args || args.accountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if (!args || args.kind === undefined) {
+            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;

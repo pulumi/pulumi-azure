@@ -91,14 +91,15 @@ type ActionRuleActionGroup struct {
 // NewActionRuleActionGroup registers a new resource with the given unique name, arguments, and options.
 func NewActionRuleActionGroup(ctx *pulumi.Context,
 	name string, args *ActionRuleActionGroupArgs, opts ...pulumi.ResourceOption) (*ActionRuleActionGroup, error) {
-	if args == nil || args.ActionGroupId == nil {
-		return nil, errors.New("missing required argument 'ActionGroupId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ActionRuleActionGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ActionGroupId == nil {
+		return nil, errors.New("invalid value for required argument 'ActionGroupId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ActionRuleActionGroup
 	err := ctx.RegisterResource("azure:monitoring/actionRuleActionGroup:ActionRuleActionGroup", name, args, &resource, opts...)

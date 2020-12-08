@@ -138,19 +138,19 @@ export class Schedule extends pulumi.CustomResource {
             inputs["weeklyRecurrence"] = state ? state.weeklyRecurrence : undefined;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
-            if (!args || args.labName === undefined) {
+            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'labName'");
             }
-            if (!args || args.notificationSettings === undefined) {
+            if ((!args || args.notificationSettings === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'notificationSettings'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.taskType === undefined) {
+            if ((!args || args.taskType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'taskType'");
             }
-            if (!args || args.timeZoneId === undefined) {
+            if ((!args || args.timeZoneId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'timeZoneId'");
             }
             inputs["dailyRecurrence"] = args ? args.dailyRecurrence : undefined;

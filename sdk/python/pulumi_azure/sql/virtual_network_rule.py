@@ -89,13 +89,13 @@ class VirtualNetworkRule(pulumi.CustomResource):
 
             __props__['ignore_missing_vnet_service_endpoint'] = ignore_missing_vnet_service_endpoint
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
-            if subnet_id is None:
+            if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
         super(VirtualNetworkRule, __self__).__init__(

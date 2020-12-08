@@ -122,23 +122,24 @@ type HybridConnection struct {
 // NewHybridConnection registers a new resource with the given unique name, arguments, and options.
 func NewHybridConnection(ctx *pulumi.Context,
 	name string, args *HybridConnectionArgs, opts ...pulumi.ResourceOption) (*HybridConnection, error) {
-	if args == nil || args.AppServiceName == nil {
-		return nil, errors.New("missing required argument 'AppServiceName'")
-	}
-	if args == nil || args.Hostname == nil {
-		return nil, errors.New("missing required argument 'Hostname'")
-	}
-	if args == nil || args.Port == nil {
-		return nil, errors.New("missing required argument 'Port'")
-	}
-	if args == nil || args.RelayId == nil {
-		return nil, errors.New("missing required argument 'RelayId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &HybridConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AppServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'AppServiceName'")
+	}
+	if args.Hostname == nil {
+		return nil, errors.New("invalid value for required argument 'Hostname'")
+	}
+	if args.Port == nil {
+		return nil, errors.New("invalid value for required argument 'Port'")
+	}
+	if args.RelayId == nil {
+		return nil, errors.New("invalid value for required argument 'RelayId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource HybridConnection
 	err := ctx.RegisterResource("azure:appservice/hybridConnection:HybridConnection", name, args, &resource, opts...)

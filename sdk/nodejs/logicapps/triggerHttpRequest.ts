@@ -108,10 +108,10 @@ export class TriggerHttpRequest extends pulumi.CustomResource {
             inputs["schema"] = state ? state.schema : undefined;
         } else {
             const args = argsOrState as TriggerHttpRequestArgs | undefined;
-            if (!args || args.logicAppId === undefined) {
+            if ((!args || args.logicAppId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'logicAppId'");
             }
-            if (!args || args.schema === undefined) {
+            if ((!args || args.schema === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'schema'");
             }
             inputs["logicAppId"] = args ? args.logicAppId : undefined;

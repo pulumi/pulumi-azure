@@ -67,13 +67,13 @@ class Agreement(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if offer is None:
+            if offer is None and not opts.urn:
                 raise TypeError("Missing required property 'offer'")
             __props__['offer'] = offer
-            if plan is None:
+            if plan is None and not opts.urn:
                 raise TypeError("Missing required property 'plan'")
             __props__['plan'] = plan
-            if publisher is None:
+            if publisher is None and not opts.urn:
                 raise TypeError("Missing required property 'publisher'")
             __props__['publisher'] = publisher
             __props__['license_text_link'] = None

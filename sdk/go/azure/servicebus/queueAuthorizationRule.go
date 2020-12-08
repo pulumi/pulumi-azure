@@ -104,17 +104,18 @@ type QueueAuthorizationRule struct {
 // NewQueueAuthorizationRule registers a new resource with the given unique name, arguments, and options.
 func NewQueueAuthorizationRule(ctx *pulumi.Context,
 	name string, args *QueueAuthorizationRuleArgs, opts ...pulumi.ResourceOption) (*QueueAuthorizationRule, error) {
-	if args == nil || args.NamespaceName == nil {
-		return nil, errors.New("missing required argument 'NamespaceName'")
-	}
-	if args == nil || args.QueueName == nil {
-		return nil, errors.New("missing required argument 'QueueName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &QueueAuthorizationRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NamespaceName == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceName'")
+	}
+	if args.QueueName == nil {
+		return nil, errors.New("invalid value for required argument 'QueueName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -207,29 +207,30 @@ type WindowsVirtualMachineScaleSet struct {
 // NewWindowsVirtualMachineScaleSet registers a new resource with the given unique name, arguments, and options.
 func NewWindowsVirtualMachineScaleSet(ctx *pulumi.Context,
 	name string, args *WindowsVirtualMachineScaleSetArgs, opts ...pulumi.ResourceOption) (*WindowsVirtualMachineScaleSet, error) {
-	if args == nil || args.AdminPassword == nil {
-		return nil, errors.New("missing required argument 'AdminPassword'")
-	}
-	if args == nil || args.AdminUsername == nil {
-		return nil, errors.New("missing required argument 'AdminUsername'")
-	}
-	if args == nil || args.Instances == nil {
-		return nil, errors.New("missing required argument 'Instances'")
-	}
-	if args == nil || args.NetworkInterfaces == nil {
-		return nil, errors.New("missing required argument 'NetworkInterfaces'")
-	}
-	if args == nil || args.OsDisk == nil {
-		return nil, errors.New("missing required argument 'OsDisk'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	if args == nil {
-		args = &WindowsVirtualMachineScaleSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AdminPassword == nil {
+		return nil, errors.New("invalid value for required argument 'AdminPassword'")
+	}
+	if args.AdminUsername == nil {
+		return nil, errors.New("invalid value for required argument 'AdminUsername'")
+	}
+	if args.Instances == nil {
+		return nil, errors.New("invalid value for required argument 'Instances'")
+	}
+	if args.NetworkInterfaces == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkInterfaces'")
+	}
+	if args.OsDisk == nil {
+		return nil, errors.New("invalid value for required argument 'OsDisk'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	var resource WindowsVirtualMachineScaleSet
 	err := ctx.RegisterResource("azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet", name, args, &resource, opts...)

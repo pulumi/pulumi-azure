@@ -74,14 +74,15 @@ type ActionCustom struct {
 // NewActionCustom registers a new resource with the given unique name, arguments, and options.
 func NewActionCustom(ctx *pulumi.Context,
 	name string, args *ActionCustomArgs, opts ...pulumi.ResourceOption) (*ActionCustom, error) {
-	if args == nil || args.Body == nil {
-		return nil, errors.New("missing required argument 'Body'")
-	}
-	if args == nil || args.LogicAppId == nil {
-		return nil, errors.New("missing required argument 'LogicAppId'")
-	}
 	if args == nil {
-		args = &ActionCustomArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Body == nil {
+		return nil, errors.New("invalid value for required argument 'Body'")
+	}
+	if args.LogicAppId == nil {
+		return nil, errors.New("invalid value for required argument 'LogicAppId'")
 	}
 	var resource ActionCustom
 	err := ctx.RegisterResource("azure:logicapps/actionCustom:ActionCustom", name, args, &resource, opts...)

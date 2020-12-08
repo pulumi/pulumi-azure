@@ -112,17 +112,18 @@ type EventHubAuthorizationRule struct {
 // NewEventHubAuthorizationRule registers a new resource with the given unique name, arguments, and options.
 func NewEventHubAuthorizationRule(ctx *pulumi.Context,
 	name string, args *EventHubAuthorizationRuleArgs, opts ...pulumi.ResourceOption) (*EventHubAuthorizationRule, error) {
-	if args == nil || args.EventhubName == nil {
-		return nil, errors.New("missing required argument 'EventhubName'")
-	}
-	if args == nil || args.NamespaceName == nil {
-		return nil, errors.New("missing required argument 'NamespaceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &EventHubAuthorizationRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EventhubName == nil {
+		return nil, errors.New("invalid value for required argument 'EventhubName'")
+	}
+	if args.NamespaceName == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource EventHubAuthorizationRule
 	err := ctx.RegisterResource("azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule", name, args, &resource, opts...)

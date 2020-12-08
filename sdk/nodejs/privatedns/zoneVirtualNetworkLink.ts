@@ -103,13 +103,13 @@ export class ZoneVirtualNetworkLink extends pulumi.CustomResource {
             inputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
         } else {
             const args = argsOrState as ZoneVirtualNetworkLinkArgs | undefined;
-            if (!args || args.privateDnsZoneName === undefined) {
+            if ((!args || args.privateDnsZoneName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateDnsZoneName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.virtualNetworkId === undefined) {
+            if ((!args || args.virtualNetworkId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualNetworkId'");
             }
             inputs["name"] = args ? args.name : undefined;

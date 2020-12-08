@@ -123,13 +123,13 @@ export class SlotVirtualNetworkSwiftConnection extends pulumi.CustomResource {
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as SlotVirtualNetworkSwiftConnectionArgs | undefined;
-            if (!args || args.appServiceId === undefined) {
+            if ((!args || args.appServiceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'appServiceId'");
             }
-            if (!args || args.slotName === undefined) {
+            if ((!args || args.slotName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'slotName'");
             }
-            if (!args || args.subnetId === undefined) {
+            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetId'");
             }
             inputs["appServiceId"] = args ? args.appServiceId : undefined;

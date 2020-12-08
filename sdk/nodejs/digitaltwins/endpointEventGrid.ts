@@ -111,16 +111,16 @@ export class EndpointEventGrid extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as EndpointEventGridArgs | undefined;
-            if (!args || args.digitalTwinsId === undefined) {
+            if ((!args || args.digitalTwinsId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'digitalTwinsId'");
             }
-            if (!args || args.eventgridTopicEndpoint === undefined) {
+            if ((!args || args.eventgridTopicEndpoint === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventgridTopicEndpoint'");
             }
-            if (!args || args.eventgridTopicPrimaryAccessKey === undefined) {
+            if ((!args || args.eventgridTopicPrimaryAccessKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventgridTopicPrimaryAccessKey'");
             }
-            if (!args || args.eventgridTopicSecondaryAccessKey === undefined) {
+            if ((!args || args.eventgridTopicSecondaryAccessKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventgridTopicSecondaryAccessKey'");
             }
             inputs["deadLetterStorageSecret"] = args ? args.deadLetterStorageSecret : undefined;

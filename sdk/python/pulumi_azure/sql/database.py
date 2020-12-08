@@ -135,7 +135,7 @@ class Database(pulumi.CustomResource):
             __props__['create_mode'] = create_mode
             __props__['edition'] = edition
             __props__['elastic_pool_name'] = elastic_pool_name
-            if extended_auditing_policy is not None:
+            if extended_auditing_policy is not None and not opts.urn:
                 warnings.warn("""the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
                 pulumi.log.warn("extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.")
             __props__['extended_auditing_policy'] = extended_auditing_policy
@@ -147,11 +147,11 @@ class Database(pulumi.CustomResource):
             __props__['read_scale'] = read_scale
             __props__['requested_service_objective_id'] = requested_service_objective_id
             __props__['requested_service_objective_name'] = requested_service_objective_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['restore_point_in_time'] = restore_point_in_time
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['source_database_deletion_date'] = source_database_deletion_date

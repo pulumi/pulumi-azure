@@ -83,19 +83,19 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if login is None:
+            if login is None and not opts.urn:
                 raise TypeError("Missing required property 'login'")
             __props__['login'] = login
-            if object_id is None:
+            if object_id is None and not opts.urn:
                 raise TypeError("Missing required property 'object_id'")
             __props__['object_id'] = object_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
-            if tenant_id is None:
+            if tenant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant_id'")
             __props__['tenant_id'] = tenant_id
         super(ActiveDirectoryAdministrator, __self__).__init__(

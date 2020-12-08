@@ -101,7 +101,7 @@ class ApiKey(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if application_insights_id is None:
+            if application_insights_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_insights_id'")
             __props__['application_insights_id'] = application_insights_id
             __props__['name'] = name

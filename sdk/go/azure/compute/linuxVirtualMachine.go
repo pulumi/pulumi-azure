@@ -112,23 +112,24 @@ type LinuxVirtualMachine struct {
 // NewLinuxVirtualMachine registers a new resource with the given unique name, arguments, and options.
 func NewLinuxVirtualMachine(ctx *pulumi.Context,
 	name string, args *LinuxVirtualMachineArgs, opts ...pulumi.ResourceOption) (*LinuxVirtualMachine, error) {
-	if args == nil || args.AdminUsername == nil {
-		return nil, errors.New("missing required argument 'AdminUsername'")
-	}
-	if args == nil || args.NetworkInterfaceIds == nil {
-		return nil, errors.New("missing required argument 'NetworkInterfaceIds'")
-	}
-	if args == nil || args.OsDisk == nil {
-		return nil, errors.New("missing required argument 'OsDisk'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Size == nil {
-		return nil, errors.New("missing required argument 'Size'")
-	}
 	if args == nil {
-		args = &LinuxVirtualMachineArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AdminUsername == nil {
+		return nil, errors.New("invalid value for required argument 'AdminUsername'")
+	}
+	if args.NetworkInterfaceIds == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkInterfaceIds'")
+	}
+	if args.OsDisk == nil {
+		return nil, errors.New("invalid value for required argument 'OsDisk'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Size == nil {
+		return nil, errors.New("invalid value for required argument 'Size'")
 	}
 	var resource LinuxVirtualMachine
 	err := ctx.RegisterResource("azure:compute/linuxVirtualMachine:LinuxVirtualMachine", name, args, &resource, opts...)

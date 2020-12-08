@@ -152,10 +152,10 @@ export class CustomHttpsConfiguration extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as CustomHttpsConfigurationArgs | undefined;
-            if (!args || args.customHttpsProvisioningEnabled === undefined) {
+            if ((!args || args.customHttpsProvisioningEnabled === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'customHttpsProvisioningEnabled'");
             }
-            if (!args || args.frontendEndpointId === undefined) {
+            if ((!args || args.frontendEndpointId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'frontendEndpointId'");
             }
             inputs["customHttpsConfiguration"] = args ? args.customHttpsConfiguration : undefined;

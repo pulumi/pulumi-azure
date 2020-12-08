@@ -90,17 +90,18 @@ type LinkedServiceAzureBlobStorage struct {
 // NewLinkedServiceAzureBlobStorage registers a new resource with the given unique name, arguments, and options.
 func NewLinkedServiceAzureBlobStorage(ctx *pulumi.Context,
 	name string, args *LinkedServiceAzureBlobStorageArgs, opts ...pulumi.ResourceOption) (*LinkedServiceAzureBlobStorage, error) {
-	if args == nil || args.ConnectionString == nil {
-		return nil, errors.New("missing required argument 'ConnectionString'")
-	}
-	if args == nil || args.DataFactoryName == nil {
-		return nil, errors.New("missing required argument 'DataFactoryName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &LinkedServiceAzureBlobStorageArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConnectionString == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionString'")
+	}
+	if args.DataFactoryName == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource LinkedServiceAzureBlobStorage
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage", name, args, &resource, opts...)

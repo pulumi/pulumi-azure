@@ -118,10 +118,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["uniqueIdentifier"] = state ? state.uniqueIdentifier : undefined;
         } else {
             const args = argsOrState as VirtualNetworkArgs | undefined;
-            if (!args || args.labName === undefined) {
+            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'labName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["description"] = args ? args.description : undefined;

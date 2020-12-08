@@ -41,3 +41,86 @@ from .windows_virtual_machine import *
 from .windows_virtual_machine_scale_set import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure:compute/availabilitySet:AvailabilitySet":
+                return AvailabilitySet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/bastionHost:BastionHost":
+                return BastionHost(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/dataDiskAttachment:DataDiskAttachment":
+                return DataDiskAttachment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/dedicatedHost:DedicatedHost":
+                return DedicatedHost(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/dedicatedHostGroup:DedicatedHostGroup":
+                return DedicatedHostGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/diskEncryptionSet:DiskEncryptionSet":
+                return DiskEncryptionSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/extension:Extension":
+                return Extension(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/image:Image":
+                return Image(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/linuxVirtualMachine:LinuxVirtualMachine":
+                return LinuxVirtualMachine(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/linuxVirtualMachineScaleSet:LinuxVirtualMachineScaleSet":
+                return LinuxVirtualMachineScaleSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/managedDisk:ManagedDisk":
+                return ManagedDisk(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet":
+                return OrchestratedVirtualMachineScaleSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/scaleSet:ScaleSet":
+                return ScaleSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/sharedImage:SharedImage":
+                return SharedImage(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/sharedImageGallery:SharedImageGallery":
+                return SharedImageGallery(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/sharedImageVersion:SharedImageVersion":
+                return SharedImageVersion(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/snapshot:Snapshot":
+                return Snapshot(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/virtualMachine:VirtualMachine":
+                return VirtualMachine(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension":
+                return VirtualMachineScaleSetExtension(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/windowsVirtualMachine:WindowsVirtualMachine":
+                return WindowsVirtualMachine(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet":
+                return WindowsVirtualMachineScaleSet(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure", "compute/availabilitySet", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/bastionHost", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/dataDiskAttachment", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/dedicatedHost", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/dedicatedHostGroup", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/diskEncryptionSet", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/extension", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/image", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/linuxVirtualMachine", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/linuxVirtualMachineScaleSet", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/managedDisk", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/orchestratedVirtualMachineScaleSet", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/scaleSet", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/sharedImage", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/sharedImageGallery", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/sharedImageVersion", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/snapshot", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/virtualMachine", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/virtualMachineScaleSetExtension", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/windowsVirtualMachine", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/windowsVirtualMachineScaleSet", _module_instance)
+
+_register_module()

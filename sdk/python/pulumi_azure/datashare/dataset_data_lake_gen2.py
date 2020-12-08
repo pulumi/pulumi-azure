@@ -61,7 +61,7 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
             storage_account_id=example_storage / account_account["id"],
             file_system_name=example_data_lake_gen2_filesystem.name,
             file_path="myfile.txt",
-            opts=ResourceOptions(depends_on=[example_assignment]))
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import
@@ -99,15 +99,15 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['file_path'] = file_path
-            if file_system_name is None:
+            if file_system_name is None and not opts.urn:
                 raise TypeError("Missing required property 'file_system_name'")
             __props__['file_system_name'] = file_system_name
             __props__['folder_path'] = folder_path
             __props__['name'] = name
-            if share_id is None:
+            if share_id is None and not opts.urn:
                 raise TypeError("Missing required property 'share_id'")
             __props__['share_id'] = share_id
-            if storage_account_id is None:
+            if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
             __props__['storage_account_id'] = storage_account_id
             __props__['display_name'] = None

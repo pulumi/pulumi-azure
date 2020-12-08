@@ -75,14 +75,15 @@ type DomainTopic struct {
 // NewDomainTopic registers a new resource with the given unique name, arguments, and options.
 func NewDomainTopic(ctx *pulumi.Context,
 	name string, args *DomainTopicArgs, opts ...pulumi.ResourceOption) (*DomainTopic, error) {
-	if args == nil || args.DomainName == nil {
-		return nil, errors.New("missing required argument 'DomainName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DomainTopicArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DomainName == nil {
+		return nil, errors.New("invalid value for required argument 'DomainName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource DomainTopic
 	err := ctx.RegisterResource("azure:eventgrid/domainTopic:DomainTopic", name, args, &resource, opts...)

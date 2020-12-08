@@ -145,20 +145,21 @@ type CacheBlobTarget struct {
 // NewCacheBlobTarget registers a new resource with the given unique name, arguments, and options.
 func NewCacheBlobTarget(ctx *pulumi.Context,
 	name string, args *CacheBlobTargetArgs, opts ...pulumi.ResourceOption) (*CacheBlobTarget, error) {
-	if args == nil || args.CacheName == nil {
-		return nil, errors.New("missing required argument 'CacheName'")
-	}
-	if args == nil || args.NamespacePath == nil {
-		return nil, errors.New("missing required argument 'NamespacePath'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StorageContainerId == nil {
-		return nil, errors.New("missing required argument 'StorageContainerId'")
-	}
 	if args == nil {
-		args = &CacheBlobTargetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CacheName == nil {
+		return nil, errors.New("invalid value for required argument 'CacheName'")
+	}
+	if args.NamespacePath == nil {
+		return nil, errors.New("invalid value for required argument 'NamespacePath'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageContainerId == nil {
+		return nil, errors.New("invalid value for required argument 'StorageContainerId'")
 	}
 	var resource CacheBlobTarget
 	err := ctx.RegisterResource("azure:hpc/cacheBlobTarget:CacheBlobTarget", name, args, &resource, opts...)

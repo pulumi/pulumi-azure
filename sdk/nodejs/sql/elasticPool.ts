@@ -143,16 +143,16 @@ export class ElasticPool extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ElasticPoolArgs | undefined;
-            if (!args || args.dtu === undefined) {
+            if ((!args || args.dtu === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dtu'");
             }
-            if (!args || args.edition === undefined) {
+            if ((!args || args.edition === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'edition'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["dbDtuMax"] = args ? args.dbDtuMax : undefined;

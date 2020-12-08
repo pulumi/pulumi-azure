@@ -112,20 +112,21 @@ type Workspace struct {
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
 func NewWorkspace(ctx *pulumi.Context,
 	name string, args *WorkspaceArgs, opts ...pulumi.ResourceOption) (*Workspace, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SqlAdministratorLogin == nil {
-		return nil, errors.New("missing required argument 'SqlAdministratorLogin'")
-	}
-	if args == nil || args.SqlAdministratorLoginPassword == nil {
-		return nil, errors.New("missing required argument 'SqlAdministratorLoginPassword'")
-	}
-	if args == nil || args.StorageDataLakeGen2FilesystemId == nil {
-		return nil, errors.New("missing required argument 'StorageDataLakeGen2FilesystemId'")
-	}
 	if args == nil {
-		args = &WorkspaceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SqlAdministratorLogin == nil {
+		return nil, errors.New("invalid value for required argument 'SqlAdministratorLogin'")
+	}
+	if args.SqlAdministratorLoginPassword == nil {
+		return nil, errors.New("invalid value for required argument 'SqlAdministratorLoginPassword'")
+	}
+	if args.StorageDataLakeGen2FilesystemId == nil {
+		return nil, errors.New("invalid value for required argument 'StorageDataLakeGen2FilesystemId'")
 	}
 	var resource Workspace
 	err := ctx.RegisterResource("azure:synapse/workspace:Workspace", name, args, &resource, opts...)

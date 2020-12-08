@@ -113,10 +113,10 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ExpressRouteCircuitAuthorizationArgs | undefined;
-            if (!args || args.expressRouteCircuitName === undefined) {
+            if ((!args || args.expressRouteCircuitName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'expressRouteCircuitName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["expressRouteCircuitName"] = args ? args.expressRouteCircuitName : undefined;

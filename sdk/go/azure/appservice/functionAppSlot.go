@@ -145,23 +145,24 @@ type FunctionAppSlot struct {
 // NewFunctionAppSlot registers a new resource with the given unique name, arguments, and options.
 func NewFunctionAppSlot(ctx *pulumi.Context,
 	name string, args *FunctionAppSlotArgs, opts ...pulumi.ResourceOption) (*FunctionAppSlot, error) {
-	if args == nil || args.AppServicePlanId == nil {
-		return nil, errors.New("missing required argument 'AppServicePlanId'")
-	}
-	if args == nil || args.FunctionAppName == nil {
-		return nil, errors.New("missing required argument 'FunctionAppName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StorageAccountAccessKey == nil {
-		return nil, errors.New("missing required argument 'StorageAccountAccessKey'")
-	}
-	if args == nil || args.StorageAccountName == nil {
-		return nil, errors.New("missing required argument 'StorageAccountName'")
-	}
 	if args == nil {
-		args = &FunctionAppSlotArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AppServicePlanId == nil {
+		return nil, errors.New("invalid value for required argument 'AppServicePlanId'")
+	}
+	if args.FunctionAppName == nil {
+		return nil, errors.New("invalid value for required argument 'FunctionAppName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageAccountAccessKey == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccountAccessKey'")
+	}
+	if args.StorageAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
 	}
 	var resource FunctionAppSlot
 	err := ctx.RegisterResource("azure:appservice/functionAppSlot:FunctionAppSlot", name, args, &resource, opts...)

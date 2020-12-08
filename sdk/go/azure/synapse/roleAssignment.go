@@ -108,17 +108,18 @@ type RoleAssignment struct {
 // NewRoleAssignment registers a new resource with the given unique name, arguments, and options.
 func NewRoleAssignment(ctx *pulumi.Context,
 	name string, args *RoleAssignmentArgs, opts ...pulumi.ResourceOption) (*RoleAssignment, error) {
-	if args == nil || args.PrincipalId == nil {
-		return nil, errors.New("missing required argument 'PrincipalId'")
-	}
-	if args == nil || args.RoleName == nil {
-		return nil, errors.New("missing required argument 'RoleName'")
-	}
-	if args == nil || args.SynapseWorkspaceId == nil {
-		return nil, errors.New("missing required argument 'SynapseWorkspaceId'")
-	}
 	if args == nil {
-		args = &RoleAssignmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PrincipalId == nil {
+		return nil, errors.New("invalid value for required argument 'PrincipalId'")
+	}
+	if args.RoleName == nil {
+		return nil, errors.New("invalid value for required argument 'RoleName'")
+	}
+	if args.SynapseWorkspaceId == nil {
+		return nil, errors.New("invalid value for required argument 'SynapseWorkspaceId'")
 	}
 	var resource RoleAssignment
 	err := ctx.RegisterResource("azure:synapse/roleAssignment:RoleAssignment", name, args, &resource, opts...)

@@ -55,35 +55,36 @@ type ReplicatedVM struct {
 // NewReplicatedVM registers a new resource with the given unique name, arguments, and options.
 func NewReplicatedVM(ctx *pulumi.Context,
 	name string, args *ReplicatedVMArgs, opts ...pulumi.ResourceOption) (*ReplicatedVM, error) {
-	if args == nil || args.RecoveryReplicationPolicyId == nil {
-		return nil, errors.New("missing required argument 'RecoveryReplicationPolicyId'")
-	}
-	if args == nil || args.RecoveryVaultName == nil {
-		return nil, errors.New("missing required argument 'RecoveryVaultName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SourceRecoveryFabricName == nil {
-		return nil, errors.New("missing required argument 'SourceRecoveryFabricName'")
-	}
-	if args == nil || args.SourceRecoveryProtectionContainerName == nil {
-		return nil, errors.New("missing required argument 'SourceRecoveryProtectionContainerName'")
-	}
-	if args == nil || args.SourceVmId == nil {
-		return nil, errors.New("missing required argument 'SourceVmId'")
-	}
-	if args == nil || args.TargetRecoveryFabricId == nil {
-		return nil, errors.New("missing required argument 'TargetRecoveryFabricId'")
-	}
-	if args == nil || args.TargetRecoveryProtectionContainerId == nil {
-		return nil, errors.New("missing required argument 'TargetRecoveryProtectionContainerId'")
-	}
-	if args == nil || args.TargetResourceGroupId == nil {
-		return nil, errors.New("missing required argument 'TargetResourceGroupId'")
-	}
 	if args == nil {
-		args = &ReplicatedVMArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RecoveryReplicationPolicyId == nil {
+		return nil, errors.New("invalid value for required argument 'RecoveryReplicationPolicyId'")
+	}
+	if args.RecoveryVaultName == nil {
+		return nil, errors.New("invalid value for required argument 'RecoveryVaultName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SourceRecoveryFabricName == nil {
+		return nil, errors.New("invalid value for required argument 'SourceRecoveryFabricName'")
+	}
+	if args.SourceRecoveryProtectionContainerName == nil {
+		return nil, errors.New("invalid value for required argument 'SourceRecoveryProtectionContainerName'")
+	}
+	if args.SourceVmId == nil {
+		return nil, errors.New("invalid value for required argument 'SourceVmId'")
+	}
+	if args.TargetRecoveryFabricId == nil {
+		return nil, errors.New("invalid value for required argument 'TargetRecoveryFabricId'")
+	}
+	if args.TargetRecoveryProtectionContainerId == nil {
+		return nil, errors.New("invalid value for required argument 'TargetRecoveryProtectionContainerId'")
+	}
+	if args.TargetResourceGroupId == nil {
+		return nil, errors.New("invalid value for required argument 'TargetResourceGroupId'")
 	}
 	var resource ReplicatedVM
 	err := ctx.RegisterResource("azure:siterecovery/replicatedVM:ReplicatedVM", name, args, &resource, opts...)

@@ -83,23 +83,23 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if counter_name is None:
+            if counter_name is None and not opts.urn:
                 raise TypeError("Missing required property 'counter_name'")
             __props__['counter_name'] = counter_name
-            if instance_name is None:
+            if instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_name'")
             __props__['instance_name'] = instance_name
-            if interval_seconds is None:
+            if interval_seconds is None and not opts.urn:
                 raise TypeError("Missing required property 'interval_seconds'")
             __props__['interval_seconds'] = interval_seconds
             __props__['name'] = name
-            if object_name is None:
+            if object_name is None and not opts.urn:
                 raise TypeError("Missing required property 'object_name'")
             __props__['object_name'] = object_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
         super(DataSourceWindowsPerformanceCounter, __self__).__init__(

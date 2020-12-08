@@ -127,13 +127,13 @@ export class NetworkInterfaceNatRuleAssociation extends pulumi.CustomResource {
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
         } else {
             const args = argsOrState as NetworkInterfaceNatRuleAssociationArgs | undefined;
-            if (!args || args.ipConfigurationName === undefined) {
+            if ((!args || args.ipConfigurationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ipConfigurationName'");
             }
-            if (!args || args.natRuleId === undefined) {
+            if ((!args || args.natRuleId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'natRuleId'");
             }
-            if (!args || args.networkInterfaceId === undefined) {
+            if ((!args || args.networkInterfaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
             inputs["ipConfigurationName"] = args ? args.ipConfigurationName : undefined;

@@ -123,10 +123,10 @@ export class ActionRuleActionGroup extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ActionRuleActionGroupArgs | undefined;
-            if (!args || args.actionGroupId === undefined) {
+            if ((!args || args.actionGroupId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'actionGroupId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["actionGroupId"] = args ? args.actionGroupId : undefined;

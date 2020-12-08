@@ -107,16 +107,16 @@ export class ApiOperationPolicy extends pulumi.CustomResource {
             inputs["xmlLink"] = state ? state.xmlLink : undefined;
         } else {
             const args = argsOrState as ApiOperationPolicyArgs | undefined;
-            if (!args || args.apiManagementName === undefined) {
+            if ((!args || args.apiManagementName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if (!args || args.apiName === undefined) {
+            if ((!args || args.apiName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiName'");
             }
-            if (!args || args.operationId === undefined) {
+            if ((!args || args.operationId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'operationId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["apiManagementName"] = args ? args.apiManagementName : undefined;

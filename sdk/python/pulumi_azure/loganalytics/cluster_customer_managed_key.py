@@ -53,10 +53,10 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if key_vault_key_id is None:
+            if key_vault_key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_key_id'")
             __props__['key_vault_key_id'] = key_vault_key_id
-            if log_analytics_cluster_id is None:
+            if log_analytics_cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_cluster_id'")
             __props__['log_analytics_cluster_id'] = log_analytics_cluster_id
         super(ClusterCustomerManagedKey, __self__).__init__(

@@ -103,16 +103,16 @@ export class ReplicationPolicy extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ReplicationPolicyArgs | undefined;
-            if (!args || args.applicationConsistentSnapshotFrequencyInMinutes === undefined) {
+            if ((!args || args.applicationConsistentSnapshotFrequencyInMinutes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationConsistentSnapshotFrequencyInMinutes'");
             }
-            if (!args || args.recoveryPointRetentionInMinutes === undefined) {
+            if ((!args || args.recoveryPointRetentionInMinutes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'recoveryPointRetentionInMinutes'");
             }
-            if (!args || args.recoveryVaultName === undefined) {
+            if ((!args || args.recoveryVaultName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationConsistentSnapshotFrequencyInMinutes"] = args ? args.applicationConsistentSnapshotFrequencyInMinutes : undefined;

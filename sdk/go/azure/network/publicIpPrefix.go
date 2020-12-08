@@ -79,11 +79,12 @@ type PublicIpPrefix struct {
 // NewPublicIpPrefix registers a new resource with the given unique name, arguments, and options.
 func NewPublicIpPrefix(ctx *pulumi.Context,
 	name string, args *PublicIpPrefixArgs, opts ...pulumi.ResourceOption) (*PublicIpPrefix, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &PublicIpPrefixArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource PublicIpPrefix
 	err := ctx.RegisterResource("azure:network/publicIpPrefix:PublicIpPrefix", name, args, &resource, opts...)

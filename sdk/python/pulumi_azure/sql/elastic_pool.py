@@ -99,19 +99,19 @@ class ElasticPool(pulumi.CustomResource):
 
             __props__['db_dtu_max'] = db_dtu_max
             __props__['db_dtu_min'] = db_dtu_min
-            if dtu is None:
+            if dtu is None and not opts.urn:
                 raise TypeError("Missing required property 'dtu'")
             __props__['dtu'] = dtu
-            if edition is None:
+            if edition is None and not opts.urn:
                 raise TypeError("Missing required property 'edition'")
             __props__['edition'] = edition
             __props__['location'] = location
             __props__['name'] = name
             __props__['pool_size'] = pool_size
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['tags'] = tags

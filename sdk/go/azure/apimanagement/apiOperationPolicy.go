@@ -72,20 +72,21 @@ type ApiOperationPolicy struct {
 // NewApiOperationPolicy registers a new resource with the given unique name, arguments, and options.
 func NewApiOperationPolicy(ctx *pulumi.Context,
 	name string, args *ApiOperationPolicyArgs, opts ...pulumi.ResourceOption) (*ApiOperationPolicy, error) {
-	if args == nil || args.ApiManagementName == nil {
-		return nil, errors.New("missing required argument 'ApiManagementName'")
-	}
-	if args == nil || args.ApiName == nil {
-		return nil, errors.New("missing required argument 'ApiName'")
-	}
-	if args == nil || args.OperationId == nil {
-		return nil, errors.New("missing required argument 'OperationId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ApiOperationPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiManagementName == nil {
+		return nil, errors.New("invalid value for required argument 'ApiManagementName'")
+	}
+	if args.ApiName == nil {
+		return nil, errors.New("invalid value for required argument 'ApiName'")
+	}
+	if args.OperationId == nil {
+		return nil, errors.New("invalid value for required argument 'OperationId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ApiOperationPolicy
 	err := ctx.RegisterResource("azure:apimanagement/apiOperationPolicy:ApiOperationPolicy", name, args, &resource, opts...)

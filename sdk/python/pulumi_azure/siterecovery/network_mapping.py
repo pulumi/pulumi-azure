@@ -48,7 +48,7 @@ class NetworkMapping(pulumi.CustomResource):
             resource_group_name=secondary_resource_group.name,
             recovery_vault_name=vault.name,
             location=secondary_resource_group.location,
-            opts=ResourceOptions(depends_on=[primary_fabric]))
+            opts=pulumi.ResourceOptions(depends_on=[primary_fabric]))
         # Avoids issues with crearing fabrics simultainusly
         primary_virtual_network = azure.network.VirtualNetwork("primaryVirtualNetwork",
             resource_group_name=primary_resource_group.name,
@@ -103,22 +103,22 @@ class NetworkMapping(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['name'] = name
-            if recovery_vault_name is None:
+            if recovery_vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_vault_name'")
             __props__['recovery_vault_name'] = recovery_vault_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if source_network_id is None:
+            if source_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'source_network_id'")
             __props__['source_network_id'] = source_network_id
-            if source_recovery_fabric_name is None:
+            if source_recovery_fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'source_recovery_fabric_name'")
             __props__['source_recovery_fabric_name'] = source_recovery_fabric_name
-            if target_network_id is None:
+            if target_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_network_id'")
             __props__['target_network_id'] = target_network_id
-            if target_recovery_fabric_name is None:
+            if target_recovery_fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'target_recovery_fabric_name'")
             __props__['target_recovery_fabric_name'] = target_recovery_fabric_name
         super(NetworkMapping, __self__).__init__(

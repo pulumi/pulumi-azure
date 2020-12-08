@@ -98,14 +98,15 @@ type SubnetRouteTableAssociation struct {
 // NewSubnetRouteTableAssociation registers a new resource with the given unique name, arguments, and options.
 func NewSubnetRouteTableAssociation(ctx *pulumi.Context,
 	name string, args *SubnetRouteTableAssociationArgs, opts ...pulumi.ResourceOption) (*SubnetRouteTableAssociation, error) {
-	if args == nil || args.RouteTableId == nil {
-		return nil, errors.New("missing required argument 'RouteTableId'")
-	}
-	if args == nil || args.SubnetId == nil {
-		return nil, errors.New("missing required argument 'SubnetId'")
-	}
 	if args == nil {
-		args = &SubnetRouteTableAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RouteTableId == nil {
+		return nil, errors.New("invalid value for required argument 'RouteTableId'")
+	}
+	if args.SubnetId == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
 	var resource SubnetRouteTableAssociation
 	err := ctx.RegisterResource("azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation", name, args, &resource, opts...)

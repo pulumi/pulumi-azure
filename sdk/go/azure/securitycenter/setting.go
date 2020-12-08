@@ -60,14 +60,15 @@ type Setting struct {
 // NewSetting registers a new resource with the given unique name, arguments, and options.
 func NewSetting(ctx *pulumi.Context,
 	name string, args *SettingArgs, opts ...pulumi.ResourceOption) (*Setting, error) {
-	if args == nil || args.Enabled == nil {
-		return nil, errors.New("missing required argument 'Enabled'")
-	}
-	if args == nil || args.SettingName == nil {
-		return nil, errors.New("missing required argument 'SettingName'")
-	}
 	if args == nil {
-		args = &SettingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Enabled == nil {
+		return nil, errors.New("invalid value for required argument 'Enabled'")
+	}
+	if args.SettingName == nil {
+		return nil, errors.New("invalid value for required argument 'SettingName'")
 	}
 	var resource Setting
 	err := ctx.RegisterResource("azure:securitycenter/setting:Setting", name, args, &resource, opts...)

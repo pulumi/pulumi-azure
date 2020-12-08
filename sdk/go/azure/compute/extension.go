@@ -190,20 +190,21 @@ type Extension struct {
 // NewExtension registers a new resource with the given unique name, arguments, and options.
 func NewExtension(ctx *pulumi.Context,
 	name string, args *ExtensionArgs, opts ...pulumi.ResourceOption) (*Extension, error) {
-	if args == nil || args.Publisher == nil {
-		return nil, errors.New("missing required argument 'Publisher'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
-	if args == nil || args.TypeHandlerVersion == nil {
-		return nil, errors.New("missing required argument 'TypeHandlerVersion'")
-	}
-	if args == nil || args.VirtualMachineId == nil {
-		return nil, errors.New("missing required argument 'VirtualMachineId'")
-	}
 	if args == nil {
-		args = &ExtensionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Publisher == nil {
+		return nil, errors.New("invalid value for required argument 'Publisher'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
+	}
+	if args.TypeHandlerVersion == nil {
+		return nil, errors.New("invalid value for required argument 'TypeHandlerVersion'")
+	}
+	if args.VirtualMachineId == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualMachineId'")
 	}
 	var resource Extension
 	err := ctx.RegisterResource("azure:compute/extension:Extension", name, args, &resource, opts...)

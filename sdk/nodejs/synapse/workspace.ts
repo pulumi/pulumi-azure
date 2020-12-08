@@ -152,16 +152,16 @@ export class Workspace extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sqlAdministratorLogin === undefined) {
+            if ((!args || args.sqlAdministratorLogin === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sqlAdministratorLogin'");
             }
-            if (!args || args.sqlAdministratorLoginPassword === undefined) {
+            if ((!args || args.sqlAdministratorLoginPassword === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sqlAdministratorLoginPassword'");
             }
-            if (!args || args.storageDataLakeGen2FilesystemId === undefined) {
+            if ((!args || args.storageDataLakeGen2FilesystemId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageDataLakeGen2FilesystemId'");
             }
             inputs["aadAdmin"] = args ? args.aadAdmin : undefined;

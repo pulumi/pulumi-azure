@@ -177,13 +177,13 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
-            if (!args || args.origins === undefined) {
+            if ((!args || args.origins === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'origins'");
             }
-            if (!args || args.profileName === undefined) {
+            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["contentTypesToCompresses"] = args ? args.contentTypesToCompresses : undefined;

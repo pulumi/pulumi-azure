@@ -106,12 +106,12 @@ class ManangementLock(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if lock_level is None:
+            if lock_level is None and not opts.urn:
                 raise TypeError("Missing required property 'lock_level'")
             __props__['lock_level'] = lock_level
             __props__['name'] = name
             __props__['notes'] = notes
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
         super(ManangementLock, __self__).__init__(

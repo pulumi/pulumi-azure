@@ -92,20 +92,20 @@ class Cache(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cache_size_in_gb is None:
+            if cache_size_in_gb is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_size_in_gb'")
             __props__['cache_size_in_gb'] = cache_size_in_gb
             __props__['location'] = location
             __props__['mtu'] = mtu
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['root_squash_enabled'] = root_squash_enabled
-            if sku_name is None:
+            if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
-            if subnet_id is None:
+            if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
             __props__['mount_addresses'] = None

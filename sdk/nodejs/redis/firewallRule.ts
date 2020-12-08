@@ -119,16 +119,16 @@ export class FirewallRule extends pulumi.CustomResource {
             inputs["startIp"] = state ? state.startIp : undefined;
         } else {
             const args = argsOrState as FirewallRuleArgs | undefined;
-            if (!args || args.endIp === undefined) {
+            if ((!args || args.endIp === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endIp'");
             }
-            if (!args || args.redisCacheName === undefined) {
+            if ((!args || args.redisCacheName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'redisCacheName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.startIp === undefined) {
+            if ((!args || args.startIp === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'startIp'");
             }
             inputs["endIp"] = args ? args.endIp : undefined;

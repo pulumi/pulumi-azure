@@ -183,25 +183,25 @@ class ApplicationGateway(pulumi.CustomResource):
 
             __props__['authentication_certificates'] = authentication_certificates
             __props__['autoscale_configuration'] = autoscale_configuration
-            if backend_address_pools is None:
+            if backend_address_pools is None and not opts.urn:
                 raise TypeError("Missing required property 'backend_address_pools'")
             __props__['backend_address_pools'] = backend_address_pools
-            if backend_http_settings is None:
+            if backend_http_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'backend_http_settings'")
             __props__['backend_http_settings'] = backend_http_settings
             __props__['custom_error_configurations'] = custom_error_configurations
             __props__['enable_http2'] = enable_http2
             __props__['firewall_policy_id'] = firewall_policy_id
-            if frontend_ip_configurations is None:
+            if frontend_ip_configurations is None and not opts.urn:
                 raise TypeError("Missing required property 'frontend_ip_configurations'")
             __props__['frontend_ip_configurations'] = frontend_ip_configurations
-            if frontend_ports is None:
+            if frontend_ports is None and not opts.urn:
                 raise TypeError("Missing required property 'frontend_ports'")
             __props__['frontend_ports'] = frontend_ports
-            if gateway_ip_configurations is None:
+            if gateway_ip_configurations is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_ip_configurations'")
             __props__['gateway_ip_configurations'] = gateway_ip_configurations
-            if http_listeners is None:
+            if http_listeners is None and not opts.urn:
                 raise TypeError("Missing required property 'http_listeners'")
             __props__['http_listeners'] = http_listeners
             __props__['identity'] = identity
@@ -209,14 +209,14 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__['name'] = name
             __props__['probes'] = probes
             __props__['redirect_configurations'] = redirect_configurations
-            if request_routing_rules is None:
+            if request_routing_rules is None and not opts.urn:
                 raise TypeError("Missing required property 'request_routing_rules'")
             __props__['request_routing_rules'] = request_routing_rules
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['rewrite_rule_sets'] = rewrite_rule_sets
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['ssl_certificates'] = ssl_certificates

@@ -98,25 +98,25 @@ class RunBook(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if automation_account_name is None:
+            if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
             __props__['content'] = content
             __props__['description'] = description
             __props__['job_schedules'] = job_schedules
             __props__['location'] = location
-            if log_progress is None:
+            if log_progress is None and not opts.urn:
                 raise TypeError("Missing required property 'log_progress'")
             __props__['log_progress'] = log_progress
-            if log_verbose is None:
+            if log_verbose is None and not opts.urn:
                 raise TypeError("Missing required property 'log_verbose'")
             __props__['log_verbose'] = log_verbose
             __props__['name'] = name
             __props__['publish_content_link'] = publish_content_link
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if runbook_type is None:
+            if runbook_type is None and not opts.urn:
                 raise TypeError("Missing required property 'runbook_type'")
             __props__['runbook_type'] = runbook_type
             __props__['tags'] = tags

@@ -206,19 +206,19 @@ export class ApiDiagnostic extends pulumi.CustomResource {
             inputs["verbosity"] = state ? state.verbosity : undefined;
         } else {
             const args = argsOrState as ApiDiagnosticArgs | undefined;
-            if (!args || args.apiManagementLoggerId === undefined) {
+            if ((!args || args.apiManagementLoggerId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiManagementLoggerId'");
             }
-            if (!args || args.apiManagementName === undefined) {
+            if ((!args || args.apiManagementName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if (!args || args.apiName === undefined) {
+            if ((!args || args.apiName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiName'");
             }
-            if (!args || args.identifier === undefined) {
+            if ((!args || args.identifier === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'identifier'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["alwaysLogErrors"] = args ? args.alwaysLogErrors : undefined;

@@ -114,14 +114,14 @@ class Key(pulumi.CustomResource):
 
             __props__['curve'] = curve
             __props__['expiration_date'] = expiration_date
-            if key_opts is None:
+            if key_opts is None and not opts.urn:
                 raise TypeError("Missing required property 'key_opts'")
             __props__['key_opts'] = key_opts
             __props__['key_size'] = key_size
-            if key_type is None:
+            if key_type is None and not opts.urn:
                 raise TypeError("Missing required property 'key_type'")
             __props__['key_type'] = key_type
-            if key_vault_id is None:
+            if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")
             __props__['key_vault_id'] = key_vault_id
             __props__['name'] = name

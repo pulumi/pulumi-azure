@@ -106,22 +106,22 @@ class ProtectionContainerMapping(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['name'] = name
-            if recovery_fabric_name is None:
+            if recovery_fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_fabric_name'")
             __props__['recovery_fabric_name'] = recovery_fabric_name
-            if recovery_replication_policy_id is None:
+            if recovery_replication_policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_replication_policy_id'")
             __props__['recovery_replication_policy_id'] = recovery_replication_policy_id
-            if recovery_source_protection_container_name is None:
+            if recovery_source_protection_container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_source_protection_container_name'")
             __props__['recovery_source_protection_container_name'] = recovery_source_protection_container_name
-            if recovery_target_protection_container_id is None:
+            if recovery_target_protection_container_id is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_target_protection_container_id'")
             __props__['recovery_target_protection_container_id'] = recovery_target_protection_container_id
-            if recovery_vault_name is None:
+            if recovery_vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_vault_name'")
             __props__['recovery_vault_name'] = recovery_vault_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
         super(ProtectionContainerMapping, __self__).__init__(

@@ -84,20 +84,21 @@ type Route struct {
 // NewRoute registers a new resource with the given unique name, arguments, and options.
 func NewRoute(ctx *pulumi.Context,
 	name string, args *RouteArgs, opts ...pulumi.ResourceOption) (*Route, error) {
-	if args == nil || args.AddressPrefix == nil {
-		return nil, errors.New("missing required argument 'AddressPrefix'")
-	}
-	if args == nil || args.NextHopType == nil {
-		return nil, errors.New("missing required argument 'NextHopType'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RouteTableName == nil {
-		return nil, errors.New("missing required argument 'RouteTableName'")
-	}
 	if args == nil {
-		args = &RouteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AddressPrefix == nil {
+		return nil, errors.New("invalid value for required argument 'AddressPrefix'")
+	}
+	if args.NextHopType == nil {
+		return nil, errors.New("invalid value for required argument 'NextHopType'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RouteTableName == nil {
+		return nil, errors.New("invalid value for required argument 'RouteTableName'")
 	}
 	var resource Route
 	err := ctx.RegisterResource("azure:network/route:Route", name, args, &resource, opts...)

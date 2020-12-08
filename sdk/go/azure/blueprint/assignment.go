@@ -156,14 +156,15 @@ type Assignment struct {
 // NewAssignment registers a new resource with the given unique name, arguments, and options.
 func NewAssignment(ctx *pulumi.Context,
 	name string, args *AssignmentArgs, opts ...pulumi.ResourceOption) (*Assignment, error) {
-	if args == nil || args.TargetSubscriptionId == nil {
-		return nil, errors.New("missing required argument 'TargetSubscriptionId'")
-	}
-	if args == nil || args.VersionId == nil {
-		return nil, errors.New("missing required argument 'VersionId'")
-	}
 	if args == nil {
-		args = &AssignmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.TargetSubscriptionId == nil {
+		return nil, errors.New("invalid value for required argument 'TargetSubscriptionId'")
+	}
+	if args.VersionId == nil {
+		return nil, errors.New("invalid value for required argument 'VersionId'")
 	}
 	var resource Assignment
 	err := ctx.RegisterResource("azure:blueprint/assignment:Assignment", name, args, &resource, opts...)

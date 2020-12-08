@@ -78,10 +78,10 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if application_group_id is None:
+            if application_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_group_id'")
             __props__['application_group_id'] = application_group_id
-            if workspace_id is None:
+            if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
             __props__['workspace_id'] = workspace_id
         super(WorkspaceApplicationGroupAssociation, __self__).__init__(

@@ -87,20 +87,21 @@ type EventHub struct {
 // NewEventHub registers a new resource with the given unique name, arguments, and options.
 func NewEventHub(ctx *pulumi.Context,
 	name string, args *EventHubArgs, opts ...pulumi.ResourceOption) (*EventHub, error) {
-	if args == nil || args.MessageRetention == nil {
-		return nil, errors.New("missing required argument 'MessageRetention'")
-	}
-	if args == nil || args.NamespaceName == nil {
-		return nil, errors.New("missing required argument 'NamespaceName'")
-	}
-	if args == nil || args.PartitionCount == nil {
-		return nil, errors.New("missing required argument 'PartitionCount'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &EventHubArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MessageRetention == nil {
+		return nil, errors.New("invalid value for required argument 'MessageRetention'")
+	}
+	if args.NamespaceName == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceName'")
+	}
+	if args.PartitionCount == nil {
+		return nil, errors.New("invalid value for required argument 'PartitionCount'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource EventHub
 	err := ctx.RegisterResource("azure:eventhub/eventHub:EventHub", name, args, &resource, opts...)

@@ -123,10 +123,10 @@ export class SecurityPartnerProvider extends pulumi.CustomResource {
             inputs["virtualHubId"] = state ? state.virtualHubId : undefined;
         } else {
             const args = argsOrState as SecurityPartnerProviderArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.securityProviderName === undefined) {
+            if ((!args || args.securityProviderName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'securityProviderName'");
             }
             inputs["location"] = args ? args.location : undefined;

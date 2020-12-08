@@ -62,7 +62,7 @@ class AutoProvisioning(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if auto_provision is None:
+            if auto_provision is None and not opts.urn:
                 raise TypeError("Missing required property 'auto_provision'")
             __props__['auto_provision'] = auto_provision
         super(AutoProvisioning, __self__).__init__(

@@ -77,16 +77,16 @@ class IdentityProviderFacebook(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_management_name is None:
+            if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__['api_management_name'] = api_management_name
-            if app_id is None:
+            if app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_id'")
             __props__['app_id'] = app_id
-            if app_secret is None:
+            if app_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'app_secret'")
             __props__['app_secret'] = app_secret
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
         super(IdentityProviderFacebook, __self__).__init__(

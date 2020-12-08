@@ -125,16 +125,16 @@ export class AnalyticsItem extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as AnalyticsItemArgs | undefined;
-            if (!args || args.applicationInsightsId === undefined) {
+            if ((!args || args.applicationInsightsId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationInsightsId'");
             }
-            if (!args || args.content === undefined) {
+            if ((!args || args.content === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'content'");
             }
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;

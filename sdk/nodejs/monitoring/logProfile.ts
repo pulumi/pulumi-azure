@@ -130,13 +130,13 @@ export class LogProfile extends pulumi.CustomResource {
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
             const args = argsOrState as LogProfileArgs | undefined;
-            if (!args || args.categories === undefined) {
+            if ((!args || args.categories === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'categories'");
             }
-            if (!args || args.locations === undefined) {
+            if ((!args || args.locations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'locations'");
             }
-            if (!args || args.retentionPolicy === undefined) {
+            if ((!args || args.retentionPolicy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'retentionPolicy'");
             }
             inputs["categories"] = args ? args.categories : undefined;

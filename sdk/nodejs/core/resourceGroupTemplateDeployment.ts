@@ -134,13 +134,13 @@ export class ResourceGroupTemplateDeployment extends pulumi.CustomResource {
             inputs["templateContent"] = state ? state.templateContent : undefined;
         } else {
             const args = argsOrState as ResourceGroupTemplateDeploymentArgs | undefined;
-            if (!args || args.deploymentMode === undefined) {
+            if ((!args || args.deploymentMode === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deploymentMode'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.templateContent === undefined) {
+            if ((!args || args.templateContent === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'templateContent'");
             }
             inputs["debugLevel"] = args ? args.debugLevel : undefined;

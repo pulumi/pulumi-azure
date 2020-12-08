@@ -66,18 +66,18 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if id_properties is None:
+            if id_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'id_properties'")
             __props__['id_properties'] = id_properties
             __props__['location'] = location
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sku_name is None:
+            if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
-            if storage is None:
+            if storage is None and not opts.urn:
                 raise TypeError("Missing required property 'storage'")
             __props__['storage'] = storage
             __props__['tags'] = tags

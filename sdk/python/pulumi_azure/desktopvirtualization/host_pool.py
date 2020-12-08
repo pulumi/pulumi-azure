@@ -106,7 +106,7 @@ class HostPool(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['friendly_name'] = friendly_name
-            if load_balancer_type is None:
+            if load_balancer_type is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_type'")
             __props__['load_balancer_type'] = load_balancer_type
             __props__['location'] = location
@@ -115,11 +115,11 @@ class HostPool(pulumi.CustomResource):
             __props__['personal_desktop_assignment_type'] = personal_desktop_assignment_type
             __props__['preferred_app_group_type'] = preferred_app_group_type
             __props__['registration_info'] = registration_info
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['validate_environment'] = validate_environment

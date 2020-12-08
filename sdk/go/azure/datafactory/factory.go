@@ -73,11 +73,12 @@ type Factory struct {
 // NewFactory registers a new resource with the given unique name, arguments, and options.
 func NewFactory(ctx *pulumi.Context,
 	name string, args *FactoryArgs, opts ...pulumi.ResourceOption) (*Factory, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &FactoryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Factory
 	err := ctx.RegisterResource("azure:datafactory/factory:Factory", name, args, &resource, opts...)

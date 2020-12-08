@@ -110,7 +110,7 @@ export class ManagedCertificate extends pulumi.CustomResource {
             inputs["thumbprint"] = state ? state.thumbprint : undefined;
         } else {
             const args = argsOrState as ManagedCertificateArgs | undefined;
-            if (!args || args.customHostnameBindingId === undefined) {
+            if ((!args || args.customHostnameBindingId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'customHostnameBindingId'");
             }
             inputs["customHostnameBindingId"] = args ? args.customHostnameBindingId : undefined;

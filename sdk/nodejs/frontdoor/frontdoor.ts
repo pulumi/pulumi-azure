@@ -192,25 +192,25 @@ export class Frontdoor extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as FrontdoorArgs | undefined;
-            if (!args || args.backendPoolHealthProbes === undefined) {
+            if ((!args || args.backendPoolHealthProbes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backendPoolHealthProbes'");
             }
-            if (!args || args.backendPoolLoadBalancings === undefined) {
+            if ((!args || args.backendPoolLoadBalancings === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backendPoolLoadBalancings'");
             }
-            if (!args || args.backendPools === undefined) {
+            if ((!args || args.backendPools === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backendPools'");
             }
-            if (!args || args.enforceBackendPoolsCertificateNameCheck === undefined) {
+            if ((!args || args.enforceBackendPoolsCertificateNameCheck === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'enforceBackendPoolsCertificateNameCheck'");
             }
-            if (!args || args.frontendEndpoints === undefined) {
+            if ((!args || args.frontendEndpoints === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'frontendEndpoints'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.routingRules === undefined) {
+            if ((!args || args.routingRules === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'routingRules'");
             }
             inputs["backendPoolHealthProbes"] = args ? args.backendPoolHealthProbes : undefined;

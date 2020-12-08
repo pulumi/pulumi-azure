@@ -86,14 +86,14 @@ class GetSystemTopic(pulumi.CustomResource):
 
             __props__['location'] = location
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if source_arm_resource_id is None:
+            if source_arm_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'source_arm_resource_id'")
             __props__['source_arm_resource_id'] = source_arm_resource_id
             __props__['tags'] = tags
-            if topic_type is None:
+            if topic_type is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_type'")
             __props__['topic_type'] = topic_type
             __props__['metric_arm_resource_id'] = None

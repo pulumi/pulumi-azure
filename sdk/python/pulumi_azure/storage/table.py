@@ -75,7 +75,7 @@ class Table(pulumi.CustomResource):
 
             __props__['acls'] = acls
             __props__['name'] = name
-            if storage_account_name is None:
+            if storage_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_name'")
             __props__['storage_account_name'] = storage_account_name
         super(Table, __self__).__init__(

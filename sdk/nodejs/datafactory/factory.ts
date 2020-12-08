@@ -107,7 +107,7 @@ export class Factory extends pulumi.CustomResource {
             inputs["vstsConfiguration"] = state ? state.vstsConfiguration : undefined;
         } else {
             const args = argsOrState as FactoryArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["githubConfiguration"] = args ? args.githubConfiguration : undefined;

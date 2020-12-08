@@ -105,17 +105,17 @@ class CacheBlobTarget(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cache_name is None:
+            if cache_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_name'")
             __props__['cache_name'] = cache_name
             __props__['name'] = name
-            if namespace_path is None:
+            if namespace_path is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_path'")
             __props__['namespace_path'] = namespace_path
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if storage_container_id is None:
+            if storage_container_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_container_id'")
             __props__['storage_container_id'] = storage_container_id
         super(CacheBlobTarget, __self__).__init__(

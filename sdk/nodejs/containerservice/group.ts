@@ -178,13 +178,13 @@ export class Group extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            if (!args || args.containers === undefined) {
+            if ((!args || args.containers === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'containers'");
             }
-            if (!args || args.osType === undefined) {
+            if ((!args || args.osType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'osType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["containers"] = args ? args.containers : undefined;

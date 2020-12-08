@@ -79,14 +79,15 @@ type AnalyticsAccount struct {
 // NewAnalyticsAccount registers a new resource with the given unique name, arguments, and options.
 func NewAnalyticsAccount(ctx *pulumi.Context,
 	name string, args *AnalyticsAccountArgs, opts ...pulumi.ResourceOption) (*AnalyticsAccount, error) {
-	if args == nil || args.DefaultStoreAccountName == nil {
-		return nil, errors.New("missing required argument 'DefaultStoreAccountName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &AnalyticsAccountArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DefaultStoreAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'DefaultStoreAccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource AnalyticsAccount
 	err := ctx.RegisterResource("azure:datalake/analyticsAccount:AnalyticsAccount", name, args, &resource, opts...)

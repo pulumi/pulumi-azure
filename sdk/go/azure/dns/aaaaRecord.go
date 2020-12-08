@@ -129,17 +129,18 @@ type AaaaRecord struct {
 // NewAaaaRecord registers a new resource with the given unique name, arguments, and options.
 func NewAaaaRecord(ctx *pulumi.Context,
 	name string, args *AaaaRecordArgs, opts ...pulumi.ResourceOption) (*AaaaRecord, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Ttl == nil {
-		return nil, errors.New("missing required argument 'Ttl'")
-	}
-	if args == nil || args.ZoneName == nil {
-		return nil, errors.New("missing required argument 'ZoneName'")
-	}
 	if args == nil {
-		args = &AaaaRecordArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Ttl == nil {
+		return nil, errors.New("invalid value for required argument 'Ttl'")
+	}
+	if args.ZoneName == nil {
+		return nil, errors.New("invalid value for required argument 'ZoneName'")
 	}
 	var resource AaaaRecord
 	err := ctx.RegisterResource("azure:dns/aaaaRecord:AaaaRecord", name, args, &resource, opts...)

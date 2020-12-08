@@ -40,23 +40,24 @@ type TableEntity struct {
 // NewTableEntity registers a new resource with the given unique name, arguments, and options.
 func NewTableEntity(ctx *pulumi.Context,
 	name string, args *TableEntityArgs, opts ...pulumi.ResourceOption) (*TableEntity, error) {
-	if args == nil || args.Entity == nil {
-		return nil, errors.New("missing required argument 'Entity'")
-	}
-	if args == nil || args.PartitionKey == nil {
-		return nil, errors.New("missing required argument 'PartitionKey'")
-	}
-	if args == nil || args.RowKey == nil {
-		return nil, errors.New("missing required argument 'RowKey'")
-	}
-	if args == nil || args.StorageAccountName == nil {
-		return nil, errors.New("missing required argument 'StorageAccountName'")
-	}
-	if args == nil || args.TableName == nil {
-		return nil, errors.New("missing required argument 'TableName'")
-	}
 	if args == nil {
-		args = &TableEntityArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Entity == nil {
+		return nil, errors.New("invalid value for required argument 'Entity'")
+	}
+	if args.PartitionKey == nil {
+		return nil, errors.New("invalid value for required argument 'PartitionKey'")
+	}
+	if args.RowKey == nil {
+		return nil, errors.New("invalid value for required argument 'RowKey'")
+	}
+	if args.StorageAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
+	}
+	if args.TableName == nil {
+		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
 	var resource TableEntity
 	err := ctx.RegisterResource("azure:storage/tableEntity:TableEntity", name, args, &resource, opts...)

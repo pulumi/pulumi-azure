@@ -95,13 +95,13 @@ export class ScheduledQueryRulesLog extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ScheduledQueryRulesLogArgs | undefined;
-            if (!args || args.criteria === undefined) {
+            if ((!args || args.criteria === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'criteria'");
             }
-            if (!args || args.dataSourceId === undefined) {
+            if ((!args || args.dataSourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataSourceId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["authorizedResourceIds"] = args ? args.authorizedResourceIds : undefined;

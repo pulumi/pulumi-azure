@@ -176,7 +176,7 @@ class FunctionApp(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if app_service_plan_id is None:
+            if app_service_plan_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_service_plan_id'")
             __props__['app_service_plan_id'] = app_service_plan_id
             __props__['app_settings'] = app_settings
@@ -191,14 +191,14 @@ class FunctionApp(pulumi.CustomResource):
             __props__['location'] = location
             __props__['name'] = name
             __props__['os_type'] = os_type
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['site_config'] = site_config
             __props__['source_control'] = source_control
             __props__['storage_account_access_key'] = storage_account_access_key
             __props__['storage_account_name'] = storage_account_name
-            if storage_connection_string is not None:
+            if storage_connection_string is not None and not opts.urn:
                 warnings.warn("""Deprecated in favour of `storage_account_name` and `storage_account_access_key`""", DeprecationWarning)
                 pulumi.log.warn("storage_connection_string is deprecated: Deprecated in favour of `storage_account_name` and `storage_account_access_key`")
             __props__['storage_connection_string'] = storage_connection_string

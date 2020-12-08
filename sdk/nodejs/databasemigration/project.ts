@@ -127,16 +127,16 @@ export class Project extends pulumi.CustomResource {
             inputs["targetPlatform"] = state ? state.targetPlatform : undefined;
         } else {
             const args = argsOrState as ProjectArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if (!args || args.sourcePlatform === undefined) {
+            if ((!args || args.sourcePlatform === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourcePlatform'");
             }
-            if (!args || args.targetPlatform === undefined) {
+            if ((!args || args.targetPlatform === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetPlatform'");
             }
             inputs["location"] = args ? args.location : undefined;

@@ -100,19 +100,19 @@ class Automation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if actions is None:
+            if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
             __props__['actions'] = actions
             __props__['enabled'] = enabled
             __props__['location'] = location
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if scopes is None:
+            if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")
             __props__['scopes'] = scopes
-            if sources is None:
+            if sources is None and not opts.urn:
                 raise TypeError("Missing required property 'sources'")
             __props__['sources'] = sources
         super(Automation, __self__).__init__(

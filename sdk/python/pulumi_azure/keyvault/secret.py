@@ -65,13 +65,13 @@ class Secret(pulumi.CustomResource):
 
             __props__['content_type'] = content_type
             __props__['expiration_date'] = expiration_date
-            if key_vault_id is None:
+            if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")
             __props__['key_vault_id'] = key_vault_id
             __props__['name'] = name
             __props__['not_before_date'] = not_before_date
             __props__['tags'] = tags
-            if value is None:
+            if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
             __props__['value'] = value
             __props__['version'] = None

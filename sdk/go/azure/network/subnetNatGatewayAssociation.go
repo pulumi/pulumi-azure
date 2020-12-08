@@ -90,14 +90,15 @@ type SubnetNatGatewayAssociation struct {
 // NewSubnetNatGatewayAssociation registers a new resource with the given unique name, arguments, and options.
 func NewSubnetNatGatewayAssociation(ctx *pulumi.Context,
 	name string, args *SubnetNatGatewayAssociationArgs, opts ...pulumi.ResourceOption) (*SubnetNatGatewayAssociation, error) {
-	if args == nil || args.NatGatewayId == nil {
-		return nil, errors.New("missing required argument 'NatGatewayId'")
-	}
-	if args == nil || args.SubnetId == nil {
-		return nil, errors.New("missing required argument 'SubnetId'")
-	}
 	if args == nil {
-		args = &SubnetNatGatewayAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NatGatewayId == nil {
+		return nil, errors.New("invalid value for required argument 'NatGatewayId'")
+	}
+	if args.SubnetId == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
 	var resource SubnetNatGatewayAssociation
 	err := ctx.RegisterResource("azure:network/subnetNatGatewayAssociation:SubnetNatGatewayAssociation", name, args, &resource, opts...)

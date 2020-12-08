@@ -150,13 +150,13 @@ export class HostPool extends pulumi.CustomResource {
             inputs["validateEnvironment"] = state ? state.validateEnvironment : undefined;
         } else {
             const args = argsOrState as HostPoolArgs | undefined;
-            if (!args || args.loadBalancerType === undefined) {
+            if ((!args || args.loadBalancerType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadBalancerType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["description"] = args ? args.description : undefined;

@@ -150,29 +150,30 @@ type Frontdoor struct {
 // NewFrontdoor registers a new resource with the given unique name, arguments, and options.
 func NewFrontdoor(ctx *pulumi.Context,
 	name string, args *FrontdoorArgs, opts ...pulumi.ResourceOption) (*Frontdoor, error) {
-	if args == nil || args.BackendPoolHealthProbes == nil {
-		return nil, errors.New("missing required argument 'BackendPoolHealthProbes'")
-	}
-	if args == nil || args.BackendPoolLoadBalancings == nil {
-		return nil, errors.New("missing required argument 'BackendPoolLoadBalancings'")
-	}
-	if args == nil || args.BackendPools == nil {
-		return nil, errors.New("missing required argument 'BackendPools'")
-	}
-	if args == nil || args.EnforceBackendPoolsCertificateNameCheck == nil {
-		return nil, errors.New("missing required argument 'EnforceBackendPoolsCertificateNameCheck'")
-	}
-	if args == nil || args.FrontendEndpoints == nil {
-		return nil, errors.New("missing required argument 'FrontendEndpoints'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RoutingRules == nil {
-		return nil, errors.New("missing required argument 'RoutingRules'")
-	}
 	if args == nil {
-		args = &FrontdoorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BackendPoolHealthProbes == nil {
+		return nil, errors.New("invalid value for required argument 'BackendPoolHealthProbes'")
+	}
+	if args.BackendPoolLoadBalancings == nil {
+		return nil, errors.New("invalid value for required argument 'BackendPoolLoadBalancings'")
+	}
+	if args.BackendPools == nil {
+		return nil, errors.New("invalid value for required argument 'BackendPools'")
+	}
+	if args.EnforceBackendPoolsCertificateNameCheck == nil {
+		return nil, errors.New("invalid value for required argument 'EnforceBackendPoolsCertificateNameCheck'")
+	}
+	if args.FrontendEndpoints == nil {
+		return nil, errors.New("invalid value for required argument 'FrontendEndpoints'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RoutingRules == nil {
+		return nil, errors.New("invalid value for required argument 'RoutingRules'")
 	}
 	var resource Frontdoor
 	err := ctx.RegisterResource("azure:frontdoor/frontdoor:Frontdoor", name, args, &resource, opts...)

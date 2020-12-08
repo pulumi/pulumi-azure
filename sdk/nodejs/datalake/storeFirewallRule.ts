@@ -102,16 +102,16 @@ export class StoreFirewallRule extends pulumi.CustomResource {
             inputs["startIpAddress"] = state ? state.startIpAddress : undefined;
         } else {
             const args = argsOrState as StoreFirewallRuleArgs | undefined;
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.endIpAddress === undefined) {
+            if ((!args || args.endIpAddress === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endIpAddress'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.startIpAddress === undefined) {
+            if ((!args || args.startIpAddress === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'startIpAddress'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;

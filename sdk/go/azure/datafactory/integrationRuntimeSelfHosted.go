@@ -80,14 +80,15 @@ type IntegrationRuntimeSelfHosted struct {
 // NewIntegrationRuntimeSelfHosted registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationRuntimeSelfHosted(ctx *pulumi.Context,
 	name string, args *IntegrationRuntimeSelfHostedArgs, opts ...pulumi.ResourceOption) (*IntegrationRuntimeSelfHosted, error) {
-	if args == nil || args.DataFactoryName == nil {
-		return nil, errors.New("missing required argument 'DataFactoryName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &IntegrationRuntimeSelfHostedArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataFactoryName == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource IntegrationRuntimeSelfHosted
 	err := ctx.RegisterResource("azure:datafactory/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted", name, args, &resource, opts...)

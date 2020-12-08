@@ -84,19 +84,19 @@ class SavedSearch(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if category is None:
+            if category is None and not opts.urn:
                 raise TypeError("Missing required property 'category'")
             __props__['category'] = category
-            if display_name is None:
+            if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             __props__['function_alias'] = function_alias
             __props__['function_parameters'] = function_parameters
-            if log_analytics_workspace_id is None:
+            if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")
             __props__['log_analytics_workspace_id'] = log_analytics_workspace_id
             __props__['name'] = name
-            if query is None:
+            if query is None and not opts.urn:
                 raise TypeError("Missing required property 'query'")
             __props__['query'] = query
             __props__['tags'] = tags

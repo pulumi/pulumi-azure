@@ -141,7 +141,7 @@ export class Workflow extends pulumi.CustomResource {
             inputs["workflowVersion"] = state ? state.workflowVersion : undefined;
         } else {
             const args = argsOrState as WorkflowArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["integrationServiceEnvironmentId"] = args ? args.integrationServiceEnvironmentId : undefined;

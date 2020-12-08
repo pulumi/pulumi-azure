@@ -124,22 +124,22 @@ export class ConnectionServicePrincipal extends pulumi.CustomResource {
             inputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as ConnectionServicePrincipalArgs | undefined;
-            if (!args || args.applicationId === undefined) {
+            if ((!args || args.applicationId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if (!args || args.automationAccountName === undefined) {
+            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if (!args || args.certificateThumbprint === undefined) {
+            if ((!args || args.certificateThumbprint === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'certificateThumbprint'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.subscriptionId === undefined) {
+            if ((!args || args.subscriptionId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subscriptionId'");
             }
-            if (!args || args.tenantId === undefined) {
+            if ((!args || args.tenantId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tenantId'");
             }
             inputs["applicationId"] = args ? args.applicationId : undefined;

@@ -133,16 +133,16 @@ export class Cache extends pulumi.CustomResource {
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as CacheArgs | undefined;
-            if (!args || args.cacheSizeInGb === undefined) {
+            if ((!args || args.cacheSizeInGb === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'cacheSizeInGb'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.skuName === undefined) {
+            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if (!args || args.subnetId === undefined) {
+            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetId'");
             }
             inputs["cacheSizeInGb"] = args ? args.cacheSizeInGb : undefined;

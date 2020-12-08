@@ -42,23 +42,24 @@ type CacheNfsTarget struct {
 // NewCacheNfsTarget registers a new resource with the given unique name, arguments, and options.
 func NewCacheNfsTarget(ctx *pulumi.Context,
 	name string, args *CacheNfsTargetArgs, opts ...pulumi.ResourceOption) (*CacheNfsTarget, error) {
-	if args == nil || args.CacheName == nil {
-		return nil, errors.New("missing required argument 'CacheName'")
-	}
-	if args == nil || args.NamespaceJunctions == nil {
-		return nil, errors.New("missing required argument 'NamespaceJunctions'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.TargetHostName == nil {
-		return nil, errors.New("missing required argument 'TargetHostName'")
-	}
-	if args == nil || args.UsageModel == nil {
-		return nil, errors.New("missing required argument 'UsageModel'")
-	}
 	if args == nil {
-		args = &CacheNfsTargetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CacheName == nil {
+		return nil, errors.New("invalid value for required argument 'CacheName'")
+	}
+	if args.NamespaceJunctions == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceJunctions'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.TargetHostName == nil {
+		return nil, errors.New("invalid value for required argument 'TargetHostName'")
+	}
+	if args.UsageModel == nil {
+		return nil, errors.New("invalid value for required argument 'UsageModel'")
 	}
 	var resource CacheNfsTarget
 	err := ctx.RegisterResource("azure:hpc/cacheNfsTarget:CacheNfsTarget", name, args, &resource, opts...)

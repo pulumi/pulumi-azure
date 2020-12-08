@@ -68,10 +68,10 @@ class Setting(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if enabled is None:
+            if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__['enabled'] = enabled
-            if setting_name is None:
+            if setting_name is None and not opts.urn:
                 raise TypeError("Missing required property 'setting_name'")
             __props__['setting_name'] = setting_name
         super(Setting, __self__).__init__(

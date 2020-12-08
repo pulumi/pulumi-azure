@@ -121,17 +121,18 @@ type DatasetDataLakeGen1 struct {
 // NewDatasetDataLakeGen1 registers a new resource with the given unique name, arguments, and options.
 func NewDatasetDataLakeGen1(ctx *pulumi.Context,
 	name string, args *DatasetDataLakeGen1Args, opts ...pulumi.ResourceOption) (*DatasetDataLakeGen1, error) {
-	if args == nil || args.DataLakeStoreId == nil {
-		return nil, errors.New("missing required argument 'DataLakeStoreId'")
-	}
-	if args == nil || args.DataShareId == nil {
-		return nil, errors.New("missing required argument 'DataShareId'")
-	}
-	if args == nil || args.FolderPath == nil {
-		return nil, errors.New("missing required argument 'FolderPath'")
-	}
 	if args == nil {
-		args = &DatasetDataLakeGen1Args{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataLakeStoreId == nil {
+		return nil, errors.New("invalid value for required argument 'DataLakeStoreId'")
+	}
+	if args.DataShareId == nil {
+		return nil, errors.New("invalid value for required argument 'DataShareId'")
+	}
+	if args.FolderPath == nil {
+		return nil, errors.New("invalid value for required argument 'FolderPath'")
 	}
 	var resource DatasetDataLakeGen1
 	err := ctx.RegisterResource("azure:datashare/datasetDataLakeGen1:DatasetDataLakeGen1", name, args, &resource, opts...)

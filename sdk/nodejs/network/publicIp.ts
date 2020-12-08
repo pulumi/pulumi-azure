@@ -147,10 +147,10 @@ export class PublicIp extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as PublicIpArgs | undefined;
-            if (!args || args.allocationMethod === undefined) {
+            if ((!args || args.allocationMethod === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'allocationMethod'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["allocationMethod"] = args ? args.allocationMethod : undefined;

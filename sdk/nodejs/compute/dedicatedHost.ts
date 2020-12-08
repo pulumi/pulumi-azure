@@ -118,13 +118,13 @@ export class DedicatedHost extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DedicatedHostArgs | undefined;
-            if (!args || args.dedicatedHostGroupId === undefined) {
+            if ((!args || args.dedicatedHostGroupId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dedicatedHostGroupId'");
             }
-            if (!args || args.platformFaultDomain === undefined) {
+            if ((!args || args.platformFaultDomain === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'platformFaultDomain'");
             }
-            if (!args || args.skuName === undefined) {
+            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'skuName'");
             }
             inputs["autoReplaceOnFailure"] = args ? args.autoReplaceOnFailure : undefined;

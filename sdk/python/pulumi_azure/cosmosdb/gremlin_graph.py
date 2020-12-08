@@ -108,22 +108,22 @@ class GremlinGraph(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['autoscale_settings'] = autoscale_settings
-            if conflict_resolution_policies is None:
+            if conflict_resolution_policies is None and not opts.urn:
                 raise TypeError("Missing required property 'conflict_resolution_policies'")
             __props__['conflict_resolution_policies'] = conflict_resolution_policies
-            if database_name is None:
+            if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
-            if index_policies is None:
+            if index_policies is None and not opts.urn:
                 raise TypeError("Missing required property 'index_policies'")
             __props__['index_policies'] = index_policies
             __props__['name'] = name
             __props__['partition_key_path'] = partition_key_path
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['throughput'] = throughput

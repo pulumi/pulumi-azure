@@ -136,23 +136,24 @@ type FirewallNatRuleCollection struct {
 // NewFirewallNatRuleCollection registers a new resource with the given unique name, arguments, and options.
 func NewFirewallNatRuleCollection(ctx *pulumi.Context,
 	name string, args *FirewallNatRuleCollectionArgs, opts ...pulumi.ResourceOption) (*FirewallNatRuleCollection, error) {
-	if args == nil || args.Action == nil {
-		return nil, errors.New("missing required argument 'Action'")
-	}
-	if args == nil || args.AzureFirewallName == nil {
-		return nil, errors.New("missing required argument 'AzureFirewallName'")
-	}
-	if args == nil || args.Priority == nil {
-		return nil, errors.New("missing required argument 'Priority'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Rules == nil {
-		return nil, errors.New("missing required argument 'Rules'")
-	}
 	if args == nil {
-		args = &FirewallNatRuleCollectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Action == nil {
+		return nil, errors.New("invalid value for required argument 'Action'")
+	}
+	if args.AzureFirewallName == nil {
+		return nil, errors.New("invalid value for required argument 'AzureFirewallName'")
+	}
+	if args.Priority == nil {
+		return nil, errors.New("invalid value for required argument 'Priority'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Rules == nil {
+		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
 	var resource FirewallNatRuleCollection
 	err := ctx.RegisterResource("azure:network/firewallNatRuleCollection:FirewallNatRuleCollection", name, args, &resource, opts...)

@@ -192,7 +192,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             __props__['additional_capabilities'] = additional_capabilities
             __props__['admin_password'] = admin_password
             __props__['admin_ssh_keys'] = admin_ssh_keys
-            if admin_username is None:
+            if admin_username is None and not opts.urn:
                 raise TypeError("Missing required property 'admin_username'")
             __props__['admin_username'] = admin_username
             __props__['automatic_instance_repair'] = automatic_instance_repair
@@ -208,16 +208,16 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             __props__['extensions'] = extensions
             __props__['health_probe_id'] = health_probe_id
             __props__['identity'] = identity
-            if instances is None:
+            if instances is None and not opts.urn:
                 raise TypeError("Missing required property 'instances'")
             __props__['instances'] = instances
             __props__['location'] = location
             __props__['max_bid_price'] = max_bid_price
             __props__['name'] = name
-            if network_interfaces is None:
+            if network_interfaces is None and not opts.urn:
                 raise TypeError("Missing required property 'network_interfaces'")
             __props__['network_interfaces'] = network_interfaces
-            if os_disk is None:
+            if os_disk is None and not opts.urn:
                 raise TypeError("Missing required property 'os_disk'")
             __props__['os_disk'] = os_disk
             __props__['overprovision'] = overprovision
@@ -226,14 +226,14 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             __props__['priority'] = priority
             __props__['provision_vm_agent'] = provision_vm_agent
             __props__['proximity_placement_group_id'] = proximity_placement_group_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['rolling_upgrade_policy'] = rolling_upgrade_policy
             __props__['scale_in_policy'] = scale_in_policy
             __props__['secrets'] = secrets
             __props__['single_placement_group'] = single_placement_group
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['source_image_id'] = source_image_id

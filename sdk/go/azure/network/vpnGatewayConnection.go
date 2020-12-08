@@ -40,17 +40,18 @@ type VpnGatewayConnection struct {
 // NewVpnGatewayConnection registers a new resource with the given unique name, arguments, and options.
 func NewVpnGatewayConnection(ctx *pulumi.Context,
 	name string, args *VpnGatewayConnectionArgs, opts ...pulumi.ResourceOption) (*VpnGatewayConnection, error) {
-	if args == nil || args.RemoteVpnSiteId == nil {
-		return nil, errors.New("missing required argument 'RemoteVpnSiteId'")
-	}
-	if args == nil || args.VpnGatewayId == nil {
-		return nil, errors.New("missing required argument 'VpnGatewayId'")
-	}
-	if args == nil || args.VpnLinks == nil {
-		return nil, errors.New("missing required argument 'VpnLinks'")
-	}
 	if args == nil {
-		args = &VpnGatewayConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RemoteVpnSiteId == nil {
+		return nil, errors.New("invalid value for required argument 'RemoteVpnSiteId'")
+	}
+	if args.VpnGatewayId == nil {
+		return nil, errors.New("invalid value for required argument 'VpnGatewayId'")
+	}
+	if args.VpnLinks == nil {
+		return nil, errors.New("invalid value for required argument 'VpnLinks'")
 	}
 	var resource VpnGatewayConnection
 	err := ctx.RegisterResource("azure:network/vpnGatewayConnection:VpnGatewayConnection", name, args, &resource, opts...)

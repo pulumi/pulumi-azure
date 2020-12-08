@@ -133,17 +133,18 @@ type NetworkInterfaceNatRuleAssociation struct {
 // NewNetworkInterfaceNatRuleAssociation registers a new resource with the given unique name, arguments, and options.
 func NewNetworkInterfaceNatRuleAssociation(ctx *pulumi.Context,
 	name string, args *NetworkInterfaceNatRuleAssociationArgs, opts ...pulumi.ResourceOption) (*NetworkInterfaceNatRuleAssociation, error) {
-	if args == nil || args.IpConfigurationName == nil {
-		return nil, errors.New("missing required argument 'IpConfigurationName'")
-	}
-	if args == nil || args.NatRuleId == nil {
-		return nil, errors.New("missing required argument 'NatRuleId'")
-	}
-	if args == nil || args.NetworkInterfaceId == nil {
-		return nil, errors.New("missing required argument 'NetworkInterfaceId'")
-	}
 	if args == nil {
-		args = &NetworkInterfaceNatRuleAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IpConfigurationName == nil {
+		return nil, errors.New("invalid value for required argument 'IpConfigurationName'")
+	}
+	if args.NatRuleId == nil {
+		return nil, errors.New("invalid value for required argument 'NatRuleId'")
+	}
+	if args.NetworkInterfaceId == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkInterfaceId'")
 	}
 	var resource NetworkInterfaceNatRuleAssociation
 	err := ctx.RegisterResource("azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation", name, args, &resource, opts...)

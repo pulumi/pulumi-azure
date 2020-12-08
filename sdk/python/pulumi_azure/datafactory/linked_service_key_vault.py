@@ -91,17 +91,17 @@ class LinkedServiceKeyVault(pulumi.CustomResource):
 
             __props__['additional_properties'] = additional_properties
             __props__['annotations'] = annotations
-            if data_factory_name is None:
+            if data_factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_factory_name'")
             __props__['data_factory_name'] = data_factory_name
             __props__['description'] = description
             __props__['integration_runtime_name'] = integration_runtime_name
-            if key_vault_id is None:
+            if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")
             __props__['key_vault_id'] = key_vault_id
             __props__['name'] = name
             __props__['parameters'] = parameters
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
         super(LinkedServiceKeyVault, __self__).__init__(

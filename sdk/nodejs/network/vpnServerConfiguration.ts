@@ -159,10 +159,10 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
             inputs["vpnProtocols"] = state ? state.vpnProtocols : undefined;
         } else {
             const args = argsOrState as VpnServerConfigurationArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.vpnAuthenticationTypes === undefined) {
+            if ((!args || args.vpnAuthenticationTypes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpnAuthenticationTypes'");
             }
             inputs["azureActiveDirectoryAuthentications"] = args ? args.azureActiveDirectoryAuthentications : undefined;

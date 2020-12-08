@@ -142,19 +142,19 @@ export class RunBook extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RunBookArgs | undefined;
-            if (!args || args.automationAccountName === undefined) {
+            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if (!args || args.logProgress === undefined) {
+            if ((!args || args.logProgress === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'logProgress'");
             }
-            if (!args || args.logVerbose === undefined) {
+            if ((!args || args.logVerbose === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'logVerbose'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.runbookType === undefined) {
+            if ((!args || args.runbookType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'runbookType'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;

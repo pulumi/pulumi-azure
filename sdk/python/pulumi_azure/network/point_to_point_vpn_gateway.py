@@ -83,23 +83,23 @@ class PointToPointVpnGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if connection_configuration is None:
+            if connection_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_configuration'")
             __props__['connection_configuration'] = connection_configuration
             __props__['dns_servers'] = dns_servers
             __props__['location'] = location
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if scale_unit is None:
+            if scale_unit is None and not opts.urn:
                 raise TypeError("Missing required property 'scale_unit'")
             __props__['scale_unit'] = scale_unit
             __props__['tags'] = tags
-            if virtual_hub_id is None:
+            if virtual_hub_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub_id'")
             __props__['virtual_hub_id'] = virtual_hub_id
-            if vpn_server_configuration_id is None:
+            if vpn_server_configuration_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpn_server_configuration_id'")
             __props__['vpn_server_configuration_id'] = vpn_server_configuration_id
         super(PointToPointVpnGateway, __self__).__init__(

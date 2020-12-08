@@ -85,36 +85,36 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
             __props__['allow_claim'] = allow_claim
             __props__['disallow_public_ip_address'] = disallow_public_ip_address
-            if gallery_image_reference is None:
+            if gallery_image_reference is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_image_reference'")
             __props__['gallery_image_reference'] = gallery_image_reference
             __props__['inbound_nat_rules'] = inbound_nat_rules
-            if lab_name is None:
+            if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
-            if lab_subnet_name is None:
+            if lab_subnet_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_subnet_name'")
             __props__['lab_subnet_name'] = lab_subnet_name
-            if lab_virtual_network_id is None:
+            if lab_virtual_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_virtual_network_id'")
             __props__['lab_virtual_network_id'] = lab_virtual_network_id
             __props__['location'] = location
             __props__['name'] = name
             __props__['notes'] = notes
-            if password is None:
+            if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
             __props__['password'] = password
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if size is None:
+            if size is None and not opts.urn:
                 raise TypeError("Missing required property 'size'")
             __props__['size'] = size
-            if storage_type is None:
+            if storage_type is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_type'")
             __props__['storage_type'] = storage_type
             __props__['tags'] = tags
-            if username is None:
+            if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__['username'] = username
             __props__['fqdn'] = None

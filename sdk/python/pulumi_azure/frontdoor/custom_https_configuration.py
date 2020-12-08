@@ -127,13 +127,13 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['custom_https_configuration'] = custom_https_configuration
-            if custom_https_provisioning_enabled is None:
+            if custom_https_provisioning_enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'custom_https_provisioning_enabled'")
             __props__['custom_https_provisioning_enabled'] = custom_https_provisioning_enabled
-            if frontend_endpoint_id is None:
+            if frontend_endpoint_id is None and not opts.urn:
                 raise TypeError("Missing required property 'frontend_endpoint_id'")
             __props__['frontend_endpoint_id'] = frontend_endpoint_id
-            if resource_group_name is not None:
+            if resource_group_name is not None and not opts.urn:
                 warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
                 pulumi.log.warn("resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider")
             __props__['resource_group_name'] = resource_group_name

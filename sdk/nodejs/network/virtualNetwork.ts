@@ -167,10 +167,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["vmProtectionEnabled"] = state ? state.vmProtectionEnabled : undefined;
         } else {
             const args = argsOrState as VirtualNetworkArgs | undefined;
-            if (!args || args.addressSpaces === undefined) {
+            if ((!args || args.addressSpaces === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'addressSpaces'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["addressSpaces"] = args ? args.addressSpaces : undefined;

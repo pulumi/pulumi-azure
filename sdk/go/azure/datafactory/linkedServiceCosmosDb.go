@@ -54,14 +54,15 @@ type LinkedServiceCosmosDb struct {
 // NewLinkedServiceCosmosDb registers a new resource with the given unique name, arguments, and options.
 func NewLinkedServiceCosmosDb(ctx *pulumi.Context,
 	name string, args *LinkedServiceCosmosDbArgs, opts ...pulumi.ResourceOption) (*LinkedServiceCosmosDb, error) {
-	if args == nil || args.DataFactoryName == nil {
-		return nil, errors.New("missing required argument 'DataFactoryName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &LinkedServiceCosmosDbArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataFactoryName == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource LinkedServiceCosmosDb
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceCosmosDb:LinkedServiceCosmosDb", name, args, &resource, opts...)

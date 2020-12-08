@@ -179,10 +179,10 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
             __props__['additional_capabilities'] = additional_capabilities
             __props__['additional_unattend_contents'] = additional_unattend_contents
-            if admin_password is None:
+            if admin_password is None and not opts.urn:
                 raise TypeError("Missing required property 'admin_password'")
             __props__['admin_password'] = admin_password
-            if admin_username is None:
+            if admin_username is None and not opts.urn:
                 raise TypeError("Missing required property 'admin_username'")
             __props__['admin_username'] = admin_username
             __props__['allow_extension_operations'] = allow_extension_operations
@@ -200,10 +200,10 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             __props__['location'] = location
             __props__['max_bid_price'] = max_bid_price
             __props__['name'] = name
-            if network_interface_ids is None:
+            if network_interface_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'network_interface_ids'")
             __props__['network_interface_ids'] = network_interface_ids
-            if os_disk is None:
+            if os_disk is None and not opts.urn:
                 raise TypeError("Missing required property 'os_disk'")
             __props__['os_disk'] = os_disk
             __props__['patch_mode'] = patch_mode
@@ -211,11 +211,11 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             __props__['priority'] = priority
             __props__['provision_vm_agent'] = provision_vm_agent
             __props__['proximity_placement_group_id'] = proximity_placement_group_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['secrets'] = secrets
-            if size is None:
+            if size is None and not opts.urn:
                 raise TypeError("Missing required property 'size'")
             __props__['size'] = size
             __props__['source_image_id'] = source_image_id

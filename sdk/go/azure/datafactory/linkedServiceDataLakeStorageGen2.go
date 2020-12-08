@@ -100,17 +100,18 @@ type LinkedServiceDataLakeStorageGen2 struct {
 // NewLinkedServiceDataLakeStorageGen2 registers a new resource with the given unique name, arguments, and options.
 func NewLinkedServiceDataLakeStorageGen2(ctx *pulumi.Context,
 	name string, args *LinkedServiceDataLakeStorageGen2Args, opts ...pulumi.ResourceOption) (*LinkedServiceDataLakeStorageGen2, error) {
-	if args == nil || args.DataFactoryName == nil {
-		return nil, errors.New("missing required argument 'DataFactoryName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Url == nil {
-		return nil, errors.New("missing required argument 'Url'")
-	}
 	if args == nil {
-		args = &LinkedServiceDataLakeStorageGen2Args{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataFactoryName == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Url == nil {
+		return nil, errors.New("invalid value for required argument 'Url'")
 	}
 	var resource LinkedServiceDataLakeStorageGen2
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2", name, args, &resource, opts...)

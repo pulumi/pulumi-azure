@@ -78,11 +78,12 @@ type CustomProvider struct {
 // NewCustomProvider registers a new resource with the given unique name, arguments, and options.
 func NewCustomProvider(ctx *pulumi.Context,
 	name string, args *CustomProviderArgs, opts ...pulumi.ResourceOption) (*CustomProvider, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &CustomProviderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource CustomProvider
 	err := ctx.RegisterResource("azure:core/customProvider:CustomProvider", name, args, &resource, opts...)

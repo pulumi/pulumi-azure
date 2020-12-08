@@ -141,10 +141,10 @@ export class Insights extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as InsightsArgs | undefined;
-            if (!args || args.applicationType === undefined) {
+            if ((!args || args.applicationType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationType"] = args ? args.applicationType : undefined;

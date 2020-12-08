@@ -140,13 +140,13 @@ export class ApplicationGroup extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ApplicationGroupArgs | undefined;
-            if (!args || args.hostPoolId === undefined) {
+            if ((!args || args.hostPoolId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hostPoolId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["description"] = args ? args.description : undefined;

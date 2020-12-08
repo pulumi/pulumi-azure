@@ -91,20 +91,21 @@ type VirtualMachineScaleSetExtension struct {
 // NewVirtualMachineScaleSetExtension registers a new resource with the given unique name, arguments, and options.
 func NewVirtualMachineScaleSetExtension(ctx *pulumi.Context,
 	name string, args *VirtualMachineScaleSetExtensionArgs, opts ...pulumi.ResourceOption) (*VirtualMachineScaleSetExtension, error) {
-	if args == nil || args.Publisher == nil {
-		return nil, errors.New("missing required argument 'Publisher'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
-	if args == nil || args.TypeHandlerVersion == nil {
-		return nil, errors.New("missing required argument 'TypeHandlerVersion'")
-	}
-	if args == nil || args.VirtualMachineScaleSetId == nil {
-		return nil, errors.New("missing required argument 'VirtualMachineScaleSetId'")
-	}
 	if args == nil {
-		args = &VirtualMachineScaleSetExtensionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Publisher == nil {
+		return nil, errors.New("invalid value for required argument 'Publisher'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
+	}
+	if args.TypeHandlerVersion == nil {
+		return nil, errors.New("invalid value for required argument 'TypeHandlerVersion'")
+	}
+	if args.VirtualMachineScaleSetId == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualMachineScaleSetId'")
 	}
 	var resource VirtualMachineScaleSetExtension
 	err := ctx.RegisterResource("azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension", name, args, &resource, opts...)

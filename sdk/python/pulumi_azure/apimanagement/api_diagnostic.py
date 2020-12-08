@@ -155,13 +155,13 @@ class ApiDiagnostic(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['always_log_errors'] = always_log_errors
-            if api_management_logger_id is None:
+            if api_management_logger_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_logger_id'")
             __props__['api_management_logger_id'] = api_management_logger_id
-            if api_management_name is None:
+            if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__['api_management_name'] = api_management_name
-            if api_name is None:
+            if api_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_name'")
             __props__['api_name'] = api_name
             __props__['backend_request'] = backend_request
@@ -169,11 +169,11 @@ class ApiDiagnostic(pulumi.CustomResource):
             __props__['frontend_request'] = frontend_request
             __props__['frontend_response'] = frontend_response
             __props__['http_correlation_protocol'] = http_correlation_protocol
-            if identifier is None:
+            if identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'identifier'")
             __props__['identifier'] = identifier
             __props__['log_client_ip'] = log_client_ip
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['verbosity'] = verbosity

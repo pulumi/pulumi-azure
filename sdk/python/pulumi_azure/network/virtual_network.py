@@ -121,7 +121,7 @@ class VirtualNetwork(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if address_spaces is None:
+            if address_spaces is None and not opts.urn:
                 raise TypeError("Missing required property 'address_spaces'")
             __props__['address_spaces'] = address_spaces
             __props__['bgp_community'] = bgp_community
@@ -129,7 +129,7 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__['dns_servers'] = dns_servers
             __props__['location'] = location
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['subnets'] = subnets

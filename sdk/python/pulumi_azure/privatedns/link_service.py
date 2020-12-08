@@ -126,15 +126,15 @@ class LinkService(pulumi.CustomResource):
 
             __props__['auto_approval_subscription_ids'] = auto_approval_subscription_ids
             __props__['enable_proxy_protocol'] = enable_proxy_protocol
-            if load_balancer_frontend_ip_configuration_ids is None:
+            if load_balancer_frontend_ip_configuration_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_frontend_ip_configuration_ids'")
             __props__['load_balancer_frontend_ip_configuration_ids'] = load_balancer_frontend_ip_configuration_ids
             __props__['location'] = location
             __props__['name'] = name
-            if nat_ip_configurations is None:
+            if nat_ip_configurations is None and not opts.urn:
                 raise TypeError("Missing required property 'nat_ip_configurations'")
             __props__['nat_ip_configurations'] = nat_ip_configurations
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

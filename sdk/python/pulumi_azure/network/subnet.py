@@ -100,7 +100,7 @@ class Subnet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if address_prefix is not None:
+            if address_prefix is not None and not opts.urn:
                 warnings.warn("""Use the `address_prefixes` property instead.""", DeprecationWarning)
                 pulumi.log.warn("address_prefix is deprecated: Use the `address_prefixes` property instead.")
             __props__['address_prefix'] = address_prefix
@@ -109,11 +109,11 @@ class Subnet(pulumi.CustomResource):
             __props__['enforce_private_link_endpoint_network_policies'] = enforce_private_link_endpoint_network_policies
             __props__['enforce_private_link_service_network_policies'] = enforce_private_link_service_network_policies
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['service_endpoints'] = service_endpoints
-            if virtual_network_name is None:
+            if virtual_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_name'")
             __props__['virtual_network_name'] = virtual_network_name
         super(Subnet, __self__).__init__(

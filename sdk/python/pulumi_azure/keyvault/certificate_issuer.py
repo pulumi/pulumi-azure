@@ -88,13 +88,13 @@ class CertificateIssuer(pulumi.CustomResource):
 
             __props__['account_id'] = account_id
             __props__['admins'] = admins
-            if key_vault_id is None:
+            if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")
             __props__['key_vault_id'] = key_vault_id
             __props__['name'] = name
             __props__['org_id'] = org_id
             __props__['password'] = password
-            if provider_name is None:
+            if provider_name is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_name'")
             __props__['provider_name'] = provider_name
         super(CertificateIssuer, __self__).__init__(

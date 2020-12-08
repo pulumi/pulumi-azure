@@ -78,16 +78,16 @@ export class ClusterCustomerManagedKey extends pulumi.CustomResource {
             inputs["keyVersion"] = state ? state.keyVersion : undefined;
         } else {
             const args = argsOrState as ClusterCustomerManagedKeyArgs | undefined;
-            if (!args || args.clusterId === undefined) {
+            if ((!args || args.clusterId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            if (!args || args.keyName === undefined) {
+            if ((!args || args.keyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyName'");
             }
-            if (!args || args.keyVaultId === undefined) {
+            if ((!args || args.keyVaultId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            if (!args || args.keyVersion === undefined) {
+            if ((!args || args.keyVersion === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyVersion'");
             }
             inputs["clusterId"] = args ? args.clusterId : undefined;

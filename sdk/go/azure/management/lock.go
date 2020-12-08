@@ -140,14 +140,15 @@ type Lock struct {
 // NewLock registers a new resource with the given unique name, arguments, and options.
 func NewLock(ctx *pulumi.Context,
 	name string, args *LockArgs, opts ...pulumi.ResourceOption) (*Lock, error) {
-	if args == nil || args.LockLevel == nil {
-		return nil, errors.New("missing required argument 'LockLevel'")
-	}
-	if args == nil || args.Scope == nil {
-		return nil, errors.New("missing required argument 'Scope'")
-	}
 	if args == nil {
-		args = &LockArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LockLevel == nil {
+		return nil, errors.New("invalid value for required argument 'LockLevel'")
+	}
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

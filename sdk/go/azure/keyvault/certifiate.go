@@ -190,14 +190,15 @@ type Certifiate struct {
 // NewCertifiate registers a new resource with the given unique name, arguments, and options.
 func NewCertifiate(ctx *pulumi.Context,
 	name string, args *CertifiateArgs, opts ...pulumi.ResourceOption) (*Certifiate, error) {
-	if args == nil || args.CertificatePolicy == nil {
-		return nil, errors.New("missing required argument 'CertificatePolicy'")
-	}
-	if args == nil || args.KeyVaultId == nil {
-		return nil, errors.New("missing required argument 'KeyVaultId'")
-	}
 	if args == nil {
-		args = &CertifiateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CertificatePolicy == nil {
+		return nil, errors.New("invalid value for required argument 'CertificatePolicy'")
+	}
+	if args.KeyVaultId == nil {
+		return nil, errors.New("invalid value for required argument 'KeyVaultId'")
 	}
 	var resource Certifiate
 	err := ctx.RegisterResource("azure:keyvault/certifiate:Certifiate", name, args, &resource, opts...)

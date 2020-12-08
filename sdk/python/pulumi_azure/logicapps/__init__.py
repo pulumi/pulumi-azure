@@ -15,3 +15,47 @@ from .trigger_recurrence import *
 from .workflow import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure:logicapps/actionCustom:ActionCustom":
+                return ActionCustom(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:logicapps/actionHttp:ActionHttp":
+                return ActionHttp(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:logicapps/integrationAccount:IntegrationAccount":
+                return IntegrationAccount(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:logicapps/interationServiceEnvironment:InterationServiceEnvironment":
+                return InterationServiceEnvironment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:logicapps/triggerCustom:TriggerCustom":
+                return TriggerCustom(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:logicapps/triggerHttpRequest:TriggerHttpRequest":
+                return TriggerHttpRequest(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:logicapps/triggerRecurrence:TriggerRecurrence":
+                return TriggerRecurrence(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:logicapps/workflow:Workflow":
+                return Workflow(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure", "logicapps/actionCustom", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "logicapps/actionHttp", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "logicapps/integrationAccount", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "logicapps/interationServiceEnvironment", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "logicapps/triggerCustom", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "logicapps/triggerHttpRequest", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "logicapps/triggerRecurrence", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "logicapps/workflow", _module_instance)
+
+_register_module()

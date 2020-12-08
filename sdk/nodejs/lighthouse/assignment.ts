@@ -85,10 +85,10 @@ export class Assignment extends pulumi.CustomResource {
             inputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as AssignmentArgs | undefined;
-            if (!args || args.lighthouseDefinitionId === undefined) {
+            if ((!args || args.lighthouseDefinitionId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'lighthouseDefinitionId'");
             }
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["lighthouseDefinitionId"] = args ? args.lighthouseDefinitionId : undefined;

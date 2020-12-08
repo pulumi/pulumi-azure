@@ -65,20 +65,20 @@ class CacheNfsTarget(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cache_name is None:
+            if cache_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_name'")
             __props__['cache_name'] = cache_name
             __props__['name'] = name
-            if namespace_junctions is None:
+            if namespace_junctions is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_junctions'")
             __props__['namespace_junctions'] = namespace_junctions
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if target_host_name is None:
+            if target_host_name is None and not opts.urn:
                 raise TypeError("Missing required property 'target_host_name'")
             __props__['target_host_name'] = target_host_name
-            if usage_model is None:
+            if usage_model is None and not opts.urn:
                 raise TypeError("Missing required property 'usage_model'")
             __props__['usage_model'] = usage_model
         super(CacheNfsTarget, __self__).__init__(

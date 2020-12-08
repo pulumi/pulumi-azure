@@ -69,14 +69,15 @@ type SqlDatabase struct {
 // NewSqlDatabase registers a new resource with the given unique name, arguments, and options.
 func NewSqlDatabase(ctx *pulumi.Context,
 	name string, args *SqlDatabaseArgs, opts ...pulumi.ResourceOption) (*SqlDatabase, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &SqlDatabaseArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource SqlDatabase
 	err := ctx.RegisterResource("azure:cosmosdb/sqlDatabase:SqlDatabase", name, args, &resource, opts...)

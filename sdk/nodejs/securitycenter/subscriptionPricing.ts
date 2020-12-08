@@ -84,7 +84,7 @@ export class SubscriptionPricing extends pulumi.CustomResource {
             inputs["tier"] = state ? state.tier : undefined;
         } else {
             const args = argsOrState as SubscriptionPricingArgs | undefined;
-            if (!args || args.tier === undefined) {
+            if ((!args || args.tier === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tier'");
             }
             inputs["resourceType"] = args ? args.resourceType : undefined;

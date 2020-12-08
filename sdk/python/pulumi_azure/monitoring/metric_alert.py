@@ -132,10 +132,10 @@ class MetricAlert(pulumi.CustomResource):
             __props__['enabled'] = enabled
             __props__['frequency'] = frequency
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if scopes is None:
+            if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")
             __props__['scopes'] = scopes
             __props__['severity'] = severity

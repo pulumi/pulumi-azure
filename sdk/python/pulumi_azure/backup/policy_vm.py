@@ -123,15 +123,15 @@ class PolicyVM(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if backup is None:
+            if backup is None and not opts.urn:
                 raise TypeError("Missing required property 'backup'")
             __props__['backup'] = backup
             __props__['instant_restore_retention_days'] = instant_restore_retention_days
             __props__['name'] = name
-            if recovery_vault_name is None:
+            if recovery_vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_vault_name'")
             __props__['recovery_vault_name'] = recovery_vault_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['retention_daily'] = retention_daily

@@ -131,13 +131,13 @@ export class AccountNetworkRules extends pulumi.CustomResource {
             inputs["virtualNetworkSubnetIds"] = state ? state.virtualNetworkSubnetIds : undefined;
         } else {
             const args = argsOrState as AccountNetworkRulesArgs | undefined;
-            if (!args || args.defaultAction === undefined) {
+            if ((!args || args.defaultAction === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'defaultAction'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.storageAccountName === undefined) {
+            if ((!args || args.storageAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
             inputs["bypasses"] = args ? args.bypasses : undefined;

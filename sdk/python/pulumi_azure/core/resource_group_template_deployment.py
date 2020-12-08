@@ -100,16 +100,16 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['debug_level'] = debug_level
-            if deployment_mode is None:
+            if deployment_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'deployment_mode'")
             __props__['deployment_mode'] = deployment_mode
             __props__['name'] = name
             __props__['parameters_content'] = parameters_content
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if template_content is None:
+            if template_content is None and not opts.urn:
                 raise TypeError("Missing required property 'template_content'")
             __props__['template_content'] = template_content
             __props__['output_content'] = None

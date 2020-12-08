@@ -99,18 +99,18 @@ class Definition(pulumi.CustomResource):
             __props__['authorizations'] = authorizations
             __props__['create_ui_definition'] = create_ui_definition
             __props__['description'] = description
-            if display_name is None:
+            if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             __props__['location'] = location
-            if lock_level is None:
+            if lock_level is None and not opts.urn:
                 raise TypeError("Missing required property 'lock_level'")
             __props__['lock_level'] = lock_level
             __props__['main_template'] = main_template
             __props__['name'] = name
             __props__['package_enabled'] = package_enabled
             __props__['package_file_uri'] = package_file_uri
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

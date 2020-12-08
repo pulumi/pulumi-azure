@@ -91,18 +91,18 @@ class TriggerSchedule(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['annotations'] = annotations
-            if data_factory_name is None:
+            if data_factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_factory_name'")
             __props__['data_factory_name'] = data_factory_name
             __props__['end_time'] = end_time
             __props__['frequency'] = frequency
             __props__['interval'] = interval
             __props__['name'] = name
-            if pipeline_name is None:
+            if pipeline_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pipeline_name'")
             __props__['pipeline_name'] = pipeline_name
             __props__['pipeline_parameters'] = pipeline_parameters
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['start_time'] = start_time

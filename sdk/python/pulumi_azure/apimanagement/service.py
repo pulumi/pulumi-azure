@@ -127,19 +127,19 @@ class Service(pulumi.CustomResource):
             __props__['notification_sender_email'] = notification_sender_email
             __props__['policy'] = policy
             __props__['protocols'] = protocols
-            if publisher_email is None:
+            if publisher_email is None and not opts.urn:
                 raise TypeError("Missing required property 'publisher_email'")
             __props__['publisher_email'] = publisher_email
-            if publisher_name is None:
+            if publisher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'publisher_name'")
             __props__['publisher_name'] = publisher_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['security'] = security
             __props__['sign_in'] = sign_in
             __props__['sign_up'] = sign_up
-            if sku_name is None:
+            if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
             __props__['tags'] = tags

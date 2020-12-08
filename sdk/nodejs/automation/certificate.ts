@@ -90,13 +90,13 @@ export class Certificate extends pulumi.CustomResource {
             inputs["thumbprint"] = state ? state.thumbprint : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if (!args || args.automationAccountName === undefined) {
+            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if (!args || args.base64 === undefined) {
+            if ((!args || args.base64 === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'base64'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;

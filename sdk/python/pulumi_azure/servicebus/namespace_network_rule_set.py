@@ -99,11 +99,11 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
 
             __props__['default_action'] = default_action
             __props__['ip_rules'] = ip_rules
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
             __props__['network_rules'] = network_rules
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
         super(NamespaceNetworkRuleSet, __self__).__init__(

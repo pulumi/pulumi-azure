@@ -111,14 +111,15 @@ type Profile struct {
 // NewProfile registers a new resource with the given unique name, arguments, and options.
 func NewProfile(ctx *pulumi.Context,
 	name string, args *ProfileArgs, opts ...pulumi.ResourceOption) (*Profile, error) {
-	if args == nil || args.ContainerNetworkInterface == nil {
-		return nil, errors.New("missing required argument 'ContainerNetworkInterface'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ProfileArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ContainerNetworkInterface == nil {
+		return nil, errors.New("invalid value for required argument 'ContainerNetworkInterface'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Profile
 	err := ctx.RegisterResource("azure:network/profile:Profile", name, args, &resource, opts...)

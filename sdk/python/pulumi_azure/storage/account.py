@@ -142,10 +142,10 @@ class Account(pulumi.CustomResource):
 
             __props__['access_tier'] = access_tier
             __props__['account_kind'] = account_kind
-            if account_replication_type is None:
+            if account_replication_type is None and not opts.urn:
                 raise TypeError("Missing required property 'account_replication_type'")
             __props__['account_replication_type'] = account_replication_type
-            if account_tier is None:
+            if account_tier is None and not opts.urn:
                 raise TypeError("Missing required property 'account_tier'")
             __props__['account_tier'] = account_tier
             __props__['allow_blob_public_access'] = allow_blob_public_access
@@ -160,7 +160,7 @@ class Account(pulumi.CustomResource):
             __props__['name'] = name
             __props__['network_rules'] = network_rules
             __props__['queue_properties'] = queue_properties
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['static_website'] = static_website

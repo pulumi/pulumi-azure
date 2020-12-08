@@ -76,10 +76,10 @@ class SubnetNatGatewayAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if nat_gateway_id is None:
+            if nat_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'nat_gateway_id'")
             __props__['nat_gateway_id'] = nat_gateway_id
-            if subnet_id is None:
+            if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
         super(SubnetNatGatewayAssociation, __self__).__init__(

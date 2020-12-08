@@ -406,22 +406,22 @@ export class ScaleSet extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as ScaleSetArgs | undefined;
-            if (!args || args.networkProfiles === undefined) {
+            if ((!args || args.networkProfiles === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkProfiles'");
             }
-            if (!args || args.osProfile === undefined) {
+            if ((!args || args.osProfile === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'osProfile'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sku === undefined) {
+            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sku'");
             }
-            if (!args || args.storageProfileOsDisk === undefined) {
+            if ((!args || args.storageProfileOsDisk === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageProfileOsDisk'");
             }
-            if (!args || args.upgradePolicyMode === undefined) {
+            if ((!args || args.upgradePolicyMode === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'upgradePolicyMode'");
             }
             inputs["automaticOsUpgrade"] = args ? args.automaticOsUpgrade : undefined;

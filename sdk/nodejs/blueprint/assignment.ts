@@ -192,10 +192,10 @@ export class Assignment extends pulumi.CustomResource {
             inputs["versionId"] = state ? state.versionId : undefined;
         } else {
             const args = argsOrState as AssignmentArgs | undefined;
-            if (!args || args.targetSubscriptionId === undefined) {
+            if ((!args || args.targetSubscriptionId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetSubscriptionId'");
             }
-            if (!args || args.versionId === undefined) {
+            if ((!args || args.versionId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'versionId'");
             }
             inputs["identity"] = args ? args.identity : undefined;

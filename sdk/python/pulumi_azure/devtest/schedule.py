@@ -102,23 +102,23 @@ class Schedule(pulumi.CustomResource):
 
             __props__['daily_recurrence'] = daily_recurrence
             __props__['hourly_recurrence'] = hourly_recurrence
-            if lab_name is None:
+            if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
             __props__['location'] = location
             __props__['name'] = name
-            if notification_settings is None:
+            if notification_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'notification_settings'")
             __props__['notification_settings'] = notification_settings
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status
             __props__['tags'] = tags
-            if task_type is None:
+            if task_type is None and not opts.urn:
                 raise TypeError("Missing required property 'task_type'")
             __props__['task_type'] = task_type
-            if time_zone_id is None:
+            if time_zone_id is None and not opts.urn:
                 raise TypeError("Missing required property 'time_zone_id'")
             __props__['time_zone_id'] = time_zone_id
             __props__['weekly_recurrence'] = weekly_recurrence

@@ -42,3 +42,116 @@ from .subscription import *
 from .user import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure:apimanagement/api:Api":
+                return Api(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/apiDiagnostic:ApiDiagnostic":
+                return ApiDiagnostic(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/apiOperation:ApiOperation":
+                return ApiOperation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/apiOperationPolicy:ApiOperationPolicy":
+                return ApiOperationPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/apiPolicy:ApiPolicy":
+                return ApiPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/apiSchema:ApiSchema":
+                return ApiSchema(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/apiVersionSet:ApiVersionSet":
+                return ApiVersionSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/authorizationServer:AuthorizationServer":
+                return AuthorizationServer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/backend:Backend":
+                return Backend(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/certificate:Certificate":
+                return Certificate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/customDomain:CustomDomain":
+                return CustomDomain(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/diagnostic:Diagnostic":
+                return Diagnostic(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/group:Group":
+                return Group(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/groupUser:GroupUser":
+                return GroupUser(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/identityProviderAad:IdentityProviderAad":
+                return IdentityProviderAad(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook":
+                return IdentityProviderFacebook(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/identityProviderGoogle:IdentityProviderGoogle":
+                return IdentityProviderGoogle(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/identityProviderMicrosoft:IdentityProviderMicrosoft":
+                return IdentityProviderMicrosoft(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter":
+                return IdentityProviderTwitter(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/logger:Logger":
+                return Logger(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/namedValue:NamedValue":
+                return NamedValue(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider":
+                return OpenIdConnectProvider(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/policy:Policy":
+                return Policy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/product:Product":
+                return Product(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/productApi:ProductApi":
+                return ProductApi(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/productGroup:ProductGroup":
+                return ProductGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/productPolicy:ProductPolicy":
+                return ProductPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/property:Property":
+                return Property(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/service:Service":
+                return Service(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/subscription:Subscription":
+                return Subscription(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/user:User":
+                return User(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure", "apimanagement/api", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/apiDiagnostic", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/apiOperation", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/apiOperationPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/apiPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/apiSchema", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/apiVersionSet", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/authorizationServer", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/backend", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/certificate", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/customDomain", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/diagnostic", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/group", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/groupUser", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/identityProviderAad", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/identityProviderFacebook", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/identityProviderGoogle", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/identityProviderMicrosoft", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/identityProviderTwitter", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/logger", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/namedValue", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/openIdConnectProvider", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/policy", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/product", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/productApi", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/productGroup", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/productPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/property", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/service", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/subscription", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/user", _module_instance)
+
+_register_module()

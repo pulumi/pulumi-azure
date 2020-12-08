@@ -68,13 +68,13 @@ class ZipBlob(pulumi.CustomResource):
             __props__['size'] = size
             __props__['source_content'] = source_content
             __props__['source_uri'] = source_uri
-            if storage_account_name is None:
+            if storage_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_name'")
             __props__['storage_account_name'] = storage_account_name
-            if storage_container_name is None:
+            if storage_container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_container_name'")
             __props__['storage_container_name'] = storage_container_name
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['url'] = None

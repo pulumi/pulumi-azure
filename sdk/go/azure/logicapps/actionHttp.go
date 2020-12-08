@@ -81,17 +81,18 @@ type ActionHttp struct {
 // NewActionHttp registers a new resource with the given unique name, arguments, and options.
 func NewActionHttp(ctx *pulumi.Context,
 	name string, args *ActionHttpArgs, opts ...pulumi.ResourceOption) (*ActionHttp, error) {
-	if args == nil || args.LogicAppId == nil {
-		return nil, errors.New("missing required argument 'LogicAppId'")
-	}
-	if args == nil || args.Method == nil {
-		return nil, errors.New("missing required argument 'Method'")
-	}
-	if args == nil || args.Uri == nil {
-		return nil, errors.New("missing required argument 'Uri'")
-	}
 	if args == nil {
-		args = &ActionHttpArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LogicAppId == nil {
+		return nil, errors.New("invalid value for required argument 'LogicAppId'")
+	}
+	if args.Method == nil {
+		return nil, errors.New("invalid value for required argument 'Method'")
+	}
+	if args.Uri == nil {
+		return nil, errors.New("invalid value for required argument 'Uri'")
 	}
 	var resource ActionHttp
 	err := ctx.RegisterResource("azure:logicapps/actionHttp:ActionHttp", name, args, &resource, opts...)

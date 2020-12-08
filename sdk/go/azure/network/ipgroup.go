@@ -77,11 +77,12 @@ type IPGroup struct {
 // NewIPGroup registers a new resource with the given unique name, arguments, and options.
 func NewIPGroup(ctx *pulumi.Context,
 	name string, args *IPGroupArgs, opts ...pulumi.ResourceOption) (*IPGroup, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &IPGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource IPGroup
 	err := ctx.RegisterResource("azure:network/iPGroup:IPGroup", name, args, &resource, opts...)

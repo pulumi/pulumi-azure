@@ -124,13 +124,13 @@ class Endpoint(pulumi.CustomResource):
             __props__['location'] = location
             __props__['name'] = name
             __props__['private_dns_zone_group'] = private_dns_zone_group
-            if private_service_connection is None:
+            if private_service_connection is None and not opts.urn:
                 raise TypeError("Missing required property 'private_service_connection'")
             __props__['private_service_connection'] = private_service_connection
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if subnet_id is None:
+            if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
             __props__['tags'] = tags

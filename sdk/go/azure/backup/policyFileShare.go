@@ -90,20 +90,21 @@ type PolicyFileShare struct {
 // NewPolicyFileShare registers a new resource with the given unique name, arguments, and options.
 func NewPolicyFileShare(ctx *pulumi.Context,
 	name string, args *PolicyFileShareArgs, opts ...pulumi.ResourceOption) (*PolicyFileShare, error) {
-	if args == nil || args.Backup == nil {
-		return nil, errors.New("missing required argument 'Backup'")
-	}
-	if args == nil || args.RecoveryVaultName == nil {
-		return nil, errors.New("missing required argument 'RecoveryVaultName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RetentionDaily == nil {
-		return nil, errors.New("missing required argument 'RetentionDaily'")
-	}
 	if args == nil {
-		args = &PolicyFileShareArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Backup == nil {
+		return nil, errors.New("invalid value for required argument 'Backup'")
+	}
+	if args.RecoveryVaultName == nil {
+		return nil, errors.New("invalid value for required argument 'RecoveryVaultName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RetentionDaily == nil {
+		return nil, errors.New("invalid value for required argument 'RetentionDaily'")
 	}
 	var resource PolicyFileShare
 	err := ctx.RegisterResource("azure:backup/policyFileShare:PolicyFileShare", name, args, &resource, opts...)

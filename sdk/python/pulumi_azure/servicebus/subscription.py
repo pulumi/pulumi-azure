@@ -112,19 +112,19 @@ class Subscription(pulumi.CustomResource):
             __props__['forward_dead_lettered_messages_to'] = forward_dead_lettered_messages_to
             __props__['forward_to'] = forward_to
             __props__['lock_duration'] = lock_duration
-            if max_delivery_count is None:
+            if max_delivery_count is None and not opts.urn:
                 raise TypeError("Missing required property 'max_delivery_count'")
             __props__['max_delivery_count'] = max_delivery_count
             __props__['name'] = name
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
             __props__['requires_session'] = requires_session
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status
-            if topic_name is None:
+            if topic_name is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_name'")
             __props__['topic_name'] = topic_name
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:eventhub/subscription:Subscription")])

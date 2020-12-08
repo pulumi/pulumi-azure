@@ -177,28 +177,28 @@ export class AuthorizationServer extends pulumi.CustomResource {
             inputs["tokenEndpoint"] = state ? state.tokenEndpoint : undefined;
         } else {
             const args = argsOrState as AuthorizationServerArgs | undefined;
-            if (!args || args.apiManagementName === undefined) {
+            if ((!args || args.apiManagementName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if (!args || args.authorizationEndpoint === undefined) {
+            if ((!args || args.authorizationEndpoint === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authorizationEndpoint'");
             }
-            if (!args || args.authorizationMethods === undefined) {
+            if ((!args || args.authorizationMethods === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authorizationMethods'");
             }
-            if (!args || args.clientId === undefined) {
+            if ((!args || args.clientId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if (!args || args.clientRegistrationEndpoint === undefined) {
+            if ((!args || args.clientRegistrationEndpoint === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientRegistrationEndpoint'");
             }
-            if (!args || args.displayName === undefined) {
+            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (!args || args.grantTypes === undefined) {
+            if ((!args || args.grantTypes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'grantTypes'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["apiManagementName"] = args ? args.apiManagementName : undefined;

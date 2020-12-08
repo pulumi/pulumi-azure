@@ -162,16 +162,16 @@ export class DataDiskAttachment extends pulumi.CustomResource {
             inputs["writeAcceleratorEnabled"] = state ? state.writeAcceleratorEnabled : undefined;
         } else {
             const args = argsOrState as DataDiskAttachmentArgs | undefined;
-            if (!args || args.caching === undefined) {
+            if ((!args || args.caching === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'caching'");
             }
-            if (!args || args.lun === undefined) {
+            if ((!args || args.lun === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'lun'");
             }
-            if (!args || args.managedDiskId === undefined) {
+            if ((!args || args.managedDiskId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managedDiskId'");
             }
-            if (!args || args.virtualMachineId === undefined) {
+            if ((!args || args.virtualMachineId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
             inputs["caching"] = args ? args.caching : undefined;

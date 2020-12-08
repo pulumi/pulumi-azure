@@ -111,17 +111,18 @@ type EndpointServicebusQueue struct {
 // NewEndpointServicebusQueue registers a new resource with the given unique name, arguments, and options.
 func NewEndpointServicebusQueue(ctx *pulumi.Context,
 	name string, args *EndpointServicebusQueueArgs, opts ...pulumi.ResourceOption) (*EndpointServicebusQueue, error) {
-	if args == nil || args.ConnectionString == nil {
-		return nil, errors.New("missing required argument 'ConnectionString'")
-	}
-	if args == nil || args.IothubName == nil {
-		return nil, errors.New("missing required argument 'IothubName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &EndpointServicebusQueueArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConnectionString == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionString'")
+	}
+	if args.IothubName == nil {
+		return nil, errors.New("invalid value for required argument 'IothubName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource EndpointServicebusQueue
 	err := ctx.RegisterResource("azure:iot/endpointServicebusQueue:EndpointServicebusQueue", name, args, &resource, opts...)

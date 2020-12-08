@@ -106,32 +106,33 @@ type AuthorizationServer struct {
 // NewAuthorizationServer registers a new resource with the given unique name, arguments, and options.
 func NewAuthorizationServer(ctx *pulumi.Context,
 	name string, args *AuthorizationServerArgs, opts ...pulumi.ResourceOption) (*AuthorizationServer, error) {
-	if args == nil || args.ApiManagementName == nil {
-		return nil, errors.New("missing required argument 'ApiManagementName'")
-	}
-	if args == nil || args.AuthorizationEndpoint == nil {
-		return nil, errors.New("missing required argument 'AuthorizationEndpoint'")
-	}
-	if args == nil || args.AuthorizationMethods == nil {
-		return nil, errors.New("missing required argument 'AuthorizationMethods'")
-	}
-	if args == nil || args.ClientId == nil {
-		return nil, errors.New("missing required argument 'ClientId'")
-	}
-	if args == nil || args.ClientRegistrationEndpoint == nil {
-		return nil, errors.New("missing required argument 'ClientRegistrationEndpoint'")
-	}
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.GrantTypes == nil {
-		return nil, errors.New("missing required argument 'GrantTypes'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &AuthorizationServerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiManagementName == nil {
+		return nil, errors.New("invalid value for required argument 'ApiManagementName'")
+	}
+	if args.AuthorizationEndpoint == nil {
+		return nil, errors.New("invalid value for required argument 'AuthorizationEndpoint'")
+	}
+	if args.AuthorizationMethods == nil {
+		return nil, errors.New("invalid value for required argument 'AuthorizationMethods'")
+	}
+	if args.ClientId == nil {
+		return nil, errors.New("invalid value for required argument 'ClientId'")
+	}
+	if args.ClientRegistrationEndpoint == nil {
+		return nil, errors.New("invalid value for required argument 'ClientRegistrationEndpoint'")
+	}
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.GrantTypes == nil {
+		return nil, errors.New("invalid value for required argument 'GrantTypes'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource AuthorizationServer
 	err := ctx.RegisterResource("azure:apimanagement/authorizationServer:AuthorizationServer", name, args, &resource, opts...)

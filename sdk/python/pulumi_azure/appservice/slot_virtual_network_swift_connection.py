@@ -99,13 +99,13 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if app_service_id is None:
+            if app_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_service_id'")
             __props__['app_service_id'] = app_service_id
-            if slot_name is None:
+            if slot_name is None and not opts.urn:
                 raise TypeError("Missing required property 'slot_name'")
             __props__['slot_name'] = slot_name
-            if subnet_id is None:
+            if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
         super(SlotVirtualNetworkSwiftConnection, __self__).__init__(

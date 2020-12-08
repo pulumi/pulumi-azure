@@ -133,10 +133,10 @@ export class AssignmentVirtualMachine extends pulumi.CustomResource {
             inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
         } else {
             const args = argsOrState as AssignmentVirtualMachineArgs | undefined;
-            if (!args || args.maintenanceConfigurationId === undefined) {
+            if ((!args || args.maintenanceConfigurationId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'maintenanceConfigurationId'");
             }
-            if (!args || args.virtualMachineId === undefined) {
+            if ((!args || args.virtualMachineId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
             inputs["location"] = args ? args.location : undefined;

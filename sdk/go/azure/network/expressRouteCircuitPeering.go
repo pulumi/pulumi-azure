@@ -125,26 +125,27 @@ type ExpressRouteCircuitPeering struct {
 // NewExpressRouteCircuitPeering registers a new resource with the given unique name, arguments, and options.
 func NewExpressRouteCircuitPeering(ctx *pulumi.Context,
 	name string, args *ExpressRouteCircuitPeeringArgs, opts ...pulumi.ResourceOption) (*ExpressRouteCircuitPeering, error) {
-	if args == nil || args.ExpressRouteCircuitName == nil {
-		return nil, errors.New("missing required argument 'ExpressRouteCircuitName'")
-	}
-	if args == nil || args.PeeringType == nil {
-		return nil, errors.New("missing required argument 'PeeringType'")
-	}
-	if args == nil || args.PrimaryPeerAddressPrefix == nil {
-		return nil, errors.New("missing required argument 'PrimaryPeerAddressPrefix'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SecondaryPeerAddressPrefix == nil {
-		return nil, errors.New("missing required argument 'SecondaryPeerAddressPrefix'")
-	}
-	if args == nil || args.VlanId == nil {
-		return nil, errors.New("missing required argument 'VlanId'")
-	}
 	if args == nil {
-		args = &ExpressRouteCircuitPeeringArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ExpressRouteCircuitName == nil {
+		return nil, errors.New("invalid value for required argument 'ExpressRouteCircuitName'")
+	}
+	if args.PeeringType == nil {
+		return nil, errors.New("invalid value for required argument 'PeeringType'")
+	}
+	if args.PrimaryPeerAddressPrefix == nil {
+		return nil, errors.New("invalid value for required argument 'PrimaryPeerAddressPrefix'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SecondaryPeerAddressPrefix == nil {
+		return nil, errors.New("invalid value for required argument 'SecondaryPeerAddressPrefix'")
+	}
+	if args.VlanId == nil {
+		return nil, errors.New("invalid value for required argument 'VlanId'")
 	}
 	var resource ExpressRouteCircuitPeering
 	err := ctx.RegisterResource("azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering", name, args, &resource, opts...)

@@ -92,20 +92,21 @@ type LinkedServiceWeb struct {
 // NewLinkedServiceWeb registers a new resource with the given unique name, arguments, and options.
 func NewLinkedServiceWeb(ctx *pulumi.Context,
 	name string, args *LinkedServiceWebArgs, opts ...pulumi.ResourceOption) (*LinkedServiceWeb, error) {
-	if args == nil || args.AuthenticationType == nil {
-		return nil, errors.New("missing required argument 'AuthenticationType'")
-	}
-	if args == nil || args.DataFactoryName == nil {
-		return nil, errors.New("missing required argument 'DataFactoryName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Url == nil {
-		return nil, errors.New("missing required argument 'Url'")
-	}
 	if args == nil {
-		args = &LinkedServiceWebArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AuthenticationType == nil {
+		return nil, errors.New("invalid value for required argument 'AuthenticationType'")
+	}
+	if args.DataFactoryName == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Url == nil {
+		return nil, errors.New("invalid value for required argument 'Url'")
 	}
 	var resource LinkedServiceWeb
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceWeb:LinkedServiceWeb", name, args, &resource, opts...)

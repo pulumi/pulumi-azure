@@ -150,19 +150,19 @@ export class GremlinGraph extends pulumi.CustomResource {
             inputs["uniqueKeys"] = state ? state.uniqueKeys : undefined;
         } else {
             const args = argsOrState as GremlinGraphArgs | undefined;
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.conflictResolutionPolicies === undefined) {
+            if ((!args || args.conflictResolutionPolicies === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'conflictResolutionPolicies'");
             }
-            if (!args || args.databaseName === undefined) {
+            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.indexPolicies === undefined) {
+            if ((!args || args.indexPolicies === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'indexPolicies'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;

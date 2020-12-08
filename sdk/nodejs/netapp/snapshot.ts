@@ -150,16 +150,16 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["volumeName"] = state ? state.volumeName : undefined;
         } else {
             const args = argsOrState as SnapshotArgs | undefined;
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.poolName === undefined) {
+            if ((!args || args.poolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'poolName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.volumeName === undefined) {
+            if ((!args || args.volumeName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'volumeName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;

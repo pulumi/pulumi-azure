@@ -134,7 +134,7 @@ class CustomDomain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_management_id is None:
+            if api_management_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_id'")
             __props__['api_management_id'] = api_management_id
             __props__['developer_portals'] = developer_portals

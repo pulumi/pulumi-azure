@@ -100,20 +100,21 @@ type AlertRuleScheduled struct {
 // NewAlertRuleScheduled registers a new resource with the given unique name, arguments, and options.
 func NewAlertRuleScheduled(ctx *pulumi.Context,
 	name string, args *AlertRuleScheduledArgs, opts ...pulumi.ResourceOption) (*AlertRuleScheduled, error) {
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.LogAnalyticsWorkspaceId == nil {
-		return nil, errors.New("missing required argument 'LogAnalyticsWorkspaceId'")
-	}
-	if args == nil || args.Query == nil {
-		return nil, errors.New("missing required argument 'Query'")
-	}
-	if args == nil || args.Severity == nil {
-		return nil, errors.New("missing required argument 'Severity'")
-	}
 	if args == nil {
-		args = &AlertRuleScheduledArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.LogAnalyticsWorkspaceId == nil {
+		return nil, errors.New("invalid value for required argument 'LogAnalyticsWorkspaceId'")
+	}
+	if args.Query == nil {
+		return nil, errors.New("invalid value for required argument 'Query'")
+	}
+	if args.Severity == nil {
+		return nil, errors.New("invalid value for required argument 'Severity'")
 	}
 	var resource AlertRuleScheduled
 	err := ctx.RegisterResource("azure:sentinel/alertRuleScheduled:AlertRuleScheduled", name, args, &resource, opts...)

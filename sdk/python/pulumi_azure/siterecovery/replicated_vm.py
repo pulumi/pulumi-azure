@@ -81,33 +81,33 @@ class ReplicatedVM(pulumi.CustomResource):
             __props__['managed_disks'] = managed_disks
             __props__['name'] = name
             __props__['network_interfaces'] = network_interfaces
-            if recovery_replication_policy_id is None:
+            if recovery_replication_policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_replication_policy_id'")
             __props__['recovery_replication_policy_id'] = recovery_replication_policy_id
-            if recovery_vault_name is None:
+            if recovery_vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_vault_name'")
             __props__['recovery_vault_name'] = recovery_vault_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if source_recovery_fabric_name is None:
+            if source_recovery_fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'source_recovery_fabric_name'")
             __props__['source_recovery_fabric_name'] = source_recovery_fabric_name
-            if source_recovery_protection_container_name is None:
+            if source_recovery_protection_container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'source_recovery_protection_container_name'")
             __props__['source_recovery_protection_container_name'] = source_recovery_protection_container_name
-            if source_vm_id is None:
+            if source_vm_id is None and not opts.urn:
                 raise TypeError("Missing required property 'source_vm_id'")
             __props__['source_vm_id'] = source_vm_id
             __props__['target_availability_set_id'] = target_availability_set_id
             __props__['target_network_id'] = target_network_id
-            if target_recovery_fabric_id is None:
+            if target_recovery_fabric_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_recovery_fabric_id'")
             __props__['target_recovery_fabric_id'] = target_recovery_fabric_id
-            if target_recovery_protection_container_id is None:
+            if target_recovery_protection_container_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_recovery_protection_container_id'")
             __props__['target_recovery_protection_container_id'] = target_recovery_protection_container_id
-            if target_resource_group_id is None:
+            if target_resource_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_group_id'")
             __props__['target_resource_group_id'] = target_resource_group_id
         super(ReplicatedVM, __self__).__init__(

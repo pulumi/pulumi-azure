@@ -85,11 +85,12 @@ type Container struct {
 // NewContainer registers a new resource with the given unique name, arguments, and options.
 func NewContainer(ctx *pulumi.Context,
 	name string, args *ContainerArgs, opts ...pulumi.ResourceOption) (*Container, error) {
-	if args == nil || args.StorageAccountName == nil {
-		return nil, errors.New("missing required argument 'StorageAccountName'")
-	}
 	if args == nil {
-		args = &ContainerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.StorageAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
 	}
 	var resource Container
 	err := ctx.RegisterResource("azure:storage/container:Container", name, args, &resource, opts...)

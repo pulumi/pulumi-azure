@@ -90,10 +90,10 @@ export class AdvancedThreatProtection extends pulumi.CustomResource {
             inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
         } else {
             const args = argsOrState as AdvancedThreatProtectionArgs | undefined;
-            if (!args || args.enabled === undefined) {
+            if ((!args || args.enabled === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if (!args || args.targetResourceId === undefined) {
+            if ((!args || args.targetResourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
             inputs["enabled"] = args ? args.enabled : undefined;

@@ -65,24 +65,24 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if application_id is None:
+            if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
             __props__['application_id'] = application_id
-            if automation_account_name is None:
+            if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
-            if certificate_thumbprint is None:
+            if certificate_thumbprint is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_thumbprint'")
             __props__['certificate_thumbprint'] = certificate_thumbprint
             __props__['description'] = description
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if subscription_id is None:
+            if subscription_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subscription_id'")
             __props__['subscription_id'] = subscription_id
-            if tenant_id is None:
+            if tenant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant_id'")
             __props__['tenant_id'] = tenant_id
         super(ConnectionServicePrincipal, __self__).__init__(

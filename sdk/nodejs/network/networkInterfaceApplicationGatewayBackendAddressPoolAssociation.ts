@@ -166,13 +166,13 @@ export class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation ext
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
         } else {
             const args = argsOrState as NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs | undefined;
-            if (!args || args.backendAddressPoolId === undefined) {
+            if ((!args || args.backendAddressPoolId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backendAddressPoolId'");
             }
-            if (!args || args.ipConfigurationName === undefined) {
+            if ((!args || args.ipConfigurationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ipConfigurationName'");
             }
-            if (!args || args.networkInterfaceId === undefined) {
+            if ((!args || args.networkInterfaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
             inputs["backendAddressPoolId"] = args ? args.backendAddressPoolId : undefined;

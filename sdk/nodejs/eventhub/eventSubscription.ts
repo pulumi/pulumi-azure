@@ -199,7 +199,7 @@ export class EventSubscription extends pulumi.CustomResource {
             inputs["webhookEndpoint"] = state ? state.webhookEndpoint : undefined;
         } else {
             const args = argsOrState as EventSubscriptionArgs | undefined;
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["advancedFilter"] = args ? args.advancedFilter : undefined;

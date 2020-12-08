@@ -98,10 +98,10 @@ class VirtualHubIp(pulumi.CustomResource):
             __props__['private_ip_address'] = private_ip_address
             __props__['private_ip_allocation_method'] = private_ip_allocation_method
             __props__['public_ip_address_id'] = public_ip_address_id
-            if subnet_id is None:
+            if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
-            if virtual_hub_id is None:
+            if virtual_hub_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub_id'")
             __props__['virtual_hub_id'] = virtual_hub_id
         super(VirtualHubIp, __self__).__init__(

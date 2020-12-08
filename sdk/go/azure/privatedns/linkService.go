@@ -154,17 +154,18 @@ type LinkService struct {
 // NewLinkService registers a new resource with the given unique name, arguments, and options.
 func NewLinkService(ctx *pulumi.Context,
 	name string, args *LinkServiceArgs, opts ...pulumi.ResourceOption) (*LinkService, error) {
-	if args == nil || args.LoadBalancerFrontendIpConfigurationIds == nil {
-		return nil, errors.New("missing required argument 'LoadBalancerFrontendIpConfigurationIds'")
-	}
-	if args == nil || args.NatIpConfigurations == nil {
-		return nil, errors.New("missing required argument 'NatIpConfigurations'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &LinkServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LoadBalancerFrontendIpConfigurationIds == nil {
+		return nil, errors.New("invalid value for required argument 'LoadBalancerFrontendIpConfigurationIds'")
+	}
+	if args.NatIpConfigurations == nil {
+		return nil, errors.New("invalid value for required argument 'NatIpConfigurations'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource LinkService
 	err := ctx.RegisterResource("azure:privatedns/linkService:LinkService", name, args, &resource, opts...)

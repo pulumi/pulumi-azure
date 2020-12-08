@@ -93,20 +93,21 @@ type ProtectedVM struct {
 // NewProtectedVM registers a new resource with the given unique name, arguments, and options.
 func NewProtectedVM(ctx *pulumi.Context,
 	name string, args *ProtectedVMArgs, opts ...pulumi.ResourceOption) (*ProtectedVM, error) {
-	if args == nil || args.BackupPolicyId == nil {
-		return nil, errors.New("missing required argument 'BackupPolicyId'")
-	}
-	if args == nil || args.RecoveryVaultName == nil {
-		return nil, errors.New("missing required argument 'RecoveryVaultName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SourceVmId == nil {
-		return nil, errors.New("missing required argument 'SourceVmId'")
-	}
 	if args == nil {
-		args = &ProtectedVMArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BackupPolicyId == nil {
+		return nil, errors.New("invalid value for required argument 'BackupPolicyId'")
+	}
+	if args.RecoveryVaultName == nil {
+		return nil, errors.New("invalid value for required argument 'RecoveryVaultName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SourceVmId == nil {
+		return nil, errors.New("invalid value for required argument 'SourceVmId'")
 	}
 	var resource ProtectedVM
 	err := ctx.RegisterResource("azure:backup/protectedVM:ProtectedVM", name, args, &resource, opts...)

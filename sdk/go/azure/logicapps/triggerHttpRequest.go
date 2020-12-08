@@ -78,14 +78,15 @@ type TriggerHttpRequest struct {
 // NewTriggerHttpRequest registers a new resource with the given unique name, arguments, and options.
 func NewTriggerHttpRequest(ctx *pulumi.Context,
 	name string, args *TriggerHttpRequestArgs, opts ...pulumi.ResourceOption) (*TriggerHttpRequest, error) {
-	if args == nil || args.LogicAppId == nil {
-		return nil, errors.New("missing required argument 'LogicAppId'")
-	}
-	if args == nil || args.Schema == nil {
-		return nil, errors.New("missing required argument 'Schema'")
-	}
 	if args == nil {
-		args = &TriggerHttpRequestArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LogicAppId == nil {
+		return nil, errors.New("invalid value for required argument 'LogicAppId'")
+	}
+	if args.Schema == nil {
+		return nil, errors.New("invalid value for required argument 'Schema'")
 	}
 	var resource TriggerHttpRequest
 	err := ctx.RegisterResource("azure:logicapps/triggerHttpRequest:TriggerHttpRequest", name, args, &resource, opts...)

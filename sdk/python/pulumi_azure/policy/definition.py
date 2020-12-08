@@ -128,22 +128,22 @@ class Definition(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            if display_name is None:
+            if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
-            if management_group_id is not None:
+            if management_group_id is not None and not opts.urn:
                 warnings.warn("""Deprecated in favour of `management_group_name`""", DeprecationWarning)
                 pulumi.log.warn("management_group_id is deprecated: Deprecated in favour of `management_group_name`")
             __props__['management_group_id'] = management_group_id
             __props__['management_group_name'] = management_group_name
             __props__['metadata'] = metadata
-            if mode is None:
+            if mode is None and not opts.urn:
                 raise TypeError("Missing required property 'mode'")
             __props__['mode'] = mode
             __props__['name'] = name
             __props__['parameters'] = parameters
             __props__['policy_rule'] = policy_rule
-            if policy_type is None:
+            if policy_type is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_type'")
             __props__['policy_type'] = policy_type
         super(Definition, __self__).__init__(

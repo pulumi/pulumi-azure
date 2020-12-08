@@ -89,14 +89,15 @@ type ExpressRouteCircuitAuthorization struct {
 // NewExpressRouteCircuitAuthorization registers a new resource with the given unique name, arguments, and options.
 func NewExpressRouteCircuitAuthorization(ctx *pulumi.Context,
 	name string, args *ExpressRouteCircuitAuthorizationArgs, opts ...pulumi.ResourceOption) (*ExpressRouteCircuitAuthorization, error) {
-	if args == nil || args.ExpressRouteCircuitName == nil {
-		return nil, errors.New("missing required argument 'ExpressRouteCircuitName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ExpressRouteCircuitAuthorizationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ExpressRouteCircuitName == nil {
+		return nil, errors.New("invalid value for required argument 'ExpressRouteCircuitName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ExpressRouteCircuitAuthorization
 	err := ctx.RegisterResource("azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization", name, args, &resource, opts...)

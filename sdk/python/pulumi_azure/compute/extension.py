@@ -158,18 +158,18 @@ class Extension(pulumi.CustomResource):
             __props__['auto_upgrade_minor_version'] = auto_upgrade_minor_version
             __props__['name'] = name
             __props__['protected_settings'] = protected_settings
-            if publisher is None:
+            if publisher is None and not opts.urn:
                 raise TypeError("Missing required property 'publisher'")
             __props__['publisher'] = publisher
             __props__['settings'] = settings
             __props__['tags'] = tags
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
-            if type_handler_version is None:
+            if type_handler_version is None and not opts.urn:
                 raise TypeError("Missing required property 'type_handler_version'")
             __props__['type_handler_version'] = type_handler_version
-            if virtual_machine_id is None:
+            if virtual_machine_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_machine_id'")
             __props__['virtual_machine_id'] = virtual_machine_id
         super(Extension, __self__).__init__(

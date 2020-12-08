@@ -103,13 +103,13 @@ export class ProtectionContainer extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ProtectionContainerArgs | undefined;
-            if (!args || args.recoveryFabricName === undefined) {
+            if ((!args || args.recoveryFabricName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'recoveryFabricName'");
             }
-            if (!args || args.recoveryVaultName === undefined) {
+            if ((!args || args.recoveryVaultName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["name"] = args ? args.name : undefined;

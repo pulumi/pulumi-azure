@@ -40,20 +40,21 @@ type ChannelEmail struct {
 // NewChannelEmail registers a new resource with the given unique name, arguments, and options.
 func NewChannelEmail(ctx *pulumi.Context,
 	name string, args *ChannelEmailArgs, opts ...pulumi.ResourceOption) (*ChannelEmail, error) {
-	if args == nil || args.BotName == nil {
-		return nil, errors.New("missing required argument 'BotName'")
-	}
-	if args == nil || args.EmailAddress == nil {
-		return nil, errors.New("missing required argument 'EmailAddress'")
-	}
-	if args == nil || args.EmailPassword == nil {
-		return nil, errors.New("missing required argument 'EmailPassword'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ChannelEmailArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BotName == nil {
+		return nil, errors.New("invalid value for required argument 'BotName'")
+	}
+	if args.EmailAddress == nil {
+		return nil, errors.New("invalid value for required argument 'EmailAddress'")
+	}
+	if args.EmailPassword == nil {
+		return nil, errors.New("invalid value for required argument 'EmailPassword'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ChannelEmail
 	err := ctx.RegisterResource("azure:bot/channelEmail:ChannelEmail", name, args, &resource, opts...)

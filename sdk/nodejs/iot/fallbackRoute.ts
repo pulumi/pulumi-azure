@@ -136,16 +136,16 @@ export class FallbackRoute extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as FallbackRouteArgs | undefined;
-            if (!args || args.enabled === undefined) {
+            if ((!args || args.enabled === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if (!args || args.endpointNames === undefined) {
+            if ((!args || args.endpointNames === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endpointNames'");
             }
-            if (!args || args.iothubName === undefined) {
+            if ((!args || args.iothubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'iothubName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["condition"] = args ? args.condition : undefined;

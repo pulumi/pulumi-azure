@@ -82,16 +82,16 @@ class EndpointEventGrid(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['dead_letter_storage_secret'] = dead_letter_storage_secret
-            if digital_twins_id is None:
+            if digital_twins_id is None and not opts.urn:
                 raise TypeError("Missing required property 'digital_twins_id'")
             __props__['digital_twins_id'] = digital_twins_id
-            if eventgrid_topic_endpoint is None:
+            if eventgrid_topic_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'eventgrid_topic_endpoint'")
             __props__['eventgrid_topic_endpoint'] = eventgrid_topic_endpoint
-            if eventgrid_topic_primary_access_key is None:
+            if eventgrid_topic_primary_access_key is None and not opts.urn:
                 raise TypeError("Missing required property 'eventgrid_topic_primary_access_key'")
             __props__['eventgrid_topic_primary_access_key'] = eventgrid_topic_primary_access_key
-            if eventgrid_topic_secondary_access_key is None:
+            if eventgrid_topic_secondary_access_key is None and not opts.urn:
                 raise TypeError("Missing required property 'eventgrid_topic_secondary_access_key'")
             __props__['eventgrid_topic_secondary_access_key'] = eventgrid_topic_secondary_access_key
             __props__['name'] = name

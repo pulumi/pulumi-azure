@@ -40,26 +40,27 @@ type ApiSchema struct {
 // NewApiSchema registers a new resource with the given unique name, arguments, and options.
 func NewApiSchema(ctx *pulumi.Context,
 	name string, args *ApiSchemaArgs, opts ...pulumi.ResourceOption) (*ApiSchema, error) {
-	if args == nil || args.ApiManagementName == nil {
-		return nil, errors.New("missing required argument 'ApiManagementName'")
-	}
-	if args == nil || args.ApiName == nil {
-		return nil, errors.New("missing required argument 'ApiName'")
-	}
-	if args == nil || args.ContentType == nil {
-		return nil, errors.New("missing required argument 'ContentType'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SchemaId == nil {
-		return nil, errors.New("missing required argument 'SchemaId'")
-	}
-	if args == nil || args.Value == nil {
-		return nil, errors.New("missing required argument 'Value'")
-	}
 	if args == nil {
-		args = &ApiSchemaArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiManagementName == nil {
+		return nil, errors.New("invalid value for required argument 'ApiManagementName'")
+	}
+	if args.ApiName == nil {
+		return nil, errors.New("invalid value for required argument 'ApiName'")
+	}
+	if args.ContentType == nil {
+		return nil, errors.New("invalid value for required argument 'ContentType'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SchemaId == nil {
+		return nil, errors.New("invalid value for required argument 'SchemaId'")
+	}
+	if args.Value == nil {
+		return nil, errors.New("invalid value for required argument 'Value'")
 	}
 	var resource ApiSchema
 	err := ctx.RegisterResource("azure:apimanagement/apiSchema:ApiSchema", name, args, &resource, opts...)

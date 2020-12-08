@@ -102,11 +102,11 @@ class Environment(pulumi.CustomResource):
             __props__['name'] = name
             __props__['pricing_tier'] = pricing_tier
             __props__['resource_group_name'] = resource_group_name
-            if subnet_id is None:
+            if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
             __props__['tags'] = tags
-            if user_whitelisted_ip_ranges is not None:
+            if user_whitelisted_ip_ranges is not None and not opts.urn:
                 warnings.warn("""this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format""", DeprecationWarning)
                 pulumi.log.warn("user_whitelisted_ip_ranges is deprecated: this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format")
             __props__['user_whitelisted_ip_ranges'] = user_whitelisted_ip_ranges

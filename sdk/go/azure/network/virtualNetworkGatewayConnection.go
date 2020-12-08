@@ -337,17 +337,18 @@ type VirtualNetworkGatewayConnection struct {
 // NewVirtualNetworkGatewayConnection registers a new resource with the given unique name, arguments, and options.
 func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 	name string, args *VirtualNetworkGatewayConnectionArgs, opts ...pulumi.ResourceOption) (*VirtualNetworkGatewayConnection, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
-	if args == nil || args.VirtualNetworkGatewayId == nil {
-		return nil, errors.New("missing required argument 'VirtualNetworkGatewayId'")
-	}
 	if args == nil {
-		args = &VirtualNetworkGatewayConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
+	}
+	if args.VirtualNetworkGatewayId == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualNetworkGatewayId'")
 	}
 	var resource VirtualNetworkGatewayConnection
 	err := ctx.RegisterResource("azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection", name, args, &resource, opts...)

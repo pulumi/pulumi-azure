@@ -82,13 +82,13 @@ export class ZipBlob extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ZipBlobArgs | undefined;
-            if (!args || args.storageAccountName === undefined) {
+            if ((!args || args.storageAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            if (!args || args.storageContainerName === undefined) {
+            if ((!args || args.storageContainerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageContainerName'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["accessTier"] = args ? args.accessTier : undefined;

@@ -121,13 +121,13 @@ export class BgpConnection extends pulumi.CustomResource {
             inputs["virtualHubId"] = state ? state.virtualHubId : undefined;
         } else {
             const args = argsOrState as BgpConnectionArgs | undefined;
-            if (!args || args.peerAsn === undefined) {
+            if ((!args || args.peerAsn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'peerAsn'");
             }
-            if (!args || args.peerIp === undefined) {
+            if ((!args || args.peerIp === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'peerIp'");
             }
-            if (!args || args.virtualHubId === undefined) {
+            if ((!args || args.virtualHubId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
             inputs["name"] = args ? args.name : undefined;

@@ -86,23 +86,24 @@ type IdentityProviderAad struct {
 // NewIdentityProviderAad registers a new resource with the given unique name, arguments, and options.
 func NewIdentityProviderAad(ctx *pulumi.Context,
 	name string, args *IdentityProviderAadArgs, opts ...pulumi.ResourceOption) (*IdentityProviderAad, error) {
-	if args == nil || args.AllowedTenants == nil {
-		return nil, errors.New("missing required argument 'AllowedTenants'")
-	}
-	if args == nil || args.ApiManagementName == nil {
-		return nil, errors.New("missing required argument 'ApiManagementName'")
-	}
-	if args == nil || args.ClientId == nil {
-		return nil, errors.New("missing required argument 'ClientId'")
-	}
-	if args == nil || args.ClientSecret == nil {
-		return nil, errors.New("missing required argument 'ClientSecret'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &IdentityProviderAadArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AllowedTenants == nil {
+		return nil, errors.New("invalid value for required argument 'AllowedTenants'")
+	}
+	if args.ApiManagementName == nil {
+		return nil, errors.New("invalid value for required argument 'ApiManagementName'")
+	}
+	if args.ClientId == nil {
+		return nil, errors.New("invalid value for required argument 'ClientId'")
+	}
+	if args.ClientSecret == nil {
+		return nil, errors.New("invalid value for required argument 'ClientSecret'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource IdentityProviderAad
 	err := ctx.RegisterResource("azure:apimanagement/identityProviderAad:IdentityProviderAad", name, args, &resource, opts...)

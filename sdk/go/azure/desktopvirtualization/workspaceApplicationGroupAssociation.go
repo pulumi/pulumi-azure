@@ -88,14 +88,15 @@ type WorkspaceApplicationGroupAssociation struct {
 // NewWorkspaceApplicationGroupAssociation registers a new resource with the given unique name, arguments, and options.
 func NewWorkspaceApplicationGroupAssociation(ctx *pulumi.Context,
 	name string, args *WorkspaceApplicationGroupAssociationArgs, opts ...pulumi.ResourceOption) (*WorkspaceApplicationGroupAssociation, error) {
-	if args == nil || args.ApplicationGroupId == nil {
-		return nil, errors.New("missing required argument 'ApplicationGroupId'")
-	}
-	if args == nil || args.WorkspaceId == nil {
-		return nil, errors.New("missing required argument 'WorkspaceId'")
-	}
 	if args == nil {
-		args = &WorkspaceApplicationGroupAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApplicationGroupId == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationGroupId'")
+	}
+	if args.WorkspaceId == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceId'")
 	}
 	var resource WorkspaceApplicationGroupAssociation
 	err := ctx.RegisterResource("azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation", name, args, &resource, opts...)

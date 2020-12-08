@@ -189,16 +189,16 @@ export class NetworkPacketCapture extends pulumi.CustomResource {
             inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
         } else {
             const args = argsOrState as NetworkPacketCaptureArgs | undefined;
-            if (!args || args.networkWatcherName === undefined) {
+            if ((!args || args.networkWatcherName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.storageLocation === undefined) {
+            if ((!args || args.storageLocation === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageLocation'");
             }
-            if (!args || args.targetResourceId === undefined) {
+            if ((!args || args.targetResourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
             inputs["filters"] = args ? args.filters : undefined;

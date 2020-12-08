@@ -96,14 +96,15 @@ type DpsSharedAccessPolicy struct {
 // NewDpsSharedAccessPolicy registers a new resource with the given unique name, arguments, and options.
 func NewDpsSharedAccessPolicy(ctx *pulumi.Context,
 	name string, args *DpsSharedAccessPolicyArgs, opts ...pulumi.ResourceOption) (*DpsSharedAccessPolicy, error) {
-	if args == nil || args.IothubDpsName == nil {
-		return nil, errors.New("missing required argument 'IothubDpsName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DpsSharedAccessPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IothubDpsName == nil {
+		return nil, errors.New("invalid value for required argument 'IothubDpsName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource DpsSharedAccessPolicy
 	err := ctx.RegisterResource("azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy", name, args, &resource, opts...)

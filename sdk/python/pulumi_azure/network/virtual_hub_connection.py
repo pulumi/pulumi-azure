@@ -87,20 +87,20 @@ class VirtualHubConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if hub_to_vitual_network_traffic_allowed is not None:
+            if hub_to_vitual_network_traffic_allowed is not None and not opts.urn:
                 warnings.warn("""Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider""", DeprecationWarning)
                 pulumi.log.warn("hub_to_vitual_network_traffic_allowed is deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider")
             __props__['hub_to_vitual_network_traffic_allowed'] = hub_to_vitual_network_traffic_allowed
             __props__['internet_security_enabled'] = internet_security_enabled
             __props__['name'] = name
-            if remote_virtual_network_id is None:
+            if remote_virtual_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'remote_virtual_network_id'")
             __props__['remote_virtual_network_id'] = remote_virtual_network_id
             __props__['routing'] = routing
-            if virtual_hub_id is None:
+            if virtual_hub_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub_id'")
             __props__['virtual_hub_id'] = virtual_hub_id
-            if vitual_network_to_hub_gateways_traffic_allowed is not None:
+            if vitual_network_to_hub_gateways_traffic_allowed is not None and not opts.urn:
                 warnings.warn("""Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider""", DeprecationWarning)
                 pulumi.log.warn("vitual_network_to_hub_gateways_traffic_allowed is deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider")
             __props__['vitual_network_to_hub_gateways_traffic_allowed'] = vitual_network_to_hub_gateways_traffic_allowed

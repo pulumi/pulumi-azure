@@ -126,19 +126,19 @@ export class AnalyticsSolution extends pulumi.CustomResource {
             inputs["workspaceResourceId"] = state ? state.workspaceResourceId : undefined;
         } else {
             const args = argsOrState as AnalyticsSolutionArgs | undefined;
-            if (!args || args.plan === undefined) {
+            if ((!args || args.plan === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'plan'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.solutionName === undefined) {
+            if ((!args || args.solutionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'solutionName'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            if (!args || args.workspaceResourceId === undefined) {
+            if ((!args || args.workspaceResourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceResourceId'");
             }
             inputs["location"] = args ? args.location : undefined;

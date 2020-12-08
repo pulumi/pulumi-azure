@@ -121,13 +121,13 @@ export class AccessPolicy extends pulumi.CustomResource {
             inputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as AccessPolicyArgs | undefined;
-            if (!args || args.keyVaultId === undefined) {
+            if ((!args || args.keyVaultId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            if (!args || args.objectId === undefined) {
+            if ((!args || args.objectId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'objectId'");
             }
-            if (!args || args.tenantId === undefined) {
+            if ((!args || args.tenantId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tenantId'");
             }
             inputs["applicationId"] = args ? args.applicationId : undefined;

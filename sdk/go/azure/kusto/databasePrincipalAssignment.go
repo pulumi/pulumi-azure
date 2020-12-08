@@ -108,29 +108,30 @@ type DatabasePrincipalAssignment struct {
 // NewDatabasePrincipalAssignment registers a new resource with the given unique name, arguments, and options.
 func NewDatabasePrincipalAssignment(ctx *pulumi.Context,
 	name string, args *DatabasePrincipalAssignmentArgs, opts ...pulumi.ResourceOption) (*DatabasePrincipalAssignment, error) {
-	if args == nil || args.ClusterName == nil {
-		return nil, errors.New("missing required argument 'ClusterName'")
-	}
-	if args == nil || args.DatabaseName == nil {
-		return nil, errors.New("missing required argument 'DatabaseName'")
-	}
-	if args == nil || args.PrincipalId == nil {
-		return nil, errors.New("missing required argument 'PrincipalId'")
-	}
-	if args == nil || args.PrincipalType == nil {
-		return nil, errors.New("missing required argument 'PrincipalType'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Role == nil {
-		return nil, errors.New("missing required argument 'Role'")
-	}
-	if args == nil || args.TenantId == nil {
-		return nil, errors.New("missing required argument 'TenantId'")
-	}
 	if args == nil {
-		args = &DatabasePrincipalAssignmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClusterName == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterName'")
+	}
+	if args.DatabaseName == nil {
+		return nil, errors.New("invalid value for required argument 'DatabaseName'")
+	}
+	if args.PrincipalId == nil {
+		return nil, errors.New("invalid value for required argument 'PrincipalId'")
+	}
+	if args.PrincipalType == nil {
+		return nil, errors.New("invalid value for required argument 'PrincipalType'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Role == nil {
+		return nil, errors.New("invalid value for required argument 'Role'")
+	}
+	if args.TenantId == nil {
+		return nil, errors.New("invalid value for required argument 'TenantId'")
 	}
 	var resource DatabasePrincipalAssignment
 	err := ctx.RegisterResource("azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment", name, args, &resource, opts...)

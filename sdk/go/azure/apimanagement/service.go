@@ -126,20 +126,21 @@ type Service struct {
 // NewService registers a new resource with the given unique name, arguments, and options.
 func NewService(ctx *pulumi.Context,
 	name string, args *ServiceArgs, opts ...pulumi.ResourceOption) (*Service, error) {
-	if args == nil || args.PublisherEmail == nil {
-		return nil, errors.New("missing required argument 'PublisherEmail'")
-	}
-	if args == nil || args.PublisherName == nil {
-		return nil, errors.New("missing required argument 'PublisherName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SkuName == nil {
-		return nil, errors.New("missing required argument 'SkuName'")
-	}
 	if args == nil {
-		args = &ServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PublisherEmail == nil {
+		return nil, errors.New("invalid value for required argument 'PublisherEmail'")
+	}
+	if args.PublisherName == nil {
+		return nil, errors.New("invalid value for required argument 'PublisherName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SkuName == nil {
+		return nil, errors.New("invalid value for required argument 'SkuName'")
 	}
 	var resource Service
 	err := ctx.RegisterResource("azure:apimanagement/service:Service", name, args, &resource, opts...)

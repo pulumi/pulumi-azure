@@ -162,20 +162,21 @@ type DataDiskAttachment struct {
 // NewDataDiskAttachment registers a new resource with the given unique name, arguments, and options.
 func NewDataDiskAttachment(ctx *pulumi.Context,
 	name string, args *DataDiskAttachmentArgs, opts ...pulumi.ResourceOption) (*DataDiskAttachment, error) {
-	if args == nil || args.Caching == nil {
-		return nil, errors.New("missing required argument 'Caching'")
-	}
-	if args == nil || args.Lun == nil {
-		return nil, errors.New("missing required argument 'Lun'")
-	}
-	if args == nil || args.ManagedDiskId == nil {
-		return nil, errors.New("missing required argument 'ManagedDiskId'")
-	}
-	if args == nil || args.VirtualMachineId == nil {
-		return nil, errors.New("missing required argument 'VirtualMachineId'")
-	}
 	if args == nil {
-		args = &DataDiskAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Caching == nil {
+		return nil, errors.New("invalid value for required argument 'Caching'")
+	}
+	if args.Lun == nil {
+		return nil, errors.New("invalid value for required argument 'Lun'")
+	}
+	if args.ManagedDiskId == nil {
+		return nil, errors.New("invalid value for required argument 'ManagedDiskId'")
+	}
+	if args.VirtualMachineId == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualMachineId'")
 	}
 	var resource DataDiskAttachment
 	err := ctx.RegisterResource("azure:compute/dataDiskAttachment:DataDiskAttachment", name, args, &resource, opts...)

@@ -108,22 +108,22 @@ class SharedImage(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['eula'] = eula
-            if gallery_name is None:
+            if gallery_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_name'")
             __props__['gallery_name'] = gallery_name
             __props__['hyper_v_generation'] = hyper_v_generation
-            if identifier is None:
+            if identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'identifier'")
             __props__['identifier'] = identifier
             __props__['location'] = location
             __props__['name'] = name
-            if os_type is None:
+            if os_type is None and not opts.urn:
                 raise TypeError("Missing required property 'os_type'")
             __props__['os_type'] = os_type
             __props__['privacy_statement_uri'] = privacy_statement_uri
             __props__['purchase_plan'] = purchase_plan
             __props__['release_note_uri'] = release_note_uri
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['specialized'] = specialized

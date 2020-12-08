@@ -119,10 +119,10 @@ export class Account extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.storageAccounts === undefined) {
+            if ((!args || args.storageAccounts === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccounts'");
             }
             inputs["identity"] = args ? args.identity : undefined;

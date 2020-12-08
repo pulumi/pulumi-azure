@@ -98,15 +98,15 @@ class ARecord(pulumi.CustomResource):
 
             __props__['name'] = name
             __props__['records'] = records
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['target_resource_id'] = target_resource_id
-            if ttl is None:
+            if ttl is None and not opts.urn:
                 raise TypeError("Missing required property 'ttl'")
             __props__['ttl'] = ttl
-            if zone_name is None:
+            if zone_name is None and not opts.urn:
                 raise TypeError("Missing required property 'zone_name'")
             __props__['zone_name'] = zone_name
             __props__['fqdn'] = None

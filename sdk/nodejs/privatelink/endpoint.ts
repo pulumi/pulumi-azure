@@ -161,13 +161,13 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
-            if (!args || args.privateServiceConnection === undefined) {
+            if ((!args || args.privateServiceConnection === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateServiceConnection'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.subnetId === undefined) {
+            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetId'");
             }
             inputs["location"] = args ? args.location : undefined;

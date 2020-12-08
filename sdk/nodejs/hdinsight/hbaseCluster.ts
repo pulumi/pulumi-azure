@@ -192,22 +192,22 @@ export class HBaseCluster extends pulumi.CustomResource {
             inputs["tlsMinVersion"] = state ? state.tlsMinVersion : undefined;
         } else {
             const args = argsOrState as HBaseClusterArgs | undefined;
-            if (!args || args.clusterVersion === undefined) {
+            if ((!args || args.clusterVersion === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterVersion'");
             }
-            if (!args || args.componentVersion === undefined) {
+            if ((!args || args.componentVersion === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'componentVersion'");
             }
-            if (!args || args.gateway === undefined) {
+            if ((!args || args.gateway === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gateway'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.roles === undefined) {
+            if ((!args || args.roles === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'roles'");
             }
-            if (!args || args.tier === undefined) {
+            if ((!args || args.tier === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tier'");
             }
             inputs["clusterVersion"] = args ? args.clusterVersion : undefined;

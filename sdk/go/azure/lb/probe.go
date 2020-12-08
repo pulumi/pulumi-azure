@@ -101,17 +101,18 @@ type Probe struct {
 // NewProbe registers a new resource with the given unique name, arguments, and options.
 func NewProbe(ctx *pulumi.Context,
 	name string, args *ProbeArgs, opts ...pulumi.ResourceOption) (*Probe, error) {
-	if args == nil || args.LoadbalancerId == nil {
-		return nil, errors.New("missing required argument 'LoadbalancerId'")
-	}
-	if args == nil || args.Port == nil {
-		return nil, errors.New("missing required argument 'Port'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ProbeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LoadbalancerId == nil {
+		return nil, errors.New("invalid value for required argument 'LoadbalancerId'")
+	}
+	if args.Port == nil {
+		return nil, errors.New("invalid value for required argument 'Port'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Probe
 	err := ctx.RegisterResource("azure:lb/probe:Probe", name, args, &resource, opts...)

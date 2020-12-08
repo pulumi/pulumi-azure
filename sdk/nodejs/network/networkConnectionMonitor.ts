@@ -237,16 +237,16 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
             inputs["testGroups"] = state ? state.testGroups : undefined;
         } else {
             const args = argsOrState as NetworkConnectionMonitorArgs | undefined;
-            if (!args || args.endpoints === undefined) {
+            if ((!args || args.endpoints === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endpoints'");
             }
-            if (!args || args.networkWatcherId === undefined) {
+            if ((!args || args.networkWatcherId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkWatcherId'");
             }
-            if (!args || args.testConfigurations === undefined) {
+            if ((!args || args.testConfigurations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'testConfigurations'");
             }
-            if (!args || args.testGroups === undefined) {
+            if ((!args || args.testGroups === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'testGroups'");
             }
             inputs["autoStart"] = args ? args.autoStart : undefined;

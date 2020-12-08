@@ -163,7 +163,7 @@ export class CustomDomain extends pulumi.CustomResource {
             inputs["scms"] = state ? state.scms : undefined;
         } else {
             const args = argsOrState as CustomDomainArgs | undefined;
-            if (!args || args.apiManagementId === undefined) {
+            if ((!args || args.apiManagementId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiManagementId'");
             }
             inputs["apiManagementId"] = args ? args.apiManagementId : undefined;

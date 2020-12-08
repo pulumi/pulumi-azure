@@ -78,13 +78,13 @@ export class CustomerManagedKey extends pulumi.CustomResource {
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
             const args = argsOrState as CustomerManagedKeyArgs | undefined;
-            if (!args || args.keyName === undefined) {
+            if ((!args || args.keyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyName'");
             }
-            if (!args || args.keyVaultId === undefined) {
+            if ((!args || args.keyVaultId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            if (!args || args.storageAccountId === undefined) {
+            if ((!args || args.storageAccountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
             inputs["keyName"] = args ? args.keyName : undefined;

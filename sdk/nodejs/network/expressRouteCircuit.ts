@@ -137,19 +137,19 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ExpressRouteCircuitArgs | undefined;
-            if (!args || args.bandwidthInMbps === undefined) {
+            if ((!args || args.bandwidthInMbps === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bandwidthInMbps'");
             }
-            if (!args || args.peeringLocation === undefined) {
+            if ((!args || args.peeringLocation === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'peeringLocation'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceProviderName === undefined) {
+            if ((!args || args.serviceProviderName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceProviderName'");
             }
-            if (!args || args.sku === undefined) {
+            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["allowClassicOperations"] = args ? args.allowClassicOperations : undefined;

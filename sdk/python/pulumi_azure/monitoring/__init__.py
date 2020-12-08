@@ -21,3 +21,56 @@ from .scheduled_query_rules_log import *
 from .smart_detector_alert_rule import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure:monitoring/actionGroup:ActionGroup":
+                return ActionGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:monitoring/actionRuleActionGroup:ActionRuleActionGroup":
+                return ActionRuleActionGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:monitoring/actionRuleSuppression:ActionRuleSuppression":
+                return ActionRuleSuppression(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:monitoring/activityLogAlert:ActivityLogAlert":
+                return ActivityLogAlert(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:monitoring/autoscaleSetting:AutoscaleSetting":
+                return AutoscaleSetting(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:monitoring/diagnosticSetting:DiagnosticSetting":
+                return DiagnosticSetting(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:monitoring/logProfile:LogProfile":
+                return LogProfile(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:monitoring/metricAlert:MetricAlert":
+                return MetricAlert(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert":
+                return ScheduledQueryRulesAlert(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog":
+                return ScheduledQueryRulesLog(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule":
+                return SmartDetectorAlertRule(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure", "monitoring/actionGroup", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "monitoring/actionRuleActionGroup", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "monitoring/actionRuleSuppression", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "monitoring/activityLogAlert", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "monitoring/autoscaleSetting", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "monitoring/diagnosticSetting", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "monitoring/logProfile", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "monitoring/metricAlert", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "monitoring/scheduledQueryRulesAlert", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "monitoring/scheduledQueryRulesLog", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "monitoring/smartDetectorAlertRule", _module_instance)
+
+_register_module()

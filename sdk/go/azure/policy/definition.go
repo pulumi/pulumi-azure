@@ -95,17 +95,18 @@ type Definition struct {
 // NewDefinition registers a new resource with the given unique name, arguments, and options.
 func NewDefinition(ctx *pulumi.Context,
 	name string, args *DefinitionArgs, opts ...pulumi.ResourceOption) (*Definition, error) {
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.Mode == nil {
-		return nil, errors.New("missing required argument 'Mode'")
-	}
-	if args == nil || args.PolicyType == nil {
-		return nil, errors.New("missing required argument 'PolicyType'")
-	}
 	if args == nil {
-		args = &DefinitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.Mode == nil {
+		return nil, errors.New("invalid value for required argument 'Mode'")
+	}
+	if args.PolicyType == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyType'")
 	}
 	var resource Definition
 	err := ctx.RegisterResource("azure:policy/definition:Definition", name, args, &resource, opts...)

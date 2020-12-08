@@ -82,20 +82,21 @@ type DataSourceWindowsEvent struct {
 // NewDataSourceWindowsEvent registers a new resource with the given unique name, arguments, and options.
 func NewDataSourceWindowsEvent(ctx *pulumi.Context,
 	name string, args *DataSourceWindowsEventArgs, opts ...pulumi.ResourceOption) (*DataSourceWindowsEvent, error) {
-	if args == nil || args.EventLogName == nil {
-		return nil, errors.New("missing required argument 'EventLogName'")
-	}
-	if args == nil || args.EventTypes == nil {
-		return nil, errors.New("missing required argument 'EventTypes'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &DataSourceWindowsEventArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EventLogName == nil {
+		return nil, errors.New("invalid value for required argument 'EventLogName'")
+	}
+	if args.EventTypes == nil {
+		return nil, errors.New("invalid value for required argument 'EventTypes'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource DataSourceWindowsEvent
 	err := ctx.RegisterResource("azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent", name, args, &resource, opts...)

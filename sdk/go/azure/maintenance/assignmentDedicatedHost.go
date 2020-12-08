@@ -92,14 +92,15 @@ type AssignmentDedicatedHost struct {
 // NewAssignmentDedicatedHost registers a new resource with the given unique name, arguments, and options.
 func NewAssignmentDedicatedHost(ctx *pulumi.Context,
 	name string, args *AssignmentDedicatedHostArgs, opts ...pulumi.ResourceOption) (*AssignmentDedicatedHost, error) {
-	if args == nil || args.DedicatedHostId == nil {
-		return nil, errors.New("missing required argument 'DedicatedHostId'")
-	}
-	if args == nil || args.MaintenanceConfigurationId == nil {
-		return nil, errors.New("missing required argument 'MaintenanceConfigurationId'")
-	}
 	if args == nil {
-		args = &AssignmentDedicatedHostArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DedicatedHostId == nil {
+		return nil, errors.New("invalid value for required argument 'DedicatedHostId'")
+	}
+	if args.MaintenanceConfigurationId == nil {
+		return nil, errors.New("invalid value for required argument 'MaintenanceConfigurationId'")
 	}
 	var resource AssignmentDedicatedHost
 	err := ctx.RegisterResource("azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost", name, args, &resource, opts...)

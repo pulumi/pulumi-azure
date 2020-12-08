@@ -117,7 +117,7 @@ class Group(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if containers is None:
+            if containers is None and not opts.urn:
                 raise TypeError("Missing required property 'containers'")
             __props__['containers'] = containers
             __props__['diagnostics'] = diagnostics
@@ -129,10 +129,10 @@ class Group(pulumi.CustomResource):
             __props__['location'] = location
             __props__['name'] = name
             __props__['network_profile_id'] = network_profile_id
-            if os_type is None:
+            if os_type is None and not opts.urn:
                 raise TypeError("Missing required property 'os_type'")
             __props__['os_type'] = os_type
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['restart_policy'] = restart_policy

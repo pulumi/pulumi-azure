@@ -90,18 +90,18 @@ class DataLakeGen2Path(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['aces'] = aces
-            if filesystem_name is None:
+            if filesystem_name is None and not opts.urn:
                 raise TypeError("Missing required property 'filesystem_name'")
             __props__['filesystem_name'] = filesystem_name
             __props__['group'] = group
             __props__['owner'] = owner
-            if path is None:
+            if path is None and not opts.urn:
                 raise TypeError("Missing required property 'path'")
             __props__['path'] = path
-            if resource is None:
+            if resource is None and not opts.urn:
                 raise TypeError("Missing required property 'resource'")
             __props__['resource'] = resource
-            if storage_account_id is None:
+            if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
             __props__['storage_account_id'] = storage_account_id
         super(DataLakeGen2Path, __self__).__init__(

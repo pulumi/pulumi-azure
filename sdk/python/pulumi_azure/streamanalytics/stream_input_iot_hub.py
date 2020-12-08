@@ -99,29 +99,29 @@ class StreamInputIotHub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if endpoint is None:
+            if endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint'")
             __props__['endpoint'] = endpoint
-            if eventhub_consumer_group_name is None:
+            if eventhub_consumer_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'eventhub_consumer_group_name'")
             __props__['eventhub_consumer_group_name'] = eventhub_consumer_group_name
-            if iothub_namespace is None:
+            if iothub_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'iothub_namespace'")
             __props__['iothub_namespace'] = iothub_namespace
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if serialization is None:
+            if serialization is None and not opts.urn:
                 raise TypeError("Missing required property 'serialization'")
             __props__['serialization'] = serialization
-            if shared_access_policy_key is None:
+            if shared_access_policy_key is None and not opts.urn:
                 raise TypeError("Missing required property 'shared_access_policy_key'")
             __props__['shared_access_policy_key'] = shared_access_policy_key
-            if shared_access_policy_name is None:
+            if shared_access_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'shared_access_policy_name'")
             __props__['shared_access_policy_name'] = shared_access_policy_name
-            if stream_analytics_job_name is None:
+            if stream_analytics_job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_analytics_job_name'")
             __props__['stream_analytics_job_name'] = stream_analytics_job_name
         super(StreamInputIotHub, __self__).__init__(

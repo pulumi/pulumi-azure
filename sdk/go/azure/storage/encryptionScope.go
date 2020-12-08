@@ -81,14 +81,15 @@ type EncryptionScope struct {
 // NewEncryptionScope registers a new resource with the given unique name, arguments, and options.
 func NewEncryptionScope(ctx *pulumi.Context,
 	name string, args *EncryptionScopeArgs, opts ...pulumi.ResourceOption) (*EncryptionScope, error) {
-	if args == nil || args.Source == nil {
-		return nil, errors.New("missing required argument 'Source'")
-	}
-	if args == nil || args.StorageAccountId == nil {
-		return nil, errors.New("missing required argument 'StorageAccountId'")
-	}
 	if args == nil {
-		args = &EncryptionScopeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Source == nil {
+		return nil, errors.New("invalid value for required argument 'Source'")
+	}
+	if args.StorageAccountId == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccountId'")
 	}
 	var resource EncryptionScope
 	err := ctx.RegisterResource("azure:storage/encryptionScope:EncryptionScope", name, args, &resource, opts...)

@@ -46,20 +46,21 @@ type NetworkPacketCapture struct {
 // NewNetworkPacketCapture registers a new resource with the given unique name, arguments, and options.
 func NewNetworkPacketCapture(ctx *pulumi.Context,
 	name string, args *NetworkPacketCaptureArgs, opts ...pulumi.ResourceOption) (*NetworkPacketCapture, error) {
-	if args == nil || args.NetworkWatcherName == nil {
-		return nil, errors.New("missing required argument 'NetworkWatcherName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StorageLocation == nil {
-		return nil, errors.New("missing required argument 'StorageLocation'")
-	}
-	if args == nil || args.TargetResourceId == nil {
-		return nil, errors.New("missing required argument 'TargetResourceId'")
-	}
 	if args == nil {
-		args = &NetworkPacketCaptureArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NetworkWatcherName == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkWatcherName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageLocation == nil {
+		return nil, errors.New("invalid value for required argument 'StorageLocation'")
+	}
+	if args.TargetResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'TargetResourceId'")
 	}
 	var resource NetworkPacketCapture
 	err := ctx.RegisterResource("azure:network/networkPacketCapture:NetworkPacketCapture", name, args, &resource, opts...)

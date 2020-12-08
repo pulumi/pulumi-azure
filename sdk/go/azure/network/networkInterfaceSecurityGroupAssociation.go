@@ -104,14 +104,15 @@ type NetworkInterfaceSecurityGroupAssociation struct {
 // NewNetworkInterfaceSecurityGroupAssociation registers a new resource with the given unique name, arguments, and options.
 func NewNetworkInterfaceSecurityGroupAssociation(ctx *pulumi.Context,
 	name string, args *NetworkInterfaceSecurityGroupAssociationArgs, opts ...pulumi.ResourceOption) (*NetworkInterfaceSecurityGroupAssociation, error) {
-	if args == nil || args.NetworkInterfaceId == nil {
-		return nil, errors.New("missing required argument 'NetworkInterfaceId'")
-	}
-	if args == nil || args.NetworkSecurityGroupId == nil {
-		return nil, errors.New("missing required argument 'NetworkSecurityGroupId'")
-	}
 	if args == nil {
-		args = &NetworkInterfaceSecurityGroupAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NetworkInterfaceId == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkInterfaceId'")
+	}
+	if args.NetworkSecurityGroupId == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkSecurityGroupId'")
 	}
 	var resource NetworkInterfaceSecurityGroupAssociation
 	err := ctx.RegisterResource("azure:network/networkInterfaceSecurityGroupAssociation:NetworkInterfaceSecurityGroupAssociation", name, args, &resource, opts...)

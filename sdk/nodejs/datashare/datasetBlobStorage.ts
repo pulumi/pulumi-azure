@@ -145,13 +145,13 @@ export class DatasetBlobStorage extends pulumi.CustomResource {
             inputs["storageAccount"] = state ? state.storageAccount : undefined;
         } else {
             const args = argsOrState as DatasetBlobStorageArgs | undefined;
-            if (!args || args.containerName === undefined) {
+            if ((!args || args.containerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if (!args || args.dataShareId === undefined) {
+            if ((!args || args.dataShareId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataShareId'");
             }
-            if (!args || args.storageAccount === undefined) {
+            if ((!args || args.storageAccount === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccount'");
             }
             inputs["containerName"] = args ? args.containerName : undefined;

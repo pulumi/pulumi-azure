@@ -44,20 +44,21 @@ type AttachedDatabaseConfiguration struct {
 // NewAttachedDatabaseConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewAttachedDatabaseConfiguration(ctx *pulumi.Context,
 	name string, args *AttachedDatabaseConfigurationArgs, opts ...pulumi.ResourceOption) (*AttachedDatabaseConfiguration, error) {
-	if args == nil || args.ClusterName == nil {
-		return nil, errors.New("missing required argument 'ClusterName'")
-	}
-	if args == nil || args.ClusterResourceId == nil {
-		return nil, errors.New("missing required argument 'ClusterResourceId'")
-	}
-	if args == nil || args.DatabaseName == nil {
-		return nil, errors.New("missing required argument 'DatabaseName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &AttachedDatabaseConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClusterName == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterName'")
+	}
+	if args.ClusterResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterResourceId'")
+	}
+	if args.DatabaseName == nil {
+		return nil, errors.New("invalid value for required argument 'DatabaseName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource AttachedDatabaseConfiguration
 	err := ctx.RegisterResource("azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration", name, args, &resource, opts...)

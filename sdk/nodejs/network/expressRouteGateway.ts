@@ -116,13 +116,13 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
             inputs["virtualHubId"] = state ? state.virtualHubId : undefined;
         } else {
             const args = argsOrState as ExpressRouteGatewayArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.scaleUnits === undefined) {
+            if ((!args || args.scaleUnits === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scaleUnits'");
             }
-            if (!args || args.virtualHubId === undefined) {
+            if ((!args || args.virtualHubId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
             inputs["location"] = args ? args.location : undefined;

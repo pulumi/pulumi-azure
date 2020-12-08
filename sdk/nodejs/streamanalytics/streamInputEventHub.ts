@@ -149,28 +149,28 @@ export class StreamInputEventHub extends pulumi.CustomResource {
             inputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
         } else {
             const args = argsOrState as StreamInputEventHubArgs | undefined;
-            if (!args || args.eventhubConsumerGroupName === undefined) {
+            if ((!args || args.eventhubConsumerGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventhubConsumerGroupName'");
             }
-            if (!args || args.eventhubName === undefined) {
+            if ((!args || args.eventhubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventhubName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serialization === undefined) {
+            if ((!args || args.serialization === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serialization'");
             }
-            if (!args || args.servicebusNamespace === undefined) {
+            if ((!args || args.servicebusNamespace === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'servicebusNamespace'");
             }
-            if (!args || args.sharedAccessPolicyKey === undefined) {
+            if ((!args || args.sharedAccessPolicyKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sharedAccessPolicyKey'");
             }
-            if (!args || args.sharedAccessPolicyName === undefined) {
+            if ((!args || args.sharedAccessPolicyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sharedAccessPolicyName'");
             }
-            if (!args || args.streamAnalyticsJobName === undefined) {
+            if ((!args || args.streamAnalyticsJobName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
             inputs["eventhubConsumerGroupName"] = args ? args.eventhubConsumerGroupName : undefined;

@@ -128,10 +128,10 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SnapshotArgs | undefined;
-            if (!args || args.createOption === undefined) {
+            if ((!args || args.createOption === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'createOption'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["createOption"] = args ? args.createOption : undefined;

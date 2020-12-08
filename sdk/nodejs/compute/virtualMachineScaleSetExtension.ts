@@ -129,16 +129,16 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
             inputs["virtualMachineScaleSetId"] = state ? state.virtualMachineScaleSetId : undefined;
         } else {
             const args = argsOrState as VirtualMachineScaleSetExtensionArgs | undefined;
-            if (!args || args.publisher === undefined) {
+            if ((!args || args.publisher === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'publisher'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
-            if (!args || args.typeHandlerVersion === undefined) {
+            if ((!args || args.typeHandlerVersion === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'typeHandlerVersion'");
             }
-            if (!args || args.virtualMachineScaleSetId === undefined) {
+            if ((!args || args.virtualMachineScaleSetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualMachineScaleSetId'");
             }
             inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;

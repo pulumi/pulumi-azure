@@ -77,17 +77,18 @@ type Definition struct {
 // NewDefinition registers a new resource with the given unique name, arguments, and options.
 func NewDefinition(ctx *pulumi.Context,
 	name string, args *DefinitionArgs, opts ...pulumi.ResourceOption) (*Definition, error) {
-	if args == nil || args.Authorizations == nil {
-		return nil, errors.New("missing required argument 'Authorizations'")
-	}
-	if args == nil || args.ManagingTenantId == nil {
-		return nil, errors.New("missing required argument 'ManagingTenantId'")
-	}
-	if args == nil || args.Scope == nil {
-		return nil, errors.New("missing required argument 'Scope'")
-	}
 	if args == nil {
-		args = &DefinitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Authorizations == nil {
+		return nil, errors.New("invalid value for required argument 'Authorizations'")
+	}
+	if args.ManagingTenantId == nil {
+		return nil, errors.New("invalid value for required argument 'ManagingTenantId'")
+	}
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	var resource Definition
 	err := ctx.RegisterResource("azure:lighthouse/definition:Definition", name, args, &resource, opts...)

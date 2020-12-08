@@ -87,10 +87,10 @@ export class SourceCodeToken extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as SourceCodeTokenArgs | undefined;
-            if (!args || args.token === undefined) {
+            if ((!args || args.token === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'token'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["token"] = args ? args.token : undefined;

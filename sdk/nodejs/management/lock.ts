@@ -126,10 +126,10 @@ export class Lock extends pulumi.CustomResource {
             inputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as LockArgs | undefined;
-            if (!args || args.lockLevel === undefined) {
+            if ((!args || args.lockLevel === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'lockLevel'");
             }
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["lockLevel"] = args ? args.lockLevel : undefined;

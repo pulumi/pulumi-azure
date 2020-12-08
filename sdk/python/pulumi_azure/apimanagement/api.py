@@ -111,27 +111,27 @@ class Api(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_management_name is None:
+            if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__['api_management_name'] = api_management_name
             __props__['description'] = description
-            if display_name is None:
+            if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             __props__['import_'] = import_
             __props__['name'] = name
             __props__['oauth2_authorization'] = oauth2_authorization
             __props__['openid_authentication'] = openid_authentication
-            if path is None:
+            if path is None and not opts.urn:
                 raise TypeError("Missing required property 'path'")
             __props__['path'] = path
-            if protocols is None:
+            if protocols is None and not opts.urn:
                 raise TypeError("Missing required property 'protocols'")
             __props__['protocols'] = protocols
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if revision is None:
+            if revision is None and not opts.urn:
                 raise TypeError("Missing required property 'revision'")
             __props__['revision'] = revision
             __props__['service_url'] = service_url

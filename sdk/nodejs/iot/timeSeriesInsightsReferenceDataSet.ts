@@ -112,10 +112,10 @@ export class TimeSeriesInsightsReferenceDataSet extends pulumi.CustomResource {
             inputs["timeSeriesInsightsEnvironmentId"] = state ? state.timeSeriesInsightsEnvironmentId : undefined;
         } else {
             const args = argsOrState as TimeSeriesInsightsReferenceDataSetArgs | undefined;
-            if (!args || args.keyProperties === undefined) {
+            if ((!args || args.keyProperties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyProperties'");
             }
-            if (!args || args.timeSeriesInsightsEnvironmentId === undefined) {
+            if ((!args || args.timeSeriesInsightsEnvironmentId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'timeSeriesInsightsEnvironmentId'");
             }
             inputs["dataStringComparisonBehavior"] = args ? args.dataStringComparisonBehavior : undefined;

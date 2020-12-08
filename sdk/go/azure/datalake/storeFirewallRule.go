@@ -78,20 +78,21 @@ type StoreFirewallRule struct {
 // NewStoreFirewallRule registers a new resource with the given unique name, arguments, and options.
 func NewStoreFirewallRule(ctx *pulumi.Context,
 	name string, args *StoreFirewallRuleArgs, opts ...pulumi.ResourceOption) (*StoreFirewallRule, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.EndIpAddress == nil {
-		return nil, errors.New("missing required argument 'EndIpAddress'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StartIpAddress == nil {
-		return nil, errors.New("missing required argument 'StartIpAddress'")
-	}
 	if args == nil {
-		args = &StoreFirewallRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.EndIpAddress == nil {
+		return nil, errors.New("invalid value for required argument 'EndIpAddress'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StartIpAddress == nil {
+		return nil, errors.New("invalid value for required argument 'StartIpAddress'")
 	}
 	var resource StoreFirewallRule
 	err := ctx.RegisterResource("azure:datalake/storeFirewallRule:StoreFirewallRule", name, args, &resource, opts...)

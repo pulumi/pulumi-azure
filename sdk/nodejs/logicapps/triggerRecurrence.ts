@@ -106,13 +106,13 @@ export class TriggerRecurrence extends pulumi.CustomResource {
             inputs["timeZone"] = state ? state.timeZone : undefined;
         } else {
             const args = argsOrState as TriggerRecurrenceArgs | undefined;
-            if (!args || args.frequency === undefined) {
+            if ((!args || args.frequency === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if (!args || args.interval === undefined) {
+            if ((!args || args.interval === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'interval'");
             }
-            if (!args || args.logicAppId === undefined) {
+            if ((!args || args.logicAppId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'logicAppId'");
             }
             inputs["frequency"] = args ? args.frequency : undefined;

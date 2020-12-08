@@ -98,7 +98,7 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
             inputs["virtualNetworkIds"] = state ? state.virtualNetworkIds : undefined;
         } else {
             const args = argsOrState as DdosProtectionPlanArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;

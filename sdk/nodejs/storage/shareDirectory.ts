@@ -101,10 +101,10 @@ export class ShareDirectory extends pulumi.CustomResource {
             inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
         } else {
             const args = argsOrState as ShareDirectoryArgs | undefined;
-            if (!args || args.shareName === undefined) {
+            if ((!args || args.shareName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'shareName'");
             }
-            if (!args || args.storageAccountName === undefined) {
+            if ((!args || args.storageAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
             inputs["metadata"] = args ? args.metadata : undefined;

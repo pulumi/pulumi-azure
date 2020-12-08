@@ -98,23 +98,24 @@ type RunBook struct {
 // NewRunBook registers a new resource with the given unique name, arguments, and options.
 func NewRunBook(ctx *pulumi.Context,
 	name string, args *RunBookArgs, opts ...pulumi.ResourceOption) (*RunBook, error) {
-	if args == nil || args.AutomationAccountName == nil {
-		return nil, errors.New("missing required argument 'AutomationAccountName'")
-	}
-	if args == nil || args.LogProgress == nil {
-		return nil, errors.New("missing required argument 'LogProgress'")
-	}
-	if args == nil || args.LogVerbose == nil {
-		return nil, errors.New("missing required argument 'LogVerbose'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RunbookType == nil {
-		return nil, errors.New("missing required argument 'RunbookType'")
-	}
 	if args == nil {
-		args = &RunBookArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AutomationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
+	}
+	if args.LogProgress == nil {
+		return nil, errors.New("invalid value for required argument 'LogProgress'")
+	}
+	if args.LogVerbose == nil {
+		return nil, errors.New("invalid value for required argument 'LogVerbose'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RunbookType == nil {
+		return nil, errors.New("invalid value for required argument 'RunbookType'")
 	}
 	var resource RunBook
 	err := ctx.RegisterResource("azure:automation/runBook:RunBook", name, args, &resource, opts...)

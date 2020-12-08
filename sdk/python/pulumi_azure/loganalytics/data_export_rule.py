@@ -85,18 +85,18 @@ class DataExportRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if destination_resource_id is None:
+            if destination_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_resource_id'")
             __props__['destination_resource_id'] = destination_resource_id
             __props__['enabled'] = enabled
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if table_names is None:
+            if table_names is None and not opts.urn:
                 raise TypeError("Missing required property 'table_names'")
             __props__['table_names'] = table_names
-            if workspace_resource_id is None:
+            if workspace_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_resource_id'")
             __props__['workspace_resource_id'] = workspace_resource_id
             __props__['export_rule_id'] = None

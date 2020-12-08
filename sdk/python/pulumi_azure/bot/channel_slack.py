@@ -87,21 +87,21 @@ class ChannelSlack(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if bot_name is None:
+            if bot_name is None and not opts.urn:
                 raise TypeError("Missing required property 'bot_name'")
             __props__['bot_name'] = bot_name
-            if client_id is None:
+            if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
             __props__['client_id'] = client_id
-            if client_secret is None:
+            if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
             __props__['client_secret'] = client_secret
             __props__['landing_page_url'] = landing_page_url
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if verification_token is None:
+            if verification_token is None and not opts.urn:
                 raise TypeError("Missing required property 'verification_token'")
             __props__['verification_token'] = verification_token
         super(ChannelSlack, __self__).__init__(

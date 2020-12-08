@@ -94,14 +94,15 @@ type VirtualMachine struct {
 // NewVirtualMachine registers a new resource with the given unique name, arguments, and options.
 func NewVirtualMachine(ctx *pulumi.Context,
 	name string, args *VirtualMachineArgs, opts ...pulumi.ResourceOption) (*VirtualMachine, error) {
-	if args == nil || args.SqlLicenseType == nil {
-		return nil, errors.New("missing required argument 'SqlLicenseType'")
-	}
-	if args == nil || args.VirtualMachineId == nil {
-		return nil, errors.New("missing required argument 'VirtualMachineId'")
-	}
 	if args == nil {
-		args = &VirtualMachineArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.SqlLicenseType == nil {
+		return nil, errors.New("invalid value for required argument 'SqlLicenseType'")
+	}
+	if args.VirtualMachineId == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualMachineId'")
 	}
 	var resource VirtualMachine
 	err := ctx.RegisterResource("azure:mssql/virtualMachine:VirtualMachine", name, args, &resource, opts...)

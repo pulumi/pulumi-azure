@@ -106,10 +106,10 @@ export class HybridConnection extends pulumi.CustomResource {
             inputs["userMetadata"] = state ? state.userMetadata : undefined;
         } else {
             const args = argsOrState as HybridConnectionArgs | undefined;
-            if (!args || args.relayNamespaceName === undefined) {
+            if ((!args || args.relayNamespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'relayNamespaceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["name"] = args ? args.name : undefined;

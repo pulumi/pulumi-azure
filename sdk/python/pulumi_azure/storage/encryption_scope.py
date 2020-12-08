@@ -81,10 +81,10 @@ class EncryptionScope(pulumi.CustomResource):
 
             __props__['key_vault_key_id'] = key_vault_key_id
             __props__['name'] = name
-            if source is None:
+            if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__['source'] = source
-            if storage_account_id is None:
+            if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
             __props__['storage_account_id'] = storage_account_id
         super(EncryptionScope, __self__).__init__(

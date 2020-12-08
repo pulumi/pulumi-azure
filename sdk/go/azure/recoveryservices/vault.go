@@ -73,14 +73,15 @@ type Vault struct {
 // NewVault registers a new resource with the given unique name, arguments, and options.
 func NewVault(ctx *pulumi.Context,
 	name string, args *VaultArgs, opts ...pulumi.ResourceOption) (*Vault, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	if args == nil {
-		args = &VaultArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	var resource Vault
 	err := ctx.RegisterResource("azure:recoveryservices/vault:Vault", name, args, &resource, opts...)

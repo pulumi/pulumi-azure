@@ -122,10 +122,10 @@ export class VirtualHubConnection extends pulumi.CustomResource {
             inputs["vitualNetworkToHubGatewaysTrafficAllowed"] = state ? state.vitualNetworkToHubGatewaysTrafficAllowed : undefined;
         } else {
             const args = argsOrState as VirtualHubConnectionArgs | undefined;
-            if (!args || args.remoteVirtualNetworkId === undefined) {
+            if ((!args || args.remoteVirtualNetworkId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'remoteVirtualNetworkId'");
             }
-            if (!args || args.virtualHubId === undefined) {
+            if ((!args || args.virtualHubId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
             inputs["hubToVitualNetworkTrafficAllowed"] = args ? args.hubToVitualNetworkTrafficAllowed : undefined;

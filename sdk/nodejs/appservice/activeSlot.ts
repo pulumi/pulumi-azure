@@ -91,13 +91,13 @@ export class ActiveSlot extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ActiveSlotArgs | undefined;
-            if (!args || args.appServiceName === undefined) {
+            if ((!args || args.appServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'appServiceName'");
             }
-            if (!args || args.appServiceSlotName === undefined) {
+            if ((!args || args.appServiceSlotName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'appServiceSlotName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["appServiceName"] = args ? args.appServiceName : undefined;

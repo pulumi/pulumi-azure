@@ -229,16 +229,16 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["vpnType"] = state ? state.vpnType : undefined;
         } else {
             const args = argsOrState as VirtualNetworkGatewayArgs | undefined;
-            if (!args || args.ipConfigurations === undefined) {
+            if ((!args || args.ipConfigurations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ipConfigurations'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sku === undefined) {
+            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sku'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["activeActive"] = args ? args.activeActive : undefined;

@@ -74,14 +74,15 @@ type TriggerCustom struct {
 // NewTriggerCustom registers a new resource with the given unique name, arguments, and options.
 func NewTriggerCustom(ctx *pulumi.Context,
 	name string, args *TriggerCustomArgs, opts ...pulumi.ResourceOption) (*TriggerCustom, error) {
-	if args == nil || args.Body == nil {
-		return nil, errors.New("missing required argument 'Body'")
-	}
-	if args == nil || args.LogicAppId == nil {
-		return nil, errors.New("missing required argument 'LogicAppId'")
-	}
 	if args == nil {
-		args = &TriggerCustomArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Body == nil {
+		return nil, errors.New("invalid value for required argument 'Body'")
+	}
+	if args.LogicAppId == nil {
+		return nil, errors.New("invalid value for required argument 'LogicAppId'")
 	}
 	var resource TriggerCustom
 	err := ctx.RegisterResource("azure:logicapps/triggerCustom:TriggerCustom", name, args, &resource, opts...)

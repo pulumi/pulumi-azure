@@ -219,10 +219,10 @@ export class Certificate extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if (!args || args.certificatePolicy === undefined) {
+            if ((!args || args.certificatePolicy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'certificatePolicy'");
             }
-            if (!args || args.keyVaultId === undefined) {
+            if ((!args || args.keyVaultId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
             inputs["certificate"] = args ? args.certificate : undefined;

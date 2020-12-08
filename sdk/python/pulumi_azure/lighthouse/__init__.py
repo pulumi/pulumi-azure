@@ -7,3 +7,29 @@ from .assignment import *
 from .definition import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure:lighthouse/assignment:Assignment":
+                return Assignment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:lighthouse/definition:Definition":
+                return Definition(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure", "lighthouse/assignment", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "lighthouse/definition", _module_instance)
+
+_register_module()

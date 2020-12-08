@@ -151,12 +151,12 @@ class Assignment(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['name'] = name
-            if principal_id is None:
+            if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")
             __props__['principal_id'] = principal_id
             __props__['role_definition_id'] = role_definition_id
             __props__['role_definition_name'] = role_definition_name
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['skip_service_principal_aad_check'] = skip_service_principal_aad_check

@@ -145,13 +145,13 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             inputs["virtualNetworkName"] = state ? state.virtualNetworkName : undefined;
         } else {
             const args = argsOrState as VirtualNetworkPeeringArgs | undefined;
-            if (!args || args.remoteVirtualNetworkId === undefined) {
+            if ((!args || args.remoteVirtualNetworkId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'remoteVirtualNetworkId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.virtualNetworkName === undefined) {
+            if ((!args || args.virtualNetworkName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
             inputs["allowForwardedTraffic"] = args ? args.allowForwardedTraffic : undefined;

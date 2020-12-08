@@ -92,26 +92,26 @@ class User(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_management_name is None:
+            if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__['api_management_name'] = api_management_name
             __props__['confirmation'] = confirmation
-            if email is None:
+            if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
             __props__['email'] = email
-            if first_name is None:
+            if first_name is None and not opts.urn:
                 raise TypeError("Missing required property 'first_name'")
             __props__['first_name'] = first_name
-            if last_name is None:
+            if last_name is None and not opts.urn:
                 raise TypeError("Missing required property 'last_name'")
             __props__['last_name'] = last_name
             __props__['note'] = note
             __props__['password'] = password
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['state'] = state
-            if user_id is None:
+            if user_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_id'")
             __props__['user_id'] = user_id
         super(User, __self__).__init__(

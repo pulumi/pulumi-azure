@@ -91,17 +91,18 @@ type ProtectionContainer struct {
 // NewProtectionContainer registers a new resource with the given unique name, arguments, and options.
 func NewProtectionContainer(ctx *pulumi.Context,
 	name string, args *ProtectionContainerArgs, opts ...pulumi.ResourceOption) (*ProtectionContainer, error) {
-	if args == nil || args.RecoveryFabricName == nil {
-		return nil, errors.New("missing required argument 'RecoveryFabricName'")
-	}
-	if args == nil || args.RecoveryVaultName == nil {
-		return nil, errors.New("missing required argument 'RecoveryVaultName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ProtectionContainerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RecoveryFabricName == nil {
+		return nil, errors.New("invalid value for required argument 'RecoveryFabricName'")
+	}
+	if args.RecoveryVaultName == nil {
+		return nil, errors.New("invalid value for required argument 'RecoveryVaultName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ProtectionContainer
 	err := ctx.RegisterResource("azure:siterecovery/protectionContainer:ProtectionContainer", name, args, &resource, opts...)

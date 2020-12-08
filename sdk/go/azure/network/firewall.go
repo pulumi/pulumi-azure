@@ -121,11 +121,12 @@ type Firewall struct {
 // NewFirewall registers a new resource with the given unique name, arguments, and options.
 func NewFirewall(ctx *pulumi.Context,
 	name string, args *FirewallArgs, opts ...pulumi.ResourceOption) (*Firewall, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &FirewallArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Firewall
 	err := ctx.RegisterResource("azure:network/firewall:Firewall", name, args, &resource, opts...)

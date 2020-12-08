@@ -105,20 +105,21 @@ type SqlServer struct {
 // NewSqlServer registers a new resource with the given unique name, arguments, and options.
 func NewSqlServer(ctx *pulumi.Context,
 	name string, args *SqlServerArgs, opts ...pulumi.ResourceOption) (*SqlServer, error) {
-	if args == nil || args.AdministratorLogin == nil {
-		return nil, errors.New("missing required argument 'AdministratorLogin'")
-	}
-	if args == nil || args.AdministratorLoginPassword == nil {
-		return nil, errors.New("missing required argument 'AdministratorLoginPassword'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Version == nil {
-		return nil, errors.New("missing required argument 'Version'")
-	}
 	if args == nil {
-		args = &SqlServerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AdministratorLogin == nil {
+		return nil, errors.New("invalid value for required argument 'AdministratorLogin'")
+	}
+	if args.AdministratorLoginPassword == nil {
+		return nil, errors.New("invalid value for required argument 'AdministratorLoginPassword'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Version == nil {
+		return nil, errors.New("invalid value for required argument 'Version'")
 	}
 	var resource SqlServer
 	err := ctx.RegisterResource("azure:sql/sqlServer:SqlServer", name, args, &resource, opts...)

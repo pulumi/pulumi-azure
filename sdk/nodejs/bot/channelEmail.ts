@@ -85,16 +85,16 @@ export class ChannelEmail extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ChannelEmailArgs | undefined;
-            if (!args || args.botName === undefined) {
+            if ((!args || args.botName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'botName'");
             }
-            if (!args || args.emailAddress === undefined) {
+            if ((!args || args.emailAddress === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'emailAddress'");
             }
-            if (!args || args.emailPassword === undefined) {
+            if ((!args || args.emailPassword === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'emailPassword'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["botName"] = args ? args.botName : undefined;

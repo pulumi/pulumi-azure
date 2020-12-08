@@ -120,15 +120,15 @@ class Endpoint(pulumi.CustomResource):
             __props__['optimization_type'] = optimization_type
             __props__['origin_host_header'] = origin_host_header
             __props__['origin_path'] = origin_path
-            if origins is None:
+            if origins is None and not opts.urn:
                 raise TypeError("Missing required property 'origins'")
             __props__['origins'] = origins
             __props__['probe_path'] = probe_path
-            if profile_name is None:
+            if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
             __props__['querystring_caching_behaviour'] = querystring_caching_behaviour
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

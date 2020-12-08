@@ -80,34 +80,34 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if action is None:
+            if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
             __props__['action'] = action
             __props__['authorized_resource_ids'] = authorized_resource_ids
-            if data_source_id is None:
+            if data_source_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_source_id'")
             __props__['data_source_id'] = data_source_id
             __props__['description'] = description
             __props__['enabled'] = enabled
-            if frequency is None:
+            if frequency is None and not opts.urn:
                 raise TypeError("Missing required property 'frequency'")
             __props__['frequency'] = frequency
             __props__['location'] = location
             __props__['name'] = name
-            if query is None:
+            if query is None and not opts.urn:
                 raise TypeError("Missing required property 'query'")
             __props__['query'] = query
             __props__['query_type'] = query_type
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['severity'] = severity
             __props__['tags'] = tags
             __props__['throttling'] = throttling
-            if time_window is None:
+            if time_window is None and not opts.urn:
                 raise TypeError("Missing required property 'time_window'")
             __props__['time_window'] = time_window
-            if trigger is None:
+            if trigger is None and not opts.urn:
                 raise TypeError("Missing required property 'trigger'")
             __props__['trigger'] = trigger
         super(ScheduledQueryRulesAlert, __self__).__init__(

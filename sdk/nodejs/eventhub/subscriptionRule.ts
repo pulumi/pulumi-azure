@@ -188,19 +188,19 @@ export class SubscriptionRule extends pulumi.CustomResource {
             inputs["topicName"] = state ? state.topicName : undefined;
         } else {
             const args = argsOrState as SubscriptionRuleArgs | undefined;
-            if (!args || args.filterType === undefined) {
+            if ((!args || args.filterType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'filterType'");
             }
-            if (!args || args.namespaceName === undefined) {
+            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.subscriptionName === undefined) {
+            if ((!args || args.subscriptionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subscriptionName'");
             }
-            if (!args || args.topicName === undefined) {
+            if ((!args || args.topicName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'topicName'");
             }
             inputs["action"] = args ? args.action : undefined;

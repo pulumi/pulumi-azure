@@ -103,13 +103,13 @@ export class Embedded extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as EmbeddedArgs | undefined;
-            if (!args || args.administrators === undefined) {
+            if ((!args || args.administrators === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'administrators'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.skuName === undefined) {
+            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'skuName'");
             }
             inputs["administrators"] = args ? args.administrators : undefined;

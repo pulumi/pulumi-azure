@@ -118,10 +118,10 @@ export class Definition extends pulumi.CustomResource {
             inputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as DefinitionArgs | undefined;
-            if (!args || args.permissions === undefined) {
+            if ((!args || args.permissions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'permissions'");
             }
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["assignableScopes"] = args ? args.assignableScopes : undefined;

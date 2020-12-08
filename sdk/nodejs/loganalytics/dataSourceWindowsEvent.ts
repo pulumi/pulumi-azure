@@ -103,16 +103,16 @@ export class DataSourceWindowsEvent extends pulumi.CustomResource {
             inputs["workspaceName"] = state ? state.workspaceName : undefined;
         } else {
             const args = argsOrState as DataSourceWindowsEventArgs | undefined;
-            if (!args || args.eventLogName === undefined) {
+            if ((!args || args.eventLogName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventLogName'");
             }
-            if (!args || args.eventTypes === undefined) {
+            if ((!args || args.eventTypes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventTypes'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["eventLogName"] = args ? args.eventLogName : undefined;

@@ -54,7 +54,7 @@ class SecurityPartnerProvider(pulumi.CustomResource):
             tags={
                 "ENV": "Prod",
             },
-            opts=ResourceOptions(depends_on=[example_vpn_gateway]))
+            opts=pulumi.ResourceOptions(depends_on=[example_vpn_gateway]))
         ```
 
         ## Import
@@ -93,10 +93,10 @@ class SecurityPartnerProvider(pulumi.CustomResource):
 
             __props__['location'] = location
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if security_provider_name is None:
+            if security_provider_name is None and not opts.urn:
                 raise TypeError("Missing required property 'security_provider_name'")
             __props__['security_provider_name'] = security_provider_name
             __props__['tags'] = tags

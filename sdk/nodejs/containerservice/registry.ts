@@ -148,7 +148,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["trustPolicy"] = state ? state.trustPolicy : undefined;
         } else {
             const args = argsOrState as RegistryArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["adminEnabled"] = args ? args.adminEnabled : undefined;

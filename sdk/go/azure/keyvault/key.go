@@ -135,17 +135,18 @@ type Key struct {
 // NewKey registers a new resource with the given unique name, arguments, and options.
 func NewKey(ctx *pulumi.Context,
 	name string, args *KeyArgs, opts ...pulumi.ResourceOption) (*Key, error) {
-	if args == nil || args.KeyOpts == nil {
-		return nil, errors.New("missing required argument 'KeyOpts'")
-	}
-	if args == nil || args.KeyType == nil {
-		return nil, errors.New("missing required argument 'KeyType'")
-	}
-	if args == nil || args.KeyVaultId == nil {
-		return nil, errors.New("missing required argument 'KeyVaultId'")
-	}
 	if args == nil {
-		args = &KeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.KeyOpts == nil {
+		return nil, errors.New("invalid value for required argument 'KeyOpts'")
+	}
+	if args.KeyType == nil {
+		return nil, errors.New("invalid value for required argument 'KeyType'")
+	}
+	if args.KeyVaultId == nil {
+		return nil, errors.New("invalid value for required argument 'KeyVaultId'")
 	}
 	var resource Key
 	err := ctx.RegisterResource("azure:keyvault/key:Key", name, args, &resource, opts...)

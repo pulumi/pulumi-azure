@@ -107,20 +107,20 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if action is None:
+            if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
             __props__['action'] = action
-            if azure_firewall_name is None:
+            if azure_firewall_name is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_firewall_name'")
             __props__['azure_firewall_name'] = azure_firewall_name
             __props__['name'] = name
-            if priority is None:
+            if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")
             __props__['priority'] = priority
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if rules is None:
+            if rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rules'")
             __props__['rules'] = rules
         super(FirewallApplicationRuleCollection, __self__).__init__(

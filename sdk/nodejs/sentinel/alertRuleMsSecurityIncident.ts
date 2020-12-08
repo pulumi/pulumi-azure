@@ -123,16 +123,16 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
             inputs["textWhitelists"] = state ? state.textWhitelists : undefined;
         } else {
             const args = argsOrState as AlertRuleMsSecurityIncidentArgs | undefined;
-            if (!args || args.displayName === undefined) {
+            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (!args || args.logAnalyticsWorkspaceId === undefined) {
+            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            if (!args || args.productFilter === undefined) {
+            if ((!args || args.productFilter === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'productFilter'");
             }
-            if (!args || args.severityFilters === undefined) {
+            if ((!args || args.severityFilters === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'severityFilters'");
             }
             inputs["description"] = args ? args.description : undefined;

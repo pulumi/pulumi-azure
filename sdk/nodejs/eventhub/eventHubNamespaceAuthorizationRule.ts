@@ -143,10 +143,10 @@ export class EventHubNamespaceAuthorizationRule extends pulumi.CustomResource {
             inputs["send"] = state ? state.send : undefined;
         } else {
             const args = argsOrState as EventHubNamespaceAuthorizationRuleArgs | undefined;
-            if (!args || args.namespaceName === undefined) {
+            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["listen"] = args ? args.listen : undefined;

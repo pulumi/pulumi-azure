@@ -111,19 +111,19 @@ export class IdentityProviderAad extends pulumi.CustomResource {
             inputs["signinTenant"] = state ? state.signinTenant : undefined;
         } else {
             const args = argsOrState as IdentityProviderAadArgs | undefined;
-            if (!args || args.allowedTenants === undefined) {
+            if ((!args || args.allowedTenants === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'allowedTenants'");
             }
-            if (!args || args.apiManagementName === undefined) {
+            if ((!args || args.apiManagementName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if (!args || args.clientId === undefined) {
+            if ((!args || args.clientId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if (!args || args.clientSecret === undefined) {
+            if ((!args || args.clientSecret === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["allowedTenants"] = args ? args.allowedTenants : undefined;

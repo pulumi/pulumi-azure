@@ -193,14 +193,15 @@ type IoTHub struct {
 // NewIoTHub registers a new resource with the given unique name, arguments, and options.
 func NewIoTHub(ctx *pulumi.Context,
 	name string, args *IoTHubArgs, opts ...pulumi.ResourceOption) (*IoTHub, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	if args == nil {
-		args = &IoTHubArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	var resource IoTHub
 	err := ctx.RegisterResource("azure:iot/ioTHub:IoTHub", name, args, &resource, opts...)

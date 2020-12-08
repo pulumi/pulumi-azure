@@ -77,11 +77,11 @@ class MeshSecretValue(pulumi.CustomResource):
 
             __props__['location'] = location
             __props__['name'] = name
-            if service_fabric_mesh_secret_id is None:
+            if service_fabric_mesh_secret_id is None and not opts.urn:
                 raise TypeError("Missing required property 'service_fabric_mesh_secret_id'")
             __props__['service_fabric_mesh_secret_id'] = service_fabric_mesh_secret_id
             __props__['tags'] = tags
-            if value is None:
+            if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
             __props__['value'] = value
         super(MeshSecretValue, __self__).__init__(

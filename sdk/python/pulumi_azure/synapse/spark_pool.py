@@ -117,16 +117,16 @@ class SparkPool(pulumi.CustomResource):
             __props__['library_requirement'] = library_requirement
             __props__['name'] = name
             __props__['node_count'] = node_count
-            if node_size is None:
+            if node_size is None and not opts.urn:
                 raise TypeError("Missing required property 'node_size'")
             __props__['node_size'] = node_size
-            if node_size_family is None:
+            if node_size_family is None and not opts.urn:
                 raise TypeError("Missing required property 'node_size_family'")
             __props__['node_size_family'] = node_size_family
             __props__['spark_events_folder'] = spark_events_folder
             __props__['spark_log_folder'] = spark_log_folder
             __props__['spark_version'] = spark_version
-            if synapse_workspace_id is None:
+            if synapse_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'synapse_workspace_id'")
             __props__['synapse_workspace_id'] = synapse_workspace_id
             __props__['tags'] = tags

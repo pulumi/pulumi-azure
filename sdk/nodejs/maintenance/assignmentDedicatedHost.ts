@@ -103,10 +103,10 @@ export class AssignmentDedicatedHost extends pulumi.CustomResource {
             inputs["maintenanceConfigurationId"] = state ? state.maintenanceConfigurationId : undefined;
         } else {
             const args = argsOrState as AssignmentDedicatedHostArgs | undefined;
-            if (!args || args.dedicatedHostId === undefined) {
+            if ((!args || args.dedicatedHostId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dedicatedHostId'");
             }
-            if (!args || args.maintenanceConfigurationId === undefined) {
+            if ((!args || args.maintenanceConfigurationId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'maintenanceConfigurationId'");
             }
             inputs["dedicatedHostId"] = args ? args.dedicatedHostId : undefined;

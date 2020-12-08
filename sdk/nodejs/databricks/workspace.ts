@@ -126,10 +126,10 @@ export class Workspace extends pulumi.CustomResource {
             inputs["workspaceUrl"] = state ? state.workspaceUrl : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sku === undefined) {
+            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["customParameters"] = args ? args.customParameters : undefined;

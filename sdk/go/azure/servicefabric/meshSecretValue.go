@@ -77,14 +77,15 @@ type MeshSecretValue struct {
 // NewMeshSecretValue registers a new resource with the given unique name, arguments, and options.
 func NewMeshSecretValue(ctx *pulumi.Context,
 	name string, args *MeshSecretValueArgs, opts ...pulumi.ResourceOption) (*MeshSecretValue, error) {
-	if args == nil || args.ServiceFabricMeshSecretId == nil {
-		return nil, errors.New("missing required argument 'ServiceFabricMeshSecretId'")
-	}
-	if args == nil || args.Value == nil {
-		return nil, errors.New("missing required argument 'Value'")
-	}
 	if args == nil {
-		args = &MeshSecretValueArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ServiceFabricMeshSecretId == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceFabricMeshSecretId'")
+	}
+	if args.Value == nil {
+		return nil, errors.New("invalid value for required argument 'Value'")
 	}
 	var resource MeshSecretValue
 	err := ctx.RegisterResource("azure:servicefabric/meshSecretValue:MeshSecretValue", name, args, &resource, opts...)

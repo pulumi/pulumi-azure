@@ -99,14 +99,15 @@ type VirtualHubConnection struct {
 // NewVirtualHubConnection registers a new resource with the given unique name, arguments, and options.
 func NewVirtualHubConnection(ctx *pulumi.Context,
 	name string, args *VirtualHubConnectionArgs, opts ...pulumi.ResourceOption) (*VirtualHubConnection, error) {
-	if args == nil || args.RemoteVirtualNetworkId == nil {
-		return nil, errors.New("missing required argument 'RemoteVirtualNetworkId'")
-	}
-	if args == nil || args.VirtualHubId == nil {
-		return nil, errors.New("missing required argument 'VirtualHubId'")
-	}
 	if args == nil {
-		args = &VirtualHubConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RemoteVirtualNetworkId == nil {
+		return nil, errors.New("invalid value for required argument 'RemoteVirtualNetworkId'")
+	}
+	if args.VirtualHubId == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualHubId'")
 	}
 	var resource VirtualHubConnection
 	err := ctx.RegisterResource("azure:network/virtualHubConnection:VirtualHubConnection", name, args, &resource, opts...)

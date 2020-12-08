@@ -115,7 +115,7 @@ export class Container extends pulumi.CustomResource {
             inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
         } else {
             const args = argsOrState as ContainerArgs | undefined;
-            if (!args || args.storageAccountName === undefined) {
+            if ((!args || args.storageAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
             inputs["containerAccessType"] = args ? args.containerAccessType : undefined;

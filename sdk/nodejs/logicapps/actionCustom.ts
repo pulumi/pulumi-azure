@@ -104,10 +104,10 @@ export class ActionCustom extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ActionCustomArgs | undefined;
-            if (!args || args.body === undefined) {
+            if ((!args || args.body === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'body'");
             }
-            if (!args || args.logicAppId === undefined) {
+            if ((!args || args.logicAppId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'logicAppId'");
             }
             inputs["body"] = args ? args.body : undefined;

@@ -83,10 +83,10 @@ export class DatasetKustoCluster extends pulumi.CustomResource {
             inputs["shareId"] = state ? state.shareId : undefined;
         } else {
             const args = argsOrState as DatasetKustoClusterArgs | undefined;
-            if (!args || args.kustoClusterId === undefined) {
+            if ((!args || args.kustoClusterId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kustoClusterId'");
             }
-            if (!args || args.shareId === undefined) {
+            if ((!args || args.shareId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'shareId'");
             }
             inputs["kustoClusterId"] = args ? args.kustoClusterId : undefined;

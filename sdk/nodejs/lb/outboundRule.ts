@@ -141,16 +141,16 @@ export class OutboundRule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as OutboundRuleArgs | undefined;
-            if (!args || args.backendAddressPoolId === undefined) {
+            if ((!args || args.backendAddressPoolId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backendAddressPoolId'");
             }
-            if (!args || args.loadbalancerId === undefined) {
+            if ((!args || args.loadbalancerId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadbalancerId'");
             }
-            if (!args || args.protocol === undefined) {
+            if ((!args || args.protocol === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["allocatedOutboundPorts"] = args ? args.allocatedOutboundPorts : undefined;

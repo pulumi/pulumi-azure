@@ -102,10 +102,10 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as DedicatedHostGroupArgs | undefined;
-            if (!args || args.platformFaultDomainCount === undefined) {
+            if ((!args || args.platformFaultDomainCount === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'platformFaultDomainCount'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;

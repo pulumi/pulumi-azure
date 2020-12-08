@@ -133,22 +133,22 @@ export class User extends pulumi.CustomResource {
             inputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if (!args || args.apiManagementName === undefined) {
+            if ((!args || args.apiManagementName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if (!args || args.email === undefined) {
+            if ((!args || args.email === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'email'");
             }
-            if (!args || args.firstName === undefined) {
+            if ((!args || args.firstName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'firstName'");
             }
-            if (!args || args.lastName === undefined) {
+            if ((!args || args.lastName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'lastName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.userId === undefined) {
+            if ((!args || args.userId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'userId'");
             }
             inputs["apiManagementName"] = args ? args.apiManagementName : undefined;

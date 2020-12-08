@@ -69,11 +69,12 @@ type SyncGroup struct {
 // NewSyncGroup registers a new resource with the given unique name, arguments, and options.
 func NewSyncGroup(ctx *pulumi.Context,
 	name string, args *SyncGroupArgs, opts ...pulumi.ResourceOption) (*SyncGroup, error) {
-	if args == nil || args.StorageSyncId == nil {
-		return nil, errors.New("missing required argument 'StorageSyncId'")
-	}
 	if args == nil {
-		args = &SyncGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.StorageSyncId == nil {
+		return nil, errors.New("invalid value for required argument 'StorageSyncId'")
 	}
 	var resource SyncGroup
 	err := ctx.RegisterResource("azure:storage/syncGroup:SyncGroup", name, args, &resource, opts...)

@@ -103,13 +103,13 @@ export class TimeSeriesInsightsAccessPolicy extends pulumi.CustomResource {
             inputs["timeSeriesInsightsEnvironmentId"] = state ? state.timeSeriesInsightsEnvironmentId : undefined;
         } else {
             const args = argsOrState as TimeSeriesInsightsAccessPolicyArgs | undefined;
-            if (!args || args.principalObjectId === undefined) {
+            if ((!args || args.principalObjectId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'principalObjectId'");
             }
-            if (!args || args.roles === undefined) {
+            if ((!args || args.roles === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'roles'");
             }
-            if (!args || args.timeSeriesInsightsEnvironmentId === undefined) {
+            if ((!args || args.timeSeriesInsightsEnvironmentId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'timeSeriesInsightsEnvironmentId'");
             }
             inputs["description"] = args ? args.description : undefined;

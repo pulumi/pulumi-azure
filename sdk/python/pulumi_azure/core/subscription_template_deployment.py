@@ -93,7 +93,7 @@ class SubscriptionTemplateDeployment(pulumi.CustomResource):
             __props__['name'] = name
             __props__['parameters_content'] = parameters_content
             __props__['tags'] = tags
-            if template_content is None:
+            if template_content is None and not opts.urn:
                 raise TypeError("Missing required property 'template_content'")
             __props__['template_content'] = template_content
             __props__['output_content'] = None

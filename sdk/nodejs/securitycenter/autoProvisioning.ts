@@ -76,7 +76,7 @@ export class AutoProvisioning extends pulumi.CustomResource {
             inputs["autoProvision"] = state ? state.autoProvision : undefined;
         } else {
             const args = argsOrState as AutoProvisioningArgs | undefined;
-            if (!args || args.autoProvision === undefined) {
+            if ((!args || args.autoProvision === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'autoProvision'");
             }
             inputs["autoProvision"] = args ? args.autoProvision : undefined;

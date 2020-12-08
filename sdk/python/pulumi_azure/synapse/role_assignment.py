@@ -54,7 +54,7 @@ class RoleAssignment(pulumi.CustomResource):
             synapse_workspace_id=example_workspace.id,
             role_name="Sql Admin",
             principal_id=current.object_id,
-            opts=ResourceOptions(depends_on=[example_firewall_rule]))
+            opts=pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
         ```
 
         ## Import
@@ -88,13 +88,13 @@ class RoleAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if principal_id is None:
+            if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")
             __props__['principal_id'] = principal_id
-            if role_name is None:
+            if role_name is None and not opts.urn:
                 raise TypeError("Missing required property 'role_name'")
             __props__['role_name'] = role_name
-            if synapse_workspace_id is None:
+            if synapse_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'synapse_workspace_id'")
             __props__['synapse_workspace_id'] = synapse_workspace_id
         super(RoleAssignment, __self__).__init__(

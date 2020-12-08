@@ -131,7 +131,7 @@ export class VirtualHubRouteTable extends pulumi.CustomResource {
             inputs["virtualHubId"] = state ? state.virtualHubId : undefined;
         } else {
             const args = argsOrState as VirtualHubRouteTableArgs | undefined;
-            if (!args || args.virtualHubId === undefined) {
+            if ((!args || args.virtualHubId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
             inputs["labels"] = args ? args.labels : undefined;

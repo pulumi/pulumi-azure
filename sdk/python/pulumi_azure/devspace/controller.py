@@ -67,17 +67,17 @@ class Controller(pulumi.CustomResource):
 
             __props__['location'] = location
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sku_name is None:
+            if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
             __props__['tags'] = tags
-            if target_container_host_credentials_base64 is None:
+            if target_container_host_credentials_base64 is None and not opts.urn:
                 raise TypeError("Missing required property 'target_container_host_credentials_base64'")
             __props__['target_container_host_credentials_base64'] = target_container_host_credentials_base64
-            if target_container_host_resource_id is None:
+            if target_container_host_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_container_host_resource_id'")
             __props__['target_container_host_resource_id'] = target_container_host_resource_id
             __props__['data_plane_fqdn'] = None

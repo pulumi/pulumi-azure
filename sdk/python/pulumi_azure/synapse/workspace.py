@@ -104,16 +104,16 @@ class Workspace(pulumi.CustomResource):
             __props__['location'] = location
             __props__['managed_virtual_network_enabled'] = managed_virtual_network_enabled
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sql_administrator_login is None:
+            if sql_administrator_login is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_administrator_login'")
             __props__['sql_administrator_login'] = sql_administrator_login
-            if sql_administrator_login_password is None:
+            if sql_administrator_login_password is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_administrator_login_password'")
             __props__['sql_administrator_login_password'] = sql_administrator_login_password
-            if storage_data_lake_gen2_filesystem_id is None:
+            if storage_data_lake_gen2_filesystem_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_data_lake_gen2_filesystem_id'")
             __props__['storage_data_lake_gen2_filesystem_id'] = storage_data_lake_gen2_filesystem_id
             __props__['tags'] = tags

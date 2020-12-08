@@ -14,3 +14,44 @@ from .virtual_network import *
 from .windows_virtual_machine import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule":
+                return GlobalVMShutdownSchedule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:devtest/lab:Lab":
+                return Lab(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:devtest/linuxVirtualMachine:LinuxVirtualMachine":
+                return LinuxVirtualMachine(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:devtest/policy:Policy":
+                return Policy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:devtest/schedule:Schedule":
+                return Schedule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:devtest/virtualNetwork:VirtualNetwork":
+                return VirtualNetwork(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:devtest/windowsVirtualMachine:WindowsVirtualMachine":
+                return WindowsVirtualMachine(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure", "devtest/globalVMShutdownSchedule", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "devtest/lab", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "devtest/linuxVirtualMachine", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "devtest/policy", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "devtest/schedule", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "devtest/virtualNetwork", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "devtest/windowsVirtualMachine", _module_instance)
+
+_register_module()

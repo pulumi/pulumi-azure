@@ -100,10 +100,10 @@ class SqlPool(pulumi.CustomResource):
             __props__['name'] = name
             __props__['recovery_database_id'] = recovery_database_id
             __props__['restore'] = restore
-            if sku_name is None:
+            if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
-            if synapse_workspace_id is None:
+            if synapse_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'synapse_workspace_id'")
             __props__['synapse_workspace_id'] = synapse_workspace_id
             __props__['tags'] = tags

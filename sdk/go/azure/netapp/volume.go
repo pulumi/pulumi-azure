@@ -144,29 +144,30 @@ type Volume struct {
 // NewVolume registers a new resource with the given unique name, arguments, and options.
 func NewVolume(ctx *pulumi.Context,
 	name string, args *VolumeArgs, opts ...pulumi.ResourceOption) (*Volume, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.PoolName == nil {
-		return nil, errors.New("missing required argument 'PoolName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceLevel == nil {
-		return nil, errors.New("missing required argument 'ServiceLevel'")
-	}
-	if args == nil || args.StorageQuotaInGb == nil {
-		return nil, errors.New("missing required argument 'StorageQuotaInGb'")
-	}
-	if args == nil || args.SubnetId == nil {
-		return nil, errors.New("missing required argument 'SubnetId'")
-	}
-	if args == nil || args.VolumePath == nil {
-		return nil, errors.New("missing required argument 'VolumePath'")
-	}
 	if args == nil {
-		args = &VolumeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.PoolName == nil {
+		return nil, errors.New("invalid value for required argument 'PoolName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceLevel == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceLevel'")
+	}
+	if args.StorageQuotaInGb == nil {
+		return nil, errors.New("invalid value for required argument 'StorageQuotaInGb'")
+	}
+	if args.SubnetId == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetId'")
+	}
+	if args.VolumePath == nil {
+		return nil, errors.New("invalid value for required argument 'VolumePath'")
 	}
 	var resource Volume
 	err := ctx.RegisterResource("azure:netapp/volume:Volume", name, args, &resource, opts...)

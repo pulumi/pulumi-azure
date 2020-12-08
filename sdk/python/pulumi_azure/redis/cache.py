@@ -130,11 +130,11 @@ class Cache(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if capacity is None:
+            if capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'capacity'")
             __props__['capacity'] = capacity
             __props__['enable_non_ssl_port'] = enable_non_ssl_port
-            if family is None:
+            if family is None and not opts.urn:
                 raise TypeError("Missing required property 'family'")
             __props__['family'] = family
             __props__['location'] = location
@@ -143,11 +143,11 @@ class Cache(pulumi.CustomResource):
             __props__['patch_schedules'] = patch_schedules
             __props__['private_static_ip_address'] = private_static_ip_address
             __props__['redis_configuration'] = redis_configuration
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['shard_count'] = shard_count
-            if sku_name is None:
+            if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
             __props__['subnet_id'] = subnet_id

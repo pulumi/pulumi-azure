@@ -96,17 +96,18 @@ type FirewallRule struct {
 // NewFirewallRule registers a new resource with the given unique name, arguments, and options.
 func NewFirewallRule(ctx *pulumi.Context,
 	name string, args *FirewallRuleArgs, opts ...pulumi.ResourceOption) (*FirewallRule, error) {
-	if args == nil || args.EndIpAddress == nil {
-		return nil, errors.New("missing required argument 'EndIpAddress'")
-	}
-	if args == nil || args.StartIpAddress == nil {
-		return nil, errors.New("missing required argument 'StartIpAddress'")
-	}
-	if args == nil || args.SynapseWorkspaceId == nil {
-		return nil, errors.New("missing required argument 'SynapseWorkspaceId'")
-	}
 	if args == nil {
-		args = &FirewallRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EndIpAddress == nil {
+		return nil, errors.New("invalid value for required argument 'EndIpAddress'")
+	}
+	if args.StartIpAddress == nil {
+		return nil, errors.New("invalid value for required argument 'StartIpAddress'")
+	}
+	if args.SynapseWorkspaceId == nil {
+		return nil, errors.New("invalid value for required argument 'SynapseWorkspaceId'")
 	}
 	var resource FirewallRule
 	err := ctx.RegisterResource("azure:synapse/firewallRule:FirewallRule", name, args, &resource, opts...)

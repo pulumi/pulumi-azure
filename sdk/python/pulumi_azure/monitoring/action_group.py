@@ -166,10 +166,10 @@ class ActionGroup(pulumi.CustomResource):
             __props__['itsm_receivers'] = itsm_receivers
             __props__['logic_app_receivers'] = logic_app_receivers
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if short_name is None:
+            if short_name is None and not opts.urn:
                 raise TypeError("Missing required property 'short_name'")
             __props__['short_name'] = short_name
             __props__['sms_receivers'] = sms_receivers

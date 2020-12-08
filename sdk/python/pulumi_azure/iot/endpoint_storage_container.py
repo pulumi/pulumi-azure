@@ -104,20 +104,20 @@ class EndpointStorageContainer(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['batch_frequency_in_seconds'] = batch_frequency_in_seconds
-            if connection_string is None:
+            if connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_string'")
             __props__['connection_string'] = connection_string
-            if container_name is None:
+            if container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'container_name'")
             __props__['container_name'] = container_name
             __props__['encoding'] = encoding
             __props__['file_name_format'] = file_name_format
-            if iothub_name is None:
+            if iothub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'iothub_name'")
             __props__['iothub_name'] = iothub_name
             __props__['max_chunk_size_in_bytes'] = max_chunk_size_in_bytes
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
         super(EndpointStorageContainer, __self__).__init__(

@@ -114,17 +114,18 @@ type BgpConnection struct {
 // NewBgpConnection registers a new resource with the given unique name, arguments, and options.
 func NewBgpConnection(ctx *pulumi.Context,
 	name string, args *BgpConnectionArgs, opts ...pulumi.ResourceOption) (*BgpConnection, error) {
-	if args == nil || args.PeerAsn == nil {
-		return nil, errors.New("missing required argument 'PeerAsn'")
-	}
-	if args == nil || args.PeerIp == nil {
-		return nil, errors.New("missing required argument 'PeerIp'")
-	}
-	if args == nil || args.VirtualHubId == nil {
-		return nil, errors.New("missing required argument 'VirtualHubId'")
-	}
 	if args == nil {
-		args = &BgpConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PeerAsn == nil {
+		return nil, errors.New("invalid value for required argument 'PeerAsn'")
+	}
+	if args.PeerIp == nil {
+		return nil, errors.New("invalid value for required argument 'PeerIp'")
+	}
+	if args.VirtualHubId == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualHubId'")
 	}
 	var resource BgpConnection
 	err := ctx.RegisterResource("azure:network/bgpConnection:BgpConnection", name, args, &resource, opts...)

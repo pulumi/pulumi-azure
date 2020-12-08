@@ -211,10 +211,10 @@ export class ActionGroup extends pulumi.CustomResource {
             inputs["webhookReceivers"] = state ? state.webhookReceivers : undefined;
         } else {
             const args = argsOrState as ActionGroupArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.shortName === undefined) {
+            if ((!args || args.shortName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'shortName'");
             }
             inputs["armRoleReceivers"] = args ? args.armRoleReceivers : undefined;

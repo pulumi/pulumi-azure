@@ -113,26 +113,27 @@ type Cluster struct {
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
 	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
-	if args == nil || args.ManagementEndpoint == nil {
-		return nil, errors.New("missing required argument 'ManagementEndpoint'")
-	}
-	if args == nil || args.NodeTypes == nil {
-		return nil, errors.New("missing required argument 'NodeTypes'")
-	}
-	if args == nil || args.ReliabilityLevel == nil {
-		return nil, errors.New("missing required argument 'ReliabilityLevel'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.UpgradeMode == nil {
-		return nil, errors.New("missing required argument 'UpgradeMode'")
-	}
-	if args == nil || args.VmImage == nil {
-		return nil, errors.New("missing required argument 'VmImage'")
-	}
 	if args == nil {
-		args = &ClusterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ManagementEndpoint == nil {
+		return nil, errors.New("invalid value for required argument 'ManagementEndpoint'")
+	}
+	if args.NodeTypes == nil {
+		return nil, errors.New("invalid value for required argument 'NodeTypes'")
+	}
+	if args.ReliabilityLevel == nil {
+		return nil, errors.New("invalid value for required argument 'ReliabilityLevel'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.UpgradeMode == nil {
+		return nil, errors.New("invalid value for required argument 'UpgradeMode'")
+	}
+	if args.VmImage == nil {
+		return nil, errors.New("invalid value for required argument 'VmImage'")
 	}
 	var resource Cluster
 	err := ctx.RegisterResource("azure:servicefabric/cluster:Cluster", name, args, &resource, opts...)

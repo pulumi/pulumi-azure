@@ -94,13 +94,13 @@ export class Contact extends pulumi.CustomResource {
             inputs["phone"] = state ? state.phone : undefined;
         } else {
             const args = argsOrState as ContactArgs | undefined;
-            if (!args || args.alertNotifications === undefined) {
+            if ((!args || args.alertNotifications === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'alertNotifications'");
             }
-            if (!args || args.alertsToAdmins === undefined) {
+            if ((!args || args.alertsToAdmins === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'alertsToAdmins'");
             }
-            if (!args || args.email === undefined) {
+            if ((!args || args.email === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'email'");
             }
             inputs["alertNotifications"] = args ? args.alertNotifications : undefined;

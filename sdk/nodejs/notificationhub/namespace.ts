@@ -113,13 +113,13 @@ export class Namespace extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as NamespaceArgs | undefined;
-            if (!args || args.namespaceType === undefined) {
+            if ((!args || args.namespaceType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.skuName === undefined) {
+            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'skuName'");
             }
             inputs["enabled"] = args ? args.enabled : undefined;

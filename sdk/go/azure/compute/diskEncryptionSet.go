@@ -42,17 +42,18 @@ type DiskEncryptionSet struct {
 // NewDiskEncryptionSet registers a new resource with the given unique name, arguments, and options.
 func NewDiskEncryptionSet(ctx *pulumi.Context,
 	name string, args *DiskEncryptionSetArgs, opts ...pulumi.ResourceOption) (*DiskEncryptionSet, error) {
-	if args == nil || args.Identity == nil {
-		return nil, errors.New("missing required argument 'Identity'")
-	}
-	if args == nil || args.KeyVaultKeyId == nil {
-		return nil, errors.New("missing required argument 'KeyVaultKeyId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DiskEncryptionSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Identity == nil {
+		return nil, errors.New("invalid value for required argument 'Identity'")
+	}
+	if args.KeyVaultKeyId == nil {
+		return nil, errors.New("invalid value for required argument 'KeyVaultKeyId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource DiskEncryptionSet
 	err := ctx.RegisterResource("azure:compute/diskEncryptionSet:DiskEncryptionSet", name, args, &resource, opts...)

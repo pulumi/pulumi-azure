@@ -130,19 +130,19 @@ export class Policy extends pulumi.CustomResource {
             inputs["threshold"] = state ? state.threshold : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            if (!args || args.evaluatorType === undefined) {
+            if ((!args || args.evaluatorType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'evaluatorType'");
             }
-            if (!args || args.labName === undefined) {
+            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'labName'");
             }
-            if (!args || args.policySetName === undefined) {
+            if ((!args || args.policySetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policySetName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.threshold === undefined) {
+            if ((!args || args.threshold === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'threshold'");
             }
             inputs["description"] = args ? args.description : undefined;

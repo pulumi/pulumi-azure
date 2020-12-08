@@ -98,13 +98,13 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if backend_address_pool_id is None:
+            if backend_address_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'backend_address_pool_id'")
             __props__['backend_address_pool_id'] = backend_address_pool_id
-            if ip_configuration_name is None:
+            if ip_configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_configuration_name'")
             __props__['ip_configuration_name'] = ip_configuration_name
-            if network_interface_id is None:
+            if network_interface_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_interface_id'")
             __props__['network_interface_id'] = network_interface_id
         super(NetworkInterfaceBackendAddressPoolAssociation, __self__).__init__(

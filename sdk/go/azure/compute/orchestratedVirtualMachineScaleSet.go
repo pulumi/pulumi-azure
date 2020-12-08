@@ -85,14 +85,15 @@ type OrchestratedVirtualMachineScaleSet struct {
 // NewOrchestratedVirtualMachineScaleSet registers a new resource with the given unique name, arguments, and options.
 func NewOrchestratedVirtualMachineScaleSet(ctx *pulumi.Context,
 	name string, args *OrchestratedVirtualMachineScaleSetArgs, opts ...pulumi.ResourceOption) (*OrchestratedVirtualMachineScaleSet, error) {
-	if args == nil || args.PlatformFaultDomainCount == nil {
-		return nil, errors.New("missing required argument 'PlatformFaultDomainCount'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &OrchestratedVirtualMachineScaleSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PlatformFaultDomainCount == nil {
+		return nil, errors.New("invalid value for required argument 'PlatformFaultDomainCount'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource OrchestratedVirtualMachineScaleSet
 	err := ctx.RegisterResource("azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet", name, args, &resource, opts...)

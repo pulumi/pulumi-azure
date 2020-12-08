@@ -89,23 +89,24 @@ type FunctionJavaScriptUDF struct {
 // NewFunctionJavaScriptUDF registers a new resource with the given unique name, arguments, and options.
 func NewFunctionJavaScriptUDF(ctx *pulumi.Context,
 	name string, args *FunctionJavaScriptUDFArgs, opts ...pulumi.ResourceOption) (*FunctionJavaScriptUDF, error) {
-	if args == nil || args.Inputs == nil {
-		return nil, errors.New("missing required argument 'Inputs'")
-	}
-	if args == nil || args.Output == nil {
-		return nil, errors.New("missing required argument 'Output'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Script == nil {
-		return nil, errors.New("missing required argument 'Script'")
-	}
-	if args == nil || args.StreamAnalyticsJobName == nil {
-		return nil, errors.New("missing required argument 'StreamAnalyticsJobName'")
-	}
 	if args == nil {
-		args = &FunctionJavaScriptUDFArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Inputs == nil {
+		return nil, errors.New("invalid value for required argument 'Inputs'")
+	}
+	if args.Output == nil {
+		return nil, errors.New("invalid value for required argument 'Output'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Script == nil {
+		return nil, errors.New("invalid value for required argument 'Script'")
+	}
+	if args.StreamAnalyticsJobName == nil {
+		return nil, errors.New("invalid value for required argument 'StreamAnalyticsJobName'")
 	}
 	var resource FunctionJavaScriptUDF
 	err := ctx.RegisterResource("azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF", name, args, &resource, opts...)

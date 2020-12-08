@@ -179,20 +179,20 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__['default_local_network_gateway_id'] = default_local_network_gateway_id
             __props__['enable_bgp'] = enable_bgp
             __props__['generation'] = generation
-            if ip_configurations is None:
+            if ip_configurations is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_configurations'")
             __props__['ip_configurations'] = ip_configurations
             __props__['location'] = location
             __props__['name'] = name
             __props__['private_ip_address_enabled'] = private_ip_address_enabled
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['vpn_client_configuration'] = vpn_client_configuration

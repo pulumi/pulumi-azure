@@ -152,19 +152,19 @@ export class HybridConnection extends pulumi.CustomResource {
             inputs["serviceBusSuffix"] = state ? state.serviceBusSuffix : undefined;
         } else {
             const args = argsOrState as HybridConnectionArgs | undefined;
-            if (!args || args.appServiceName === undefined) {
+            if ((!args || args.appServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'appServiceName'");
             }
-            if (!args || args.hostname === undefined) {
+            if ((!args || args.hostname === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hostname'");
             }
-            if (!args || args.port === undefined) {
+            if ((!args || args.port === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'port'");
             }
-            if (!args || args.relayId === undefined) {
+            if ((!args || args.relayId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'relayId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["appServiceName"] = args ? args.appServiceName : undefined;

@@ -73,23 +73,24 @@ type PointToPointVpnGateway struct {
 // NewPointToPointVpnGateway registers a new resource with the given unique name, arguments, and options.
 func NewPointToPointVpnGateway(ctx *pulumi.Context,
 	name string, args *PointToPointVpnGatewayArgs, opts ...pulumi.ResourceOption) (*PointToPointVpnGateway, error) {
-	if args == nil || args.ConnectionConfiguration == nil {
-		return nil, errors.New("missing required argument 'ConnectionConfiguration'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ScaleUnit == nil {
-		return nil, errors.New("missing required argument 'ScaleUnit'")
-	}
-	if args == nil || args.VirtualHubId == nil {
-		return nil, errors.New("missing required argument 'VirtualHubId'")
-	}
-	if args == nil || args.VpnServerConfigurationId == nil {
-		return nil, errors.New("missing required argument 'VpnServerConfigurationId'")
-	}
 	if args == nil {
-		args = &PointToPointVpnGatewayArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConnectionConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionConfiguration'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ScaleUnit == nil {
+		return nil, errors.New("invalid value for required argument 'ScaleUnit'")
+	}
+	if args.VirtualHubId == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualHubId'")
+	}
+	if args.VpnServerConfigurationId == nil {
+		return nil, errors.New("invalid value for required argument 'VpnServerConfigurationId'")
 	}
 	var resource PointToPointVpnGateway
 	err := ctx.RegisterResource("azure:network/pointToPointVpnGateway:PointToPointVpnGateway", name, args, &resource, opts...)

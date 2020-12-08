@@ -130,17 +130,18 @@ type PolicyVM struct {
 // NewPolicyVM registers a new resource with the given unique name, arguments, and options.
 func NewPolicyVM(ctx *pulumi.Context,
 	name string, args *PolicyVMArgs, opts ...pulumi.ResourceOption) (*PolicyVM, error) {
-	if args == nil || args.Backup == nil {
-		return nil, errors.New("missing required argument 'Backup'")
-	}
-	if args == nil || args.RecoveryVaultName == nil {
-		return nil, errors.New("missing required argument 'RecoveryVaultName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &PolicyVMArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Backup == nil {
+		return nil, errors.New("invalid value for required argument 'Backup'")
+	}
+	if args.RecoveryVaultName == nil {
+		return nil, errors.New("invalid value for required argument 'RecoveryVaultName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource PolicyVM
 	err := ctx.RegisterResource("azure:backup/policyVM:PolicyVM", name, args, &resource, opts...)

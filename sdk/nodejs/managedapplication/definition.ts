@@ -141,13 +141,13 @@ export class Definition extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DefinitionArgs | undefined;
-            if (!args || args.displayName === undefined) {
+            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (!args || args.lockLevel === undefined) {
+            if ((!args || args.lockLevel === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'lockLevel'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["authorizations"] = args ? args.authorizations : undefined;

@@ -90,14 +90,14 @@ class Snapshot(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if create_option is None:
+            if create_option is None and not opts.urn:
                 raise TypeError("Missing required property 'create_option'")
             __props__['create_option'] = create_option
             __props__['disk_size_gb'] = disk_size_gb
             __props__['encryption_settings'] = encryption_settings
             __props__['location'] = location
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['source_resource_id'] = source_resource_id

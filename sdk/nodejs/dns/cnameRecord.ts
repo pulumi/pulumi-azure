@@ -132,13 +132,13 @@ export class CNameRecord extends pulumi.CustomResource {
             inputs["zoneName"] = state ? state.zoneName : undefined;
         } else {
             const args = argsOrState as CNameRecordArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.ttl === undefined) {
+            if ((!args || args.ttl === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ttl'");
             }
-            if (!args || args.zoneName === undefined) {
+            if ((!args || args.zoneName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'zoneName'");
             }
             inputs["name"] = args ? args.name : undefined;
