@@ -97,7 +97,13 @@ namespace Pulumi.Azure.SecurityCenter
         public Output<ImmutableArray<Outputs.AutomationAction>> Actions { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean to enable or disable this Security Center Automation
+        /// Specifies the description for the Security Center Automation.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Boolean to enable or disable this Security Center Automation.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -131,6 +137,12 @@ namespace Pulumi.Azure.SecurityCenter
         /// </summary>
         [Output("sources")]
         public Output<ImmutableArray<Outputs.AutomationSource>> Sources { get; private set; } = null!;
+
+        /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -191,7 +203,13 @@ namespace Pulumi.Azure.SecurityCenter
         }
 
         /// <summary>
-        /// Boolean to enable or disable this Security Center Automation
+        /// Specifies the description for the Security Center Automation.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Boolean to enable or disable this Security Center Automation.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -238,6 +256,18 @@ namespace Pulumi.Azure.SecurityCenter
             set => _sources = value;
         }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public AutomationArgs()
         {
         }
@@ -258,7 +288,13 @@ namespace Pulumi.Azure.SecurityCenter
         }
 
         /// <summary>
-        /// Boolean to enable or disable this Security Center Automation
+        /// Specifies the description for the Security Center Automation.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Boolean to enable or disable this Security Center Automation.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -303,6 +339,18 @@ namespace Pulumi.Azure.SecurityCenter
         {
             get => _sources ?? (_sources = new InputList<Inputs.AutomationSourceGetArgs>());
             set => _sources = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
         }
 
         public AutomationState()

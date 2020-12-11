@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./activeSlot";
 export * from "./appService";
 export * from "./certificate";
+export * from "./certificateBinding";
 export * from "./certificateOrder";
 export * from "./customHostnameBinding";
 export * from "./environment";
@@ -37,6 +38,7 @@ export * from "./zMixins_timer";
 import { ActiveSlot } from "./activeSlot";
 import { AppService } from "./appService";
 import { Certificate } from "./certificate";
+import { CertificateBinding } from "./certificateBinding";
 import { CertificateOrder } from "./certificateOrder";
 import { CustomHostnameBinding } from "./customHostnameBinding";
 import { Environment } from "./environment";
@@ -60,6 +62,8 @@ const _module = {
                 return new AppService(name, <any>undefined, { urn })
             case "azure:appservice/certificate:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
+            case "azure:appservice/certificateBinding:CertificateBinding":
+                return new CertificateBinding(name, <any>undefined, { urn })
             case "azure:appservice/certificateOrder:CertificateOrder":
                 return new CertificateOrder(name, <any>undefined, { urn })
             case "azure:appservice/customHostnameBinding:CustomHostnameBinding":
@@ -92,6 +96,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "appservice/activeSlot", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/appService", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/certificate", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/certificateBinding", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/certificateOrder", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/customHostnameBinding", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/environment", _module)

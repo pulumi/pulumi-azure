@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleMediaservices_accountAccount = new azure.mediaservices.Account("exampleMediaservices/accountAccount", {
+ * const exampleServiceAccount = new azure.media.ServiceAccount("exampleServiceAccount", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     storageAccounts: [{
@@ -38,6 +38,8 @@ import * as utilities from "../utilities";
  * ```sh
  *  $ pulumi import azure:mediaservices/account:Account account /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Media/mediaservices/account1
  * ```
+ *
+ * @deprecated azure.mediaservices.Account has been deprecated in favor of azure.media.ServiceAccount
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -50,6 +52,7 @@ export class Account extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AccountState, opts?: pulumi.CustomResourceOptions): Account {
+        pulumi.log.warn("Account is deprecated: azure.mediaservices.Account has been deprecated in favor of azure.media.ServiceAccount")
         return new Account(name, <any>state, { ...opts, id: id });
     }
 
@@ -105,8 +108,11 @@ export class Account extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure.mediaservices.Account has been deprecated in favor of azure.media.ServiceAccount */
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azure.mediaservices.Account has been deprecated in favor of azure.media.ServiceAccount */
     constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Account is deprecated: azure.mediaservices.Account has been deprecated in favor of azure.media.ServiceAccount")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AccountState | undefined;

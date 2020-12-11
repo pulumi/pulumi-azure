@@ -98,6 +98,12 @@ namespace Pulumi.Azure.Kusto
         public Output<string> ClusterName { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("compression")]
+        public Output<string?> Compression { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         /// </summary>
         [Output("consumerGroup")]
@@ -204,6 +210,12 @@ namespace Pulumi.Azure.Kusto
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
+        /// Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("compression")]
+        public Input<string>? Compression { get; set; }
+
+        /// <summary>
         /// Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         /// </summary>
         [Input("consumerGroup", required: true)]
@@ -269,6 +281,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
+
+        /// <summary>
+        /// Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("compression")]
+        public Input<string>? Compression { get; set; }
 
         /// <summary>
         /// Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.

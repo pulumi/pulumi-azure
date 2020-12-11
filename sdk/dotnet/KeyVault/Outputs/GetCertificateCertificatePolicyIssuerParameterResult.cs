@@ -14,7 +14,7 @@ namespace Pulumi.Azure.KeyVault.Outputs
     public sealed class GetCertificateCertificatePolicyIssuerParameterResult
     {
         /// <summary>
-        /// Specifies the name of the Key Vault Secret.
+        /// Specifies the name of the Key Vault Certificate.
         /// </summary>
         public readonly string Name;
 

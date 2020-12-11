@@ -63,7 +63,7 @@ namespace Pulumi.Azure.KeyVault
         public string KeyVaultId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Key Vault Secret.
+        /// Specifies the name of the Key Vault Certificate.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -83,6 +83,9 @@ namespace Pulumi.Azure.KeyVault
     [OutputType]
     public sealed class GetCertificateResult
     {
+        /// <summary>
+        /// The raw Key Vault Certificate data represented as a hexadecimal string.
+        /// </summary>
         public readonly string CertificateData;
         /// <summary>
         /// A `certificate_policy` block as defined below.
@@ -97,12 +100,21 @@ namespace Pulumi.Azure.KeyVault
         /// The name of the Certificate Issuer.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The ID of the associated Key Vault Secret.
+        /// </summary>
         public readonly string SecretId;
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
+        /// </summary>
         public readonly string Thumbprint;
+        /// <summary>
+        /// The current version of the Key Vault Certificate.
+        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]

@@ -28,7 +28,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<Inputs.FunctionAppSiteConfigCorsArgs>? Cors { get; set; }
 
         /// <summary>
-        /// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+        /// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         /// </summary>
         [Input("ftpsState")]
         public Input<string>? FtpsState { get; set; }

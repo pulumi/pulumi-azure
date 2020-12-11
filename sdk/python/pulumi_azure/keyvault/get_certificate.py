@@ -52,6 +52,9 @@ class GetCertificateResult:
     @property
     @pulumi.getter(name="certificateData")
     def certificate_data(self) -> str:
+        """
+        The raw Key Vault Certificate data represented as a hexadecimal string.
+        """
         return pulumi.get(self, "certificate_data")
 
     @property
@@ -86,6 +89,9 @@ class GetCertificateResult:
     @property
     @pulumi.getter(name="secretId")
     def secret_id(self) -> str:
+        """
+        The ID of the associated Key Vault Secret.
+        """
         return pulumi.get(self, "secret_id")
 
     @property
@@ -99,11 +105,17 @@ class GetCertificateResult:
     @property
     @pulumi.getter
     def thumbprint(self) -> str:
+        """
+        The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
+        """
         return pulumi.get(self, "thumbprint")
 
     @property
     @pulumi.getter
     def version(self) -> str:
+        """
+        The current version of the Key Vault Certificate.
+        """
         return pulumi.get(self, "version")
 
 
@@ -149,7 +161,7 @@ def get_certificate(key_vault_id: Optional[str] = None,
 
 
     :param str key_vault_id: Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
-    :param str name: Specifies the name of the Key Vault Secret.
+    :param str name: Specifies the name of the Key Vault Certificate.
     :param str version: Specifies the version of the certificate to look up.  (Defaults to latest)
     """
     __args__ = dict()

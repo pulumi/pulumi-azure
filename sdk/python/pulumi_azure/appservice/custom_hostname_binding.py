@@ -169,7 +169,7 @@ class CustomHostnameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslState")
-    def ssl_state(self) -> pulumi.Output[Optional[str]]:
+    def ssl_state(self) -> pulumi.Output[str]:
         """
         The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
         """
@@ -177,7 +177,7 @@ class CustomHostnameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def thumbprint(self) -> pulumi.Output[Optional[str]]:
+    def thumbprint(self) -> pulumi.Output[str]:
         """
         The SSL certificate thumbprint. Changing this forces a new resource to be created.
         """

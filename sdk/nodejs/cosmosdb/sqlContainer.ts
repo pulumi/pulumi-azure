@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *     accountName: azurerm_cosmosdb_account.example.name,
  *     databaseName: azurerm_cosmosdb_sql_database.example.name,
  *     partitionKeyPath: "/definition/id",
+ *     partitionKeyVersion: 1,
  *     throughput: 400,
  *     indexingPolicy: {
  *         indexingMode: "Consistent",
@@ -108,6 +109,10 @@ export class SqlContainer extends pulumi.CustomResource {
      */
     public readonly partitionKeyPath!: pulumi.Output<string | undefined>;
     /**
+     * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+     */
+    public readonly partitionKeyVersion!: pulumi.Output<number | undefined>;
+    /**
      * The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -139,6 +144,7 @@ export class SqlContainer extends pulumi.CustomResource {
             inputs["indexingPolicy"] = state ? state.indexingPolicy : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["partitionKeyPath"] = state ? state.partitionKeyPath : undefined;
+            inputs["partitionKeyVersion"] = state ? state.partitionKeyVersion : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["throughput"] = state ? state.throughput : undefined;
             inputs["uniqueKeys"] = state ? state.uniqueKeys : undefined;
@@ -160,6 +166,7 @@ export class SqlContainer extends pulumi.CustomResource {
             inputs["indexingPolicy"] = args ? args.indexingPolicy : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["partitionKeyPath"] = args ? args.partitionKeyPath : undefined;
+            inputs["partitionKeyVersion"] = args ? args.partitionKeyVersion : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["throughput"] = args ? args.throughput : undefined;
             inputs["uniqueKeys"] = args ? args.uniqueKeys : undefined;
@@ -208,6 +215,10 @@ export interface SqlContainerState {
      */
     readonly partitionKeyPath?: pulumi.Input<string>;
     /**
+     * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+     */
+    readonly partitionKeyVersion?: pulumi.Input<number>;
+    /**
      * The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
@@ -253,6 +264,10 @@ export interface SqlContainerArgs {
      * Define a partition key. Changing this forces a new resource to be created.
      */
     readonly partitionKeyPath?: pulumi.Input<string>;
+    /**
+     * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+     */
+    readonly partitionKeyVersion?: pulumi.Input<number>;
     /**
      * The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
      */

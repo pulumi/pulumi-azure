@@ -86,7 +86,11 @@ export class Automation extends pulumi.CustomResource {
      */
     public readonly actions!: pulumi.Output<outputs.securitycenter.AutomationAction[]>;
     /**
-     * Boolean to enable or disable this Security Center Automation
+     * Specifies the description for the Security Center Automation.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Boolean to enable or disable this Security Center Automation.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -109,6 +113,10 @@ export class Automation extends pulumi.CustomResource {
      * One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
      */
     public readonly sources!: pulumi.Output<outputs.securitycenter.AutomationSource[]>;
+    /**
+     * A mapping of tags assigned to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Automation resource with the given unique name, arguments, and options.
@@ -123,12 +131,14 @@ export class Automation extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as AutomationState | undefined;
             inputs["actions"] = state ? state.actions : undefined;
+            inputs["description"] = state ? state.description : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["scopes"] = state ? state.scopes : undefined;
             inputs["sources"] = state ? state.sources : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AutomationArgs | undefined;
             if ((!args || args.actions === undefined) && !(opts && opts.urn)) {
@@ -144,12 +154,14 @@ export class Automation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sources'");
             }
             inputs["actions"] = args ? args.actions : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scopes"] = args ? args.scopes : undefined;
             inputs["sources"] = args ? args.sources : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts) {
             opts = {}
@@ -171,7 +183,11 @@ export interface AutomationState {
      */
     readonly actions?: pulumi.Input<pulumi.Input<inputs.securitycenter.AutomationAction>[]>;
     /**
-     * Boolean to enable or disable this Security Center Automation
+     * Specifies the description for the Security Center Automation.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * Boolean to enable or disable this Security Center Automation.
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
@@ -194,6 +210,10 @@ export interface AutomationState {
      * One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
      */
     readonly sources?: pulumi.Input<pulumi.Input<inputs.securitycenter.AutomationSource>[]>;
+    /**
+     * A mapping of tags assigned to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -205,7 +225,11 @@ export interface AutomationArgs {
      */
     readonly actions: pulumi.Input<pulumi.Input<inputs.securitycenter.AutomationAction>[]>;
     /**
-     * Boolean to enable or disable this Security Center Automation
+     * Specifies the description for the Security Center Automation.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * Boolean to enable or disable this Security Center Automation.
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
@@ -228,4 +252,8 @@ export interface AutomationArgs {
      * One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
      */
     readonly sources: pulumi.Input<pulumi.Input<inputs.securitycenter.AutomationSource>[]>;
+    /**
+     * A mapping of tags assigned to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

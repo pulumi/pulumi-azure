@@ -79,7 +79,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? MinTlsVersion;
         /// <summary>
-        /// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+        /// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
         /// </summary>
         public readonly string? PhpVersion;
         /// <summary>

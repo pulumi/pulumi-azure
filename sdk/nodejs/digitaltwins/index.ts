@@ -6,11 +6,15 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./endpointEventGrid";
+export * from "./endpointEventHub";
+export * from "./endpointServicebus";
 export * from "./getInstance";
 export * from "./instance";
 
 // Import resources to register:
 import { EndpointEventGrid } from "./endpointEventGrid";
+import { EndpointEventHub } from "./endpointEventHub";
+import { EndpointServicebus } from "./endpointServicebus";
 import { Instance } from "./instance";
 
 const _module = {
@@ -19,6 +23,10 @@ const _module = {
         switch (type) {
             case "azure:digitaltwins/endpointEventGrid:EndpointEventGrid":
                 return new EndpointEventGrid(name, <any>undefined, { urn })
+            case "azure:digitaltwins/endpointEventHub:EndpointEventHub":
+                return new EndpointEventHub(name, <any>undefined, { urn })
+            case "azure:digitaltwins/endpointServicebus:EndpointServicebus":
+                return new EndpointServicebus(name, <any>undefined, { urn })
             case "azure:digitaltwins/instance:Instance":
                 return new Instance(name, <any>undefined, { urn })
             default:
@@ -27,4 +35,6 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "digitaltwins/endpointEventGrid", _module)
+pulumi.runtime.registerResourceModule("azure", "digitaltwins/endpointEventHub", _module)
+pulumi.runtime.registerResourceModule("azure", "digitaltwins/endpointServicebus", _module)
 pulumi.runtime.registerResourceModule("azure", "digitaltwins/instance", _module)

@@ -110,6 +110,8 @@ type EventhubDataConnection struct {
 
 	// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+	// Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
+	Compression pulumi.StringPtrOutput `pulumi:"compression"`
 	// Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 	ConsumerGroup pulumi.StringOutput `pulumi:"consumerGroup"`
 	// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
@@ -176,6 +178,8 @@ func GetEventhubDataConnection(ctx *pulumi.Context,
 type eventhubDataConnectionState struct {
 	// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
 	ClusterName *string `pulumi:"clusterName"`
+	// Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
+	Compression *string `pulumi:"compression"`
 	// Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 	ConsumerGroup *string `pulumi:"consumerGroup"`
 	// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
@@ -199,6 +203,8 @@ type eventhubDataConnectionState struct {
 type EventhubDataConnectionState struct {
 	// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringPtrInput
+	// Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
+	Compression pulumi.StringPtrInput
 	// Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 	ConsumerGroup pulumi.StringPtrInput
 	// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
@@ -226,6 +232,8 @@ func (EventhubDataConnectionState) ElementType() reflect.Type {
 type eventhubDataConnectionArgs struct {
 	// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
 	ClusterName string `pulumi:"clusterName"`
+	// Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
+	Compression *string `pulumi:"compression"`
 	// Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 	ConsumerGroup string `pulumi:"consumerGroup"`
 	// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
@@ -250,6 +258,8 @@ type eventhubDataConnectionArgs struct {
 type EventhubDataConnectionArgs struct {
 	// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringInput
+	// Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
+	Compression pulumi.StringPtrInput
 	// Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 	ConsumerGroup pulumi.StringInput
 	// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`

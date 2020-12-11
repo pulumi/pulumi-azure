@@ -1515,7 +1515,7 @@ export namespace appservice {
          */
         minTlsVersion?: pulumi.Input<string>;
         /**
-         * The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+         * The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
          */
         phpVersion?: pulumi.Input<string>;
         /**
@@ -1870,7 +1870,7 @@ export namespace appservice {
          */
         cors?: pulumi.Input<inputs.appservice.FunctionAppSiteConfigCors>;
         /**
-         * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+         * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
          */
         ftpsState?: pulumi.Input<string>;
         /**
@@ -11518,6 +11518,101 @@ export namespace mariadb {
     }
 }
 
+export namespace media {
+    export interface ServiceAccountIdentity {
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface ServiceAccountStorageAccount {
+        /**
+         * Specifies the ID of the Storage Account that will be associated with the Media Services instance.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+         */
+        isPrimary?: pulumi.Input<boolean>;
+    }
+
+    export interface TransformOutput {
+        /**
+         * A `audioAnalyzerPreset` block as defined below.
+         */
+        audioAnalyzerPreset?: pulumi.Input<inputs.media.TransformOutputAudioAnalyzerPreset>;
+        /**
+         * A `builtinPreset` block as defined below.
+         */
+        builtinPreset?: pulumi.Input<inputs.media.TransformOutputBuiltinPreset>;
+        /**
+         * A `faceDetectorPreset` block as defined below.
+         */
+        faceDetectorPreset?: pulumi.Input<inputs.media.TransformOutputFaceDetectorPreset>;
+        /**
+         * A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possibles value are `StopProcessingJob` or `ContinueJob`.
+         */
+        onErrorAction?: pulumi.Input<string>;
+        /**
+         * Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possibles value are `High`, `Normal` or `Low`.
+         */
+        relativePriority?: pulumi.Input<string>;
+        /**
+         * A `videoAnalyzerPreset` block as defined below.
+         */
+        videoAnalyzerPreset?: pulumi.Input<inputs.media.TransformOutputVideoAnalyzerPreset>;
+    }
+
+    export interface TransformOutputAudioAnalyzerPreset {
+        /**
+         * Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+         */
+        audioAnalysisMode?: pulumi.Input<string>;
+        /**
+         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463.
+         */
+        audioLanguage?: pulumi.Input<string>;
+    }
+
+    export interface TransformOutputBuiltinPreset {
+        /**
+         * The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
+         */
+        presetName?: pulumi.Input<string>;
+    }
+
+    export interface TransformOutputFaceDetectorPreset {
+        /**
+         * Possibles value are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. The default behavior is `SourceResolution` which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
+         */
+        analysisResolution?: pulumi.Input<string>;
+    }
+
+    export interface TransformOutputVideoAnalyzerPreset {
+        /**
+         * Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+         */
+        audioAnalysisMode?: pulumi.Input<string>;
+        /**
+         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463.
+         */
+        audioLanguage?: pulumi.Input<string>;
+        /**
+         * Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
+         */
+        insightsType?: pulumi.Input<string>;
+    }
+}
+
 export namespace mediaservices {
     export interface AccountIdentity {
         /**
@@ -15765,6 +15860,17 @@ export namespace privatelink {
         subresourceNames?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+}
+
+export namespace recoveryservices {
+    export interface VaultIdentity {
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The Type of Identity which should be used for this Recovery Services Vault. At this time the only possible value is `SystemAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
 }
 
 export namespace redis {

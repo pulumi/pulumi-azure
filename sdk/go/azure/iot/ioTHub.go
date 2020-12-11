@@ -172,6 +172,8 @@ type IoTHub struct {
 	IpFilterRules IoTHubIpFilterRuleArrayOutput `pulumi:"ipFilterRules"`
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+	MinTlsVersion pulumi.StringPtrOutput `pulumi:"minTlsVersion"`
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Is the IotHub resource accessible from a public network?
@@ -249,6 +251,8 @@ type ioTHubState struct {
 	IpFilterRules []IoTHubIpFilterRule `pulumi:"ipFilterRules"`
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Is the IotHub resource accessible from a public network?
@@ -292,6 +296,8 @@ type IoTHubState struct {
 	IpFilterRules IoTHubIpFilterRuleArrayInput
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+	MinTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Is the IotHub resource accessible from a public network?
@@ -329,6 +335,8 @@ type ioTHubArgs struct {
 	IpFilterRules []IoTHubIpFilterRule `pulumi:"ipFilterRules"`
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Is the IotHub resource accessible from a public network?
@@ -359,6 +367,8 @@ type IoTHubArgs struct {
 	IpFilterRules IoTHubIpFilterRuleArrayInput
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+	MinTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Is the IotHub resource accessible from a public network?

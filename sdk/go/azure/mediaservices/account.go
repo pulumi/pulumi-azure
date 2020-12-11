@@ -20,7 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/mediaservices"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/media"
 // 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
@@ -42,11 +42,11 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = mediaservices.NewAccount(ctx, "exampleMediaservices_accountAccount", &mediaservices.AccountArgs{
+// 		_, err = media.NewServiceAccount(ctx, "exampleServiceAccount", &media.ServiceAccountArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			StorageAccounts: mediaservices.AccountStorageAccountArray{
-// 				&mediaservices.AccountStorageAccountArgs{
+// 			StorageAccounts: media.ServiceAccountStorageAccountArray{
+// 				&media.ServiceAccountStorageAccountArgs{
 // 					Id:        exampleAccount.ID(),
 // 					IsPrimary: pulumi.Bool(true),
 // 				},
@@ -67,6 +67,8 @@ import (
 // ```sh
 //  $ pulumi import azure:mediaservices/account:Account account /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Media/mediaservices/account1
 // ```
+//
+// Deprecated: azure.mediaservices.Account has been deprecated in favor of azure.media.ServiceAccount
 type Account struct {
 	pulumi.CustomResourceState
 

@@ -24,6 +24,7 @@ class IoTHub(pulumi.CustomResource):
                  file_upload: Optional[pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']]] = None,
                  ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 min_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -133,6 +134,7 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]] ip_filter_rules: One or more `ip_filter_rule` blocks as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
@@ -164,6 +166,7 @@ class IoTHub(pulumi.CustomResource):
             __props__['file_upload'] = file_upload
             __props__['ip_filter_rules'] = ip_filter_rules
             __props__['location'] = location
+            __props__['min_tls_version'] = min_tls_version
             __props__['name'] = name
             __props__['public_network_access_enabled'] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
@@ -203,6 +206,7 @@ class IoTHub(pulumi.CustomResource):
             hostname: Optional[pulumi.Input[str]] = None,
             ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            min_tls_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -230,6 +234,7 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[str] hostname: The hostname of the IotHub Resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]] ip_filter_rules: One or more `ip_filter_rule` blocks as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
@@ -255,6 +260,7 @@ class IoTHub(pulumi.CustomResource):
         __props__["hostname"] = hostname
         __props__["ip_filter_rules"] = ip_filter_rules
         __props__["location"] = location
+        __props__["min_tls_version"] = min_tls_version
         __props__["name"] = name
         __props__["public_network_access_enabled"] = public_network_access_enabled
         __props__["resource_group_name"] = resource_group_name
@@ -360,6 +366,14 @@ class IoTHub(pulumi.CustomResource):
         Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="minTlsVersion")
+    def min_tls_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "min_tls_version")
 
     @property
     @pulumi.getter

@@ -56,6 +56,8 @@ import (
 type Vault struct {
 	pulumi.CustomResourceState
 
+	// An `identity` block as defined below.
+	Identity VaultIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Recovery Services Vault. Changing this forces a new resource to be created.
@@ -105,6 +107,8 @@ func GetVault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Vault resources.
 type vaultState struct {
+	// An `identity` block as defined below.
+	Identity *VaultIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Recovery Services Vault. Changing this forces a new resource to be created.
@@ -120,6 +124,8 @@ type vaultState struct {
 }
 
 type VaultState struct {
+	// An `identity` block as defined below.
+	Identity VaultIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Recovery Services Vault. Changing this forces a new resource to be created.
@@ -139,6 +145,8 @@ func (VaultState) ElementType() reflect.Type {
 }
 
 type vaultArgs struct {
+	// An `identity` block as defined below.
+	Identity *VaultIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Recovery Services Vault. Changing this forces a new resource to be created.
@@ -155,6 +163,8 @@ type vaultArgs struct {
 
 // The set of arguments for constructing a Vault resource.
 type VaultArgs struct {
+	// An `identity` block as defined below.
+	Identity VaultIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Recovery Services Vault. Changing this forces a new resource to be created.

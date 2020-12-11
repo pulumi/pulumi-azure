@@ -16,6 +16,7 @@ class EventhubDataConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 compression: Optional[pulumi.Input[str]] = None,
                  consumer_group: Optional[pulumi.Input[str]] = None,
                  data_format: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
@@ -88,6 +89,7 @@ class EventhubDataConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] compression: Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] consumer_group: Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
@@ -118,6 +120,7 @@ class EventhubDataConnection(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
+            __props__['compression'] = compression
             if consumer_group is None and not opts.urn:
                 raise TypeError("Missing required property 'consumer_group'")
             __props__['consumer_group'] = consumer_group
@@ -146,6 +149,7 @@ class EventhubDataConnection(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster_name: Optional[pulumi.Input[str]] = None,
+            compression: Optional[pulumi.Input[str]] = None,
             consumer_group: Optional[pulumi.Input[str]] = None,
             data_format: Optional[pulumi.Input[str]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
@@ -163,6 +167,7 @@ class EventhubDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] compression: Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] consumer_group: Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
@@ -178,6 +183,7 @@ class EventhubDataConnection(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["cluster_name"] = cluster_name
+        __props__["compression"] = compression
         __props__["consumer_group"] = consumer_group
         __props__["data_format"] = data_format
         __props__["database_name"] = database_name
@@ -196,6 +202,14 @@ class EventhubDataConnection(pulumi.CustomResource):
         Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cluster_name")
+
+    @property
+    @pulumi.getter
+    def compression(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "compression")
 
     @property
     @pulumi.getter(name="consumerGroup")

@@ -56,7 +56,7 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 type LookupCertificateArgs struct {
 	// Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
 	KeyVaultId string `pulumi:"keyVaultId"`
-	// Specifies the name of the Key Vault Secret.
+	// Specifies the name of the Key Vault Certificate.
 	Name string `pulumi:"name"`
 	// Specifies the version of the certificate to look up.  (Defaults to latest)
 	Version *string `pulumi:"version"`
@@ -64,6 +64,7 @@ type LookupCertificateArgs struct {
 
 // A collection of values returned by getCertificate.
 type LookupCertificateResult struct {
+	// The raw Key Vault Certificate data represented as a hexadecimal string.
 	CertificateData string `pulumi:"certificateData"`
 	// A `certificatePolicy` block as defined below.
 	CertificatePolicies []GetCertificateCertificatePolicy `pulumi:"certificatePolicies"`
@@ -71,10 +72,13 @@ type LookupCertificateResult struct {
 	Id         string `pulumi:"id"`
 	KeyVaultId string `pulumi:"keyVaultId"`
 	// The name of the Certificate Issuer.
-	Name     string `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The ID of the associated Key Vault Secret.
 	SecretId string `pulumi:"secretId"`
 	// A mapping of tags to assign to the resource.
-	Tags       map[string]string `pulumi:"tags"`
-	Thumbprint string            `pulumi:"thumbprint"`
-	Version    string            `pulumi:"version"`
+	Tags map[string]string `pulumi:"tags"`
+	// The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
+	Thumbprint string `pulumi:"thumbprint"`
+	// The current version of the Key Vault Certificate.
+	Version string `pulumi:"version"`
 }

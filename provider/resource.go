@@ -99,6 +99,7 @@ const (
 	azureMaps                  = "Maps"                  // Maps
 	azureMarketPlace           = "Marketplace"           // Marketplace
 	azureMediaServices         = "MediaServices"         // Media Services
+	azureMedia                 = "Media"                 // Media
 	azureMixedReality          = "MixedReality"          // Mixed Reality
 	azureMonitoring            = "Monitoring"            // Metrics/monitoring resources
 	azureMSSQL                 = "MSSql"                 // MS Sql
@@ -124,6 +125,7 @@ const (
 	azureSignalr               = "SignalR"               // SignalR
 	azureSiteRecovery          = "SiteRecovery"          // SiteRecovery
 	azureSQL                   = "Sql"                   // SQL
+	azureStack                 = "Stack"                 // Stack
 	azureStorage               = "Storage"               // Storage
 	azureStreamAnalytics       = "StreamAnalytics"       // StreamAnalytics
 	azureSynapse               = "Synapse"               // Synapse
@@ -463,6 +465,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_app_service_slot_virtual_network_swift_connection": {
 				Tok: azureResource(azureAppService, "SlotVirtualNetworkSwiftConnection"),
 			},
+			"azurerm_app_service_certificate_binding": {Tok: azureResource(azureAppService, "CertificateBinding")},
 
 			// AppPlatform
 			"azurerm_spring_cloud_service":     {Tok: azureResource(azureAppPlatform, "SpringCloudService")},
@@ -575,6 +578,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_resource_group_template_deployment": {Tok: azureResource(azureCore, "ResourceGroupTemplateDeployment")},
 			"azurerm_subscription_template_deployment":   {Tok: azureResource(azureCore, "SubscriptionTemplateDeployment")},
 			"azurerm_custom_provider":                    {Tok: azureResource(azureCore, "CustomProvider")},
+			"azurerm_resource_provider_registration":     {Tok: azureResource(azureCore, "ResourceProviderRegistration")},
 
 			// CDN
 			"azurerm_cdn_endpoint": {Tok: azureResource(azureCDN, "Endpoint")},
@@ -990,8 +994,9 @@ func Provider() tfbridge.ProviderInfo {
 			// Maps
 			"azurerm_maps_account": {Tok: azureResource(azureMaps, "Account")},
 
-			// Media Services
-			"azurerm_media_services_account": {Tok: azureResource(azureMediaServices, "Account")},
+			// Media
+			"azurerm_media_asset":     {Tok: azureResource(azureMedia, "Asset")},
+			"azurerm_media_transform": {Tok: azureResource(azureMedia, "Transform")},
 
 			// Monitoring resources
 			"azurerm_monitor_action_group": {
@@ -1422,6 +1427,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_sync_group":                   {Tok: azureResource(azureStorage, "SyncGroup")},
 			"azurerm_storage_data_lake_gen2_path":          {Tok: azureResource(azureStorage, "DataLakeGen2Path")},
 			"azurerm_storage_encryption_scope":             {Tok: azureResource(azureStorage, "EncryptionScope")},
+			"azurerm_storage_share_file":                   {Tok: azureResource(azureStorage, "ShareFile")},
+			"azurerm_storage_sync_cloud_endpoint":          {Tok: azureResource(azureStorage, "SyncCloudEndpoint")},
 
 			//StreamAnalytics
 			"azurerm_stream_analytics_function_javascript_udf": {
@@ -1627,8 +1634,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_desktop_workspace": {Tok: azureResource(azureDesktopVirtualization, "Workspace")},
 
 			// DigitalTwins
-			"azurerm_digital_twins_instance":           {Tok: azureResource(azureDigitalTwins, "Instance")},
-			"azurerm_digital_twins_endpoint_eventgrid": {Tok: azureResource(azureDigitalTwins, "EndpointEventGrid")},
+			"azurerm_digital_twins_instance":            {Tok: azureResource(azureDigitalTwins, "Instance")},
+			"azurerm_digital_twins_endpoint_eventgrid":  {Tok: azureResource(azureDigitalTwins, "EndpointEventGrid")},
+			"azurerm_digital_twins_endpoint_eventhub":   {Tok: azureResource(azureDigitalTwins, "EndpointEventHub")},
+			"azurerm_digital_twins_endpoint_servicebus": {Tok: azureResource(azureDigitalTwins, "EndpointServicebus")},
+
+			// Azure Stack
+			"azurerm_stack_hci_cluster": {Tok: azureResource(azureStack, "HciCluster")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -2145,6 +2157,11 @@ func Provider() tfbridge.ProviderInfo {
 	prov.RenameResourceWithAlias("azurerm_container_registry_webhook",
 		azureResource(azureContainerService, "RegistryWebook"),
 		azureResource(azureContainerService, "RegistryWebhook"), azureContainerService, azureContainerService, nil)
+
+	// rename mediaServices to media
+	prov.RenameResourceWithAlias("azurerm_media_services_account",
+		azureResource(azureMediaServices, "Account"),
+		azureResource(azureMedia, "ServiceAccount"), azureMediaServices, azureMedia, nil)
 
 	// Deprecated, remove in 3.0.
 	prov.P.ResourcesMap().Set("azurerm_storage_zipblob", prov.P.ResourcesMap().Get("azurerm_storage_blob"))

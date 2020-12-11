@@ -100,6 +100,10 @@ export class EventhubDataConnection extends pulumi.CustomResource {
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
+     * Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
+     */
+    public readonly compression!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
     public readonly consumerGroup!: pulumi.Output<string>;
@@ -149,6 +153,7 @@ export class EventhubDataConnection extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as EventhubDataConnectionState | undefined;
             inputs["clusterName"] = state ? state.clusterName : undefined;
+            inputs["compression"] = state ? state.compression : undefined;
             inputs["consumerGroup"] = state ? state.consumerGroup : undefined;
             inputs["dataFormat"] = state ? state.dataFormat : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
@@ -176,6 +181,7 @@ export class EventhubDataConnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
+            inputs["compression"] = args ? args.compression : undefined;
             inputs["consumerGroup"] = args ? args.consumerGroup : undefined;
             inputs["dataFormat"] = args ? args.dataFormat : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
@@ -205,6 +211,10 @@ export interface EventhubDataConnectionState {
      * Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
      */
     readonly clusterName?: pulumi.Input<string>;
+    /**
+     * Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
+     */
+    readonly compression?: pulumi.Input<string>;
     /**
      * Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
@@ -251,6 +261,10 @@ export interface EventhubDataConnectionArgs {
      * Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
      */
     readonly clusterName: pulumi.Input<string>;
+    /**
+     * Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
+     */
+    readonly compression?: pulumi.Input<string>;
     /**
      * Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */

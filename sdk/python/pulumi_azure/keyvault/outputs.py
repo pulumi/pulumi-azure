@@ -1324,7 +1324,7 @@ class GetCertificateCertificatePolicyIssuerParameterResult(dict):
     def __init__(__self__, *,
                  name: str):
         """
-        :param str name: Specifies the name of the Key Vault Secret.
+        :param str name: Specifies the name of the Key Vault Certificate.
         """
         pulumi.set(__self__, "name", name)
 
@@ -1332,7 +1332,7 @@ class GetCertificateCertificatePolicyIssuerParameterResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the Key Vault Secret.
+        Specifies the name of the Key Vault Certificate.
         """
         return pulumi.get(self, "name")
 

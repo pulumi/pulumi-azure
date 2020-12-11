@@ -94,13 +94,13 @@ namespace Pulumi.Azure.AppService
         /// The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sslState")]
-        public Output<string?> SslState { get; private set; } = null!;
+        public Output<string> SslState { get; private set; } = null!;
 
         /// <summary>
         /// The SSL certificate thumbprint. Changing this forces a new resource to be created.
         /// </summary>
         [Output("thumbprint")]
-        public Output<string?> Thumbprint { get; private set; } = null!;
+        public Output<string> Thumbprint { get; private set; } = null!;
 
         /// <summary>
         /// The virtual IP address assigned to the hostname if IP based SSL is enabled.

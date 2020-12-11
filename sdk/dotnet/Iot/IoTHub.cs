@@ -211,6 +211,12 @@ namespace Pulumi.Azure.Iot
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("minTlsVersion")]
+        public Output<string?> MinTlsVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -359,6 +365,12 @@ namespace Pulumi.Azure.Iot
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("minTlsVersion")]
+        public Input<string>? MinTlsVersion { get; set; }
+
+        /// <summary>
         /// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -496,6 +508,12 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("minTlsVersion")]
+        public Input<string>? MinTlsVersion { get; set; }
 
         /// <summary>
         /// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.

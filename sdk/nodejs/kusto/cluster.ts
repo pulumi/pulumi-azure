@@ -81,6 +81,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly enableStreamingIngest!: pulumi.Output<boolean | undefined>;
     /**
+     * . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+     */
+    public readonly engine!: pulumi.Output<string | undefined>;
+    /**
      * A identity block.
      */
     public readonly identity!: pulumi.Output<outputs.kusto.ClusterIdentity>;
@@ -145,6 +149,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["enableDiskEncryption"] = state ? state.enableDiskEncryption : undefined;
             inputs["enablePurge"] = state ? state.enablePurge : undefined;
             inputs["enableStreamingIngest"] = state ? state.enableStreamingIngest : undefined;
+            inputs["engine"] = state ? state.engine : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["languageExtensions"] = state ? state.languageExtensions : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -168,6 +173,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["enableDiskEncryption"] = args ? args.enableDiskEncryption : undefined;
             inputs["enablePurge"] = args ? args.enablePurge : undefined;
             inputs["enableStreamingIngest"] = args ? args.enableStreamingIngest : undefined;
+            inputs["engine"] = args ? args.engine : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["languageExtensions"] = args ? args.languageExtensions : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -213,6 +219,10 @@ export interface ClusterState {
      * Specifies if the streaming ingest is enabled.
      */
     readonly enableStreamingIngest?: pulumi.Input<boolean>;
+    /**
+     * . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+     */
+    readonly engine?: pulumi.Input<string>;
     /**
      * A identity block.
      */
@@ -279,6 +289,10 @@ export interface ClusterArgs {
      * Specifies if the streaming ingest is enabled.
      */
     readonly enableStreamingIngest?: pulumi.Input<boolean>;
+    /**
+     * . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+     */
+    readonly engine?: pulumi.Input<string>;
     /**
      * A identity block.
      */

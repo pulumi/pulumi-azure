@@ -26,11 +26,12 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := cosmosdb.NewSqlContainer(ctx, "example", &cosmosdb.SqlContainerArgs{
-// 			ResourceGroupName: pulumi.Any(azurerm_cosmosdb_account.Example.Resource_group_name),
-// 			AccountName:       pulumi.Any(azurerm_cosmosdb_account.Example.Name),
-// 			DatabaseName:      pulumi.Any(azurerm_cosmosdb_sql_database.Example.Name),
-// 			PartitionKeyPath:  pulumi.String("/definition/id"),
-// 			Throughput:        pulumi.Int(400),
+// 			ResourceGroupName:   pulumi.Any(azurerm_cosmosdb_account.Example.Resource_group_name),
+// 			AccountName:         pulumi.Any(azurerm_cosmosdb_account.Example.Name),
+// 			DatabaseName:        pulumi.Any(azurerm_cosmosdb_sql_database.Example.Name),
+// 			PartitionKeyPath:    pulumi.String("/definition/id"),
+// 			PartitionKeyVersion: pulumi.Int(1),
+// 			Throughput:          pulumi.Int(400),
 // 			IndexingPolicy: &cosmosdb.SqlContainerIndexingPolicyArgs{
 // 				IndexingMode: pulumi.String("Consistent"),
 // 				IncludedPaths: cosmosdb.SqlContainerIndexingPolicyIncludedPathArray{
@@ -88,6 +89,8 @@ type SqlContainer struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Define a partition key. Changing this forces a new resource to be created.
 	PartitionKeyPath pulumi.StringPtrOutput `pulumi:"partitionKeyPath"`
+	// Define a partition key version. Changing this forces a new resource to be created. Possible values are ` 1  `and `2`. This should be set to `2` in order to use large partition keys.
+	PartitionKeyVersion pulumi.IntPtrOutput `pulumi:"partitionKeyVersion"`
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
@@ -148,6 +151,8 @@ type sqlContainerState struct {
 	Name *string `pulumi:"name"`
 	// Define a partition key. Changing this forces a new resource to be created.
 	PartitionKeyPath *string `pulumi:"partitionKeyPath"`
+	// Define a partition key version. Changing this forces a new resource to be created. Possible values are ` 1  `and `2`. This should be set to `2` in order to use large partition keys.
+	PartitionKeyVersion *int `pulumi:"partitionKeyVersion"`
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
@@ -171,6 +176,8 @@ type SqlContainerState struct {
 	Name pulumi.StringPtrInput
 	// Define a partition key. Changing this forces a new resource to be created.
 	PartitionKeyPath pulumi.StringPtrInput
+	// Define a partition key version. Changing this forces a new resource to be created. Possible values are ` 1  `and `2`. This should be set to `2` in order to use large partition keys.
+	PartitionKeyVersion pulumi.IntPtrInput
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
@@ -198,6 +205,8 @@ type sqlContainerArgs struct {
 	Name *string `pulumi:"name"`
 	// Define a partition key. Changing this forces a new resource to be created.
 	PartitionKeyPath *string `pulumi:"partitionKeyPath"`
+	// Define a partition key version. Changing this forces a new resource to be created. Possible values are ` 1  `and `2`. This should be set to `2` in order to use large partition keys.
+	PartitionKeyVersion *int `pulumi:"partitionKeyVersion"`
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
@@ -222,6 +231,8 @@ type SqlContainerArgs struct {
 	Name pulumi.StringPtrInput
 	// Define a partition key. Changing this forces a new resource to be created.
 	PartitionKeyPath pulumi.StringPtrInput
+	// Define a partition key version. Changing this forces a new resource to be created. Possible values are ` 1  `and `2`. This should be set to `2` in order to use large partition keys.
+	PartitionKeyVersion pulumi.IntPtrInput
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.

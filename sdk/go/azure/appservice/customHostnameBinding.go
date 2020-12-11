@@ -91,9 +91,9 @@ type CustomHostnameBinding struct {
 	// The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
-	SslState pulumi.StringPtrOutput `pulumi:"sslState"`
+	SslState pulumi.StringOutput `pulumi:"sslState"`
 	// The SSL certificate thumbprint. Changing this forces a new resource to be created.
-	Thumbprint pulumi.StringPtrOutput `pulumi:"thumbprint"`
+	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
 	// The virtual IP address assigned to the hostname if IP based SSL is enabled.
 	VirtualIp pulumi.StringOutput `pulumi:"virtualIp"`
 }
