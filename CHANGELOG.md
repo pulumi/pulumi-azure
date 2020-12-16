@@ -2,12 +2,15 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.40.0 (2020-12-16)
 * Upgrade to v2.40.0 of the AzureRM Terraform Provider
 * Upgrade to v2.16.0 of pulumi-terraform-bridge
     * Preserve unknowns during provider preview
 * Upgrade NodeJS and Python versions to use Pulumi >= v2.15.0
-
----
 
 ## 3.33.2 (2020-12-08)
 * Upgrade to pulumi-terraform-bridge v2.15.3
