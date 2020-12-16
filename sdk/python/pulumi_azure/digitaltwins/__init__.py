@@ -4,6 +4,8 @@
 
 # Export this package's modules as members:
 from .endpoint_event_grid import *
+from .endpoint_event_hub import *
+from .endpoint_servicebus import *
 from .get_instance import *
 from .instance import *
 
@@ -21,6 +23,10 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure:digitaltwins/endpointEventGrid:EndpointEventGrid":
                 return EndpointEventGrid(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:digitaltwins/endpointEventHub:EndpointEventHub":
+                return EndpointEventHub(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:digitaltwins/endpointServicebus:EndpointServicebus":
+                return EndpointServicebus(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:digitaltwins/instance:Instance":
                 return Instance(name, pulumi.ResourceOptions(urn=urn))
             else:
@@ -29,6 +35,8 @@ def _register_module():
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("azure", "digitaltwins/endpointEventGrid", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "digitaltwins/endpointEventHub", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "digitaltwins/endpointServicebus", _module_instance)
     pulumi.runtime.register_resource_module("azure", "digitaltwins/instance", _module_instance)
 
 _register_module()

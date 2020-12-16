@@ -179,6 +179,10 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+     */
+    public readonly minTlsVersion!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -235,6 +239,7 @@ export class IoTHub extends pulumi.CustomResource {
             inputs["hostname"] = state ? state.hostname : undefined;
             inputs["ipFilterRules"] = state ? state.ipFilterRules : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["minTlsVersion"] = state ? state.minTlsVersion : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -258,6 +263,7 @@ export class IoTHub extends pulumi.CustomResource {
             inputs["fileUpload"] = args ? args.fileUpload : undefined;
             inputs["ipFilterRules"] = args ? args.ipFilterRules : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["minTlsVersion"] = args ? args.minTlsVersion : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -336,6 +342,10 @@ export interface IoTHubState {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+     */
+    readonly minTlsVersion?: pulumi.Input<string>;
+    /**
      * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
@@ -401,6 +411,10 @@ export interface IoTHubArgs {
      * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+     */
+    readonly minTlsVersion?: pulumi.Input<string>;
     /**
      * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */

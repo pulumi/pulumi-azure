@@ -1881,7 +1881,7 @@ export namespace appservice {
          */
         minTlsVersion: string;
         /**
-         * The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+         * The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
          */
         phpVersion?: string;
         /**
@@ -2236,7 +2236,7 @@ export namespace appservice {
          */
         cors: outputs.appservice.FunctionAppSiteConfigCors;
         /**
-         * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+         * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
          */
         ftpsState: string;
         /**
@@ -12992,7 +12992,7 @@ export namespace keyvault {
 
     export interface GetCertificateCertificatePolicyIssuerParameter {
         /**
-         * Specifies the name of the Key Vault Secret.
+         * Specifies the name of the Key Vault Certificate.
          */
         name: string;
     }
@@ -13520,6 +13520,101 @@ export namespace mariadb {
          * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
          */
         storageMb?: number;
+    }
+}
+
+export namespace media {
+    export interface ServiceAccountIdentity {
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
+         */
+        type?: string;
+    }
+
+    export interface ServiceAccountStorageAccount {
+        /**
+         * Specifies the ID of the Storage Account that will be associated with the Media Services instance.
+         */
+        id: string;
+        /**
+         * Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+         */
+        isPrimary?: boolean;
+    }
+
+    export interface TransformOutput {
+        /**
+         * A `audioAnalyzerPreset` block as defined below.
+         */
+        audioAnalyzerPreset?: outputs.media.TransformOutputAudioAnalyzerPreset;
+        /**
+         * A `builtinPreset` block as defined below.
+         */
+        builtinPreset?: outputs.media.TransformOutputBuiltinPreset;
+        /**
+         * A `faceDetectorPreset` block as defined below.
+         */
+        faceDetectorPreset?: outputs.media.TransformOutputFaceDetectorPreset;
+        /**
+         * A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possibles value are `StopProcessingJob` or `ContinueJob`.
+         */
+        onErrorAction?: string;
+        /**
+         * Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possibles value are `High`, `Normal` or `Low`.
+         */
+        relativePriority?: string;
+        /**
+         * A `videoAnalyzerPreset` block as defined below.
+         */
+        videoAnalyzerPreset?: outputs.media.TransformOutputVideoAnalyzerPreset;
+    }
+
+    export interface TransformOutputAudioAnalyzerPreset {
+        /**
+         * Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+         */
+        audioAnalysisMode?: string;
+        /**
+         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463.
+         */
+        audioLanguage?: string;
+    }
+
+    export interface TransformOutputBuiltinPreset {
+        /**
+         * The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
+         */
+        presetName?: string;
+    }
+
+    export interface TransformOutputFaceDetectorPreset {
+        /**
+         * Possibles value are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. The default behavior is `SourceResolution` which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
+         */
+        analysisResolution?: string;
+    }
+
+    export interface TransformOutputVideoAnalyzerPreset {
+        /**
+         * Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+         */
+        audioAnalysisMode?: string;
+        /**
+         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463.
+         */
+        audioLanguage?: string;
+        /**
+         * Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
+         */
+        insightsType?: string;
     }
 }
 
@@ -18782,6 +18877,17 @@ export namespace privatelink {
          * The ID of the subnet to be used by the service.
          */
         subnetId: string;
+    }
+}
+
+export namespace recoveryservices {
+    export interface VaultIdentity {
+        principalId: string;
+        tenantId: string;
+        /**
+         * The Type of Identity which should be used for this Recovery Services Vault. At this time the only possible value is `SystemAssigned`.
+         */
+        type: string;
     }
 }
 

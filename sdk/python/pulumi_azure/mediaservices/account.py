@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['Account']
 
+warnings.warn("""azure.mediaservices.Account has been deprecated in favor of azure.media.ServiceAccount""", DeprecationWarning)
+
 
 class Account(pulumi.CustomResource):
+    warnings.warn("""azure.mediaservices.Account has been deprecated in favor of azure.media.ServiceAccount""", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,10 +46,10 @@ class Account(pulumi.CustomResource):
             location=example_resource_group.location,
             account_tier="Standard",
             account_replication_type="GRS")
-        example_mediaservices_account_account = azure.mediaservices.Account("exampleMediaservices/accountAccount",
+        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.mediaservices.AccountStorageAccountArgs(
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
                 id=example_account.id,
                 is_primary=True,
             )])
@@ -71,6 +75,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
                ---
         """
+        pulumi.log.warn("Account is deprecated: azure.mediaservices.Account has been deprecated in favor of azure.media.ServiceAccount")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

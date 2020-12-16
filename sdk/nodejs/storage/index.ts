@@ -25,7 +25,9 @@ export * from "./managementPolicy";
 export * from "./queue";
 export * from "./share";
 export * from "./shareDirectory";
+export * from "./shareFile";
 export * from "./sync";
+export * from "./syncCloudEndpoint";
 export * from "./syncGroup";
 export * from "./table";
 export * from "./tableEntity";
@@ -45,7 +47,9 @@ import { ManagementPolicy } from "./managementPolicy";
 import { Queue } from "./queue";
 import { Share } from "./share";
 import { ShareDirectory } from "./shareDirectory";
+import { ShareFile } from "./shareFile";
 import { Sync } from "./sync";
+import { SyncCloudEndpoint } from "./syncCloudEndpoint";
 import { SyncGroup } from "./syncGroup";
 import { Table } from "./table";
 import { TableEntity } from "./tableEntity";
@@ -79,8 +83,12 @@ const _module = {
                 return new Share(name, <any>undefined, { urn })
             case "azure:storage/shareDirectory:ShareDirectory":
                 return new ShareDirectory(name, <any>undefined, { urn })
+            case "azure:storage/shareFile:ShareFile":
+                return new ShareFile(name, <any>undefined, { urn })
             case "azure:storage/sync:Sync":
                 return new Sync(name, <any>undefined, { urn })
+            case "azure:storage/syncCloudEndpoint:SyncCloudEndpoint":
+                return new SyncCloudEndpoint(name, <any>undefined, { urn })
             case "azure:storage/syncGroup:SyncGroup":
                 return new SyncGroup(name, <any>undefined, { urn })
             case "azure:storage/table:Table":
@@ -106,7 +114,9 @@ pulumi.runtime.registerResourceModule("azure", "storage/managementPolicy", _modu
 pulumi.runtime.registerResourceModule("azure", "storage/queue", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/share", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/shareDirectory", _module)
+pulumi.runtime.registerResourceModule("azure", "storage/shareFile", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/sync", _module)
+pulumi.runtime.registerResourceModule("azure", "storage/syncCloudEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/syncGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/table", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/tableEntity", _module)

@@ -24,6 +24,7 @@ class SqlContainer(pulumi.CustomResource):
                  indexing_policy: Optional[pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition_key_path: Optional[pulumi.Input[str]] = None,
+                 partition_key_version: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
                  unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SqlContainerUniqueKeyArgs']]]]] = None,
@@ -44,6 +45,7 @@ class SqlContainer(pulumi.CustomResource):
             account_name=azurerm_cosmosdb_account["example"]["name"],
             database_name=azurerm_cosmosdb_sql_database["example"]["name"],
             partition_key_path="/definition/id",
+            partition_key_version=1,
             throughput=400,
             indexing_policy=azure.cosmosdb.SqlContainerIndexingPolicyArgs(
                 indexing_mode="Consistent",
@@ -84,6 +86,7 @@ class SqlContainer(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']] indexing_policy: An `indexing_policy` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SqlContainerUniqueKeyArgs']]]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
@@ -116,6 +119,7 @@ class SqlContainer(pulumi.CustomResource):
             __props__['indexing_policy'] = indexing_policy
             __props__['name'] = name
             __props__['partition_key_path'] = partition_key_path
+            __props__['partition_key_version'] = partition_key_version
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -138,6 +142,7 @@ class SqlContainer(pulumi.CustomResource):
             indexing_policy: Optional[pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             partition_key_path: Optional[pulumi.Input[str]] = None,
+            partition_key_version: Optional[pulumi.Input[int]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             throughput: Optional[pulumi.Input[int]] = None,
             unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SqlContainerUniqueKeyArgs']]]]] = None) -> 'SqlContainer':
@@ -155,6 +160,7 @@ class SqlContainer(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']] indexing_policy: An `indexing_policy` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SqlContainerUniqueKeyArgs']]]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
@@ -170,6 +176,7 @@ class SqlContainer(pulumi.CustomResource):
         __props__["indexing_policy"] = indexing_policy
         __props__["name"] = name
         __props__["partition_key_path"] = partition_key_path
+        __props__["partition_key_version"] = partition_key_version
         __props__["resource_group_name"] = resource_group_name
         __props__["throughput"] = throughput
         __props__["unique_keys"] = unique_keys
@@ -230,6 +237,14 @@ class SqlContainer(pulumi.CustomResource):
         Define a partition key. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "partition_key_path")
+
+    @property
+    @pulumi.getter(name="partitionKeyVersion")
+    def partition_key_version(self) -> pulumi.Output[Optional[int]]:
+        """
+        Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+        """
+        return pulumi.get(self, "partition_key_version")
 
     @property
     @pulumi.getter(name="resourceGroupName")

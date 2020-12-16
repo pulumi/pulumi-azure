@@ -20,6 +20,7 @@ class Cluster(pulumi.CustomResource):
                  enable_disk_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_purge: Optional[pulumi.Input[bool]] = None,
                  enable_streaming_ingest: Optional[pulumi.Input[bool]] = None,
+                 engine: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ClusterIdentityArgs']]] = None,
                  language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -69,6 +70,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_disk_encryption: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] enable_purge: Specifies if the purge operations are enabled.
         :param pulumi.Input[bool] enable_streaming_ingest: Specifies if the streaming ingest is enabled.
+        :param pulumi.Input[str] engine: . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
         :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: A identity block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
@@ -101,6 +103,7 @@ class Cluster(pulumi.CustomResource):
             __props__['enable_disk_encryption'] = enable_disk_encryption
             __props__['enable_purge'] = enable_purge
             __props__['enable_streaming_ingest'] = enable_streaming_ingest
+            __props__['engine'] = engine
             __props__['identity'] = identity
             __props__['language_extensions'] = language_extensions
             __props__['location'] = location
@@ -132,6 +135,7 @@ class Cluster(pulumi.CustomResource):
             enable_disk_encryption: Optional[pulumi.Input[bool]] = None,
             enable_purge: Optional[pulumi.Input[bool]] = None,
             enable_streaming_ingest: Optional[pulumi.Input[bool]] = None,
+            engine: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['ClusterIdentityArgs']]] = None,
             language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -155,6 +159,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_disk_encryption: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] enable_purge: Specifies if the purge operations are enabled.
         :param pulumi.Input[bool] enable_streaming_ingest: Specifies if the streaming ingest is enabled.
+        :param pulumi.Input[str] engine: . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
         :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: A identity block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
@@ -176,6 +181,7 @@ class Cluster(pulumi.CustomResource):
         __props__["enable_disk_encryption"] = enable_disk_encryption
         __props__["enable_purge"] = enable_purge
         __props__["enable_streaming_ingest"] = enable_streaming_ingest
+        __props__["engine"] = engine
         __props__["identity"] = identity
         __props__["language_extensions"] = language_extensions
         __props__["location"] = location
@@ -221,6 +227,14 @@ class Cluster(pulumi.CustomResource):
         Specifies if the streaming ingest is enabled.
         """
         return pulumi.get(self, "enable_streaming_ingest")
+
+    @property
+    @pulumi.getter
+    def engine(self) -> pulumi.Output[Optional[str]]:
+        """
+        . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+        """
+        return pulumi.get(self, "engine")
 
     @property
     @pulumi.getter

@@ -33,13 +33,13 @@ namespace Pulumi.Azure.MediaServices
     ///             AccountTier = "Standard",
     ///             AccountReplicationType = "GRS",
     ///         });
-    ///         var exampleMediaservices_accountAccount = new Azure.MediaServices.Account("exampleMediaservices/accountAccount", new Azure.MediaServices.AccountArgs
+    ///         var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new Azure.Media.ServiceAccountArgs
     ///         {
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             StorageAccounts = 
     ///             {
-    ///                 new Azure.MediaServices.Inputs.AccountStorageAccountArgs
+    ///                 new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
     ///                 {
     ///                     Id = exampleAccount.Id,
     ///                     IsPrimary = true,
@@ -59,6 +59,7 @@ namespace Pulumi.Azure.MediaServices
     ///  $ pulumi import azure:mediaservices/account:Account account /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Media/mediaservices/account1
     /// ```
     /// </summary>
+    [Obsolete(@"azure.mediaservices.Account has been deprecated in favor of azure.media.ServiceAccount")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

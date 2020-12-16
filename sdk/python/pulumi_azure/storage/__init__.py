@@ -23,7 +23,9 @@ from .management_policy import *
 from .queue import *
 from .share import *
 from .share_directory import *
+from .share_file import *
 from .sync import *
+from .sync_cloud_endpoint import *
 from .sync_group import *
 from .table import *
 from .table_entity import *
@@ -67,8 +69,12 @@ def _register_module():
                 return Share(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:storage/shareDirectory:ShareDirectory":
                 return ShareDirectory(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:storage/shareFile:ShareFile":
+                return ShareFile(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:storage/sync:Sync":
                 return Sync(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:storage/syncCloudEndpoint:SyncCloudEndpoint":
+                return SyncCloudEndpoint(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:storage/syncGroup:SyncGroup":
                 return SyncGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:storage/table:Table":
@@ -94,7 +100,9 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "storage/queue", _module_instance)
     pulumi.runtime.register_resource_module("azure", "storage/share", _module_instance)
     pulumi.runtime.register_resource_module("azure", "storage/shareDirectory", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "storage/shareFile", _module_instance)
     pulumi.runtime.register_resource_module("azure", "storage/sync", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "storage/syncCloudEndpoint", _module_instance)
     pulumi.runtime.register_resource_module("azure", "storage/syncGroup", _module_instance)
     pulumi.runtime.register_resource_module("azure", "storage/table", _module_instance)
     pulumi.runtime.register_resource_module("azure", "storage/tableEntity", _module_instance)

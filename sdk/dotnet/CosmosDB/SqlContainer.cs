@@ -28,6 +28,7 @@ namespace Pulumi.Azure.CosmosDB
     ///             AccountName = azurerm_cosmosdb_account.Example.Name,
     ///             DatabaseName = azurerm_cosmosdb_sql_database.Example.Name,
     ///             PartitionKeyPath = "/definition/id",
+    ///             PartitionKeyVersion = 1,
     ///             Throughput = 400,
     ///             IndexingPolicy = new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyArgs
     ///             {
@@ -119,6 +120,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Output("partitionKeyPath")]
         public Output<string?> PartitionKeyPath { get; private set; } = null!;
+
+        /// <summary>
+        /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+        /// </summary>
+        [Output("partitionKeyVersion")]
+        public Output<int?> PartitionKeyVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
@@ -227,6 +234,12 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? PartitionKeyPath { get; set; }
 
         /// <summary>
+        /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+        /// </summary>
+        [Input("partitionKeyVersion")]
+        public Input<int>? PartitionKeyVersion { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -298,6 +311,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("partitionKeyPath")]
         public Input<string>? PartitionKeyPath { get; set; }
+
+        /// <summary>
+        /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+        /// </summary>
+        [Input("partitionKeyVersion")]
+        public Input<int>? PartitionKeyVersion { get; set; }
 
         /// <summary>
         /// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.

@@ -3878,7 +3878,7 @@ func (o GetCertificateCertificatePolicyArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetCertificateCertificatePolicyIssuerParameter struct {
-	// Specifies the name of the Key Vault Secret.
+	// Specifies the name of the Key Vault Certificate.
 	Name string `pulumi:"name"`
 }
 
@@ -3894,7 +3894,7 @@ type GetCertificateCertificatePolicyIssuerParameterInput interface {
 }
 
 type GetCertificateCertificatePolicyIssuerParameterArgs struct {
-	// Specifies the name of the Key Vault Secret.
+	// Specifies the name of the Key Vault Certificate.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -3949,7 +3949,7 @@ func (o GetCertificateCertificatePolicyIssuerParameterOutput) ToGetCertificateCe
 	return o
 }
 
-// Specifies the name of the Key Vault Secret.
+// Specifies the name of the Key Vault Certificate.
 func (o GetCertificateCertificatePolicyIssuerParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCertificateCertificatePolicyIssuerParameter) string { return v.Name }).(pulumi.StringOutput)
 }

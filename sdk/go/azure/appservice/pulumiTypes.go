@@ -2856,7 +2856,7 @@ type AppServiceSiteConfig struct {
 	ManagedPipelineMode *string `pulumi:"managedPipelineMode"`
 	// The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
-	// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+	// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
 	PhpVersion *string `pulumi:"phpVersion"`
 	// The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
 	PythonVersion *string `pulumi:"pythonVersion"`
@@ -2923,7 +2923,7 @@ type AppServiceSiteConfigArgs struct {
 	ManagedPipelineMode pulumi.StringPtrInput `pulumi:"managedPipelineMode"`
 	// The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
 	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
-	// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+	// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
 	PhpVersion pulumi.StringPtrInput `pulumi:"phpVersion"`
 	// The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
 	PythonVersion pulumi.StringPtrInput `pulumi:"pythonVersion"`
@@ -3106,7 +3106,7 @@ func (o AppServiceSiteConfigOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
 }
 
-// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
 func (o AppServiceSiteConfigOutput) PhpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.PhpVersion }).(pulumi.StringPtrOutput)
 }
@@ -3343,7 +3343,7 @@ func (o AppServiceSiteConfigPtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
 func (o AppServiceSiteConfigPtrOutput) PhpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppServiceSiteConfig) *string {
 		if v == nil {
@@ -5960,7 +5960,7 @@ type FunctionAppSiteConfig struct {
 	AutoSwapSlotName *string `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined below.
 	Cors *FunctionAppSiteConfigCors `pulumi:"cors"`
-	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
 	FtpsState *string `pulumi:"ftpsState"`
 	// Path which will be checked for this function app health.
 	HealthCheckPath *string `pulumi:"healthCheckPath"`
@@ -6003,7 +6003,7 @@ type FunctionAppSiteConfigArgs struct {
 	AutoSwapSlotName pulumi.StringPtrInput `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined below.
 	Cors FunctionAppSiteConfigCorsPtrInput `pulumi:"cors"`
-	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
 	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
 	// Path which will be checked for this function app health.
 	HealthCheckPath pulumi.StringPtrInput `pulumi:"healthCheckPath"`
@@ -6120,7 +6120,7 @@ func (o FunctionAppSiteConfigOutput) Cors() FunctionAppSiteConfigCorsPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *FunctionAppSiteConfigCors { return v.Cors }).(FunctionAppSiteConfigCorsPtrOutput)
 }
 
-// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
 func (o FunctionAppSiteConfigOutput) FtpsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *string { return v.FtpsState }).(pulumi.StringPtrOutput)
 }
@@ -6227,7 +6227,7 @@ func (o FunctionAppSiteConfigPtrOutput) Cors() FunctionAppSiteConfigCorsPtrOutpu
 	}).(FunctionAppSiteConfigCorsPtrOutput)
 }
 
-// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
 func (o FunctionAppSiteConfigPtrOutput) FtpsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionAppSiteConfig) *string {
 		if v == nil {

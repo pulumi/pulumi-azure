@@ -6,6 +6,7 @@
 from .active_slot import *
 from .app_service import *
 from .certificate import *
+from .certificate_binding import *
 from .certificate_order import *
 from .custom_hostname_binding import *
 from .environment import *
@@ -46,6 +47,8 @@ def _register_module():
                 return AppService(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:appservice/certificate:Certificate":
                 return Certificate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appservice/certificateBinding:CertificateBinding":
+                return CertificateBinding(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:appservice/certificateOrder:CertificateOrder":
                 return CertificateOrder(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:appservice/customHostnameBinding:CustomHostnameBinding":
@@ -78,6 +81,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "appservice/activeSlot", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appservice/appService", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appservice/certificate", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appservice/certificateBinding", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appservice/certificateOrder", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appservice/customHostnameBinding", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appservice/environment", _module_instance)

@@ -14,6 +14,7 @@ export * from "./getSubscriptions";
 export * from "./getUserAssignedIdentity";
 export * from "./resourceGroup";
 export * from "./resourceGroupTemplateDeployment";
+export * from "./resourceProviderRegistration";
 export * from "./subscriptionTemplateDeployment";
 export * from "./templateDeployment";
 export * from "./zMixins";
@@ -22,6 +23,7 @@ export * from "./zMixins";
 import { CustomProvider } from "./customProvider";
 import { ResourceGroup } from "./resourceGroup";
 import { ResourceGroupTemplateDeployment } from "./resourceGroupTemplateDeployment";
+import { ResourceProviderRegistration } from "./resourceProviderRegistration";
 import { SubscriptionTemplateDeployment } from "./subscriptionTemplateDeployment";
 import { TemplateDeployment } from "./templateDeployment";
 
@@ -35,6 +37,8 @@ const _module = {
                 return new ResourceGroup(name, <any>undefined, { urn })
             case "azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment":
                 return new ResourceGroupTemplateDeployment(name, <any>undefined, { urn })
+            case "azure:core/resourceProviderRegistration:ResourceProviderRegistration":
+                return new ResourceProviderRegistration(name, <any>undefined, { urn })
             case "azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment":
                 return new SubscriptionTemplateDeployment(name, <any>undefined, { urn })
             case "azure:core/templateDeployment:TemplateDeployment":
@@ -47,5 +51,6 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "core/customProvider", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceGroupTemplateDeployment", _module)
+pulumi.runtime.registerResourceModule("azure", "core/resourceProviderRegistration", _module)
 pulumi.runtime.registerResourceModule("azure", "core/subscriptionTemplateDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "core/templateDeployment", _module)

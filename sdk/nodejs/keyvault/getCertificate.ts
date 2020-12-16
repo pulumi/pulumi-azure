@@ -52,7 +52,7 @@ export interface GetCertificateArgs {
      */
     readonly keyVaultId: string;
     /**
-     * Specifies the name of the Key Vault Secret.
+     * Specifies the name of the Key Vault Certificate.
      */
     readonly name: string;
     /**
@@ -65,6 +65,9 @@ export interface GetCertificateArgs {
  * A collection of values returned by getCertificate.
  */
 export interface GetCertificateResult {
+    /**
+     * The raw Key Vault Certificate data represented as a hexadecimal string.
+     */
     readonly certificateData: string;
     /**
      * A `certificatePolicy` block as defined below.
@@ -79,11 +82,20 @@ export interface GetCertificateResult {
      * The name of the Certificate Issuer.
      */
     readonly name: string;
+    /**
+     * The ID of the associated Key Vault Secret.
+     */
     readonly secretId: string;
     /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
+     */
     readonly thumbprint: string;
+    /**
+     * The current version of the Key Vault Certificate.
+     */
     readonly version: string;
 }

@@ -12,6 +12,7 @@ from .get_subscriptions import *
 from .get_user_assigned_identity import *
 from .resource_group import *
 from .resource_group_template_deployment import *
+from .resource_provider_registration import *
 from .subscription_template_deployment import *
 from .template_deployment import *
 from ._inputs import *
@@ -35,6 +36,8 @@ def _register_module():
                 return ResourceGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment":
                 return ResourceGroupTemplateDeployment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:core/resourceProviderRegistration:ResourceProviderRegistration":
+                return ResourceProviderRegistration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment":
                 return SubscriptionTemplateDeployment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:core/templateDeployment:TemplateDeployment":
@@ -47,6 +50,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "core/customProvider", _module_instance)
     pulumi.runtime.register_resource_module("azure", "core/resourceGroup", _module_instance)
     pulumi.runtime.register_resource_module("azure", "core/resourceGroupTemplateDeployment", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "core/resourceProviderRegistration", _module_instance)
     pulumi.runtime.register_resource_module("azure", "core/subscriptionTemplateDeployment", _module_instance)
     pulumi.runtime.register_resource_module("azure", "core/templateDeployment", _module_instance)
 

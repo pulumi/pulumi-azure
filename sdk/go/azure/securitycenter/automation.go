@@ -99,7 +99,9 @@ type Automation struct {
 
 	// One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
 	Actions AutomationActionArrayOutput `pulumi:"actions"`
-	// Boolean to enable or disable this Security Center Automation
+	// Specifies the description for the Security Center Automation.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Boolean to enable or disable this Security Center Automation.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -111,6 +113,8 @@ type Automation struct {
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
 	// One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
 	Sources AutomationSourceArrayOutput `pulumi:"sources"`
+	// A mapping of tags assigned to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewAutomation registers a new resource with the given unique name, arguments, and options.
@@ -156,7 +160,9 @@ func GetAutomation(ctx *pulumi.Context,
 type automationState struct {
 	// One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
 	Actions []AutomationAction `pulumi:"actions"`
-	// Boolean to enable or disable this Security Center Automation
+	// Specifies the description for the Security Center Automation.
+	Description *string `pulumi:"description"`
+	// Boolean to enable or disable this Security Center Automation.
 	Enabled *bool `pulumi:"enabled"`
 	// The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
 	Location *string `pulumi:"location"`
@@ -168,12 +174,16 @@ type automationState struct {
 	Scopes []string `pulumi:"scopes"`
 	// One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
 	Sources []AutomationSource `pulumi:"sources"`
+	// A mapping of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type AutomationState struct {
 	// One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
 	Actions AutomationActionArrayInput
-	// Boolean to enable or disable this Security Center Automation
+	// Specifies the description for the Security Center Automation.
+	Description pulumi.StringPtrInput
+	// Boolean to enable or disable this Security Center Automation.
 	Enabled pulumi.BoolPtrInput
 	// The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
 	Location pulumi.StringPtrInput
@@ -185,6 +195,8 @@ type AutomationState struct {
 	Scopes pulumi.StringArrayInput
 	// One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
 	Sources AutomationSourceArrayInput
+	// A mapping of tags assigned to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (AutomationState) ElementType() reflect.Type {
@@ -194,7 +206,9 @@ func (AutomationState) ElementType() reflect.Type {
 type automationArgs struct {
 	// One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
 	Actions []AutomationAction `pulumi:"actions"`
-	// Boolean to enable or disable this Security Center Automation
+	// Specifies the description for the Security Center Automation.
+	Description *string `pulumi:"description"`
+	// Boolean to enable or disable this Security Center Automation.
 	Enabled *bool `pulumi:"enabled"`
 	// The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
 	Location *string `pulumi:"location"`
@@ -206,13 +220,17 @@ type automationArgs struct {
 	Scopes []string `pulumi:"scopes"`
 	// One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
 	Sources []AutomationSource `pulumi:"sources"`
+	// A mapping of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Automation resource.
 type AutomationArgs struct {
 	// One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
 	Actions AutomationActionArrayInput
-	// Boolean to enable or disable this Security Center Automation
+	// Specifies the description for the Security Center Automation.
+	Description pulumi.StringPtrInput
+	// Boolean to enable or disable this Security Center Automation.
 	Enabled pulumi.BoolPtrInput
 	// The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
 	Location pulumi.StringPtrInput
@@ -224,6 +242,8 @@ type AutomationArgs struct {
 	Scopes pulumi.StringArrayInput
 	// One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
 	Sources AutomationSourceArrayInput
+	// A mapping of tags assigned to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (AutomationArgs) ElementType() reflect.Type {

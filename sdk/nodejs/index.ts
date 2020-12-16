@@ -67,6 +67,7 @@ import * as managementresource from "./managementresource";
 import * as maps from "./maps";
 import * as mariadb from "./mariadb";
 import * as marketplace from "./marketplace";
+import * as media from "./media";
 import * as mediaservices from "./mediaservices";
 import * as mixedreality from "./mixedreality";
 import * as monitoring from "./monitoring";
@@ -95,6 +96,7 @@ import * as servicefabric from "./servicefabric";
 import * as signalr from "./signalr";
 import * as siterecovery from "./siterecovery";
 import * as sql from "./sql";
+import * as stack from "./stack";
 import * as storage from "./storage";
 import * as streamanalytics from "./streamanalytics";
 import * as synapse from "./synapse";
@@ -160,6 +162,7 @@ export {
     maps,
     mariadb,
     marketplace,
+    media,
     mediaservices,
     mixedreality,
     monitoring,
@@ -188,6 +191,7 @@ export {
     signalr,
     siterecovery,
     sql,
+    stack,
     storage,
     streamanalytics,
     synapse,

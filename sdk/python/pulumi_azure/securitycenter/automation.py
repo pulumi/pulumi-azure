@@ -18,12 +18,14 @@ class Automation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationActionArgs']]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationSourceArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -76,12 +78,14 @@ class Automation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationActionArgs']]]] actions: One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
-        :param pulumi.Input[bool] enabled: Boolean to enable or disable this Security Center Automation
+        :param pulumi.Input[str] description: Specifies the description for the Security Center Automation.
+        :param pulumi.Input[bool] enabled: Boolean to enable or disable this Security Center Automation.
         :param pulumi.Input[str] location: The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
         :param pulumi.Input[str] name: The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of scopes on which the automation logic is applied, at least one is required. Supported scopes are a subscription (in this format `/subscriptions/00000000-0000-0000-0000-000000000000`) or a resource group under that subscription (in the format `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example`). The automation will only apply on defined scopes.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationSourceArgs']]]] sources: One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -103,6 +107,7 @@ class Automation(pulumi.CustomResource):
             if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
             __props__['actions'] = actions
+            __props__['description'] = description
             __props__['enabled'] = enabled
             __props__['location'] = location
             __props__['name'] = name
@@ -115,6 +120,7 @@ class Automation(pulumi.CustomResource):
             if sources is None and not opts.urn:
                 raise TypeError("Missing required property 'sources'")
             __props__['sources'] = sources
+            __props__['tags'] = tags
         super(Automation, __self__).__init__(
             'azure:securitycenter/automation:Automation',
             resource_name,
@@ -126,12 +132,14 @@ class Automation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationActionArgs']]]]] = None,
+            description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationSourceArgs']]]]] = None) -> 'Automation':
+            sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationSourceArgs']]]]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Automation':
         """
         Get an existing Automation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -140,24 +148,28 @@ class Automation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationActionArgs']]]] actions: One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
-        :param pulumi.Input[bool] enabled: Boolean to enable or disable this Security Center Automation
+        :param pulumi.Input[str] description: Specifies the description for the Security Center Automation.
+        :param pulumi.Input[bool] enabled: Boolean to enable or disable this Security Center Automation.
         :param pulumi.Input[str] location: The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
         :param pulumi.Input[str] name: The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of scopes on which the automation logic is applied, at least one is required. Supported scopes are a subscription (in this format `/subscriptions/00000000-0000-0000-0000-000000000000`) or a resource group under that subscription (in the format `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example`). The automation will only apply on defined scopes.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationSourceArgs']]]] sources: One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
         __props__["actions"] = actions
+        __props__["description"] = description
         __props__["enabled"] = enabled
         __props__["location"] = location
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         __props__["scopes"] = scopes
         __props__["sources"] = sources
+        __props__["tags"] = tags
         return Automation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -170,9 +182,17 @@ class Automation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the description for the Security Center Automation.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean to enable or disable this Security Center Automation
+        Boolean to enable or disable this Security Center Automation.
         """
         return pulumi.get(self, "enabled")
 
@@ -215,6 +235,14 @@ class Automation(pulumi.CustomResource):
         One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
         """
         return pulumi.get(self, "sources")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A mapping of tags assigned to the resource.
+        """
+        return pulumi.get(self, "tags")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

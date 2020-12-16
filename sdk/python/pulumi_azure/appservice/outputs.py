@@ -951,7 +951,7 @@ class AppServiceSiteConfig(dict):
         :param bool local_mysql_enabled: Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
         :param str managed_pipeline_mode: The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
         :param str min_tls_version: The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
-        :param str php_version: The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+        :param str php_version: The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
         :param str python_version: The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
         :param bool remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
         :param str remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
@@ -1154,7 +1154,7 @@ class AppServiceSiteConfig(dict):
     @pulumi.getter(name="phpVersion")
     def php_version(self) -> Optional[str]:
         """
-        The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+        The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
         """
         return pulumi.get(self, "php_version")
 
@@ -2159,7 +2159,7 @@ class FunctionAppSiteConfig(dict):
         """
         :param bool always_on: Should the Function App be loaded at all times? Defaults to `false`.
         :param 'FunctionAppSiteConfigCorsArgs' cors: A `cors` block as defined below.
-        :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+        :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         :param str health_check_path: Path which will be checked for this function app health.
         :param bool http2_enabled: Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
         :param Sequence['FunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
@@ -2228,7 +2228,7 @@ class FunctionAppSiteConfig(dict):
     @pulumi.getter(name="ftpsState")
     def ftps_state(self) -> Optional[str]:
         """
-        State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+        State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         """
         return pulumi.get(self, "ftps_state")
 

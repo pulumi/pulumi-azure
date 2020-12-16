@@ -92,11 +92,11 @@ export class CustomHostnameBinding extends pulumi.CustomResource {
     /**
      * The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
      */
-    public readonly sslState!: pulumi.Output<string | undefined>;
+    public readonly sslState!: pulumi.Output<string>;
     /**
      * The SSL certificate thumbprint. Changing this forces a new resource to be created.
      */
-    public readonly thumbprint!: pulumi.Output<string | undefined>;
+    public readonly thumbprint!: pulumi.Output<string>;
     /**
      * The virtual IP address assigned to the hostname if IP based SSL is enabled.
      */

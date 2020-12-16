@@ -80,6 +80,12 @@ namespace Pulumi.Azure.Kusto
         public Output<bool?> EnableStreamingIngest { get; private set; } = null!;
 
         /// <summary>
+        /// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+        /// </summary>
+        [Output("engine")]
+        public Output<string?> Engine { get; private set; } = null!;
+
+        /// <summary>
         /// A identity block.
         /// </summary>
         [Output("identity")]
@@ -216,6 +222,12 @@ namespace Pulumi.Azure.Kusto
         public Input<bool>? EnableStreamingIngest { get; set; }
 
         /// <summary>
+        /// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+        /// </summary>
+        [Input("engine")]
+        public Input<string>? Engine { get; set; }
+
+        /// <summary>
         /// A identity block.
         /// </summary>
         [Input("identity")]
@@ -335,6 +347,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("enableStreamingIngest")]
         public Input<bool>? EnableStreamingIngest { get; set; }
+
+        /// <summary>
+        /// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+        /// </summary>
+        [Input("engine")]
+        public Input<string>? Engine { get; set; }
 
         /// <summary>
         /// A identity block.
