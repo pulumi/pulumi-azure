@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *         environment: "staging",
  *     },
  * });
- * const examplegetSystemTopic = new azure.eventgrid.GetSystemTopic("examplegetSystemTopic", {
+ * const exampleSystemTopic = new azure.eventgrid.SystemTopic("exampleSystemTopic", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     sourceArmResourceId: exampleAccount.id,
@@ -36,12 +36,12 @@ import * as utilities from "../utilities";
  * Event Grid System Topic can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:eventgrid/getSystemTopic:getSystemTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/systemTopic1
+ *  $ pulumi import azure:eventgrid/systemTopic:SystemTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/systemTopic1
  * ```
  */
-export class GetSystemTopic extends pulumi.CustomResource {
+export class SystemTopic extends pulumi.CustomResource {
     /**
-     * Get an existing GetSystemTopic resource's state with the given name, ID, and optional extra
+     * Get an existing SystemTopic resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -49,22 +49,22 @@ export class GetSystemTopic extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: GetSystemTopicState, opts?: pulumi.CustomResourceOptions): GetSystemTopic {
-        return new GetSystemTopic(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SystemTopicState, opts?: pulumi.CustomResourceOptions): SystemTopic {
+        return new SystemTopic(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure:eventgrid/getSystemTopic:getSystemTopic';
+    public static readonly __pulumiType = 'azure:eventgrid/systemTopic:SystemTopic';
 
     /**
-     * Returns true if the given object is an instance of GetSystemTopic.  This is designed to work even
+     * Returns true if the given object is an instance of SystemTopic.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is GetSystemTopic {
+    public static isInstance(obj: any): obj is SystemTopic {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === GetSystemTopic.__pulumiType;
+        return obj['__pulumiType'] === SystemTopic.__pulumiType;
     }
 
     /**
@@ -98,17 +98,17 @@ export class GetSystemTopic extends pulumi.CustomResource {
     public readonly topicType!: pulumi.Output<string>;
 
     /**
-     * Create a GetSystemTopic resource with the given unique name, arguments, and options.
+     * Create a SystemTopic resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GetSystemTopicArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GetSystemTopicArgs | GetSystemTopicState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SystemTopicArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: SystemTopicArgs | SystemTopicState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as GetSystemTopicState | undefined;
+            const state = argsOrState as SystemTopicState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["metricArmResourceId"] = state ? state.metricArmResourceId : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -117,7 +117,7 @@ export class GetSystemTopic extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
             inputs["topicType"] = state ? state.topicType : undefined;
         } else {
-            const args = argsOrState as GetSystemTopicArgs | undefined;
+            const args = argsOrState as SystemTopicArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -142,14 +142,14 @@ export class GetSystemTopic extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        super(GetSystemTopic.__pulumiType, name, inputs, opts);
+        super(SystemTopic.__pulumiType, name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering getSystemTopic resources.
+ * Input properties used for looking up and filtering SystemTopic resources.
  */
-export interface GetSystemTopicState {
+export interface SystemTopicState {
     /**
      * The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
      */
@@ -182,9 +182,9 @@ export interface GetSystemTopicState {
 }
 
 /**
- * The set of arguments for constructing a GetSystemTopic resource.
+ * The set of arguments for constructing a SystemTopic resource.
  */
-export interface GetSystemTopicArgs {
+export interface SystemTopicArgs {
     /**
      * The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
      */

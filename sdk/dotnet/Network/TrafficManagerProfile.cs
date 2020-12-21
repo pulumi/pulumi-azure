@@ -86,6 +86,12 @@ namespace Pulumi.Azure.Network
         public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
+        /// The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+        /// </summary>
+        [Output("maxReturn")]
+        public Output<int?> MaxReturn { get; private set; } = null!;
+
+        /// <summary>
         /// This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
         /// </summary>
         [Output("monitorConfig")]
@@ -178,6 +184,12 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.TrafficManagerProfileDnsConfigArgs> DnsConfig { get; set; } = null!;
 
         /// <summary>
+        /// The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+        /// </summary>
+        [Input("maxReturn")]
+        public Input<int>? MaxReturn { get; set; }
+
+        /// <summary>
         /// This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
         /// </summary>
         [Input("monitorConfig", required: true)]
@@ -237,6 +249,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
+
+        /// <summary>
+        /// The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+        /// </summary>
+        [Input("maxReturn")]
+        public Input<int>? MaxReturn { get; set; }
 
         /// <summary>
         /// This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.

@@ -16,15 +16,18 @@ class LinkedService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  linked_service_name: Optional[pulumi.Input[str]] = None,
+                 read_access_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_id: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
+                 write_access_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
-        Links a Log Analytics (formally Operational Insights) Workspace to another resource. The (currently) only linkable service is an Azure Automation Account.
+        Manages a Log Analytics Linked Service.
 
         ## Example Usage
 
@@ -47,8 +50,8 @@ class LinkedService(pulumi.CustomResource):
             retention_in_days=30)
         example_linked_service = azure.loganalytics.LinkedService("exampleLinkedService",
             resource_group_name=example_resource_group.name,
-            workspace_name=example_analytics_workspace.name,
-            resource_id=example_account.id)
+            workspace_id=example_analytics_workspace.id,
+            read_access_id=example_account.id)
         ```
 
         ## Import
@@ -56,16 +59,19 @@ class LinkedService(pulumi.CustomResource):
         Log Analytics Workspaces can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:loganalytics/linkedService:LinkedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/linkedservices/automation
+         $ pulumi import azure:loganalytics/linkedService:LinkedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/linkedServices/Automation
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] linked_service_name: Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] linked_service_name: Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in workspace_name. Accepted values are `automation` and `cluster`. Defaults to `automation`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] read_access_id: The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_id: The ID of the Resource that will be linked to the workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_id: The ID of the Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] workspace_name: Name of the Log Analytics Workspace that will contain the linkedServices resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workspace_name: The name of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] write_access_id: The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -84,17 +90,25 @@ class LinkedService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if linked_service_name is not None and not opts.urn:
+                warnings.warn("""This field has been deprecated and will be removed in a future version of the provider""", DeprecationWarning)
+                pulumi.log.warn("linked_service_name is deprecated: This field has been deprecated and will be removed in a future version of the provider")
             __props__['linked_service_name'] = linked_service_name
+            __props__['read_access_id'] = read_access_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_id is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_id'")
+            if resource_id is not None and not opts.urn:
+                warnings.warn("""This field has been deprecated in favour of `read_access_id` and will be removed in a future version of the provider""", DeprecationWarning)
+                pulumi.log.warn("resource_id is deprecated: This field has been deprecated in favour of `read_access_id` and will be removed in a future version of the provider")
             __props__['resource_id'] = resource_id
             __props__['tags'] = tags
-            if workspace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workspace_name'")
+            __props__['workspace_id'] = workspace_id
+            if workspace_name is not None and not opts.urn:
+                warnings.warn("""This field has been deprecated in favour of `workspace_id` and will be removed in a future version of the provider""", DeprecationWarning)
+                pulumi.log.warn("workspace_name is deprecated: This field has been deprecated in favour of `workspace_id` and will be removed in a future version of the provider")
             __props__['workspace_name'] = workspace_name
+            __props__['write_access_id'] = write_access_id
             __props__['name'] = None
         super(LinkedService, __self__).__init__(
             'azure:loganalytics/linkedService:LinkedService',
@@ -108,10 +122,13 @@ class LinkedService(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             linked_service_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            read_access_id: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             resource_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            workspace_name: Optional[pulumi.Input[str]] = None) -> 'LinkedService':
+            workspace_id: Optional[pulumi.Input[str]] = None,
+            workspace_name: Optional[pulumi.Input[str]] = None,
+            write_access_id: Optional[pulumi.Input[str]] = None) -> 'LinkedService':
         """
         Get an existing LinkedService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -119,12 +136,15 @@ class LinkedService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] linked_service_name: Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The automatically generated name of the Linked Service. This cannot be specified. The format is always `<workspace_name>/<linked_service_name>` e.g. `workspace1/Automation`
+        :param pulumi.Input[str] linked_service_name: Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in workspace_name. Accepted values are `automation` and `cluster`. Defaults to `automation`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The generated name of the Linked Service. The format for this attribute is always `<workspace name>/<linked service type>`(e.g. `workspace1/Automation` or `workspace1/Cluster`)
+        :param pulumi.Input[str] read_access_id: The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_id: The ID of the Resource that will be linked to the workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_id: The ID of the Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] workspace_name: Name of the Log Analytics Workspace that will contain the linkedServices resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workspace_name: The name of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] write_access_id: The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -132,17 +152,20 @@ class LinkedService(pulumi.CustomResource):
 
         __props__["linked_service_name"] = linked_service_name
         __props__["name"] = name
+        __props__["read_access_id"] = read_access_id
         __props__["resource_group_name"] = resource_group_name
         __props__["resource_id"] = resource_id
         __props__["tags"] = tags
+        __props__["workspace_id"] = workspace_id
         __props__["workspace_name"] = workspace_name
+        __props__["write_access_id"] = write_access_id
         return LinkedService(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="linkedServiceName")
-    def linked_service_name(self) -> pulumi.Output[Optional[str]]:
+    def linked_service_name(self) -> pulumi.Output[str]:
         """
-        Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
+        Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in workspace_name. Accepted values are `automation` and `cluster`. Defaults to `automation`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "linked_service_name")
 
@@ -150,9 +173,17 @@ class LinkedService(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The automatically generated name of the Linked Service. This cannot be specified. The format is always `<workspace_name>/<linked_service_name>` e.g. `workspace1/Automation`
+        The generated name of the Linked Service. The format for this attribute is always `<workspace name>/<linked service type>`(e.g. `workspace1/Automation` or `workspace1/Cluster`)
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="readAccessId")
+    def read_access_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
+        """
+        return pulumi.get(self, "read_access_id")
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -166,7 +197,7 @@ class LinkedService(pulumi.CustomResource):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Resource that will be linked to the workspace. Changing this forces a new resource to be created.
+        The ID of the Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
         """
         return pulumi.get(self, "resource_id")
 
@@ -179,12 +210,28 @@ class LinkedService(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @property
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Output[str]:
         """
-        Name of the Log Analytics Workspace that will contain the linkedServices resource. Changing this forces a new resource to be created.
+        The name of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "workspace_name")
+
+    @property
+    @pulumi.getter(name="writeAccessId")
+    def write_access_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
+        """
+        return pulumi.get(self, "write_access_id")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

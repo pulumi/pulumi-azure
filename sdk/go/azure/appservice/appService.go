@@ -114,8 +114,12 @@ type AppService struct {
 	Logs AppServiceLogsOutput `pulumi:"logs"`
 	// Specifies the name of the App Service. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
+	OutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"outboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
+	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outboundIpAddressList`.
+	PossibleOutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
 	// The name of the resource group in which to create the App Service.
@@ -197,8 +201,12 @@ type appServiceState struct {
 	Logs *AppServiceLogs `pulumi:"logs"`
 	// Specifies the name of the App Service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
+	OutboundIpAddressLists []string `pulumi:"outboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses *string `pulumi:"outboundIpAddresses"`
+	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outboundIpAddressList`.
+	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses *string `pulumi:"possibleOutboundIpAddresses"`
 	// The name of the resource group in which to create the App Service.
@@ -246,8 +254,12 @@ type AppServiceState struct {
 	Logs AppServiceLogsPtrInput
 	// Specifies the name of the App Service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
+	OutboundIpAddressLists pulumi.StringArrayInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses pulumi.StringPtrInput
+	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outboundIpAddressList`.
+	PossibleOutboundIpAddressLists pulumi.StringArrayInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringPtrInput
 	// The name of the resource group in which to create the App Service.

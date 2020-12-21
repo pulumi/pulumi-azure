@@ -12,12 +12,67 @@ namespace Pulumi.Azure.KeyVault
     /// <summary>
     /// Manages a Key Vault Secret.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             SkuName = "premium",
+    ///             SoftDeleteEnabled = true,
+    ///             SoftDeleteRetentionDays = 7,
+    ///             AccessPolicies = 
+    ///             {
+    ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///                 {
+    ///                     TenantId = current.Apply(current =&gt; current.TenantId),
+    ///                     ObjectId = current.Apply(current =&gt; current.ObjectId),
+    ///                     KeyPermissions = 
+    ///                     {
+    ///                         "create",
+    ///                         "get",
+    ///                     },
+    ///                     SecretPermissions = 
+    ///                     {
+    ///                         "set",
+    ///                         "get",
+    ///                         "delete",
+    ///                         "purge",
+    ///                         "recover",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleSecret = new Azure.KeyVault.Secret("exampleSecret", new Azure.KeyVault.SecretArgs
+    ///         {
+    ///             Value = "szechuan",
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Key Vault Secrets which are Enabled can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:keyvault/secret:Secret example https://example-keyvault.vault.azure.net/secrets/example/fdf067c93bbb4b22bff4d8b7a9a56217
+    ///  $ pulumi import azure:keyvault/secret:Secret example "https://example-keyvault.vault.azure.net/secrets/example/fdf067c93bbb4b22bff4d8b7a9a56217"
     /// ```
     /// </summary>
     public partial class Secret : Pulumi.CustomResource

@@ -91,6 +91,7 @@ __all__ = [
     'RouteTableRouteArgs',
     'SubnetDelegationArgs',
     'SubnetDelegationServiceDelegationArgs',
+    'SubnetServiceEndpointStoragePolicyDefinitionArgs',
     'TrafficManagerEndpointCustomHeaderArgs',
     'TrafficManagerEndpointSubnetArgs',
     'TrafficManagerProfileDnsConfigArgs',
@@ -6516,6 +6517,59 @@ class SubnetDelegationServiceDelegationArgs:
     @actions.setter
     def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "actions", value)
+
+
+@pulumi.input_type
+class SubnetServiceEndpointStoragePolicyDefinitionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 service_resources: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Subnet Service Endpoint Storage Policy Definition.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] service_resources: Specifies a list of resources that this Subnet Service Endpoint Storage Policy Definition applies to.
+        :param pulumi.Input[str] description: The description of this Subnet Service Endpoint Storage Policy Definition.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "service_resources", service_resources)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Subnet Service Endpoint Storage Policy Definition.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="serviceResources")
+    def service_resources(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of resources that this Subnet Service Endpoint Storage Policy Definition applies to.
+        """
+        return pulumi.get(self, "service_resources")
+
+    @service_resources.setter
+    def service_resources(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "service_resources", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of this Subnet Service Endpoint Storage Policy Definition.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 @pulumi.input_type

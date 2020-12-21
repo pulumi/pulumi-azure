@@ -6,12 +6,16 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./asset";
+export * from "./job";
 export * from "./serviceAccount";
+export * from "./streamingEndpoint";
 export * from "./transform";
 
 // Import resources to register:
 import { Asset } from "./asset";
+import { Job } from "./job";
 import { ServiceAccount } from "./serviceAccount";
+import { StreamingEndpoint } from "./streamingEndpoint";
 import { Transform } from "./transform";
 
 const _module = {
@@ -20,8 +24,12 @@ const _module = {
         switch (type) {
             case "azure:media/asset:Asset":
                 return new Asset(name, <any>undefined, { urn })
+            case "azure:media/job:Job":
+                return new Job(name, <any>undefined, { urn })
             case "azure:media/serviceAccount:ServiceAccount":
                 return new ServiceAccount(name, <any>undefined, { urn })
+            case "azure:media/streamingEndpoint:StreamingEndpoint":
+                return new StreamingEndpoint(name, <any>undefined, { urn })
             case "azure:media/transform:Transform":
                 return new Transform(name, <any>undefined, { urn })
             default:
@@ -30,5 +38,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "media/asset", _module)
+pulumi.runtime.registerResourceModule("azure", "media/job", _module)
 pulumi.runtime.registerResourceModule("azure", "media/serviceAccount", _module)
+pulumi.runtime.registerResourceModule("azure", "media/streamingEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "media/transform", _module)

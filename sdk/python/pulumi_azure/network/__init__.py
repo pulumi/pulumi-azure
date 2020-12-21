@@ -70,6 +70,7 @@ from .subnet import *
 from .subnet_nat_gateway_association import *
 from .subnet_network_security_group_association import *
 from .subnet_route_table_association import *
+from .subnet_service_endpoint_storage_policy import *
 from .traffic_manager_endpoint import *
 from .traffic_manager_profile import *
 from .virtual_hub import *
@@ -186,6 +187,8 @@ def _register_module():
                 return SubnetNetworkSecurityGroupAssociation(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation":
                 return SubnetRouteTableAssociation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:network/subnetServiceEndpointStoragePolicy:SubnetServiceEndpointStoragePolicy":
+                return SubnetServiceEndpointStoragePolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:network/trafficManagerEndpoint:TrafficManagerEndpoint":
                 return TrafficManagerEndpoint(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:network/trafficManagerProfile:TrafficManagerProfile":
@@ -264,6 +267,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "network/subnetNatGatewayAssociation", _module_instance)
     pulumi.runtime.register_resource_module("azure", "network/subnetNetworkSecurityGroupAssociation", _module_instance)
     pulumi.runtime.register_resource_module("azure", "network/subnetRouteTableAssociation", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "network/subnetServiceEndpointStoragePolicy", _module_instance)
     pulumi.runtime.register_resource_module("azure", "network/trafficManagerEndpoint", _module_instance)
     pulumi.runtime.register_resource_module("azure", "network/trafficManagerProfile", _module_instance)
     pulumi.runtime.register_resource_module("azure", "network/virtualHub", _module_instance)

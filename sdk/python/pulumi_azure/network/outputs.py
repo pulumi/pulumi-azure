@@ -92,6 +92,7 @@ __all__ = [
     'RouteTableRoute',
     'SubnetDelegation',
     'SubnetDelegationServiceDelegation',
+    'SubnetServiceEndpointStoragePolicyDefinition',
     'TrafficManagerEndpointCustomHeader',
     'TrafficManagerEndpointSubnet',
     'TrafficManagerProfileDnsConfig',
@@ -5278,6 +5279,50 @@ class SubnetDelegationServiceDelegation(dict):
         A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
         """
         return pulumi.get(self, "actions")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SubnetServiceEndpointStoragePolicyDefinition(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 service_resources: Sequence[str],
+                 description: Optional[str] = None):
+        """
+        :param str name: The name which should be used for this Subnet Service Endpoint Storage Policy Definition.
+        :param Sequence[str] service_resources: Specifies a list of resources that this Subnet Service Endpoint Storage Policy Definition applies to.
+        :param str description: The description of this Subnet Service Endpoint Storage Policy Definition.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "service_resources", service_resources)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this Subnet Service Endpoint Storage Policy Definition.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="serviceResources")
+    def service_resources(self) -> Sequence[str]:
+        """
+        Specifies a list of resources that this Subnet Service Endpoint Storage Policy Definition applies to.
+        """
+        return pulumi.get(self, "service_resources")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of this Subnet Service Endpoint Storage Policy Definition.
+        """
+        return pulumi.get(self, "description")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

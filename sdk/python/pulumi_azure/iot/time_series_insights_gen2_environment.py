@@ -82,6 +82,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
             __props__['storage'] = storage
             __props__['tags'] = tags
             __props__['warm_store_data_retention_time'] = warm_store_data_retention_time
+            __props__['data_access_fqdn'] = None
         super(TimeSeriesInsightsGen2Environment, __self__).__init__(
             'azure:iot/timeSeriesInsightsGen2Environment:TimeSeriesInsightsGen2Environment',
             resource_name,
@@ -92,6 +93,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            data_access_fqdn: Optional[pulumi.Input[str]] = None,
             id_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -107,6 +109,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] data_access_fqdn: The FQDN used to access the environment data.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] id_properties: A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique.
@@ -119,6 +122,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["data_access_fqdn"] = data_access_fqdn
         __props__["id_properties"] = id_properties
         __props__["location"] = location
         __props__["name"] = name
@@ -128,6 +132,14 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["warm_store_data_retention_time"] = warm_store_data_retention_time
         return TimeSeriesInsightsGen2Environment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="dataAccessFqdn")
+    def data_access_fqdn(self) -> pulumi.Output[str]:
+        """
+        The FQDN used to access the environment data.
+        """
+        return pulumi.get(self, "data_access_fqdn")
 
     @property
     @pulumi.getter(name="idProperties")

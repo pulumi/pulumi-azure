@@ -18,6 +18,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_config: Optional[pulumi.Input[pulumi.InputType['TrafficManagerProfileDnsConfigArgs']]] = None,
+                 max_return: Optional[pulumi.Input[int]] = None,
                  monitor_config: Optional[pulumi.Input[pulumi.InputType['TrafficManagerProfileMonitorConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  profile_status: Optional[pulumi.Input[str]] = None,
@@ -74,6 +75,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['TrafficManagerProfileDnsConfigArgs']] dns_config: This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+        :param pulumi.Input[int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
         :param pulumi.Input[pulumi.InputType['TrafficManagerProfileMonitorConfigArgs']] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
         :param pulumi.Input[str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
@@ -101,6 +103,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
             if dns_config is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_config'")
             __props__['dns_config'] = dns_config
+            __props__['max_return'] = max_return
             if monitor_config is None and not opts.urn:
                 raise TypeError("Missing required property 'monitor_config'")
             __props__['monitor_config'] = monitor_config
@@ -128,6 +131,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             dns_config: Optional[pulumi.Input[pulumi.InputType['TrafficManagerProfileDnsConfigArgs']]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
+            max_return: Optional[pulumi.Input[int]] = None,
             monitor_config: Optional[pulumi.Input[pulumi.InputType['TrafficManagerProfileMonitorConfigArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             profile_status: Optional[pulumi.Input[str]] = None,
@@ -143,6 +147,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['TrafficManagerProfileDnsConfigArgs']] dns_config: This block specifies the DNS configuration of the Profile, it supports the fields documented below.
         :param pulumi.Input[str] fqdn: The FQDN of the created Profile.
+        :param pulumi.Input[int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
         :param pulumi.Input[pulumi.InputType['TrafficManagerProfileMonitorConfigArgs']] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
         :param pulumi.Input[str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
@@ -156,6 +161,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
 
         __props__["dns_config"] = dns_config
         __props__["fqdn"] = fqdn
+        __props__["max_return"] = max_return
         __props__["monitor_config"] = monitor_config
         __props__["name"] = name
         __props__["profile_status"] = profile_status
@@ -179,6 +185,14 @@ class TrafficManagerProfile(pulumi.CustomResource):
         The FQDN of the created Profile.
         """
         return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="maxReturn")
+    def max_return(self) -> pulumi.Output[Optional[int]]:
+        """
+        The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+        """
+        return pulumi.get(self, "max_return")
 
     @property
     @pulumi.getter(name="monitorConfig")

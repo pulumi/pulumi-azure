@@ -88,6 +88,10 @@ export class TrafficManagerProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
+     * The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+     */
+    public readonly maxReturn!: pulumi.Output<number | undefined>;
+    /**
      * This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
      */
     public readonly monitorConfig!: pulumi.Output<outputs.network.TrafficManagerProfileMonitorConfig>;
@@ -126,6 +130,7 @@ export class TrafficManagerProfile extends pulumi.CustomResource {
             const state = argsOrState as TrafficManagerProfileState | undefined;
             inputs["dnsConfig"] = state ? state.dnsConfig : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
+            inputs["maxReturn"] = state ? state.maxReturn : undefined;
             inputs["monitorConfig"] = state ? state.monitorConfig : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["profileStatus"] = state ? state.profileStatus : undefined;
@@ -147,6 +152,7 @@ export class TrafficManagerProfile extends pulumi.CustomResource {
                 throw new Error("Missing required property 'trafficRoutingMethod'");
             }
             inputs["dnsConfig"] = args ? args.dnsConfig : undefined;
+            inputs["maxReturn"] = args ? args.maxReturn : undefined;
             inputs["monitorConfig"] = args ? args.monitorConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["profileStatus"] = args ? args.profileStatus : undefined;
@@ -181,6 +187,10 @@ export interface TrafficManagerProfileState {
      */
     readonly fqdn?: pulumi.Input<string>;
     /**
+     * The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+     */
+    readonly maxReturn?: pulumi.Input<number>;
+    /**
      * This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
      */
     readonly monitorConfig?: pulumi.Input<inputs.network.TrafficManagerProfileMonitorConfig>;
@@ -214,6 +224,10 @@ export interface TrafficManagerProfileArgs {
      * This block specifies the DNS configuration of the Profile, it supports the fields documented below.
      */
     readonly dnsConfig: pulumi.Input<inputs.network.TrafficManagerProfileDnsConfig>;
+    /**
+     * The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+     */
+    readonly maxReturn?: pulumi.Input<number>;
     /**
      * This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
      */

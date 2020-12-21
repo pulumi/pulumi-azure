@@ -175,7 +175,7 @@ type VirtualMachine struct {
 	StorageOsDisk VirtualMachineStorageOsDiskOutput `pulumi:"storageOsDisk"`
 	// A mapping of tags to assign to the Virtual Machine.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
+	// Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
 	VmSize pulumi.StringOutput `pulumi:"vmSize"`
 	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
 	Zones pulumi.StringPtrOutput `pulumi:"zones"`
@@ -266,7 +266,7 @@ type virtualMachineState struct {
 	StorageOsDisk *VirtualMachineStorageOsDisk `pulumi:"storageOsDisk"`
 	// A mapping of tags to assign to the Virtual Machine.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
+	// Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
 	VmSize *string `pulumi:"vmSize"`
 	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
 	Zones *string `pulumi:"zones"`
@@ -317,7 +317,7 @@ type VirtualMachineState struct {
 	StorageOsDisk VirtualMachineStorageOsDiskPtrInput
 	// A mapping of tags to assign to the Virtual Machine.
 	Tags pulumi.StringMapInput
-	// Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
+	// Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
 	VmSize pulumi.StringPtrInput
 	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
 	Zones pulumi.StringPtrInput
@@ -372,7 +372,7 @@ type virtualMachineArgs struct {
 	StorageOsDisk VirtualMachineStorageOsDisk `pulumi:"storageOsDisk"`
 	// A mapping of tags to assign to the Virtual Machine.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
+	// Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
 	VmSize string `pulumi:"vmSize"`
 	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
 	Zones *string `pulumi:"zones"`
@@ -424,7 +424,7 @@ type VirtualMachineArgs struct {
 	StorageOsDisk VirtualMachineStorageOsDiskInput
 	// A mapping of tags to assign to the Virtual Machine.
 	Tags pulumi.StringMapInput
-	// Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
+	// Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
 	VmSize pulumi.StringInput
 	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
 	Zones pulumi.StringPtrInput

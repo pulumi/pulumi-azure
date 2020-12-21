@@ -10,14 +10,86 @@ from .. import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'JobInputAsset',
+    'JobOutputAsset',
     'ServiceAccountIdentity',
     'ServiceAccountStorageAccount',
+    'StreamingEndpointAccessControl',
+    'StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey',
+    'StreamingEndpointAccessControlIpAllow',
+    'StreamingEndpointCrossSiteAccessPolicy',
     'TransformOutput',
     'TransformOutputAudioAnalyzerPreset',
     'TransformOutputBuiltinPreset',
     'TransformOutputFaceDetectorPreset',
     'TransformOutputVideoAnalyzerPreset',
 ]
+
+@pulumi.output_type
+class JobInputAsset(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 label: Optional[str] = None):
+        """
+        :param str name: The name of the input Asset. Changing this forces a new Media Job to be created.
+        :param str label: A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+        """
+        pulumi.set(__self__, "name", name)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the input Asset. Changing this forces a new Media Job to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+        """
+        return pulumi.get(self, "label")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class JobOutputAsset(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 label: Optional[str] = None):
+        """
+        :param str name: The name of the output Asset. Changing this forces a new Media Job to be created.
+        :param str label: A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
+        """
+        pulumi.set(__self__, "name", name)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the output Asset. Changing this forces a new Media Job to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
+        """
+        return pulumi.get(self, "label")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class ServiceAccountIdentity(dict):
@@ -93,6 +165,166 @@ class ServiceAccountStorageAccount(dict):
         Specifies whether the storage account should be the primary account or not. Defaults to `false`.
         """
         return pulumi.get(self, "is_primary")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StreamingEndpointAccessControl(dict):
+    def __init__(__self__, *,
+                 akamai_signature_header_authentication_keys: Optional[Sequence['outputs.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey']] = None,
+                 ip_allows: Optional[Sequence['outputs.StreamingEndpointAccessControlIpAllow']] = None):
+        """
+        :param Sequence['StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs'] akamai_signature_header_authentication_keys: One or more `akamai_signature_header_authentication_key` blocks as defined below.
+        :param Sequence['StreamingEndpointAccessControlIpAllowArgs'] ip_allows: A `ip` block as defined below.
+        """
+        if akamai_signature_header_authentication_keys is not None:
+            pulumi.set(__self__, "akamai_signature_header_authentication_keys", akamai_signature_header_authentication_keys)
+        if ip_allows is not None:
+            pulumi.set(__self__, "ip_allows", ip_allows)
+
+    @property
+    @pulumi.getter(name="akamaiSignatureHeaderAuthenticationKeys")
+    def akamai_signature_header_authentication_keys(self) -> Optional[Sequence['outputs.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey']]:
+        """
+        One or more `akamai_signature_header_authentication_key` blocks as defined below.
+        """
+        return pulumi.get(self, "akamai_signature_header_authentication_keys")
+
+    @property
+    @pulumi.getter(name="ipAllows")
+    def ip_allows(self) -> Optional[Sequence['outputs.StreamingEndpointAccessControlIpAllow']]:
+        """
+        A `ip` block as defined below.
+        """
+        return pulumi.get(self, "ip_allows")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey(dict):
+    def __init__(__self__, *,
+                 base64_key: Optional[str] = None,
+                 expiration: Optional[str] = None,
+                 identifier: Optional[str] = None):
+        """
+        :param str base64_key: Authentication key.
+        :param str expiration: The expiration time of the authentication key.
+        :param str identifier: Identifier of the key.
+        """
+        if base64_key is not None:
+            pulumi.set(__self__, "base64_key", base64_key)
+        if expiration is not None:
+            pulumi.set(__self__, "expiration", expiration)
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+
+    @property
+    @pulumi.getter(name="base64Key")
+    def base64_key(self) -> Optional[str]:
+        """
+        Authentication key.
+        """
+        return pulumi.get(self, "base64_key")
+
+    @property
+    @pulumi.getter
+    def expiration(self) -> Optional[str]:
+        """
+        The expiration time of the authentication key.
+        """
+        return pulumi.get(self, "expiration")
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> Optional[str]:
+        """
+        Identifier of the key.
+        """
+        return pulumi.get(self, "identifier")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StreamingEndpointAccessControlIpAllow(dict):
+    def __init__(__self__, *,
+                 address: Optional[str] = None,
+                 name: Optional[str] = None,
+                 subnet_prefix_length: Optional[int] = None):
+        """
+        :param str address: The IP address to allow.
+        :param str name: The friendly name for the IP address range.
+        :param int subnet_prefix_length: The subnet mask prefix length (see CIDR notation).
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if subnet_prefix_length is not None:
+            pulumi.set(__self__, "subnet_prefix_length", subnet_prefix_length)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[str]:
+        """
+        The IP address to allow.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The friendly name for the IP address range.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="subnetPrefixLength")
+    def subnet_prefix_length(self) -> Optional[int]:
+        """
+        The subnet mask prefix length (see CIDR notation).
+        """
+        return pulumi.get(self, "subnet_prefix_length")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StreamingEndpointCrossSiteAccessPolicy(dict):
+    def __init__(__self__, *,
+                 client_access_policy: Optional[str] = None,
+                 cross_domain_policy: Optional[str] = None):
+        """
+        :param str client_access_policy: The content of clientaccesspolicy.xml used by Silverlight.
+        :param str cross_domain_policy: The content of crossdomain.xml used by Silverlight.
+        """
+        if client_access_policy is not None:
+            pulumi.set(__self__, "client_access_policy", client_access_policy)
+        if cross_domain_policy is not None:
+            pulumi.set(__self__, "cross_domain_policy", cross_domain_policy)
+
+    @property
+    @pulumi.getter(name="clientAccessPolicy")
+    def client_access_policy(self) -> Optional[str]:
+        """
+        The content of clientaccesspolicy.xml used by Silverlight.
+        """
+        return pulumi.get(self, "client_access_policy")
+
+    @property
+    @pulumi.getter(name="crossDomainPolicy")
+    def cross_domain_policy(self) -> Optional[str]:
+        """
+        The content of crossdomain.xml used by Silverlight.
+        """
+        return pulumi.get(self, "cross_domain_policy")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

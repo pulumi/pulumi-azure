@@ -20,7 +20,7 @@ class GetAppServiceResult:
     """
     A collection of values returned by getAppService.
     """
-    def __init__(__self__, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, custom_domain_verification_id=None, default_site_hostname=None, enabled=None, https_only=None, id=None, location=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_configs=None, site_credentials=None, source_controls=None, tags=None):
+    def __init__(__self__, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, custom_domain_verification_id=None, default_site_hostname=None, enabled=None, https_only=None, id=None, location=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_configs=None, site_credentials=None, source_controls=None, tags=None):
         if app_service_plan_id and not isinstance(app_service_plan_id, str):
             raise TypeError("Expected argument 'app_service_plan_id' to be a str")
         pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
@@ -57,9 +57,15 @@ class GetAppServiceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if outbound_ip_address_lists and not isinstance(outbound_ip_address_lists, list):
+            raise TypeError("Expected argument 'outbound_ip_address_lists' to be a list")
+        pulumi.set(__self__, "outbound_ip_address_lists", outbound_ip_address_lists)
         if outbound_ip_addresses and not isinstance(outbound_ip_addresses, str):
             raise TypeError("Expected argument 'outbound_ip_addresses' to be a str")
         pulumi.set(__self__, "outbound_ip_addresses", outbound_ip_addresses)
+        if possible_outbound_ip_address_lists and not isinstance(possible_outbound_ip_address_lists, list):
+            raise TypeError("Expected argument 'possible_outbound_ip_address_lists' to be a list")
+        pulumi.set(__self__, "possible_outbound_ip_address_lists", possible_outbound_ip_address_lists)
         if possible_outbound_ip_addresses and not isinstance(possible_outbound_ip_addresses, str):
             raise TypeError("Expected argument 'possible_outbound_ip_addresses' to be a str")
         pulumi.set(__self__, "possible_outbound_ip_addresses", possible_outbound_ip_addresses)
@@ -176,12 +182,28 @@ class GetAppServiceResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="outboundIpAddressLists")
+    def outbound_ip_address_lists(self) -> Sequence[str]:
+        """
+        A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
+        """
+        return pulumi.get(self, "outbound_ip_address_lists")
+
+    @property
     @pulumi.getter(name="outboundIpAddresses")
     def outbound_ip_addresses(self) -> str:
         """
         A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         """
         return pulumi.get(self, "outbound_ip_addresses")
+
+    @property
+    @pulumi.getter(name="possibleOutboundIpAddressLists")
+    def possible_outbound_ip_address_lists(self) -> Sequence[str]:
+        """
+        A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
+        """
+        return pulumi.get(self, "possible_outbound_ip_address_lists")
 
     @property
     @pulumi.getter(name="possibleOutboundIpAddresses")
@@ -244,7 +266,9 @@ class AwaitableGetAppServiceResult(GetAppServiceResult):
             id=self.id,
             location=self.location,
             name=self.name,
+            outbound_ip_address_lists=self.outbound_ip_address_lists,
             outbound_ip_addresses=self.outbound_ip_addresses,
+            possible_outbound_ip_address_lists=self.possible_outbound_ip_address_lists,
             possible_outbound_ip_addresses=self.possible_outbound_ip_addresses,
             resource_group_name=self.resource_group_name,
             site_configs=self.site_configs,
@@ -296,7 +320,9 @@ def get_app_service(name: Optional[str] = None,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
+        outbound_ip_address_lists=__ret__.outbound_ip_address_lists,
         outbound_ip_addresses=__ret__.outbound_ip_addresses,
+        possible_outbound_ip_address_lists=__ret__.possible_outbound_ip_address_lists,
         possible_outbound_ip_addresses=__ret__.possible_outbound_ip_addresses,
         resource_group_name=__ret__.resource_group_name,
         site_configs=__ret__.site_configs,

@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
+ *     softDeleteEnabled: true,
+ *     softDeleteRetentionDays: 7,
  *     accessPolicies: [{
  *         tenantId: current.then(current => current.tenantId),
  *         objectId: current.then(current => current.objectId),
@@ -36,6 +38,7 @@ import * as utilities from "../utilities";
  *             "listissuers",
  *             "managecontacts",
  *             "manageissuers",
+ *             "purge",
  *             "setissuers",
  *             "update",
  *         ],
@@ -68,9 +71,6 @@ import * as utilities from "../utilities";
  *             "set",
  *         ],
  *     }],
- *     tags: {
- *         environment: "Production",
- *     },
  * });
  * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
  *     keyVaultId: exampleKeyVault.id,
@@ -123,7 +123,7 @@ import * as utilities from "../utilities";
  * Key Vault Certificates can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:keyvault/certifiate:Certifiate net/certificates/example/fdf067c93bbb4b22bff4d8b7a9a56217
+ *  $ pulumi import azure:keyvault/certifiate:Certifiate example "https://example-keyvault.vault.azure.net/certificates/example/fdf067c93bbb4b22bff4d8b7a9a56217"
  * ```
  *
  * @deprecated azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate

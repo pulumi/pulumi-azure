@@ -118,9 +118,17 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
+        /// </summary>
+        public readonly ImmutableArray<string> OutboundIpAddressLists;
+        /// <summary>
         /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         /// </summary>
         public readonly string OutboundIpAddresses;
+        /// <summary>
+        /// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
+        /// </summary>
+        public readonly ImmutableArray<string> PossibleOutboundIpAddressLists;
         /// <summary>
         /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         /// </summary>
@@ -166,7 +174,11 @@ namespace Pulumi.Azure.AppService
 
             string name,
 
+            ImmutableArray<string> outboundIpAddressLists,
+
             string outboundIpAddresses,
+
+            ImmutableArray<string> possibleOutboundIpAddressLists,
 
             string possibleOutboundIpAddresses,
 
@@ -192,7 +204,9 @@ namespace Pulumi.Azure.AppService
             Id = id;
             Location = location;
             Name = name;
+            OutboundIpAddressLists = outboundIpAddressLists;
             OutboundIpAddresses = outboundIpAddresses;
+            PossibleOutboundIpAddressLists = possibleOutboundIpAddressLists;
             PossibleOutboundIpAddresses = possibleOutboundIpAddresses;
             ResourceGroupName = resourceGroupName;
             SiteConfigs = siteConfigs;

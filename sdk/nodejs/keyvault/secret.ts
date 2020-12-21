@@ -7,12 +7,49 @@ import * as utilities from "../utilities";
 /**
  * Manages a Key Vault Secret.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
+ *     softDeleteEnabled: true,
+ *     softDeleteRetentionDays: 7,
+ *     accessPolicies: [{
+ *         tenantId: current.then(current => current.tenantId),
+ *         objectId: current.then(current => current.objectId),
+ *         keyPermissions: [
+ *             "create",
+ *             "get",
+ *         ],
+ *         secretPermissions: [
+ *             "set",
+ *             "get",
+ *             "delete",
+ *             "purge",
+ *             "recover",
+ *         ],
+ *     }],
+ * });
+ * const exampleSecret = new azure.keyvault.Secret("exampleSecret", {
+ *     value: "szechuan",
+ *     keyVaultId: exampleKeyVault.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Key Vault Secrets which are Enabled can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:keyvault/secret:Secret example https://example-keyvault.vault.azure.net/secrets/example/fdf067c93bbb4b22bff4d8b7a9a56217
+ *  $ pulumi import azure:keyvault/secret:Secret example "https://example-keyvault.vault.azure.net/secrets/example/fdf067c93bbb4b22bff4d8b7a9a56217"
  * ```
  */
 export class Secret extends pulumi.CustomResource {

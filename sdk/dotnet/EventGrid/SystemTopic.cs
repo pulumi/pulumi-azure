@@ -37,7 +37,7 @@ namespace Pulumi.Azure.EventGrid
     ///                 { "environment", "staging" },
     ///             },
     ///         });
-    ///         var examplegetSystemTopic = new Azure.EventGrid.GetSystemTopic("examplegetSystemTopic", new Azure.EventGrid.GetSystemTopicArgs
+    ///         var exampleSystemTopic = new Azure.EventGrid.SystemTopic("exampleSystemTopic", new Azure.EventGrid.SystemTopicArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
@@ -54,10 +54,10 @@ namespace Pulumi.Azure.EventGrid
     /// Event Grid System Topic can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:eventgrid/getSystemTopic:getSystemTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/systemTopic1
+    ///  $ pulumi import azure:eventgrid/systemTopic:SystemTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/systemTopic1
     /// ```
     /// </summary>
-    public partial class GetSystemTopic : Pulumi.CustomResource
+    public partial class SystemTopic : Pulumi.CustomResource
     {
         /// <summary>
         /// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
@@ -104,19 +104,19 @@ namespace Pulumi.Azure.EventGrid
 
 
         /// <summary>
-        /// Create a GetSystemTopic resource with the given unique name, arguments, and options.
+        /// Create a SystemTopic resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public GetSystemTopic(string name, GetSystemTopicArgs args, CustomResourceOptions? options = null)
-            : base("azure:eventgrid/getSystemTopic:getSystemTopic", name, args ?? new GetSystemTopicArgs(), MakeResourceOptions(options, ""))
+        public SystemTopic(string name, SystemTopicArgs args, CustomResourceOptions? options = null)
+            : base("azure:eventgrid/systemTopic:SystemTopic", name, args ?? new SystemTopicArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private GetSystemTopic(string name, Input<string> id, GetSystemTopicState? state = null, CustomResourceOptions? options = null)
-            : base("azure:eventgrid/getSystemTopic:getSystemTopic", name, state, MakeResourceOptions(options, id))
+        private SystemTopic(string name, Input<string> id, SystemTopicState? state = null, CustomResourceOptions? options = null)
+            : base("azure:eventgrid/systemTopic:SystemTopic", name, state, MakeResourceOptions(options, id))
         {
         }
 
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.EventGrid
             return merged;
         }
         /// <summary>
-        /// Get an existing GetSystemTopic resource's state with the given name, ID, and optional extra
+        /// Get an existing SystemTopic resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
@@ -140,13 +140,13 @@ namespace Pulumi.Azure.EventGrid
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static GetSystemTopic Get(string name, Input<string> id, GetSystemTopicState? state = null, CustomResourceOptions? options = null)
+        public static SystemTopic Get(string name, Input<string> id, SystemTopicState? state = null, CustomResourceOptions? options = null)
         {
-            return new GetSystemTopic(name, id, state, options);
+            return new SystemTopic(name, id, state, options);
         }
     }
 
-    public sealed class GetSystemTopicArgs : Pulumi.ResourceArgs
+    public sealed class SystemTopicArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
@@ -191,12 +191,12 @@ namespace Pulumi.Azure.EventGrid
         [Input("topicType", required: true)]
         public Input<string> TopicType { get; set; } = null!;
 
-        public GetSystemTopicArgs()
+        public SystemTopicArgs()
         {
         }
     }
 
-    public sealed class GetSystemTopicState : Pulumi.ResourceArgs
+    public sealed class SystemTopicState : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.EventGrid
         [Input("topicType")]
         public Input<string>? TopicType { get; set; }
 
-        public GetSystemTopicState()
+        public SystemTopicState()
         {
         }
     }

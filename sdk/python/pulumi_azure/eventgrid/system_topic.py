@@ -8,10 +8,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
-__all__ = ['GetSystemTopic']
+__all__ = ['SystemTopic']
 
 
-class GetSystemTopic(pulumi.CustomResource):
+class SystemTopic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,7 +42,7 @@ class GetSystemTopic(pulumi.CustomResource):
             tags={
                 "environment": "staging",
             })
-        exampleget_system_topic = azure.eventgrid.GetSystemTopic("examplegetSystemTopic",
+        example_system_topic = azure.eventgrid.SystemTopic("exampleSystemTopic",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             source_arm_resource_id=example_account.id,
@@ -54,7 +54,7 @@ class GetSystemTopic(pulumi.CustomResource):
         Event Grid System Topic can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:eventgrid/getSystemTopic:getSystemTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/systemTopic1
+         $ pulumi import azure:eventgrid/systemTopic:SystemTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/systemTopic1
         ```
 
         :param str resource_name: The name of the resource.
@@ -97,8 +97,8 @@ class GetSystemTopic(pulumi.CustomResource):
                 raise TypeError("Missing required property 'topic_type'")
             __props__['topic_type'] = topic_type
             __props__['metric_arm_resource_id'] = None
-        super(GetSystemTopic, __self__).__init__(
-            'azure:eventgrid/getSystemTopic:getSystemTopic',
+        super(SystemTopic, __self__).__init__(
+            'azure:eventgrid/systemTopic:SystemTopic',
             resource_name,
             __props__,
             opts)
@@ -113,9 +113,9 @@ class GetSystemTopic(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             source_arm_resource_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            topic_type: Optional[pulumi.Input[str]] = None) -> 'GetSystemTopic':
+            topic_type: Optional[pulumi.Input[str]] = None) -> 'SystemTopic':
         """
-        Get an existing GetSystemTopic resource's state with the given name, id, and optional extra
+        Get an existing SystemTopic resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -141,7 +141,7 @@ class GetSystemTopic(pulumi.CustomResource):
         __props__["source_arm_resource_id"] = source_arm_resource_id
         __props__["tags"] = tags
         __props__["topic_type"] = topic_type
-        return GetSystemTopic(resource_name, opts=opts, __props__=__props__)
+        return SystemTopic(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter

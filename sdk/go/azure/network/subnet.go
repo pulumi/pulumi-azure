@@ -54,7 +54,7 @@ import (
 // 			},
 // 			Delegations: network.SubnetDelegationArray{
 // 				&network.SubnetDelegationArgs{
-// 					Name: pulumi.String("acctestdelegation"),
+// 					Name: pulumi.String("delegation"),
 // 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 // 						Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
 // 						Actions: pulumi.StringArray{
@@ -99,6 +99,8 @@ type Subnet struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The list of IDs of Service Endpoint Policies to associate with the subnet.
+	ServiceEndpointPolicyIds pulumi.StringArrayOutput `pulumi:"serviceEndpointPolicyIds"`
 	// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
 	ServiceEndpoints pulumi.StringArrayOutput `pulumi:"serviceEndpoints"`
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
@@ -156,6 +158,8 @@ type subnetState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The list of IDs of Service Endpoint Policies to associate with the subnet.
+	ServiceEndpointPolicyIds []string `pulumi:"serviceEndpointPolicyIds"`
 	// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
 	ServiceEndpoints []string `pulumi:"serviceEndpoints"`
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
@@ -179,6 +183,8 @@ type SubnetState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The list of IDs of Service Endpoint Policies to associate with the subnet.
+	ServiceEndpointPolicyIds pulumi.StringArrayInput
 	// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
 	ServiceEndpoints pulumi.StringArrayInput
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
@@ -206,6 +212,8 @@ type subnetArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The list of IDs of Service Endpoint Policies to associate with the subnet.
+	ServiceEndpointPolicyIds []string `pulumi:"serviceEndpointPolicyIds"`
 	// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
 	ServiceEndpoints []string `pulumi:"serviceEndpoints"`
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
@@ -230,6 +238,8 @@ type SubnetArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// The list of IDs of Service Endpoint Policies to associate with the subnet.
+	ServiceEndpointPolicyIds pulumi.StringArrayInput
 	// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
 	ServiceEndpoints pulumi.StringArrayInput
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.

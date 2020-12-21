@@ -13,12 +13,75 @@ import (
 
 // Manages a Key Vault Secret.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := core.GetClientConfig(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+// 			Location:                exampleResourceGroup.Location,
+// 			ResourceGroupName:       exampleResourceGroup.Name,
+// 			TenantId:                pulumi.String(current.TenantId),
+// 			SkuName:                 pulumi.String("premium"),
+// 			SoftDeleteEnabled:       pulumi.Bool(true),
+// 			SoftDeleteRetentionDays: pulumi.Int(7),
+// 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
+// 				&keyvault.KeyVaultAccessPolicyArgs{
+// 					TenantId: pulumi.String(current.TenantId),
+// 					ObjectId: pulumi.String(current.ObjectId),
+// 					KeyPermissions: pulumi.StringArray{
+// 						pulumi.String("create"),
+// 						pulumi.String("get"),
+// 					},
+// 					SecretPermissions: pulumi.StringArray{
+// 						pulumi.String("set"),
+// 						pulumi.String("get"),
+// 						pulumi.String("delete"),
+// 						pulumi.String("purge"),
+// 						pulumi.String("recover"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = keyvault.NewSecret(ctx, "exampleSecret", &keyvault.SecretArgs{
+// 			Value:      pulumi.String("szechuan"),
+// 			KeyVaultId: exampleKeyVault.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Key Vault Secrets which are Enabled can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:keyvault/secret:Secret example https://example-keyvault.vault.azure.net/secrets/example/fdf067c93bbb4b22bff4d8b7a9a56217
+//  $ pulumi import azure:keyvault/secret:Secret example "https://example-keyvault.vault.azure.net/secrets/example/fdf067c93bbb4b22bff4d8b7a9a56217"
 // ```
 type Secret struct {
 	pulumi.CustomResourceState

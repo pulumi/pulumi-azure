@@ -6,8 +6,9 @@
 from .domain import *
 from .domain_topic import *
 from .event_subscription import *
-from .get_system_topic import *
 from .get_topic import *
+from .system_topic import *
+from .system_topic_event_subscription import *
 from .topic import *
 from ._inputs import *
 from . import outputs
@@ -30,8 +31,10 @@ def _register_module():
                 return DomainTopic(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:eventgrid/eventSubscription:EventSubscription":
                 return EventSubscription(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure:eventgrid/getSystemTopic:getSystemTopic":
-                return GetSystemTopic(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:eventgrid/systemTopic:SystemTopic":
+                return SystemTopic(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription":
+                return SystemTopicEventSubscription(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:eventgrid/topic:Topic":
                 return Topic(name, pulumi.ResourceOptions(urn=urn))
             else:
@@ -42,7 +45,8 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "eventgrid/domain", _module_instance)
     pulumi.runtime.register_resource_module("azure", "eventgrid/domainTopic", _module_instance)
     pulumi.runtime.register_resource_module("azure", "eventgrid/eventSubscription", _module_instance)
-    pulumi.runtime.register_resource_module("azure", "eventgrid/getSystemTopic", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "eventgrid/systemTopic", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "eventgrid/systemTopicEventSubscription", _module_instance)
     pulumi.runtime.register_resource_module("azure", "eventgrid/topic", _module_instance)
 
 _register_module()

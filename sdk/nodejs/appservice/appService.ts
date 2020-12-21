@@ -143,9 +143,17 @@ export class AppService extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
+     */
+    public /*out*/ readonly outboundIpAddressLists!: pulumi.Output<string[]>;
+    /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      */
     public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string>;
+    /**
+     * A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outboundIpAddressList`.
+     */
+    public /*out*/ readonly possibleOutboundIpAddressLists!: pulumi.Output<string[]>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
@@ -202,7 +210,9 @@ export class AppService extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["logs"] = state ? state.logs : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["outboundIpAddressLists"] = state ? state.outboundIpAddressLists : undefined;
             inputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
+            inputs["possibleOutboundIpAddressLists"] = state ? state.possibleOutboundIpAddressLists : undefined;
             inputs["possibleOutboundIpAddresses"] = state ? state.possibleOutboundIpAddresses : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["siteConfig"] = state ? state.siteConfig : undefined;
@@ -238,7 +248,9 @@ export class AppService extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["customDomainVerificationId"] = undefined /*out*/;
             inputs["defaultSiteHostname"] = undefined /*out*/;
+            inputs["outboundIpAddressLists"] = undefined /*out*/;
             inputs["outboundIpAddresses"] = undefined /*out*/;
+            inputs["possibleOutboundIpAddressLists"] = undefined /*out*/;
             inputs["possibleOutboundIpAddresses"] = undefined /*out*/;
             inputs["siteCredentials"] = undefined /*out*/;
         }
@@ -318,9 +330,17 @@ export interface AppServiceState {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
+     */
+    readonly outboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      */
     readonly outboundIpAddresses?: pulumi.Input<string>;
+    /**
+     * A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outboundIpAddressList`.
+     */
+    readonly possibleOutboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */

@@ -33,6 +33,25 @@ __all__ = [
     'EventSubscriptionStorageQueueEndpoint',
     'EventSubscriptionSubjectFilter',
     'EventSubscriptionWebhookEndpoint',
+    'SystemTopicEventSubscriptionAdvancedFilter',
+    'SystemTopicEventSubscriptionAdvancedFilterBoolEqual',
+    'SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan',
+    'SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual',
+    'SystemTopicEventSubscriptionAdvancedFilterNumberIn',
+    'SystemTopicEventSubscriptionAdvancedFilterNumberLessThan',
+    'SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual',
+    'SystemTopicEventSubscriptionAdvancedFilterNumberNotIn',
+    'SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith',
+    'SystemTopicEventSubscriptionAdvancedFilterStringContain',
+    'SystemTopicEventSubscriptionAdvancedFilterStringEndsWith',
+    'SystemTopicEventSubscriptionAdvancedFilterStringIn',
+    'SystemTopicEventSubscriptionAdvancedFilterStringNotIn',
+    'SystemTopicEventSubscriptionAzureFunctionEndpoint',
+    'SystemTopicEventSubscriptionRetryPolicy',
+    'SystemTopicEventSubscriptionStorageBlobDeadLetterDestination',
+    'SystemTopicEventSubscriptionStorageQueueEndpoint',
+    'SystemTopicEventSubscriptionSubjectFilter',
+    'SystemTopicEventSubscriptionWebhookEndpoint',
     'TopicInputMappingDefaultValues',
     'TopicInputMappingFields',
 ]
@@ -936,6 +955,812 @@ class EventSubscriptionSubjectFilter(dict):
 
 @pulumi.output_type
 class EventSubscriptionWebhookEndpoint(dict):
+    def __init__(__self__, *,
+                 url: str,
+                 active_directory_app_id_or_uri: Optional[str] = None,
+                 active_directory_tenant_id: Optional[str] = None,
+                 base_url: Optional[str] = None,
+                 max_events_per_batch: Optional[int] = None,
+                 preferred_batch_size_in_kilobytes: Optional[int] = None):
+        """
+        :param str url: Specifies the url of the webhook where the Event Subscription will receive events.
+        :param str active_directory_app_id_or_uri: The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+        :param str active_directory_tenant_id: The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+        :param str base_url: The base url of the webhook where the Event Subscription will receive events.
+        :param int max_events_per_batch: Maximum number of events per batch.
+        :param int preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
+        """
+        pulumi.set(__self__, "url", url)
+        if active_directory_app_id_or_uri is not None:
+            pulumi.set(__self__, "active_directory_app_id_or_uri", active_directory_app_id_or_uri)
+        if active_directory_tenant_id is not None:
+            pulumi.set(__self__, "active_directory_tenant_id", active_directory_tenant_id)
+        if base_url is not None:
+            pulumi.set(__self__, "base_url", base_url)
+        if max_events_per_batch is not None:
+            pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
+        if preferred_batch_size_in_kilobytes is not None:
+            pulumi.set(__self__, "preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Specifies the url of the webhook where the Event Subscription will receive events.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="activeDirectoryAppIdOrUri")
+    def active_directory_app_id_or_uri(self) -> Optional[str]:
+        """
+        The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+        """
+        return pulumi.get(self, "active_directory_app_id_or_uri")
+
+    @property
+    @pulumi.getter(name="activeDirectoryTenantId")
+    def active_directory_tenant_id(self) -> Optional[str]:
+        """
+        The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+        """
+        return pulumi.get(self, "active_directory_tenant_id")
+
+    @property
+    @pulumi.getter(name="baseUrl")
+    def base_url(self) -> Optional[str]:
+        """
+        The base url of the webhook where the Event Subscription will receive events.
+        """
+        return pulumi.get(self, "base_url")
+
+    @property
+    @pulumi.getter(name="maxEventsPerBatch")
+    def max_events_per_batch(self) -> Optional[int]:
+        """
+        Maximum number of events per batch.
+        """
+        return pulumi.get(self, "max_events_per_batch")
+
+    @property
+    @pulumi.getter(name="preferredBatchSizeInKilobytes")
+    def preferred_batch_size_in_kilobytes(self) -> Optional[int]:
+        """
+        Preferred batch size in Kilobytes.
+        """
+        return pulumi.get(self, "preferred_batch_size_in_kilobytes")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemTopicEventSubscriptionAdvancedFilter(dict):
+    def __init__(__self__, *,
+                 bool_equals: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterBoolEqual']] = None,
+                 number_greater_than_or_equals: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual']] = None,
+                 number_greater_thans: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan']] = None,
+                 number_ins: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberIn']] = None,
+                 number_less_than_or_equals: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual']] = None,
+                 number_less_thans: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberLessThan']] = None,
+                 number_not_ins: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberNotIn']] = None,
+                 string_begins_withs: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith']] = None,
+                 string_contains: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterStringContain']] = None,
+                 string_ends_withs: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterStringEndsWith']] = None,
+                 string_ins: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterStringIn']] = None,
+                 string_not_ins: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterStringNotIn']] = None):
+        """
+        :param Sequence['SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs'] bool_equals: Compares a value of an event using a single boolean value.
+        :param Sequence['SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs'] number_greater_than_or_equals: Compares a value of an event using a single floating point number.
+        :param Sequence['SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArgs'] number_greater_thans: Compares a value of an event using a single floating point number.
+        :param Sequence['SystemTopicEventSubscriptionAdvancedFilterNumberInArgs'] number_ins: Compares a value of an event using multiple floating point numbers.
+        :param Sequence['SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs'] number_less_than_or_equals: Compares a value of an event using a single floating point number.
+        :param Sequence['SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArgs'] number_less_thans: Compares a value of an event using a single floating point number.
+        :param Sequence['SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgs'] number_not_ins: Compares a value of an event using multiple floating point numbers.
+        :param Sequence['SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArgs'] string_begins_withs: Compares a value of an event using multiple string values.
+        :param Sequence['SystemTopicEventSubscriptionAdvancedFilterStringContainArgs'] string_contains: Compares a value of an event using multiple string values.
+        :param Sequence['SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArgs'] string_ends_withs: Compares a value of an event using multiple string values.
+        :param Sequence['SystemTopicEventSubscriptionAdvancedFilterStringInArgs'] string_ins: Compares a value of an event using multiple string values.
+        :param Sequence['SystemTopicEventSubscriptionAdvancedFilterStringNotInArgs'] string_not_ins: Compares a value of an event using multiple string values.
+        """
+        if bool_equals is not None:
+            pulumi.set(__self__, "bool_equals", bool_equals)
+        if number_greater_than_or_equals is not None:
+            pulumi.set(__self__, "number_greater_than_or_equals", number_greater_than_or_equals)
+        if number_greater_thans is not None:
+            pulumi.set(__self__, "number_greater_thans", number_greater_thans)
+        if number_ins is not None:
+            pulumi.set(__self__, "number_ins", number_ins)
+        if number_less_than_or_equals is not None:
+            pulumi.set(__self__, "number_less_than_or_equals", number_less_than_or_equals)
+        if number_less_thans is not None:
+            pulumi.set(__self__, "number_less_thans", number_less_thans)
+        if number_not_ins is not None:
+            pulumi.set(__self__, "number_not_ins", number_not_ins)
+        if string_begins_withs is not None:
+            pulumi.set(__self__, "string_begins_withs", string_begins_withs)
+        if string_contains is not None:
+            pulumi.set(__self__, "string_contains", string_contains)
+        if string_ends_withs is not None:
+            pulumi.set(__self__, "string_ends_withs", string_ends_withs)
+        if string_ins is not None:
+            pulumi.set(__self__, "string_ins", string_ins)
+        if string_not_ins is not None:
+            pulumi.set(__self__, "string_not_ins", string_not_ins)
+
+    @property
+    @pulumi.getter(name="boolEquals")
+    def bool_equals(self) -> Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterBoolEqual']]:
+        """
+        Compares a value of an event using a single boolean value.
+        """
+        return pulumi.get(self, "bool_equals")
+
+    @property
+    @pulumi.getter(name="numberGreaterThanOrEquals")
+    def number_greater_than_or_equals(self) -> Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual']]:
+        """
+        Compares a value of an event using a single floating point number.
+        """
+        return pulumi.get(self, "number_greater_than_or_equals")
+
+    @property
+    @pulumi.getter(name="numberGreaterThans")
+    def number_greater_thans(self) -> Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan']]:
+        """
+        Compares a value of an event using a single floating point number.
+        """
+        return pulumi.get(self, "number_greater_thans")
+
+    @property
+    @pulumi.getter(name="numberIns")
+    def number_ins(self) -> Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberIn']]:
+        """
+        Compares a value of an event using multiple floating point numbers.
+        """
+        return pulumi.get(self, "number_ins")
+
+    @property
+    @pulumi.getter(name="numberLessThanOrEquals")
+    def number_less_than_or_equals(self) -> Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual']]:
+        """
+        Compares a value of an event using a single floating point number.
+        """
+        return pulumi.get(self, "number_less_than_or_equals")
+
+    @property
+    @pulumi.getter(name="numberLessThans")
+    def number_less_thans(self) -> Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberLessThan']]:
+        """
+        Compares a value of an event using a single floating point number.
+        """
+        return pulumi.get(self, "number_less_thans")
+
+    @property
+    @pulumi.getter(name="numberNotIns")
+    def number_not_ins(self) -> Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberNotIn']]:
+        """
+        Compares a value of an event using multiple floating point numbers.
+        """
+        return pulumi.get(self, "number_not_ins")
+
+    @property
+    @pulumi.getter(name="stringBeginsWiths")
+    def string_begins_withs(self) -> Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith']]:
+        """
+        Compares a value of an event using multiple string values.
+        """
+        return pulumi.get(self, "string_begins_withs")
+
+    @property
+    @pulumi.getter(name="stringContains")
+    def string_contains(self) -> Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterStringContain']]:
+        """
+        Compares a value of an event using multiple string values.
+        """
+        return pulumi.get(self, "string_contains")
+
+    @property
+    @pulumi.getter(name="stringEndsWiths")
+    def string_ends_withs(self) -> Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterStringEndsWith']]:
+        """
+        Compares a value of an event using multiple string values.
+        """
+        return pulumi.get(self, "string_ends_withs")
+
+    @property
+    @pulumi.getter(name="stringIns")
+    def string_ins(self) -> Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterStringIn']]:
+        """
+        Compares a value of an event using multiple string values.
+        """
+        return pulumi.get(self, "string_ins")
+
+    @property
+    @pulumi.getter(name="stringNotIns")
+    def string_not_ins(self) -> Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterStringNotIn']]:
+        """
+        Compares a value of an event using multiple string values.
+        """
+        return pulumi.get(self, "string_not_ins")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemTopicEventSubscriptionAdvancedFilterBoolEqual(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: bool):
+        """
+        :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param bool value: Specifies a single value to compare to when using a single value operator.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> bool:
+        """
+        Specifies a single value to compare to when using a single value operator.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: float):
+        """
+        :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param float value: Specifies a single value to compare to when using a single value operator.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> float:
+        """
+        Specifies a single value to compare to when using a single value operator.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: float):
+        """
+        :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param float value: Specifies a single value to compare to when using a single value operator.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> float:
+        """
+        Specifies a single value to compare to when using a single value operator.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemTopicEventSubscriptionAdvancedFilterNumberIn(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[float]):
+        """
+        :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param Sequence[float] values: Specifies an array of values to compare to when using a multiple values operator.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[float]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+        """
+        return pulumi.get(self, "values")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemTopicEventSubscriptionAdvancedFilterNumberLessThan(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: float):
+        """
+        :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param float value: Specifies a single value to compare to when using a single value operator.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> float:
+        """
+        Specifies a single value to compare to when using a single value operator.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: float):
+        """
+        :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param float value: Specifies a single value to compare to when using a single value operator.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> float:
+        """
+        Specifies a single value to compare to when using a single value operator.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemTopicEventSubscriptionAdvancedFilterNumberNotIn(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[float]):
+        """
+        :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param Sequence[float] values: Specifies an array of values to compare to when using a multiple values operator.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[float]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+        """
+        return pulumi.get(self, "values")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[str]):
+        """
+        :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param Sequence[str] values: Specifies an array of values to compare to when using a multiple values operator.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+        """
+        return pulumi.get(self, "values")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemTopicEventSubscriptionAdvancedFilterStringContain(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[str]):
+        """
+        :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param Sequence[str] values: Specifies an array of values to compare to when using a multiple values operator.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+        """
+        return pulumi.get(self, "values")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemTopicEventSubscriptionAdvancedFilterStringEndsWith(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[str]):
+        """
+        :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param Sequence[str] values: Specifies an array of values to compare to when using a multiple values operator.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+        """
+        return pulumi.get(self, "values")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemTopicEventSubscriptionAdvancedFilterStringIn(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[str]):
+        """
+        :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param Sequence[str] values: Specifies an array of values to compare to when using a multiple values operator.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+        """
+        return pulumi.get(self, "values")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemTopicEventSubscriptionAdvancedFilterStringNotIn(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[str]):
+        """
+        :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param Sequence[str] values: Specifies an array of values to compare to when using a multiple values operator.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+        """
+        return pulumi.get(self, "values")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemTopicEventSubscriptionAzureFunctionEndpoint(dict):
+    def __init__(__self__, *,
+                 function_id: str,
+                 max_events_per_batch: Optional[int] = None,
+                 preferred_batch_size_in_kilobytes: Optional[int] = None):
+        """
+        :param str function_id: Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
+        :param int max_events_per_batch: Maximum number of events per batch.
+        :param int preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
+        """
+        pulumi.set(__self__, "function_id", function_id)
+        if max_events_per_batch is not None:
+            pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
+        if preferred_batch_size_in_kilobytes is not None:
+            pulumi.set(__self__, "preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
+
+    @property
+    @pulumi.getter(name="functionId")
+    def function_id(self) -> str:
+        """
+        Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
+        """
+        return pulumi.get(self, "function_id")
+
+    @property
+    @pulumi.getter(name="maxEventsPerBatch")
+    def max_events_per_batch(self) -> Optional[int]:
+        """
+        Maximum number of events per batch.
+        """
+        return pulumi.get(self, "max_events_per_batch")
+
+    @property
+    @pulumi.getter(name="preferredBatchSizeInKilobytes")
+    def preferred_batch_size_in_kilobytes(self) -> Optional[int]:
+        """
+        Preferred batch size in Kilobytes.
+        """
+        return pulumi.get(self, "preferred_batch_size_in_kilobytes")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemTopicEventSubscriptionRetryPolicy(dict):
+    def __init__(__self__, *,
+                 event_time_to_live: int,
+                 max_delivery_attempts: int):
+        """
+        :param int event_time_to_live: Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+        :param int max_delivery_attempts: Specifies the maximum number of delivery retry attempts for events.
+        """
+        pulumi.set(__self__, "event_time_to_live", event_time_to_live)
+        pulumi.set(__self__, "max_delivery_attempts", max_delivery_attempts)
+
+    @property
+    @pulumi.getter(name="eventTimeToLive")
+    def event_time_to_live(self) -> int:
+        """
+        Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+        """
+        return pulumi.get(self, "event_time_to_live")
+
+    @property
+    @pulumi.getter(name="maxDeliveryAttempts")
+    def max_delivery_attempts(self) -> int:
+        """
+        Specifies the maximum number of delivery retry attempts for events.
+        """
+        return pulumi.get(self, "max_delivery_attempts")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemTopicEventSubscriptionStorageBlobDeadLetterDestination(dict):
+    def __init__(__self__, *,
+                 storage_account_id: str,
+                 storage_blob_container_name: str):
+        """
+        :param str storage_account_id: Specifies the id of the storage account id where the storage blob is located.
+        :param str storage_blob_container_name: Specifies the name of the Storage blob container that is the destination of the deadletter events.
+        """
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        pulumi.set(__self__, "storage_blob_container_name", storage_blob_container_name)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> str:
+        """
+        Specifies the id of the storage account id where the storage blob is located.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @property
+    @pulumi.getter(name="storageBlobContainerName")
+    def storage_blob_container_name(self) -> str:
+        """
+        Specifies the name of the Storage blob container that is the destination of the deadletter events.
+        """
+        return pulumi.get(self, "storage_blob_container_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemTopicEventSubscriptionStorageQueueEndpoint(dict):
+    def __init__(__self__, *,
+                 queue_name: str,
+                 storage_account_id: str):
+        """
+        :param str queue_name: Specifies the name of the storage queue where the Event Subscription will receive events.
+        :param str storage_account_id: Specifies the id of the storage account id where the storage queue is located.
+        """
+        pulumi.set(__self__, "queue_name", queue_name)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> str:
+        """
+        Specifies the name of the storage queue where the Event Subscription will receive events.
+        """
+        return pulumi.get(self, "queue_name")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> str:
+        """
+        Specifies the id of the storage account id where the storage queue is located.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemTopicEventSubscriptionSubjectFilter(dict):
+    def __init__(__self__, *,
+                 case_sensitive: Optional[bool] = None,
+                 subject_begins_with: Optional[str] = None,
+                 subject_ends_with: Optional[str] = None):
+        """
+        :param bool case_sensitive: Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
+        :param str subject_begins_with: A string to filter events for an event subscription based on a resource path prefix.
+        :param str subject_ends_with: A string to filter events for an event subscription based on a resource path suffix.
+        """
+        if case_sensitive is not None:
+            pulumi.set(__self__, "case_sensitive", case_sensitive)
+        if subject_begins_with is not None:
+            pulumi.set(__self__, "subject_begins_with", subject_begins_with)
+        if subject_ends_with is not None:
+            pulumi.set(__self__, "subject_ends_with", subject_ends_with)
+
+    @property
+    @pulumi.getter(name="caseSensitive")
+    def case_sensitive(self) -> Optional[bool]:
+        """
+        Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
+        """
+        return pulumi.get(self, "case_sensitive")
+
+    @property
+    @pulumi.getter(name="subjectBeginsWith")
+    def subject_begins_with(self) -> Optional[str]:
+        """
+        A string to filter events for an event subscription based on a resource path prefix.
+        """
+        return pulumi.get(self, "subject_begins_with")
+
+    @property
+    @pulumi.getter(name="subjectEndsWith")
+    def subject_ends_with(self) -> Optional[str]:
+        """
+        A string to filter events for an event subscription based on a resource path suffix.
+        """
+        return pulumi.get(self, "subject_ends_with")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemTopicEventSubscriptionWebhookEndpoint(dict):
     def __init__(__self__, *,
                  url: str,
                  active_directory_app_id_or_uri: Optional[str] = None,

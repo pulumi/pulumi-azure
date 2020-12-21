@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Lighthouse
 {
     /// <summary>
-    /// Manages a Lighthouse Assignment to a subscription, or to a resource group.
+    /// Manages a [Lighthouse](https://docs.microsoft.com/en-us/azure/lighthouse) Assignment to a subscription, or to a resource group.
     /// 
     /// ## Example Usage
     /// 

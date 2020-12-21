@@ -21,7 +21,6 @@ import (
 // import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi-random/sdk/v2/go/random"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -32,25 +31,18 @@ import (
 // 			return err
 // 		}
 // 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West US"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = random.NewRandomId(ctx, "server", &random.RandomIdArgs{
-// 			Keepers: pulumi.Float64Map{
-// 				"ami_id": pulumi.Float64(1),
-// 			},
-// 			ByteLength: pulumi.Int(8),
+// 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			TenantId:          pulumi.String(current.TenantId),
-// 			SkuName:           pulumi.String("premium"),
+// 			Location:                exampleResourceGroup.Location,
+// 			ResourceGroupName:       exampleResourceGroup.Name,
+// 			TenantId:                pulumi.String(current.TenantId),
+// 			SkuName:                 pulumi.String("premium"),
+// 			SoftDeleteEnabled:       pulumi.Bool(true),
+// 			SoftDeleteRetentionDays: pulumi.Int(7),
 // 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 // 				&keyvault.KeyVaultAccessPolicyArgs{
 // 					TenantId: pulumi.String(current.TenantId),
@@ -58,14 +50,13 @@ import (
 // 					KeyPermissions: pulumi.StringArray{
 // 						pulumi.String("create"),
 // 						pulumi.String("get"),
+// 						pulumi.String("purge"),
+// 						pulumi.String("recover"),
 // 					},
 // 					SecretPermissions: pulumi.StringArray{
 // 						pulumi.String("set"),
 // 					},
 // 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -97,7 +88,7 @@ import (
 // Key Vault Key which is Enabled can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:keyvault/key:Key net/keys/example/fdf067c93bbb4b22bff4d8b7a9a56217
+//  $ pulumi import azure:keyvault/key:Key example "https://example-keyvault.vault.azure.net/keys/example/fdf067c93bbb4b22bff4d8b7a9a56217"
 // ```
 type Key struct {
 	pulumi.CustomResourceState

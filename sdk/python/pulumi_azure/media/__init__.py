@@ -4,7 +4,9 @@
 
 # Export this package's modules as members:
 from .asset import *
+from .job import *
 from .service_account import *
+from .streaming_endpoint import *
 from .transform import *
 from ._inputs import *
 from . import outputs
@@ -23,8 +25,12 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure:media/asset:Asset":
                 return Asset(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:media/job:Job":
+                return Job(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:media/serviceAccount:ServiceAccount":
                 return ServiceAccount(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:media/streamingEndpoint:StreamingEndpoint":
+                return StreamingEndpoint(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:media/transform:Transform":
                 return Transform(name, pulumi.ResourceOptions(urn=urn))
             else:
@@ -33,7 +39,9 @@ def _register_module():
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("azure", "media/asset", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "media/job", _module_instance)
     pulumi.runtime.register_resource_module("azure", "media/serviceAccount", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "media/streamingEndpoint", _module_instance)
     pulumi.runtime.register_resource_module("azure", "media/transform", _module_instance)
 
 _register_module()

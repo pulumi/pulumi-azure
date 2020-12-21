@@ -53,7 +53,7 @@ class GetLBResult:
     @pulumi.getter(name="frontendIpConfigurations")
     def frontend_ip_configurations(self) -> Sequence['outputs.GetLBFrontendIpConfigurationResult']:
         """
-        (Optional) A `frontend_ip_configuration` block as documented below.
+        A `frontend_ip_configuration` block as documented below.
         """
         return pulumi.get(self, "frontend_ip_configurations")
 

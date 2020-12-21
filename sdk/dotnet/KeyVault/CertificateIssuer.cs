@@ -22,11 +22,11 @@ namespace Pulumi.Azure.KeyVault
     /// {
     ///     public MyStack()
     ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = "West Europe",
     ///         });
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
     ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
     ///         {
     ///             Location = exampleResourceGroup.Location,

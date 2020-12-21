@@ -73,6 +73,10 @@ export class TimeSeriesInsightsGen2Environment extends pulumi.CustomResource {
     }
 
     /**
+     * The FQDN used to access the environment data.
+     */
+    public /*out*/ readonly dataAccessFqdn!: pulumi.Output<string>;
+    /**
      * A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
      */
     public readonly idProperties!: pulumi.Output<string[]>;
@@ -114,6 +118,7 @@ export class TimeSeriesInsightsGen2Environment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as TimeSeriesInsightsGen2EnvironmentState | undefined;
+            inputs["dataAccessFqdn"] = state ? state.dataAccessFqdn : undefined;
             inputs["idProperties"] = state ? state.idProperties : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -144,6 +149,7 @@ export class TimeSeriesInsightsGen2Environment extends pulumi.CustomResource {
             inputs["storage"] = args ? args.storage : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["warmStoreDataRetentionTime"] = args ? args.warmStoreDataRetentionTime : undefined;
+            inputs["dataAccessFqdn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -160,6 +166,10 @@ export class TimeSeriesInsightsGen2Environment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TimeSeriesInsightsGen2Environment resources.
  */
 export interface TimeSeriesInsightsGen2EnvironmentState {
+    /**
+     * The FQDN used to access the environment data.
+     */
+    readonly dataAccessFqdn?: pulumi.Input<string>;
     /**
      * A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
      */

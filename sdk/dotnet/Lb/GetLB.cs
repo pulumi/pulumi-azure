@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Lb
     public sealed class GetLBResult
     {
         /// <summary>
-        /// (Optional) A `frontend_ip_configuration` block as documented below.
+        /// A `frontend_ip_configuration` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLBFrontendIpConfigurationResult> FrontendIpConfigurations;
         /// <summary>

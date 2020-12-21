@@ -23,6 +23,12 @@ namespace Pulumi.Azure.Iot
     public partial class TimeSeriesInsightsGen2Environment : Pulumi.CustomResource
     {
         /// <summary>
+        /// The FQDN used to access the environment data.
+        /// </summary>
+        [Output("dataAccessFqdn")]
+        public Output<string> DataAccessFqdn { get; private set; } = null!;
+
+        /// <summary>
         /// A list of property ids for the Azure IoT Time Series Insights Gen2 Environment
         /// </summary>
         [Output("idProperties")]
@@ -177,6 +183,12 @@ namespace Pulumi.Azure.Iot
 
     public sealed class TimeSeriesInsightsGen2EnvironmentState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The FQDN used to access the environment data.
+        /// </summary>
+        [Input("dataAccessFqdn")]
+        public Input<string>? DataAccessFqdn { get; set; }
+
         [Input("idProperties")]
         private InputList<string>? _idProperties;
 
