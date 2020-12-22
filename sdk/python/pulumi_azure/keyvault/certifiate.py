@@ -46,6 +46,8 @@ class Certifiate(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
+            soft_delete_enabled=True,
+            soft_delete_retention_days=7,
             access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
@@ -60,6 +62,7 @@ class Certifiate(pulumi.CustomResource):
                     "listissuers",
                     "managecontacts",
                     "manageissuers",
+                    "purge",
                     "setissuers",
                     "update",
                 ],
@@ -91,10 +94,7 @@ class Certifiate(pulumi.CustomResource):
                     "restore",
                     "set",
                 ],
-            )],
-            tags={
-                "environment": "Production",
-            })
+            )])
         example_certificate = azure.keyvault.Certificate("exampleCertificate",
             key_vault_id=example_key_vault.id,
             certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
@@ -145,7 +145,7 @@ class Certifiate(pulumi.CustomResource):
         Key Vault Certificates can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:keyvault/certifiate:Certifiate net/certificates/example/fdf067c93bbb4b22bff4d8b7a9a56217
+         $ pulumi import azure:keyvault/certifiate:Certifiate example "https://example-keyvault.vault.azure.net/certificates/example/fdf067c93bbb4b22bff4d8b7a9a56217"
         ```
 
         :param str resource_name: The name of the resource.

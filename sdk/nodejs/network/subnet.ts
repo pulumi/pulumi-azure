@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  *     delegations: [{
- *         name: "acctestdelegation",
+ *         name: "delegation",
  *         serviceDelegation: {
  *             name: "Microsoft.ContainerInstance/containerGroups",
  *             actions: [
@@ -108,6 +108,10 @@ export class Subnet extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * The list of IDs of Service Endpoint Policies to associate with the subnet.
+     */
+    public readonly serviceEndpointPolicyIds!: pulumi.Output<string[] | undefined>;
+    /**
      * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
      */
     public readonly serviceEndpoints!: pulumi.Output<string[] | undefined>;
@@ -135,6 +139,7 @@ export class Subnet extends pulumi.CustomResource {
             inputs["enforcePrivateLinkServiceNetworkPolicies"] = state ? state.enforcePrivateLinkServiceNetworkPolicies : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["serviceEndpointPolicyIds"] = state ? state.serviceEndpointPolicyIds : undefined;
             inputs["serviceEndpoints"] = state ? state.serviceEndpoints : undefined;
             inputs["virtualNetworkName"] = state ? state.virtualNetworkName : undefined;
         } else {
@@ -152,6 +157,7 @@ export class Subnet extends pulumi.CustomResource {
             inputs["enforcePrivateLinkServiceNetworkPolicies"] = args ? args.enforcePrivateLinkServiceNetworkPolicies : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serviceEndpointPolicyIds"] = args ? args.serviceEndpointPolicyIds : undefined;
             inputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
         }
@@ -201,6 +207,10 @@ export interface SubnetState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
+     * The list of IDs of Service Endpoint Policies to associate with the subnet.
+     */
+    readonly serviceEndpointPolicyIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
      */
     readonly serviceEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
@@ -244,6 +254,10 @@ export interface SubnetArgs {
      * The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The list of IDs of Service Endpoint Policies to associate with the subnet.
+     */
+    readonly serviceEndpointPolicyIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
      */

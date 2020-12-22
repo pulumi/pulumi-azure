@@ -819,7 +819,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_eventhub_cluster": {Tok: azureResource(azureEventHub, "Cluster")},
 
 			// Eventgrid
-			"azurerm_eventgrid_system_topic": {Tok: azureResource(azureEventGrid, "getSystemTopic")},
+			"azurerm_eventgrid_system_topic":                    {Tok: azureResource(azureEventGrid, "SystemTopic")},
+			"azurerm_eventgrid_system_topic_event_subscription": {Tok: azureResource(azureEventGrid, "SystemTopicEventSubscription")},
 
 			// IoT Resources
 			"azurerm_iothub": {Tok: azureResource(azureIot, "IoTHub"),
@@ -995,8 +996,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_maps_account": {Tok: azureResource(azureMaps, "Account")},
 
 			// Media
-			"azurerm_media_asset":     {Tok: azureResource(azureMedia, "Asset")},
-			"azurerm_media_transform": {Tok: azureResource(azureMedia, "Transform")},
+			"azurerm_media_asset":              {Tok: azureResource(azureMedia, "Asset")},
+			"azurerm_media_transform":          {Tok: azureResource(azureMedia, "Transform")},
+			"azurerm_media_job":                {Tok: azureResource(azureMedia, "Job")},
+			"azurerm_media_streaming_endpoint": {Tok: azureResource(azureMedia, "StreamingEndpoint")},
 
 			// Monitoring resources
 			"azurerm_monitor_action_group": {
@@ -1290,19 +1293,20 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_nat_gateway_public_ip_association": {
 				Tok: azureResource(azureNetwork, "NatGatewayPublicIpAssociation"),
 			},
-			"azurerm_subnet_nat_gateway_association":        {Tok: azureResource(azureNetwork, "SubnetNatGatewayAssociation")},
-			"azurerm_point_to_site_vpn_gateway":             {Tok: azureResource(azureNetwork, "PointToPointVpnGateway")},
-			"azurerm_virtual_hub":                           {Tok: azureResource(azureNetwork, "VirtualHub")},
-			"azurerm_virtual_hub_connection":                {Tok: azureResource(azureNetwork, "VirtualHubConnection")},
-			"azurerm_virtual_hub_ip":                        {Tok: azureResource(azureNetwork, "VirtualHubIp")},
-			"azurerm_virtual_hub_route_table":               {Tok: azureResource(azureNetwork, "VirtualHubRouteTable")},
-			"azurerm_virtual_hub_security_partner_provider": {Tok: azureResource(azureNetwork, "SecurityPartnerProvider")},
-			"azurerm_virtual_hub_bgp_connection":            {Tok: azureResource(azureNetwork, "BgpConnection")},
-			"azurerm_vpn_gateway":                           {Tok: azureResource(azureNetwork, "VpnGateway")},
-			"azurerm_vpn_gateway_connection":                {Tok: azureResource(azureNetwork, "VpnGatewayConnection")},
-			"azurerm_vpn_server_configuration":              {Tok: azureResource(azureNetwork, "VpnServerConfiguration")},
-			"azurerm_ip_group":                              {Tok: azureResource(azureNetwork, "IPGroup")},
-			"azurerm_vpn_site":                              {Tok: azureResource(azureNetwork, "VpnSite")},
+			"azurerm_subnet_nat_gateway_association":         {Tok: azureResource(azureNetwork, "SubnetNatGatewayAssociation")},
+			"azurerm_subnet_service_endpoint_storage_policy": {Tok: azureResource(azureNetwork, "SubnetServiceEndpointStoragePolicy")},
+			"azurerm_point_to_site_vpn_gateway":              {Tok: azureResource(azureNetwork, "PointToPointVpnGateway")},
+			"azurerm_virtual_hub":                            {Tok: azureResource(azureNetwork, "VirtualHub")},
+			"azurerm_virtual_hub_connection":                 {Tok: azureResource(azureNetwork, "VirtualHubConnection")},
+			"azurerm_virtual_hub_ip":                         {Tok: azureResource(azureNetwork, "VirtualHubIp")},
+			"azurerm_virtual_hub_route_table":                {Tok: azureResource(azureNetwork, "VirtualHubRouteTable")},
+			"azurerm_virtual_hub_security_partner_provider":  {Tok: azureResource(azureNetwork, "SecurityPartnerProvider")},
+			"azurerm_virtual_hub_bgp_connection":             {Tok: azureResource(azureNetwork, "BgpConnection")},
+			"azurerm_vpn_gateway":                            {Tok: azureResource(azureNetwork, "VpnGateway")},
+			"azurerm_vpn_gateway_connection":                 {Tok: azureResource(azureNetwork, "VpnGatewayConnection")},
+			"azurerm_vpn_server_configuration":               {Tok: azureResource(azureNetwork, "VpnServerConfiguration")},
+			"azurerm_ip_group":                               {Tok: azureResource(azureNetwork, "IPGroup")},
+			"azurerm_vpn_site":                               {Tok: azureResource(azureNetwork, "VpnSite")},
 
 			// Redis
 			"azurerm_redis_cache":         {Tok: azureResource(azureRedis, "Cache")},
@@ -1609,11 +1613,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_blueprint_assignment": {Tok: azureResource(azureBlueprint, "Assignment")},
 
 			// Synapse
-			"azurerm_synapse_workspace":       {Tok: azureResource(azureSynapse, "Workspace")},
-			"azurerm_synapse_firewall_rule":   {Tok: azureResource(azureSynapse, "FirewallRule")},
-			"azurerm_synapse_spark_pool":      {Tok: azureResource(azureSynapse, "SparkPool")},
-			"azurerm_synapse_sql_pool":        {Tok: azureResource(azureSynapse, "SqlPool")},
-			"azurerm_synapse_role_assignment": {Tok: azureResource(azureSynapse, "RoleAssignment")},
+			"azurerm_synapse_workspace":                {Tok: azureResource(azureSynapse, "Workspace")},
+			"azurerm_synapse_firewall_rule":            {Tok: azureResource(azureSynapse, "FirewallRule")},
+			"azurerm_synapse_spark_pool":               {Tok: azureResource(azureSynapse, "SparkPool")},
+			"azurerm_synapse_sql_pool":                 {Tok: azureResource(azureSynapse, "SqlPool")},
+			"azurerm_synapse_role_assignment":          {Tok: azureResource(azureSynapse, "RoleAssignment")},
+			"azurerm_synapse_managed_private_endpoint": {Tok: azureResource(azureSynapse, "ManagedPrivateEndpoint")},
 
 			// HSM
 			"azurerm_dedicated_hardware_security_module": {Tok: azureResource(azureHsm, "Module")},

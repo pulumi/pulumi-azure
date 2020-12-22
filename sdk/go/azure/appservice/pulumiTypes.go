@@ -5976,7 +5976,7 @@ type FunctionAppSiteConfig struct {
 	PreWarmedInstanceCount *int `pulumi:"preWarmedInstanceCount"`
 	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
 	ScmIpRestrictions []FunctionAppSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
-	// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (dafault), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+	// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
 	ScmType *string `pulumi:"scmType"`
 	// IP security restrictions for scm to use main. Defaults to false.
 	ScmUseMainIpRestriction *bool `pulumi:"scmUseMainIpRestriction"`
@@ -6019,7 +6019,7 @@ type FunctionAppSiteConfigArgs struct {
 	PreWarmedInstanceCount pulumi.IntPtrInput `pulumi:"preWarmedInstanceCount"`
 	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
 	ScmIpRestrictions FunctionAppSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
-	// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (dafault), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+	// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
 	ScmType pulumi.StringPtrInput `pulumi:"scmType"`
 	// IP security restrictions for scm to use main. Defaults to false.
 	ScmUseMainIpRestriction pulumi.BoolPtrInput `pulumi:"scmUseMainIpRestriction"`
@@ -6160,7 +6160,7 @@ func (o FunctionAppSiteConfigOutput) ScmIpRestrictions() FunctionAppSiteConfigSc
 	return o.ApplyT(func(v FunctionAppSiteConfig) []FunctionAppSiteConfigScmIpRestriction { return v.ScmIpRestrictions }).(FunctionAppSiteConfigScmIpRestrictionArrayOutput)
 }
 
-// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (dafault), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
 func (o FunctionAppSiteConfigOutput) ScmType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *string { return v.ScmType }).(pulumi.StringPtrOutput)
 }
@@ -6307,7 +6307,7 @@ func (o FunctionAppSiteConfigPtrOutput) ScmIpRestrictions() FunctionAppSiteConfi
 	}).(FunctionAppSiteConfigScmIpRestrictionArrayOutput)
 }
 
-// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (dafault), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
 func (o FunctionAppSiteConfigPtrOutput) ScmType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionAppSiteConfig) *string {
 		if v == nil {

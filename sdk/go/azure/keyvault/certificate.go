@@ -38,10 +38,12 @@ import (
 // 			return err
 // 		}
 // 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			TenantId:          pulumi.String(current.TenantId),
-// 			SkuName:           pulumi.String("standard"),
+// 			Location:                exampleResourceGroup.Location,
+// 			ResourceGroupName:       exampleResourceGroup.Name,
+// 			TenantId:                pulumi.String(current.TenantId),
+// 			SkuName:                 pulumi.String("standard"),
+// 			SoftDeleteEnabled:       pulumi.Bool(true),
+// 			SoftDeleteRetentionDays: pulumi.Int(7),
 // 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 // 				&keyvault.KeyVaultAccessPolicyArgs{
 // 					TenantId: pulumi.String(current.TenantId),
@@ -57,6 +59,7 @@ import (
 // 						pulumi.String("listissuers"),
 // 						pulumi.String("managecontacts"),
 // 						pulumi.String("manageissuers"),
+// 						pulumi.String("purge"),
 // 						pulumi.String("setissuers"),
 // 						pulumi.String("update"),
 // 					},
@@ -89,9 +92,6 @@ import (
 // 						pulumi.String("set"),
 // 					},
 // 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -158,7 +158,7 @@ import (
 // Key Vault Certificates can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:keyvault/certificate:Certificate net/certificates/example/fdf067c93bbb4b22bff4d8b7a9a56217
+//  $ pulumi import azure:keyvault/certificate:Certificate example "https://example-keyvault.vault.azure.net/certificates/example/fdf067c93bbb4b22bff4d8b7a9a56217"
 // ```
 type Certificate struct {
 	pulumi.CustomResourceState

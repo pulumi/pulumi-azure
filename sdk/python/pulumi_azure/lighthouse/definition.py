@@ -27,7 +27,7 @@ class Definition(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Manages a Lighthouse Definition.
+        Manages a [Lighthouse](https://docs.microsoft.com/en-us/azure/lighthouse) Definition.
 
         ## Example Usage
 

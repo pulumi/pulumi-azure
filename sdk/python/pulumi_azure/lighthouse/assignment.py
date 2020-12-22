@@ -22,7 +22,7 @@ class Assignment(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Manages a Lighthouse Assignment to a subscription, or to a resource group.
+        Manages a [Lighthouse](https://docs.microsoft.com/en-us/azure/lighthouse) Assignment to a subscription, or to a resource group.
 
         ## Example Usage
 

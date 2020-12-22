@@ -72,6 +72,7 @@ export * from "./subnet";
 export * from "./subnetNatGatewayAssociation";
 export * from "./subnetNetworkSecurityGroupAssociation";
 export * from "./subnetRouteTableAssociation";
+export * from "./subnetServiceEndpointStoragePolicy";
 export * from "./trafficManagerEndpoint";
 export * from "./trafficManagerProfile";
 export * from "./virtualHub";
@@ -132,6 +133,7 @@ import { Subnet } from "./subnet";
 import { SubnetNatGatewayAssociation } from "./subnetNatGatewayAssociation";
 import { SubnetNetworkSecurityGroupAssociation } from "./subnetNetworkSecurityGroupAssociation";
 import { SubnetRouteTableAssociation } from "./subnetRouteTableAssociation";
+import { SubnetServiceEndpointStoragePolicy } from "./subnetServiceEndpointStoragePolicy";
 import { TrafficManagerEndpoint } from "./trafficManagerEndpoint";
 import { TrafficManagerProfile } from "./trafficManagerProfile";
 import { VirtualHub } from "./virtualHub";
@@ -238,6 +240,8 @@ const _module = {
                 return new SubnetNetworkSecurityGroupAssociation(name, <any>undefined, { urn })
             case "azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation":
                 return new SubnetRouteTableAssociation(name, <any>undefined, { urn })
+            case "azure:network/subnetServiceEndpointStoragePolicy:SubnetServiceEndpointStoragePolicy":
+                return new SubnetServiceEndpointStoragePolicy(name, <any>undefined, { urn })
             case "azure:network/trafficManagerEndpoint:TrafficManagerEndpoint":
                 return new TrafficManagerEndpoint(name, <any>undefined, { urn })
             case "azure:network/trafficManagerProfile:TrafficManagerProfile":
@@ -316,6 +320,7 @@ pulumi.runtime.registerResourceModule("azure", "network/subnet", _module)
 pulumi.runtime.registerResourceModule("azure", "network/subnetNatGatewayAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "network/subnetNetworkSecurityGroupAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "network/subnetRouteTableAssociation", _module)
+pulumi.runtime.registerResourceModule("azure", "network/subnetServiceEndpointStoragePolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "network/trafficManagerEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "network/trafficManagerProfile", _module)
 pulumi.runtime.registerResourceModule("azure", "network/virtualHub", _module)

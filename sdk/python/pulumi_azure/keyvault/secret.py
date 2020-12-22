@@ -28,12 +28,47 @@ class Secret(pulumi.CustomResource):
         """
         Manages a Key Vault Secret.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            soft_delete_enabled=True,
+            soft_delete_retention_days=7,
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+                tenant_id=current.tenant_id,
+                object_id=current.object_id,
+                key_permissions=[
+                    "create",
+                    "get",
+                ],
+                secret_permissions=[
+                    "set",
+                    "get",
+                    "delete",
+                    "purge",
+                    "recover",
+                ],
+            )])
+        example_secret = azure.keyvault.Secret("exampleSecret",
+            value="szechuan",
+            key_vault_id=example_key_vault.id)
+        ```
+
         ## Import
 
         Key Vault Secrets which are Enabled can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:keyvault/secret:Secret example https://example-keyvault.vault.azure.net/secrets/example/fdf067c93bbb4b22bff4d8b7a9a56217
+         $ pulumi import azure:keyvault/secret:Secret example "https://example-keyvault.vault.azure.net/secrets/example/fdf067c93bbb4b22bff4d8b7a9a56217"
         ```
 
         :param str resource_name: The name of the resource.

@@ -24,6 +24,7 @@ class Subnet(pulumi.CustomResource):
                  enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -52,7 +53,7 @@ class Subnet(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
             delegations=[azure.network.SubnetDelegationArgs(
-                name="acctestdelegation",
+                name="delegation",
                 service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
                     name="Microsoft.ContainerInstance/containerGroups",
                     actions=[
@@ -80,6 +81,7 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[bool] enforce_private_link_service_network_policies: Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforce_private_link_endpoint_network_policies`.
         :param pulumi.Input[str] name: The name of the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
         """
@@ -112,6 +114,7 @@ class Subnet(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['service_endpoint_policy_ids'] = service_endpoint_policy_ids
             __props__['service_endpoints'] = service_endpoints
             if virtual_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_name'")
@@ -133,6 +136,7 @@ class Subnet(pulumi.CustomResource):
             enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             virtual_network_name: Optional[pulumi.Input[str]] = None) -> 'Subnet':
         """
@@ -149,6 +153,7 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[bool] enforce_private_link_service_network_policies: Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforce_private_link_endpoint_network_policies`.
         :param pulumi.Input[str] name: The name of the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
         """
@@ -163,6 +168,7 @@ class Subnet(pulumi.CustomResource):
         __props__["enforce_private_link_service_network_policies"] = enforce_private_link_service_network_policies
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
+        __props__["service_endpoint_policy_ids"] = service_endpoint_policy_ids
         __props__["service_endpoints"] = service_endpoints
         __props__["virtual_network_name"] = virtual_network_name
         return Subnet(resource_name, opts=opts, __props__=__props__)
@@ -222,6 +228,14 @@ class Subnet(pulumi.CustomResource):
         The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="serviceEndpointPolicyIds")
+    def service_endpoint_policy_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The list of IDs of Service Endpoint Policies to associate with the subnet.
+        """
+        return pulumi.get(self, "service_endpoint_policy_ids")
 
     @property
     @pulumi.getter(name="serviceEndpoints")

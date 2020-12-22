@@ -51,7 +51,7 @@ namespace Pulumi.Azure.Network
     ///             {
     ///                 new Azure.Network.Inputs.SubnetDelegationArgs
     ///                 {
-    ///                     Name = "acctestdelegation",
+    ///                     Name = "delegation",
     ///                     ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                     {
     ///                         Name = "Microsoft.ContainerInstance/containerGroups",
@@ -120,6 +120,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of IDs of Service Endpoint Policies to associate with the subnet.
+        /// </summary>
+        [Output("serviceEndpointPolicyIds")]
+        public Output<ImmutableArray<string>> ServiceEndpointPolicyIds { get; private set; } = null!;
 
         /// <summary>
         /// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
@@ -233,6 +239,18 @@ namespace Pulumi.Azure.Network
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("serviceEndpointPolicyIds")]
+        private InputList<string>? _serviceEndpointPolicyIds;
+
+        /// <summary>
+        /// The list of IDs of Service Endpoint Policies to associate with the subnet.
+        /// </summary>
+        public InputList<string> ServiceEndpointPolicyIds
+        {
+            get => _serviceEndpointPolicyIds ?? (_serviceEndpointPolicyIds = new InputList<string>());
+            set => _serviceEndpointPolicyIds = value;
+        }
+
         [Input("serviceEndpoints")]
         private InputList<string>? _serviceEndpoints;
 
@@ -311,6 +329,18 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        [Input("serviceEndpointPolicyIds")]
+        private InputList<string>? _serviceEndpointPolicyIds;
+
+        /// <summary>
+        /// The list of IDs of Service Endpoint Policies to associate with the subnet.
+        /// </summary>
+        public InputList<string> ServiceEndpointPolicyIds
+        {
+            get => _serviceEndpointPolicyIds ?? (_serviceEndpointPolicyIds = new InputList<string>());
+            set => _serviceEndpointPolicyIds = value;
+        }
 
         [Input("serviceEndpoints")]
         private InputList<string>? _serviceEndpoints;

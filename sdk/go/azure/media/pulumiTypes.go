@@ -10,6 +10,262 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type JobInputAsset struct {
+	// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+	Label *string `pulumi:"label"`
+	// The name of the input Asset. Changing this forces a new Media Job to be created.
+	Name string `pulumi:"name"`
+}
+
+// JobInputAssetInput is an input type that accepts JobInputAssetArgs and JobInputAssetOutput values.
+// You can construct a concrete instance of `JobInputAssetInput` via:
+//
+//          JobInputAssetArgs{...}
+type JobInputAssetInput interface {
+	pulumi.Input
+
+	ToJobInputAssetOutput() JobInputAssetOutput
+	ToJobInputAssetOutputWithContext(context.Context) JobInputAssetOutput
+}
+
+type JobInputAssetArgs struct {
+	// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The name of the input Asset. Changing this forces a new Media Job to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (JobInputAssetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInputAsset)(nil)).Elem()
+}
+
+func (i JobInputAssetArgs) ToJobInputAssetOutput() JobInputAssetOutput {
+	return i.ToJobInputAssetOutputWithContext(context.Background())
+}
+
+func (i JobInputAssetArgs) ToJobInputAssetOutputWithContext(ctx context.Context) JobInputAssetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobInputAssetOutput)
+}
+
+func (i JobInputAssetArgs) ToJobInputAssetPtrOutput() JobInputAssetPtrOutput {
+	return i.ToJobInputAssetPtrOutputWithContext(context.Background())
+}
+
+func (i JobInputAssetArgs) ToJobInputAssetPtrOutputWithContext(ctx context.Context) JobInputAssetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobInputAssetOutput).ToJobInputAssetPtrOutputWithContext(ctx)
+}
+
+// JobInputAssetPtrInput is an input type that accepts JobInputAssetArgs, JobInputAssetPtr and JobInputAssetPtrOutput values.
+// You can construct a concrete instance of `JobInputAssetPtrInput` via:
+//
+//          JobInputAssetArgs{...}
+//
+//  or:
+//
+//          nil
+type JobInputAssetPtrInput interface {
+	pulumi.Input
+
+	ToJobInputAssetPtrOutput() JobInputAssetPtrOutput
+	ToJobInputAssetPtrOutputWithContext(context.Context) JobInputAssetPtrOutput
+}
+
+type jobInputAssetPtrType JobInputAssetArgs
+
+func JobInputAssetPtr(v *JobInputAssetArgs) JobInputAssetPtrInput {
+	return (*jobInputAssetPtrType)(v)
+}
+
+func (*jobInputAssetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobInputAsset)(nil)).Elem()
+}
+
+func (i *jobInputAssetPtrType) ToJobInputAssetPtrOutput() JobInputAssetPtrOutput {
+	return i.ToJobInputAssetPtrOutputWithContext(context.Background())
+}
+
+func (i *jobInputAssetPtrType) ToJobInputAssetPtrOutputWithContext(ctx context.Context) JobInputAssetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobInputAssetPtrOutput)
+}
+
+type JobInputAssetOutput struct{ *pulumi.OutputState }
+
+func (JobInputAssetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInputAsset)(nil)).Elem()
+}
+
+func (o JobInputAssetOutput) ToJobInputAssetOutput() JobInputAssetOutput {
+	return o
+}
+
+func (o JobInputAssetOutput) ToJobInputAssetOutputWithContext(ctx context.Context) JobInputAssetOutput {
+	return o
+}
+
+func (o JobInputAssetOutput) ToJobInputAssetPtrOutput() JobInputAssetPtrOutput {
+	return o.ToJobInputAssetPtrOutputWithContext(context.Background())
+}
+
+func (o JobInputAssetOutput) ToJobInputAssetPtrOutputWithContext(ctx context.Context) JobInputAssetPtrOutput {
+	return o.ApplyT(func(v JobInputAsset) *JobInputAsset {
+		return &v
+	}).(JobInputAssetPtrOutput)
+}
+
+// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+func (o JobInputAssetOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobInputAsset) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The name of the input Asset. Changing this forces a new Media Job to be created.
+func (o JobInputAssetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobInputAsset) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type JobInputAssetPtrOutput struct{ *pulumi.OutputState }
+
+func (JobInputAssetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobInputAsset)(nil)).Elem()
+}
+
+func (o JobInputAssetPtrOutput) ToJobInputAssetPtrOutput() JobInputAssetPtrOutput {
+	return o
+}
+
+func (o JobInputAssetPtrOutput) ToJobInputAssetPtrOutputWithContext(ctx context.Context) JobInputAssetPtrOutput {
+	return o
+}
+
+func (o JobInputAssetPtrOutput) Elem() JobInputAssetOutput {
+	return o.ApplyT(func(v *JobInputAsset) JobInputAsset { return *v }).(JobInputAssetOutput)
+}
+
+// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+func (o JobInputAssetPtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobInputAsset) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the input Asset. Changing this forces a new Media Job to be created.
+func (o JobInputAssetPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobInputAsset) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobOutputAsset struct {
+	// A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
+	Label *string `pulumi:"label"`
+	// The name of the output Asset. Changing this forces a new Media Job to be created.
+	Name string `pulumi:"name"`
+}
+
+// JobOutputAssetInput is an input type that accepts JobOutputAssetArgs and JobOutputAssetOutput values.
+// You can construct a concrete instance of `JobOutputAssetInput` via:
+//
+//          JobOutputAssetArgs{...}
+type JobOutputAssetInput interface {
+	pulumi.Input
+
+	ToJobOutputAssetOutput() JobOutputAssetOutput
+	ToJobOutputAssetOutputWithContext(context.Context) JobOutputAssetOutput
+}
+
+type JobOutputAssetArgs struct {
+	// A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The name of the output Asset. Changing this forces a new Media Job to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (JobOutputAssetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobOutputAsset)(nil)).Elem()
+}
+
+func (i JobOutputAssetArgs) ToJobOutputAssetOutput() JobOutputAssetOutput {
+	return i.ToJobOutputAssetOutputWithContext(context.Background())
+}
+
+func (i JobOutputAssetArgs) ToJobOutputAssetOutputWithContext(ctx context.Context) JobOutputAssetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobOutputAssetOutput)
+}
+
+// JobOutputAssetArrayInput is an input type that accepts JobOutputAssetArray and JobOutputAssetArrayOutput values.
+// You can construct a concrete instance of `JobOutputAssetArrayInput` via:
+//
+//          JobOutputAssetArray{ JobOutputAssetArgs{...} }
+type JobOutputAssetArrayInput interface {
+	pulumi.Input
+
+	ToJobOutputAssetArrayOutput() JobOutputAssetArrayOutput
+	ToJobOutputAssetArrayOutputWithContext(context.Context) JobOutputAssetArrayOutput
+}
+
+type JobOutputAssetArray []JobOutputAssetInput
+
+func (JobOutputAssetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobOutputAsset)(nil)).Elem()
+}
+
+func (i JobOutputAssetArray) ToJobOutputAssetArrayOutput() JobOutputAssetArrayOutput {
+	return i.ToJobOutputAssetArrayOutputWithContext(context.Background())
+}
+
+func (i JobOutputAssetArray) ToJobOutputAssetArrayOutputWithContext(ctx context.Context) JobOutputAssetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobOutputAssetArrayOutput)
+}
+
+type JobOutputAssetOutput struct{ *pulumi.OutputState }
+
+func (JobOutputAssetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobOutputAsset)(nil)).Elem()
+}
+
+func (o JobOutputAssetOutput) ToJobOutputAssetOutput() JobOutputAssetOutput {
+	return o
+}
+
+func (o JobOutputAssetOutput) ToJobOutputAssetOutputWithContext(ctx context.Context) JobOutputAssetOutput {
+	return o
+}
+
+// A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
+func (o JobOutputAssetOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobOutputAsset) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The name of the output Asset. Changing this forces a new Media Job to be created.
+func (o JobOutputAssetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobOutputAsset) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type JobOutputAssetArrayOutput struct{ *pulumi.OutputState }
+
+func (JobOutputAssetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobOutputAsset)(nil)).Elem()
+}
+
+func (o JobOutputAssetArrayOutput) ToJobOutputAssetArrayOutput() JobOutputAssetArrayOutput {
+	return o
+}
+
+func (o JobOutputAssetArrayOutput) ToJobOutputAssetArrayOutputWithContext(ctx context.Context) JobOutputAssetArrayOutput {
+	return o
+}
+
+func (o JobOutputAssetArrayOutput) Index(i pulumi.IntInput) JobOutputAssetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobOutputAsset {
+		return vs[0].([]JobOutputAsset)[vs[1].(int)]
+	}).(JobOutputAssetOutput)
+}
+
 type ServiceAccountIdentity struct {
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -283,6 +539,544 @@ func (o ServiceAccountStorageAccountArrayOutput) Index(i pulumi.IntInput) Servic
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceAccountStorageAccount {
 		return vs[0].([]ServiceAccountStorageAccount)[vs[1].(int)]
 	}).(ServiceAccountStorageAccountOutput)
+}
+
+type StreamingEndpointAccessControl struct {
+	// One or more `akamaiSignatureHeaderAuthenticationKey` blocks as defined below.
+	AkamaiSignatureHeaderAuthenticationKeys []StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey `pulumi:"akamaiSignatureHeaderAuthenticationKeys"`
+	// A `ip` block as defined below.
+	IpAllows []StreamingEndpointAccessControlIpAllow `pulumi:"ipAllows"`
+}
+
+// StreamingEndpointAccessControlInput is an input type that accepts StreamingEndpointAccessControlArgs and StreamingEndpointAccessControlOutput values.
+// You can construct a concrete instance of `StreamingEndpointAccessControlInput` via:
+//
+//          StreamingEndpointAccessControlArgs{...}
+type StreamingEndpointAccessControlInput interface {
+	pulumi.Input
+
+	ToStreamingEndpointAccessControlOutput() StreamingEndpointAccessControlOutput
+	ToStreamingEndpointAccessControlOutputWithContext(context.Context) StreamingEndpointAccessControlOutput
+}
+
+type StreamingEndpointAccessControlArgs struct {
+	// One or more `akamaiSignatureHeaderAuthenticationKey` blocks as defined below.
+	AkamaiSignatureHeaderAuthenticationKeys StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayInput `pulumi:"akamaiSignatureHeaderAuthenticationKeys"`
+	// A `ip` block as defined below.
+	IpAllows StreamingEndpointAccessControlIpAllowArrayInput `pulumi:"ipAllows"`
+}
+
+func (StreamingEndpointAccessControlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingEndpointAccessControl)(nil)).Elem()
+}
+
+func (i StreamingEndpointAccessControlArgs) ToStreamingEndpointAccessControlOutput() StreamingEndpointAccessControlOutput {
+	return i.ToStreamingEndpointAccessControlOutputWithContext(context.Background())
+}
+
+func (i StreamingEndpointAccessControlArgs) ToStreamingEndpointAccessControlOutputWithContext(ctx context.Context) StreamingEndpointAccessControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlOutput)
+}
+
+func (i StreamingEndpointAccessControlArgs) ToStreamingEndpointAccessControlPtrOutput() StreamingEndpointAccessControlPtrOutput {
+	return i.ToStreamingEndpointAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingEndpointAccessControlArgs) ToStreamingEndpointAccessControlPtrOutputWithContext(ctx context.Context) StreamingEndpointAccessControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlOutput).ToStreamingEndpointAccessControlPtrOutputWithContext(ctx)
+}
+
+// StreamingEndpointAccessControlPtrInput is an input type that accepts StreamingEndpointAccessControlArgs, StreamingEndpointAccessControlPtr and StreamingEndpointAccessControlPtrOutput values.
+// You can construct a concrete instance of `StreamingEndpointAccessControlPtrInput` via:
+//
+//          StreamingEndpointAccessControlArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingEndpointAccessControlPtrInput interface {
+	pulumi.Input
+
+	ToStreamingEndpointAccessControlPtrOutput() StreamingEndpointAccessControlPtrOutput
+	ToStreamingEndpointAccessControlPtrOutputWithContext(context.Context) StreamingEndpointAccessControlPtrOutput
+}
+
+type streamingEndpointAccessControlPtrType StreamingEndpointAccessControlArgs
+
+func StreamingEndpointAccessControlPtr(v *StreamingEndpointAccessControlArgs) StreamingEndpointAccessControlPtrInput {
+	return (*streamingEndpointAccessControlPtrType)(v)
+}
+
+func (*streamingEndpointAccessControlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingEndpointAccessControl)(nil)).Elem()
+}
+
+func (i *streamingEndpointAccessControlPtrType) ToStreamingEndpointAccessControlPtrOutput() StreamingEndpointAccessControlPtrOutput {
+	return i.ToStreamingEndpointAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingEndpointAccessControlPtrType) ToStreamingEndpointAccessControlPtrOutputWithContext(ctx context.Context) StreamingEndpointAccessControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlPtrOutput)
+}
+
+type StreamingEndpointAccessControlOutput struct{ *pulumi.OutputState }
+
+func (StreamingEndpointAccessControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingEndpointAccessControl)(nil)).Elem()
+}
+
+func (o StreamingEndpointAccessControlOutput) ToStreamingEndpointAccessControlOutput() StreamingEndpointAccessControlOutput {
+	return o
+}
+
+func (o StreamingEndpointAccessControlOutput) ToStreamingEndpointAccessControlOutputWithContext(ctx context.Context) StreamingEndpointAccessControlOutput {
+	return o
+}
+
+func (o StreamingEndpointAccessControlOutput) ToStreamingEndpointAccessControlPtrOutput() StreamingEndpointAccessControlPtrOutput {
+	return o.ToStreamingEndpointAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingEndpointAccessControlOutput) ToStreamingEndpointAccessControlPtrOutputWithContext(ctx context.Context) StreamingEndpointAccessControlPtrOutput {
+	return o.ApplyT(func(v StreamingEndpointAccessControl) *StreamingEndpointAccessControl {
+		return &v
+	}).(StreamingEndpointAccessControlPtrOutput)
+}
+
+// One or more `akamaiSignatureHeaderAuthenticationKey` blocks as defined below.
+func (o StreamingEndpointAccessControlOutput) AkamaiSignatureHeaderAuthenticationKeys() StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput {
+	return o.ApplyT(func(v StreamingEndpointAccessControl) []StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey {
+		return v.AkamaiSignatureHeaderAuthenticationKeys
+	}).(StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput)
+}
+
+// A `ip` block as defined below.
+func (o StreamingEndpointAccessControlOutput) IpAllows() StreamingEndpointAccessControlIpAllowArrayOutput {
+	return o.ApplyT(func(v StreamingEndpointAccessControl) []StreamingEndpointAccessControlIpAllow { return v.IpAllows }).(StreamingEndpointAccessControlIpAllowArrayOutput)
+}
+
+type StreamingEndpointAccessControlPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingEndpointAccessControlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingEndpointAccessControl)(nil)).Elem()
+}
+
+func (o StreamingEndpointAccessControlPtrOutput) ToStreamingEndpointAccessControlPtrOutput() StreamingEndpointAccessControlPtrOutput {
+	return o
+}
+
+func (o StreamingEndpointAccessControlPtrOutput) ToStreamingEndpointAccessControlPtrOutputWithContext(ctx context.Context) StreamingEndpointAccessControlPtrOutput {
+	return o
+}
+
+func (o StreamingEndpointAccessControlPtrOutput) Elem() StreamingEndpointAccessControlOutput {
+	return o.ApplyT(func(v *StreamingEndpointAccessControl) StreamingEndpointAccessControl { return *v }).(StreamingEndpointAccessControlOutput)
+}
+
+// One or more `akamaiSignatureHeaderAuthenticationKey` blocks as defined below.
+func (o StreamingEndpointAccessControlPtrOutput) AkamaiSignatureHeaderAuthenticationKeys() StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput {
+	return o.ApplyT(func(v *StreamingEndpointAccessControl) []StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey {
+		if v == nil {
+			return nil
+		}
+		return v.AkamaiSignatureHeaderAuthenticationKeys
+	}).(StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput)
+}
+
+// A `ip` block as defined below.
+func (o StreamingEndpointAccessControlPtrOutput) IpAllows() StreamingEndpointAccessControlIpAllowArrayOutput {
+	return o.ApplyT(func(v *StreamingEndpointAccessControl) []StreamingEndpointAccessControlIpAllow {
+		if v == nil {
+			return nil
+		}
+		return v.IpAllows
+	}).(StreamingEndpointAccessControlIpAllowArrayOutput)
+}
+
+type StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey struct {
+	// Authentication key.
+	Base64Key *string `pulumi:"base64Key"`
+	// The expiration time of the authentication key.
+	Expiration *string `pulumi:"expiration"`
+	// Identifier of the key.
+	Identifier *string `pulumi:"identifier"`
+}
+
+// StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyInput is an input type that accepts StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs and StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput values.
+// You can construct a concrete instance of `StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyInput` via:
+//
+//          StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs{...}
+type StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyInput interface {
+	pulumi.Input
+
+	ToStreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput() StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput
+	ToStreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutputWithContext(context.Context) StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput
+}
+
+type StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs struct {
+	// Authentication key.
+	Base64Key pulumi.StringPtrInput `pulumi:"base64Key"`
+	// The expiration time of the authentication key.
+	Expiration pulumi.StringPtrInput `pulumi:"expiration"`
+	// Identifier of the key.
+	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
+}
+
+func (StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey)(nil)).Elem()
+}
+
+func (i StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs) ToStreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput() StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput {
+	return i.ToStreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutputWithContext(context.Background())
+}
+
+func (i StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs) ToStreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutputWithContext(ctx context.Context) StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput)
+}
+
+// StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayInput is an input type that accepts StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArray and StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput values.
+// You can construct a concrete instance of `StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayInput` via:
+//
+//          StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArray{ StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs{...} }
+type StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayInput interface {
+	pulumi.Input
+
+	ToStreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput() StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput
+	ToStreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutputWithContext(context.Context) StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput
+}
+
+type StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArray []StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyInput
+
+func (StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey)(nil)).Elem()
+}
+
+func (i StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArray) ToStreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput() StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput {
+	return i.ToStreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutputWithContext(context.Background())
+}
+
+func (i StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArray) ToStreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutputWithContext(ctx context.Context) StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput)
+}
+
+type StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput struct{ *pulumi.OutputState }
+
+func (StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey)(nil)).Elem()
+}
+
+func (o StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput) ToStreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput() StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput {
+	return o
+}
+
+func (o StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput) ToStreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutputWithContext(ctx context.Context) StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput {
+	return o
+}
+
+// Authentication key.
+func (o StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput) Base64Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey) *string {
+		return v.Base64Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The expiration time of the authentication key.
+func (o StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput) Expiration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey) *string {
+		return v.Expiration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the key.
+func (o StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey) *string {
+		return v.Identifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey)(nil)).Elem()
+}
+
+func (o StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput) ToStreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput() StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput {
+	return o
+}
+
+func (o StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput) ToStreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutputWithContext(ctx context.Context) StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput {
+	return o
+}
+
+func (o StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput) Index(i pulumi.IntInput) StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey {
+		return vs[0].([]StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey)[vs[1].(int)]
+	}).(StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput)
+}
+
+type StreamingEndpointAccessControlIpAllow struct {
+	// The IP address to allow.
+	Address *string `pulumi:"address"`
+	// The friendly name for the IP address range.
+	Name *string `pulumi:"name"`
+	// The subnet mask prefix length (see CIDR notation).
+	SubnetPrefixLength *int `pulumi:"subnetPrefixLength"`
+}
+
+// StreamingEndpointAccessControlIpAllowInput is an input type that accepts StreamingEndpointAccessControlIpAllowArgs and StreamingEndpointAccessControlIpAllowOutput values.
+// You can construct a concrete instance of `StreamingEndpointAccessControlIpAllowInput` via:
+//
+//          StreamingEndpointAccessControlIpAllowArgs{...}
+type StreamingEndpointAccessControlIpAllowInput interface {
+	pulumi.Input
+
+	ToStreamingEndpointAccessControlIpAllowOutput() StreamingEndpointAccessControlIpAllowOutput
+	ToStreamingEndpointAccessControlIpAllowOutputWithContext(context.Context) StreamingEndpointAccessControlIpAllowOutput
+}
+
+type StreamingEndpointAccessControlIpAllowArgs struct {
+	// The IP address to allow.
+	Address pulumi.StringPtrInput `pulumi:"address"`
+	// The friendly name for the IP address range.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The subnet mask prefix length (see CIDR notation).
+	SubnetPrefixLength pulumi.IntPtrInput `pulumi:"subnetPrefixLength"`
+}
+
+func (StreamingEndpointAccessControlIpAllowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingEndpointAccessControlIpAllow)(nil)).Elem()
+}
+
+func (i StreamingEndpointAccessControlIpAllowArgs) ToStreamingEndpointAccessControlIpAllowOutput() StreamingEndpointAccessControlIpAllowOutput {
+	return i.ToStreamingEndpointAccessControlIpAllowOutputWithContext(context.Background())
+}
+
+func (i StreamingEndpointAccessControlIpAllowArgs) ToStreamingEndpointAccessControlIpAllowOutputWithContext(ctx context.Context) StreamingEndpointAccessControlIpAllowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlIpAllowOutput)
+}
+
+// StreamingEndpointAccessControlIpAllowArrayInput is an input type that accepts StreamingEndpointAccessControlIpAllowArray and StreamingEndpointAccessControlIpAllowArrayOutput values.
+// You can construct a concrete instance of `StreamingEndpointAccessControlIpAllowArrayInput` via:
+//
+//          StreamingEndpointAccessControlIpAllowArray{ StreamingEndpointAccessControlIpAllowArgs{...} }
+type StreamingEndpointAccessControlIpAllowArrayInput interface {
+	pulumi.Input
+
+	ToStreamingEndpointAccessControlIpAllowArrayOutput() StreamingEndpointAccessControlIpAllowArrayOutput
+	ToStreamingEndpointAccessControlIpAllowArrayOutputWithContext(context.Context) StreamingEndpointAccessControlIpAllowArrayOutput
+}
+
+type StreamingEndpointAccessControlIpAllowArray []StreamingEndpointAccessControlIpAllowInput
+
+func (StreamingEndpointAccessControlIpAllowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingEndpointAccessControlIpAllow)(nil)).Elem()
+}
+
+func (i StreamingEndpointAccessControlIpAllowArray) ToStreamingEndpointAccessControlIpAllowArrayOutput() StreamingEndpointAccessControlIpAllowArrayOutput {
+	return i.ToStreamingEndpointAccessControlIpAllowArrayOutputWithContext(context.Background())
+}
+
+func (i StreamingEndpointAccessControlIpAllowArray) ToStreamingEndpointAccessControlIpAllowArrayOutputWithContext(ctx context.Context) StreamingEndpointAccessControlIpAllowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlIpAllowArrayOutput)
+}
+
+type StreamingEndpointAccessControlIpAllowOutput struct{ *pulumi.OutputState }
+
+func (StreamingEndpointAccessControlIpAllowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingEndpointAccessControlIpAllow)(nil)).Elem()
+}
+
+func (o StreamingEndpointAccessControlIpAllowOutput) ToStreamingEndpointAccessControlIpAllowOutput() StreamingEndpointAccessControlIpAllowOutput {
+	return o
+}
+
+func (o StreamingEndpointAccessControlIpAllowOutput) ToStreamingEndpointAccessControlIpAllowOutputWithContext(ctx context.Context) StreamingEndpointAccessControlIpAllowOutput {
+	return o
+}
+
+// The IP address to allow.
+func (o StreamingEndpointAccessControlIpAllowOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingEndpointAccessControlIpAllow) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+// The friendly name for the IP address range.
+func (o StreamingEndpointAccessControlIpAllowOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingEndpointAccessControlIpAllow) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The subnet mask prefix length (see CIDR notation).
+func (o StreamingEndpointAccessControlIpAllowOutput) SubnetPrefixLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StreamingEndpointAccessControlIpAllow) *int { return v.SubnetPrefixLength }).(pulumi.IntPtrOutput)
+}
+
+type StreamingEndpointAccessControlIpAllowArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamingEndpointAccessControlIpAllowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingEndpointAccessControlIpAllow)(nil)).Elem()
+}
+
+func (o StreamingEndpointAccessControlIpAllowArrayOutput) ToStreamingEndpointAccessControlIpAllowArrayOutput() StreamingEndpointAccessControlIpAllowArrayOutput {
+	return o
+}
+
+func (o StreamingEndpointAccessControlIpAllowArrayOutput) ToStreamingEndpointAccessControlIpAllowArrayOutputWithContext(ctx context.Context) StreamingEndpointAccessControlIpAllowArrayOutput {
+	return o
+}
+
+func (o StreamingEndpointAccessControlIpAllowArrayOutput) Index(i pulumi.IntInput) StreamingEndpointAccessControlIpAllowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamingEndpointAccessControlIpAllow {
+		return vs[0].([]StreamingEndpointAccessControlIpAllow)[vs[1].(int)]
+	}).(StreamingEndpointAccessControlIpAllowOutput)
+}
+
+type StreamingEndpointCrossSiteAccessPolicy struct {
+	// The content of clientaccesspolicy.xml used by Silverlight.
+	ClientAccessPolicy *string `pulumi:"clientAccessPolicy"`
+	// The content of crossdomain.xml used by Silverlight.
+	CrossDomainPolicy *string `pulumi:"crossDomainPolicy"`
+}
+
+// StreamingEndpointCrossSiteAccessPolicyInput is an input type that accepts StreamingEndpointCrossSiteAccessPolicyArgs and StreamingEndpointCrossSiteAccessPolicyOutput values.
+// You can construct a concrete instance of `StreamingEndpointCrossSiteAccessPolicyInput` via:
+//
+//          StreamingEndpointCrossSiteAccessPolicyArgs{...}
+type StreamingEndpointCrossSiteAccessPolicyInput interface {
+	pulumi.Input
+
+	ToStreamingEndpointCrossSiteAccessPolicyOutput() StreamingEndpointCrossSiteAccessPolicyOutput
+	ToStreamingEndpointCrossSiteAccessPolicyOutputWithContext(context.Context) StreamingEndpointCrossSiteAccessPolicyOutput
+}
+
+type StreamingEndpointCrossSiteAccessPolicyArgs struct {
+	// The content of clientaccesspolicy.xml used by Silverlight.
+	ClientAccessPolicy pulumi.StringPtrInput `pulumi:"clientAccessPolicy"`
+	// The content of crossdomain.xml used by Silverlight.
+	CrossDomainPolicy pulumi.StringPtrInput `pulumi:"crossDomainPolicy"`
+}
+
+func (StreamingEndpointCrossSiteAccessPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingEndpointCrossSiteAccessPolicy)(nil)).Elem()
+}
+
+func (i StreamingEndpointCrossSiteAccessPolicyArgs) ToStreamingEndpointCrossSiteAccessPolicyOutput() StreamingEndpointCrossSiteAccessPolicyOutput {
+	return i.ToStreamingEndpointCrossSiteAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i StreamingEndpointCrossSiteAccessPolicyArgs) ToStreamingEndpointCrossSiteAccessPolicyOutputWithContext(ctx context.Context) StreamingEndpointCrossSiteAccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointCrossSiteAccessPolicyOutput)
+}
+
+func (i StreamingEndpointCrossSiteAccessPolicyArgs) ToStreamingEndpointCrossSiteAccessPolicyPtrOutput() StreamingEndpointCrossSiteAccessPolicyPtrOutput {
+	return i.ToStreamingEndpointCrossSiteAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingEndpointCrossSiteAccessPolicyArgs) ToStreamingEndpointCrossSiteAccessPolicyPtrOutputWithContext(ctx context.Context) StreamingEndpointCrossSiteAccessPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointCrossSiteAccessPolicyOutput).ToStreamingEndpointCrossSiteAccessPolicyPtrOutputWithContext(ctx)
+}
+
+// StreamingEndpointCrossSiteAccessPolicyPtrInput is an input type that accepts StreamingEndpointCrossSiteAccessPolicyArgs, StreamingEndpointCrossSiteAccessPolicyPtr and StreamingEndpointCrossSiteAccessPolicyPtrOutput values.
+// You can construct a concrete instance of `StreamingEndpointCrossSiteAccessPolicyPtrInput` via:
+//
+//          StreamingEndpointCrossSiteAccessPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingEndpointCrossSiteAccessPolicyPtrInput interface {
+	pulumi.Input
+
+	ToStreamingEndpointCrossSiteAccessPolicyPtrOutput() StreamingEndpointCrossSiteAccessPolicyPtrOutput
+	ToStreamingEndpointCrossSiteAccessPolicyPtrOutputWithContext(context.Context) StreamingEndpointCrossSiteAccessPolicyPtrOutput
+}
+
+type streamingEndpointCrossSiteAccessPolicyPtrType StreamingEndpointCrossSiteAccessPolicyArgs
+
+func StreamingEndpointCrossSiteAccessPolicyPtr(v *StreamingEndpointCrossSiteAccessPolicyArgs) StreamingEndpointCrossSiteAccessPolicyPtrInput {
+	return (*streamingEndpointCrossSiteAccessPolicyPtrType)(v)
+}
+
+func (*streamingEndpointCrossSiteAccessPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingEndpointCrossSiteAccessPolicy)(nil)).Elem()
+}
+
+func (i *streamingEndpointCrossSiteAccessPolicyPtrType) ToStreamingEndpointCrossSiteAccessPolicyPtrOutput() StreamingEndpointCrossSiteAccessPolicyPtrOutput {
+	return i.ToStreamingEndpointCrossSiteAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingEndpointCrossSiteAccessPolicyPtrType) ToStreamingEndpointCrossSiteAccessPolicyPtrOutputWithContext(ctx context.Context) StreamingEndpointCrossSiteAccessPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointCrossSiteAccessPolicyPtrOutput)
+}
+
+type StreamingEndpointCrossSiteAccessPolicyOutput struct{ *pulumi.OutputState }
+
+func (StreamingEndpointCrossSiteAccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingEndpointCrossSiteAccessPolicy)(nil)).Elem()
+}
+
+func (o StreamingEndpointCrossSiteAccessPolicyOutput) ToStreamingEndpointCrossSiteAccessPolicyOutput() StreamingEndpointCrossSiteAccessPolicyOutput {
+	return o
+}
+
+func (o StreamingEndpointCrossSiteAccessPolicyOutput) ToStreamingEndpointCrossSiteAccessPolicyOutputWithContext(ctx context.Context) StreamingEndpointCrossSiteAccessPolicyOutput {
+	return o
+}
+
+func (o StreamingEndpointCrossSiteAccessPolicyOutput) ToStreamingEndpointCrossSiteAccessPolicyPtrOutput() StreamingEndpointCrossSiteAccessPolicyPtrOutput {
+	return o.ToStreamingEndpointCrossSiteAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingEndpointCrossSiteAccessPolicyOutput) ToStreamingEndpointCrossSiteAccessPolicyPtrOutputWithContext(ctx context.Context) StreamingEndpointCrossSiteAccessPolicyPtrOutput {
+	return o.ApplyT(func(v StreamingEndpointCrossSiteAccessPolicy) *StreamingEndpointCrossSiteAccessPolicy {
+		return &v
+	}).(StreamingEndpointCrossSiteAccessPolicyPtrOutput)
+}
+
+// The content of clientaccesspolicy.xml used by Silverlight.
+func (o StreamingEndpointCrossSiteAccessPolicyOutput) ClientAccessPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingEndpointCrossSiteAccessPolicy) *string { return v.ClientAccessPolicy }).(pulumi.StringPtrOutput)
+}
+
+// The content of crossdomain.xml used by Silverlight.
+func (o StreamingEndpointCrossSiteAccessPolicyOutput) CrossDomainPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingEndpointCrossSiteAccessPolicy) *string { return v.CrossDomainPolicy }).(pulumi.StringPtrOutput)
+}
+
+type StreamingEndpointCrossSiteAccessPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingEndpointCrossSiteAccessPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingEndpointCrossSiteAccessPolicy)(nil)).Elem()
+}
+
+func (o StreamingEndpointCrossSiteAccessPolicyPtrOutput) ToStreamingEndpointCrossSiteAccessPolicyPtrOutput() StreamingEndpointCrossSiteAccessPolicyPtrOutput {
+	return o
+}
+
+func (o StreamingEndpointCrossSiteAccessPolicyPtrOutput) ToStreamingEndpointCrossSiteAccessPolicyPtrOutputWithContext(ctx context.Context) StreamingEndpointCrossSiteAccessPolicyPtrOutput {
+	return o
+}
+
+func (o StreamingEndpointCrossSiteAccessPolicyPtrOutput) Elem() StreamingEndpointCrossSiteAccessPolicyOutput {
+	return o.ApplyT(func(v *StreamingEndpointCrossSiteAccessPolicy) StreamingEndpointCrossSiteAccessPolicy { return *v }).(StreamingEndpointCrossSiteAccessPolicyOutput)
+}
+
+// The content of clientaccesspolicy.xml used by Silverlight.
+func (o StreamingEndpointCrossSiteAccessPolicyPtrOutput) ClientAccessPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingEndpointCrossSiteAccessPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientAccessPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The content of crossdomain.xml used by Silverlight.
+func (o StreamingEndpointCrossSiteAccessPolicyPtrOutput) CrossDomainPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingEndpointCrossSiteAccessPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossDomainPolicy
+	}).(pulumi.StringPtrOutput)
 }
 
 type TransformOutput struct {
@@ -1009,10 +1803,22 @@ func (o TransformOutputVideoAnalyzerPresetPtrOutput) InsightsType() pulumi.Strin
 }
 
 func init() {
+	pulumi.RegisterOutputType(JobInputAssetOutput{})
+	pulumi.RegisterOutputType(JobInputAssetPtrOutput{})
+	pulumi.RegisterOutputType(JobOutputAssetOutput{})
+	pulumi.RegisterOutputType(JobOutputAssetArrayOutput{})
 	pulumi.RegisterOutputType(ServiceAccountIdentityOutput{})
 	pulumi.RegisterOutputType(ServiceAccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAccountStorageAccountOutput{})
 	pulumi.RegisterOutputType(ServiceAccountStorageAccountArrayOutput{})
+	pulumi.RegisterOutputType(StreamingEndpointAccessControlOutput{})
+	pulumi.RegisterOutputType(StreamingEndpointAccessControlPtrOutput{})
+	pulumi.RegisterOutputType(StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput{})
+	pulumi.RegisterOutputType(StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput{})
+	pulumi.RegisterOutputType(StreamingEndpointAccessControlIpAllowOutput{})
+	pulumi.RegisterOutputType(StreamingEndpointAccessControlIpAllowArrayOutput{})
+	pulumi.RegisterOutputType(StreamingEndpointCrossSiteAccessPolicyOutput{})
+	pulumi.RegisterOutputType(StreamingEndpointCrossSiteAccessPolicyPtrOutput{})
 	pulumi.RegisterOutputType(TransformOutputOutput{})
 	pulumi.RegisterOutputType(TransformOutputArrayOutput{})
 	pulumi.RegisterOutputType(TransformOutputAudioAnalyzerPresetOutput{})

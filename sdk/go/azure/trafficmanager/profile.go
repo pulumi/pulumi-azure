@@ -85,6 +85,8 @@ type Profile struct {
 	DnsConfig ProfileDnsConfigOutput `pulumi:"dnsConfig"`
 	// The FQDN of the created Profile.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
+	// The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+	MaxReturn pulumi.IntPtrOutput `pulumi:"maxReturn"`
 	// This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
 	MonitorConfig ProfileMonitorConfigOutput `pulumi:"monitorConfig"`
 	// The name of the Traffic Manager profile. Changing this forces a new resource to be created.
@@ -144,6 +146,8 @@ type profileState struct {
 	DnsConfig *ProfileDnsConfig `pulumi:"dnsConfig"`
 	// The FQDN of the created Profile.
 	Fqdn *string `pulumi:"fqdn"`
+	// The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+	MaxReturn *int `pulumi:"maxReturn"`
 	// This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
 	MonitorConfig *ProfileMonitorConfig `pulumi:"monitorConfig"`
 	// The name of the Traffic Manager profile. Changing this forces a new resource to be created.
@@ -163,6 +167,8 @@ type ProfileState struct {
 	DnsConfig ProfileDnsConfigPtrInput
 	// The FQDN of the created Profile.
 	Fqdn pulumi.StringPtrInput
+	// The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+	MaxReturn pulumi.IntPtrInput
 	// This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
 	MonitorConfig ProfileMonitorConfigPtrInput
 	// The name of the Traffic Manager profile. Changing this forces a new resource to be created.
@@ -184,6 +190,8 @@ func (ProfileState) ElementType() reflect.Type {
 type profileArgs struct {
 	// This block specifies the DNS configuration of the Profile, it supports the fields documented below.
 	DnsConfig ProfileDnsConfig `pulumi:"dnsConfig"`
+	// The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+	MaxReturn *int `pulumi:"maxReturn"`
 	// This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
 	MonitorConfig ProfileMonitorConfig `pulumi:"monitorConfig"`
 	// The name of the Traffic Manager profile. Changing this forces a new resource to be created.
@@ -202,6 +210,8 @@ type profileArgs struct {
 type ProfileArgs struct {
 	// This block specifies the DNS configuration of the Profile, it supports the fields documented below.
 	DnsConfig ProfileDnsConfigInput
+	// The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+	MaxReturn pulumi.IntPtrInput
 	// This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
 	MonitorConfig ProfileMonitorConfigInput
 	// The name of the Traffic Manager profile. Changing this forces a new resource to be created.

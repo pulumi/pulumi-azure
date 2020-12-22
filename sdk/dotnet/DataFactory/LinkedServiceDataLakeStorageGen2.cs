@@ -117,7 +117,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> ServicePrincipalKey { get; private set; } = null!;
 
         /// <summary>
-        /// (Required) The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
         /// </summary>
         [Output("tenant")]
         public Output<string?> Tenant { get; private set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? ServicePrincipalKey { get; set; }
 
         /// <summary>
-        /// (Required) The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
         /// </summary>
         [Input("tenant")]
         public Input<string>? Tenant { get; set; }
@@ -362,7 +362,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? ServicePrincipalKey { get; set; }
 
         /// <summary>
-        /// (Required) The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
         /// </summary>
         [Input("tenant")]
         public Input<string>? Tenant { get; set; }

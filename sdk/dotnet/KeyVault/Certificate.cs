@@ -34,6 +34,8 @@ namespace Pulumi.Azure.KeyVault
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             TenantId = current.Apply(current =&gt; current.TenantId),
     ///             SkuName = "standard",
+    ///             SoftDeleteEnabled = true,
+    ///             SoftDeleteRetentionDays = 7,
     ///             AccessPolicies = 
     ///             {
     ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -52,6 +54,7 @@ namespace Pulumi.Azure.KeyVault
     ///                         "listissuers",
     ///                         "managecontacts",
     ///                         "manageissuers",
+    ///                         "purge",
     ///                         "setissuers",
     ///                         "update",
     ///                     },
@@ -86,10 +89,6 @@ namespace Pulumi.Azure.KeyVault
     ///                         "set",
     ///                     },
     ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
     ///             },
     ///         });
     ///         var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new Azure.KeyVault.CertificateArgs
@@ -164,7 +163,7 @@ namespace Pulumi.Azure.KeyVault
     /// Key Vault Certificates can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:keyvault/certificate:Certificate net/certificates/example/fdf067c93bbb4b22bff4d8b7a9a56217
+    ///  $ pulumi import azure:keyvault/certificate:Certificate example "https://example-keyvault.vault.azure.net/certificates/example/fdf067c93bbb4b22bff4d8b7a9a56217"
     /// ```
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource

@@ -12,33 +12,27 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as random from "@pulumi/random";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
- * const server = new random.RandomId("server", {
- *     keepers: {
- *         ami_id: 1,
- *     },
- *     byteLength: 8,
- * });
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
+ *     softDeleteEnabled: true,
+ *     softDeleteRetentionDays: 7,
  *     accessPolicies: [{
  *         tenantId: current.then(current => current.tenantId),
  *         objectId: current.then(current => current.objectId),
  *         keyPermissions: [
  *             "create",
  *             "get",
+ *             "purge",
+ *             "recover",
  *         ],
  *         secretPermissions: ["set"],
  *     }],
- *     tags: {
- *         environment: "Production",
- *     },
  * });
  * const generated = new azure.keyvault.Key("generated", {
  *     keyVaultId: exampleKeyVault.id,
@@ -60,7 +54,7 @@ import * as utilities from "../utilities";
  * Key Vault Key which is Enabled can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:keyvault/key:Key net/keys/example/fdf067c93bbb4b22bff4d8b7a9a56217
+ *  $ pulumi import azure:keyvault/key:Key example "https://example-keyvault.vault.azure.net/keys/example/fdf067c93bbb4b22bff4d8b7a9a56217"
  * ```
  */
 export class Key extends pulumi.CustomResource {

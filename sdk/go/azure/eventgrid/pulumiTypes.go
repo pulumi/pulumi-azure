@@ -3317,6 +3317,2670 @@ func (o EventSubscriptionWebhookEndpointPtrOutput) Url() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type SystemTopicEventSubscriptionAdvancedFilter struct {
+	// Compares a value of an event using a single boolean value.
+	BoolEquals []SystemTopicEventSubscriptionAdvancedFilterBoolEqual `pulumi:"boolEquals"`
+	// Compares a value of an event using a single floating point number.
+	NumberGreaterThanOrEquals []SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual `pulumi:"numberGreaterThanOrEquals"`
+	// Compares a value of an event using a single floating point number.
+	NumberGreaterThans []SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan `pulumi:"numberGreaterThans"`
+	// Compares a value of an event using multiple floating point numbers.
+	NumberIns []SystemTopicEventSubscriptionAdvancedFilterNumberIn `pulumi:"numberIns"`
+	// Compares a value of an event using a single floating point number.
+	NumberLessThanOrEquals []SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual `pulumi:"numberLessThanOrEquals"`
+	// Compares a value of an event using a single floating point number.
+	NumberLessThans []SystemTopicEventSubscriptionAdvancedFilterNumberLessThan `pulumi:"numberLessThans"`
+	// Compares a value of an event using multiple floating point numbers.
+	NumberNotIns []SystemTopicEventSubscriptionAdvancedFilterNumberNotIn `pulumi:"numberNotIns"`
+	// Compares a value of an event using multiple string values.
+	StringBeginsWiths []SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith `pulumi:"stringBeginsWiths"`
+	// Compares a value of an event using multiple string values.
+	StringContains []SystemTopicEventSubscriptionAdvancedFilterStringContain `pulumi:"stringContains"`
+	// Compares a value of an event using multiple string values.
+	StringEndsWiths []SystemTopicEventSubscriptionAdvancedFilterStringEndsWith `pulumi:"stringEndsWiths"`
+	// Compares a value of an event using multiple string values.
+	StringIns []SystemTopicEventSubscriptionAdvancedFilterStringIn `pulumi:"stringIns"`
+	// Compares a value of an event using multiple string values.
+	StringNotIns []SystemTopicEventSubscriptionAdvancedFilterStringNotIn `pulumi:"stringNotIns"`
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterArgs and SystemTopicEventSubscriptionAdvancedFilterOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterArgs{...}
+type SystemTopicEventSubscriptionAdvancedFilterInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterOutput() SystemTopicEventSubscriptionAdvancedFilterOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterArgs struct {
+	// Compares a value of an event using a single boolean value.
+	BoolEquals SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayInput `pulumi:"boolEquals"`
+	// Compares a value of an event using a single floating point number.
+	NumberGreaterThanOrEquals SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayInput `pulumi:"numberGreaterThanOrEquals"`
+	// Compares a value of an event using a single floating point number.
+	NumberGreaterThans SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayInput `pulumi:"numberGreaterThans"`
+	// Compares a value of an event using multiple floating point numbers.
+	NumberIns SystemTopicEventSubscriptionAdvancedFilterNumberInArrayInput `pulumi:"numberIns"`
+	// Compares a value of an event using a single floating point number.
+	NumberLessThanOrEquals SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayInput `pulumi:"numberLessThanOrEquals"`
+	// Compares a value of an event using a single floating point number.
+	NumberLessThans SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayInput `pulumi:"numberLessThans"`
+	// Compares a value of an event using multiple floating point numbers.
+	NumberNotIns SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayInput `pulumi:"numberNotIns"`
+	// Compares a value of an event using multiple string values.
+	StringBeginsWiths SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayInput `pulumi:"stringBeginsWiths"`
+	// Compares a value of an event using multiple string values.
+	StringContains SystemTopicEventSubscriptionAdvancedFilterStringContainArrayInput `pulumi:"stringContains"`
+	// Compares a value of an event using multiple string values.
+	StringEndsWiths SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayInput `pulumi:"stringEndsWiths"`
+	// Compares a value of an event using multiple string values.
+	StringIns SystemTopicEventSubscriptionAdvancedFilterStringInArrayInput `pulumi:"stringIns"`
+	// Compares a value of an event using multiple string values.
+	StringNotIns SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayInput `pulumi:"stringNotIns"`
+}
+
+func (SystemTopicEventSubscriptionAdvancedFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilter)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterArgs) ToSystemTopicEventSubscriptionAdvancedFilterOutput() SystemTopicEventSubscriptionAdvancedFilterOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterArgs) ToSystemTopicEventSubscriptionAdvancedFilterOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterOutput)
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterArgs) ToSystemTopicEventSubscriptionAdvancedFilterPtrOutput() SystemTopicEventSubscriptionAdvancedFilterPtrOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterPtrOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterArgs) ToSystemTopicEventSubscriptionAdvancedFilterPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterOutput).ToSystemTopicEventSubscriptionAdvancedFilterPtrOutputWithContext(ctx)
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterPtrInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterArgs, SystemTopicEventSubscriptionAdvancedFilterPtr and SystemTopicEventSubscriptionAdvancedFilterPtrOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterPtrInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemTopicEventSubscriptionAdvancedFilterPtrInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterPtrOutput() SystemTopicEventSubscriptionAdvancedFilterPtrOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterPtrOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterPtrOutput
+}
+
+type systemTopicEventSubscriptionAdvancedFilterPtrType SystemTopicEventSubscriptionAdvancedFilterArgs
+
+func SystemTopicEventSubscriptionAdvancedFilterPtr(v *SystemTopicEventSubscriptionAdvancedFilterArgs) SystemTopicEventSubscriptionAdvancedFilterPtrInput {
+	return (*systemTopicEventSubscriptionAdvancedFilterPtrType)(v)
+}
+
+func (*systemTopicEventSubscriptionAdvancedFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemTopicEventSubscriptionAdvancedFilter)(nil)).Elem()
+}
+
+func (i *systemTopicEventSubscriptionAdvancedFilterPtrType) ToSystemTopicEventSubscriptionAdvancedFilterPtrOutput() SystemTopicEventSubscriptionAdvancedFilterPtrOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *systemTopicEventSubscriptionAdvancedFilterPtrType) ToSystemTopicEventSubscriptionAdvancedFilterPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterPtrOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilter)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterOutput) ToSystemTopicEventSubscriptionAdvancedFilterOutput() SystemTopicEventSubscriptionAdvancedFilterOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterOutput) ToSystemTopicEventSubscriptionAdvancedFilterOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterOutput) ToSystemTopicEventSubscriptionAdvancedFilterPtrOutput() SystemTopicEventSubscriptionAdvancedFilterPtrOutput {
+	return o.ToSystemTopicEventSubscriptionAdvancedFilterPtrOutputWithContext(context.Background())
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterOutput) ToSystemTopicEventSubscriptionAdvancedFilterPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilter) *SystemTopicEventSubscriptionAdvancedFilter {
+		return &v
+	}).(SystemTopicEventSubscriptionAdvancedFilterPtrOutput)
+}
+
+// Compares a value of an event using a single boolean value.
+func (o SystemTopicEventSubscriptionAdvancedFilterOutput) BoolEquals() SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterBoolEqual {
+		return v.BoolEquals
+	}).(SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput)
+}
+
+// Compares a value of an event using a single floating point number.
+func (o SystemTopicEventSubscriptionAdvancedFilterOutput) NumberGreaterThanOrEquals() SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual {
+		return v.NumberGreaterThanOrEquals
+	}).(SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput)
+}
+
+// Compares a value of an event using a single floating point number.
+func (o SystemTopicEventSubscriptionAdvancedFilterOutput) NumberGreaterThans() SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan {
+		return v.NumberGreaterThans
+	}).(SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput)
+}
+
+// Compares a value of an event using multiple floating point numbers.
+func (o SystemTopicEventSubscriptionAdvancedFilterOutput) NumberIns() SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterNumberIn {
+		return v.NumberIns
+	}).(SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput)
+}
+
+// Compares a value of an event using a single floating point number.
+func (o SystemTopicEventSubscriptionAdvancedFilterOutput) NumberLessThanOrEquals() SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual {
+		return v.NumberLessThanOrEquals
+	}).(SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput)
+}
+
+// Compares a value of an event using a single floating point number.
+func (o SystemTopicEventSubscriptionAdvancedFilterOutput) NumberLessThans() SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterNumberLessThan {
+		return v.NumberLessThans
+	}).(SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput)
+}
+
+// Compares a value of an event using multiple floating point numbers.
+func (o SystemTopicEventSubscriptionAdvancedFilterOutput) NumberNotIns() SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterNumberNotIn {
+		return v.NumberNotIns
+	}).(SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput)
+}
+
+// Compares a value of an event using multiple string values.
+func (o SystemTopicEventSubscriptionAdvancedFilterOutput) StringBeginsWiths() SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith {
+		return v.StringBeginsWiths
+	}).(SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput)
+}
+
+// Compares a value of an event using multiple string values.
+func (o SystemTopicEventSubscriptionAdvancedFilterOutput) StringContains() SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterStringContain {
+		return v.StringContains
+	}).(SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput)
+}
+
+// Compares a value of an event using multiple string values.
+func (o SystemTopicEventSubscriptionAdvancedFilterOutput) StringEndsWiths() SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterStringEndsWith {
+		return v.StringEndsWiths
+	}).(SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput)
+}
+
+// Compares a value of an event using multiple string values.
+func (o SystemTopicEventSubscriptionAdvancedFilterOutput) StringIns() SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterStringIn {
+		return v.StringIns
+	}).(SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput)
+}
+
+// Compares a value of an event using multiple string values.
+func (o SystemTopicEventSubscriptionAdvancedFilterOutput) StringNotIns() SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterStringNotIn {
+		return v.StringNotIns
+	}).(SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemTopicEventSubscriptionAdvancedFilter)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) ToSystemTopicEventSubscriptionAdvancedFilterPtrOutput() SystemTopicEventSubscriptionAdvancedFilterPtrOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) ToSystemTopicEventSubscriptionAdvancedFilterPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterPtrOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) Elem() SystemTopicEventSubscriptionAdvancedFilterOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionAdvancedFilter) SystemTopicEventSubscriptionAdvancedFilter {
+		return *v
+	}).(SystemTopicEventSubscriptionAdvancedFilterOutput)
+}
+
+// Compares a value of an event using a single boolean value.
+func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) BoolEquals() SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterBoolEqual {
+		if v == nil {
+			return nil
+		}
+		return v.BoolEquals
+	}).(SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput)
+}
+
+// Compares a value of an event using a single floating point number.
+func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) NumberGreaterThanOrEquals() SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual {
+		if v == nil {
+			return nil
+		}
+		return v.NumberGreaterThanOrEquals
+	}).(SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput)
+}
+
+// Compares a value of an event using a single floating point number.
+func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) NumberGreaterThans() SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan {
+		if v == nil {
+			return nil
+		}
+		return v.NumberGreaterThans
+	}).(SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput)
+}
+
+// Compares a value of an event using multiple floating point numbers.
+func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) NumberIns() SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterNumberIn {
+		if v == nil {
+			return nil
+		}
+		return v.NumberIns
+	}).(SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput)
+}
+
+// Compares a value of an event using a single floating point number.
+func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) NumberLessThanOrEquals() SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual {
+		if v == nil {
+			return nil
+		}
+		return v.NumberLessThanOrEquals
+	}).(SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput)
+}
+
+// Compares a value of an event using a single floating point number.
+func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) NumberLessThans() SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterNumberLessThan {
+		if v == nil {
+			return nil
+		}
+		return v.NumberLessThans
+	}).(SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput)
+}
+
+// Compares a value of an event using multiple floating point numbers.
+func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) NumberNotIns() SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterNumberNotIn {
+		if v == nil {
+			return nil
+		}
+		return v.NumberNotIns
+	}).(SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput)
+}
+
+// Compares a value of an event using multiple string values.
+func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) StringBeginsWiths() SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith {
+		if v == nil {
+			return nil
+		}
+		return v.StringBeginsWiths
+	}).(SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput)
+}
+
+// Compares a value of an event using multiple string values.
+func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) StringContains() SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterStringContain {
+		if v == nil {
+			return nil
+		}
+		return v.StringContains
+	}).(SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput)
+}
+
+// Compares a value of an event using multiple string values.
+func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) StringEndsWiths() SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterStringEndsWith {
+		if v == nil {
+			return nil
+		}
+		return v.StringEndsWiths
+	}).(SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput)
+}
+
+// Compares a value of an event using multiple string values.
+func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) StringIns() SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterStringIn {
+		if v == nil {
+			return nil
+		}
+		return v.StringIns
+	}).(SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput)
+}
+
+// Compares a value of an event using multiple string values.
+func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) StringNotIns() SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionAdvancedFilter) []SystemTopicEventSubscriptionAdvancedFilterStringNotIn {
+		if v == nil {
+			return nil
+		}
+		return v.StringNotIns
+	}).(SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterBoolEqual struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies a single value to compare to when using a single value operator.
+	Value bool `pulumi:"value"`
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterBoolEqualInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs and SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterBoolEqualInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs{...}
+type SystemTopicEventSubscriptionAdvancedFilterBoolEqualInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput() SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterBoolEqualOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies a single value to compare to when using a single value operator.
+	Value pulumi.BoolInput `pulumi:"value"`
+}
+
+func (SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterBoolEqual)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs) ToSystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput() SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterBoolEqualOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs) ToSystemTopicEventSubscriptionAdvancedFilterBoolEqualOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput)
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterBoolEqualArray and SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterBoolEqualArray{ SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs{...} }
+type SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput() SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterBoolEqualArray []SystemTopicEventSubscriptionAdvancedFilterBoolEqualInput
+
+func (SystemTopicEventSubscriptionAdvancedFilterBoolEqualArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterBoolEqual)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterBoolEqualArray) ToSystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput() SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterBoolEqualArray) ToSystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterBoolEqual)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput) ToSystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput() SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput) ToSystemTopicEventSubscriptionAdvancedFilterBoolEqualOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput {
+	return o
+}
+
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+func (o SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterBoolEqual) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies a single value to compare to when using a single value operator.
+func (o SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput) Value() pulumi.BoolOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterBoolEqual) bool { return v.Value }).(pulumi.BoolOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterBoolEqual)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput() SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SystemTopicEventSubscriptionAdvancedFilterBoolEqual {
+		return vs[0].([]SystemTopicEventSubscriptionAdvancedFilterBoolEqual)[vs[1].(int)]
+	}).(SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies a single value to compare to when using a single value operator.
+	Value float64 `pulumi:"value"`
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArgs and SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArgs{...}
+type SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput() SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies a single value to compare to when using a single value operator.
+	Value pulumi.Float64Input `pulumi:"value"`
+}
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArgs) ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput() SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArgs) ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput)
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArray and SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArray{ SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArgs{...} }
+type SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput() SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArray []SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanInput
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArray) ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput() SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArray) ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput() SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput {
+	return o
+}
+
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies a single value to compare to when using a single value operator.
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput() SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan {
+		return vs[0].([]SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan)[vs[1].(int)]
+	}).(SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies a single value to compare to when using a single value operator.
+	Value float64 `pulumi:"value"`
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs and SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs{...}
+type SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput() SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies a single value to compare to when using a single value operator.
+	Value pulumi.Float64Input `pulumi:"value"`
+}
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs) ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput() SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs) ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput)
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArray and SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArray{ SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs{...} }
+type SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput() SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArray []SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualInput
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArray) ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput() SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArray) ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput() SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput {
+	return o
+}
+
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies a single value to compare to when using a single value operator.
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput() SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual {
+		return vs[0].([]SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual)[vs[1].(int)]
+	}).(SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberIn struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values []float64 `pulumi:"values"`
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterNumberInInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterNumberInArgs and SystemTopicEventSubscriptionAdvancedFilterNumberInOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterNumberInInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterNumberInArgs{...}
+type SystemTopicEventSubscriptionAdvancedFilterNumberInInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberInOutput() SystemTopicEventSubscriptionAdvancedFilterNumberInOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberInOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberInOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberInArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values pulumi.Float64ArrayInput `pulumi:"values"`
+}
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberInArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterNumberIn)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberInArgs) ToSystemTopicEventSubscriptionAdvancedFilterNumberInOutput() SystemTopicEventSubscriptionAdvancedFilterNumberInOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterNumberInOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberInArgs) ToSystemTopicEventSubscriptionAdvancedFilterNumberInOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberInOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberInOutput)
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterNumberInArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterNumberInArray and SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterNumberInArrayInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterNumberInArray{ SystemTopicEventSubscriptionAdvancedFilterNumberInArgs{...} }
+type SystemTopicEventSubscriptionAdvancedFilterNumberInArrayInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput() SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberInArray []SystemTopicEventSubscriptionAdvancedFilterNumberInInput
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberInArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterNumberIn)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberInArray) ToSystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput() SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberInArray) ToSystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberInOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberInOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterNumberIn)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberInOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberInOutput() SystemTopicEventSubscriptionAdvancedFilterNumberInOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberInOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberInOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberInOutput {
+	return o
+}
+
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberInOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterNumberIn) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies an array of values to compare to when using a multiple values operator.
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberInOutput) Values() pulumi.Float64ArrayOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterNumberIn) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterNumberIn)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput() SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterNumberInOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SystemTopicEventSubscriptionAdvancedFilterNumberIn {
+		return vs[0].([]SystemTopicEventSubscriptionAdvancedFilterNumberIn)[vs[1].(int)]
+	}).(SystemTopicEventSubscriptionAdvancedFilterNumberInOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberLessThan struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies a single value to compare to when using a single value operator.
+	Value float64 `pulumi:"value"`
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterNumberLessThanInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArgs and SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterNumberLessThanInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArgs{...}
+type SystemTopicEventSubscriptionAdvancedFilterNumberLessThanInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput() SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies a single value to compare to when using a single value operator.
+	Value pulumi.Float64Input `pulumi:"value"`
+}
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterNumberLessThan)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArgs) ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput() SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArgs) ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput)
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArray and SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArray{ SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArgs{...} }
+type SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput() SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArray []SystemTopicEventSubscriptionAdvancedFilterNumberLessThanInput
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterNumberLessThan)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArray) ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput() SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArray) ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterNumberLessThan)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput() SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput {
+	return o
+}
+
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterNumberLessThan) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies a single value to compare to when using a single value operator.
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterNumberLessThan) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterNumberLessThan)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput() SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SystemTopicEventSubscriptionAdvancedFilterNumberLessThan {
+		return vs[0].([]SystemTopicEventSubscriptionAdvancedFilterNumberLessThan)[vs[1].(int)]
+	}).(SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies a single value to compare to when using a single value operator.
+	Value float64 `pulumi:"value"`
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs and SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs{...}
+type SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput() SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies a single value to compare to when using a single value operator.
+	Value pulumi.Float64Input `pulumi:"value"`
+}
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs) ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput() SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs) ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput)
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArray and SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArray{ SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs{...} }
+type SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput() SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArray []SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualInput
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArray) ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput() SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArray) ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput() SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput {
+	return o
+}
+
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies a single value to compare to when using a single value operator.
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput() SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual {
+		return vs[0].([]SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual)[vs[1].(int)]
+	}).(SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberNotIn struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values []float64 `pulumi:"values"`
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterNumberNotInInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgs and SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterNumberNotInInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgs{...}
+type SystemTopicEventSubscriptionAdvancedFilterNumberNotInInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput() SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values pulumi.Float64ArrayInput `pulumi:"values"`
+}
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterNumberNotIn)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgs) ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput() SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgs) ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput)
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterNumberNotInArray and SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterNumberNotInArray{ SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgs{...} }
+type SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput() SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberNotInArray []SystemTopicEventSubscriptionAdvancedFilterNumberNotInInput
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberNotInArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterNumberNotIn)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberNotInArray) ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput() SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterNumberNotInArray) ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterNumberNotIn)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput() SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput {
+	return o
+}
+
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterNumberNotIn) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies an array of values to compare to when using a multiple values operator.
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput) Values() pulumi.Float64ArrayOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterNumberNotIn) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterNumberNotIn)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput() SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SystemTopicEventSubscriptionAdvancedFilterNumberNotIn {
+		return vs[0].([]SystemTopicEventSubscriptionAdvancedFilterNumberNotIn)[vs[1].(int)]
+	}).(SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values []string `pulumi:"values"`
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArgs and SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArgs{...}
+type SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput() SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArgs) ToSystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput() SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArgs) ToSystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput)
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArray and SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArray{ SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArgs{...} }
+type SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput() SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArray []SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithInput
+
+func (SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArray) ToSystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput() SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArray) ToSystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput() SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput {
+	return o
+}
+
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+func (o SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies an array of values to compare to when using a multiple values operator.
+func (o SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput() SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith {
+		return vs[0].([]SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith)[vs[1].(int)]
+	}).(SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringContain struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values []string `pulumi:"values"`
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterStringContainInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterStringContainArgs and SystemTopicEventSubscriptionAdvancedFilterStringContainOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterStringContainInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterStringContainArgs{...}
+type SystemTopicEventSubscriptionAdvancedFilterStringContainInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterStringContainOutput() SystemTopicEventSubscriptionAdvancedFilterStringContainOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterStringContainOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterStringContainOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringContainArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (SystemTopicEventSubscriptionAdvancedFilterStringContainArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterStringContain)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterStringContainArgs) ToSystemTopicEventSubscriptionAdvancedFilterStringContainOutput() SystemTopicEventSubscriptionAdvancedFilterStringContainOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterStringContainOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterStringContainArgs) ToSystemTopicEventSubscriptionAdvancedFilterStringContainOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringContainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringContainOutput)
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterStringContainArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterStringContainArray and SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterStringContainArrayInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterStringContainArray{ SystemTopicEventSubscriptionAdvancedFilterStringContainArgs{...} }
+type SystemTopicEventSubscriptionAdvancedFilterStringContainArrayInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput() SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringContainArray []SystemTopicEventSubscriptionAdvancedFilterStringContainInput
+
+func (SystemTopicEventSubscriptionAdvancedFilterStringContainArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterStringContain)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterStringContainArray) ToSystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput() SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterStringContainArray) ToSystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringContainOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterStringContainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterStringContain)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringContainOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringContainOutput() SystemTopicEventSubscriptionAdvancedFilterStringContainOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringContainOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringContainOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringContainOutput {
+	return o
+}
+
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+func (o SystemTopicEventSubscriptionAdvancedFilterStringContainOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterStringContain) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies an array of values to compare to when using a multiple values operator.
+func (o SystemTopicEventSubscriptionAdvancedFilterStringContainOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterStringContain) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterStringContain)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput() SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterStringContainOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SystemTopicEventSubscriptionAdvancedFilterStringContain {
+		return vs[0].([]SystemTopicEventSubscriptionAdvancedFilterStringContain)[vs[1].(int)]
+	}).(SystemTopicEventSubscriptionAdvancedFilterStringContainOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringEndsWith struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values []string `pulumi:"values"`
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterStringEndsWithInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArgs and SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterStringEndsWithInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArgs{...}
+type SystemTopicEventSubscriptionAdvancedFilterStringEndsWithInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput() SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterStringEndsWith)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArgs) ToSystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput() SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArgs) ToSystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput)
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArray and SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArray{ SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArgs{...} }
+type SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput() SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArray []SystemTopicEventSubscriptionAdvancedFilterStringEndsWithInput
+
+func (SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterStringEndsWith)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArray) ToSystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput() SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArray) ToSystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterStringEndsWith)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput() SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput {
+	return o
+}
+
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+func (o SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterStringEndsWith) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies an array of values to compare to when using a multiple values operator.
+func (o SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterStringEndsWith) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterStringEndsWith)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput() SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SystemTopicEventSubscriptionAdvancedFilterStringEndsWith {
+		return vs[0].([]SystemTopicEventSubscriptionAdvancedFilterStringEndsWith)[vs[1].(int)]
+	}).(SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringIn struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values []string `pulumi:"values"`
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterStringInInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterStringInArgs and SystemTopicEventSubscriptionAdvancedFilterStringInOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterStringInInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterStringInArgs{...}
+type SystemTopicEventSubscriptionAdvancedFilterStringInInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterStringInOutput() SystemTopicEventSubscriptionAdvancedFilterStringInOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterStringInOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterStringInOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringInArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (SystemTopicEventSubscriptionAdvancedFilterStringInArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterStringIn)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterStringInArgs) ToSystemTopicEventSubscriptionAdvancedFilterStringInOutput() SystemTopicEventSubscriptionAdvancedFilterStringInOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterStringInOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterStringInArgs) ToSystemTopicEventSubscriptionAdvancedFilterStringInOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringInOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringInOutput)
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterStringInArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterStringInArray and SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterStringInArrayInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterStringInArray{ SystemTopicEventSubscriptionAdvancedFilterStringInArgs{...} }
+type SystemTopicEventSubscriptionAdvancedFilterStringInArrayInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput() SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterStringInArrayOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringInArray []SystemTopicEventSubscriptionAdvancedFilterStringInInput
+
+func (SystemTopicEventSubscriptionAdvancedFilterStringInArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterStringIn)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterStringInArray) ToSystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput() SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterStringInArrayOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterStringInArray) ToSystemTopicEventSubscriptionAdvancedFilterStringInArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringInOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterStringInOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterStringIn)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringInOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringInOutput() SystemTopicEventSubscriptionAdvancedFilterStringInOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringInOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringInOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringInOutput {
+	return o
+}
+
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+func (o SystemTopicEventSubscriptionAdvancedFilterStringInOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterStringIn) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies an array of values to compare to when using a multiple values operator.
+func (o SystemTopicEventSubscriptionAdvancedFilterStringInOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterStringIn) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterStringIn)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput() SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringInArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterStringInOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SystemTopicEventSubscriptionAdvancedFilterStringIn {
+		return vs[0].([]SystemTopicEventSubscriptionAdvancedFilterStringIn)[vs[1].(int)]
+	}).(SystemTopicEventSubscriptionAdvancedFilterStringInOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringNotIn struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values []string `pulumi:"values"`
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterStringNotInInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterStringNotInArgs and SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterStringNotInInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterStringNotInArgs{...}
+type SystemTopicEventSubscriptionAdvancedFilterStringNotInInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterStringNotInOutput() SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterStringNotInOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringNotInArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (SystemTopicEventSubscriptionAdvancedFilterStringNotInArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterStringNotIn)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterStringNotInArgs) ToSystemTopicEventSubscriptionAdvancedFilterStringNotInOutput() SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterStringNotInOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterStringNotInArgs) ToSystemTopicEventSubscriptionAdvancedFilterStringNotInOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput)
+}
+
+// SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterStringNotInArray and SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayInput` via:
+//
+//          SystemTopicEventSubscriptionAdvancedFilterStringNotInArray{ SystemTopicEventSubscriptionAdvancedFilterStringNotInArgs{...} }
+type SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput() SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput
+	ToSystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutputWithContext(context.Context) SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringNotInArray []SystemTopicEventSubscriptionAdvancedFilterStringNotInInput
+
+func (SystemTopicEventSubscriptionAdvancedFilterStringNotInArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterStringNotIn)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterStringNotInArray) ToSystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput() SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput {
+	return i.ToSystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAdvancedFilterStringNotInArray) ToSystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterStringNotIn)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringNotInOutput() SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringNotInOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput {
+	return o
+}
+
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+func (o SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterStringNotIn) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies an array of values to compare to when using a multiple values operator.
+func (o SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAdvancedFilterStringNotIn) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionAdvancedFilterStringNotIn)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput() SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SystemTopicEventSubscriptionAdvancedFilterStringNotIn {
+		return vs[0].([]SystemTopicEventSubscriptionAdvancedFilterStringNotIn)[vs[1].(int)]
+	}).(SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput)
+}
+
+type SystemTopicEventSubscriptionAzureFunctionEndpoint struct {
+	// Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
+	FunctionId string `pulumi:"functionId"`
+	// Maximum number of events per batch.
+	MaxEventsPerBatch *int `pulumi:"maxEventsPerBatch"`
+	// Preferred batch size in Kilobytes.
+	PreferredBatchSizeInKilobytes *int `pulumi:"preferredBatchSizeInKilobytes"`
+}
+
+// SystemTopicEventSubscriptionAzureFunctionEndpointInput is an input type that accepts SystemTopicEventSubscriptionAzureFunctionEndpointArgs and SystemTopicEventSubscriptionAzureFunctionEndpointOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAzureFunctionEndpointInput` via:
+//
+//          SystemTopicEventSubscriptionAzureFunctionEndpointArgs{...}
+type SystemTopicEventSubscriptionAzureFunctionEndpointInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAzureFunctionEndpointOutput() SystemTopicEventSubscriptionAzureFunctionEndpointOutput
+	ToSystemTopicEventSubscriptionAzureFunctionEndpointOutputWithContext(context.Context) SystemTopicEventSubscriptionAzureFunctionEndpointOutput
+}
+
+type SystemTopicEventSubscriptionAzureFunctionEndpointArgs struct {
+	// Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
+	FunctionId pulumi.StringInput `pulumi:"functionId"`
+	// Maximum number of events per batch.
+	MaxEventsPerBatch pulumi.IntPtrInput `pulumi:"maxEventsPerBatch"`
+	// Preferred batch size in Kilobytes.
+	PreferredBatchSizeInKilobytes pulumi.IntPtrInput `pulumi:"preferredBatchSizeInKilobytes"`
+}
+
+func (SystemTopicEventSubscriptionAzureFunctionEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAzureFunctionEndpoint)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionAzureFunctionEndpointArgs) ToSystemTopicEventSubscriptionAzureFunctionEndpointOutput() SystemTopicEventSubscriptionAzureFunctionEndpointOutput {
+	return i.ToSystemTopicEventSubscriptionAzureFunctionEndpointOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAzureFunctionEndpointArgs) ToSystemTopicEventSubscriptionAzureFunctionEndpointOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAzureFunctionEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAzureFunctionEndpointOutput)
+}
+
+func (i SystemTopicEventSubscriptionAzureFunctionEndpointArgs) ToSystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput() SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput {
+	return i.ToSystemTopicEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionAzureFunctionEndpointArgs) ToSystemTopicEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAzureFunctionEndpointOutput).ToSystemTopicEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(ctx)
+}
+
+// SystemTopicEventSubscriptionAzureFunctionEndpointPtrInput is an input type that accepts SystemTopicEventSubscriptionAzureFunctionEndpointArgs, SystemTopicEventSubscriptionAzureFunctionEndpointPtr and SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionAzureFunctionEndpointPtrInput` via:
+//
+//          SystemTopicEventSubscriptionAzureFunctionEndpointArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemTopicEventSubscriptionAzureFunctionEndpointPtrInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput() SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput
+	ToSystemTopicEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(context.Context) SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput
+}
+
+type systemTopicEventSubscriptionAzureFunctionEndpointPtrType SystemTopicEventSubscriptionAzureFunctionEndpointArgs
+
+func SystemTopicEventSubscriptionAzureFunctionEndpointPtr(v *SystemTopicEventSubscriptionAzureFunctionEndpointArgs) SystemTopicEventSubscriptionAzureFunctionEndpointPtrInput {
+	return (*systemTopicEventSubscriptionAzureFunctionEndpointPtrType)(v)
+}
+
+func (*systemTopicEventSubscriptionAzureFunctionEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemTopicEventSubscriptionAzureFunctionEndpoint)(nil)).Elem()
+}
+
+func (i *systemTopicEventSubscriptionAzureFunctionEndpointPtrType) ToSystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput() SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput {
+	return i.ToSystemTopicEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *systemTopicEventSubscriptionAzureFunctionEndpointPtrType) ToSystemTopicEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput)
+}
+
+type SystemTopicEventSubscriptionAzureFunctionEndpointOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAzureFunctionEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionAzureFunctionEndpoint)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAzureFunctionEndpointOutput) ToSystemTopicEventSubscriptionAzureFunctionEndpointOutput() SystemTopicEventSubscriptionAzureFunctionEndpointOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAzureFunctionEndpointOutput) ToSystemTopicEventSubscriptionAzureFunctionEndpointOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAzureFunctionEndpointOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAzureFunctionEndpointOutput) ToSystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput() SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput {
+	return o.ToSystemTopicEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o SystemTopicEventSubscriptionAzureFunctionEndpointOutput) ToSystemTopicEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAzureFunctionEndpoint) *SystemTopicEventSubscriptionAzureFunctionEndpoint {
+		return &v
+	}).(SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput)
+}
+
+// Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
+func (o SystemTopicEventSubscriptionAzureFunctionEndpointOutput) FunctionId() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAzureFunctionEndpoint) string { return v.FunctionId }).(pulumi.StringOutput)
+}
+
+// Maximum number of events per batch.
+func (o SystemTopicEventSubscriptionAzureFunctionEndpointOutput) MaxEventsPerBatch() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAzureFunctionEndpoint) *int { return v.MaxEventsPerBatch }).(pulumi.IntPtrOutput)
+}
+
+// Preferred batch size in Kilobytes.
+func (o SystemTopicEventSubscriptionAzureFunctionEndpointOutput) PreferredBatchSizeInKilobytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionAzureFunctionEndpoint) *int { return v.PreferredBatchSizeInKilobytes }).(pulumi.IntPtrOutput)
+}
+
+type SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemTopicEventSubscriptionAzureFunctionEndpoint)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput) ToSystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput() SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput) ToSystemTopicEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput) Elem() SystemTopicEventSubscriptionAzureFunctionEndpointOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionAzureFunctionEndpoint) SystemTopicEventSubscriptionAzureFunctionEndpoint {
+		return *v
+	}).(SystemTopicEventSubscriptionAzureFunctionEndpointOutput)
+}
+
+// Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
+func (o SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput) FunctionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionAzureFunctionEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FunctionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Maximum number of events per batch.
+func (o SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput) MaxEventsPerBatch() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionAzureFunctionEndpoint) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxEventsPerBatch
+	}).(pulumi.IntPtrOutput)
+}
+
+// Preferred batch size in Kilobytes.
+func (o SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput) PreferredBatchSizeInKilobytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionAzureFunctionEndpoint) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PreferredBatchSizeInKilobytes
+	}).(pulumi.IntPtrOutput)
+}
+
+type SystemTopicEventSubscriptionRetryPolicy struct {
+	// Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+	EventTimeToLive int `pulumi:"eventTimeToLive"`
+	// Specifies the maximum number of delivery retry attempts for events.
+	MaxDeliveryAttempts int `pulumi:"maxDeliveryAttempts"`
+}
+
+// SystemTopicEventSubscriptionRetryPolicyInput is an input type that accepts SystemTopicEventSubscriptionRetryPolicyArgs and SystemTopicEventSubscriptionRetryPolicyOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionRetryPolicyInput` via:
+//
+//          SystemTopicEventSubscriptionRetryPolicyArgs{...}
+type SystemTopicEventSubscriptionRetryPolicyInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionRetryPolicyOutput() SystemTopicEventSubscriptionRetryPolicyOutput
+	ToSystemTopicEventSubscriptionRetryPolicyOutputWithContext(context.Context) SystemTopicEventSubscriptionRetryPolicyOutput
+}
+
+type SystemTopicEventSubscriptionRetryPolicyArgs struct {
+	// Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+	EventTimeToLive pulumi.IntInput `pulumi:"eventTimeToLive"`
+	// Specifies the maximum number of delivery retry attempts for events.
+	MaxDeliveryAttempts pulumi.IntInput `pulumi:"maxDeliveryAttempts"`
+}
+
+func (SystemTopicEventSubscriptionRetryPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionRetryPolicy)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionRetryPolicyArgs) ToSystemTopicEventSubscriptionRetryPolicyOutput() SystemTopicEventSubscriptionRetryPolicyOutput {
+	return i.ToSystemTopicEventSubscriptionRetryPolicyOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionRetryPolicyArgs) ToSystemTopicEventSubscriptionRetryPolicyOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionRetryPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionRetryPolicyOutput)
+}
+
+func (i SystemTopicEventSubscriptionRetryPolicyArgs) ToSystemTopicEventSubscriptionRetryPolicyPtrOutput() SystemTopicEventSubscriptionRetryPolicyPtrOutput {
+	return i.ToSystemTopicEventSubscriptionRetryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionRetryPolicyArgs) ToSystemTopicEventSubscriptionRetryPolicyPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionRetryPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionRetryPolicyOutput).ToSystemTopicEventSubscriptionRetryPolicyPtrOutputWithContext(ctx)
+}
+
+// SystemTopicEventSubscriptionRetryPolicyPtrInput is an input type that accepts SystemTopicEventSubscriptionRetryPolicyArgs, SystemTopicEventSubscriptionRetryPolicyPtr and SystemTopicEventSubscriptionRetryPolicyPtrOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionRetryPolicyPtrInput` via:
+//
+//          SystemTopicEventSubscriptionRetryPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemTopicEventSubscriptionRetryPolicyPtrInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionRetryPolicyPtrOutput() SystemTopicEventSubscriptionRetryPolicyPtrOutput
+	ToSystemTopicEventSubscriptionRetryPolicyPtrOutputWithContext(context.Context) SystemTopicEventSubscriptionRetryPolicyPtrOutput
+}
+
+type systemTopicEventSubscriptionRetryPolicyPtrType SystemTopicEventSubscriptionRetryPolicyArgs
+
+func SystemTopicEventSubscriptionRetryPolicyPtr(v *SystemTopicEventSubscriptionRetryPolicyArgs) SystemTopicEventSubscriptionRetryPolicyPtrInput {
+	return (*systemTopicEventSubscriptionRetryPolicyPtrType)(v)
+}
+
+func (*systemTopicEventSubscriptionRetryPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemTopicEventSubscriptionRetryPolicy)(nil)).Elem()
+}
+
+func (i *systemTopicEventSubscriptionRetryPolicyPtrType) ToSystemTopicEventSubscriptionRetryPolicyPtrOutput() SystemTopicEventSubscriptionRetryPolicyPtrOutput {
+	return i.ToSystemTopicEventSubscriptionRetryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *systemTopicEventSubscriptionRetryPolicyPtrType) ToSystemTopicEventSubscriptionRetryPolicyPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionRetryPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionRetryPolicyPtrOutput)
+}
+
+type SystemTopicEventSubscriptionRetryPolicyOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionRetryPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionRetryPolicy)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionRetryPolicyOutput) ToSystemTopicEventSubscriptionRetryPolicyOutput() SystemTopicEventSubscriptionRetryPolicyOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionRetryPolicyOutput) ToSystemTopicEventSubscriptionRetryPolicyOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionRetryPolicyOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionRetryPolicyOutput) ToSystemTopicEventSubscriptionRetryPolicyPtrOutput() SystemTopicEventSubscriptionRetryPolicyPtrOutput {
+	return o.ToSystemTopicEventSubscriptionRetryPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o SystemTopicEventSubscriptionRetryPolicyOutput) ToSystemTopicEventSubscriptionRetryPolicyPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionRetryPolicyPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionRetryPolicy) *SystemTopicEventSubscriptionRetryPolicy {
+		return &v
+	}).(SystemTopicEventSubscriptionRetryPolicyPtrOutput)
+}
+
+// Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+func (o SystemTopicEventSubscriptionRetryPolicyOutput) EventTimeToLive() pulumi.IntOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionRetryPolicy) int { return v.EventTimeToLive }).(pulumi.IntOutput)
+}
+
+// Specifies the maximum number of delivery retry attempts for events.
+func (o SystemTopicEventSubscriptionRetryPolicyOutput) MaxDeliveryAttempts() pulumi.IntOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionRetryPolicy) int { return v.MaxDeliveryAttempts }).(pulumi.IntOutput)
+}
+
+type SystemTopicEventSubscriptionRetryPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionRetryPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemTopicEventSubscriptionRetryPolicy)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionRetryPolicyPtrOutput) ToSystemTopicEventSubscriptionRetryPolicyPtrOutput() SystemTopicEventSubscriptionRetryPolicyPtrOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionRetryPolicyPtrOutput) ToSystemTopicEventSubscriptionRetryPolicyPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionRetryPolicyPtrOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionRetryPolicyPtrOutput) Elem() SystemTopicEventSubscriptionRetryPolicyOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionRetryPolicy) SystemTopicEventSubscriptionRetryPolicy { return *v }).(SystemTopicEventSubscriptionRetryPolicyOutput)
+}
+
+// Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+func (o SystemTopicEventSubscriptionRetryPolicyPtrOutput) EventTimeToLive() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionRetryPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.EventTimeToLive
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum number of delivery retry attempts for events.
+func (o SystemTopicEventSubscriptionRetryPolicyPtrOutput) MaxDeliveryAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionRetryPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxDeliveryAttempts
+	}).(pulumi.IntPtrOutput)
+}
+
+type SystemTopicEventSubscriptionStorageBlobDeadLetterDestination struct {
+	// Specifies the id of the storage account id where the storage blob is located.
+	StorageAccountId string `pulumi:"storageAccountId"`
+	// Specifies the name of the Storage blob container that is the destination of the deadletter events.
+	StorageBlobContainerName string `pulumi:"storageBlobContainerName"`
+}
+
+// SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationInput is an input type that accepts SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs and SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationInput` via:
+//
+//          SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs{...}
+type SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput() SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput
+	ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutputWithContext(context.Context) SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput
+}
+
+type SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs struct {
+	// Specifies the id of the storage account id where the storage blob is located.
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+	// Specifies the name of the Storage blob container that is the destination of the deadletter events.
+	StorageBlobContainerName pulumi.StringInput `pulumi:"storageBlobContainerName"`
+}
+
+func (SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionStorageBlobDeadLetterDestination)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs) ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput() SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput {
+	return i.ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs) ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput)
+}
+
+func (i SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs) ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput() SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput {
+	return i.ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs) ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput).ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx)
+}
+
+// SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrInput is an input type that accepts SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs, SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtr and SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrInput` via:
+//
+//          SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput() SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput
+	ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutputWithContext(context.Context) SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput
+}
+
+type systemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrType SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs
+
+func SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtr(v *SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs) SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrInput {
+	return (*systemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrType)(v)
+}
+
+func (*systemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemTopicEventSubscriptionStorageBlobDeadLetterDestination)(nil)).Elem()
+}
+
+func (i *systemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrType) ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput() SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput {
+	return i.ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *systemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrType) ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput)
+}
+
+type SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionStorageBlobDeadLetterDestination)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput) ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput() SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput) ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput) ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput() SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput {
+	return o.ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput) ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionStorageBlobDeadLetterDestination) *SystemTopicEventSubscriptionStorageBlobDeadLetterDestination {
+		return &v
+	}).(SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput)
+}
+
+// Specifies the id of the storage account id where the storage blob is located.
+func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionStorageBlobDeadLetterDestination) string { return v.StorageAccountId }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the Storage blob container that is the destination of the deadletter events.
+func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput) StorageBlobContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionStorageBlobDeadLetterDestination) string {
+		return v.StorageBlobContainerName
+	}).(pulumi.StringOutput)
+}
+
+type SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemTopicEventSubscriptionStorageBlobDeadLetterDestination)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput() SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) Elem() SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionStorageBlobDeadLetterDestination) SystemTopicEventSubscriptionStorageBlobDeadLetterDestination {
+		return *v
+	}).(SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput)
+}
+
+// Specifies the id of the storage account id where the storage blob is located.
+func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionStorageBlobDeadLetterDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the Storage blob container that is the destination of the deadletter events.
+func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) StorageBlobContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionStorageBlobDeadLetterDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageBlobContainerName
+	}).(pulumi.StringPtrOutput)
+}
+
+type SystemTopicEventSubscriptionStorageQueueEndpoint struct {
+	// Specifies the name of the storage queue where the Event Subscription will receive events.
+	QueueName string `pulumi:"queueName"`
+	// Specifies the id of the storage account id where the storage queue is located.
+	StorageAccountId string `pulumi:"storageAccountId"`
+}
+
+// SystemTopicEventSubscriptionStorageQueueEndpointInput is an input type that accepts SystemTopicEventSubscriptionStorageQueueEndpointArgs and SystemTopicEventSubscriptionStorageQueueEndpointOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionStorageQueueEndpointInput` via:
+//
+//          SystemTopicEventSubscriptionStorageQueueEndpointArgs{...}
+type SystemTopicEventSubscriptionStorageQueueEndpointInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionStorageQueueEndpointOutput() SystemTopicEventSubscriptionStorageQueueEndpointOutput
+	ToSystemTopicEventSubscriptionStorageQueueEndpointOutputWithContext(context.Context) SystemTopicEventSubscriptionStorageQueueEndpointOutput
+}
+
+type SystemTopicEventSubscriptionStorageQueueEndpointArgs struct {
+	// Specifies the name of the storage queue where the Event Subscription will receive events.
+	QueueName pulumi.StringInput `pulumi:"queueName"`
+	// Specifies the id of the storage account id where the storage queue is located.
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+}
+
+func (SystemTopicEventSubscriptionStorageQueueEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionStorageQueueEndpoint)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionStorageQueueEndpointArgs) ToSystemTopicEventSubscriptionStorageQueueEndpointOutput() SystemTopicEventSubscriptionStorageQueueEndpointOutput {
+	return i.ToSystemTopicEventSubscriptionStorageQueueEndpointOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionStorageQueueEndpointArgs) ToSystemTopicEventSubscriptionStorageQueueEndpointOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionStorageQueueEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionStorageQueueEndpointOutput)
+}
+
+func (i SystemTopicEventSubscriptionStorageQueueEndpointArgs) ToSystemTopicEventSubscriptionStorageQueueEndpointPtrOutput() SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput {
+	return i.ToSystemTopicEventSubscriptionStorageQueueEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionStorageQueueEndpointArgs) ToSystemTopicEventSubscriptionStorageQueueEndpointPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionStorageQueueEndpointOutput).ToSystemTopicEventSubscriptionStorageQueueEndpointPtrOutputWithContext(ctx)
+}
+
+// SystemTopicEventSubscriptionStorageQueueEndpointPtrInput is an input type that accepts SystemTopicEventSubscriptionStorageQueueEndpointArgs, SystemTopicEventSubscriptionStorageQueueEndpointPtr and SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionStorageQueueEndpointPtrInput` via:
+//
+//          SystemTopicEventSubscriptionStorageQueueEndpointArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemTopicEventSubscriptionStorageQueueEndpointPtrInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionStorageQueueEndpointPtrOutput() SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput
+	ToSystemTopicEventSubscriptionStorageQueueEndpointPtrOutputWithContext(context.Context) SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput
+}
+
+type systemTopicEventSubscriptionStorageQueueEndpointPtrType SystemTopicEventSubscriptionStorageQueueEndpointArgs
+
+func SystemTopicEventSubscriptionStorageQueueEndpointPtr(v *SystemTopicEventSubscriptionStorageQueueEndpointArgs) SystemTopicEventSubscriptionStorageQueueEndpointPtrInput {
+	return (*systemTopicEventSubscriptionStorageQueueEndpointPtrType)(v)
+}
+
+func (*systemTopicEventSubscriptionStorageQueueEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemTopicEventSubscriptionStorageQueueEndpoint)(nil)).Elem()
+}
+
+func (i *systemTopicEventSubscriptionStorageQueueEndpointPtrType) ToSystemTopicEventSubscriptionStorageQueueEndpointPtrOutput() SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput {
+	return i.ToSystemTopicEventSubscriptionStorageQueueEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *systemTopicEventSubscriptionStorageQueueEndpointPtrType) ToSystemTopicEventSubscriptionStorageQueueEndpointPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput)
+}
+
+type SystemTopicEventSubscriptionStorageQueueEndpointOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionStorageQueueEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionStorageQueueEndpoint)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionStorageQueueEndpointOutput) ToSystemTopicEventSubscriptionStorageQueueEndpointOutput() SystemTopicEventSubscriptionStorageQueueEndpointOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionStorageQueueEndpointOutput) ToSystemTopicEventSubscriptionStorageQueueEndpointOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionStorageQueueEndpointOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionStorageQueueEndpointOutput) ToSystemTopicEventSubscriptionStorageQueueEndpointPtrOutput() SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput {
+	return o.ToSystemTopicEventSubscriptionStorageQueueEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o SystemTopicEventSubscriptionStorageQueueEndpointOutput) ToSystemTopicEventSubscriptionStorageQueueEndpointPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionStorageQueueEndpoint) *SystemTopicEventSubscriptionStorageQueueEndpoint {
+		return &v
+	}).(SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput)
+}
+
+// Specifies the name of the storage queue where the Event Subscription will receive events.
+func (o SystemTopicEventSubscriptionStorageQueueEndpointOutput) QueueName() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionStorageQueueEndpoint) string { return v.QueueName }).(pulumi.StringOutput)
+}
+
+// Specifies the id of the storage account id where the storage queue is located.
+func (o SystemTopicEventSubscriptionStorageQueueEndpointOutput) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionStorageQueueEndpoint) string { return v.StorageAccountId }).(pulumi.StringOutput)
+}
+
+type SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemTopicEventSubscriptionStorageQueueEndpoint)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput) ToSystemTopicEventSubscriptionStorageQueueEndpointPtrOutput() SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput) ToSystemTopicEventSubscriptionStorageQueueEndpointPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput) Elem() SystemTopicEventSubscriptionStorageQueueEndpointOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionStorageQueueEndpoint) SystemTopicEventSubscriptionStorageQueueEndpoint {
+		return *v
+	}).(SystemTopicEventSubscriptionStorageQueueEndpointOutput)
+}
+
+// Specifies the name of the storage queue where the Event Subscription will receive events.
+func (o SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput) QueueName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionStorageQueueEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QueueName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the id of the storage account id where the storage queue is located.
+func (o SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionStorageQueueEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+type SystemTopicEventSubscriptionSubjectFilter struct {
+	// Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value defaults to `false`.
+	CaseSensitive *bool `pulumi:"caseSensitive"`
+	// A string to filter events for an event subscription based on a resource path prefix.
+	SubjectBeginsWith *string `pulumi:"subjectBeginsWith"`
+	// A string to filter events for an event subscription based on a resource path suffix.
+	SubjectEndsWith *string `pulumi:"subjectEndsWith"`
+}
+
+// SystemTopicEventSubscriptionSubjectFilterInput is an input type that accepts SystemTopicEventSubscriptionSubjectFilterArgs and SystemTopicEventSubscriptionSubjectFilterOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionSubjectFilterInput` via:
+//
+//          SystemTopicEventSubscriptionSubjectFilterArgs{...}
+type SystemTopicEventSubscriptionSubjectFilterInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionSubjectFilterOutput() SystemTopicEventSubscriptionSubjectFilterOutput
+	ToSystemTopicEventSubscriptionSubjectFilterOutputWithContext(context.Context) SystemTopicEventSubscriptionSubjectFilterOutput
+}
+
+type SystemTopicEventSubscriptionSubjectFilterArgs struct {
+	// Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value defaults to `false`.
+	CaseSensitive pulumi.BoolPtrInput `pulumi:"caseSensitive"`
+	// A string to filter events for an event subscription based on a resource path prefix.
+	SubjectBeginsWith pulumi.StringPtrInput `pulumi:"subjectBeginsWith"`
+	// A string to filter events for an event subscription based on a resource path suffix.
+	SubjectEndsWith pulumi.StringPtrInput `pulumi:"subjectEndsWith"`
+}
+
+func (SystemTopicEventSubscriptionSubjectFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionSubjectFilter)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionSubjectFilterArgs) ToSystemTopicEventSubscriptionSubjectFilterOutput() SystemTopicEventSubscriptionSubjectFilterOutput {
+	return i.ToSystemTopicEventSubscriptionSubjectFilterOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionSubjectFilterArgs) ToSystemTopicEventSubscriptionSubjectFilterOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionSubjectFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionSubjectFilterOutput)
+}
+
+func (i SystemTopicEventSubscriptionSubjectFilterArgs) ToSystemTopicEventSubscriptionSubjectFilterPtrOutput() SystemTopicEventSubscriptionSubjectFilterPtrOutput {
+	return i.ToSystemTopicEventSubscriptionSubjectFilterPtrOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionSubjectFilterArgs) ToSystemTopicEventSubscriptionSubjectFilterPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionSubjectFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionSubjectFilterOutput).ToSystemTopicEventSubscriptionSubjectFilterPtrOutputWithContext(ctx)
+}
+
+// SystemTopicEventSubscriptionSubjectFilterPtrInput is an input type that accepts SystemTopicEventSubscriptionSubjectFilterArgs, SystemTopicEventSubscriptionSubjectFilterPtr and SystemTopicEventSubscriptionSubjectFilterPtrOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionSubjectFilterPtrInput` via:
+//
+//          SystemTopicEventSubscriptionSubjectFilterArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemTopicEventSubscriptionSubjectFilterPtrInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionSubjectFilterPtrOutput() SystemTopicEventSubscriptionSubjectFilterPtrOutput
+	ToSystemTopicEventSubscriptionSubjectFilterPtrOutputWithContext(context.Context) SystemTopicEventSubscriptionSubjectFilterPtrOutput
+}
+
+type systemTopicEventSubscriptionSubjectFilterPtrType SystemTopicEventSubscriptionSubjectFilterArgs
+
+func SystemTopicEventSubscriptionSubjectFilterPtr(v *SystemTopicEventSubscriptionSubjectFilterArgs) SystemTopicEventSubscriptionSubjectFilterPtrInput {
+	return (*systemTopicEventSubscriptionSubjectFilterPtrType)(v)
+}
+
+func (*systemTopicEventSubscriptionSubjectFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemTopicEventSubscriptionSubjectFilter)(nil)).Elem()
+}
+
+func (i *systemTopicEventSubscriptionSubjectFilterPtrType) ToSystemTopicEventSubscriptionSubjectFilterPtrOutput() SystemTopicEventSubscriptionSubjectFilterPtrOutput {
+	return i.ToSystemTopicEventSubscriptionSubjectFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *systemTopicEventSubscriptionSubjectFilterPtrType) ToSystemTopicEventSubscriptionSubjectFilterPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionSubjectFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionSubjectFilterPtrOutput)
+}
+
+type SystemTopicEventSubscriptionSubjectFilterOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionSubjectFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionSubjectFilter)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionSubjectFilterOutput) ToSystemTopicEventSubscriptionSubjectFilterOutput() SystemTopicEventSubscriptionSubjectFilterOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionSubjectFilterOutput) ToSystemTopicEventSubscriptionSubjectFilterOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionSubjectFilterOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionSubjectFilterOutput) ToSystemTopicEventSubscriptionSubjectFilterPtrOutput() SystemTopicEventSubscriptionSubjectFilterPtrOutput {
+	return o.ToSystemTopicEventSubscriptionSubjectFilterPtrOutputWithContext(context.Background())
+}
+
+func (o SystemTopicEventSubscriptionSubjectFilterOutput) ToSystemTopicEventSubscriptionSubjectFilterPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionSubjectFilterPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionSubjectFilter) *SystemTopicEventSubscriptionSubjectFilter {
+		return &v
+	}).(SystemTopicEventSubscriptionSubjectFilterPtrOutput)
+}
+
+// Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value defaults to `false`.
+func (o SystemTopicEventSubscriptionSubjectFilterOutput) CaseSensitive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionSubjectFilter) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
+}
+
+// A string to filter events for an event subscription based on a resource path prefix.
+func (o SystemTopicEventSubscriptionSubjectFilterOutput) SubjectBeginsWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionSubjectFilter) *string { return v.SubjectBeginsWith }).(pulumi.StringPtrOutput)
+}
+
+// A string to filter events for an event subscription based on a resource path suffix.
+func (o SystemTopicEventSubscriptionSubjectFilterOutput) SubjectEndsWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionSubjectFilter) *string { return v.SubjectEndsWith }).(pulumi.StringPtrOutput)
+}
+
+type SystemTopicEventSubscriptionSubjectFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionSubjectFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemTopicEventSubscriptionSubjectFilter)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionSubjectFilterPtrOutput) ToSystemTopicEventSubscriptionSubjectFilterPtrOutput() SystemTopicEventSubscriptionSubjectFilterPtrOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionSubjectFilterPtrOutput) ToSystemTopicEventSubscriptionSubjectFilterPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionSubjectFilterPtrOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionSubjectFilterPtrOutput) Elem() SystemTopicEventSubscriptionSubjectFilterOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionSubjectFilter) SystemTopicEventSubscriptionSubjectFilter {
+		return *v
+	}).(SystemTopicEventSubscriptionSubjectFilterOutput)
+}
+
+// Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value defaults to `false`.
+func (o SystemTopicEventSubscriptionSubjectFilterPtrOutput) CaseSensitive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionSubjectFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CaseSensitive
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A string to filter events for an event subscription based on a resource path prefix.
+func (o SystemTopicEventSubscriptionSubjectFilterPtrOutput) SubjectBeginsWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionSubjectFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectBeginsWith
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string to filter events for an event subscription based on a resource path suffix.
+func (o SystemTopicEventSubscriptionSubjectFilterPtrOutput) SubjectEndsWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionSubjectFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectEndsWith
+	}).(pulumi.StringPtrOutput)
+}
+
+type SystemTopicEventSubscriptionWebhookEndpoint struct {
+	// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+	ActiveDirectoryAppIdOrUri *string `pulumi:"activeDirectoryAppIdOrUri"`
+	// The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+	ActiveDirectoryTenantId *string `pulumi:"activeDirectoryTenantId"`
+	// The base url of the webhook where the Event Subscription will receive events.
+	BaseUrl *string `pulumi:"baseUrl"`
+	// Maximum number of events per batch.
+	MaxEventsPerBatch *int `pulumi:"maxEventsPerBatch"`
+	// Preferred batch size in Kilobytes.
+	PreferredBatchSizeInKilobytes *int `pulumi:"preferredBatchSizeInKilobytes"`
+	// Specifies the url of the webhook where the Event Subscription will receive events.
+	Url string `pulumi:"url"`
+}
+
+// SystemTopicEventSubscriptionWebhookEndpointInput is an input type that accepts SystemTopicEventSubscriptionWebhookEndpointArgs and SystemTopicEventSubscriptionWebhookEndpointOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionWebhookEndpointInput` via:
+//
+//          SystemTopicEventSubscriptionWebhookEndpointArgs{...}
+type SystemTopicEventSubscriptionWebhookEndpointInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionWebhookEndpointOutput() SystemTopicEventSubscriptionWebhookEndpointOutput
+	ToSystemTopicEventSubscriptionWebhookEndpointOutputWithContext(context.Context) SystemTopicEventSubscriptionWebhookEndpointOutput
+}
+
+type SystemTopicEventSubscriptionWebhookEndpointArgs struct {
+	// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+	ActiveDirectoryAppIdOrUri pulumi.StringPtrInput `pulumi:"activeDirectoryAppIdOrUri"`
+	// The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+	ActiveDirectoryTenantId pulumi.StringPtrInput `pulumi:"activeDirectoryTenantId"`
+	// The base url of the webhook where the Event Subscription will receive events.
+	BaseUrl pulumi.StringPtrInput `pulumi:"baseUrl"`
+	// Maximum number of events per batch.
+	MaxEventsPerBatch pulumi.IntPtrInput `pulumi:"maxEventsPerBatch"`
+	// Preferred batch size in Kilobytes.
+	PreferredBatchSizeInKilobytes pulumi.IntPtrInput `pulumi:"preferredBatchSizeInKilobytes"`
+	// Specifies the url of the webhook where the Event Subscription will receive events.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (SystemTopicEventSubscriptionWebhookEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionWebhookEndpoint)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionWebhookEndpointArgs) ToSystemTopicEventSubscriptionWebhookEndpointOutput() SystemTopicEventSubscriptionWebhookEndpointOutput {
+	return i.ToSystemTopicEventSubscriptionWebhookEndpointOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionWebhookEndpointArgs) ToSystemTopicEventSubscriptionWebhookEndpointOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionWebhookEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionWebhookEndpointOutput)
+}
+
+func (i SystemTopicEventSubscriptionWebhookEndpointArgs) ToSystemTopicEventSubscriptionWebhookEndpointPtrOutput() SystemTopicEventSubscriptionWebhookEndpointPtrOutput {
+	return i.ToSystemTopicEventSubscriptionWebhookEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionWebhookEndpointArgs) ToSystemTopicEventSubscriptionWebhookEndpointPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionWebhookEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionWebhookEndpointOutput).ToSystemTopicEventSubscriptionWebhookEndpointPtrOutputWithContext(ctx)
+}
+
+// SystemTopicEventSubscriptionWebhookEndpointPtrInput is an input type that accepts SystemTopicEventSubscriptionWebhookEndpointArgs, SystemTopicEventSubscriptionWebhookEndpointPtr and SystemTopicEventSubscriptionWebhookEndpointPtrOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionWebhookEndpointPtrInput` via:
+//
+//          SystemTopicEventSubscriptionWebhookEndpointArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemTopicEventSubscriptionWebhookEndpointPtrInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionWebhookEndpointPtrOutput() SystemTopicEventSubscriptionWebhookEndpointPtrOutput
+	ToSystemTopicEventSubscriptionWebhookEndpointPtrOutputWithContext(context.Context) SystemTopicEventSubscriptionWebhookEndpointPtrOutput
+}
+
+type systemTopicEventSubscriptionWebhookEndpointPtrType SystemTopicEventSubscriptionWebhookEndpointArgs
+
+func SystemTopicEventSubscriptionWebhookEndpointPtr(v *SystemTopicEventSubscriptionWebhookEndpointArgs) SystemTopicEventSubscriptionWebhookEndpointPtrInput {
+	return (*systemTopicEventSubscriptionWebhookEndpointPtrType)(v)
+}
+
+func (*systemTopicEventSubscriptionWebhookEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemTopicEventSubscriptionWebhookEndpoint)(nil)).Elem()
+}
+
+func (i *systemTopicEventSubscriptionWebhookEndpointPtrType) ToSystemTopicEventSubscriptionWebhookEndpointPtrOutput() SystemTopicEventSubscriptionWebhookEndpointPtrOutput {
+	return i.ToSystemTopicEventSubscriptionWebhookEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *systemTopicEventSubscriptionWebhookEndpointPtrType) ToSystemTopicEventSubscriptionWebhookEndpointPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionWebhookEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionWebhookEndpointPtrOutput)
+}
+
+type SystemTopicEventSubscriptionWebhookEndpointOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionWebhookEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionWebhookEndpoint)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionWebhookEndpointOutput) ToSystemTopicEventSubscriptionWebhookEndpointOutput() SystemTopicEventSubscriptionWebhookEndpointOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionWebhookEndpointOutput) ToSystemTopicEventSubscriptionWebhookEndpointOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionWebhookEndpointOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionWebhookEndpointOutput) ToSystemTopicEventSubscriptionWebhookEndpointPtrOutput() SystemTopicEventSubscriptionWebhookEndpointPtrOutput {
+	return o.ToSystemTopicEventSubscriptionWebhookEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o SystemTopicEventSubscriptionWebhookEndpointOutput) ToSystemTopicEventSubscriptionWebhookEndpointPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionWebhookEndpointPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionWebhookEndpoint) *SystemTopicEventSubscriptionWebhookEndpoint {
+		return &v
+	}).(SystemTopicEventSubscriptionWebhookEndpointPtrOutput)
+}
+
+// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+func (o SystemTopicEventSubscriptionWebhookEndpointOutput) ActiveDirectoryAppIdOrUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionWebhookEndpoint) *string { return v.ActiveDirectoryAppIdOrUri }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+func (o SystemTopicEventSubscriptionWebhookEndpointOutput) ActiveDirectoryTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionWebhookEndpoint) *string { return v.ActiveDirectoryTenantId }).(pulumi.StringPtrOutput)
+}
+
+// The base url of the webhook where the Event Subscription will receive events.
+func (o SystemTopicEventSubscriptionWebhookEndpointOutput) BaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionWebhookEndpoint) *string { return v.BaseUrl }).(pulumi.StringPtrOutput)
+}
+
+// Maximum number of events per batch.
+func (o SystemTopicEventSubscriptionWebhookEndpointOutput) MaxEventsPerBatch() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionWebhookEndpoint) *int { return v.MaxEventsPerBatch }).(pulumi.IntPtrOutput)
+}
+
+// Preferred batch size in Kilobytes.
+func (o SystemTopicEventSubscriptionWebhookEndpointOutput) PreferredBatchSizeInKilobytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionWebhookEndpoint) *int { return v.PreferredBatchSizeInKilobytes }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the url of the webhook where the Event Subscription will receive events.
+func (o SystemTopicEventSubscriptionWebhookEndpointOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionWebhookEndpoint) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type SystemTopicEventSubscriptionWebhookEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionWebhookEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemTopicEventSubscriptionWebhookEndpoint)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionWebhookEndpointPtrOutput) ToSystemTopicEventSubscriptionWebhookEndpointPtrOutput() SystemTopicEventSubscriptionWebhookEndpointPtrOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionWebhookEndpointPtrOutput) ToSystemTopicEventSubscriptionWebhookEndpointPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionWebhookEndpointPtrOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionWebhookEndpointPtrOutput) Elem() SystemTopicEventSubscriptionWebhookEndpointOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionWebhookEndpoint) SystemTopicEventSubscriptionWebhookEndpoint {
+		return *v
+	}).(SystemTopicEventSubscriptionWebhookEndpointOutput)
+}
+
+// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+func (o SystemTopicEventSubscriptionWebhookEndpointPtrOutput) ActiveDirectoryAppIdOrUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionWebhookEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveDirectoryAppIdOrUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+func (o SystemTopicEventSubscriptionWebhookEndpointPtrOutput) ActiveDirectoryTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionWebhookEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveDirectoryTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The base url of the webhook where the Event Subscription will receive events.
+func (o SystemTopicEventSubscriptionWebhookEndpointPtrOutput) BaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionWebhookEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BaseUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Maximum number of events per batch.
+func (o SystemTopicEventSubscriptionWebhookEndpointPtrOutput) MaxEventsPerBatch() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionWebhookEndpoint) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxEventsPerBatch
+	}).(pulumi.IntPtrOutput)
+}
+
+// Preferred batch size in Kilobytes.
+func (o SystemTopicEventSubscriptionWebhookEndpointPtrOutput) PreferredBatchSizeInKilobytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionWebhookEndpoint) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PreferredBatchSizeInKilobytes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the url of the webhook where the Event Subscription will receive events.
+func (o SystemTopicEventSubscriptionWebhookEndpointPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionWebhookEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
 type TopicInputMappingDefaultValues struct {
 	// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 	DataVersion *string `pulumi:"dataVersion"`
@@ -3759,6 +6423,44 @@ func init() {
 	pulumi.RegisterOutputType(EventSubscriptionSubjectFilterPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionWebhookEndpointOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionWebhookEndpointPtrOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterPtrOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterNumberInOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterStringContainOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterStringInOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAzureFunctionEndpointOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionRetryPolicyOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionRetryPolicyPtrOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionStorageQueueEndpointOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionSubjectFilterOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionSubjectFilterPtrOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionWebhookEndpointOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionWebhookEndpointPtrOutput{})
 	pulumi.RegisterOutputType(TopicInputMappingDefaultValuesOutput{})
 	pulumi.RegisterOutputType(TopicInputMappingDefaultValuesPtrOutput{})
 	pulumi.RegisterOutputType(TopicInputMappingFieldsOutput{})

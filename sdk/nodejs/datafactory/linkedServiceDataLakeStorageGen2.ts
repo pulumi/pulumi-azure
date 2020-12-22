@@ -106,7 +106,7 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
      */
     public readonly servicePrincipalKey!: pulumi.Output<string | undefined>;
     /**
-     * (Required) The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
+     * The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
      */
     public readonly tenant!: pulumi.Output<string | undefined>;
     /**
@@ -224,7 +224,7 @@ export interface LinkedServiceDataLakeStorageGen2State {
      */
     readonly servicePrincipalKey?: pulumi.Input<string>;
     /**
-     * (Required) The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
+     * The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
      */
     readonly tenant?: pulumi.Input<string>;
     /**
@@ -282,7 +282,7 @@ export interface LinkedServiceDataLakeStorageGen2Args {
      */
     readonly servicePrincipalKey?: pulumi.Input<string>;
     /**
-     * (Required) The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
+     * The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
      */
     readonly tenant?: pulumi.Input<string>;
     /**

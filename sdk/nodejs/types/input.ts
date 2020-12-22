@@ -1902,7 +1902,7 @@ export namespace appservice {
          */
         scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSiteConfigScmIpRestriction>[]>;
         /**
-         * The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (dafault), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+         * The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
          */
         scmType?: pulumi.Input<string>;
         /**
@@ -7740,6 +7740,279 @@ export namespace eventgrid {
         url: pulumi.Input<string>;
     }
 
+    export interface SystemTopicEventSubscriptionAdvancedFilter {
+        /**
+         * Compares a value of an event using a single boolean value.
+         */
+        boolEquals?: pulumi.Input<pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterBoolEqual>[]>;
+        /**
+         * Compares a value of an event using a single floating point number.
+         */
+        numberGreaterThanOrEquals?: pulumi.Input<pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual>[]>;
+        /**
+         * Compares a value of an event using a single floating point number.
+         */
+        numberGreaterThans?: pulumi.Input<pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan>[]>;
+        /**
+         * Compares a value of an event using multiple floating point numbers.
+         */
+        numberIns?: pulumi.Input<pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterNumberIn>[]>;
+        /**
+         * Compares a value of an event using a single floating point number.
+         */
+        numberLessThanOrEquals?: pulumi.Input<pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual>[]>;
+        /**
+         * Compares a value of an event using a single floating point number.
+         */
+        numberLessThans?: pulumi.Input<pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterNumberLessThan>[]>;
+        /**
+         * Compares a value of an event using multiple floating point numbers.
+         */
+        numberNotIns?: pulumi.Input<pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterNumberNotIn>[]>;
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringBeginsWiths?: pulumi.Input<pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith>[]>;
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringContains?: pulumi.Input<pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterStringContain>[]>;
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringEndsWiths?: pulumi.Input<pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterStringEndsWith>[]>;
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringIns?: pulumi.Input<pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterStringIn>[]>;
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringNotIns?: pulumi.Input<pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionAdvancedFilterStringNotIn>[]>;
+    }
+
+    export interface SystemTopicEventSubscriptionAdvancedFilterBoolEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies a single value to compare to when using a single value operator.
+         */
+        value: pulumi.Input<boolean>;
+    }
+
+    export interface SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies a single value to compare to when using a single value operator.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies a single value to compare to when using a single value operator.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface SystemTopicEventSubscriptionAdvancedFilterNumberIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface SystemTopicEventSubscriptionAdvancedFilterNumberLessThan {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies a single value to compare to when using a single value operator.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies a single value to compare to when using a single value operator.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface SystemTopicEventSubscriptionAdvancedFilterNumberNotIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface SystemTopicEventSubscriptionAdvancedFilterStringContain {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface SystemTopicEventSubscriptionAdvancedFilterStringEndsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface SystemTopicEventSubscriptionAdvancedFilterStringIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface SystemTopicEventSubscriptionAdvancedFilterStringNotIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface SystemTopicEventSubscriptionAzureFunctionEndpoint {
+        /**
+         * Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
+         */
+        functionId: pulumi.Input<string>;
+        /**
+         * Maximum number of events per batch.
+         */
+        maxEventsPerBatch?: pulumi.Input<number>;
+        /**
+         * Preferred batch size in Kilobytes.
+         */
+        preferredBatchSizeInKilobytes?: pulumi.Input<number>;
+    }
+
+    export interface SystemTopicEventSubscriptionRetryPolicy {
+        /**
+         * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+         */
+        eventTimeToLive: pulumi.Input<number>;
+        /**
+         * Specifies the maximum number of delivery retry attempts for events.
+         */
+        maxDeliveryAttempts: pulumi.Input<number>;
+    }
+
+    export interface SystemTopicEventSubscriptionStorageBlobDeadLetterDestination {
+        /**
+         * Specifies the id of the storage account id where the storage blob is located.
+         */
+        storageAccountId: pulumi.Input<string>;
+        /**
+         * Specifies the name of the Storage blob container that is the destination of the deadletter events.
+         */
+        storageBlobContainerName: pulumi.Input<string>;
+    }
+
+    export interface SystemTopicEventSubscriptionStorageQueueEndpoint {
+        /**
+         * Specifies the name of the storage queue where the Event Subscription will receive events.
+         */
+        queueName: pulumi.Input<string>;
+        /**
+         * Specifies the id of the storage account id where the storage queue is located.
+         */
+        storageAccountId: pulumi.Input<string>;
+    }
+
+    export interface SystemTopicEventSubscriptionSubjectFilter {
+        /**
+         * Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value defaults to `false`.
+         */
+        caseSensitive?: pulumi.Input<boolean>;
+        /**
+         * A string to filter events for an event subscription based on a resource path prefix.
+         */
+        subjectBeginsWith?: pulumi.Input<string>;
+        /**
+         * A string to filter events for an event subscription based on a resource path suffix.
+         */
+        subjectEndsWith?: pulumi.Input<string>;
+    }
+
+    export interface SystemTopicEventSubscriptionWebhookEndpoint {
+        /**
+         * The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+         */
+        activeDirectoryAppIdOrUri?: pulumi.Input<string>;
+        /**
+         * The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+         */
+        activeDirectoryTenantId?: pulumi.Input<string>;
+        /**
+         * The base url of the webhook where the Event Subscription will receive events.
+         */
+        baseUrl?: pulumi.Input<string>;
+        /**
+         * Maximum number of events per batch.
+         */
+        maxEventsPerBatch?: pulumi.Input<number>;
+        /**
+         * Preferred batch size in Kilobytes.
+         */
+        preferredBatchSizeInKilobytes?: pulumi.Input<number>;
+        /**
+         * Specifies the url of the webhook where the Event Subscription will receive events.
+         */
+        url: pulumi.Input<string>;
+    }
+
     export interface TopicInputMappingDefaultValues {
         /**
          * Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -11519,6 +11792,28 @@ export namespace mariadb {
 }
 
 export namespace media {
+    export interface JobInputAsset {
+        /**
+         * A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+         */
+        label?: pulumi.Input<string>;
+        /**
+         * The name of the input Asset. Changing this forces a new Media Job to be created.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface JobOutputAsset {
+        /**
+         * A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
+         */
+        label?: pulumi.Input<string>;
+        /**
+         * The name of the output Asset. Changing this forces a new Media Job to be created.
+         */
+        name: pulumi.Input<string>;
+    }
+
     export interface ServiceAccountIdentity {
         /**
          * The Principal ID associated with this Managed Service Identity.
@@ -11543,6 +11838,58 @@ export namespace media {
          * Specifies whether the storage account should be the primary account or not. Defaults to `false`.
          */
         isPrimary?: pulumi.Input<boolean>;
+    }
+
+    export interface StreamingEndpointAccessControl {
+        /**
+         * One or more `akamaiSignatureHeaderAuthenticationKey` blocks as defined below.
+         */
+        akamaiSignatureHeaderAuthenticationKeys?: pulumi.Input<pulumi.Input<inputs.media.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey>[]>;
+        /**
+         * A `ip` block as defined below.
+         */
+        ipAllows?: pulumi.Input<pulumi.Input<inputs.media.StreamingEndpointAccessControlIpAllow>[]>;
+    }
+
+    export interface StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey {
+        /**
+         * Authentication key.
+         */
+        base64Key?: pulumi.Input<string>;
+        /**
+         * The expiration time of the authentication key.
+         */
+        expiration?: pulumi.Input<string>;
+        /**
+         * Identifier of the key.
+         */
+        identifier?: pulumi.Input<string>;
+    }
+
+    export interface StreamingEndpointAccessControlIpAllow {
+        /**
+         * The IP address to allow.
+         */
+        address?: pulumi.Input<string>;
+        /**
+         * The friendly name for the IP address range.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The subnet mask prefix length (see CIDR notation).
+         */
+        subnetPrefixLength?: pulumi.Input<number>;
+    }
+
+    export interface StreamingEndpointCrossSiteAccessPolicy {
+        /**
+         * The content of clientaccesspolicy.xml used by Silverlight.
+         */
+        clientAccessPolicy?: pulumi.Input<string>;
+        /**
+         * The content of crossdomain.xml used by Silverlight.
+         */
+        crossDomainPolicy?: pulumi.Input<string>;
     }
 
     export interface TransformOutput {
@@ -14753,6 +15100,21 @@ export namespace network {
          * The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`,  `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
          */
         name: pulumi.Input<string>;
+    }
+
+    export interface SubnetServiceEndpointStoragePolicyDefinition {
+        /**
+         * The description of this Subnet Service Endpoint Storage Policy Definition.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this Subnet Service Endpoint Storage Policy Definition.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies a list of resources that this Subnet Service Endpoint Storage Policy Definition applies to.
+         */
+        serviceResources: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface TrafficManagerEndpointCustomHeader {

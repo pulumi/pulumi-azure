@@ -101,7 +101,7 @@ import (
 // HDInsight Spark Clusters can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:hdinsight/sparkCluster:SparkCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1}
+//  $ pulumi import azure:hdinsight/sparkCluster:SparkCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1
 // ```
 type SparkCluster struct {
 	pulumi.CustomResourceState

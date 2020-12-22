@@ -12372,6 +12372,177 @@ func (o SubnetDelegationServiceDelegationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SubnetDelegationServiceDelegation) string { return v.Name }).(pulumi.StringOutput)
 }
 
+type SubnetServiceEndpointStoragePolicyDefinition struct {
+	// The description of this Subnet Service Endpoint Storage Policy Definition.
+	Description *string `pulumi:"description"`
+	// The name which should be used for this Subnet Service Endpoint Storage Policy Definition.
+	Name string `pulumi:"name"`
+	// Specifies a list of resources that this Subnet Service Endpoint Storage Policy Definition applies to.
+	ServiceResources []string `pulumi:"serviceResources"`
+}
+
+// SubnetServiceEndpointStoragePolicyDefinitionInput is an input type that accepts SubnetServiceEndpointStoragePolicyDefinitionArgs and SubnetServiceEndpointStoragePolicyDefinitionOutput values.
+// You can construct a concrete instance of `SubnetServiceEndpointStoragePolicyDefinitionInput` via:
+//
+//          SubnetServiceEndpointStoragePolicyDefinitionArgs{...}
+type SubnetServiceEndpointStoragePolicyDefinitionInput interface {
+	pulumi.Input
+
+	ToSubnetServiceEndpointStoragePolicyDefinitionOutput() SubnetServiceEndpointStoragePolicyDefinitionOutput
+	ToSubnetServiceEndpointStoragePolicyDefinitionOutputWithContext(context.Context) SubnetServiceEndpointStoragePolicyDefinitionOutput
+}
+
+type SubnetServiceEndpointStoragePolicyDefinitionArgs struct {
+	// The description of this Subnet Service Endpoint Storage Policy Definition.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name which should be used for this Subnet Service Endpoint Storage Policy Definition.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies a list of resources that this Subnet Service Endpoint Storage Policy Definition applies to.
+	ServiceResources pulumi.StringArrayInput `pulumi:"serviceResources"`
+}
+
+func (SubnetServiceEndpointStoragePolicyDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetServiceEndpointStoragePolicyDefinition)(nil)).Elem()
+}
+
+func (i SubnetServiceEndpointStoragePolicyDefinitionArgs) ToSubnetServiceEndpointStoragePolicyDefinitionOutput() SubnetServiceEndpointStoragePolicyDefinitionOutput {
+	return i.ToSubnetServiceEndpointStoragePolicyDefinitionOutputWithContext(context.Background())
+}
+
+func (i SubnetServiceEndpointStoragePolicyDefinitionArgs) ToSubnetServiceEndpointStoragePolicyDefinitionOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetServiceEndpointStoragePolicyDefinitionOutput)
+}
+
+func (i SubnetServiceEndpointStoragePolicyDefinitionArgs) ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutput() SubnetServiceEndpointStoragePolicyDefinitionPtrOutput {
+	return i.ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i SubnetServiceEndpointStoragePolicyDefinitionArgs) ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetServiceEndpointStoragePolicyDefinitionOutput).ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutputWithContext(ctx)
+}
+
+// SubnetServiceEndpointStoragePolicyDefinitionPtrInput is an input type that accepts SubnetServiceEndpointStoragePolicyDefinitionArgs, SubnetServiceEndpointStoragePolicyDefinitionPtr and SubnetServiceEndpointStoragePolicyDefinitionPtrOutput values.
+// You can construct a concrete instance of `SubnetServiceEndpointStoragePolicyDefinitionPtrInput` via:
+//
+//          SubnetServiceEndpointStoragePolicyDefinitionArgs{...}
+//
+//  or:
+//
+//          nil
+type SubnetServiceEndpointStoragePolicyDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutput() SubnetServiceEndpointStoragePolicyDefinitionPtrOutput
+	ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutputWithContext(context.Context) SubnetServiceEndpointStoragePolicyDefinitionPtrOutput
+}
+
+type subnetServiceEndpointStoragePolicyDefinitionPtrType SubnetServiceEndpointStoragePolicyDefinitionArgs
+
+func SubnetServiceEndpointStoragePolicyDefinitionPtr(v *SubnetServiceEndpointStoragePolicyDefinitionArgs) SubnetServiceEndpointStoragePolicyDefinitionPtrInput {
+	return (*subnetServiceEndpointStoragePolicyDefinitionPtrType)(v)
+}
+
+func (*subnetServiceEndpointStoragePolicyDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetServiceEndpointStoragePolicyDefinition)(nil)).Elem()
+}
+
+func (i *subnetServiceEndpointStoragePolicyDefinitionPtrType) ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutput() SubnetServiceEndpointStoragePolicyDefinitionPtrOutput {
+	return i.ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *subnetServiceEndpointStoragePolicyDefinitionPtrType) ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetServiceEndpointStoragePolicyDefinitionPtrOutput)
+}
+
+type SubnetServiceEndpointStoragePolicyDefinitionOutput struct{ *pulumi.OutputState }
+
+func (SubnetServiceEndpointStoragePolicyDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetServiceEndpointStoragePolicyDefinition)(nil)).Elem()
+}
+
+func (o SubnetServiceEndpointStoragePolicyDefinitionOutput) ToSubnetServiceEndpointStoragePolicyDefinitionOutput() SubnetServiceEndpointStoragePolicyDefinitionOutput {
+	return o
+}
+
+func (o SubnetServiceEndpointStoragePolicyDefinitionOutput) ToSubnetServiceEndpointStoragePolicyDefinitionOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyDefinitionOutput {
+	return o
+}
+
+func (o SubnetServiceEndpointStoragePolicyDefinitionOutput) ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutput() SubnetServiceEndpointStoragePolicyDefinitionPtrOutput {
+	return o.ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o SubnetServiceEndpointStoragePolicyDefinitionOutput) ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyDefinitionPtrOutput {
+	return o.ApplyT(func(v SubnetServiceEndpointStoragePolicyDefinition) *SubnetServiceEndpointStoragePolicyDefinition {
+		return &v
+	}).(SubnetServiceEndpointStoragePolicyDefinitionPtrOutput)
+}
+
+// The description of this Subnet Service Endpoint Storage Policy Definition.
+func (o SubnetServiceEndpointStoragePolicyDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetServiceEndpointStoragePolicyDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name which should be used for this Subnet Service Endpoint Storage Policy Definition.
+func (o SubnetServiceEndpointStoragePolicyDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SubnetServiceEndpointStoragePolicyDefinition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies a list of resources that this Subnet Service Endpoint Storage Policy Definition applies to.
+func (o SubnetServiceEndpointStoragePolicyDefinitionOutput) ServiceResources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SubnetServiceEndpointStoragePolicyDefinition) []string { return v.ServiceResources }).(pulumi.StringArrayOutput)
+}
+
+type SubnetServiceEndpointStoragePolicyDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetServiceEndpointStoragePolicyDefinition)(nil)).Elem()
+}
+
+func (o SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutput() SubnetServiceEndpointStoragePolicyDefinitionPtrOutput {
+	return o
+}
+
+func (o SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyDefinitionPtrOutput {
+	return o
+}
+
+func (o SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) Elem() SubnetServiceEndpointStoragePolicyDefinitionOutput {
+	return o.ApplyT(func(v *SubnetServiceEndpointStoragePolicyDefinition) SubnetServiceEndpointStoragePolicyDefinition {
+		return *v
+	}).(SubnetServiceEndpointStoragePolicyDefinitionOutput)
+}
+
+// The description of this Subnet Service Endpoint Storage Policy Definition.
+func (o SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetServiceEndpointStoragePolicyDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name which should be used for this Subnet Service Endpoint Storage Policy Definition.
+func (o SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetServiceEndpointStoragePolicyDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of resources that this Subnet Service Endpoint Storage Policy Definition applies to.
+func (o SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) ServiceResources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SubnetServiceEndpointStoragePolicyDefinition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceResources
+	}).(pulumi.StringArrayOutput)
+}
+
 type TrafficManagerEndpointCustomHeader struct {
 	// The name of the custom header.
 	Name string `pulumi:"name"`
@@ -21637,6 +21808,8 @@ func init() {
 	pulumi.RegisterOutputType(SubnetDelegationOutput{})
 	pulumi.RegisterOutputType(SubnetDelegationArrayOutput{})
 	pulumi.RegisterOutputType(SubnetDelegationServiceDelegationOutput{})
+	pulumi.RegisterOutputType(SubnetServiceEndpointStoragePolicyDefinitionOutput{})
+	pulumi.RegisterOutputType(SubnetServiceEndpointStoragePolicyDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(TrafficManagerEndpointCustomHeaderOutput{})
 	pulumi.RegisterOutputType(TrafficManagerEndpointCustomHeaderArrayOutput{})
 	pulumi.RegisterOutputType(TrafficManagerEndpointSubnetOutput{})

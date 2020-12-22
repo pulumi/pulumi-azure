@@ -170,10 +170,22 @@ namespace Pulumi.Azure.AppService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
+        /// </summary>
+        [Output("outboundIpAddressLists")]
+        public Output<ImmutableArray<string>> OutboundIpAddressLists { get; private set; } = null!;
+
+        /// <summary>
         /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         /// </summary>
         [Output("outboundIpAddresses")]
         public Output<string> OutboundIpAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
+        /// </summary>
+        [Output("possibleOutboundIpAddressLists")]
+        public Output<ImmutableArray<string>> PossibleOutboundIpAddressLists { get; private set; } = null!;
 
         /// <summary>
         /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
@@ -504,11 +516,35 @@ namespace Pulumi.Azure.AppService
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("outboundIpAddressLists")]
+        private InputList<string>? _outboundIpAddressLists;
+
+        /// <summary>
+        /// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
+        /// </summary>
+        public InputList<string> OutboundIpAddressLists
+        {
+            get => _outboundIpAddressLists ?? (_outboundIpAddressLists = new InputList<string>());
+            set => _outboundIpAddressLists = value;
+        }
+
         /// <summary>
         /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         /// </summary>
         [Input("outboundIpAddresses")]
         public Input<string>? OutboundIpAddresses { get; set; }
+
+        [Input("possibleOutboundIpAddressLists")]
+        private InputList<string>? _possibleOutboundIpAddressLists;
+
+        /// <summary>
+        /// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
+        /// </summary>
+        public InputList<string> PossibleOutboundIpAddressLists
+        {
+            get => _possibleOutboundIpAddressLists ?? (_possibleOutboundIpAddressLists = new InputList<string>());
+            set => _possibleOutboundIpAddressLists = value;
+        }
 
         /// <summary>
         /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.

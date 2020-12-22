@@ -147,7 +147,9 @@ class AppService(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['custom_domain_verification_id'] = None
             __props__['default_site_hostname'] = None
+            __props__['outbound_ip_address_lists'] = None
             __props__['outbound_ip_addresses'] = None
+            __props__['possible_outbound_ip_address_lists'] = None
             __props__['possible_outbound_ip_addresses'] = None
             __props__['site_credentials'] = None
         super(AppService, __self__).__init__(
@@ -175,7 +177,9 @@ class AppService(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             logs: Optional[pulumi.Input[pulumi.InputType['AppServiceLogsArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+            possible_outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             site_config: Optional[pulumi.Input[pulumi.InputType['AppServiceSiteConfigArgs']]] = None,
@@ -205,7 +209,9 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AppServiceLogsArgs']] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.
         :param pulumi.Input[pulumi.InputType['AppServiceSiteConfigArgs']] site_config: A `site_config` block as defined below.
@@ -233,7 +239,9 @@ class AppService(pulumi.CustomResource):
         __props__["location"] = location
         __props__["logs"] = logs
         __props__["name"] = name
+        __props__["outbound_ip_address_lists"] = outbound_ip_address_lists
         __props__["outbound_ip_addresses"] = outbound_ip_addresses
+        __props__["possible_outbound_ip_address_lists"] = possible_outbound_ip_address_lists
         __props__["possible_outbound_ip_addresses"] = possible_outbound_ip_addresses
         __props__["resource_group_name"] = resource_group_name
         __props__["site_config"] = site_config
@@ -364,12 +372,28 @@ class AppService(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="outboundIpAddressLists")
+    def outbound_ip_address_lists(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
+        """
+        return pulumi.get(self, "outbound_ip_address_lists")
+
+    @property
     @pulumi.getter(name="outboundIpAddresses")
     def outbound_ip_addresses(self) -> pulumi.Output[str]:
         """
         A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         """
         return pulumi.get(self, "outbound_ip_addresses")
+
+    @property
+    @pulumi.getter(name="possibleOutboundIpAddressLists")
+    def possible_outbound_ip_address_lists(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
+        """
+        return pulumi.get(self, "possible_outbound_ip_address_lists")
 
     @property
     @pulumi.getter(name="possibleOutboundIpAddresses")

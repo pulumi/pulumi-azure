@@ -76,8 +76,12 @@ type LookupAppServiceResult struct {
 	Location string `pulumi:"location"`
 	// The name for this IP Restriction.
 	Name string `pulumi:"name"`
+	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
+	OutboundIpAddressLists []string `pulumi:"outboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses string `pulumi:"outboundIpAddresses"`
+	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outboundIpAddressList`.
+	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses string `pulumi:"possibleOutboundIpAddresses"`
 	ResourceGroupName           string `pulumi:"resourceGroupName"`

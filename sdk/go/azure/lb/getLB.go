@@ -52,7 +52,7 @@ type GetLBArgs struct {
 
 // A collection of values returned by getLB.
 type GetLBResult struct {
-	// (Optional) A `frontendIpConfiguration` block as documented below.
+	// A `frontendIpConfiguration` block as documented below.
 	FrontendIpConfigurations []GetLBFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`

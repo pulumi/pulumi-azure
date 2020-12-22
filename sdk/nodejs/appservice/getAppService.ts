@@ -102,9 +102,17 @@ export interface GetAppServiceResult {
      */
     readonly name: string;
     /**
+     * A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
+     */
+    readonly outboundIpAddressLists: string[];
+    /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      */
     readonly outboundIpAddresses: string;
+    /**
+     * A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outboundIpAddressList`.
+     */
+    readonly possibleOutboundIpAddressLists: string[];
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */

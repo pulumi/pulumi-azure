@@ -54,7 +54,7 @@ export interface GetLBArgs {
  */
 export interface GetLBResult {
     /**
-     * (Optional) A `frontendIpConfiguration` block as documented below.
+     * A `frontendIpConfiguration` block as documented below.
      */
     readonly frontendIpConfigurations: outputs.lb.GetLBFrontendIpConfiguration[];
     /**
