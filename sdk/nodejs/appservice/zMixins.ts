@@ -369,14 +369,25 @@ function serializeFunctionCallback<C extends Context<R>, E, R extends Result>(
         ? redirectConsoleOutput(args.callback)
         : () => redirectConsoleOutput(args.callbackFactory!());
 
-    return pulumi.runtime.serializeFunction(func, { isFactoryFunction: !!args.callbackFactory });
+    return pulumi.runtime.serializeFunction(func, { 
+        isFactoryFunction: !!args.callbackFactory,
+        allowSecrets: true,
+    });
 }
 
 function produceDeploymentArchive(args: MultiCallbackFunctionAppArgs): pulumi.Output<pulumi.asset.Archive> {
-    return pulumi.output(produceDeploymentArchiveAsync(args));
+    const deploymentArchivePromise = produceDeploymentArchiveAsync(args);
+    const ret = pulumi.output(deploymentArchivePromise.then(d => d.archive));
+    (ret as any).isSecret = deploymentArchivePromise.then(d => d.containsSecrets);
+    return ret;
 }
 
-async function produceDeploymentArchiveAsync(args: MultiCallbackFunctionAppArgs): Promise<pulumi.asset.AssetArchive> {
+interface DeploymentArchiveResult {
+    archive: pulumi.asset.AssetArchive;
+    containsSecrets: boolean;
+}
+
+async function produceDeploymentArchiveAsync(args: MultiCallbackFunctionAppArgs): Promise<DeploymentArchiveResult> {
     const map: pulumi.asset.AssetMap = {};
     map["host.json"] = new pulumi.asset.StringAsset(JSON.stringify({
         version: "2.0",
@@ -393,6 +404,7 @@ async function produceDeploymentArchiveAsync(args: MultiCallbackFunctionAppArgs)
         map[path] = value;
     }
 
+    let containsSecrets = false;
     for (const func of args.functions) {
         map[`${func.name}/function.json`] = pulumi.output(func.bindings).apply(bs => new pulumi.asset.StringAsset(JSON.stringify({
             disabled: false,
@@ -400,12 +412,16 @@ async function produceDeploymentArchiveAsync(args: MultiCallbackFunctionAppArgs)
         })));
 
         const body = await serializeFunctionCallback(func.callback);
+        containsSecrets ||= body.containsSecrets;
 
         map[`${func.name}/index.js`] = new pulumi.asset.StringAsset(`module.exports = require("./handler").handler`);
         map[`${func.name}/handler.js`] = new pulumi.asset.StringAsset(body.text);
     }
 
-    return new pulumi.asset.AssetArchive(map);
+    return {
+        archive: new pulumi.asset.AssetArchive(map),
+        containsSecrets: containsSecrets,
+    };
 }
 
 function combineFunctionAppSettings(args: MultiCallbackFunctionAppArgs): pulumi.Output<{ [key: string]: string }> {
