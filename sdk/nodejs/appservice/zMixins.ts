@@ -412,7 +412,7 @@ async function produceDeploymentArchiveAsync(args: MultiCallbackFunctionAppArgs)
         })));
 
         const body = await serializeFunctionCallback(func.callback);
-        containsSecrets ||= body.containsSecrets;
+        containsSecrets = containsSecrets || body.containsSecrets;
 
         map[`${func.name}/index.js`] = new pulumi.asset.StringAsset(`module.exports = require("./handler").handler`);
         map[`${func.name}/handler.js`] = new pulumi.asset.StringAsset(body.text);
