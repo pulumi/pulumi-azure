@@ -1920,7 +1920,7 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/node": "^8.0.0", // so we can access strongly typed node definitions.
 			},
 			Dependencies: map[string]string{
-				"@pulumi/pulumi":                "2.17.0-alpha.1609369338",
+				"@pulumi/pulumi":                "^2.17.0",
 				"azure-eventgrid":               "^1.6.0",
 				"@azure/functions":              "^1.0.3",
 				"@azure/ms-rest-azure-js":       "^2.0.1",
