@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Allow capturing secrets in CallbackFunctions
+_(none)_
 
 ---
+
+## 3.41.1 (2021-01-07)
+* Allow capturing secrets in CallbackFunctions
 
 ## 3.41.0 (2020-12-22)
 * Upgrade to v2.41.0 of the AzureRM Terraform Provider
