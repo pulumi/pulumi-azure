@@ -32,6 +32,7 @@ export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions
     return pulumi.runtime.invoke("azure:databricks/getWorkspace:getWorkspace", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -47,6 +48,10 @@ export interface GetWorkspaceArgs {
      * The Name of the Resource Group where the Databricks Workspace exists.
      */
     readonly resourceGroupName: string;
+    /**
+     * A mapping of tags to assign to the Databricks Workspace.
+     */
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -63,6 +68,10 @@ export interface GetWorkspaceResult {
      * SKU of this Databricks Workspace.
      */
     readonly sku: string;
+    /**
+     * A mapping of tags to assign to the Databricks Workspace.
+     */
+    readonly tags?: {[key: string]: string};
     /**
      * Unique ID of this Databricks Workspace in Databricks management plane.
      */

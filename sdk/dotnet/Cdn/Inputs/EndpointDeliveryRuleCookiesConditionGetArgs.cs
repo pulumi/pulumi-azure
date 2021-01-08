@@ -12,11 +12,11 @@ namespace Pulumi.Azure.Cdn.Inputs
 
     public sealed class EndpointDeliveryRuleCookiesConditionGetArgs : Pulumi.ResourceArgs
     {
-        [Input("matchValues", required: true)]
+        [Input("matchValues")]
         private InputList<string>? _matchValues;
 
         /// <summary>
-        /// List of values for the cookie.
+        /// List of values for the cookie. This is required if `operator` is not `Any`.
         /// </summary>
         public InputList<string> MatchValues
         {

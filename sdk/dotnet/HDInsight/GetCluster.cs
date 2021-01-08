@@ -94,6 +94,10 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The Kafka Rest Proxy Endpoint for this HDInsight Cluster.
+        /// </summary>
+        public readonly string KafkaRestProxyEndpoint;
+        /// <summary>
         /// The kind of HDInsight Cluster this is, such as a Spark or Storm cluster.
         /// </summary>
         public readonly string Kind;
@@ -134,6 +138,8 @@ namespace Pulumi.Azure.HDInsight
 
             string id,
 
+            string kafkaRestProxyEndpoint,
+
             string kind,
 
             string location,
@@ -156,6 +162,7 @@ namespace Pulumi.Azure.HDInsight
             Gateways = gateways;
             HttpsEndpoint = httpsEndpoint;
             Id = id;
+            KafkaRestProxyEndpoint = kafkaRestProxyEndpoint;
             Kind = kind;
             Location = location;
             Name = name;

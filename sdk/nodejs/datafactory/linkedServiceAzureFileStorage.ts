@@ -87,6 +87,10 @@ export class LinkedServiceAzureFileStorage extends pulumi.CustomResource {
      * The description for the Data Factory Linked Service.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the file share.
+     */
+    public readonly fileShare!: pulumi.Output<string | undefined>;
     public readonly host!: pulumi.Output<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
@@ -124,6 +128,7 @@ export class LinkedServiceAzureFileStorage extends pulumi.CustomResource {
             inputs["connectionString"] = state ? state.connectionString : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["fileShare"] = state ? state.fileShare : undefined;
             inputs["host"] = state ? state.host : undefined;
             inputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -147,6 +152,7 @@ export class LinkedServiceAzureFileStorage extends pulumi.CustomResource {
             inputs["connectionString"] = args ? args.connectionString : undefined;
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["fileShare"] = args ? args.fileShare : undefined;
             inputs["host"] = args ? args.host : undefined;
             inputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -190,6 +196,10 @@ export interface LinkedServiceAzureFileStorageState {
      * The description for the Data Factory Linked Service.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * The name of the file share.
+     */
+    readonly fileShare?: pulumi.Input<string>;
     readonly host?: pulumi.Input<string>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
@@ -235,6 +245,10 @@ export interface LinkedServiceAzureFileStorageArgs {
      * The description for the Data Factory Linked Service.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * The name of the file share.
+     */
+    readonly fileShare?: pulumi.Input<string>;
     readonly host?: pulumi.Input<string>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.

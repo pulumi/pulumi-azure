@@ -75,6 +75,10 @@ export interface GetSubscriptionResult {
      */
     readonly subscriptionId: string;
     /**
+     * A mapping of tags assigned to the Subscription.
+     */
+    readonly tags: {[key: string]: string};
+    /**
      * The subscription tenant ID.
      */
     readonly tenantId: string;

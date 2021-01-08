@@ -118,6 +118,10 @@ export class Profile extends pulumi.CustomResource {
      * Specifies the algorithm used to route traffic, possible values are:
      */
     public readonly trafficRoutingMethod!: pulumi.Output<string>;
+    /**
+     * Indicates whether Traffic View is enabled for the Traffic Manager profile.
+     */
+    public readonly trafficViewEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Profile resource with the given unique name, arguments, and options.
@@ -143,6 +147,7 @@ export class Profile extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["trafficRoutingMethod"] = state ? state.trafficRoutingMethod : undefined;
+            inputs["trafficViewEnabled"] = state ? state.trafficViewEnabled : undefined;
         } else {
             const args = argsOrState as ProfileArgs | undefined;
             if ((!args || args.dnsConfig === undefined) && !(opts && opts.urn)) {
@@ -165,6 +170,7 @@ export class Profile extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["trafficRoutingMethod"] = args ? args.trafficRoutingMethod : undefined;
+            inputs["trafficViewEnabled"] = args ? args.trafficViewEnabled : undefined;
             inputs["fqdn"] = undefined /*out*/;
         }
         if (!opts) {
@@ -218,6 +224,10 @@ export interface ProfileState {
      * Specifies the algorithm used to route traffic, possible values are:
      */
     readonly trafficRoutingMethod?: pulumi.Input<string>;
+    /**
+     * Indicates whether Traffic View is enabled for the Traffic Manager profile.
+     */
+    readonly trafficViewEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -256,4 +266,8 @@ export interface ProfileArgs {
      * Specifies the algorithm used to route traffic, possible values are:
      */
     readonly trafficRoutingMethod: pulumi.Input<string>;
+    /**
+     * Indicates whether Traffic View is enabled for the Traffic Manager profile.
+     */
+    readonly trafficViewEnabled?: pulumi.Input<boolean>;
 }

@@ -67,12 +67,16 @@ import (
 type AlertRuleScheduled struct {
 	pulumi.CustomResourceState
 
+	// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+	AlertRuleTemplateGuid pulumi.StringPtrOutput `pulumi:"alertRuleTemplateGuid"`
 	// The description of this Sentinel Scheduled Alert Rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The friendly name of this Sentinel Scheduled Alert Rule.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// A `incidentConfiguration` block as defined below.
+	IncidentConfiguration AlertRuleScheduledIncidentConfigurationOutput `pulumi:"incidentConfiguration"`
 	// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	LogAnalyticsWorkspaceId pulumi.StringOutput `pulumi:"logAnalyticsWorkspaceId"`
 	// The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
@@ -138,12 +142,16 @@ func GetAlertRuleScheduled(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertRuleScheduled resources.
 type alertRuleScheduledState struct {
+	// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+	AlertRuleTemplateGuid *string `pulumi:"alertRuleTemplateGuid"`
 	// The description of this Sentinel Scheduled Alert Rule.
 	Description *string `pulumi:"description"`
 	// The friendly name of this Sentinel Scheduled Alert Rule.
 	DisplayName *string `pulumi:"displayName"`
 	// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// A `incidentConfiguration` block as defined below.
+	IncidentConfiguration *AlertRuleScheduledIncidentConfiguration `pulumi:"incidentConfiguration"`
 	// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
 	// The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
@@ -169,12 +177,16 @@ type alertRuleScheduledState struct {
 }
 
 type AlertRuleScheduledState struct {
+	// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+	AlertRuleTemplateGuid pulumi.StringPtrInput
 	// The description of this Sentinel Scheduled Alert Rule.
 	Description pulumi.StringPtrInput
 	// The friendly name of this Sentinel Scheduled Alert Rule.
 	DisplayName pulumi.StringPtrInput
 	// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// A `incidentConfiguration` block as defined below.
+	IncidentConfiguration AlertRuleScheduledIncidentConfigurationPtrInput
 	// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
 	// The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
@@ -204,12 +216,16 @@ func (AlertRuleScheduledState) ElementType() reflect.Type {
 }
 
 type alertRuleScheduledArgs struct {
+	// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+	AlertRuleTemplateGuid *string `pulumi:"alertRuleTemplateGuid"`
 	// The description of this Sentinel Scheduled Alert Rule.
 	Description *string `pulumi:"description"`
 	// The friendly name of this Sentinel Scheduled Alert Rule.
 	DisplayName string `pulumi:"displayName"`
 	// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// A `incidentConfiguration` block as defined below.
+	IncidentConfiguration *AlertRuleScheduledIncidentConfiguration `pulumi:"incidentConfiguration"`
 	// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
 	// The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
@@ -236,12 +252,16 @@ type alertRuleScheduledArgs struct {
 
 // The set of arguments for constructing a AlertRuleScheduled resource.
 type AlertRuleScheduledArgs struct {
+	// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+	AlertRuleTemplateGuid pulumi.StringPtrInput
 	// The description of this Sentinel Scheduled Alert Rule.
 	Description pulumi.StringPtrInput
 	// The friendly name of this Sentinel Scheduled Alert Rule.
 	DisplayName pulumi.StringInput
 	// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// A `incidentConfiguration` block as defined below.
+	IncidentConfiguration AlertRuleScheduledIncidentConfigurationPtrInput
 	// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	LogAnalyticsWorkspaceId pulumi.StringInput
 	// The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.

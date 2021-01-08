@@ -57,8 +57,10 @@ __all__ = [
     'KafkaClusterMetastoresHiveArgs',
     'KafkaClusterMetastoresOozieArgs',
     'KafkaClusterMonitorArgs',
+    'KafkaClusterRestProxyArgs',
     'KafkaClusterRolesArgs',
     'KafkaClusterRolesHeadNodeArgs',
+    'KafkaClusterRolesKafkaManagementNodeArgs',
     'KafkaClusterRolesWorkerNodeArgs',
     'KafkaClusterRolesZookeeperNodeArgs',
     'KafkaClusterStorageAccountArgs',
@@ -3212,19 +3214,45 @@ class KafkaClusterMonitorArgs:
 
 
 @pulumi.input_type
+class KafkaClusterRestProxyArgs:
+    def __init__(__self__, *,
+                 security_group_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] security_group_id: The Azure Active Directory Security Group ID.
+        """
+        pulumi.set(__self__, "security_group_id", security_group_id)
+
+    @property
+    @pulumi.getter(name="securityGroupId")
+    def security_group_id(self) -> pulumi.Input[str]:
+        """
+        The Azure Active Directory Security Group ID.
+        """
+        return pulumi.get(self, "security_group_id")
+
+    @security_group_id.setter
+    def security_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "security_group_id", value)
+
+
+@pulumi.input_type
 class KafkaClusterRolesArgs:
     def __init__(__self__, *,
                  head_node: pulumi.Input['KafkaClusterRolesHeadNodeArgs'],
                  worker_node: pulumi.Input['KafkaClusterRolesWorkerNodeArgs'],
-                 zookeeper_node: pulumi.Input['KafkaClusterRolesZookeeperNodeArgs']):
+                 zookeeper_node: pulumi.Input['KafkaClusterRolesZookeeperNodeArgs'],
+                 kafka_management_node: Optional[pulumi.Input['KafkaClusterRolesKafkaManagementNodeArgs']] = None):
         """
         :param pulumi.Input['KafkaClusterRolesHeadNodeArgs'] head_node: A `head_node` block as defined above.
         :param pulumi.Input['KafkaClusterRolesWorkerNodeArgs'] worker_node: A `worker_node` block as defined below.
         :param pulumi.Input['KafkaClusterRolesZookeeperNodeArgs'] zookeeper_node: A `zookeeper_node` block as defined below.
+        :param pulumi.Input['KafkaClusterRolesKafkaManagementNodeArgs'] kafka_management_node: A `kafka_management_node` block as defined below.
         """
         pulumi.set(__self__, "head_node", head_node)
         pulumi.set(__self__, "worker_node", worker_node)
         pulumi.set(__self__, "zookeeper_node", zookeeper_node)
+        if kafka_management_node is not None:
+            pulumi.set(__self__, "kafka_management_node", kafka_management_node)
 
     @property
     @pulumi.getter(name="headNode")
@@ -3261,6 +3289,18 @@ class KafkaClusterRolesArgs:
     @zookeeper_node.setter
     def zookeeper_node(self, value: pulumi.Input['KafkaClusterRolesZookeeperNodeArgs']):
         pulumi.set(self, "zookeeper_node", value)
+
+    @property
+    @pulumi.getter(name="kafkaManagementNode")
+    def kafka_management_node(self) -> Optional[pulumi.Input['KafkaClusterRolesKafkaManagementNodeArgs']]:
+        """
+        A `kafka_management_node` block as defined below.
+        """
+        return pulumi.get(self, "kafka_management_node")
+
+    @kafka_management_node.setter
+    def kafka_management_node(self, value: Optional[pulumi.Input['KafkaClusterRolesKafkaManagementNodeArgs']]):
+        pulumi.set(self, "kafka_management_node", value)
 
 
 @pulumi.input_type
@@ -3356,6 +3396,107 @@ class KafkaClusterRolesHeadNodeArgs:
     def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "virtual_network_id")
+
+    @virtual_network_id.setter
+    def virtual_network_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_id", value)
+
+
+@pulumi.input_type
+class KafkaClusterRolesKafkaManagementNodeArgs:
+    def __init__(__self__, *,
+                 username: pulumi.Input[str],
+                 vm_size: pulumi.Input[str],
+                 password: Optional[pulumi.Input[str]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 virtual_network_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] username: The Username of the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Kafka Management Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "username", username)
+        pulumi.set(__self__, "vm_size", vm_size)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if ssh_keys is not None:
+            pulumi.set(__self__, "ssh_keys", ssh_keys)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if virtual_network_id is not None:
+            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        The Username of the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> pulumi.Input[str]:
+        """
+        The Size of the Virtual Machine which should be used as the Kafka Management Nodes. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "vm_size")
+
+    @vm_size.setter
+    def vm_size(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vm_size", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="sshKeys")
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "ssh_keys")
+
+    @ssh_keys.setter
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ssh_keys", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkId")
+    def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 

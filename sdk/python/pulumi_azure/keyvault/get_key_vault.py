@@ -56,6 +56,10 @@ class GetKeyVaultResult:
         pulumi.set(__self__, "sku_name", sku_name)
         if soft_delete_enabled and not isinstance(soft_delete_enabled, bool):
             raise TypeError("Expected argument 'soft_delete_enabled' to be a bool")
+        if soft_delete_enabled is not None:
+            warnings.warn("""Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field will always return 'true' and will be removed in version 3.0 of the Azure Provider.""", DeprecationWarning)
+            pulumi.log.warn("soft_delete_enabled is deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field will always return 'true' and will be removed in version 3.0 of the Azure Provider.")
+
         pulumi.set(__self__, "soft_delete_enabled", soft_delete_enabled)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -149,9 +153,6 @@ class GetKeyVaultResult:
     @property
     @pulumi.getter(name="softDeleteEnabled")
     def soft_delete_enabled(self) -> bool:
-        """
-        Is soft delete enabled on this Key Vault?
-        """
         return pulumi.get(self, "soft_delete_enabled")
 
     @property

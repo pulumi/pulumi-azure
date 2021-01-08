@@ -19,6 +19,12 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public Input<Inputs.KafkaClusterRolesHeadNodeArgs> HeadNode { get; set; } = null!;
 
         /// <summary>
+        /// A `kafka_management_node` block as defined below.
+        /// </summary>
+        [Input("kafkaManagementNode")]
+        public Input<Inputs.KafkaClusterRolesKafkaManagementNodeArgs>? KafkaManagementNode { get; set; }
+
+        /// <summary>
         /// A `worker_node` block as defined below.
         /// </summary>
         [Input("workerNode", required: true)]

@@ -67,10 +67,14 @@ import (
 type AlertRuleMsSecurityIncident struct {
 	pulumi.CustomResourceState
 
+	// The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
+	AlertRuleTemplateGuid pulumi.StringPtrOutput `pulumi:"alertRuleTemplateGuid"`
 	// The description of this Sentinel MS Security Incident Alert Rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The friendly name of this Sentinel MS Security Incident Alert Rule.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// Only create incidents when the alert display name doesn't contain text from this list.
+	DisplayNameExcludeFilters pulumi.StringArrayOutput `pulumi:"displayNameExcludeFilters"`
 	// Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
 	DisplayNameFilters pulumi.StringArrayOutput `pulumi:"displayNameFilters"`
 	// Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
@@ -128,10 +132,14 @@ func GetAlertRuleMsSecurityIncident(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertRuleMsSecurityIncident resources.
 type alertRuleMsSecurityIncidentState struct {
+	// The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
+	AlertRuleTemplateGuid *string `pulumi:"alertRuleTemplateGuid"`
 	// The description of this Sentinel MS Security Incident Alert Rule.
 	Description *string `pulumi:"description"`
 	// The friendly name of this Sentinel MS Security Incident Alert Rule.
 	DisplayName *string `pulumi:"displayName"`
+	// Only create incidents when the alert display name doesn't contain text from this list.
+	DisplayNameExcludeFilters []string `pulumi:"displayNameExcludeFilters"`
 	// Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
 	DisplayNameFilters []string `pulumi:"displayNameFilters"`
 	// Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
@@ -149,10 +157,14 @@ type alertRuleMsSecurityIncidentState struct {
 }
 
 type AlertRuleMsSecurityIncidentState struct {
+	// The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
+	AlertRuleTemplateGuid pulumi.StringPtrInput
 	// The description of this Sentinel MS Security Incident Alert Rule.
 	Description pulumi.StringPtrInput
 	// The friendly name of this Sentinel MS Security Incident Alert Rule.
 	DisplayName pulumi.StringPtrInput
+	// Only create incidents when the alert display name doesn't contain text from this list.
+	DisplayNameExcludeFilters pulumi.StringArrayInput
 	// Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
 	DisplayNameFilters pulumi.StringArrayInput
 	// Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
@@ -174,10 +186,14 @@ func (AlertRuleMsSecurityIncidentState) ElementType() reflect.Type {
 }
 
 type alertRuleMsSecurityIncidentArgs struct {
+	// The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
+	AlertRuleTemplateGuid *string `pulumi:"alertRuleTemplateGuid"`
 	// The description of this Sentinel MS Security Incident Alert Rule.
 	Description *string `pulumi:"description"`
 	// The friendly name of this Sentinel MS Security Incident Alert Rule.
 	DisplayName string `pulumi:"displayName"`
+	// Only create incidents when the alert display name doesn't contain text from this list.
+	DisplayNameExcludeFilters []string `pulumi:"displayNameExcludeFilters"`
 	// Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
 	DisplayNameFilters []string `pulumi:"displayNameFilters"`
 	// Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
@@ -196,10 +212,14 @@ type alertRuleMsSecurityIncidentArgs struct {
 
 // The set of arguments for constructing a AlertRuleMsSecurityIncident resource.
 type AlertRuleMsSecurityIncidentArgs struct {
+	// The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
+	AlertRuleTemplateGuid pulumi.StringPtrInput
 	// The description of this Sentinel MS Security Incident Alert Rule.
 	Description pulumi.StringPtrInput
 	// The friendly name of this Sentinel MS Security Incident Alert Rule.
 	DisplayName pulumi.StringInput
+	// Only create incidents when the alert display name doesn't contain text from this list.
+	DisplayNameExcludeFilters pulumi.StringArrayInput
 	// Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
 	DisplayNameFilters pulumi.StringArrayInput
 	// Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.

@@ -81,7 +81,8 @@ type ShareFile struct {
 	// A mapping of metadata to assign to this file.
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
-	Name pulumi.StringOutput    `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// An absolute path to a file on the local system.
 	Source pulumi.StringPtrOutput `pulumi:"source"`
@@ -133,6 +134,7 @@ type shareFileState struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
 	Path *string `pulumi:"path"`
 	// An absolute path to a file on the local system.
 	Source *string `pulumi:"source"`
@@ -153,6 +155,7 @@ type ShareFileState struct {
 	Metadata pulumi.StringMapInput
 	// The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
 	Path pulumi.StringPtrInput
 	// An absolute path to a file on the local system.
 	Source pulumi.StringPtrInput
@@ -177,6 +180,7 @@ type shareFileArgs struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
 	Path *string `pulumi:"path"`
 	// An absolute path to a file on the local system.
 	Source *string `pulumi:"source"`
@@ -198,6 +202,7 @@ type ShareFileArgs struct {
 	Metadata pulumi.StringMapInput
 	// The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
 	Path pulumi.StringPtrInput
 	// An absolute path to a file on the local system.
 	Source pulumi.StringPtrInput

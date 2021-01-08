@@ -78,6 +78,10 @@ export interface GetClusterResult {
      */
     readonly id: string;
     /**
+     * The Kafka Rest Proxy Endpoint for this HDInsight Cluster.
+     */
+    readonly kafkaRestProxyEndpoint: string;
+    /**
      * The kind of HDInsight Cluster this is, such as a Spark or Storm cluster.
      */
     readonly kind: string;

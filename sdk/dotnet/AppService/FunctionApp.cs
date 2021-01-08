@@ -125,7 +125,7 @@ namespace Pulumi.Azure.AppService
     ///         {
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Kind = "FunctionApp",
+    ///             Kind = "Linux",
     ///             Reserved = true,
     ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///             {

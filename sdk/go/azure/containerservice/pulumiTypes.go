@@ -1183,6 +1183,8 @@ func (o GroupContainerReadinessProbeHttpGetArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GroupContainerVolume struct {
+	// Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
+	EmptyDir *bool `pulumi:"emptyDir"`
 	// A `gitRepo` block as defined below.
 	GitRepo *GroupContainerVolumeGitRepo `pulumi:"gitRepo"`
 	// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
@@ -1213,6 +1215,8 @@ type GroupContainerVolumeInput interface {
 }
 
 type GroupContainerVolumeArgs struct {
+	// Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
+	EmptyDir pulumi.BoolPtrInput `pulumi:"emptyDir"`
 	// A `gitRepo` block as defined below.
 	GitRepo GroupContainerVolumeGitRepoPtrInput `pulumi:"gitRepo"`
 	// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
@@ -1280,6 +1284,11 @@ func (o GroupContainerVolumeOutput) ToGroupContainerVolumeOutput() GroupContaine
 
 func (o GroupContainerVolumeOutput) ToGroupContainerVolumeOutputWithContext(ctx context.Context) GroupContainerVolumeOutput {
 	return o
+}
+
+// Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
+func (o GroupContainerVolumeOutput) EmptyDir() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GroupContainerVolume) *bool { return v.EmptyDir }).(pulumi.BoolPtrOutput)
 }
 
 // A `gitRepo` block as defined below.
@@ -4931,6 +4940,8 @@ type KubernetesClusterNetworkProfile struct {
 	LoadBalancerProfile *KubernetesClusterNetworkProfileLoadBalancerProfile `pulumi:"loadBalancerProfile"`
 	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
 	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
+	// Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
+	NetworkMode *string `pulumi:"networkMode"`
 	// Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
 	NetworkPlugin string `pulumi:"networkPlugin"`
 	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
@@ -4963,6 +4974,8 @@ type KubernetesClusterNetworkProfileArgs struct {
 	LoadBalancerProfile KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput `pulumi:"loadBalancerProfile"`
 	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
 	LoadBalancerSku pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
+	// Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
+	NetworkMode pulumi.StringPtrInput `pulumi:"networkMode"`
 	// Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
 	NetworkPlugin pulumi.StringInput `pulumi:"networkPlugin"`
 	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
@@ -5074,6 +5087,11 @@ func (o KubernetesClusterNetworkProfileOutput) LoadBalancerSku() pulumi.StringPt
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
 
+// Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNetworkProfileOutput) NetworkMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkMode }).(pulumi.StringPtrOutput)
+}
+
 // Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) NetworkPlugin() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
@@ -5154,6 +5172,16 @@ func (o KubernetesClusterNetworkProfilePtrOutput) LoadBalancerSku() pulumi.Strin
 			return nil
 		}
 		return v.LoadBalancerSku
+	}).(pulumi.StringPtrOutput)
+}
+
+// Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNetworkProfilePtrOutput) NetworkMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkMode
 	}).(pulumi.StringPtrOutput)
 }
 

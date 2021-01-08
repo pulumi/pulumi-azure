@@ -14,6 +14,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class GroupContainerVolume
     {
         /// <summary>
+        /// Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly bool? EmptyDir;
+        /// <summary>
         /// A `git_repo` block as defined below.
         /// </summary>
         public readonly Outputs.GroupContainerVolumeGitRepo? GitRepo;
@@ -48,6 +52,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
         [OutputConstructor]
         private GroupContainerVolume(
+            bool? emptyDir,
+
             Outputs.GroupContainerVolumeGitRepo? gitRepo,
 
             string mountPath,
@@ -64,6 +70,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? storageAccountName)
         {
+            EmptyDir = emptyDir;
             GitRepo = gitRepo;
             MountPath = mountPath;
             Name = name;

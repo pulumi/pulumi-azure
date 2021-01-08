@@ -69,6 +69,12 @@ namespace Pulumi.Azure.Network
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Indicates whether Traffic View is enabled for the Traffic Manager profile.
+        /// </summary>
+        [Input("trafficViewEnabled")]
+        public bool? TrafficViewEnabled { get; set; }
+
         public GetTrafficManagerProfileArgs()
         {
         }
@@ -111,6 +117,10 @@ namespace Pulumi.Azure.Network
         /// Specifies the algorithm used to route traffic.
         /// </summary>
         public readonly string TrafficRoutingMethod;
+        /// <summary>
+        /// Indicates whether Traffic View is enabled for the Traffic Manager profile.
+        /// </summary>
+        public readonly bool? TrafficViewEnabled;
 
         [OutputConstructor]
         private GetTrafficManagerProfileResult(
@@ -130,7 +140,9 @@ namespace Pulumi.Azure.Network
 
             ImmutableDictionary<string, string>? tags,
 
-            string trafficRoutingMethod)
+            string trafficRoutingMethod,
+
+            bool? trafficViewEnabled)
         {
             DnsConfigs = dnsConfigs;
             Fqdn = fqdn;
@@ -141,6 +153,7 @@ namespace Pulumi.Azure.Network
             ResourceGroupName = resourceGroupName;
             Tags = tags;
             TrafficRoutingMethod = trafficRoutingMethod;
+            TrafficViewEnabled = trafficViewEnabled;
         }
     }
 }

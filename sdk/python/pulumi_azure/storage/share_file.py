@@ -66,6 +66,7 @@ class ShareFile(pulumi.CustomResource):
         :param pulumi.Input[str] content_type: The content type of the share file. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this file.
         :param pulumi.Input[str] name: The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] path: The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source: An absolute path to a file on the local system.
         :param pulumi.Input[str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         """
@@ -129,6 +130,7 @@ class ShareFile(pulumi.CustomResource):
         :param pulumi.Input[str] content_type: The content type of the share file. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this file.
         :param pulumi.Input[str] name: The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] path: The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source: An absolute path to a file on the local system.
         :param pulumi.Input[str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         """
@@ -198,6 +200,9 @@ class ShareFile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def path(self) -> pulumi.Output[Optional[str]]:
+        """
+        The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "path")
 
     @property

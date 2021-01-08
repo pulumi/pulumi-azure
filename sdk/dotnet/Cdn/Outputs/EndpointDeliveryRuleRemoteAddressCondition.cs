@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class EndpointDeliveryRuleRemoteAddressCondition
     {
         /// <summary>
-        /// List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`.
+        /// List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`. This is required if `operator` is not `Any`.
         /// </summary>
         public readonly ImmutableArray<string> MatchValues;
         /// <summary>

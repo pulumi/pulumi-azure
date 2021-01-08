@@ -474,6 +474,8 @@ type GetSubscriptionsSubscription struct {
 	State string `pulumi:"state"`
 	// The subscription GUID.
 	SubscriptionId string `pulumi:"subscriptionId"`
+	// A mapping of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The subscription tenant ID.
 	TenantId string `pulumi:"tenantId"`
 }
@@ -502,6 +504,8 @@ type GetSubscriptionsSubscriptionArgs struct {
 	State pulumi.StringInput `pulumi:"state"`
 	// The subscription GUID.
 	SubscriptionId pulumi.StringInput `pulumi:"subscriptionId"`
+	// A mapping of tags assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The subscription tenant ID.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 }
@@ -585,6 +589,11 @@ func (o GetSubscriptionsSubscriptionOutput) State() pulumi.StringOutput {
 // The subscription GUID.
 func (o GetSubscriptionsSubscriptionOutput) SubscriptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSubscriptionsSubscription) string { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the resource.
+func (o GetSubscriptionsSubscriptionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSubscriptionsSubscription) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The subscription tenant ID.

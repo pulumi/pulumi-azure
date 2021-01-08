@@ -77,7 +77,9 @@ type LinkedServiceAzureFileStorage struct {
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	Host        pulumi.StringPtrOutput `pulumi:"host"`
+	// The name of the file share.
+	FileShare pulumi.StringPtrOutput `pulumi:"fileShare"`
+	Host      pulumi.StringPtrOutput `pulumi:"host"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
@@ -138,7 +140,9 @@ type linkedServiceAzureFileStorageState struct {
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description *string `pulumi:"description"`
-	Host        *string `pulumi:"host"`
+	// The name of the file share.
+	FileShare *string `pulumi:"fileShare"`
+	Host      *string `pulumi:"host"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
@@ -162,7 +166,9 @@ type LinkedServiceAzureFileStorageState struct {
 	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrInput
-	Host        pulumi.StringPtrInput
+	// The name of the file share.
+	FileShare pulumi.StringPtrInput
+	Host      pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
@@ -190,7 +196,9 @@ type linkedServiceAzureFileStorageArgs struct {
 	DataFactoryName string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description *string `pulumi:"description"`
-	Host        *string `pulumi:"host"`
+	// The name of the file share.
+	FileShare *string `pulumi:"fileShare"`
+	Host      *string `pulumi:"host"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
@@ -215,7 +223,9 @@ type LinkedServiceAzureFileStorageArgs struct {
 	DataFactoryName pulumi.StringInput
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrInput
-	Host        pulumi.StringPtrInput
+	// The name of the file share.
+	FileShare pulumi.StringPtrInput
+	Host      pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.

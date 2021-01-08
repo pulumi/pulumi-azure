@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class EndpointDeliveryRuleQueryStringCondition
     {
         /// <summary>
-        /// List of string values.
+        /// List of string values. This is required if `operator` is not `Any`.
         /// </summary>
         public readonly ImmutableArray<string> MatchValues;
         /// <summary>

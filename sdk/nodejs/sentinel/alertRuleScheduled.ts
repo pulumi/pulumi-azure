@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -68,6 +69,10 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
     }
 
     /**
+     * The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+     */
+    public readonly alertRuleTemplateGuid!: pulumi.Output<string | undefined>;
+    /**
      * The description of this Sentinel Scheduled Alert Rule.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -79,6 +84,10 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
      * Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * A `incidentConfiguration` block as defined below.
+     */
+    public readonly incidentConfiguration!: pulumi.Output<outputs.sentinel.AlertRuleScheduledIncidentConfiguration>;
     /**
      * The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
@@ -136,9 +145,11 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AlertRuleScheduledState | undefined;
+            inputs["alertRuleTemplateGuid"] = state ? state.alertRuleTemplateGuid : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
+            inputs["incidentConfiguration"] = state ? state.incidentConfiguration : undefined;
             inputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["query"] = state ? state.query : undefined;
@@ -164,9 +175,11 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
             if ((!args || args.severity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'severity'");
             }
+            inputs["alertRuleTemplateGuid"] = args ? args.alertRuleTemplateGuid : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["incidentConfiguration"] = args ? args.incidentConfiguration : undefined;
             inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["query"] = args ? args.query : undefined;
@@ -195,6 +208,10 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
  */
 export interface AlertRuleScheduledState {
     /**
+     * The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+     */
+    readonly alertRuleTemplateGuid?: pulumi.Input<string>;
+    /**
      * The description of this Sentinel Scheduled Alert Rule.
      */
     readonly description?: pulumi.Input<string>;
@@ -206,6 +223,10 @@ export interface AlertRuleScheduledState {
      * Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
      */
     readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * A `incidentConfiguration` block as defined below.
+     */
+    readonly incidentConfiguration?: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncidentConfiguration>;
     /**
      * The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
@@ -257,6 +278,10 @@ export interface AlertRuleScheduledState {
  */
 export interface AlertRuleScheduledArgs {
     /**
+     * The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+     */
+    readonly alertRuleTemplateGuid?: pulumi.Input<string>;
+    /**
      * The description of this Sentinel Scheduled Alert Rule.
      */
     readonly description?: pulumi.Input<string>;
@@ -268,6 +293,10 @@ export interface AlertRuleScheduledArgs {
      * Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
      */
     readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * A `incidentConfiguration` block as defined below.
+     */
+    readonly incidentConfiguration?: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncidentConfiguration>;
     /**
      * The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */

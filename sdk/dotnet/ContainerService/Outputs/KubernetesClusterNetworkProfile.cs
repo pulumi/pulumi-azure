@@ -30,6 +30,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? LoadBalancerSku;
         /// <summary>
+        /// Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? NetworkMode;
+        /// <summary>
         /// Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string NetworkPlugin;
@@ -60,6 +64,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? loadBalancerSku,
 
+            string? networkMode,
+
             string networkPlugin,
 
             string? networkPolicy,
@@ -74,6 +80,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             DockerBridgeCidr = dockerBridgeCidr;
             LoadBalancerProfile = loadBalancerProfile;
             LoadBalancerSku = loadBalancerSku;
+            NetworkMode = networkMode;
             NetworkPlugin = networkPlugin;
             NetworkPolicy = networkPolicy;
             OutboundType = outboundType;

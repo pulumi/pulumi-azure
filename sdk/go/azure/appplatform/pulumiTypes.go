@@ -179,6 +179,156 @@ func (o SpringCloudAppIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SpringCloudAppPersistentDisk struct {
+	// Specifies the mount path of the persistent disk. Defaults to `/persistent`.
+	MountPath *string `pulumi:"mountPath"`
+	// Specifies the size of the persistent disk in GB. Possible values are between `0` and `50`.
+	SizeInGb int `pulumi:"sizeInGb"`
+}
+
+// SpringCloudAppPersistentDiskInput is an input type that accepts SpringCloudAppPersistentDiskArgs and SpringCloudAppPersistentDiskOutput values.
+// You can construct a concrete instance of `SpringCloudAppPersistentDiskInput` via:
+//
+//          SpringCloudAppPersistentDiskArgs{...}
+type SpringCloudAppPersistentDiskInput interface {
+	pulumi.Input
+
+	ToSpringCloudAppPersistentDiskOutput() SpringCloudAppPersistentDiskOutput
+	ToSpringCloudAppPersistentDiskOutputWithContext(context.Context) SpringCloudAppPersistentDiskOutput
+}
+
+type SpringCloudAppPersistentDiskArgs struct {
+	// Specifies the mount path of the persistent disk. Defaults to `/persistent`.
+	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
+	// Specifies the size of the persistent disk in GB. Possible values are between `0` and `50`.
+	SizeInGb pulumi.IntInput `pulumi:"sizeInGb"`
+}
+
+func (SpringCloudAppPersistentDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudAppPersistentDisk)(nil)).Elem()
+}
+
+func (i SpringCloudAppPersistentDiskArgs) ToSpringCloudAppPersistentDiskOutput() SpringCloudAppPersistentDiskOutput {
+	return i.ToSpringCloudAppPersistentDiskOutputWithContext(context.Background())
+}
+
+func (i SpringCloudAppPersistentDiskArgs) ToSpringCloudAppPersistentDiskOutputWithContext(ctx context.Context) SpringCloudAppPersistentDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppPersistentDiskOutput)
+}
+
+func (i SpringCloudAppPersistentDiskArgs) ToSpringCloudAppPersistentDiskPtrOutput() SpringCloudAppPersistentDiskPtrOutput {
+	return i.ToSpringCloudAppPersistentDiskPtrOutputWithContext(context.Background())
+}
+
+func (i SpringCloudAppPersistentDiskArgs) ToSpringCloudAppPersistentDiskPtrOutputWithContext(ctx context.Context) SpringCloudAppPersistentDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppPersistentDiskOutput).ToSpringCloudAppPersistentDiskPtrOutputWithContext(ctx)
+}
+
+// SpringCloudAppPersistentDiskPtrInput is an input type that accepts SpringCloudAppPersistentDiskArgs, SpringCloudAppPersistentDiskPtr and SpringCloudAppPersistentDiskPtrOutput values.
+// You can construct a concrete instance of `SpringCloudAppPersistentDiskPtrInput` via:
+//
+//          SpringCloudAppPersistentDiskArgs{...}
+//
+//  or:
+//
+//          nil
+type SpringCloudAppPersistentDiskPtrInput interface {
+	pulumi.Input
+
+	ToSpringCloudAppPersistentDiskPtrOutput() SpringCloudAppPersistentDiskPtrOutput
+	ToSpringCloudAppPersistentDiskPtrOutputWithContext(context.Context) SpringCloudAppPersistentDiskPtrOutput
+}
+
+type springCloudAppPersistentDiskPtrType SpringCloudAppPersistentDiskArgs
+
+func SpringCloudAppPersistentDiskPtr(v *SpringCloudAppPersistentDiskArgs) SpringCloudAppPersistentDiskPtrInput {
+	return (*springCloudAppPersistentDiskPtrType)(v)
+}
+
+func (*springCloudAppPersistentDiskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudAppPersistentDisk)(nil)).Elem()
+}
+
+func (i *springCloudAppPersistentDiskPtrType) ToSpringCloudAppPersistentDiskPtrOutput() SpringCloudAppPersistentDiskPtrOutput {
+	return i.ToSpringCloudAppPersistentDiskPtrOutputWithContext(context.Background())
+}
+
+func (i *springCloudAppPersistentDiskPtrType) ToSpringCloudAppPersistentDiskPtrOutputWithContext(ctx context.Context) SpringCloudAppPersistentDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppPersistentDiskPtrOutput)
+}
+
+type SpringCloudAppPersistentDiskOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudAppPersistentDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudAppPersistentDisk)(nil)).Elem()
+}
+
+func (o SpringCloudAppPersistentDiskOutput) ToSpringCloudAppPersistentDiskOutput() SpringCloudAppPersistentDiskOutput {
+	return o
+}
+
+func (o SpringCloudAppPersistentDiskOutput) ToSpringCloudAppPersistentDiskOutputWithContext(ctx context.Context) SpringCloudAppPersistentDiskOutput {
+	return o
+}
+
+func (o SpringCloudAppPersistentDiskOutput) ToSpringCloudAppPersistentDiskPtrOutput() SpringCloudAppPersistentDiskPtrOutput {
+	return o.ToSpringCloudAppPersistentDiskPtrOutputWithContext(context.Background())
+}
+
+func (o SpringCloudAppPersistentDiskOutput) ToSpringCloudAppPersistentDiskPtrOutputWithContext(ctx context.Context) SpringCloudAppPersistentDiskPtrOutput {
+	return o.ApplyT(func(v SpringCloudAppPersistentDisk) *SpringCloudAppPersistentDisk {
+		return &v
+	}).(SpringCloudAppPersistentDiskPtrOutput)
+}
+
+// Specifies the mount path of the persistent disk. Defaults to `/persistent`.
+func (o SpringCloudAppPersistentDiskOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudAppPersistentDisk) *string { return v.MountPath }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the size of the persistent disk in GB. Possible values are between `0` and `50`.
+func (o SpringCloudAppPersistentDiskOutput) SizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v SpringCloudAppPersistentDisk) int { return v.SizeInGb }).(pulumi.IntOutput)
+}
+
+type SpringCloudAppPersistentDiskPtrOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudAppPersistentDiskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudAppPersistentDisk)(nil)).Elem()
+}
+
+func (o SpringCloudAppPersistentDiskPtrOutput) ToSpringCloudAppPersistentDiskPtrOutput() SpringCloudAppPersistentDiskPtrOutput {
+	return o
+}
+
+func (o SpringCloudAppPersistentDiskPtrOutput) ToSpringCloudAppPersistentDiskPtrOutputWithContext(ctx context.Context) SpringCloudAppPersistentDiskPtrOutput {
+	return o
+}
+
+func (o SpringCloudAppPersistentDiskPtrOutput) Elem() SpringCloudAppPersistentDiskOutput {
+	return o.ApplyT(func(v *SpringCloudAppPersistentDisk) SpringCloudAppPersistentDisk { return *v }).(SpringCloudAppPersistentDiskOutput)
+}
+
+// Specifies the mount path of the persistent disk. Defaults to `/persistent`.
+func (o SpringCloudAppPersistentDiskPtrOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudAppPersistentDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MountPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the size of the persistent disk in GB. Possible values are between `0` and `50`.
+func (o SpringCloudAppPersistentDiskPtrOutput) SizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpringCloudAppPersistentDisk) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SizeInGb
+	}).(pulumi.IntPtrOutput)
+}
+
 type SpringCloudServiceConfigServerGitSetting struct {
 	// A `httpBasicAuth` block as defined below.
 	HttpBasicAuth *SpringCloudServiceConfigServerGitSettingHttpBasicAuth `pulumi:"httpBasicAuth"`
@@ -2358,6 +2508,8 @@ func (o GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput) Index(i p
 func init() {
 	pulumi.RegisterOutputType(SpringCloudAppIdentityOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppIdentityPtrOutput{})
+	pulumi.RegisterOutputType(SpringCloudAppPersistentDiskOutput{})
+	pulumi.RegisterOutputType(SpringCloudAppPersistentDiskPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput{})

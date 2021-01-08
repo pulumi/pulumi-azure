@@ -64,6 +64,10 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
     }
 
     /**
+     * The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
+     */
+    public readonly alertRuleTemplateGuid!: pulumi.Output<string | undefined>;
+    /**
      * The description of this Sentinel MS Security Incident Alert Rule.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -71,6 +75,10 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
      * The friendly name of this Sentinel MS Security Incident Alert Rule.
      */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * Only create incidents when the alert display name doesn't contain text from this list.
+     */
+    public readonly displayNameExcludeFilters!: pulumi.Output<string[] | undefined>;
     /**
      * Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
      */
@@ -112,8 +120,10 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AlertRuleMsSecurityIncidentState | undefined;
+            inputs["alertRuleTemplateGuid"] = state ? state.alertRuleTemplateGuid : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
+            inputs["displayNameExcludeFilters"] = state ? state.displayNameExcludeFilters : undefined;
             inputs["displayNameFilters"] = state ? state.displayNameFilters : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
@@ -135,8 +145,10 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
             if ((!args || args.severityFilters === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'severityFilters'");
             }
+            inputs["alertRuleTemplateGuid"] = args ? args.alertRuleTemplateGuid : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["displayNameExcludeFilters"] = args ? args.displayNameExcludeFilters : undefined;
             inputs["displayNameFilters"] = args ? args.displayNameFilters : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
@@ -161,6 +173,10 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
  */
 export interface AlertRuleMsSecurityIncidentState {
     /**
+     * The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
+     */
+    readonly alertRuleTemplateGuid?: pulumi.Input<string>;
+    /**
      * The description of this Sentinel MS Security Incident Alert Rule.
      */
     readonly description?: pulumi.Input<string>;
@@ -168,6 +184,10 @@ export interface AlertRuleMsSecurityIncidentState {
      * The friendly name of this Sentinel MS Security Incident Alert Rule.
      */
     readonly displayName?: pulumi.Input<string>;
+    /**
+     * Only create incidents when the alert display name doesn't contain text from this list.
+     */
+    readonly displayNameExcludeFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
      */
@@ -203,6 +223,10 @@ export interface AlertRuleMsSecurityIncidentState {
  */
 export interface AlertRuleMsSecurityIncidentArgs {
     /**
+     * The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
+     */
+    readonly alertRuleTemplateGuid?: pulumi.Input<string>;
+    /**
      * The description of this Sentinel MS Security Incident Alert Rule.
      */
     readonly description?: pulumi.Input<string>;
@@ -210,6 +234,10 @@ export interface AlertRuleMsSecurityIncidentArgs {
      * The friendly name of this Sentinel MS Security Incident Alert Rule.
      */
     readonly displayName: pulumi.Input<string>;
+    /**
+     * Only create incidents when the alert display name doesn't contain text from this list.
+     */
+    readonly displayNameExcludeFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
      */

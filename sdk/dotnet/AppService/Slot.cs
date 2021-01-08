@@ -238,6 +238,9 @@ namespace Pulumi.Azure.AppService
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
+        /// <summary>
+        /// A `logs` block as defined below.
+        /// </summary>
         [Output("logs")]
         public Output<Outputs.SlotLogs> Logs { get; private set; } = null!;
 
@@ -389,6 +392,9 @@ namespace Pulumi.Azure.AppService
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// A `logs` block as defined below.
+        /// </summary>
         [Input("logs")]
         public Input<Inputs.SlotLogsArgs>? Logs { get; set; }
 
@@ -507,6 +513,9 @@ namespace Pulumi.Azure.AppService
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// A `logs` block as defined below.
+        /// </summary>
         [Input("logs")]
         public Input<Inputs.SlotLogsGetArgs>? Logs { get; set; }
 

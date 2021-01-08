@@ -1906,6 +1906,10 @@ func (o AppServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type AppServiceLogs struct {
 	// An `applicationLogs` block as defined below.
 	ApplicationLogs *AppServiceLogsApplicationLogs `pulumi:"applicationLogs"`
+	// Should `Detailed error messages` be enabled on this App Service? Defaults to `false`.
+	DetailedErrorMessagesEnabled *bool `pulumi:"detailedErrorMessagesEnabled"`
+	// Should `Failed request tracing` be enabled on this App Service? Defaults to `false`.
+	FailedRequestTracingEnabled *bool `pulumi:"failedRequestTracingEnabled"`
 	// An `httpLogs` block as defined below.
 	HttpLogs *AppServiceLogsHttpLogs `pulumi:"httpLogs"`
 }
@@ -1924,6 +1928,10 @@ type AppServiceLogsInput interface {
 type AppServiceLogsArgs struct {
 	// An `applicationLogs` block as defined below.
 	ApplicationLogs AppServiceLogsApplicationLogsPtrInput `pulumi:"applicationLogs"`
+	// Should `Detailed error messages` be enabled on this App Service? Defaults to `false`.
+	DetailedErrorMessagesEnabled pulumi.BoolPtrInput `pulumi:"detailedErrorMessagesEnabled"`
+	// Should `Failed request tracing` be enabled on this App Service? Defaults to `false`.
+	FailedRequestTracingEnabled pulumi.BoolPtrInput `pulumi:"failedRequestTracingEnabled"`
 	// An `httpLogs` block as defined below.
 	HttpLogs AppServiceLogsHttpLogsPtrInput `pulumi:"httpLogs"`
 }
@@ -2010,6 +2018,16 @@ func (o AppServiceLogsOutput) ApplicationLogs() AppServiceLogsApplicationLogsPtr
 	return o.ApplyT(func(v AppServiceLogs) *AppServiceLogsApplicationLogs { return v.ApplicationLogs }).(AppServiceLogsApplicationLogsPtrOutput)
 }
 
+// Should `Detailed error messages` be enabled on this App Service? Defaults to `false`.
+func (o AppServiceLogsOutput) DetailedErrorMessagesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppServiceLogs) *bool { return v.DetailedErrorMessagesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should `Failed request tracing` be enabled on this App Service? Defaults to `false`.
+func (o AppServiceLogsOutput) FailedRequestTracingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppServiceLogs) *bool { return v.FailedRequestTracingEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // An `httpLogs` block as defined below.
 func (o AppServiceLogsOutput) HttpLogs() AppServiceLogsHttpLogsPtrOutput {
 	return o.ApplyT(func(v AppServiceLogs) *AppServiceLogsHttpLogs { return v.HttpLogs }).(AppServiceLogsHttpLogsPtrOutput)
@@ -2041,6 +2059,26 @@ func (o AppServiceLogsPtrOutput) ApplicationLogs() AppServiceLogsApplicationLogs
 		}
 		return v.ApplicationLogs
 	}).(AppServiceLogsApplicationLogsPtrOutput)
+}
+
+// Should `Detailed error messages` be enabled on this App Service? Defaults to `false`.
+func (o AppServiceLogsPtrOutput) DetailedErrorMessagesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppServiceLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DetailedErrorMessagesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should `Failed request tracing` be enabled on this App Service? Defaults to `false`.
+func (o AppServiceLogsPtrOutput) FailedRequestTracingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppServiceLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FailedRequestTracingEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // An `httpLogs` block as defined below.
@@ -3602,6 +3640,8 @@ type AppServiceSiteConfigIpRestriction struct {
 	Name *string `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 	Priority *int `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag *string `pulumi:"serviceTag"`
 	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 	SubnetId *string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
@@ -3628,6 +3668,8 @@ type AppServiceSiteConfigIpRestrictionArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
 	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
@@ -3705,6 +3747,11 @@ func (o AppServiceSiteConfigIpRestrictionOutput) Priority() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v AppServiceSiteConfigIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
+// The Service Tag used for this IP Restriction.
+func (o AppServiceSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
+}
+
 // Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 func (o AppServiceSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfigIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
@@ -3744,6 +3791,8 @@ type AppServiceSiteConfigScmIpRestriction struct {
 	Name *string `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 	Priority *int `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag *string `pulumi:"serviceTag"`
 	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 	SubnetId *string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
@@ -3770,6 +3819,8 @@ type AppServiceSiteConfigScmIpRestrictionArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
 	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
@@ -3845,6 +3896,11 @@ func (o AppServiceSiteConfigScmIpRestrictionOutput) Name() pulumi.StringPtrOutpu
 // The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 func (o AppServiceSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfigScmIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// The Service Tag used for this IP Restriction.
+func (o AppServiceSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigScmIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
 }
 
 // Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
@@ -6506,6 +6562,8 @@ type FunctionAppSiteConfigIpRestriction struct {
 	Name *string `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
 	Priority *int `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag *string `pulumi:"serviceTag"`
 	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 	SubnetId *string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
@@ -6532,6 +6590,8 @@ type FunctionAppSiteConfigIpRestrictionArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
 	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
@@ -6609,6 +6669,11 @@ func (o FunctionAppSiteConfigIpRestrictionOutput) Priority() pulumi.IntPtrOutput
 	return o.ApplyT(func(v FunctionAppSiteConfigIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
+// The Service Tag used for this IP Restriction.
+func (o FunctionAppSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
+}
+
 // Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 func (o FunctionAppSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfigIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
@@ -6648,6 +6713,8 @@ type FunctionAppSiteConfigScmIpRestriction struct {
 	Name *string `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 	Priority *int `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag *string `pulumi:"serviceTag"`
 	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 	SubnetId *string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
@@ -6674,6 +6741,8 @@ type FunctionAppSiteConfigScmIpRestrictionArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
 	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
@@ -6749,6 +6818,11 @@ func (o FunctionAppSiteConfigScmIpRestrictionOutput) Name() pulumi.StringPtrOutp
 // The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 func (o FunctionAppSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfigScmIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// The Service Tag used for this IP Restriction.
+func (o FunctionAppSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigScmIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
 }
 
 // Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
@@ -8931,6 +9005,8 @@ type FunctionAppSlotSiteConfigIpRestriction struct {
 	Name *string `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 	Priority *int `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag *string `pulumi:"serviceTag"`
 	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 	SubnetId *string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
@@ -8957,6 +9033,8 @@ type FunctionAppSlotSiteConfigIpRestrictionArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
 	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
@@ -9034,6 +9112,11 @@ func (o FunctionAppSlotSiteConfigIpRestrictionOutput) Priority() pulumi.IntPtrOu
 	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
+// The Service Tag used for this IP Restriction.
+func (o FunctionAppSlotSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
+}
+
 // Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 func (o FunctionAppSlotSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
@@ -9073,6 +9156,8 @@ type FunctionAppSlotSiteConfigScmIpRestriction struct {
 	Name *string `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 	Priority *int `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag *string `pulumi:"serviceTag"`
 	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 	SubnetId *string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
@@ -9099,6 +9184,8 @@ type FunctionAppSlotSiteConfigScmIpRestrictionArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
 	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
@@ -9174,6 +9261,11 @@ func (o FunctionAppSlotSiteConfigScmIpRestrictionOutput) Name() pulumi.StringPtr
 // The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 func (o FunctionAppSlotSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FunctionAppSlotSiteConfigScmIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// The Service Tag used for this IP Restriction.
+func (o FunctionAppSlotSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigScmIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
 }
 
 // Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
@@ -11181,6 +11273,10 @@ func (o SlotIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type SlotLogs struct {
 	// An `applicationLogs` block as defined below.
 	ApplicationLogs *SlotLogsApplicationLogs `pulumi:"applicationLogs"`
+	// Should `Detailed error messages` be enabled on this App Service slot? Defaults to `false`.
+	DetailedErrorMessagesEnabled *bool `pulumi:"detailedErrorMessagesEnabled"`
+	// Should `Failed request tracing` be enabled on this App Service slot? Defaults to `false`.
+	FailedRequestTracingEnabled *bool `pulumi:"failedRequestTracingEnabled"`
 	// An `httpLogs` block as defined below.
 	HttpLogs *SlotLogsHttpLogs `pulumi:"httpLogs"`
 }
@@ -11199,6 +11295,10 @@ type SlotLogsInput interface {
 type SlotLogsArgs struct {
 	// An `applicationLogs` block as defined below.
 	ApplicationLogs SlotLogsApplicationLogsPtrInput `pulumi:"applicationLogs"`
+	// Should `Detailed error messages` be enabled on this App Service slot? Defaults to `false`.
+	DetailedErrorMessagesEnabled pulumi.BoolPtrInput `pulumi:"detailedErrorMessagesEnabled"`
+	// Should `Failed request tracing` be enabled on this App Service slot? Defaults to `false`.
+	FailedRequestTracingEnabled pulumi.BoolPtrInput `pulumi:"failedRequestTracingEnabled"`
 	// An `httpLogs` block as defined below.
 	HttpLogs SlotLogsHttpLogsPtrInput `pulumi:"httpLogs"`
 }
@@ -11285,6 +11385,16 @@ func (o SlotLogsOutput) ApplicationLogs() SlotLogsApplicationLogsPtrOutput {
 	return o.ApplyT(func(v SlotLogs) *SlotLogsApplicationLogs { return v.ApplicationLogs }).(SlotLogsApplicationLogsPtrOutput)
 }
 
+// Should `Detailed error messages` be enabled on this App Service slot? Defaults to `false`.
+func (o SlotLogsOutput) DetailedErrorMessagesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SlotLogs) *bool { return v.DetailedErrorMessagesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should `Failed request tracing` be enabled on this App Service slot? Defaults to `false`.
+func (o SlotLogsOutput) FailedRequestTracingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SlotLogs) *bool { return v.FailedRequestTracingEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // An `httpLogs` block as defined below.
 func (o SlotLogsOutput) HttpLogs() SlotLogsHttpLogsPtrOutput {
 	return o.ApplyT(func(v SlotLogs) *SlotLogsHttpLogs { return v.HttpLogs }).(SlotLogsHttpLogsPtrOutput)
@@ -11316,6 +11426,26 @@ func (o SlotLogsPtrOutput) ApplicationLogs() SlotLogsApplicationLogsPtrOutput {
 		}
 		return v.ApplicationLogs
 	}).(SlotLogsApplicationLogsPtrOutput)
+}
+
+// Should `Detailed error messages` be enabled on this App Service slot? Defaults to `false`.
+func (o SlotLogsPtrOutput) DetailedErrorMessagesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SlotLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DetailedErrorMessagesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should `Failed request tracing` be enabled on this App Service slot? Defaults to `false`.
+func (o SlotLogsPtrOutput) FailedRequestTracingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SlotLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FailedRequestTracingEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // An `httpLogs` block as defined below.
@@ -12857,6 +12987,8 @@ type SlotSiteConfigIpRestriction struct {
 	Name *string `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 	Priority *int `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag *string `pulumi:"serviceTag"`
 	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 	SubnetId *string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
@@ -12883,6 +13015,8 @@ type SlotSiteConfigIpRestrictionArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
 	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
@@ -12960,6 +13094,11 @@ func (o SlotSiteConfigIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
+// The Service Tag used for this IP Restriction.
+func (o SlotSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
+}
+
 // Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 func (o SlotSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
@@ -12999,6 +13138,8 @@ type SlotSiteConfigScmIpRestriction struct {
 	Name *string `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 	Priority *int `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag *string `pulumi:"serviceTag"`
 	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 	SubnetId *string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
@@ -13025,6 +13166,8 @@ type SlotSiteConfigScmIpRestrictionArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
 	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
@@ -13100,6 +13243,11 @@ func (o SlotSiteConfigScmIpRestrictionOutput) Name() pulumi.StringPtrOutput {
 // The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 func (o SlotSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigScmIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// The Service Tag used for this IP Restriction.
+func (o SlotSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfigScmIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
 }
 
 // Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
@@ -13859,8 +14007,10 @@ type GetAppServiceSiteConfigIpRestriction struct {
 	// The name of the App Service.
 	Name string `pulumi:"name"`
 	// The priority for this IP Restriction.
-	Priority int    `pulumi:"priority"`
-	SubnetId string `pulumi:"subnetId"`
+	Priority int `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag string `pulumi:"serviceTag"`
+	SubnetId   string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -13884,8 +14034,10 @@ type GetAppServiceSiteConfigIpRestrictionArgs struct {
 	// The name of the App Service.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority for this IP Restriction.
-	Priority pulumi.IntInput    `pulumi:"priority"`
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
+	SubnetId   pulumi.StringInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -13961,6 +14113,11 @@ func (o GetAppServiceSiteConfigIpRestrictionOutput) Priority() pulumi.IntOutput 
 	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// The Service Tag used for this IP Restriction.
+func (o GetAppServiceSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestriction) string { return v.ServiceTag }).(pulumi.StringOutput)
+}
+
 func (o GetAppServiceSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestriction) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -13998,8 +14155,10 @@ type GetAppServiceSiteConfigScmIpRestriction struct {
 	// The name of the App Service.
 	Name string `pulumi:"name"`
 	// The priority for this IP Restriction.
-	Priority int    `pulumi:"priority"`
-	SubnetId string `pulumi:"subnetId"`
+	Priority int `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag string `pulumi:"serviceTag"`
+	SubnetId   string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -14023,8 +14182,10 @@ type GetAppServiceSiteConfigScmIpRestrictionArgs struct {
 	// The name of the App Service.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority for this IP Restriction.
-	Priority pulumi.IntInput    `pulumi:"priority"`
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
+	SubnetId   pulumi.StringInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -14098,6 +14259,11 @@ func (o GetAppServiceSiteConfigScmIpRestrictionOutput) Name() pulumi.StringOutpu
 // The priority for this IP Restriction.
 func (o GetAppServiceSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppServiceSiteConfigScmIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// The Service Tag used for this IP Restriction.
+func (o GetAppServiceSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigScmIpRestriction) string { return v.ServiceTag }).(pulumi.StringOutput)
 }
 
 func (o GetAppServiceSiteConfigScmIpRestrictionOutput) SubnetId() pulumi.StringOutput {
@@ -14998,8 +15164,10 @@ type GetFunctionAppSiteConfigIpRestriction struct {
 	// The name of the Function App resource.
 	Name string `pulumi:"name"`
 	// The priority for this IP Restriction.
-	Priority int    `pulumi:"priority"`
-	SubnetId string `pulumi:"subnetId"`
+	Priority int `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag string `pulumi:"serviceTag"`
+	SubnetId   string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -15023,8 +15191,10 @@ type GetFunctionAppSiteConfigIpRestrictionArgs struct {
 	// The name of the Function App resource.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority for this IP Restriction.
-	Priority pulumi.IntInput    `pulumi:"priority"`
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
+	SubnetId   pulumi.StringInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -15100,6 +15270,11 @@ func (o GetFunctionAppSiteConfigIpRestrictionOutput) Priority() pulumi.IntOutput
 	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// The Service Tag used for this IP Restriction.
+func (o GetFunctionAppSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestriction) string { return v.ServiceTag }).(pulumi.StringOutput)
+}
+
 func (o GetFunctionAppSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestriction) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -15137,8 +15312,10 @@ type GetFunctionAppSiteConfigScmIpRestriction struct {
 	// The name of the Function App resource.
 	Name string `pulumi:"name"`
 	// The priority for this IP Restriction.
-	Priority int    `pulumi:"priority"`
-	SubnetId string `pulumi:"subnetId"`
+	Priority int `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag string `pulumi:"serviceTag"`
+	SubnetId   string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -15162,8 +15339,10 @@ type GetFunctionAppSiteConfigScmIpRestrictionArgs struct {
 	// The name of the Function App resource.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority for this IP Restriction.
-	Priority pulumi.IntInput    `pulumi:"priority"`
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
+	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
+	SubnetId   pulumi.StringInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -15237,6 +15416,11 @@ func (o GetFunctionAppSiteConfigScmIpRestrictionOutput) Name() pulumi.StringOutp
 // The priority for this IP Restriction.
 func (o GetFunctionAppSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFunctionAppSiteConfigScmIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// The Service Tag used for this IP Restriction.
+func (o GetFunctionAppSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigScmIpRestriction) string { return v.ServiceTag }).(pulumi.StringOutput)
 }
 
 func (o GetFunctionAppSiteConfigScmIpRestrictionOutput) SubnetId() pulumi.StringOutput {

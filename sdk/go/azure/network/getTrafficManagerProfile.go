@@ -49,6 +49,8 @@ type LookupTrafficManagerProfileArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Indicates whether Traffic View is enabled for the Traffic Manager profile.
+	TrafficViewEnabled *bool `pulumi:"trafficViewEnabled"`
 }
 
 // A collection of values returned by getTrafficManagerProfile.
@@ -70,4 +72,6 @@ type LookupTrafficManagerProfileResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the algorithm used to route traffic.
 	TrafficRoutingMethod string `pulumi:"trafficRoutingMethod"`
+	// Indicates whether Traffic View is enabled for the Traffic Manager profile.
+	TrafficViewEnabled *bool `pulumi:"trafficViewEnabled"`
 }

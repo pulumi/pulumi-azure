@@ -19,7 +19,7 @@ class GetWorkspaceResult:
     """
     A collection of values returned by getWorkspace.
     """
-    def __init__(__self__, id=None, name=None, resource_group_name=None, sku=None, workspace_id=None, workspace_url=None):
+    def __init__(__self__, id=None, name=None, resource_group_name=None, sku=None, tags=None, workspace_id=None, workspace_url=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -32,6 +32,9 @@ class GetWorkspaceResult:
         if sku and not isinstance(sku, str):
             raise TypeError("Expected argument 'sku' to be a str")
         pulumi.set(__self__, "sku", sku)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if workspace_id and not isinstance(workspace_id, str):
             raise TypeError("Expected argument 'workspace_id' to be a str")
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -66,6 +69,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the Databricks Workspace.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> str:
         """
@@ -92,12 +103,14 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             name=self.name,
             resource_group_name=self.resource_group_name,
             sku=self.sku,
+            tags=self.tags,
             workspace_id=self.workspace_id,
             workspace_url=self.workspace_url)
 
 
 def get_workspace(name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
+                  tags: Optional[Mapping[str, str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
     Use this data source to access information about an existing Databricks workspace.
@@ -116,10 +129,12 @@ def get_workspace(name: Optional[str] = None,
 
     :param str name: The name of the Databricks Workspace.
     :param str resource_group_name: The Name of the Resource Group where the Databricks Workspace exists.
+    :param Mapping[str, str] tags: A mapping of tags to assign to the Databricks Workspace.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -131,5 +146,6 @@ def get_workspace(name: Optional[str] = None,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,
         sku=__ret__.sku,
+        tags=__ret__.tags,
         workspace_id=__ret__.workspace_id,
         workspace_url=__ret__.workspace_url)

@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 __all__ = ['AlertRuleScheduled']
 
@@ -15,9 +17,11 @@ class AlertRuleScheduled(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 incident_configuration: Optional[pulumi.Input[pulumi.InputType['AlertRuleScheduledIncidentConfigurationArgs']]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
@@ -67,9 +71,11 @@ class AlertRuleScheduled(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         :param pulumi.Input[str] description: The description of this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[str] display_name: The friendly name of this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[bool] enabled: Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
+        :param pulumi.Input[pulumi.InputType['AlertRuleScheduledIncidentConfigurationArgs']] incident_configuration: A `incident_configuration` block as defined below.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         :param pulumi.Input[str] query: The query of this Sentinel Scheduled Alert Rule.
@@ -99,11 +105,13 @@ class AlertRuleScheduled(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['alert_rule_template_guid'] = alert_rule_template_guid
             __props__['description'] = description
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             __props__['enabled'] = enabled
+            __props__['incident_configuration'] = incident_configuration
             if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")
             __props__['log_analytics_workspace_id'] = log_analytics_workspace_id
@@ -131,9 +139,11 @@ class AlertRuleScheduled(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            incident_configuration: Optional[pulumi.Input[pulumi.InputType['AlertRuleScheduledIncidentConfigurationArgs']]] = None,
             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             query: Optional[pulumi.Input[str]] = None,
@@ -152,9 +162,11 @@ class AlertRuleScheduled(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         :param pulumi.Input[str] description: The description of this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[str] display_name: The friendly name of this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[bool] enabled: Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
+        :param pulumi.Input[pulumi.InputType['AlertRuleScheduledIncidentConfigurationArgs']] incident_configuration: A `incident_configuration` block as defined below.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         :param pulumi.Input[str] query: The query of this Sentinel Scheduled Alert Rule.
@@ -171,9 +183,11 @@ class AlertRuleScheduled(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["alert_rule_template_guid"] = alert_rule_template_guid
         __props__["description"] = description
         __props__["display_name"] = display_name
         __props__["enabled"] = enabled
+        __props__["incident_configuration"] = incident_configuration
         __props__["log_analytics_workspace_id"] = log_analytics_workspace_id
         __props__["name"] = name
         __props__["query"] = query
@@ -186,6 +200,14 @@ class AlertRuleScheduled(pulumi.CustomResource):
         __props__["trigger_operator"] = trigger_operator
         __props__["trigger_threshold"] = trigger_threshold
         return AlertRuleScheduled(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="alertRuleTemplateGuid")
+    def alert_rule_template_guid(self) -> pulumi.Output[Optional[str]]:
+        """
+        The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        """
+        return pulumi.get(self, "alert_rule_template_guid")
 
     @property
     @pulumi.getter
@@ -210,6 +232,14 @@ class AlertRuleScheduled(pulumi.CustomResource):
         Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="incidentConfiguration")
+    def incident_configuration(self) -> pulumi.Output['outputs.AlertRuleScheduledIncidentConfiguration']:
+        """
+        A `incident_configuration` block as defined below.
+        """
+        return pulumi.get(self, "incident_configuration")
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")

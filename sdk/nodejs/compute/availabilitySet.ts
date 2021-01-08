@@ -72,15 +72,15 @@ export class AvailabilitySet extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the number of fault domains that are used. Defaults to `3`.
+     * Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
      */
     public readonly platformFaultDomainCount!: pulumi.Output<number | undefined>;
     /**
-     * Specifies the number of update domains that are used. Defaults to `5`.
+     * Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
      */
     public readonly platformUpdateDomainCount!: pulumi.Output<number | undefined>;
     /**
-     * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+     * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
      */
     public readonly proximityPlacementGroupId!: pulumi.Output<string | undefined>;
     /**
@@ -154,15 +154,15 @@ export interface AvailabilitySetState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the number of fault domains that are used. Defaults to `3`.
+     * Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
      */
     readonly platformFaultDomainCount?: pulumi.Input<number>;
     /**
-     * Specifies the number of update domains that are used. Defaults to `5`.
+     * Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
      */
     readonly platformUpdateDomainCount?: pulumi.Input<number>;
     /**
-     * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+     * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
      */
     readonly proximityPlacementGroupId?: pulumi.Input<string>;
     /**
@@ -192,15 +192,15 @@ export interface AvailabilitySetArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the number of fault domains that are used. Defaults to `3`.
+     * Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
      */
     readonly platformFaultDomainCount?: pulumi.Input<number>;
     /**
-     * Specifies the number of update domains that are used. Defaults to `5`.
+     * Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
      */
     readonly platformUpdateDomainCount?: pulumi.Input<number>;
     /**
-     * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+     * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
      */
     readonly proximityPlacementGroupId?: pulumi.Input<string>;
     /**

@@ -61,6 +61,8 @@ type GetSubscriptionResult struct {
 	State string `pulumi:"state"`
 	// The subscription GUID.
 	SubscriptionId string `pulumi:"subscriptionId"`
+	// A mapping of tags assigned to the Subscription.
+	Tags map[string]string `pulumi:"tags"`
 	// The subscription tenant ID.
 	TenantId string `pulumi:"tenantId"`
 }

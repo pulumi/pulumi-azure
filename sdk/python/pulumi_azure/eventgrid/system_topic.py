@@ -97,6 +97,8 @@ class SystemTopic(pulumi.CustomResource):
                 raise TypeError("Missing required property 'topic_type'")
             __props__['topic_type'] = topic_type
             __props__['metric_arm_resource_id'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:eventgrid/getSystemTopic:getSystemTopic")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SystemTopic, __self__).__init__(
             'azure:eventgrid/systemTopic:SystemTopic',
             resource_name,

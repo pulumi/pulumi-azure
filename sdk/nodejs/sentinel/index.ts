@@ -5,11 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./alertRuleFusion";
 export * from "./alertRuleMsSecurityIncident";
 export * from "./alertRuleScheduled";
 export * from "./getAlertRule";
 
 // Import resources to register:
+import { AlertRuleFusion } from "./alertRuleFusion";
 import { AlertRuleMsSecurityIncident } from "./alertRuleMsSecurityIncident";
 import { AlertRuleScheduled } from "./alertRuleScheduled";
 
@@ -17,6 +19,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:sentinel/alertRuleFusion:AlertRuleFusion":
+                return new AlertRuleFusion(name, <any>undefined, { urn })
             case "azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident":
                 return new AlertRuleMsSecurityIncident(name, <any>undefined, { urn })
             case "azure:sentinel/alertRuleScheduled:AlertRuleScheduled":
@@ -26,5 +30,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleFusion", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleMsSecurityIncident", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleScheduled", _module)

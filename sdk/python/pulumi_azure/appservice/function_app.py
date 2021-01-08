@@ -113,7 +113,7 @@ class FunctionApp(pulumi.CustomResource):
         example_plan = azure.appservice.Plan("examplePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            kind="FunctionApp",
+            kind="Linux",
             reserved=True,
             sku=azure.appservice.PlanSkuArgs(
                 tier="Dynamic",

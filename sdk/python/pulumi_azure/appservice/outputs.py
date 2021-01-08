@@ -703,13 +703,21 @@ class AppServiceIdentity(dict):
 class AppServiceLogs(dict):
     def __init__(__self__, *,
                  application_logs: Optional['outputs.AppServiceLogsApplicationLogs'] = None,
+                 detailed_error_messages_enabled: Optional[bool] = None,
+                 failed_request_tracing_enabled: Optional[bool] = None,
                  http_logs: Optional['outputs.AppServiceLogsHttpLogs'] = None):
         """
         :param 'AppServiceLogsApplicationLogsArgs' application_logs: An `application_logs` block as defined below.
+        :param bool detailed_error_messages_enabled: Should `Detailed error messages` be enabled on this App Service? Defaults to `false`.
+        :param bool failed_request_tracing_enabled: Should `Failed request tracing` be enabled on this App Service? Defaults to `false`.
         :param 'AppServiceLogsHttpLogsArgs' http_logs: An `http_logs` block as defined below.
         """
         if application_logs is not None:
             pulumi.set(__self__, "application_logs", application_logs)
+        if detailed_error_messages_enabled is not None:
+            pulumi.set(__self__, "detailed_error_messages_enabled", detailed_error_messages_enabled)
+        if failed_request_tracing_enabled is not None:
+            pulumi.set(__self__, "failed_request_tracing_enabled", failed_request_tracing_enabled)
         if http_logs is not None:
             pulumi.set(__self__, "http_logs", http_logs)
 
@@ -720,6 +728,22 @@ class AppServiceLogs(dict):
         An `application_logs` block as defined below.
         """
         return pulumi.get(self, "application_logs")
+
+    @property
+    @pulumi.getter(name="detailedErrorMessagesEnabled")
+    def detailed_error_messages_enabled(self) -> Optional[bool]:
+        """
+        Should `Detailed error messages` be enabled on this App Service? Defaults to `false`.
+        """
+        return pulumi.get(self, "detailed_error_messages_enabled")
+
+    @property
+    @pulumi.getter(name="failedRequestTracingEnabled")
+    def failed_request_tracing_enabled(self) -> Optional[bool]:
+        """
+        Should `Failed request tracing` be enabled on this App Service? Defaults to `false`.
+        """
+        return pulumi.get(self, "failed_request_tracing_enabled")
 
     @property
     @pulumi.getter(name="httpLogs")
@@ -1274,6 +1298,7 @@ class AppServiceSiteConfigIpRestriction(dict):
                  ip_address: Optional[str] = None,
                  name: Optional[str] = None,
                  priority: Optional[int] = None,
+                 service_tag: Optional[str] = None,
                  subnet_id: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
@@ -1281,6 +1306,7 @@ class AppServiceSiteConfigIpRestriction(dict):
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -1291,6 +1317,8 @@ class AppServiceSiteConfigIpRestriction(dict):
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
@@ -1329,6 +1357,14 @@ class AppServiceSiteConfigIpRestriction(dict):
         return pulumi.get(self, "priority")
 
     @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[str]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[str]:
         return pulumi.get(self, "subnet_id")
@@ -1352,6 +1388,7 @@ class AppServiceSiteConfigScmIpRestriction(dict):
                  ip_address: Optional[str] = None,
                  name: Optional[str] = None,
                  priority: Optional[int] = None,
+                 service_tag: Optional[str] = None,
                  subnet_id: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
@@ -1359,6 +1396,7 @@ class AppServiceSiteConfigScmIpRestriction(dict):
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -1369,6 +1407,8 @@ class AppServiceSiteConfigScmIpRestriction(dict):
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
@@ -1405,6 +1445,14 @@ class AppServiceSiteConfigScmIpRestriction(dict):
         The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         """
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[str]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
 
     @property
     @pulumi.getter(name="subnetId")
@@ -2364,6 +2412,7 @@ class FunctionAppSiteConfigIpRestriction(dict):
                  ip_address: Optional[str] = None,
                  name: Optional[str] = None,
                  priority: Optional[int] = None,
+                 service_tag: Optional[str] = None,
                  subnet_id: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
@@ -2371,6 +2420,7 @@ class FunctionAppSiteConfigIpRestriction(dict):
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -2381,6 +2431,8 @@ class FunctionAppSiteConfigIpRestriction(dict):
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
@@ -2419,6 +2471,14 @@ class FunctionAppSiteConfigIpRestriction(dict):
         return pulumi.get(self, "priority")
 
     @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[str]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[str]:
         return pulumi.get(self, "subnet_id")
@@ -2442,6 +2502,7 @@ class FunctionAppSiteConfigScmIpRestriction(dict):
                  ip_address: Optional[str] = None,
                  name: Optional[str] = None,
                  priority: Optional[int] = None,
+                 service_tag: Optional[str] = None,
                  subnet_id: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
@@ -2449,6 +2510,7 @@ class FunctionAppSiteConfigScmIpRestriction(dict):
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -2459,6 +2521,8 @@ class FunctionAppSiteConfigScmIpRestriction(dict):
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
@@ -2495,6 +2559,14 @@ class FunctionAppSiteConfigScmIpRestriction(dict):
         The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         """
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[str]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
 
     @property
     @pulumi.getter(name="subnetId")
@@ -3237,6 +3309,7 @@ class FunctionAppSlotSiteConfigIpRestriction(dict):
                  ip_address: Optional[str] = None,
                  name: Optional[str] = None,
                  priority: Optional[int] = None,
+                 service_tag: Optional[str] = None,
                  subnet_id: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
@@ -3244,6 +3317,7 @@ class FunctionAppSlotSiteConfigIpRestriction(dict):
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -3254,6 +3328,8 @@ class FunctionAppSlotSiteConfigIpRestriction(dict):
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
@@ -3292,6 +3368,14 @@ class FunctionAppSlotSiteConfigIpRestriction(dict):
         return pulumi.get(self, "priority")
 
     @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[str]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[str]:
         return pulumi.get(self, "subnet_id")
@@ -3315,6 +3399,7 @@ class FunctionAppSlotSiteConfigScmIpRestriction(dict):
                  ip_address: Optional[str] = None,
                  name: Optional[str] = None,
                  priority: Optional[int] = None,
+                 service_tag: Optional[str] = None,
                  subnet_id: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
@@ -3322,6 +3407,7 @@ class FunctionAppSlotSiteConfigScmIpRestriction(dict):
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: Specifies the name of the Function App. Changing this forces a new resource to be created.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -3332,6 +3418,8 @@ class FunctionAppSlotSiteConfigScmIpRestriction(dict):
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
@@ -3368,6 +3456,14 @@ class FunctionAppSlotSiteConfigScmIpRestriction(dict):
         The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         """
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[str]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
 
     @property
     @pulumi.getter(name="subnetId")
@@ -4006,13 +4102,21 @@ class SlotIdentity(dict):
 class SlotLogs(dict):
     def __init__(__self__, *,
                  application_logs: Optional['outputs.SlotLogsApplicationLogs'] = None,
+                 detailed_error_messages_enabled: Optional[bool] = None,
+                 failed_request_tracing_enabled: Optional[bool] = None,
                  http_logs: Optional['outputs.SlotLogsHttpLogs'] = None):
         """
         :param 'SlotLogsApplicationLogsArgs' application_logs: An `application_logs` block as defined below.
+        :param bool detailed_error_messages_enabled: Should `Detailed error messages` be enabled on this App Service slot? Defaults to `false`.
+        :param bool failed_request_tracing_enabled: Should `Failed request tracing` be enabled on this App Service slot? Defaults to `false`.
         :param 'SlotLogsHttpLogsArgs' http_logs: An `http_logs` block as defined below.
         """
         if application_logs is not None:
             pulumi.set(__self__, "application_logs", application_logs)
+        if detailed_error_messages_enabled is not None:
+            pulumi.set(__self__, "detailed_error_messages_enabled", detailed_error_messages_enabled)
+        if failed_request_tracing_enabled is not None:
+            pulumi.set(__self__, "failed_request_tracing_enabled", failed_request_tracing_enabled)
         if http_logs is not None:
             pulumi.set(__self__, "http_logs", http_logs)
 
@@ -4023,6 +4127,22 @@ class SlotLogs(dict):
         An `application_logs` block as defined below.
         """
         return pulumi.get(self, "application_logs")
+
+    @property
+    @pulumi.getter(name="detailedErrorMessagesEnabled")
+    def detailed_error_messages_enabled(self) -> Optional[bool]:
+        """
+        Should `Detailed error messages` be enabled on this App Service slot? Defaults to `false`.
+        """
+        return pulumi.get(self, "detailed_error_messages_enabled")
+
+    @property
+    @pulumi.getter(name="failedRequestTracingEnabled")
+    def failed_request_tracing_enabled(self) -> Optional[bool]:
+        """
+        Should `Failed request tracing` be enabled on this App Service slot? Defaults to `false`.
+        """
+        return pulumi.get(self, "failed_request_tracing_enabled")
 
     @property
     @pulumi.getter(name="httpLogs")
@@ -4561,6 +4681,7 @@ class SlotSiteConfigIpRestriction(dict):
                  ip_address: Optional[str] = None,
                  name: Optional[str] = None,
                  priority: Optional[int] = None,
+                 service_tag: Optional[str] = None,
                  subnet_id: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
@@ -4568,6 +4689,7 @@ class SlotSiteConfigIpRestriction(dict):
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -4578,6 +4700,8 @@ class SlotSiteConfigIpRestriction(dict):
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
@@ -4616,6 +4740,14 @@ class SlotSiteConfigIpRestriction(dict):
         return pulumi.get(self, "priority")
 
     @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[str]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[str]:
         return pulumi.get(self, "subnet_id")
@@ -4639,6 +4771,7 @@ class SlotSiteConfigScmIpRestriction(dict):
                  ip_address: Optional[str] = None,
                  name: Optional[str] = None,
                  priority: Optional[int] = None,
+                 service_tag: Optional[str] = None,
                  subnet_id: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
@@ -4646,6 +4779,7 @@ class SlotSiteConfigScmIpRestriction(dict):
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -4656,6 +4790,8 @@ class SlotSiteConfigScmIpRestriction(dict):
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
@@ -4692,6 +4828,14 @@ class SlotSiteConfigScmIpRestriction(dict):
         The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         """
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[str]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
 
     @property
     @pulumi.getter(name="subnetId")
@@ -5153,6 +5297,7 @@ class GetAppServiceSiteConfigIpRestrictionResult(dict):
                  ip_address: str,
                  name: str,
                  priority: int,
+                 service_tag: str,
                  subnet_id: str,
                  virtual_network_subnet_id: str):
         """
@@ -5160,12 +5305,14 @@ class GetAppServiceSiteConfigIpRestrictionResult(dict):
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name of the App Service.
         :param int priority: The priority for this IP Restriction.
+        :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "service_tag", service_tag)
         pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -5200,6 +5347,14 @@ class GetAppServiceSiteConfigIpRestrictionResult(dict):
         The priority for this IP Restriction.
         """
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> str:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
 
     @property
     @pulumi.getter(name="subnetId")
@@ -5222,6 +5377,7 @@ class GetAppServiceSiteConfigScmIpRestrictionResult(dict):
                  ip_address: str,
                  name: str,
                  priority: int,
+                 service_tag: str,
                  subnet_id: str,
                  virtual_network_subnet_id: str):
         """
@@ -5229,12 +5385,14 @@ class GetAppServiceSiteConfigScmIpRestrictionResult(dict):
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name of the App Service.
         :param int priority: The priority for this IP Restriction.
+        :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "service_tag", service_tag)
         pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -5269,6 +5427,14 @@ class GetAppServiceSiteConfigScmIpRestrictionResult(dict):
         The priority for this IP Restriction.
         """
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> str:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
 
     @property
     @pulumi.getter(name="subnetId")
@@ -5687,6 +5853,7 @@ class GetFunctionAppSiteConfigIpRestrictionResult(dict):
                  ip_address: str,
                  name: str,
                  priority: int,
+                 service_tag: str,
                  subnet_id: str,
                  virtual_network_subnet_id: str):
         """
@@ -5694,12 +5861,14 @@ class GetFunctionAppSiteConfigIpRestrictionResult(dict):
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name of the Function App resource.
         :param int priority: The priority for this IP Restriction.
+        :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "service_tag", service_tag)
         pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -5734,6 +5903,14 @@ class GetFunctionAppSiteConfigIpRestrictionResult(dict):
         The priority for this IP Restriction.
         """
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> str:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
 
     @property
     @pulumi.getter(name="subnetId")
@@ -5756,6 +5933,7 @@ class GetFunctionAppSiteConfigScmIpRestrictionResult(dict):
                  ip_address: str,
                  name: str,
                  priority: int,
+                 service_tag: str,
                  subnet_id: str,
                  virtual_network_subnet_id: str):
         """
@@ -5763,12 +5941,14 @@ class GetFunctionAppSiteConfigScmIpRestrictionResult(dict):
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name of the Function App resource.
         :param int priority: The priority for this IP Restriction.
+        :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "service_tag", service_tag)
         pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -5803,6 +5983,14 @@ class GetFunctionAppSiteConfigScmIpRestrictionResult(dict):
         The priority for this IP Restriction.
         """
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> str:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
 
     @property
     @pulumi.getter(name="subnetId")

@@ -36,6 +36,12 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
+        /// <summary>
+        /// The Service Tag used for this IP Restriction.
+        /// </summary>
+        [Input("serviceTag")]
+        public Input<string>? ServiceTag { get; set; }
+
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 

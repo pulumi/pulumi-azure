@@ -1031,6 +1031,17 @@ export namespace appplatform {
         type: pulumi.Input<string>;
     }
 
+    export interface SpringCloudAppPersistentDisk {
+        /**
+         * Specifies the mount path of the persistent disk. Defaults to `/persistent`.
+         */
+        mountPath?: pulumi.Input<string>;
+        /**
+         * Specifies the size of the persistent disk in GB. Possible values are between `0` and `50`.
+         */
+        sizeInGb: pulumi.Input<number>;
+    }
+
     export interface SpringCloudServiceConfigServerGitSetting {
         /**
          * A `httpBasicAuth` block as defined below.
@@ -1387,6 +1398,14 @@ export namespace appservice {
          */
         applicationLogs?: pulumi.Input<inputs.appservice.AppServiceLogsApplicationLogs>;
         /**
+         * Should `Detailed error messages` be enabled on this App Service? Defaults to `false`.
+         */
+        detailedErrorMessagesEnabled?: pulumi.Input<boolean>;
+        /**
+         * Should `Failed request tracing` be enabled on this App Service? Defaults to `false`.
+         */
+        failedRequestTracingEnabled?: pulumi.Input<boolean>;
+        /**
          * An `httpLogs` block as defined below.
          */
         httpLogs?: pulumi.Input<inputs.appservice.AppServiceLogsHttpLogs>;
@@ -1585,6 +1604,10 @@ export namespace appservice {
          */
         priority?: pulumi.Input<number>;
         /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
          * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
          */
         subnetId?: pulumi.Input<string>;
@@ -1611,6 +1634,10 @@ export namespace appservice {
          * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
          */
         priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
         /**
          * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
          */
@@ -1948,6 +1975,10 @@ export namespace appservice {
          */
         priority?: pulumi.Input<number>;
         /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
          * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
          */
         subnetId?: pulumi.Input<string>;
@@ -1974,6 +2005,10 @@ export namespace appservice {
          * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
          */
         priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
         /**
          * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
          */
@@ -2233,6 +2268,10 @@ export namespace appservice {
          */
         priority?: pulumi.Input<number>;
         /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
          * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
          */
         subnetId?: pulumi.Input<string>;
@@ -2259,6 +2298,10 @@ export namespace appservice {
          * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
          */
         priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
         /**
          * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
          */
@@ -2476,6 +2519,14 @@ export namespace appservice {
          */
         applicationLogs?: pulumi.Input<inputs.appservice.SlotLogsApplicationLogs>;
         /**
+         * Should `Detailed error messages` be enabled on this App Service slot? Defaults to `false`.
+         */
+        detailedErrorMessagesEnabled?: pulumi.Input<boolean>;
+        /**
+         * Should `Failed request tracing` be enabled on this App Service slot? Defaults to `false`.
+         */
+        failedRequestTracingEnabled?: pulumi.Input<boolean>;
+        /**
          * An `httpLogs` block as defined below.
          */
         httpLogs?: pulumi.Input<inputs.appservice.SlotLogsHttpLogs>;
@@ -2662,6 +2713,10 @@ export namespace appservice {
          */
         priority?: pulumi.Input<number>;
         /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
          * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
          */
         subnetId?: pulumi.Input<string>;
@@ -2688,6 +2743,10 @@ export namespace appservice {
          * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
          */
         priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
         /**
          * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
          */
@@ -3099,6 +3158,10 @@ export namespace batch {
          */
         endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.batch.PoolNetworkConfigurationEndpointConfiguration>[]>;
         /**
+         * Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
+         */
+        publicAddressProvisioningType?: pulumi.Input<string>;
+        /**
          * A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
          */
         publicIps?: pulumi.Input<pulumi.Input<string>[]>;
@@ -3416,9 +3479,9 @@ export namespace cdn {
 
     export interface EndpointDeliveryRuleCookiesCondition {
         /**
-         * List of values for the cookie.
+         * List of values for the cookie. This is required if `operator` is not `Any`.
          */
-        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        matchValues?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Defaults to `false`.
          */
@@ -3499,9 +3562,9 @@ export namespace cdn {
 
     export interface EndpointDeliveryRulePostArgCondition {
         /**
-         * List of string values.
+         * List of string values. This is required if `operator` is not `Any`.
          */
-        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        matchValues?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Defaults to `false`.
          */
@@ -3522,9 +3585,9 @@ export namespace cdn {
 
     export interface EndpointDeliveryRuleQueryStringCondition {
         /**
-         * List of string values.
+         * List of string values. This is required if `operator` is not `Any`.
          */
-        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        matchValues?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Defaults to `false`.
          */
@@ -3541,9 +3604,9 @@ export namespace cdn {
 
     export interface EndpointDeliveryRuleRemoteAddressCondition {
         /**
-         * List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`.
+         * List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`. This is required if `operator` is not `Any`.
          */
-        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        matchValues?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Defaults to `false`.
          */
@@ -3556,9 +3619,9 @@ export namespace cdn {
 
     export interface EndpointDeliveryRuleRequestBodyCondition {
         /**
-         * List of string values.
+         * List of string values. This is required if `operator` is not `Any`.
          */
-        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        matchValues?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Defaults to `false`.
          */
@@ -3575,9 +3638,9 @@ export namespace cdn {
 
     export interface EndpointDeliveryRuleRequestHeaderCondition {
         /**
-         * List of header values.
+         * List of header values. This is required if `operator` is not `Any`.
          */
-        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        matchValues?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Defaults to `false`.
          */
@@ -3628,9 +3691,9 @@ export namespace cdn {
 
     export interface EndpointDeliveryRuleRequestUriCondition {
         /**
-         * List of string values.
+         * List of string values. This is required if `operator` is not `Any`.
          */
-        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        matchValues?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Defaults to `false`.
          */
@@ -3647,9 +3710,9 @@ export namespace cdn {
 
     export interface EndpointDeliveryRuleUrlFileExtensionCondition {
         /**
-         * List of string values.
+         * List of string values. This is required if `operator` is not `Any`.
          */
-        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        matchValues?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Defaults to `false`.
          */
@@ -3666,9 +3729,9 @@ export namespace cdn {
 
     export interface EndpointDeliveryRuleUrlFileNameCondition {
         /**
-         * List of string values.
+         * List of string values. This is required if `operator` is not `Any`.
          */
-        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        matchValues?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Defaults to `false`.
          */
@@ -3685,9 +3748,9 @@ export namespace cdn {
 
     export interface EndpointDeliveryRuleUrlPathCondition {
         /**
-         * List of string values.
+         * List of string values. This is required if `operator` is not `Any`.
          */
-        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        matchValues?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Defaults to `false`.
          */
@@ -4001,7 +4064,7 @@ export namespace compute {
 
     export interface LinuxVirtualMachineBootDiagnostics {
         /**
-         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
+         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
          */
         storageAccountUri?: pulumi.Input<string>;
     }
@@ -4120,7 +4183,7 @@ export namespace compute {
 
     export interface LinuxVirtualMachineScaleSetBootDiagnostics {
         /**
-         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
+         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
          */
         storageAccountUri?: pulumi.Input<string>;
     }
@@ -5234,7 +5297,7 @@ export namespace compute {
 
     export interface WindowsVirtualMachineBootDiagnostics {
         /**
-         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
+         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
          */
         storageAccountUri?: pulumi.Input<string>;
     }
@@ -5353,7 +5416,7 @@ export namespace compute {
 
     export interface WindowsVirtualMachineScaleSetBootDiagnostics {
         /**
-         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
+         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
          */
         storageAccountUri?: pulumi.Input<string>;
     }
@@ -5904,6 +5967,10 @@ export namespace containerservice {
 
     export interface GroupContainerVolume {
         /**
+         * Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
+         */
+        emptyDir?: pulumi.Input<boolean>;
+        /**
          * A `gitRepo` block as defined below.
          */
         gitRepo?: pulumi.Input<inputs.containerservice.GroupContainerVolumeGitRepo>;
@@ -6333,6 +6400,10 @@ export namespace containerservice {
          * Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
          */
         loadBalancerSku?: pulumi.Input<string>;
+        /**
+         * Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
+         */
+        networkMode?: pulumi.Input<string>;
         /**
          * Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
          */
@@ -7112,6 +7183,17 @@ export namespace datafactory {
          * The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
          */
         resourceId: pulumi.Input<string>;
+    }
+
+    export interface LinkedServiceSynapseKeyVaultPassword {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: pulumi.Input<string>;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores Synapse password.
+         */
+        secretName: pulumi.Input<string>;
     }
 }
 
@@ -9896,11 +9978,22 @@ export namespace hdinsight {
         primaryKey: pulumi.Input<string>;
     }
 
+    export interface KafkaClusterRestProxy {
+        /**
+         * The Azure Active Directory Security Group ID.
+         */
+        securityGroupId: pulumi.Input<string>;
+    }
+
     export interface KafkaClusterRoles {
         /**
          * A `headNode` block as defined above.
          */
         headNode: pulumi.Input<inputs.hdinsight.KafkaClusterRolesHeadNode>;
+        /**
+         * A `kafkaManagementNode` block as defined below.
+         */
+        kafkaManagementNode?: pulumi.Input<inputs.hdinsight.KafkaClusterRolesKafkaManagementNode>;
         /**
          * A `workerNode` block as defined below.
          */
@@ -9934,6 +10027,33 @@ export namespace hdinsight {
         virtualNetworkId?: pulumi.Input<string>;
         /**
          * The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
+         */
+        vmSize: pulumi.Input<string>;
+    }
+
+    export interface KafkaClusterRolesKafkaManagementNode {
+        /**
+         * The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
+         */
+        password?: pulumi.Input<string>;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
+         */
+        sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
+        subnetId?: pulumi.Input<string>;
+        /**
+         * The Username of the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
+         */
+        username: pulumi.Input<string>;
+        /**
+         * The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
+        virtualNetworkId?: pulumi.Input<string>;
+        /**
+         * The Size of the Virtual Machine which should be used as the Kafka Management Nodes. Changing this forces a new resource to be created.
          */
         vmSize: pulumi.Input<string>;
     }
@@ -11890,6 +12010,29 @@ export namespace media {
          * The content of crossdomain.xml used by Silverlight.
          */
         crossDomainPolicy?: pulumi.Input<string>;
+    }
+
+    export interface StreamingLocatorContentKey {
+        /**
+         * ID of Content Key. Changing this forces a new Streaming Locator to be created.
+         */
+        contentKeyId?: pulumi.Input<string>;
+        /**
+         * Label of Content Key as specified in the Streaming Policy. Changing this forces a new Streaming Locator to be created.
+         */
+        labelReferenceInStreamingPolicy?: pulumi.Input<string>;
+        /**
+         * Content Key Policy used by Content Key. Changing this forces a new Streaming Locator to be created.
+         */
+        policyName?: pulumi.Input<string>;
+        /**
+         * Encryption type of Content Key. Supported values are `CommonEncryptionCbcs`, `CommonEncryptionCenc` or `EnvelopeEncryption`. Changing this forces a new Streaming Locator to be created.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * Value of Content Key. Changing this forces a new Streaming Locator to be created.
+         */
+        value?: pulumi.Input<string>;
     }
 
     export interface TransformOutput {
@@ -14070,7 +14213,7 @@ export namespace network {
          */
         exclusions?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayWafConfigurationExclusion>[]>;
         /**
-         * The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
+         * The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
          */
         fileUploadLimitMb?: pulumi.Input<number>;
         /**
@@ -16398,6 +16541,42 @@ export namespace securitycenter {
          * The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
          */
         propertyType: pulumi.Input<string>;
+    }
+}
+
+export namespace sentinel {
+    export interface AlertRuleScheduledIncidentConfiguration {
+        /**
+         * Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
+         */
+        createIncident: pulumi.Input<boolean>;
+        /**
+         * A `grouping` block as defined below.
+         */
+        grouping: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncidentConfigurationGrouping>;
+    }
+
+    export interface AlertRuleScheduledIncidentConfigurationGrouping {
+        /**
+         * Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The method used to group incidents. Possible values are `All`, `Custom` and `None`. Defaults to `None`.
+         */
+        entityMatchingMethod?: pulumi.Input<string>;
+        /**
+         * A list of entity types to group by, only when the `entityMatchingMethod` is `Custom`. Possible values are `Account`, `Host`, `Url`, `Ip`.
+         */
+        groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
+         */
+        lookbackDuration?: pulumi.Input<string>;
+        /**
+         * Whether to re-open closed matching incidents? Defaults to `false`.
+         */
+        reopenClosedIncidents?: pulumi.Input<boolean>;
     }
 }
 

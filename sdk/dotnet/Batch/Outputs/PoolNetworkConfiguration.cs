@@ -18,6 +18,10 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PoolNetworkConfigurationEndpointConfiguration> EndpointConfigurations;
         /// <summary>
+        /// Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
+        /// </summary>
+        public readonly string? PublicAddressProvisioningType;
+        /// <summary>
         /// A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<string> PublicIps;
@@ -30,11 +34,14 @@ namespace Pulumi.Azure.Batch.Outputs
         private PoolNetworkConfiguration(
             ImmutableArray<Outputs.PoolNetworkConfigurationEndpointConfiguration> endpointConfigurations,
 
+            string? publicAddressProvisioningType,
+
             ImmutableArray<string> publicIps,
 
             string subnetId)
         {
             EndpointConfigurations = endpointConfigurations;
+            PublicAddressProvisioningType = publicAddressProvisioningType;
             PublicIps = publicIps;
             SubnetId = subnetId;
         }

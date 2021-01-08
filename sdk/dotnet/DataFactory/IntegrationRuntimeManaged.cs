@@ -71,6 +71,9 @@ namespace Pulumi.Azure.DataFactory
         [Output("dataFactoryName")]
         public Output<string> DataFactoryName { get; private set; } = null!;
 
+        /// <summary>
+        /// Integration runtime description.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -192,6 +195,9 @@ namespace Pulumi.Azure.DataFactory
         [Input("dataFactoryName", required: true)]
         public Input<string> DataFactoryName { get; set; } = null!;
 
+        /// <summary>
+        /// Integration runtime description.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -274,6 +280,9 @@ namespace Pulumi.Azure.DataFactory
         [Input("dataFactoryName")]
         public Input<string>? DataFactoryName { get; set; }
 
+        /// <summary>
+        /// Integration runtime description.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

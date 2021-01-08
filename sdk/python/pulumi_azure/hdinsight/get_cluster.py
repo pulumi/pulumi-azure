@@ -20,7 +20,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, cluster_version=None, component_versions=None, edge_ssh_endpoint=None, gateways=None, https_endpoint=None, id=None, kind=None, location=None, name=None, resource_group_name=None, ssh_endpoint=None, tags=None, tier=None, tls_min_version=None):
+    def __init__(__self__, cluster_version=None, component_versions=None, edge_ssh_endpoint=None, gateways=None, https_endpoint=None, id=None, kafka_rest_proxy_endpoint=None, kind=None, location=None, name=None, resource_group_name=None, ssh_endpoint=None, tags=None, tier=None, tls_min_version=None):
         if cluster_version and not isinstance(cluster_version, str):
             raise TypeError("Expected argument 'cluster_version' to be a str")
         pulumi.set(__self__, "cluster_version", cluster_version)
@@ -39,6 +39,9 @@ class GetClusterResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kafka_rest_proxy_endpoint and not isinstance(kafka_rest_proxy_endpoint, str):
+            raise TypeError("Expected argument 'kafka_rest_proxy_endpoint' to be a str")
+        pulumi.set(__self__, "kafka_rest_proxy_endpoint", kafka_rest_proxy_endpoint)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -113,6 +116,14 @@ class GetClusterResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="kafkaRestProxyEndpoint")
+    def kafka_rest_proxy_endpoint(self) -> str:
+        """
+        The Kafka Rest Proxy Endpoint for this HDInsight Cluster.
+        """
+        return pulumi.get(self, "kafka_rest_proxy_endpoint")
+
+    @property
     @pulumi.getter
     def kind(self) -> str:
         """
@@ -183,6 +194,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             gateways=self.gateways,
             https_endpoint=self.https_endpoint,
             id=self.id,
+            kafka_rest_proxy_endpoint=self.kafka_rest_proxy_endpoint,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -230,6 +242,7 @@ def get_cluster(name: Optional[str] = None,
         gateways=__ret__.gateways,
         https_endpoint=__ret__.https_endpoint,
         id=__ret__.id,
+        kafka_rest_proxy_endpoint=__ret__.kafka_rest_proxy_endpoint,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

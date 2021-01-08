@@ -627,7 +627,7 @@ func (o EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput) Parameters() pul
 }
 
 type EndpointDeliveryRuleCookiesCondition struct {
-	// List of values for the cookie.
+	// List of values for the cookie. This is required if `operator` is not `Any`.
 	MatchValues []string `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition *bool `pulumi:"negateCondition"`
@@ -651,7 +651,7 @@ type EndpointDeliveryRuleCookiesConditionInput interface {
 }
 
 type EndpointDeliveryRuleCookiesConditionArgs struct {
-	// List of values for the cookie.
+	// List of values for the cookie. This is required if `operator` is not `Any`.
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
@@ -714,7 +714,7 @@ func (o EndpointDeliveryRuleCookiesConditionOutput) ToEndpointDeliveryRuleCookie
 	return o
 }
 
-// List of values for the cookie.
+// List of values for the cookie. This is required if `operator` is not `Any`.
 func (o EndpointDeliveryRuleCookiesConditionOutput) MatchValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleCookiesCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }
@@ -1274,7 +1274,7 @@ func (o EndpointDeliveryRuleModifyResponseHeaderActionArrayOutput) Index(i pulum
 }
 
 type EndpointDeliveryRulePostArgCondition struct {
-	// List of string values.
+	// List of string values. This is required if `operator` is not `Any`.
 	MatchValues []string `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition *bool `pulumi:"negateCondition"`
@@ -1298,7 +1298,7 @@ type EndpointDeliveryRulePostArgConditionInput interface {
 }
 
 type EndpointDeliveryRulePostArgConditionArgs struct {
-	// List of string values.
+	// List of string values. This is required if `operator` is not `Any`.
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
@@ -1361,7 +1361,7 @@ func (o EndpointDeliveryRulePostArgConditionOutput) ToEndpointDeliveryRulePostAr
 	return o
 }
 
-// List of string values.
+// List of string values. This is required if `operator` is not `Any`.
 func (o EndpointDeliveryRulePostArgConditionOutput) MatchValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointDeliveryRulePostArgCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }
@@ -1407,7 +1407,7 @@ func (o EndpointDeliveryRulePostArgConditionArrayOutput) Index(i pulumi.IntInput
 }
 
 type EndpointDeliveryRuleQueryStringCondition struct {
-	// List of string values.
+	// List of string values. This is required if `operator` is not `Any`.
 	MatchValues []string `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition *bool `pulumi:"negateCondition"`
@@ -1429,7 +1429,7 @@ type EndpointDeliveryRuleQueryStringConditionInput interface {
 }
 
 type EndpointDeliveryRuleQueryStringConditionArgs struct {
-	// List of string values.
+	// List of string values. This is required if `operator` is not `Any`.
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
@@ -1490,7 +1490,7 @@ func (o EndpointDeliveryRuleQueryStringConditionOutput) ToEndpointDeliveryRuleQu
 	return o
 }
 
-// List of string values.
+// List of string values. This is required if `operator` is not `Any`.
 func (o EndpointDeliveryRuleQueryStringConditionOutput) MatchValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleQueryStringCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }
@@ -1531,7 +1531,7 @@ func (o EndpointDeliveryRuleQueryStringConditionArrayOutput) Index(i pulumi.IntI
 }
 
 type EndpointDeliveryRuleRemoteAddressCondition struct {
-	// List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`.
+	// List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`. This is required if `operator` is not `Any`.
 	MatchValues []string `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition *bool `pulumi:"negateCondition"`
@@ -1551,7 +1551,7 @@ type EndpointDeliveryRuleRemoteAddressConditionInput interface {
 }
 
 type EndpointDeliveryRuleRemoteAddressConditionArgs struct {
-	// List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`.
+	// List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`. This is required if `operator` is not `Any`.
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
@@ -1610,7 +1610,7 @@ func (o EndpointDeliveryRuleRemoteAddressConditionOutput) ToEndpointDeliveryRule
 	return o
 }
 
-// List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`.
+// List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`. This is required if `operator` is not `Any`.
 func (o EndpointDeliveryRuleRemoteAddressConditionOutput) MatchValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleRemoteAddressCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }
@@ -1646,7 +1646,7 @@ func (o EndpointDeliveryRuleRemoteAddressConditionArrayOutput) Index(i pulumi.In
 }
 
 type EndpointDeliveryRuleRequestBodyCondition struct {
-	// List of string values.
+	// List of string values. This is required if `operator` is not `Any`.
 	MatchValues []string `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition *bool `pulumi:"negateCondition"`
@@ -1668,7 +1668,7 @@ type EndpointDeliveryRuleRequestBodyConditionInput interface {
 }
 
 type EndpointDeliveryRuleRequestBodyConditionArgs struct {
-	// List of string values.
+	// List of string values. This is required if `operator` is not `Any`.
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
@@ -1729,7 +1729,7 @@ func (o EndpointDeliveryRuleRequestBodyConditionOutput) ToEndpointDeliveryRuleRe
 	return o
 }
 
-// List of string values.
+// List of string values. This is required if `operator` is not `Any`.
 func (o EndpointDeliveryRuleRequestBodyConditionOutput) MatchValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleRequestBodyCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }
@@ -1770,7 +1770,7 @@ func (o EndpointDeliveryRuleRequestBodyConditionArrayOutput) Index(i pulumi.IntI
 }
 
 type EndpointDeliveryRuleRequestHeaderCondition struct {
-	// List of header values.
+	// List of header values. This is required if `operator` is not `Any`.
 	MatchValues []string `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition *bool `pulumi:"negateCondition"`
@@ -1794,7 +1794,7 @@ type EndpointDeliveryRuleRequestHeaderConditionInput interface {
 }
 
 type EndpointDeliveryRuleRequestHeaderConditionArgs struct {
-	// List of header values.
+	// List of header values. This is required if `operator` is not `Any`.
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
@@ -1857,7 +1857,7 @@ func (o EndpointDeliveryRuleRequestHeaderConditionOutput) ToEndpointDeliveryRule
 	return o
 }
 
-// List of header values.
+// List of header values. This is required if `operator` is not `Any`.
 func (o EndpointDeliveryRuleRequestHeaderConditionOutput) MatchValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleRequestHeaderCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }
@@ -2245,7 +2245,7 @@ func (o EndpointDeliveryRuleRequestSchemeConditionPtrOutput) Operator() pulumi.S
 }
 
 type EndpointDeliveryRuleRequestUriCondition struct {
-	// List of string values.
+	// List of string values. This is required if `operator` is not `Any`.
 	MatchValues []string `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition *bool `pulumi:"negateCondition"`
@@ -2267,7 +2267,7 @@ type EndpointDeliveryRuleRequestUriConditionInput interface {
 }
 
 type EndpointDeliveryRuleRequestUriConditionArgs struct {
-	// List of string values.
+	// List of string values. This is required if `operator` is not `Any`.
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
@@ -2328,7 +2328,7 @@ func (o EndpointDeliveryRuleRequestUriConditionOutput) ToEndpointDeliveryRuleReq
 	return o
 }
 
-// List of string values.
+// List of string values. This is required if `operator` is not `Any`.
 func (o EndpointDeliveryRuleRequestUriConditionOutput) MatchValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleRequestUriCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }
@@ -2369,7 +2369,7 @@ func (o EndpointDeliveryRuleRequestUriConditionArrayOutput) Index(i pulumi.IntIn
 }
 
 type EndpointDeliveryRuleUrlFileExtensionCondition struct {
-	// List of string values.
+	// List of string values. This is required if `operator` is not `Any`.
 	MatchValues []string `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition *bool `pulumi:"negateCondition"`
@@ -2391,7 +2391,7 @@ type EndpointDeliveryRuleUrlFileExtensionConditionInput interface {
 }
 
 type EndpointDeliveryRuleUrlFileExtensionConditionArgs struct {
-	// List of string values.
+	// List of string values. This is required if `operator` is not `Any`.
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
@@ -2452,7 +2452,7 @@ func (o EndpointDeliveryRuleUrlFileExtensionConditionOutput) ToEndpointDeliveryR
 	return o
 }
 
-// List of string values.
+// List of string values. This is required if `operator` is not `Any`.
 func (o EndpointDeliveryRuleUrlFileExtensionConditionOutput) MatchValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleUrlFileExtensionCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }
@@ -2493,7 +2493,7 @@ func (o EndpointDeliveryRuleUrlFileExtensionConditionArrayOutput) Index(i pulumi
 }
 
 type EndpointDeliveryRuleUrlFileNameCondition struct {
-	// List of string values.
+	// List of string values. This is required if `operator` is not `Any`.
 	MatchValues []string `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition *bool `pulumi:"negateCondition"`
@@ -2515,7 +2515,7 @@ type EndpointDeliveryRuleUrlFileNameConditionInput interface {
 }
 
 type EndpointDeliveryRuleUrlFileNameConditionArgs struct {
-	// List of string values.
+	// List of string values. This is required if `operator` is not `Any`.
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
@@ -2576,7 +2576,7 @@ func (o EndpointDeliveryRuleUrlFileNameConditionOutput) ToEndpointDeliveryRuleUr
 	return o
 }
 
-// List of string values.
+// List of string values. This is required if `operator` is not `Any`.
 func (o EndpointDeliveryRuleUrlFileNameConditionOutput) MatchValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleUrlFileNameCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }
@@ -2617,7 +2617,7 @@ func (o EndpointDeliveryRuleUrlFileNameConditionArrayOutput) Index(i pulumi.IntI
 }
 
 type EndpointDeliveryRuleUrlPathCondition struct {
-	// List of string values.
+	// List of string values. This is required if `operator` is not `Any`.
 	MatchValues []string `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition *bool `pulumi:"negateCondition"`
@@ -2639,7 +2639,7 @@ type EndpointDeliveryRuleUrlPathConditionInput interface {
 }
 
 type EndpointDeliveryRuleUrlPathConditionArgs struct {
-	// List of string values.
+	// List of string values. This is required if `operator` is not `Any`.
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
@@ -2700,7 +2700,7 @@ func (o EndpointDeliveryRuleUrlPathConditionOutput) ToEndpointDeliveryRuleUrlPat
 	return o
 }
 
-// List of string values.
+// List of string values. This is required if `operator` is not `Any`.
 func (o EndpointDeliveryRuleUrlPathConditionOutput) MatchValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleUrlPathCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }

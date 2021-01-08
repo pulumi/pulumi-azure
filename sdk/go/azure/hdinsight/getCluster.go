@@ -64,6 +64,8 @@ type GetClusterResult struct {
 	HttpsEndpoint string `pulumi:"httpsEndpoint"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The Kafka Rest Proxy Endpoint for this HDInsight Cluster.
+	KafkaRestProxyEndpoint string `pulumi:"kafkaRestProxyEndpoint"`
 	// The kind of HDInsight Cluster this is, such as a Spark or Storm cluster.
 	Kind string `pulumi:"kind"`
 	// The Azure Region in which this HDInsight Cluster exists.

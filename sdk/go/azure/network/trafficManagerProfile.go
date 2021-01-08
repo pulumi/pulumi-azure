@@ -97,6 +97,8 @@ type TrafficManagerProfile struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the algorithm used to route traffic, possible values are:
 	TrafficRoutingMethod pulumi.StringOutput `pulumi:"trafficRoutingMethod"`
+	// Indicates whether Traffic View is enabled for the Traffic Manager profile.
+	TrafficViewEnabled pulumi.BoolPtrOutput `pulumi:"trafficViewEnabled"`
 }
 
 // NewTrafficManagerProfile registers a new resource with the given unique name, arguments, and options.
@@ -164,6 +166,8 @@ type trafficManagerProfileState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the algorithm used to route traffic, possible values are:
 	TrafficRoutingMethod *string `pulumi:"trafficRoutingMethod"`
+	// Indicates whether Traffic View is enabled for the Traffic Manager profile.
+	TrafficViewEnabled *bool `pulumi:"trafficViewEnabled"`
 }
 
 type TrafficManagerProfileState struct {
@@ -185,6 +189,8 @@ type TrafficManagerProfileState struct {
 	Tags pulumi.StringMapInput
 	// Specifies the algorithm used to route traffic, possible values are:
 	TrafficRoutingMethod pulumi.StringPtrInput
+	// Indicates whether Traffic View is enabled for the Traffic Manager profile.
+	TrafficViewEnabled pulumi.BoolPtrInput
 }
 
 func (TrafficManagerProfileState) ElementType() reflect.Type {
@@ -208,6 +214,8 @@ type trafficManagerProfileArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the algorithm used to route traffic, possible values are:
 	TrafficRoutingMethod string `pulumi:"trafficRoutingMethod"`
+	// Indicates whether Traffic View is enabled for the Traffic Manager profile.
+	TrafficViewEnabled *bool `pulumi:"trafficViewEnabled"`
 }
 
 // The set of arguments for constructing a TrafficManagerProfile resource.
@@ -228,6 +236,8 @@ type TrafficManagerProfileArgs struct {
 	Tags pulumi.StringMapInput
 	// Specifies the algorithm used to route traffic, possible values are:
 	TrafficRoutingMethod pulumi.StringInput
+	// Indicates whether Traffic View is enabled for the Traffic Manager profile.
+	TrafficViewEnabled pulumi.BoolPtrInput
 }
 
 func (TrafficManagerProfileArgs) ElementType() reflect.Type {

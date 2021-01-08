@@ -10,6 +10,7 @@ from .. import _utilities, _tables
 
 __all__ = [
     'SpringCloudAppIdentityArgs',
+    'SpringCloudAppPersistentDiskArgs',
     'SpringCloudServiceConfigServerGitSettingArgs',
     'SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs',
     'SpringCloudServiceConfigServerGitSettingRepositoryArgs',
@@ -72,6 +73,44 @@ class SpringCloudAppIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class SpringCloudAppPersistentDiskArgs:
+    def __init__(__self__, *,
+                 size_in_gb: pulumi.Input[int],
+                 mount_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] size_in_gb: Specifies the size of the persistent disk in GB. Possible values are between `0` and `50`.
+        :param pulumi.Input[str] mount_path: Specifies the mount path of the persistent disk. Defaults to `/persistent`.
+        """
+        pulumi.set(__self__, "size_in_gb", size_in_gb)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+
+    @property
+    @pulumi.getter(name="sizeInGb")
+    def size_in_gb(self) -> pulumi.Input[int]:
+        """
+        Specifies the size of the persistent disk in GB. Possible values are between `0` and `50`.
+        """
+        return pulumi.get(self, "size_in_gb")
+
+    @size_in_gb.setter
+    def size_in_gb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "size_in_gb", value)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the mount path of the persistent disk. Defaults to `/persistent`.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mount_path", value)
 
 
 @pulumi.input_type

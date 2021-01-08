@@ -56,16 +56,34 @@ namespace Pulumi.Azure.AppPlatform
     public partial class SpringCloudApp : Pulumi.CustomResource
     {
         /// <summary>
+        /// Is only https allowed? Defaults to `false`.
+        /// </summary>
+        [Output("httpsOnly")]
+        public Output<bool?> HttpsOnly { get; private set; } = null!;
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.SpringCloudAppIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
+        /// </summary>
+        [Output("isPublic")]
+        public Output<bool?> IsPublic { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// An `persistent_disk` block as defined below.
+        /// </summary>
+        [Output("persistentDisk")]
+        public Output<Outputs.SpringCloudAppPersistentDisk> PersistentDisk { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
@@ -78,6 +96,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Output("serviceName")]
         public Output<string> ServiceName { get; private set; } = null!;
+
+        /// <summary>
+        /// The public endpoint of the Spring Cloud Application.
+        /// </summary>
+        [Output("url")]
+        public Output<string> Url { get; private set; } = null!;
 
 
         /// <summary>
@@ -126,16 +150,34 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudAppArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Is only https allowed? Defaults to `false`.
+        /// </summary>
+        [Input("httpsOnly")]
+        public Input<bool>? HttpsOnly { get; set; }
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SpringCloudAppIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
+        /// </summary>
+        [Input("isPublic")]
+        public Input<bool>? IsPublic { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// An `persistent_disk` block as defined below.
+        /// </summary>
+        [Input("persistentDisk")]
+        public Input<Inputs.SpringCloudAppPersistentDiskArgs>? PersistentDisk { get; set; }
 
         /// <summary>
         /// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
@@ -157,16 +199,34 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudAppState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Is only https allowed? Defaults to `false`.
+        /// </summary>
+        [Input("httpsOnly")]
+        public Input<bool>? HttpsOnly { get; set; }
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SpringCloudAppIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
+        /// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
+        /// </summary>
+        [Input("isPublic")]
+        public Input<bool>? IsPublic { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// An `persistent_disk` block as defined below.
+        /// </summary>
+        [Input("persistentDisk")]
+        public Input<Inputs.SpringCloudAppPersistentDiskGetArgs>? PersistentDisk { get; set; }
 
         /// <summary>
         /// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
@@ -179,6 +239,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
+
+        /// <summary>
+        /// The public endpoint of the Spring Cloud Application.
+        /// </summary>
+        [Input("url")]
+        public Input<string>? Url { get; set; }
 
         public SpringCloudAppState()
         {

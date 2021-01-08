@@ -58,6 +58,12 @@ namespace Pulumi.Azure.Sentinel
     public partial class AlertRuleMsSecurityIncident : Pulumi.CustomResource
     {
         /// <summary>
+        /// The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
+        /// </summary>
+        [Output("alertRuleTemplateGuid")]
+        public Output<string?> AlertRuleTemplateGuid { get; private set; } = null!;
+
+        /// <summary>
         /// The description of this Sentinel MS Security Incident Alert Rule.
         /// </summary>
         [Output("description")]
@@ -68,6 +74,12 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// Only create incidents when the alert display name doesn't contain text from this list.
+        /// </summary>
+        [Output("displayNameExcludeFilters")]
+        public Output<ImmutableArray<string>> DisplayNameExcludeFilters { get; private set; } = null!;
 
         /// <summary>
         /// Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
@@ -155,6 +167,12 @@ namespace Pulumi.Azure.Sentinel
     public sealed class AlertRuleMsSecurityIncidentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
+        /// </summary>
+        [Input("alertRuleTemplateGuid")]
+        public Input<string>? AlertRuleTemplateGuid { get; set; }
+
+        /// <summary>
         /// The description of this Sentinel MS Security Incident Alert Rule.
         /// </summary>
         [Input("description")]
@@ -165,6 +183,18 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
+
+        [Input("displayNameExcludeFilters")]
+        private InputList<string>? _displayNameExcludeFilters;
+
+        /// <summary>
+        /// Only create incidents when the alert display name doesn't contain text from this list.
+        /// </summary>
+        public InputList<string> DisplayNameExcludeFilters
+        {
+            get => _displayNameExcludeFilters ?? (_displayNameExcludeFilters = new InputList<string>());
+            set => _displayNameExcludeFilters = value;
+        }
 
         [Input("displayNameFilters")]
         private InputList<string>? _displayNameFilters;
@@ -231,6 +261,12 @@ namespace Pulumi.Azure.Sentinel
     public sealed class AlertRuleMsSecurityIncidentState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
+        /// </summary>
+        [Input("alertRuleTemplateGuid")]
+        public Input<string>? AlertRuleTemplateGuid { get; set; }
+
+        /// <summary>
         /// The description of this Sentinel MS Security Incident Alert Rule.
         /// </summary>
         [Input("description")]
@@ -241,6 +277,18 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        [Input("displayNameExcludeFilters")]
+        private InputList<string>? _displayNameExcludeFilters;
+
+        /// <summary>
+        /// Only create incidents when the alert display name doesn't contain text from this list.
+        /// </summary>
+        public InputList<string> DisplayNameExcludeFilters
+        {
+            get => _displayNameExcludeFilters ?? (_displayNameExcludeFilters = new InputList<string>());
+            set => _displayNameExcludeFilters = value;
+        }
 
         [Input("displayNameFilters")]
         private InputList<string>? _displayNameFilters;

@@ -99,6 +99,8 @@ type Profile struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the algorithm used to route traffic, possible values are:
 	TrafficRoutingMethod pulumi.StringOutput `pulumi:"trafficRoutingMethod"`
+	// Indicates whether Traffic View is enabled for the Traffic Manager profile.
+	TrafficViewEnabled pulumi.BoolPtrOutput `pulumi:"trafficViewEnabled"`
 }
 
 // NewProfile registers a new resource with the given unique name, arguments, and options.
@@ -160,6 +162,8 @@ type profileState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the algorithm used to route traffic, possible values are:
 	TrafficRoutingMethod *string `pulumi:"trafficRoutingMethod"`
+	// Indicates whether Traffic View is enabled for the Traffic Manager profile.
+	TrafficViewEnabled *bool `pulumi:"trafficViewEnabled"`
 }
 
 type ProfileState struct {
@@ -181,6 +185,8 @@ type ProfileState struct {
 	Tags pulumi.StringMapInput
 	// Specifies the algorithm used to route traffic, possible values are:
 	TrafficRoutingMethod pulumi.StringPtrInput
+	// Indicates whether Traffic View is enabled for the Traffic Manager profile.
+	TrafficViewEnabled pulumi.BoolPtrInput
 }
 
 func (ProfileState) ElementType() reflect.Type {
@@ -204,6 +210,8 @@ type profileArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the algorithm used to route traffic, possible values are:
 	TrafficRoutingMethod string `pulumi:"trafficRoutingMethod"`
+	// Indicates whether Traffic View is enabled for the Traffic Manager profile.
+	TrafficViewEnabled *bool `pulumi:"trafficViewEnabled"`
 }
 
 // The set of arguments for constructing a Profile resource.
@@ -224,6 +232,8 @@ type ProfileArgs struct {
 	Tags pulumi.StringMapInput
 	// Specifies the algorithm used to route traffic, possible values are:
 	TrafficRoutingMethod pulumi.StringInput
+	// Indicates whether Traffic View is enabled for the Traffic Manager profile.
+	TrafficViewEnabled pulumi.BoolPtrInput
 }
 
 func (ProfileArgs) ElementType() reflect.Type {

@@ -154,6 +154,7 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[bool] https_only: Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SlotIdentityArgs']] identity: A Managed Service Identity block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['SlotLogsArgs']] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Slot component.
         :param pulumi.Input[pulumi.InputType['SlotSiteConfigArgs']] site_config: A `site_config` object as defined below.
@@ -244,6 +245,7 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[bool] https_only: Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SlotIdentityArgs']] identity: A Managed Service Identity block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['SlotLogsArgs']] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Slot component.
         :param pulumi.Input[pulumi.InputType['SlotSiteConfigArgs']] site_config: A `site_config` object as defined below.
@@ -364,6 +366,9 @@ class Slot(pulumi.CustomResource):
     @property
     @pulumi.getter
     def logs(self) -> pulumi.Output['outputs.SlotLogs']:
+        """
+        A `logs` block as defined below.
+        """
         return pulumi.get(self, "logs")
 
     @property

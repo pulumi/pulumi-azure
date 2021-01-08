@@ -29,6 +29,10 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         /// </summary>
         public readonly int? Priority;
+        /// <summary>
+        /// The Service Tag used for this IP Restriction.
+        /// </summary>
+        public readonly string? ServiceTag;
         public readonly string? SubnetId;
         /// <summary>
         /// The Virtual Network Subnet ID used for this IP Restriction.
@@ -45,6 +49,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             int? priority,
 
+            string? serviceTag,
+
             string? subnetId,
 
             string? virtualNetworkSubnetId)
@@ -53,6 +59,7 @@ namespace Pulumi.Azure.AppService.Outputs
             IpAddress = ipAddress;
             Name = name;
             Priority = priority;
+            ServiceTag = serviceTag;
             SubnetId = subnetId;
             VirtualNetworkSubnetId = virtualNetworkSubnetId;
         }

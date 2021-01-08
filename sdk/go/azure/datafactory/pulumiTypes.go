@@ -2797,6 +2797,156 @@ func (o IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput) Index(i pulumi
 	}).(IntegrationRuntimeSelfHostedRbacAuthorizationOutput)
 }
 
+type LinkedServiceSynapseKeyVaultPassword struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName string `pulumi:"linkedServiceName"`
+	// Specifies the secret name in Azure Key Vault that stores Synapse password.
+	SecretName string `pulumi:"secretName"`
+}
+
+// LinkedServiceSynapseKeyVaultPasswordInput is an input type that accepts LinkedServiceSynapseKeyVaultPasswordArgs and LinkedServiceSynapseKeyVaultPasswordOutput values.
+// You can construct a concrete instance of `LinkedServiceSynapseKeyVaultPasswordInput` via:
+//
+//          LinkedServiceSynapseKeyVaultPasswordArgs{...}
+type LinkedServiceSynapseKeyVaultPasswordInput interface {
+	pulumi.Input
+
+	ToLinkedServiceSynapseKeyVaultPasswordOutput() LinkedServiceSynapseKeyVaultPasswordOutput
+	ToLinkedServiceSynapseKeyVaultPasswordOutputWithContext(context.Context) LinkedServiceSynapseKeyVaultPasswordOutput
+}
+
+type LinkedServiceSynapseKeyVaultPasswordArgs struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
+	// Specifies the secret name in Azure Key Vault that stores Synapse password.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (LinkedServiceSynapseKeyVaultPasswordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceSynapseKeyVaultPassword)(nil)).Elem()
+}
+
+func (i LinkedServiceSynapseKeyVaultPasswordArgs) ToLinkedServiceSynapseKeyVaultPasswordOutput() LinkedServiceSynapseKeyVaultPasswordOutput {
+	return i.ToLinkedServiceSynapseKeyVaultPasswordOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceSynapseKeyVaultPasswordArgs) ToLinkedServiceSynapseKeyVaultPasswordOutputWithContext(ctx context.Context) LinkedServiceSynapseKeyVaultPasswordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSynapseKeyVaultPasswordOutput)
+}
+
+func (i LinkedServiceSynapseKeyVaultPasswordArgs) ToLinkedServiceSynapseKeyVaultPasswordPtrOutput() LinkedServiceSynapseKeyVaultPasswordPtrOutput {
+	return i.ToLinkedServiceSynapseKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceSynapseKeyVaultPasswordArgs) ToLinkedServiceSynapseKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceSynapseKeyVaultPasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSynapseKeyVaultPasswordOutput).ToLinkedServiceSynapseKeyVaultPasswordPtrOutputWithContext(ctx)
+}
+
+// LinkedServiceSynapseKeyVaultPasswordPtrInput is an input type that accepts LinkedServiceSynapseKeyVaultPasswordArgs, LinkedServiceSynapseKeyVaultPasswordPtr and LinkedServiceSynapseKeyVaultPasswordPtrOutput values.
+// You can construct a concrete instance of `LinkedServiceSynapseKeyVaultPasswordPtrInput` via:
+//
+//          LinkedServiceSynapseKeyVaultPasswordArgs{...}
+//
+//  or:
+//
+//          nil
+type LinkedServiceSynapseKeyVaultPasswordPtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceSynapseKeyVaultPasswordPtrOutput() LinkedServiceSynapseKeyVaultPasswordPtrOutput
+	ToLinkedServiceSynapseKeyVaultPasswordPtrOutputWithContext(context.Context) LinkedServiceSynapseKeyVaultPasswordPtrOutput
+}
+
+type linkedServiceSynapseKeyVaultPasswordPtrType LinkedServiceSynapseKeyVaultPasswordArgs
+
+func LinkedServiceSynapseKeyVaultPasswordPtr(v *LinkedServiceSynapseKeyVaultPasswordArgs) LinkedServiceSynapseKeyVaultPasswordPtrInput {
+	return (*linkedServiceSynapseKeyVaultPasswordPtrType)(v)
+}
+
+func (*linkedServiceSynapseKeyVaultPasswordPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceSynapseKeyVaultPassword)(nil)).Elem()
+}
+
+func (i *linkedServiceSynapseKeyVaultPasswordPtrType) ToLinkedServiceSynapseKeyVaultPasswordPtrOutput() LinkedServiceSynapseKeyVaultPasswordPtrOutput {
+	return i.ToLinkedServiceSynapseKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceSynapseKeyVaultPasswordPtrType) ToLinkedServiceSynapseKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceSynapseKeyVaultPasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSynapseKeyVaultPasswordPtrOutput)
+}
+
+type LinkedServiceSynapseKeyVaultPasswordOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceSynapseKeyVaultPasswordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceSynapseKeyVaultPassword)(nil)).Elem()
+}
+
+func (o LinkedServiceSynapseKeyVaultPasswordOutput) ToLinkedServiceSynapseKeyVaultPasswordOutput() LinkedServiceSynapseKeyVaultPasswordOutput {
+	return o
+}
+
+func (o LinkedServiceSynapseKeyVaultPasswordOutput) ToLinkedServiceSynapseKeyVaultPasswordOutputWithContext(ctx context.Context) LinkedServiceSynapseKeyVaultPasswordOutput {
+	return o
+}
+
+func (o LinkedServiceSynapseKeyVaultPasswordOutput) ToLinkedServiceSynapseKeyVaultPasswordPtrOutput() LinkedServiceSynapseKeyVaultPasswordPtrOutput {
+	return o.ToLinkedServiceSynapseKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceSynapseKeyVaultPasswordOutput) ToLinkedServiceSynapseKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceSynapseKeyVaultPasswordPtrOutput {
+	return o.ApplyT(func(v LinkedServiceSynapseKeyVaultPassword) *LinkedServiceSynapseKeyVaultPassword {
+		return &v
+	}).(LinkedServiceSynapseKeyVaultPasswordPtrOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceSynapseKeyVaultPasswordOutput) LinkedServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceSynapseKeyVaultPassword) string { return v.LinkedServiceName }).(pulumi.StringOutput)
+}
+
+// Specifies the secret name in Azure Key Vault that stores Synapse password.
+func (o LinkedServiceSynapseKeyVaultPasswordOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceSynapseKeyVaultPassword) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type LinkedServiceSynapseKeyVaultPasswordPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceSynapseKeyVaultPasswordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceSynapseKeyVaultPassword)(nil)).Elem()
+}
+
+func (o LinkedServiceSynapseKeyVaultPasswordPtrOutput) ToLinkedServiceSynapseKeyVaultPasswordPtrOutput() LinkedServiceSynapseKeyVaultPasswordPtrOutput {
+	return o
+}
+
+func (o LinkedServiceSynapseKeyVaultPasswordPtrOutput) ToLinkedServiceSynapseKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceSynapseKeyVaultPasswordPtrOutput {
+	return o
+}
+
+func (o LinkedServiceSynapseKeyVaultPasswordPtrOutput) Elem() LinkedServiceSynapseKeyVaultPasswordOutput {
+	return o.ApplyT(func(v *LinkedServiceSynapseKeyVaultPassword) LinkedServiceSynapseKeyVaultPassword { return *v }).(LinkedServiceSynapseKeyVaultPasswordOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceSynapseKeyVaultPasswordPtrOutput) LinkedServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceSynapseKeyVaultPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LinkedServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the secret name in Azure Key Vault that stores Synapse password.
+func (o LinkedServiceSynapseKeyVaultPasswordPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceSynapseKeyVaultPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetFactoryGithubConfiguration struct {
 	// The VSTS account name.
 	AccountName string `pulumi:"accountName"`
@@ -3226,6 +3376,8 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeManagedVnetIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSelfHostedRbacAuthorizationOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput{})
+	pulumi.RegisterOutputType(LinkedServiceSynapseKeyVaultPasswordOutput{})
+	pulumi.RegisterOutputType(LinkedServiceSynapseKeyVaultPasswordPtrOutput{})
 	pulumi.RegisterOutputType(GetFactoryGithubConfigurationOutput{})
 	pulumi.RegisterOutputType(GetFactoryGithubConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetFactoryIdentityOutput{})

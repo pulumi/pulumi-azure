@@ -102,6 +102,12 @@ func NewSystemTopic(ctx *pulumi.Context,
 	if args.TopicType == nil {
 		return nil, errors.New("invalid value for required argument 'TopicType'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:eventgrid/getSystemTopic:getSystemTopic"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SystemTopic
 	err := ctx.RegisterResource("azure:eventgrid/systemTopic:SystemTopic", name, args, &resource, opts...)
 	if err != nil {

@@ -8657,9 +8657,142 @@ func (o KafkaClusterMonitorPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type KafkaClusterRestProxy struct {
+	// The Azure Active Directory Security Group ID.
+	SecurityGroupId string `pulumi:"securityGroupId"`
+}
+
+// KafkaClusterRestProxyInput is an input type that accepts KafkaClusterRestProxyArgs and KafkaClusterRestProxyOutput values.
+// You can construct a concrete instance of `KafkaClusterRestProxyInput` via:
+//
+//          KafkaClusterRestProxyArgs{...}
+type KafkaClusterRestProxyInput interface {
+	pulumi.Input
+
+	ToKafkaClusterRestProxyOutput() KafkaClusterRestProxyOutput
+	ToKafkaClusterRestProxyOutputWithContext(context.Context) KafkaClusterRestProxyOutput
+}
+
+type KafkaClusterRestProxyArgs struct {
+	// The Azure Active Directory Security Group ID.
+	SecurityGroupId pulumi.StringInput `pulumi:"securityGroupId"`
+}
+
+func (KafkaClusterRestProxyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterRestProxy)(nil)).Elem()
+}
+
+func (i KafkaClusterRestProxyArgs) ToKafkaClusterRestProxyOutput() KafkaClusterRestProxyOutput {
+	return i.ToKafkaClusterRestProxyOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterRestProxyArgs) ToKafkaClusterRestProxyOutputWithContext(ctx context.Context) KafkaClusterRestProxyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRestProxyOutput)
+}
+
+func (i KafkaClusterRestProxyArgs) ToKafkaClusterRestProxyPtrOutput() KafkaClusterRestProxyPtrOutput {
+	return i.ToKafkaClusterRestProxyPtrOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterRestProxyArgs) ToKafkaClusterRestProxyPtrOutputWithContext(ctx context.Context) KafkaClusterRestProxyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRestProxyOutput).ToKafkaClusterRestProxyPtrOutputWithContext(ctx)
+}
+
+// KafkaClusterRestProxyPtrInput is an input type that accepts KafkaClusterRestProxyArgs, KafkaClusterRestProxyPtr and KafkaClusterRestProxyPtrOutput values.
+// You can construct a concrete instance of `KafkaClusterRestProxyPtrInput` via:
+//
+//          KafkaClusterRestProxyArgs{...}
+//
+//  or:
+//
+//          nil
+type KafkaClusterRestProxyPtrInput interface {
+	pulumi.Input
+
+	ToKafkaClusterRestProxyPtrOutput() KafkaClusterRestProxyPtrOutput
+	ToKafkaClusterRestProxyPtrOutputWithContext(context.Context) KafkaClusterRestProxyPtrOutput
+}
+
+type kafkaClusterRestProxyPtrType KafkaClusterRestProxyArgs
+
+func KafkaClusterRestProxyPtr(v *KafkaClusterRestProxyArgs) KafkaClusterRestProxyPtrInput {
+	return (*kafkaClusterRestProxyPtrType)(v)
+}
+
+func (*kafkaClusterRestProxyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterRestProxy)(nil)).Elem()
+}
+
+func (i *kafkaClusterRestProxyPtrType) ToKafkaClusterRestProxyPtrOutput() KafkaClusterRestProxyPtrOutput {
+	return i.ToKafkaClusterRestProxyPtrOutputWithContext(context.Background())
+}
+
+func (i *kafkaClusterRestProxyPtrType) ToKafkaClusterRestProxyPtrOutputWithContext(ctx context.Context) KafkaClusterRestProxyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRestProxyPtrOutput)
+}
+
+type KafkaClusterRestProxyOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterRestProxyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterRestProxy)(nil)).Elem()
+}
+
+func (o KafkaClusterRestProxyOutput) ToKafkaClusterRestProxyOutput() KafkaClusterRestProxyOutput {
+	return o
+}
+
+func (o KafkaClusterRestProxyOutput) ToKafkaClusterRestProxyOutputWithContext(ctx context.Context) KafkaClusterRestProxyOutput {
+	return o
+}
+
+func (o KafkaClusterRestProxyOutput) ToKafkaClusterRestProxyPtrOutput() KafkaClusterRestProxyPtrOutput {
+	return o.ToKafkaClusterRestProxyPtrOutputWithContext(context.Background())
+}
+
+func (o KafkaClusterRestProxyOutput) ToKafkaClusterRestProxyPtrOutputWithContext(ctx context.Context) KafkaClusterRestProxyPtrOutput {
+	return o.ApplyT(func(v KafkaClusterRestProxy) *KafkaClusterRestProxy {
+		return &v
+	}).(KafkaClusterRestProxyPtrOutput)
+}
+
+// The Azure Active Directory Security Group ID.
+func (o KafkaClusterRestProxyOutput) SecurityGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterRestProxy) string { return v.SecurityGroupId }).(pulumi.StringOutput)
+}
+
+type KafkaClusterRestProxyPtrOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterRestProxyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterRestProxy)(nil)).Elem()
+}
+
+func (o KafkaClusterRestProxyPtrOutput) ToKafkaClusterRestProxyPtrOutput() KafkaClusterRestProxyPtrOutput {
+	return o
+}
+
+func (o KafkaClusterRestProxyPtrOutput) ToKafkaClusterRestProxyPtrOutputWithContext(ctx context.Context) KafkaClusterRestProxyPtrOutput {
+	return o
+}
+
+func (o KafkaClusterRestProxyPtrOutput) Elem() KafkaClusterRestProxyOutput {
+	return o.ApplyT(func(v *KafkaClusterRestProxy) KafkaClusterRestProxy { return *v }).(KafkaClusterRestProxyOutput)
+}
+
+// The Azure Active Directory Security Group ID.
+func (o KafkaClusterRestProxyPtrOutput) SecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterRestProxy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecurityGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
 type KafkaClusterRoles struct {
 	// A `headNode` block as defined above.
 	HeadNode KafkaClusterRolesHeadNode `pulumi:"headNode"`
+	// A `kafkaManagementNode` block as defined below.
+	KafkaManagementNode *KafkaClusterRolesKafkaManagementNode `pulumi:"kafkaManagementNode"`
 	// A `workerNode` block as defined below.
 	WorkerNode KafkaClusterRolesWorkerNode `pulumi:"workerNode"`
 	// A `zookeeperNode` block as defined below.
@@ -8680,6 +8813,8 @@ type KafkaClusterRolesInput interface {
 type KafkaClusterRolesArgs struct {
 	// A `headNode` block as defined above.
 	HeadNode KafkaClusterRolesHeadNodeInput `pulumi:"headNode"`
+	// A `kafkaManagementNode` block as defined below.
+	KafkaManagementNode KafkaClusterRolesKafkaManagementNodePtrInput `pulumi:"kafkaManagementNode"`
 	// A `workerNode` block as defined below.
 	WorkerNode KafkaClusterRolesWorkerNodeInput `pulumi:"workerNode"`
 	// A `zookeeperNode` block as defined below.
@@ -8768,6 +8903,11 @@ func (o KafkaClusterRolesOutput) HeadNode() KafkaClusterRolesHeadNodeOutput {
 	return o.ApplyT(func(v KafkaClusterRoles) KafkaClusterRolesHeadNode { return v.HeadNode }).(KafkaClusterRolesHeadNodeOutput)
 }
 
+// A `kafkaManagementNode` block as defined below.
+func (o KafkaClusterRolesOutput) KafkaManagementNode() KafkaClusterRolesKafkaManagementNodePtrOutput {
+	return o.ApplyT(func(v KafkaClusterRoles) *KafkaClusterRolesKafkaManagementNode { return v.KafkaManagementNode }).(KafkaClusterRolesKafkaManagementNodePtrOutput)
+}
+
 // A `workerNode` block as defined below.
 func (o KafkaClusterRolesOutput) WorkerNode() KafkaClusterRolesWorkerNodeOutput {
 	return o.ApplyT(func(v KafkaClusterRoles) KafkaClusterRolesWorkerNode { return v.WorkerNode }).(KafkaClusterRolesWorkerNodeOutput)
@@ -8804,6 +8944,16 @@ func (o KafkaClusterRolesPtrOutput) HeadNode() KafkaClusterRolesHeadNodePtrOutpu
 		}
 		return &v.HeadNode
 	}).(KafkaClusterRolesHeadNodePtrOutput)
+}
+
+// A `kafkaManagementNode` block as defined below.
+func (o KafkaClusterRolesPtrOutput) KafkaManagementNode() KafkaClusterRolesKafkaManagementNodePtrOutput {
+	return o.ApplyT(func(v *KafkaClusterRoles) *KafkaClusterRolesKafkaManagementNode {
+		if v == nil {
+			return nil
+		}
+		return v.KafkaManagementNode
+	}).(KafkaClusterRolesKafkaManagementNodePtrOutput)
 }
 
 // A `workerNode` block as defined below.
@@ -9045,6 +9195,232 @@ func (o KafkaClusterRolesHeadNodePtrOutput) VirtualNetworkId() pulumi.StringPtrO
 // The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
 func (o KafkaClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesHeadNode) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VmSize
+	}).(pulumi.StringPtrOutput)
+}
+
+type KafkaClusterRolesKafkaManagementNode struct {
+	// The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
+	Password *string `pulumi:"password"`
+	// A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
+	SshKeys []string `pulumi:"sshKeys"`
+	// The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+	SubnetId *string `pulumi:"subnetId"`
+	// The Username of the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
+	Username string `pulumi:"username"`
+	// The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	// The Size of the Virtual Machine which should be used as the Kafka Management Nodes. Changing this forces a new resource to be created.
+	VmSize string `pulumi:"vmSize"`
+}
+
+// KafkaClusterRolesKafkaManagementNodeInput is an input type that accepts KafkaClusterRolesKafkaManagementNodeArgs and KafkaClusterRolesKafkaManagementNodeOutput values.
+// You can construct a concrete instance of `KafkaClusterRolesKafkaManagementNodeInput` via:
+//
+//          KafkaClusterRolesKafkaManagementNodeArgs{...}
+type KafkaClusterRolesKafkaManagementNodeInput interface {
+	pulumi.Input
+
+	ToKafkaClusterRolesKafkaManagementNodeOutput() KafkaClusterRolesKafkaManagementNodeOutput
+	ToKafkaClusterRolesKafkaManagementNodeOutputWithContext(context.Context) KafkaClusterRolesKafkaManagementNodeOutput
+}
+
+type KafkaClusterRolesKafkaManagementNodeArgs struct {
+	// The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	// The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The Username of the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
+	Username pulumi.StringInput `pulumi:"username"`
+	// The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
+	// The Size of the Virtual Machine which should be used as the Kafka Management Nodes. Changing this forces a new resource to be created.
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (KafkaClusterRolesKafkaManagementNodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterRolesKafkaManagementNode)(nil)).Elem()
+}
+
+func (i KafkaClusterRolesKafkaManagementNodeArgs) ToKafkaClusterRolesKafkaManagementNodeOutput() KafkaClusterRolesKafkaManagementNodeOutput {
+	return i.ToKafkaClusterRolesKafkaManagementNodeOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterRolesKafkaManagementNodeArgs) ToKafkaClusterRolesKafkaManagementNodeOutputWithContext(ctx context.Context) KafkaClusterRolesKafkaManagementNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesKafkaManagementNodeOutput)
+}
+
+func (i KafkaClusterRolesKafkaManagementNodeArgs) ToKafkaClusterRolesKafkaManagementNodePtrOutput() KafkaClusterRolesKafkaManagementNodePtrOutput {
+	return i.ToKafkaClusterRolesKafkaManagementNodePtrOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterRolesKafkaManagementNodeArgs) ToKafkaClusterRolesKafkaManagementNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesKafkaManagementNodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesKafkaManagementNodeOutput).ToKafkaClusterRolesKafkaManagementNodePtrOutputWithContext(ctx)
+}
+
+// KafkaClusterRolesKafkaManagementNodePtrInput is an input type that accepts KafkaClusterRolesKafkaManagementNodeArgs, KafkaClusterRolesKafkaManagementNodePtr and KafkaClusterRolesKafkaManagementNodePtrOutput values.
+// You can construct a concrete instance of `KafkaClusterRolesKafkaManagementNodePtrInput` via:
+//
+//          KafkaClusterRolesKafkaManagementNodeArgs{...}
+//
+//  or:
+//
+//          nil
+type KafkaClusterRolesKafkaManagementNodePtrInput interface {
+	pulumi.Input
+
+	ToKafkaClusterRolesKafkaManagementNodePtrOutput() KafkaClusterRolesKafkaManagementNodePtrOutput
+	ToKafkaClusterRolesKafkaManagementNodePtrOutputWithContext(context.Context) KafkaClusterRolesKafkaManagementNodePtrOutput
+}
+
+type kafkaClusterRolesKafkaManagementNodePtrType KafkaClusterRolesKafkaManagementNodeArgs
+
+func KafkaClusterRolesKafkaManagementNodePtr(v *KafkaClusterRolesKafkaManagementNodeArgs) KafkaClusterRolesKafkaManagementNodePtrInput {
+	return (*kafkaClusterRolesKafkaManagementNodePtrType)(v)
+}
+
+func (*kafkaClusterRolesKafkaManagementNodePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterRolesKafkaManagementNode)(nil)).Elem()
+}
+
+func (i *kafkaClusterRolesKafkaManagementNodePtrType) ToKafkaClusterRolesKafkaManagementNodePtrOutput() KafkaClusterRolesKafkaManagementNodePtrOutput {
+	return i.ToKafkaClusterRolesKafkaManagementNodePtrOutputWithContext(context.Background())
+}
+
+func (i *kafkaClusterRolesKafkaManagementNodePtrType) ToKafkaClusterRolesKafkaManagementNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesKafkaManagementNodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesKafkaManagementNodePtrOutput)
+}
+
+type KafkaClusterRolesKafkaManagementNodeOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterRolesKafkaManagementNodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterRolesKafkaManagementNode)(nil)).Elem()
+}
+
+func (o KafkaClusterRolesKafkaManagementNodeOutput) ToKafkaClusterRolesKafkaManagementNodeOutput() KafkaClusterRolesKafkaManagementNodeOutput {
+	return o
+}
+
+func (o KafkaClusterRolesKafkaManagementNodeOutput) ToKafkaClusterRolesKafkaManagementNodeOutputWithContext(ctx context.Context) KafkaClusterRolesKafkaManagementNodeOutput {
+	return o
+}
+
+func (o KafkaClusterRolesKafkaManagementNodeOutput) ToKafkaClusterRolesKafkaManagementNodePtrOutput() KafkaClusterRolesKafkaManagementNodePtrOutput {
+	return o.ToKafkaClusterRolesKafkaManagementNodePtrOutputWithContext(context.Background())
+}
+
+func (o KafkaClusterRolesKafkaManagementNodeOutput) ToKafkaClusterRolesKafkaManagementNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesKafkaManagementNodePtrOutput {
+	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNode) *KafkaClusterRolesKafkaManagementNode {
+		return &v
+	}).(KafkaClusterRolesKafkaManagementNodePtrOutput)
+}
+
+// The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
+func (o KafkaClusterRolesKafkaManagementNodeOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
+func (o KafkaClusterRolesKafkaManagementNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+func (o KafkaClusterRolesKafkaManagementNodeOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// The Username of the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
+func (o KafkaClusterRolesKafkaManagementNodeOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNode) string { return v.Username }).(pulumi.StringOutput)
+}
+
+// The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+func (o KafkaClusterRolesKafkaManagementNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+}
+
+// The Size of the Virtual Machine which should be used as the Kafka Management Nodes. Changing this forces a new resource to be created.
+func (o KafkaClusterRolesKafkaManagementNodeOutput) VmSize() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNode) string { return v.VmSize }).(pulumi.StringOutput)
+}
+
+type KafkaClusterRolesKafkaManagementNodePtrOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterRolesKafkaManagementNodePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterRolesKafkaManagementNode)(nil)).Elem()
+}
+
+func (o KafkaClusterRolesKafkaManagementNodePtrOutput) ToKafkaClusterRolesKafkaManagementNodePtrOutput() KafkaClusterRolesKafkaManagementNodePtrOutput {
+	return o
+}
+
+func (o KafkaClusterRolesKafkaManagementNodePtrOutput) ToKafkaClusterRolesKafkaManagementNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesKafkaManagementNodePtrOutput {
+	return o
+}
+
+func (o KafkaClusterRolesKafkaManagementNodePtrOutput) Elem() KafkaClusterRolesKafkaManagementNodeOutput {
+	return o.ApplyT(func(v *KafkaClusterRolesKafkaManagementNode) KafkaClusterRolesKafkaManagementNode { return *v }).(KafkaClusterRolesKafkaManagementNodeOutput)
+}
+
+// The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
+func (o KafkaClusterRolesKafkaManagementNodePtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterRolesKafkaManagementNode) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
+func (o KafkaClusterRolesKafkaManagementNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KafkaClusterRolesKafkaManagementNode) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SshKeys
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+func (o KafkaClusterRolesKafkaManagementNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterRolesKafkaManagementNode) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Username of the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
+func (o KafkaClusterRolesKafkaManagementNodePtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterRolesKafkaManagementNode) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+func (o KafkaClusterRolesKafkaManagementNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterRolesKafkaManagementNode) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VirtualNetworkId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Size of the Virtual Machine which should be used as the Kafka Management Nodes. Changing this forces a new resource to be created.
+func (o KafkaClusterRolesKafkaManagementNodePtrOutput) VmSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterRolesKafkaManagementNode) *string {
 		if v == nil {
 			return nil
 		}
@@ -17530,10 +17906,14 @@ func init() {
 	pulumi.RegisterOutputType(KafkaClusterMetastoresOoziePtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterMonitorOutput{})
 	pulumi.RegisterOutputType(KafkaClusterMonitorPtrOutput{})
+	pulumi.RegisterOutputType(KafkaClusterRestProxyOutput{})
+	pulumi.RegisterOutputType(KafkaClusterRestProxyPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesHeadNodeOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesHeadNodePtrOutput{})
+	pulumi.RegisterOutputType(KafkaClusterRolesKafkaManagementNodeOutput{})
+	pulumi.RegisterOutputType(KafkaClusterRolesKafkaManagementNodePtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesWorkerNodeOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesWorkerNodePtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesZookeeperNodeOutput{})

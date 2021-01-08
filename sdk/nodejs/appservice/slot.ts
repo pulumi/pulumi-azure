@@ -192,6 +192,9 @@ export class Slot extends pulumi.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * A `logs` block as defined below.
+     */
     public readonly logs!: pulumi.Output<outputs.appservice.SlotLogs>;
     /**
      * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
@@ -331,6 +334,9 @@ export interface SlotState {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * A `logs` block as defined below.
+     */
     readonly logs?: pulumi.Input<inputs.appservice.SlotLogs>;
     /**
      * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
@@ -398,6 +404,9 @@ export interface SlotArgs {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * A `logs` block as defined below.
+     */
     readonly logs?: pulumi.Input<inputs.appservice.SlotLogs>;
     /**
      * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.

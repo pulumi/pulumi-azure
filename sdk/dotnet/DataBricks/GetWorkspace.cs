@@ -60,6 +60,18 @@ namespace Pulumi.Azure.DataBricks
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the Databricks Workspace.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetWorkspaceArgs()
         {
         }
@@ -80,6 +92,10 @@ namespace Pulumi.Azure.DataBricks
         /// </summary>
         public readonly string Sku;
         /// <summary>
+        /// A mapping of tags to assign to the Databricks Workspace.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
         /// Unique ID of this Databricks Workspace in Databricks management plane.
         /// </summary>
         public readonly string WorkspaceId;
@@ -98,6 +114,8 @@ namespace Pulumi.Azure.DataBricks
 
             string sku,
 
+            ImmutableDictionary<string, string>? tags,
+
             string workspaceId,
 
             string workspaceUrl)
@@ -106,6 +124,7 @@ namespace Pulumi.Azure.DataBricks
             Name = name;
             ResourceGroupName = resourceGroupName;
             Sku = sku;
+            Tags = tags;
             WorkspaceId = workspaceId;
             WorkspaceUrl = workspaceUrl;
         }

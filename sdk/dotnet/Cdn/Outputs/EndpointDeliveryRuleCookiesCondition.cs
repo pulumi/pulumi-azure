@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class EndpointDeliveryRuleCookiesCondition
     {
         /// <summary>
-        /// List of values for the cookie.
+        /// List of values for the cookie. This is required if `operator` is not `Any`.
         /// </summary>
         public readonly ImmutableArray<string> MatchValues;
         /// <summary>

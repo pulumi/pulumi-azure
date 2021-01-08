@@ -25,6 +25,7 @@ class KafkaCluster(pulumi.CustomResource):
                  monitor: Optional[pulumi.Input[pulumi.InputType['KafkaClusterMonitorArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rest_proxy: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRestProxyArgs']]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRolesArgs']]] = None,
                  storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountGen2Args']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountArgs']]]]] = None,
@@ -109,6 +110,7 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KafkaClusterMonitorArgs']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KafkaClusterRestProxyArgs']] rest_proxy: A `rest_proxy` block as defined below.
         :param pulumi.Input[pulumi.InputType['KafkaClusterRolesArgs']] roles: A `roles` block as defined below.
         :param pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
@@ -148,6 +150,7 @@ class KafkaCluster(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['rest_proxy'] = rest_proxy
             if roles is None and not opts.urn:
                 raise TypeError("Missing required property 'roles'")
             __props__['roles'] = roles
@@ -159,6 +162,7 @@ class KafkaCluster(pulumi.CustomResource):
             __props__['tier'] = tier
             __props__['tls_min_version'] = tls_min_version
             __props__['https_endpoint'] = None
+            __props__['kafka_rest_proxy_endpoint'] = None
             __props__['ssh_endpoint'] = None
         super(KafkaCluster, __self__).__init__(
             'azure:hdinsight/kafkaCluster:KafkaCluster',
@@ -174,11 +178,13 @@ class KafkaCluster(pulumi.CustomResource):
             component_version: Optional[pulumi.Input[pulumi.InputType['KafkaClusterComponentVersionArgs']]] = None,
             gateway: Optional[pulumi.Input[pulumi.InputType['KafkaClusterGatewayArgs']]] = None,
             https_endpoint: Optional[pulumi.Input[str]] = None,
+            kafka_rest_proxy_endpoint: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             metastores: Optional[pulumi.Input[pulumi.InputType['KafkaClusterMetastoresArgs']]] = None,
             monitor: Optional[pulumi.Input[pulumi.InputType['KafkaClusterMonitorArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            rest_proxy: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRestProxyArgs']]] = None,
             roles: Optional[pulumi.Input[pulumi.InputType['KafkaClusterRolesArgs']]] = None,
             ssh_endpoint: Optional[pulumi.Input[str]] = None,
             storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountGen2Args']]] = None,
@@ -197,11 +203,13 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KafkaClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
         :param pulumi.Input[pulumi.InputType['KafkaClusterGatewayArgs']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight Kafka Cluster.
+        :param pulumi.Input[str] kafka_rest_proxy_endpoint: The Kafka Rest Proxy Endpoint for this HDInsight Kafka Cluster.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KafkaClusterMetastoresArgs']] metastores: A `metastores` block as defined below.
         :param pulumi.Input[pulumi.InputType['KafkaClusterMonitorArgs']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KafkaClusterRestProxyArgs']] rest_proxy: A `rest_proxy` block as defined below.
         :param pulumi.Input[pulumi.InputType['KafkaClusterRolesArgs']] roles: A `roles` block as defined below.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Kafka Cluster.
         :param pulumi.Input[pulumi.InputType['KafkaClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
@@ -217,11 +225,13 @@ class KafkaCluster(pulumi.CustomResource):
         __props__["component_version"] = component_version
         __props__["gateway"] = gateway
         __props__["https_endpoint"] = https_endpoint
+        __props__["kafka_rest_proxy_endpoint"] = kafka_rest_proxy_endpoint
         __props__["location"] = location
         __props__["metastores"] = metastores
         __props__["monitor"] = monitor
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
+        __props__["rest_proxy"] = rest_proxy
         __props__["roles"] = roles
         __props__["ssh_endpoint"] = ssh_endpoint
         __props__["storage_account_gen2"] = storage_account_gen2
@@ -264,6 +274,14 @@ class KafkaCluster(pulumi.CustomResource):
         return pulumi.get(self, "https_endpoint")
 
     @property
+    @pulumi.getter(name="kafkaRestProxyEndpoint")
+    def kafka_rest_proxy_endpoint(self) -> pulumi.Output[str]:
+        """
+        The Kafka Rest Proxy Endpoint for this HDInsight Kafka Cluster.
+        """
+        return pulumi.get(self, "kafka_rest_proxy_endpoint")
+
+    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
@@ -302,6 +320,14 @@ class KafkaCluster(pulumi.CustomResource):
         Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="restProxy")
+    def rest_proxy(self) -> pulumi.Output[Optional['outputs.KafkaClusterRestProxy']]:
+        """
+        A `rest_proxy` block as defined below.
+        """
+        return pulumi.get(self, "rest_proxy")
 
     @property
     @pulumi.getter

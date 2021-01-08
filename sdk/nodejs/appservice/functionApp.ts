@@ -84,7 +84,7 @@ import * as utilities from "../utilities";
  * const examplePlan = new azure.appservice.Plan("examplePlan", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     kind: "FunctionApp",
+ *     kind: "Linux",
  *     reserved: true,
  *     sku: {
  *         tier: "Dynamic",

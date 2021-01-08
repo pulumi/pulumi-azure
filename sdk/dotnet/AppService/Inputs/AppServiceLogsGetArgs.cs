@@ -19,6 +19,18 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<Inputs.AppServiceLogsApplicationLogsGetArgs>? ApplicationLogs { get; set; }
 
         /// <summary>
+        /// Should `Detailed error messages` be enabled on this App Service? Defaults to `false`.
+        /// </summary>
+        [Input("detailedErrorMessagesEnabled")]
+        public Input<bool>? DetailedErrorMessagesEnabled { get; set; }
+
+        /// <summary>
+        /// Should `Failed request tracing` be enabled on this App Service? Defaults to `false`.
+        /// </summary>
+        [Input("failedRequestTracingEnabled")]
+        public Input<bool>? FailedRequestTracingEnabled { get; set; }
+
+        /// <summary>
         /// An `http_logs` block as defined below.
         /// </summary>
         [Input("httpLogs")]

@@ -89,6 +89,12 @@ namespace Pulumi.Azure.DataFactory
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the file share.
+        /// </summary>
+        [Output("fileShare")]
+        public Output<string?> FileShare { get; private set; } = null!;
+
         [Output("host")]
         public Output<string?> Host { get; private set; } = null!;
 
@@ -210,6 +216,12 @@ namespace Pulumi.Azure.DataFactory
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the file share.
+        /// </summary>
+        [Input("fileShare")]
+        public Input<string>? FileShare { get; set; }
+
         [Input("host")]
         public Input<string>? Host { get; set; }
 
@@ -297,6 +309,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The name of the file share.
+        /// </summary>
+        [Input("fileShare")]
+        public Input<string>? FileShare { get; set; }
 
         [Input("host")]
         public Input<string>? Host { get; set; }

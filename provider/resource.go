@@ -677,6 +677,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_orchestrated_virtual_machine_scale_set": {
 				Tok: azureResource(azureCompute, "OrchestratedVirtualMachineScaleSet"),
 			},
+			"azurerm_disk_access":    {Tok: azureResource(azureCompute, "DiskAccess")},
+			"azurerm_ssh_public_key": {Tok: azureResource(azureCompute, "SshPublicKey")},
 
 			// DataBricks
 			"azurerm_databricks_workspace": {Tok: azureResource(azureDataBricks, "Workspace")},
@@ -733,8 +735,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_linked_service_cosmosdb": {
 				Tok: azureResource(azureDataFactory, "LinkedServiceCosmosDb"),
 			},
-			"azurerm_data_factory_linked_service_sftp": {Tok: azureResource(azureDataFactory, "LinkedServiceSftp")},
-			"azurerm_data_factory_linked_service_web":  {Tok: azureResource(azureDataFactory, "LinkedServiceWeb")},
+			"azurerm_data_factory_linked_service_sftp":    {Tok: azureResource(azureDataFactory, "LinkedServiceSftp")},
+			"azurerm_data_factory_linked_service_web":     {Tok: azureResource(azureDataFactory, "LinkedServiceWeb")},
+			"azurerm_data_factory_linked_service_synapse": {Tok: azureResource(azureDataFactory, "LinkedServiceSynapse")},
 			"azurerm_data_factory_linked_service_azure_function": {
 				Tok: azureResource(azureDataFactory, "LinkedServiceAzureFunction"),
 			},
@@ -819,7 +822,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_eventhub_cluster": {Tok: azureResource(azureEventHub, "Cluster")},
 
 			// Eventgrid
-			"azurerm_eventgrid_system_topic":                    {Tok: azureResource(azureEventGrid, "SystemTopic")},
 			"azurerm_eventgrid_system_topic_event_subscription": {Tok: azureResource(azureEventGrid, "SystemTopicEventSubscription")},
 
 			// IoT Resources
@@ -1000,6 +1002,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_media_transform":          {Tok: azureResource(azureMedia, "Transform")},
 			"azurerm_media_job":                {Tok: azureResource(azureMedia, "Job")},
 			"azurerm_media_streaming_endpoint": {Tok: azureResource(azureMedia, "StreamingEndpoint")},
+			"azurerm_media_streaming_locator":  {Tok: azureResource(azureMedia, "StreamingLocator")},
 
 			// Monitoring resources
 			"azurerm_monitor_action_group": {
@@ -1605,6 +1608,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_sentinel_alert_rule_scheduled": {
 				Tok: azureResource(azureSentinel, "AlertRuleScheduled"),
 			},
+			"azurerm_sentinel_alert_rule_fusion": {Tok: azureResource(azureSentinel, "AlertRuleFusion")},
 
 			// Eventgrid
 			"azurerm_eventgrid_domain_topic": {Tok: azureResource(azureEventGrid, "DomainTopic")},
@@ -1865,10 +1869,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_iothub_shared_access_policy": {Tok: azureDataSource(azureIot, "getSharedAccessPolicy")},
 			"azurerm_iothub_dps":                  {Tok: azureDataSource(azureIot, "getDps")},
 			"azurerm_eventgrid_topic":             {Tok: azureDataSource(azureEventGrid, "getTopic")},
+			"azurerm_eventgrid_domain_topic":      {Tok: azureDataSource(azureEventGrid, "getDomainTopic")},
 			"azurerm_disk_encryption_set":         {Tok: azureDataSource(azureCompute, "getDiskEncryptionSet")},
 			"azurerm_dedicated_host_group":        {Tok: azureDataSource(azureCompute, "getDedicatedHostGroup")},
 			"azurerm_dedicated_host":              {Tok: azureDataSource(azureCompute, "getDedicatedHost")},
 			"azurerm_virtual_machine_scale_set":   {Tok: azureDataSource(azureCompute, "getVirtualMachineScaleSet")},
+			"azurerm_ssh_public_key":              {Tok: azureDataSource(azureCompute, "getSshPublicKey")},
+			"azurerm_disk_access":                 {Tok: azureDataSource(azureCompute, "getDiskAccess")},
 			"azurerm_mariadb_server":              {Tok: azureDataSource(azureMariaDB, "getMariaDbServer")},
 			"azurerm_eventhub_namespace_authorization_rule": {
 				Tok: azureDataSource(azureEventHub, "getNamespaceAuthorizationRule"),
@@ -2167,6 +2174,11 @@ func Provider() tfbridge.ProviderInfo {
 	prov.RenameResourceWithAlias("azurerm_media_services_account",
 		azureResource(azureMediaServices, "Account"),
 		azureResource(azureMedia, "ServiceAccount"), azureMediaServices, azureMedia, nil)
+
+	// fixing an eventgrid resource that was labelled as a datasource
+	prov.RenameResourceWithAlias("azurerm_eventgrid_system_topic",
+		azureResource(azureEventGrid, "getSystemTopic"),
+		azureResource(azureEventGrid, "SystemTopic"), azureEventGrid, azureEventGrid, nil)
 
 	// Deprecated, remove in 3.0.
 	prov.P.ResourcesMap().Set("azurerm_storage_zipblob", prov.P.ResourcesMap().Get("azurerm_storage_blob"))

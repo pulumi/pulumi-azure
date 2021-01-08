@@ -69,19 +69,19 @@ namespace Pulumi.Azure.Compute
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of fault domains that are used. Defaults to `3`.
+        /// Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("platformFaultDomainCount")]
         public Output<int?> PlatformFaultDomainCount { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of update domains that are used. Defaults to `5`.
+        /// Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("platformUpdateDomainCount")]
         public Output<int?> PlatformUpdateDomainCount { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+        /// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
         /// </summary>
         [Output("proximityPlacementGroupId")]
         public Output<string?> ProximityPlacementGroupId { get; private set; } = null!;
@@ -163,19 +163,19 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the number of fault domains that are used. Defaults to `3`.
+        /// Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("platformFaultDomainCount")]
         public Input<int>? PlatformFaultDomainCount { get; set; }
 
         /// <summary>
-        /// Specifies the number of update domains that are used. Defaults to `5`.
+        /// Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("platformUpdateDomainCount")]
         public Input<int>? PlatformUpdateDomainCount { get; set; }
 
         /// <summary>
-        /// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+        /// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
         /// </summary>
         [Input("proximityPlacementGroupId")]
         public Input<string>? ProximityPlacementGroupId { get; set; }
@@ -224,19 +224,19 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the number of fault domains that are used. Defaults to `3`.
+        /// Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("platformFaultDomainCount")]
         public Input<int>? PlatformFaultDomainCount { get; set; }
 
         /// <summary>
-        /// Specifies the number of update domains that are used. Defaults to `5`.
+        /// Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("platformUpdateDomainCount")]
         public Input<int>? PlatformUpdateDomainCount { get; set; }
 
         /// <summary>
-        /// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+        /// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
         /// </summary>
         [Input("proximityPlacementGroupId")]
         public Input<string>? ProximityPlacementGroupId { get; set; }

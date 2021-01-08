@@ -677,6 +677,7 @@ class GroupContainerVolumeArgs:
     def __init__(__self__, *,
                  mount_path: pulumi.Input[str],
                  name: pulumi.Input[str],
+                 empty_dir: Optional[pulumi.Input[bool]] = None,
                  git_repo: Optional[pulumi.Input['GroupContainerVolumeGitRepoArgs']] = None,
                  read_only: Optional[pulumi.Input[bool]] = None,
                  secret: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -686,6 +687,7 @@ class GroupContainerVolumeArgs:
         """
         :param pulumi.Input[str] mount_path: The path on which this volume is to be mounted. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] empty_dir: Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input['GroupContainerVolumeGitRepoArgs'] git_repo: A `git_repo` block as defined below.
         :param pulumi.Input[bool] read_only: Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secret: A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
@@ -695,6 +697,8 @@ class GroupContainerVolumeArgs:
         """
         pulumi.set(__self__, "mount_path", mount_path)
         pulumi.set(__self__, "name", name)
+        if empty_dir is not None:
+            pulumi.set(__self__, "empty_dir", empty_dir)
         if git_repo is not None:
             pulumi.set(__self__, "git_repo", git_repo)
         if read_only is not None:
@@ -731,6 +735,18 @@ class GroupContainerVolumeArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="emptyDir")
+    def empty_dir(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "empty_dir")
+
+    @empty_dir.setter
+    def empty_dir(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "empty_dir", value)
 
     @property
     @pulumi.getter(name="gitRepo")
@@ -2234,6 +2250,7 @@ class KubernetesClusterNetworkProfileArgs:
                  docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
                  load_balancer_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs']] = None,
                  load_balancer_sku: Optional[pulumi.Input[str]] = None,
+                 network_mode: Optional[pulumi.Input[str]] = None,
                  network_policy: Optional[pulumi.Input[str]] = None,
                  outbound_type: Optional[pulumi.Input[str]] = None,
                  pod_cidr: Optional[pulumi.Input[str]] = None,
@@ -2244,6 +2261,7 @@ class KubernetesClusterNetworkProfileArgs:
         :param pulumi.Input[str] docker_bridge_cidr: IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs'] load_balancer_profile: A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
         :param pulumi.Input[str] load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
+        :param pulumi.Input[str] network_mode: Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
         :param pulumi.Input[str] pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
@@ -2258,6 +2276,8 @@ class KubernetesClusterNetworkProfileArgs:
             pulumi.set(__self__, "load_balancer_profile", load_balancer_profile)
         if load_balancer_sku is not None:
             pulumi.set(__self__, "load_balancer_sku", load_balancer_sku)
+        if network_mode is not None:
+            pulumi.set(__self__, "network_mode", network_mode)
         if network_policy is not None:
             pulumi.set(__self__, "network_policy", network_policy)
         if outbound_type is not None:
@@ -2326,6 +2346,18 @@ class KubernetesClusterNetworkProfileArgs:
     @load_balancer_sku.setter
     def load_balancer_sku(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "load_balancer_sku", value)
+
+    @property
+    @pulumi.getter(name="networkMode")
+    def network_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "network_mode")
+
+    @network_mode.setter
+    def network_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_mode", value)
 
     @property
     @pulumi.getter(name="networkPolicy")
