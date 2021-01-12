@@ -301,15 +301,19 @@ class PoolNetworkConfiguration(dict):
     def __init__(__self__, *,
                  subnet_id: str,
                  endpoint_configurations: Optional[Sequence['outputs.PoolNetworkConfigurationEndpointConfiguration']] = None,
+                 public_address_provisioning_type: Optional[str] = None,
                  public_ips: Optional[Sequence[str]] = None):
         """
         :param str subnet_id: The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
         :param Sequence['PoolNetworkConfigurationEndpointConfigurationArgs'] endpoint_configurations: A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+        :param str public_address_provisioning_type: Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
         :param Sequence[str] public_ips: A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if endpoint_configurations is not None:
             pulumi.set(__self__, "endpoint_configurations", endpoint_configurations)
+        if public_address_provisioning_type is not None:
+            pulumi.set(__self__, "public_address_provisioning_type", public_address_provisioning_type)
         if public_ips is not None:
             pulumi.set(__self__, "public_ips", public_ips)
 
@@ -328,6 +332,14 @@ class PoolNetworkConfiguration(dict):
         A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "endpoint_configurations")
+
+    @property
+    @pulumi.getter(name="publicAddressProvisioningType")
+    def public_address_provisioning_type(self) -> Optional[str]:
+        """
+        Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
+        """
+        return pulumi.get(self, "public_address_provisioning_type")
 
     @property
     @pulumi.getter(name="publicIps")

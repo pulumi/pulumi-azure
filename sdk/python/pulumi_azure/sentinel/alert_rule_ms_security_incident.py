@@ -15,8 +15,10 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 display_name_exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  display_name_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
@@ -58,8 +60,10 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         :param pulumi.Input[str] description: The description of this Sentinel MS Security Incident Alert Rule.
         :param pulumi.Input[str] display_name: The friendly name of this Sentinel MS Security Incident Alert Rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] display_name_exclude_filters: Only create incidents when the alert display name doesn't contain text from this list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] display_name_filters: Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
         :param pulumi.Input[bool] enabled: Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel MS Security Incident Alert Rule belongs to. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
@@ -84,10 +88,12 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['alert_rule_template_guid'] = alert_rule_template_guid
             __props__['description'] = description
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
+            __props__['display_name_exclude_filters'] = display_name_exclude_filters
             __props__['display_name_filters'] = display_name_filters
             __props__['enabled'] = enabled
             if log_analytics_workspace_id is None and not opts.urn:
@@ -114,8 +120,10 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
+            display_name_exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             display_name_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
@@ -130,8 +138,10 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         :param pulumi.Input[str] description: The description of this Sentinel MS Security Incident Alert Rule.
         :param pulumi.Input[str] display_name: The friendly name of this Sentinel MS Security Incident Alert Rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] display_name_exclude_filters: Only create incidents when the alert display name doesn't contain text from this list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] display_name_filters: Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
         :param pulumi.Input[bool] enabled: Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel MS Security Incident Alert Rule belongs to. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
@@ -143,8 +153,10 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["alert_rule_template_guid"] = alert_rule_template_guid
         __props__["description"] = description
         __props__["display_name"] = display_name
+        __props__["display_name_exclude_filters"] = display_name_exclude_filters
         __props__["display_name_filters"] = display_name_filters
         __props__["enabled"] = enabled
         __props__["log_analytics_workspace_id"] = log_analytics_workspace_id
@@ -153,6 +165,14 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
         __props__["severity_filters"] = severity_filters
         __props__["text_whitelists"] = text_whitelists
         return AlertRuleMsSecurityIncident(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="alertRuleTemplateGuid")
+    def alert_rule_template_guid(self) -> pulumi.Output[Optional[str]]:
+        """
+        The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
+        """
+        return pulumi.get(self, "alert_rule_template_guid")
 
     @property
     @pulumi.getter
@@ -169,6 +189,14 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
         The friendly name of this Sentinel MS Security Incident Alert Rule.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="displayNameExcludeFilters")
+    def display_name_exclude_filters(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Only create incidents when the alert display name doesn't contain text from this list.
+        """
+        return pulumi.get(self, "display_name_exclude_filters")
 
     @property
     @pulumi.getter(name="displayNameFilters")

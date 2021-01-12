@@ -37,6 +37,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? LoadBalancerSku { get; set; }
 
         /// <summary>
+        /// Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("networkMode")]
+        public Input<string>? NetworkMode { get; set; }
+
+        /// <summary>
         /// Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkPlugin", required: true)]

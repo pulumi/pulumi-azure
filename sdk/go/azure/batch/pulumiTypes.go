@@ -892,6 +892,8 @@ func (o PoolFixedScalePtrOutput) TargetLowPriorityNodes() pulumi.IntPtrOutput {
 type PoolNetworkConfiguration struct {
 	// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
 	EndpointConfigurations []PoolNetworkConfigurationEndpointConfiguration `pulumi:"endpointConfigurations"`
+	// Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
+	PublicAddressProvisioningType *string `pulumi:"publicAddressProvisioningType"`
 	// A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
 	PublicIps []string `pulumi:"publicIps"`
 	// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
@@ -912,6 +914,8 @@ type PoolNetworkConfigurationInput interface {
 type PoolNetworkConfigurationArgs struct {
 	// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
 	EndpointConfigurations PoolNetworkConfigurationEndpointConfigurationArrayInput `pulumi:"endpointConfigurations"`
+	// Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
+	PublicAddressProvisioningType pulumi.StringPtrInput `pulumi:"publicAddressProvisioningType"`
 	// A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
 	PublicIps pulumi.StringArrayInput `pulumi:"publicIps"`
 	// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
@@ -1002,6 +1006,11 @@ func (o PoolNetworkConfigurationOutput) EndpointConfigurations() PoolNetworkConf
 	}).(PoolNetworkConfigurationEndpointConfigurationArrayOutput)
 }
 
+// Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
+func (o PoolNetworkConfigurationOutput) PublicAddressProvisioningType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolNetworkConfiguration) *string { return v.PublicAddressProvisioningType }).(pulumi.StringPtrOutput)
+}
+
 // A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationOutput) PublicIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PoolNetworkConfiguration) []string { return v.PublicIps }).(pulumi.StringArrayOutput)
@@ -1038,6 +1047,16 @@ func (o PoolNetworkConfigurationPtrOutput) EndpointConfigurations() PoolNetworkC
 		}
 		return v.EndpointConfigurations
 	}).(PoolNetworkConfigurationEndpointConfigurationArrayOutput)
+}
+
+// Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
+func (o PoolNetworkConfigurationPtrOutput) PublicAddressProvisioningType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolNetworkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicAddressProvisioningType
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.

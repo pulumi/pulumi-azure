@@ -94,6 +94,9 @@ namespace Pulumi.Azure.Storage
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("path")]
         public Output<string?> Path { get; private set; } = null!;
 
@@ -197,6 +200,9 @@ namespace Pulumi.Azure.Storage
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
@@ -261,6 +267,9 @@ namespace Pulumi.Azure.Storage
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 

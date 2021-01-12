@@ -37,55 +37,6 @@ class KeyVault(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Manages a Key Vault.
-
-        ## Disclaimers
-
-        > **Note:** It's possible to define Key Vault Access Policies both within the `keyvault.KeyVault` resource via the `access_policy` block and by using the `keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
-
-        > **Note:** This provi will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` configuration within the Provider configuration block.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            enabled_for_disk_encryption=True,
-            tenant_id=current.tenant_id,
-            soft_delete_enabled=True,
-            soft_delete_retention_days=7,
-            purge_protection_enabled=False,
-            sku_name="standard",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                key_permissions=[
-                    "get",
-                    "ManageContacts",
-                ],
-                secret_permissions=["get"],
-                storage_permissions=["get"],
-            )],
-            network_acls=azure.keyvault.KeyVaultNetworkAclsArgs(
-                default_action="Deny",
-                bypass="AzureServices",
-            ),
-            contacts=[azure.keyvault.KeyVaultContactArgs(
-                email="example@example.com",
-                name="example",
-                phone="0123456789",
-            )],
-            tags={
-                "environment": "Testing",
-            })
-        ```
-
         ## Import
 
         Key Vault's can be imported using the `resource id`, e.g.
@@ -108,8 +59,7 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
-        :param pulumi.Input[bool] soft_delete_enabled: Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
-        :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted.
+        :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         """
@@ -146,6 +96,9 @@ class KeyVault(pulumi.CustomResource):
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
+            if soft_delete_enabled is not None and not opts.urn:
+                warnings.warn("""Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.""", DeprecationWarning)
+                pulumi.log.warn("soft_delete_enabled is deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.")
             __props__['soft_delete_enabled'] = soft_delete_enabled
             __props__['soft_delete_retention_days'] = soft_delete_retention_days
             __props__['tags'] = tags
@@ -199,8 +152,7 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
-        :param pulumi.Input[bool] soft_delete_enabled: Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
-        :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted.
+        :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param pulumi.Input[str] vault_uri: The URI of the Key Vault, used for performing operations on keys and secrets.
@@ -326,17 +278,14 @@ class KeyVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="softDeleteEnabled")
-    def soft_delete_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
-        """
+    def soft_delete_enabled(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "soft_delete_enabled")
 
     @property
     @pulumi.getter(name="softDeleteRetentionDays")
     def soft_delete_retention_days(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of days that items should be retained for once soft-deleted.
+        The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
         """
         return pulumi.get(self, "soft_delete_retention_days")
 

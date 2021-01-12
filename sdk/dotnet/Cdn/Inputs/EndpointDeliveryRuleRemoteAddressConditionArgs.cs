@@ -12,11 +12,11 @@ namespace Pulumi.Azure.Cdn.Inputs
 
     public sealed class EndpointDeliveryRuleRemoteAddressConditionArgs : Pulumi.ResourceArgs
     {
-        [Input("matchValues", required: true)]
+        [Input("matchValues")]
         private InputList<string>? _matchValues;
 
         /// <summary>
-        /// List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`.
+        /// List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`. This is required if `operator` is not `Any`.
         /// </summary>
         public InputList<string> MatchValues
         {

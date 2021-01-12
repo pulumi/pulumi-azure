@@ -90,6 +90,9 @@ export class ShareFile extends pulumi.CustomResource {
      * The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+     */
     public readonly path!: pulumi.Output<string | undefined>;
     /**
      * An absolute path to a file on the local system.
@@ -175,6 +178,9 @@ export interface ShareFileState {
      * The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+     */
     readonly path?: pulumi.Input<string>;
     /**
      * An absolute path to a file on the local system.
@@ -214,6 +220,9 @@ export interface ShareFileArgs {
      * The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+     */
     readonly path?: pulumi.Input<string>;
     /**
      * An absolute path to a file on the local system.

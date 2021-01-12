@@ -10,11 +10,13 @@ export * from "./bastionHost";
 export * from "./dataDiskAttachment";
 export * from "./dedicatedHost";
 export * from "./dedicatedHostGroup";
+export * from "./diskAccess";
 export * from "./diskEncryptionSet";
 export * from "./extension";
 export * from "./getAvailabilitySet";
 export * from "./getDedicatedHost";
 export * from "./getDedicatedHostGroup";
+export * from "./getDiskAccess";
 export * from "./getDiskEncryptionSet";
 export * from "./getImage";
 export * from "./getImages";
@@ -25,6 +27,7 @@ export * from "./getSharedImageGallery";
 export * from "./getSharedImageVersion";
 export * from "./getSharedImageVersions";
 export * from "./getSnapshot";
+export * from "./getSshPublicKey";
 export * from "./getVirtualMachine";
 export * from "./getVirtualMachineScaleSet";
 export * from "./image";
@@ -37,6 +40,7 @@ export * from "./sharedImage";
 export * from "./sharedImageGallery";
 export * from "./sharedImageVersion";
 export * from "./snapshot";
+export * from "./sshPublicKey";
 export * from "./virtualMachine";
 export * from "./virtualMachineScaleSetExtension";
 export * from "./windowsVirtualMachine";
@@ -48,6 +52,7 @@ import { BastionHost } from "./bastionHost";
 import { DataDiskAttachment } from "./dataDiskAttachment";
 import { DedicatedHost } from "./dedicatedHost";
 import { DedicatedHostGroup } from "./dedicatedHostGroup";
+import { DiskAccess } from "./diskAccess";
 import { DiskEncryptionSet } from "./diskEncryptionSet";
 import { Extension } from "./extension";
 import { Image } from "./image";
@@ -60,6 +65,7 @@ import { SharedImage } from "./sharedImage";
 import { SharedImageGallery } from "./sharedImageGallery";
 import { SharedImageVersion } from "./sharedImageVersion";
 import { Snapshot } from "./snapshot";
+import { SshPublicKey } from "./sshPublicKey";
 import { VirtualMachine } from "./virtualMachine";
 import { VirtualMachineScaleSetExtension } from "./virtualMachineScaleSetExtension";
 import { WindowsVirtualMachine } from "./windowsVirtualMachine";
@@ -79,6 +85,8 @@ const _module = {
                 return new DedicatedHost(name, <any>undefined, { urn })
             case "azure:compute/dedicatedHostGroup:DedicatedHostGroup":
                 return new DedicatedHostGroup(name, <any>undefined, { urn })
+            case "azure:compute/diskAccess:DiskAccess":
+                return new DiskAccess(name, <any>undefined, { urn })
             case "azure:compute/diskEncryptionSet:DiskEncryptionSet":
                 return new DiskEncryptionSet(name, <any>undefined, { urn })
             case "azure:compute/extension:Extension":
@@ -103,6 +111,8 @@ const _module = {
                 return new SharedImageVersion(name, <any>undefined, { urn })
             case "azure:compute/snapshot:Snapshot":
                 return new Snapshot(name, <any>undefined, { urn })
+            case "azure:compute/sshPublicKey:SshPublicKey":
+                return new SshPublicKey(name, <any>undefined, { urn })
             case "azure:compute/virtualMachine:VirtualMachine":
                 return new VirtualMachine(name, <any>undefined, { urn })
             case "azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension":
@@ -121,6 +131,7 @@ pulumi.runtime.registerResourceModule("azure", "compute/bastionHost", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/dataDiskAttachment", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/dedicatedHost", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/dedicatedHostGroup", _module)
+pulumi.runtime.registerResourceModule("azure", "compute/diskAccess", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/diskEncryptionSet", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/extension", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/image", _module)
@@ -133,6 +144,7 @@ pulumi.runtime.registerResourceModule("azure", "compute/sharedImage", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/sharedImageGallery", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/sharedImageVersion", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/snapshot", _module)
+pulumi.runtime.registerResourceModule("azure", "compute/sshPublicKey", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/virtualMachine", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/virtualMachineScaleSetExtension", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/windowsVirtualMachine", _module)

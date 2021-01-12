@@ -63,11 +63,11 @@ type AvailabilitySet struct {
 	Managed pulumi.BoolPtrOutput `pulumi:"managed"`
 	// Specifies the name of the availability set. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the number of fault domains that are used. Defaults to `3`.
+	// Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount pulumi.IntPtrOutput `pulumi:"platformFaultDomainCount"`
-	// Specifies the number of update domains that are used. Defaults to `5`.
+	// Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
 	PlatformUpdateDomainCount pulumi.IntPtrOutput `pulumi:"platformUpdateDomainCount"`
-	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
 	// The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -113,11 +113,11 @@ type availabilitySetState struct {
 	Managed *bool `pulumi:"managed"`
 	// Specifies the name of the availability set. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the number of fault domains that are used. Defaults to `3`.
+	// Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
-	// Specifies the number of update domains that are used. Defaults to `5`.
+	// Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
 	PlatformUpdateDomainCount *int `pulumi:"platformUpdateDomainCount"`
-	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -132,11 +132,11 @@ type AvailabilitySetState struct {
 	Managed pulumi.BoolPtrInput
 	// Specifies the name of the availability set. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the number of fault domains that are used. Defaults to `3`.
+	// Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount pulumi.IntPtrInput
-	// Specifies the number of update domains that are used. Defaults to `5`.
+	// Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
 	PlatformUpdateDomainCount pulumi.IntPtrInput
-	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrInput
 	// The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -155,11 +155,11 @@ type availabilitySetArgs struct {
 	Managed *bool `pulumi:"managed"`
 	// Specifies the name of the availability set. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the number of fault domains that are used. Defaults to `3`.
+	// Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
-	// Specifies the number of update domains that are used. Defaults to `5`.
+	// Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
 	PlatformUpdateDomainCount *int `pulumi:"platformUpdateDomainCount"`
-	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -175,11 +175,11 @@ type AvailabilitySetArgs struct {
 	Managed pulumi.BoolPtrInput
 	// Specifies the name of the availability set. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the number of fault domains that are used. Defaults to `3`.
+	// Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount pulumi.IntPtrInput
-	// Specifies the number of update domains that are used. Defaults to `5`.
+	// Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
 	PlatformUpdateDomainCount pulumi.IntPtrInput
-	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrInput
 	// The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

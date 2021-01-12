@@ -19,7 +19,7 @@ class GetSubscriptionResult:
     """
     A collection of values returned by getSubscription.
     """
-    def __init__(__self__, display_name=None, id=None, location_placement_id=None, quota_id=None, spending_limit=None, state=None, subscription_id=None, tenant_id=None):
+    def __init__(__self__, display_name=None, id=None, location_placement_id=None, quota_id=None, spending_limit=None, state=None, subscription_id=None, tags=None, tenant_id=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -41,6 +41,9 @@ class GetSubscriptionResult:
         if subscription_id and not isinstance(subscription_id, str):
             raise TypeError("Expected argument 'subscription_id' to be a str")
         pulumi.set(__self__, "subscription_id", subscription_id)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if tenant_id and not isinstance(tenant_id, str):
             raise TypeError("Expected argument 'tenant_id' to be a str")
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -102,6 +105,14 @@ class GetSubscriptionResult:
         return pulumi.get(self, "subscription_id")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        A mapping of tags assigned to the Subscription.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
@@ -123,6 +134,7 @@ class AwaitableGetSubscriptionResult(GetSubscriptionResult):
             spending_limit=self.spending_limit,
             state=self.state,
             subscription_id=self.subscription_id,
+            tags=self.tags,
             tenant_id=self.tenant_id)
 
 
@@ -160,4 +172,5 @@ def get_subscription(subscription_id: Optional[str] = None,
         spending_limit=__ret__.spending_limit,
         state=__ret__.state,
         subscription_id=__ret__.subscription_id,
+        tags=__ret__.tags,
         tenant_id=__ret__.tenant_id)

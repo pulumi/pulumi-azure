@@ -477,37 +477,26 @@ class EndpointDeliveryRuleCacheKeyQueryStringActionArgs:
 @pulumi.input_type
 class EndpointDeliveryRuleCookiesConditionArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  operator: pulumi.Input[str],
                  selector: pulumi.Input[str],
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  negate_condition: Optional[pulumi.Input[bool]] = None,
                  transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of values for the cookie.
         :param pulumi.Input[str] operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param pulumi.Input[str] selector: Name of the cookie.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of values for the cookie. This is required if `operator` is not `Any`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: Valid values are `Lowercase` and `Uppercase`.
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "selector", selector)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List of values for the cookie.
-        """
-        return pulumi.get(self, "match_values")
-
-    @match_values.setter
-    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter
@@ -532,6 +521,18 @@ class EndpointDeliveryRuleCookiesConditionArgs:
     @selector.setter
     def selector(self, value: pulumi.Input[str]):
         pulumi.set(self, "selector", value)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of values for the cookie. This is required if `operator` is not `Any`.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -775,37 +776,26 @@ class EndpointDeliveryRuleModifyResponseHeaderActionArgs:
 @pulumi.input_type
 class EndpointDeliveryRulePostArgConditionArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  operator: pulumi.Input[str],
                  selector: pulumi.Input[str],
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  negate_condition: Optional[pulumi.Input[bool]] = None,
                  transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values.
         :param pulumi.Input[str] operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param pulumi.Input[str] selector: Name of the post arg.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values. This is required if `operator` is not `Any`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: Valid values are `Lowercase` and `Uppercase`.
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "selector", selector)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List of string values.
-        """
-        return pulumi.get(self, "match_values")
-
-    @match_values.setter
-    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter
@@ -830,6 +820,18 @@ class EndpointDeliveryRulePostArgConditionArgs:
     @selector.setter
     def selector(self, value: pulumi.Input[str]):
         pulumi.set(self, "selector", value)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of string values. This is required if `operator` is not `Any`.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -859,34 +861,23 @@ class EndpointDeliveryRulePostArgConditionArgs:
 @pulumi.input_type
 class EndpointDeliveryRuleQueryStringConditionArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  operator: pulumi.Input[str],
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  negate_condition: Optional[pulumi.Input[bool]] = None,
                  transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values.
         :param pulumi.Input[str] operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values. This is required if `operator` is not `Any`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: Valid values are `Lowercase` and `Uppercase`.
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List of string values.
-        """
-        return pulumi.get(self, "match_values")
-
-    @match_values.setter
-    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter
@@ -899,6 +890,18 @@ class EndpointDeliveryRuleQueryStringConditionArgs:
     @operator.setter
     def operator(self, value: pulumi.Input[str]):
         pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of string values. This is required if `operator` is not `Any`.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -928,30 +931,19 @@ class EndpointDeliveryRuleQueryStringConditionArgs:
 @pulumi.input_type
 class EndpointDeliveryRuleRemoteAddressConditionArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  operator: pulumi.Input[str],
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  negate_condition: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`.
         :param pulumi.Input[str] operator: Valid values are `Any`, `GeoMatch` and `IPMatch`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`. This is required if `operator` is not `Any`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`.
-        """
-        return pulumi.get(self, "match_values")
-
-    @match_values.setter
-    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter
@@ -964,6 +956,18 @@ class EndpointDeliveryRuleRemoteAddressConditionArgs:
     @operator.setter
     def operator(self, value: pulumi.Input[str]):
         pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`. This is required if `operator` is not `Any`.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -981,34 +985,23 @@ class EndpointDeliveryRuleRemoteAddressConditionArgs:
 @pulumi.input_type
 class EndpointDeliveryRuleRequestBodyConditionArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  operator: pulumi.Input[str],
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  negate_condition: Optional[pulumi.Input[bool]] = None,
                  transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values.
         :param pulumi.Input[str] operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values. This is required if `operator` is not `Any`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: Valid values are `Lowercase` and `Uppercase`.
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List of string values.
-        """
-        return pulumi.get(self, "match_values")
-
-    @match_values.setter
-    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter
@@ -1021,6 +1014,18 @@ class EndpointDeliveryRuleRequestBodyConditionArgs:
     @operator.setter
     def operator(self, value: pulumi.Input[str]):
         pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of string values. This is required if `operator` is not `Any`.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -1050,37 +1055,26 @@ class EndpointDeliveryRuleRequestBodyConditionArgs:
 @pulumi.input_type
 class EndpointDeliveryRuleRequestHeaderConditionArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  operator: pulumi.Input[str],
                  selector: pulumi.Input[str],
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  negate_condition: Optional[pulumi.Input[bool]] = None,
                  transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of header values.
         :param pulumi.Input[str] operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param pulumi.Input[str] selector: Header name.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of header values. This is required if `operator` is not `Any`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: Valid values are `Lowercase` and `Uppercase`.
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "selector", selector)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List of header values.
-        """
-        return pulumi.get(self, "match_values")
-
-    @match_values.setter
-    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter
@@ -1105,6 +1099,18 @@ class EndpointDeliveryRuleRequestHeaderConditionArgs:
     @selector.setter
     def selector(self, value: pulumi.Input[str]):
         pulumi.set(self, "selector", value)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of header values. This is required if `operator` is not `Any`.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -1242,34 +1248,23 @@ class EndpointDeliveryRuleRequestSchemeConditionArgs:
 @pulumi.input_type
 class EndpointDeliveryRuleRequestUriConditionArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  operator: pulumi.Input[str],
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  negate_condition: Optional[pulumi.Input[bool]] = None,
                  transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values.
         :param pulumi.Input[str] operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values. This is required if `operator` is not `Any`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: Valid values are `Lowercase` and `Uppercase`.
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List of string values.
-        """
-        return pulumi.get(self, "match_values")
-
-    @match_values.setter
-    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter
@@ -1282,6 +1277,18 @@ class EndpointDeliveryRuleRequestUriConditionArgs:
     @operator.setter
     def operator(self, value: pulumi.Input[str]):
         pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of string values. This is required if `operator` is not `Any`.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -1311,34 +1318,23 @@ class EndpointDeliveryRuleRequestUriConditionArgs:
 @pulumi.input_type
 class EndpointDeliveryRuleUrlFileExtensionConditionArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  operator: pulumi.Input[str],
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  negate_condition: Optional[pulumi.Input[bool]] = None,
                  transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values.
         :param pulumi.Input[str] operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values. This is required if `operator` is not `Any`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: Valid values are `Lowercase` and `Uppercase`.
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List of string values.
-        """
-        return pulumi.get(self, "match_values")
-
-    @match_values.setter
-    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter
@@ -1351,6 +1347,18 @@ class EndpointDeliveryRuleUrlFileExtensionConditionArgs:
     @operator.setter
     def operator(self, value: pulumi.Input[str]):
         pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of string values. This is required if `operator` is not `Any`.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -1380,34 +1388,23 @@ class EndpointDeliveryRuleUrlFileExtensionConditionArgs:
 @pulumi.input_type
 class EndpointDeliveryRuleUrlFileNameConditionArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  operator: pulumi.Input[str],
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  negate_condition: Optional[pulumi.Input[bool]] = None,
                  transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values.
         :param pulumi.Input[str] operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values. This is required if `operator` is not `Any`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: Valid values are `Lowercase` and `Uppercase`.
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List of string values.
-        """
-        return pulumi.get(self, "match_values")
-
-    @match_values.setter
-    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter
@@ -1420,6 +1417,18 @@ class EndpointDeliveryRuleUrlFileNameConditionArgs:
     @operator.setter
     def operator(self, value: pulumi.Input[str]):
         pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of string values. This is required if `operator` is not `Any`.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter(name="negateCondition")
@@ -1449,34 +1458,23 @@ class EndpointDeliveryRuleUrlFileNameConditionArgs:
 @pulumi.input_type
 class EndpointDeliveryRuleUrlPathConditionArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  operator: pulumi.Input[str],
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  negate_condition: Optional[pulumi.Input[bool]] = None,
                  transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values.
         :param pulumi.Input[str] operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values. This is required if `operator` is not `Any`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: Valid values are `Lowercase` and `Uppercase`.
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List of string values.
-        """
-        return pulumi.get(self, "match_values")
-
-    @match_values.setter
-    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter
@@ -1489,6 +1487,18 @@ class EndpointDeliveryRuleUrlPathConditionArgs:
     @operator.setter
     def operator(self, value: pulumi.Input[str]):
         pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of string values. This is required if `operator` is not `Any`.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter(name="negateCondition")

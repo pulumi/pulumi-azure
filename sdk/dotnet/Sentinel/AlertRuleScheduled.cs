@@ -59,6 +59,12 @@ namespace Pulumi.Azure.Sentinel
     public partial class AlertRuleScheduled : Pulumi.CustomResource
     {
         /// <summary>
+        /// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        /// </summary>
+        [Output("alertRuleTemplateGuid")]
+        public Output<string?> AlertRuleTemplateGuid { get; private set; } = null!;
+
+        /// <summary>
         /// The description of this Sentinel Scheduled Alert Rule.
         /// </summary>
         [Output("description")]
@@ -75,6 +81,12 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// A `incident_configuration` block as defined below.
+        /// </summary>
+        [Output("incidentConfiguration")]
+        public Output<Outputs.AlertRuleScheduledIncidentConfiguration> IncidentConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
@@ -189,6 +201,12 @@ namespace Pulumi.Azure.Sentinel
     public sealed class AlertRuleScheduledArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        /// </summary>
+        [Input("alertRuleTemplateGuid")]
+        public Input<string>? AlertRuleTemplateGuid { get; set; }
+
+        /// <summary>
         /// The description of this Sentinel Scheduled Alert Rule.
         /// </summary>
         [Input("description")]
@@ -205,6 +223,12 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// A `incident_configuration` block as defined below.
+        /// </summary>
+        [Input("incidentConfiguration")]
+        public Input<Inputs.AlertRuleScheduledIncidentConfigurationArgs>? IncidentConfiguration { get; set; }
 
         /// <summary>
         /// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
@@ -286,6 +310,12 @@ namespace Pulumi.Azure.Sentinel
     public sealed class AlertRuleScheduledState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        /// </summary>
+        [Input("alertRuleTemplateGuid")]
+        public Input<string>? AlertRuleTemplateGuid { get; set; }
+
+        /// <summary>
         /// The description of this Sentinel Scheduled Alert Rule.
         /// </summary>
         [Input("description")]
@@ -302,6 +332,12 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// A `incident_configuration` block as defined below.
+        /// </summary>
+        [Input("incidentConfiguration")]
+        public Input<Inputs.AlertRuleScheduledIncidentConfigurationGetArgs>? IncidentConfiguration { get; set; }
 
         /// <summary>
         /// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.

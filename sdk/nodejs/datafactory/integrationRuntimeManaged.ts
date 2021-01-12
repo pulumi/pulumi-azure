@@ -75,6 +75,9 @@ export class IntegrationRuntimeManaged extends pulumi.CustomResource {
      * Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
      */
     public readonly dataFactoryName!: pulumi.Output<string>;
+    /**
+     * Integration runtime description.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
@@ -190,6 +193,9 @@ export interface IntegrationRuntimeManagedState {
      * Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
      */
     readonly dataFactoryName?: pulumi.Input<string>;
+    /**
+     * Integration runtime description.
+     */
     readonly description?: pulumi.Input<string>;
     /**
      * The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
@@ -245,6 +251,9 @@ export interface IntegrationRuntimeManagedArgs {
      * Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
      */
     readonly dataFactoryName: pulumi.Input<string>;
+    /**
+     * Integration runtime description.
+     */
     readonly description?: pulumi.Input<string>;
     /**
      * The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.

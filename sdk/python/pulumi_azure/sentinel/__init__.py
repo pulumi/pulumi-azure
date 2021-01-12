@@ -3,9 +3,12 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .alert_rule_fusion import *
 from .alert_rule_ms_security_incident import *
 from .alert_rule_scheduled import *
 from .get_alert_rule import *
+from ._inputs import *
+from . import outputs
 
 def _register_module():
     import pulumi
@@ -19,7 +22,9 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident":
+            if typ == "azure:sentinel/alertRuleFusion:AlertRuleFusion":
+                return AlertRuleFusion(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident":
                 return AlertRuleMsSecurityIncident(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:sentinel/alertRuleScheduled:AlertRuleScheduled":
                 return AlertRuleScheduled(name, pulumi.ResourceOptions(urn=urn))
@@ -28,6 +33,7 @@ def _register_module():
 
 
     _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure", "sentinel/alertRuleFusion", _module_instance)
     pulumi.runtime.register_resource_module("azure", "sentinel/alertRuleMsSecurityIncident", _module_instance)
     pulumi.runtime.register_resource_module("azure", "sentinel/alertRuleScheduled", _module_instance)
 

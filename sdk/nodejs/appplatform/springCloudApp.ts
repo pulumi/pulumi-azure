@@ -65,13 +65,25 @@ export class SpringCloudApp extends pulumi.CustomResource {
     }
 
     /**
+     * Is only https allowed? Defaults to `false`.
+     */
+    public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
+    /**
      * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.appplatform.SpringCloudAppIdentity | undefined>;
     /**
+     * Does the Spring Cloud Application have public endpoint? Defaults to `false`.
+     */
+    public readonly isPublic!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * An `persistentDisk` block as defined below.
+     */
+    public readonly persistentDisk!: pulumi.Output<outputs.appplatform.SpringCloudAppPersistentDisk>;
     /**
      * Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
      */
@@ -80,6 +92,10 @@ export class SpringCloudApp extends pulumi.CustomResource {
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
     public readonly serviceName!: pulumi.Output<string>;
+    /**
+     * The public endpoint of the Spring Cloud Application.
+     */
+    public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudApp resource with the given unique name, arguments, and options.
@@ -93,10 +109,14 @@ export class SpringCloudApp extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as SpringCloudAppState | undefined;
+            inputs["httpsOnly"] = state ? state.httpsOnly : undefined;
             inputs["identity"] = state ? state.identity : undefined;
+            inputs["isPublic"] = state ? state.isPublic : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["persistentDisk"] = state ? state.persistentDisk : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["serviceName"] = state ? state.serviceName : undefined;
+            inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as SpringCloudAppArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -105,10 +125,14 @@ export class SpringCloudApp extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["httpsOnly"] = args ? args.httpsOnly : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["isPublic"] = args ? args.isPublic : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["persistentDisk"] = args ? args.persistentDisk : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["url"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -126,13 +150,25 @@ export class SpringCloudApp extends pulumi.CustomResource {
  */
 export interface SpringCloudAppState {
     /**
+     * Is only https allowed? Defaults to `false`.
+     */
+    readonly httpsOnly?: pulumi.Input<boolean>;
+    /**
      * An `identity` block as defined below.
      */
     readonly identity?: pulumi.Input<inputs.appplatform.SpringCloudAppIdentity>;
     /**
+     * Does the Spring Cloud Application have public endpoint? Defaults to `false`.
+     */
+    readonly isPublic?: pulumi.Input<boolean>;
+    /**
      * Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * An `persistentDisk` block as defined below.
+     */
+    readonly persistentDisk?: pulumi.Input<inputs.appplatform.SpringCloudAppPersistentDisk>;
     /**
      * Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
      */
@@ -141,6 +177,10 @@ export interface SpringCloudAppState {
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
     readonly serviceName?: pulumi.Input<string>;
+    /**
+     * The public endpoint of the Spring Cloud Application.
+     */
+    readonly url?: pulumi.Input<string>;
 }
 
 /**
@@ -148,13 +188,25 @@ export interface SpringCloudAppState {
  */
 export interface SpringCloudAppArgs {
     /**
+     * Is only https allowed? Defaults to `false`.
+     */
+    readonly httpsOnly?: pulumi.Input<boolean>;
+    /**
      * An `identity` block as defined below.
      */
     readonly identity?: pulumi.Input<inputs.appplatform.SpringCloudAppIdentity>;
     /**
+     * Does the Spring Cloud Application have public endpoint? Defaults to `false`.
+     */
+    readonly isPublic?: pulumi.Input<boolean>;
+    /**
      * Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * An `persistentDisk` block as defined below.
+     */
+    readonly persistentDisk?: pulumi.Input<inputs.appplatform.SpringCloudAppPersistentDisk>;
     /**
      * Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
      */

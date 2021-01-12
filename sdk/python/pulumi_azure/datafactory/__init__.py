@@ -26,6 +26,7 @@ from .linked_service_mysql import *
 from .linked_service_postgresql import *
 from .linked_service_sftp import *
 from .linked_service_sql_server import *
+from .linked_service_synapse import *
 from .linked_service_web import *
 from .pipeline import *
 from .trigger_schedule import *
@@ -88,6 +89,8 @@ def _register_module():
                 return LinkedServiceSftp(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer":
                 return LinkedServiceSqlServer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:datafactory/linkedServiceSynapse:LinkedServiceSynapse":
+                return LinkedServiceSynapse(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:datafactory/linkedServiceWeb:LinkedServiceWeb":
                 return LinkedServiceWeb(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:datafactory/pipeline:Pipeline":
@@ -121,6 +124,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServicePostgresql", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceSftp", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceSqlServer", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceSynapse", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceWeb", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/pipeline", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/triggerSchedule", _module_instance)

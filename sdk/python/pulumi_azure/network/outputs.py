@@ -2243,7 +2243,7 @@ class ApplicationGatewayWafConfiguration(dict):
         :param str rule_set_version: The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
         :param Sequence['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs'] disabled_rule_groups: one or more `disabled_rule_group` blocks as defined below.
         :param Sequence['ApplicationGatewayWafConfigurationExclusionArgs'] exclusions: one or more `exclusion` blocks as defined below.
-        :param int file_upload_limit_mb: The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
+        :param int file_upload_limit_mb: The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
         :param int max_request_body_size_kb: The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
         :param bool request_body_check: Is Request Body Inspection enabled?  Defaults to `true`.
         :param str rule_set_type: The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
@@ -2308,7 +2308,7 @@ class ApplicationGatewayWafConfiguration(dict):
     @pulumi.getter(name="fileUploadLimitMb")
     def file_upload_limit_mb(self) -> Optional[int]:
         """
-        The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
+        The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
         """
         return pulumi.get(self, "file_upload_limit_mb")
 

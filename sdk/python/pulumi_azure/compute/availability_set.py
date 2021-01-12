@@ -57,9 +57,9 @@ class AvailabilitySet(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] managed: Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
         :param pulumi.Input[str] name: Specifies the name of the availability set. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used. Defaults to `3`.
-        :param pulumi.Input[int] platform_update_domain_count: Specifies the number of update domains that are used. Defaults to `5`.
-        :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+        :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] platform_update_domain_count: Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -118,9 +118,9 @@ class AvailabilitySet(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] managed: Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
         :param pulumi.Input[str] name: Specifies the name of the availability set. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used. Defaults to `3`.
-        :param pulumi.Input[int] platform_update_domain_count: Specifies the number of update domains that are used. Defaults to `5`.
-        :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+        :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] platform_update_domain_count: Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -166,7 +166,7 @@ class AvailabilitySet(pulumi.CustomResource):
     @pulumi.getter(name="platformFaultDomainCount")
     def platform_fault_domain_count(self) -> pulumi.Output[Optional[int]]:
         """
-        Specifies the number of fault domains that are used. Defaults to `3`.
+        Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "platform_fault_domain_count")
 
@@ -174,7 +174,7 @@ class AvailabilitySet(pulumi.CustomResource):
     @pulumi.getter(name="platformUpdateDomainCount")
     def platform_update_domain_count(self) -> pulumi.Output[Optional[int]]:
         """
-        Specifies the number of update domains that are used. Defaults to `5`.
+        Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "platform_update_domain_count")
 
@@ -182,7 +182,7 @@ class AvailabilitySet(pulumi.CustomResource):
     @pulumi.getter(name="proximityPlacementGroupId")
     def proximity_placement_group_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+        The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "proximity_placement_group_id")
 

@@ -18,6 +18,7 @@ __all__ = [
     'StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey',
     'StreamingEndpointAccessControlIpAllow',
     'StreamingEndpointCrossSiteAccessPolicy',
+    'StreamingLocatorContentKey',
     'TransformOutput',
     'TransformOutputAudioAnalyzerPreset',
     'TransformOutputBuiltinPreset',
@@ -325,6 +326,76 @@ class StreamingEndpointCrossSiteAccessPolicy(dict):
         The content of crossdomain.xml used by Silverlight.
         """
         return pulumi.get(self, "cross_domain_policy")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StreamingLocatorContentKey(dict):
+    def __init__(__self__, *,
+                 content_key_id: Optional[str] = None,
+                 label_reference_in_streaming_policy: Optional[str] = None,
+                 policy_name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str content_key_id: ID of Content Key. Changing this forces a new Streaming Locator to be created.
+        :param str label_reference_in_streaming_policy: Label of Content Key as specified in the Streaming Policy. Changing this forces a new Streaming Locator to be created.
+        :param str policy_name: Content Key Policy used by Content Key. Changing this forces a new Streaming Locator to be created.
+        :param str type: Encryption type of Content Key. Supported values are `CommonEncryptionCbcs`, `CommonEncryptionCenc` or `EnvelopeEncryption`. Changing this forces a new Streaming Locator to be created.
+        :param str value: Value of Content Key. Changing this forces a new Streaming Locator to be created.
+        """
+        if content_key_id is not None:
+            pulumi.set(__self__, "content_key_id", content_key_id)
+        if label_reference_in_streaming_policy is not None:
+            pulumi.set(__self__, "label_reference_in_streaming_policy", label_reference_in_streaming_policy)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="contentKeyId")
+    def content_key_id(self) -> Optional[str]:
+        """
+        ID of Content Key. Changing this forces a new Streaming Locator to be created.
+        """
+        return pulumi.get(self, "content_key_id")
+
+    @property
+    @pulumi.getter(name="labelReferenceInStreamingPolicy")
+    def label_reference_in_streaming_policy(self) -> Optional[str]:
+        """
+        Label of Content Key as specified in the Streaming Policy. Changing this forces a new Streaming Locator to be created.
+        """
+        return pulumi.get(self, "label_reference_in_streaming_policy")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Content Key Policy used by Content Key. Changing this forces a new Streaming Locator to be created.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Encryption type of Content Key. Supported values are `CommonEncryptionCbcs`, `CommonEncryptionCenc` or `EnvelopeEncryption`. Changing this forces a new Streaming Locator to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Value of Content Key. Changing this forces a new Streaming Locator to be created.
+        """
+        return pulumi.get(self, "value")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

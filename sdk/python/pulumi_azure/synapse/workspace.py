@@ -19,6 +19,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -75,6 +76,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
         :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
@@ -102,6 +104,7 @@ class Workspace(pulumi.CustomResource):
 
             __props__['aad_admin'] = aad_admin
             __props__['location'] = location
+            __props__['managed_resource_group_name'] = managed_resource_group_name
             __props__['managed_virtual_network_enabled'] = managed_virtual_network_enabled
             __props__['name'] = name
             if resource_group_name is None and not opts.urn:
@@ -119,7 +122,6 @@ class Workspace(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['connectivity_endpoints'] = None
             __props__['identities'] = None
-            __props__['managed_resource_group_name'] = None
         super(Workspace, __self__).__init__(
             'azure:synapse/workspace:Workspace',
             resource_name,

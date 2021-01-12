@@ -17,8 +17,11 @@ class SpringCloudApp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']]] = None,
+                 is_public: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 persistent_disk: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -55,8 +58,11 @@ class SpringCloudApp(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] https_only: Is only https allowed? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[bool] is_public: Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']] persistent_disk: An `persistent_disk` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         """
@@ -77,14 +83,18 @@ class SpringCloudApp(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['https_only'] = https_only
             __props__['identity'] = identity
+            __props__['is_public'] = is_public
             __props__['name'] = name
+            __props__['persistent_disk'] = persistent_disk
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['url'] = None
         super(SpringCloudApp, __self__).__init__(
             'azure:appplatform/springCloudApp:SpringCloudApp',
             resource_name,
@@ -95,10 +105,14 @@ class SpringCloudApp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            https_only: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']]] = None,
+            is_public: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            persistent_disk: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            service_name: Optional[pulumi.Input[str]] = None) -> 'SpringCloudApp':
+            service_name: Optional[pulumi.Input[str]] = None,
+            url: Optional[pulumi.Input[str]] = None) -> 'SpringCloudApp':
         """
         Get an existing SpringCloudApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -106,20 +120,36 @@ class SpringCloudApp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] https_only: Is only https allowed? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[bool] is_public: Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']] persistent_disk: An `persistent_disk` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] url: The public endpoint of the Spring Cloud Application.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
+        __props__["https_only"] = https_only
         __props__["identity"] = identity
+        __props__["is_public"] = is_public
         __props__["name"] = name
+        __props__["persistent_disk"] = persistent_disk
         __props__["resource_group_name"] = resource_group_name
         __props__["service_name"] = service_name
+        __props__["url"] = url
         return SpringCloudApp(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="httpsOnly")
+    def https_only(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is only https allowed? Defaults to `false`.
+        """
+        return pulumi.get(self, "https_only")
 
     @property
     @pulumi.getter
@@ -130,12 +160,28 @@ class SpringCloudApp(pulumi.CustomResource):
         return pulumi.get(self, "identity")
 
     @property
+    @pulumi.getter(name="isPublic")
+    def is_public(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Does the Spring Cloud Application have public endpoint? Defaults to `false`.
+        """
+        return pulumi.get(self, "is_public")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="persistentDisk")
+    def persistent_disk(self) -> pulumi.Output['outputs.SpringCloudAppPersistentDisk']:
+        """
+        An `persistent_disk` block as defined below.
+        """
+        return pulumi.get(self, "persistent_disk")
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -152,6 +198,14 @@ class SpringCloudApp(pulumi.CustomResource):
         Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "service_name")
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Output[str]:
+        """
+        The public endpoint of the Spring Cloud Application.
+        """
+        return pulumi.get(self, "url")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

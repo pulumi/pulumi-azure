@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class EndpointDeliveryRuleRequestHeaderCondition
     {
         /// <summary>
-        /// List of header values.
+        /// List of header values. This is required if `operator` is not `Any`.
         /// </summary>
         public readonly ImmutableArray<string> MatchValues;
         /// <summary>

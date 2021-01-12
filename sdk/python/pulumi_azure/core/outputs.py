@@ -184,6 +184,7 @@ class GetSubscriptionsSubscriptionResult(dict):
                  spending_limit: str,
                  state: str,
                  subscription_id: str,
+                 tags: Mapping[str, str],
                  tenant_id: str):
         """
         :param str display_name: The subscription display name.
@@ -192,6 +193,7 @@ class GetSubscriptionsSubscriptionResult(dict):
         :param str spending_limit: The subscription spending limit.
         :param str state: The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted.
         :param str subscription_id: The subscription GUID.
+        :param Mapping[str, str] tags: A mapping of tags assigned to the resource.
         :param str tenant_id: The subscription tenant ID.
         """
         pulumi.set(__self__, "display_name", display_name)
@@ -200,6 +202,7 @@ class GetSubscriptionsSubscriptionResult(dict):
         pulumi.set(__self__, "spending_limit", spending_limit)
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "subscription_id", subscription_id)
+        pulumi.set(__self__, "tags", tags)
         pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
@@ -249,6 +252,14 @@ class GetSubscriptionsSubscriptionResult(dict):
         The subscription GUID.
         """
         return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        A mapping of tags assigned to the resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tenantId")

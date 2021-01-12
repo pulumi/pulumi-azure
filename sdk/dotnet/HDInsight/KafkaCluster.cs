@@ -127,6 +127,12 @@ namespace Pulumi.Azure.HDInsight
         public Output<string> HttpsEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// The Kafka Rest Proxy Endpoint for this HDInsight Kafka Cluster.
+        /// </summary>
+        [Output("kafkaRestProxyEndpoint")]
+        public Output<string> KafkaRestProxyEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -155,6 +161,12 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// A `rest_proxy` block as defined below.
+        /// </summary>
+        [Output("restProxy")]
+        public Output<Outputs.KafkaClusterRestProxy?> RestProxy { get; private set; } = null!;
 
         /// <summary>
         /// A `roles` block as defined below.
@@ -290,6 +302,12 @@ namespace Pulumi.Azure.HDInsight
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// A `rest_proxy` block as defined below.
+        /// </summary>
+        [Input("restProxy")]
+        public Input<Inputs.KafkaClusterRestProxyArgs>? RestProxy { get; set; }
+
+        /// <summary>
         /// A `roles` block as defined below.
         /// </summary>
         [Input("roles", required: true)]
@@ -366,6 +384,12 @@ namespace Pulumi.Azure.HDInsight
         public Input<string>? HttpsEndpoint { get; set; }
 
         /// <summary>
+        /// The Kafka Rest Proxy Endpoint for this HDInsight Kafka Cluster.
+        /// </summary>
+        [Input("kafkaRestProxyEndpoint")]
+        public Input<string>? KafkaRestProxyEndpoint { get; set; }
+
+        /// <summary>
         /// Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -394,6 +418,12 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// A `rest_proxy` block as defined below.
+        /// </summary>
+        [Input("restProxy")]
+        public Input<Inputs.KafkaClusterRestProxyGetArgs>? RestProxy { get; set; }
 
         /// <summary>
         /// A `roles` block as defined below.

@@ -38,6 +38,10 @@ namespace Pulumi.Azure.Core.Outputs
         /// </summary>
         public readonly string SubscriptionId;
         /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
         /// The subscription tenant ID.
         /// </summary>
         public readonly string TenantId;
@@ -56,6 +60,8 @@ namespace Pulumi.Azure.Core.Outputs
 
             string subscriptionId,
 
+            ImmutableDictionary<string, string> tags,
+
             string tenantId)
         {
             DisplayName = displayName;
@@ -64,6 +70,7 @@ namespace Pulumi.Azure.Core.Outputs
             SpendingLimit = spendingLimit;
             State = state;
             SubscriptionId = subscriptionId;
+            Tags = tags;
             TenantId = tenantId;
         }
     }

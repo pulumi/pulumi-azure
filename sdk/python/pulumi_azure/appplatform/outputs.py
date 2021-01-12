@@ -11,6 +11,7 @@ from . import outputs
 
 __all__ = [
     'SpringCloudAppIdentity',
+    'SpringCloudAppPersistentDisk',
     'SpringCloudServiceConfigServerGitSetting',
     'SpringCloudServiceConfigServerGitSettingHttpBasicAuth',
     'SpringCloudServiceConfigServerGitSettingRepository',
@@ -67,6 +68,39 @@ class SpringCloudAppIdentity(dict):
         The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
         """
         return pulumi.get(self, "tenant_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SpringCloudAppPersistentDisk(dict):
+    def __init__(__self__, *,
+                 size_in_gb: int,
+                 mount_path: Optional[str] = None):
+        """
+        :param int size_in_gb: Specifies the size of the persistent disk in GB. Possible values are between `0` and `50`.
+        :param str mount_path: Specifies the mount path of the persistent disk. Defaults to `/persistent`.
+        """
+        pulumi.set(__self__, "size_in_gb", size_in_gb)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+
+    @property
+    @pulumi.getter(name="sizeInGb")
+    def size_in_gb(self) -> int:
+        """
+        Specifies the size of the persistent disk in GB. Possible values are between `0` and `50`.
+        """
+        return pulumi.get(self, "size_in_gb")
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[str]:
+        """
+        Specifies the mount path of the persistent disk. Defaults to `/persistent`.
+        """
+        return pulumi.get(self, "mount_path")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

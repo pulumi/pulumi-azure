@@ -48,6 +48,8 @@ type LookupWorkspaceArgs struct {
 	Name string `pulumi:"name"`
 	// The Name of the Resource Group where the Databricks Workspace exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the Databricks Workspace.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getWorkspace.
@@ -58,6 +60,8 @@ type LookupWorkspaceResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// SKU of this Databricks Workspace.
 	Sku string `pulumi:"sku"`
+	// A mapping of tags to assign to the Databricks Workspace.
+	Tags map[string]string `pulumi:"tags"`
 	// Unique ID of this Databricks Workspace in Databricks management plane.
 	WorkspaceId string `pulumi:"workspaceId"`
 	// URL this Databricks Workspace is accessible on.

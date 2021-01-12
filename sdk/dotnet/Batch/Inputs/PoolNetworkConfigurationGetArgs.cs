@@ -24,6 +24,12 @@ namespace Pulumi.Azure.Batch.Inputs
             set => _endpointConfigurations = value;
         }
 
+        /// <summary>
+        /// Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
+        /// </summary>
+        [Input("publicAddressProvisioningType")]
+        public Input<string>? PublicAddressProvisioningType { get; set; }
+
         [Input("publicIps")]
         private InputList<string>? _publicIps;
 

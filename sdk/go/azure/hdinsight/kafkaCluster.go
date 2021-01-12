@@ -115,6 +115,8 @@ type KafkaCluster struct {
 	Gateway KafkaClusterGatewayOutput `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight Kafka Cluster.
 	HttpsEndpoint pulumi.StringOutput `pulumi:"httpsEndpoint"`
+	// The Kafka Rest Proxy Endpoint for this HDInsight Kafka Cluster.
+	KafkaRestProxyEndpoint pulumi.StringOutput `pulumi:"kafkaRestProxyEndpoint"`
 	// Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A `metastores` block as defined below.
@@ -125,6 +127,8 @@ type KafkaCluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A `restProxy` block as defined below.
+	RestProxy KafkaClusterRestProxyPtrOutput `pulumi:"restProxy"`
 	// A `roles` block as defined below.
 	Roles KafkaClusterRolesOutput `pulumi:"roles"`
 	// The SSH Connectivity Endpoint for this HDInsight Kafka Cluster.
@@ -195,6 +199,8 @@ type kafkaClusterState struct {
 	Gateway *KafkaClusterGateway `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight Kafka Cluster.
 	HttpsEndpoint *string `pulumi:"httpsEndpoint"`
+	// The Kafka Rest Proxy Endpoint for this HDInsight Kafka Cluster.
+	KafkaRestProxyEndpoint *string `pulumi:"kafkaRestProxyEndpoint"`
 	// Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// A `metastores` block as defined below.
@@ -205,6 +211,8 @@ type kafkaClusterState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A `restProxy` block as defined below.
+	RestProxy *KafkaClusterRestProxy `pulumi:"restProxy"`
 	// A `roles` block as defined below.
 	Roles *KafkaClusterRoles `pulumi:"roles"`
 	// The SSH Connectivity Endpoint for this HDInsight Kafka Cluster.
@@ -229,6 +237,8 @@ type KafkaClusterState struct {
 	Gateway KafkaClusterGatewayPtrInput
 	// The HTTPS Connectivity Endpoint for this HDInsight Kafka Cluster.
 	HttpsEndpoint pulumi.StringPtrInput
+	// The Kafka Rest Proxy Endpoint for this HDInsight Kafka Cluster.
+	KafkaRestProxyEndpoint pulumi.StringPtrInput
 	// Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// A `metastores` block as defined below.
@@ -239,6 +249,8 @@ type KafkaClusterState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// A `restProxy` block as defined below.
+	RestProxy KafkaClusterRestProxyPtrInput
 	// A `roles` block as defined below.
 	Roles KafkaClusterRolesPtrInput
 	// The SSH Connectivity Endpoint for this HDInsight Kafka Cluster.
@@ -275,6 +287,8 @@ type kafkaClusterArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A `restProxy` block as defined below.
+	RestProxy *KafkaClusterRestProxy `pulumi:"restProxy"`
 	// A `roles` block as defined below.
 	Roles KafkaClusterRoles `pulumi:"roles"`
 	// A `storageAccountGen2` block as defined below.
@@ -306,6 +320,8 @@ type KafkaClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// A `restProxy` block as defined below.
+	RestProxy KafkaClusterRestProxyPtrInput
 	// A `roles` block as defined below.
 	Roles KafkaClusterRolesInput
 	// A `storageAccountGen2` block as defined below.

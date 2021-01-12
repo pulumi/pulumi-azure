@@ -20,6 +20,7 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
                  connection_string: Optional[pulumi.Input[str]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 file_share: Optional[pulumi.Input[str]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -68,6 +69,7 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
         :param pulumi.Input[str] connection_string: The connection string.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
+        :param pulumi.Input[str] file_share: The name of the file share.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
@@ -99,6 +101,7 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'data_factory_name'")
             __props__['data_factory_name'] = data_factory_name
             __props__['description'] = description
+            __props__['file_share'] = file_share
             __props__['host'] = host
             __props__['integration_runtime_name'] = integration_runtime_name
             __props__['name'] = name
@@ -123,6 +126,7 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
             connection_string: Optional[pulumi.Input[str]] = None,
             data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            file_share: Optional[pulumi.Input[str]] = None,
             host: Optional[pulumi.Input[str]] = None,
             integration_runtime_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -142,6 +146,7 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
         :param pulumi.Input[str] connection_string: The connection string.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
+        :param pulumi.Input[str] file_share: The name of the file share.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
@@ -156,6 +161,7 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
         __props__["connection_string"] = connection_string
         __props__["data_factory_name"] = data_factory_name
         __props__["description"] = description
+        __props__["file_share"] = file_share
         __props__["host"] = host
         __props__["integration_runtime_name"] = integration_runtime_name
         __props__["name"] = name
@@ -204,6 +210,14 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
         The description for the Data Factory Linked Service.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="fileShare")
+    def file_share(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the file share.
+        """
+        return pulumi.get(self, "file_share")
 
     @property
     @pulumi.getter

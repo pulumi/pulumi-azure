@@ -4118,7 +4118,7 @@ type ApplicationGatewayWafConfiguration struct {
 	Enabled bool `pulumi:"enabled"`
 	// one or more `exclusion` blocks as defined below.
 	Exclusions []ApplicationGatewayWafConfigurationExclusion `pulumi:"exclusions"`
-	// The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
+	// The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
 	FileUploadLimitMb *int `pulumi:"fileUploadLimitMb"`
 	// The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
 	FirewallMode string `pulumi:"firewallMode"`
@@ -4150,7 +4150,7 @@ type ApplicationGatewayWafConfigurationArgs struct {
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// one or more `exclusion` blocks as defined below.
 	Exclusions ApplicationGatewayWafConfigurationExclusionArrayInput `pulumi:"exclusions"`
-	// The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
+	// The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
 	FileUploadLimitMb pulumi.IntPtrInput `pulumi:"fileUploadLimitMb"`
 	// The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
 	FirewallMode pulumi.StringInput `pulumi:"firewallMode"`
@@ -4260,7 +4260,7 @@ func (o ApplicationGatewayWafConfigurationOutput) Exclusions() ApplicationGatewa
 	}).(ApplicationGatewayWafConfigurationExclusionArrayOutput)
 }
 
-// The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
+// The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
 func (o ApplicationGatewayWafConfigurationOutput) FileUploadLimitMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) *int { return v.FileUploadLimitMb }).(pulumi.IntPtrOutput)
 }
@@ -4338,7 +4338,7 @@ func (o ApplicationGatewayWafConfigurationPtrOutput) Exclusions() ApplicationGat
 	}).(ApplicationGatewayWafConfigurationExclusionArrayOutput)
 }
 
-// The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
+// The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
 func (o ApplicationGatewayWafConfigurationPtrOutput) FileUploadLimitMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) *int {
 		if v == nil {

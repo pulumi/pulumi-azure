@@ -33,6 +33,7 @@ export function getTrafficManagerProfile(args: GetTrafficManagerProfileArgs, opt
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "tags": args.tags,
+        "trafficViewEnabled": args.trafficViewEnabled,
     }, opts);
 }
 
@@ -49,6 +50,10 @@ export interface GetTrafficManagerProfileArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * Indicates whether Traffic View is enabled for the Traffic Manager profile.
+     */
+    readonly trafficViewEnabled?: boolean;
 }
 
 /**
@@ -88,4 +93,8 @@ export interface GetTrafficManagerProfileResult {
      * Specifies the algorithm used to route traffic.
      */
     readonly trafficRoutingMethod: string;
+    /**
+     * Indicates whether Traffic View is enabled for the Traffic Manager profile.
+     */
+    readonly trafficViewEnabled?: boolean;
 }

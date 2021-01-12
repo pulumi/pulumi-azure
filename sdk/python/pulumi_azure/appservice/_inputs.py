@@ -831,13 +831,21 @@ class AppServiceIdentityArgs:
 class AppServiceLogsArgs:
     def __init__(__self__, *,
                  application_logs: Optional[pulumi.Input['AppServiceLogsApplicationLogsArgs']] = None,
+                 detailed_error_messages_enabled: Optional[pulumi.Input[bool]] = None,
+                 failed_request_tracing_enabled: Optional[pulumi.Input[bool]] = None,
                  http_logs: Optional[pulumi.Input['AppServiceLogsHttpLogsArgs']] = None):
         """
         :param pulumi.Input['AppServiceLogsApplicationLogsArgs'] application_logs: An `application_logs` block as defined below.
+        :param pulumi.Input[bool] detailed_error_messages_enabled: Should `Detailed error messages` be enabled on this App Service? Defaults to `false`.
+        :param pulumi.Input[bool] failed_request_tracing_enabled: Should `Failed request tracing` be enabled on this App Service? Defaults to `false`.
         :param pulumi.Input['AppServiceLogsHttpLogsArgs'] http_logs: An `http_logs` block as defined below.
         """
         if application_logs is not None:
             pulumi.set(__self__, "application_logs", application_logs)
+        if detailed_error_messages_enabled is not None:
+            pulumi.set(__self__, "detailed_error_messages_enabled", detailed_error_messages_enabled)
+        if failed_request_tracing_enabled is not None:
+            pulumi.set(__self__, "failed_request_tracing_enabled", failed_request_tracing_enabled)
         if http_logs is not None:
             pulumi.set(__self__, "http_logs", http_logs)
 
@@ -852,6 +860,30 @@ class AppServiceLogsArgs:
     @application_logs.setter
     def application_logs(self, value: Optional[pulumi.Input['AppServiceLogsApplicationLogsArgs']]):
         pulumi.set(self, "application_logs", value)
+
+    @property
+    @pulumi.getter(name="detailedErrorMessagesEnabled")
+    def detailed_error_messages_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should `Detailed error messages` be enabled on this App Service? Defaults to `false`.
+        """
+        return pulumi.get(self, "detailed_error_messages_enabled")
+
+    @detailed_error_messages_enabled.setter
+    def detailed_error_messages_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "detailed_error_messages_enabled", value)
+
+    @property
+    @pulumi.getter(name="failedRequestTracingEnabled")
+    def failed_request_tracing_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should `Failed request tracing` be enabled on this App Service? Defaults to `false`.
+        """
+        return pulumi.get(self, "failed_request_tracing_enabled")
+
+    @failed_request_tracing_enabled.setter
+    def failed_request_tracing_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "failed_request_tracing_enabled", value)
 
     @property
     @pulumi.getter(name="httpLogs")
@@ -1546,6 +1578,7 @@ class AppServiceSiteConfigIpRestrictionArgs:
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
@@ -1553,6 +1586,7 @@ class AppServiceSiteConfigIpRestrictionArgs:
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
         :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -1563,6 +1597,8 @@ class AppServiceSiteConfigIpRestrictionArgs:
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
         if subnet_id is not None:
             warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
             pulumi.log.warn("subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider")
@@ -1620,6 +1656,18 @@ class AppServiceSiteConfigIpRestrictionArgs:
         pulumi.set(self, "priority", value)
 
     @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "subnet_id")
@@ -1648,6 +1696,7 @@ class AppServiceSiteConfigScmIpRestrictionArgs:
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
@@ -1655,6 +1704,7 @@ class AppServiceSiteConfigScmIpRestrictionArgs:
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
         :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -1665,6 +1715,8 @@ class AppServiceSiteConfigScmIpRestrictionArgs:
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
         if subnet_id is not None:
             warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
             pulumi.log.warn("subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider")
@@ -1720,6 +1772,18 @@ class AppServiceSiteConfigScmIpRestrictionArgs:
     @priority.setter
     def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -2918,6 +2982,7 @@ class FunctionAppSiteConfigIpRestrictionArgs:
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
@@ -2925,6 +2990,7 @@ class FunctionAppSiteConfigIpRestrictionArgs:
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
         :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -2935,6 +3001,8 @@ class FunctionAppSiteConfigIpRestrictionArgs:
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
         if subnet_id is not None:
             warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
             pulumi.log.warn("subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider")
@@ -2992,6 +3060,18 @@ class FunctionAppSiteConfigIpRestrictionArgs:
         pulumi.set(self, "priority", value)
 
     @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "subnet_id")
@@ -3020,6 +3100,7 @@ class FunctionAppSiteConfigScmIpRestrictionArgs:
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
@@ -3027,6 +3108,7 @@ class FunctionAppSiteConfigScmIpRestrictionArgs:
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
         :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -3037,6 +3119,8 @@ class FunctionAppSiteConfigScmIpRestrictionArgs:
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
         if subnet_id is not None:
             warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
             pulumi.log.warn("subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider")
@@ -3092,6 +3176,18 @@ class FunctionAppSiteConfigScmIpRestrictionArgs:
     @priority.setter
     def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -4022,6 +4118,7 @@ class FunctionAppSlotSiteConfigIpRestrictionArgs:
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
@@ -4029,6 +4126,7 @@ class FunctionAppSlotSiteConfigIpRestrictionArgs:
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
         :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -4039,6 +4137,8 @@ class FunctionAppSlotSiteConfigIpRestrictionArgs:
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
         if subnet_id is not None:
             warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
             pulumi.log.warn("subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider")
@@ -4096,6 +4196,18 @@ class FunctionAppSlotSiteConfigIpRestrictionArgs:
         pulumi.set(self, "priority", value)
 
     @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "subnet_id")
@@ -4124,6 +4236,7 @@ class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
@@ -4131,6 +4244,7 @@ class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
         :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -4141,6 +4255,8 @@ class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
         if subnet_id is not None:
             warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
             pulumi.log.warn("subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider")
@@ -4196,6 +4312,18 @@ class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
     @priority.setter
     def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -4986,13 +5114,21 @@ class SlotIdentityArgs:
 class SlotLogsArgs:
     def __init__(__self__, *,
                  application_logs: Optional[pulumi.Input['SlotLogsApplicationLogsArgs']] = None,
+                 detailed_error_messages_enabled: Optional[pulumi.Input[bool]] = None,
+                 failed_request_tracing_enabled: Optional[pulumi.Input[bool]] = None,
                  http_logs: Optional[pulumi.Input['SlotLogsHttpLogsArgs']] = None):
         """
         :param pulumi.Input['SlotLogsApplicationLogsArgs'] application_logs: An `application_logs` block as defined below.
+        :param pulumi.Input[bool] detailed_error_messages_enabled: Should `Detailed error messages` be enabled on this App Service slot? Defaults to `false`.
+        :param pulumi.Input[bool] failed_request_tracing_enabled: Should `Failed request tracing` be enabled on this App Service slot? Defaults to `false`.
         :param pulumi.Input['SlotLogsHttpLogsArgs'] http_logs: An `http_logs` block as defined below.
         """
         if application_logs is not None:
             pulumi.set(__self__, "application_logs", application_logs)
+        if detailed_error_messages_enabled is not None:
+            pulumi.set(__self__, "detailed_error_messages_enabled", detailed_error_messages_enabled)
+        if failed_request_tracing_enabled is not None:
+            pulumi.set(__self__, "failed_request_tracing_enabled", failed_request_tracing_enabled)
         if http_logs is not None:
             pulumi.set(__self__, "http_logs", http_logs)
 
@@ -5007,6 +5143,30 @@ class SlotLogsArgs:
     @application_logs.setter
     def application_logs(self, value: Optional[pulumi.Input['SlotLogsApplicationLogsArgs']]):
         pulumi.set(self, "application_logs", value)
+
+    @property
+    @pulumi.getter(name="detailedErrorMessagesEnabled")
+    def detailed_error_messages_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should `Detailed error messages` be enabled on this App Service slot? Defaults to `false`.
+        """
+        return pulumi.get(self, "detailed_error_messages_enabled")
+
+    @detailed_error_messages_enabled.setter
+    def detailed_error_messages_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "detailed_error_messages_enabled", value)
+
+    @property
+    @pulumi.getter(name="failedRequestTracingEnabled")
+    def failed_request_tracing_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should `Failed request tracing` be enabled on this App Service slot? Defaults to `false`.
+        """
+        return pulumi.get(self, "failed_request_tracing_enabled")
+
+    @failed_request_tracing_enabled.setter
+    def failed_request_tracing_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "failed_request_tracing_enabled", value)
 
     @property
     @pulumi.getter(name="httpLogs")
@@ -5685,6 +5845,7 @@ class SlotSiteConfigIpRestrictionArgs:
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
@@ -5692,6 +5853,7 @@ class SlotSiteConfigIpRestrictionArgs:
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
         :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -5702,6 +5864,8 @@ class SlotSiteConfigIpRestrictionArgs:
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
         if subnet_id is not None:
             warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
             pulumi.log.warn("subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider")
@@ -5759,6 +5923,18 @@ class SlotSiteConfigIpRestrictionArgs:
         pulumi.set(self, "priority", value)
 
     @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "subnet_id")
@@ -5787,6 +5963,7 @@ class SlotSiteConfigScmIpRestrictionArgs:
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
@@ -5794,6 +5971,7 @@ class SlotSiteConfigScmIpRestrictionArgs:
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
         :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -5804,6 +5982,8 @@ class SlotSiteConfigScmIpRestrictionArgs:
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
         if subnet_id is not None:
             warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
             pulumi.log.warn("subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider")
@@ -5859,6 +6039,18 @@ class SlotSiteConfigScmIpRestrictionArgs:
     @priority.setter
     def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
 
     @property
     @pulumi.getter(name="subnetId")

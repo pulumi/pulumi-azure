@@ -71,7 +71,7 @@ type LookupKeyVaultResult struct {
 	ResourceGroupName      string `pulumi:"resourceGroupName"`
 	// The Name of the SKU used for this Key Vault.
 	SkuName string `pulumi:"skuName"`
-	// Is soft delete enabled on this Key Vault?
+	// Deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field will always return 'true' and will be removed in version 3.0 of the Azure Provider.
 	SoftDeleteEnabled bool `pulumi:"softDeleteEnabled"`
 	// A mapping of tags assigned to the Key Vault.
 	Tags map[string]string `pulumi:"tags"`

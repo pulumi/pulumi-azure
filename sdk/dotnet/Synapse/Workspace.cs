@@ -203,6 +203,12 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Workspace managed resource group.
+        /// </summary>
+        [Input("managedResourceGroupName")]
+        public Input<string>? ManagedResourceGroupName { get; set; }
+
+        /// <summary>
         /// Is Virtual Network enabled for all computes in this workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managedVirtualNetworkEnabled")]

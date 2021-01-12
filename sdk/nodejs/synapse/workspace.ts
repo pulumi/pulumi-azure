@@ -96,7 +96,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * Workspace managed resource group.
      */
-    public /*out*/ readonly managedResourceGroupName!: pulumi.Output<string>;
+    public readonly managedResourceGroupName!: pulumi.Output<string>;
     /**
      * Is Virtual Network enabled for all computes in this workspace. Changing this forces a new resource to be created.
      */
@@ -166,6 +166,7 @@ export class Workspace extends pulumi.CustomResource {
             }
             inputs["aadAdmin"] = args ? args.aadAdmin : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
             inputs["managedVirtualNetworkEnabled"] = args ? args.managedVirtualNetworkEnabled : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -175,7 +176,6 @@ export class Workspace extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["connectivityEndpoints"] = undefined /*out*/;
             inputs["identities"] = undefined /*out*/;
-            inputs["managedResourceGroupName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -254,6 +254,10 @@ export interface WorkspaceArgs {
      * Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Workspace managed resource group.
+     */
+    readonly managedResourceGroupName?: pulumi.Input<string>;
     /**
      * Is Virtual Network enabled for all computes in this workspace. Changing this forces a new resource to be created.
      */

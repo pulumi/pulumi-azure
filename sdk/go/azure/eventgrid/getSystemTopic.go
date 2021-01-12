@@ -45,7 +45,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = eventgrid.NewgetSystemTopic(ctx, "examplegetSystemTopic", &eventgrid.getSystemTopicArgs{
+// 		_, err = eventgrid.NewSystemTopic(ctx, "exampleSystemTopic", &eventgrid.SystemTopicArgs{
 // 			ResourceGroupName:   exampleResourceGroup.Name,
 // 			Location:            exampleResourceGroup.Location,
 // 			SourceArmResourceId: exampleAccount.ID(),
@@ -66,6 +66,8 @@ import (
 // ```sh
 //  $ pulumi import azure:eventgrid/getSystemTopic:getSystemTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/systemTopic1
 // ```
+//
+// Deprecated: azure.eventgrid.getSystemTopic has been deprecated in favor of azure.eventgrid.SystemTopic
 type GetSystemTopic struct {
 	pulumi.CustomResourceState
 

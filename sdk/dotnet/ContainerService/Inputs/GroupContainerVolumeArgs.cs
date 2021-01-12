@@ -13,6 +13,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class GroupContainerVolumeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("emptyDir")]
+        public Input<bool>? EmptyDir { get; set; }
+
+        /// <summary>
         /// A `git_repo` block as defined below.
         /// </summary>
         [Input("gitRepo")]

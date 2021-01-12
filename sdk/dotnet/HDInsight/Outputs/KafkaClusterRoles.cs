@@ -18,6 +18,10 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// </summary>
         public readonly Outputs.KafkaClusterRolesHeadNode HeadNode;
         /// <summary>
+        /// A `kafka_management_node` block as defined below.
+        /// </summary>
+        public readonly Outputs.KafkaClusterRolesKafkaManagementNode? KafkaManagementNode;
+        /// <summary>
         /// A `worker_node` block as defined below.
         /// </summary>
         public readonly Outputs.KafkaClusterRolesWorkerNode WorkerNode;
@@ -30,11 +34,14 @@ namespace Pulumi.Azure.HDInsight.Outputs
         private KafkaClusterRoles(
             Outputs.KafkaClusterRolesHeadNode headNode,
 
+            Outputs.KafkaClusterRolesKafkaManagementNode? kafkaManagementNode,
+
             Outputs.KafkaClusterRolesWorkerNode workerNode,
 
             Outputs.KafkaClusterRolesZookeeperNode zookeeperNode)
         {
             HeadNode = headNode;
+            KafkaManagementNode = kafkaManagementNode;
             WorkerNode = workerNode;
             ZookeeperNode = zookeeperNode;
         }

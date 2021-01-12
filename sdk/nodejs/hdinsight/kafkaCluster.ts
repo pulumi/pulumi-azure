@@ -118,6 +118,10 @@ export class KafkaCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly httpsEndpoint!: pulumi.Output<string>;
     /**
+     * The Kafka Rest Proxy Endpoint for this HDInsight Kafka Cluster.
+     */
+    public /*out*/ readonly kafkaRestProxyEndpoint!: pulumi.Output<string>;
+    /**
      * Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -137,6 +141,10 @@ export class KafkaCluster extends pulumi.CustomResource {
      * Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * A `restProxy` block as defined below.
+     */
+    public readonly restProxy!: pulumi.Output<outputs.hdinsight.KafkaClusterRestProxy | undefined>;
     /**
      * A `roles` block as defined below.
      */
@@ -179,11 +187,13 @@ export class KafkaCluster extends pulumi.CustomResource {
             inputs["componentVersion"] = state ? state.componentVersion : undefined;
             inputs["gateway"] = state ? state.gateway : undefined;
             inputs["httpsEndpoint"] = state ? state.httpsEndpoint : undefined;
+            inputs["kafkaRestProxyEndpoint"] = state ? state.kafkaRestProxyEndpoint : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["metastores"] = state ? state.metastores : undefined;
             inputs["monitor"] = state ? state.monitor : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["restProxy"] = state ? state.restProxy : undefined;
             inputs["roles"] = state ? state.roles : undefined;
             inputs["sshEndpoint"] = state ? state.sshEndpoint : undefined;
             inputs["storageAccountGen2"] = state ? state.storageAccountGen2 : undefined;
@@ -219,6 +229,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             inputs["monitor"] = args ? args.monitor : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["restProxy"] = args ? args.restProxy : undefined;
             inputs["roles"] = args ? args.roles : undefined;
             inputs["storageAccountGen2"] = args ? args.storageAccountGen2 : undefined;
             inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
@@ -226,6 +237,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             inputs["tier"] = args ? args.tier : undefined;
             inputs["tlsMinVersion"] = args ? args.tlsMinVersion : undefined;
             inputs["httpsEndpoint"] = undefined /*out*/;
+            inputs["kafkaRestProxyEndpoint"] = undefined /*out*/;
             inputs["sshEndpoint"] = undefined /*out*/;
         }
         if (!opts) {
@@ -260,6 +272,10 @@ export interface KafkaClusterState {
      */
     readonly httpsEndpoint?: pulumi.Input<string>;
     /**
+     * The Kafka Rest Proxy Endpoint for this HDInsight Kafka Cluster.
+     */
+    readonly kafkaRestProxyEndpoint?: pulumi.Input<string>;
+    /**
      * Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
@@ -279,6 +295,10 @@ export interface KafkaClusterState {
      * Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A `restProxy` block as defined below.
+     */
+    readonly restProxy?: pulumi.Input<inputs.hdinsight.KafkaClusterRestProxy>;
     /**
      * A `roles` block as defined below.
      */
@@ -342,6 +362,10 @@ export interface KafkaClusterArgs {
      * Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * A `restProxy` block as defined below.
+     */
+    readonly restProxy?: pulumi.Input<inputs.hdinsight.KafkaClusterRestProxy>;
     /**
      * A `roles` block as defined below.
      */

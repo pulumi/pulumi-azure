@@ -64,14 +64,22 @@ import (
 type SpringCloudApp struct {
 	pulumi.CustomResourceState
 
+	// Is only https allowed? Defaults to `false`.
+	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity SpringCloudAppIdentityPtrOutput `pulumi:"identity"`
+	// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
+	IsPublic pulumi.BoolPtrOutput `pulumi:"isPublic"`
 	// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// An `persistentDisk` block as defined below.
+	PersistentDisk SpringCloudAppPersistentDiskOutput `pulumi:"persistentDisk"`
 	// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
+	// The public endpoint of the Spring Cloud Application.
+	Url pulumi.StringOutput `pulumi:"url"`
 }
 
 // NewSpringCloudApp registers a new resource with the given unique name, arguments, and options.
@@ -109,25 +117,41 @@ func GetSpringCloudApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpringCloudApp resources.
 type springCloudAppState struct {
+	// Is only https allowed? Defaults to `false`.
+	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *SpringCloudAppIdentity `pulumi:"identity"`
+	// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
+	IsPublic *bool `pulumi:"isPublic"`
 	// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// An `persistentDisk` block as defined below.
+	PersistentDisk *SpringCloudAppPersistentDisk `pulumi:"persistentDisk"`
 	// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	ServiceName *string `pulumi:"serviceName"`
+	// The public endpoint of the Spring Cloud Application.
+	Url *string `pulumi:"url"`
 }
 
 type SpringCloudAppState struct {
+	// Is only https allowed? Defaults to `false`.
+	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity SpringCloudAppIdentityPtrInput
+	// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
+	IsPublic pulumi.BoolPtrInput
 	// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// An `persistentDisk` block as defined below.
+	PersistentDisk SpringCloudAppPersistentDiskPtrInput
 	// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	ServiceName pulumi.StringPtrInput
+	// The public endpoint of the Spring Cloud Application.
+	Url pulumi.StringPtrInput
 }
 
 func (SpringCloudAppState) ElementType() reflect.Type {
@@ -135,10 +159,16 @@ func (SpringCloudAppState) ElementType() reflect.Type {
 }
 
 type springCloudAppArgs struct {
+	// Is only https allowed? Defaults to `false`.
+	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *SpringCloudAppIdentity `pulumi:"identity"`
+	// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
+	IsPublic *bool `pulumi:"isPublic"`
 	// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// An `persistentDisk` block as defined below.
+	PersistentDisk *SpringCloudAppPersistentDisk `pulumi:"persistentDisk"`
 	// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
@@ -147,10 +177,16 @@ type springCloudAppArgs struct {
 
 // The set of arguments for constructing a SpringCloudApp resource.
 type SpringCloudAppArgs struct {
+	// Is only https allowed? Defaults to `false`.
+	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity SpringCloudAppIdentityPtrInput
+	// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
+	IsPublic pulumi.BoolPtrInput
 	// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// An `persistentDisk` block as defined below.
+	PersistentDisk SpringCloudAppPersistentDiskPtrInput
 	// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.

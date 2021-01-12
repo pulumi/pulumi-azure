@@ -1079,6 +1079,139 @@ func (o StreamingEndpointCrossSiteAccessPolicyPtrOutput) CrossDomainPolicy() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+type StreamingLocatorContentKey struct {
+	// ID of Content Key. Changing this forces a new Streaming Locator to be created.
+	ContentKeyId *string `pulumi:"contentKeyId"`
+	// Label of Content Key as specified in the Streaming Policy. Changing this forces a new Streaming Locator to be created.
+	LabelReferenceInStreamingPolicy *string `pulumi:"labelReferenceInStreamingPolicy"`
+	// Content Key Policy used by Content Key. Changing this forces a new Streaming Locator to be created.
+	PolicyName *string `pulumi:"policyName"`
+	// Encryption type of Content Key. Supported values are `CommonEncryptionCbcs`, `CommonEncryptionCenc` or `EnvelopeEncryption`. Changing this forces a new Streaming Locator to be created.
+	Type *string `pulumi:"type"`
+	// Value of Content Key. Changing this forces a new Streaming Locator to be created.
+	Value *string `pulumi:"value"`
+}
+
+// StreamingLocatorContentKeyInput is an input type that accepts StreamingLocatorContentKeyArgs and StreamingLocatorContentKeyOutput values.
+// You can construct a concrete instance of `StreamingLocatorContentKeyInput` via:
+//
+//          StreamingLocatorContentKeyArgs{...}
+type StreamingLocatorContentKeyInput interface {
+	pulumi.Input
+
+	ToStreamingLocatorContentKeyOutput() StreamingLocatorContentKeyOutput
+	ToStreamingLocatorContentKeyOutputWithContext(context.Context) StreamingLocatorContentKeyOutput
+}
+
+type StreamingLocatorContentKeyArgs struct {
+	// ID of Content Key. Changing this forces a new Streaming Locator to be created.
+	ContentKeyId pulumi.StringPtrInput `pulumi:"contentKeyId"`
+	// Label of Content Key as specified in the Streaming Policy. Changing this forces a new Streaming Locator to be created.
+	LabelReferenceInStreamingPolicy pulumi.StringPtrInput `pulumi:"labelReferenceInStreamingPolicy"`
+	// Content Key Policy used by Content Key. Changing this forces a new Streaming Locator to be created.
+	PolicyName pulumi.StringPtrInput `pulumi:"policyName"`
+	// Encryption type of Content Key. Supported values are `CommonEncryptionCbcs`, `CommonEncryptionCenc` or `EnvelopeEncryption`. Changing this forces a new Streaming Locator to be created.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Value of Content Key. Changing this forces a new Streaming Locator to be created.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (StreamingLocatorContentKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingLocatorContentKey)(nil)).Elem()
+}
+
+func (i StreamingLocatorContentKeyArgs) ToStreamingLocatorContentKeyOutput() StreamingLocatorContentKeyOutput {
+	return i.ToStreamingLocatorContentKeyOutputWithContext(context.Background())
+}
+
+func (i StreamingLocatorContentKeyArgs) ToStreamingLocatorContentKeyOutputWithContext(ctx context.Context) StreamingLocatorContentKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorContentKeyOutput)
+}
+
+// StreamingLocatorContentKeyArrayInput is an input type that accepts StreamingLocatorContentKeyArray and StreamingLocatorContentKeyArrayOutput values.
+// You can construct a concrete instance of `StreamingLocatorContentKeyArrayInput` via:
+//
+//          StreamingLocatorContentKeyArray{ StreamingLocatorContentKeyArgs{...} }
+type StreamingLocatorContentKeyArrayInput interface {
+	pulumi.Input
+
+	ToStreamingLocatorContentKeyArrayOutput() StreamingLocatorContentKeyArrayOutput
+	ToStreamingLocatorContentKeyArrayOutputWithContext(context.Context) StreamingLocatorContentKeyArrayOutput
+}
+
+type StreamingLocatorContentKeyArray []StreamingLocatorContentKeyInput
+
+func (StreamingLocatorContentKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingLocatorContentKey)(nil)).Elem()
+}
+
+func (i StreamingLocatorContentKeyArray) ToStreamingLocatorContentKeyArrayOutput() StreamingLocatorContentKeyArrayOutput {
+	return i.ToStreamingLocatorContentKeyArrayOutputWithContext(context.Background())
+}
+
+func (i StreamingLocatorContentKeyArray) ToStreamingLocatorContentKeyArrayOutputWithContext(ctx context.Context) StreamingLocatorContentKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorContentKeyArrayOutput)
+}
+
+type StreamingLocatorContentKeyOutput struct{ *pulumi.OutputState }
+
+func (StreamingLocatorContentKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingLocatorContentKey)(nil)).Elem()
+}
+
+func (o StreamingLocatorContentKeyOutput) ToStreamingLocatorContentKeyOutput() StreamingLocatorContentKeyOutput {
+	return o
+}
+
+func (o StreamingLocatorContentKeyOutput) ToStreamingLocatorContentKeyOutputWithContext(ctx context.Context) StreamingLocatorContentKeyOutput {
+	return o
+}
+
+// ID of Content Key. Changing this forces a new Streaming Locator to be created.
+func (o StreamingLocatorContentKeyOutput) ContentKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingLocatorContentKey) *string { return v.ContentKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Label of Content Key as specified in the Streaming Policy. Changing this forces a new Streaming Locator to be created.
+func (o StreamingLocatorContentKeyOutput) LabelReferenceInStreamingPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingLocatorContentKey) *string { return v.LabelReferenceInStreamingPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Content Key Policy used by Content Key. Changing this forces a new Streaming Locator to be created.
+func (o StreamingLocatorContentKeyOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingLocatorContentKey) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
+}
+
+// Encryption type of Content Key. Supported values are `CommonEncryptionCbcs`, `CommonEncryptionCenc` or `EnvelopeEncryption`. Changing this forces a new Streaming Locator to be created.
+func (o StreamingLocatorContentKeyOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingLocatorContentKey) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Value of Content Key. Changing this forces a new Streaming Locator to be created.
+func (o StreamingLocatorContentKeyOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingLocatorContentKey) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type StreamingLocatorContentKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamingLocatorContentKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingLocatorContentKey)(nil)).Elem()
+}
+
+func (o StreamingLocatorContentKeyArrayOutput) ToStreamingLocatorContentKeyArrayOutput() StreamingLocatorContentKeyArrayOutput {
+	return o
+}
+
+func (o StreamingLocatorContentKeyArrayOutput) ToStreamingLocatorContentKeyArrayOutputWithContext(ctx context.Context) StreamingLocatorContentKeyArrayOutput {
+	return o
+}
+
+func (o StreamingLocatorContentKeyArrayOutput) Index(i pulumi.IntInput) StreamingLocatorContentKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamingLocatorContentKey {
+		return vs[0].([]StreamingLocatorContentKey)[vs[1].(int)]
+	}).(StreamingLocatorContentKeyOutput)
+}
+
 type TransformOutput struct {
 	// A `audioAnalyzerPreset` block as defined below.
 	AudioAnalyzerPreset *TransformOutputAudioAnalyzerPreset `pulumi:"audioAnalyzerPreset"`
@@ -1819,6 +1952,8 @@ func init() {
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlIpAllowArrayOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointCrossSiteAccessPolicyOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointCrossSiteAccessPolicyPtrOutput{})
+	pulumi.RegisterOutputType(StreamingLocatorContentKeyOutput{})
+	pulumi.RegisterOutputType(StreamingLocatorContentKeyArrayOutput{})
 	pulumi.RegisterOutputType(TransformOutputOutput{})
 	pulumi.RegisterOutputType(TransformOutputArrayOutput{})
 	pulumi.RegisterOutputType(TransformOutputAudioAnalyzerPresetOutput{})

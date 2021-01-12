@@ -12,11 +12,11 @@ namespace Pulumi.Azure.Cdn.Inputs
 
     public sealed class EndpointDeliveryRuleRequestUriConditionGetArgs : Pulumi.ResourceArgs
     {
-        [Input("matchValues", required: true)]
+        [Input("matchValues")]
         private InputList<string>? _matchValues;
 
         /// <summary>
-        /// List of string values.
+        /// List of string values. This is required if `operator` is not `Any`.
         /// </summary>
         public InputList<string> MatchValues
         {

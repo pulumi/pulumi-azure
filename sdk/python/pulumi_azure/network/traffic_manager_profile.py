@@ -25,6 +25,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  traffic_routing_method: Optional[pulumi.Input[str]] = None,
+                 traffic_view_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -82,6 +83,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Traffic Manager profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] traffic_routing_method: Specifies the algorithm used to route traffic, possible values are:
+        :param pulumi.Input[bool] traffic_view_enabled: Indicates whether Traffic View is enabled for the Traffic Manager profile.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -116,6 +118,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
             if traffic_routing_method is None and not opts.urn:
                 raise TypeError("Missing required property 'traffic_routing_method'")
             __props__['traffic_routing_method'] = traffic_routing_method
+            __props__['traffic_view_enabled'] = traffic_view_enabled
             __props__['fqdn'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:trafficmanager/profile:Profile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -137,7 +140,8 @@ class TrafficManagerProfile(pulumi.CustomResource):
             profile_status: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            traffic_routing_method: Optional[pulumi.Input[str]] = None) -> 'TrafficManagerProfile':
+            traffic_routing_method: Optional[pulumi.Input[str]] = None,
+            traffic_view_enabled: Optional[pulumi.Input[bool]] = None) -> 'TrafficManagerProfile':
         """
         Get an existing TrafficManagerProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -154,6 +158,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Traffic Manager profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] traffic_routing_method: Specifies the algorithm used to route traffic, possible values are:
+        :param pulumi.Input[bool] traffic_view_enabled: Indicates whether Traffic View is enabled for the Traffic Manager profile.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -168,6 +173,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["tags"] = tags
         __props__["traffic_routing_method"] = traffic_routing_method
+        __props__["traffic_view_enabled"] = traffic_view_enabled
         return TrafficManagerProfile(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -241,6 +247,14 @@ class TrafficManagerProfile(pulumi.CustomResource):
         Specifies the algorithm used to route traffic, possible values are:
         """
         return pulumi.get(self, "traffic_routing_method")
+
+    @property
+    @pulumi.getter(name="trafficViewEnabled")
+    def traffic_view_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether Traffic View is enabled for the Traffic Manager profile.
+        """
+        return pulumi.get(self, "traffic_view_enabled")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

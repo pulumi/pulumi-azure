@@ -127,6 +127,12 @@ namespace Pulumi.Azure.Network
         [Output("trafficRoutingMethod")]
         public Output<string> TrafficRoutingMethod { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether Traffic View is enabled for the Traffic Manager profile.
+        /// </summary>
+        [Output("trafficViewEnabled")]
+        public Output<bool?> TrafficViewEnabled { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a TrafficManagerProfile resource with the given unique name, arguments, and options.
@@ -231,6 +237,12 @@ namespace Pulumi.Azure.Network
         [Input("trafficRoutingMethod", required: true)]
         public Input<string> TrafficRoutingMethod { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether Traffic View is enabled for the Traffic Manager profile.
+        /// </summary>
+        [Input("trafficViewEnabled")]
+        public Input<bool>? TrafficViewEnabled { get; set; }
+
         public TrafficManagerProfileArgs()
         {
         }
@@ -297,6 +309,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("trafficRoutingMethod")]
         public Input<string>? TrafficRoutingMethod { get; set; }
+
+        /// <summary>
+        /// Indicates whether Traffic View is enabled for the Traffic Manager profile.
+        /// </summary>
+        [Input("trafficViewEnabled")]
+        public Input<bool>? TrafficViewEnabled { get; set; }
 
         public TrafficManagerProfileState()
         {

@@ -28,6 +28,7 @@ export * from "./linkedServiceMysql";
 export * from "./linkedServicePostgresql";
 export * from "./linkedServiceSftp";
 export * from "./linkedServiceSqlServer";
+export * from "./linkedServiceSynapse";
 export * from "./linkedServiceWeb";
 export * from "./pipeline";
 export * from "./triggerSchedule";
@@ -55,6 +56,7 @@ import { LinkedServiceMysql } from "./linkedServiceMysql";
 import { LinkedServicePostgresql } from "./linkedServicePostgresql";
 import { LinkedServiceSftp } from "./linkedServiceSftp";
 import { LinkedServiceSqlServer } from "./linkedServiceSqlServer";
+import { LinkedServiceSynapse } from "./linkedServiceSynapse";
 import { LinkedServiceWeb } from "./linkedServiceWeb";
 import { Pipeline } from "./pipeline";
 import { TriggerSchedule } from "./triggerSchedule";
@@ -107,6 +109,8 @@ const _module = {
                 return new LinkedServiceSftp(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer":
                 return new LinkedServiceSqlServer(name, <any>undefined, { urn })
+            case "azure:datafactory/linkedServiceSynapse:LinkedServiceSynapse":
+                return new LinkedServiceSynapse(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceWeb:LinkedServiceWeb":
                 return new LinkedServiceWeb(name, <any>undefined, { urn })
             case "azure:datafactory/pipeline:Pipeline":
@@ -140,6 +144,7 @@ pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceMysql",
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServicePostgresql", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceSftp", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceSqlServer", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceSynapse", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceWeb", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/pipeline", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/triggerSchedule", _module)

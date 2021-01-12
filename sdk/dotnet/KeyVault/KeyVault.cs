@@ -10,84 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault
 {
     /// <summary>
-    /// Manages a Key Vault.
-    /// 
-    /// ## Disclaimers
-    /// 
-    /// &gt; **Note:** It's possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `access_policy` block and by using the `azure.keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
-    /// 
-    /// &gt; **Note:** This provi will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` configuration within the Provider configuration block.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West US",
-    ///         });
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             EnabledForDiskEncryption = true,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SoftDeleteEnabled = true,
-    ///             SoftDeleteRetentionDays = 7,
-    ///             PurgeProtectionEnabled = false,
-    ///             SkuName = "standard",
-    ///             AccessPolicies = 
-    ///             {
-    ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
-    ///                 {
-    ///                     TenantId = current.Apply(current =&gt; current.TenantId),
-    ///                     ObjectId = current.Apply(current =&gt; current.ObjectId),
-    ///                     KeyPermissions = 
-    ///                     {
-    ///                         "get",
-    ///                         "ManageContacts",
-    ///                     },
-    ///                     SecretPermissions = 
-    ///                     {
-    ///                         "get",
-    ///                     },
-    ///                     StoragePermissions = 
-    ///                     {
-    ///                         "get",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             NetworkAcls = new Azure.KeyVault.Inputs.KeyVaultNetworkAclsArgs
-    ///             {
-    ///                 DefaultAction = "Deny",
-    ///                 Bypass = "AzureServices",
-    ///             },
-    ///             Contacts = 
-    ///             {
-    ///                 new Azure.KeyVault.Inputs.KeyVaultContactArgs
-    ///                 {
-    ///                     Email = "example@example.com",
-    ///                     Name = "example",
-    ///                     Phone = "0123456789",
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Testing" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Key Vault's can be imported using the `resource id`, e.g.
@@ -170,14 +92,11 @@ namespace Pulumi.Azure.KeyVault
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
 
-        /// <summary>
-        /// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
-        /// </summary>
         [Output("softDeleteEnabled")]
-        public Output<bool?> SoftDeleteEnabled { get; private set; } = null!;
+        public Output<bool> SoftDeleteEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days that items should be retained for once soft-deleted.
+        /// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
         /// </summary>
         [Output("softDeleteRetentionDays")]
         public Output<int?> SoftDeleteRetentionDays { get; private set; } = null!;
@@ -330,14 +249,11 @@ namespace Pulumi.Azure.KeyVault
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
 
-        /// <summary>
-        /// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
-        /// </summary>
         [Input("softDeleteEnabled")]
         public Input<bool>? SoftDeleteEnabled { get; set; }
 
         /// <summary>
-        /// The number of days that items should be retained for once soft-deleted.
+        /// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
         /// </summary>
         [Input("softDeleteRetentionDays")]
         public Input<int>? SoftDeleteRetentionDays { get; set; }
@@ -451,14 +367,11 @@ namespace Pulumi.Azure.KeyVault
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
 
-        /// <summary>
-        /// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
-        /// </summary>
         [Input("softDeleteEnabled")]
         public Input<bool>? SoftDeleteEnabled { get; set; }
 
         /// <summary>
-        /// The number of days that items should be retained for once soft-deleted.
+        /// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
         /// </summary>
         [Input("softDeleteRetentionDays")]
         public Input<int>? SoftDeleteRetentionDays { get; set; }

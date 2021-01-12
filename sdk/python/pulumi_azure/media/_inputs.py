@@ -17,6 +17,7 @@ __all__ = [
     'StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs',
     'StreamingEndpointAccessControlIpAllowArgs',
     'StreamingEndpointCrossSiteAccessPolicyArgs',
+    'StreamingLocatorContentKeyArgs',
     'TransformOutputArgs',
     'TransformOutputAudioAnalyzerPresetArgs',
     'TransformOutputBuiltinPresetArgs',
@@ -379,6 +380,93 @@ class StreamingEndpointCrossSiteAccessPolicyArgs:
     @cross_domain_policy.setter
     def cross_domain_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cross_domain_policy", value)
+
+
+@pulumi.input_type
+class StreamingLocatorContentKeyArgs:
+    def __init__(__self__, *,
+                 content_key_id: Optional[pulumi.Input[str]] = None,
+                 label_reference_in_streaming_policy: Optional[pulumi.Input[str]] = None,
+                 policy_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] content_key_id: ID of Content Key. Changing this forces a new Streaming Locator to be created.
+        :param pulumi.Input[str] label_reference_in_streaming_policy: Label of Content Key as specified in the Streaming Policy. Changing this forces a new Streaming Locator to be created.
+        :param pulumi.Input[str] policy_name: Content Key Policy used by Content Key. Changing this forces a new Streaming Locator to be created.
+        :param pulumi.Input[str] type: Encryption type of Content Key. Supported values are `CommonEncryptionCbcs`, `CommonEncryptionCenc` or `EnvelopeEncryption`. Changing this forces a new Streaming Locator to be created.
+        :param pulumi.Input[str] value: Value of Content Key. Changing this forces a new Streaming Locator to be created.
+        """
+        if content_key_id is not None:
+            pulumi.set(__self__, "content_key_id", content_key_id)
+        if label_reference_in_streaming_policy is not None:
+            pulumi.set(__self__, "label_reference_in_streaming_policy", label_reference_in_streaming_policy)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="contentKeyId")
+    def content_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of Content Key. Changing this forces a new Streaming Locator to be created.
+        """
+        return pulumi.get(self, "content_key_id")
+
+    @content_key_id.setter
+    def content_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_key_id", value)
+
+    @property
+    @pulumi.getter(name="labelReferenceInStreamingPolicy")
+    def label_reference_in_streaming_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Label of Content Key as specified in the Streaming Policy. Changing this forces a new Streaming Locator to be created.
+        """
+        return pulumi.get(self, "label_reference_in_streaming_policy")
+
+    @label_reference_in_streaming_policy.setter
+    def label_reference_in_streaming_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label_reference_in_streaming_policy", value)
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Content Key Policy used by Content Key. Changing this forces a new Streaming Locator to be created.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Encryption type of Content Key. Supported values are `CommonEncryptionCbcs`, `CommonEncryptionCenc` or `EnvelopeEncryption`. Changing this forces a new Streaming Locator to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value of Content Key. Changing this forces a new Streaming Locator to be created.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

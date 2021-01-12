@@ -20,7 +20,7 @@ class GetTrafficManagerProfileResult:
     """
     A collection of values returned by getTrafficManagerProfile.
     """
-    def __init__(__self__, dns_configs=None, fqdn=None, id=None, monitor_configs=None, name=None, profile_status=None, resource_group_name=None, tags=None, traffic_routing_method=None):
+    def __init__(__self__, dns_configs=None, fqdn=None, id=None, monitor_configs=None, name=None, profile_status=None, resource_group_name=None, tags=None, traffic_routing_method=None, traffic_view_enabled=None):
         if dns_configs and not isinstance(dns_configs, list):
             raise TypeError("Expected argument 'dns_configs' to be a list")
         pulumi.set(__self__, "dns_configs", dns_configs)
@@ -48,6 +48,9 @@ class GetTrafficManagerProfileResult:
         if traffic_routing_method and not isinstance(traffic_routing_method, str):
             raise TypeError("Expected argument 'traffic_routing_method' to be a str")
         pulumi.set(__self__, "traffic_routing_method", traffic_routing_method)
+        if traffic_view_enabled and not isinstance(traffic_view_enabled, bool):
+            raise TypeError("Expected argument 'traffic_view_enabled' to be a bool")
+        pulumi.set(__self__, "traffic_view_enabled", traffic_view_enabled)
 
     @property
     @pulumi.getter(name="dnsConfigs")
@@ -118,6 +121,14 @@ class GetTrafficManagerProfileResult:
         """
         return pulumi.get(self, "traffic_routing_method")
 
+    @property
+    @pulumi.getter(name="trafficViewEnabled")
+    def traffic_view_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether Traffic View is enabled for the Traffic Manager profile.
+        """
+        return pulumi.get(self, "traffic_view_enabled")
+
 
 class AwaitableGetTrafficManagerProfileResult(GetTrafficManagerProfileResult):
     # pylint: disable=using-constant-test
@@ -133,12 +144,14 @@ class AwaitableGetTrafficManagerProfileResult(GetTrafficManagerProfileResult):
             profile_status=self.profile_status,
             resource_group_name=self.resource_group_name,
             tags=self.tags,
-            traffic_routing_method=self.traffic_routing_method)
+            traffic_routing_method=self.traffic_routing_method,
+            traffic_view_enabled=self.traffic_view_enabled)
 
 
 def get_traffic_manager_profile(name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 tags: Optional[Mapping[str, str]] = None,
+                                traffic_view_enabled: Optional[bool] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrafficManagerProfileResult:
     """
     Use this data source to access information about an existing Traffic Manager Profile.
@@ -157,11 +170,13 @@ def get_traffic_manager_profile(name: Optional[str] = None,
 
     :param str name: Specifies the name of the Traffic Manager Profile.
     :param Mapping[str, str] tags: A mapping of tags to assign to the resource.
+    :param bool traffic_view_enabled: Indicates whether Traffic View is enabled for the Traffic Manager profile.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['tags'] = tags
+    __args__['trafficViewEnabled'] = traffic_view_enabled
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -177,4 +192,5 @@ def get_traffic_manager_profile(name: Optional[str] = None,
         profile_status=__ret__.profile_status,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags,
-        traffic_routing_method=__ret__.traffic_routing_method)
+        traffic_routing_method=__ret__.traffic_routing_method,
+        traffic_view_enabled=__ret__.traffic_view_enabled)

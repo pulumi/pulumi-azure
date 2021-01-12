@@ -11,85 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages a Key Vault.
-//
-// ## Disclaimers
-//
-// > **Note:** It's possible to define Key Vault Access Policies both within the `keyvault.KeyVault` resource via the `accessPolicy` block and by using the `keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
-//
-// > **Note:** This provi will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` configuration within the Provider configuration block.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West US"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:                 exampleResourceGroup.Location,
-// 			ResourceGroupName:        exampleResourceGroup.Name,
-// 			EnabledForDiskEncryption: pulumi.Bool(true),
-// 			TenantId:                 pulumi.String(current.TenantId),
-// 			SoftDeleteEnabled:        pulumi.Bool(true),
-// 			SoftDeleteRetentionDays:  pulumi.Int(7),
-// 			PurgeProtectionEnabled:   pulumi.Bool(false),
-// 			SkuName:                  pulumi.String("standard"),
-// 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
-// 				&keyvault.KeyVaultAccessPolicyArgs{
-// 					TenantId: pulumi.String(current.TenantId),
-// 					ObjectId: pulumi.String(current.ObjectId),
-// 					KeyPermissions: pulumi.StringArray{
-// 						pulumi.String("get"),
-// 						pulumi.String("ManageContacts"),
-// 					},
-// 					SecretPermissions: pulumi.StringArray{
-// 						pulumi.String("get"),
-// 					},
-// 					StoragePermissions: pulumi.StringArray{
-// 						pulumi.String("get"),
-// 					},
-// 				},
-// 			},
-// 			NetworkAcls: &keyvault.KeyVaultNetworkAclsArgs{
-// 				DefaultAction: pulumi.String("Deny"),
-// 				Bypass:        pulumi.String("AzureServices"),
-// 			},
-// 			Contacts: keyvault.KeyVaultContactArray{
-// 				&keyvault.KeyVaultContactArgs{
-// 					Email: pulumi.String("example@example.com"),
-// 					Name:  pulumi.String("example"),
-// 					Phone: pulumi.String("0123456789"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Testing"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // Key Vault's can be imported using the `resource id`, e.g.
@@ -124,9 +45,9 @@ type KeyVault struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
-	// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
-	SoftDeleteEnabled pulumi.BoolPtrOutput `pulumi:"softDeleteEnabled"`
-	// The number of days that items should be retained for once soft-deleted.
+	// Deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.
+	SoftDeleteEnabled pulumi.BoolOutput `pulumi:"softDeleteEnabled"`
+	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 	SoftDeleteRetentionDays pulumi.IntPtrOutput `pulumi:"softDeleteRetentionDays"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -198,9 +119,9 @@ type keyVaultState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
 	SkuName *string `pulumi:"skuName"`
-	// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
+	// Deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.
 	SoftDeleteEnabled *bool `pulumi:"softDeleteEnabled"`
-	// The number of days that items should be retained for once soft-deleted.
+	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 	SoftDeleteRetentionDays *int `pulumi:"softDeleteRetentionDays"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -235,9 +156,9 @@ type KeyVaultState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
 	SkuName pulumi.StringPtrInput
-	// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
+	// Deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.
 	SoftDeleteEnabled pulumi.BoolPtrInput
-	// The number of days that items should be retained for once soft-deleted.
+	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 	SoftDeleteRetentionDays pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -276,9 +197,9 @@ type keyVaultArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
 	SkuName string `pulumi:"skuName"`
-	// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
+	// Deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.
 	SoftDeleteEnabled *bool `pulumi:"softDeleteEnabled"`
-	// The number of days that items should be retained for once soft-deleted.
+	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 	SoftDeleteRetentionDays *int `pulumi:"softDeleteRetentionDays"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -312,9 +233,9 @@ type KeyVaultArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
 	SkuName pulumi.StringInput
-	// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
+	// Deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.
 	SoftDeleteEnabled pulumi.BoolPtrInput
-	// The number of days that items should be retained for once soft-deleted.
+	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 	SoftDeleteRetentionDays pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

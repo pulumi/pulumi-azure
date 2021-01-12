@@ -8,11 +8,13 @@ from .bastion_host import *
 from .data_disk_attachment import *
 from .dedicated_host import *
 from .dedicated_host_group import *
+from .disk_access import *
 from .disk_encryption_set import *
 from .extension import *
 from .get_availability_set import *
 from .get_dedicated_host import *
 from .get_dedicated_host_group import *
+from .get_disk_access import *
 from .get_disk_encryption_set import *
 from .get_image import *
 from .get_images import *
@@ -23,6 +25,7 @@ from .get_shared_image_gallery import *
 from .get_shared_image_version import *
 from .get_shared_image_versions import *
 from .get_snapshot import *
+from .get_ssh_public_key import *
 from .get_virtual_machine import *
 from .get_virtual_machine_scale_set import *
 from .image import *
@@ -35,6 +38,7 @@ from .shared_image import *
 from .shared_image_gallery import *
 from .shared_image_version import *
 from .snapshot import *
+from .ssh_public_key import *
 from .virtual_machine import *
 from .virtual_machine_scale_set_extension import *
 from .windows_virtual_machine import *
@@ -64,6 +68,8 @@ def _register_module():
                 return DedicatedHost(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:compute/dedicatedHostGroup:DedicatedHostGroup":
                 return DedicatedHostGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/diskAccess:DiskAccess":
+                return DiskAccess(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:compute/diskEncryptionSet:DiskEncryptionSet":
                 return DiskEncryptionSet(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:compute/extension:Extension":
@@ -88,6 +94,8 @@ def _register_module():
                 return SharedImageVersion(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:compute/snapshot:Snapshot":
                 return Snapshot(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/sshPublicKey:SshPublicKey":
+                return SshPublicKey(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:compute/virtualMachine:VirtualMachine":
                 return VirtualMachine(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension":
@@ -106,6 +114,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "compute/dataDiskAttachment", _module_instance)
     pulumi.runtime.register_resource_module("azure", "compute/dedicatedHost", _module_instance)
     pulumi.runtime.register_resource_module("azure", "compute/dedicatedHostGroup", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/diskAccess", _module_instance)
     pulumi.runtime.register_resource_module("azure", "compute/diskEncryptionSet", _module_instance)
     pulumi.runtime.register_resource_module("azure", "compute/extension", _module_instance)
     pulumi.runtime.register_resource_module("azure", "compute/image", _module_instance)
@@ -118,6 +127,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "compute/sharedImageGallery", _module_instance)
     pulumi.runtime.register_resource_module("azure", "compute/sharedImageVersion", _module_instance)
     pulumi.runtime.register_resource_module("azure", "compute/snapshot", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/sshPublicKey", _module_instance)
     pulumi.runtime.register_resource_module("azure", "compute/virtualMachine", _module_instance)
     pulumi.runtime.register_resource_module("azure", "compute/virtualMachineScaleSetExtension", _module_instance)
     pulumi.runtime.register_resource_module("azure", "compute/windowsVirtualMachine", _module_instance)
