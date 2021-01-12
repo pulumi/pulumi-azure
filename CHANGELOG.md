@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.42.0 of the AzureRM Terraform Provider
+_(none)_
 
 ---
+
+## 3.42.0 (2021-01-12)
+* Upgrade to v2.42.0 of the AzureRM Terraform Provider
 
 ## 3.41.1 (2021-01-07)
 * Allow capturing secrets in CallbackFunctions
