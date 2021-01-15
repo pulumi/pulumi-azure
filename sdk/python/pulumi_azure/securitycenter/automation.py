@@ -45,13 +45,25 @@ class Automation(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="Standard",
             capacity=2)
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            partition_count=2,
+            message_retention=2)
+        example_authorization_rule = azure.eventhub.AuthorizationRule("exampleAuthorizationRule",
+            namespace_name=example_event_hub_namespace.name,
+            eventhub_name=example_event_hub.name,
+            resource_group_name=example_resource_group.name,
+            listen=True,
+            send=False,
+            manage=False)
         example_automation = azure.securitycenter.Automation("exampleAutomation",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             actions=[azure.securitycenter.AutomationActionArgs(
                 type="EventHub",
-                resource_id=example_event_hub_namespace.id,
-                connection_string=example_event_hub_namespace.default_primary_connection_string,
+                resource_id=example_event_hub.id,
+                connection_string=example_authorization_rule.primary_connection_string,
             )],
             sources=[azure.securitycenter.AutomationSourceArgs(
                 event_source="Alerts",

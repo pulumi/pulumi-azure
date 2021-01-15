@@ -9,6 +9,7 @@ export * from "./alertRuleFusion";
 export * from "./alertRuleMsSecurityIncident";
 export * from "./alertRuleScheduled";
 export * from "./getAlertRule";
+export * from "./getAlertRuleTemplate";
 
 // Import resources to register:
 import { AlertRuleFusion } from "./alertRuleFusion";

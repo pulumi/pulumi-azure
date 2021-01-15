@@ -48,14 +48,34 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
+// 			NamespaceName:     exampleEventHubNamespace.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			PartitionCount:    pulumi.Int(2),
+// 			MessageRetention:  pulumi.Int(2),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAuthorizationRule, err := eventhub.NewAuthorizationRule(ctx, "exampleAuthorizationRule", &eventhub.AuthorizationRuleArgs{
+// 			NamespaceName:     exampleEventHubNamespace.Name,
+// 			EventhubName:      exampleEventHub.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Listen:            pulumi.Bool(true),
+// 			Send:              pulumi.Bool(false),
+// 			Manage:            pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = securitycenter.NewAutomation(ctx, "exampleAutomation", &securitycenter.AutomationArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Actions: securitycenter.AutomationActionArray{
 // 				&securitycenter.AutomationActionArgs{
 // 					Type:             pulumi.String("EventHub"),
-// 					ResourceId:       exampleEventHubNamespace.ID(),
-// 					ConnectionString: exampleEventHubNamespace.DefaultPrimaryConnectionString,
+// 					ResourceId:       exampleEventHub.ID(),
+// 					ConnectionString: exampleAuthorizationRule.PrimaryConnectionString,
 // 				},
 // 			},
 // 			Sources: securitycenter.AutomationSourceArray{

@@ -98,9 +98,6 @@ namespace Pulumi.Azure.CosmosDB
         [Output("accountName")]
         public Output<string> AccountName { get; private set; } = null!;
 
-        /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `partition_key_path` to be set.
-        /// </summary>
         [Output("autoscaleSettings")]
         public Output<Outputs.GremlinGraphAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
 
@@ -115,6 +112,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
+
+        /// <summary>
+        /// The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
+        /// </summary>
+        [Output("defaultTtl")]
+        public Output<int> DefaultTtl { get; private set; } = null!;
 
         /// <summary>
         /// The configuration of the indexing policy. One or more `index_policy` blocks as defined below. Changing this forces a new resource to be created.
@@ -204,9 +207,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
-        /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `partition_key_path` to be set.
-        /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.GremlinGraphAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
 
@@ -227,6 +227,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
+        /// </summary>
+        [Input("defaultTtl")]
+        public Input<int>? DefaultTtl { get; set; }
 
         [Input("indexPolicies", required: true)]
         private InputList<Inputs.GremlinGraphIndexPolicyArgs>? _indexPolicies;
@@ -289,9 +295,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
 
-        /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `partition_key_path` to be set.
-        /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.GremlinGraphAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
 
@@ -312,6 +315,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
+
+        /// <summary>
+        /// The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
+        /// </summary>
+        [Input("defaultTtl")]
+        public Input<int>? DefaultTtl { get; set; }
 
         [Input("indexPolicies")]
         private InputList<Inputs.GremlinGraphIndexPolicyGetArgs>? _indexPolicies;

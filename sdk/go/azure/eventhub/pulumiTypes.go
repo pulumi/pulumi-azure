@@ -10,6 +10,112 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type DomainInboundIpRule struct {
+	// The action to take when the rule is matched. Possible values are `Allow`.
+	Action *string `pulumi:"action"`
+	// The ip mask (CIDR) to match on.
+	IpMask string `pulumi:"ipMask"`
+}
+
+// DomainInboundIpRuleInput is an input type that accepts DomainInboundIpRuleArgs and DomainInboundIpRuleOutput values.
+// You can construct a concrete instance of `DomainInboundIpRuleInput` via:
+//
+//          DomainInboundIpRuleArgs{...}
+type DomainInboundIpRuleInput interface {
+	pulumi.Input
+
+	ToDomainInboundIpRuleOutput() DomainInboundIpRuleOutput
+	ToDomainInboundIpRuleOutputWithContext(context.Context) DomainInboundIpRuleOutput
+}
+
+type DomainInboundIpRuleArgs struct {
+	// The action to take when the rule is matched. Possible values are `Allow`.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The ip mask (CIDR) to match on.
+	IpMask pulumi.StringInput `pulumi:"ipMask"`
+}
+
+func (DomainInboundIpRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainInboundIpRule)(nil)).Elem()
+}
+
+func (i DomainInboundIpRuleArgs) ToDomainInboundIpRuleOutput() DomainInboundIpRuleOutput {
+	return i.ToDomainInboundIpRuleOutputWithContext(context.Background())
+}
+
+func (i DomainInboundIpRuleArgs) ToDomainInboundIpRuleOutputWithContext(ctx context.Context) DomainInboundIpRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainInboundIpRuleOutput)
+}
+
+// DomainInboundIpRuleArrayInput is an input type that accepts DomainInboundIpRuleArray and DomainInboundIpRuleArrayOutput values.
+// You can construct a concrete instance of `DomainInboundIpRuleArrayInput` via:
+//
+//          DomainInboundIpRuleArray{ DomainInboundIpRuleArgs{...} }
+type DomainInboundIpRuleArrayInput interface {
+	pulumi.Input
+
+	ToDomainInboundIpRuleArrayOutput() DomainInboundIpRuleArrayOutput
+	ToDomainInboundIpRuleArrayOutputWithContext(context.Context) DomainInboundIpRuleArrayOutput
+}
+
+type DomainInboundIpRuleArray []DomainInboundIpRuleInput
+
+func (DomainInboundIpRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainInboundIpRule)(nil)).Elem()
+}
+
+func (i DomainInboundIpRuleArray) ToDomainInboundIpRuleArrayOutput() DomainInboundIpRuleArrayOutput {
+	return i.ToDomainInboundIpRuleArrayOutputWithContext(context.Background())
+}
+
+func (i DomainInboundIpRuleArray) ToDomainInboundIpRuleArrayOutputWithContext(ctx context.Context) DomainInboundIpRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainInboundIpRuleArrayOutput)
+}
+
+type DomainInboundIpRuleOutput struct{ *pulumi.OutputState }
+
+func (DomainInboundIpRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainInboundIpRule)(nil)).Elem()
+}
+
+func (o DomainInboundIpRuleOutput) ToDomainInboundIpRuleOutput() DomainInboundIpRuleOutput {
+	return o
+}
+
+func (o DomainInboundIpRuleOutput) ToDomainInboundIpRuleOutputWithContext(ctx context.Context) DomainInboundIpRuleOutput {
+	return o
+}
+
+// The action to take when the rule is matched. Possible values are `Allow`.
+func (o DomainInboundIpRuleOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainInboundIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The ip mask (CIDR) to match on.
+func (o DomainInboundIpRuleOutput) IpMask() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainInboundIpRule) string { return v.IpMask }).(pulumi.StringOutput)
+}
+
+type DomainInboundIpRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainInboundIpRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainInboundIpRule)(nil)).Elem()
+}
+
+func (o DomainInboundIpRuleArrayOutput) ToDomainInboundIpRuleArrayOutput() DomainInboundIpRuleArrayOutput {
+	return o
+}
+
+func (o DomainInboundIpRuleArrayOutput) ToDomainInboundIpRuleArrayOutputWithContext(ctx context.Context) DomainInboundIpRuleArrayOutput {
+	return o
+}
+
+func (o DomainInboundIpRuleArrayOutput) Index(i pulumi.IntInput) DomainInboundIpRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainInboundIpRule {
+		return vs[0].([]DomainInboundIpRule)[vs[1].(int)]
+	}).(DomainInboundIpRuleOutput)
+}
+
 type DomainInputMappingDefaultValues struct {
 	// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 	DataVersion *string `pulumi:"dataVersion"`
@@ -403,6 +509,112 @@ func (o DomainInputMappingFieldsPtrOutput) Topic() pulumi.StringPtrOutput {
 		}
 		return v.Topic
 	}).(pulumi.StringPtrOutput)
+}
+
+type EventGridTopicInboundIpRule struct {
+	// The action to take when the rule is matched. Possible values are `Allow`.
+	Action *string `pulumi:"action"`
+	// The ip mask (CIDR) to match on.
+	IpMask string `pulumi:"ipMask"`
+}
+
+// EventGridTopicInboundIpRuleInput is an input type that accepts EventGridTopicInboundIpRuleArgs and EventGridTopicInboundIpRuleOutput values.
+// You can construct a concrete instance of `EventGridTopicInboundIpRuleInput` via:
+//
+//          EventGridTopicInboundIpRuleArgs{...}
+type EventGridTopicInboundIpRuleInput interface {
+	pulumi.Input
+
+	ToEventGridTopicInboundIpRuleOutput() EventGridTopicInboundIpRuleOutput
+	ToEventGridTopicInboundIpRuleOutputWithContext(context.Context) EventGridTopicInboundIpRuleOutput
+}
+
+type EventGridTopicInboundIpRuleArgs struct {
+	// The action to take when the rule is matched. Possible values are `Allow`.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The ip mask (CIDR) to match on.
+	IpMask pulumi.StringInput `pulumi:"ipMask"`
+}
+
+func (EventGridTopicInboundIpRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventGridTopicInboundIpRule)(nil)).Elem()
+}
+
+func (i EventGridTopicInboundIpRuleArgs) ToEventGridTopicInboundIpRuleOutput() EventGridTopicInboundIpRuleOutput {
+	return i.ToEventGridTopicInboundIpRuleOutputWithContext(context.Background())
+}
+
+func (i EventGridTopicInboundIpRuleArgs) ToEventGridTopicInboundIpRuleOutputWithContext(ctx context.Context) EventGridTopicInboundIpRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicInboundIpRuleOutput)
+}
+
+// EventGridTopicInboundIpRuleArrayInput is an input type that accepts EventGridTopicInboundIpRuleArray and EventGridTopicInboundIpRuleArrayOutput values.
+// You can construct a concrete instance of `EventGridTopicInboundIpRuleArrayInput` via:
+//
+//          EventGridTopicInboundIpRuleArray{ EventGridTopicInboundIpRuleArgs{...} }
+type EventGridTopicInboundIpRuleArrayInput interface {
+	pulumi.Input
+
+	ToEventGridTopicInboundIpRuleArrayOutput() EventGridTopicInboundIpRuleArrayOutput
+	ToEventGridTopicInboundIpRuleArrayOutputWithContext(context.Context) EventGridTopicInboundIpRuleArrayOutput
+}
+
+type EventGridTopicInboundIpRuleArray []EventGridTopicInboundIpRuleInput
+
+func (EventGridTopicInboundIpRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventGridTopicInboundIpRule)(nil)).Elem()
+}
+
+func (i EventGridTopicInboundIpRuleArray) ToEventGridTopicInboundIpRuleArrayOutput() EventGridTopicInboundIpRuleArrayOutput {
+	return i.ToEventGridTopicInboundIpRuleArrayOutputWithContext(context.Background())
+}
+
+func (i EventGridTopicInboundIpRuleArray) ToEventGridTopicInboundIpRuleArrayOutputWithContext(ctx context.Context) EventGridTopicInboundIpRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicInboundIpRuleArrayOutput)
+}
+
+type EventGridTopicInboundIpRuleOutput struct{ *pulumi.OutputState }
+
+func (EventGridTopicInboundIpRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventGridTopicInboundIpRule)(nil)).Elem()
+}
+
+func (o EventGridTopicInboundIpRuleOutput) ToEventGridTopicInboundIpRuleOutput() EventGridTopicInboundIpRuleOutput {
+	return o
+}
+
+func (o EventGridTopicInboundIpRuleOutput) ToEventGridTopicInboundIpRuleOutputWithContext(ctx context.Context) EventGridTopicInboundIpRuleOutput {
+	return o
+}
+
+// The action to take when the rule is matched. Possible values are `Allow`.
+func (o EventGridTopicInboundIpRuleOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventGridTopicInboundIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The ip mask (CIDR) to match on.
+func (o EventGridTopicInboundIpRuleOutput) IpMask() pulumi.StringOutput {
+	return o.ApplyT(func(v EventGridTopicInboundIpRule) string { return v.IpMask }).(pulumi.StringOutput)
+}
+
+type EventGridTopicInboundIpRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (EventGridTopicInboundIpRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventGridTopicInboundIpRule)(nil)).Elem()
+}
+
+func (o EventGridTopicInboundIpRuleArrayOutput) ToEventGridTopicInboundIpRuleArrayOutput() EventGridTopicInboundIpRuleArrayOutput {
+	return o
+}
+
+func (o EventGridTopicInboundIpRuleArrayOutput) ToEventGridTopicInboundIpRuleArrayOutputWithContext(ctx context.Context) EventGridTopicInboundIpRuleArrayOutput {
+	return o
+}
+
+func (o EventGridTopicInboundIpRuleArrayOutput) Index(i pulumi.IntInput) EventGridTopicInboundIpRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventGridTopicInboundIpRule {
+		return vs[0].([]EventGridTopicInboundIpRule)[vs[1].(int)]
+	}).(EventGridTopicInboundIpRuleOutput)
 }
 
 type EventGridTopicInputMappingDefaultValues struct {
@@ -1388,6 +1600,8 @@ type EventHubNamespaceNetworkRulesets struct {
 	DefaultAction string `pulumi:"defaultAction"`
 	// One or more `ipRule` blocks as defined below.
 	IpRules []EventHubNamespaceNetworkRulesetsIpRule `pulumi:"ipRules"`
+	// Whether Trusted Microsoft Services are allowed to bypass firewall.
+	TrustedServiceAccessEnabled *bool `pulumi:"trustedServiceAccessEnabled"`
 	// One or more `virtualNetworkRule` blocks as defined below.
 	VirtualNetworkRules []EventHubNamespaceNetworkRulesetsVirtualNetworkRule `pulumi:"virtualNetworkRules"`
 }
@@ -1408,6 +1622,8 @@ type EventHubNamespaceNetworkRulesetsArgs struct {
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
 	// One or more `ipRule` blocks as defined below.
 	IpRules EventHubNamespaceNetworkRulesetsIpRuleArrayInput `pulumi:"ipRules"`
+	// Whether Trusted Microsoft Services are allowed to bypass firewall.
+	TrustedServiceAccessEnabled pulumi.BoolPtrInput `pulumi:"trustedServiceAccessEnabled"`
 	// One or more `virtualNetworkRule` blocks as defined below.
 	VirtualNetworkRules EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayInput `pulumi:"virtualNetworkRules"`
 }
@@ -1499,6 +1715,11 @@ func (o EventHubNamespaceNetworkRulesetsOutput) IpRules() EventHubNamespaceNetwo
 	return o.ApplyT(func(v EventHubNamespaceNetworkRulesets) []EventHubNamespaceNetworkRulesetsIpRule { return v.IpRules }).(EventHubNamespaceNetworkRulesetsIpRuleArrayOutput)
 }
 
+// Whether Trusted Microsoft Services are allowed to bypass firewall.
+func (o EventHubNamespaceNetworkRulesetsOutput) TrustedServiceAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventHubNamespaceNetworkRulesets) *bool { return v.TrustedServiceAccessEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // One or more `virtualNetworkRule` blocks as defined below.
 func (o EventHubNamespaceNetworkRulesetsOutput) VirtualNetworkRules() EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput {
 	return o.ApplyT(func(v EventHubNamespaceNetworkRulesets) []EventHubNamespaceNetworkRulesetsVirtualNetworkRule {
@@ -1542,6 +1763,16 @@ func (o EventHubNamespaceNetworkRulesetsPtrOutput) IpRules() EventHubNamespaceNe
 		}
 		return v.IpRules
 	}).(EventHubNamespaceNetworkRulesetsIpRuleArrayOutput)
+}
+
+// Whether Trusted Microsoft Services are allowed to bypass firewall.
+func (o EventHubNamespaceNetworkRulesetsPtrOutput) TrustedServiceAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventHubNamespaceNetworkRulesets) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedServiceAccessEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // One or more `virtualNetworkRule` blocks as defined below.
@@ -4964,10 +5195,14 @@ func (o SubscriptionRuleCorrelationFilterPtrOutput) To() pulumi.StringPtrOutput 
 }
 
 func init() {
+	pulumi.RegisterOutputType(DomainInboundIpRuleOutput{})
+	pulumi.RegisterOutputType(DomainInboundIpRuleArrayOutput{})
 	pulumi.RegisterOutputType(DomainInputMappingDefaultValuesOutput{})
 	pulumi.RegisterOutputType(DomainInputMappingDefaultValuesPtrOutput{})
 	pulumi.RegisterOutputType(DomainInputMappingFieldsOutput{})
 	pulumi.RegisterOutputType(DomainInputMappingFieldsPtrOutput{})
+	pulumi.RegisterOutputType(EventGridTopicInboundIpRuleOutput{})
+	pulumi.RegisterOutputType(EventGridTopicInboundIpRuleArrayOutput{})
 	pulumi.RegisterOutputType(EventGridTopicInputMappingDefaultValuesOutput{})
 	pulumi.RegisterOutputType(EventGridTopicInputMappingDefaultValuesPtrOutput{})
 	pulumi.RegisterOutputType(EventGridTopicInputMappingFieldsOutput{})

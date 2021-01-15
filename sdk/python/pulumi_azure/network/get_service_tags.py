@@ -97,7 +97,7 @@ def get_service_tags(location: Optional[str] = None,
     example = azure.network.get_service_tags(location="westcentralus",
         service="AzureKeyVault",
         location_filter="northeurope")
-    pulumi.export("addressPrefixes", data["azurerm_service_tags"]["example"]["address_prefixes"])
+    pulumi.export("addressPrefixes", example.address_prefixes)
     ```
 
 

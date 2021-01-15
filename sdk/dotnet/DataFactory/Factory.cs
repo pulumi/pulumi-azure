@@ -71,6 +71,12 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Is the Data Factory visible to the public network? Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkEnabled")]
+        public Output<bool?> PublicNetworkEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which to create the Data Factory.
         /// </summary>
         [Output("resourceGroupName")]
@@ -159,6 +165,12 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Is the Data Factory visible to the public network? Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkEnabled")]
+        public Input<bool>? PublicNetworkEnabled { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the Data Factory.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -212,6 +224,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Is the Data Factory visible to the public network? Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkEnabled")]
+        public Input<bool>? PublicNetworkEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the Data Factory.

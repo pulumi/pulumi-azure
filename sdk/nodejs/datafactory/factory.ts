@@ -74,6 +74,10 @@ export class Factory extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Is the Data Factory visible to the public network? Defaults to `true`.
+     */
+    public readonly publicNetworkEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the resource group in which to create the Data Factory.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -102,6 +106,7 @@ export class Factory extends pulumi.CustomResource {
             inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["publicNetworkEnabled"] = state ? state.publicNetworkEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["vstsConfiguration"] = state ? state.vstsConfiguration : undefined;
@@ -114,6 +119,7 @@ export class Factory extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["publicNetworkEnabled"] = args ? args.publicNetworkEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vstsConfiguration"] = args ? args.vstsConfiguration : undefined;
@@ -150,6 +156,10 @@ export interface FactoryState {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * Is the Data Factory visible to the public network? Defaults to `true`.
+     */
+    readonly publicNetworkEnabled?: pulumi.Input<boolean>;
+    /**
      * The name of the resource group in which to create the Data Factory.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
@@ -183,6 +193,10 @@ export interface FactoryArgs {
      * Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Is the Data Factory visible to the public network? Defaults to `true`.
+     */
+    readonly publicNetworkEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Data Factory.
      */

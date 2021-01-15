@@ -103,7 +103,7 @@ namespace Pulumi.Azure.Synapse
         public Output<string> ManagedResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Is Virtual Network enabled for all computes in this workspace. Changing this forces a new resource to be created.
+        /// Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
         /// </summary>
         [Output("managedVirtualNetworkEnabled")]
         public Output<bool?> ManagedVirtualNetworkEnabled { get; private set; } = null!;
@@ -131,6 +131,12 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         [Output("sqlAdministratorLoginPassword")]
         public Output<string> SqlAdministratorLoginPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
+        /// </summary>
+        [Output("sqlIdentityControlEnabled")]
+        public Output<bool?> SqlIdentityControlEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
@@ -209,7 +215,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? ManagedResourceGroupName { get; set; }
 
         /// <summary>
-        /// Is Virtual Network enabled for all computes in this workspace. Changing this forces a new resource to be created.
+        /// Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
         /// </summary>
         [Input("managedVirtualNetworkEnabled")]
         public Input<bool>? ManagedVirtualNetworkEnabled { get; set; }
@@ -237,6 +243,12 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         [Input("sqlAdministratorLoginPassword", required: true)]
         public Input<string> SqlAdministratorLoginPassword { get; set; } = null!;
+
+        /// <summary>
+        /// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
+        /// </summary>
+        [Input("sqlIdentityControlEnabled")]
+        public Input<bool>? SqlIdentityControlEnabled { get; set; }
 
         /// <summary>
         /// Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
@@ -306,7 +318,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? ManagedResourceGroupName { get; set; }
 
         /// <summary>
-        /// Is Virtual Network enabled for all computes in this workspace. Changing this forces a new resource to be created.
+        /// Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
         /// </summary>
         [Input("managedVirtualNetworkEnabled")]
         public Input<bool>? ManagedVirtualNetworkEnabled { get; set; }
@@ -334,6 +346,12 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         [Input("sqlAdministratorLoginPassword")]
         public Input<string>? SqlAdministratorLoginPassword { get; set; }
+
+        /// <summary>
+        /// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
+        /// </summary>
+        [Input("sqlIdentityControlEnabled")]
+        public Input<bool>? SqlIdentityControlEnabled { get; set; }
 
         /// <summary>
         /// Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.

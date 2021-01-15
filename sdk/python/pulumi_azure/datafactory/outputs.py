@@ -28,6 +28,7 @@ __all__ = [
     'IntegrationRuntimeManagedCustomSetupScript',
     'IntegrationRuntimeManagedVnetIntegration',
     'IntegrationRuntimeSelfHostedRbacAuthorization',
+    'LinkedServiceSqlServerKeyVaultPassword',
     'LinkedServiceSynapseKeyVaultPassword',
     'GetFactoryGithubConfigurationResult',
     'GetFactoryIdentityResult',
@@ -887,6 +888,38 @@ class IntegrationRuntimeSelfHostedRbacAuthorization(dict):
         The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
         """
         return pulumi.get(self, "resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LinkedServiceSqlServerKeyVaultPassword(dict):
+    def __init__(__self__, *,
+                 linked_service_name: str,
+                 secret_name: str):
+        """
+        :param str linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
+        :param str secret_name: Specifies the secret name in Azure Key Vault that stores SQL Server password.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> str:
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        Specifies the secret name in Azure Key Vault that stores SQL Server password.
+        """
+        return pulumi.get(self, "secret_name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

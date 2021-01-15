@@ -2797,6 +2797,156 @@ func (o IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput) Index(i pulumi
 	}).(IntegrationRuntimeSelfHostedRbacAuthorizationOutput)
 }
 
+type LinkedServiceSqlServerKeyVaultPassword struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName string `pulumi:"linkedServiceName"`
+	// Specifies the secret name in Azure Key Vault that stores SQL Server password.
+	SecretName string `pulumi:"secretName"`
+}
+
+// LinkedServiceSqlServerKeyVaultPasswordInput is an input type that accepts LinkedServiceSqlServerKeyVaultPasswordArgs and LinkedServiceSqlServerKeyVaultPasswordOutput values.
+// You can construct a concrete instance of `LinkedServiceSqlServerKeyVaultPasswordInput` via:
+//
+//          LinkedServiceSqlServerKeyVaultPasswordArgs{...}
+type LinkedServiceSqlServerKeyVaultPasswordInput interface {
+	pulumi.Input
+
+	ToLinkedServiceSqlServerKeyVaultPasswordOutput() LinkedServiceSqlServerKeyVaultPasswordOutput
+	ToLinkedServiceSqlServerKeyVaultPasswordOutputWithContext(context.Context) LinkedServiceSqlServerKeyVaultPasswordOutput
+}
+
+type LinkedServiceSqlServerKeyVaultPasswordArgs struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
+	// Specifies the secret name in Azure Key Vault that stores SQL Server password.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (LinkedServiceSqlServerKeyVaultPasswordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceSqlServerKeyVaultPassword)(nil)).Elem()
+}
+
+func (i LinkedServiceSqlServerKeyVaultPasswordArgs) ToLinkedServiceSqlServerKeyVaultPasswordOutput() LinkedServiceSqlServerKeyVaultPasswordOutput {
+	return i.ToLinkedServiceSqlServerKeyVaultPasswordOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceSqlServerKeyVaultPasswordArgs) ToLinkedServiceSqlServerKeyVaultPasswordOutputWithContext(ctx context.Context) LinkedServiceSqlServerKeyVaultPasswordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSqlServerKeyVaultPasswordOutput)
+}
+
+func (i LinkedServiceSqlServerKeyVaultPasswordArgs) ToLinkedServiceSqlServerKeyVaultPasswordPtrOutput() LinkedServiceSqlServerKeyVaultPasswordPtrOutput {
+	return i.ToLinkedServiceSqlServerKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceSqlServerKeyVaultPasswordArgs) ToLinkedServiceSqlServerKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceSqlServerKeyVaultPasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSqlServerKeyVaultPasswordOutput).ToLinkedServiceSqlServerKeyVaultPasswordPtrOutputWithContext(ctx)
+}
+
+// LinkedServiceSqlServerKeyVaultPasswordPtrInput is an input type that accepts LinkedServiceSqlServerKeyVaultPasswordArgs, LinkedServiceSqlServerKeyVaultPasswordPtr and LinkedServiceSqlServerKeyVaultPasswordPtrOutput values.
+// You can construct a concrete instance of `LinkedServiceSqlServerKeyVaultPasswordPtrInput` via:
+//
+//          LinkedServiceSqlServerKeyVaultPasswordArgs{...}
+//
+//  or:
+//
+//          nil
+type LinkedServiceSqlServerKeyVaultPasswordPtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceSqlServerKeyVaultPasswordPtrOutput() LinkedServiceSqlServerKeyVaultPasswordPtrOutput
+	ToLinkedServiceSqlServerKeyVaultPasswordPtrOutputWithContext(context.Context) LinkedServiceSqlServerKeyVaultPasswordPtrOutput
+}
+
+type linkedServiceSqlServerKeyVaultPasswordPtrType LinkedServiceSqlServerKeyVaultPasswordArgs
+
+func LinkedServiceSqlServerKeyVaultPasswordPtr(v *LinkedServiceSqlServerKeyVaultPasswordArgs) LinkedServiceSqlServerKeyVaultPasswordPtrInput {
+	return (*linkedServiceSqlServerKeyVaultPasswordPtrType)(v)
+}
+
+func (*linkedServiceSqlServerKeyVaultPasswordPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceSqlServerKeyVaultPassword)(nil)).Elem()
+}
+
+func (i *linkedServiceSqlServerKeyVaultPasswordPtrType) ToLinkedServiceSqlServerKeyVaultPasswordPtrOutput() LinkedServiceSqlServerKeyVaultPasswordPtrOutput {
+	return i.ToLinkedServiceSqlServerKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceSqlServerKeyVaultPasswordPtrType) ToLinkedServiceSqlServerKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceSqlServerKeyVaultPasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSqlServerKeyVaultPasswordPtrOutput)
+}
+
+type LinkedServiceSqlServerKeyVaultPasswordOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceSqlServerKeyVaultPasswordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceSqlServerKeyVaultPassword)(nil)).Elem()
+}
+
+func (o LinkedServiceSqlServerKeyVaultPasswordOutput) ToLinkedServiceSqlServerKeyVaultPasswordOutput() LinkedServiceSqlServerKeyVaultPasswordOutput {
+	return o
+}
+
+func (o LinkedServiceSqlServerKeyVaultPasswordOutput) ToLinkedServiceSqlServerKeyVaultPasswordOutputWithContext(ctx context.Context) LinkedServiceSqlServerKeyVaultPasswordOutput {
+	return o
+}
+
+func (o LinkedServiceSqlServerKeyVaultPasswordOutput) ToLinkedServiceSqlServerKeyVaultPasswordPtrOutput() LinkedServiceSqlServerKeyVaultPasswordPtrOutput {
+	return o.ToLinkedServiceSqlServerKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceSqlServerKeyVaultPasswordOutput) ToLinkedServiceSqlServerKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceSqlServerKeyVaultPasswordPtrOutput {
+	return o.ApplyT(func(v LinkedServiceSqlServerKeyVaultPassword) *LinkedServiceSqlServerKeyVaultPassword {
+		return &v
+	}).(LinkedServiceSqlServerKeyVaultPasswordPtrOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceSqlServerKeyVaultPasswordOutput) LinkedServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceSqlServerKeyVaultPassword) string { return v.LinkedServiceName }).(pulumi.StringOutput)
+}
+
+// Specifies the secret name in Azure Key Vault that stores SQL Server password.
+func (o LinkedServiceSqlServerKeyVaultPasswordOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceSqlServerKeyVaultPassword) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type LinkedServiceSqlServerKeyVaultPasswordPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceSqlServerKeyVaultPasswordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceSqlServerKeyVaultPassword)(nil)).Elem()
+}
+
+func (o LinkedServiceSqlServerKeyVaultPasswordPtrOutput) ToLinkedServiceSqlServerKeyVaultPasswordPtrOutput() LinkedServiceSqlServerKeyVaultPasswordPtrOutput {
+	return o
+}
+
+func (o LinkedServiceSqlServerKeyVaultPasswordPtrOutput) ToLinkedServiceSqlServerKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceSqlServerKeyVaultPasswordPtrOutput {
+	return o
+}
+
+func (o LinkedServiceSqlServerKeyVaultPasswordPtrOutput) Elem() LinkedServiceSqlServerKeyVaultPasswordOutput {
+	return o.ApplyT(func(v *LinkedServiceSqlServerKeyVaultPassword) LinkedServiceSqlServerKeyVaultPassword { return *v }).(LinkedServiceSqlServerKeyVaultPasswordOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceSqlServerKeyVaultPasswordPtrOutput) LinkedServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceSqlServerKeyVaultPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LinkedServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the secret name in Azure Key Vault that stores SQL Server password.
+func (o LinkedServiceSqlServerKeyVaultPasswordPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceSqlServerKeyVaultPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
 type LinkedServiceSynapseKeyVaultPassword struct {
 	// Specifies the name of an existing Key Vault Data Factory Linked Service.
 	LinkedServiceName string `pulumi:"linkedServiceName"`
@@ -3376,6 +3526,8 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeManagedVnetIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSelfHostedRbacAuthorizationOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput{})
+	pulumi.RegisterOutputType(LinkedServiceSqlServerKeyVaultPasswordOutput{})
+	pulumi.RegisterOutputType(LinkedServiceSqlServerKeyVaultPasswordPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSynapseKeyVaultPasswordOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSynapseKeyVaultPasswordPtrOutput{})
 	pulumi.RegisterOutputType(GetFactoryGithubConfigurationOutput{})

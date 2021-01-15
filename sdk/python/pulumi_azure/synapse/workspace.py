@@ -25,6 +25,7 @@ class Workspace(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
+                 sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
                  storage_data_lake_gen2_filesystem_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -77,11 +78,12 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
-        :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_administrator_login: Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator.
+        :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
         :param pulumi.Input[str] storage_data_lake_gen2_filesystem_id: Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Workspace.
         """
@@ -116,6 +118,7 @@ class Workspace(pulumi.CustomResource):
             if sql_administrator_login_password is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_administrator_login_password'")
             __props__['sql_administrator_login_password'] = sql_administrator_login_password
+            __props__['sql_identity_control_enabled'] = sql_identity_control_enabled
             if storage_data_lake_gen2_filesystem_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_data_lake_gen2_filesystem_id'")
             __props__['storage_data_lake_gen2_filesystem_id'] = storage_data_lake_gen2_filesystem_id
@@ -142,6 +145,7 @@ class Workspace(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sql_administrator_login: Optional[pulumi.Input[str]] = None,
             sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
+            sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
             storage_data_lake_gen2_filesystem_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Workspace':
         """
@@ -156,11 +160,12 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]]] identities: An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
-        :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_administrator_login: Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator.
+        :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
         :param pulumi.Input[str] storage_data_lake_gen2_filesystem_id: Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Workspace.
         """
@@ -178,6 +183,7 @@ class Workspace(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["sql_administrator_login"] = sql_administrator_login
         __props__["sql_administrator_login_password"] = sql_administrator_login_password
+        __props__["sql_identity_control_enabled"] = sql_identity_control_enabled
         __props__["storage_data_lake_gen2_filesystem_id"] = storage_data_lake_gen2_filesystem_id
         __props__["tags"] = tags
         return Workspace(resource_name, opts=opts, __props__=__props__)
@@ -226,7 +232,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="managedVirtualNetworkEnabled")
     def managed_virtual_network_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is Virtual Network enabled for all computes in this workspace. Changing this forces a new resource to be created.
+        Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed_virtual_network_enabled")
 
@@ -261,6 +267,14 @@ class Workspace(pulumi.CustomResource):
         The Password associated with the `sql_administrator_login` for the SQL administrator.
         """
         return pulumi.get(self, "sql_administrator_login_password")
+
+    @property
+    @pulumi.getter(name="sqlIdentityControlEnabled")
+    def sql_identity_control_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
+        """
+        return pulumi.get(self, "sql_identity_control_enabled")
 
     @property
     @pulumi.getter(name="storageDataLakeGen2FilesystemId")

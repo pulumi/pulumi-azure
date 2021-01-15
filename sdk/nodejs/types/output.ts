@@ -7743,6 +7743,9 @@ export namespace containerservice {
          * The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
          */
         osDiskSizeGb: number;
+        /**
+         * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+         */
         osDiskType?: string;
         proximityPlacementGroupId?: string;
         /**
@@ -8830,6 +8833,17 @@ export namespace datafactory {
         resourceId: string;
     }
 
+    export interface LinkedServiceSqlServerKeyVaultPassword {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: string;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores SQL Server password.
+         */
+        secretName: string;
+    }
+
     export interface LinkedServiceSynapseKeyVaultPassword {
         /**
          * Specifies the name of an existing Key Vault Data Factory Linked Service.
@@ -9218,6 +9232,17 @@ export namespace dns {
 }
 
 export namespace eventgrid {
+    export interface DomainInboundIpRule {
+        /**
+         * The action to take when the rule is matched. Possible values are `Allow`.
+         */
+        action?: string;
+        /**
+         * The ip mask (CIDR) to match on.
+         */
+        ipMask: string;
+    }
+
     export interface DomainInputMappingDefaultValues {
         /**
          * Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -9820,6 +9845,17 @@ export namespace eventgrid {
         url: string;
     }
 
+    export interface TopicInboundIpRule {
+        /**
+         * The action to take when the rule is matched. Possible values are `Allow`.
+         */
+        action?: string;
+        /**
+         * The ip mask (CIDR) to match on.
+         */
+        ipMask: string;
+    }
+
     export interface TopicInputMappingDefaultValues {
         /**
          * Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -9864,6 +9900,17 @@ export namespace eventgrid {
 }
 
 export namespace eventhub {
+    export interface DomainInboundIpRule {
+        /**
+         * The action to take when the rule is matched. Possible values are `Allow`.
+         */
+        action?: string;
+        /**
+         * The ip mask (CIDR) to match on.
+         */
+        ipMask: string;
+    }
+
     export interface DomainInputMappingDefaultValues {
         /**
          * Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -9904,6 +9951,17 @@ export namespace eventhub {
          * Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
          */
         topic?: string;
+    }
+
+    export interface EventGridTopicInboundIpRule {
+        /**
+         * The action to take when the rule is matched. Possible values are `Allow`.
+         */
+        action?: string;
+        /**
+         * The ip mask (CIDR) to match on.
+         */
+        ipMask: string;
     }
 
     export interface EventGridTopicInputMappingDefaultValues {
@@ -10018,6 +10076,10 @@ export namespace eventhub {
          * One or more `ipRule` blocks as defined below.
          */
         ipRules?: outputs.eventhub.EventHubNamespaceNetworkRulesetsIpRule[];
+        /**
+         * Whether Trusted Microsoft Services are allowed to bypass firewall.
+         */
+        trustedServiceAccessEnabled?: boolean;
         /**
          * One or more `virtualNetworkRule` blocks as defined below.
          */
@@ -19606,7 +19668,7 @@ export namespace securitycenter {
 
     export interface AutomationSource {
         /**
-         * Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments` or `SubAssessments`. Note. assessments are also referred to as recommendations
+         * Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `SecureScoreControls`, `SecureScores` or `SubAssessments`. Note. assessments are also referred to as recommendations
          */
         eventSource: string;
         /**
@@ -19675,6 +19737,52 @@ export namespace sentinel {
          * Whether to re-open closed matching incidents? Defaults to `false`.
          */
         reopenClosedIncidents?: boolean;
+    }
+
+    export interface GetAlertRuleTemplateScheduledTemplate {
+        /**
+         * The description of this Sentinel Scheduled Alert Rule Template.
+         */
+        description: string;
+        /**
+         * The query of this Sentinel Scheduled Alert Rule Template.
+         */
+        query: string;
+        /**
+         * The ISO 8601 timespan duration between two consecutive queries.
+         */
+        queryFrequency: string;
+        /**
+         * The ISO 8601 timespan duration, which determine the time period of the data covered by the query.
+         */
+        queryPeriod: string;
+        /**
+         * The alert severity of this Sentinel Scheduled Alert Rule Template.
+         */
+        severity: string;
+        /**
+         * A list of categories of attacks by which to classify the rule.
+         */
+        tactics: string[];
+        /**
+         * The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
+         */
+        triggerOperator: string;
+        /**
+         * The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
+         */
+        triggerThreshold: number;
+    }
+
+    export interface GetAlertRuleTemplateSecurityIncidentTemplate {
+        /**
+         * The description of this Sentinel Scheduled Alert Rule Template.
+         */
+        description: string;
+        /**
+         * The Microsoft Security Service from where the alert will be generated.
+         */
+        productFilter: string;
     }
 }
 

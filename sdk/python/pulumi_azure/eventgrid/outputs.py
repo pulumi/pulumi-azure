@@ -10,6 +10,7 @@ from .. import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'DomainInboundIpRule',
     'DomainInputMappingDefaultValues',
     'DomainInputMappingFields',
     'EventSubscriptionAdvancedFilter',
@@ -52,9 +53,43 @@ __all__ = [
     'SystemTopicEventSubscriptionStorageQueueEndpoint',
     'SystemTopicEventSubscriptionSubjectFilter',
     'SystemTopicEventSubscriptionWebhookEndpoint',
+    'TopicInboundIpRule',
     'TopicInputMappingDefaultValues',
     'TopicInputMappingFields',
 ]
+
+@pulumi.output_type
+class DomainInboundIpRule(dict):
+    def __init__(__self__, *,
+                 ip_mask: str,
+                 action: Optional[str] = None):
+        """
+        :param str ip_mask: The ip mask (CIDR) to match on.
+        :param str action: The action to take when the rule is matched. Possible values are `Allow`.
+        """
+        pulumi.set(__self__, "ip_mask", ip_mask)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> str:
+        """
+        The ip mask (CIDR) to match on.
+        """
+        return pulumi.get(self, "ip_mask")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The action to take when the rule is matched. Possible values are `Allow`.
+        """
+        return pulumi.get(self, "action")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class DomainInputMappingDefaultValues(dict):
@@ -1835,6 +1870,39 @@ class SystemTopicEventSubscriptionWebhookEndpoint(dict):
         Preferred batch size in Kilobytes.
         """
         return pulumi.get(self, "preferred_batch_size_in_kilobytes")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TopicInboundIpRule(dict):
+    def __init__(__self__, *,
+                 ip_mask: str,
+                 action: Optional[str] = None):
+        """
+        :param str ip_mask: The ip mask (CIDR) to match on.
+        :param str action: The action to take when the rule is matched. Possible values are `Allow`.
+        """
+        pulumi.set(__self__, "ip_mask", ip_mask)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> str:
+        """
+        The ip mask (CIDR) to match on.
+        """
+        return pulumi.get(self, "ip_mask")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The action to take when the rule is matched. Possible values are `Allow`.
+        """
+        return pulumi.get(self, "action")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -85,8 +85,9 @@ type SqlPool struct {
 	// The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringOutput `pulumi:"collation"`
 	// Specifies how to create the Sql Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
-	CreateMode    pulumi.StringPtrOutput `pulumi:"createMode"`
-	DataEncrypted pulumi.BoolPtrOutput   `pulumi:"dataEncrypted"`
+	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
+	// Is transparent data encryption enabled? Defaults to `false`.
+	DataEncrypted pulumi.BoolPtrOutput `pulumi:"dataEncrypted"`
 	// The name which should be used for this Synapse Sql Pool. Changing this forces a new synapse SqlPool to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the Synapse Sql Pool or Sql Database which is to back up, only applicable when `createMode` is set to `Recovery`. Changing this forces a new Synapse Sql Pool to be created.
@@ -139,8 +140,9 @@ type sqlPoolState struct {
 	// The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
 	// Specifies how to create the Sql Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
-	CreateMode    *string `pulumi:"createMode"`
-	DataEncrypted *bool   `pulumi:"dataEncrypted"`
+	CreateMode *string `pulumi:"createMode"`
+	// Is transparent data encryption enabled? Defaults to `false`.
+	DataEncrypted *bool `pulumi:"dataEncrypted"`
 	// The name which should be used for this Synapse Sql Pool. Changing this forces a new synapse SqlPool to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the Synapse Sql Pool or Sql Database which is to back up, only applicable when `createMode` is set to `Recovery`. Changing this forces a new Synapse Sql Pool to be created.
@@ -159,7 +161,8 @@ type SqlPoolState struct {
 	// The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
 	// Specifies how to create the Sql Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
-	CreateMode    pulumi.StringPtrInput
+	CreateMode pulumi.StringPtrInput
+	// Is transparent data encryption enabled? Defaults to `false`.
 	DataEncrypted pulumi.BoolPtrInput
 	// The name which should be used for this Synapse Sql Pool. Changing this forces a new synapse SqlPool to be created.
 	Name pulumi.StringPtrInput
@@ -183,8 +186,9 @@ type sqlPoolArgs struct {
 	// The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
 	// Specifies how to create the Sql Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
-	CreateMode    *string `pulumi:"createMode"`
-	DataEncrypted *bool   `pulumi:"dataEncrypted"`
+	CreateMode *string `pulumi:"createMode"`
+	// Is transparent data encryption enabled? Defaults to `false`.
+	DataEncrypted *bool `pulumi:"dataEncrypted"`
 	// The name which should be used for this Synapse Sql Pool. Changing this forces a new synapse SqlPool to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the Synapse Sql Pool or Sql Database which is to back up, only applicable when `createMode` is set to `Recovery`. Changing this forces a new Synapse Sql Pool to be created.
@@ -204,7 +208,8 @@ type SqlPoolArgs struct {
 	// The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
 	// Specifies how to create the Sql Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
-	CreateMode    pulumi.StringPtrInput
+	CreateMode pulumi.StringPtrInput
+	// Is transparent data encryption enabled? Defaults to `false`.
 	DataEncrypted pulumi.BoolPtrInput
 	// The name which should be used for this Synapse Sql Pool. Changing this forces a new synapse SqlPool to be created.
 	Name pulumi.StringPtrInput

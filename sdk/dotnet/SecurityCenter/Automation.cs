@@ -34,6 +34,22 @@ namespace Pulumi.Azure.SecurityCenter
     ///             Sku = "Standard",
     ///             Capacity = 2,
     ///         });
+    ///         var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new Azure.EventHub.EventHubArgs
+    ///         {
+    ///             NamespaceName = exampleEventHubNamespace.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             PartitionCount = 2,
+    ///             MessageRetention = 2,
+    ///         });
+    ///         var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("exampleAuthorizationRule", new Azure.EventHub.AuthorizationRuleArgs
+    ///         {
+    ///             NamespaceName = exampleEventHubNamespace.Name,
+    ///             EventhubName = exampleEventHub.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Listen = true,
+    ///             Send = false,
+    ///             Manage = false,
+    ///         });
     ///         var exampleAutomation = new Azure.SecurityCenter.Automation("exampleAutomation", new Azure.SecurityCenter.AutomationArgs
     ///         {
     ///             Location = exampleResourceGroup.Location,
@@ -43,8 +59,8 @@ namespace Pulumi.Azure.SecurityCenter
     ///                 new Azure.SecurityCenter.Inputs.AutomationActionArgs
     ///                 {
     ///                     Type = "EventHub",
-    ///                     ResourceId = exampleEventHubNamespace.Id,
-    ///                     ConnectionString = exampleEventHubNamespace.DefaultPrimaryConnectionString,
+    ///                     ResourceId = exampleEventHub.Id,
+    ///                     ConnectionString = exampleAuthorizationRule.PrimaryConnectionString,
     ///                 },
     ///             },
     ///             Sources = 

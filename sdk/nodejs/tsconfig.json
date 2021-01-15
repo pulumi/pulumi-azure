@@ -745,6 +745,7 @@
         "sentinel/alertRuleMsSecurityIncident.ts",
         "sentinel/alertRuleScheduled.ts",
         "sentinel/getAlertRule.ts",
+        "sentinel/getAlertRuleTemplate.ts",
         "sentinel/index.ts",
         "servicebus/getNamespace.ts",
         "servicebus/getNamespaceAuthorizationRule.ts",

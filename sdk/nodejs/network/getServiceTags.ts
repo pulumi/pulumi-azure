@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     service: "AzureKeyVault",
  *     locationFilter: "northeurope",
  * });
- * export const addressPrefixes = data.azurerm_service_tags.example.address_prefixes;
+ * export const addressPrefixes = example.then(example => example.addressPrefixes);
  * ```
  */
 export function getServiceTags(args: GetServiceTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceTagsResult> {

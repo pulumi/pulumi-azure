@@ -93,7 +93,7 @@ type Workspace struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Workspace managed resource group.
 	ManagedResourceGroupName pulumi.StringOutput `pulumi:"managedResourceGroupName"`
-	// Is Virtual Network enabled for all computes in this workspace. Changing this forces a new resource to be created.
+	// Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
 	ManagedVirtualNetworkEnabled pulumi.BoolPtrOutput `pulumi:"managedVirtualNetworkEnabled"`
 	// Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -103,6 +103,8 @@ type Workspace struct {
 	SqlAdministratorLogin pulumi.StringOutput `pulumi:"sqlAdministratorLogin"`
 	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
 	SqlAdministratorLoginPassword pulumi.StringOutput `pulumi:"sqlAdministratorLoginPassword"`
+	// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
+	SqlIdentityControlEnabled pulumi.BoolPtrOutput `pulumi:"sqlIdentityControlEnabled"`
 	// Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
 	StorageDataLakeGen2FilesystemId pulumi.StringOutput `pulumi:"storageDataLakeGen2FilesystemId"`
 	// A mapping of tags which should be assigned to the Synapse Workspace.
@@ -160,7 +162,7 @@ type workspaceState struct {
 	Location *string `pulumi:"location"`
 	// Workspace managed resource group.
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
-	// Is Virtual Network enabled for all computes in this workspace. Changing this forces a new resource to be created.
+	// Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
 	ManagedVirtualNetworkEnabled *bool `pulumi:"managedVirtualNetworkEnabled"`
 	// Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -170,6 +172,8 @@ type workspaceState struct {
 	SqlAdministratorLogin *string `pulumi:"sqlAdministratorLogin"`
 	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
 	SqlAdministratorLoginPassword *string `pulumi:"sqlAdministratorLoginPassword"`
+	// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
+	SqlIdentityControlEnabled *bool `pulumi:"sqlIdentityControlEnabled"`
 	// Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
 	StorageDataLakeGen2FilesystemId *string `pulumi:"storageDataLakeGen2FilesystemId"`
 	// A mapping of tags which should be assigned to the Synapse Workspace.
@@ -187,7 +191,7 @@ type WorkspaceState struct {
 	Location pulumi.StringPtrInput
 	// Workspace managed resource group.
 	ManagedResourceGroupName pulumi.StringPtrInput
-	// Is Virtual Network enabled for all computes in this workspace. Changing this forces a new resource to be created.
+	// Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
 	ManagedVirtualNetworkEnabled pulumi.BoolPtrInput
 	// Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -197,6 +201,8 @@ type WorkspaceState struct {
 	SqlAdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
 	SqlAdministratorLoginPassword pulumi.StringPtrInput
+	// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
+	SqlIdentityControlEnabled pulumi.BoolPtrInput
 	// Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
 	StorageDataLakeGen2FilesystemId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Synapse Workspace.
@@ -214,7 +220,7 @@ type workspaceArgs struct {
 	Location *string `pulumi:"location"`
 	// Workspace managed resource group.
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
-	// Is Virtual Network enabled for all computes in this workspace. Changing this forces a new resource to be created.
+	// Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
 	ManagedVirtualNetworkEnabled *bool `pulumi:"managedVirtualNetworkEnabled"`
 	// Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -224,6 +230,8 @@ type workspaceArgs struct {
 	SqlAdministratorLogin string `pulumi:"sqlAdministratorLogin"`
 	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
 	SqlAdministratorLoginPassword string `pulumi:"sqlAdministratorLoginPassword"`
+	// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
+	SqlIdentityControlEnabled *bool `pulumi:"sqlIdentityControlEnabled"`
 	// Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
 	StorageDataLakeGen2FilesystemId string `pulumi:"storageDataLakeGen2FilesystemId"`
 	// A mapping of tags which should be assigned to the Synapse Workspace.
@@ -238,7 +246,7 @@ type WorkspaceArgs struct {
 	Location pulumi.StringPtrInput
 	// Workspace managed resource group.
 	ManagedResourceGroupName pulumi.StringPtrInput
-	// Is Virtual Network enabled for all computes in this workspace. Changing this forces a new resource to be created.
+	// Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
 	ManagedVirtualNetworkEnabled pulumi.BoolPtrInput
 	// Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -248,6 +256,8 @@ type WorkspaceArgs struct {
 	SqlAdministratorLogin pulumi.StringInput
 	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
 	SqlAdministratorLoginPassword pulumi.StringInput
+	// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
+	SqlIdentityControlEnabled pulumi.BoolPtrInput
 	// Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
 	StorageDataLakeGen2FilesystemId pulumi.StringInput
 	// A mapping of tags which should be assigned to the Synapse Workspace.

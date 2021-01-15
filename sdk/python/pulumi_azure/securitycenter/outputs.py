@@ -78,7 +78,7 @@ class AutomationSource(dict):
                  event_source: str,
                  rule_sets: Optional[Sequence['outputs.AutomationSourceRuleSet']] = None):
         """
-        :param str event_source: Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments` or `SubAssessments`. Note. assessments are also referred to as recommendations
+        :param str event_source: Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `SecureScoreControls`, `SecureScores` or `SubAssessments`. Note. assessments are also referred to as recommendations
         :param Sequence['AutomationSourceRuleSetArgs'] rule_sets: A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
         """
         pulumi.set(__self__, "event_source", event_source)
@@ -89,7 +89,7 @@ class AutomationSource(dict):
     @pulumi.getter(name="eventSource")
     def event_source(self) -> str:
         """
-        Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments` or `SubAssessments`. Note. assessments are also referred to as recommendations
+        Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `SecureScoreControls`, `SecureScores` or `SubAssessments`. Note. assessments are also referred to as recommendations
         """
         return pulumi.get(self, "event_source")
 

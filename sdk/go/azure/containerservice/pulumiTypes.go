@@ -3663,7 +3663,8 @@ type KubernetesClusterDefaultNodePool struct {
 	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
-	OsDiskSizeGb              *int    `pulumi:"osDiskSizeGb"`
+	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
+	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
 	OsDiskType                *string `pulumi:"osDiskType"`
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// A mapping of tags to assign to the Node Pool.
@@ -3710,7 +3711,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
 	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
-	OsDiskSizeGb              pulumi.IntPtrInput    `pulumi:"osDiskSizeGb"`
+	OsDiskSizeGb pulumi.IntPtrInput `pulumi:"osDiskSizeGb"`
+	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
 	OsDiskType                pulumi.StringPtrInput `pulumi:"osDiskType"`
 	ProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"proximityPlacementGroupId"`
 	// A mapping of tags to assign to the Node Pool.
@@ -3859,6 +3861,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) OsDiskSizeGb() pulumi.IntPtrOutp
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.OsDiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
+// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) OsDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
 }
@@ -4024,6 +4027,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) OsDiskSizeGb() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) OsDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {

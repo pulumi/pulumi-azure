@@ -22,7 +22,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "northeurope"
-// 		_, err := network.GetServiceTags(ctx, &network.GetServiceTagsArgs{
+// 		example, err := network.GetServiceTags(ctx, &network.GetServiceTagsArgs{
 // 			Location:       "westcentralus",
 // 			Service:        "AzureKeyVault",
 // 			LocationFilter: &opt0,
@@ -30,7 +30,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		ctx.Export("addressPrefixes", data.Azurerm_service_tags.Example.Address_prefixes)
+// 		ctx.Export("addressPrefixes", example.AddressPrefixes)
 // 		return nil
 // 	})
 // }

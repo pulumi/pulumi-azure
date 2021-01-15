@@ -10,6 +10,112 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type DomainInboundIpRule struct {
+	// The action to take when the rule is matched. Possible values are `Allow`.
+	Action *string `pulumi:"action"`
+	// The ip mask (CIDR) to match on.
+	IpMask string `pulumi:"ipMask"`
+}
+
+// DomainInboundIpRuleInput is an input type that accepts DomainInboundIpRuleArgs and DomainInboundIpRuleOutput values.
+// You can construct a concrete instance of `DomainInboundIpRuleInput` via:
+//
+//          DomainInboundIpRuleArgs{...}
+type DomainInboundIpRuleInput interface {
+	pulumi.Input
+
+	ToDomainInboundIpRuleOutput() DomainInboundIpRuleOutput
+	ToDomainInboundIpRuleOutputWithContext(context.Context) DomainInboundIpRuleOutput
+}
+
+type DomainInboundIpRuleArgs struct {
+	// The action to take when the rule is matched. Possible values are `Allow`.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The ip mask (CIDR) to match on.
+	IpMask pulumi.StringInput `pulumi:"ipMask"`
+}
+
+func (DomainInboundIpRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainInboundIpRule)(nil)).Elem()
+}
+
+func (i DomainInboundIpRuleArgs) ToDomainInboundIpRuleOutput() DomainInboundIpRuleOutput {
+	return i.ToDomainInboundIpRuleOutputWithContext(context.Background())
+}
+
+func (i DomainInboundIpRuleArgs) ToDomainInboundIpRuleOutputWithContext(ctx context.Context) DomainInboundIpRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainInboundIpRuleOutput)
+}
+
+// DomainInboundIpRuleArrayInput is an input type that accepts DomainInboundIpRuleArray and DomainInboundIpRuleArrayOutput values.
+// You can construct a concrete instance of `DomainInboundIpRuleArrayInput` via:
+//
+//          DomainInboundIpRuleArray{ DomainInboundIpRuleArgs{...} }
+type DomainInboundIpRuleArrayInput interface {
+	pulumi.Input
+
+	ToDomainInboundIpRuleArrayOutput() DomainInboundIpRuleArrayOutput
+	ToDomainInboundIpRuleArrayOutputWithContext(context.Context) DomainInboundIpRuleArrayOutput
+}
+
+type DomainInboundIpRuleArray []DomainInboundIpRuleInput
+
+func (DomainInboundIpRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainInboundIpRule)(nil)).Elem()
+}
+
+func (i DomainInboundIpRuleArray) ToDomainInboundIpRuleArrayOutput() DomainInboundIpRuleArrayOutput {
+	return i.ToDomainInboundIpRuleArrayOutputWithContext(context.Background())
+}
+
+func (i DomainInboundIpRuleArray) ToDomainInboundIpRuleArrayOutputWithContext(ctx context.Context) DomainInboundIpRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainInboundIpRuleArrayOutput)
+}
+
+type DomainInboundIpRuleOutput struct{ *pulumi.OutputState }
+
+func (DomainInboundIpRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainInboundIpRule)(nil)).Elem()
+}
+
+func (o DomainInboundIpRuleOutput) ToDomainInboundIpRuleOutput() DomainInboundIpRuleOutput {
+	return o
+}
+
+func (o DomainInboundIpRuleOutput) ToDomainInboundIpRuleOutputWithContext(ctx context.Context) DomainInboundIpRuleOutput {
+	return o
+}
+
+// The action to take when the rule is matched. Possible values are `Allow`.
+func (o DomainInboundIpRuleOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainInboundIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The ip mask (CIDR) to match on.
+func (o DomainInboundIpRuleOutput) IpMask() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainInboundIpRule) string { return v.IpMask }).(pulumi.StringOutput)
+}
+
+type DomainInboundIpRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainInboundIpRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainInboundIpRule)(nil)).Elem()
+}
+
+func (o DomainInboundIpRuleArrayOutput) ToDomainInboundIpRuleArrayOutput() DomainInboundIpRuleArrayOutput {
+	return o
+}
+
+func (o DomainInboundIpRuleArrayOutput) ToDomainInboundIpRuleArrayOutputWithContext(ctx context.Context) DomainInboundIpRuleArrayOutput {
+	return o
+}
+
+func (o DomainInboundIpRuleArrayOutput) Index(i pulumi.IntInput) DomainInboundIpRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainInboundIpRule {
+		return vs[0].([]DomainInboundIpRule)[vs[1].(int)]
+	}).(DomainInboundIpRuleOutput)
+}
+
 type DomainInputMappingDefaultValues struct {
 	// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 	DataVersion *string `pulumi:"dataVersion"`
@@ -5981,6 +6087,112 @@ func (o SystemTopicEventSubscriptionWebhookEndpointPtrOutput) Url() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+type TopicInboundIpRule struct {
+	// The action to take when the rule is matched. Possible values are `Allow`.
+	Action *string `pulumi:"action"`
+	// The ip mask (CIDR) to match on.
+	IpMask string `pulumi:"ipMask"`
+}
+
+// TopicInboundIpRuleInput is an input type that accepts TopicInboundIpRuleArgs and TopicInboundIpRuleOutput values.
+// You can construct a concrete instance of `TopicInboundIpRuleInput` via:
+//
+//          TopicInboundIpRuleArgs{...}
+type TopicInboundIpRuleInput interface {
+	pulumi.Input
+
+	ToTopicInboundIpRuleOutput() TopicInboundIpRuleOutput
+	ToTopicInboundIpRuleOutputWithContext(context.Context) TopicInboundIpRuleOutput
+}
+
+type TopicInboundIpRuleArgs struct {
+	// The action to take when the rule is matched. Possible values are `Allow`.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The ip mask (CIDR) to match on.
+	IpMask pulumi.StringInput `pulumi:"ipMask"`
+}
+
+func (TopicInboundIpRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicInboundIpRule)(nil)).Elem()
+}
+
+func (i TopicInboundIpRuleArgs) ToTopicInboundIpRuleOutput() TopicInboundIpRuleOutput {
+	return i.ToTopicInboundIpRuleOutputWithContext(context.Background())
+}
+
+func (i TopicInboundIpRuleArgs) ToTopicInboundIpRuleOutputWithContext(ctx context.Context) TopicInboundIpRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicInboundIpRuleOutput)
+}
+
+// TopicInboundIpRuleArrayInput is an input type that accepts TopicInboundIpRuleArray and TopicInboundIpRuleArrayOutput values.
+// You can construct a concrete instance of `TopicInboundIpRuleArrayInput` via:
+//
+//          TopicInboundIpRuleArray{ TopicInboundIpRuleArgs{...} }
+type TopicInboundIpRuleArrayInput interface {
+	pulumi.Input
+
+	ToTopicInboundIpRuleArrayOutput() TopicInboundIpRuleArrayOutput
+	ToTopicInboundIpRuleArrayOutputWithContext(context.Context) TopicInboundIpRuleArrayOutput
+}
+
+type TopicInboundIpRuleArray []TopicInboundIpRuleInput
+
+func (TopicInboundIpRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicInboundIpRule)(nil)).Elem()
+}
+
+func (i TopicInboundIpRuleArray) ToTopicInboundIpRuleArrayOutput() TopicInboundIpRuleArrayOutput {
+	return i.ToTopicInboundIpRuleArrayOutputWithContext(context.Background())
+}
+
+func (i TopicInboundIpRuleArray) ToTopicInboundIpRuleArrayOutputWithContext(ctx context.Context) TopicInboundIpRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicInboundIpRuleArrayOutput)
+}
+
+type TopicInboundIpRuleOutput struct{ *pulumi.OutputState }
+
+func (TopicInboundIpRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicInboundIpRule)(nil)).Elem()
+}
+
+func (o TopicInboundIpRuleOutput) ToTopicInboundIpRuleOutput() TopicInboundIpRuleOutput {
+	return o
+}
+
+func (o TopicInboundIpRuleOutput) ToTopicInboundIpRuleOutputWithContext(ctx context.Context) TopicInboundIpRuleOutput {
+	return o
+}
+
+// The action to take when the rule is matched. Possible values are `Allow`.
+func (o TopicInboundIpRuleOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicInboundIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The ip mask (CIDR) to match on.
+func (o TopicInboundIpRuleOutput) IpMask() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicInboundIpRule) string { return v.IpMask }).(pulumi.StringOutput)
+}
+
+type TopicInboundIpRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicInboundIpRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicInboundIpRule)(nil)).Elem()
+}
+
+func (o TopicInboundIpRuleArrayOutput) ToTopicInboundIpRuleArrayOutput() TopicInboundIpRuleArrayOutput {
+	return o
+}
+
+func (o TopicInboundIpRuleArrayOutput) ToTopicInboundIpRuleArrayOutputWithContext(ctx context.Context) TopicInboundIpRuleArrayOutput {
+	return o
+}
+
+func (o TopicInboundIpRuleArrayOutput) Index(i pulumi.IntInput) TopicInboundIpRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicInboundIpRule {
+		return vs[0].([]TopicInboundIpRule)[vs[1].(int)]
+	}).(TopicInboundIpRuleOutput)
+}
+
 type TopicInputMappingDefaultValues struct {
 	// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 	DataVersion *string `pulumi:"dataVersion"`
@@ -6377,6 +6589,8 @@ func (o TopicInputMappingFieldsPtrOutput) Topic() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(DomainInboundIpRuleOutput{})
+	pulumi.RegisterOutputType(DomainInboundIpRuleArrayOutput{})
 	pulumi.RegisterOutputType(DomainInputMappingDefaultValuesOutput{})
 	pulumi.RegisterOutputType(DomainInputMappingDefaultValuesPtrOutput{})
 	pulumi.RegisterOutputType(DomainInputMappingFieldsOutput{})
@@ -6461,6 +6675,8 @@ func init() {
 	pulumi.RegisterOutputType(SystemTopicEventSubscriptionSubjectFilterPtrOutput{})
 	pulumi.RegisterOutputType(SystemTopicEventSubscriptionWebhookEndpointOutput{})
 	pulumi.RegisterOutputType(SystemTopicEventSubscriptionWebhookEndpointPtrOutput{})
+	pulumi.RegisterOutputType(TopicInboundIpRuleOutput{})
+	pulumi.RegisterOutputType(TopicInboundIpRuleArrayOutput{})
 	pulumi.RegisterOutputType(TopicInputMappingDefaultValuesOutput{})
 	pulumi.RegisterOutputType(TopicInputMappingDefaultValuesPtrOutput{})
 	pulumi.RegisterOutputType(TopicInputMappingFieldsOutput{})
