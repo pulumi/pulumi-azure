@@ -70,6 +70,10 @@ export class EventGridTopic extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
+     * One or more `inboundIpRule` blocks as defined below.
+     */
+    public readonly inboundIpRules!: pulumi.Output<outputs.eventhub.EventGridTopicInboundIpRule[] | undefined>;
+    /**
      * A `inputMappingDefaultValues` block as defined below.
      */
     public readonly inputMappingDefaultValues!: pulumi.Output<outputs.eventhub.EventGridTopicInputMappingDefaultValues | undefined>;
@@ -93,6 +97,10 @@ export class EventGridTopic extends pulumi.CustomResource {
      * The Primary Shared Access Key associated with the EventGrid Topic.
      */
     public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
+    /**
+     * Whether or not public network access is allowed for this server. Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
      */
@@ -122,12 +130,14 @@ export class EventGridTopic extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as EventGridTopicState | undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
+            inputs["inboundIpRules"] = state ? state.inboundIpRules : undefined;
             inputs["inputMappingDefaultValues"] = state ? state.inputMappingDefaultValues : undefined;
             inputs["inputMappingFields"] = state ? state.inputMappingFields : undefined;
             inputs["inputSchema"] = state ? state.inputSchema : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
+            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -136,11 +146,13 @@ export class EventGridTopic extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
             inputs["inputMappingDefaultValues"] = args ? args.inputMappingDefaultValues : undefined;
             inputs["inputMappingFields"] = args ? args.inputMappingFields : undefined;
             inputs["inputSchema"] = args ? args.inputSchema : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["endpoint"] = undefined /*out*/;
@@ -167,6 +179,10 @@ export interface EventGridTopicState {
      */
     readonly endpoint?: pulumi.Input<string>;
     /**
+     * One or more `inboundIpRule` blocks as defined below.
+     */
+    readonly inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventhub.EventGridTopicInboundIpRule>[]>;
+    /**
      * A `inputMappingDefaultValues` block as defined below.
      */
     readonly inputMappingDefaultValues?: pulumi.Input<inputs.eventhub.EventGridTopicInputMappingDefaultValues>;
@@ -191,6 +207,10 @@ export interface EventGridTopicState {
      */
     readonly primaryAccessKey?: pulumi.Input<string>;
     /**
+     * Whether or not public network access is allowed for this server. Defaults to `true`.
+     */
+    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
      * The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
@@ -208,6 +228,10 @@ export interface EventGridTopicState {
  * The set of arguments for constructing a EventGridTopic resource.
  */
 export interface EventGridTopicArgs {
+    /**
+     * One or more `inboundIpRule` blocks as defined below.
+     */
+    readonly inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventhub.EventGridTopicInboundIpRule>[]>;
     /**
      * A `inputMappingDefaultValues` block as defined below.
      */
@@ -228,6 +252,10 @@ export interface EventGridTopicArgs {
      * Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Whether or not public network access is allowed for this server. Defaults to `true`.
+     */
+    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
      */

@@ -97,6 +97,12 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> ColumnDelimiter { get; private set; } = null!;
 
         /// <summary>
+        /// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
+        /// </summary>
+        [Output("compressionLevel")]
+        public Output<string?> CompressionLevel { get; private set; } = null!;
+
+        /// <summary>
         /// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         /// </summary>
         [Output("dataFactoryName")]
@@ -269,6 +275,12 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? ColumnDelimiter { get; set; }
 
         /// <summary>
+        /// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
+        /// </summary>
+        [Input("compressionLevel")]
+        public Input<string>? CompressionLevel { get; set; }
+
+        /// <summary>
         /// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         /// </summary>
         [Input("dataFactoryName", required: true)]
@@ -412,6 +424,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("columnDelimiter")]
         public Input<string>? ColumnDelimiter { get; set; }
+
+        /// <summary>
+        /// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
+        /// </summary>
+        [Input("compressionLevel")]
+        public Input<string>? CompressionLevel { get; set; }
 
         /// <summary>
         /// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.

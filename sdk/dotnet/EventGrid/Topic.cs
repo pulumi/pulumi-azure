@@ -59,6 +59,12 @@ namespace Pulumi.Azure.EventGrid
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
+        /// One or more `inbound_ip_rule` blocks as defined below.
+        /// </summary>
+        [Output("inboundIpRules")]
+        public Output<ImmutableArray<Outputs.TopicInboundIpRule>> InboundIpRules { get; private set; } = null!;
+
+        /// <summary>
         /// A `input_mapping_default_values` block as defined below.
         /// </summary>
         [Output("inputMappingDefaultValues")]
@@ -93,6 +99,12 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         [Output("primaryAccessKey")]
         public Output<string> PrimaryAccessKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not public network access is allowed for this server. Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
@@ -162,6 +174,18 @@ namespace Pulumi.Azure.EventGrid
 
     public sealed class TopicArgs : Pulumi.ResourceArgs
     {
+        [Input("inboundIpRules")]
+        private InputList<Inputs.TopicInboundIpRuleArgs>? _inboundIpRules;
+
+        /// <summary>
+        /// One or more `inbound_ip_rule` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.TopicInboundIpRuleArgs> InboundIpRules
+        {
+            get => _inboundIpRules ?? (_inboundIpRules = new InputList<Inputs.TopicInboundIpRuleArgs>());
+            set => _inboundIpRules = value;
+        }
+
         /// <summary>
         /// A `input_mapping_default_values` block as defined below.
         /// </summary>
@@ -193,6 +217,12 @@ namespace Pulumi.Azure.EventGrid
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Whether or not public network access is allowed for this server. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -222,6 +252,18 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
+
+        [Input("inboundIpRules")]
+        private InputList<Inputs.TopicInboundIpRuleGetArgs>? _inboundIpRules;
+
+        /// <summary>
+        /// One or more `inbound_ip_rule` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.TopicInboundIpRuleGetArgs> InboundIpRules
+        {
+            get => _inboundIpRules ?? (_inboundIpRules = new InputList<Inputs.TopicInboundIpRuleGetArgs>());
+            set => _inboundIpRules = value;
+        }
 
         /// <summary>
         /// A `input_mapping_default_values` block as defined below.
@@ -258,6 +300,12 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         [Input("primaryAccessKey")]
         public Input<string>? PrimaryAccessKey { get; set; }
+
+        /// <summary>
+        /// Whether or not public network access is allowed for this server. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.

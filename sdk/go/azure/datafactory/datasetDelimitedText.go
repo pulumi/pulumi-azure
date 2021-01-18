@@ -91,6 +91,8 @@ type DatasetDelimitedText struct {
 	AzureBlobStorageLocation DatasetDelimitedTextAzureBlobStorageLocationPtrOutput `pulumi:"azureBlobStorageLocation"`
 	// The column delimiter.
 	ColumnDelimiter pulumi.StringPtrOutput `pulumi:"columnDelimiter"`
+	// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
+	CompressionLevel pulumi.StringPtrOutput `pulumi:"compressionLevel"`
 	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
@@ -169,6 +171,8 @@ type datasetDelimitedTextState struct {
 	AzureBlobStorageLocation *DatasetDelimitedTextAzureBlobStorageLocation `pulumi:"azureBlobStorageLocation"`
 	// The column delimiter.
 	ColumnDelimiter *string `pulumi:"columnDelimiter"`
+	// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
+	CompressionLevel *string `pulumi:"compressionLevel"`
 	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
@@ -210,6 +214,8 @@ type DatasetDelimitedTextState struct {
 	AzureBlobStorageLocation DatasetDelimitedTextAzureBlobStorageLocationPtrInput
 	// The column delimiter.
 	ColumnDelimiter pulumi.StringPtrInput
+	// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
+	CompressionLevel pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
 	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Dataset.
@@ -255,6 +261,8 @@ type datasetDelimitedTextArgs struct {
 	AzureBlobStorageLocation *DatasetDelimitedTextAzureBlobStorageLocation `pulumi:"azureBlobStorageLocation"`
 	// The column delimiter.
 	ColumnDelimiter *string `pulumi:"columnDelimiter"`
+	// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
+	CompressionLevel *string `pulumi:"compressionLevel"`
 	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
 	DataFactoryName string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
@@ -297,6 +305,8 @@ type DatasetDelimitedTextArgs struct {
 	AzureBlobStorageLocation DatasetDelimitedTextAzureBlobStorageLocationPtrInput
 	// The column delimiter.
 	ColumnDelimiter pulumi.StringPtrInput
+	// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
+	CompressionLevel pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
 	DataFactoryName pulumi.StringInput
 	// The description for the Data Factory Dataset.

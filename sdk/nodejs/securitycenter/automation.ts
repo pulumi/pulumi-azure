@@ -22,13 +22,27 @@ import * as utilities from "../utilities";
  *     sku: "Standard",
  *     capacity: 2,
  * });
+ * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     partitionCount: 2,
+ *     messageRetention: 2,
+ * });
+ * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("exampleAuthorizationRule", {
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     eventhubName: exampleEventHub.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     listen: true,
+ *     send: false,
+ *     manage: false,
+ * });
  * const exampleAutomation = new azure.securitycenter.Automation("exampleAutomation", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     actions: [{
  *         type: "EventHub",
- *         resourceId: exampleEventHubNamespace.id,
- *         connectionString: exampleEventHubNamespace.defaultPrimaryConnectionString,
+ *         resourceId: exampleEventHub.id,
+ *         connectionString: exampleAuthorizationRule.primaryConnectionString,
  *     }],
  *     sources: [{
  *         eventSource: "Alerts",

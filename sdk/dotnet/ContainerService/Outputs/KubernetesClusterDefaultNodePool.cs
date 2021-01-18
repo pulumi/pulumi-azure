@@ -58,6 +58,9 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
         /// </summary>
         public readonly int? OsDiskSizeGb;
+        /// <summary>
+        /// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? OsDiskType;
         public readonly string? ProximityPlacementGroupId;
         /// <summary>

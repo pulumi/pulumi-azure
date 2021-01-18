@@ -59,6 +59,8 @@ type Domain struct {
 
 	// The Endpoint associated with the EventGrid Domain.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	// One or more `inboundIpRule` blocks as defined below.
+	InboundIpRules DomainInboundIpRuleArrayOutput `pulumi:"inboundIpRules"`
 	// A `inputMappingDefaultValues` block as defined below.
 	InputMappingDefaultValues DomainInputMappingDefaultValuesPtrOutput `pulumi:"inputMappingDefaultValues"`
 	// A `inputMappingFields` block as defined below.
@@ -71,6 +73,8 @@ type Domain struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Primary Shared Access Key associated with the EventGrid Domain.
 	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Secondary Shared Access Key associated with the EventGrid Domain.
@@ -119,6 +123,8 @@ func GetDomain(ctx *pulumi.Context,
 type domainState struct {
 	// The Endpoint associated with the EventGrid Domain.
 	Endpoint *string `pulumi:"endpoint"`
+	// One or more `inboundIpRule` blocks as defined below.
+	InboundIpRules []DomainInboundIpRule `pulumi:"inboundIpRules"`
 	// A `inputMappingDefaultValues` block as defined below.
 	InputMappingDefaultValues *DomainInputMappingDefaultValues `pulumi:"inputMappingDefaultValues"`
 	// A `inputMappingFields` block as defined below.
@@ -131,6 +137,8 @@ type domainState struct {
 	Name *string `pulumi:"name"`
 	// The Primary Shared Access Key associated with the EventGrid Domain.
 	PrimaryAccessKey *string `pulumi:"primaryAccessKey"`
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Secondary Shared Access Key associated with the EventGrid Domain.
@@ -142,6 +150,8 @@ type domainState struct {
 type DomainState struct {
 	// The Endpoint associated with the EventGrid Domain.
 	Endpoint pulumi.StringPtrInput
+	// One or more `inboundIpRule` blocks as defined below.
+	InboundIpRules DomainInboundIpRuleArrayInput
 	// A `inputMappingDefaultValues` block as defined below.
 	InputMappingDefaultValues DomainInputMappingDefaultValuesPtrInput
 	// A `inputMappingFields` block as defined below.
@@ -154,6 +164,8 @@ type DomainState struct {
 	Name pulumi.StringPtrInput
 	// The Primary Shared Access Key associated with the EventGrid Domain.
 	PrimaryAccessKey pulumi.StringPtrInput
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The Secondary Shared Access Key associated with the EventGrid Domain.
@@ -167,6 +179,8 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
+	// One or more `inboundIpRule` blocks as defined below.
+	InboundIpRules []DomainInboundIpRule `pulumi:"inboundIpRules"`
 	// A `inputMappingDefaultValues` block as defined below.
 	InputMappingDefaultValues *DomainInputMappingDefaultValues `pulumi:"inputMappingDefaultValues"`
 	// A `inputMappingFields` block as defined below.
@@ -177,6 +191,8 @@ type domainArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -185,6 +201,8 @@ type domainArgs struct {
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
+	// One or more `inboundIpRule` blocks as defined below.
+	InboundIpRules DomainInboundIpRuleArrayInput
 	// A `inputMappingDefaultValues` block as defined below.
 	InputMappingDefaultValues DomainInputMappingDefaultValuesPtrInput
 	// A `inputMappingFields` block as defined below.
@@ -195,6 +213,8 @@ type DomainArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.

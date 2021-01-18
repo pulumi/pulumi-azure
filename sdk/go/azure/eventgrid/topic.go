@@ -61,6 +61,8 @@ type Topic struct {
 
 	// The Endpoint associated with the EventGrid Topic.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	// One or more `inboundIpRule` blocks as defined below.
+	InboundIpRules TopicInboundIpRuleArrayOutput `pulumi:"inboundIpRules"`
 	// A `inputMappingDefaultValues` block as defined below.
 	InputMappingDefaultValues TopicInputMappingDefaultValuesPtrOutput `pulumi:"inputMappingDefaultValues"`
 	// A `inputMappingFields` block as defined below.
@@ -73,6 +75,8 @@ type Topic struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Primary Shared Access Key associated with the EventGrid Topic.
 	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Secondary Shared Access Key associated with the EventGrid Topic.
@@ -121,6 +125,8 @@ func GetTopic(ctx *pulumi.Context,
 type topicState struct {
 	// The Endpoint associated with the EventGrid Topic.
 	Endpoint *string `pulumi:"endpoint"`
+	// One or more `inboundIpRule` blocks as defined below.
+	InboundIpRules []TopicInboundIpRule `pulumi:"inboundIpRules"`
 	// A `inputMappingDefaultValues` block as defined below.
 	InputMappingDefaultValues *TopicInputMappingDefaultValues `pulumi:"inputMappingDefaultValues"`
 	// A `inputMappingFields` block as defined below.
@@ -133,6 +139,8 @@ type topicState struct {
 	Name *string `pulumi:"name"`
 	// The Primary Shared Access Key associated with the EventGrid Topic.
 	PrimaryAccessKey *string `pulumi:"primaryAccessKey"`
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Secondary Shared Access Key associated with the EventGrid Topic.
@@ -144,6 +152,8 @@ type topicState struct {
 type TopicState struct {
 	// The Endpoint associated with the EventGrid Topic.
 	Endpoint pulumi.StringPtrInput
+	// One or more `inboundIpRule` blocks as defined below.
+	InboundIpRules TopicInboundIpRuleArrayInput
 	// A `inputMappingDefaultValues` block as defined below.
 	InputMappingDefaultValues TopicInputMappingDefaultValuesPtrInput
 	// A `inputMappingFields` block as defined below.
@@ -156,6 +166,8 @@ type TopicState struct {
 	Name pulumi.StringPtrInput
 	// The Primary Shared Access Key associated with the EventGrid Topic.
 	PrimaryAccessKey pulumi.StringPtrInput
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The Secondary Shared Access Key associated with the EventGrid Topic.
@@ -169,6 +181,8 @@ func (TopicState) ElementType() reflect.Type {
 }
 
 type topicArgs struct {
+	// One or more `inboundIpRule` blocks as defined below.
+	InboundIpRules []TopicInboundIpRule `pulumi:"inboundIpRules"`
 	// A `inputMappingDefaultValues` block as defined below.
 	InputMappingDefaultValues *TopicInputMappingDefaultValues `pulumi:"inputMappingDefaultValues"`
 	// A `inputMappingFields` block as defined below.
@@ -179,6 +193,8 @@ type topicArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -187,6 +203,8 @@ type topicArgs struct {
 
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
+	// One or more `inboundIpRule` blocks as defined below.
+	InboundIpRules TopicInboundIpRuleArrayInput
 	// A `inputMappingDefaultValues` block as defined below.
 	InputMappingDefaultValues TopicInputMappingDefaultValuesPtrInput
 	// A `inputMappingFields` block as defined below.
@@ -197,6 +215,8 @@ type TopicArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.

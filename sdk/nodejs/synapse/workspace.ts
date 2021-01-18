@@ -98,7 +98,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly managedResourceGroupName!: pulumi.Output<string>;
     /**
-     * Is Virtual Network enabled for all computes in this workspace. Changing this forces a new resource to be created.
+     * Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
      */
     public readonly managedVirtualNetworkEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -117,6 +117,10 @@ export class Workspace extends pulumi.CustomResource {
      * The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
      */
     public readonly sqlAdministratorLoginPassword!: pulumi.Output<string>;
+    /**
+     * Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
+     */
+    public readonly sqlIdentityControlEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
      */
@@ -148,6 +152,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sqlAdministratorLogin"] = state ? state.sqlAdministratorLogin : undefined;
             inputs["sqlAdministratorLoginPassword"] = state ? state.sqlAdministratorLoginPassword : undefined;
+            inputs["sqlIdentityControlEnabled"] = state ? state.sqlIdentityControlEnabled : undefined;
             inputs["storageDataLakeGen2FilesystemId"] = state ? state.storageDataLakeGen2FilesystemId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -172,6 +177,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sqlAdministratorLogin"] = args ? args.sqlAdministratorLogin : undefined;
             inputs["sqlAdministratorLoginPassword"] = args ? args.sqlAdministratorLoginPassword : undefined;
+            inputs["sqlIdentityControlEnabled"] = args ? args.sqlIdentityControlEnabled : undefined;
             inputs["storageDataLakeGen2FilesystemId"] = args ? args.storageDataLakeGen2FilesystemId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["connectivityEndpoints"] = undefined /*out*/;
@@ -213,7 +219,7 @@ export interface WorkspaceState {
      */
     readonly managedResourceGroupName?: pulumi.Input<string>;
     /**
-     * Is Virtual Network enabled for all computes in this workspace. Changing this forces a new resource to be created.
+     * Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
      */
     readonly managedVirtualNetworkEnabled?: pulumi.Input<boolean>;
     /**
@@ -232,6 +238,10 @@ export interface WorkspaceState {
      * The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
      */
     readonly sqlAdministratorLoginPassword?: pulumi.Input<string>;
+    /**
+     * Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
+     */
+    readonly sqlIdentityControlEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
      */
@@ -259,7 +269,7 @@ export interface WorkspaceArgs {
      */
     readonly managedResourceGroupName?: pulumi.Input<string>;
     /**
-     * Is Virtual Network enabled for all computes in this workspace. Changing this forces a new resource to be created.
+     * Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
      */
     readonly managedVirtualNetworkEnabled?: pulumi.Input<boolean>;
     /**
@@ -278,6 +288,10 @@ export interface WorkspaceArgs {
      * The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
      */
     readonly sqlAdministratorLoginPassword: pulumi.Input<string>;
+    /**
+     * Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
+     */
+    readonly sqlIdentityControlEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
      */

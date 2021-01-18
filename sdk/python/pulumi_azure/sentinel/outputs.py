@@ -12,6 +12,8 @@ from . import outputs
 __all__ = [
     'AlertRuleScheduledIncidentConfiguration',
     'AlertRuleScheduledIncidentConfigurationGrouping',
+    'GetAlertRuleTemplateScheduledTemplateResult',
+    'GetAlertRuleTemplateSecurityIncidentTemplateResult',
 ]
 
 @pulumi.output_type
@@ -114,5 +116,129 @@ class AlertRuleScheduledIncidentConfigurationGrouping(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GetAlertRuleTemplateScheduledTemplateResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 query: str,
+                 query_frequency: str,
+                 query_period: str,
+                 severity: str,
+                 tactics: Sequence[str],
+                 trigger_operator: str,
+                 trigger_threshold: int):
+        """
+        :param str description: The description of this Sentinel Scheduled Alert Rule Template.
+        :param str query: The query of this Sentinel Scheduled Alert Rule Template.
+        :param str query_frequency: The ISO 8601 timespan duration between two consecutive queries.
+        :param str query_period: The ISO 8601 timespan duration, which determine the time period of the data covered by the query.
+        :param str severity: The alert severity of this Sentinel Scheduled Alert Rule Template.
+        :param Sequence[str] tactics: A list of categories of attacks by which to classify the rule.
+        :param str trigger_operator: The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
+        :param int trigger_threshold: The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "query", query)
+        pulumi.set(__self__, "query_frequency", query_frequency)
+        pulumi.set(__self__, "query_period", query_period)
+        pulumi.set(__self__, "severity", severity)
+        pulumi.set(__self__, "tactics", tactics)
+        pulumi.set(__self__, "trigger_operator", trigger_operator)
+        pulumi.set(__self__, "trigger_threshold", trigger_threshold)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of this Sentinel Scheduled Alert Rule Template.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        """
+        The query of this Sentinel Scheduled Alert Rule Template.
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="queryFrequency")
+    def query_frequency(self) -> str:
+        """
+        The ISO 8601 timespan duration between two consecutive queries.
+        """
+        return pulumi.get(self, "query_frequency")
+
+    @property
+    @pulumi.getter(name="queryPeriod")
+    def query_period(self) -> str:
+        """
+        The ISO 8601 timespan duration, which determine the time period of the data covered by the query.
+        """
+        return pulumi.get(self, "query_period")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> str:
+        """
+        The alert severity of this Sentinel Scheduled Alert Rule Template.
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter
+    def tactics(self) -> Sequence[str]:
+        """
+        A list of categories of attacks by which to classify the rule.
+        """
+        return pulumi.get(self, "tactics")
+
+    @property
+    @pulumi.getter(name="triggerOperator")
+    def trigger_operator(self) -> str:
+        """
+        The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
+        """
+        return pulumi.get(self, "trigger_operator")
+
+    @property
+    @pulumi.getter(name="triggerThreshold")
+    def trigger_threshold(self) -> int:
+        """
+        The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
+        """
+        return pulumi.get(self, "trigger_threshold")
+
+
+@pulumi.output_type
+class GetAlertRuleTemplateSecurityIncidentTemplateResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 product_filter: str):
+        """
+        :param str description: The description of this Sentinel Scheduled Alert Rule Template.
+        :param str product_filter: The Microsoft Security Service from where the alert will be generated.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "product_filter", product_filter)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of this Sentinel Scheduled Alert Rule Template.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="productFilter")
+    def product_filter(self) -> str:
+        """
+        The Microsoft Security Service from where the alert will be generated.
+        """
+        return pulumi.get(self, "product_filter")
 
 

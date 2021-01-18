@@ -79,6 +79,9 @@ namespace Pulumi.Azure.Synapse
         [Output("createMode")]
         public Output<string?> CreateMode { get; private set; } = null!;
 
+        /// <summary>
+        /// Is transparent data encryption enabled? Defaults to `false`.
+        /// </summary>
         [Output("dataEncrypted")]
         public Output<bool?> DataEncrypted { get; private set; } = null!;
 
@@ -176,6 +179,9 @@ namespace Pulumi.Azure.Synapse
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
 
+        /// <summary>
+        /// Is transparent data encryption enabled? Defaults to `false`.
+        /// </summary>
         [Input("dataEncrypted")]
         public Input<bool>? DataEncrypted { get; set; }
 
@@ -240,6 +246,9 @@ namespace Pulumi.Azure.Synapse
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
 
+        /// <summary>
+        /// Is transparent data encryption enabled? Defaults to `false`.
+        /// </summary>
         [Input("dataEncrypted")]
         public Input<bool>? DataEncrypted { get; set; }
 

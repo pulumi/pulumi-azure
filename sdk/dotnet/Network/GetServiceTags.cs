@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Network
         ///             Service = "AzureKeyVault",
         ///             LocationFilter = "northeurope",
         ///         }));
-        ///         this.AddressPrefixes = data.Azurerm_service_tags.Example.Address_prefixes;
+        ///         this.AddressPrefixes = example.Apply(example =&gt; example.AddressPrefixes);
         ///     }
         /// 
         ///     [Output("addressPrefixes")]

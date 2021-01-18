@@ -371,9 +371,279 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) ReopenClosedIn
 	}).(pulumi.BoolPtrOutput)
 }
 
+type GetAlertRuleTemplateScheduledTemplate struct {
+	// The description of this Sentinel Scheduled Alert Rule Template.
+	Description string `pulumi:"description"`
+	// The query of this Sentinel Scheduled Alert Rule Template.
+	Query string `pulumi:"query"`
+	// The ISO 8601 timespan duration between two consecutive queries.
+	QueryFrequency string `pulumi:"queryFrequency"`
+	// The ISO 8601 timespan duration, which determine the time period of the data covered by the query.
+	QueryPeriod string `pulumi:"queryPeriod"`
+	// The alert severity of this Sentinel Scheduled Alert Rule Template.
+	Severity string `pulumi:"severity"`
+	// A list of categories of attacks by which to classify the rule.
+	Tactics []string `pulumi:"tactics"`
+	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
+	TriggerOperator string `pulumi:"triggerOperator"`
+	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
+	TriggerThreshold int `pulumi:"triggerThreshold"`
+}
+
+// GetAlertRuleTemplateScheduledTemplateInput is an input type that accepts GetAlertRuleTemplateScheduledTemplateArgs and GetAlertRuleTemplateScheduledTemplateOutput values.
+// You can construct a concrete instance of `GetAlertRuleTemplateScheduledTemplateInput` via:
+//
+//          GetAlertRuleTemplateScheduledTemplateArgs{...}
+type GetAlertRuleTemplateScheduledTemplateInput interface {
+	pulumi.Input
+
+	ToGetAlertRuleTemplateScheduledTemplateOutput() GetAlertRuleTemplateScheduledTemplateOutput
+	ToGetAlertRuleTemplateScheduledTemplateOutputWithContext(context.Context) GetAlertRuleTemplateScheduledTemplateOutput
+}
+
+type GetAlertRuleTemplateScheduledTemplateArgs struct {
+	// The description of this Sentinel Scheduled Alert Rule Template.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The query of this Sentinel Scheduled Alert Rule Template.
+	Query pulumi.StringInput `pulumi:"query"`
+	// The ISO 8601 timespan duration between two consecutive queries.
+	QueryFrequency pulumi.StringInput `pulumi:"queryFrequency"`
+	// The ISO 8601 timespan duration, which determine the time period of the data covered by the query.
+	QueryPeriod pulumi.StringInput `pulumi:"queryPeriod"`
+	// The alert severity of this Sentinel Scheduled Alert Rule Template.
+	Severity pulumi.StringInput `pulumi:"severity"`
+	// A list of categories of attacks by which to classify the rule.
+	Tactics pulumi.StringArrayInput `pulumi:"tactics"`
+	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
+	TriggerOperator pulumi.StringInput `pulumi:"triggerOperator"`
+	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
+	TriggerThreshold pulumi.IntInput `pulumi:"triggerThreshold"`
+}
+
+func (GetAlertRuleTemplateScheduledTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertRuleTemplateScheduledTemplate)(nil)).Elem()
+}
+
+func (i GetAlertRuleTemplateScheduledTemplateArgs) ToGetAlertRuleTemplateScheduledTemplateOutput() GetAlertRuleTemplateScheduledTemplateOutput {
+	return i.ToGetAlertRuleTemplateScheduledTemplateOutputWithContext(context.Background())
+}
+
+func (i GetAlertRuleTemplateScheduledTemplateArgs) ToGetAlertRuleTemplateScheduledTemplateOutputWithContext(ctx context.Context) GetAlertRuleTemplateScheduledTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleTemplateScheduledTemplateOutput)
+}
+
+// GetAlertRuleTemplateScheduledTemplateArrayInput is an input type that accepts GetAlertRuleTemplateScheduledTemplateArray and GetAlertRuleTemplateScheduledTemplateArrayOutput values.
+// You can construct a concrete instance of `GetAlertRuleTemplateScheduledTemplateArrayInput` via:
+//
+//          GetAlertRuleTemplateScheduledTemplateArray{ GetAlertRuleTemplateScheduledTemplateArgs{...} }
+type GetAlertRuleTemplateScheduledTemplateArrayInput interface {
+	pulumi.Input
+
+	ToGetAlertRuleTemplateScheduledTemplateArrayOutput() GetAlertRuleTemplateScheduledTemplateArrayOutput
+	ToGetAlertRuleTemplateScheduledTemplateArrayOutputWithContext(context.Context) GetAlertRuleTemplateScheduledTemplateArrayOutput
+}
+
+type GetAlertRuleTemplateScheduledTemplateArray []GetAlertRuleTemplateScheduledTemplateInput
+
+func (GetAlertRuleTemplateScheduledTemplateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertRuleTemplateScheduledTemplate)(nil)).Elem()
+}
+
+func (i GetAlertRuleTemplateScheduledTemplateArray) ToGetAlertRuleTemplateScheduledTemplateArrayOutput() GetAlertRuleTemplateScheduledTemplateArrayOutput {
+	return i.ToGetAlertRuleTemplateScheduledTemplateArrayOutputWithContext(context.Background())
+}
+
+func (i GetAlertRuleTemplateScheduledTemplateArray) ToGetAlertRuleTemplateScheduledTemplateArrayOutputWithContext(ctx context.Context) GetAlertRuleTemplateScheduledTemplateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleTemplateScheduledTemplateArrayOutput)
+}
+
+type GetAlertRuleTemplateScheduledTemplateOutput struct{ *pulumi.OutputState }
+
+func (GetAlertRuleTemplateScheduledTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertRuleTemplateScheduledTemplate)(nil)).Elem()
+}
+
+func (o GetAlertRuleTemplateScheduledTemplateOutput) ToGetAlertRuleTemplateScheduledTemplateOutput() GetAlertRuleTemplateScheduledTemplateOutput {
+	return o
+}
+
+func (o GetAlertRuleTemplateScheduledTemplateOutput) ToGetAlertRuleTemplateScheduledTemplateOutputWithContext(ctx context.Context) GetAlertRuleTemplateScheduledTemplateOutput {
+	return o
+}
+
+// The description of this Sentinel Scheduled Alert Rule Template.
+func (o GetAlertRuleTemplateScheduledTemplateOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateScheduledTemplate) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The query of this Sentinel Scheduled Alert Rule Template.
+func (o GetAlertRuleTemplateScheduledTemplateOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateScheduledTemplate) string { return v.Query }).(pulumi.StringOutput)
+}
+
+// The ISO 8601 timespan duration between two consecutive queries.
+func (o GetAlertRuleTemplateScheduledTemplateOutput) QueryFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateScheduledTemplate) string { return v.QueryFrequency }).(pulumi.StringOutput)
+}
+
+// The ISO 8601 timespan duration, which determine the time period of the data covered by the query.
+func (o GetAlertRuleTemplateScheduledTemplateOutput) QueryPeriod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateScheduledTemplate) string { return v.QueryPeriod }).(pulumi.StringOutput)
+}
+
+// The alert severity of this Sentinel Scheduled Alert Rule Template.
+func (o GetAlertRuleTemplateScheduledTemplateOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateScheduledTemplate) string { return v.Severity }).(pulumi.StringOutput)
+}
+
+// A list of categories of attacks by which to classify the rule.
+func (o GetAlertRuleTemplateScheduledTemplateOutput) Tactics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateScheduledTemplate) []string { return v.Tactics }).(pulumi.StringArrayOutput)
+}
+
+// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
+func (o GetAlertRuleTemplateScheduledTemplateOutput) TriggerOperator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateScheduledTemplate) string { return v.TriggerOperator }).(pulumi.StringOutput)
+}
+
+// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
+func (o GetAlertRuleTemplateScheduledTemplateOutput) TriggerThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateScheduledTemplate) int { return v.TriggerThreshold }).(pulumi.IntOutput)
+}
+
+type GetAlertRuleTemplateScheduledTemplateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAlertRuleTemplateScheduledTemplateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertRuleTemplateScheduledTemplate)(nil)).Elem()
+}
+
+func (o GetAlertRuleTemplateScheduledTemplateArrayOutput) ToGetAlertRuleTemplateScheduledTemplateArrayOutput() GetAlertRuleTemplateScheduledTemplateArrayOutput {
+	return o
+}
+
+func (o GetAlertRuleTemplateScheduledTemplateArrayOutput) ToGetAlertRuleTemplateScheduledTemplateArrayOutputWithContext(ctx context.Context) GetAlertRuleTemplateScheduledTemplateArrayOutput {
+	return o
+}
+
+func (o GetAlertRuleTemplateScheduledTemplateArrayOutput) Index(i pulumi.IntInput) GetAlertRuleTemplateScheduledTemplateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertRuleTemplateScheduledTemplate {
+		return vs[0].([]GetAlertRuleTemplateScheduledTemplate)[vs[1].(int)]
+	}).(GetAlertRuleTemplateScheduledTemplateOutput)
+}
+
+type GetAlertRuleTemplateSecurityIncidentTemplate struct {
+	// The description of this Sentinel Scheduled Alert Rule Template.
+	Description string `pulumi:"description"`
+	// The Microsoft Security Service from where the alert will be generated.
+	ProductFilter string `pulumi:"productFilter"`
+}
+
+// GetAlertRuleTemplateSecurityIncidentTemplateInput is an input type that accepts GetAlertRuleTemplateSecurityIncidentTemplateArgs and GetAlertRuleTemplateSecurityIncidentTemplateOutput values.
+// You can construct a concrete instance of `GetAlertRuleTemplateSecurityIncidentTemplateInput` via:
+//
+//          GetAlertRuleTemplateSecurityIncidentTemplateArgs{...}
+type GetAlertRuleTemplateSecurityIncidentTemplateInput interface {
+	pulumi.Input
+
+	ToGetAlertRuleTemplateSecurityIncidentTemplateOutput() GetAlertRuleTemplateSecurityIncidentTemplateOutput
+	ToGetAlertRuleTemplateSecurityIncidentTemplateOutputWithContext(context.Context) GetAlertRuleTemplateSecurityIncidentTemplateOutput
+}
+
+type GetAlertRuleTemplateSecurityIncidentTemplateArgs struct {
+	// The description of this Sentinel Scheduled Alert Rule Template.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The Microsoft Security Service from where the alert will be generated.
+	ProductFilter pulumi.StringInput `pulumi:"productFilter"`
+}
+
+func (GetAlertRuleTemplateSecurityIncidentTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertRuleTemplateSecurityIncidentTemplate)(nil)).Elem()
+}
+
+func (i GetAlertRuleTemplateSecurityIncidentTemplateArgs) ToGetAlertRuleTemplateSecurityIncidentTemplateOutput() GetAlertRuleTemplateSecurityIncidentTemplateOutput {
+	return i.ToGetAlertRuleTemplateSecurityIncidentTemplateOutputWithContext(context.Background())
+}
+
+func (i GetAlertRuleTemplateSecurityIncidentTemplateArgs) ToGetAlertRuleTemplateSecurityIncidentTemplateOutputWithContext(ctx context.Context) GetAlertRuleTemplateSecurityIncidentTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleTemplateSecurityIncidentTemplateOutput)
+}
+
+// GetAlertRuleTemplateSecurityIncidentTemplateArrayInput is an input type that accepts GetAlertRuleTemplateSecurityIncidentTemplateArray and GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput values.
+// You can construct a concrete instance of `GetAlertRuleTemplateSecurityIncidentTemplateArrayInput` via:
+//
+//          GetAlertRuleTemplateSecurityIncidentTemplateArray{ GetAlertRuleTemplateSecurityIncidentTemplateArgs{...} }
+type GetAlertRuleTemplateSecurityIncidentTemplateArrayInput interface {
+	pulumi.Input
+
+	ToGetAlertRuleTemplateSecurityIncidentTemplateArrayOutput() GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput
+	ToGetAlertRuleTemplateSecurityIncidentTemplateArrayOutputWithContext(context.Context) GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput
+}
+
+type GetAlertRuleTemplateSecurityIncidentTemplateArray []GetAlertRuleTemplateSecurityIncidentTemplateInput
+
+func (GetAlertRuleTemplateSecurityIncidentTemplateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertRuleTemplateSecurityIncidentTemplate)(nil)).Elem()
+}
+
+func (i GetAlertRuleTemplateSecurityIncidentTemplateArray) ToGetAlertRuleTemplateSecurityIncidentTemplateArrayOutput() GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput {
+	return i.ToGetAlertRuleTemplateSecurityIncidentTemplateArrayOutputWithContext(context.Background())
+}
+
+func (i GetAlertRuleTemplateSecurityIncidentTemplateArray) ToGetAlertRuleTemplateSecurityIncidentTemplateArrayOutputWithContext(ctx context.Context) GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput)
+}
+
+type GetAlertRuleTemplateSecurityIncidentTemplateOutput struct{ *pulumi.OutputState }
+
+func (GetAlertRuleTemplateSecurityIncidentTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertRuleTemplateSecurityIncidentTemplate)(nil)).Elem()
+}
+
+func (o GetAlertRuleTemplateSecurityIncidentTemplateOutput) ToGetAlertRuleTemplateSecurityIncidentTemplateOutput() GetAlertRuleTemplateSecurityIncidentTemplateOutput {
+	return o
+}
+
+func (o GetAlertRuleTemplateSecurityIncidentTemplateOutput) ToGetAlertRuleTemplateSecurityIncidentTemplateOutputWithContext(ctx context.Context) GetAlertRuleTemplateSecurityIncidentTemplateOutput {
+	return o
+}
+
+// The description of this Sentinel Scheduled Alert Rule Template.
+func (o GetAlertRuleTemplateSecurityIncidentTemplateOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateSecurityIncidentTemplate) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The Microsoft Security Service from where the alert will be generated.
+func (o GetAlertRuleTemplateSecurityIncidentTemplateOutput) ProductFilter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateSecurityIncidentTemplate) string { return v.ProductFilter }).(pulumi.StringOutput)
+}
+
+type GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertRuleTemplateSecurityIncidentTemplate)(nil)).Elem()
+}
+
+func (o GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput) ToGetAlertRuleTemplateSecurityIncidentTemplateArrayOutput() GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput {
+	return o
+}
+
+func (o GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput) ToGetAlertRuleTemplateSecurityIncidentTemplateArrayOutputWithContext(ctx context.Context) GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput {
+	return o
+}
+
+func (o GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput) Index(i pulumi.IntInput) GetAlertRuleTemplateSecurityIncidentTemplateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertRuleTemplateSecurityIncidentTemplate {
+		return vs[0].([]GetAlertRuleTemplateSecurityIncidentTemplate)[vs[1].(int)]
+	}).(GetAlertRuleTemplateSecurityIncidentTemplateOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AlertRuleScheduledIncidentConfigurationOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledIncidentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledIncidentConfigurationGroupingOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledIncidentConfigurationGroupingPtrOutput{})
+	pulumi.RegisterOutputType(GetAlertRuleTemplateScheduledTemplateOutput{})
+	pulumi.RegisterOutputType(GetAlertRuleTemplateScheduledTemplateArrayOutput{})
+	pulumi.RegisterOutputType(GetAlertRuleTemplateSecurityIncidentTemplateOutput{})
+	pulumi.RegisterOutputType(GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput{})
 }

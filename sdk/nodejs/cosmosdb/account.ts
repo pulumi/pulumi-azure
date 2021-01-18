@@ -92,6 +92,10 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
+     * Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    public readonly analyticalStorageEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
      */
     public readonly capabilities!: pulumi.Output<outputs.cosmosdb.AccountCapability[] | undefined>;
@@ -220,6 +224,7 @@ export class Account extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AccountState | undefined;
+            inputs["analyticalStorageEnabled"] = state ? state.analyticalStorageEnabled : undefined;
             inputs["capabilities"] = state ? state.capabilities : undefined;
             inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
             inputs["consistencyPolicy"] = state ? state.consistencyPolicy : undefined;
@@ -263,6 +268,7 @@ export class Account extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["analyticalStorageEnabled"] = args ? args.analyticalStorageEnabled : undefined;
             inputs["capabilities"] = args ? args.capabilities : undefined;
             inputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
             inputs["enableAutomaticFailover"] = args ? args.enableAutomaticFailover : undefined;
@@ -308,6 +314,10 @@ export class Account extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Account resources.
  */
 export interface AccountState {
+    /**
+     * Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    readonly analyticalStorageEnabled?: pulumi.Input<boolean>;
     /**
      * The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
      */
@@ -430,6 +440,10 @@ export interface AccountState {
  * The set of arguments for constructing a Account resource.
  */
 export interface AccountArgs {
+    /**
+     * Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    readonly analyticalStorageEnabled?: pulumi.Input<boolean>;
     /**
      * The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
      */

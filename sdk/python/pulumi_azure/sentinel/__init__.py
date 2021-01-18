@@ -7,6 +7,7 @@ from .alert_rule_fusion import *
 from .alert_rule_ms_security_incident import *
 from .alert_rule_scheduled import *
 from .get_alert_rule import *
+from .get_alert_rule_template import *
 from ._inputs import *
 from . import outputs
 

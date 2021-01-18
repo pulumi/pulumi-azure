@@ -90,6 +90,12 @@ namespace Pulumi.Azure.CosmosDB
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
+        /// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("analyticalStorageEnabled")]
+        public Output<bool?> AnalyticalStorageEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
         /// </summary>
         [Output("capabilities")]
@@ -297,6 +303,12 @@ namespace Pulumi.Azure.CosmosDB
 
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("analyticalStorageEnabled")]
+        public Input<bool>? AnalyticalStorageEnabled { get; set; }
+
         [Input("capabilities")]
         private InputList<Inputs.AccountCapabilityArgs>? _capabilities;
 
@@ -430,6 +442,12 @@ namespace Pulumi.Azure.CosmosDB
 
     public sealed class AccountState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("analyticalStorageEnabled")]
+        public Input<bool>? AnalyticalStorageEnabled { get; set; }
+
         [Input("capabilities")]
         private InputList<Inputs.AccountCapabilityGetArgs>? _capabilities;
 

@@ -89,9 +89,6 @@ export class GremlinGraph extends pulumi.CustomResource {
      * The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
      */
     public readonly accountName!: pulumi.Output<string>;
-    /**
-     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `partitionKeyPath` to be set.
-     */
     public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.GremlinGraphAutoscaleSettings | undefined>;
     /**
      * The conflict resolution policy for the graph. One or more `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
@@ -101,6 +98,10 @@ export class GremlinGraph extends pulumi.CustomResource {
      * The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
     public readonly databaseName!: pulumi.Output<string>;
+    /**
+     * The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
+     */
+    public readonly defaultTtl!: pulumi.Output<number>;
     /**
      * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */
@@ -142,6 +143,7 @@ export class GremlinGraph extends pulumi.CustomResource {
             inputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
             inputs["conflictResolutionPolicies"] = state ? state.conflictResolutionPolicies : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
+            inputs["defaultTtl"] = state ? state.defaultTtl : undefined;
             inputs["indexPolicies"] = state ? state.indexPolicies : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["partitionKeyPath"] = state ? state.partitionKeyPath : undefined;
@@ -169,6 +171,7 @@ export class GremlinGraph extends pulumi.CustomResource {
             inputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
             inputs["conflictResolutionPolicies"] = args ? args.conflictResolutionPolicies : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
+            inputs["defaultTtl"] = args ? args.defaultTtl : undefined;
             inputs["indexPolicies"] = args ? args.indexPolicies : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["partitionKeyPath"] = args ? args.partitionKeyPath : undefined;
@@ -195,9 +198,6 @@ export interface GremlinGraphState {
      * The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
      */
     readonly accountName?: pulumi.Input<string>;
-    /**
-     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `partitionKeyPath` to be set.
-     */
     readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinGraphAutoscaleSettings>;
     /**
      * The conflict resolution policy for the graph. One or more `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
@@ -207,6 +207,10 @@ export interface GremlinGraphState {
      * The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
     readonly databaseName?: pulumi.Input<string>;
+    /**
+     * The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
+     */
+    readonly defaultTtl?: pulumi.Input<number>;
     /**
      * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */
@@ -241,9 +245,6 @@ export interface GremlinGraphArgs {
      * The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
      */
     readonly accountName: pulumi.Input<string>;
-    /**
-     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `partitionKeyPath` to be set.
-     */
     readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinGraphAutoscaleSettings>;
     /**
      * The conflict resolution policy for the graph. One or more `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
@@ -253,6 +254,10 @@ export interface GremlinGraphArgs {
      * The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
     readonly databaseName: pulumi.Input<string>;
+    /**
+     * The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
+     */
+    readonly defaultTtl?: pulumi.Input<number>;
     /**
      * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */

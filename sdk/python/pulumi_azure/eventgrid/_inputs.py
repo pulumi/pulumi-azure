@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
+    'DomainInboundIpRuleArgs',
     'DomainInputMappingDefaultValuesArgs',
     'DomainInputMappingFieldsArgs',
     'EventSubscriptionAdvancedFilterArgs',
@@ -51,9 +52,48 @@ __all__ = [
     'SystemTopicEventSubscriptionStorageQueueEndpointArgs',
     'SystemTopicEventSubscriptionSubjectFilterArgs',
     'SystemTopicEventSubscriptionWebhookEndpointArgs',
+    'TopicInboundIpRuleArgs',
     'TopicInputMappingDefaultValuesArgs',
     'TopicInputMappingFieldsArgs',
 ]
+
+@pulumi.input_type
+class DomainInboundIpRuleArgs:
+    def __init__(__self__, *,
+                 ip_mask: pulumi.Input[str],
+                 action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] ip_mask: The ip mask (CIDR) to match on.
+        :param pulumi.Input[str] action: The action to take when the rule is matched. Possible values are `Allow`.
+        """
+        pulumi.set(__self__, "ip_mask", ip_mask)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> pulumi.Input[str]:
+        """
+        The ip mask (CIDR) to match on.
+        """
+        return pulumi.get(self, "ip_mask")
+
+    @ip_mask.setter
+    def ip_mask(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_mask", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take when the rule is matched. Possible values are `Allow`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
 
 @pulumi.input_type
 class DomainInputMappingDefaultValuesArgs:
@@ -2187,6 +2227,44 @@ class SystemTopicEventSubscriptionWebhookEndpointArgs:
     @preferred_batch_size_in_kilobytes.setter
     def preferred_batch_size_in_kilobytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "preferred_batch_size_in_kilobytes", value)
+
+
+@pulumi.input_type
+class TopicInboundIpRuleArgs:
+    def __init__(__self__, *,
+                 ip_mask: pulumi.Input[str],
+                 action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] ip_mask: The ip mask (CIDR) to match on.
+        :param pulumi.Input[str] action: The action to take when the rule is matched. Possible values are `Allow`.
+        """
+        pulumi.set(__self__, "ip_mask", ip_mask)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> pulumi.Input[str]:
+        """
+        The ip mask (CIDR) to match on.
+        """
+        return pulumi.get(self, "ip_mask")
+
+    @ip_mask.setter
+    def ip_mask(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_mask", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take when the rule is matched. Possible values are `Allow`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
 
 
 @pulumi.input_type

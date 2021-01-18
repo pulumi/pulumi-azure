@@ -98,6 +98,9 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("osDiskSizeGb")]
         public Input<int>? OsDiskSizeGb { get; set; }
 
+        /// <summary>
+        /// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("osDiskType")]
         public Input<string>? OsDiskType { get; set; }
 

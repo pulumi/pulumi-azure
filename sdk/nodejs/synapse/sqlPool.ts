@@ -81,6 +81,9 @@ export class SqlPool extends pulumi.CustomResource {
      * Specifies how to create the Sql Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
+    /**
+     * Is transparent data encryption enabled? Defaults to `false`.
+     */
     public readonly dataEncrypted!: pulumi.Output<boolean | undefined>;
     /**
      * The name which should be used for this Synapse Sql Pool. Changing this forces a new synapse SqlPool to be created.
@@ -169,6 +172,9 @@ export interface SqlPoolState {
      * Specifies how to create the Sql Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
      */
     readonly createMode?: pulumi.Input<string>;
+    /**
+     * Is transparent data encryption enabled? Defaults to `false`.
+     */
     readonly dataEncrypted?: pulumi.Input<boolean>;
     /**
      * The name which should be used for this Synapse Sql Pool. Changing this forces a new synapse SqlPool to be created.
@@ -208,6 +214,9 @@ export interface SqlPoolArgs {
      * Specifies how to create the Sql Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
      */
     readonly createMode?: pulumi.Input<string>;
+    /**
+     * Is transparent data encryption enabled? Defaults to `false`.
+     */
     readonly dataEncrypted?: pulumi.Input<boolean>;
     /**
      * The name which should be used for this Synapse Sql Pool. Changing this forces a new synapse SqlPool to be created.

@@ -91,6 +91,8 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
+	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	AnalyticalStorageEnabled pulumi.BoolPtrOutput `pulumi:"analyticalStorageEnabled"`
 	// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
 	Capabilities AccountCapabilityArrayOutput `pulumi:"capabilities"`
 	// A list of connection strings available for this CosmosDB account.
@@ -192,6 +194,8 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
+	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	AnalyticalStorageEnabled *bool `pulumi:"analyticalStorageEnabled"`
 	// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
 	Capabilities []AccountCapability `pulumi:"capabilities"`
 	// A list of connection strings available for this CosmosDB account.
@@ -253,6 +257,8 @@ type accountState struct {
 }
 
 type AccountState struct {
+	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	AnalyticalStorageEnabled pulumi.BoolPtrInput
 	// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
 	Capabilities AccountCapabilityArrayInput
 	// A list of connection strings available for this CosmosDB account.
@@ -318,6 +324,8 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	AnalyticalStorageEnabled *bool `pulumi:"analyticalStorageEnabled"`
 	// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
 	Capabilities []AccountCapability `pulumi:"capabilities"`
 	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
@@ -356,6 +364,8 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	AnalyticalStorageEnabled pulumi.BoolPtrInput
 	// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
 	Capabilities AccountCapabilityArrayInput
 	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.

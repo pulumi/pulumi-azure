@@ -6261,6 +6261,9 @@ export namespace containerservice {
          * The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
          */
         osDiskSizeGb?: pulumi.Input<number>;
+        /**
+         * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+         */
         osDiskType?: pulumi.Input<string>;
         proximityPlacementGroupId?: pulumi.Input<string>;
         /**
@@ -7185,6 +7188,17 @@ export namespace datafactory {
         resourceId: pulumi.Input<string>;
     }
 
+    export interface LinkedServiceSqlServerKeyVaultPassword {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: pulumi.Input<string>;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores SQL Server password.
+         */
+        secretName: pulumi.Input<string>;
+    }
+
     export interface LinkedServiceSynapseKeyVaultPassword {
         /**
          * Specifies the name of an existing Key Vault Data Factory Linked Service.
@@ -7493,6 +7507,17 @@ export namespace dns {
 }
 
 export namespace eventgrid {
+    export interface DomainInboundIpRule {
+        /**
+         * The action to take when the rule is matched. Possible values are `Allow`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * The ip mask (CIDR) to match on.
+         */
+        ipMask: pulumi.Input<string>;
+    }
+
     export interface DomainInputMappingDefaultValues {
         /**
          * Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -8095,6 +8120,17 @@ export namespace eventgrid {
         url: pulumi.Input<string>;
     }
 
+    export interface TopicInboundIpRule {
+        /**
+         * The action to take when the rule is matched. Possible values are `Allow`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * The ip mask (CIDR) to match on.
+         */
+        ipMask: pulumi.Input<string>;
+    }
+
     export interface TopicInputMappingDefaultValues {
         /**
          * Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -8139,6 +8175,17 @@ export namespace eventgrid {
 }
 
 export namespace eventhub {
+    export interface DomainInboundIpRule {
+        /**
+         * The action to take when the rule is matched. Possible values are `Allow`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * The ip mask (CIDR) to match on.
+         */
+        ipMask: pulumi.Input<string>;
+    }
+
     export interface DomainInputMappingDefaultValues {
         /**
          * Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -8179,6 +8226,17 @@ export namespace eventhub {
          * Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
          */
         topic?: pulumi.Input<string>;
+    }
+
+    export interface EventGridTopicInboundIpRule {
+        /**
+         * The action to take when the rule is matched. Possible values are `Allow`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * The ip mask (CIDR) to match on.
+         */
+        ipMask: pulumi.Input<string>;
     }
 
     export interface EventGridTopicInputMappingDefaultValues {
@@ -8293,6 +8351,10 @@ export namespace eventhub {
          * One or more `ipRule` blocks as defined below.
          */
         ipRules?: pulumi.Input<pulumi.Input<inputs.eventhub.EventHubNamespaceNetworkRulesetsIpRule>[]>;
+        /**
+         * Whether Trusted Microsoft Services are allowed to bypass firewall.
+         */
+        trustedServiceAccessEnabled?: pulumi.Input<boolean>;
         /**
          * One or more `virtualNetworkRule` blocks as defined below.
          */
@@ -16508,7 +16570,7 @@ export namespace securitycenter {
 
     export interface AutomationSource {
         /**
-         * Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments` or `SubAssessments`. Note. assessments are also referred to as recommendations
+         * Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `SecureScoreControls`, `SecureScores` or `SubAssessments`. Note. assessments are also referred to as recommendations
          */
         eventSource: pulumi.Input<string>;
         /**
@@ -16578,6 +16640,7 @@ export namespace sentinel {
          */
         reopenClosedIncidents?: pulumi.Input<boolean>;
     }
+
 }
 
 export namespace servicebus {

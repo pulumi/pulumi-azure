@@ -30,6 +30,12 @@ namespace Pulumi.Azure.EventHub.Inputs
             set => _ipRules = value;
         }
 
+        /// <summary>
+        /// Whether Trusted Microsoft Services are allowed to bypass firewall.
+        /// </summary>
+        [Input("trustedServiceAccessEnabled")]
+        public Input<bool>? TrustedServiceAccessEnabled { get; set; }
+
         [Input("virtualNetworkRules")]
         private InputList<Inputs.EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs>? _virtualNetworkRules;
 

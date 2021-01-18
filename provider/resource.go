@@ -1910,6 +1910,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_private_dns_zone":                {Tok: azureDataSource(azurePrivateDNS, "getDnsZone")},
 			"azurerm_sentinel_alert_rule":             {Tok: azureDataSource(azureSentinel, "getAlertRule")},
+			"azurerm_sentinel_alert_rule_template":    {Tok: azureDataSource(azureSentinel, "getAlertRuleTemplate")},
 			"azurerm_maintenance_configuration":       {Tok: azureDataSource(azureMaintenance, "getConfiguration")},
 			"azurerm_advisor_recommendations":         {Tok: azureDataSource(advisor, "getRecommendations")},
 			"azurerm_blueprint_definition":            {Tok: azureDataSource(azureBlueprint, "getDefinition")},

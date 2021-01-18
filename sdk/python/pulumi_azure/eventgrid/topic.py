@@ -17,11 +17,13 @@ class Topic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicInboundIpRuleArgs']]]]] = None,
                  input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['TopicInputMappingDefaultValuesArgs']]] = None,
                  input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['TopicInputMappingFieldsArgs']]] = None,
                  input_schema: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -57,11 +59,13 @@ class Topic(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicInboundIpRuleArgs']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['TopicInputMappingDefaultValuesArgs']] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
         :param pulumi.Input[pulumi.InputType['TopicInputMappingFieldsArgs']] input_mapping_fields: A `input_mapping_fields` block as defined below.
         :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -82,11 +86,13 @@ class Topic(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['inbound_ip_rules'] = inbound_ip_rules
             __props__['input_mapping_default_values'] = input_mapping_default_values
             __props__['input_mapping_fields'] = input_mapping_fields
             __props__['input_schema'] = input_schema
             __props__['location'] = location
             __props__['name'] = name
+            __props__['public_network_access_enabled'] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -107,12 +113,14 @@ class Topic(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
+            inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicInboundIpRuleArgs']]]]] = None,
             input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['TopicInputMappingDefaultValuesArgs']]] = None,
             input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['TopicInputMappingFieldsArgs']]] = None,
             input_schema: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             primary_access_key: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             secondary_access_key: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Topic':
@@ -124,12 +132,14 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint: The Endpoint associated with the EventGrid Topic.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicInboundIpRuleArgs']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['TopicInputMappingDefaultValuesArgs']] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
         :param pulumi.Input[pulumi.InputType['TopicInputMappingFieldsArgs']] input_mapping_fields: A `input_mapping_fields` block as defined below.
         :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_access_key: The Primary Shared Access Key associated with the EventGrid Topic.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The Secondary Shared Access Key associated with the EventGrid Topic.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -139,12 +149,14 @@ class Topic(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["endpoint"] = endpoint
+        __props__["inbound_ip_rules"] = inbound_ip_rules
         __props__["input_mapping_default_values"] = input_mapping_default_values
         __props__["input_mapping_fields"] = input_mapping_fields
         __props__["input_schema"] = input_schema
         __props__["location"] = location
         __props__["name"] = name
         __props__["primary_access_key"] = primary_access_key
+        __props__["public_network_access_enabled"] = public_network_access_enabled
         __props__["resource_group_name"] = resource_group_name
         __props__["secondary_access_key"] = secondary_access_key
         __props__["tags"] = tags
@@ -157,6 +169,14 @@ class Topic(pulumi.CustomResource):
         The Endpoint associated with the EventGrid Topic.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="inboundIpRules")
+    def inbound_ip_rules(self) -> pulumi.Output[Optional[Sequence['outputs.TopicInboundIpRule']]]:
+        """
+        One or more `inbound_ip_rule` blocks as defined below.
+        """
+        return pulumi.get(self, "inbound_ip_rules")
 
     @property
     @pulumi.getter(name="inputMappingDefaultValues")
@@ -205,6 +225,14 @@ class Topic(pulumi.CustomResource):
         The Primary Shared Access Key associated with the EventGrid Topic.
         """
         return pulumi.get(self, "primary_access_key")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether or not public network access is allowed for this server. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

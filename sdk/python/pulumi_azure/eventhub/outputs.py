@@ -10,8 +10,10 @@ from .. import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'DomainInboundIpRule',
     'DomainInputMappingDefaultValues',
     'DomainInputMappingFields',
+    'EventGridTopicInboundIpRule',
     'EventGridTopicInputMappingDefaultValues',
     'EventGridTopicInputMappingFields',
     'EventHubCaptureDescription',
@@ -43,6 +45,39 @@ __all__ = [
     'EventSubscriptionWebhookEndpoint',
     'SubscriptionRuleCorrelationFilter',
 ]
+
+@pulumi.output_type
+class DomainInboundIpRule(dict):
+    def __init__(__self__, *,
+                 ip_mask: str,
+                 action: Optional[str] = None):
+        """
+        :param str ip_mask: The ip mask (CIDR) to match on.
+        :param str action: The action to take when the rule is matched. Possible values are `Allow`.
+        """
+        pulumi.set(__self__, "ip_mask", ip_mask)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> str:
+        """
+        The ip mask (CIDR) to match on.
+        """
+        return pulumi.get(self, "ip_mask")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The action to take when the rule is matched. Possible values are `Allow`.
+        """
+        return pulumi.get(self, "action")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class DomainInputMappingDefaultValues(dict):
@@ -167,6 +202,39 @@ class DomainInputMappingFields(dict):
         Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "topic")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EventGridTopicInboundIpRule(dict):
+    def __init__(__self__, *,
+                 ip_mask: str,
+                 action: Optional[str] = None):
+        """
+        :param str ip_mask: The ip mask (CIDR) to match on.
+        :param str action: The action to take when the rule is matched. Possible values are `Allow`.
+        """
+        pulumi.set(__self__, "ip_mask", ip_mask)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> str:
+        """
+        The ip mask (CIDR) to match on.
+        """
+        return pulumi.get(self, "ip_mask")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The action to take when the rule is matched. Possible values are `Allow`.
+        """
+        return pulumi.get(self, "action")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -483,15 +551,19 @@ class EventHubNamespaceNetworkRulesets(dict):
     def __init__(__self__, *,
                  default_action: str,
                  ip_rules: Optional[Sequence['outputs.EventHubNamespaceNetworkRulesetsIpRule']] = None,
+                 trusted_service_access_enabled: Optional[bool] = None,
                  virtual_network_rules: Optional[Sequence['outputs.EventHubNamespaceNetworkRulesetsVirtualNetworkRule']] = None):
         """
         :param str default_action: The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
         :param Sequence['EventHubNamespaceNetworkRulesetsIpRuleArgs'] ip_rules: One or more `ip_rule` blocks as defined below.
+        :param bool trusted_service_access_enabled: Whether Trusted Microsoft Services are allowed to bypass firewall.
         :param Sequence['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs'] virtual_network_rules: One or more `virtual_network_rule` blocks as defined below.
         """
         pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
+        if trusted_service_access_enabled is not None:
+            pulumi.set(__self__, "trusted_service_access_enabled", trusted_service_access_enabled)
         if virtual_network_rules is not None:
             pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
 
@@ -510,6 +582,14 @@ class EventHubNamespaceNetworkRulesets(dict):
         One or more `ip_rule` blocks as defined below.
         """
         return pulumi.get(self, "ip_rules")
+
+    @property
+    @pulumi.getter(name="trustedServiceAccessEnabled")
+    def trusted_service_access_enabled(self) -> Optional[bool]:
+        """
+        Whether Trusted Microsoft Services are allowed to bypass firewall.
+        """
+        return pulumi.get(self, "trusted_service_access_enabled")
 
     @property
     @pulumi.getter(name="virtualNetworkRules")

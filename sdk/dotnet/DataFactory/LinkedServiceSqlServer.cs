@@ -41,6 +41,54 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// }
     /// ```
+    /// ### With Password In Key Vault
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "northeurope",
+    ///         });
+    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             SkuName = "standard",
+    ///         });
+    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleLinkedServiceKeyVault = new Azure.DataFactory.LinkedServiceKeyVault("exampleLinkedServiceKeyVault", new Azure.DataFactory.LinkedServiceKeyVaultArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             DataFactoryName = exampleFactory.Name,
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///         });
+    ///         var exampleLinkedServiceSqlServer = new Azure.DataFactory.LinkedServiceSqlServer("exampleLinkedServiceSqlServer", new Azure.DataFactory.LinkedServiceSqlServerArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             DataFactoryName = exampleFactory.Name,
+    ///             ConnectionString = "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
+    ///             KeyVaultPassword = new Azure.DataFactory.Inputs.LinkedServiceSqlServerKeyVaultPasswordArgs
+    ///             {
+    ///                 LinkedServiceName = exampleLinkedServiceKeyVault.Name,
+    ///                 SecretName = "secret",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -87,6 +135,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("integrationRuntimeName")]
         public Output<string?> IntegrationRuntimeName { get; private set; } = null!;
+
+        /// <summary>
+        /// A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        /// </summary>
+        [Output("keyVaultPassword")]
+        public Output<Outputs.LinkedServiceSqlServerKeyVaultPassword?> KeyVaultPassword { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
@@ -201,6 +255,12 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? IntegrationRuntimeName { get; set; }
 
         /// <summary>
+        /// A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        /// </summary>
+        [Input("keyVaultPassword")]
+        public Input<Inputs.LinkedServiceSqlServerKeyVaultPasswordArgs>? KeyVaultPassword { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
         [Input("name")]
@@ -278,6 +338,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("integrationRuntimeName")]
         public Input<string>? IntegrationRuntimeName { get; set; }
+
+        /// <summary>
+        /// A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        /// </summary>
+        [Input("keyVaultPassword")]
+        public Input<Inputs.LinkedServiceSqlServerKeyVaultPasswordGetArgs>? KeyVaultPassword { get; set; }
 
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.

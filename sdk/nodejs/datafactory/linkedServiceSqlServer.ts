@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -22,6 +23,39 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryName: exampleFactory.name,
  *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
+ * });
+ * ```
+ * ### With Password In Key Vault
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "northeurope"});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ * });
+ * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleLinkedServiceKeyVault = new azure.datafactory.LinkedServiceKeyVault("exampleLinkedServiceKeyVault", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     dataFactoryName: exampleFactory.name,
+ *     keyVaultId: exampleKeyVault.id,
+ * });
+ * const exampleLinkedServiceSqlServer = new azure.datafactory.LinkedServiceSqlServer("exampleLinkedServiceSqlServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     dataFactoryName: exampleFactory.name,
+ *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
+ *     keyVaultPassword: {
+ *         linkedServiceName: exampleLinkedServiceKeyVault.name,
+ *         secretName: "secret",
+ *     },
  * });
  * ```
  *
@@ -86,6 +120,10 @@ export class LinkedServiceSqlServer extends pulumi.CustomResource {
      */
     public readonly integrationRuntimeName!: pulumi.Output<string | undefined>;
     /**
+     * A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     */
+    public readonly keyVaultPassword!: pulumi.Output<outputs.datafactory.LinkedServiceSqlServerKeyVaultPassword | undefined>;
+    /**
      * Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     public readonly name!: pulumi.Output<string>;
@@ -116,6 +154,7 @@ export class LinkedServiceSqlServer extends pulumi.CustomResource {
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
+            inputs["keyVaultPassword"] = state ? state.keyVaultPassword : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -136,6 +175,7 @@ export class LinkedServiceSqlServer extends pulumi.CustomResource {
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
+            inputs["keyVaultPassword"] = args ? args.keyVaultPassword : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -180,6 +220,10 @@ export interface LinkedServiceSqlServerState {
      */
     readonly integrationRuntimeName?: pulumi.Input<string>;
     /**
+     * A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     */
+    readonly keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceSqlServerKeyVaultPassword>;
+    /**
      * Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     readonly name?: pulumi.Input<string>;
@@ -221,6 +265,10 @@ export interface LinkedServiceSqlServerArgs {
      * The integration runtime reference to associate with the Data Factory Linked Service SQL Server.
      */
     readonly integrationRuntimeName?: pulumi.Input<string>;
+    /**
+     * A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     */
+    readonly keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceSqlServerKeyVaultPassword>;
     /**
      * Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */

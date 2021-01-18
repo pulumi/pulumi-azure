@@ -97,6 +97,10 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
      */
     public readonly columnDelimiter!: pulumi.Output<string | undefined>;
     /**
+     * The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
+     */
+    public readonly compressionLevel!: pulumi.Output<string | undefined>;
+    /**
      * The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
      */
     public readonly dataFactoryName!: pulumi.Output<string>;
@@ -173,6 +177,7 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["azureBlobStorageLocation"] = state ? state.azureBlobStorageLocation : undefined;
             inputs["columnDelimiter"] = state ? state.columnDelimiter : undefined;
+            inputs["compressionLevel"] = state ? state.compressionLevel : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["encoding"] = state ? state.encoding : undefined;
@@ -203,6 +208,7 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
             inputs["annotations"] = args ? args.annotations : undefined;
             inputs["azureBlobStorageLocation"] = args ? args.azureBlobStorageLocation : undefined;
             inputs["columnDelimiter"] = args ? args.columnDelimiter : undefined;
+            inputs["compressionLevel"] = args ? args.compressionLevel : undefined;
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["encoding"] = args ? args.encoding : undefined;
@@ -250,6 +256,10 @@ export interface DatasetDelimitedTextState {
      * The column delimiter.
      */
     readonly columnDelimiter?: pulumi.Input<string>;
+    /**
+     * The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
+     */
+    readonly compressionLevel?: pulumi.Input<string>;
     /**
      * The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
      */
@@ -332,6 +342,10 @@ export interface DatasetDelimitedTextArgs {
      * The column delimiter.
      */
     readonly columnDelimiter?: pulumi.Input<string>;
+    /**
+     * The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
+     */
+    readonly compressionLevel?: pulumi.Input<string>;
     /**
      * The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
      */
