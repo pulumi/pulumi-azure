@@ -60,6 +60,19 @@ namespace Pulumi.Azure.Monitoring
     ///                                 TimeAggregation = "Average",
     ///                                 Operator = "GreaterThan",
     ///                                 Threshold = 75,
+    ///                                 MetricNamespace = "microsoft.compute/virtualmachinescalesets",
+    ///                                 Dimensions = 
+    ///                                 {
+    ///                                     new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerDimensionArgs
+    ///                                     {
+    ///                                         Name = "AppName",
+    ///                                         Operator = "Equals",
+    ///                                         Values = 
+    ///                                         {
+    ///                                             "App1",
+    ///                                         },
+    ///                                     },
+    ///                                 },
     ///                             },
     ///                             ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
     ///                             {

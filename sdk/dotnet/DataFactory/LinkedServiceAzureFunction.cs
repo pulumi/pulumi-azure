@@ -42,7 +42,7 @@ namespace Pulumi.Azure.DataFactory
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             DataFactoryName = exampleFactory.Name,
-    ///             Url = exampleFunctionApp.Apply(exampleFunctionApp =&gt; exampleFunctionApp.DefaultHostname),
+    ///             Url = exampleFunctionApp.Apply(exampleFunctionApp =&gt; $"https://{exampleFunctionApp.DefaultHostname}"),
     ///             Key = "foo",
     ///         });
     ///     }

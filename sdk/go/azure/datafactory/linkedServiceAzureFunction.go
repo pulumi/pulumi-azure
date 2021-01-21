@@ -21,6 +21,8 @@ import (
 // package main
 //
 // import (
+// 	"fmt"
+//
 // 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/appservice"
 // 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/datafactory"
@@ -46,7 +48,7 @@ import (
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			DataFactoryName:   exampleFactory.Name,
 // 			Url: exampleFunctionApp.ApplyT(func(exampleFunctionApp appservice.LookupFunctionAppResult) (string, error) {
-// 				return exampleFunctionApp.DefaultHostname, nil
+// 				return fmt.Sprintf("%v%v", "https://", exampleFunctionApp.DefaultHostname), nil
 // 			}).(pulumi.StringOutput),
 // 			Key: pulumi.String("foo"),
 // 		})

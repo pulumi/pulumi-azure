@@ -144,7 +144,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly restartPolicy!: pulumi.Output<string | undefined>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -280,7 +280,7 @@ export interface GroupState {
      */
     readonly restartPolicy?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -342,7 +342,7 @@ export interface GroupArgs {
      */
     readonly restartPolicy?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

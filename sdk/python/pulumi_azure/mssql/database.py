@@ -37,6 +37,7 @@ class Database(pulumi.CustomResource):
                  server_id: Optional[pulumi.Input[str]] = None,
                  short_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArgs']]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
@@ -115,6 +116,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] server_id: The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArgs']] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
         :param pulumi.Input[str] sku_name: Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
@@ -161,6 +163,7 @@ class Database(pulumi.CustomResource):
             __props__['server_id'] = server_id
             __props__['short_term_retention_policy'] = short_term_retention_policy
             __props__['sku_name'] = sku_name
+            __props__['storage_account_type'] = storage_account_type
             __props__['tags'] = tags
             __props__['threat_detection_policy'] = threat_detection_policy
             __props__['zone_redundant'] = zone_redundant
@@ -194,6 +197,7 @@ class Database(pulumi.CustomResource):
             server_id: Optional[pulumi.Input[str]] = None,
             short_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArgs']]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
+            storage_account_type: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']]] = None,
             zone_redundant: Optional[pulumi.Input[bool]] = None) -> 'Database':
@@ -224,6 +228,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] server_id: The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArgs']] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
         :param pulumi.Input[str] sku_name: Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
@@ -252,6 +257,7 @@ class Database(pulumi.CustomResource):
         __props__["server_id"] = server_id
         __props__["short_term_retention_policy"] = short_term_retention_policy
         __props__["sku_name"] = sku_name
+        __props__["storage_account_type"] = storage_account_type
         __props__["tags"] = tags
         __props__["threat_detection_policy"] = threat_detection_policy
         __props__["zone_redundant"] = zone_redundant
@@ -416,6 +422,14 @@ class Database(pulumi.CustomResource):
         Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
         """
         return pulumi.get(self, "sku_name")
+
+    @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+        """
+        return pulumi.get(self, "storage_account_type")
 
     @property
     @pulumi.getter

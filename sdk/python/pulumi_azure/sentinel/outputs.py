@@ -10,11 +10,33 @@ from .. import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'AlertRuleScheduledEventGrouping',
     'AlertRuleScheduledIncidentConfiguration',
     'AlertRuleScheduledIncidentConfigurationGrouping',
     'GetAlertRuleTemplateScheduledTemplateResult',
     'GetAlertRuleTemplateSecurityIncidentTemplateResult',
 ]
+
+@pulumi.output_type
+class AlertRuleScheduledEventGrouping(dict):
+    def __init__(__self__, *,
+                 aggregation_method: str):
+        """
+        :param str aggregation_method: The aggregation type of grouping the events.
+        """
+        pulumi.set(__self__, "aggregation_method", aggregation_method)
+
+    @property
+    @pulumi.getter(name="aggregationMethod")
+    def aggregation_method(self) -> str:
+        """
+        The aggregation type of grouping the events.
+        """
+        return pulumi.get(self, "aggregation_method")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class AlertRuleScheduledIncidentConfiguration(dict):

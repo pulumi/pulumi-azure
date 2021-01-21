@@ -1081,8 +1081,44 @@ export namespace apimanagement {
         enableFrontendTls11?: boolean;
         /**
          * Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+         *
+         * @deprecated this has been renamed to the boolean attribute `triple_des_ciphers_enabled`.
          */
-        enableTripleDesCiphers?: boolean;
+        enableTripleDesCiphers: boolean;
+        /**
+         * Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+         */
+        tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled?: boolean;
+        /**
+         * Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+         */
+        tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled?: boolean;
+        tlsEcdheRsaWithAes128CbcShaCiphersEnabled?: boolean;
+        tlsEcdheRsaWithAes256CbcShaCiphersEnabled?: boolean;
+        /**
+         * Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
+         */
+        tlsRsaWithAes128CbcSha256CiphersEnabled?: boolean;
+        /**
+         * Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+         */
+        tlsRsaWithAes128CbcShaCiphersEnabled?: boolean;
+        /**
+         * Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
+         */
+        tlsRsaWithAes128GcmSha256CiphersEnabled?: boolean;
+        /**
+         * Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
+         */
+        tlsRsaWithAes256CbcSha256CiphersEnabled?: boolean;
+        /**
+         * Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+         */
+        tlsRsaWithAes256CbcShaCiphersEnabled?: boolean;
+        /**
+         * Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+         */
+        tripleDesCiphersEnabled: boolean;
     }
 
     export interface ServiceSignIn {
@@ -7117,6 +7153,10 @@ export namespace containerservice {
          * The type of identity used for the managed cluster.
          */
         type: string;
+        /**
+         * The ID of the User Assigned Identity assigned to the Kubelets.
+         */
+        userAssignedIdentityId: string;
     }
 
     export interface GetKubernetesClusterKubeAdminConfig {
@@ -7653,7 +7693,7 @@ export namespace containerservice {
          */
         objectId: string;
         /**
-         * The ID of the User Assigned Identity used by the OMS Agents.
+         * The ID of a user assigned identity.
          */
         userAssignedIdentityId: string;
     }
@@ -7667,6 +7707,10 @@ export namespace containerservice {
          * Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
          */
         maxGracefulTerminationSec: string;
+        /**
+         * For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.
+         */
+        newPodScaleUpDelay: string;
         /**
          * How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
          */
@@ -7776,9 +7820,13 @@ export namespace containerservice {
          */
         tenantId: string;
         /**
-         * The type of identity used for the managed cluster. At this time the only supported value is `SystemAssigned`.
+         * The type of identity used for the managed cluster. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `userAssignedIdentityId` must be set as well.
          */
         type: string;
+        /**
+         * The ID of a user assigned identity.
+         */
+        userAssignedIdentityId?: string;
     }
 
     export interface KubernetesClusterKubeAdminConfig {
@@ -7845,7 +7893,7 @@ export namespace containerservice {
          */
         objectId: string;
         /**
-         * The ID of the User Assigned Identity used by the OMS Agents.
+         * The ID of a user assigned identity.
          */
         userAssignedIdentityId: string;
     }
@@ -13999,6 +14047,219 @@ export namespace mariadb {
 }
 
 export namespace media {
+    export interface ContentKeyPolicyPolicyOption {
+        /**
+         * Enable a configuration for non-DRM keys.
+         */
+        clearKeyConfigurationEnabled?: boolean;
+        /**
+         * A `fairplayConfiguration` block as defined above. Check license requirements here https://docs.microsoft.com/en-us/azure/media-services/latest/fairplay-license-overview.
+         */
+        fairplayConfiguration?: outputs.media.ContentKeyPolicyPolicyOptionFairplayConfiguration;
+        /**
+         * The name which should be used for this Policy Option.
+         */
+        name: string;
+        /**
+         * Enable an open restriction. License or key will be delivered on every request.
+         */
+        openRestrictionEnabled?: boolean;
+        /**
+         * One or more `playreadyConfigurationLicense` blocks as defined above.
+         */
+        playreadyConfigurationLicenses?: outputs.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense[];
+        /**
+         * A `tokenRestriction` block as defined below.
+         */
+        tokenRestriction?: outputs.media.ContentKeyPolicyPolicyOptionTokenRestriction;
+        /**
+         * The Widevine template.
+         */
+        widevineConfigurationTemplate?: string;
+    }
+
+    export interface ContentKeyPolicyPolicyOptionFairplayConfiguration {
+        /**
+         * The key that must be used as FairPlay Application Secret key.
+         */
+        ask?: string;
+        /**
+         * A `offlineRentalConfiguration` block as defined below.
+         */
+        offlineRentalConfiguration?: outputs.media.ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration;
+        /**
+         * The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
+         */
+        pfx?: string;
+        /**
+         * The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
+         */
+        pfxPassword?: string;
+        /**
+         * The rental and lease key type. Supported values are `DualExpiry`, `PersistentLimited`, `PersistentUnlimited` or `Undefined`.
+         */
+        rentalAndLeaseKeyType?: string;
+        /**
+         * The rental duration. Must be greater than 0.
+         */
+        rentalDurationSeconds?: number;
+    }
+
+    export interface ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration {
+        /**
+         * Playback duration.
+         */
+        playbackDurationSeconds?: number;
+        /**
+         * Storage duration.
+         */
+        storageDurationSeconds?: number;
+    }
+
+    export interface ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense {
+        /**
+         * A flag indicating whether test devices can use the license.
+         */
+        allowTestDevices?: boolean;
+        /**
+         * The begin date of license.
+         */
+        beginDate?: string;
+        /**
+         * Specifies that the content key ID is in the PlayReady header.
+         */
+        contentKeyLocationFromHeaderEnabled?: boolean;
+        /**
+         * The content key ID. Specifies that the content key ID is specified in the PlayReady configuration.
+         */
+        contentKeyLocationFromKeyId?: string;
+        /**
+         * The PlayReady content type. Supported values are `UltraVioletDownload`, `UltraVioletStreaming` or `Unspecified`.
+         */
+        contentType?: string;
+        /**
+         * The expiration date of license.
+         */
+        expirationDate?: string;
+        /**
+         * The grace period of license.
+         */
+        gracePeriod?: string;
+        /**
+         * The license type. Supported values are `NonPersistent` or `Persistent`.
+         */
+        licenseType?: string;
+        /**
+         * A `playRight` block as defined above.
+         */
+        playRight?: outputs.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight;
+        /**
+         * The relative begin date of license.
+         */
+        relativeBeginDate?: string;
+        /**
+         * The relative expiration date of license.
+         */
+        relativeExpirationDate?: string;
+    }
+
+    export interface ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight {
+        /**
+         * Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+         */
+        agcAndColorStripeRestriction?: number;
+        /**
+         * Configures Unknown output handling settings of the license. Supported values are `Allowed`, `AllowedWithVideoConstriction` or `NotAllowed`.
+         */
+        allowPassingVideoContentToUnknownOutput?: string;
+        /**
+         * Specifies the output protection level for compressed digital audio. Supported values are 100, 150 or 200.
+         */
+        analogVideoOpl?: number;
+        /**
+         * Specifies the output protection level for compressed digital audio.Supported values are 100, 150 or 200.
+         */
+        compressedDigitalAudioOpl?: number;
+        /**
+         * Enables the Image Constraint For Analog Component Video Restriction in the license.
+         */
+        digitalVideoOnlyContentRestriction?: boolean;
+        /**
+         * The amount of time that the license is valid after the license is first used to play content.
+         */
+        firstPlayExpiration?: string;
+        /**
+         * Enables the Image Constraint For Analog Component Video Restriction in the license.
+         */
+        imageConstraintForAnalogComponentVideoRestriction?: boolean;
+        /**
+         * Enables the Image Constraint For Analog Component Video Restriction in the license.
+         */
+        imageConstraintForAnalogComputerMonitorRestriction?: boolean;
+        /**
+         * Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+         */
+        scmsRestriction?: number;
+        /**
+         * Specifies the output protection level for uncompressed digital audio. Supported values are 100, 150, 250 or 300.
+         */
+        uncompressedDigitalAudioOpl?: number;
+        /**
+         * Specifies the output protection level for uncompressed digital video. Supported values are 100, 150, 250 or 300.
+         */
+        uncompressedDigitalVideoOpl?: number;
+    }
+
+    export interface ContentKeyPolicyPolicyOptionTokenRestriction {
+        /**
+         * The audience for the token.
+         */
+        audience?: string;
+        /**
+         * The token issuer.
+         */
+        issuer?: string;
+        /**
+         * The OpenID connect discovery document.
+         */
+        openIdConnectDiscoveryDocument?: string;
+        /**
+         * The RSA Parameter exponent.
+         */
+        primaryRsaTokenKeyExponent?: string;
+        /**
+         * The RSA Parameter modulus.
+         */
+        primaryRsaTokenKeyModulus?: string;
+        /**
+         * The key value of the key. Specifies a symmetric key for token validation.
+         */
+        primarySymmetricTokenKey?: string;
+        /**
+         * The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+         */
+        primaryX509TokenKeyRaw?: string;
+        /**
+         * One or more `requiredClaim` blocks as defined above.
+         */
+        requiredClaims?: outputs.media.ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim[];
+        /**
+         * The type of token. Supported values are `Jwt` or `Swt`.
+         */
+        tokenType?: string;
+    }
+
+    export interface ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim {
+        /**
+         * Token claim type.
+         */
+        type?: string;
+        /**
+         * Token claim value.
+         */
+        value?: string;
+    }
+
     export interface JobInputAsset {
         /**
          * A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
@@ -14857,9 +15118,17 @@ export namespace monitoring {
 
     export interface AutoscaleSettingProfileRuleMetricTrigger {
         /**
+         * One or more `dimensions` block as defined below.
+         */
+        dimensions?: outputs.monitoring.AutoscaleSettingProfileRuleMetricTriggerDimension[];
+        /**
          * The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
          */
         metricName: string;
+        /**
+         * The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
+         */
+        metricNamespace?: string;
         /**
          * The ID of the Resource which the Rule monitors.
          */
@@ -14888,6 +15157,21 @@ export namespace monitoring {
          * Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
          */
         timeWindow: string;
+    }
+
+    export interface AutoscaleSettingProfileRuleMetricTriggerDimension {
+        /**
+         * The name of the dimension.
+         */
+        name: string;
+        /**
+         * The dimension operator. Possible values are `Equals` and `NotEquals`. `Equals` means being equal to any of the values. `NotEquals` means being not equal to any of the values.
+         */
+        operator: string;
+        /**
+         * A list of dimension values.
+         */
+        values: string[];
     }
 
     export interface AutoscaleSettingProfileRuleScaleAction {
@@ -19705,6 +19989,13 @@ export namespace securitycenter {
 }
 
 export namespace sentinel {
+    export interface AlertRuleScheduledEventGrouping {
+        /**
+         * The aggregation type of grouping the events.
+         */
+        aggregationMethod: string;
+    }
+
     export interface AlertRuleScheduledIncidentConfiguration {
         /**
          * Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?

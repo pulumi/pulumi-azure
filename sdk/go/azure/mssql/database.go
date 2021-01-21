@@ -133,6 +133,8 @@ type Database struct {
 	ShortTermRetentionPolicy DatabaseShortTermRetentionPolicyOutput `pulumi:"shortTermRetentionPolicy"`
 	// Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
+	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+	StorageAccountType pulumi.StringPtrOutput `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
@@ -215,6 +217,8 @@ type databaseState struct {
 	ShortTermRetentionPolicy *DatabaseShortTermRetentionPolicy `pulumi:"shortTermRetentionPolicy"`
 	// Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
 	SkuName *string `pulumi:"skuName"`
+	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+	StorageAccountType *string `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
@@ -266,6 +270,8 @@ type DatabaseState struct {
 	ShortTermRetentionPolicy DatabaseShortTermRetentionPolicyPtrInput
 	// Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
 	SkuName pulumi.StringPtrInput
+	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+	StorageAccountType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
@@ -321,6 +327,8 @@ type databaseArgs struct {
 	ShortTermRetentionPolicy *DatabaseShortTermRetentionPolicy `pulumi:"shortTermRetentionPolicy"`
 	// Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
 	SkuName *string `pulumi:"skuName"`
+	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+	StorageAccountType *string `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
@@ -373,6 +381,8 @@ type DatabaseArgs struct {
 	ShortTermRetentionPolicy DatabaseShortTermRetentionPolicyPtrInput
 	// Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
 	SkuName pulumi.StringPtrInput
+	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+	StorageAccountType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.

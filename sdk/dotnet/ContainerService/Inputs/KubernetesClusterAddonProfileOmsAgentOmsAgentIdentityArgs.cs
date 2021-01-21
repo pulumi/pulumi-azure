@@ -25,7 +25,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? ObjectId { get; set; }
 
         /// <summary>
-        /// The ID of the User Assigned Identity used by the OMS Agents.
+        /// The ID of a user assigned identity.
         /// </summary>
         [Input("userAssignedIdentityId")]
         public Input<string>? UserAssignedIdentityId { get; set; }

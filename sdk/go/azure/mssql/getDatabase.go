@@ -70,6 +70,8 @@ type LookupDatabaseResult struct {
 	ServerId  string `pulumi:"serverId"`
 	// The name of the sku of the database.
 	SkuName string `pulumi:"skuName"`
+	// The storage account type used to store backups for this database.
+	StorageAccountType string `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.

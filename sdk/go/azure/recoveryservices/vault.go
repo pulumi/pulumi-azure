@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages an Recovery Services Vault.
+// Manages a Recovery Services Vault.
 //
 // ## Example Usage
 //

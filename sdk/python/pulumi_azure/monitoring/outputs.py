@@ -51,6 +51,7 @@ __all__ = [
     'AutoscaleSettingProfileRecurrence',
     'AutoscaleSettingProfileRule',
     'AutoscaleSettingProfileRuleMetricTrigger',
+    'AutoscaleSettingProfileRuleMetricTriggerDimension',
     'AutoscaleSettingProfileRuleScaleAction',
     'DiagnosticSettingLog',
     'DiagnosticSettingLogRetentionPolicy',
@@ -1963,7 +1964,9 @@ class AutoscaleSettingProfileRuleMetricTrigger(dict):
                  threshold: float,
                  time_aggregation: str,
                  time_grain: str,
-                 time_window: str):
+                 time_window: str,
+                 dimensions: Optional[Sequence['outputs.AutoscaleSettingProfileRuleMetricTriggerDimension']] = None,
+                 metric_namespace: Optional[str] = None):
         """
         :param str metric_name: The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
         :param str metric_resource_id: The ID of the Resource which the Rule monitors.
@@ -1973,6 +1976,8 @@ class AutoscaleSettingProfileRuleMetricTrigger(dict):
         :param str time_aggregation: Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
         :param str time_grain: Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
         :param str time_window: Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
+        :param Sequence['AutoscaleSettingProfileRuleMetricTriggerDimensionArgs'] dimensions: One or more `dimensions` block as defined below.
+        :param str metric_namespace: The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
         """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "metric_resource_id", metric_resource_id)
@@ -1982,6 +1987,10 @@ class AutoscaleSettingProfileRuleMetricTrigger(dict):
         pulumi.set(__self__, "time_aggregation", time_aggregation)
         pulumi.set(__self__, "time_grain", time_grain)
         pulumi.set(__self__, "time_window", time_window)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if metric_namespace is not None:
+            pulumi.set(__self__, "metric_namespace", metric_namespace)
 
     @property
     @pulumi.getter(name="metricName")
@@ -2046,6 +2055,65 @@ class AutoscaleSettingProfileRuleMetricTrigger(dict):
         Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
         """
         return pulumi.get(self, "time_window")
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[Sequence['outputs.AutoscaleSettingProfileRuleMetricTriggerDimension']]:
+        """
+        One or more `dimensions` block as defined below.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="metricNamespace")
+    def metric_namespace(self) -> Optional[str]:
+        """
+        The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
+        """
+        return pulumi.get(self, "metric_namespace")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AutoscaleSettingProfileRuleMetricTriggerDimension(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 operator: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the dimension.
+        :param str operator: The dimension operator. Possible values are `Equals` and `NotEquals`. `Equals` means being equal to any of the values. `NotEquals` means being not equal to any of the values.
+        :param Sequence[str] values: A list of dimension values.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the dimension.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        The dimension operator. Possible values are `Equals` and `NotEquals`. `Equals` means being equal to any of the values. `NotEquals` means being not equal to any of the values.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        A list of dimension values.
+        """
+        return pulumi.get(self, "values")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

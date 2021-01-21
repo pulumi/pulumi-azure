@@ -9,9 +9,32 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
+    'AlertRuleScheduledEventGroupingArgs',
     'AlertRuleScheduledIncidentConfigurationArgs',
     'AlertRuleScheduledIncidentConfigurationGroupingArgs',
 ]
+
+@pulumi.input_type
+class AlertRuleScheduledEventGroupingArgs:
+    def __init__(__self__, *,
+                 aggregation_method: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] aggregation_method: The aggregation type of grouping the events.
+        """
+        pulumi.set(__self__, "aggregation_method", aggregation_method)
+
+    @property
+    @pulumi.getter(name="aggregationMethod")
+    def aggregation_method(self) -> pulumi.Input[str]:
+        """
+        The aggregation type of grouping the events.
+        """
+        return pulumi.get(self, "aggregation_method")
+
+    @aggregation_method.setter
+    def aggregation_method(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aggregation_method", value)
+
 
 @pulumi.input_type
 class AlertRuleScheduledIncidentConfigurationArgs:

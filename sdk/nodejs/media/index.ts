@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./asset";
+export * from "./contentKeyPolicy";
 export * from "./job";
 export * from "./serviceAccount";
 export * from "./streamingEndpoint";
@@ -14,6 +15,7 @@ export * from "./transform";
 
 // Import resources to register:
 import { Asset } from "./asset";
+import { ContentKeyPolicy } from "./contentKeyPolicy";
 import { Job } from "./job";
 import { ServiceAccount } from "./serviceAccount";
 import { StreamingEndpoint } from "./streamingEndpoint";
@@ -26,6 +28,8 @@ const _module = {
         switch (type) {
             case "azure:media/asset:Asset":
                 return new Asset(name, <any>undefined, { urn })
+            case "azure:media/contentKeyPolicy:ContentKeyPolicy":
+                return new ContentKeyPolicy(name, <any>undefined, { urn })
             case "azure:media/job:Job":
                 return new Job(name, <any>undefined, { urn })
             case "azure:media/serviceAccount:ServiceAccount":
@@ -42,6 +46,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "media/asset", _module)
+pulumi.runtime.registerResourceModule("azure", "media/contentKeyPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "media/job", _module)
 pulumi.runtime.registerResourceModule("azure", "media/serviceAccount", _module)
 pulumi.runtime.registerResourceModule("azure", "media/streamingEndpoint", _module)

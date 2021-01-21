@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
- *     softDeleteEnabled: true,
  *     softDeleteRetentionDays: 7,
  *     accessPolicies: [{
  *         tenantId: current.then(current => current.tenantId),

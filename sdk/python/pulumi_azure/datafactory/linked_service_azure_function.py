@@ -48,7 +48,7 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
         example_linked_service_azure_function = azure.datafactory.LinkedServiceAzureFunction("exampleLinkedServiceAzureFunction",
             resource_group_name=example_resource_group.name,
             data_factory_name=example_factory.name,
-            url=example_function_app.default_hostname,
+            url=example_function_app.apply(lambda example_function_app: f"https://{example_function_app.default_hostname}"),
             key="foo")
         ```
 

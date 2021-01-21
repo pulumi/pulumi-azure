@@ -39,6 +39,12 @@ import * as utilities from "../utilities";
  *                     timeAggregation: "Average",
  *                     operator: "GreaterThan",
  *                     threshold: 75,
+ *                     metricNamespace: "microsoft.compute/virtualmachinescalesets",
+ *                     dimensions: [{
+ *                         name: "AppName",
+ *                         operator: "Equals",
+ *                         values: ["App1"],
+ *                     }],
  *                 },
  *                 scaleAction: {
  *                     direction: "Increase",

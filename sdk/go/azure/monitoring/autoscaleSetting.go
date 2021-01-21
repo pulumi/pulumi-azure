@@ -60,6 +60,16 @@ import (
 // 								TimeAggregation:  pulumi.String("Average"),
 // 								Operator:         pulumi.String("GreaterThan"),
 // 								Threshold:        pulumi.Float64(75),
+// 								MetricNamespace:  pulumi.String("microsoft.compute/virtualmachinescalesets"),
+// 								Dimensions: monitoring.AutoscaleSettingProfileRuleMetricTriggerDimensionArray{
+// 									&monitoring.AutoscaleSettingProfileRuleMetricTriggerDimensionArgs{
+// 										Name:     pulumi.String("AppName"),
+// 										Operator: pulumi.String("Equals"),
+// 										Values: pulumi.StringArray{
+// 											pulumi.String("App1"),
+// 										},
+// 									},
+// 								},
 // 							},
 // 							ScaleAction: &monitoring.AutoscaleSettingProfileRuleScaleActionArgs{
 // 								Direction: pulumi.String("Increase"),

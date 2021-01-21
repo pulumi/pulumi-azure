@@ -34,7 +34,6 @@ namespace Pulumi.Azure.KeyVault
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             TenantId = current.Apply(current =&gt; current.TenantId),
     ///             SkuName = "standard",
-    ///             SoftDeleteEnabled = true,
     ///             SoftDeleteRetentionDays = 7,
     ///             AccessPolicies = 
     ///             {

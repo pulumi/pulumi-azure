@@ -41,7 +41,6 @@ import (
 // 			ResourceGroupName:       exampleResourceGroup.Name,
 // 			TenantId:                pulumi.String(current.TenantId),
 // 			SkuName:                 pulumi.String("premium"),
-// 			SoftDeleteEnabled:       pulumi.Bool(true),
 // 			SoftDeleteRetentionDays: pulumi.Int(7),
 // 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 // 				&keyvault.KeyVaultAccessPolicyArgs{

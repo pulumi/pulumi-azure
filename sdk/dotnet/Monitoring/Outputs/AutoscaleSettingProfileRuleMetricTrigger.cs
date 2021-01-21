@@ -14,9 +14,17 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class AutoscaleSettingProfileRuleMetricTrigger
     {
         /// <summary>
+        /// One or more `dimensions` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AutoscaleSettingProfileRuleMetricTriggerDimension> Dimensions;
+        /// <summary>
         /// The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
         /// </summary>
         public readonly string MetricName;
+        /// <summary>
+        /// The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
+        /// </summary>
+        public readonly string? MetricNamespace;
         /// <summary>
         /// The ID of the Resource which the Rule monitors.
         /// </summary>
@@ -48,7 +56,11 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
         [OutputConstructor]
         private AutoscaleSettingProfileRuleMetricTrigger(
+            ImmutableArray<Outputs.AutoscaleSettingProfileRuleMetricTriggerDimension> dimensions,
+
             string metricName,
+
+            string? metricNamespace,
 
             string metricResourceId,
 
@@ -64,7 +76,9 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
             string timeWindow)
         {
+            Dimensions = dimensions;
             MetricName = metricName;
+            MetricNamespace = metricNamespace;
             MetricResourceId = metricResourceId;
             Operator = @operator;
             Statistic = statistic;

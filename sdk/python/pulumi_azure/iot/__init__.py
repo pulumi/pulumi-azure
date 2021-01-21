@@ -12,6 +12,7 @@ from .endpoint_storage_container import *
 from .fallback_route import *
 from .get_dps import *
 from .get_dps_shared_access_policy import *
+from .get_iot_hub import *
 from .get_shared_access_policy import *
 from .io_t_hub import *
 from .iot_hub_certificate import *

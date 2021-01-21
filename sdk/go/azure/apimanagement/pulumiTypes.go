@@ -6595,7 +6595,27 @@ type ServiceSecurity struct {
 	// Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
 	EnableFrontendTls11 *bool `pulumi:"enableFrontendTls11"`
 	// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+	//
+	// Deprecated: this has been renamed to the boolean attribute `triple_des_ciphers_enabled`.
 	EnableTripleDesCiphers *bool `pulumi:"enableTripleDesCiphers"`
+	// Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+	TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled *bool `pulumi:"tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled"`
+	// Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+	TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled *bool `pulumi:"tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled"`
+	TlsEcdheRsaWithAes128CbcShaCiphersEnabled   *bool `pulumi:"tlsEcdheRsaWithAes128CbcShaCiphersEnabled"`
+	TlsEcdheRsaWithAes256CbcShaCiphersEnabled   *bool `pulumi:"tlsEcdheRsaWithAes256CbcShaCiphersEnabled"`
+	// Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
+	TlsRsaWithAes128CbcSha256CiphersEnabled *bool `pulumi:"tlsRsaWithAes128CbcSha256CiphersEnabled"`
+	// Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+	TlsRsaWithAes128CbcShaCiphersEnabled *bool `pulumi:"tlsRsaWithAes128CbcShaCiphersEnabled"`
+	// Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
+	TlsRsaWithAes128GcmSha256CiphersEnabled *bool `pulumi:"tlsRsaWithAes128GcmSha256CiphersEnabled"`
+	// Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
+	TlsRsaWithAes256CbcSha256CiphersEnabled *bool `pulumi:"tlsRsaWithAes256CbcSha256CiphersEnabled"`
+	// Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+	TlsRsaWithAes256CbcShaCiphersEnabled *bool `pulumi:"tlsRsaWithAes256CbcShaCiphersEnabled"`
+	// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+	TripleDesCiphersEnabled *bool `pulumi:"tripleDesCiphersEnabled"`
 }
 
 // ServiceSecurityInput is an input type that accepts ServiceSecurityArgs and ServiceSecurityOutput values.
@@ -6623,7 +6643,27 @@ type ServiceSecurityArgs struct {
 	// Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
 	EnableFrontendTls11 pulumi.BoolPtrInput `pulumi:"enableFrontendTls11"`
 	// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+	//
+	// Deprecated: this has been renamed to the boolean attribute `triple_des_ciphers_enabled`.
 	EnableTripleDesCiphers pulumi.BoolPtrInput `pulumi:"enableTripleDesCiphers"`
+	// Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+	TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled"`
+	// Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+	TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled"`
+	TlsEcdheRsaWithAes128CbcShaCiphersEnabled   pulumi.BoolPtrInput `pulumi:"tlsEcdheRsaWithAes128CbcShaCiphersEnabled"`
+	TlsEcdheRsaWithAes256CbcShaCiphersEnabled   pulumi.BoolPtrInput `pulumi:"tlsEcdheRsaWithAes256CbcShaCiphersEnabled"`
+	// Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
+	TlsRsaWithAes128CbcSha256CiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsRsaWithAes128CbcSha256CiphersEnabled"`
+	// Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+	TlsRsaWithAes128CbcShaCiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsRsaWithAes128CbcShaCiphersEnabled"`
+	// Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
+	TlsRsaWithAes128GcmSha256CiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsRsaWithAes128GcmSha256CiphersEnabled"`
+	// Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
+	TlsRsaWithAes256CbcSha256CiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsRsaWithAes256CbcSha256CiphersEnabled"`
+	// Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+	TlsRsaWithAes256CbcShaCiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsRsaWithAes256CbcShaCiphersEnabled"`
+	// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+	TripleDesCiphersEnabled pulumi.BoolPtrInput `pulumi:"tripleDesCiphersEnabled"`
 }
 
 func (ServiceSecurityArgs) ElementType() reflect.Type {
@@ -6734,8 +6774,58 @@ func (o ServiceSecurityOutput) EnableFrontendTls11() pulumi.BoolPtrOutput {
 }
 
 // Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+//
+// Deprecated: this has been renamed to the boolean attribute `triple_des_ciphers_enabled`.
 func (o ServiceSecurityOutput) EnableTripleDesCiphers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableTripleDesCiphers }).(pulumi.BoolPtrOutput)
+}
+
+// Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+func (o ServiceSecurityOutput) TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+func (o ServiceSecurityOutput) TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceSecurityOutput) TlsEcdheRsaWithAes128CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsEcdheRsaWithAes128CbcShaCiphersEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceSecurityOutput) TlsEcdheRsaWithAes256CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsEcdheRsaWithAes256CbcShaCiphersEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
+func (o ServiceSecurityOutput) TlsRsaWithAes128CbcSha256CiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsRsaWithAes128CbcSha256CiphersEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+func (o ServiceSecurityOutput) TlsRsaWithAes128CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsRsaWithAes128CbcShaCiphersEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
+func (o ServiceSecurityOutput) TlsRsaWithAes128GcmSha256CiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsRsaWithAes128GcmSha256CiphersEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
+func (o ServiceSecurityOutput) TlsRsaWithAes256CbcSha256CiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsRsaWithAes256CbcSha256CiphersEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+func (o ServiceSecurityOutput) TlsRsaWithAes256CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsRsaWithAes256CbcShaCiphersEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+func (o ServiceSecurityOutput) TripleDesCiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TripleDesCiphersEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type ServiceSecurityPtrOutput struct{ *pulumi.OutputState }
@@ -6817,12 +6907,112 @@ func (o ServiceSecurityPtrOutput) EnableFrontendTls11() pulumi.BoolPtrOutput {
 }
 
 // Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+//
+// Deprecated: this has been renamed to the boolean attribute `triple_des_ciphers_enabled`.
 func (o ServiceSecurityPtrOutput) EnableTripleDesCiphers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {
 			return nil
 		}
 		return v.EnableTripleDesCiphers
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+func (o ServiceSecurityPtrOutput) TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+func (o ServiceSecurityPtrOutput) TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceSecurityPtrOutput) TlsEcdheRsaWithAes128CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TlsEcdheRsaWithAes128CbcShaCiphersEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceSecurityPtrOutput) TlsEcdheRsaWithAes256CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TlsEcdheRsaWithAes256CbcShaCiphersEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
+func (o ServiceSecurityPtrOutput) TlsRsaWithAes128CbcSha256CiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TlsRsaWithAes128CbcSha256CiphersEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+func (o ServiceSecurityPtrOutput) TlsRsaWithAes128CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TlsRsaWithAes128CbcShaCiphersEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
+func (o ServiceSecurityPtrOutput) TlsRsaWithAes128GcmSha256CiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TlsRsaWithAes128GcmSha256CiphersEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
+func (o ServiceSecurityPtrOutput) TlsRsaWithAes256CbcSha256CiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TlsRsaWithAes256CbcSha256CiphersEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+func (o ServiceSecurityPtrOutput) TlsRsaWithAes256CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TlsRsaWithAes256CbcShaCiphersEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+func (o ServiceSecurityPtrOutput) TripleDesCiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TripleDesCiphersEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 

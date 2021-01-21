@@ -41,6 +41,40 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
         /// </summary>
         public readonly bool? EnableTripleDesCiphers;
+        /// <summary>
+        /// Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// </summary>
+        public readonly bool? TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled;
+        /// <summary>
+        /// Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// </summary>
+        public readonly bool? TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled;
+        public readonly bool? TlsEcdheRsaWithAes128CbcShaCiphersEnabled;
+        public readonly bool? TlsEcdheRsaWithAes256CbcShaCiphersEnabled;
+        /// <summary>
+        /// Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
+        /// </summary>
+        public readonly bool? TlsRsaWithAes128CbcSha256CiphersEnabled;
+        /// <summary>
+        /// Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// </summary>
+        public readonly bool? TlsRsaWithAes128CbcShaCiphersEnabled;
+        /// <summary>
+        /// Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
+        /// </summary>
+        public readonly bool? TlsRsaWithAes128GcmSha256CiphersEnabled;
+        /// <summary>
+        /// Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
+        /// </summary>
+        public readonly bool? TlsRsaWithAes256CbcSha256CiphersEnabled;
+        /// <summary>
+        /// Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// </summary>
+        public readonly bool? TlsRsaWithAes256CbcShaCiphersEnabled;
+        /// <summary>
+        /// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+        /// </summary>
+        public readonly bool? TripleDesCiphersEnabled;
 
         [OutputConstructor]
         private ServiceSecurity(
@@ -56,7 +90,27 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             bool? enableFrontendTls11,
 
-            bool? enableTripleDesCiphers)
+            bool? enableTripleDesCiphers,
+
+            bool? tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled,
+
+            bool? tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled,
+
+            bool? tlsEcdheRsaWithAes128CbcShaCiphersEnabled,
+
+            bool? tlsEcdheRsaWithAes256CbcShaCiphersEnabled,
+
+            bool? tlsRsaWithAes128CbcSha256CiphersEnabled,
+
+            bool? tlsRsaWithAes128CbcShaCiphersEnabled,
+
+            bool? tlsRsaWithAes128GcmSha256CiphersEnabled,
+
+            bool? tlsRsaWithAes256CbcSha256CiphersEnabled,
+
+            bool? tlsRsaWithAes256CbcShaCiphersEnabled,
+
+            bool? tripleDesCiphersEnabled)
         {
             EnableBackendSsl30 = enableBackendSsl30;
             EnableBackendTls10 = enableBackendTls10;
@@ -65,6 +119,16 @@ namespace Pulumi.Azure.ApiManagement.Outputs
             EnableFrontendTls10 = enableFrontendTls10;
             EnableFrontendTls11 = enableFrontendTls11;
             EnableTripleDesCiphers = enableTripleDesCiphers;
+            TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled = tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled;
+            TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled = tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled;
+            TlsEcdheRsaWithAes128CbcShaCiphersEnabled = tlsEcdheRsaWithAes128CbcShaCiphersEnabled;
+            TlsEcdheRsaWithAes256CbcShaCiphersEnabled = tlsEcdheRsaWithAes256CbcShaCiphersEnabled;
+            TlsRsaWithAes128CbcSha256CiphersEnabled = tlsRsaWithAes128CbcSha256CiphersEnabled;
+            TlsRsaWithAes128CbcShaCiphersEnabled = tlsRsaWithAes128CbcShaCiphersEnabled;
+            TlsRsaWithAes128GcmSha256CiphersEnabled = tlsRsaWithAes128GcmSha256CiphersEnabled;
+            TlsRsaWithAes256CbcSha256CiphersEnabled = tlsRsaWithAes256CbcSha256CiphersEnabled;
+            TlsRsaWithAes256CbcShaCiphersEnabled = tlsRsaWithAes256CbcShaCiphersEnabled;
+            TripleDesCiphersEnabled = tripleDesCiphersEnabled;
         }
     }
 }

@@ -88,6 +88,10 @@ export interface GetDatabaseResult {
      */
     readonly skuName: string;
     /**
+     * The storage account type used to store backups for this database.
+     */
+    readonly storageAccountType: string;
+    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags: {[key: string]: string};

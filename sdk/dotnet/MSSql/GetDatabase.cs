@@ -104,6 +104,10 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         public readonly string SkuName;
         /// <summary>
+        /// The storage account type used to store backups for this database.
+        /// </summary>
+        public readonly string StorageAccountType;
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -134,6 +138,8 @@ namespace Pulumi.Azure.MSSql
 
             string skuName,
 
+            string storageAccountType,
+
             ImmutableDictionary<string, string> tags,
 
             bool zoneRedundant)
@@ -148,6 +154,7 @@ namespace Pulumi.Azure.MSSql
             ReadScale = readScale;
             ServerId = serverId;
             SkuName = skuName;
+            StorageAccountType = storageAccountType;
             Tags = tags;
             ZoneRedundant = zoneRedundant;
         }

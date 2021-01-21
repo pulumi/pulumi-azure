@@ -6057,8 +6057,12 @@ func (o AutoscaleSettingProfileRuleArrayOutput) Index(i pulumi.IntInput) Autosca
 }
 
 type AutoscaleSettingProfileRuleMetricTrigger struct {
+	// One or more `dimensions` block as defined below.
+	Dimensions []AutoscaleSettingProfileRuleMetricTriggerDimension `pulumi:"dimensions"`
 	// The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
 	MetricName string `pulumi:"metricName"`
+	// The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
+	MetricNamespace *string `pulumi:"metricNamespace"`
 	// The ID of the Resource which the Rule monitors.
 	MetricResourceId string `pulumi:"metricResourceId"`
 	// Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
@@ -6087,8 +6091,12 @@ type AutoscaleSettingProfileRuleMetricTriggerInput interface {
 }
 
 type AutoscaleSettingProfileRuleMetricTriggerArgs struct {
+	// One or more `dimensions` block as defined below.
+	Dimensions AutoscaleSettingProfileRuleMetricTriggerDimensionArrayInput `pulumi:"dimensions"`
 	// The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
+	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
 	// The ID of the Resource which the Rule monitors.
 	MetricResourceId pulumi.StringInput `pulumi:"metricResourceId"`
 	// Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
@@ -6131,9 +6139,21 @@ func (o AutoscaleSettingProfileRuleMetricTriggerOutput) ToAutoscaleSettingProfil
 	return o
 }
 
+// One or more `dimensions` block as defined below.
+func (o AutoscaleSettingProfileRuleMetricTriggerOutput) Dimensions() AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput {
+	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) []AutoscaleSettingProfileRuleMetricTriggerDimension {
+		return v.Dimensions
+	}).(AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput)
+}
+
 // The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+// The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
+func (o AutoscaleSettingProfileRuleMetricTriggerOutput) MetricNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Resource which the Rule monitors.
@@ -6169,6 +6189,121 @@ func (o AutoscaleSettingProfileRuleMetricTriggerOutput) TimeGrain() pulumi.Strin
 // Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) TimeWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.TimeWindow }).(pulumi.StringOutput)
+}
+
+type AutoscaleSettingProfileRuleMetricTriggerDimension struct {
+	// The name of the dimension.
+	Name string `pulumi:"name"`
+	// The dimension operator. Possible values are `Equals` and `NotEquals`. `Equals` means being equal to any of the values. `NotEquals` means being not equal to any of the values.
+	Operator string `pulumi:"operator"`
+	// A list of dimension values.
+	Values []string `pulumi:"values"`
+}
+
+// AutoscaleSettingProfileRuleMetricTriggerDimensionInput is an input type that accepts AutoscaleSettingProfileRuleMetricTriggerDimensionArgs and AutoscaleSettingProfileRuleMetricTriggerDimensionOutput values.
+// You can construct a concrete instance of `AutoscaleSettingProfileRuleMetricTriggerDimensionInput` via:
+//
+//          AutoscaleSettingProfileRuleMetricTriggerDimensionArgs{...}
+type AutoscaleSettingProfileRuleMetricTriggerDimensionInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingProfileRuleMetricTriggerDimensionOutput() AutoscaleSettingProfileRuleMetricTriggerDimensionOutput
+	ToAutoscaleSettingProfileRuleMetricTriggerDimensionOutputWithContext(context.Context) AutoscaleSettingProfileRuleMetricTriggerDimensionOutput
+}
+
+type AutoscaleSettingProfileRuleMetricTriggerDimensionArgs struct {
+	// The name of the dimension.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The dimension operator. Possible values are `Equals` and `NotEquals`. `Equals` means being equal to any of the values. `NotEquals` means being not equal to any of the values.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of dimension values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AutoscaleSettingProfileRuleMetricTriggerDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoscaleSettingProfileRuleMetricTriggerDimension)(nil)).Elem()
+}
+
+func (i AutoscaleSettingProfileRuleMetricTriggerDimensionArgs) ToAutoscaleSettingProfileRuleMetricTriggerDimensionOutput() AutoscaleSettingProfileRuleMetricTriggerDimensionOutput {
+	return i.ToAutoscaleSettingProfileRuleMetricTriggerDimensionOutputWithContext(context.Background())
+}
+
+func (i AutoscaleSettingProfileRuleMetricTriggerDimensionArgs) ToAutoscaleSettingProfileRuleMetricTriggerDimensionOutputWithContext(ctx context.Context) AutoscaleSettingProfileRuleMetricTriggerDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileRuleMetricTriggerDimensionOutput)
+}
+
+// AutoscaleSettingProfileRuleMetricTriggerDimensionArrayInput is an input type that accepts AutoscaleSettingProfileRuleMetricTriggerDimensionArray and AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput values.
+// You can construct a concrete instance of `AutoscaleSettingProfileRuleMetricTriggerDimensionArrayInput` via:
+//
+//          AutoscaleSettingProfileRuleMetricTriggerDimensionArray{ AutoscaleSettingProfileRuleMetricTriggerDimensionArgs{...} }
+type AutoscaleSettingProfileRuleMetricTriggerDimensionArrayInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput() AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput
+	ToAutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutputWithContext(context.Context) AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput
+}
+
+type AutoscaleSettingProfileRuleMetricTriggerDimensionArray []AutoscaleSettingProfileRuleMetricTriggerDimensionInput
+
+func (AutoscaleSettingProfileRuleMetricTriggerDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutoscaleSettingProfileRuleMetricTriggerDimension)(nil)).Elem()
+}
+
+func (i AutoscaleSettingProfileRuleMetricTriggerDimensionArray) ToAutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput() AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput {
+	return i.ToAutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i AutoscaleSettingProfileRuleMetricTriggerDimensionArray) ToAutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutputWithContext(ctx context.Context) AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput)
+}
+
+type AutoscaleSettingProfileRuleMetricTriggerDimensionOutput struct{ *pulumi.OutputState }
+
+func (AutoscaleSettingProfileRuleMetricTriggerDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoscaleSettingProfileRuleMetricTriggerDimension)(nil)).Elem()
+}
+
+func (o AutoscaleSettingProfileRuleMetricTriggerDimensionOutput) ToAutoscaleSettingProfileRuleMetricTriggerDimensionOutput() AutoscaleSettingProfileRuleMetricTriggerDimensionOutput {
+	return o
+}
+
+func (o AutoscaleSettingProfileRuleMetricTriggerDimensionOutput) ToAutoscaleSettingProfileRuleMetricTriggerDimensionOutputWithContext(ctx context.Context) AutoscaleSettingProfileRuleMetricTriggerDimensionOutput {
+	return o
+}
+
+// The name of the dimension.
+func (o AutoscaleSettingProfileRuleMetricTriggerDimensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTriggerDimension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The dimension operator. Possible values are `Equals` and `NotEquals`. `Equals` means being equal to any of the values. `NotEquals` means being not equal to any of the values.
+func (o AutoscaleSettingProfileRuleMetricTriggerDimensionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTriggerDimension) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of dimension values.
+func (o AutoscaleSettingProfileRuleMetricTriggerDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTriggerDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutoscaleSettingProfileRuleMetricTriggerDimension)(nil)).Elem()
+}
+
+func (o AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput) ToAutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput() AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput {
+	return o
+}
+
+func (o AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput) ToAutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutputWithContext(ctx context.Context) AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput {
+	return o
+}
+
+func (o AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput) Index(i pulumi.IntInput) AutoscaleSettingProfileRuleMetricTriggerDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoscaleSettingProfileRuleMetricTriggerDimension {
+		return vs[0].([]AutoscaleSettingProfileRuleMetricTriggerDimension)[vs[1].(int)]
+	}).(AutoscaleSettingProfileRuleMetricTriggerDimensionOutput)
 }
 
 type AutoscaleSettingProfileRuleScaleAction struct {
@@ -10793,6 +10928,8 @@ func init() {
 	pulumi.RegisterOutputType(AutoscaleSettingProfileRuleOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingProfileRuleArrayOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingProfileRuleMetricTriggerOutput{})
+	pulumi.RegisterOutputType(AutoscaleSettingProfileRuleMetricTriggerDimensionOutput{})
+	pulumi.RegisterOutputType(AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingProfileRuleScaleActionOutput{})
 	pulumi.RegisterOutputType(DiagnosticSettingLogOutput{})
 	pulumi.RegisterOutputType(DiagnosticSettingLogArrayOutput{})

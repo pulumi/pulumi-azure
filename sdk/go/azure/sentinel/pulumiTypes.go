@@ -10,6 +10,137 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type AlertRuleScheduledEventGrouping struct {
+	// The aggregation type of grouping the events.
+	AggregationMethod string `pulumi:"aggregationMethod"`
+}
+
+// AlertRuleScheduledEventGroupingInput is an input type that accepts AlertRuleScheduledEventGroupingArgs and AlertRuleScheduledEventGroupingOutput values.
+// You can construct a concrete instance of `AlertRuleScheduledEventGroupingInput` via:
+//
+//          AlertRuleScheduledEventGroupingArgs{...}
+type AlertRuleScheduledEventGroupingInput interface {
+	pulumi.Input
+
+	ToAlertRuleScheduledEventGroupingOutput() AlertRuleScheduledEventGroupingOutput
+	ToAlertRuleScheduledEventGroupingOutputWithContext(context.Context) AlertRuleScheduledEventGroupingOutput
+}
+
+type AlertRuleScheduledEventGroupingArgs struct {
+	// The aggregation type of grouping the events.
+	AggregationMethod pulumi.StringInput `pulumi:"aggregationMethod"`
+}
+
+func (AlertRuleScheduledEventGroupingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleScheduledEventGrouping)(nil)).Elem()
+}
+
+func (i AlertRuleScheduledEventGroupingArgs) ToAlertRuleScheduledEventGroupingOutput() AlertRuleScheduledEventGroupingOutput {
+	return i.ToAlertRuleScheduledEventGroupingOutputWithContext(context.Background())
+}
+
+func (i AlertRuleScheduledEventGroupingArgs) ToAlertRuleScheduledEventGroupingOutputWithContext(ctx context.Context) AlertRuleScheduledEventGroupingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledEventGroupingOutput)
+}
+
+func (i AlertRuleScheduledEventGroupingArgs) ToAlertRuleScheduledEventGroupingPtrOutput() AlertRuleScheduledEventGroupingPtrOutput {
+	return i.ToAlertRuleScheduledEventGroupingPtrOutputWithContext(context.Background())
+}
+
+func (i AlertRuleScheduledEventGroupingArgs) ToAlertRuleScheduledEventGroupingPtrOutputWithContext(ctx context.Context) AlertRuleScheduledEventGroupingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledEventGroupingOutput).ToAlertRuleScheduledEventGroupingPtrOutputWithContext(ctx)
+}
+
+// AlertRuleScheduledEventGroupingPtrInput is an input type that accepts AlertRuleScheduledEventGroupingArgs, AlertRuleScheduledEventGroupingPtr and AlertRuleScheduledEventGroupingPtrOutput values.
+// You can construct a concrete instance of `AlertRuleScheduledEventGroupingPtrInput` via:
+//
+//          AlertRuleScheduledEventGroupingArgs{...}
+//
+//  or:
+//
+//          nil
+type AlertRuleScheduledEventGroupingPtrInput interface {
+	pulumi.Input
+
+	ToAlertRuleScheduledEventGroupingPtrOutput() AlertRuleScheduledEventGroupingPtrOutput
+	ToAlertRuleScheduledEventGroupingPtrOutputWithContext(context.Context) AlertRuleScheduledEventGroupingPtrOutput
+}
+
+type alertRuleScheduledEventGroupingPtrType AlertRuleScheduledEventGroupingArgs
+
+func AlertRuleScheduledEventGroupingPtr(v *AlertRuleScheduledEventGroupingArgs) AlertRuleScheduledEventGroupingPtrInput {
+	return (*alertRuleScheduledEventGroupingPtrType)(v)
+}
+
+func (*alertRuleScheduledEventGroupingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertRuleScheduledEventGrouping)(nil)).Elem()
+}
+
+func (i *alertRuleScheduledEventGroupingPtrType) ToAlertRuleScheduledEventGroupingPtrOutput() AlertRuleScheduledEventGroupingPtrOutput {
+	return i.ToAlertRuleScheduledEventGroupingPtrOutputWithContext(context.Background())
+}
+
+func (i *alertRuleScheduledEventGroupingPtrType) ToAlertRuleScheduledEventGroupingPtrOutputWithContext(ctx context.Context) AlertRuleScheduledEventGroupingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledEventGroupingPtrOutput)
+}
+
+type AlertRuleScheduledEventGroupingOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleScheduledEventGroupingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleScheduledEventGrouping)(nil)).Elem()
+}
+
+func (o AlertRuleScheduledEventGroupingOutput) ToAlertRuleScheduledEventGroupingOutput() AlertRuleScheduledEventGroupingOutput {
+	return o
+}
+
+func (o AlertRuleScheduledEventGroupingOutput) ToAlertRuleScheduledEventGroupingOutputWithContext(ctx context.Context) AlertRuleScheduledEventGroupingOutput {
+	return o
+}
+
+func (o AlertRuleScheduledEventGroupingOutput) ToAlertRuleScheduledEventGroupingPtrOutput() AlertRuleScheduledEventGroupingPtrOutput {
+	return o.ToAlertRuleScheduledEventGroupingPtrOutputWithContext(context.Background())
+}
+
+func (o AlertRuleScheduledEventGroupingOutput) ToAlertRuleScheduledEventGroupingPtrOutputWithContext(ctx context.Context) AlertRuleScheduledEventGroupingPtrOutput {
+	return o.ApplyT(func(v AlertRuleScheduledEventGrouping) *AlertRuleScheduledEventGrouping {
+		return &v
+	}).(AlertRuleScheduledEventGroupingPtrOutput)
+}
+
+// The aggregation type of grouping the events.
+func (o AlertRuleScheduledEventGroupingOutput) AggregationMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleScheduledEventGrouping) string { return v.AggregationMethod }).(pulumi.StringOutput)
+}
+
+type AlertRuleScheduledEventGroupingPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleScheduledEventGroupingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertRuleScheduledEventGrouping)(nil)).Elem()
+}
+
+func (o AlertRuleScheduledEventGroupingPtrOutput) ToAlertRuleScheduledEventGroupingPtrOutput() AlertRuleScheduledEventGroupingPtrOutput {
+	return o
+}
+
+func (o AlertRuleScheduledEventGroupingPtrOutput) ToAlertRuleScheduledEventGroupingPtrOutputWithContext(ctx context.Context) AlertRuleScheduledEventGroupingPtrOutput {
+	return o
+}
+
+func (o AlertRuleScheduledEventGroupingPtrOutput) Elem() AlertRuleScheduledEventGroupingOutput {
+	return o.ApplyT(func(v *AlertRuleScheduledEventGrouping) AlertRuleScheduledEventGrouping { return *v }).(AlertRuleScheduledEventGroupingOutput)
+}
+
+// The aggregation type of grouping the events.
+func (o AlertRuleScheduledEventGroupingPtrOutput) AggregationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertRuleScheduledEventGrouping) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AggregationMethod
+	}).(pulumi.StringPtrOutput)
+}
+
 type AlertRuleScheduledIncidentConfiguration struct {
 	// Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
 	CreateIncident bool `pulumi:"createIncident"`
@@ -638,6 +769,8 @@ func (o GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput) Index(i pulumi.
 }
 
 func init() {
+	pulumi.RegisterOutputType(AlertRuleScheduledEventGroupingOutput{})
+	pulumi.RegisterOutputType(AlertRuleScheduledEventGroupingPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledIncidentConfigurationOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledIncidentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledIncidentConfigurationGroupingOutput{})

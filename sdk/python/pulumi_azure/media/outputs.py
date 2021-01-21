@@ -10,6 +10,13 @@ from .. import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'ContentKeyPolicyPolicyOption',
+    'ContentKeyPolicyPolicyOptionFairplayConfiguration',
+    'ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration',
+    'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense',
+    'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight',
+    'ContentKeyPolicyPolicyOptionTokenRestriction',
+    'ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim',
     'JobInputAsset',
     'JobOutputAsset',
     'ServiceAccountIdentity',
@@ -25,6 +32,651 @@ __all__ = [
     'TransformOutputFaceDetectorPreset',
     'TransformOutputVideoAnalyzerPreset',
 ]
+
+@pulumi.output_type
+class ContentKeyPolicyPolicyOption(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 clear_key_configuration_enabled: Optional[bool] = None,
+                 fairplay_configuration: Optional['outputs.ContentKeyPolicyPolicyOptionFairplayConfiguration'] = None,
+                 open_restriction_enabled: Optional[bool] = None,
+                 playready_configuration_licenses: Optional[Sequence['outputs.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense']] = None,
+                 token_restriction: Optional['outputs.ContentKeyPolicyPolicyOptionTokenRestriction'] = None,
+                 widevine_configuration_template: Optional[str] = None):
+        """
+        :param str name: The name which should be used for this Policy Option.
+        :param bool clear_key_configuration_enabled: Enable a configuration for non-DRM keys.
+        :param 'ContentKeyPolicyPolicyOptionFairplayConfigurationArgs' fairplay_configuration: A `fairplay_configuration` block as defined above. Check license requirements here https://docs.microsoft.com/en-us/azure/media-services/latest/fairplay-license-overview.
+        :param bool open_restriction_enabled: Enable an open restriction. License or key will be delivered on every request.
+        :param Sequence['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs'] playready_configuration_licenses: One or more `playready_configuration_license` blocks as defined above.
+        :param 'ContentKeyPolicyPolicyOptionTokenRestrictionArgs' token_restriction: A `token_restriction` block as defined below.
+        :param str widevine_configuration_template: The Widevine template.
+        """
+        pulumi.set(__self__, "name", name)
+        if clear_key_configuration_enabled is not None:
+            pulumi.set(__self__, "clear_key_configuration_enabled", clear_key_configuration_enabled)
+        if fairplay_configuration is not None:
+            pulumi.set(__self__, "fairplay_configuration", fairplay_configuration)
+        if open_restriction_enabled is not None:
+            pulumi.set(__self__, "open_restriction_enabled", open_restriction_enabled)
+        if playready_configuration_licenses is not None:
+            pulumi.set(__self__, "playready_configuration_licenses", playready_configuration_licenses)
+        if token_restriction is not None:
+            pulumi.set(__self__, "token_restriction", token_restriction)
+        if widevine_configuration_template is not None:
+            pulumi.set(__self__, "widevine_configuration_template", widevine_configuration_template)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this Policy Option.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="clearKeyConfigurationEnabled")
+    def clear_key_configuration_enabled(self) -> Optional[bool]:
+        """
+        Enable a configuration for non-DRM keys.
+        """
+        return pulumi.get(self, "clear_key_configuration_enabled")
+
+    @property
+    @pulumi.getter(name="fairplayConfiguration")
+    def fairplay_configuration(self) -> Optional['outputs.ContentKeyPolicyPolicyOptionFairplayConfiguration']:
+        """
+        A `fairplay_configuration` block as defined above. Check license requirements here https://docs.microsoft.com/en-us/azure/media-services/latest/fairplay-license-overview.
+        """
+        return pulumi.get(self, "fairplay_configuration")
+
+    @property
+    @pulumi.getter(name="openRestrictionEnabled")
+    def open_restriction_enabled(self) -> Optional[bool]:
+        """
+        Enable an open restriction. License or key will be delivered on every request.
+        """
+        return pulumi.get(self, "open_restriction_enabled")
+
+    @property
+    @pulumi.getter(name="playreadyConfigurationLicenses")
+    def playready_configuration_licenses(self) -> Optional[Sequence['outputs.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense']]:
+        """
+        One or more `playready_configuration_license` blocks as defined above.
+        """
+        return pulumi.get(self, "playready_configuration_licenses")
+
+    @property
+    @pulumi.getter(name="tokenRestriction")
+    def token_restriction(self) -> Optional['outputs.ContentKeyPolicyPolicyOptionTokenRestriction']:
+        """
+        A `token_restriction` block as defined below.
+        """
+        return pulumi.get(self, "token_restriction")
+
+    @property
+    @pulumi.getter(name="widevineConfigurationTemplate")
+    def widevine_configuration_template(self) -> Optional[str]:
+        """
+        The Widevine template.
+        """
+        return pulumi.get(self, "widevine_configuration_template")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyPolicyOptionFairplayConfiguration(dict):
+    def __init__(__self__, *,
+                 ask: Optional[str] = None,
+                 offline_rental_configuration: Optional['outputs.ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration'] = None,
+                 pfx: Optional[str] = None,
+                 pfx_password: Optional[str] = None,
+                 rental_and_lease_key_type: Optional[str] = None,
+                 rental_duration_seconds: Optional[int] = None):
+        """
+        :param str ask: The key that must be used as FairPlay Application Secret key.
+        :param 'ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs' offline_rental_configuration: A `offline_rental_configuration` block as defined below.
+        :param str pfx: The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
+        :param str pfx_password: The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
+        :param str rental_and_lease_key_type: The rental and lease key type. Supported values are `DualExpiry`, `PersistentLimited`, `PersistentUnlimited` or `Undefined`.
+        :param int rental_duration_seconds: The rental duration. Must be greater than 0.
+        """
+        if ask is not None:
+            pulumi.set(__self__, "ask", ask)
+        if offline_rental_configuration is not None:
+            pulumi.set(__self__, "offline_rental_configuration", offline_rental_configuration)
+        if pfx is not None:
+            pulumi.set(__self__, "pfx", pfx)
+        if pfx_password is not None:
+            pulumi.set(__self__, "pfx_password", pfx_password)
+        if rental_and_lease_key_type is not None:
+            pulumi.set(__self__, "rental_and_lease_key_type", rental_and_lease_key_type)
+        if rental_duration_seconds is not None:
+            pulumi.set(__self__, "rental_duration_seconds", rental_duration_seconds)
+
+    @property
+    @pulumi.getter
+    def ask(self) -> Optional[str]:
+        """
+        The key that must be used as FairPlay Application Secret key.
+        """
+        return pulumi.get(self, "ask")
+
+    @property
+    @pulumi.getter(name="offlineRentalConfiguration")
+    def offline_rental_configuration(self) -> Optional['outputs.ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration']:
+        """
+        A `offline_rental_configuration` block as defined below.
+        """
+        return pulumi.get(self, "offline_rental_configuration")
+
+    @property
+    @pulumi.getter
+    def pfx(self) -> Optional[str]:
+        """
+        The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
+        """
+        return pulumi.get(self, "pfx")
+
+    @property
+    @pulumi.getter(name="pfxPassword")
+    def pfx_password(self) -> Optional[str]:
+        """
+        The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
+        """
+        return pulumi.get(self, "pfx_password")
+
+    @property
+    @pulumi.getter(name="rentalAndLeaseKeyType")
+    def rental_and_lease_key_type(self) -> Optional[str]:
+        """
+        The rental and lease key type. Supported values are `DualExpiry`, `PersistentLimited`, `PersistentUnlimited` or `Undefined`.
+        """
+        return pulumi.get(self, "rental_and_lease_key_type")
+
+    @property
+    @pulumi.getter(name="rentalDurationSeconds")
+    def rental_duration_seconds(self) -> Optional[int]:
+        """
+        The rental duration. Must be greater than 0.
+        """
+        return pulumi.get(self, "rental_duration_seconds")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration(dict):
+    def __init__(__self__, *,
+                 playback_duration_seconds: Optional[int] = None,
+                 storage_duration_seconds: Optional[int] = None):
+        """
+        :param int playback_duration_seconds: Playback duration.
+        :param int storage_duration_seconds: Storage duration.
+        """
+        if playback_duration_seconds is not None:
+            pulumi.set(__self__, "playback_duration_seconds", playback_duration_seconds)
+        if storage_duration_seconds is not None:
+            pulumi.set(__self__, "storage_duration_seconds", storage_duration_seconds)
+
+    @property
+    @pulumi.getter(name="playbackDurationSeconds")
+    def playback_duration_seconds(self) -> Optional[int]:
+        """
+        Playback duration.
+        """
+        return pulumi.get(self, "playback_duration_seconds")
+
+    @property
+    @pulumi.getter(name="storageDurationSeconds")
+    def storage_duration_seconds(self) -> Optional[int]:
+        """
+        Storage duration.
+        """
+        return pulumi.get(self, "storage_duration_seconds")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense(dict):
+    def __init__(__self__, *,
+                 allow_test_devices: Optional[bool] = None,
+                 begin_date: Optional[str] = None,
+                 content_key_location_from_header_enabled: Optional[bool] = None,
+                 content_key_location_from_key_id: Optional[str] = None,
+                 content_type: Optional[str] = None,
+                 expiration_date: Optional[str] = None,
+                 grace_period: Optional[str] = None,
+                 license_type: Optional[str] = None,
+                 play_right: Optional['outputs.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight'] = None,
+                 relative_begin_date: Optional[str] = None,
+                 relative_expiration_date: Optional[str] = None):
+        """
+        :param bool allow_test_devices: A flag indicating whether test devices can use the license.
+        :param str begin_date: The begin date of license.
+        :param bool content_key_location_from_header_enabled: Specifies that the content key ID is in the PlayReady header.
+        :param str content_key_location_from_key_id: The content key ID. Specifies that the content key ID is specified in the PlayReady configuration.
+        :param str content_type: The PlayReady content type. Supported values are `UltraVioletDownload`, `UltraVioletStreaming` or `Unspecified`.
+        :param str expiration_date: The expiration date of license.
+        :param str grace_period: The grace period of license.
+        :param str license_type: The license type. Supported values are `NonPersistent` or `Persistent`.
+        :param 'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs' play_right: A `play_right` block as defined above.
+        :param str relative_begin_date: The relative begin date of license.
+        :param str relative_expiration_date: The relative expiration date of license.
+        """
+        if allow_test_devices is not None:
+            pulumi.set(__self__, "allow_test_devices", allow_test_devices)
+        if begin_date is not None:
+            pulumi.set(__self__, "begin_date", begin_date)
+        if content_key_location_from_header_enabled is not None:
+            pulumi.set(__self__, "content_key_location_from_header_enabled", content_key_location_from_header_enabled)
+        if content_key_location_from_key_id is not None:
+            pulumi.set(__self__, "content_key_location_from_key_id", content_key_location_from_key_id)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if expiration_date is not None:
+            pulumi.set(__self__, "expiration_date", expiration_date)
+        if grace_period is not None:
+            pulumi.set(__self__, "grace_period", grace_period)
+        if license_type is not None:
+            pulumi.set(__self__, "license_type", license_type)
+        if play_right is not None:
+            pulumi.set(__self__, "play_right", play_right)
+        if relative_begin_date is not None:
+            pulumi.set(__self__, "relative_begin_date", relative_begin_date)
+        if relative_expiration_date is not None:
+            pulumi.set(__self__, "relative_expiration_date", relative_expiration_date)
+
+    @property
+    @pulumi.getter(name="allowTestDevices")
+    def allow_test_devices(self) -> Optional[bool]:
+        """
+        A flag indicating whether test devices can use the license.
+        """
+        return pulumi.get(self, "allow_test_devices")
+
+    @property
+    @pulumi.getter(name="beginDate")
+    def begin_date(self) -> Optional[str]:
+        """
+        The begin date of license.
+        """
+        return pulumi.get(self, "begin_date")
+
+    @property
+    @pulumi.getter(name="contentKeyLocationFromHeaderEnabled")
+    def content_key_location_from_header_enabled(self) -> Optional[bool]:
+        """
+        Specifies that the content key ID is in the PlayReady header.
+        """
+        return pulumi.get(self, "content_key_location_from_header_enabled")
+
+    @property
+    @pulumi.getter(name="contentKeyLocationFromKeyId")
+    def content_key_location_from_key_id(self) -> Optional[str]:
+        """
+        The content key ID. Specifies that the content key ID is specified in the PlayReady configuration.
+        """
+        return pulumi.get(self, "content_key_location_from_key_id")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[str]:
+        """
+        The PlayReady content type. Supported values are `UltraVioletDownload`, `UltraVioletStreaming` or `Unspecified`.
+        """
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> Optional[str]:
+        """
+        The expiration date of license.
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @property
+    @pulumi.getter(name="gracePeriod")
+    def grace_period(self) -> Optional[str]:
+        """
+        The grace period of license.
+        """
+        return pulumi.get(self, "grace_period")
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> Optional[str]:
+        """
+        The license type. Supported values are `NonPersistent` or `Persistent`.
+        """
+        return pulumi.get(self, "license_type")
+
+    @property
+    @pulumi.getter(name="playRight")
+    def play_right(self) -> Optional['outputs.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight']:
+        """
+        A `play_right` block as defined above.
+        """
+        return pulumi.get(self, "play_right")
+
+    @property
+    @pulumi.getter(name="relativeBeginDate")
+    def relative_begin_date(self) -> Optional[str]:
+        """
+        The relative begin date of license.
+        """
+        return pulumi.get(self, "relative_begin_date")
+
+    @property
+    @pulumi.getter(name="relativeExpirationDate")
+    def relative_expiration_date(self) -> Optional[str]:
+        """
+        The relative expiration date of license.
+        """
+        return pulumi.get(self, "relative_expiration_date")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight(dict):
+    def __init__(__self__, *,
+                 agc_and_color_stripe_restriction: Optional[int] = None,
+                 allow_passing_video_content_to_unknown_output: Optional[str] = None,
+                 analog_video_opl: Optional[int] = None,
+                 compressed_digital_audio_opl: Optional[int] = None,
+                 digital_video_only_content_restriction: Optional[bool] = None,
+                 first_play_expiration: Optional[str] = None,
+                 image_constraint_for_analog_component_video_restriction: Optional[bool] = None,
+                 image_constraint_for_analog_computer_monitor_restriction: Optional[bool] = None,
+                 scms_restriction: Optional[int] = None,
+                 uncompressed_digital_audio_opl: Optional[int] = None,
+                 uncompressed_digital_video_opl: Optional[int] = None):
+        """
+        :param int agc_and_color_stripe_restriction: Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+        :param str allow_passing_video_content_to_unknown_output: Configures Unknown output handling settings of the license. Supported values are `Allowed`, `AllowedWithVideoConstriction` or `NotAllowed`.
+        :param int analog_video_opl: Specifies the output protection level for compressed digital audio. Supported values are 100, 150 or 200.
+        :param int compressed_digital_audio_opl: Specifies the output protection level for compressed digital audio.Supported values are 100, 150 or 200.
+        :param bool digital_video_only_content_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
+        :param str first_play_expiration: The amount of time that the license is valid after the license is first used to play content.
+        :param bool image_constraint_for_analog_component_video_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
+        :param bool image_constraint_for_analog_computer_monitor_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
+        :param int scms_restriction: Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+        :param int uncompressed_digital_audio_opl: Specifies the output protection level for uncompressed digital audio. Supported values are 100, 150, 250 or 300.
+        :param int uncompressed_digital_video_opl: Specifies the output protection level for uncompressed digital video. Supported values are 100, 150, 250 or 300.
+        """
+        if agc_and_color_stripe_restriction is not None:
+            pulumi.set(__self__, "agc_and_color_stripe_restriction", agc_and_color_stripe_restriction)
+        if allow_passing_video_content_to_unknown_output is not None:
+            pulumi.set(__self__, "allow_passing_video_content_to_unknown_output", allow_passing_video_content_to_unknown_output)
+        if analog_video_opl is not None:
+            pulumi.set(__self__, "analog_video_opl", analog_video_opl)
+        if compressed_digital_audio_opl is not None:
+            pulumi.set(__self__, "compressed_digital_audio_opl", compressed_digital_audio_opl)
+        if digital_video_only_content_restriction is not None:
+            pulumi.set(__self__, "digital_video_only_content_restriction", digital_video_only_content_restriction)
+        if first_play_expiration is not None:
+            pulumi.set(__self__, "first_play_expiration", first_play_expiration)
+        if image_constraint_for_analog_component_video_restriction is not None:
+            pulumi.set(__self__, "image_constraint_for_analog_component_video_restriction", image_constraint_for_analog_component_video_restriction)
+        if image_constraint_for_analog_computer_monitor_restriction is not None:
+            pulumi.set(__self__, "image_constraint_for_analog_computer_monitor_restriction", image_constraint_for_analog_computer_monitor_restriction)
+        if scms_restriction is not None:
+            pulumi.set(__self__, "scms_restriction", scms_restriction)
+        if uncompressed_digital_audio_opl is not None:
+            pulumi.set(__self__, "uncompressed_digital_audio_opl", uncompressed_digital_audio_opl)
+        if uncompressed_digital_video_opl is not None:
+            pulumi.set(__self__, "uncompressed_digital_video_opl", uncompressed_digital_video_opl)
+
+    @property
+    @pulumi.getter(name="agcAndColorStripeRestriction")
+    def agc_and_color_stripe_restriction(self) -> Optional[int]:
+        """
+        Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+        """
+        return pulumi.get(self, "agc_and_color_stripe_restriction")
+
+    @property
+    @pulumi.getter(name="allowPassingVideoContentToUnknownOutput")
+    def allow_passing_video_content_to_unknown_output(self) -> Optional[str]:
+        """
+        Configures Unknown output handling settings of the license. Supported values are `Allowed`, `AllowedWithVideoConstriction` or `NotAllowed`.
+        """
+        return pulumi.get(self, "allow_passing_video_content_to_unknown_output")
+
+    @property
+    @pulumi.getter(name="analogVideoOpl")
+    def analog_video_opl(self) -> Optional[int]:
+        """
+        Specifies the output protection level for compressed digital audio. Supported values are 100, 150 or 200.
+        """
+        return pulumi.get(self, "analog_video_opl")
+
+    @property
+    @pulumi.getter(name="compressedDigitalAudioOpl")
+    def compressed_digital_audio_opl(self) -> Optional[int]:
+        """
+        Specifies the output protection level for compressed digital audio.Supported values are 100, 150 or 200.
+        """
+        return pulumi.get(self, "compressed_digital_audio_opl")
+
+    @property
+    @pulumi.getter(name="digitalVideoOnlyContentRestriction")
+    def digital_video_only_content_restriction(self) -> Optional[bool]:
+        """
+        Enables the Image Constraint For Analog Component Video Restriction in the license.
+        """
+        return pulumi.get(self, "digital_video_only_content_restriction")
+
+    @property
+    @pulumi.getter(name="firstPlayExpiration")
+    def first_play_expiration(self) -> Optional[str]:
+        """
+        The amount of time that the license is valid after the license is first used to play content.
+        """
+        return pulumi.get(self, "first_play_expiration")
+
+    @property
+    @pulumi.getter(name="imageConstraintForAnalogComponentVideoRestriction")
+    def image_constraint_for_analog_component_video_restriction(self) -> Optional[bool]:
+        """
+        Enables the Image Constraint For Analog Component Video Restriction in the license.
+        """
+        return pulumi.get(self, "image_constraint_for_analog_component_video_restriction")
+
+    @property
+    @pulumi.getter(name="imageConstraintForAnalogComputerMonitorRestriction")
+    def image_constraint_for_analog_computer_monitor_restriction(self) -> Optional[bool]:
+        """
+        Enables the Image Constraint For Analog Component Video Restriction in the license.
+        """
+        return pulumi.get(self, "image_constraint_for_analog_computer_monitor_restriction")
+
+    @property
+    @pulumi.getter(name="scmsRestriction")
+    def scms_restriction(self) -> Optional[int]:
+        """
+        Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+        """
+        return pulumi.get(self, "scms_restriction")
+
+    @property
+    @pulumi.getter(name="uncompressedDigitalAudioOpl")
+    def uncompressed_digital_audio_opl(self) -> Optional[int]:
+        """
+        Specifies the output protection level for uncompressed digital audio. Supported values are 100, 150, 250 or 300.
+        """
+        return pulumi.get(self, "uncompressed_digital_audio_opl")
+
+    @property
+    @pulumi.getter(name="uncompressedDigitalVideoOpl")
+    def uncompressed_digital_video_opl(self) -> Optional[int]:
+        """
+        Specifies the output protection level for uncompressed digital video. Supported values are 100, 150, 250 or 300.
+        """
+        return pulumi.get(self, "uncompressed_digital_video_opl")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyPolicyOptionTokenRestriction(dict):
+    def __init__(__self__, *,
+                 audience: Optional[str] = None,
+                 issuer: Optional[str] = None,
+                 open_id_connect_discovery_document: Optional[str] = None,
+                 primary_rsa_token_key_exponent: Optional[str] = None,
+                 primary_rsa_token_key_modulus: Optional[str] = None,
+                 primary_symmetric_token_key: Optional[str] = None,
+                 primary_x509_token_key_raw: Optional[str] = None,
+                 required_claims: Optional[Sequence['outputs.ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim']] = None,
+                 token_type: Optional[str] = None):
+        """
+        :param str audience: The audience for the token.
+        :param str issuer: The token issuer.
+        :param str open_id_connect_discovery_document: The OpenID connect discovery document.
+        :param str primary_rsa_token_key_exponent: The RSA Parameter exponent.
+        :param str primary_rsa_token_key_modulus: The RSA Parameter modulus.
+        :param str primary_symmetric_token_key: The key value of the key. Specifies a symmetric key for token validation.
+        :param str primary_x509_token_key_raw: The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+        :param Sequence['ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs'] required_claims: One or more `required_claim` blocks as defined above.
+        :param str token_type: The type of token. Supported values are `Jwt` or `Swt`.
+        """
+        if audience is not None:
+            pulumi.set(__self__, "audience", audience)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if open_id_connect_discovery_document is not None:
+            pulumi.set(__self__, "open_id_connect_discovery_document", open_id_connect_discovery_document)
+        if primary_rsa_token_key_exponent is not None:
+            pulumi.set(__self__, "primary_rsa_token_key_exponent", primary_rsa_token_key_exponent)
+        if primary_rsa_token_key_modulus is not None:
+            pulumi.set(__self__, "primary_rsa_token_key_modulus", primary_rsa_token_key_modulus)
+        if primary_symmetric_token_key is not None:
+            pulumi.set(__self__, "primary_symmetric_token_key", primary_symmetric_token_key)
+        if primary_x509_token_key_raw is not None:
+            pulumi.set(__self__, "primary_x509_token_key_raw", primary_x509_token_key_raw)
+        if required_claims is not None:
+            pulumi.set(__self__, "required_claims", required_claims)
+        if token_type is not None:
+            pulumi.set(__self__, "token_type", token_type)
+
+    @property
+    @pulumi.getter
+    def audience(self) -> Optional[str]:
+        """
+        The audience for the token.
+        """
+        return pulumi.get(self, "audience")
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> Optional[str]:
+        """
+        The token issuer.
+        """
+        return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter(name="openIdConnectDiscoveryDocument")
+    def open_id_connect_discovery_document(self) -> Optional[str]:
+        """
+        The OpenID connect discovery document.
+        """
+        return pulumi.get(self, "open_id_connect_discovery_document")
+
+    @property
+    @pulumi.getter(name="primaryRsaTokenKeyExponent")
+    def primary_rsa_token_key_exponent(self) -> Optional[str]:
+        """
+        The RSA Parameter exponent.
+        """
+        return pulumi.get(self, "primary_rsa_token_key_exponent")
+
+    @property
+    @pulumi.getter(name="primaryRsaTokenKeyModulus")
+    def primary_rsa_token_key_modulus(self) -> Optional[str]:
+        """
+        The RSA Parameter modulus.
+        """
+        return pulumi.get(self, "primary_rsa_token_key_modulus")
+
+    @property
+    @pulumi.getter(name="primarySymmetricTokenKey")
+    def primary_symmetric_token_key(self) -> Optional[str]:
+        """
+        The key value of the key. Specifies a symmetric key for token validation.
+        """
+        return pulumi.get(self, "primary_symmetric_token_key")
+
+    @property
+    @pulumi.getter(name="primaryX509TokenKeyRaw")
+    def primary_x509_token_key_raw(self) -> Optional[str]:
+        """
+        The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+        """
+        return pulumi.get(self, "primary_x509_token_key_raw")
+
+    @property
+    @pulumi.getter(name="requiredClaims")
+    def required_claims(self) -> Optional[Sequence['outputs.ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim']]:
+        """
+        One or more `required_claim` blocks as defined above.
+        """
+        return pulumi.get(self, "required_claims")
+
+    @property
+    @pulumi.getter(name="tokenType")
+    def token_type(self) -> Optional[str]:
+        """
+        The type of token. Supported values are `Jwt` or `Swt`.
+        """
+        return pulumi.get(self, "token_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim(dict):
+    def __init__(__self__, *,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str type: Token claim type.
+        :param str value: Token claim value.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Token claim type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Token claim value.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class JobInputAsset(dict):

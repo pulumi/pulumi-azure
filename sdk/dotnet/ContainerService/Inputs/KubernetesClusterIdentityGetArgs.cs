@@ -25,10 +25,16 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The type of identity used for the managed cluster. At this time the only supported value is `SystemAssigned`.
+        /// The type of identity used for the managed cluster. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `user_assigned_identity_id` must be set as well.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// The ID of a user assigned identity.
+        /// </summary>
+        [Input("userAssignedIdentityId")]
+        public Input<string>? UserAssignedIdentityId { get; set; }
 
         public KubernetesClusterIdentityGetArgs()
         {

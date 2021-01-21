@@ -83,6 +83,12 @@ namespace Pulumi.Azure.Sentinel
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
+        /// A `event_grouping` block as defined below.
+        /// </summary>
+        [Output("eventGrouping")]
+        public Output<Outputs.AlertRuleScheduledEventGrouping?> EventGrouping { get; private set; } = null!;
+
+        /// <summary>
         /// A `incident_configuration` block as defined below.
         /// </summary>
         [Output("incidentConfiguration")]
@@ -225,6 +231,12 @@ namespace Pulumi.Azure.Sentinel
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
+        /// A `event_grouping` block as defined below.
+        /// </summary>
+        [Input("eventGrouping")]
+        public Input<Inputs.AlertRuleScheduledEventGroupingArgs>? EventGrouping { get; set; }
+
+        /// <summary>
         /// A `incident_configuration` block as defined below.
         /// </summary>
         [Input("incidentConfiguration")]
@@ -332,6 +344,12 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// A `event_grouping` block as defined below.
+        /// </summary>
+        [Input("eventGrouping")]
+        public Input<Inputs.AlertRuleScheduledEventGroupingGetArgs>? EventGrouping { get; set; }
 
         /// <summary>
         /// A `incident_configuration` block as defined below.

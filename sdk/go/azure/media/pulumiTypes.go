@@ -10,6 +10,1482 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type ContentKeyPolicyPolicyOption struct {
+	// Enable a configuration for non-DRM keys.
+	ClearKeyConfigurationEnabled *bool `pulumi:"clearKeyConfigurationEnabled"`
+	// A `fairplayConfiguration` block as defined above. Check license requirements here https://docs.microsoft.com/en-us/azure/media-services/latest/fairplay-license-overview.
+	FairplayConfiguration *ContentKeyPolicyPolicyOptionFairplayConfiguration `pulumi:"fairplayConfiguration"`
+	// The name which should be used for this Policy Option.
+	Name string `pulumi:"name"`
+	// Enable an open restriction. License or key will be delivered on every request.
+	OpenRestrictionEnabled *bool `pulumi:"openRestrictionEnabled"`
+	// One or more `playreadyConfigurationLicense` blocks as defined above.
+	PlayreadyConfigurationLicenses []ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense `pulumi:"playreadyConfigurationLicenses"`
+	// A `tokenRestriction` block as defined below.
+	TokenRestriction *ContentKeyPolicyPolicyOptionTokenRestriction `pulumi:"tokenRestriction"`
+	// The Widevine template.
+	WidevineConfigurationTemplate *string `pulumi:"widevineConfigurationTemplate"`
+}
+
+// ContentKeyPolicyPolicyOptionInput is an input type that accepts ContentKeyPolicyPolicyOptionArgs and ContentKeyPolicyPolicyOptionOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPolicyOptionInput` via:
+//
+//          ContentKeyPolicyPolicyOptionArgs{...}
+type ContentKeyPolicyPolicyOptionInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPolicyOptionOutput() ContentKeyPolicyPolicyOptionOutput
+	ToContentKeyPolicyPolicyOptionOutputWithContext(context.Context) ContentKeyPolicyPolicyOptionOutput
+}
+
+type ContentKeyPolicyPolicyOptionArgs struct {
+	// Enable a configuration for non-DRM keys.
+	ClearKeyConfigurationEnabled pulumi.BoolPtrInput `pulumi:"clearKeyConfigurationEnabled"`
+	// A `fairplayConfiguration` block as defined above. Check license requirements here https://docs.microsoft.com/en-us/azure/media-services/latest/fairplay-license-overview.
+	FairplayConfiguration ContentKeyPolicyPolicyOptionFairplayConfigurationPtrInput `pulumi:"fairplayConfiguration"`
+	// The name which should be used for this Policy Option.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Enable an open restriction. License or key will be delivered on every request.
+	OpenRestrictionEnabled pulumi.BoolPtrInput `pulumi:"openRestrictionEnabled"`
+	// One or more `playreadyConfigurationLicense` blocks as defined above.
+	PlayreadyConfigurationLicenses ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayInput `pulumi:"playreadyConfigurationLicenses"`
+	// A `tokenRestriction` block as defined below.
+	TokenRestriction ContentKeyPolicyPolicyOptionTokenRestrictionPtrInput `pulumi:"tokenRestriction"`
+	// The Widevine template.
+	WidevineConfigurationTemplate pulumi.StringPtrInput `pulumi:"widevineConfigurationTemplate"`
+}
+
+func (ContentKeyPolicyPolicyOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPolicyOption)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyPolicyOptionArgs) ToContentKeyPolicyPolicyOptionOutput() ContentKeyPolicyPolicyOptionOutput {
+	return i.ToContentKeyPolicyPolicyOptionOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPolicyOptionArgs) ToContentKeyPolicyPolicyOptionOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionOutput)
+}
+
+// ContentKeyPolicyPolicyOptionArrayInput is an input type that accepts ContentKeyPolicyPolicyOptionArray and ContentKeyPolicyPolicyOptionArrayOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPolicyOptionArrayInput` via:
+//
+//          ContentKeyPolicyPolicyOptionArray{ ContentKeyPolicyPolicyOptionArgs{...} }
+type ContentKeyPolicyPolicyOptionArrayInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPolicyOptionArrayOutput() ContentKeyPolicyPolicyOptionArrayOutput
+	ToContentKeyPolicyPolicyOptionArrayOutputWithContext(context.Context) ContentKeyPolicyPolicyOptionArrayOutput
+}
+
+type ContentKeyPolicyPolicyOptionArray []ContentKeyPolicyPolicyOptionInput
+
+func (ContentKeyPolicyPolicyOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContentKeyPolicyPolicyOption)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyPolicyOptionArray) ToContentKeyPolicyPolicyOptionArrayOutput() ContentKeyPolicyPolicyOptionArrayOutput {
+	return i.ToContentKeyPolicyPolicyOptionArrayOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPolicyOptionArray) ToContentKeyPolicyPolicyOptionArrayOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionArrayOutput)
+}
+
+type ContentKeyPolicyPolicyOptionOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPolicyOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPolicyOption)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPolicyOptionOutput) ToContentKeyPolicyPolicyOptionOutput() ContentKeyPolicyPolicyOptionOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionOutput) ToContentKeyPolicyPolicyOptionOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionOutput {
+	return o
+}
+
+// Enable a configuration for non-DRM keys.
+func (o ContentKeyPolicyPolicyOptionOutput) ClearKeyConfigurationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOption) *bool { return v.ClearKeyConfigurationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A `fairplayConfiguration` block as defined above. Check license requirements here https://docs.microsoft.com/en-us/azure/media-services/latest/fairplay-license-overview.
+func (o ContentKeyPolicyPolicyOptionOutput) FairplayConfiguration() ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOption) *ContentKeyPolicyPolicyOptionFairplayConfiguration {
+		return v.FairplayConfiguration
+	}).(ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput)
+}
+
+// The name which should be used for this Policy Option.
+func (o ContentKeyPolicyPolicyOptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOption) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Enable an open restriction. License or key will be delivered on every request.
+func (o ContentKeyPolicyPolicyOptionOutput) OpenRestrictionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOption) *bool { return v.OpenRestrictionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// One or more `playreadyConfigurationLicense` blocks as defined above.
+func (o ContentKeyPolicyPolicyOptionOutput) PlayreadyConfigurationLicenses() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOption) []ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense {
+		return v.PlayreadyConfigurationLicenses
+	}).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput)
+}
+
+// A `tokenRestriction` block as defined below.
+func (o ContentKeyPolicyPolicyOptionOutput) TokenRestriction() ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOption) *ContentKeyPolicyPolicyOptionTokenRestriction {
+		return v.TokenRestriction
+	}).(ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput)
+}
+
+// The Widevine template.
+func (o ContentKeyPolicyPolicyOptionOutput) WidevineConfigurationTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOption) *string { return v.WidevineConfigurationTemplate }).(pulumi.StringPtrOutput)
+}
+
+type ContentKeyPolicyPolicyOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPolicyOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContentKeyPolicyPolicyOption)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPolicyOptionArrayOutput) ToContentKeyPolicyPolicyOptionArrayOutput() ContentKeyPolicyPolicyOptionArrayOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionArrayOutput) ToContentKeyPolicyPolicyOptionArrayOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionArrayOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionArrayOutput) Index(i pulumi.IntInput) ContentKeyPolicyPolicyOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContentKeyPolicyPolicyOption {
+		return vs[0].([]ContentKeyPolicyPolicyOption)[vs[1].(int)]
+	}).(ContentKeyPolicyPolicyOptionOutput)
+}
+
+type ContentKeyPolicyPolicyOptionFairplayConfiguration struct {
+	// The key that must be used as FairPlay Application Secret key.
+	Ask *string `pulumi:"ask"`
+	// A `offlineRentalConfiguration` block as defined below.
+	OfflineRentalConfiguration *ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration `pulumi:"offlineRentalConfiguration"`
+	// The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
+	Pfx *string `pulumi:"pfx"`
+	// The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
+	PfxPassword *string `pulumi:"pfxPassword"`
+	// The rental and lease key type. Supported values are `DualExpiry`, `PersistentLimited`, `PersistentUnlimited` or `Undefined`.
+	RentalAndLeaseKeyType *string `pulumi:"rentalAndLeaseKeyType"`
+	// The rental duration. Must be greater than 0.
+	RentalDurationSeconds *int `pulumi:"rentalDurationSeconds"`
+}
+
+// ContentKeyPolicyPolicyOptionFairplayConfigurationInput is an input type that accepts ContentKeyPolicyPolicyOptionFairplayConfigurationArgs and ContentKeyPolicyPolicyOptionFairplayConfigurationOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPolicyOptionFairplayConfigurationInput` via:
+//
+//          ContentKeyPolicyPolicyOptionFairplayConfigurationArgs{...}
+type ContentKeyPolicyPolicyOptionFairplayConfigurationInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPolicyOptionFairplayConfigurationOutput() ContentKeyPolicyPolicyOptionFairplayConfigurationOutput
+	ToContentKeyPolicyPolicyOptionFairplayConfigurationOutputWithContext(context.Context) ContentKeyPolicyPolicyOptionFairplayConfigurationOutput
+}
+
+type ContentKeyPolicyPolicyOptionFairplayConfigurationArgs struct {
+	// The key that must be used as FairPlay Application Secret key.
+	Ask pulumi.StringPtrInput `pulumi:"ask"`
+	// A `offlineRentalConfiguration` block as defined below.
+	OfflineRentalConfiguration ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrInput `pulumi:"offlineRentalConfiguration"`
+	// The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
+	Pfx pulumi.StringPtrInput `pulumi:"pfx"`
+	// The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
+	PfxPassword pulumi.StringPtrInput `pulumi:"pfxPassword"`
+	// The rental and lease key type. Supported values are `DualExpiry`, `PersistentLimited`, `PersistentUnlimited` or `Undefined`.
+	RentalAndLeaseKeyType pulumi.StringPtrInput `pulumi:"rentalAndLeaseKeyType"`
+	// The rental duration. Must be greater than 0.
+	RentalDurationSeconds pulumi.IntPtrInput `pulumi:"rentalDurationSeconds"`
+}
+
+func (ContentKeyPolicyPolicyOptionFairplayConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPolicyOptionFairplayConfiguration)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyPolicyOptionFairplayConfigurationArgs) ToContentKeyPolicyPolicyOptionFairplayConfigurationOutput() ContentKeyPolicyPolicyOptionFairplayConfigurationOutput {
+	return i.ToContentKeyPolicyPolicyOptionFairplayConfigurationOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPolicyOptionFairplayConfigurationArgs) ToContentKeyPolicyPolicyOptionFairplayConfigurationOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionFairplayConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionFairplayConfigurationOutput)
+}
+
+func (i ContentKeyPolicyPolicyOptionFairplayConfigurationArgs) ToContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput() ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput {
+	return i.ToContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPolicyOptionFairplayConfigurationArgs) ToContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionFairplayConfigurationOutput).ToContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutputWithContext(ctx)
+}
+
+// ContentKeyPolicyPolicyOptionFairplayConfigurationPtrInput is an input type that accepts ContentKeyPolicyPolicyOptionFairplayConfigurationArgs, ContentKeyPolicyPolicyOptionFairplayConfigurationPtr and ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPolicyOptionFairplayConfigurationPtrInput` via:
+//
+//          ContentKeyPolicyPolicyOptionFairplayConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ContentKeyPolicyPolicyOptionFairplayConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput() ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput
+	ToContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutputWithContext(context.Context) ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput
+}
+
+type contentKeyPolicyPolicyOptionFairplayConfigurationPtrType ContentKeyPolicyPolicyOptionFairplayConfigurationArgs
+
+func ContentKeyPolicyPolicyOptionFairplayConfigurationPtr(v *ContentKeyPolicyPolicyOptionFairplayConfigurationArgs) ContentKeyPolicyPolicyOptionFairplayConfigurationPtrInput {
+	return (*contentKeyPolicyPolicyOptionFairplayConfigurationPtrType)(v)
+}
+
+func (*contentKeyPolicyPolicyOptionFairplayConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentKeyPolicyPolicyOptionFairplayConfiguration)(nil)).Elem()
+}
+
+func (i *contentKeyPolicyPolicyOptionFairplayConfigurationPtrType) ToContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput() ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput {
+	return i.ToContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *contentKeyPolicyPolicyOptionFairplayConfigurationPtrType) ToContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput)
+}
+
+type ContentKeyPolicyPolicyOptionFairplayConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPolicyOptionFairplayConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPolicyOptionFairplayConfiguration)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOutput) ToContentKeyPolicyPolicyOptionFairplayConfigurationOutput() ContentKeyPolicyPolicyOptionFairplayConfigurationOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOutput) ToContentKeyPolicyPolicyOptionFairplayConfigurationOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionFairplayConfigurationOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOutput) ToContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput() ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput {
+	return o.ToContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOutput) ToContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionFairplayConfiguration) *ContentKeyPolicyPolicyOptionFairplayConfiguration {
+		return &v
+	}).(ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput)
+}
+
+// The key that must be used as FairPlay Application Secret key.
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOutput) Ask() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionFairplayConfiguration) *string { return v.Ask }).(pulumi.StringPtrOutput)
+}
+
+// A `offlineRentalConfiguration` block as defined below.
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOutput) OfflineRentalConfiguration() ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionFairplayConfiguration) *ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration {
+		return v.OfflineRentalConfiguration
+	}).(ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput)
+}
+
+// The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOutput) Pfx() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionFairplayConfiguration) *string { return v.Pfx }).(pulumi.StringPtrOutput)
+}
+
+// The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOutput) PfxPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionFairplayConfiguration) *string { return v.PfxPassword }).(pulumi.StringPtrOutput)
+}
+
+// The rental and lease key type. Supported values are `DualExpiry`, `PersistentLimited`, `PersistentUnlimited` or `Undefined`.
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOutput) RentalAndLeaseKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionFairplayConfiguration) *string { return v.RentalAndLeaseKeyType }).(pulumi.StringPtrOutput)
+}
+
+// The rental duration. Must be greater than 0.
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOutput) RentalDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionFairplayConfiguration) *int { return v.RentalDurationSeconds }).(pulumi.IntPtrOutput)
+}
+
+type ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentKeyPolicyPolicyOptionFairplayConfiguration)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput) ToContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput() ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput) ToContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput) Elem() ContentKeyPolicyPolicyOptionFairplayConfigurationOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionFairplayConfiguration) ContentKeyPolicyPolicyOptionFairplayConfiguration {
+		return *v
+	}).(ContentKeyPolicyPolicyOptionFairplayConfigurationOutput)
+}
+
+// The key that must be used as FairPlay Application Secret key.
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput) Ask() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionFairplayConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Ask
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `offlineRentalConfiguration` block as defined below.
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput) OfflineRentalConfiguration() ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionFairplayConfiguration) *ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.OfflineRentalConfiguration
+	}).(ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput)
+}
+
+// The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput) Pfx() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionFairplayConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Pfx
+	}).(pulumi.StringPtrOutput)
+}
+
+// The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput) PfxPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionFairplayConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PfxPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// The rental and lease key type. Supported values are `DualExpiry`, `PersistentLimited`, `PersistentUnlimited` or `Undefined`.
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput) RentalAndLeaseKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionFairplayConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RentalAndLeaseKeyType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The rental duration. Must be greater than 0.
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput) RentalDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionFairplayConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RentalDurationSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration struct {
+	// Playback duration.
+	PlaybackDurationSeconds *int `pulumi:"playbackDurationSeconds"`
+	// Storage duration.
+	StorageDurationSeconds *int `pulumi:"storageDurationSeconds"`
+}
+
+// ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationInput is an input type that accepts ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs and ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationInput` via:
+//
+//          ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs{...}
+type ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput() ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput
+	ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutputWithContext(context.Context) ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput
+}
+
+type ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs struct {
+	// Playback duration.
+	PlaybackDurationSeconds pulumi.IntPtrInput `pulumi:"playbackDurationSeconds"`
+	// Storage duration.
+	StorageDurationSeconds pulumi.IntPtrInput `pulumi:"storageDurationSeconds"`
+}
+
+func (ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs) ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput() ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput {
+	return i.ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs) ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput)
+}
+
+func (i ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs) ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput() ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput {
+	return i.ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs) ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput).ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutputWithContext(ctx)
+}
+
+// ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrInput is an input type that accepts ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs, ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtr and ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrInput` via:
+//
+//          ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput() ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput
+	ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutputWithContext(context.Context) ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput
+}
+
+type contentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrType ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs
+
+func ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtr(v *ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs) ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrInput {
+	return (*contentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrType)(v)
+}
+
+func (*contentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration)(nil)).Elem()
+}
+
+func (i *contentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrType) ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput() ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput {
+	return i.ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *contentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrType) ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput)
+}
+
+type ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput) ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput() ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput) ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput) ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput() ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput {
+	return o.ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput) ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration) *ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration {
+		return &v
+	}).(ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput)
+}
+
+// Playback duration.
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput) PlaybackDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration) *int {
+		return v.PlaybackDurationSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Storage duration.
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput) StorageDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration) *int {
+		return v.StorageDurationSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput) ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput() ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput) ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput) Elem() ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration) ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration {
+		return *v
+	}).(ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput)
+}
+
+// Playback duration.
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput) PlaybackDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PlaybackDurationSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Storage duration.
+func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput) StorageDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StorageDurationSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense struct {
+	// A flag indicating whether test devices can use the license.
+	AllowTestDevices *bool `pulumi:"allowTestDevices"`
+	// The begin date of license.
+	BeginDate *string `pulumi:"beginDate"`
+	// Specifies that the content key ID is in the PlayReady header.
+	ContentKeyLocationFromHeaderEnabled *bool `pulumi:"contentKeyLocationFromHeaderEnabled"`
+	// The content key ID. Specifies that the content key ID is specified in the PlayReady configuration.
+	ContentKeyLocationFromKeyId *string `pulumi:"contentKeyLocationFromKeyId"`
+	// The PlayReady content type. Supported values are `UltraVioletDownload`, `UltraVioletStreaming` or `Unspecified`.
+	ContentType *string `pulumi:"contentType"`
+	// The expiration date of license.
+	ExpirationDate *string `pulumi:"expirationDate"`
+	// The grace period of license.
+	GracePeriod *string `pulumi:"gracePeriod"`
+	// The license type. Supported values are `NonPersistent` or `Persistent`.
+	LicenseType *string `pulumi:"licenseType"`
+	// A `playRight` block as defined above.
+	PlayRight *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight `pulumi:"playRight"`
+	// The relative begin date of license.
+	RelativeBeginDate *string `pulumi:"relativeBeginDate"`
+	// The relative expiration date of license.
+	RelativeExpirationDate *string `pulumi:"relativeExpirationDate"`
+}
+
+// ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseInput is an input type that accepts ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs and ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseInput` via:
+//
+//          ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs{...}
+type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput
+	ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutputWithContext(context.Context) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput
+}
+
+type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs struct {
+	// A flag indicating whether test devices can use the license.
+	AllowTestDevices pulumi.BoolPtrInput `pulumi:"allowTestDevices"`
+	// The begin date of license.
+	BeginDate pulumi.StringPtrInput `pulumi:"beginDate"`
+	// Specifies that the content key ID is in the PlayReady header.
+	ContentKeyLocationFromHeaderEnabled pulumi.BoolPtrInput `pulumi:"contentKeyLocationFromHeaderEnabled"`
+	// The content key ID. Specifies that the content key ID is specified in the PlayReady configuration.
+	ContentKeyLocationFromKeyId pulumi.StringPtrInput `pulumi:"contentKeyLocationFromKeyId"`
+	// The PlayReady content type. Supported values are `UltraVioletDownload`, `UltraVioletStreaming` or `Unspecified`.
+	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
+	// The expiration date of license.
+	ExpirationDate pulumi.StringPtrInput `pulumi:"expirationDate"`
+	// The grace period of license.
+	GracePeriod pulumi.StringPtrInput `pulumi:"gracePeriod"`
+	// The license type. Supported values are `NonPersistent` or `Persistent`.
+	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
+	// A `playRight` block as defined above.
+	PlayRight ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrInput `pulumi:"playRight"`
+	// The relative begin date of license.
+	RelativeBeginDate pulumi.StringPtrInput `pulumi:"relativeBeginDate"`
+	// The relative expiration date of license.
+	RelativeExpirationDate pulumi.StringPtrInput `pulumi:"relativeExpirationDate"`
+}
+
+func (ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput {
+	return i.ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput)
+}
+
+// ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayInput is an input type that accepts ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArray and ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayInput` via:
+//
+//          ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArray{ ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs{...} }
+type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput
+	ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutputWithContext(context.Context) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput
+}
+
+type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArray []ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseInput
+
+func (ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArray) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput {
+	return i.ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArray) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput)
+}
+
+type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput {
+	return o
+}
+
+// A flag indicating whether test devices can use the license.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput) AllowTestDevices() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense) *bool { return v.AllowTestDevices }).(pulumi.BoolPtrOutput)
+}
+
+// The begin date of license.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput) BeginDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense) *string { return v.BeginDate }).(pulumi.StringPtrOutput)
+}
+
+// Specifies that the content key ID is in the PlayReady header.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput) ContentKeyLocationFromHeaderEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense) *bool {
+		return v.ContentKeyLocationFromHeaderEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The content key ID. Specifies that the content key ID is specified in the PlayReady configuration.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput) ContentKeyLocationFromKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense) *string {
+		return v.ContentKeyLocationFromKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The PlayReady content type. Supported values are `UltraVioletDownload`, `UltraVioletStreaming` or `Unspecified`.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// The expiration date of license.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput) ExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
+}
+
+// The grace period of license.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput) GracePeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense) *string { return v.GracePeriod }).(pulumi.StringPtrOutput)
+}
+
+// The license type. Supported values are `NonPersistent` or `Persistent`.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput) LicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
+}
+
+// A `playRight` block as defined above.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput) PlayRight() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense) *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight {
+		return v.PlayRight
+	}).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput)
+}
+
+// The relative begin date of license.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput) RelativeBeginDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense) *string { return v.RelativeBeginDate }).(pulumi.StringPtrOutput)
+}
+
+// The relative expiration date of license.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput) RelativeExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense) *string {
+		return v.RelativeExpirationDate
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput) Index(i pulumi.IntInput) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense {
+		return vs[0].([]ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense)[vs[1].(int)]
+	}).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput)
+}
+
+type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight struct {
+	// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+	AgcAndColorStripeRestriction *int `pulumi:"agcAndColorStripeRestriction"`
+	// Configures Unknown output handling settings of the license. Supported values are `Allowed`, `AllowedWithVideoConstriction` or `NotAllowed`.
+	AllowPassingVideoContentToUnknownOutput *string `pulumi:"allowPassingVideoContentToUnknownOutput"`
+	// Specifies the output protection level for compressed digital audio. Supported values are 100, 150 or 200.
+	AnalogVideoOpl *int `pulumi:"analogVideoOpl"`
+	// Specifies the output protection level for compressed digital audio.Supported values are 100, 150 or 200.
+	CompressedDigitalAudioOpl *int `pulumi:"compressedDigitalAudioOpl"`
+	// Enables the Image Constraint For Analog Component Video Restriction in the license.
+	DigitalVideoOnlyContentRestriction *bool `pulumi:"digitalVideoOnlyContentRestriction"`
+	// The amount of time that the license is valid after the license is first used to play content.
+	FirstPlayExpiration *string `pulumi:"firstPlayExpiration"`
+	// Enables the Image Constraint For Analog Component Video Restriction in the license.
+	ImageConstraintForAnalogComponentVideoRestriction *bool `pulumi:"imageConstraintForAnalogComponentVideoRestriction"`
+	// Enables the Image Constraint For Analog Component Video Restriction in the license.
+	ImageConstraintForAnalogComputerMonitorRestriction *bool `pulumi:"imageConstraintForAnalogComputerMonitorRestriction"`
+	// Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+	ScmsRestriction *int `pulumi:"scmsRestriction"`
+	// Specifies the output protection level for uncompressed digital audio. Supported values are 100, 150, 250 or 300.
+	UncompressedDigitalAudioOpl *int `pulumi:"uncompressedDigitalAudioOpl"`
+	// Specifies the output protection level for uncompressed digital video. Supported values are 100, 150, 250 or 300.
+	UncompressedDigitalVideoOpl *int `pulumi:"uncompressedDigitalVideoOpl"`
+}
+
+// ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightInput is an input type that accepts ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs and ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightInput` via:
+//
+//          ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs{...}
+type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput
+	ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutputWithContext(context.Context) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput
+}
+
+type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs struct {
+	// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+	AgcAndColorStripeRestriction pulumi.IntPtrInput `pulumi:"agcAndColorStripeRestriction"`
+	// Configures Unknown output handling settings of the license. Supported values are `Allowed`, `AllowedWithVideoConstriction` or `NotAllowed`.
+	AllowPassingVideoContentToUnknownOutput pulumi.StringPtrInput `pulumi:"allowPassingVideoContentToUnknownOutput"`
+	// Specifies the output protection level for compressed digital audio. Supported values are 100, 150 or 200.
+	AnalogVideoOpl pulumi.IntPtrInput `pulumi:"analogVideoOpl"`
+	// Specifies the output protection level for compressed digital audio.Supported values are 100, 150 or 200.
+	CompressedDigitalAudioOpl pulumi.IntPtrInput `pulumi:"compressedDigitalAudioOpl"`
+	// Enables the Image Constraint For Analog Component Video Restriction in the license.
+	DigitalVideoOnlyContentRestriction pulumi.BoolPtrInput `pulumi:"digitalVideoOnlyContentRestriction"`
+	// The amount of time that the license is valid after the license is first used to play content.
+	FirstPlayExpiration pulumi.StringPtrInput `pulumi:"firstPlayExpiration"`
+	// Enables the Image Constraint For Analog Component Video Restriction in the license.
+	ImageConstraintForAnalogComponentVideoRestriction pulumi.BoolPtrInput `pulumi:"imageConstraintForAnalogComponentVideoRestriction"`
+	// Enables the Image Constraint For Analog Component Video Restriction in the license.
+	ImageConstraintForAnalogComputerMonitorRestriction pulumi.BoolPtrInput `pulumi:"imageConstraintForAnalogComputerMonitorRestriction"`
+	// Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+	ScmsRestriction pulumi.IntPtrInput `pulumi:"scmsRestriction"`
+	// Specifies the output protection level for uncompressed digital audio. Supported values are 100, 150, 250 or 300.
+	UncompressedDigitalAudioOpl pulumi.IntPtrInput `pulumi:"uncompressedDigitalAudioOpl"`
+	// Specifies the output protection level for uncompressed digital video. Supported values are 100, 150, 250 or 300.
+	UncompressedDigitalVideoOpl pulumi.IntPtrInput `pulumi:"uncompressedDigitalVideoOpl"`
+}
+
+func (ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput {
+	return i.ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput)
+}
+
+func (i ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput {
+	return i.ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput).ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutputWithContext(ctx)
+}
+
+// ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrInput is an input type that accepts ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs, ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtr and ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrInput` via:
+//
+//          ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs{...}
+//
+//  or:
+//
+//          nil
+type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput
+	ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutputWithContext(context.Context) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput
+}
+
+type contentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrType ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs
+
+func ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtr(v *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrInput {
+	return (*contentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrType)(v)
+}
+
+func (*contentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight)(nil)).Elem()
+}
+
+func (i *contentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrType) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput {
+	return i.ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutputWithContext(context.Background())
+}
+
+func (i *contentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrType) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput)
+}
+
+type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput {
+	return o.ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutputWithContext(context.Background())
+}
+
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight {
+		return &v
+	}).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput)
+}
+
+// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput) AgcAndColorStripeRestriction() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *int {
+		return v.AgcAndColorStripeRestriction
+	}).(pulumi.IntPtrOutput)
+}
+
+// Configures Unknown output handling settings of the license. Supported values are `Allowed`, `AllowedWithVideoConstriction` or `NotAllowed`.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput) AllowPassingVideoContentToUnknownOutput() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *string {
+		return v.AllowPassingVideoContentToUnknownOutput
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the output protection level for compressed digital audio. Supported values are 100, 150 or 200.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput) AnalogVideoOpl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *int {
+		return v.AnalogVideoOpl
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the output protection level for compressed digital audio.Supported values are 100, 150 or 200.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput) CompressedDigitalAudioOpl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *int {
+		return v.CompressedDigitalAudioOpl
+	}).(pulumi.IntPtrOutput)
+}
+
+// Enables the Image Constraint For Analog Component Video Restriction in the license.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput) DigitalVideoOnlyContentRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *bool {
+		return v.DigitalVideoOnlyContentRestriction
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The amount of time that the license is valid after the license is first used to play content.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput) FirstPlayExpiration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *string {
+		return v.FirstPlayExpiration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enables the Image Constraint For Analog Component Video Restriction in the license.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput) ImageConstraintForAnalogComponentVideoRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *bool {
+		return v.ImageConstraintForAnalogComponentVideoRestriction
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enables the Image Constraint For Analog Component Video Restriction in the license.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput) ImageConstraintForAnalogComputerMonitorRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *bool {
+		return v.ImageConstraintForAnalogComputerMonitorRestriction
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput) ScmsRestriction() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *int {
+		return v.ScmsRestriction
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the output protection level for uncompressed digital audio. Supported values are 100, 150, 250 or 300.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput) UncompressedDigitalAudioOpl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *int {
+		return v.UncompressedDigitalAudioOpl
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the output protection level for uncompressed digital video. Supported values are 100, 150, 250 or 300.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput) UncompressedDigitalVideoOpl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *int {
+		return v.UncompressedDigitalVideoOpl
+	}).(pulumi.IntPtrOutput)
+}
+
+type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput) Elem() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight {
+		return *v
+	}).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput)
+}
+
+// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput) AgcAndColorStripeRestriction() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AgcAndColorStripeRestriction
+	}).(pulumi.IntPtrOutput)
+}
+
+// Configures Unknown output handling settings of the license. Supported values are `Allowed`, `AllowedWithVideoConstriction` or `NotAllowed`.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput) AllowPassingVideoContentToUnknownOutput() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowPassingVideoContentToUnknownOutput
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the output protection level for compressed digital audio. Supported values are 100, 150 or 200.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput) AnalogVideoOpl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AnalogVideoOpl
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the output protection level for compressed digital audio.Supported values are 100, 150 or 200.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput) CompressedDigitalAudioOpl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CompressedDigitalAudioOpl
+	}).(pulumi.IntPtrOutput)
+}
+
+// Enables the Image Constraint For Analog Component Video Restriction in the license.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput) DigitalVideoOnlyContentRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DigitalVideoOnlyContentRestriction
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The amount of time that the license is valid after the license is first used to play content.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput) FirstPlayExpiration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FirstPlayExpiration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enables the Image Constraint For Analog Component Video Restriction in the license.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput) ImageConstraintForAnalogComponentVideoRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ImageConstraintForAnalogComponentVideoRestriction
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enables the Image Constraint For Analog Component Video Restriction in the license.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput) ImageConstraintForAnalogComputerMonitorRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ImageConstraintForAnalogComputerMonitorRestriction
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput) ScmsRestriction() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ScmsRestriction
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the output protection level for uncompressed digital audio. Supported values are 100, 150, 250 or 300.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput) UncompressedDigitalAudioOpl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UncompressedDigitalAudioOpl
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the output protection level for uncompressed digital video. Supported values are 100, 150, 250 or 300.
+func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput) UncompressedDigitalVideoOpl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UncompressedDigitalVideoOpl
+	}).(pulumi.IntPtrOutput)
+}
+
+type ContentKeyPolicyPolicyOptionTokenRestriction struct {
+	// The audience for the token.
+	Audience *string `pulumi:"audience"`
+	// The token issuer.
+	Issuer *string `pulumi:"issuer"`
+	// The OpenID connect discovery document.
+	OpenIdConnectDiscoveryDocument *string `pulumi:"openIdConnectDiscoveryDocument"`
+	// The RSA Parameter exponent.
+	PrimaryRsaTokenKeyExponent *string `pulumi:"primaryRsaTokenKeyExponent"`
+	// The RSA Parameter modulus.
+	PrimaryRsaTokenKeyModulus *string `pulumi:"primaryRsaTokenKeyModulus"`
+	// The key value of the key. Specifies a symmetric key for token validation.
+	PrimarySymmetricTokenKey *string `pulumi:"primarySymmetricTokenKey"`
+	// The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+	PrimaryX509TokenKeyRaw *string `pulumi:"primaryX509TokenKeyRaw"`
+	// One or more `requiredClaim` blocks as defined above.
+	RequiredClaims []ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim `pulumi:"requiredClaims"`
+	// The type of token. Supported values are `Jwt` or `Swt`.
+	TokenType *string `pulumi:"tokenType"`
+}
+
+// ContentKeyPolicyPolicyOptionTokenRestrictionInput is an input type that accepts ContentKeyPolicyPolicyOptionTokenRestrictionArgs and ContentKeyPolicyPolicyOptionTokenRestrictionOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPolicyOptionTokenRestrictionInput` via:
+//
+//          ContentKeyPolicyPolicyOptionTokenRestrictionArgs{...}
+type ContentKeyPolicyPolicyOptionTokenRestrictionInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPolicyOptionTokenRestrictionOutput() ContentKeyPolicyPolicyOptionTokenRestrictionOutput
+	ToContentKeyPolicyPolicyOptionTokenRestrictionOutputWithContext(context.Context) ContentKeyPolicyPolicyOptionTokenRestrictionOutput
+}
+
+type ContentKeyPolicyPolicyOptionTokenRestrictionArgs struct {
+	// The audience for the token.
+	Audience pulumi.StringPtrInput `pulumi:"audience"`
+	// The token issuer.
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
+	// The OpenID connect discovery document.
+	OpenIdConnectDiscoveryDocument pulumi.StringPtrInput `pulumi:"openIdConnectDiscoveryDocument"`
+	// The RSA Parameter exponent.
+	PrimaryRsaTokenKeyExponent pulumi.StringPtrInput `pulumi:"primaryRsaTokenKeyExponent"`
+	// The RSA Parameter modulus.
+	PrimaryRsaTokenKeyModulus pulumi.StringPtrInput `pulumi:"primaryRsaTokenKeyModulus"`
+	// The key value of the key. Specifies a symmetric key for token validation.
+	PrimarySymmetricTokenKey pulumi.StringPtrInput `pulumi:"primarySymmetricTokenKey"`
+	// The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+	PrimaryX509TokenKeyRaw pulumi.StringPtrInput `pulumi:"primaryX509TokenKeyRaw"`
+	// One or more `requiredClaim` blocks as defined above.
+	RequiredClaims ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayInput `pulumi:"requiredClaims"`
+	// The type of token. Supported values are `Jwt` or `Swt`.
+	TokenType pulumi.StringPtrInput `pulumi:"tokenType"`
+}
+
+func (ContentKeyPolicyPolicyOptionTokenRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPolicyOptionTokenRestriction)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyPolicyOptionTokenRestrictionArgs) ToContentKeyPolicyPolicyOptionTokenRestrictionOutput() ContentKeyPolicyPolicyOptionTokenRestrictionOutput {
+	return i.ToContentKeyPolicyPolicyOptionTokenRestrictionOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPolicyOptionTokenRestrictionArgs) ToContentKeyPolicyPolicyOptionTokenRestrictionOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionTokenRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionTokenRestrictionOutput)
+}
+
+func (i ContentKeyPolicyPolicyOptionTokenRestrictionArgs) ToContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput() ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput {
+	return i.ToContentKeyPolicyPolicyOptionTokenRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPolicyOptionTokenRestrictionArgs) ToContentKeyPolicyPolicyOptionTokenRestrictionPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionTokenRestrictionOutput).ToContentKeyPolicyPolicyOptionTokenRestrictionPtrOutputWithContext(ctx)
+}
+
+// ContentKeyPolicyPolicyOptionTokenRestrictionPtrInput is an input type that accepts ContentKeyPolicyPolicyOptionTokenRestrictionArgs, ContentKeyPolicyPolicyOptionTokenRestrictionPtr and ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPolicyOptionTokenRestrictionPtrInput` via:
+//
+//          ContentKeyPolicyPolicyOptionTokenRestrictionArgs{...}
+//
+//  or:
+//
+//          nil
+type ContentKeyPolicyPolicyOptionTokenRestrictionPtrInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput() ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput
+	ToContentKeyPolicyPolicyOptionTokenRestrictionPtrOutputWithContext(context.Context) ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput
+}
+
+type contentKeyPolicyPolicyOptionTokenRestrictionPtrType ContentKeyPolicyPolicyOptionTokenRestrictionArgs
+
+func ContentKeyPolicyPolicyOptionTokenRestrictionPtr(v *ContentKeyPolicyPolicyOptionTokenRestrictionArgs) ContentKeyPolicyPolicyOptionTokenRestrictionPtrInput {
+	return (*contentKeyPolicyPolicyOptionTokenRestrictionPtrType)(v)
+}
+
+func (*contentKeyPolicyPolicyOptionTokenRestrictionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentKeyPolicyPolicyOptionTokenRestriction)(nil)).Elem()
+}
+
+func (i *contentKeyPolicyPolicyOptionTokenRestrictionPtrType) ToContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput() ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput {
+	return i.ToContentKeyPolicyPolicyOptionTokenRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (i *contentKeyPolicyPolicyOptionTokenRestrictionPtrType) ToContentKeyPolicyPolicyOptionTokenRestrictionPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput)
+}
+
+type ContentKeyPolicyPolicyOptionTokenRestrictionOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPolicyOptionTokenRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPolicyOptionTokenRestriction)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionOutput) ToContentKeyPolicyPolicyOptionTokenRestrictionOutput() ContentKeyPolicyPolicyOptionTokenRestrictionOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionOutput) ToContentKeyPolicyPolicyOptionTokenRestrictionOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionTokenRestrictionOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionOutput) ToContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput() ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput {
+	return o.ToContentKeyPolicyPolicyOptionTokenRestrictionPtrOutputWithContext(context.Background())
+}
+
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionOutput) ToContentKeyPolicyPolicyOptionTokenRestrictionPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionTokenRestriction) *ContentKeyPolicyPolicyOptionTokenRestriction {
+		return &v
+	}).(ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput)
+}
+
+// The audience for the token.
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionTokenRestriction) *string { return v.Audience }).(pulumi.StringPtrOutput)
+}
+
+// The token issuer.
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionTokenRestriction) *string { return v.Issuer }).(pulumi.StringPtrOutput)
+}
+
+// The OpenID connect discovery document.
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionOutput) OpenIdConnectDiscoveryDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionTokenRestriction) *string { return v.OpenIdConnectDiscoveryDocument }).(pulumi.StringPtrOutput)
+}
+
+// The RSA Parameter exponent.
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionOutput) PrimaryRsaTokenKeyExponent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionTokenRestriction) *string { return v.PrimaryRsaTokenKeyExponent }).(pulumi.StringPtrOutput)
+}
+
+// The RSA Parameter modulus.
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionOutput) PrimaryRsaTokenKeyModulus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionTokenRestriction) *string { return v.PrimaryRsaTokenKeyModulus }).(pulumi.StringPtrOutput)
+}
+
+// The key value of the key. Specifies a symmetric key for token validation.
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionOutput) PrimarySymmetricTokenKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionTokenRestriction) *string { return v.PrimarySymmetricTokenKey }).(pulumi.StringPtrOutput)
+}
+
+// The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionOutput) PrimaryX509TokenKeyRaw() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionTokenRestriction) *string { return v.PrimaryX509TokenKeyRaw }).(pulumi.StringPtrOutput)
+}
+
+// One or more `requiredClaim` blocks as defined above.
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionOutput) RequiredClaims() ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionTokenRestriction) []ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim {
+		return v.RequiredClaims
+	}).(ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput)
+}
+
+// The type of token. Supported values are `Jwt` or `Swt`.
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionOutput) TokenType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionTokenRestriction) *string { return v.TokenType }).(pulumi.StringPtrOutput)
+}
+
+type ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentKeyPolicyPolicyOptionTokenRestriction)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) ToContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput() ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) ToContentKeyPolicyPolicyOptionTokenRestrictionPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) Elem() ContentKeyPolicyPolicyOptionTokenRestrictionOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionTokenRestriction) ContentKeyPolicyPolicyOptionTokenRestriction {
+		return *v
+	}).(ContentKeyPolicyPolicyOptionTokenRestrictionOutput)
+}
+
+// The audience for the token.
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionTokenRestriction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Audience
+	}).(pulumi.StringPtrOutput)
+}
+
+// The token issuer.
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionTokenRestriction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Issuer
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OpenID connect discovery document.
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) OpenIdConnectDiscoveryDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionTokenRestriction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OpenIdConnectDiscoveryDocument
+	}).(pulumi.StringPtrOutput)
+}
+
+// The RSA Parameter exponent.
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) PrimaryRsaTokenKeyExponent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionTokenRestriction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryRsaTokenKeyExponent
+	}).(pulumi.StringPtrOutput)
+}
+
+// The RSA Parameter modulus.
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) PrimaryRsaTokenKeyModulus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionTokenRestriction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryRsaTokenKeyModulus
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key value of the key. Specifies a symmetric key for token validation.
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) PrimarySymmetricTokenKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionTokenRestriction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimarySymmetricTokenKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) PrimaryX509TokenKeyRaw() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionTokenRestriction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryX509TokenKeyRaw
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more `requiredClaim` blocks as defined above.
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) RequiredClaims() ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionTokenRestriction) []ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredClaims
+	}).(ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput)
+}
+
+// The type of token. Supported values are `Jwt` or `Swt`.
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) TokenType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionTokenRestriction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenType
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim struct {
+	// Token claim type.
+	Type *string `pulumi:"type"`
+	// Token claim value.
+	Value *string `pulumi:"value"`
+}
+
+// ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimInput is an input type that accepts ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs and ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimInput` via:
+//
+//          ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs{...}
+type ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput() ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput
+	ToContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutputWithContext(context.Context) ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput
+}
+
+type ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs struct {
+	// Token claim type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Token claim value.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs) ToContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput() ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput {
+	return i.ToContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs) ToContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput)
+}
+
+// ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayInput is an input type that accepts ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArray and ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayInput` via:
+//
+//          ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArray{ ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs{...} }
+type ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput() ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput
+	ToContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutputWithContext(context.Context) ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput
+}
+
+type ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArray []ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimInput
+
+func (ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArray) ToContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput() ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput {
+	return i.ToContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArray) ToContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput)
+}
+
+type ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput) ToContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput() ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput) ToContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput {
+	return o
+}
+
+// Token claim type.
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Token claim value.
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput) ToContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput() ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput) ToContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput) Index(i pulumi.IntInput) ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim {
+		return vs[0].([]ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim)[vs[1].(int)]
+	}).(ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput)
+}
+
 type JobInputAsset struct {
 	// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 	Label *string `pulumi:"label"`
@@ -1936,6 +3412,20 @@ func (o TransformOutputVideoAnalyzerPresetPtrOutput) InsightsType() pulumi.Strin
 }
 
 func init() {
+	pulumi.RegisterOutputType(ContentKeyPolicyPolicyOptionOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPolicyOptionArrayOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPolicyOptionFairplayConfigurationOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPolicyOptionTokenRestrictionOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput{})
 	pulumi.RegisterOutputType(JobInputAssetOutput{})
 	pulumi.RegisterOutputType(JobInputAssetPtrOutput{})
 	pulumi.RegisterOutputType(JobOutputAssetOutput{})
