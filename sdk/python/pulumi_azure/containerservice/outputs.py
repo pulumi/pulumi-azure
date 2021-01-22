@@ -1165,7 +1165,7 @@ class KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity(dict):
         """
         :param str client_id: The Client ID for the Service Principal.
         :param str object_id: The Object ID of the user-defined Managed Identity used by the OMS Agents.
-        :param str user_assigned_identity_id: The ID of the User Assigned Identity used by the OMS Agents.
+        :param str user_assigned_identity_id: The ID of a user assigned identity.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -1194,7 +1194,7 @@ class KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity(dict):
     @pulumi.getter(name="userAssignedIdentityId")
     def user_assigned_identity_id(self) -> Optional[str]:
         """
-        The ID of the User Assigned Identity used by the OMS Agents.
+        The ID of a user assigned identity.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -1207,6 +1207,7 @@ class KubernetesClusterAutoScalerProfile(dict):
     def __init__(__self__, *,
                  balance_similar_node_groups: Optional[bool] = None,
                  max_graceful_termination_sec: Optional[str] = None,
+                 new_pod_scale_up_delay: Optional[str] = None,
                  scale_down_delay_after_add: Optional[str] = None,
                  scale_down_delay_after_delete: Optional[str] = None,
                  scale_down_delay_after_failure: Optional[str] = None,
@@ -1217,6 +1218,7 @@ class KubernetesClusterAutoScalerProfile(dict):
         """
         :param bool balance_similar_node_groups: Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
         :param str max_graceful_termination_sec: Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
+        :param str new_pod_scale_up_delay: For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.
         :param str scale_down_delay_after_add: How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
         :param str scale_down_delay_after_delete: How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scan_interval`.
         :param str scale_down_delay_after_failure: How long after scale down failure that scale down evaluation resumes. Defaults to `3m`.
@@ -1229,6 +1231,8 @@ class KubernetesClusterAutoScalerProfile(dict):
             pulumi.set(__self__, "balance_similar_node_groups", balance_similar_node_groups)
         if max_graceful_termination_sec is not None:
             pulumi.set(__self__, "max_graceful_termination_sec", max_graceful_termination_sec)
+        if new_pod_scale_up_delay is not None:
+            pulumi.set(__self__, "new_pod_scale_up_delay", new_pod_scale_up_delay)
         if scale_down_delay_after_add is not None:
             pulumi.set(__self__, "scale_down_delay_after_add", scale_down_delay_after_add)
         if scale_down_delay_after_delete is not None:
@@ -1259,6 +1263,14 @@ class KubernetesClusterAutoScalerProfile(dict):
         Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
         """
         return pulumi.get(self, "max_graceful_termination_sec")
+
+    @property
+    @pulumi.getter(name="newPodScaleUpDelay")
+    def new_pod_scale_up_delay(self) -> Optional[str]:
+        """
+        For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.
+        """
+        return pulumi.get(self, "new_pod_scale_up_delay")
 
     @property
     @pulumi.getter(name="scaleDownDelayAfterAdd")
@@ -1541,23 +1553,27 @@ class KubernetesClusterIdentity(dict):
     def __init__(__self__, *,
                  type: str,
                  principal_id: Optional[str] = None,
-                 tenant_id: Optional[str] = None):
+                 tenant_id: Optional[str] = None,
+                 user_assigned_identity_id: Optional[str] = None):
         """
-        :param str type: The type of identity used for the managed cluster. At this time the only supported value is `SystemAssigned`.
+        :param str type: The type of identity used for the managed cluster. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `user_assigned_identity_id` must be set as well.
         :param str principal_id: The principal id of the system assigned identity which is used by master components.
         :param str tenant_id: The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
+        :param str user_assigned_identity_id: The ID of a user assigned identity.
         """
         pulumi.set(__self__, "type", type)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of identity used for the managed cluster. At this time the only supported value is `SystemAssigned`.
+        The type of identity used for the managed cluster. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `user_assigned_identity_id` must be set as well.
         """
         return pulumi.get(self, "type")
 
@@ -1576,6 +1592,14 @@ class KubernetesClusterIdentity(dict):
         The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
         """
         return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[str]:
+        """
+        The ID of a user assigned identity.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1754,7 +1778,7 @@ class KubernetesClusterKubeletIdentity(dict):
         """
         :param str client_id: The Client ID for the Service Principal.
         :param str object_id: The Object ID of the user-defined Managed Identity used by the OMS Agents.
-        :param str user_assigned_identity_id: The ID of the User Assigned Identity used by the OMS Agents.
+        :param str user_assigned_identity_id: The ID of a user assigned identity.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -1783,7 +1807,7 @@ class KubernetesClusterKubeletIdentity(dict):
     @pulumi.getter(name="userAssignedIdentityId")
     def user_assigned_identity_id(self) -> Optional[str]:
         """
-        The ID of the User Assigned Identity used by the OMS Agents.
+        The ID of a user assigned identity.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -2784,15 +2808,18 @@ class GetKubernetesClusterIdentityResult(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: str):
+                 type: str,
+                 user_assigned_identity_id: str):
         """
         :param str principal_id: The principal id of the system assigned identity which is used by primary components.
         :param str tenant_id: The tenant id of the system assigned identity which is used by primary components.
         :param str type: The type of identity used for the managed cluster.
+        :param str user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="principalId")
@@ -2817,6 +2844,14 @@ class GetKubernetesClusterIdentityResult(dict):
         The type of identity used for the managed cluster.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> str:
+        """
+        The ID of the User Assigned Identity assigned to the Kubelets.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
 
 
 @pulumi.output_type

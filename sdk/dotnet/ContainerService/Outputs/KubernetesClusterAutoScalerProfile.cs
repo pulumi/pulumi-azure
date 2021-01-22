@@ -22,6 +22,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? MaxGracefulTerminationSec;
         /// <summary>
+        /// For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.
+        /// </summary>
+        public readonly string? NewPodScaleUpDelay;
+        /// <summary>
         /// How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
         /// </summary>
         public readonly string? ScaleDownDelayAfterAdd;
@@ -56,6 +60,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? maxGracefulTerminationSec,
 
+            string? newPodScaleUpDelay,
+
             string? scaleDownDelayAfterAdd,
 
             string? scaleDownDelayAfterDelete,
@@ -72,6 +78,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         {
             BalanceSimilarNodeGroups = balanceSimilarNodeGroups;
             MaxGracefulTerminationSec = maxGracefulTerminationSec;
+            NewPodScaleUpDelay = newPodScaleUpDelay;
             ScaleDownDelayAfterAdd = scaleDownDelayAfterAdd;
             ScaleDownDelayAfterDelete = scaleDownDelayAfterDelete;
             ScaleDownDelayAfterFailure = scaleDownDelayAfterFailure;

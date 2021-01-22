@@ -75,6 +75,8 @@ type AlertRuleScheduled struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// A `eventGrouping` block as defined below.
+	EventGrouping AlertRuleScheduledEventGroupingPtrOutput `pulumi:"eventGrouping"`
 	// A `incidentConfiguration` block as defined below.
 	IncidentConfiguration AlertRuleScheduledIncidentConfigurationOutput `pulumi:"incidentConfiguration"`
 	// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
@@ -150,6 +152,8 @@ type alertRuleScheduledState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// A `eventGrouping` block as defined below.
+	EventGrouping *AlertRuleScheduledEventGrouping `pulumi:"eventGrouping"`
 	// A `incidentConfiguration` block as defined below.
 	IncidentConfiguration *AlertRuleScheduledIncidentConfiguration `pulumi:"incidentConfiguration"`
 	// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
@@ -185,6 +189,8 @@ type AlertRuleScheduledState struct {
 	DisplayName pulumi.StringPtrInput
 	// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// A `eventGrouping` block as defined below.
+	EventGrouping AlertRuleScheduledEventGroupingPtrInput
 	// A `incidentConfiguration` block as defined below.
 	IncidentConfiguration AlertRuleScheduledIncidentConfigurationPtrInput
 	// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
@@ -224,6 +230,8 @@ type alertRuleScheduledArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// A `eventGrouping` block as defined below.
+	EventGrouping *AlertRuleScheduledEventGrouping `pulumi:"eventGrouping"`
 	// A `incidentConfiguration` block as defined below.
 	IncidentConfiguration *AlertRuleScheduledIncidentConfiguration `pulumi:"incidentConfiguration"`
 	// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
@@ -260,6 +268,8 @@ type AlertRuleScheduledArgs struct {
 	DisplayName pulumi.StringInput
 	// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// A `eventGrouping` block as defined below.
+	EventGrouping AlertRuleScheduledEventGroupingPtrInput
 	// A `incidentConfiguration` block as defined below.
 	IncidentConfiguration AlertRuleScheduledIncidentConfigurationPtrInput
 	// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.

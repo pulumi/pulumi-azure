@@ -25,6 +25,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The type of identity used for the managed cluster.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The ID of the User Assigned Identity assigned to the Kubelets.
+        /// </summary>
+        public readonly string UserAssignedIdentityId;
 
         [OutputConstructor]
         private GetKubernetesClusterIdentityResult(
@@ -32,11 +36,14 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string tenantId,
 
-            string type)
+            string type,
+
+            string userAssignedIdentityId)
         {
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
+            UserAssignedIdentityId = userAssignedIdentityId;
         }
     }
 }

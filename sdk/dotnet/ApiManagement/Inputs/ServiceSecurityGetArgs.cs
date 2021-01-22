@@ -54,6 +54,60 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         [Input("enableTripleDesCiphers")]
         public Input<bool>? EnableTripleDesCiphers { get; set; }
 
+        /// <summary>
+        /// Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// </summary>
+        [Input("tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled")]
+        public Input<bool>? TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled { get; set; }
+
+        /// <summary>
+        /// Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// </summary>
+        [Input("tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled")]
+        public Input<bool>? TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled { get; set; }
+
+        [Input("tlsEcdheRsaWithAes128CbcShaCiphersEnabled")]
+        public Input<bool>? TlsEcdheRsaWithAes128CbcShaCiphersEnabled { get; set; }
+
+        [Input("tlsEcdheRsaWithAes256CbcShaCiphersEnabled")]
+        public Input<bool>? TlsEcdheRsaWithAes256CbcShaCiphersEnabled { get; set; }
+
+        /// <summary>
+        /// Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
+        /// </summary>
+        [Input("tlsRsaWithAes128CbcSha256CiphersEnabled")]
+        public Input<bool>? TlsRsaWithAes128CbcSha256CiphersEnabled { get; set; }
+
+        /// <summary>
+        /// Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// </summary>
+        [Input("tlsRsaWithAes128CbcShaCiphersEnabled")]
+        public Input<bool>? TlsRsaWithAes128CbcShaCiphersEnabled { get; set; }
+
+        /// <summary>
+        /// Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
+        /// </summary>
+        [Input("tlsRsaWithAes128GcmSha256CiphersEnabled")]
+        public Input<bool>? TlsRsaWithAes128GcmSha256CiphersEnabled { get; set; }
+
+        /// <summary>
+        /// Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
+        /// </summary>
+        [Input("tlsRsaWithAes256CbcSha256CiphersEnabled")]
+        public Input<bool>? TlsRsaWithAes256CbcSha256CiphersEnabled { get; set; }
+
+        /// <summary>
+        /// Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// </summary>
+        [Input("tlsRsaWithAes256CbcShaCiphersEnabled")]
+        public Input<bool>? TlsRsaWithAes256CbcShaCiphersEnabled { get; set; }
+
+        /// <summary>
+        /// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+        /// </summary>
+        [Input("tripleDesCiphersEnabled")]
+        public Input<bool>? TripleDesCiphersEnabled { get; set; }
+
         public ServiceSecurityGetArgs()
         {
         }

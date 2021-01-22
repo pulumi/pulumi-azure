@@ -200,6 +200,12 @@ namespace Pulumi.Azure.MSSql
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+        /// </summary>
+        [Output("storageAccountType")]
+        public Output<string?> StorageAccountType { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
@@ -383,6 +389,12 @@ namespace Pulumi.Azure.MSSql
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
 
+        /// <summary>
+        /// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+        /// </summary>
+        [Input("storageAccountType")]
+        public Input<string>? StorageAccountType { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -533,6 +545,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
+
+        /// <summary>
+        /// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+        /// </summary>
+        [Input("storageAccountType")]
+        public Input<string>? StorageAccountType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

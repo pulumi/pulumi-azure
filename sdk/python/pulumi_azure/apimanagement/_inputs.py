@@ -3033,7 +3033,17 @@ class ServiceSecurityArgs:
                  enable_frontend_ssl30: Optional[pulumi.Input[bool]] = None,
                  enable_frontend_tls10: Optional[pulumi.Input[bool]] = None,
                  enable_frontend_tls11: Optional[pulumi.Input[bool]] = None,
-                 enable_triple_des_ciphers: Optional[pulumi.Input[bool]] = None):
+                 enable_triple_des_ciphers: Optional[pulumi.Input[bool]] = None,
+                 tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled: Optional[pulumi.Input[bool]] = None,
+                 tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled: Optional[pulumi.Input[bool]] = None,
+                 tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled: Optional[pulumi.Input[bool]] = None,
+                 tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled: Optional[pulumi.Input[bool]] = None,
+                 tls_rsa_with_aes128_cbc_sha256_ciphers_enabled: Optional[pulumi.Input[bool]] = None,
+                 tls_rsa_with_aes128_cbc_sha_ciphers_enabled: Optional[pulumi.Input[bool]] = None,
+                 tls_rsa_with_aes128_gcm_sha256_ciphers_enabled: Optional[pulumi.Input[bool]] = None,
+                 tls_rsa_with_aes256_cbc_sha256_ciphers_enabled: Optional[pulumi.Input[bool]] = None,
+                 tls_rsa_with_aes256_cbc_sha_ciphers_enabled: Optional[pulumi.Input[bool]] = None,
+                 triple_des_ciphers_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] enable_backend_ssl30: Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
         :param pulumi.Input[bool] enable_backend_tls10: Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
@@ -3042,6 +3052,14 @@ class ServiceSecurityArgs:
         :param pulumi.Input[bool] enable_frontend_tls10: Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
         :param pulumi.Input[bool] enable_frontend_tls11: Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
         :param pulumi.Input[bool] enable_triple_des_ciphers: Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+        :param pulumi.Input[bool] tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled: Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+        :param pulumi.Input[bool] tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled: Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+        :param pulumi.Input[bool] tls_rsa_with_aes128_cbc_sha256_ciphers_enabled: Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
+        :param pulumi.Input[bool] tls_rsa_with_aes128_cbc_sha_ciphers_enabled: Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+        :param pulumi.Input[bool] tls_rsa_with_aes128_gcm_sha256_ciphers_enabled: Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
+        :param pulumi.Input[bool] tls_rsa_with_aes256_cbc_sha256_ciphers_enabled: Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
+        :param pulumi.Input[bool] tls_rsa_with_aes256_cbc_sha_ciphers_enabled: Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+        :param pulumi.Input[bool] triple_des_ciphers_enabled: Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
         """
         if enable_backend_ssl30 is not None:
             pulumi.set(__self__, "enable_backend_ssl30", enable_backend_ssl30)
@@ -3056,7 +3074,30 @@ class ServiceSecurityArgs:
         if enable_frontend_tls11 is not None:
             pulumi.set(__self__, "enable_frontend_tls11", enable_frontend_tls11)
         if enable_triple_des_ciphers is not None:
+            warnings.warn("""this has been renamed to the boolean attribute `triple_des_ciphers_enabled`.""", DeprecationWarning)
+            pulumi.log.warn("enable_triple_des_ciphers is deprecated: this has been renamed to the boolean attribute `triple_des_ciphers_enabled`.")
+        if enable_triple_des_ciphers is not None:
             pulumi.set(__self__, "enable_triple_des_ciphers", enable_triple_des_ciphers)
+        if tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled is not None:
+            pulumi.set(__self__, "tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled", tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled)
+        if tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled is not None:
+            pulumi.set(__self__, "tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled", tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled)
+        if tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled is not None:
+            pulumi.set(__self__, "tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled", tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled)
+        if tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled is not None:
+            pulumi.set(__self__, "tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled", tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled)
+        if tls_rsa_with_aes128_cbc_sha256_ciphers_enabled is not None:
+            pulumi.set(__self__, "tls_rsa_with_aes128_cbc_sha256_ciphers_enabled", tls_rsa_with_aes128_cbc_sha256_ciphers_enabled)
+        if tls_rsa_with_aes128_cbc_sha_ciphers_enabled is not None:
+            pulumi.set(__self__, "tls_rsa_with_aes128_cbc_sha_ciphers_enabled", tls_rsa_with_aes128_cbc_sha_ciphers_enabled)
+        if tls_rsa_with_aes128_gcm_sha256_ciphers_enabled is not None:
+            pulumi.set(__self__, "tls_rsa_with_aes128_gcm_sha256_ciphers_enabled", tls_rsa_with_aes128_gcm_sha256_ciphers_enabled)
+        if tls_rsa_with_aes256_cbc_sha256_ciphers_enabled is not None:
+            pulumi.set(__self__, "tls_rsa_with_aes256_cbc_sha256_ciphers_enabled", tls_rsa_with_aes256_cbc_sha256_ciphers_enabled)
+        if tls_rsa_with_aes256_cbc_sha_ciphers_enabled is not None:
+            pulumi.set(__self__, "tls_rsa_with_aes256_cbc_sha_ciphers_enabled", tls_rsa_with_aes256_cbc_sha_ciphers_enabled)
+        if triple_des_ciphers_enabled is not None:
+            pulumi.set(__self__, "triple_des_ciphers_enabled", triple_des_ciphers_enabled)
 
     @property
     @pulumi.getter(name="enableBackendSsl30")
@@ -3141,6 +3182,120 @@ class ServiceSecurityArgs:
     @enable_triple_des_ciphers.setter
     def enable_triple_des_ciphers(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_triple_des_ciphers", value)
+
+    @property
+    @pulumi.getter(name="tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled")
+    def tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled")
+
+    @tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled.setter
+    def tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled", value)
+
+    @property
+    @pulumi.getter(name="tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled")
+    def tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled")
+
+    @tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled.setter
+    def tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled", value)
+
+    @property
+    @pulumi.getter(name="tlsEcdheRsaWithAes128CbcShaCiphersEnabled")
+    def tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled")
+
+    @tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled.setter
+    def tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled", value)
+
+    @property
+    @pulumi.getter(name="tlsEcdheRsaWithAes256CbcShaCiphersEnabled")
+    def tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled")
+
+    @tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled.setter
+    def tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled", value)
+
+    @property
+    @pulumi.getter(name="tlsRsaWithAes128CbcSha256CiphersEnabled")
+    def tls_rsa_with_aes128_cbc_sha256_ciphers_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "tls_rsa_with_aes128_cbc_sha256_ciphers_enabled")
+
+    @tls_rsa_with_aes128_cbc_sha256_ciphers_enabled.setter
+    def tls_rsa_with_aes128_cbc_sha256_ciphers_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tls_rsa_with_aes128_cbc_sha256_ciphers_enabled", value)
+
+    @property
+    @pulumi.getter(name="tlsRsaWithAes128CbcShaCiphersEnabled")
+    def tls_rsa_with_aes128_cbc_sha_ciphers_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "tls_rsa_with_aes128_cbc_sha_ciphers_enabled")
+
+    @tls_rsa_with_aes128_cbc_sha_ciphers_enabled.setter
+    def tls_rsa_with_aes128_cbc_sha_ciphers_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tls_rsa_with_aes128_cbc_sha_ciphers_enabled", value)
+
+    @property
+    @pulumi.getter(name="tlsRsaWithAes128GcmSha256CiphersEnabled")
+    def tls_rsa_with_aes128_gcm_sha256_ciphers_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "tls_rsa_with_aes128_gcm_sha256_ciphers_enabled")
+
+    @tls_rsa_with_aes128_gcm_sha256_ciphers_enabled.setter
+    def tls_rsa_with_aes128_gcm_sha256_ciphers_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tls_rsa_with_aes128_gcm_sha256_ciphers_enabled", value)
+
+    @property
+    @pulumi.getter(name="tlsRsaWithAes256CbcSha256CiphersEnabled")
+    def tls_rsa_with_aes256_cbc_sha256_ciphers_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "tls_rsa_with_aes256_cbc_sha256_ciphers_enabled")
+
+    @tls_rsa_with_aes256_cbc_sha256_ciphers_enabled.setter
+    def tls_rsa_with_aes256_cbc_sha256_ciphers_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tls_rsa_with_aes256_cbc_sha256_ciphers_enabled", value)
+
+    @property
+    @pulumi.getter(name="tlsRsaWithAes256CbcShaCiphersEnabled")
+    def tls_rsa_with_aes256_cbc_sha_ciphers_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "tls_rsa_with_aes256_cbc_sha_ciphers_enabled")
+
+    @tls_rsa_with_aes256_cbc_sha_ciphers_enabled.setter
+    def tls_rsa_with_aes256_cbc_sha_ciphers_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tls_rsa_with_aes256_cbc_sha_ciphers_enabled", value)
+
+    @property
+    @pulumi.getter(name="tripleDesCiphersEnabled")
+    def triple_des_ciphers_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+        """
+        return pulumi.get(self, "triple_des_ciphers_enabled")
+
+    @triple_des_ciphers_enabled.setter
+    def triple_des_ciphers_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "triple_des_ciphers_enabled", value)
 
 
 @pulumi.input_type

@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * const exampleLinkedServiceAzureFunction = new azure.datafactory.LinkedServiceAzureFunction("exampleLinkedServiceAzureFunction", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryName: exampleFactory.name,
- *     url: exampleFunctionApp.defaultHostname,
+ *     url: pulumi.interpolate`https://${exampleFunctionApp.defaultHostname}`,
  *     key: "foo",
  * });
  * ```

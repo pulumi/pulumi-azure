@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Recovery Services Vault.
+ * Manages a Recovery Services Vault.
  *
  * ## Example Usage
  *

@@ -169,6 +169,10 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
+     * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+     */
+    public readonly storageAccountType!: pulumi.Output<string | undefined>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -213,6 +217,7 @@ export class Database extends pulumi.CustomResource {
             inputs["serverId"] = state ? state.serverId : undefined;
             inputs["shortTermRetentionPolicy"] = state ? state.shortTermRetentionPolicy : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
+            inputs["storageAccountType"] = state ? state.storageAccountType : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["threatDetectionPolicy"] = state ? state.threatDetectionPolicy : undefined;
             inputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
@@ -241,6 +246,7 @@ export class Database extends pulumi.CustomResource {
             inputs["serverId"] = args ? args.serverId : undefined;
             inputs["shortTermRetentionPolicy"] = args ? args.shortTermRetentionPolicy : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
+            inputs["storageAccountType"] = args ? args.storageAccountType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["threatDetectionPolicy"] = args ? args.threatDetectionPolicy : undefined;
             inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
@@ -343,6 +349,10 @@ export interface DatabaseState {
      */
     readonly skuName?: pulumi.Input<string>;
     /**
+     * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+     */
+    readonly storageAccountType?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -442,6 +452,10 @@ export interface DatabaseArgs {
      * Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
      */
     readonly skuName?: pulumi.Input<string>;
+    /**
+     * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+     */
+    readonly storageAccountType?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

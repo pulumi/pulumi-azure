@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.RecoveryServices
 {
     /// <summary>
-    /// Manages an Recovery Services Vault.
+    /// Manages a Recovery Services Vault.
     /// 
     /// ## Example Usage
     /// 

@@ -1003,6 +1003,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_media_job":                {Tok: azureResource(azureMedia, "Job")},
 			"azurerm_media_streaming_endpoint": {Tok: azureResource(azureMedia, "StreamingEndpoint")},
 			"azurerm_media_streaming_locator":  {Tok: azureResource(azureMedia, "StreamingLocator")},
+			"azurerm_media_content_key_policy": {Tok: azureResource(azureMedia, "ContentKeyPolicy")},
 
 			// Monitoring resources
 			"azurerm_monitor_action_group": {
@@ -1889,10 +1890,11 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: azureDataSource(azureAppService, "getAppServiceEnvironment"),
 			},
 			"azurerm_iothub_dps_shared_access_policy": {Tok: azureDataSource(azureIot, "getDpsSharedAccessPolicy")},
-			"azurerm_recovery_services_vault":         {Tok: azureDataSource(azureRecoveryServices, "getVault")},
-			"azurerm_database_migration_project":      {Tok: azureDataSource(azureDatabaseMigration, "getProject")},
-			"azurerm_database_migration_service":      {Tok: azureDataSource(azureDatabaseMigration, "getService")},
-			"azurerm_kusto_cluster":                   {Tok: azureDataSource(azureKusto, "getCluster")},
+			"azurerm_iothub":                     {Tok: azureDataSource(azureIot, "getIotHub")},
+			"azurerm_recovery_services_vault":    {Tok: azureDataSource(azureRecoveryServices, "getVault")},
+			"azurerm_database_migration_project": {Tok: azureDataSource(azureDatabaseMigration, "getProject")},
+			"azurerm_database_migration_service": {Tok: azureDataSource(azureDatabaseMigration, "getService")},
+			"azurerm_kusto_cluster":              {Tok: azureDataSource(azureKusto, "getCluster")},
 			"azurerm_servicebus_topic_authorization_rule": {
 				Tok: azureDataSource(azureServiceBus, "getTopicAuthorizationRule"),
 			},

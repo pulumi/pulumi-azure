@@ -115,7 +115,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
-        /// A `identity` block as defined below. Changing this forces a new resource to be created.
+        /// An `identity` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.KubernetesClusterIdentity?> Identity { get; private set; } = null!;
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? EnablePodSecurityPolicy { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below. Changing this forces a new resource to be created.
+        /// An `identity` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.KubernetesClusterIdentityArgs>? Identity { get; set; }
@@ -480,7 +480,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Fqdn { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below. Changing this forces a new resource to be created.
+        /// An `identity` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.KubernetesClusterIdentityGetArgs>? Identity { get; set; }

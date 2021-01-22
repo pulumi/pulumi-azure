@@ -28,7 +28,7 @@ class Vault(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Manages an Recovery Services Vault.
+        Manages a Recovery Services Vault.
 
         ## Example Usage
 

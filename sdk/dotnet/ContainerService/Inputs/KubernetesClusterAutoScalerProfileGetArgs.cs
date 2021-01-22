@@ -25,6 +25,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? MaxGracefulTerminationSec { get; set; }
 
         /// <summary>
+        /// For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.
+        /// </summary>
+        [Input("newPodScaleUpDelay")]
+        public Input<string>? NewPodScaleUpDelay { get; set; }
+
+        /// <summary>
         /// How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
         /// </summary>
         [Input("scaleDownDelayAfterAdd")]

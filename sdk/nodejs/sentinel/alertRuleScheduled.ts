@@ -85,6 +85,10 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
+     * A `eventGrouping` block as defined below.
+     */
+    public readonly eventGrouping!: pulumi.Output<outputs.sentinel.AlertRuleScheduledEventGrouping | undefined>;
+    /**
      * A `incidentConfiguration` block as defined below.
      */
     public readonly incidentConfiguration!: pulumi.Output<outputs.sentinel.AlertRuleScheduledIncidentConfiguration>;
@@ -149,6 +153,7 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
+            inputs["eventGrouping"] = state ? state.eventGrouping : undefined;
             inputs["incidentConfiguration"] = state ? state.incidentConfiguration : undefined;
             inputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -179,6 +184,7 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["eventGrouping"] = args ? args.eventGrouping : undefined;
             inputs["incidentConfiguration"] = args ? args.incidentConfiguration : undefined;
             inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -223,6 +229,10 @@ export interface AlertRuleScheduledState {
      * Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
      */
     readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * A `eventGrouping` block as defined below.
+     */
+    readonly eventGrouping?: pulumi.Input<inputs.sentinel.AlertRuleScheduledEventGrouping>;
     /**
      * A `incidentConfiguration` block as defined below.
      */
@@ -293,6 +303,10 @@ export interface AlertRuleScheduledArgs {
      * Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
      */
     readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * A `eventGrouping` block as defined below.
+     */
+    readonly eventGrouping?: pulumi.Input<inputs.sentinel.AlertRuleScheduledEventGrouping>;
     /**
      * A `incidentConfiguration` block as defined below.
      */

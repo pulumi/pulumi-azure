@@ -12,11 +12,29 @@ namespace Pulumi.Azure.Monitoring.Inputs
 
     public sealed class AutoscaleSettingProfileRuleMetricTriggerGetArgs : Pulumi.ResourceArgs
     {
+        [Input("dimensions")]
+        private InputList<Inputs.AutoscaleSettingProfileRuleMetricTriggerDimensionGetArgs>? _dimensions;
+
+        /// <summary>
+        /// One or more `dimensions` block as defined below.
+        /// </summary>
+        public InputList<Inputs.AutoscaleSettingProfileRuleMetricTriggerDimensionGetArgs> Dimensions
+        {
+            get => _dimensions ?? (_dimensions = new InputList<Inputs.AutoscaleSettingProfileRuleMetricTriggerDimensionGetArgs>());
+            set => _dimensions = value;
+        }
+
         /// <summary>
         /// The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
         /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
+        /// </summary>
+        [Input("metricNamespace")]
+        public Input<string>? MetricNamespace { get; set; }
 
         /// <summary>
         /// The ID of the Resource which the Rule monitors.

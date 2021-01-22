@@ -51,6 +51,7 @@ import * as utilities from "../utilities";
  *     apiManagementName: exampleService.name,
  *     apiName: exampleApi.name,
  *     apiManagementLoggerId: exampleLogger.id,
+ *     samplingPercentage: 5,
  *     alwaysLogErrors: true,
  *     logClientIp: true,
  *     verbosity: "Verbose",
@@ -175,6 +176,10 @@ export class ApiDiagnostic extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+     */
+    public readonly samplingPercentage!: pulumi.Output<number>;
+    /**
      * Logging verbosity. Possible values are `verbose`, `information` or `error`.
      */
     public readonly verbosity!: pulumi.Output<string>;
@@ -203,6 +208,7 @@ export class ApiDiagnostic extends pulumi.CustomResource {
             inputs["identifier"] = state ? state.identifier : undefined;
             inputs["logClientIp"] = state ? state.logClientIp : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["samplingPercentage"] = state ? state.samplingPercentage : undefined;
             inputs["verbosity"] = state ? state.verbosity : undefined;
         } else {
             const args = argsOrState as ApiDiagnosticArgs | undefined;
@@ -233,6 +239,7 @@ export class ApiDiagnostic extends pulumi.CustomResource {
             inputs["identifier"] = args ? args.identifier : undefined;
             inputs["logClientIp"] = args ? args.logClientIp : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
             inputs["verbosity"] = args ? args.verbosity : undefined;
         }
         if (!opts) {
@@ -299,6 +306,10 @@ export interface ApiDiagnosticState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
+     * Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+     */
+    readonly samplingPercentage?: pulumi.Input<number>;
+    /**
      * Logging verbosity. Possible values are `verbose`, `information` or `error`.
      */
     readonly verbosity?: pulumi.Input<string>;
@@ -356,6 +367,10 @@ export interface ApiDiagnosticArgs {
      * The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+     */
+    readonly samplingPercentage?: pulumi.Input<number>;
     /**
      * Logging verbosity. Possible values are `verbose`, `information` or `error`.
      */

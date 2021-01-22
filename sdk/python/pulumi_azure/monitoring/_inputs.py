@@ -50,6 +50,7 @@ __all__ = [
     'AutoscaleSettingProfileRecurrenceArgs',
     'AutoscaleSettingProfileRuleArgs',
     'AutoscaleSettingProfileRuleMetricTriggerArgs',
+    'AutoscaleSettingProfileRuleMetricTriggerDimensionArgs',
     'AutoscaleSettingProfileRuleScaleActionArgs',
     'DiagnosticSettingLogArgs',
     'DiagnosticSettingLogRetentionPolicyArgs',
@@ -2342,7 +2343,9 @@ class AutoscaleSettingProfileRuleMetricTriggerArgs:
                  threshold: pulumi.Input[float],
                  time_aggregation: pulumi.Input[str],
                  time_grain: pulumi.Input[str],
-                 time_window: pulumi.Input[str]):
+                 time_window: pulumi.Input[str],
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileRuleMetricTriggerDimensionArgs']]]] = None,
+                 metric_namespace: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] metric_name: The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
         :param pulumi.Input[str] metric_resource_id: The ID of the Resource which the Rule monitors.
@@ -2352,6 +2355,8 @@ class AutoscaleSettingProfileRuleMetricTriggerArgs:
         :param pulumi.Input[str] time_aggregation: Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
         :param pulumi.Input[str] time_grain: Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
         :param pulumi.Input[str] time_window: Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
+        :param pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileRuleMetricTriggerDimensionArgs']]] dimensions: One or more `dimensions` block as defined below.
+        :param pulumi.Input[str] metric_namespace: The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
         """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "metric_resource_id", metric_resource_id)
@@ -2361,6 +2366,10 @@ class AutoscaleSettingProfileRuleMetricTriggerArgs:
         pulumi.set(__self__, "time_aggregation", time_aggregation)
         pulumi.set(__self__, "time_grain", time_grain)
         pulumi.set(__self__, "time_window", time_window)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if metric_namespace is not None:
+            pulumi.set(__self__, "metric_namespace", metric_namespace)
 
     @property
     @pulumi.getter(name="metricName")
@@ -2457,6 +2466,82 @@ class AutoscaleSettingProfileRuleMetricTriggerArgs:
     @time_window.setter
     def time_window(self, value: pulumi.Input[str]):
         pulumi.set(self, "time_window", value)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileRuleMetricTriggerDimensionArgs']]]]:
+        """
+        One or more `dimensions` block as defined below.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileRuleMetricTriggerDimensionArgs']]]]):
+        pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter(name="metricNamespace")
+    def metric_namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
+        """
+        return pulumi.get(self, "metric_namespace")
+
+    @metric_namespace.setter
+    def metric_namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_namespace", value)
+
+
+@pulumi.input_type
+class AutoscaleSettingProfileRuleMetricTriggerDimensionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] name: The name of the dimension.
+        :param pulumi.Input[str] operator: The dimension operator. Possible values are `Equals` and `NotEquals`. `Equals` means being equal to any of the values. `NotEquals` means being not equal to any of the values.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of dimension values.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the dimension.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The dimension operator. Possible values are `Equals` and `NotEquals`. `Equals` means being equal to any of the values. `NotEquals` means being not equal to any of the values.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of dimension values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
 
 
 @pulumi.input_type

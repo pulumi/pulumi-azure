@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? ObjectId;
         /// <summary>
-        /// The ID of the User Assigned Identity used by the OMS Agents.
+        /// The ID of a user assigned identity.
         /// </summary>
         public readonly string? UserAssignedIdentityId;
 

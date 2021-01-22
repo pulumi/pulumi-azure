@@ -29,6 +29,7 @@ class ApiDiagnostic(pulumi.CustomResource):
                  identifier: Optional[pulumi.Input[str]] = None,
                  log_client_ip: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sampling_percentage: Optional[pulumi.Input[float]] = None,
                  verbosity: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -75,6 +76,7 @@ class ApiDiagnostic(pulumi.CustomResource):
             api_management_name=example_service.name,
             api_name=example_api.name,
             api_management_logger_id=example_logger.id,
+            sampling_percentage=5,
             always_log_errors=True,
             log_client_ip=True,
             verbosity="Verbose",
@@ -135,6 +137,7 @@ class ApiDiagnostic(pulumi.CustomResource):
         :param pulumi.Input[str] identifier: Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
         :param pulumi.Input[bool] log_client_ip: Log client IP address.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
+        :param pulumi.Input[float] sampling_percentage: Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         :param pulumi.Input[str] verbosity: Logging verbosity. Possible values are `verbose`, `information` or `error`.
         """
         if __name__ is not None:
@@ -176,6 +179,7 @@ class ApiDiagnostic(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['sampling_percentage'] = sampling_percentage
             __props__['verbosity'] = verbosity
         super(ApiDiagnostic, __self__).__init__(
             'azure:apimanagement/apiDiagnostic:ApiDiagnostic',
@@ -199,6 +203,7 @@ class ApiDiagnostic(pulumi.CustomResource):
             identifier: Optional[pulumi.Input[str]] = None,
             log_client_ip: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            sampling_percentage: Optional[pulumi.Input[float]] = None,
             verbosity: Optional[pulumi.Input[str]] = None) -> 'ApiDiagnostic':
         """
         Get an existing ApiDiagnostic resource's state with the given name, id, and optional extra
@@ -219,6 +224,7 @@ class ApiDiagnostic(pulumi.CustomResource):
         :param pulumi.Input[str] identifier: Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
         :param pulumi.Input[bool] log_client_ip: Log client IP address.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
+        :param pulumi.Input[float] sampling_percentage: Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         :param pulumi.Input[str] verbosity: Logging verbosity. Possible values are `verbose`, `information` or `error`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -237,6 +243,7 @@ class ApiDiagnostic(pulumi.CustomResource):
         __props__["identifier"] = identifier
         __props__["log_client_ip"] = log_client_ip
         __props__["resource_group_name"] = resource_group_name
+        __props__["sampling_percentage"] = sampling_percentage
         __props__["verbosity"] = verbosity
         return ApiDiagnostic(resource_name, opts=opts, __props__=__props__)
 
@@ -335,6 +342,14 @@ class ApiDiagnostic(pulumi.CustomResource):
         The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="samplingPercentage")
+    def sampling_percentage(self) -> pulumi.Output[float]:
+        """
+        Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+        """
+        return pulumi.get(self, "sampling_percentage")
 
     @property
     @pulumi.getter

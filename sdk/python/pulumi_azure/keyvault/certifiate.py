@@ -46,7 +46,6 @@ class Certifiate(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
-            soft_delete_enabled=True,
             soft_delete_retention_days=7,
             access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
                 tenant_id=current.tenant_id,

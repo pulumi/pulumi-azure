@@ -87,7 +87,7 @@ type KubernetesCluster struct {
 	EnablePodSecurityPolicy pulumi.BoolPtrOutput `pulumi:"enablePodSecurityPolicy"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
-	// A `identity` block as defined below. Changing this forces a new resource to be created.
+	// An `identity` block as defined below. Changing this forces a new resource to be created.
 	Identity KubernetesClusterIdentityPtrOutput `pulumi:"identity"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
 	KubeAdminConfigRaw pulumi.StringOutput `pulumi:"kubeAdminConfigRaw"`
@@ -184,7 +184,7 @@ type kubernetesClusterState struct {
 	EnablePodSecurityPolicy *bool   `pulumi:"enablePodSecurityPolicy"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn *string `pulumi:"fqdn"`
-	// A `identity` block as defined below. Changing this forces a new resource to be created.
+	// An `identity` block as defined below. Changing this forces a new resource to be created.
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
 	KubeAdminConfigRaw *string `pulumi:"kubeAdminConfigRaw"`
@@ -244,7 +244,7 @@ type KubernetesClusterState struct {
 	EnablePodSecurityPolicy pulumi.BoolPtrInput
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringPtrInput
-	// A `identity` block as defined below. Changing this forces a new resource to be created.
+	// An `identity` block as defined below. Changing this forces a new resource to be created.
 	Identity KubernetesClusterIdentityPtrInput
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
 	KubeAdminConfigRaw pulumi.StringPtrInput
@@ -306,7 +306,7 @@ type kubernetesClusterArgs struct {
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix               string `pulumi:"dnsPrefix"`
 	EnablePodSecurityPolicy *bool  `pulumi:"enablePodSecurityPolicy"`
-	// A `identity` block as defined below. Changing this forces a new resource to be created.
+	// An `identity` block as defined below. Changing this forces a new resource to be created.
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
@@ -353,7 +353,7 @@ type KubernetesClusterArgs struct {
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix               pulumi.StringInput
 	EnablePodSecurityPolicy pulumi.BoolPtrInput
-	// A `identity` block as defined below. Changing this forces a new resource to be created.
+	// An `identity` block as defined below. Changing this forces a new resource to be created.
 	Identity KubernetesClusterIdentityPtrInput
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion pulumi.StringPtrInput

@@ -103,7 +103,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
-     * A `identity` block as defined below. Changing this forces a new resource to be created.
+     * An `identity` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly identity!: pulumi.Output<outputs.containerservice.KubernetesClusterIdentity | undefined>;
     /**
@@ -314,7 +314,7 @@ export interface KubernetesClusterState {
      */
     readonly fqdn?: pulumi.Input<string>;
     /**
-     * A `identity` block as defined below. Changing this forces a new resource to be created.
+     * An `identity` block as defined below. Changing this forces a new resource to be created.
      */
     readonly identity?: pulumi.Input<inputs.containerservice.KubernetesClusterIdentity>;
     /**
@@ -429,7 +429,7 @@ export interface KubernetesClusterArgs {
     readonly dnsPrefix: pulumi.Input<string>;
     readonly enablePodSecurityPolicy?: pulumi.Input<boolean>;
     /**
-     * A `identity` block as defined below. Changing this forces a new resource to be created.
+     * An `identity` block as defined below. Changing this forces a new resource to be created.
      */
     readonly identity?: pulumi.Input<inputs.containerservice.KubernetesClusterIdentity>;
     /**

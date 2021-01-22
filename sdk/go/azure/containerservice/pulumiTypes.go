@@ -3247,7 +3247,7 @@ type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity struct {
 	ClientId *string `pulumi:"clientId"`
 	// The Object ID of the user-defined Managed Identity used by the OMS Agents.
 	ObjectId *string `pulumi:"objectId"`
-	// The ID of the User Assigned Identity used by the OMS Agents.
+	// The ID of a user assigned identity.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -3267,7 +3267,7 @@ type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs struct {
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// The Object ID of the user-defined Managed Identity used by the OMS Agents.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The ID of the User Assigned Identity used by the OMS Agents.
+	// The ID of a user assigned identity.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -3332,7 +3332,7 @@ func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ObjectId() 
 	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the User Assigned Identity used by the OMS Agents.
+// The ID of a user assigned identity.
 func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -3362,6 +3362,8 @@ type KubernetesClusterAutoScalerProfile struct {
 	BalanceSimilarNodeGroups *bool `pulumi:"balanceSimilarNodeGroups"`
 	// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
 	MaxGracefulTerminationSec *string `pulumi:"maxGracefulTerminationSec"`
+	// For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.
+	NewPodScaleUpDelay *string `pulumi:"newPodScaleUpDelay"`
 	// How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
 	ScaleDownDelayAfterAdd *string `pulumi:"scaleDownDelayAfterAdd"`
 	// How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scanInterval`.
@@ -3394,6 +3396,8 @@ type KubernetesClusterAutoScalerProfileArgs struct {
 	BalanceSimilarNodeGroups pulumi.BoolPtrInput `pulumi:"balanceSimilarNodeGroups"`
 	// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
 	MaxGracefulTerminationSec pulumi.StringPtrInput `pulumi:"maxGracefulTerminationSec"`
+	// For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.
+	NewPodScaleUpDelay pulumi.StringPtrInput `pulumi:"newPodScaleUpDelay"`
 	// How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
 	ScaleDownDelayAfterAdd pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterAdd"`
 	// How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scanInterval`.
@@ -3497,6 +3501,11 @@ func (o KubernetesClusterAutoScalerProfileOutput) MaxGracefulTerminationSec() pu
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.MaxGracefulTerminationSec }).(pulumi.StringPtrOutput)
 }
 
+// For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.
+func (o KubernetesClusterAutoScalerProfileOutput) NewPodScaleUpDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.NewPodScaleUpDelay }).(pulumi.StringPtrOutput)
+}
+
 // How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
 func (o KubernetesClusterAutoScalerProfileOutput) ScaleDownDelayAfterAdd() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.ScaleDownDelayAfterAdd }).(pulumi.StringPtrOutput)
@@ -3567,6 +3576,16 @@ func (o KubernetesClusterAutoScalerProfilePtrOutput) MaxGracefulTerminationSec()
 			return nil
 		}
 		return v.MaxGracefulTerminationSec
+	}).(pulumi.StringPtrOutput)
+}
+
+// For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.
+func (o KubernetesClusterAutoScalerProfilePtrOutput) NewPodScaleUpDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NewPodScaleUpDelay
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4091,8 +4110,10 @@ type KubernetesClusterIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 	TenantId *string `pulumi:"tenantId"`
-	// The type of identity used for the managed cluster. At this time the only supported value is `SystemAssigned`.
+	// The type of identity used for the managed cluster. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `userAssignedIdentityId` must be set as well.
 	Type string `pulumi:"type"`
+	// The ID of a user assigned identity.
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
 // KubernetesClusterIdentityInput is an input type that accepts KubernetesClusterIdentityArgs and KubernetesClusterIdentityOutput values.
@@ -4111,8 +4132,10 @@ type KubernetesClusterIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of identity used for the managed cluster. At this time the only supported value is `SystemAssigned`.
+	// The type of identity used for the managed cluster. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `userAssignedIdentityId` must be set as well.
 	Type pulumi.StringInput `pulumi:"type"`
+	// The ID of a user assigned identity.
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
 func (KubernetesClusterIdentityArgs) ElementType() reflect.Type {
@@ -4202,9 +4225,14 @@ func (o KubernetesClusterIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the managed cluster. At this time the only supported value is `SystemAssigned`.
+// The type of identity used for the managed cluster. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `userAssignedIdentityId` must be set as well.
 func (o KubernetesClusterIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The ID of a user assigned identity.
+func (o KubernetesClusterIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -4245,13 +4273,23 @@ func (o KubernetesClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the managed cluster. At this time the only supported value is `SystemAssigned`.
+// The type of identity used for the managed cluster. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `userAssignedIdentityId` must be set as well.
 func (o KubernetesClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of a user assigned identity.
+func (o KubernetesClusterIdentityPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentityId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4544,7 +4582,7 @@ type KubernetesClusterKubeletIdentity struct {
 	ClientId *string `pulumi:"clientId"`
 	// The Object ID of the user-defined Managed Identity used by the OMS Agents.
 	ObjectId *string `pulumi:"objectId"`
-	// The ID of the User Assigned Identity used by the OMS Agents.
+	// The ID of a user assigned identity.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -4564,7 +4602,7 @@ type KubernetesClusterKubeletIdentityArgs struct {
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// The Object ID of the user-defined Managed Identity used by the OMS Agents.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The ID of the User Assigned Identity used by the OMS Agents.
+	// The ID of a user assigned identity.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -4629,7 +4667,7 @@ func (o KubernetesClusterKubeletIdentityOutput) ObjectId() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v KubernetesClusterKubeletIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the User Assigned Identity used by the OMS Agents.
+// The ID of a user assigned identity.
 func (o KubernetesClusterKubeletIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKubeletIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -7718,6 +7756,8 @@ type GetKubernetesClusterIdentity struct {
 	TenantId string `pulumi:"tenantId"`
 	// The type of identity used for the managed cluster.
 	Type string `pulumi:"type"`
+	// The ID of the User Assigned Identity assigned to the Kubelets.
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
 }
 
 // GetKubernetesClusterIdentityInput is an input type that accepts GetKubernetesClusterIdentityArgs and GetKubernetesClusterIdentityOutput values.
@@ -7738,6 +7778,8 @@ type GetKubernetesClusterIdentityArgs struct {
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// The type of identity used for the managed cluster.
 	Type pulumi.StringInput `pulumi:"type"`
+	// The ID of the User Assigned Identity assigned to the Kubelets.
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
 }
 
 func (GetKubernetesClusterIdentityArgs) ElementType() reflect.Type {
@@ -7804,6 +7846,11 @@ func (o GetKubernetesClusterIdentityOutput) TenantId() pulumi.StringOutput {
 // The type of identity used for the managed cluster.
 func (o GetKubernetesClusterIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The ID of the User Assigned Identity assigned to the Kubelets.
+func (o GetKubernetesClusterIdentityOutput) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterIdentity) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
 }
 
 type GetKubernetesClusterIdentityArrayOutput struct{ *pulumi.OutputState }

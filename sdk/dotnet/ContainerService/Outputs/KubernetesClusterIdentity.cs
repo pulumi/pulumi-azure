@@ -22,9 +22,13 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The type of identity used for the managed cluster. At this time the only supported value is `SystemAssigned`.
+        /// The type of identity used for the managed cluster. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `user_assigned_identity_id` must be set as well.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The ID of a user assigned identity.
+        /// </summary>
+        public readonly string? UserAssignedIdentityId;
 
         [OutputConstructor]
         private KubernetesClusterIdentity(
@@ -32,11 +36,14 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? tenantId,
 
-            string type)
+            string type,
+
+            string? userAssignedIdentityId)
         {
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
+            UserAssignedIdentityId = userAssignedIdentityId;
         }
     }
 }

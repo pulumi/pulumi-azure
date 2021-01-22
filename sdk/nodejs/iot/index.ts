@@ -14,6 +14,7 @@ export * from "./endpointStorageContainer";
 export * from "./fallbackRoute";
 export * from "./getDps";
 export * from "./getDpsSharedAccessPolicy";
+export * from "./getIotHub";
 export * from "./getSharedAccessPolicy";
 export * from "./ioTHub";
 export * from "./iotHubCertificate";

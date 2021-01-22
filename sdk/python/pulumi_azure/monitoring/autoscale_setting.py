@@ -62,6 +62,12 @@ class AutoscaleSetting(pulumi.CustomResource):
                             time_aggregation="Average",
                             operator="GreaterThan",
                             threshold=75,
+                            metric_namespace="microsoft.compute/virtualmachinescalesets",
+                            dimensions=[azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerDimensionArgs(
+                                name="AppName",
+                                operator="Equals",
+                                values=["App1"],
+                            )],
                         ),
                         scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
                             direction="Increase",
