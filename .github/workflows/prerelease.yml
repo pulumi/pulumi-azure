@@ -172,7 +172,7 @@ jobs:
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v2
       with:
-        args: -p 4 release --rm-dist --config=.goreleaser.prerelease.yaml
+        args: -p 3 release --rm-dist --config=.goreleaser.prerelease.yaml
         version: latest
   publish_sdk:
     name: publish_sdk
