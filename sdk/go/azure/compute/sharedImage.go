@@ -283,15 +283,15 @@ type SharedImageInput interface {
 	ToSharedImageOutputWithContext(ctx context.Context) SharedImageOutput
 }
 
-func (SharedImage) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedImage)(nil)).Elem()
+func (*SharedImage) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImage)(nil))
 }
 
-func (i SharedImage) ToSharedImageOutput() SharedImageOutput {
+func (i *SharedImage) ToSharedImageOutput() SharedImageOutput {
 	return i.ToSharedImageOutputWithContext(context.Background())
 }
 
-func (i SharedImage) ToSharedImageOutputWithContext(ctx context.Context) SharedImageOutput {
+func (i *SharedImage) ToSharedImageOutputWithContext(ctx context.Context) SharedImageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SharedImageOutput)
 }
 
@@ -300,7 +300,7 @@ type SharedImageOutput struct {
 }
 
 func (SharedImageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedImageOutput)(nil)).Elem()
+	return reflect.TypeOf((*SharedImage)(nil))
 }
 
 func (o SharedImageOutput) ToSharedImageOutput() SharedImageOutput {

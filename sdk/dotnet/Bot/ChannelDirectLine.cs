@@ -20,6 +20,7 @@ namespace Pulumi.Azure.Bot
     ///  $ pulumi import azure:bot/channelDirectLine:ChannelDirectLine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/channels/DirectlineChannel
     /// ```
     /// </summary>
+    [AzureResourceType("azure:bot/channelDirectLine:ChannelDirectLine")]
     public partial class ChannelDirectLine : Pulumi.CustomResource
     {
         /// <summary>

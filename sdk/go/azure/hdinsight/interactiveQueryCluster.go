@@ -329,15 +329,15 @@ type InteractiveQueryClusterInput interface {
 	ToInteractiveQueryClusterOutputWithContext(ctx context.Context) InteractiveQueryClusterOutput
 }
 
-func (InteractiveQueryCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*InteractiveQueryCluster)(nil)).Elem()
+func (*InteractiveQueryCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryCluster)(nil))
 }
 
-func (i InteractiveQueryCluster) ToInteractiveQueryClusterOutput() InteractiveQueryClusterOutput {
+func (i *InteractiveQueryCluster) ToInteractiveQueryClusterOutput() InteractiveQueryClusterOutput {
 	return i.ToInteractiveQueryClusterOutputWithContext(context.Background())
 }
 
-func (i InteractiveQueryCluster) ToInteractiveQueryClusterOutputWithContext(ctx context.Context) InteractiveQueryClusterOutput {
+func (i *InteractiveQueryCluster) ToInteractiveQueryClusterOutputWithContext(ctx context.Context) InteractiveQueryClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterOutput)
 }
 
@@ -346,7 +346,7 @@ type InteractiveQueryClusterOutput struct {
 }
 
 func (InteractiveQueryClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InteractiveQueryClusterOutput)(nil)).Elem()
+	return reflect.TypeOf((*InteractiveQueryCluster)(nil))
 }
 
 func (o InteractiveQueryClusterOutput) ToInteractiveQueryClusterOutput() InteractiveQueryClusterOutput {

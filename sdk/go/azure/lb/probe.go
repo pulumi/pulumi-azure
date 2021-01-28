@@ -229,15 +229,15 @@ type ProbeInput interface {
 	ToProbeOutputWithContext(ctx context.Context) ProbeOutput
 }
 
-func (Probe) ElementType() reflect.Type {
-	return reflect.TypeOf((*Probe)(nil)).Elem()
+func (*Probe) ElementType() reflect.Type {
+	return reflect.TypeOf((*Probe)(nil))
 }
 
-func (i Probe) ToProbeOutput() ProbeOutput {
+func (i *Probe) ToProbeOutput() ProbeOutput {
 	return i.ToProbeOutputWithContext(context.Background())
 }
 
-func (i Probe) ToProbeOutputWithContext(ctx context.Context) ProbeOutput {
+func (i *Probe) ToProbeOutputWithContext(ctx context.Context) ProbeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProbeOutput)
 }
 
@@ -246,7 +246,7 @@ type ProbeOutput struct {
 }
 
 func (ProbeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProbeOutput)(nil)).Elem()
+	return reflect.TypeOf((*Probe)(nil))
 }
 
 func (o ProbeOutput) ToProbeOutput() ProbeOutput {

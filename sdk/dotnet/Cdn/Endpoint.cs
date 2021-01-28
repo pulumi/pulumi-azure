@@ -59,6 +59,7 @@ namespace Pulumi.Azure.Cdn
     ///  $ pulumi import azure:cdn/endpoint:Endpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/myprofile1/endpoints/myendpoint1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:cdn/endpoint:Endpoint")]
     public partial class Endpoint : Pulumi.CustomResource
     {
         /// <summary>

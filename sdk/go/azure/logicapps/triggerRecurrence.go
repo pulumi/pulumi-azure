@@ -189,15 +189,15 @@ type TriggerRecurrenceInput interface {
 	ToTriggerRecurrenceOutputWithContext(ctx context.Context) TriggerRecurrenceOutput
 }
 
-func (TriggerRecurrence) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerRecurrence)(nil)).Elem()
+func (*TriggerRecurrence) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerRecurrence)(nil))
 }
 
-func (i TriggerRecurrence) ToTriggerRecurrenceOutput() TriggerRecurrenceOutput {
+func (i *TriggerRecurrence) ToTriggerRecurrenceOutput() TriggerRecurrenceOutput {
 	return i.ToTriggerRecurrenceOutputWithContext(context.Background())
 }
 
-func (i TriggerRecurrence) ToTriggerRecurrenceOutputWithContext(ctx context.Context) TriggerRecurrenceOutput {
+func (i *TriggerRecurrence) ToTriggerRecurrenceOutputWithContext(ctx context.Context) TriggerRecurrenceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerRecurrenceOutput)
 }
 
@@ -206,7 +206,7 @@ type TriggerRecurrenceOutput struct {
 }
 
 func (TriggerRecurrenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerRecurrenceOutput)(nil)).Elem()
+	return reflect.TypeOf((*TriggerRecurrence)(nil))
 }
 
 func (o TriggerRecurrenceOutput) ToTriggerRecurrenceOutput() TriggerRecurrenceOutput {

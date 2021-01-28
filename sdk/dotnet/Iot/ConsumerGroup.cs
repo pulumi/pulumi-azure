@@ -59,6 +59,7 @@ namespace Pulumi.Azure.Iot
     ///  $ pulumi import azure:iot/consumerGroup:ConsumerGroup group1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/eventHubEndpoints/events/ConsumerGroups/group1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:iot/consumerGroup:ConsumerGroup")]
     public partial class ConsumerGroup : Pulumi.CustomResource
     {
         /// <summary>

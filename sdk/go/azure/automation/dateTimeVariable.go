@@ -147,15 +147,15 @@ type DateTimeVariableInput interface {
 	ToDateTimeVariableOutputWithContext(ctx context.Context) DateTimeVariableOutput
 }
 
-func (DateTimeVariable) ElementType() reflect.Type {
-	return reflect.TypeOf((*DateTimeVariable)(nil)).Elem()
+func (*DateTimeVariable) ElementType() reflect.Type {
+	return reflect.TypeOf((*DateTimeVariable)(nil))
 }
 
-func (i DateTimeVariable) ToDateTimeVariableOutput() DateTimeVariableOutput {
+func (i *DateTimeVariable) ToDateTimeVariableOutput() DateTimeVariableOutput {
 	return i.ToDateTimeVariableOutputWithContext(context.Background())
 }
 
-func (i DateTimeVariable) ToDateTimeVariableOutputWithContext(ctx context.Context) DateTimeVariableOutput {
+func (i *DateTimeVariable) ToDateTimeVariableOutputWithContext(ctx context.Context) DateTimeVariableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DateTimeVariableOutput)
 }
 
@@ -164,7 +164,7 @@ type DateTimeVariableOutput struct {
 }
 
 func (DateTimeVariableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DateTimeVariableOutput)(nil)).Elem()
+	return reflect.TypeOf((*DateTimeVariable)(nil))
 }
 
 func (o DateTimeVariableOutput) ToDateTimeVariableOutput() DateTimeVariableOutput {

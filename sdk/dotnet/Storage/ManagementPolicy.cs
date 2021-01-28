@@ -113,6 +113,7 @@ namespace Pulumi.Azure.Storage
     ///  $ pulumi import azure:storage/managementPolicy:ManagementPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Storage/storageAccounts/myaccountname/managementPolicies/default
     /// ```
     /// </summary>
+    [AzureResourceType("azure:storage/managementPolicy:ManagementPolicy")]
     public partial class ManagementPolicy : Pulumi.CustomResource
     {
         /// <summary>

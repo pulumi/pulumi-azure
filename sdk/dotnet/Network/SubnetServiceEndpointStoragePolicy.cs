@@ -61,6 +61,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/subnetServiceEndpointStoragePolicy:SubnetServiceEndpointStoragePolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/serviceEndpointPolicies/policy1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/subnetServiceEndpointStoragePolicy:SubnetServiceEndpointStoragePolicy")]
     public partial class SubnetServiceEndpointStoragePolicy : Pulumi.CustomResource
     {
         /// <summary>

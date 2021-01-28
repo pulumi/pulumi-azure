@@ -151,6 +151,7 @@ namespace Pulumi.Azure.Iot
     ///  $ pulumi import azure:iot/ioTHub:IoTHub hub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:iot/ioTHub:IoTHub")]
     public partial class IoTHub : Pulumi.CustomResource
     {
         /// <summary>

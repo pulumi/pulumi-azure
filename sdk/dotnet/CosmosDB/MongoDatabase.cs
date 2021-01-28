@@ -46,6 +46,7 @@ namespace Pulumi.Azure.CosmosDB
     ///  $ pulumi import azure:cosmosdb/mongoDatabase:MongoDatabase db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/mongodbDatabases/db1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:cosmosdb/mongoDatabase:MongoDatabase")]
     public partial class MongoDatabase : Pulumi.CustomResource
     {
         /// <summary>

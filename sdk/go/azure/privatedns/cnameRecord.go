@@ -193,15 +193,15 @@ type CnameRecordInput interface {
 	ToCnameRecordOutputWithContext(ctx context.Context) CnameRecordOutput
 }
 
-func (CnameRecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*CnameRecord)(nil)).Elem()
+func (*CnameRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*CnameRecord)(nil))
 }
 
-func (i CnameRecord) ToCnameRecordOutput() CnameRecordOutput {
+func (i *CnameRecord) ToCnameRecordOutput() CnameRecordOutput {
 	return i.ToCnameRecordOutputWithContext(context.Background())
 }
 
-func (i CnameRecord) ToCnameRecordOutputWithContext(ctx context.Context) CnameRecordOutput {
+func (i *CnameRecord) ToCnameRecordOutputWithContext(ctx context.Context) CnameRecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CnameRecordOutput)
 }
 
@@ -210,7 +210,7 @@ type CnameRecordOutput struct {
 }
 
 func (CnameRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CnameRecordOutput)(nil)).Elem()
+	return reflect.TypeOf((*CnameRecord)(nil))
 }
 
 func (o CnameRecordOutput) ToCnameRecordOutput() CnameRecordOutput {

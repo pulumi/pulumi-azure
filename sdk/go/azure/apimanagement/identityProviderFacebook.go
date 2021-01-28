@@ -176,15 +176,15 @@ type IdentityProviderFacebookInput interface {
 	ToIdentityProviderFacebookOutputWithContext(ctx context.Context) IdentityProviderFacebookOutput
 }
 
-func (IdentityProviderFacebook) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProviderFacebook)(nil)).Elem()
+func (*IdentityProviderFacebook) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProviderFacebook)(nil))
 }
 
-func (i IdentityProviderFacebook) ToIdentityProviderFacebookOutput() IdentityProviderFacebookOutput {
+func (i *IdentityProviderFacebook) ToIdentityProviderFacebookOutput() IdentityProviderFacebookOutput {
 	return i.ToIdentityProviderFacebookOutputWithContext(context.Background())
 }
 
-func (i IdentityProviderFacebook) ToIdentityProviderFacebookOutputWithContext(ctx context.Context) IdentityProviderFacebookOutput {
+func (i *IdentityProviderFacebook) ToIdentityProviderFacebookOutputWithContext(ctx context.Context) IdentityProviderFacebookOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderFacebookOutput)
 }
 
@@ -193,7 +193,7 @@ type IdentityProviderFacebookOutput struct {
 }
 
 func (IdentityProviderFacebookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProviderFacebookOutput)(nil)).Elem()
+	return reflect.TypeOf((*IdentityProviderFacebook)(nil))
 }
 
 func (o IdentityProviderFacebookOutput) ToIdentityProviderFacebookOutput() IdentityProviderFacebookOutput {

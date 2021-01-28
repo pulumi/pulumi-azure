@@ -88,15 +88,15 @@ type ResourceProviderRegistrationInput interface {
 	ToResourceProviderRegistrationOutputWithContext(ctx context.Context) ResourceProviderRegistrationOutput
 }
 
-func (ResourceProviderRegistration) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceProviderRegistration)(nil)).Elem()
+func (*ResourceProviderRegistration) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceProviderRegistration)(nil))
 }
 
-func (i ResourceProviderRegistration) ToResourceProviderRegistrationOutput() ResourceProviderRegistrationOutput {
+func (i *ResourceProviderRegistration) ToResourceProviderRegistrationOutput() ResourceProviderRegistrationOutput {
 	return i.ToResourceProviderRegistrationOutputWithContext(context.Background())
 }
 
-func (i ResourceProviderRegistration) ToResourceProviderRegistrationOutputWithContext(ctx context.Context) ResourceProviderRegistrationOutput {
+func (i *ResourceProviderRegistration) ToResourceProviderRegistrationOutputWithContext(ctx context.Context) ResourceProviderRegistrationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceProviderRegistrationOutput)
 }
 
@@ -105,7 +105,7 @@ type ResourceProviderRegistrationOutput struct {
 }
 
 func (ResourceProviderRegistrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceProviderRegistrationOutput)(nil)).Elem()
+	return reflect.TypeOf((*ResourceProviderRegistration)(nil))
 }
 
 func (o ResourceProviderRegistrationOutput) ToResourceProviderRegistrationOutput() ResourceProviderRegistrationOutput {

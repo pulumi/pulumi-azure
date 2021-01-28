@@ -206,15 +206,15 @@ type EndpointServicebusInput interface {
 	ToEndpointServicebusOutputWithContext(ctx context.Context) EndpointServicebusOutput
 }
 
-func (EndpointServicebus) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointServicebus)(nil)).Elem()
+func (*EndpointServicebus) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointServicebus)(nil))
 }
 
-func (i EndpointServicebus) ToEndpointServicebusOutput() EndpointServicebusOutput {
+func (i *EndpointServicebus) ToEndpointServicebusOutput() EndpointServicebusOutput {
 	return i.ToEndpointServicebusOutputWithContext(context.Background())
 }
 
-func (i EndpointServicebus) ToEndpointServicebusOutputWithContext(ctx context.Context) EndpointServicebusOutput {
+func (i *EndpointServicebus) ToEndpointServicebusOutputWithContext(ctx context.Context) EndpointServicebusOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointServicebusOutput)
 }
 
@@ -223,7 +223,7 @@ type EndpointServicebusOutput struct {
 }
 
 func (EndpointServicebusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointServicebusOutput)(nil)).Elem()
+	return reflect.TypeOf((*EndpointServicebus)(nil))
 }
 
 func (o EndpointServicebusOutput) ToEndpointServicebusOutput() EndpointServicebusOutput {

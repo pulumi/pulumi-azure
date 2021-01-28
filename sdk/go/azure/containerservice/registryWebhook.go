@@ -244,15 +244,15 @@ type RegistryWebhookInput interface {
 	ToRegistryWebhookOutputWithContext(ctx context.Context) RegistryWebhookOutput
 }
 
-func (RegistryWebhook) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryWebhook)(nil)).Elem()
+func (*RegistryWebhook) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryWebhook)(nil))
 }
 
-func (i RegistryWebhook) ToRegistryWebhookOutput() RegistryWebhookOutput {
+func (i *RegistryWebhook) ToRegistryWebhookOutput() RegistryWebhookOutput {
 	return i.ToRegistryWebhookOutputWithContext(context.Background())
 }
 
-func (i RegistryWebhook) ToRegistryWebhookOutputWithContext(ctx context.Context) RegistryWebhookOutput {
+func (i *RegistryWebhook) ToRegistryWebhookOutputWithContext(ctx context.Context) RegistryWebhookOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryWebhookOutput)
 }
 
@@ -261,7 +261,7 @@ type RegistryWebhookOutput struct {
 }
 
 func (RegistryWebhookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryWebhookOutput)(nil)).Elem()
+	return reflect.TypeOf((*RegistryWebhook)(nil))
 }
 
 func (o RegistryWebhookOutput) ToRegistryWebhookOutput() RegistryWebhookOutput {

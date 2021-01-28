@@ -44,6 +44,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/virtualWan:VirtualWan example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualWans/testvwan
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/virtualWan:VirtualWan")]
     public partial class VirtualWan : Pulumi.CustomResource
     {
         /// <summary>

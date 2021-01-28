@@ -247,15 +247,15 @@ type NatPoolInput interface {
 	ToNatPoolOutputWithContext(ctx context.Context) NatPoolOutput
 }
 
-func (NatPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*NatPool)(nil)).Elem()
+func (*NatPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatPool)(nil))
 }
 
-func (i NatPool) ToNatPoolOutput() NatPoolOutput {
+func (i *NatPool) ToNatPoolOutput() NatPoolOutput {
 	return i.ToNatPoolOutputWithContext(context.Background())
 }
 
-func (i NatPool) ToNatPoolOutputWithContext(ctx context.Context) NatPoolOutput {
+func (i *NatPool) ToNatPoolOutputWithContext(ctx context.Context) NatPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NatPoolOutput)
 }
 
@@ -264,7 +264,7 @@ type NatPoolOutput struct {
 }
 
 func (NatPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NatPoolOutput)(nil)).Elem()
+	return reflect.TypeOf((*NatPool)(nil))
 }
 
 func (o NatPoolOutput) ToNatPoolOutput() NatPoolOutput {

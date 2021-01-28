@@ -85,6 +85,7 @@ namespace Pulumi.Azure.Monitoring
     ///  $ pulumi import azure:monitoring/activityLogAlert:ActivityLogAlert example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/microsoft.insights/activityLogAlerts/myalertname
     /// ```
     /// </summary>
+    [AzureResourceType("azure:monitoring/activityLogAlert:ActivityLogAlert")]
     public partial class ActivityLogAlert : Pulumi.CustomResource
     {
         /// <summary>

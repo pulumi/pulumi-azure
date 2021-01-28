@@ -197,15 +197,15 @@ type EndpointServicebusQueueInput interface {
 	ToEndpointServicebusQueueOutputWithContext(ctx context.Context) EndpointServicebusQueueOutput
 }
 
-func (EndpointServicebusQueue) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointServicebusQueue)(nil)).Elem()
+func (*EndpointServicebusQueue) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointServicebusQueue)(nil))
 }
 
-func (i EndpointServicebusQueue) ToEndpointServicebusQueueOutput() EndpointServicebusQueueOutput {
+func (i *EndpointServicebusQueue) ToEndpointServicebusQueueOutput() EndpointServicebusQueueOutput {
 	return i.ToEndpointServicebusQueueOutputWithContext(context.Background())
 }
 
-func (i EndpointServicebusQueue) ToEndpointServicebusQueueOutputWithContext(ctx context.Context) EndpointServicebusQueueOutput {
+func (i *EndpointServicebusQueue) ToEndpointServicebusQueueOutputWithContext(ctx context.Context) EndpointServicebusQueueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointServicebusQueueOutput)
 }
 
@@ -214,7 +214,7 @@ type EndpointServicebusQueueOutput struct {
 }
 
 func (EndpointServicebusQueueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointServicebusQueueOutput)(nil)).Elem()
+	return reflect.TypeOf((*EndpointServicebusQueue)(nil))
 }
 
 func (o EndpointServicebusQueueOutput) ToEndpointServicebusQueueOutput() EndpointServicebusQueueOutput {

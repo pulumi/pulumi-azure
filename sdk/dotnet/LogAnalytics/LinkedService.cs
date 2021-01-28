@@ -62,6 +62,7 @@ namespace Pulumi.Azure.LogAnalytics
     ///  $ pulumi import azure:loganalytics/linkedService:LinkedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/linkedServices/Automation
     /// ```
     /// </summary>
+    [AzureResourceType("azure:loganalytics/linkedService:LinkedService")]
     public partial class LinkedService : Pulumi.CustomResource
     {
         /// <summary>

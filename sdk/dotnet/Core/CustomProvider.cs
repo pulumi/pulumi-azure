@@ -52,6 +52,7 @@ namespace Pulumi.Azure.Core
     ///  $ pulumi import azure:core/customProvider:CustomProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.CustomProviders/resourceProviders/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:core/customProvider:CustomProvider")]
     public partial class CustomProvider : Pulumi.CustomResource
     {
         /// <summary>

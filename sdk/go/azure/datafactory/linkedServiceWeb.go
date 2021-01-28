@@ -245,15 +245,15 @@ type LinkedServiceWebInput interface {
 	ToLinkedServiceWebOutputWithContext(ctx context.Context) LinkedServiceWebOutput
 }
 
-func (LinkedServiceWeb) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceWeb)(nil)).Elem()
+func (*LinkedServiceWeb) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceWeb)(nil))
 }
 
-func (i LinkedServiceWeb) ToLinkedServiceWebOutput() LinkedServiceWebOutput {
+func (i *LinkedServiceWeb) ToLinkedServiceWebOutput() LinkedServiceWebOutput {
 	return i.ToLinkedServiceWebOutputWithContext(context.Background())
 }
 
-func (i LinkedServiceWeb) ToLinkedServiceWebOutputWithContext(ctx context.Context) LinkedServiceWebOutput {
+func (i *LinkedServiceWeb) ToLinkedServiceWebOutputWithContext(ctx context.Context) LinkedServiceWebOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceWebOutput)
 }
 
@@ -262,7 +262,7 @@ type LinkedServiceWebOutput struct {
 }
 
 func (LinkedServiceWebOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceWebOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinkedServiceWeb)(nil))
 }
 
 func (o LinkedServiceWebOutput) ToLinkedServiceWebOutput() LinkedServiceWebOutput {

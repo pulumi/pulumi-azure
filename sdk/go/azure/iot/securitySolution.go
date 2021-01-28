@@ -266,15 +266,15 @@ type SecuritySolutionInput interface {
 	ToSecuritySolutionOutputWithContext(ctx context.Context) SecuritySolutionOutput
 }
 
-func (SecuritySolution) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecuritySolution)(nil)).Elem()
+func (*SecuritySolution) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecuritySolution)(nil))
 }
 
-func (i SecuritySolution) ToSecuritySolutionOutput() SecuritySolutionOutput {
+func (i *SecuritySolution) ToSecuritySolutionOutput() SecuritySolutionOutput {
 	return i.ToSecuritySolutionOutputWithContext(context.Background())
 }
 
-func (i SecuritySolution) ToSecuritySolutionOutputWithContext(ctx context.Context) SecuritySolutionOutput {
+func (i *SecuritySolution) ToSecuritySolutionOutputWithContext(ctx context.Context) SecuritySolutionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionOutput)
 }
 
@@ -283,7 +283,7 @@ type SecuritySolutionOutput struct {
 }
 
 func (SecuritySolutionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecuritySolutionOutput)(nil)).Elem()
+	return reflect.TypeOf((*SecuritySolution)(nil))
 }
 
 func (o SecuritySolutionOutput) ToSecuritySolutionOutput() SecuritySolutionOutput {

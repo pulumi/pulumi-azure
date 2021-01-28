@@ -68,6 +68,7 @@ namespace Pulumi.Azure.Kusto
     ///  $ pulumi import azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/PrincipalAssignments/assignment1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment")]
     public partial class DatabasePrincipalAssignment : Pulumi.CustomResource
     {
         /// <summary>

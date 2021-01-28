@@ -219,15 +219,15 @@ type LinkedServiceMysqlInput interface {
 	ToLinkedServiceMysqlOutputWithContext(ctx context.Context) LinkedServiceMysqlOutput
 }
 
-func (LinkedServiceMysql) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceMysql)(nil)).Elem()
+func (*LinkedServiceMysql) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceMysql)(nil))
 }
 
-func (i LinkedServiceMysql) ToLinkedServiceMysqlOutput() LinkedServiceMysqlOutput {
+func (i *LinkedServiceMysql) ToLinkedServiceMysqlOutput() LinkedServiceMysqlOutput {
 	return i.ToLinkedServiceMysqlOutputWithContext(context.Background())
 }
 
-func (i LinkedServiceMysql) ToLinkedServiceMysqlOutputWithContext(ctx context.Context) LinkedServiceMysqlOutput {
+func (i *LinkedServiceMysql) ToLinkedServiceMysqlOutputWithContext(ctx context.Context) LinkedServiceMysqlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceMysqlOutput)
 }
 
@@ -236,7 +236,7 @@ type LinkedServiceMysqlOutput struct {
 }
 
 func (LinkedServiceMysqlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceMysqlOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinkedServiceMysql)(nil))
 }
 
 func (o LinkedServiceMysqlOutput) ToLinkedServiceMysqlOutput() LinkedServiceMysqlOutput {

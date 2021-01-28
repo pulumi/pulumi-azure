@@ -156,15 +156,15 @@ type AccountNetworkRulesInput interface {
 	ToAccountNetworkRulesOutputWithContext(ctx context.Context) AccountNetworkRulesOutput
 }
 
-func (AccountNetworkRules) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountNetworkRules)(nil)).Elem()
+func (*AccountNetworkRules) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkRules)(nil))
 }
 
-func (i AccountNetworkRules) ToAccountNetworkRulesOutput() AccountNetworkRulesOutput {
+func (i *AccountNetworkRules) ToAccountNetworkRulesOutput() AccountNetworkRulesOutput {
 	return i.ToAccountNetworkRulesOutputWithContext(context.Background())
 }
 
-func (i AccountNetworkRules) ToAccountNetworkRulesOutputWithContext(ctx context.Context) AccountNetworkRulesOutput {
+func (i *AccountNetworkRules) ToAccountNetworkRulesOutputWithContext(ctx context.Context) AccountNetworkRulesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesOutput)
 }
 
@@ -173,7 +173,7 @@ type AccountNetworkRulesOutput struct {
 }
 
 func (AccountNetworkRulesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountNetworkRulesOutput)(nil)).Elem()
+	return reflect.TypeOf((*AccountNetworkRules)(nil))
 }
 
 func (o AccountNetworkRulesOutput) ToAccountNetworkRulesOutput() AccountNetworkRulesOutput {

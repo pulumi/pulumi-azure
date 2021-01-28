@@ -266,15 +266,15 @@ type NatRuleInput interface {
 	ToNatRuleOutputWithContext(ctx context.Context) NatRuleOutput
 }
 
-func (NatRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*NatRule)(nil)).Elem()
+func (*NatRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatRule)(nil))
 }
 
-func (i NatRule) ToNatRuleOutput() NatRuleOutput {
+func (i *NatRule) ToNatRuleOutput() NatRuleOutput {
 	return i.ToNatRuleOutputWithContext(context.Background())
 }
 
-func (i NatRule) ToNatRuleOutputWithContext(ctx context.Context) NatRuleOutput {
+func (i *NatRule) ToNatRuleOutputWithContext(ctx context.Context) NatRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NatRuleOutput)
 }
 
@@ -283,7 +283,7 @@ type NatRuleOutput struct {
 }
 
 func (NatRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NatRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*NatRule)(nil))
 }
 
 func (o NatRuleOutput) ToNatRuleOutput() NatRuleOutput {

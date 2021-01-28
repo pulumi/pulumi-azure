@@ -147,15 +147,15 @@ type BoolVariableInput interface {
 	ToBoolVariableOutputWithContext(ctx context.Context) BoolVariableOutput
 }
 
-func (BoolVariable) ElementType() reflect.Type {
-	return reflect.TypeOf((*BoolVariable)(nil)).Elem()
+func (*BoolVariable) ElementType() reflect.Type {
+	return reflect.TypeOf((*BoolVariable)(nil))
 }
 
-func (i BoolVariable) ToBoolVariableOutput() BoolVariableOutput {
+func (i *BoolVariable) ToBoolVariableOutput() BoolVariableOutput {
 	return i.ToBoolVariableOutputWithContext(context.Background())
 }
 
-func (i BoolVariable) ToBoolVariableOutputWithContext(ctx context.Context) BoolVariableOutput {
+func (i *BoolVariable) ToBoolVariableOutputWithContext(ctx context.Context) BoolVariableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BoolVariableOutput)
 }
 
@@ -164,7 +164,7 @@ type BoolVariableOutput struct {
 }
 
 func (BoolVariableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BoolVariableOutput)(nil)).Elem()
+	return reflect.TypeOf((*BoolVariable)(nil))
 }
 
 func (o BoolVariableOutput) ToBoolVariableOutput() BoolVariableOutput {

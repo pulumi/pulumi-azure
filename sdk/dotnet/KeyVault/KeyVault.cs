@@ -18,6 +18,7 @@ namespace Pulumi.Azure.KeyVault
     ///  $ pulumi import azure:keyvault/keyVault:KeyVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/vaults/vault1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:keyvault/keyVault:KeyVault")]
     public partial class KeyVault : Pulumi.CustomResource
     {
         /// <summary>

@@ -329,15 +329,15 @@ type SparkClusterInput interface {
 	ToSparkClusterOutputWithContext(ctx context.Context) SparkClusterOutput
 }
 
-func (SparkCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*SparkCluster)(nil)).Elem()
+func (*SparkCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkCluster)(nil))
 }
 
-func (i SparkCluster) ToSparkClusterOutput() SparkClusterOutput {
+func (i *SparkCluster) ToSparkClusterOutput() SparkClusterOutput {
 	return i.ToSparkClusterOutputWithContext(context.Background())
 }
 
-func (i SparkCluster) ToSparkClusterOutputWithContext(ctx context.Context) SparkClusterOutput {
+func (i *SparkCluster) ToSparkClusterOutputWithContext(ctx context.Context) SparkClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterOutput)
 }
 
@@ -346,7 +346,7 @@ type SparkClusterOutput struct {
 }
 
 func (SparkClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SparkClusterOutput)(nil)).Elem()
+	return reflect.TypeOf((*SparkCluster)(nil))
 }
 
 func (o SparkClusterOutput) ToSparkClusterOutput() SparkClusterOutput {

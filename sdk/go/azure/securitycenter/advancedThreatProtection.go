@@ -151,15 +151,15 @@ type AdvancedThreatProtectionInput interface {
 	ToAdvancedThreatProtectionOutputWithContext(ctx context.Context) AdvancedThreatProtectionOutput
 }
 
-func (AdvancedThreatProtection) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdvancedThreatProtection)(nil)).Elem()
+func (*AdvancedThreatProtection) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdvancedThreatProtection)(nil))
 }
 
-func (i AdvancedThreatProtection) ToAdvancedThreatProtectionOutput() AdvancedThreatProtectionOutput {
+func (i *AdvancedThreatProtection) ToAdvancedThreatProtectionOutput() AdvancedThreatProtectionOutput {
 	return i.ToAdvancedThreatProtectionOutputWithContext(context.Background())
 }
 
-func (i AdvancedThreatProtection) ToAdvancedThreatProtectionOutputWithContext(ctx context.Context) AdvancedThreatProtectionOutput {
+func (i *AdvancedThreatProtection) ToAdvancedThreatProtectionOutputWithContext(ctx context.Context) AdvancedThreatProtectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AdvancedThreatProtectionOutput)
 }
 
@@ -168,7 +168,7 @@ type AdvancedThreatProtectionOutput struct {
 }
 
 func (AdvancedThreatProtectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdvancedThreatProtectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*AdvancedThreatProtection)(nil))
 }
 
 func (o AdvancedThreatProtectionOutput) ToAdvancedThreatProtectionOutput() AdvancedThreatProtectionOutput {

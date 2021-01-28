@@ -22,6 +22,7 @@ namespace Pulumi.Azure.ApiManagement
     ///  $ pulumi import azure:apimanagement/policy:Policy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/policies/policy
     /// ```
     /// </summary>
+    [AzureResourceType("azure:apimanagement/policy:Policy")]
     public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>

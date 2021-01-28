@@ -209,15 +209,15 @@ type LinkedServiceCosmosDbInput interface {
 	ToLinkedServiceCosmosDbOutputWithContext(ctx context.Context) LinkedServiceCosmosDbOutput
 }
 
-func (LinkedServiceCosmosDb) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceCosmosDb)(nil)).Elem()
+func (*LinkedServiceCosmosDb) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceCosmosDb)(nil))
 }
 
-func (i LinkedServiceCosmosDb) ToLinkedServiceCosmosDbOutput() LinkedServiceCosmosDbOutput {
+func (i *LinkedServiceCosmosDb) ToLinkedServiceCosmosDbOutput() LinkedServiceCosmosDbOutput {
 	return i.ToLinkedServiceCosmosDbOutputWithContext(context.Background())
 }
 
-func (i LinkedServiceCosmosDb) ToLinkedServiceCosmosDbOutputWithContext(ctx context.Context) LinkedServiceCosmosDbOutput {
+func (i *LinkedServiceCosmosDb) ToLinkedServiceCosmosDbOutputWithContext(ctx context.Context) LinkedServiceCosmosDbOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceCosmosDbOutput)
 }
 
@@ -226,7 +226,7 @@ type LinkedServiceCosmosDbOutput struct {
 }
 
 func (LinkedServiceCosmosDbOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceCosmosDbOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinkedServiceCosmosDb)(nil))
 }
 
 func (o LinkedServiceCosmosDbOutput) ToLinkedServiceCosmosDbOutput() LinkedServiceCosmosDbOutput {

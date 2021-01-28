@@ -310,15 +310,15 @@ type MLServicesClusterInput interface {
 	ToMLServicesClusterOutputWithContext(ctx context.Context) MLServicesClusterOutput
 }
 
-func (MLServicesCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLServicesCluster)(nil)).Elem()
+func (*MLServicesCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLServicesCluster)(nil))
 }
 
-func (i MLServicesCluster) ToMLServicesClusterOutput() MLServicesClusterOutput {
+func (i *MLServicesCluster) ToMLServicesClusterOutput() MLServicesClusterOutput {
 	return i.ToMLServicesClusterOutputWithContext(context.Background())
 }
 
-func (i MLServicesCluster) ToMLServicesClusterOutputWithContext(ctx context.Context) MLServicesClusterOutput {
+func (i *MLServicesCluster) ToMLServicesClusterOutputWithContext(ctx context.Context) MLServicesClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterOutput)
 }
 
@@ -327,7 +327,7 @@ type MLServicesClusterOutput struct {
 }
 
 func (MLServicesClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLServicesClusterOutput)(nil)).Elem()
+	return reflect.TypeOf((*MLServicesCluster)(nil))
 }
 
 func (o MLServicesClusterOutput) ToMLServicesClusterOutput() MLServicesClusterOutput {

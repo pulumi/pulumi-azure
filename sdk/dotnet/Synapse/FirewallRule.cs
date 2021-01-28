@@ -66,6 +66,7 @@ namespace Pulumi.Azure.Synapse
     ///  $ pulumi import azure:synapse/firewallRule:FirewallRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.Synapse/workspaces/workspace1/firewallRules/rule1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:synapse/firewallRule:FirewallRule")]
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>

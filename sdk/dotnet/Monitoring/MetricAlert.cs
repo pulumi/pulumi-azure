@@ -98,6 +98,7 @@ namespace Pulumi.Azure.Monitoring
     ///  $ pulumi import azure:monitoring/metricAlert:MetricAlert main /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/microsoft.insights/metricalerts/example-metricalert
     /// ```
     /// </summary>
+    [AzureResourceType("azure:monitoring/metricAlert:MetricAlert")]
     public partial class MetricAlert : Pulumi.CustomResource
     {
         /// <summary>

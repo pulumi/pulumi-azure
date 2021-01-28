@@ -42,6 +42,7 @@ namespace Pulumi.Azure.Compute
     ///  $ pulumi import azure:compute/sshPublicKey:SshPublicKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/SshPublicKeys/mySshPublicKeyName1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:compute/sshPublicKey:SshPublicKey")]
     public partial class SshPublicKey : Pulumi.CustomResource
     {
         /// <summary>

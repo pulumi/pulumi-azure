@@ -259,15 +259,15 @@ type DatabasePrincipalInput interface {
 	ToDatabasePrincipalOutputWithContext(ctx context.Context) DatabasePrincipalOutput
 }
 
-func (DatabasePrincipal) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabasePrincipal)(nil)).Elem()
+func (*DatabasePrincipal) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasePrincipal)(nil))
 }
 
-func (i DatabasePrincipal) ToDatabasePrincipalOutput() DatabasePrincipalOutput {
+func (i *DatabasePrincipal) ToDatabasePrincipalOutput() DatabasePrincipalOutput {
 	return i.ToDatabasePrincipalOutputWithContext(context.Background())
 }
 
-func (i DatabasePrincipal) ToDatabasePrincipalOutputWithContext(ctx context.Context) DatabasePrincipalOutput {
+func (i *DatabasePrincipal) ToDatabasePrincipalOutputWithContext(ctx context.Context) DatabasePrincipalOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalOutput)
 }
 
@@ -276,7 +276,7 @@ type DatabasePrincipalOutput struct {
 }
 
 func (DatabasePrincipalOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabasePrincipalOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatabasePrincipal)(nil))
 }
 
 func (o DatabasePrincipalOutput) ToDatabasePrincipalOutput() DatabasePrincipalOutput {

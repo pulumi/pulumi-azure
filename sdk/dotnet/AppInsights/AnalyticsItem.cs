@@ -54,6 +54,7 @@ namespace Pulumi.Azure.AppInsights
     /// 
     ///  To find the Analytics Item ID you can query the REST API using the [`az rest` CLI command](https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az-rest), e.g. az rest --method GET --uri "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/components/appinsightstest/analyticsItems?api-version=2015-05-01"
     /// </summary>
+    [AzureResourceType("azure:appinsights/analyticsItem:AnalyticsItem")]
     public partial class AnalyticsItem : Pulumi.CustomResource
     {
         /// <summary>

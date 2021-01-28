@@ -176,15 +176,15 @@ type IdentityProviderMicrosoftInput interface {
 	ToIdentityProviderMicrosoftOutputWithContext(ctx context.Context) IdentityProviderMicrosoftOutput
 }
 
-func (IdentityProviderMicrosoft) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProviderMicrosoft)(nil)).Elem()
+func (*IdentityProviderMicrosoft) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProviderMicrosoft)(nil))
 }
 
-func (i IdentityProviderMicrosoft) ToIdentityProviderMicrosoftOutput() IdentityProviderMicrosoftOutput {
+func (i *IdentityProviderMicrosoft) ToIdentityProviderMicrosoftOutput() IdentityProviderMicrosoftOutput {
 	return i.ToIdentityProviderMicrosoftOutputWithContext(context.Background())
 }
 
-func (i IdentityProviderMicrosoft) ToIdentityProviderMicrosoftOutputWithContext(ctx context.Context) IdentityProviderMicrosoftOutput {
+func (i *IdentityProviderMicrosoft) ToIdentityProviderMicrosoftOutputWithContext(ctx context.Context) IdentityProviderMicrosoftOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderMicrosoftOutput)
 }
 
@@ -193,7 +193,7 @@ type IdentityProviderMicrosoftOutput struct {
 }
 
 func (IdentityProviderMicrosoftOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProviderMicrosoftOutput)(nil)).Elem()
+	return reflect.TypeOf((*IdentityProviderMicrosoft)(nil))
 }
 
 func (o IdentityProviderMicrosoftOutput) ToIdentityProviderMicrosoftOutput() IdentityProviderMicrosoftOutput {

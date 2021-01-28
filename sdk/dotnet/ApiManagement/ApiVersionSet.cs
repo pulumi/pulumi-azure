@@ -54,6 +54,7 @@ namespace Pulumi.Azure.ApiManagement
     ///  $ pulumi import azure:apimanagement/apiVersionSet:ApiVersionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apiVersionSets/set1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:apimanagement/apiVersionSet:ApiVersionSet")]
     public partial class ApiVersionSet : Pulumi.CustomResource
     {
         /// <summary>

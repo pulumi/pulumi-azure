@@ -292,15 +292,15 @@ type LinkServiceInput interface {
 	ToLinkServiceOutputWithContext(ctx context.Context) LinkServiceOutput
 }
 
-func (LinkService) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkService)(nil)).Elem()
+func (*LinkService) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkService)(nil))
 }
 
-func (i LinkService) ToLinkServiceOutput() LinkServiceOutput {
+func (i *LinkService) ToLinkServiceOutput() LinkServiceOutput {
 	return i.ToLinkServiceOutputWithContext(context.Background())
 }
 
-func (i LinkService) ToLinkServiceOutputWithContext(ctx context.Context) LinkServiceOutput {
+func (i *LinkService) ToLinkServiceOutputWithContext(ctx context.Context) LinkServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkServiceOutput)
 }
 
@@ -309,7 +309,7 @@ type LinkServiceOutput struct {
 }
 
 func (LinkServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinkService)(nil))
 }
 
 func (o LinkServiceOutput) ToLinkServiceOutput() LinkServiceOutput {

@@ -58,6 +58,7 @@ namespace Pulumi.Azure.EventGrid
     /// ```
     /// </summary>
     [Obsolete(@"azure.eventgrid.getSystemTopic has been deprecated in favor of azure.eventgrid.SystemTopic")]
+    [AzureResourceType("azure:eventgrid/getSystemTopic:getSystemTopic")]
     public partial class GetSystemTopic : Pulumi.CustomResource
     {
         /// <summary>

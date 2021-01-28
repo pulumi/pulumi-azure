@@ -224,15 +224,15 @@ type LinkedServiceAzureBlobStorageInput interface {
 	ToLinkedServiceAzureBlobStorageOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStorageOutput
 }
 
-func (LinkedServiceAzureBlobStorage) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceAzureBlobStorage)(nil)).Elem()
+func (*LinkedServiceAzureBlobStorage) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureBlobStorage)(nil))
 }
 
-func (i LinkedServiceAzureBlobStorage) ToLinkedServiceAzureBlobStorageOutput() LinkedServiceAzureBlobStorageOutput {
+func (i *LinkedServiceAzureBlobStorage) ToLinkedServiceAzureBlobStorageOutput() LinkedServiceAzureBlobStorageOutput {
 	return i.ToLinkedServiceAzureBlobStorageOutputWithContext(context.Background())
 }
 
-func (i LinkedServiceAzureBlobStorage) ToLinkedServiceAzureBlobStorageOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStorageOutput {
+func (i *LinkedServiceAzureBlobStorage) ToLinkedServiceAzureBlobStorageOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStorageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureBlobStorageOutput)
 }
 
@@ -241,7 +241,7 @@ type LinkedServiceAzureBlobStorageOutput struct {
 }
 
 func (LinkedServiceAzureBlobStorageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceAzureBlobStorageOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinkedServiceAzureBlobStorage)(nil))
 }
 
 func (o LinkedServiceAzureBlobStorageOutput) ToLinkedServiceAzureBlobStorageOutput() LinkedServiceAzureBlobStorageOutput {

@@ -310,15 +310,15 @@ type RServerClusterInput interface {
 	ToRServerClusterOutputWithContext(ctx context.Context) RServerClusterOutput
 }
 
-func (RServerCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*RServerCluster)(nil)).Elem()
+func (*RServerCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*RServerCluster)(nil))
 }
 
-func (i RServerCluster) ToRServerClusterOutput() RServerClusterOutput {
+func (i *RServerCluster) ToRServerClusterOutput() RServerClusterOutput {
 	return i.ToRServerClusterOutputWithContext(context.Background())
 }
 
-func (i RServerCluster) ToRServerClusterOutputWithContext(ctx context.Context) RServerClusterOutput {
+func (i *RServerCluster) ToRServerClusterOutputWithContext(ctx context.Context) RServerClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterOutput)
 }
 
@@ -327,7 +327,7 @@ type RServerClusterOutput struct {
 }
 
 func (RServerClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RServerClusterOutput)(nil)).Elem()
+	return reflect.TypeOf((*RServerCluster)(nil))
 }
 
 func (o RServerClusterOutput) ToRServerClusterOutput() RServerClusterOutput {

@@ -44,6 +44,7 @@ namespace Pulumi.Azure.DataFactory
     ///  $ pulumi import azure:datafactory/factory:Factory example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:datafactory/factory:Factory")]
     public partial class Factory : Pulumi.CustomResource
     {
         /// <summary>

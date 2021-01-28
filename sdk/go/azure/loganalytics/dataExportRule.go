@@ -214,15 +214,15 @@ type DataExportRuleInput interface {
 	ToDataExportRuleOutputWithContext(ctx context.Context) DataExportRuleOutput
 }
 
-func (DataExportRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataExportRule)(nil)).Elem()
+func (*DataExportRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataExportRule)(nil))
 }
 
-func (i DataExportRule) ToDataExportRuleOutput() DataExportRuleOutput {
+func (i *DataExportRule) ToDataExportRuleOutput() DataExportRuleOutput {
 	return i.ToDataExportRuleOutputWithContext(context.Background())
 }
 
-func (i DataExportRule) ToDataExportRuleOutputWithContext(ctx context.Context) DataExportRuleOutput {
+func (i *DataExportRule) ToDataExportRuleOutputWithContext(ctx context.Context) DataExportRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataExportRuleOutput)
 }
 
@@ -231,7 +231,7 @@ type DataExportRuleOutput struct {
 }
 
 func (DataExportRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataExportRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*DataExportRule)(nil))
 }
 
 func (o DataExportRuleOutput) ToDataExportRuleOutput() DataExportRuleOutput {

@@ -174,15 +174,15 @@ type ShareDirectoryInput interface {
 	ToShareDirectoryOutputWithContext(ctx context.Context) ShareDirectoryOutput
 }
 
-func (ShareDirectory) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShareDirectory)(nil)).Elem()
+func (*ShareDirectory) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareDirectory)(nil))
 }
 
-func (i ShareDirectory) ToShareDirectoryOutput() ShareDirectoryOutput {
+func (i *ShareDirectory) ToShareDirectoryOutput() ShareDirectoryOutput {
 	return i.ToShareDirectoryOutputWithContext(context.Background())
 }
 
-func (i ShareDirectory) ToShareDirectoryOutputWithContext(ctx context.Context) ShareDirectoryOutput {
+func (i *ShareDirectory) ToShareDirectoryOutputWithContext(ctx context.Context) ShareDirectoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ShareDirectoryOutput)
 }
 
@@ -191,7 +191,7 @@ type ShareDirectoryOutput struct {
 }
 
 func (ShareDirectoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShareDirectoryOutput)(nil)).Elem()
+	return reflect.TypeOf((*ShareDirectory)(nil))
 }
 
 func (o ShareDirectoryOutput) ToShareDirectoryOutput() ShareDirectoryOutput {

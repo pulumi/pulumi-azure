@@ -247,15 +247,15 @@ type DatasetMysqlInput interface {
 	ToDatasetMysqlOutputWithContext(ctx context.Context) DatasetMysqlOutput
 }
 
-func (DatasetMysql) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetMysql)(nil)).Elem()
+func (*DatasetMysql) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetMysql)(nil))
 }
 
-func (i DatasetMysql) ToDatasetMysqlOutput() DatasetMysqlOutput {
+func (i *DatasetMysql) ToDatasetMysqlOutput() DatasetMysqlOutput {
 	return i.ToDatasetMysqlOutputWithContext(context.Background())
 }
 
-func (i DatasetMysql) ToDatasetMysqlOutputWithContext(ctx context.Context) DatasetMysqlOutput {
+func (i *DatasetMysql) ToDatasetMysqlOutputWithContext(ctx context.Context) DatasetMysqlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetMysqlOutput)
 }
 
@@ -264,7 +264,7 @@ type DatasetMysqlOutput struct {
 }
 
 func (DatasetMysqlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetMysqlOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatasetMysql)(nil))
 }
 
 func (o DatasetMysqlOutput) ToDatasetMysqlOutput() DatasetMysqlOutput {

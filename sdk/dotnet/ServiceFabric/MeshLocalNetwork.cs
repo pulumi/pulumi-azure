@@ -45,6 +45,7 @@ namespace Pulumi.Azure.ServiceFabric
     ///  $ pulumi import azure:servicefabric/meshLocalNetwork:MeshLocalNetwork network1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceFabricMesh/networks/network1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:servicefabric/meshLocalNetwork:MeshLocalNetwork")]
     public partial class MeshLocalNetwork : Pulumi.CustomResource
     {
         /// <summary>

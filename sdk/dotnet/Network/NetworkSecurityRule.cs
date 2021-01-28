@@ -61,6 +61,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/networkSecurityRule:NetworkSecurityRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkSecurityGroups/mySecurityGroup/securityRules/rule1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/networkSecurityRule:NetworkSecurityRule")]
     public partial class NetworkSecurityRule : Pulumi.CustomResource
     {
         /// <summary>

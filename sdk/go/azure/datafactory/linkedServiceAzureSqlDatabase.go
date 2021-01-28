@@ -221,15 +221,15 @@ type LinkedServiceAzureSqlDatabaseInput interface {
 	ToLinkedServiceAzureSqlDatabaseOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseOutput
 }
 
-func (LinkedServiceAzureSqlDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceAzureSqlDatabase)(nil)).Elem()
+func (*LinkedServiceAzureSqlDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureSqlDatabase)(nil))
 }
 
-func (i LinkedServiceAzureSqlDatabase) ToLinkedServiceAzureSqlDatabaseOutput() LinkedServiceAzureSqlDatabaseOutput {
+func (i *LinkedServiceAzureSqlDatabase) ToLinkedServiceAzureSqlDatabaseOutput() LinkedServiceAzureSqlDatabaseOutput {
 	return i.ToLinkedServiceAzureSqlDatabaseOutputWithContext(context.Background())
 }
 
-func (i LinkedServiceAzureSqlDatabase) ToLinkedServiceAzureSqlDatabaseOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseOutput {
+func (i *LinkedServiceAzureSqlDatabase) ToLinkedServiceAzureSqlDatabaseOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureSqlDatabaseOutput)
 }
 
@@ -238,7 +238,7 @@ type LinkedServiceAzureSqlDatabaseOutput struct {
 }
 
 func (LinkedServiceAzureSqlDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceAzureSqlDatabaseOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinkedServiceAzureSqlDatabase)(nil))
 }
 
 func (o LinkedServiceAzureSqlDatabaseOutput) ToLinkedServiceAzureSqlDatabaseOutput() LinkedServiceAzureSqlDatabaseOutput {

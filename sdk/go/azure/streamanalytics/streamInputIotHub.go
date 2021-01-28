@@ -258,15 +258,15 @@ type StreamInputIotHubInput interface {
 	ToStreamInputIotHubOutputWithContext(ctx context.Context) StreamInputIotHubOutput
 }
 
-func (StreamInputIotHub) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamInputIotHub)(nil)).Elem()
+func (*StreamInputIotHub) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamInputIotHub)(nil))
 }
 
-func (i StreamInputIotHub) ToStreamInputIotHubOutput() StreamInputIotHubOutput {
+func (i *StreamInputIotHub) ToStreamInputIotHubOutput() StreamInputIotHubOutput {
 	return i.ToStreamInputIotHubOutputWithContext(context.Background())
 }
 
-func (i StreamInputIotHub) ToStreamInputIotHubOutputWithContext(ctx context.Context) StreamInputIotHubOutput {
+func (i *StreamInputIotHub) ToStreamInputIotHubOutputWithContext(ctx context.Context) StreamInputIotHubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputIotHubOutput)
 }
 
@@ -275,7 +275,7 @@ type StreamInputIotHubOutput struct {
 }
 
 func (StreamInputIotHubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamInputIotHubOutput)(nil)).Elem()
+	return reflect.TypeOf((*StreamInputIotHub)(nil))
 }
 
 func (o StreamInputIotHubOutput) ToStreamInputIotHubOutput() StreamInputIotHubOutput {

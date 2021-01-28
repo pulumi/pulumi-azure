@@ -71,6 +71,7 @@ namespace Pulumi.Azure.Redis
     ///  $ pulumi import azure:redis/firewallRule:FirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/Redis/cache1/firewallRules/rule1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:redis/firewallRule:FirewallRule")]
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>

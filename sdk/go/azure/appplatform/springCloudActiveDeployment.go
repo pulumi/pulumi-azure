@@ -169,15 +169,15 @@ type SpringCloudActiveDeploymentInput interface {
 	ToSpringCloudActiveDeploymentOutputWithContext(ctx context.Context) SpringCloudActiveDeploymentOutput
 }
 
-func (SpringCloudActiveDeployment) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpringCloudActiveDeployment)(nil)).Elem()
+func (*SpringCloudActiveDeployment) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudActiveDeployment)(nil))
 }
 
-func (i SpringCloudActiveDeployment) ToSpringCloudActiveDeploymentOutput() SpringCloudActiveDeploymentOutput {
+func (i *SpringCloudActiveDeployment) ToSpringCloudActiveDeploymentOutput() SpringCloudActiveDeploymentOutput {
 	return i.ToSpringCloudActiveDeploymentOutputWithContext(context.Background())
 }
 
-func (i SpringCloudActiveDeployment) ToSpringCloudActiveDeploymentOutputWithContext(ctx context.Context) SpringCloudActiveDeploymentOutput {
+func (i *SpringCloudActiveDeployment) ToSpringCloudActiveDeploymentOutputWithContext(ctx context.Context) SpringCloudActiveDeploymentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudActiveDeploymentOutput)
 }
 
@@ -186,7 +186,7 @@ type SpringCloudActiveDeploymentOutput struct {
 }
 
 func (SpringCloudActiveDeploymentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpringCloudActiveDeploymentOutput)(nil)).Elem()
+	return reflect.TypeOf((*SpringCloudActiveDeployment)(nil))
 }
 
 func (o SpringCloudActiveDeploymentOutput) ToSpringCloudActiveDeploymentOutput() SpringCloudActiveDeploymentOutput {

@@ -419,15 +419,15 @@ type TrafficManagerEndpointInput interface {
 	ToTrafficManagerEndpointOutputWithContext(ctx context.Context) TrafficManagerEndpointOutput
 }
 
-func (TrafficManagerEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrafficManagerEndpoint)(nil)).Elem()
+func (*TrafficManagerEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficManagerEndpoint)(nil))
 }
 
-func (i TrafficManagerEndpoint) ToTrafficManagerEndpointOutput() TrafficManagerEndpointOutput {
+func (i *TrafficManagerEndpoint) ToTrafficManagerEndpointOutput() TrafficManagerEndpointOutput {
 	return i.ToTrafficManagerEndpointOutputWithContext(context.Background())
 }
 
-func (i TrafficManagerEndpoint) ToTrafficManagerEndpointOutputWithContext(ctx context.Context) TrafficManagerEndpointOutput {
+func (i *TrafficManagerEndpoint) ToTrafficManagerEndpointOutputWithContext(ctx context.Context) TrafficManagerEndpointOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerEndpointOutput)
 }
 
@@ -436,7 +436,7 @@ type TrafficManagerEndpointOutput struct {
 }
 
 func (TrafficManagerEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrafficManagerEndpointOutput)(nil)).Elem()
+	return reflect.TypeOf((*TrafficManagerEndpoint)(nil))
 }
 
 func (o TrafficManagerEndpointOutput) ToTrafficManagerEndpointOutput() TrafficManagerEndpointOutput {

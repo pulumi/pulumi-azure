@@ -63,6 +63,7 @@ namespace Pulumi.Azure.Compute
     ///  $ pulumi import azure:compute/sharedImageVersion:SharedImageVersion version /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/galleries/gallery1/images/image1/versions/1.2.3
     /// ```
     /// </summary>
+    [AzureResourceType("azure:compute/sharedImageVersion:SharedImageVersion")]
     public partial class SharedImageVersion : Pulumi.CustomResource
     {
         /// <summary>

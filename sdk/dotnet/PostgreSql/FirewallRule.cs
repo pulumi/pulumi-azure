@@ -80,6 +80,7 @@ namespace Pulumi.Azure.PostgreSql
     ///  $ pulumi import azure:postgresql/firewallRule:FirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/servers/server1/firewallRules/rule1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:postgresql/firewallRule:FirewallRule")]
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>

@@ -22,6 +22,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/networkConnectionMonitor:NetworkConnectionMonitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/networkWatchers/watcher1/connectionMonitors/connectionMonitor1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/networkConnectionMonitor:NetworkConnectionMonitor")]
     public partial class NetworkConnectionMonitor : Pulumi.CustomResource
     {
         [Output("autoStart")]

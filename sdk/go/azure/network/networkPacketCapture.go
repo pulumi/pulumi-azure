@@ -183,15 +183,15 @@ type NetworkPacketCaptureInput interface {
 	ToNetworkPacketCaptureOutputWithContext(ctx context.Context) NetworkPacketCaptureOutput
 }
 
-func (NetworkPacketCapture) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkPacketCapture)(nil)).Elem()
+func (*NetworkPacketCapture) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkPacketCapture)(nil))
 }
 
-func (i NetworkPacketCapture) ToNetworkPacketCaptureOutput() NetworkPacketCaptureOutput {
+func (i *NetworkPacketCapture) ToNetworkPacketCaptureOutput() NetworkPacketCaptureOutput {
 	return i.ToNetworkPacketCaptureOutputWithContext(context.Background())
 }
 
-func (i NetworkPacketCapture) ToNetworkPacketCaptureOutputWithContext(ctx context.Context) NetworkPacketCaptureOutput {
+func (i *NetworkPacketCapture) ToNetworkPacketCaptureOutputWithContext(ctx context.Context) NetworkPacketCaptureOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCaptureOutput)
 }
 
@@ -200,7 +200,7 @@ type NetworkPacketCaptureOutput struct {
 }
 
 func (NetworkPacketCaptureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkPacketCaptureOutput)(nil)).Elem()
+	return reflect.TypeOf((*NetworkPacketCapture)(nil))
 }
 
 func (o NetworkPacketCaptureOutput) ToNetworkPacketCaptureOutput() NetworkPacketCaptureOutput {

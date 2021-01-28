@@ -211,15 +211,15 @@ type ManagedPrivateEndpointInput interface {
 	ToManagedPrivateEndpointOutputWithContext(ctx context.Context) ManagedPrivateEndpointOutput
 }
 
-func (ManagedPrivateEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedPrivateEndpoint)(nil)).Elem()
+func (*ManagedPrivateEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedPrivateEndpoint)(nil))
 }
 
-func (i ManagedPrivateEndpoint) ToManagedPrivateEndpointOutput() ManagedPrivateEndpointOutput {
+func (i *ManagedPrivateEndpoint) ToManagedPrivateEndpointOutput() ManagedPrivateEndpointOutput {
 	return i.ToManagedPrivateEndpointOutputWithContext(context.Background())
 }
 
-func (i ManagedPrivateEndpoint) ToManagedPrivateEndpointOutputWithContext(ctx context.Context) ManagedPrivateEndpointOutput {
+func (i *ManagedPrivateEndpoint) ToManagedPrivateEndpointOutputWithContext(ctx context.Context) ManagedPrivateEndpointOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrivateEndpointOutput)
 }
 
@@ -228,7 +228,7 @@ type ManagedPrivateEndpointOutput struct {
 }
 
 func (ManagedPrivateEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedPrivateEndpointOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagedPrivateEndpoint)(nil))
 }
 
 func (o ManagedPrivateEndpointOutput) ToManagedPrivateEndpointOutput() ManagedPrivateEndpointOutput {

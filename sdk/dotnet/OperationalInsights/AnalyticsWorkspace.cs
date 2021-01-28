@@ -46,6 +46,7 @@ namespace Pulumi.Azure.OperationalInsights
     ///  $ pulumi import azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace")]
     public partial class AnalyticsWorkspace : Pulumi.CustomResource
     {
         /// <summary>

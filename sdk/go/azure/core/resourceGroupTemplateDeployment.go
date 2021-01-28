@@ -195,15 +195,15 @@ type ResourceGroupTemplateDeploymentInput interface {
 	ToResourceGroupTemplateDeploymentOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentOutput
 }
 
-func (ResourceGroupTemplateDeployment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceGroupTemplateDeployment)(nil)).Elem()
+func (*ResourceGroupTemplateDeployment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupTemplateDeployment)(nil))
 }
 
-func (i ResourceGroupTemplateDeployment) ToResourceGroupTemplateDeploymentOutput() ResourceGroupTemplateDeploymentOutput {
+func (i *ResourceGroupTemplateDeployment) ToResourceGroupTemplateDeploymentOutput() ResourceGroupTemplateDeploymentOutput {
 	return i.ToResourceGroupTemplateDeploymentOutputWithContext(context.Background())
 }
 
-func (i ResourceGroupTemplateDeployment) ToResourceGroupTemplateDeploymentOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentOutput {
+func (i *ResourceGroupTemplateDeployment) ToResourceGroupTemplateDeploymentOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupTemplateDeploymentOutput)
 }
 
@@ -212,7 +212,7 @@ type ResourceGroupTemplateDeploymentOutput struct {
 }
 
 func (ResourceGroupTemplateDeploymentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceGroupTemplateDeploymentOutput)(nil)).Elem()
+	return reflect.TypeOf((*ResourceGroupTemplateDeployment)(nil))
 }
 
 func (o ResourceGroupTemplateDeploymentOutput) ToResourceGroupTemplateDeploymentOutput() ResourceGroupTemplateDeploymentOutput {

@@ -56,6 +56,7 @@ namespace Pulumi.Azure.DataFactory
     ///  $ pulumi import azure:datafactory/linkedServiceSftp:LinkedServiceSftp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:datafactory/linkedServiceSftp:LinkedServiceSftp")]
     public partial class LinkedServiceSftp : Pulumi.CustomResource
     {
         /// <summary>

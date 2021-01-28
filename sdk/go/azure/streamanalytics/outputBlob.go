@@ -274,15 +274,15 @@ type OutputBlobInput interface {
 	ToOutputBlobOutputWithContext(ctx context.Context) OutputBlobOutput
 }
 
-func (OutputBlob) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputBlob)(nil)).Elem()
+func (*OutputBlob) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputBlob)(nil))
 }
 
-func (i OutputBlob) ToOutputBlobOutput() OutputBlobOutput {
+func (i *OutputBlob) ToOutputBlobOutput() OutputBlobOutput {
 	return i.ToOutputBlobOutputWithContext(context.Background())
 }
 
-func (i OutputBlob) ToOutputBlobOutputWithContext(ctx context.Context) OutputBlobOutput {
+func (i *OutputBlob) ToOutputBlobOutputWithContext(ctx context.Context) OutputBlobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputBlobOutput)
 }
 
@@ -291,7 +291,7 @@ type OutputBlobOutput struct {
 }
 
 func (OutputBlobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputBlobOutput)(nil)).Elem()
+	return reflect.TypeOf((*OutputBlob)(nil))
 }
 
 func (o OutputBlobOutput) ToOutputBlobOutput() OutputBlobOutput {

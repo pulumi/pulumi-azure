@@ -60,6 +60,7 @@ namespace Pulumi.Azure.ServiceFabric
     ///  $ pulumi import azure:servicefabric/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceFabric/clusters/cluster1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:servicefabric/cluster:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

@@ -62,6 +62,7 @@ namespace Pulumi.Azure.Backup
     ///  $ pulumi import azure:backup/policyFileShare:PolicyFileShare policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupPolicies/policy1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:backup/policyFileShare:PolicyFileShare")]
     public partial class PolicyFileShare : Pulumi.CustomResource
     {
         /// <summary>

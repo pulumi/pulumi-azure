@@ -247,15 +247,15 @@ type AlertRuleMsSecurityIncidentInput interface {
 	ToAlertRuleMsSecurityIncidentOutputWithContext(ctx context.Context) AlertRuleMsSecurityIncidentOutput
 }
 
-func (AlertRuleMsSecurityIncident) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleMsSecurityIncident)(nil)).Elem()
+func (*AlertRuleMsSecurityIncident) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleMsSecurityIncident)(nil))
 }
 
-func (i AlertRuleMsSecurityIncident) ToAlertRuleMsSecurityIncidentOutput() AlertRuleMsSecurityIncidentOutput {
+func (i *AlertRuleMsSecurityIncident) ToAlertRuleMsSecurityIncidentOutput() AlertRuleMsSecurityIncidentOutput {
 	return i.ToAlertRuleMsSecurityIncidentOutputWithContext(context.Background())
 }
 
-func (i AlertRuleMsSecurityIncident) ToAlertRuleMsSecurityIncidentOutputWithContext(ctx context.Context) AlertRuleMsSecurityIncidentOutput {
+func (i *AlertRuleMsSecurityIncident) ToAlertRuleMsSecurityIncidentOutputWithContext(ctx context.Context) AlertRuleMsSecurityIncidentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleMsSecurityIncidentOutput)
 }
 
@@ -264,7 +264,7 @@ type AlertRuleMsSecurityIncidentOutput struct {
 }
 
 func (AlertRuleMsSecurityIncidentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleMsSecurityIncidentOutput)(nil)).Elem()
+	return reflect.TypeOf((*AlertRuleMsSecurityIncident)(nil))
 }
 
 func (o AlertRuleMsSecurityIncidentOutput) ToAlertRuleMsSecurityIncidentOutput() AlertRuleMsSecurityIncidentOutput {

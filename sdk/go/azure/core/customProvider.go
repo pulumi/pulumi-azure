@@ -190,15 +190,15 @@ type CustomProviderInput interface {
 	ToCustomProviderOutputWithContext(ctx context.Context) CustomProviderOutput
 }
 
-func (CustomProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomProvider)(nil)).Elem()
+func (*CustomProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomProvider)(nil))
 }
 
-func (i CustomProvider) ToCustomProviderOutput() CustomProviderOutput {
+func (i *CustomProvider) ToCustomProviderOutput() CustomProviderOutput {
 	return i.ToCustomProviderOutputWithContext(context.Background())
 }
 
-func (i CustomProvider) ToCustomProviderOutputWithContext(ctx context.Context) CustomProviderOutput {
+func (i *CustomProvider) ToCustomProviderOutputWithContext(ctx context.Context) CustomProviderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderOutput)
 }
 
@@ -207,7 +207,7 @@ type CustomProviderOutput struct {
 }
 
 func (CustomProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomProviderOutput)(nil)).Elem()
+	return reflect.TypeOf((*CustomProvider)(nil))
 }
 
 func (o CustomProviderOutput) ToCustomProviderOutput() CustomProviderOutput {

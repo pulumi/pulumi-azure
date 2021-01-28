@@ -186,15 +186,15 @@ type AnalyticsAccountInput interface {
 	ToAnalyticsAccountOutputWithContext(ctx context.Context) AnalyticsAccountOutput
 }
 
-func (AnalyticsAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsAccount)(nil)).Elem()
+func (*AnalyticsAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsAccount)(nil))
 }
 
-func (i AnalyticsAccount) ToAnalyticsAccountOutput() AnalyticsAccountOutput {
+func (i *AnalyticsAccount) ToAnalyticsAccountOutput() AnalyticsAccountOutput {
 	return i.ToAnalyticsAccountOutputWithContext(context.Background())
 }
 
-func (i AnalyticsAccount) ToAnalyticsAccountOutputWithContext(ctx context.Context) AnalyticsAccountOutput {
+func (i *AnalyticsAccount) ToAnalyticsAccountOutputWithContext(ctx context.Context) AnalyticsAccountOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsAccountOutput)
 }
 
@@ -203,7 +203,7 @@ type AnalyticsAccountOutput struct {
 }
 
 func (AnalyticsAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsAccountOutput)(nil)).Elem()
+	return reflect.TypeOf((*AnalyticsAccount)(nil))
 }
 
 func (o AnalyticsAccountOutput) ToAnalyticsAccountOutput() AnalyticsAccountOutput {

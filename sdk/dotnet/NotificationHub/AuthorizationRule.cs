@@ -61,6 +61,7 @@ namespace Pulumi.Azure.NotificationHub
     ///  $ pulumi import azure:notificationhub/authorizationRule:AuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}/notificationHubs/hub1/AuthorizationRules/rule1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:notificationhub/authorizationRule:AuthorizationRule")]
     public partial class AuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>

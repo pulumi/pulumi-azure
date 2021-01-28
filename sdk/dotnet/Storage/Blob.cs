@@ -58,6 +58,7 @@ namespace Pulumi.Azure.Storage
     ///  $ pulumi import azure:storage/blob:Blob blob1 https://example.blob.core.windows.net/container/blob.vhd
     /// ```
     /// </summary>
+    [AzureResourceType("azure:storage/blob:Blob")]
     public partial class Blob : Pulumi.CustomResource
     {
         /// <summary>

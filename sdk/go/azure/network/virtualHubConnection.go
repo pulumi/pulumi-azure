@@ -214,15 +214,15 @@ type VirtualHubConnectionInput interface {
 	ToVirtualHubConnectionOutputWithContext(ctx context.Context) VirtualHubConnectionOutput
 }
 
-func (VirtualHubConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubConnection)(nil)).Elem()
+func (*VirtualHubConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubConnection)(nil))
 }
 
-func (i VirtualHubConnection) ToVirtualHubConnectionOutput() VirtualHubConnectionOutput {
+func (i *VirtualHubConnection) ToVirtualHubConnectionOutput() VirtualHubConnectionOutput {
 	return i.ToVirtualHubConnectionOutputWithContext(context.Background())
 }
 
-func (i VirtualHubConnection) ToVirtualHubConnectionOutputWithContext(ctx context.Context) VirtualHubConnectionOutput {
+func (i *VirtualHubConnection) ToVirtualHubConnectionOutputWithContext(ctx context.Context) VirtualHubConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubConnectionOutput)
 }
 
@@ -231,7 +231,7 @@ type VirtualHubConnectionOutput struct {
 }
 
 func (VirtualHubConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualHubConnection)(nil))
 }
 
 func (o VirtualHubConnectionOutput) ToVirtualHubConnectionOutput() VirtualHubConnectionOutput {

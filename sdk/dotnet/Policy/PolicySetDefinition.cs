@@ -72,6 +72,7 @@ namespace Pulumi.Azure.Policy
     ///  $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /providers/Microsoft.Management/managementGroups/my-mgmt-group-id/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
     /// ```
     /// </summary>
+    [AzureResourceType("azure:policy/policySetDefinition:PolicySetDefinition")]
     public partial class PolicySetDefinition : Pulumi.CustomResource
     {
         /// <summary>

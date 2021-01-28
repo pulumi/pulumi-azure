@@ -53,6 +53,7 @@ namespace Pulumi.Azure.LogAnalytics
     ///  $ pulumi import azure:loganalytics/savedSearch:SavedSearch search1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/savedSearches/search1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:loganalytics/savedSearch:SavedSearch")]
     public partial class SavedSearch : Pulumi.CustomResource
     {
         /// <summary>

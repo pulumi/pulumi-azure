@@ -217,15 +217,15 @@ type VirtualHubIpInput interface {
 	ToVirtualHubIpOutputWithContext(ctx context.Context) VirtualHubIpOutput
 }
 
-func (VirtualHubIp) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubIp)(nil)).Elem()
+func (*VirtualHubIp) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubIp)(nil))
 }
 
-func (i VirtualHubIp) ToVirtualHubIpOutput() VirtualHubIpOutput {
+func (i *VirtualHubIp) ToVirtualHubIpOutput() VirtualHubIpOutput {
 	return i.ToVirtualHubIpOutputWithContext(context.Background())
 }
 
-func (i VirtualHubIp) ToVirtualHubIpOutputWithContext(ctx context.Context) VirtualHubIpOutput {
+func (i *VirtualHubIp) ToVirtualHubIpOutputWithContext(ctx context.Context) VirtualHubIpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubIpOutput)
 }
 
@@ -234,7 +234,7 @@ type VirtualHubIpOutput struct {
 }
 
 func (VirtualHubIpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubIpOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualHubIp)(nil))
 }
 
 func (o VirtualHubIpOutput) ToVirtualHubIpOutput() VirtualHubIpOutput {

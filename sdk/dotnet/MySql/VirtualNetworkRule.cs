@@ -82,6 +82,7 @@ namespace Pulumi.Azure.MySql
     ///  $ pulumi import azure:mysql/virtualNetworkRule:VirtualNetworkRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver/virtualNetworkRules/vnetrulename
     /// ```
     /// </summary>
+    [AzureResourceType("azure:mysql/virtualNetworkRule:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>

@@ -147,15 +147,15 @@ type StringVariableInput interface {
 	ToStringVariableOutputWithContext(ctx context.Context) StringVariableOutput
 }
 
-func (StringVariable) ElementType() reflect.Type {
-	return reflect.TypeOf((*StringVariable)(nil)).Elem()
+func (*StringVariable) ElementType() reflect.Type {
+	return reflect.TypeOf((*StringVariable)(nil))
 }
 
-func (i StringVariable) ToStringVariableOutput() StringVariableOutput {
+func (i *StringVariable) ToStringVariableOutput() StringVariableOutput {
 	return i.ToStringVariableOutputWithContext(context.Background())
 }
 
-func (i StringVariable) ToStringVariableOutputWithContext(ctx context.Context) StringVariableOutput {
+func (i *StringVariable) ToStringVariableOutputWithContext(ctx context.Context) StringVariableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StringVariableOutput)
 }
 
@@ -164,7 +164,7 @@ type StringVariableOutput struct {
 }
 
 func (StringVariableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StringVariableOutput)(nil)).Elem()
+	return reflect.TypeOf((*StringVariable)(nil))
 }
 
 func (o StringVariableOutput) ToStringVariableOutput() StringVariableOutput {

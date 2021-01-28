@@ -213,15 +213,15 @@ type DataSourceWindowsPerformanceCounterInput interface {
 	ToDataSourceWindowsPerformanceCounterOutputWithContext(ctx context.Context) DataSourceWindowsPerformanceCounterOutput
 }
 
-func (DataSourceWindowsPerformanceCounter) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceWindowsPerformanceCounter)(nil)).Elem()
+func (*DataSourceWindowsPerformanceCounter) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceWindowsPerformanceCounter)(nil))
 }
 
-func (i DataSourceWindowsPerformanceCounter) ToDataSourceWindowsPerformanceCounterOutput() DataSourceWindowsPerformanceCounterOutput {
+func (i *DataSourceWindowsPerformanceCounter) ToDataSourceWindowsPerformanceCounterOutput() DataSourceWindowsPerformanceCounterOutput {
 	return i.ToDataSourceWindowsPerformanceCounterOutputWithContext(context.Background())
 }
 
-func (i DataSourceWindowsPerformanceCounter) ToDataSourceWindowsPerformanceCounterOutputWithContext(ctx context.Context) DataSourceWindowsPerformanceCounterOutput {
+func (i *DataSourceWindowsPerformanceCounter) ToDataSourceWindowsPerformanceCounterOutputWithContext(ctx context.Context) DataSourceWindowsPerformanceCounterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWindowsPerformanceCounterOutput)
 }
 
@@ -230,7 +230,7 @@ type DataSourceWindowsPerformanceCounterOutput struct {
 }
 
 func (DataSourceWindowsPerformanceCounterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceWindowsPerformanceCounterOutput)(nil)).Elem()
+	return reflect.TypeOf((*DataSourceWindowsPerformanceCounter)(nil))
 }
 
 func (o DataSourceWindowsPerformanceCounterOutput) ToDataSourceWindowsPerformanceCounterOutput() DataSourceWindowsPerformanceCounterOutput {

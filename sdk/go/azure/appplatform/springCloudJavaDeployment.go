@@ -220,15 +220,15 @@ type SpringCloudJavaDeploymentInput interface {
 	ToSpringCloudJavaDeploymentOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentOutput
 }
 
-func (SpringCloudJavaDeployment) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpringCloudJavaDeployment)(nil)).Elem()
+func (*SpringCloudJavaDeployment) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudJavaDeployment)(nil))
 }
 
-func (i SpringCloudJavaDeployment) ToSpringCloudJavaDeploymentOutput() SpringCloudJavaDeploymentOutput {
+func (i *SpringCloudJavaDeployment) ToSpringCloudJavaDeploymentOutput() SpringCloudJavaDeploymentOutput {
 	return i.ToSpringCloudJavaDeploymentOutputWithContext(context.Background())
 }
 
-func (i SpringCloudJavaDeployment) ToSpringCloudJavaDeploymentOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentOutput {
+func (i *SpringCloudJavaDeployment) ToSpringCloudJavaDeploymentOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudJavaDeploymentOutput)
 }
 
@@ -237,7 +237,7 @@ type SpringCloudJavaDeploymentOutput struct {
 }
 
 func (SpringCloudJavaDeploymentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpringCloudJavaDeploymentOutput)(nil)).Elem()
+	return reflect.TypeOf((*SpringCloudJavaDeployment)(nil))
 }
 
 func (o SpringCloudJavaDeploymentOutput) ToSpringCloudJavaDeploymentOutput() SpringCloudJavaDeploymentOutput {

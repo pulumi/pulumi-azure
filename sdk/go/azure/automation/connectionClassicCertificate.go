@@ -166,15 +166,15 @@ type ConnectionClassicCertificateInput interface {
 	ToConnectionClassicCertificateOutputWithContext(ctx context.Context) ConnectionClassicCertificateOutput
 }
 
-func (ConnectionClassicCertificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionClassicCertificate)(nil)).Elem()
+func (*ConnectionClassicCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionClassicCertificate)(nil))
 }
 
-func (i ConnectionClassicCertificate) ToConnectionClassicCertificateOutput() ConnectionClassicCertificateOutput {
+func (i *ConnectionClassicCertificate) ToConnectionClassicCertificateOutput() ConnectionClassicCertificateOutput {
 	return i.ToConnectionClassicCertificateOutputWithContext(context.Background())
 }
 
-func (i ConnectionClassicCertificate) ToConnectionClassicCertificateOutputWithContext(ctx context.Context) ConnectionClassicCertificateOutput {
+func (i *ConnectionClassicCertificate) ToConnectionClassicCertificateOutputWithContext(ctx context.Context) ConnectionClassicCertificateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionClassicCertificateOutput)
 }
 
@@ -183,7 +183,7 @@ type ConnectionClassicCertificateOutput struct {
 }
 
 func (ConnectionClassicCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionClassicCertificateOutput)(nil)).Elem()
+	return reflect.TypeOf((*ConnectionClassicCertificate)(nil))
 }
 
 func (o ConnectionClassicCertificateOutput) ToConnectionClassicCertificateOutput() ConnectionClassicCertificateOutput {

@@ -65,6 +65,7 @@ namespace Pulumi.Azure.Sql
     ///  $ pulumi import azure:sql/sqlServer:SqlServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver
     /// ```
     /// </summary>
+    [AzureResourceType("azure:sql/sqlServer:SqlServer")]
     public partial class SqlServer : Pulumi.CustomResource
     {
         /// <summary>

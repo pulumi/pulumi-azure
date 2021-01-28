@@ -169,15 +169,15 @@ type GremlinDatabaseInput interface {
 	ToGremlinDatabaseOutputWithContext(ctx context.Context) GremlinDatabaseOutput
 }
 
-func (GremlinDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*GremlinDatabase)(nil)).Elem()
+func (*GremlinDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinDatabase)(nil))
 }
 
-func (i GremlinDatabase) ToGremlinDatabaseOutput() GremlinDatabaseOutput {
+func (i *GremlinDatabase) ToGremlinDatabaseOutput() GremlinDatabaseOutput {
 	return i.ToGremlinDatabaseOutputWithContext(context.Background())
 }
 
-func (i GremlinDatabase) ToGremlinDatabaseOutputWithContext(ctx context.Context) GremlinDatabaseOutput {
+func (i *GremlinDatabase) ToGremlinDatabaseOutputWithContext(ctx context.Context) GremlinDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GremlinDatabaseOutput)
 }
 
@@ -186,7 +186,7 @@ type GremlinDatabaseOutput struct {
 }
 
 func (GremlinDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GremlinDatabaseOutput)(nil)).Elem()
+	return reflect.TypeOf((*GremlinDatabase)(nil))
 }
 
 func (o GremlinDatabaseOutput) ToGremlinDatabaseOutput() GremlinDatabaseOutput {

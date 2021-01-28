@@ -107,6 +107,7 @@ namespace Pulumi.Azure.Compute
     ///  $ pulumi import azure:compute/windowsVirtualMachine:WindowsVirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/Microsoft.Compute/virtualMachines/machine1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:compute/windowsVirtualMachine:WindowsVirtualMachine")]
     public partial class WindowsVirtualMachine : Pulumi.CustomResource
     {
         /// <summary>

@@ -84,6 +84,7 @@ namespace Pulumi.Azure.Iot
     ///  $ pulumi import azure:iot/endpointEventhub:EndpointEventhub eventhub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Endpoints/eventhub_endpoint1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:iot/endpointEventhub:EndpointEventhub")]
     public partial class EndpointEventhub : Pulumi.CustomResource
     {
         /// <summary>

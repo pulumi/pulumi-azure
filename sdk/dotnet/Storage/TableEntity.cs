@@ -20,6 +20,7 @@ namespace Pulumi.Azure.Storage
     ///  $ pulumi import azure:storage/tableEntity:TableEntity entity1 https://example.table.core.windows.net/table1(PartitionKey='samplepartition',RowKey='samplerow')
     /// ```
     /// </summary>
+    [AzureResourceType("azure:storage/tableEntity:TableEntity")]
     public partial class TableEntity : Pulumi.CustomResource
     {
         /// <summary>

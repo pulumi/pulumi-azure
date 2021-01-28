@@ -159,15 +159,15 @@ type ApiSchemaInput interface {
 	ToApiSchemaOutputWithContext(ctx context.Context) ApiSchemaOutput
 }
 
-func (ApiSchema) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiSchema)(nil)).Elem()
+func (*ApiSchema) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiSchema)(nil))
 }
 
-func (i ApiSchema) ToApiSchemaOutput() ApiSchemaOutput {
+func (i *ApiSchema) ToApiSchemaOutput() ApiSchemaOutput {
 	return i.ToApiSchemaOutputWithContext(context.Background())
 }
 
-func (i ApiSchema) ToApiSchemaOutputWithContext(ctx context.Context) ApiSchemaOutput {
+func (i *ApiSchema) ToApiSchemaOutputWithContext(ctx context.Context) ApiSchemaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiSchemaOutput)
 }
 
@@ -176,7 +176,7 @@ type ApiSchemaOutput struct {
 }
 
 func (ApiSchemaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiSchemaOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApiSchema)(nil))
 }
 
 func (o ApiSchemaOutput) ToApiSchemaOutput() ApiSchemaOutput {

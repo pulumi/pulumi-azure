@@ -231,15 +231,15 @@ type ResourceGroupExportInput interface {
 	ToResourceGroupExportOutputWithContext(ctx context.Context) ResourceGroupExportOutput
 }
 
-func (ResourceGroupExport) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceGroupExport)(nil)).Elem()
+func (*ResourceGroupExport) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupExport)(nil))
 }
 
-func (i ResourceGroupExport) ToResourceGroupExportOutput() ResourceGroupExportOutput {
+func (i *ResourceGroupExport) ToResourceGroupExportOutput() ResourceGroupExportOutput {
 	return i.ToResourceGroupExportOutputWithContext(context.Background())
 }
 
-func (i ResourceGroupExport) ToResourceGroupExportOutputWithContext(ctx context.Context) ResourceGroupExportOutput {
+func (i *ResourceGroupExport) ToResourceGroupExportOutputWithContext(ctx context.Context) ResourceGroupExportOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupExportOutput)
 }
 
@@ -248,7 +248,7 @@ type ResourceGroupExportOutput struct {
 }
 
 func (ResourceGroupExportOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceGroupExportOutput)(nil)).Elem()
+	return reflect.TypeOf((*ResourceGroupExport)(nil))
 }
 
 func (o ResourceGroupExportOutput) ToResourceGroupExportOutput() ResourceGroupExportOutput {

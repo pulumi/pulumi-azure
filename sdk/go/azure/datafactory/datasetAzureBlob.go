@@ -262,15 +262,15 @@ type DatasetAzureBlobInput interface {
 	ToDatasetAzureBlobOutputWithContext(ctx context.Context) DatasetAzureBlobOutput
 }
 
-func (DatasetAzureBlob) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetAzureBlob)(nil)).Elem()
+func (*DatasetAzureBlob) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetAzureBlob)(nil))
 }
 
-func (i DatasetAzureBlob) ToDatasetAzureBlobOutput() DatasetAzureBlobOutput {
+func (i *DatasetAzureBlob) ToDatasetAzureBlobOutput() DatasetAzureBlobOutput {
 	return i.ToDatasetAzureBlobOutputWithContext(context.Background())
 }
 
-func (i DatasetAzureBlob) ToDatasetAzureBlobOutputWithContext(ctx context.Context) DatasetAzureBlobOutput {
+func (i *DatasetAzureBlob) ToDatasetAzureBlobOutputWithContext(ctx context.Context) DatasetAzureBlobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetAzureBlobOutput)
 }
 
@@ -279,7 +279,7 @@ type DatasetAzureBlobOutput struct {
 }
 
 func (DatasetAzureBlobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetAzureBlobOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatasetAzureBlob)(nil))
 }
 
 func (o DatasetAzureBlobOutput) ToDatasetAzureBlobOutput() DatasetAzureBlobOutput {

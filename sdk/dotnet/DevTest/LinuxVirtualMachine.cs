@@ -20,6 +20,7 @@ namespace Pulumi.Azure.DevTest
     ///  $ pulumi import azure:devtest/linuxVirtualMachine:LinuxVirtualMachine machine1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualmachines/machine1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:devtest/linuxVirtualMachine:LinuxVirtualMachine")]
     public partial class LinuxVirtualMachine : Pulumi.CustomResource
     {
         /// <summary>

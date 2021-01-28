@@ -74,6 +74,7 @@ namespace Pulumi.Azure.KeyVault
     ///  $ pulumi import azure:keyvault/secret:Secret example "https://example-keyvault.vault.azure.net/secrets/example/fdf067c93bbb4b22bff4d8b7a9a56217"
     /// ```
     /// </summary>
+    [AzureResourceType("azure:keyvault/secret:Secret")]
     public partial class Secret : Pulumi.CustomResource
     {
         /// <summary>

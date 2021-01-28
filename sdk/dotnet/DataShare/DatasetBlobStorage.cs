@@ -94,6 +94,7 @@ namespace Pulumi.Azure.DataShare
     ///  $ pulumi import azure:datashare/datasetBlobStorage:DatasetBlobStorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1/dataSets/dataSet1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:datashare/datasetBlobStorage:DatasetBlobStorage")]
     public partial class DatasetBlobStorage : Pulumi.CustomResource
     {
         /// <summary>

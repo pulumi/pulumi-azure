@@ -214,15 +214,15 @@ type ActionRuleActionGroupInput interface {
 	ToActionRuleActionGroupOutputWithContext(ctx context.Context) ActionRuleActionGroupOutput
 }
 
-func (ActionRuleActionGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionRuleActionGroup)(nil)).Elem()
+func (*ActionRuleActionGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroup)(nil))
 }
 
-func (i ActionRuleActionGroup) ToActionRuleActionGroupOutput() ActionRuleActionGroupOutput {
+func (i *ActionRuleActionGroup) ToActionRuleActionGroupOutput() ActionRuleActionGroupOutput {
 	return i.ToActionRuleActionGroupOutputWithContext(context.Background())
 }
 
-func (i ActionRuleActionGroup) ToActionRuleActionGroupOutputWithContext(ctx context.Context) ActionRuleActionGroupOutput {
+func (i *ActionRuleActionGroup) ToActionRuleActionGroupOutputWithContext(ctx context.Context) ActionRuleActionGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupOutput)
 }
 
@@ -231,7 +231,7 @@ type ActionRuleActionGroupOutput struct {
 }
 
 func (ActionRuleActionGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionRuleActionGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*ActionRuleActionGroup)(nil))
 }
 
 func (o ActionRuleActionGroupOutput) ToActionRuleActionGroupOutput() ActionRuleActionGroupOutput {

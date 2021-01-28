@@ -70,6 +70,7 @@ namespace Pulumi.Azure.ContainerService
     ///  $ pulumi import azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool pool1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool")]
     public partial class KubernetesClusterNodePool : Pulumi.CustomResource
     {
         /// <summary>

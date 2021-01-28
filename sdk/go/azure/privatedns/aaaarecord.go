@@ -196,15 +196,15 @@ type AAAARecordInput interface {
 	ToAAAARecordOutputWithContext(ctx context.Context) AAAARecordOutput
 }
 
-func (AAAARecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*AAAARecord)(nil)).Elem()
+func (*AAAARecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*AAAARecord)(nil))
 }
 
-func (i AAAARecord) ToAAAARecordOutput() AAAARecordOutput {
+func (i *AAAARecord) ToAAAARecordOutput() AAAARecordOutput {
 	return i.ToAAAARecordOutputWithContext(context.Background())
 }
 
-func (i AAAARecord) ToAAAARecordOutputWithContext(ctx context.Context) AAAARecordOutput {
+func (i *AAAARecord) ToAAAARecordOutputWithContext(ctx context.Context) AAAARecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AAAARecordOutput)
 }
 
@@ -213,7 +213,7 @@ type AAAARecordOutput struct {
 }
 
 func (AAAARecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AAAARecordOutput)(nil)).Elem()
+	return reflect.TypeOf((*AAAARecord)(nil))
 }
 
 func (o AAAARecordOutput) ToAAAARecordOutput() AAAARecordOutput {

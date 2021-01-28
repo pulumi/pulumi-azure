@@ -152,6 +152,7 @@ namespace Pulumi.Azure.Media
     ///  $ pulumi import azure:media/transform:Transform example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/media1/transforms/transform1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:media/transform:Transform")]
     public partial class Transform : Pulumi.CustomResource
     {
         /// <summary>

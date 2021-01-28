@@ -209,15 +209,15 @@ type SRVRecordInput interface {
 	ToSRVRecordOutputWithContext(ctx context.Context) SRVRecordOutput
 }
 
-func (SRVRecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*SRVRecord)(nil)).Elem()
+func (*SRVRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*SRVRecord)(nil))
 }
 
-func (i SRVRecord) ToSRVRecordOutput() SRVRecordOutput {
+func (i *SRVRecord) ToSRVRecordOutput() SRVRecordOutput {
 	return i.ToSRVRecordOutputWithContext(context.Background())
 }
 
-func (i SRVRecord) ToSRVRecordOutputWithContext(ctx context.Context) SRVRecordOutput {
+func (i *SRVRecord) ToSRVRecordOutputWithContext(ctx context.Context) SRVRecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SRVRecordOutput)
 }
 
@@ -226,7 +226,7 @@ type SRVRecordOutput struct {
 }
 
 func (SRVRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SRVRecordOutput)(nil)).Elem()
+	return reflect.TypeOf((*SRVRecord)(nil))
 }
 
 func (o SRVRecordOutput) ToSRVRecordOutput() SRVRecordOutput {

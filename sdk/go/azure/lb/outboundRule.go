@@ -252,15 +252,15 @@ type OutboundRuleInput interface {
 	ToOutboundRuleOutputWithContext(ctx context.Context) OutboundRuleOutput
 }
 
-func (OutboundRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutboundRule)(nil)).Elem()
+func (*OutboundRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundRule)(nil))
 }
 
-func (i OutboundRule) ToOutboundRuleOutput() OutboundRuleOutput {
+func (i *OutboundRule) ToOutboundRuleOutput() OutboundRuleOutput {
 	return i.ToOutboundRuleOutputWithContext(context.Background())
 }
 
-func (i OutboundRule) ToOutboundRuleOutputWithContext(ctx context.Context) OutboundRuleOutput {
+func (i *OutboundRule) ToOutboundRuleOutputWithContext(ctx context.Context) OutboundRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundRuleOutput)
 }
 
@@ -269,7 +269,7 @@ type OutboundRuleOutput struct {
 }
 
 func (OutboundRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutboundRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*OutboundRule)(nil))
 }
 
 func (o OutboundRuleOutput) ToOutboundRuleOutput() OutboundRuleOutput {

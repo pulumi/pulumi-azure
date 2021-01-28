@@ -280,15 +280,15 @@ type PolicyVMInput interface {
 	ToPolicyVMOutputWithContext(ctx context.Context) PolicyVMOutput
 }
 
-func (PolicyVM) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyVM)(nil)).Elem()
+func (*PolicyVM) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVM)(nil))
 }
 
-func (i PolicyVM) ToPolicyVMOutput() PolicyVMOutput {
+func (i *PolicyVM) ToPolicyVMOutput() PolicyVMOutput {
 	return i.ToPolicyVMOutputWithContext(context.Background())
 }
 
-func (i PolicyVM) ToPolicyVMOutputWithContext(ctx context.Context) PolicyVMOutput {
+func (i *PolicyVM) ToPolicyVMOutputWithContext(ctx context.Context) PolicyVMOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMOutput)
 }
 
@@ -297,7 +297,7 @@ type PolicyVMOutput struct {
 }
 
 func (PolicyVMOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyVMOutput)(nil)).Elem()
+	return reflect.TypeOf((*PolicyVM)(nil))
 }
 
 func (o PolicyVMOutput) ToPolicyVMOutput() PolicyVMOutput {

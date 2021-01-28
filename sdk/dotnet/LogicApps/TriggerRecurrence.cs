@@ -50,6 +50,7 @@ namespace Pulumi.Azure.LogicApps
     ///  $ pulumi import azure:logicapps/triggerRecurrence:TriggerRecurrence daily /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/daily
     /// ```
     /// </summary>
+    [AzureResourceType("azure:logicapps/triggerRecurrence:TriggerRecurrence")]
     public partial class TriggerRecurrence : Pulumi.CustomResource
     {
         /// <summary>

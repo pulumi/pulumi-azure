@@ -54,6 +54,7 @@ namespace Pulumi.Azure.ApiManagement
     ///  $ pulumi import azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/facebook
     /// ```
     /// </summary>
+    [AzureResourceType("azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook")]
     public partial class IdentityProviderFacebook : Pulumi.CustomResource
     {
         /// <summary>

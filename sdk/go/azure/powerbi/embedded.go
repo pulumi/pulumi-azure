@@ -185,15 +185,15 @@ type EmbeddedInput interface {
 	ToEmbeddedOutputWithContext(ctx context.Context) EmbeddedOutput
 }
 
-func (Embedded) ElementType() reflect.Type {
-	return reflect.TypeOf((*Embedded)(nil)).Elem()
+func (*Embedded) ElementType() reflect.Type {
+	return reflect.TypeOf((*Embedded)(nil))
 }
 
-func (i Embedded) ToEmbeddedOutput() EmbeddedOutput {
+func (i *Embedded) ToEmbeddedOutput() EmbeddedOutput {
 	return i.ToEmbeddedOutputWithContext(context.Background())
 }
 
-func (i Embedded) ToEmbeddedOutputWithContext(ctx context.Context) EmbeddedOutput {
+func (i *Embedded) ToEmbeddedOutputWithContext(ctx context.Context) EmbeddedOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmbeddedOutput)
 }
 
@@ -202,7 +202,7 @@ type EmbeddedOutput struct {
 }
 
 func (EmbeddedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmbeddedOutput)(nil)).Elem()
+	return reflect.TypeOf((*Embedded)(nil))
 }
 
 func (o EmbeddedOutput) ToEmbeddedOutput() EmbeddedOutput {

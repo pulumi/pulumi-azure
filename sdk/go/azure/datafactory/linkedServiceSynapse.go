@@ -295,15 +295,15 @@ type LinkedServiceSynapseInput interface {
 	ToLinkedServiceSynapseOutputWithContext(ctx context.Context) LinkedServiceSynapseOutput
 }
 
-func (LinkedServiceSynapse) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceSynapse)(nil)).Elem()
+func (*LinkedServiceSynapse) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceSynapse)(nil))
 }
 
-func (i LinkedServiceSynapse) ToLinkedServiceSynapseOutput() LinkedServiceSynapseOutput {
+func (i *LinkedServiceSynapse) ToLinkedServiceSynapseOutput() LinkedServiceSynapseOutput {
 	return i.ToLinkedServiceSynapseOutputWithContext(context.Background())
 }
 
-func (i LinkedServiceSynapse) ToLinkedServiceSynapseOutputWithContext(ctx context.Context) LinkedServiceSynapseOutput {
+func (i *LinkedServiceSynapse) ToLinkedServiceSynapseOutputWithContext(ctx context.Context) LinkedServiceSynapseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSynapseOutput)
 }
 
@@ -312,7 +312,7 @@ type LinkedServiceSynapseOutput struct {
 }
 
 func (LinkedServiceSynapseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceSynapseOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinkedServiceSynapse)(nil))
 }
 
 func (o LinkedServiceSynapseOutput) ToLinkedServiceSynapseOutput() LinkedServiceSynapseOutput {

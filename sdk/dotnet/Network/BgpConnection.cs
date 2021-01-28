@@ -86,6 +86,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/bgpConnection:BgpConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/virtualHub1/bgpConnections/connection1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/bgpConnection:BgpConnection")]
     public partial class BgpConnection : Pulumi.CustomResource
     {
         /// <summary>

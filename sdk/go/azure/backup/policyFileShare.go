@@ -203,15 +203,15 @@ type PolicyFileShareInput interface {
 	ToPolicyFileShareOutputWithContext(ctx context.Context) PolicyFileShareOutput
 }
 
-func (PolicyFileShare) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyFileShare)(nil)).Elem()
+func (*PolicyFileShare) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyFileShare)(nil))
 }
 
-func (i PolicyFileShare) ToPolicyFileShareOutput() PolicyFileShareOutput {
+func (i *PolicyFileShare) ToPolicyFileShareOutput() PolicyFileShareOutput {
 	return i.ToPolicyFileShareOutputWithContext(context.Background())
 }
 
-func (i PolicyFileShare) ToPolicyFileShareOutputWithContext(ctx context.Context) PolicyFileShareOutput {
+func (i *PolicyFileShare) ToPolicyFileShareOutputWithContext(ctx context.Context) PolicyFileShareOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareOutput)
 }
 
@@ -220,7 +220,7 @@ type PolicyFileShareOutput struct {
 }
 
 func (PolicyFileShareOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyFileShareOutput)(nil)).Elem()
+	return reflect.TypeOf((*PolicyFileShare)(nil))
 }
 
 func (o PolicyFileShareOutput) ToPolicyFileShareOutput() PolicyFileShareOutput {

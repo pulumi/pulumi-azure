@@ -219,15 +219,15 @@ type LinkedServicePostgresqlInput interface {
 	ToLinkedServicePostgresqlOutputWithContext(ctx context.Context) LinkedServicePostgresqlOutput
 }
 
-func (LinkedServicePostgresql) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServicePostgresql)(nil)).Elem()
+func (*LinkedServicePostgresql) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServicePostgresql)(nil))
 }
 
-func (i LinkedServicePostgresql) ToLinkedServicePostgresqlOutput() LinkedServicePostgresqlOutput {
+func (i *LinkedServicePostgresql) ToLinkedServicePostgresqlOutput() LinkedServicePostgresqlOutput {
 	return i.ToLinkedServicePostgresqlOutputWithContext(context.Background())
 }
 
-func (i LinkedServicePostgresql) ToLinkedServicePostgresqlOutputWithContext(ctx context.Context) LinkedServicePostgresqlOutput {
+func (i *LinkedServicePostgresql) ToLinkedServicePostgresqlOutputWithContext(ctx context.Context) LinkedServicePostgresqlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServicePostgresqlOutput)
 }
 
@@ -236,7 +236,7 @@ type LinkedServicePostgresqlOutput struct {
 }
 
 func (LinkedServicePostgresqlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServicePostgresqlOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinkedServicePostgresql)(nil))
 }
 
 func (o LinkedServicePostgresqlOutput) ToLinkedServicePostgresqlOutput() LinkedServicePostgresqlOutput {

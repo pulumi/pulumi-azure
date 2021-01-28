@@ -60,6 +60,7 @@ namespace Pulumi.Azure.LogAnalytics
     ///  $ pulumi import azure:loganalytics/storageInsights:StorageInsights example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/storageInsightConfigs/storageInsight1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:loganalytics/storageInsights:StorageInsights")]
     public partial class StorageInsights : Pulumi.CustomResource
     {
         /// <summary>

@@ -46,6 +46,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     ///  $ pulumi import azure:desktopvirtualization/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace
     /// ```
     /// </summary>
+    [AzureResourceType("azure:desktopvirtualization/workspace:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>

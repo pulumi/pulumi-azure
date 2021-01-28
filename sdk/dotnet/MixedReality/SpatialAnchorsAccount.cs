@@ -44,6 +44,7 @@ namespace Pulumi.Azure.MixedReality
     ///  $ pulumi import azure:mixedreality/spatialAnchorsAccount:SpatialAnchorsAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.MixedReality/spatialAnchorsAccounts/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:mixedreality/spatialAnchorsAccount:SpatialAnchorsAccount")]
     public partial class SpatialAnchorsAccount : Pulumi.CustomResource
     {
         /// <summary>

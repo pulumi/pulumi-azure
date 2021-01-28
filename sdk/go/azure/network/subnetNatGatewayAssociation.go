@@ -165,15 +165,15 @@ type SubnetNatGatewayAssociationInput interface {
 	ToSubnetNatGatewayAssociationOutputWithContext(ctx context.Context) SubnetNatGatewayAssociationOutput
 }
 
-func (SubnetNatGatewayAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetNatGatewayAssociation)(nil)).Elem()
+func (*SubnetNatGatewayAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetNatGatewayAssociation)(nil))
 }
 
-func (i SubnetNatGatewayAssociation) ToSubnetNatGatewayAssociationOutput() SubnetNatGatewayAssociationOutput {
+func (i *SubnetNatGatewayAssociation) ToSubnetNatGatewayAssociationOutput() SubnetNatGatewayAssociationOutput {
 	return i.ToSubnetNatGatewayAssociationOutputWithContext(context.Background())
 }
 
-func (i SubnetNatGatewayAssociation) ToSubnetNatGatewayAssociationOutputWithContext(ctx context.Context) SubnetNatGatewayAssociationOutput {
+func (i *SubnetNatGatewayAssociation) ToSubnetNatGatewayAssociationOutputWithContext(ctx context.Context) SubnetNatGatewayAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetNatGatewayAssociationOutput)
 }
 
@@ -182,7 +182,7 @@ type SubnetNatGatewayAssociationOutput struct {
 }
 
 func (SubnetNatGatewayAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetNatGatewayAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*SubnetNatGatewayAssociation)(nil))
 }
 
 func (o SubnetNatGatewayAssociationOutput) ToSubnetNatGatewayAssociationOutput() SubnetNatGatewayAssociationOutput {

@@ -63,6 +63,7 @@ namespace Pulumi.Azure.ContainerService
     ///  $ pulumi import azure:containerservice/registryWebhook:RegistryWebhook example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1/webhooks/mywebhook1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:containerservice/registryWebhook:RegistryWebhook")]
     public partial class RegistryWebhook : Pulumi.CustomResource
     {
         /// <summary>

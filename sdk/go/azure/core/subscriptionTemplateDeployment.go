@@ -176,15 +176,15 @@ type SubscriptionTemplateDeploymentInput interface {
 	ToSubscriptionTemplateDeploymentOutputWithContext(ctx context.Context) SubscriptionTemplateDeploymentOutput
 }
 
-func (SubscriptionTemplateDeployment) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionTemplateDeployment)(nil)).Elem()
+func (*SubscriptionTemplateDeployment) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionTemplateDeployment)(nil))
 }
 
-func (i SubscriptionTemplateDeployment) ToSubscriptionTemplateDeploymentOutput() SubscriptionTemplateDeploymentOutput {
+func (i *SubscriptionTemplateDeployment) ToSubscriptionTemplateDeploymentOutput() SubscriptionTemplateDeploymentOutput {
 	return i.ToSubscriptionTemplateDeploymentOutputWithContext(context.Background())
 }
 
-func (i SubscriptionTemplateDeployment) ToSubscriptionTemplateDeploymentOutputWithContext(ctx context.Context) SubscriptionTemplateDeploymentOutput {
+func (i *SubscriptionTemplateDeployment) ToSubscriptionTemplateDeploymentOutputWithContext(ctx context.Context) SubscriptionTemplateDeploymentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionTemplateDeploymentOutput)
 }
 
@@ -193,7 +193,7 @@ type SubscriptionTemplateDeploymentOutput struct {
 }
 
 func (SubscriptionTemplateDeploymentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionTemplateDeploymentOutput)(nil)).Elem()
+	return reflect.TypeOf((*SubscriptionTemplateDeployment)(nil))
 }
 
 func (o SubscriptionTemplateDeploymentOutput) ToSubscriptionTemplateDeploymentOutput() SubscriptionTemplateDeploymentOutput {

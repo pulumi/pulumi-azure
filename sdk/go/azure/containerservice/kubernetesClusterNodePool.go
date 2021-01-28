@@ -373,15 +373,15 @@ type KubernetesClusterNodePoolInput interface {
 	ToKubernetesClusterNodePoolOutputWithContext(ctx context.Context) KubernetesClusterNodePoolOutput
 }
 
-func (KubernetesClusterNodePool) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterNodePool)(nil)).Elem()
+func (*KubernetesClusterNodePool) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNodePool)(nil))
 }
 
-func (i KubernetesClusterNodePool) ToKubernetesClusterNodePoolOutput() KubernetesClusterNodePoolOutput {
+func (i *KubernetesClusterNodePool) ToKubernetesClusterNodePoolOutput() KubernetesClusterNodePoolOutput {
 	return i.ToKubernetesClusterNodePoolOutputWithContext(context.Background())
 }
 
-func (i KubernetesClusterNodePool) ToKubernetesClusterNodePoolOutputWithContext(ctx context.Context) KubernetesClusterNodePoolOutput {
+func (i *KubernetesClusterNodePool) ToKubernetesClusterNodePoolOutputWithContext(ctx context.Context) KubernetesClusterNodePoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolOutput)
 }
 
@@ -390,7 +390,7 @@ type KubernetesClusterNodePoolOutput struct {
 }
 
 func (KubernetesClusterNodePoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterNodePoolOutput)(nil)).Elem()
+	return reflect.TypeOf((*KubernetesClusterNodePool)(nil))
 }
 
 func (o KubernetesClusterNodePoolOutput) ToKubernetesClusterNodePoolOutput() KubernetesClusterNodePoolOutput {

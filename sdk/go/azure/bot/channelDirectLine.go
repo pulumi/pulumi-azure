@@ -130,15 +130,15 @@ type ChannelDirectLineInput interface {
 	ToChannelDirectLineOutputWithContext(ctx context.Context) ChannelDirectLineOutput
 }
 
-func (ChannelDirectLine) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelDirectLine)(nil)).Elem()
+func (*ChannelDirectLine) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelDirectLine)(nil))
 }
 
-func (i ChannelDirectLine) ToChannelDirectLineOutput() ChannelDirectLineOutput {
+func (i *ChannelDirectLine) ToChannelDirectLineOutput() ChannelDirectLineOutput {
 	return i.ToChannelDirectLineOutputWithContext(context.Background())
 }
 
-func (i ChannelDirectLine) ToChannelDirectLineOutputWithContext(ctx context.Context) ChannelDirectLineOutput {
+func (i *ChannelDirectLine) ToChannelDirectLineOutputWithContext(ctx context.Context) ChannelDirectLineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDirectLineOutput)
 }
 
@@ -147,7 +147,7 @@ type ChannelDirectLineOutput struct {
 }
 
 func (ChannelDirectLineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelDirectLineOutput)(nil)).Elem()
+	return reflect.TypeOf((*ChannelDirectLine)(nil))
 }
 
 func (o ChannelDirectLineOutput) ToChannelDirectLineOutput() ChannelDirectLineOutput {

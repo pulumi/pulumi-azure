@@ -115,6 +115,7 @@ namespace Pulumi.Azure.DevTest
     /// 
     ///  The name of the resource within the `resource id` will always follow the format `shutdown-computevm-&lt;VM Name&gt;` where `&lt;VM Name&gt;` is replaced by the name of the target Virtual Machine
     /// </summary>
+    [AzureResourceType("azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule")]
     public partial class GlobalVMShutdownSchedule : Pulumi.CustomResource
     {
         /// <summary>

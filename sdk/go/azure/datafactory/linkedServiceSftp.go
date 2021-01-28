@@ -277,15 +277,15 @@ type LinkedServiceSftpInput interface {
 	ToLinkedServiceSftpOutputWithContext(ctx context.Context) LinkedServiceSftpOutput
 }
 
-func (LinkedServiceSftp) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceSftp)(nil)).Elem()
+func (*LinkedServiceSftp) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceSftp)(nil))
 }
 
-func (i LinkedServiceSftp) ToLinkedServiceSftpOutput() LinkedServiceSftpOutput {
+func (i *LinkedServiceSftp) ToLinkedServiceSftpOutput() LinkedServiceSftpOutput {
 	return i.ToLinkedServiceSftpOutputWithContext(context.Background())
 }
 
-func (i LinkedServiceSftp) ToLinkedServiceSftpOutputWithContext(ctx context.Context) LinkedServiceSftpOutput {
+func (i *LinkedServiceSftp) ToLinkedServiceSftpOutputWithContext(ctx context.Context) LinkedServiceSftpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSftpOutput)
 }
 
@@ -294,7 +294,7 @@ type LinkedServiceSftpOutput struct {
 }
 
 func (LinkedServiceSftpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceSftpOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinkedServiceSftp)(nil))
 }
 
 func (o LinkedServiceSftpOutput) ToLinkedServiceSftpOutput() LinkedServiceSftpOutput {

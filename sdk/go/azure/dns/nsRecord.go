@@ -204,15 +204,15 @@ type NsRecordInput interface {
 	ToNsRecordOutputWithContext(ctx context.Context) NsRecordOutput
 }
 
-func (NsRecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*NsRecord)(nil)).Elem()
+func (*NsRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*NsRecord)(nil))
 }
 
-func (i NsRecord) ToNsRecordOutput() NsRecordOutput {
+func (i *NsRecord) ToNsRecordOutput() NsRecordOutput {
 	return i.ToNsRecordOutputWithContext(context.Background())
 }
 
-func (i NsRecord) ToNsRecordOutputWithContext(ctx context.Context) NsRecordOutput {
+func (i *NsRecord) ToNsRecordOutputWithContext(ctx context.Context) NsRecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NsRecordOutput)
 }
 
@@ -221,7 +221,7 @@ type NsRecordOutput struct {
 }
 
 func (NsRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NsRecordOutput)(nil)).Elem()
+	return reflect.TypeOf((*NsRecord)(nil))
 }
 
 func (o NsRecordOutput) ToNsRecordOutput() NsRecordOutput {

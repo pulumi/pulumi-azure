@@ -147,15 +147,15 @@ type IntVariableInput interface {
 	ToIntVariableOutputWithContext(ctx context.Context) IntVariableOutput
 }
 
-func (IntVariable) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntVariable)(nil)).Elem()
+func (*IntVariable) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntVariable)(nil))
 }
 
-func (i IntVariable) ToIntVariableOutput() IntVariableOutput {
+func (i *IntVariable) ToIntVariableOutput() IntVariableOutput {
 	return i.ToIntVariableOutputWithContext(context.Background())
 }
 
-func (i IntVariable) ToIntVariableOutputWithContext(ctx context.Context) IntVariableOutput {
+func (i *IntVariable) ToIntVariableOutputWithContext(ctx context.Context) IntVariableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntVariableOutput)
 }
 
@@ -164,7 +164,7 @@ type IntVariableOutput struct {
 }
 
 func (IntVariableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntVariableOutput)(nil)).Elem()
+	return reflect.TypeOf((*IntVariable)(nil))
 }
 
 func (o IntVariableOutput) ToIntVariableOutput() IntVariableOutput {

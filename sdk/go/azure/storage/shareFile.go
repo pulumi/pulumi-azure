@@ -221,15 +221,15 @@ type ShareFileInput interface {
 	ToShareFileOutputWithContext(ctx context.Context) ShareFileOutput
 }
 
-func (ShareFile) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShareFile)(nil)).Elem()
+func (*ShareFile) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareFile)(nil))
 }
 
-func (i ShareFile) ToShareFileOutput() ShareFileOutput {
+func (i *ShareFile) ToShareFileOutput() ShareFileOutput {
 	return i.ToShareFileOutputWithContext(context.Background())
 }
 
-func (i ShareFile) ToShareFileOutputWithContext(ctx context.Context) ShareFileOutput {
+func (i *ShareFile) ToShareFileOutputWithContext(ctx context.Context) ShareFileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ShareFileOutput)
 }
 
@@ -238,7 +238,7 @@ type ShareFileOutput struct {
 }
 
 func (ShareFileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShareFileOutput)(nil)).Elem()
+	return reflect.TypeOf((*ShareFile)(nil))
 }
 
 func (o ShareFileOutput) ToShareFileOutput() ShareFileOutput {

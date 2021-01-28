@@ -49,6 +49,7 @@ namespace Pulumi.Azure.Iot
     ///  $ pulumi import azure:iot/iotHubDps:IotHubDps example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/provisioningServices/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:iot/iotHubDps:IotHubDps")]
     public partial class IotHubDps : Pulumi.CustomResource
     {
         /// <summary>

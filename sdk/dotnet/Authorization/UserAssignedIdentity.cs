@@ -44,6 +44,7 @@ namespace Pulumi.Azure.Authorization
     ///  $ pulumi import azure:authorization/userAssignedIdentity:UserAssignedIdentity exampleIdentity /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/acceptanceTestResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testIdentity
     /// ```
     /// </summary>
+    [AzureResourceType("azure:authorization/userAssignedIdentity:UserAssignedIdentity")]
     public partial class UserAssignedIdentity : Pulumi.CustomResource
     {
         /// <summary>

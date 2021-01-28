@@ -79,6 +79,7 @@ namespace Pulumi.Azure.StreamAnalytics
     ///  $ pulumi import azure:streamanalytics/streamInputEventHub:StreamInputEventHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/inputs/input1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:streamanalytics/streamInputEventHub:StreamInputEventHub")]
     public partial class StreamInputEventHub : Pulumi.CustomResource
     {
         /// <summary>

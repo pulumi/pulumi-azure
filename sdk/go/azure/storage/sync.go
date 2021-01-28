@@ -168,15 +168,15 @@ type SyncInput interface {
 	ToSyncOutputWithContext(ctx context.Context) SyncOutput
 }
 
-func (Sync) ElementType() reflect.Type {
-	return reflect.TypeOf((*Sync)(nil)).Elem()
+func (*Sync) ElementType() reflect.Type {
+	return reflect.TypeOf((*Sync)(nil))
 }
 
-func (i Sync) ToSyncOutput() SyncOutput {
+func (i *Sync) ToSyncOutput() SyncOutput {
 	return i.ToSyncOutputWithContext(context.Background())
 }
 
-func (i Sync) ToSyncOutputWithContext(ctx context.Context) SyncOutput {
+func (i *Sync) ToSyncOutputWithContext(ctx context.Context) SyncOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyncOutput)
 }
 
@@ -185,7 +185,7 @@ type SyncOutput struct {
 }
 
 func (SyncOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncOutput)(nil)).Elem()
+	return reflect.TypeOf((*Sync)(nil))
 }
 
 func (o SyncOutput) ToSyncOutput() SyncOutput {

@@ -255,15 +255,15 @@ type EndpointStorageContainerInput interface {
 	ToEndpointStorageContainerOutputWithContext(ctx context.Context) EndpointStorageContainerOutput
 }
 
-func (EndpointStorageContainer) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointStorageContainer)(nil)).Elem()
+func (*EndpointStorageContainer) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointStorageContainer)(nil))
 }
 
-func (i EndpointStorageContainer) ToEndpointStorageContainerOutput() EndpointStorageContainerOutput {
+func (i *EndpointStorageContainer) ToEndpointStorageContainerOutput() EndpointStorageContainerOutput {
 	return i.ToEndpointStorageContainerOutputWithContext(context.Background())
 }
 
-func (i EndpointStorageContainer) ToEndpointStorageContainerOutputWithContext(ctx context.Context) EndpointStorageContainerOutput {
+func (i *EndpointStorageContainer) ToEndpointStorageContainerOutputWithContext(ctx context.Context) EndpointStorageContainerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointStorageContainerOutput)
 }
 
@@ -272,7 +272,7 @@ type EndpointStorageContainerOutput struct {
 }
 
 func (EndpointStorageContainerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointStorageContainerOutput)(nil)).Elem()
+	return reflect.TypeOf((*EndpointStorageContainer)(nil))
 }
 
 func (o EndpointStorageContainerOutput) ToEndpointStorageContainerOutput() EndpointStorageContainerOutput {

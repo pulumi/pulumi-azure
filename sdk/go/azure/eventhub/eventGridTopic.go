@@ -230,15 +230,15 @@ type EventGridTopicInput interface {
 	ToEventGridTopicOutputWithContext(ctx context.Context) EventGridTopicOutput
 }
 
-func (EventGridTopic) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventGridTopic)(nil)).Elem()
+func (*EventGridTopic) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventGridTopic)(nil))
 }
 
-func (i EventGridTopic) ToEventGridTopicOutput() EventGridTopicOutput {
+func (i *EventGridTopic) ToEventGridTopicOutput() EventGridTopicOutput {
 	return i.ToEventGridTopicOutputWithContext(context.Background())
 }
 
-func (i EventGridTopic) ToEventGridTopicOutputWithContext(ctx context.Context) EventGridTopicOutput {
+func (i *EventGridTopic) ToEventGridTopicOutputWithContext(ctx context.Context) EventGridTopicOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicOutput)
 }
 
@@ -247,7 +247,7 @@ type EventGridTopicOutput struct {
 }
 
 func (EventGridTopicOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventGridTopicOutput)(nil)).Elem()
+	return reflect.TypeOf((*EventGridTopic)(nil))
 }
 
 func (o EventGridTopicOutput) ToEventGridTopicOutput() EventGridTopicOutput {

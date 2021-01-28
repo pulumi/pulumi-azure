@@ -55,6 +55,7 @@ namespace Pulumi.Azure.Sentinel
     ///  $ pulumi import azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/alertRules/rule1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident")]
     public partial class AlertRuleMsSecurityIncident : Pulumi.CustomResource
     {
         /// <summary>

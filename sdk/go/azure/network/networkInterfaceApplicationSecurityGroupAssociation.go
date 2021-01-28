@@ -179,15 +179,15 @@ type NetworkInterfaceApplicationSecurityGroupAssociationInput interface {
 	ToNetworkInterfaceApplicationSecurityGroupAssociationOutputWithContext(ctx context.Context) NetworkInterfaceApplicationSecurityGroupAssociationOutput
 }
 
-func (NetworkInterfaceApplicationSecurityGroupAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterfaceApplicationSecurityGroupAssociation)(nil)).Elem()
+func (*NetworkInterfaceApplicationSecurityGroupAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceApplicationSecurityGroupAssociation)(nil))
 }
 
-func (i NetworkInterfaceApplicationSecurityGroupAssociation) ToNetworkInterfaceApplicationSecurityGroupAssociationOutput() NetworkInterfaceApplicationSecurityGroupAssociationOutput {
+func (i *NetworkInterfaceApplicationSecurityGroupAssociation) ToNetworkInterfaceApplicationSecurityGroupAssociationOutput() NetworkInterfaceApplicationSecurityGroupAssociationOutput {
 	return i.ToNetworkInterfaceApplicationSecurityGroupAssociationOutputWithContext(context.Background())
 }
 
-func (i NetworkInterfaceApplicationSecurityGroupAssociation) ToNetworkInterfaceApplicationSecurityGroupAssociationOutputWithContext(ctx context.Context) NetworkInterfaceApplicationSecurityGroupAssociationOutput {
+func (i *NetworkInterfaceApplicationSecurityGroupAssociation) ToNetworkInterfaceApplicationSecurityGroupAssociationOutputWithContext(ctx context.Context) NetworkInterfaceApplicationSecurityGroupAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceApplicationSecurityGroupAssociationOutput)
 }
 
@@ -196,7 +196,7 @@ type NetworkInterfaceApplicationSecurityGroupAssociationOutput struct {
 }
 
 func (NetworkInterfaceApplicationSecurityGroupAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterfaceApplicationSecurityGroupAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*NetworkInterfaceApplicationSecurityGroupAssociation)(nil))
 }
 
 func (o NetworkInterfaceApplicationSecurityGroupAssociationOutput) ToNetworkInterfaceApplicationSecurityGroupAssociationOutput() NetworkInterfaceApplicationSecurityGroupAssociationOutput {

@@ -243,15 +243,15 @@ type ReplicatedVMInput interface {
 	ToReplicatedVMOutputWithContext(ctx context.Context) ReplicatedVMOutput
 }
 
-func (ReplicatedVM) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicatedVM)(nil)).Elem()
+func (*ReplicatedVM) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatedVM)(nil))
 }
 
-func (i ReplicatedVM) ToReplicatedVMOutput() ReplicatedVMOutput {
+func (i *ReplicatedVM) ToReplicatedVMOutput() ReplicatedVMOutput {
 	return i.ToReplicatedVMOutputWithContext(context.Background())
 }
 
-func (i ReplicatedVM) ToReplicatedVMOutputWithContext(ctx context.Context) ReplicatedVMOutput {
+func (i *ReplicatedVM) ToReplicatedVMOutputWithContext(ctx context.Context) ReplicatedVMOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMOutput)
 }
 
@@ -260,7 +260,7 @@ type ReplicatedVMOutput struct {
 }
 
 func (ReplicatedVMOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicatedVMOutput)(nil)).Elem()
+	return reflect.TypeOf((*ReplicatedVM)(nil))
 }
 
 func (o ReplicatedVMOutput) ToReplicatedVMOutput() ReplicatedVMOutput {

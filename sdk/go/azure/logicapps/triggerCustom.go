@@ -157,15 +157,15 @@ type TriggerCustomInput interface {
 	ToTriggerCustomOutputWithContext(ctx context.Context) TriggerCustomOutput
 }
 
-func (TriggerCustom) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerCustom)(nil)).Elem()
+func (*TriggerCustom) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerCustom)(nil))
 }
 
-func (i TriggerCustom) ToTriggerCustomOutput() TriggerCustomOutput {
+func (i *TriggerCustom) ToTriggerCustomOutput() TriggerCustomOutput {
 	return i.ToTriggerCustomOutputWithContext(context.Background())
 }
 
-func (i TriggerCustom) ToTriggerCustomOutputWithContext(ctx context.Context) TriggerCustomOutput {
+func (i *TriggerCustom) ToTriggerCustomOutputWithContext(ctx context.Context) TriggerCustomOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerCustomOutput)
 }
 
@@ -174,7 +174,7 @@ type TriggerCustomOutput struct {
 }
 
 func (TriggerCustomOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerCustomOutput)(nil)).Elem()
+	return reflect.TypeOf((*TriggerCustom)(nil))
 }
 
 func (o TriggerCustomOutput) ToTriggerCustomOutput() TriggerCustomOutput {

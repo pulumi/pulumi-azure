@@ -221,15 +221,15 @@ type RemediationInput interface {
 	ToRemediationOutputWithContext(ctx context.Context) RemediationOutput
 }
 
-func (Remediation) ElementType() reflect.Type {
-	return reflect.TypeOf((*Remediation)(nil)).Elem()
+func (*Remediation) ElementType() reflect.Type {
+	return reflect.TypeOf((*Remediation)(nil))
 }
 
-func (i Remediation) ToRemediationOutput() RemediationOutput {
+func (i *Remediation) ToRemediationOutput() RemediationOutput {
 	return i.ToRemediationOutputWithContext(context.Background())
 }
 
-func (i Remediation) ToRemediationOutputWithContext(ctx context.Context) RemediationOutput {
+func (i *Remediation) ToRemediationOutputWithContext(ctx context.Context) RemediationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationOutput)
 }
 
@@ -238,7 +238,7 @@ type RemediationOutput struct {
 }
 
 func (RemediationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationOutput)(nil)).Elem()
+	return reflect.TypeOf((*Remediation)(nil))
 }
 
 func (o RemediationOutput) ToRemediationOutput() RemediationOutput {

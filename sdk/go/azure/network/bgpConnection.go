@@ -208,15 +208,15 @@ type BgpConnectionInput interface {
 	ToBgpConnectionOutputWithContext(ctx context.Context) BgpConnectionOutput
 }
 
-func (BgpConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*BgpConnection)(nil)).Elem()
+func (*BgpConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*BgpConnection)(nil))
 }
 
-func (i BgpConnection) ToBgpConnectionOutput() BgpConnectionOutput {
+func (i *BgpConnection) ToBgpConnectionOutput() BgpConnectionOutput {
 	return i.ToBgpConnectionOutputWithContext(context.Background())
 }
 
-func (i BgpConnection) ToBgpConnectionOutputWithContext(ctx context.Context) BgpConnectionOutput {
+func (i *BgpConnection) ToBgpConnectionOutputWithContext(ctx context.Context) BgpConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BgpConnectionOutput)
 }
 
@@ -225,7 +225,7 @@ type BgpConnectionOutput struct {
 }
 
 func (BgpConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BgpConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*BgpConnection)(nil))
 }
 
 func (o BgpConnectionOutput) ToBgpConnectionOutput() BgpConnectionOutput {

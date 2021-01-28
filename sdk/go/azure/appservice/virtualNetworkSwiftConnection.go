@@ -280,15 +280,15 @@ type VirtualNetworkSwiftConnectionInput interface {
 	ToVirtualNetworkSwiftConnectionOutputWithContext(ctx context.Context) VirtualNetworkSwiftConnectionOutput
 }
 
-func (VirtualNetworkSwiftConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkSwiftConnection)(nil)).Elem()
+func (*VirtualNetworkSwiftConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkSwiftConnection)(nil))
 }
 
-func (i VirtualNetworkSwiftConnection) ToVirtualNetworkSwiftConnectionOutput() VirtualNetworkSwiftConnectionOutput {
+func (i *VirtualNetworkSwiftConnection) ToVirtualNetworkSwiftConnectionOutput() VirtualNetworkSwiftConnectionOutput {
 	return i.ToVirtualNetworkSwiftConnectionOutputWithContext(context.Background())
 }
 
-func (i VirtualNetworkSwiftConnection) ToVirtualNetworkSwiftConnectionOutputWithContext(ctx context.Context) VirtualNetworkSwiftConnectionOutput {
+func (i *VirtualNetworkSwiftConnection) ToVirtualNetworkSwiftConnectionOutputWithContext(ctx context.Context) VirtualNetworkSwiftConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSwiftConnectionOutput)
 }
 
@@ -297,7 +297,7 @@ type VirtualNetworkSwiftConnectionOutput struct {
 }
 
 func (VirtualNetworkSwiftConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkSwiftConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualNetworkSwiftConnection)(nil))
 }
 
 func (o VirtualNetworkSwiftConnectionOutput) ToVirtualNetworkSwiftConnectionOutput() VirtualNetworkSwiftConnectionOutput {

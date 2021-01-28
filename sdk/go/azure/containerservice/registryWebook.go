@@ -240,15 +240,15 @@ type RegistryWebookInput interface {
 	ToRegistryWebookOutputWithContext(ctx context.Context) RegistryWebookOutput
 }
 
-func (RegistryWebook) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryWebook)(nil)).Elem()
+func (*RegistryWebook) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryWebook)(nil))
 }
 
-func (i RegistryWebook) ToRegistryWebookOutput() RegistryWebookOutput {
+func (i *RegistryWebook) ToRegistryWebookOutput() RegistryWebookOutput {
 	return i.ToRegistryWebookOutputWithContext(context.Background())
 }
 
-func (i RegistryWebook) ToRegistryWebookOutputWithContext(ctx context.Context) RegistryWebookOutput {
+func (i *RegistryWebook) ToRegistryWebookOutputWithContext(ctx context.Context) RegistryWebookOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryWebookOutput)
 }
 
@@ -257,7 +257,7 @@ type RegistryWebookOutput struct {
 }
 
 func (RegistryWebookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryWebookOutput)(nil)).Elem()
+	return reflect.TypeOf((*RegistryWebook)(nil))
 }
 
 func (o RegistryWebookOutput) ToRegistryWebookOutput() RegistryWebookOutput {

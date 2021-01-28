@@ -247,15 +247,15 @@ type ScheduledQueryRulesAlertInput interface {
 	ToScheduledQueryRulesAlertOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertOutput
 }
 
-func (ScheduledQueryRulesAlert) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledQueryRulesAlert)(nil)).Elem()
+func (*ScheduledQueryRulesAlert) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesAlert)(nil))
 }
 
-func (i ScheduledQueryRulesAlert) ToScheduledQueryRulesAlertOutput() ScheduledQueryRulesAlertOutput {
+func (i *ScheduledQueryRulesAlert) ToScheduledQueryRulesAlertOutput() ScheduledQueryRulesAlertOutput {
 	return i.ToScheduledQueryRulesAlertOutputWithContext(context.Background())
 }
 
-func (i ScheduledQueryRulesAlert) ToScheduledQueryRulesAlertOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertOutput {
+func (i *ScheduledQueryRulesAlert) ToScheduledQueryRulesAlertOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertOutput)
 }
 
@@ -264,7 +264,7 @@ type ScheduledQueryRulesAlertOutput struct {
 }
 
 func (ScheduledQueryRulesAlertOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledQueryRulesAlertOutput)(nil)).Elem()
+	return reflect.TypeOf((*ScheduledQueryRulesAlert)(nil))
 }
 
 func (o ScheduledQueryRulesAlertOutput) ToScheduledQueryRulesAlertOutput() ScheduledQueryRulesAlertOutput {

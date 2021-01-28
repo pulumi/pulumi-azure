@@ -48,6 +48,7 @@ namespace Pulumi.Azure.DigitalTwins
     ///  $ pulumi import azure:digitaltwins/instance:Instance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DigitalTwins/digitalTwinsInstances/dt1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:digitaltwins/instance:Instance")]
     public partial class Instance : Pulumi.CustomResource
     {
         /// <summary>

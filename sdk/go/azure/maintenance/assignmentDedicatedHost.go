@@ -175,15 +175,15 @@ type AssignmentDedicatedHostInput interface {
 	ToAssignmentDedicatedHostOutputWithContext(ctx context.Context) AssignmentDedicatedHostOutput
 }
 
-func (AssignmentDedicatedHost) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssignmentDedicatedHost)(nil)).Elem()
+func (*AssignmentDedicatedHost) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentDedicatedHost)(nil))
 }
 
-func (i AssignmentDedicatedHost) ToAssignmentDedicatedHostOutput() AssignmentDedicatedHostOutput {
+func (i *AssignmentDedicatedHost) ToAssignmentDedicatedHostOutput() AssignmentDedicatedHostOutput {
 	return i.ToAssignmentDedicatedHostOutputWithContext(context.Background())
 }
 
-func (i AssignmentDedicatedHost) ToAssignmentDedicatedHostOutputWithContext(ctx context.Context) AssignmentDedicatedHostOutput {
+func (i *AssignmentDedicatedHost) ToAssignmentDedicatedHostOutputWithContext(ctx context.Context) AssignmentDedicatedHostOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentDedicatedHostOutput)
 }
 
@@ -192,7 +192,7 @@ type AssignmentDedicatedHostOutput struct {
 }
 
 func (AssignmentDedicatedHostOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssignmentDedicatedHostOutput)(nil)).Elem()
+	return reflect.TypeOf((*AssignmentDedicatedHost)(nil))
 }
 
 func (o AssignmentDedicatedHostOutput) ToAssignmentDedicatedHostOutput() AssignmentDedicatedHostOutput {

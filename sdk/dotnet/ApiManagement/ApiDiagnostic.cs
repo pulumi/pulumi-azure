@@ -131,6 +131,7 @@ namespace Pulumi.Azure.ApiManagement
     ///  $ pulumi import azure:apimanagement/apiDiagnostic:ApiDiagnostic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/diagnostics/diagnostic1/loggers/logger1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:apimanagement/apiDiagnostic:ApiDiagnostic")]
     public partial class ApiDiagnostic : Pulumi.CustomResource
     {
         /// <summary>

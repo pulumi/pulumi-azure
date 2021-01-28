@@ -198,15 +198,15 @@ type ProtectedVMInput interface {
 	ToProtectedVMOutputWithContext(ctx context.Context) ProtectedVMOutput
 }
 
-func (ProtectedVM) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedVM)(nil)).Elem()
+func (*ProtectedVM) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectedVM)(nil))
 }
 
-func (i ProtectedVM) ToProtectedVMOutput() ProtectedVMOutput {
+func (i *ProtectedVM) ToProtectedVMOutput() ProtectedVMOutput {
 	return i.ToProtectedVMOutputWithContext(context.Background())
 }
 
-func (i ProtectedVM) ToProtectedVMOutputWithContext(ctx context.Context) ProtectedVMOutput {
+func (i *ProtectedVM) ToProtectedVMOutputWithContext(ctx context.Context) ProtectedVMOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectedVMOutput)
 }
 
@@ -215,7 +215,7 @@ type ProtectedVMOutput struct {
 }
 
 func (ProtectedVMOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedVMOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProtectedVM)(nil))
 }
 
 func (o ProtectedVMOutput) ToProtectedVMOutput() ProtectedVMOutput {

@@ -249,15 +249,15 @@ type LinkedServiceAzureFileStorageInput interface {
 	ToLinkedServiceAzureFileStorageOutputWithContext(ctx context.Context) LinkedServiceAzureFileStorageOutput
 }
 
-func (LinkedServiceAzureFileStorage) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceAzureFileStorage)(nil)).Elem()
+func (*LinkedServiceAzureFileStorage) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureFileStorage)(nil))
 }
 
-func (i LinkedServiceAzureFileStorage) ToLinkedServiceAzureFileStorageOutput() LinkedServiceAzureFileStorageOutput {
+func (i *LinkedServiceAzureFileStorage) ToLinkedServiceAzureFileStorageOutput() LinkedServiceAzureFileStorageOutput {
 	return i.ToLinkedServiceAzureFileStorageOutputWithContext(context.Background())
 }
 
-func (i LinkedServiceAzureFileStorage) ToLinkedServiceAzureFileStorageOutputWithContext(ctx context.Context) LinkedServiceAzureFileStorageOutput {
+func (i *LinkedServiceAzureFileStorage) ToLinkedServiceAzureFileStorageOutputWithContext(ctx context.Context) LinkedServiceAzureFileStorageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureFileStorageOutput)
 }
 
@@ -266,7 +266,7 @@ type LinkedServiceAzureFileStorageOutput struct {
 }
 
 func (LinkedServiceAzureFileStorageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceAzureFileStorageOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinkedServiceAzureFileStorage)(nil))
 }
 
 func (o LinkedServiceAzureFileStorageOutput) ToLinkedServiceAzureFileStorageOutput() LinkedServiceAzureFileStorageOutput {

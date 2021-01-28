@@ -70,6 +70,7 @@ namespace Pulumi.Azure.ApiManagement
     ///  $ pulumi import azure:apimanagement/subscription:Subscription example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/subscriptions/subscription-name
     /// ```
     /// </summary>
+    [AzureResourceType("azure:apimanagement/subscription:Subscription")]
     public partial class Subscription : Pulumi.CustomResource
     {
         /// <summary>

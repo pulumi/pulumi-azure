@@ -72,6 +72,7 @@ namespace Pulumi.Azure.DigitalTwins
     ///  $ pulumi import azure:digitaltwins/endpointEventHub:EndpointEventHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DigitalTwins/digitalTwinsInstances/dt1/endpoints/ep1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:digitaltwins/endpointEventHub:EndpointEventHub")]
     public partial class EndpointEventHub : Pulumi.CustomResource
     {
         /// <summary>

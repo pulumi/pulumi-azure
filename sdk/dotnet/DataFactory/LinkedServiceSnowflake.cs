@@ -100,6 +100,7 @@ namespace Pulumi.Azure.DataFactory
     ///  $ pulumi import azure:datafactory/linkedServiceSnowflake:LinkedServiceSnowflake example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:datafactory/linkedServiceSnowflake:LinkedServiceSnowflake")]
     public partial class LinkedServiceSnowflake : Pulumi.CustomResource
     {
         /// <summary>

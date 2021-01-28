@@ -50,6 +50,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     ///  $ pulumi import azure:desktopvirtualization/hostPool:HostPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/hostpools/myhostpool
     /// ```
     /// </summary>
+    [AzureResourceType("azure:desktopvirtualization/hostPool:HostPool")]
     public partial class HostPool : Pulumi.CustomResource
     {
         /// <summary>

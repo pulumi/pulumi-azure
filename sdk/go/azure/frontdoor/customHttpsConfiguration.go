@@ -246,15 +246,15 @@ type CustomHttpsConfigurationInput interface {
 	ToCustomHttpsConfigurationOutputWithContext(ctx context.Context) CustomHttpsConfigurationOutput
 }
 
-func (CustomHttpsConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomHttpsConfiguration)(nil)).Elem()
+func (*CustomHttpsConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomHttpsConfiguration)(nil))
 }
 
-func (i CustomHttpsConfiguration) ToCustomHttpsConfigurationOutput() CustomHttpsConfigurationOutput {
+func (i *CustomHttpsConfiguration) ToCustomHttpsConfigurationOutput() CustomHttpsConfigurationOutput {
 	return i.ToCustomHttpsConfigurationOutputWithContext(context.Background())
 }
 
-func (i CustomHttpsConfiguration) ToCustomHttpsConfigurationOutputWithContext(ctx context.Context) CustomHttpsConfigurationOutput {
+func (i *CustomHttpsConfiguration) ToCustomHttpsConfigurationOutputWithContext(ctx context.Context) CustomHttpsConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomHttpsConfigurationOutput)
 }
 
@@ -263,7 +263,7 @@ type CustomHttpsConfigurationOutput struct {
 }
 
 func (CustomHttpsConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomHttpsConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*CustomHttpsConfiguration)(nil))
 }
 
 func (o CustomHttpsConfigurationOutput) ToCustomHttpsConfigurationOutput() CustomHttpsConfigurationOutput {

@@ -196,15 +196,15 @@ type EventHubConsumerGroupInput interface {
 	ToEventHubConsumerGroupOutputWithContext(ctx context.Context) EventHubConsumerGroupOutput
 }
 
-func (EventHubConsumerGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHubConsumerGroup)(nil)).Elem()
+func (*EventHubConsumerGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubConsumerGroup)(nil))
 }
 
-func (i EventHubConsumerGroup) ToEventHubConsumerGroupOutput() EventHubConsumerGroupOutput {
+func (i *EventHubConsumerGroup) ToEventHubConsumerGroupOutput() EventHubConsumerGroupOutput {
 	return i.ToEventHubConsumerGroupOutputWithContext(context.Background())
 }
 
-func (i EventHubConsumerGroup) ToEventHubConsumerGroupOutputWithContext(ctx context.Context) EventHubConsumerGroupOutput {
+func (i *EventHubConsumerGroup) ToEventHubConsumerGroupOutputWithContext(ctx context.Context) EventHubConsumerGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubConsumerGroupOutput)
 }
 
@@ -213,7 +213,7 @@ type EventHubConsumerGroupOutput struct {
 }
 
 func (EventHubConsumerGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHubConsumerGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*EventHubConsumerGroup)(nil))
 }
 
 func (o EventHubConsumerGroupOutput) ToEventHubConsumerGroupOutput() EventHubConsumerGroupOutput {

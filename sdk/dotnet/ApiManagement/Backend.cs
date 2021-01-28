@@ -20,6 +20,7 @@ namespace Pulumi.Azure.ApiManagement
     ///  $ pulumi import azure:apimanagement/backend:Backend example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/backends/backend1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:apimanagement/backend:Backend")]
     public partial class Backend : Pulumi.CustomResource
     {
         /// <summary>

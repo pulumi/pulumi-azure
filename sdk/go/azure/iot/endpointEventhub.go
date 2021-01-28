@@ -198,15 +198,15 @@ type EndpointEventhubInput interface {
 	ToEndpointEventhubOutputWithContext(ctx context.Context) EndpointEventhubOutput
 }
 
-func (EndpointEventhub) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointEventhub)(nil)).Elem()
+func (*EndpointEventhub) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointEventhub)(nil))
 }
 
-func (i EndpointEventhub) ToEndpointEventhubOutput() EndpointEventhubOutput {
+func (i *EndpointEventhub) ToEndpointEventhubOutput() EndpointEventhubOutput {
 	return i.ToEndpointEventhubOutputWithContext(context.Background())
 }
 
-func (i EndpointEventhub) ToEndpointEventhubOutputWithContext(ctx context.Context) EndpointEventhubOutput {
+func (i *EndpointEventhub) ToEndpointEventhubOutputWithContext(ctx context.Context) EndpointEventhubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventhubOutput)
 }
 
@@ -215,7 +215,7 @@ type EndpointEventhubOutput struct {
 }
 
 func (EndpointEventhubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointEventhubOutput)(nil)).Elem()
+	return reflect.TypeOf((*EndpointEventhub)(nil))
 }
 
 func (o EndpointEventhubOutput) ToEndpointEventhubOutput() EndpointEventhubOutput {

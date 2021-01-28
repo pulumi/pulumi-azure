@@ -247,15 +247,15 @@ type DatasetPostgresqlInput interface {
 	ToDatasetPostgresqlOutputWithContext(ctx context.Context) DatasetPostgresqlOutput
 }
 
-func (DatasetPostgresql) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetPostgresql)(nil)).Elem()
+func (*DatasetPostgresql) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetPostgresql)(nil))
 }
 
-func (i DatasetPostgresql) ToDatasetPostgresqlOutput() DatasetPostgresqlOutput {
+func (i *DatasetPostgresql) ToDatasetPostgresqlOutput() DatasetPostgresqlOutput {
 	return i.ToDatasetPostgresqlOutputWithContext(context.Background())
 }
 
-func (i DatasetPostgresql) ToDatasetPostgresqlOutputWithContext(ctx context.Context) DatasetPostgresqlOutput {
+func (i *DatasetPostgresql) ToDatasetPostgresqlOutputWithContext(ctx context.Context) DatasetPostgresqlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetPostgresqlOutput)
 }
 
@@ -264,7 +264,7 @@ type DatasetPostgresqlOutput struct {
 }
 
 func (DatasetPostgresqlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetPostgresqlOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatasetPostgresql)(nil))
 }
 
 func (o DatasetPostgresqlOutput) ToDatasetPostgresqlOutput() DatasetPostgresqlOutput {

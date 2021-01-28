@@ -123,15 +123,15 @@ type StoreFileInput interface {
 	ToStoreFileOutputWithContext(ctx context.Context) StoreFileOutput
 }
 
-func (StoreFile) ElementType() reflect.Type {
-	return reflect.TypeOf((*StoreFile)(nil)).Elem()
+func (*StoreFile) ElementType() reflect.Type {
+	return reflect.TypeOf((*StoreFile)(nil))
 }
 
-func (i StoreFile) ToStoreFileOutput() StoreFileOutput {
+func (i *StoreFile) ToStoreFileOutput() StoreFileOutput {
 	return i.ToStoreFileOutputWithContext(context.Background())
 }
 
-func (i StoreFile) ToStoreFileOutputWithContext(ctx context.Context) StoreFileOutput {
+func (i *StoreFile) ToStoreFileOutputWithContext(ctx context.Context) StoreFileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StoreFileOutput)
 }
 
@@ -140,7 +140,7 @@ type StoreFileOutput struct {
 }
 
 func (StoreFileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StoreFileOutput)(nil)).Elem()
+	return reflect.TypeOf((*StoreFile)(nil))
 }
 
 func (o StoreFileOutput) ToStoreFileOutput() StoreFileOutput {

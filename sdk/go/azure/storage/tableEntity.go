@@ -156,15 +156,15 @@ type TableEntityInput interface {
 	ToTableEntityOutputWithContext(ctx context.Context) TableEntityOutput
 }
 
-func (TableEntity) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableEntity)(nil)).Elem()
+func (*TableEntity) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableEntity)(nil))
 }
 
-func (i TableEntity) ToTableEntityOutput() TableEntityOutput {
+func (i *TableEntity) ToTableEntityOutput() TableEntityOutput {
 	return i.ToTableEntityOutputWithContext(context.Background())
 }
 
-func (i TableEntity) ToTableEntityOutputWithContext(ctx context.Context) TableEntityOutput {
+func (i *TableEntity) ToTableEntityOutputWithContext(ctx context.Context) TableEntityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableEntityOutput)
 }
 
@@ -173,7 +173,7 @@ type TableEntityOutput struct {
 }
 
 func (TableEntityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableEntityOutput)(nil)).Elem()
+	return reflect.TypeOf((*TableEntity)(nil))
 }
 
 func (o TableEntityOutput) ToTableEntityOutput() TableEntityOutput {

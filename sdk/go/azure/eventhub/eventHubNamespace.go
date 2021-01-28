@@ -291,15 +291,15 @@ type EventHubNamespaceInput interface {
 	ToEventHubNamespaceOutputWithContext(ctx context.Context) EventHubNamespaceOutput
 }
 
-func (EventHubNamespace) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHubNamespace)(nil)).Elem()
+func (*EventHubNamespace) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubNamespace)(nil))
 }
 
-func (i EventHubNamespace) ToEventHubNamespaceOutput() EventHubNamespaceOutput {
+func (i *EventHubNamespace) ToEventHubNamespaceOutput() EventHubNamespaceOutput {
 	return i.ToEventHubNamespaceOutputWithContext(context.Background())
 }
 
-func (i EventHubNamespace) ToEventHubNamespaceOutputWithContext(ctx context.Context) EventHubNamespaceOutput {
+func (i *EventHubNamespace) ToEventHubNamespaceOutputWithContext(ctx context.Context) EventHubNamespaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceOutput)
 }
 
@@ -308,7 +308,7 @@ type EventHubNamespaceOutput struct {
 }
 
 func (EventHubNamespaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHubNamespaceOutput)(nil)).Elem()
+	return reflect.TypeOf((*EventHubNamespace)(nil))
 }
 
 func (o EventHubNamespaceOutput) ToEventHubNamespaceOutput() EventHubNamespaceOutput {

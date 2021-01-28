@@ -223,15 +223,15 @@ type MongoCollectionInput interface {
 	ToMongoCollectionOutputWithContext(ctx context.Context) MongoCollectionOutput
 }
 
-func (MongoCollection) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoCollection)(nil)).Elem()
+func (*MongoCollection) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoCollection)(nil))
 }
 
-func (i MongoCollection) ToMongoCollectionOutput() MongoCollectionOutput {
+func (i *MongoCollection) ToMongoCollectionOutput() MongoCollectionOutput {
 	return i.ToMongoCollectionOutputWithContext(context.Background())
 }
 
-func (i MongoCollection) ToMongoCollectionOutputWithContext(ctx context.Context) MongoCollectionOutput {
+func (i *MongoCollection) ToMongoCollectionOutputWithContext(ctx context.Context) MongoCollectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MongoCollectionOutput)
 }
 
@@ -240,7 +240,7 @@ type MongoCollectionOutput struct {
 }
 
 func (MongoCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoCollectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*MongoCollection)(nil))
 }
 
 func (o MongoCollectionOutput) ToMongoCollectionOutput() MongoCollectionOutput {

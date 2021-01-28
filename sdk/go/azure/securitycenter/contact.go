@@ -158,15 +158,15 @@ type ContactInput interface {
 	ToContactOutputWithContext(ctx context.Context) ContactOutput
 }
 
-func (Contact) ElementType() reflect.Type {
-	return reflect.TypeOf((*Contact)(nil)).Elem()
+func (*Contact) ElementType() reflect.Type {
+	return reflect.TypeOf((*Contact)(nil))
 }
 
-func (i Contact) ToContactOutput() ContactOutput {
+func (i *Contact) ToContactOutput() ContactOutput {
 	return i.ToContactOutputWithContext(context.Background())
 }
 
-func (i Contact) ToContactOutputWithContext(ctx context.Context) ContactOutput {
+func (i *Contact) ToContactOutputWithContext(ctx context.Context) ContactOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContactOutput)
 }
 
@@ -175,7 +175,7 @@ type ContactOutput struct {
 }
 
 func (ContactOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContactOutput)(nil)).Elem()
+	return reflect.TypeOf((*Contact)(nil))
 }
 
 func (o ContactOutput) ToContactOutput() ContactOutput {

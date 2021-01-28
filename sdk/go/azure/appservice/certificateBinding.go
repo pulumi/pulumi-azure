@@ -138,15 +138,15 @@ type CertificateBindingInput interface {
 	ToCertificateBindingOutputWithContext(ctx context.Context) CertificateBindingOutput
 }
 
-func (CertificateBinding) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateBinding)(nil)).Elem()
+func (*CertificateBinding) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateBinding)(nil))
 }
 
-func (i CertificateBinding) ToCertificateBindingOutput() CertificateBindingOutput {
+func (i *CertificateBinding) ToCertificateBindingOutput() CertificateBindingOutput {
 	return i.ToCertificateBindingOutputWithContext(context.Background())
 }
 
-func (i CertificateBinding) ToCertificateBindingOutputWithContext(ctx context.Context) CertificateBindingOutput {
+func (i *CertificateBinding) ToCertificateBindingOutputWithContext(ctx context.Context) CertificateBindingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateBindingOutput)
 }
 
@@ -155,7 +155,7 @@ type CertificateBindingOutput struct {
 }
 
 func (CertificateBindingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateBindingOutput)(nil)).Elem()
+	return reflect.TypeOf((*CertificateBinding)(nil))
 }
 
 func (o CertificateBindingOutput) ToCertificateBindingOutput() CertificateBindingOutput {

@@ -206,15 +206,15 @@ type IotHubDpsInput interface {
 	ToIotHubDpsOutputWithContext(ctx context.Context) IotHubDpsOutput
 }
 
-func (IotHubDps) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubDps)(nil)).Elem()
+func (*IotHubDps) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubDps)(nil))
 }
 
-func (i IotHubDps) ToIotHubDpsOutput() IotHubDpsOutput {
+func (i *IotHubDps) ToIotHubDpsOutput() IotHubDpsOutput {
 	return i.ToIotHubDpsOutputWithContext(context.Background())
 }
 
-func (i IotHubDps) ToIotHubDpsOutputWithContext(ctx context.Context) IotHubDpsOutput {
+func (i *IotHubDps) ToIotHubDpsOutputWithContext(ctx context.Context) IotHubDpsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDpsOutput)
 }
 
@@ -223,7 +223,7 @@ type IotHubDpsOutput struct {
 }
 
 func (IotHubDpsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubDpsOutput)(nil)).Elem()
+	return reflect.TypeOf((*IotHubDps)(nil))
 }
 
 func (o IotHubDpsOutput) ToIotHubDpsOutput() IotHubDpsOutput {

@@ -287,15 +287,15 @@ type LinuxVirtualMachineInput interface {
 	ToLinuxVirtualMachineOutputWithContext(ctx context.Context) LinuxVirtualMachineOutput
 }
 
-func (LinuxVirtualMachine) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinuxVirtualMachine)(nil)).Elem()
+func (*LinuxVirtualMachine) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachine)(nil))
 }
 
-func (i LinuxVirtualMachine) ToLinuxVirtualMachineOutput() LinuxVirtualMachineOutput {
+func (i *LinuxVirtualMachine) ToLinuxVirtualMachineOutput() LinuxVirtualMachineOutput {
 	return i.ToLinuxVirtualMachineOutputWithContext(context.Background())
 }
 
-func (i LinuxVirtualMachine) ToLinuxVirtualMachineOutputWithContext(ctx context.Context) LinuxVirtualMachineOutput {
+func (i *LinuxVirtualMachine) ToLinuxVirtualMachineOutputWithContext(ctx context.Context) LinuxVirtualMachineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineOutput)
 }
 
@@ -304,7 +304,7 @@ type LinuxVirtualMachineOutput struct {
 }
 
 func (LinuxVirtualMachineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinuxVirtualMachineOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinuxVirtualMachine)(nil))
 }
 
 func (o LinuxVirtualMachineOutput) ToLinuxVirtualMachineOutput() LinuxVirtualMachineOutput {

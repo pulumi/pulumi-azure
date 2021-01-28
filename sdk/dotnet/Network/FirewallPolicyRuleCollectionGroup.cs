@@ -155,6 +155,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/firewallPolicies/policy1/ruleCollectionGroups/gruop1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup")]
     public partial class FirewallPolicyRuleCollectionGroup : Pulumi.CustomResource
     {
         /// <summary>

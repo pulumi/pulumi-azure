@@ -79,6 +79,7 @@ namespace Pulumi.Azure.Redis
     ///  $ pulumi import azure:redis/cache:Cache cache1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/Redis/cache1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:redis/cache:Cache")]
     public partial class Cache : Pulumi.CustomResource
     {
         /// <summary>

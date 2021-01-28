@@ -110,6 +110,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/azureFirewalls/myfirewall/networkRuleCollections/mycollection
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection")]
     public partial class FirewallNetworkRuleCollection : Pulumi.CustomResource
     {
         /// <summary>

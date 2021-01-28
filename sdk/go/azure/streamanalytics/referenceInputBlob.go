@@ -273,15 +273,15 @@ type ReferenceInputBlobInput interface {
 	ToReferenceInputBlobOutputWithContext(ctx context.Context) ReferenceInputBlobOutput
 }
 
-func (ReferenceInputBlob) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReferenceInputBlob)(nil)).Elem()
+func (*ReferenceInputBlob) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceInputBlob)(nil))
 }
 
-func (i ReferenceInputBlob) ToReferenceInputBlobOutput() ReferenceInputBlobOutput {
+func (i *ReferenceInputBlob) ToReferenceInputBlobOutput() ReferenceInputBlobOutput {
 	return i.ToReferenceInputBlobOutputWithContext(context.Background())
 }
 
-func (i ReferenceInputBlob) ToReferenceInputBlobOutputWithContext(ctx context.Context) ReferenceInputBlobOutput {
+func (i *ReferenceInputBlob) ToReferenceInputBlobOutputWithContext(ctx context.Context) ReferenceInputBlobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputBlobOutput)
 }
 
@@ -290,7 +290,7 @@ type ReferenceInputBlobOutput struct {
 }
 
 func (ReferenceInputBlobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReferenceInputBlobOutput)(nil)).Elem()
+	return reflect.TypeOf((*ReferenceInputBlob)(nil))
 }
 
 func (o ReferenceInputBlobOutput) ToReferenceInputBlobOutput() ReferenceInputBlobOutput {

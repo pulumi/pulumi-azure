@@ -177,15 +177,15 @@ type TriggerHttpRequestInput interface {
 	ToTriggerHttpRequestOutputWithContext(ctx context.Context) TriggerHttpRequestOutput
 }
 
-func (TriggerHttpRequest) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerHttpRequest)(nil)).Elem()
+func (*TriggerHttpRequest) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerHttpRequest)(nil))
 }
 
-func (i TriggerHttpRequest) ToTriggerHttpRequestOutput() TriggerHttpRequestOutput {
+func (i *TriggerHttpRequest) ToTriggerHttpRequestOutput() TriggerHttpRequestOutput {
 	return i.ToTriggerHttpRequestOutputWithContext(context.Background())
 }
 
-func (i TriggerHttpRequest) ToTriggerHttpRequestOutputWithContext(ctx context.Context) TriggerHttpRequestOutput {
+func (i *TriggerHttpRequest) ToTriggerHttpRequestOutputWithContext(ctx context.Context) TriggerHttpRequestOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerHttpRequestOutput)
 }
 
@@ -194,7 +194,7 @@ type TriggerHttpRequestOutput struct {
 }
 
 func (TriggerHttpRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerHttpRequestOutput)(nil)).Elem()
+	return reflect.TypeOf((*TriggerHttpRequest)(nil))
 }
 
 func (o TriggerHttpRequestOutput) ToTriggerHttpRequestOutput() TriggerHttpRequestOutput {

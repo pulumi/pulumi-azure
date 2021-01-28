@@ -187,15 +187,15 @@ type DataSourceWindowsEventInput interface {
 	ToDataSourceWindowsEventOutputWithContext(ctx context.Context) DataSourceWindowsEventOutput
 }
 
-func (DataSourceWindowsEvent) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceWindowsEvent)(nil)).Elem()
+func (*DataSourceWindowsEvent) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceWindowsEvent)(nil))
 }
 
-func (i DataSourceWindowsEvent) ToDataSourceWindowsEventOutput() DataSourceWindowsEventOutput {
+func (i *DataSourceWindowsEvent) ToDataSourceWindowsEventOutput() DataSourceWindowsEventOutput {
 	return i.ToDataSourceWindowsEventOutputWithContext(context.Background())
 }
 
-func (i DataSourceWindowsEvent) ToDataSourceWindowsEventOutputWithContext(ctx context.Context) DataSourceWindowsEventOutput {
+func (i *DataSourceWindowsEvent) ToDataSourceWindowsEventOutputWithContext(ctx context.Context) DataSourceWindowsEventOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWindowsEventOutput)
 }
 
@@ -204,7 +204,7 @@ type DataSourceWindowsEventOutput struct {
 }
 
 func (DataSourceWindowsEventOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceWindowsEventOutput)(nil)).Elem()
+	return reflect.TypeOf((*DataSourceWindowsEvent)(nil))
 }
 
 func (o DataSourceWindowsEventOutput) ToDataSourceWindowsEventOutput() DataSourceWindowsEventOutput {

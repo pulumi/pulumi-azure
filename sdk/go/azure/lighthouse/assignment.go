@@ -141,15 +141,15 @@ type AssignmentInput interface {
 	ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput
 }
 
-func (Assignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*Assignment)(nil)).Elem()
+func (*Assignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*Assignment)(nil))
 }
 
-func (i Assignment) ToAssignmentOutput() AssignmentOutput {
+func (i *Assignment) ToAssignmentOutput() AssignmentOutput {
 	return i.ToAssignmentOutputWithContext(context.Background())
 }
 
-func (i Assignment) ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput {
+func (i *Assignment) ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentOutput)
 }
 
@@ -158,7 +158,7 @@ type AssignmentOutput struct {
 }
 
 func (AssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssignmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*Assignment)(nil))
 }
 
 func (o AssignmentOutput) ToAssignmentOutput() AssignmentOutput {

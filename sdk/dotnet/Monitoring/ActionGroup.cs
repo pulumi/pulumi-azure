@@ -147,6 +147,7 @@ namespace Pulumi.Azure.Monitoring
     ///  $ pulumi import azure:monitoring/actionGroup:ActionGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/actionGroups/myagname
     /// ```
     /// </summary>
+    [AzureResourceType("azure:monitoring/actionGroup:ActionGroup")]
     public partial class ActionGroup : Pulumi.CustomResource
     {
         /// <summary>

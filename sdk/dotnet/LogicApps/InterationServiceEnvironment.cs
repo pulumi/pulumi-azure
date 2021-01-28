@@ -113,6 +113,7 @@ namespace Pulumi.Azure.LogicApps
     ///  $ pulumi import azure:logicapps/interationServiceEnvironment:InterationServiceEnvironment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationServiceEnvironments/ise1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:logicapps/interationServiceEnvironment:InterationServiceEnvironment")]
     public partial class InterationServiceEnvironment : Pulumi.CustomResource
     {
         /// <summary>

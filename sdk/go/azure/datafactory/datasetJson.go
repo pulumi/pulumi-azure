@@ -274,15 +274,15 @@ type DatasetJsonInput interface {
 	ToDatasetJsonOutputWithContext(ctx context.Context) DatasetJsonOutput
 }
 
-func (DatasetJson) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetJson)(nil)).Elem()
+func (*DatasetJson) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetJson)(nil))
 }
 
-func (i DatasetJson) ToDatasetJsonOutput() DatasetJsonOutput {
+func (i *DatasetJson) ToDatasetJsonOutput() DatasetJsonOutput {
 	return i.ToDatasetJsonOutputWithContext(context.Background())
 }
 
-func (i DatasetJson) ToDatasetJsonOutputWithContext(ctx context.Context) DatasetJsonOutput {
+func (i *DatasetJson) ToDatasetJsonOutputWithContext(ctx context.Context) DatasetJsonOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetJsonOutput)
 }
 
@@ -291,7 +291,7 @@ type DatasetJsonOutput struct {
 }
 
 func (DatasetJsonOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetJsonOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatasetJson)(nil))
 }
 
 func (o DatasetJsonOutput) ToDatasetJsonOutput() DatasetJsonOutput {

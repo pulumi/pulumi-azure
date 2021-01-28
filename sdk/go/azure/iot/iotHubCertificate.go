@@ -130,15 +130,15 @@ type IotHubCertificateInput interface {
 	ToIotHubCertificateOutputWithContext(ctx context.Context) IotHubCertificateOutput
 }
 
-func (IotHubCertificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubCertificate)(nil)).Elem()
+func (*IotHubCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubCertificate)(nil))
 }
 
-func (i IotHubCertificate) ToIotHubCertificateOutput() IotHubCertificateOutput {
+func (i *IotHubCertificate) ToIotHubCertificateOutput() IotHubCertificateOutput {
 	return i.ToIotHubCertificateOutputWithContext(context.Background())
 }
 
-func (i IotHubCertificate) ToIotHubCertificateOutputWithContext(ctx context.Context) IotHubCertificateOutput {
+func (i *IotHubCertificate) ToIotHubCertificateOutputWithContext(ctx context.Context) IotHubCertificateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubCertificateOutput)
 }
 
@@ -147,7 +147,7 @@ type IotHubCertificateOutput struct {
 }
 
 func (IotHubCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubCertificateOutput)(nil)).Elem()
+	return reflect.TypeOf((*IotHubCertificate)(nil))
 }
 
 func (o IotHubCertificateOutput) ToIotHubCertificateOutput() IotHubCertificateOutput {

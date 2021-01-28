@@ -280,15 +280,15 @@ type SparkPoolInput interface {
 	ToSparkPoolOutputWithContext(ctx context.Context) SparkPoolOutput
 }
 
-func (SparkPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*SparkPool)(nil)).Elem()
+func (*SparkPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkPool)(nil))
 }
 
-func (i SparkPool) ToSparkPoolOutput() SparkPoolOutput {
+func (i *SparkPool) ToSparkPoolOutput() SparkPoolOutput {
 	return i.ToSparkPoolOutputWithContext(context.Background())
 }
 
-func (i SparkPool) ToSparkPoolOutputWithContext(ctx context.Context) SparkPoolOutput {
+func (i *SparkPool) ToSparkPoolOutputWithContext(ctx context.Context) SparkPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolOutput)
 }
 
@@ -297,7 +297,7 @@ type SparkPoolOutput struct {
 }
 
 func (SparkPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SparkPoolOutput)(nil)).Elem()
+	return reflect.TypeOf((*SparkPool)(nil))
 }
 
 func (o SparkPoolOutput) ToSparkPoolOutput() SparkPoolOutput {

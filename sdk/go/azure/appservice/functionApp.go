@@ -504,15 +504,15 @@ type FunctionAppInput interface {
 	ToFunctionAppOutputWithContext(ctx context.Context) FunctionAppOutput
 }
 
-func (FunctionApp) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionApp)(nil)).Elem()
+func (*FunctionApp) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionApp)(nil))
 }
 
-func (i FunctionApp) ToFunctionAppOutput() FunctionAppOutput {
+func (i *FunctionApp) ToFunctionAppOutput() FunctionAppOutput {
 	return i.ToFunctionAppOutputWithContext(context.Background())
 }
 
-func (i FunctionApp) ToFunctionAppOutputWithContext(ctx context.Context) FunctionAppOutput {
+func (i *FunctionApp) ToFunctionAppOutputWithContext(ctx context.Context) FunctionAppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppOutput)
 }
 
@@ -521,7 +521,7 @@ type FunctionAppOutput struct {
 }
 
 func (FunctionAppOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionAppOutput)(nil)).Elem()
+	return reflect.TypeOf((*FunctionApp)(nil))
 }
 
 func (o FunctionAppOutput) ToFunctionAppOutput() FunctionAppOutput {

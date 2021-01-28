@@ -53,6 +53,7 @@ namespace Pulumi.Azure.Kusto
     ///  $ pulumi import azure:kusto/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:kusto/cluster:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

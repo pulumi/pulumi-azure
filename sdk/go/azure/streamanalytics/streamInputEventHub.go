@@ -269,15 +269,15 @@ type StreamInputEventHubInput interface {
 	ToStreamInputEventHubOutputWithContext(ctx context.Context) StreamInputEventHubOutput
 }
 
-func (StreamInputEventHub) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamInputEventHub)(nil)).Elem()
+func (*StreamInputEventHub) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamInputEventHub)(nil))
 }
 
-func (i StreamInputEventHub) ToStreamInputEventHubOutput() StreamInputEventHubOutput {
+func (i *StreamInputEventHub) ToStreamInputEventHubOutput() StreamInputEventHubOutput {
 	return i.ToStreamInputEventHubOutputWithContext(context.Background())
 }
 
-func (i StreamInputEventHub) ToStreamInputEventHubOutputWithContext(ctx context.Context) StreamInputEventHubOutput {
+func (i *StreamInputEventHub) ToStreamInputEventHubOutputWithContext(ctx context.Context) StreamInputEventHubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputEventHubOutput)
 }
 
@@ -286,7 +286,7 @@ type StreamInputEventHubOutput struct {
 }
 
 func (StreamInputEventHubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamInputEventHubOutput)(nil)).Elem()
+	return reflect.TypeOf((*StreamInputEventHub)(nil))
 }
 
 func (o StreamInputEventHubOutput) ToStreamInputEventHubOutput() StreamInputEventHubOutput {

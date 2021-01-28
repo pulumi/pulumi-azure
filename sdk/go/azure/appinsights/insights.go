@@ -249,15 +249,15 @@ type InsightsInput interface {
 	ToInsightsOutputWithContext(ctx context.Context) InsightsOutput
 }
 
-func (Insights) ElementType() reflect.Type {
-	return reflect.TypeOf((*Insights)(nil)).Elem()
+func (*Insights) ElementType() reflect.Type {
+	return reflect.TypeOf((*Insights)(nil))
 }
 
-func (i Insights) ToInsightsOutput() InsightsOutput {
+func (i *Insights) ToInsightsOutput() InsightsOutput {
 	return i.ToInsightsOutputWithContext(context.Background())
 }
 
-func (i Insights) ToInsightsOutputWithContext(ctx context.Context) InsightsOutput {
+func (i *Insights) ToInsightsOutputWithContext(ctx context.Context) InsightsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InsightsOutput)
 }
 
@@ -266,7 +266,7 @@ type InsightsOutput struct {
 }
 
 func (InsightsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InsightsOutput)(nil)).Elem()
+	return reflect.TypeOf((*Insights)(nil))
 }
 
 func (o InsightsOutput) ToInsightsOutput() InsightsOutput {

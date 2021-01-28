@@ -102,6 +102,7 @@ namespace Pulumi.Azure.AppInsights
     ///  $ pulumi import azure:appinsights/apiKey:ApiKey my_key /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/components/instance1/apikeys/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
+    [AzureResourceType("azure:appinsights/apiKey:ApiKey")]
     public partial class ApiKey : Pulumi.CustomResource
     {
         /// <summary>

@@ -195,15 +195,15 @@ type PTRRecordInput interface {
 	ToPTRRecordOutputWithContext(ctx context.Context) PTRRecordOutput
 }
 
-func (PTRRecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*PTRRecord)(nil)).Elem()
+func (*PTRRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*PTRRecord)(nil))
 }
 
-func (i PTRRecord) ToPTRRecordOutput() PTRRecordOutput {
+func (i *PTRRecord) ToPTRRecordOutput() PTRRecordOutput {
 	return i.ToPTRRecordOutputWithContext(context.Background())
 }
 
-func (i PTRRecord) ToPTRRecordOutputWithContext(ctx context.Context) PTRRecordOutput {
+func (i *PTRRecord) ToPTRRecordOutputWithContext(ctx context.Context) PTRRecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PTRRecordOutput)
 }
 
@@ -212,7 +212,7 @@ type PTRRecordOutput struct {
 }
 
 func (PTRRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PTRRecordOutput)(nil)).Elem()
+	return reflect.TypeOf((*PTRRecord)(nil))
 }
 
 func (o PTRRecordOutput) ToPTRRecordOutput() PTRRecordOutput {

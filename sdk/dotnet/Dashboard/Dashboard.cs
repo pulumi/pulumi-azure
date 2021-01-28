@@ -166,6 +166,7 @@ namespace Pulumi.Azure.Dashboard
     /// 
     ///  Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
     /// </summary>
+    [AzureResourceType("azure:dashboard/dashboard:Dashboard")]
     public partial class Dashboard : Pulumi.CustomResource
     {
         /// <summary>

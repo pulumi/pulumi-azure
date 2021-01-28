@@ -237,15 +237,15 @@ type ChannelsRegistrationInput interface {
 	ToChannelsRegistrationOutputWithContext(ctx context.Context) ChannelsRegistrationOutput
 }
 
-func (ChannelsRegistration) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelsRegistration)(nil)).Elem()
+func (*ChannelsRegistration) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelsRegistration)(nil))
 }
 
-func (i ChannelsRegistration) ToChannelsRegistrationOutput() ChannelsRegistrationOutput {
+func (i *ChannelsRegistration) ToChannelsRegistrationOutput() ChannelsRegistrationOutput {
 	return i.ToChannelsRegistrationOutputWithContext(context.Background())
 }
 
-func (i ChannelsRegistration) ToChannelsRegistrationOutputWithContext(ctx context.Context) ChannelsRegistrationOutput {
+func (i *ChannelsRegistration) ToChannelsRegistrationOutputWithContext(ctx context.Context) ChannelsRegistrationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelsRegistrationOutput)
 }
 
@@ -254,7 +254,7 @@ type ChannelsRegistrationOutput struct {
 }
 
 func (ChannelsRegistrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelsRegistrationOutput)(nil)).Elem()
+	return reflect.TypeOf((*ChannelsRegistration)(nil))
 }
 
 func (o ChannelsRegistrationOutput) ToChannelsRegistrationOutput() ChannelsRegistrationOutput {

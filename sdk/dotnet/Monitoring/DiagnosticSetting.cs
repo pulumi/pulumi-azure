@@ -77,6 +77,7 @@ namespace Pulumi.Azure.Monitoring
     ///  $ pulumi import azure:monitoring/diagnosticSetting:DiagnosticSetting example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.KeyVault/vaults/vault1|logMonitoring1"
     /// ```
     /// </summary>
+    [AzureResourceType("azure:monitoring/diagnosticSetting:DiagnosticSetting")]
     public partial class DiagnosticSetting : Pulumi.CustomResource
     {
         /// <summary>

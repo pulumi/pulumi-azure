@@ -201,15 +201,15 @@ type EndpointEventGridInput interface {
 	ToEndpointEventGridOutputWithContext(ctx context.Context) EndpointEventGridOutput
 }
 
-func (EndpointEventGrid) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointEventGrid)(nil)).Elem()
+func (*EndpointEventGrid) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointEventGrid)(nil))
 }
 
-func (i EndpointEventGrid) ToEndpointEventGridOutput() EndpointEventGridOutput {
+func (i *EndpointEventGrid) ToEndpointEventGridOutput() EndpointEventGridOutput {
 	return i.ToEndpointEventGridOutputWithContext(context.Background())
 }
 
-func (i EndpointEventGrid) ToEndpointEventGridOutputWithContext(ctx context.Context) EndpointEventGridOutput {
+func (i *EndpointEventGrid) ToEndpointEventGridOutputWithContext(ctx context.Context) EndpointEventGridOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventGridOutput)
 }
 
@@ -218,7 +218,7 @@ type EndpointEventGridOutput struct {
 }
 
 func (EndpointEventGridOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointEventGridOutput)(nil)).Elem()
+	return reflect.TypeOf((*EndpointEventGrid)(nil))
 }
 
 func (o EndpointEventGridOutput) ToEndpointEventGridOutput() EndpointEventGridOutput {

@@ -247,15 +247,15 @@ type DatasetSqlServerTableInput interface {
 	ToDatasetSqlServerTableOutputWithContext(ctx context.Context) DatasetSqlServerTableOutput
 }
 
-func (DatasetSqlServerTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetSqlServerTable)(nil)).Elem()
+func (*DatasetSqlServerTable) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetSqlServerTable)(nil))
 }
 
-func (i DatasetSqlServerTable) ToDatasetSqlServerTableOutput() DatasetSqlServerTableOutput {
+func (i *DatasetSqlServerTable) ToDatasetSqlServerTableOutput() DatasetSqlServerTableOutput {
 	return i.ToDatasetSqlServerTableOutputWithContext(context.Background())
 }
 
-func (i DatasetSqlServerTable) ToDatasetSqlServerTableOutputWithContext(ctx context.Context) DatasetSqlServerTableOutput {
+func (i *DatasetSqlServerTable) ToDatasetSqlServerTableOutputWithContext(ctx context.Context) DatasetSqlServerTableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetSqlServerTableOutput)
 }
 
@@ -264,7 +264,7 @@ type DatasetSqlServerTableOutput struct {
 }
 
 func (DatasetSqlServerTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetSqlServerTableOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatasetSqlServerTable)(nil))
 }
 
 func (o DatasetSqlServerTableOutput) ToDatasetSqlServerTableOutput() DatasetSqlServerTableOutput {

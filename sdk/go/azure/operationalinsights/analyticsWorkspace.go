@@ -226,15 +226,15 @@ type AnalyticsWorkspaceInput interface {
 	ToAnalyticsWorkspaceOutputWithContext(ctx context.Context) AnalyticsWorkspaceOutput
 }
 
-func (AnalyticsWorkspace) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsWorkspace)(nil)).Elem()
+func (*AnalyticsWorkspace) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsWorkspace)(nil))
 }
 
-func (i AnalyticsWorkspace) ToAnalyticsWorkspaceOutput() AnalyticsWorkspaceOutput {
+func (i *AnalyticsWorkspace) ToAnalyticsWorkspaceOutput() AnalyticsWorkspaceOutput {
 	return i.ToAnalyticsWorkspaceOutputWithContext(context.Background())
 }
 
-func (i AnalyticsWorkspace) ToAnalyticsWorkspaceOutputWithContext(ctx context.Context) AnalyticsWorkspaceOutput {
+func (i *AnalyticsWorkspace) ToAnalyticsWorkspaceOutputWithContext(ctx context.Context) AnalyticsWorkspaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsWorkspaceOutput)
 }
 
@@ -243,7 +243,7 @@ type AnalyticsWorkspaceOutput struct {
 }
 
 func (AnalyticsWorkspaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsWorkspaceOutput)(nil)).Elem()
+	return reflect.TypeOf((*AnalyticsWorkspace)(nil))
 }
 
 func (o AnalyticsWorkspaceOutput) ToAnalyticsWorkspaceOutput() AnalyticsWorkspaceOutput {

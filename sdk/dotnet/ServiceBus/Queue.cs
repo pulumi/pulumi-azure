@@ -55,6 +55,7 @@ namespace Pulumi.Azure.ServiceBus
     ///  $ pulumi import azure:servicebus/queue:Queue example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1/queues/snqueue1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:servicebus/queue:Queue")]
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>

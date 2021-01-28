@@ -173,15 +173,15 @@ type SubnetRouteTableAssociationInput interface {
 	ToSubnetRouteTableAssociationOutputWithContext(ctx context.Context) SubnetRouteTableAssociationOutput
 }
 
-func (SubnetRouteTableAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetRouteTableAssociation)(nil)).Elem()
+func (*SubnetRouteTableAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetRouteTableAssociation)(nil))
 }
 
-func (i SubnetRouteTableAssociation) ToSubnetRouteTableAssociationOutput() SubnetRouteTableAssociationOutput {
+func (i *SubnetRouteTableAssociation) ToSubnetRouteTableAssociationOutput() SubnetRouteTableAssociationOutput {
 	return i.ToSubnetRouteTableAssociationOutputWithContext(context.Background())
 }
 
-func (i SubnetRouteTableAssociation) ToSubnetRouteTableAssociationOutputWithContext(ctx context.Context) SubnetRouteTableAssociationOutput {
+func (i *SubnetRouteTableAssociation) ToSubnetRouteTableAssociationOutputWithContext(ctx context.Context) SubnetRouteTableAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetRouteTableAssociationOutput)
 }
 
@@ -190,7 +190,7 @@ type SubnetRouteTableAssociationOutput struct {
 }
 
 func (SubnetRouteTableAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetRouteTableAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*SubnetRouteTableAssociation)(nil))
 }
 
 func (o SubnetRouteTableAssociationOutput) ToSubnetRouteTableAssociationOutput() SubnetRouteTableAssociationOutput {

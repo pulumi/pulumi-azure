@@ -258,15 +258,15 @@ type NetworkMappingInput interface {
 	ToNetworkMappingOutputWithContext(ctx context.Context) NetworkMappingOutput
 }
 
-func (NetworkMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkMapping)(nil)).Elem()
+func (*NetworkMapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkMapping)(nil))
 }
 
-func (i NetworkMapping) ToNetworkMappingOutput() NetworkMappingOutput {
+func (i *NetworkMapping) ToNetworkMappingOutput() NetworkMappingOutput {
 	return i.ToNetworkMappingOutputWithContext(context.Background())
 }
 
-func (i NetworkMapping) ToNetworkMappingOutputWithContext(ctx context.Context) NetworkMappingOutput {
+func (i *NetworkMapping) ToNetworkMappingOutputWithContext(ctx context.Context) NetworkMappingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkMappingOutput)
 }
 
@@ -275,7 +275,7 @@ type NetworkMappingOutput struct {
 }
 
 func (NetworkMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkMappingOutput)(nil)).Elem()
+	return reflect.TypeOf((*NetworkMapping)(nil))
 }
 
 func (o NetworkMappingOutput) ToNetworkMappingOutput() NetworkMappingOutput {

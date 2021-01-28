@@ -50,6 +50,7 @@ namespace Pulumi.Azure.EventHub
     /// ```
     /// </summary>
     [Obsolete(@"azure.eventhub.Namespace has been deprecated in favor of azure.servicebus.Namespace")]
+    [AzureResourceType("azure:eventhub/namespace:Namespace")]
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>

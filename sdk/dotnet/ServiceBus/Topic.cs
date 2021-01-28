@@ -57,6 +57,7 @@ namespace Pulumi.Azure.ServiceBus
     ///  $ pulumi import azure:servicebus/topic:Topic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1/topics/sntopic1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:servicebus/topic:Topic")]
     public partial class Topic : Pulumi.CustomResource
     {
         /// <summary>

@@ -247,15 +247,15 @@ type AaaaRecordInput interface {
 	ToAaaaRecordOutputWithContext(ctx context.Context) AaaaRecordOutput
 }
 
-func (AaaaRecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*AaaaRecord)(nil)).Elem()
+func (*AaaaRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*AaaaRecord)(nil))
 }
 
-func (i AaaaRecord) ToAaaaRecordOutput() AaaaRecordOutput {
+func (i *AaaaRecord) ToAaaaRecordOutput() AaaaRecordOutput {
 	return i.ToAaaaRecordOutputWithContext(context.Background())
 }
 
-func (i AaaaRecord) ToAaaaRecordOutputWithContext(ctx context.Context) AaaaRecordOutput {
+func (i *AaaaRecord) ToAaaaRecordOutputWithContext(ctx context.Context) AaaaRecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AaaaRecordOutput)
 }
 
@@ -264,7 +264,7 @@ type AaaaRecordOutput struct {
 }
 
 func (AaaaRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AaaaRecordOutput)(nil)).Elem()
+	return reflect.TypeOf((*AaaaRecord)(nil))
 }
 
 func (o AaaaRecordOutput) ToAaaaRecordOutput() AaaaRecordOutput {

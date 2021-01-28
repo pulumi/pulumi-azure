@@ -314,15 +314,15 @@ type CertifiateInput interface {
 	ToCertifiateOutputWithContext(ctx context.Context) CertifiateOutput
 }
 
-func (Certifiate) ElementType() reflect.Type {
-	return reflect.TypeOf((*Certifiate)(nil)).Elem()
+func (*Certifiate) ElementType() reflect.Type {
+	return reflect.TypeOf((*Certifiate)(nil))
 }
 
-func (i Certifiate) ToCertifiateOutput() CertifiateOutput {
+func (i *Certifiate) ToCertifiateOutput() CertifiateOutput {
 	return i.ToCertifiateOutputWithContext(context.Background())
 }
 
-func (i Certifiate) ToCertifiateOutputWithContext(ctx context.Context) CertifiateOutput {
+func (i *Certifiate) ToCertifiateOutputWithContext(ctx context.Context) CertifiateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateOutput)
 }
 
@@ -331,7 +331,7 @@ type CertifiateOutput struct {
 }
 
 func (CertifiateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertifiateOutput)(nil)).Elem()
+	return reflect.TypeOf((*Certifiate)(nil))
 }
 
 func (o CertifiateOutput) ToCertifiateOutput() CertifiateOutput {

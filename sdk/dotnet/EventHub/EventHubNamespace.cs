@@ -50,6 +50,7 @@ namespace Pulumi.Azure.EventHub
     ///  $ pulumi import azure:eventhub/eventHubNamespace:EventHubNamespace namespace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:eventhub/eventHubNamespace:EventHubNamespace")]
     public partial class EventHubNamespace : Pulumi.CustomResource
     {
         /// <summary>

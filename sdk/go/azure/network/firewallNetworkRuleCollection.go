@@ -251,15 +251,15 @@ type FirewallNetworkRuleCollectionInput interface {
 	ToFirewallNetworkRuleCollectionOutputWithContext(ctx context.Context) FirewallNetworkRuleCollectionOutput
 }
 
-func (FirewallNetworkRuleCollection) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallNetworkRuleCollection)(nil)).Elem()
+func (*FirewallNetworkRuleCollection) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallNetworkRuleCollection)(nil))
 }
 
-func (i FirewallNetworkRuleCollection) ToFirewallNetworkRuleCollectionOutput() FirewallNetworkRuleCollectionOutput {
+func (i *FirewallNetworkRuleCollection) ToFirewallNetworkRuleCollectionOutput() FirewallNetworkRuleCollectionOutput {
 	return i.ToFirewallNetworkRuleCollectionOutputWithContext(context.Background())
 }
 
-func (i FirewallNetworkRuleCollection) ToFirewallNetworkRuleCollectionOutputWithContext(ctx context.Context) FirewallNetworkRuleCollectionOutput {
+func (i *FirewallNetworkRuleCollection) ToFirewallNetworkRuleCollectionOutputWithContext(ctx context.Context) FirewallNetworkRuleCollectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallNetworkRuleCollectionOutput)
 }
 
@@ -268,7 +268,7 @@ type FirewallNetworkRuleCollectionOutput struct {
 }
 
 func (FirewallNetworkRuleCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallNetworkRuleCollectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*FirewallNetworkRuleCollection)(nil))
 }
 
 func (o FirewallNetworkRuleCollectionOutput) ToFirewallNetworkRuleCollectionOutput() FirewallNetworkRuleCollectionOutput {

@@ -65,6 +65,7 @@ namespace Pulumi.Azure.EventGrid
     /// 
     ///  /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1/providers/Microsoft.EventGrid/eventSubscriptions/eventSubscription1
     /// </summary>
+    [AzureResourceType("azure:eventgrid/eventSubscription:EventSubscription")]
     public partial class EventSubscription : Pulumi.CustomResource
     {
         /// <summary>

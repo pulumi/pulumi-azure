@@ -70,6 +70,7 @@ namespace Pulumi.Azure.AppService
     ///  $ pulumi import azure:appservice/customHostnameBinding:CustomHostnameBinding mywebsite /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/hostNameBindings/mywebsite.com
     /// ```
     /// </summary>
+    [AzureResourceType("azure:appservice/customHostnameBinding:CustomHostnameBinding")]
     public partial class CustomHostnameBinding : Pulumi.CustomResource
     {
         /// <summary>

@@ -154,15 +154,15 @@ type ManagedCertificateInput interface {
 	ToManagedCertificateOutputWithContext(ctx context.Context) ManagedCertificateOutput
 }
 
-func (ManagedCertificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedCertificate)(nil)).Elem()
+func (*ManagedCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedCertificate)(nil))
 }
 
-func (i ManagedCertificate) ToManagedCertificateOutput() ManagedCertificateOutput {
+func (i *ManagedCertificate) ToManagedCertificateOutput() ManagedCertificateOutput {
 	return i.ToManagedCertificateOutputWithContext(context.Background())
 }
 
-func (i ManagedCertificate) ToManagedCertificateOutputWithContext(ctx context.Context) ManagedCertificateOutput {
+func (i *ManagedCertificate) ToManagedCertificateOutputWithContext(ctx context.Context) ManagedCertificateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedCertificateOutput)
 }
 
@@ -171,7 +171,7 @@ type ManagedCertificateOutput struct {
 }
 
 func (ManagedCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedCertificateOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagedCertificate)(nil))
 }
 
 func (o ManagedCertificateOutput) ToManagedCertificateOutput() ManagedCertificateOutput {

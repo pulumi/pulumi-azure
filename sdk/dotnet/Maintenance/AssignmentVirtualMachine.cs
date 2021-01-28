@@ -115,6 +115,7 @@ namespace Pulumi.Azure.Maintenance
     ///  $ pulumi import azure:maintenance/assignmentVirtualMachine:AssignmentVirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resGroup1/providers/microsoft.compute/virtualMachines/vm1/providers/Microsoft.Maintenance/configurationAssignments/assign1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:maintenance/assignmentVirtualMachine:AssignmentVirtualMachine")]
     public partial class AssignmentVirtualMachine : Pulumi.CustomResource
     {
         /// <summary>

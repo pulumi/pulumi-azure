@@ -63,6 +63,7 @@ namespace Pulumi.Azure.ServiceBus
     ///  $ pulumi import azure:servicebus/topicAuthorizationRule:TopicAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/topics/topic1/authorizationRules/rule1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:servicebus/topicAuthorizationRule:TopicAuthorizationRule")]
     public partial class TopicAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>

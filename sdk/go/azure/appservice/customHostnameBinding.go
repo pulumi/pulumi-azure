@@ -207,15 +207,15 @@ type CustomHostnameBindingInput interface {
 	ToCustomHostnameBindingOutputWithContext(ctx context.Context) CustomHostnameBindingOutput
 }
 
-func (CustomHostnameBinding) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomHostnameBinding)(nil)).Elem()
+func (*CustomHostnameBinding) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomHostnameBinding)(nil))
 }
 
-func (i CustomHostnameBinding) ToCustomHostnameBindingOutput() CustomHostnameBindingOutput {
+func (i *CustomHostnameBinding) ToCustomHostnameBindingOutput() CustomHostnameBindingOutput {
 	return i.ToCustomHostnameBindingOutputWithContext(context.Background())
 }
 
-func (i CustomHostnameBinding) ToCustomHostnameBindingOutputWithContext(ctx context.Context) CustomHostnameBindingOutput {
+func (i *CustomHostnameBinding) ToCustomHostnameBindingOutputWithContext(ctx context.Context) CustomHostnameBindingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomHostnameBindingOutput)
 }
 
@@ -224,7 +224,7 @@ type CustomHostnameBindingOutput struct {
 }
 
 func (CustomHostnameBindingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomHostnameBindingOutput)(nil)).Elem()
+	return reflect.TypeOf((*CustomHostnameBinding)(nil))
 }
 
 func (o CustomHostnameBindingOutput) ToCustomHostnameBindingOutput() CustomHostnameBindingOutput {

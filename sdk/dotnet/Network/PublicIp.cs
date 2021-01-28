@@ -49,6 +49,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/publicIp:PublicIp myPublicIp /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPAddresses/myPublicIpAddress1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/publicIp:PublicIp")]
     public partial class PublicIp : Pulumi.CustomResource
     {
         /// <summary>

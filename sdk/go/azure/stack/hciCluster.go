@@ -192,15 +192,15 @@ type HciClusterInput interface {
 	ToHciClusterOutputWithContext(ctx context.Context) HciClusterOutput
 }
 
-func (HciCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*HciCluster)(nil)).Elem()
+func (*HciCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciCluster)(nil))
 }
 
-func (i HciCluster) ToHciClusterOutput() HciClusterOutput {
+func (i *HciCluster) ToHciClusterOutput() HciClusterOutput {
 	return i.ToHciClusterOutputWithContext(context.Background())
 }
 
-func (i HciCluster) ToHciClusterOutputWithContext(ctx context.Context) HciClusterOutput {
+func (i *HciCluster) ToHciClusterOutputWithContext(ctx context.Context) HciClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HciClusterOutput)
 }
 
@@ -209,7 +209,7 @@ type HciClusterOutput struct {
 }
 
 func (HciClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HciClusterOutput)(nil)).Elem()
+	return reflect.TypeOf((*HciCluster)(nil))
 }
 
 func (o HciClusterOutput) ToHciClusterOutput() HciClusterOutput {

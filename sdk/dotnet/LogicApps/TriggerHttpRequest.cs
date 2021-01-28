@@ -57,6 +57,7 @@ namespace Pulumi.Azure.LogicApps
     ///  $ pulumi import azure:logicapps/triggerHttpRequest:TriggerHttpRequest request1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/request1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:logicapps/triggerHttpRequest:TriggerHttpRequest")]
     public partial class TriggerHttpRequest : Pulumi.CustomResource
     {
         /// <summary>

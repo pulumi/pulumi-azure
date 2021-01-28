@@ -243,15 +243,15 @@ type SharedImageVersionInput interface {
 	ToSharedImageVersionOutputWithContext(ctx context.Context) SharedImageVersionOutput
 }
 
-func (SharedImageVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedImageVersion)(nil)).Elem()
+func (*SharedImageVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImageVersion)(nil))
 }
 
-func (i SharedImageVersion) ToSharedImageVersionOutput() SharedImageVersionOutput {
+func (i *SharedImageVersion) ToSharedImageVersionOutput() SharedImageVersionOutput {
 	return i.ToSharedImageVersionOutputWithContext(context.Background())
 }
 
-func (i SharedImageVersion) ToSharedImageVersionOutputWithContext(ctx context.Context) SharedImageVersionOutput {
+func (i *SharedImageVersion) ToSharedImageVersionOutputWithContext(ctx context.Context) SharedImageVersionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionOutput)
 }
 
@@ -260,7 +260,7 @@ type SharedImageVersionOutput struct {
 }
 
 func (SharedImageVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedImageVersionOutput)(nil)).Elem()
+	return reflect.TypeOf((*SharedImageVersion)(nil))
 }
 
 func (o SharedImageVersionOutput) ToSharedImageVersionOutput() SharedImageVersionOutput {

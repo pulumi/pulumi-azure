@@ -55,6 +55,7 @@ namespace Pulumi.Azure.SecurityCenter
     ///  $ pulumi import azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleResourceGroup/providers/Microsoft.Storage/storageAccounts/exampleaccount/providers/Microsoft.Security/advancedThreatProtectionSettings/default
     /// ```
     /// </summary>
+    [AzureResourceType("azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection")]
     public partial class AdvancedThreatProtection : Pulumi.CustomResource
     {
         /// <summary>

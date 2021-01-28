@@ -182,6 +182,7 @@ namespace Pulumi.Azure.FrontDoor
     ///  $ pulumi import azure:frontdoor/firewallPolicy:FirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/example-fdwafpolicy
     /// ```
     /// </summary>
+    [AzureResourceType("azure:frontdoor/firewallPolicy:FirewallPolicy")]
     public partial class FirewallPolicy : Pulumi.CustomResource
     {
         /// <summary>

@@ -58,6 +58,7 @@ namespace Pulumi.Azure.Batch
     ///  $ pulumi import azure:batch/application:Application example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Batch/batchAccounts/exampleba/applications/example-batch-application
     /// ```
     /// </summary>
+    [AzureResourceType("azure:batch/application:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>

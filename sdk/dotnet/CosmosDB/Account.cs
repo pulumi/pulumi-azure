@@ -87,6 +87,7 @@ namespace Pulumi.Azure.CosmosDB
     ///  $ pulumi import azure:cosmosdb/account:Account account1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:cosmosdb/account:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

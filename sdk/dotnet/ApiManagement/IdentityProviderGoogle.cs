@@ -54,6 +54,7 @@ namespace Pulumi.Azure.ApiManagement
     ///  $ pulumi import azure:apimanagement/identityProviderGoogle:IdentityProviderGoogle example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/google
     /// ```
     /// </summary>
+    [AzureResourceType("azure:apimanagement/identityProviderGoogle:IdentityProviderGoogle")]
     public partial class IdentityProviderGoogle : Pulumi.CustomResource
     {
         /// <summary>

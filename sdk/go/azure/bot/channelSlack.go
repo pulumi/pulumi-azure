@@ -216,15 +216,15 @@ type ChannelSlackInput interface {
 	ToChannelSlackOutputWithContext(ctx context.Context) ChannelSlackOutput
 }
 
-func (ChannelSlack) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelSlack)(nil)).Elem()
+func (*ChannelSlack) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelSlack)(nil))
 }
 
-func (i ChannelSlack) ToChannelSlackOutput() ChannelSlackOutput {
+func (i *ChannelSlack) ToChannelSlackOutput() ChannelSlackOutput {
 	return i.ToChannelSlackOutputWithContext(context.Background())
 }
 
-func (i ChannelSlack) ToChannelSlackOutputWithContext(ctx context.Context) ChannelSlackOutput {
+func (i *ChannelSlack) ToChannelSlackOutputWithContext(ctx context.Context) ChannelSlackOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelSlackOutput)
 }
 
@@ -233,7 +233,7 @@ type ChannelSlackOutput struct {
 }
 
 func (ChannelSlackOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelSlackOutput)(nil)).Elem()
+	return reflect.TypeOf((*ChannelSlack)(nil))
 }
 
 func (o ChannelSlackOutput) ToChannelSlackOutput() ChannelSlackOutput {

@@ -229,15 +229,15 @@ type FallbackRouteInput interface {
 	ToFallbackRouteOutputWithContext(ctx context.Context) FallbackRouteOutput
 }
 
-func (FallbackRoute) ElementType() reflect.Type {
-	return reflect.TypeOf((*FallbackRoute)(nil)).Elem()
+func (*FallbackRoute) ElementType() reflect.Type {
+	return reflect.TypeOf((*FallbackRoute)(nil))
 }
 
-func (i FallbackRoute) ToFallbackRouteOutput() FallbackRouteOutput {
+func (i *FallbackRoute) ToFallbackRouteOutput() FallbackRouteOutput {
 	return i.ToFallbackRouteOutputWithContext(context.Background())
 }
 
-func (i FallbackRoute) ToFallbackRouteOutputWithContext(ctx context.Context) FallbackRouteOutput {
+func (i *FallbackRoute) ToFallbackRouteOutputWithContext(ctx context.Context) FallbackRouteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FallbackRouteOutput)
 }
 
@@ -246,7 +246,7 @@ type FallbackRouteOutput struct {
 }
 
 func (FallbackRouteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FallbackRouteOutput)(nil)).Elem()
+	return reflect.TypeOf((*FallbackRoute)(nil))
 }
 
 func (o FallbackRouteOutput) ToFallbackRouteOutput() FallbackRouteOutput {

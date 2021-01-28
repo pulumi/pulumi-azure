@@ -78,6 +78,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/trafficManagerEndpoint:TrafficManagerEndpoint exampleEndpoints /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/trafficManagerProfiles/mytrafficmanagerprofile1/azureEndpoints/mytrafficmanagerendpoint
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/trafficManagerEndpoint:TrafficManagerEndpoint")]
     public partial class TrafficManagerEndpoint : Pulumi.CustomResource
     {
         /// <summary>

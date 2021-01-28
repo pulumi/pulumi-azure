@@ -346,15 +346,15 @@ type KafkaClusterInput interface {
 	ToKafkaClusterOutputWithContext(ctx context.Context) KafkaClusterOutput
 }
 
-func (KafkaCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*KafkaCluster)(nil)).Elem()
+func (*KafkaCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaCluster)(nil))
 }
 
-func (i KafkaCluster) ToKafkaClusterOutput() KafkaClusterOutput {
+func (i *KafkaCluster) ToKafkaClusterOutput() KafkaClusterOutput {
 	return i.ToKafkaClusterOutputWithContext(context.Background())
 }
 
-func (i KafkaCluster) ToKafkaClusterOutputWithContext(ctx context.Context) KafkaClusterOutput {
+func (i *KafkaCluster) ToKafkaClusterOutputWithContext(ctx context.Context) KafkaClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterOutput)
 }
 
@@ -363,7 +363,7 @@ type KafkaClusterOutput struct {
 }
 
 func (KafkaClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KafkaClusterOutput)(nil)).Elem()
+	return reflect.TypeOf((*KafkaCluster)(nil))
 }
 
 func (o KafkaClusterOutput) ToKafkaClusterOutput() KafkaClusterOutput {

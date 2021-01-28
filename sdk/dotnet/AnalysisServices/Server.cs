@@ -65,6 +65,7 @@ namespace Pulumi.Azure.AnalysisServices
     ///  $ pulumi import azure:analysisservices/server:Server server /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AnalysisServices/servers/server1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:analysisservices/server:Server")]
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>

@@ -178,15 +178,15 @@ type SubnetNetworkSecurityGroupAssociationInput interface {
 	ToSubnetNetworkSecurityGroupAssociationOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationOutput
 }
 
-func (SubnetNetworkSecurityGroupAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetNetworkSecurityGroupAssociation)(nil)).Elem()
+func (*SubnetNetworkSecurityGroupAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetNetworkSecurityGroupAssociation)(nil))
 }
 
-func (i SubnetNetworkSecurityGroupAssociation) ToSubnetNetworkSecurityGroupAssociationOutput() SubnetNetworkSecurityGroupAssociationOutput {
+func (i *SubnetNetworkSecurityGroupAssociation) ToSubnetNetworkSecurityGroupAssociationOutput() SubnetNetworkSecurityGroupAssociationOutput {
 	return i.ToSubnetNetworkSecurityGroupAssociationOutputWithContext(context.Background())
 }
 
-func (i SubnetNetworkSecurityGroupAssociation) ToSubnetNetworkSecurityGroupAssociationOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationOutput {
+func (i *SubnetNetworkSecurityGroupAssociation) ToSubnetNetworkSecurityGroupAssociationOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetNetworkSecurityGroupAssociationOutput)
 }
 
@@ -195,7 +195,7 @@ type SubnetNetworkSecurityGroupAssociationOutput struct {
 }
 
 func (SubnetNetworkSecurityGroupAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetNetworkSecurityGroupAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*SubnetNetworkSecurityGroupAssociation)(nil))
 }
 
 func (o SubnetNetworkSecurityGroupAssociationOutput) ToSubnetNetworkSecurityGroupAssociationOutput() SubnetNetworkSecurityGroupAssociationOutput {

@@ -285,15 +285,15 @@ type InterationServiceEnvironmentInput interface {
 	ToInterationServiceEnvironmentOutputWithContext(ctx context.Context) InterationServiceEnvironmentOutput
 }
 
-func (InterationServiceEnvironment) ElementType() reflect.Type {
-	return reflect.TypeOf((*InterationServiceEnvironment)(nil)).Elem()
+func (*InterationServiceEnvironment) ElementType() reflect.Type {
+	return reflect.TypeOf((*InterationServiceEnvironment)(nil))
 }
 
-func (i InterationServiceEnvironment) ToInterationServiceEnvironmentOutput() InterationServiceEnvironmentOutput {
+func (i *InterationServiceEnvironment) ToInterationServiceEnvironmentOutput() InterationServiceEnvironmentOutput {
 	return i.ToInterationServiceEnvironmentOutputWithContext(context.Background())
 }
 
-func (i InterationServiceEnvironment) ToInterationServiceEnvironmentOutputWithContext(ctx context.Context) InterationServiceEnvironmentOutput {
+func (i *InterationServiceEnvironment) ToInterationServiceEnvironmentOutputWithContext(ctx context.Context) InterationServiceEnvironmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InterationServiceEnvironmentOutput)
 }
 
@@ -302,7 +302,7 @@ type InterationServiceEnvironmentOutput struct {
 }
 
 func (InterationServiceEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InterationServiceEnvironmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*InterationServiceEnvironment)(nil))
 }
 
 func (o InterationServiceEnvironmentOutput) ToInterationServiceEnvironmentOutput() InterationServiceEnvironmentOutput {

@@ -49,6 +49,7 @@ namespace Pulumi.Azure.Automation
     ///  $ pulumi import azure:automation/jobSchedule:JobSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/jobSchedules/10000000-1001-1001-1001-000000000001
     /// ```
     /// </summary>
+    [AzureResourceType("azure:automation/jobSchedule:JobSchedule")]
     public partial class JobSchedule : Pulumi.CustomResource
     {
         /// <summary>

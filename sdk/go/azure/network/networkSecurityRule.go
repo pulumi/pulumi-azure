@@ -329,15 +329,15 @@ type NetworkSecurityRuleInput interface {
 	ToNetworkSecurityRuleOutputWithContext(ctx context.Context) NetworkSecurityRuleOutput
 }
 
-func (NetworkSecurityRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkSecurityRule)(nil)).Elem()
+func (*NetworkSecurityRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSecurityRule)(nil))
 }
 
-func (i NetworkSecurityRule) ToNetworkSecurityRuleOutput() NetworkSecurityRuleOutput {
+func (i *NetworkSecurityRule) ToNetworkSecurityRuleOutput() NetworkSecurityRuleOutput {
 	return i.ToNetworkSecurityRuleOutputWithContext(context.Background())
 }
 
-func (i NetworkSecurityRule) ToNetworkSecurityRuleOutputWithContext(ctx context.Context) NetworkSecurityRuleOutput {
+func (i *NetworkSecurityRule) ToNetworkSecurityRuleOutputWithContext(ctx context.Context) NetworkSecurityRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityRuleOutput)
 }
 
@@ -346,7 +346,7 @@ type NetworkSecurityRuleOutput struct {
 }
 
 func (NetworkSecurityRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkSecurityRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*NetworkSecurityRule)(nil))
 }
 
 func (o NetworkSecurityRuleOutput) ToNetworkSecurityRuleOutput() NetworkSecurityRuleOutput {

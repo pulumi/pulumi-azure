@@ -169,15 +169,15 @@ type MongoDatabaseInput interface {
 	ToMongoDatabaseOutputWithContext(ctx context.Context) MongoDatabaseOutput
 }
 
-func (MongoDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDatabase)(nil)).Elem()
+func (*MongoDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDatabase)(nil))
 }
 
-func (i MongoDatabase) ToMongoDatabaseOutput() MongoDatabaseOutput {
+func (i *MongoDatabase) ToMongoDatabaseOutput() MongoDatabaseOutput {
 	return i.ToMongoDatabaseOutputWithContext(context.Background())
 }
 
-func (i MongoDatabase) ToMongoDatabaseOutputWithContext(ctx context.Context) MongoDatabaseOutput {
+func (i *MongoDatabase) ToMongoDatabaseOutputWithContext(ctx context.Context) MongoDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MongoDatabaseOutput)
 }
 
@@ -186,7 +186,7 @@ type MongoDatabaseOutput struct {
 }
 
 func (MongoDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDatabaseOutput)(nil)).Elem()
+	return reflect.TypeOf((*MongoDatabase)(nil))
 }
 
 func (o MongoDatabaseOutput) ToMongoDatabaseOutput() MongoDatabaseOutput {

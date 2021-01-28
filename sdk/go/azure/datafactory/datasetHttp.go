@@ -271,15 +271,15 @@ type DatasetHttpInput interface {
 	ToDatasetHttpOutputWithContext(ctx context.Context) DatasetHttpOutput
 }
 
-func (DatasetHttp) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetHttp)(nil)).Elem()
+func (*DatasetHttp) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetHttp)(nil))
 }
 
-func (i DatasetHttp) ToDatasetHttpOutput() DatasetHttpOutput {
+func (i *DatasetHttp) ToDatasetHttpOutput() DatasetHttpOutput {
 	return i.ToDatasetHttpOutputWithContext(context.Background())
 }
 
-func (i DatasetHttp) ToDatasetHttpOutputWithContext(ctx context.Context) DatasetHttpOutput {
+func (i *DatasetHttp) ToDatasetHttpOutputWithContext(ctx context.Context) DatasetHttpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetHttpOutput)
 }
 
@@ -288,7 +288,7 @@ type DatasetHttpOutput struct {
 }
 
 func (DatasetHttpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetHttpOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatasetHttp)(nil))
 }
 
 func (o DatasetHttpOutput) ToDatasetHttpOutput() DatasetHttpOutput {

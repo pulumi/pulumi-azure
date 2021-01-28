@@ -193,15 +193,15 @@ type TimeSeriesInsightsReferenceDataSetInput interface {
 	ToTimeSeriesInsightsReferenceDataSetOutputWithContext(ctx context.Context) TimeSeriesInsightsReferenceDataSetOutput
 }
 
-func (TimeSeriesInsightsReferenceDataSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeSeriesInsightsReferenceDataSet)(nil)).Elem()
+func (*TimeSeriesInsightsReferenceDataSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeSeriesInsightsReferenceDataSet)(nil))
 }
 
-func (i TimeSeriesInsightsReferenceDataSet) ToTimeSeriesInsightsReferenceDataSetOutput() TimeSeriesInsightsReferenceDataSetOutput {
+func (i *TimeSeriesInsightsReferenceDataSet) ToTimeSeriesInsightsReferenceDataSetOutput() TimeSeriesInsightsReferenceDataSetOutput {
 	return i.ToTimeSeriesInsightsReferenceDataSetOutputWithContext(context.Background())
 }
 
-func (i TimeSeriesInsightsReferenceDataSet) ToTimeSeriesInsightsReferenceDataSetOutputWithContext(ctx context.Context) TimeSeriesInsightsReferenceDataSetOutput {
+func (i *TimeSeriesInsightsReferenceDataSet) ToTimeSeriesInsightsReferenceDataSetOutputWithContext(ctx context.Context) TimeSeriesInsightsReferenceDataSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsReferenceDataSetOutput)
 }
 
@@ -210,7 +210,7 @@ type TimeSeriesInsightsReferenceDataSetOutput struct {
 }
 
 func (TimeSeriesInsightsReferenceDataSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeSeriesInsightsReferenceDataSetOutput)(nil)).Elem()
+	return reflect.TypeOf((*TimeSeriesInsightsReferenceDataSet)(nil))
 }
 
 func (o TimeSeriesInsightsReferenceDataSetOutput) ToTimeSeriesInsightsReferenceDataSetOutput() TimeSeriesInsightsReferenceDataSetOutput {

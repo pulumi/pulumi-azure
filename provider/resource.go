@@ -18,6 +18,7 @@ package provider
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 	"strings"
 	"unicode"
 
@@ -2012,6 +2013,15 @@ func Provider() tfbridge.ProviderInfo {
 			Requires: map[string]string{
 				"pulumi": ">=2.15.0,<3.0.0",
 			},
+		},
+		Golang: &tfbridge.GolangInfo{
+			ImportBasePath: filepath.Join(
+				fmt.Sprintf("github.com/pulumi/pulumi-%[1]s/sdk/", azurePkg),
+				tfbridge.GetModuleMajorVersion(version.Version),
+				"go",
+				azurePkg,
+			),
+			GenerateResourceContainerTypes: true,
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{

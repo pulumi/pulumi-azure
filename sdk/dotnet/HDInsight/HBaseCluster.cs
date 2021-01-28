@@ -99,6 +99,7 @@ namespace Pulumi.Azure.HDInsight
     ///  $ pulumi import azure:hdinsight/hBaseCluster:HBaseCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:hdinsight/hBaseCluster:HBaseCluster")]
     public partial class HBaseCluster : Pulumi.CustomResource
     {
         /// <summary>

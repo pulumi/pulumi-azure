@@ -130,15 +130,15 @@ type CustomerManagedKeyInput interface {
 	ToCustomerManagedKeyOutputWithContext(ctx context.Context) CustomerManagedKeyOutput
 }
 
-func (CustomerManagedKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomerManagedKey)(nil)).Elem()
+func (*CustomerManagedKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerManagedKey)(nil))
 }
 
-func (i CustomerManagedKey) ToCustomerManagedKeyOutput() CustomerManagedKeyOutput {
+func (i *CustomerManagedKey) ToCustomerManagedKeyOutput() CustomerManagedKeyOutput {
 	return i.ToCustomerManagedKeyOutputWithContext(context.Background())
 }
 
-func (i CustomerManagedKey) ToCustomerManagedKeyOutputWithContext(ctx context.Context) CustomerManagedKeyOutput {
+func (i *CustomerManagedKey) ToCustomerManagedKeyOutputWithContext(ctx context.Context) CustomerManagedKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedKeyOutput)
 }
 
@@ -147,7 +147,7 @@ type CustomerManagedKeyOutput struct {
 }
 
 func (CustomerManagedKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomerManagedKeyOutput)(nil)).Elem()
+	return reflect.TypeOf((*CustomerManagedKey)(nil))
 }
 
 func (o CustomerManagedKeyOutput) ToCustomerManagedKeyOutput() CustomerManagedKeyOutput {

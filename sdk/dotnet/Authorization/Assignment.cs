@@ -176,6 +176,7 @@ namespace Pulumi.Azure.Authorization
     /// 
     ///  - for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` - for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
     /// </summary>
+    [AzureResourceType("azure:authorization/assignment:Assignment")]
     public partial class Assignment : Pulumi.CustomResource
     {
         /// <summary>

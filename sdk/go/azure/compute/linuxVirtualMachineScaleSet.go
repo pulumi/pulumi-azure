@@ -541,15 +541,15 @@ type LinuxVirtualMachineScaleSetInput interface {
 	ToLinuxVirtualMachineScaleSetOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOutput
 }
 
-func (LinuxVirtualMachineScaleSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinuxVirtualMachineScaleSet)(nil)).Elem()
+func (*LinuxVirtualMachineScaleSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSet)(nil))
 }
 
-func (i LinuxVirtualMachineScaleSet) ToLinuxVirtualMachineScaleSetOutput() LinuxVirtualMachineScaleSetOutput {
+func (i *LinuxVirtualMachineScaleSet) ToLinuxVirtualMachineScaleSetOutput() LinuxVirtualMachineScaleSetOutput {
 	return i.ToLinuxVirtualMachineScaleSetOutputWithContext(context.Background())
 }
 
-func (i LinuxVirtualMachineScaleSet) ToLinuxVirtualMachineScaleSetOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOutput {
+func (i *LinuxVirtualMachineScaleSet) ToLinuxVirtualMachineScaleSetOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetOutput)
 }
 
@@ -558,7 +558,7 @@ type LinuxVirtualMachineScaleSetOutput struct {
 }
 
 func (LinuxVirtualMachineScaleSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinuxVirtualMachineScaleSetOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSet)(nil))
 }
 
 func (o LinuxVirtualMachineScaleSetOutput) ToLinuxVirtualMachineScaleSetOutput() LinuxVirtualMachineScaleSetOutput {

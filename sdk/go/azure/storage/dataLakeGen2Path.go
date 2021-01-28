@@ -215,15 +215,15 @@ type DataLakeGen2PathInput interface {
 	ToDataLakeGen2PathOutputWithContext(ctx context.Context) DataLakeGen2PathOutput
 }
 
-func (DataLakeGen2Path) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataLakeGen2Path)(nil)).Elem()
+func (*DataLakeGen2Path) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeGen2Path)(nil))
 }
 
-func (i DataLakeGen2Path) ToDataLakeGen2PathOutput() DataLakeGen2PathOutput {
+func (i *DataLakeGen2Path) ToDataLakeGen2PathOutput() DataLakeGen2PathOutput {
 	return i.ToDataLakeGen2PathOutputWithContext(context.Background())
 }
 
-func (i DataLakeGen2Path) ToDataLakeGen2PathOutputWithContext(ctx context.Context) DataLakeGen2PathOutput {
+func (i *DataLakeGen2Path) ToDataLakeGen2PathOutputWithContext(ctx context.Context) DataLakeGen2PathOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2PathOutput)
 }
 
@@ -232,7 +232,7 @@ type DataLakeGen2PathOutput struct {
 }
 
 func (DataLakeGen2PathOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataLakeGen2PathOutput)(nil)).Elem()
+	return reflect.TypeOf((*DataLakeGen2Path)(nil))
 }
 
 func (o DataLakeGen2PathOutput) ToDataLakeGen2PathOutput() DataLakeGen2PathOutput {

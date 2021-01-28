@@ -119,15 +119,15 @@ type AutoProvisioningInput interface {
 	ToAutoProvisioningOutputWithContext(ctx context.Context) AutoProvisioningOutput
 }
 
-func (AutoProvisioning) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoProvisioning)(nil)).Elem()
+func (*AutoProvisioning) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoProvisioning)(nil))
 }
 
-func (i AutoProvisioning) ToAutoProvisioningOutput() AutoProvisioningOutput {
+func (i *AutoProvisioning) ToAutoProvisioningOutput() AutoProvisioningOutput {
 	return i.ToAutoProvisioningOutputWithContext(context.Background())
 }
 
-func (i AutoProvisioning) ToAutoProvisioningOutputWithContext(ctx context.Context) AutoProvisioningOutput {
+func (i *AutoProvisioning) ToAutoProvisioningOutputWithContext(ctx context.Context) AutoProvisioningOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutoProvisioningOutput)
 }
 
@@ -136,7 +136,7 @@ type AutoProvisioningOutput struct {
 }
 
 func (AutoProvisioningOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoProvisioningOutput)(nil)).Elem()
+	return reflect.TypeOf((*AutoProvisioning)(nil))
 }
 
 func (o AutoProvisioningOutput) ToAutoProvisioningOutput() AutoProvisioningOutput {

@@ -48,6 +48,7 @@ namespace Pulumi.Azure.ApiManagement
     ///  $ pulumi import azure:apimanagement/groupUser:GroupUser example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/groups/groupId/users/user123
     /// ```
     /// </summary>
+    [AzureResourceType("azure:apimanagement/groupUser:GroupUser")]
     public partial class GroupUser : Pulumi.CustomResource
     {
         /// <summary>

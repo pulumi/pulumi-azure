@@ -408,15 +408,15 @@ type ScaleSetInput interface {
 	ToScaleSetOutputWithContext(ctx context.Context) ScaleSetOutput
 }
 
-func (ScaleSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleSet)(nil)).Elem()
+func (*ScaleSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScaleSet)(nil))
 }
 
-func (i ScaleSet) ToScaleSetOutput() ScaleSetOutput {
+func (i *ScaleSet) ToScaleSetOutput() ScaleSetOutput {
 	return i.ToScaleSetOutputWithContext(context.Background())
 }
 
-func (i ScaleSet) ToScaleSetOutputWithContext(ctx context.Context) ScaleSetOutput {
+func (i *ScaleSet) ToScaleSetOutputWithContext(ctx context.Context) ScaleSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOutput)
 }
 
@@ -425,7 +425,7 @@ type ScaleSetOutput struct {
 }
 
 func (ScaleSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleSetOutput)(nil)).Elem()
+	return reflect.TypeOf((*ScaleSet)(nil))
 }
 
 func (o ScaleSetOutput) ToScaleSetOutput() ScaleSetOutput {

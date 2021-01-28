@@ -172,15 +172,15 @@ type EncryptionScopeInput interface {
 	ToEncryptionScopeOutputWithContext(ctx context.Context) EncryptionScopeOutput
 }
 
-func (EncryptionScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionScope)(nil)).Elem()
+func (*EncryptionScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionScope)(nil))
 }
 
-func (i EncryptionScope) ToEncryptionScopeOutput() EncryptionScopeOutput {
+func (i *EncryptionScope) ToEncryptionScopeOutput() EncryptionScopeOutput {
 	return i.ToEncryptionScopeOutputWithContext(context.Background())
 }
 
-func (i EncryptionScope) ToEncryptionScopeOutputWithContext(ctx context.Context) EncryptionScopeOutput {
+func (i *EncryptionScope) ToEncryptionScopeOutputWithContext(ctx context.Context) EncryptionScopeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionScopeOutput)
 }
 
@@ -189,7 +189,7 @@ type EncryptionScopeOutput struct {
 }
 
 func (EncryptionScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionScopeOutput)(nil)).Elem()
+	return reflect.TypeOf((*EncryptionScope)(nil))
 }
 
 func (o EncryptionScopeOutput) ToEncryptionScopeOutput() EncryptionScopeOutput {

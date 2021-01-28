@@ -341,15 +341,15 @@ type PlanInput interface {
 	ToPlanOutputWithContext(ctx context.Context) PlanOutput
 }
 
-func (Plan) ElementType() reflect.Type {
-	return reflect.TypeOf((*Plan)(nil)).Elem()
+func (*Plan) ElementType() reflect.Type {
+	return reflect.TypeOf((*Plan)(nil))
 }
 
-func (i Plan) ToPlanOutput() PlanOutput {
+func (i *Plan) ToPlanOutput() PlanOutput {
 	return i.ToPlanOutputWithContext(context.Background())
 }
 
-func (i Plan) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
+func (i *Plan) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlanOutput)
 }
 
@@ -358,7 +358,7 @@ type PlanOutput struct {
 }
 
 func (PlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlanOutput)(nil)).Elem()
+	return reflect.TypeOf((*Plan)(nil))
 }
 
 func (o PlanOutput) ToPlanOutput() PlanOutput {

@@ -52,6 +52,7 @@ namespace Pulumi.Azure.DataShare
     ///  $ pulumi import azure:datashare/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:datashare/account:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

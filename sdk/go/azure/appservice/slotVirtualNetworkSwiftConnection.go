@@ -212,15 +212,15 @@ type SlotVirtualNetworkSwiftConnectionInput interface {
 	ToSlotVirtualNetworkSwiftConnectionOutputWithContext(ctx context.Context) SlotVirtualNetworkSwiftConnectionOutput
 }
 
-func (SlotVirtualNetworkSwiftConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*SlotVirtualNetworkSwiftConnection)(nil)).Elem()
+func (*SlotVirtualNetworkSwiftConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*SlotVirtualNetworkSwiftConnection)(nil))
 }
 
-func (i SlotVirtualNetworkSwiftConnection) ToSlotVirtualNetworkSwiftConnectionOutput() SlotVirtualNetworkSwiftConnectionOutput {
+func (i *SlotVirtualNetworkSwiftConnection) ToSlotVirtualNetworkSwiftConnectionOutput() SlotVirtualNetworkSwiftConnectionOutput {
 	return i.ToSlotVirtualNetworkSwiftConnectionOutputWithContext(context.Background())
 }
 
-func (i SlotVirtualNetworkSwiftConnection) ToSlotVirtualNetworkSwiftConnectionOutputWithContext(ctx context.Context) SlotVirtualNetworkSwiftConnectionOutput {
+func (i *SlotVirtualNetworkSwiftConnection) ToSlotVirtualNetworkSwiftConnectionOutputWithContext(ctx context.Context) SlotVirtualNetworkSwiftConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SlotVirtualNetworkSwiftConnectionOutput)
 }
 
@@ -229,7 +229,7 @@ type SlotVirtualNetworkSwiftConnectionOutput struct {
 }
 
 func (SlotVirtualNetworkSwiftConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SlotVirtualNetworkSwiftConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*SlotVirtualNetworkSwiftConnection)(nil))
 }
 
 func (o SlotVirtualNetworkSwiftConnectionOutput) ToSlotVirtualNetworkSwiftConnectionOutput() SlotVirtualNetworkSwiftConnectionOutput {

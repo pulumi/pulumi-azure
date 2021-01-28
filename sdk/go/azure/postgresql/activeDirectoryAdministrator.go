@@ -194,15 +194,15 @@ type ActiveDirectoryAdministratorInput interface {
 	ToActiveDirectoryAdministratorOutputWithContext(ctx context.Context) ActiveDirectoryAdministratorOutput
 }
 
-func (ActiveDirectoryAdministrator) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryAdministrator)(nil)).Elem()
+func (*ActiveDirectoryAdministrator) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryAdministrator)(nil))
 }
 
-func (i ActiveDirectoryAdministrator) ToActiveDirectoryAdministratorOutput() ActiveDirectoryAdministratorOutput {
+func (i *ActiveDirectoryAdministrator) ToActiveDirectoryAdministratorOutput() ActiveDirectoryAdministratorOutput {
 	return i.ToActiveDirectoryAdministratorOutputWithContext(context.Background())
 }
 
-func (i ActiveDirectoryAdministrator) ToActiveDirectoryAdministratorOutputWithContext(ctx context.Context) ActiveDirectoryAdministratorOutput {
+func (i *ActiveDirectoryAdministrator) ToActiveDirectoryAdministratorOutputWithContext(ctx context.Context) ActiveDirectoryAdministratorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryAdministratorOutput)
 }
 
@@ -211,7 +211,7 @@ type ActiveDirectoryAdministratorOutput struct {
 }
 
 func (ActiveDirectoryAdministratorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveDirectoryAdministratorOutput)(nil)).Elem()
+	return reflect.TypeOf((*ActiveDirectoryAdministrator)(nil))
 }
 
 func (o ActiveDirectoryAdministratorOutput) ToActiveDirectoryAdministratorOutput() ActiveDirectoryAdministratorOutput {

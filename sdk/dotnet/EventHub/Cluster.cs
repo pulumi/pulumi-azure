@@ -45,6 +45,7 @@ namespace Pulumi.Azure.EventHub
     ///  $ pulumi import azure:eventhub/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/clusters/cluster1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:eventhub/cluster:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>

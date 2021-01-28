@@ -225,15 +225,15 @@ type SpringCloudServiceInput interface {
 	ToSpringCloudServiceOutputWithContext(ctx context.Context) SpringCloudServiceOutput
 }
 
-func (SpringCloudService) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpringCloudService)(nil)).Elem()
+func (*SpringCloudService) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudService)(nil))
 }
 
-func (i SpringCloudService) ToSpringCloudServiceOutput() SpringCloudServiceOutput {
+func (i *SpringCloudService) ToSpringCloudServiceOutput() SpringCloudServiceOutput {
 	return i.ToSpringCloudServiceOutputWithContext(context.Background())
 }
 
-func (i SpringCloudService) ToSpringCloudServiceOutputWithContext(ctx context.Context) SpringCloudServiceOutput {
+func (i *SpringCloudService) ToSpringCloudServiceOutputWithContext(ctx context.Context) SpringCloudServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceOutput)
 }
 
@@ -242,7 +242,7 @@ type SpringCloudServiceOutput struct {
 }
 
 func (SpringCloudServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpringCloudServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*SpringCloudService)(nil))
 }
 
 func (o SpringCloudServiceOutput) ToSpringCloudServiceOutput() SpringCloudServiceOutput {

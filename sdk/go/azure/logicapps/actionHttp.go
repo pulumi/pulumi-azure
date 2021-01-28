@@ -199,15 +199,15 @@ type ActionHttpInput interface {
 	ToActionHttpOutputWithContext(ctx context.Context) ActionHttpOutput
 }
 
-func (ActionHttp) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionHttp)(nil)).Elem()
+func (*ActionHttp) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionHttp)(nil))
 }
 
-func (i ActionHttp) ToActionHttpOutput() ActionHttpOutput {
+func (i *ActionHttp) ToActionHttpOutput() ActionHttpOutput {
 	return i.ToActionHttpOutputWithContext(context.Background())
 }
 
-func (i ActionHttp) ToActionHttpOutputWithContext(ctx context.Context) ActionHttpOutput {
+func (i *ActionHttp) ToActionHttpOutputWithContext(ctx context.Context) ActionHttpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionHttpOutput)
 }
 
@@ -216,7 +216,7 @@ type ActionHttpOutput struct {
 }
 
 func (ActionHttpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionHttpOutput)(nil)).Elem()
+	return reflect.TypeOf((*ActionHttp)(nil))
 }
 
 func (o ActionHttpOutput) ToActionHttpOutput() ActionHttpOutput {

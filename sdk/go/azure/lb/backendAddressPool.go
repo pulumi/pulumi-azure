@@ -184,15 +184,15 @@ type BackendAddressPoolInput interface {
 	ToBackendAddressPoolOutputWithContext(ctx context.Context) BackendAddressPoolOutput
 }
 
-func (BackendAddressPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackendAddressPool)(nil)).Elem()
+func (*BackendAddressPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendAddressPool)(nil))
 }
 
-func (i BackendAddressPool) ToBackendAddressPoolOutput() BackendAddressPoolOutput {
+func (i *BackendAddressPool) ToBackendAddressPoolOutput() BackendAddressPoolOutput {
 	return i.ToBackendAddressPoolOutputWithContext(context.Background())
 }
 
-func (i BackendAddressPool) ToBackendAddressPoolOutputWithContext(ctx context.Context) BackendAddressPoolOutput {
+func (i *BackendAddressPool) ToBackendAddressPoolOutputWithContext(ctx context.Context) BackendAddressPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackendAddressPoolOutput)
 }
 
@@ -201,7 +201,7 @@ type BackendAddressPoolOutput struct {
 }
 
 func (BackendAddressPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackendAddressPoolOutput)(nil)).Elem()
+	return reflect.TypeOf((*BackendAddressPool)(nil))
 }
 
 func (o BackendAddressPoolOutput) ToBackendAddressPoolOutput() BackendAddressPoolOutput {

@@ -158,15 +158,15 @@ type CacheNfsTargetInput interface {
 	ToCacheNfsTargetOutputWithContext(ctx context.Context) CacheNfsTargetOutput
 }
 
-func (CacheNfsTarget) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheNfsTarget)(nil)).Elem()
+func (*CacheNfsTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheNfsTarget)(nil))
 }
 
-func (i CacheNfsTarget) ToCacheNfsTargetOutput() CacheNfsTargetOutput {
+func (i *CacheNfsTarget) ToCacheNfsTargetOutput() CacheNfsTargetOutput {
 	return i.ToCacheNfsTargetOutputWithContext(context.Background())
 }
 
-func (i CacheNfsTarget) ToCacheNfsTargetOutputWithContext(ctx context.Context) CacheNfsTargetOutput {
+func (i *CacheNfsTarget) ToCacheNfsTargetOutputWithContext(ctx context.Context) CacheNfsTargetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CacheNfsTargetOutput)
 }
 
@@ -175,7 +175,7 @@ type CacheNfsTargetOutput struct {
 }
 
 func (CacheNfsTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheNfsTargetOutput)(nil)).Elem()
+	return reflect.TypeOf((*CacheNfsTarget)(nil))
 }
 
 func (o CacheNfsTargetOutput) ToCacheNfsTargetOutput() CacheNfsTargetOutput {

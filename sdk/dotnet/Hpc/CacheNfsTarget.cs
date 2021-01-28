@@ -22,6 +22,7 @@ namespace Pulumi.Azure.Hpc
     ///  $ pulumi import azure:hpc/cacheNfsTarget:CacheNfsTarget example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:hpc/cacheNfsTarget:CacheNfsTarget")]
     public partial class CacheNfsTarget : Pulumi.CustomResource
     {
         /// <summary>

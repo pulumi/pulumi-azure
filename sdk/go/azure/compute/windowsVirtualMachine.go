@@ -585,15 +585,15 @@ type WindowsVirtualMachineInput interface {
 	ToWindowsVirtualMachineOutputWithContext(ctx context.Context) WindowsVirtualMachineOutput
 }
 
-func (WindowsVirtualMachine) ElementType() reflect.Type {
-	return reflect.TypeOf((*WindowsVirtualMachine)(nil)).Elem()
+func (*WindowsVirtualMachine) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachine)(nil))
 }
 
-func (i WindowsVirtualMachine) ToWindowsVirtualMachineOutput() WindowsVirtualMachineOutput {
+func (i *WindowsVirtualMachine) ToWindowsVirtualMachineOutput() WindowsVirtualMachineOutput {
 	return i.ToWindowsVirtualMachineOutputWithContext(context.Background())
 }
 
-func (i WindowsVirtualMachine) ToWindowsVirtualMachineOutputWithContext(ctx context.Context) WindowsVirtualMachineOutput {
+func (i *WindowsVirtualMachine) ToWindowsVirtualMachineOutputWithContext(ctx context.Context) WindowsVirtualMachineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineOutput)
 }
 
@@ -602,7 +602,7 @@ type WindowsVirtualMachineOutput struct {
 }
 
 func (WindowsVirtualMachineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WindowsVirtualMachineOutput)(nil)).Elem()
+	return reflect.TypeOf((*WindowsVirtualMachine)(nil))
 }
 
 func (o WindowsVirtualMachineOutput) ToWindowsVirtualMachineOutput() WindowsVirtualMachineOutput {

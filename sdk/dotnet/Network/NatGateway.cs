@@ -79,6 +79,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/natGateway:NatGateway test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/natGateway:NatGateway")]
     public partial class NatGateway : Pulumi.CustomResource
     {
         /// <summary>

@@ -46,6 +46,7 @@ namespace Pulumi.Azure.RecoveryServices
     ///  $ pulumi import azure:recoveryservices/vault:Vault vault1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/vault1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:recoveryservices/vault:Vault")]
     public partial class Vault : Pulumi.CustomResource
     {
         /// <summary>

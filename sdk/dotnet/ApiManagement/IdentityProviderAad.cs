@@ -58,6 +58,7 @@ namespace Pulumi.Azure.ApiManagement
     ///  $ pulumi import azure:apimanagement/identityProviderAad:IdentityProviderAad example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/aad
     /// ```
     /// </summary>
+    [AzureResourceType("azure:apimanagement/identityProviderAad:IdentityProviderAad")]
     public partial class IdentityProviderAad : Pulumi.CustomResource
     {
         /// <summary>

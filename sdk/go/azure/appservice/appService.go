@@ -370,15 +370,15 @@ type AppServiceInput interface {
 	ToAppServiceOutputWithContext(ctx context.Context) AppServiceOutput
 }
 
-func (AppService) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppService)(nil)).Elem()
+func (*AppService) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppService)(nil))
 }
 
-func (i AppService) ToAppServiceOutput() AppServiceOutput {
+func (i *AppService) ToAppServiceOutput() AppServiceOutput {
 	return i.ToAppServiceOutputWithContext(context.Background())
 }
 
-func (i AppService) ToAppServiceOutputWithContext(ctx context.Context) AppServiceOutput {
+func (i *AppService) ToAppServiceOutputWithContext(ctx context.Context) AppServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceOutput)
 }
 
@@ -387,7 +387,7 @@ type AppServiceOutput struct {
 }
 
 func (AppServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*AppService)(nil))
 }
 
 func (o AppServiceOutput) ToAppServiceOutput() AppServiceOutput {

@@ -49,6 +49,7 @@ namespace Pulumi.Azure.PrivateDns
     ///  $ pulumi import azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink link1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/zone1.com/virtualNetworkLinks/myVnetLink1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink")]
     public partial class ZoneVirtualNetworkLink : Pulumi.CustomResource
     {
         /// <summary>

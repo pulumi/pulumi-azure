@@ -46,6 +46,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/ddosProtectionPlan:DdosProtectionPlan example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/ddosProtectionPlans/testddospplan
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/ddosProtectionPlan:DdosProtectionPlan")]
     public partial class DdosProtectionPlan : Pulumi.CustomResource
     {
         /// <summary>

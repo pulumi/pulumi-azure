@@ -73,6 +73,7 @@ namespace Pulumi.Azure.KeyVault
     /// 
     ///  where `11111111-1111-1111-1111-111111111111` is the `object_id`.
     /// </summary>
+    [AzureResourceType("azure:keyvault/accessPolicy:AccessPolicy")]
     public partial class AccessPolicy : Pulumi.CustomResource
     {
         /// <summary>

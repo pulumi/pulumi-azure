@@ -40,6 +40,7 @@ namespace Pulumi.Azure.Lighthouse
     ///  $ pulumi import azure:lighthouse/assignment:Assignment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationAssignments/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
+    [AzureResourceType("azure:lighthouse/assignment:Assignment")]
     public partial class Assignment : Pulumi.CustomResource
     {
         /// <summary>

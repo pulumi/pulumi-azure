@@ -50,6 +50,7 @@ namespace Pulumi.Azure.Storage
     ///  $ pulumi import azure:storage/queue:Queue queue1 https://example.queue.core.windows.net/queue1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:storage/queue:Queue")]
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>

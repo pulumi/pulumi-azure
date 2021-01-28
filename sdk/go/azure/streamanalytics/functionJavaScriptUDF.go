@@ -205,15 +205,15 @@ type FunctionJavaScriptUDFInput interface {
 	ToFunctionJavaScriptUDFOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutput
 }
 
-func (FunctionJavaScriptUDF) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionJavaScriptUDF)(nil)).Elem()
+func (*FunctionJavaScriptUDF) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionJavaScriptUDF)(nil))
 }
 
-func (i FunctionJavaScriptUDF) ToFunctionJavaScriptUDFOutput() FunctionJavaScriptUDFOutput {
+func (i *FunctionJavaScriptUDF) ToFunctionJavaScriptUDFOutput() FunctionJavaScriptUDFOutput {
 	return i.ToFunctionJavaScriptUDFOutputWithContext(context.Background())
 }
 
-func (i FunctionJavaScriptUDF) ToFunctionJavaScriptUDFOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutput {
+func (i *FunctionJavaScriptUDF) ToFunctionJavaScriptUDFOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFOutput)
 }
 
@@ -222,7 +222,7 @@ type FunctionJavaScriptUDFOutput struct {
 }
 
 func (FunctionJavaScriptUDFOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionJavaScriptUDFOutput)(nil)).Elem()
+	return reflect.TypeOf((*FunctionJavaScriptUDF)(nil))
 }
 
 func (o FunctionJavaScriptUDFOutput) ToFunctionJavaScriptUDFOutput() FunctionJavaScriptUDFOutput {

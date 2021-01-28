@@ -65,6 +65,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/virtualHubConnection:VirtualHubConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/hub1/hubVirtualNetworkConnections/connection1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/virtualHubConnection:VirtualHubConnection")]
     public partial class VirtualHubConnection : Pulumi.CustomResource
     {
         [Output("hubToVitualNetworkTrafficAllowed")]

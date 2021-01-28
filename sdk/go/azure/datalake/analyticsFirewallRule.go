@@ -191,15 +191,15 @@ type AnalyticsFirewallRuleInput interface {
 	ToAnalyticsFirewallRuleOutputWithContext(ctx context.Context) AnalyticsFirewallRuleOutput
 }
 
-func (AnalyticsFirewallRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsFirewallRule)(nil)).Elem()
+func (*AnalyticsFirewallRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsFirewallRule)(nil))
 }
 
-func (i AnalyticsFirewallRule) ToAnalyticsFirewallRuleOutput() AnalyticsFirewallRuleOutput {
+func (i *AnalyticsFirewallRule) ToAnalyticsFirewallRuleOutput() AnalyticsFirewallRuleOutput {
 	return i.ToAnalyticsFirewallRuleOutputWithContext(context.Background())
 }
 
-func (i AnalyticsFirewallRule) ToAnalyticsFirewallRuleOutputWithContext(ctx context.Context) AnalyticsFirewallRuleOutput {
+func (i *AnalyticsFirewallRule) ToAnalyticsFirewallRuleOutputWithContext(ctx context.Context) AnalyticsFirewallRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsFirewallRuleOutput)
 }
 
@@ -208,7 +208,7 @@ type AnalyticsFirewallRuleOutput struct {
 }
 
 func (AnalyticsFirewallRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsFirewallRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*AnalyticsFirewallRule)(nil))
 }
 
 func (o AnalyticsFirewallRuleOutput) ToAnalyticsFirewallRuleOutput() AnalyticsFirewallRuleOutput {

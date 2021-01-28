@@ -225,15 +225,15 @@ type SharedAccessPolicyInput interface {
 	ToSharedAccessPolicyOutputWithContext(ctx context.Context) SharedAccessPolicyOutput
 }
 
-func (SharedAccessPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedAccessPolicy)(nil)).Elem()
+func (*SharedAccessPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedAccessPolicy)(nil))
 }
 
-func (i SharedAccessPolicy) ToSharedAccessPolicyOutput() SharedAccessPolicyOutput {
+func (i *SharedAccessPolicy) ToSharedAccessPolicyOutput() SharedAccessPolicyOutput {
 	return i.ToSharedAccessPolicyOutputWithContext(context.Background())
 }
 
-func (i SharedAccessPolicy) ToSharedAccessPolicyOutputWithContext(ctx context.Context) SharedAccessPolicyOutput {
+func (i *SharedAccessPolicy) ToSharedAccessPolicyOutputWithContext(ctx context.Context) SharedAccessPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessPolicyOutput)
 }
 
@@ -242,7 +242,7 @@ type SharedAccessPolicyOutput struct {
 }
 
 func (SharedAccessPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedAccessPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*SharedAccessPolicy)(nil))
 }
 
 func (o SharedAccessPolicyOutput) ToSharedAccessPolicyOutput() SharedAccessPolicyOutput {

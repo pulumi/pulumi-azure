@@ -167,15 +167,15 @@ type AlertRuleFusionInput interface {
 	ToAlertRuleFusionOutputWithContext(ctx context.Context) AlertRuleFusionOutput
 }
 
-func (AlertRuleFusion) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleFusion)(nil)).Elem()
+func (*AlertRuleFusion) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleFusion)(nil))
 }
 
-func (i AlertRuleFusion) ToAlertRuleFusionOutput() AlertRuleFusionOutput {
+func (i *AlertRuleFusion) ToAlertRuleFusionOutput() AlertRuleFusionOutput {
 	return i.ToAlertRuleFusionOutputWithContext(context.Background())
 }
 
-func (i AlertRuleFusion) ToAlertRuleFusionOutputWithContext(ctx context.Context) AlertRuleFusionOutput {
+func (i *AlertRuleFusion) ToAlertRuleFusionOutputWithContext(ctx context.Context) AlertRuleFusionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleFusionOutput)
 }
 
@@ -184,7 +184,7 @@ type AlertRuleFusionOutput struct {
 }
 
 func (AlertRuleFusionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleFusionOutput)(nil)).Elem()
+	return reflect.TypeOf((*AlertRuleFusion)(nil))
 }
 
 func (o AlertRuleFusionOutput) ToAlertRuleFusionOutput() AlertRuleFusionOutput {

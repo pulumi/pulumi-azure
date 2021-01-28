@@ -83,6 +83,7 @@ namespace Pulumi.Azure.Iot
     ///  $ pulumi import azure:iot/endpointServicebusQueue:EndpointServicebusQueue servicebus_queue1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Endpoints/servicebusqueue_endpoint1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:iot/endpointServicebusQueue:EndpointServicebusQueue")]
     public partial class EndpointServicebusQueue : Pulumi.CustomResource
     {
         /// <summary>

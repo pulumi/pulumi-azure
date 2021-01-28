@@ -51,6 +51,7 @@ namespace Pulumi.Azure.DataLake
     ///  $ pulumi import azure:datalake/storeFirewallRule:StoreFirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DataLakeStore/accounts/mydatalakeaccount/firewallRules/rule1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:datalake/storeFirewallRule:StoreFirewallRule")]
     public partial class StoreFirewallRule : Pulumi.CustomResource
     {
         /// <summary>

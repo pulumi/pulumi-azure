@@ -22,6 +22,7 @@ namespace Pulumi.Azure.AppService
     ///  $ pulumi import azure:appservice/managedCertificate:ManagedCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Web/certificates/customhost.contoso.com
     /// ```
     /// </summary>
+    [AzureResourceType("azure:appservice/managedCertificate:ManagedCertificate")]
     public partial class ManagedCertificate : Pulumi.CustomResource
     {
         /// <summary>

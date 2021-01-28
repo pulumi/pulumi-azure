@@ -54,6 +54,7 @@ namespace Pulumi.Azure.LogAnalytics
     ///  $ pulumi import azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/datasources/datasource1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter")]
     public partial class DataSourceWindowsPerformanceCounter : Pulumi.CustomResource
     {
         /// <summary>

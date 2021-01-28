@@ -143,15 +143,15 @@ type SourceCodeTokenInput interface {
 	ToSourceCodeTokenOutputWithContext(ctx context.Context) SourceCodeTokenOutput
 }
 
-func (SourceCodeToken) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceCodeToken)(nil)).Elem()
+func (*SourceCodeToken) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceCodeToken)(nil))
 }
 
-func (i SourceCodeToken) ToSourceCodeTokenOutput() SourceCodeTokenOutput {
+func (i *SourceCodeToken) ToSourceCodeTokenOutput() SourceCodeTokenOutput {
 	return i.ToSourceCodeTokenOutputWithContext(context.Background())
 }
 
-func (i SourceCodeToken) ToSourceCodeTokenOutputWithContext(ctx context.Context) SourceCodeTokenOutput {
+func (i *SourceCodeToken) ToSourceCodeTokenOutputWithContext(ctx context.Context) SourceCodeTokenOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SourceCodeTokenOutput)
 }
 
@@ -160,7 +160,7 @@ type SourceCodeTokenOutput struct {
 }
 
 func (SourceCodeTokenOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceCodeTokenOutput)(nil)).Elem()
+	return reflect.TypeOf((*SourceCodeToken)(nil))
 }
 
 func (o SourceCodeTokenOutput) ToSourceCodeTokenOutput() SourceCodeTokenOutput {

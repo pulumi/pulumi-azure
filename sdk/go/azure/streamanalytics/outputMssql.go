@@ -243,15 +243,15 @@ type OutputMssqlInput interface {
 	ToOutputMssqlOutputWithContext(ctx context.Context) OutputMssqlOutput
 }
 
-func (OutputMssql) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputMssql)(nil)).Elem()
+func (*OutputMssql) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputMssql)(nil))
 }
 
-func (i OutputMssql) ToOutputMssqlOutput() OutputMssqlOutput {
+func (i *OutputMssql) ToOutputMssqlOutput() OutputMssqlOutput {
 	return i.ToOutputMssqlOutputWithContext(context.Background())
 }
 
-func (i OutputMssql) ToOutputMssqlOutputWithContext(ctx context.Context) OutputMssqlOutput {
+func (i *OutputMssql) ToOutputMssqlOutputWithContext(ctx context.Context) OutputMssqlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputMssqlOutput)
 }
 
@@ -260,7 +260,7 @@ type OutputMssqlOutput struct {
 }
 
 func (OutputMssqlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputMssqlOutput)(nil)).Elem()
+	return reflect.TypeOf((*OutputMssql)(nil))
 }
 
 func (o OutputMssqlOutput) ToOutputMssqlOutput() OutputMssqlOutput {

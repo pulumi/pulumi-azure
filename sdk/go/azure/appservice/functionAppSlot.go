@@ -393,15 +393,15 @@ type FunctionAppSlotInput interface {
 	ToFunctionAppSlotOutputWithContext(ctx context.Context) FunctionAppSlotOutput
 }
 
-func (FunctionAppSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionAppSlot)(nil)).Elem()
+func (*FunctionAppSlot) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlot)(nil))
 }
 
-func (i FunctionAppSlot) ToFunctionAppSlotOutput() FunctionAppSlotOutput {
+func (i *FunctionAppSlot) ToFunctionAppSlotOutput() FunctionAppSlotOutput {
 	return i.ToFunctionAppSlotOutputWithContext(context.Background())
 }
 
-func (i FunctionAppSlot) ToFunctionAppSlotOutputWithContext(ctx context.Context) FunctionAppSlotOutput {
+func (i *FunctionAppSlot) ToFunctionAppSlotOutputWithContext(ctx context.Context) FunctionAppSlotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotOutput)
 }
 
@@ -410,7 +410,7 @@ type FunctionAppSlotOutput struct {
 }
 
 func (FunctionAppSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionAppSlotOutput)(nil)).Elem()
+	return reflect.TypeOf((*FunctionAppSlot)(nil))
 }
 
 func (o FunctionAppSlotOutput) ToFunctionAppSlotOutput() FunctionAppSlotOutput {

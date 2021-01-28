@@ -54,6 +54,7 @@ namespace Pulumi.Azure.SecurityCenter
     ///  $ pulumi import azure:securitycenter/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/workspaceSettings/default
     /// ```
     /// </summary>
+    [AzureResourceType("azure:securitycenter/workspace:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>

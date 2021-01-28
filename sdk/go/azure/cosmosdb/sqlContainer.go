@@ -252,15 +252,15 @@ type SqlContainerInput interface {
 	ToSqlContainerOutputWithContext(ctx context.Context) SqlContainerOutput
 }
 
-func (SqlContainer) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlContainer)(nil)).Elem()
+func (*SqlContainer) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainer)(nil))
 }
 
-func (i SqlContainer) ToSqlContainerOutput() SqlContainerOutput {
+func (i *SqlContainer) ToSqlContainerOutput() SqlContainerOutput {
 	return i.ToSqlContainerOutputWithContext(context.Background())
 }
 
-func (i SqlContainer) ToSqlContainerOutputWithContext(ctx context.Context) SqlContainerOutput {
+func (i *SqlContainer) ToSqlContainerOutputWithContext(ctx context.Context) SqlContainerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerOutput)
 }
 
@@ -269,7 +269,7 @@ type SqlContainerOutput struct {
 }
 
 func (SqlContainerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlContainerOutput)(nil)).Elem()
+	return reflect.TypeOf((*SqlContainer)(nil))
 }
 
 func (o SqlContainerOutput) ToSqlContainerOutput() SqlContainerOutput {

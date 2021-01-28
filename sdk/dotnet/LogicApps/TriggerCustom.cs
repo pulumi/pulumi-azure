@@ -56,6 +56,7 @@ namespace Pulumi.Azure.LogicApps
     ///  $ pulumi import azure:logicapps/triggerCustom:TriggerCustom custom1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/custom1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:logicapps/triggerCustom:TriggerCustom")]
     public partial class TriggerCustom : Pulumi.CustomResource
     {
         /// <summary>

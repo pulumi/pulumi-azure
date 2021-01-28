@@ -69,6 +69,7 @@ namespace Pulumi.Azure.ApiManagement
     ///  $ pulumi import azure:apimanagement/productGroup:ProductGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/products/exampleId/groups/groupId
     /// ```
     /// </summary>
+    [AzureResourceType("azure:apimanagement/productGroup:ProductGroup")]
     public partial class ProductGroup : Pulumi.CustomResource
     {
         /// <summary>

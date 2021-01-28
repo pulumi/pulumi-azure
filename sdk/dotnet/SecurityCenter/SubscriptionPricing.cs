@@ -44,6 +44,7 @@ namespace Pulumi.Azure.SecurityCenter
     ///  $ pulumi import azure:securitycenter/subscriptionPricing:SubscriptionPricing example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/pricings/&lt;resource_type&gt;
     /// ```
     /// </summary>
+    [AzureResourceType("azure:securitycenter/subscriptionPricing:SubscriptionPricing")]
     public partial class SubscriptionPricing : Pulumi.CustomResource
     {
         /// <summary>

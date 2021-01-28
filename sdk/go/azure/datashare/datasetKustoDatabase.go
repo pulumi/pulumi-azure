@@ -129,15 +129,15 @@ type DatasetKustoDatabaseInput interface {
 	ToDatasetKustoDatabaseOutputWithContext(ctx context.Context) DatasetKustoDatabaseOutput
 }
 
-func (DatasetKustoDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetKustoDatabase)(nil)).Elem()
+func (*DatasetKustoDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetKustoDatabase)(nil))
 }
 
-func (i DatasetKustoDatabase) ToDatasetKustoDatabaseOutput() DatasetKustoDatabaseOutput {
+func (i *DatasetKustoDatabase) ToDatasetKustoDatabaseOutput() DatasetKustoDatabaseOutput {
 	return i.ToDatasetKustoDatabaseOutputWithContext(context.Background())
 }
 
-func (i DatasetKustoDatabase) ToDatasetKustoDatabaseOutputWithContext(ctx context.Context) DatasetKustoDatabaseOutput {
+func (i *DatasetKustoDatabase) ToDatasetKustoDatabaseOutputWithContext(ctx context.Context) DatasetKustoDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetKustoDatabaseOutput)
 }
 
@@ -146,7 +146,7 @@ type DatasetKustoDatabaseOutput struct {
 }
 
 func (DatasetKustoDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetKustoDatabaseOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatasetKustoDatabase)(nil))
 }
 
 func (o DatasetKustoDatabaseOutput) ToDatasetKustoDatabaseOutput() DatasetKustoDatabaseOutput {

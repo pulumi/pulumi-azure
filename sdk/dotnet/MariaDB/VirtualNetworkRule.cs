@@ -85,6 +85,7 @@ namespace Pulumi.Azure.MariaDB
     ///  $ pulumi import azure:mariadb/virtualNetworkRule:VirtualNetworkRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/MariaDB/servers/myserver/virtualNetworkRules/vnetrulename
     /// ```
     /// </summary>
+    [AzureResourceType("azure:mariadb/virtualNetworkRule:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>

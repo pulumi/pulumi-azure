@@ -270,15 +270,15 @@ type GremlinGraphInput interface {
 	ToGremlinGraphOutputWithContext(ctx context.Context) GremlinGraphOutput
 }
 
-func (GremlinGraph) ElementType() reflect.Type {
-	return reflect.TypeOf((*GremlinGraph)(nil)).Elem()
+func (*GremlinGraph) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinGraph)(nil))
 }
 
-func (i GremlinGraph) ToGremlinGraphOutput() GremlinGraphOutput {
+func (i *GremlinGraph) ToGremlinGraphOutput() GremlinGraphOutput {
 	return i.ToGremlinGraphOutputWithContext(context.Background())
 }
 
-func (i GremlinGraph) ToGremlinGraphOutputWithContext(ctx context.Context) GremlinGraphOutput {
+func (i *GremlinGraph) ToGremlinGraphOutputWithContext(ctx context.Context) GremlinGraphOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphOutput)
 }
 
@@ -287,7 +287,7 @@ type GremlinGraphOutput struct {
 }
 
 func (GremlinGraphOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GremlinGraphOutput)(nil)).Elem()
+	return reflect.TypeOf((*GremlinGraph)(nil))
 }
 
 func (o GremlinGraphOutput) ToGremlinGraphOutput() GremlinGraphOutput {

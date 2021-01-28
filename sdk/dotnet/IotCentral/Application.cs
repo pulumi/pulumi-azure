@@ -52,6 +52,7 @@ namespace Pulumi.Azure.IotCentral
     ///  $ pulumi import azure:iotcentral/application:Application example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.IoTCentral/IoTApps/app1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:iotcentral/application:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>

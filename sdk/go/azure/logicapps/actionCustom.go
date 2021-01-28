@@ -157,15 +157,15 @@ type ActionCustomInput interface {
 	ToActionCustomOutputWithContext(ctx context.Context) ActionCustomOutput
 }
 
-func (ActionCustom) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionCustom)(nil)).Elem()
+func (*ActionCustom) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionCustom)(nil))
 }
 
-func (i ActionCustom) ToActionCustomOutput() ActionCustomOutput {
+func (i *ActionCustom) ToActionCustomOutput() ActionCustomOutput {
 	return i.ToActionCustomOutputWithContext(context.Background())
 }
 
-func (i ActionCustom) ToActionCustomOutputWithContext(ctx context.Context) ActionCustomOutput {
+func (i *ActionCustom) ToActionCustomOutputWithContext(ctx context.Context) ActionCustomOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionCustomOutput)
 }
 
@@ -174,7 +174,7 @@ type ActionCustomOutput struct {
 }
 
 func (ActionCustomOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionCustomOutput)(nil)).Elem()
+	return reflect.TypeOf((*ActionCustom)(nil))
 }
 
 func (o ActionCustomOutput) ToActionCustomOutput() ActionCustomOutput {

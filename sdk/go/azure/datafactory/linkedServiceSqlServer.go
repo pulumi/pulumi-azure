@@ -293,15 +293,15 @@ type LinkedServiceSqlServerInput interface {
 	ToLinkedServiceSqlServerOutputWithContext(ctx context.Context) LinkedServiceSqlServerOutput
 }
 
-func (LinkedServiceSqlServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceSqlServer)(nil)).Elem()
+func (*LinkedServiceSqlServer) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceSqlServer)(nil))
 }
 
-func (i LinkedServiceSqlServer) ToLinkedServiceSqlServerOutput() LinkedServiceSqlServerOutput {
+func (i *LinkedServiceSqlServer) ToLinkedServiceSqlServerOutput() LinkedServiceSqlServerOutput {
 	return i.ToLinkedServiceSqlServerOutputWithContext(context.Background())
 }
 
-func (i LinkedServiceSqlServer) ToLinkedServiceSqlServerOutputWithContext(ctx context.Context) LinkedServiceSqlServerOutput {
+func (i *LinkedServiceSqlServer) ToLinkedServiceSqlServerOutputWithContext(ctx context.Context) LinkedServiceSqlServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSqlServerOutput)
 }
 
@@ -310,7 +310,7 @@ type LinkedServiceSqlServerOutput struct {
 }
 
 func (LinkedServiceSqlServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceSqlServerOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinkedServiceSqlServer)(nil))
 }
 
 func (o LinkedServiceSqlServerOutput) ToLinkedServiceSqlServerOutput() LinkedServiceSqlServerOutput {

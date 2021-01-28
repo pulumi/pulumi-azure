@@ -54,6 +54,7 @@ namespace Pulumi.Azure.ApiManagement
     ///  $ pulumi import azure:apimanagement/group:Group example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/groups/example-apimg
     /// ```
     /// </summary>
+    [AzureResourceType("azure:apimanagement/group:Group")]
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>

@@ -227,15 +227,15 @@ type DatasetDataLakeGen1Input interface {
 	ToDatasetDataLakeGen1OutputWithContext(ctx context.Context) DatasetDataLakeGen1Output
 }
 
-func (DatasetDataLakeGen1) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetDataLakeGen1)(nil)).Elem()
+func (*DatasetDataLakeGen1) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetDataLakeGen1)(nil))
 }
 
-func (i DatasetDataLakeGen1) ToDatasetDataLakeGen1Output() DatasetDataLakeGen1Output {
+func (i *DatasetDataLakeGen1) ToDatasetDataLakeGen1Output() DatasetDataLakeGen1Output {
 	return i.ToDatasetDataLakeGen1OutputWithContext(context.Background())
 }
 
-func (i DatasetDataLakeGen1) ToDatasetDataLakeGen1OutputWithContext(ctx context.Context) DatasetDataLakeGen1Output {
+func (i *DatasetDataLakeGen1) ToDatasetDataLakeGen1OutputWithContext(ctx context.Context) DatasetDataLakeGen1Output {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetDataLakeGen1Output)
 }
 
@@ -244,7 +244,7 @@ type DatasetDataLakeGen1Output struct {
 }
 
 func (DatasetDataLakeGen1Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetDataLakeGen1Output)(nil)).Elem()
+	return reflect.TypeOf((*DatasetDataLakeGen1)(nil))
 }
 
 func (o DatasetDataLakeGen1Output) ToDatasetDataLakeGen1Output() DatasetDataLakeGen1Output {

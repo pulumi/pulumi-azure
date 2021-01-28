@@ -61,6 +61,7 @@ namespace Pulumi.Azure.DevTest
     ///  $ pulumi import azure:devtest/policy:Policy policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/policysets/default/policies/policy1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:devtest/policy:Policy")]
     public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>

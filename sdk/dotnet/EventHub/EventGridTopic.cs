@@ -51,6 +51,7 @@ namespace Pulumi.Azure.EventHub
     /// ```
     /// </summary>
     [Obsolete(@"azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic")]
+    [AzureResourceType("azure:eventhub/eventGridTopic:EventGridTopic")]
     public partial class EventGridTopic : Pulumi.CustomResource
     {
         /// <summary>

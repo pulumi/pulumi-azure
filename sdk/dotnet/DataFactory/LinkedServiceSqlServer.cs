@@ -98,6 +98,7 @@ namespace Pulumi.Azure.DataFactory
     ///  $ pulumi import azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer")]
     public partial class LinkedServiceSqlServer : Pulumi.CustomResource
     {
         /// <summary>

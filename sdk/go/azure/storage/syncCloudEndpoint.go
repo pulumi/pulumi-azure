@@ -212,15 +212,15 @@ type SyncCloudEndpointInput interface {
 	ToSyncCloudEndpointOutputWithContext(ctx context.Context) SyncCloudEndpointOutput
 }
 
-func (SyncCloudEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncCloudEndpoint)(nil)).Elem()
+func (*SyncCloudEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncCloudEndpoint)(nil))
 }
 
-func (i SyncCloudEndpoint) ToSyncCloudEndpointOutput() SyncCloudEndpointOutput {
+func (i *SyncCloudEndpoint) ToSyncCloudEndpointOutput() SyncCloudEndpointOutput {
 	return i.ToSyncCloudEndpointOutputWithContext(context.Background())
 }
 
-func (i SyncCloudEndpoint) ToSyncCloudEndpointOutputWithContext(ctx context.Context) SyncCloudEndpointOutput {
+func (i *SyncCloudEndpoint) ToSyncCloudEndpointOutputWithContext(ctx context.Context) SyncCloudEndpointOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyncCloudEndpointOutput)
 }
 
@@ -229,7 +229,7 @@ type SyncCloudEndpointOutput struct {
 }
 
 func (SyncCloudEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncCloudEndpointOutput)(nil)).Elem()
+	return reflect.TypeOf((*SyncCloudEndpoint)(nil))
 }
 
 func (o SyncCloudEndpointOutput) ToSyncCloudEndpointOutput() SyncCloudEndpointOutput {

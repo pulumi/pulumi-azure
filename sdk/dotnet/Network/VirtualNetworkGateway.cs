@@ -128,6 +128,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/virtualNetworkGateway:VirtualNetworkGateway exampleGateway /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.Network/virtualNetworkGateways/myGateway1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/virtualNetworkGateway:VirtualNetworkGateway")]
     public partial class VirtualNetworkGateway : Pulumi.CustomResource
     {
         /// <summary>

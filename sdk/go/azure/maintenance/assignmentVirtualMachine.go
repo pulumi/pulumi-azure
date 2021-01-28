@@ -117,15 +117,15 @@ type AssignmentVirtualMachineInput interface {
 	ToAssignmentVirtualMachineOutputWithContext(ctx context.Context) AssignmentVirtualMachineOutput
 }
 
-func (AssignmentVirtualMachine) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssignmentVirtualMachine)(nil)).Elem()
+func (*AssignmentVirtualMachine) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentVirtualMachine)(nil))
 }
 
-func (i AssignmentVirtualMachine) ToAssignmentVirtualMachineOutput() AssignmentVirtualMachineOutput {
+func (i *AssignmentVirtualMachine) ToAssignmentVirtualMachineOutput() AssignmentVirtualMachineOutput {
 	return i.ToAssignmentVirtualMachineOutputWithContext(context.Background())
 }
 
-func (i AssignmentVirtualMachine) ToAssignmentVirtualMachineOutputWithContext(ctx context.Context) AssignmentVirtualMachineOutput {
+func (i *AssignmentVirtualMachine) ToAssignmentVirtualMachineOutputWithContext(ctx context.Context) AssignmentVirtualMachineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentVirtualMachineOutput)
 }
 
@@ -134,7 +134,7 @@ type AssignmentVirtualMachineOutput struct {
 }
 
 func (AssignmentVirtualMachineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssignmentVirtualMachineOutput)(nil)).Elem()
+	return reflect.TypeOf((*AssignmentVirtualMachine)(nil))
 }
 
 func (o AssignmentVirtualMachineOutput) ToAssignmentVirtualMachineOutput() AssignmentVirtualMachineOutput {

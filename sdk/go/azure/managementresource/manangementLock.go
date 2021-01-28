@@ -233,15 +233,15 @@ type ManangementLockInput interface {
 	ToManangementLockOutputWithContext(ctx context.Context) ManangementLockOutput
 }
 
-func (ManangementLock) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManangementLock)(nil)).Elem()
+func (*ManangementLock) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManangementLock)(nil))
 }
 
-func (i ManangementLock) ToManangementLockOutput() ManangementLockOutput {
+func (i *ManangementLock) ToManangementLockOutput() ManangementLockOutput {
 	return i.ToManangementLockOutputWithContext(context.Background())
 }
 
-func (i ManangementLock) ToManangementLockOutputWithContext(ctx context.Context) ManangementLockOutput {
+func (i *ManangementLock) ToManangementLockOutputWithContext(ctx context.Context) ManangementLockOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManangementLockOutput)
 }
 
@@ -250,7 +250,7 @@ type ManangementLockOutput struct {
 }
 
 func (ManangementLockOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManangementLockOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManangementLock)(nil))
 }
 
 func (o ManangementLockOutput) ToManangementLockOutput() ManangementLockOutput {

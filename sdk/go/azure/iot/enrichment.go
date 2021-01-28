@@ -231,15 +231,15 @@ type EnrichmentInput interface {
 	ToEnrichmentOutputWithContext(ctx context.Context) EnrichmentOutput
 }
 
-func (Enrichment) ElementType() reflect.Type {
-	return reflect.TypeOf((*Enrichment)(nil)).Elem()
+func (*Enrichment) ElementType() reflect.Type {
+	return reflect.TypeOf((*Enrichment)(nil))
 }
 
-func (i Enrichment) ToEnrichmentOutput() EnrichmentOutput {
+func (i *Enrichment) ToEnrichmentOutput() EnrichmentOutput {
 	return i.ToEnrichmentOutputWithContext(context.Background())
 }
 
-func (i Enrichment) ToEnrichmentOutputWithContext(ctx context.Context) EnrichmentOutput {
+func (i *Enrichment) ToEnrichmentOutputWithContext(ctx context.Context) EnrichmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnrichmentOutput)
 }
 
@@ -248,7 +248,7 @@ type EnrichmentOutput struct {
 }
 
 func (EnrichmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnrichmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*Enrichment)(nil))
 }
 
 func (o EnrichmentOutput) ToEnrichmentOutput() EnrichmentOutput {

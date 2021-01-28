@@ -20,6 +20,7 @@ namespace Pulumi.Azure.AppInsights
     ///  $ pulumi import azure:appinsights/webTest:WebTest my_test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/webtests/my_test
     /// ```
     /// </summary>
+    [AzureResourceType("azure:appinsights/webTest:WebTest")]
     public partial class WebTest : Pulumi.CustomResource
     {
         /// <summary>

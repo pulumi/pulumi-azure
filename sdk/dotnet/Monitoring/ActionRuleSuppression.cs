@@ -71,6 +71,7 @@ namespace Pulumi.Azure.Monitoring
     ///  $ pulumi import azure:monitoring/actionRuleSuppression:ActionRuleSuppression example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AlertsManagement/actionRules/actionRule1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:monitoring/actionRuleSuppression:ActionRuleSuppression")]
     public partial class ActionRuleSuppression : Pulumi.CustomResource
     {
         /// <summary>

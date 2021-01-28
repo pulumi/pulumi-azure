@@ -77,6 +77,7 @@ namespace Pulumi.Azure.AppService
     ///  $ pulumi import azure:appservice/appService:AppService instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:appservice/appService:AppService")]
     public partial class AppService : Pulumi.CustomResource
     {
         /// <summary>

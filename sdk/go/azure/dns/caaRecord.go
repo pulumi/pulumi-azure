@@ -222,15 +222,15 @@ type CaaRecordInput interface {
 	ToCaaRecordOutputWithContext(ctx context.Context) CaaRecordOutput
 }
 
-func (CaaRecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*CaaRecord)(nil)).Elem()
+func (*CaaRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaaRecord)(nil))
 }
 
-func (i CaaRecord) ToCaaRecordOutput() CaaRecordOutput {
+func (i *CaaRecord) ToCaaRecordOutput() CaaRecordOutput {
 	return i.ToCaaRecordOutputWithContext(context.Background())
 }
 
-func (i CaaRecord) ToCaaRecordOutputWithContext(ctx context.Context) CaaRecordOutput {
+func (i *CaaRecord) ToCaaRecordOutputWithContext(ctx context.Context) CaaRecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CaaRecordOutput)
 }
 
@@ -239,7 +239,7 @@ type CaaRecordOutput struct {
 }
 
 func (CaaRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CaaRecordOutput)(nil)).Elem()
+	return reflect.TypeOf((*CaaRecord)(nil))
 }
 
 func (o CaaRecordOutput) ToCaaRecordOutput() CaaRecordOutput {
