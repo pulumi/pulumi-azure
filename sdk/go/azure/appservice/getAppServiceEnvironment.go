@@ -52,6 +52,8 @@ type GetAppServiceEnvironmentArgs struct {
 
 // A collection of values returned by getAppServiceEnvironment.
 type GetAppServiceEnvironmentResult struct {
+	// Zero or more `clusterSetting` blocks as defined below.
+	ClusterSettings []GetAppServiceEnvironmentClusterSetting `pulumi:"clusterSettings"`
 	// The number of app instances per App Service Environment Front End.
 	FrontEndScaleFactor int `pulumi:"frontEndScaleFactor"`
 	// The provider-assigned unique ID for this managed resource.
@@ -60,7 +62,8 @@ type GetAppServiceEnvironmentResult struct {
 	InternalIpAddress string `pulumi:"internalIpAddress"`
 	// The Azure Region where the App Service Environment exists.
 	Location string `pulumi:"location"`
-	Name     string `pulumi:"name"`
+	// The name of the Cluster Setting.
+	Name string `pulumi:"name"`
 	// List of outbound IP addresses of the App Service Environment.
 	OutboundIpAddresses []string `pulumi:"outboundIpAddresses"`
 	// The Pricing Tier (Isolated SKU) of the App Service Environment.

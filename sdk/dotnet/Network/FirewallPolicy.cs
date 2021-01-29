@@ -91,6 +91,12 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> RuleCollectionGroups { get; private set; } = null!;
 
         /// <summary>
+        /// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+        /// </summary>
+        [Output("sku")]
+        public Output<string> Sku { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags which should be assigned to the Firewall Policy.
         /// </summary>
         [Output("tags")]
@@ -183,6 +189,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+        /// </summary>
+        [Input("sku")]
+        public Input<string>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -280,6 +292,12 @@ namespace Pulumi.Azure.Network
             get => _ruleCollectionGroups ?? (_ruleCollectionGroups = new InputList<string>());
             set => _ruleCollectionGroups = value;
         }
+
+        /// <summary>
+        /// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+        /// </summary>
+        [Input("sku")]
+        public Input<string>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -5,9 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) which is still in preview).
+ * Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration)).
+ *
+ * > **Note:** This resource can be used for both `azure.appservice.AppService` and `azure.appservice.FunctionApp`.
+ *
+ * > **Note:** There is a hard limit of [one VNet integration per App Service Plan](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
+ * Multiple apps in the same App Service plan can use the same VNet.
  *
  * ## Example Usage
+ * ### With App Service)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -49,6 +55,54 @@ import * as utilities from "../utilities";
  *     subnetId: exampleSubnet.id,
  * });
  * ```
+ * ### With Function App)
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: azurerm_resource_group.example.location,
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
+ *     delegations: [{
+ *         name: "example-delegation",
+ *         serviceDelegation: {
+ *             name: "Microsoft.Web/serverFarms",
+ *             actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
+ *         },
+ *     }],
+ * });
+ * const examplePlan = new azure.appservice.Plan("examplePlan", {
+ *     location: azurerm_resource_group.example.location,
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ *     sku: {
+ *         tier: "Standard",
+ *         size: "S1",
+ *     },
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ *     location: azurerm_resource_group.example.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleFunctionApp = new azure.appservice.FunctionApp("exampleFunctionApp", {
+ *     location: azurerm_resource_group.example.location,
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ *     appServicePlanId: examplePlan.id,
+ *     storageAccountName: exampleAccount.name,
+ *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
+ * });
+ * const exampleVirtualNetworkSwiftConnection = new azure.appservice.VirtualNetworkSwiftConnection("exampleVirtualNetworkSwiftConnection", {
+ *     appServiceId: exampleFunctionApp.id,
+ *     subnetId: exampleSubnet.id,
+ * });
+ * ```
  *
  * ## Import
  *
@@ -87,7 +141,7 @@ export class VirtualNetworkSwiftConnection extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+     * The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
      */
     public readonly appServiceId!: pulumi.Output<string>;
     /**
@@ -136,7 +190,7 @@ export class VirtualNetworkSwiftConnection extends pulumi.CustomResource {
  */
 export interface VirtualNetworkSwiftConnectionState {
     /**
-     * The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+     * The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
      */
     readonly appServiceId?: pulumi.Input<string>;
     /**
@@ -150,7 +204,7 @@ export interface VirtualNetworkSwiftConnectionState {
  */
 export interface VirtualNetworkSwiftConnectionArgs {
     /**
-     * The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+     * The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
      */
     readonly appServiceId: pulumi.Input<string>;
     /**

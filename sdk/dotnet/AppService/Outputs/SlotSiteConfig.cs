@@ -72,6 +72,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
         /// </summary>
         public readonly string? MinTlsVersion;
+        public readonly int? NumberOfWorkers;
         /// <summary>
         /// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
         /// </summary>
@@ -140,6 +141,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string? minTlsVersion,
 
+            int? numberOfWorkers,
+
             string? phpVersion,
 
             string? pythonVersion,
@@ -177,6 +180,7 @@ namespace Pulumi.Azure.AppService.Outputs
             LocalMysqlEnabled = localMysqlEnabled;
             ManagedPipelineMode = managedPipelineMode;
             MinTlsVersion = minTlsVersion;
+            NumberOfWorkers = numberOfWorkers;
             PhpVersion = phpVersion;
             PythonVersion = pythonVersion;
             RemoteDebuggingEnabled = remoteDebuggingEnabled;

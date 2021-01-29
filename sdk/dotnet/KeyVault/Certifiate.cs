@@ -187,6 +187,12 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> CertificateData { get; private set; } = null!;
 
         /// <summary>
+        /// The Base64 encoded Key Vault Certificate data.
+        /// </summary>
+        [Output("certificateDataBase64")]
+        public Output<string> CertificateDataBase64 { get; private set; } = null!;
+
+        /// <summary>
         /// A `certificate_policy` block as defined below.
         /// </summary>
         [Output("certificatePolicy")]
@@ -340,6 +346,12 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("certificateData")]
         public Input<string>? CertificateData { get; set; }
+
+        /// <summary>
+        /// The Base64 encoded Key Vault Certificate data.
+        /// </summary>
+        [Input("certificateDataBase64")]
+        public Input<string>? CertificateDataBase64 { get; set; }
 
         /// <summary>
         /// A `certificate_policy` block as defined below.

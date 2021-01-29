@@ -34,6 +34,7 @@ __all__ = [
     'AppServiceSourceControl',
     'AppServiceStorageAccount',
     'CertificateOrderCertificate',
+    'EnvironmentClusterSetting',
     'FunctionAppAuthSettings',
     'FunctionAppAuthSettingsActiveDirectory',
     'FunctionAppAuthSettingsFacebook',
@@ -82,6 +83,7 @@ __all__ = [
     'SlotSiteConfigScmIpRestriction',
     'SlotSiteCredential',
     'GetAppServiceConnectionStringResult',
+    'GetAppServiceEnvironmentClusterSettingResult',
     'GetAppServicePlanSkuResult',
     'GetAppServiceSiteConfigResult',
     'GetAppServiceSiteConfigCorResult',
@@ -948,6 +950,7 @@ class AppServiceSiteConfig(dict):
                  local_mysql_enabled: Optional[bool] = None,
                  managed_pipeline_mode: Optional[str] = None,
                  min_tls_version: Optional[str] = None,
+                 number_of_workers: Optional[int] = None,
                  php_version: Optional[str] = None,
                  python_version: Optional[str] = None,
                  remote_debugging_enabled: Optional[bool] = None,
@@ -965,7 +968,7 @@ class AppServiceSiteConfig(dict):
         :param Sequence[str] default_documents: The ordering of default documents to load, if an address isn't specified.
         :param str dotnet_framework_version: The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`) and `v5.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         :param str ftps_state: State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
-        :param str health_check_path: The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
+        :param str health_check_path: The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
         :param bool http2_enabled: Is HTTP2 Enabled on this App Service? Defaults to `false`.
         :param Sequence['AppServiceSiteConfigIpRestrictionArgs'] ip_restrictions: A list of objects representing ip restrictions as defined below.
         :param str java_container: The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
@@ -975,6 +978,7 @@ class AppServiceSiteConfig(dict):
         :param bool local_mysql_enabled: Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
         :param str managed_pipeline_mode: The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
         :param str min_tls_version: The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+        :param int number_of_workers: The scaled number of workers (for per site scaling) of this App Service. Requires that `per_site_scaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
         :param str php_version: The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
         :param str python_version: The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
         :param bool remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
@@ -1020,6 +1024,8 @@ class AppServiceSiteConfig(dict):
             pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
         if min_tls_version is not None:
             pulumi.set(__self__, "min_tls_version", min_tls_version)
+        if number_of_workers is not None:
+            pulumi.set(__self__, "number_of_workers", number_of_workers)
         if php_version is not None:
             pulumi.set(__self__, "php_version", php_version)
         if python_version is not None:
@@ -1098,7 +1104,7 @@ class AppServiceSiteConfig(dict):
     @pulumi.getter(name="healthCheckPath")
     def health_check_path(self) -> Optional[str]:
         """
-        The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
+        The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
         """
         return pulumi.get(self, "health_check_path")
 
@@ -1173,6 +1179,14 @@ class AppServiceSiteConfig(dict):
         The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
         """
         return pulumi.get(self, "min_tls_version")
+
+    @property
+    @pulumi.getter(name="numberOfWorkers")
+    def number_of_workers(self) -> Optional[int]:
+        """
+        The scaled number of workers (for per site scaling) of this App Service. Requires that `per_site_scaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+        """
+        return pulumi.get(self, "number_of_workers")
 
     @property
     @pulumi.getter(name="phpVersion")
@@ -1705,6 +1719,38 @@ class CertificateOrderCertificate(dict):
         Status of the Key Vault secret.
         """
         return pulumi.get(self, "provisioning_state")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EnvironmentClusterSetting(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: The name of the Cluster Setting.
+        :param str value: The value for the Cluster Setting.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Cluster Setting.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the Cluster Setting.
+        """
+        return pulumi.get(self, "value")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -4351,6 +4397,7 @@ class SlotSiteConfig(dict):
                  local_mysql_enabled: Optional[bool] = None,
                  managed_pipeline_mode: Optional[str] = None,
                  min_tls_version: Optional[str] = None,
+                 number_of_workers: Optional[int] = None,
                  php_version: Optional[str] = None,
                  python_version: Optional[str] = None,
                  remote_debugging_enabled: Optional[bool] = None,
@@ -4418,6 +4465,8 @@ class SlotSiteConfig(dict):
             pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
         if min_tls_version is not None:
             pulumi.set(__self__, "min_tls_version", min_tls_version)
+        if number_of_workers is not None:
+            pulumi.set(__self__, "number_of_workers", number_of_workers)
         if php_version is not None:
             pulumi.set(__self__, "php_version", php_version)
         if python_version is not None:
@@ -4565,6 +4614,11 @@ class SlotSiteConfig(dict):
         The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
         """
         return pulumi.get(self, "min_tls_version")
+
+    @property
+    @pulumi.getter(name="numberOfWorkers")
+    def number_of_workers(self) -> Optional[int]:
+        return pulumi.get(self, "number_of_workers")
 
     @property
     @pulumi.getter(name="phpVersion")
@@ -4929,6 +4983,35 @@ class GetAppServiceConnectionStringResult(dict):
 
 
 @pulumi.output_type
+class GetAppServiceEnvironmentClusterSettingResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: The name of this App Service Environment.
+        :param str value: The value for the Cluster Setting.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this App Service Environment.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the Cluster Setting.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class GetAppServicePlanSkuResult(dict):
     def __init__(__self__, *,
                  capacity: int,
@@ -4987,6 +5070,7 @@ class GetAppServiceSiteConfigResult(dict):
                  local_mysql_enabled: bool,
                  managed_pipeline_mode: str,
                  min_tls_version: str,
+                 number_of_workers: int,
                  php_version: str,
                  python_version: str,
                  remote_debugging_enabled: bool,
@@ -5014,6 +5098,7 @@ class GetAppServiceSiteConfigResult(dict):
         :param bool local_mysql_enabled: Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
         :param str managed_pipeline_mode: The Managed Pipeline Mode used in this App Service.
         :param str min_tls_version: The minimum supported TLS version for this App Service.
+        :param int number_of_workers: The scaled number of workers (for per site scaling) of this App Service.
         :param str php_version: The version of PHP used in this App Service.
         :param str python_version: The version of Python used in this App Service.
         :param bool remote_debugging_enabled: Is Remote Debugging Enabled in this App Service?
@@ -5041,6 +5126,7 @@ class GetAppServiceSiteConfigResult(dict):
         pulumi.set(__self__, "local_mysql_enabled", local_mysql_enabled)
         pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
         pulumi.set(__self__, "min_tls_version", min_tls_version)
+        pulumi.set(__self__, "number_of_workers", number_of_workers)
         pulumi.set(__self__, "php_version", php_version)
         pulumi.set(__self__, "python_version", python_version)
         pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
@@ -5179,6 +5265,14 @@ class GetAppServiceSiteConfigResult(dict):
         The minimum supported TLS version for this App Service.
         """
         return pulumi.get(self, "min_tls_version")
+
+    @property
+    @pulumi.getter(name="numberOfWorkers")
+    def number_of_workers(self) -> int:
+        """
+        The scaled number of workers (for per site scaling) of this App Service.
+        """
+        return pulumi.get(self, "number_of_workers")
 
     @property
     @pulumi.getter(name="phpVersion")

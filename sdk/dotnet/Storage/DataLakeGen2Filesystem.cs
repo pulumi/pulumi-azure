@@ -61,6 +61,12 @@ namespace Pulumi.Azure.Storage
     public partial class DataLakeGen2Filesystem : Pulumi.CustomResource
     {
         /// <summary>
+        /// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        /// </summary>
+        [Output("aces")]
+        public Output<ImmutableArray<Outputs.DataLakeGen2FilesystemAce>> Aces { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -124,6 +130,18 @@ namespace Pulumi.Azure.Storage
 
     public sealed class DataLakeGen2FilesystemArgs : Pulumi.ResourceArgs
     {
+        [Input("aces")]
+        private InputList<Inputs.DataLakeGen2FilesystemAceArgs>? _aces;
+
+        /// <summary>
+        /// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        /// </summary>
+        public InputList<Inputs.DataLakeGen2FilesystemAceArgs> Aces
+        {
+            get => _aces ?? (_aces = new InputList<Inputs.DataLakeGen2FilesystemAceArgs>());
+            set => _aces = value;
+        }
+
         /// <summary>
         /// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         /// </summary>
@@ -155,6 +173,18 @@ namespace Pulumi.Azure.Storage
 
     public sealed class DataLakeGen2FilesystemState : Pulumi.ResourceArgs
     {
+        [Input("aces")]
+        private InputList<Inputs.DataLakeGen2FilesystemAceGetArgs>? _aces;
+
+        /// <summary>
+        /// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        /// </summary>
+        public InputList<Inputs.DataLakeGen2FilesystemAceGetArgs> Aces
+        {
+            get => _aces ?? (_aces = new InputList<Inputs.DataLakeGen2FilesystemAceGetArgs>());
+            set => _aces = value;
+        }
+
         /// <summary>
         /// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         /// </summary>

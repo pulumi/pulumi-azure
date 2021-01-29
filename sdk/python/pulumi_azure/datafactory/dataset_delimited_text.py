@@ -21,6 +21,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']]] = None,
                  column_delimiter: Optional[pulumi.Input[str]] = None,
+                 compression_codec: Optional[pulumi.Input[str]] = None,
                  compression_level: Optional[pulumi.Input[str]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -90,6 +91,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
         :param pulumi.Input[str] column_delimiter: The column delimiter.
+        :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
         :param pulumi.Input[str] compression_level: The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
@@ -128,6 +130,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
             __props__['annotations'] = annotations
             __props__['azure_blob_storage_location'] = azure_blob_storage_location
             __props__['column_delimiter'] = column_delimiter
+            __props__['compression_codec'] = compression_codec
             __props__['compression_level'] = compression_level
             if data_factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_factory_name'")
@@ -164,6 +167,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']]] = None,
             column_delimiter: Optional[pulumi.Input[str]] = None,
+            compression_codec: Optional[pulumi.Input[str]] = None,
             compression_level: Optional[pulumi.Input[str]] = None,
             data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -191,6 +195,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
         :param pulumi.Input[str] column_delimiter: The column delimiter.
+        :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
         :param pulumi.Input[str] compression_level: The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
@@ -216,6 +221,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
         __props__["annotations"] = annotations
         __props__["azure_blob_storage_location"] = azure_blob_storage_location
         __props__["column_delimiter"] = column_delimiter
+        __props__["compression_codec"] = compression_codec
         __props__["compression_level"] = compression_level
         __props__["data_factory_name"] = data_factory_name
         __props__["description"] = description
@@ -265,6 +271,14 @@ class DatasetDelimitedText(pulumi.CustomResource):
         The column delimiter.
         """
         return pulumi.get(self, "column_delimiter")
+
+    @property
+    @pulumi.getter(name="compressionCodec")
+    def compression_codec(self) -> pulumi.Output[Optional[str]]:
+        """
+        The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        """
+        return pulumi.get(self, "compression_codec")
 
     @property
     @pulumi.getter(name="compressionLevel")

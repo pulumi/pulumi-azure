@@ -62,13 +62,13 @@ namespace Pulumi.Azure.Iot
     public partial class TimeSeriesInsightsReferenceDataSet : Pulumi.CustomResource
     {
         /// <summary>
-        /// The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`.
+        /// The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("dataStringComparisonBehavior")]
         public Output<string?> DataStringComparisonBehavior { get; private set; } = null!;
 
         /// <summary>
-        /// A `key_property` block as defined below.
+        /// A `key_property` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("keyProperties")]
         public Output<ImmutableArray<Outputs.TimeSeriesInsightsReferenceDataSetKeyProperty>> KeyProperties { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Azure.Iot
     public sealed class TimeSeriesInsightsReferenceDataSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`.
+        /// The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataStringComparisonBehavior")]
         public Input<string>? DataStringComparisonBehavior { get; set; }
@@ -153,7 +153,7 @@ namespace Pulumi.Azure.Iot
         private InputList<Inputs.TimeSeriesInsightsReferenceDataSetKeyPropertyArgs>? _keyProperties;
 
         /// <summary>
-        /// A `key_property` block as defined below.
+        /// A `key_property` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.TimeSeriesInsightsReferenceDataSetKeyPropertyArgs> KeyProperties
         {
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.Iot
     public sealed class TimeSeriesInsightsReferenceDataSetState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`.
+        /// The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataStringComparisonBehavior")]
         public Input<string>? DataStringComparisonBehavior { get; set; }
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.Iot
         private InputList<Inputs.TimeSeriesInsightsReferenceDataSetKeyPropertyGetArgs>? _keyProperties;
 
         /// <summary>
-        /// A `key_property` block as defined below.
+        /// A `key_property` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.TimeSeriesInsightsReferenceDataSetKeyPropertyGetArgs> KeyProperties
         {

@@ -60,7 +60,7 @@ import (
 type Namespace struct {
 	pulumi.CustomResourceState
 
-	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
 	Capacity pulumi.IntPtrOutput `pulumi:"capacity"`
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
@@ -123,7 +123,7 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
-	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
 	Capacity *int `pulumi:"capacity"`
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
@@ -152,7 +152,7 @@ type namespaceState struct {
 }
 
 type NamespaceState struct {
-	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
 	Capacity pulumi.IntPtrInput
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
@@ -185,7 +185,7 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
-	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
 	Capacity *int `pulumi:"capacity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -205,7 +205,7 @@ type namespaceArgs struct {
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
-	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
 	Capacity pulumi.IntPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput

@@ -33,6 +33,7 @@ __all__ = [
     'AppServiceSourceControlArgs',
     'AppServiceStorageAccountArgs',
     'CertificateOrderCertificateArgs',
+    'EnvironmentClusterSettingArgs',
     'FunctionAppAuthSettingsArgs',
     'FunctionAppAuthSettingsActiveDirectoryArgs',
     'FunctionAppAuthSettingsFacebookArgs',
@@ -1118,6 +1119,7 @@ class AppServiceSiteConfigArgs:
                  local_mysql_enabled: Optional[pulumi.Input[bool]] = None,
                  managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
+                 number_of_workers: Optional[pulumi.Input[int]] = None,
                  php_version: Optional[pulumi.Input[str]] = None,
                  python_version: Optional[pulumi.Input[str]] = None,
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1135,7 +1137,7 @@ class AppServiceSiteConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: The ordering of default documents to load, if an address isn't specified.
         :param pulumi.Input[str] dotnet_framework_version: The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`) and `v5.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
-        :param pulumi.Input[str] health_check_path: The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
+        :param pulumi.Input[str] health_check_path: The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
         :param pulumi.Input[bool] http2_enabled: Is HTTP2 Enabled on this App Service? Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigIpRestrictionArgs']]] ip_restrictions: A list of objects representing ip restrictions as defined below.
         :param pulumi.Input[str] java_container: The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
@@ -1145,6 +1147,7 @@ class AppServiceSiteConfigArgs:
         :param pulumi.Input[bool] local_mysql_enabled: Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
         :param pulumi.Input[str] managed_pipeline_mode: The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+        :param pulumi.Input[int] number_of_workers: The scaled number of workers (for per site scaling) of this App Service. Requires that `per_site_scaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
         :param pulumi.Input[str] php_version: The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
         :param pulumi.Input[str] python_version: The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
         :param pulumi.Input[bool] remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
@@ -1190,6 +1193,8 @@ class AppServiceSiteConfigArgs:
             pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
         if min_tls_version is not None:
             pulumi.set(__self__, "min_tls_version", min_tls_version)
+        if number_of_workers is not None:
+            pulumi.set(__self__, "number_of_workers", number_of_workers)
         if php_version is not None:
             pulumi.set(__self__, "php_version", php_version)
         if python_version is not None:
@@ -1296,7 +1301,7 @@ class AppServiceSiteConfigArgs:
     @pulumi.getter(name="healthCheckPath")
     def health_check_path(self) -> Optional[pulumi.Input[str]]:
         """
-        The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
+        The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
         """
         return pulumi.get(self, "health_check_path")
 
@@ -1411,6 +1416,18 @@ class AppServiceSiteConfigArgs:
     @min_tls_version.setter
     def min_tls_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "min_tls_version", value)
+
+    @property
+    @pulumi.getter(name="numberOfWorkers")
+    def number_of_workers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The scaled number of workers (for per site scaling) of this App Service. Requires that `per_site_scaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+        """
+        return pulumi.get(self, "number_of_workers")
+
+    @number_of_workers.setter
+    def number_of_workers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_workers", value)
 
     @property
     @pulumi.getter(name="phpVersion")
@@ -2100,6 +2117,43 @@ class CertificateOrderCertificateArgs:
     @provisioning_state.setter
     def provisioning_state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "provisioning_state", value)
+
+
+@pulumi.input_type
+class EnvironmentClusterSettingArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the Cluster Setting.
+        :param pulumi.Input[str] value: The value for the Cluster Setting.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Cluster Setting.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the Cluster Setting.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -5405,6 +5459,7 @@ class SlotSiteConfigArgs:
                  local_mysql_enabled: Optional[pulumi.Input[bool]] = None,
                  managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
+                 number_of_workers: Optional[pulumi.Input[int]] = None,
                  php_version: Optional[pulumi.Input[str]] = None,
                  python_version: Optional[pulumi.Input[str]] = None,
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
@@ -5472,6 +5527,8 @@ class SlotSiteConfigArgs:
             pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
         if min_tls_version is not None:
             pulumi.set(__self__, "min_tls_version", min_tls_version)
+        if number_of_workers is not None:
+            pulumi.set(__self__, "number_of_workers", number_of_workers)
         if php_version is not None:
             pulumi.set(__self__, "php_version", php_version)
         if python_version is not None:
@@ -5687,6 +5744,15 @@ class SlotSiteConfigArgs:
     @min_tls_version.setter
     def min_tls_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "min_tls_version", value)
+
+    @property
+    @pulumi.getter(name="numberOfWorkers")
+    def number_of_workers(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "number_of_workers")
+
+    @number_of_workers.setter
+    def number_of_workers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_workers", value)
 
     @property
     @pulumi.getter(name="phpVersion")

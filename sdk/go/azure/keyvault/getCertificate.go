@@ -66,6 +66,8 @@ type LookupCertificateArgs struct {
 type LookupCertificateResult struct {
 	// The raw Key Vault Certificate data represented as a hexadecimal string.
 	CertificateData string `pulumi:"certificateData"`
+	// The raw Key Vault Certificate data represented as a base64 string.
+	CertificateDataBase64 string `pulumi:"certificateDataBase64"`
 	// A `certificatePolicy` block as defined below.
 	CertificatePolicies []GetCertificateCertificatePolicy `pulumi:"certificatePolicies"`
 	// The provider-assigned unique ID for this managed resource.

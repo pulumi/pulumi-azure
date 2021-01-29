@@ -1064,7 +1064,7 @@ export namespace appplatform {
         /**
          * Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
          */
-        type: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
     }
 
     export interface SpringCloudAppPersistentDisk {
@@ -1530,7 +1530,7 @@ export namespace appservice {
          */
         ftpsState?: pulumi.Input<string>;
         /**
-         * The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
+         * The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
          */
         healthCheckPath?: pulumi.Input<string>;
         /**
@@ -1569,6 +1569,10 @@ export namespace appservice {
          * The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
          */
         minTlsVersion?: pulumi.Input<string>;
+        /**
+         * The scaled number of workers (for per site scaling) of this App Service. Requires that `perSiteScaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+         */
+        numberOfWorkers?: pulumi.Input<number>;
         /**
          * The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
          */
@@ -1762,6 +1766,17 @@ export namespace appservice {
          * Status of the Key Vault secret.
          */
         provisioningState?: pulumi.Input<string>;
+    }
+
+    export interface EnvironmentClusterSetting {
+        /**
+         * The name of the Cluster Setting.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value for the Cluster Setting.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface FunctionAppAuthSettings {
@@ -2687,6 +2702,7 @@ export namespace appservice {
          * The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
          */
         minTlsVersion?: pulumi.Input<string>;
+        numberOfWorkers?: pulumi.Input<number>;
         /**
          * The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
          */
@@ -7232,6 +7248,17 @@ export namespace datafactory {
         resourceId: pulumi.Input<string>;
     }
 
+    export interface LinkedServiceSnowflakeKeyVaultPassword {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: pulumi.Input<string>;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores Snowflake password.
+         */
+        secretName: pulumi.Input<string>;
+    }
+
     export interface LinkedServiceSqlServerKeyVaultPassword {
         /**
          * Specifies the name of an existing Key Vault Data Factory Linked Service.
@@ -11191,6 +11218,21 @@ export namespace iot {
         type: pulumi.Input<string>;
     }
 
+    export interface IoTHubEnrichment {
+        /**
+         * The list of endpoints which will be enriched.
+         */
+        endpointNames: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The key of the enrichment.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface IoTHubFallbackRoute {
         /**
          * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
@@ -11343,6 +11385,73 @@ export namespace iot {
         name: pulumi.Input<string>;
     }
 
+    export interface SecuritySolutionRecommendationsEnabled {
+        /**
+         * Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
+         */
+        acrAuthentication?: pulumi.Input<boolean>;
+        /**
+         * Is Agent send underutilized messages enabled? Defaults to `true`.
+         */
+        agentSendUnutilizedMsg?: pulumi.Input<boolean>;
+        /**
+         * Is Security related system configuration issues identified? Defaults to `true`.
+         */
+        baseline?: pulumi.Input<boolean>;
+        /**
+         * Is IoT Edge Hub memory optimized? Defaults to `true`.
+         */
+        edgeHubMemOptimize?: pulumi.Input<boolean>;
+        /**
+         * Is logging configured for IoT Edge module? Defaults to `true`.
+         */
+        edgeLoggingOption?: pulumi.Input<boolean>;
+        /**
+         * Is inconsistent module settings enabled for SecurityGroup? Defaults to `true`.
+         */
+        inconsistentModuleSettings?: pulumi.Input<boolean>;
+        /**
+         * is Azure IoT Security agent installed? Defaults to `true`.
+         */
+        installAgent?: pulumi.Input<boolean>;
+        /**
+         * Is Default IP filter policy denied? Defaults to `true`.
+         */
+        ipFilterDenyAll?: pulumi.Input<boolean>;
+        /**
+         * Is IP filter rule source allowable IP range too large? Defaults to `true`.
+         */
+        ipFilterPermissiveRule?: pulumi.Input<boolean>;
+        /**
+         * Is any ports open on the device? Defaults to `true`.
+         */
+        openPorts?: pulumi.Input<boolean>;
+        /**
+         * Does firewall policy exist which allow necessary communication to/from the device? Defaults to `true`.
+         */
+        permissiveFirewallPolicy?: pulumi.Input<boolean>;
+        /**
+         * Is only necessary addresses or ports are permitted in? Defaults to `true`.
+         */
+        permissiveInputFirewallRules?: pulumi.Input<boolean>;
+        /**
+         * Is only necessary addresses or ports are permitted out? Defaults to `true`.
+         */
+        permissiveOutputFirewallRules?: pulumi.Input<boolean>;
+        /**
+         * Is high level permissions are needed for the module? Defaults to `true`.
+         */
+        privilegedDockerOptions?: pulumi.Input<boolean>;
+        /**
+         * Is any credentials shared among devices? Defaults to `true`.
+         */
+        sharedCredentials?: pulumi.Input<boolean>;
+        /**
+         * Does TLS cipher suite need to be updated? Defaults to `true`.
+         */
+        vulnerableTlsCipherSuite?: pulumi.Input<boolean>;
+    }
+
     export interface TimeSeriesInsightsGen2EnvironmentStorage {
         /**
          * Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
@@ -11356,11 +11465,11 @@ export namespace iot {
 
     export interface TimeSeriesInsightsReferenceDataSetKeyProperty {
         /**
-         * The name of the key property.
+         * The name of the key property. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
         /**
-         * The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`.
+         * The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
          */
         type: pulumi.Input<string>;
     }
@@ -12352,6 +12461,141 @@ export namespace media {
          * Value of Content Key. Changing this forces a new Streaming Locator to be created.
          */
         value?: pulumi.Input<string>;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCbcs {
+        /**
+         * A `defaultContentKey` block as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        defaultContentKey?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCbcsDefaultContentKey>;
+        /**
+         * A `drmFairplay` block as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        drmFairplay?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCbcsDrmFairplay>;
+        /**
+         * A `enabledProtocols` block as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        enabledProtocols?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCbcsEnabledProtocols>;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCbcsDefaultContentKey {
+        /**
+         * Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+         */
+        label?: pulumi.Input<string>;
+        /**
+         * Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
+         */
+        policyName?: pulumi.Input<string>;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCbcsDrmFairplay {
+        /**
+         * All license to be persistent or not. Changing this forces a new Streaming Policy to be created.
+         */
+        allowPersistentLicense?: pulumi.Input<boolean>;
+        /**
+         * Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+         */
+        customLicenseAcquisitionUrlTemplate?: pulumi.Input<string>;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCbcsEnabledProtocols {
+        /**
+         * Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        dash?: pulumi.Input<boolean>;
+        /**
+         * Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        download?: pulumi.Input<boolean>;
+        /**
+         * Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        hls?: pulumi.Input<boolean>;
+        /**
+         * Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        smoothStreaming?: pulumi.Input<boolean>;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCenc {
+        /**
+         * A `defaultContentKey` block as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        defaultContentKey?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCencDefaultContentKey>;
+        /**
+         * A `drmPlayready` block as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        drmPlayready?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCencDrmPlayready>;
+        /**
+         * Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+         */
+        drmWidevineCustomLicenseAcquisitionUrlTemplate?: pulumi.Input<string>;
+        /**
+         * A `enabledProtocols` block as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        enabledProtocols?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCencEnabledProtocols>;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCencDefaultContentKey {
+        /**
+         * Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+         */
+        label?: pulumi.Input<string>;
+        /**
+         * Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
+         */
+        policyName?: pulumi.Input<string>;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCencDrmPlayready {
+        /**
+         * Custom attributes for PlayReady. Changing this forces a new Streaming Policy to be created.
+         */
+        customAttributes?: pulumi.Input<string>;
+        /**
+         * Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+         */
+        customLicenseAcquisitionUrlTemplate?: pulumi.Input<string>;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCencEnabledProtocols {
+        /**
+         * Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        dash?: pulumi.Input<boolean>;
+        /**
+         * Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        download?: pulumi.Input<boolean>;
+        /**
+         * Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        hls?: pulumi.Input<boolean>;
+        /**
+         * Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        smoothStreaming?: pulumi.Input<boolean>;
+    }
+
+    export interface StreamingPolicyNoEncryptionEnabledProtocols {
+        /**
+         * Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        dash?: pulumi.Input<boolean>;
+        /**
+         * Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        download?: pulumi.Input<boolean>;
+        /**
+         * Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        hls?: pulumi.Input<boolean>;
+        /**
+         * Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        smoothStreaming?: pulumi.Input<boolean>;
     }
 
     export interface TransformOutput {
@@ -17667,6 +17911,25 @@ export namespace storage {
          * The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
          */
         indexDocument?: pulumi.Input<string>;
+    }
+
+    export interface DataLakeGen2FilesystemAce {
+        /**
+         * Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+         */
+        permissions: pulumi.Input<string>;
+        /**
+         * Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
+         */
+        scope?: pulumi.Input<string>;
+        /**
+         * Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface DataLakeGen2PathAce {

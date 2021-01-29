@@ -9,6 +9,7 @@ from .endpoint_eventhub import *
 from .endpoint_servicebus_queue import *
 from .endpoint_servicebus_topic import *
 from .endpoint_storage_container import *
+from .enrichment import *
 from .fallback_route import *
 from .get_dps import *
 from .get_dps_shared_access_policy import *
@@ -18,6 +19,7 @@ from .io_t_hub import *
 from .iot_hub_certificate import *
 from .iot_hub_dps import *
 from .route import *
+from .security_solution import *
 from .shared_access_policy import *
 from .time_series_insights_access_policy import *
 from .time_series_insights_gen2_environment import *
@@ -50,6 +52,8 @@ def _register_module():
                 return EndpointServicebusTopic(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:iot/endpointStorageContainer:EndpointStorageContainer":
                 return EndpointStorageContainer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:iot/enrichment:Enrichment":
+                return Enrichment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:iot/fallbackRoute:FallbackRoute":
                 return FallbackRoute(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:iot/ioTHub:IoTHub":
@@ -60,6 +64,8 @@ def _register_module():
                 return IotHubDps(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:iot/route:Route":
                 return Route(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:iot/securitySolution:SecuritySolution":
+                return SecuritySolution(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:iot/sharedAccessPolicy:SharedAccessPolicy":
                 return SharedAccessPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy":
@@ -81,11 +87,13 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "iot/endpointServicebusQueue", _module_instance)
     pulumi.runtime.register_resource_module("azure", "iot/endpointServicebusTopic", _module_instance)
     pulumi.runtime.register_resource_module("azure", "iot/endpointStorageContainer", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "iot/enrichment", _module_instance)
     pulumi.runtime.register_resource_module("azure", "iot/fallbackRoute", _module_instance)
     pulumi.runtime.register_resource_module("azure", "iot/ioTHub", _module_instance)
     pulumi.runtime.register_resource_module("azure", "iot/iotHubCertificate", _module_instance)
     pulumi.runtime.register_resource_module("azure", "iot/iotHubDps", _module_instance)
     pulumi.runtime.register_resource_module("azure", "iot/route", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "iot/securitySolution", _module_instance)
     pulumi.runtime.register_resource_module("azure", "iot/sharedAccessPolicy", _module_instance)
     pulumi.runtime.register_resource_module("azure", "iot/timeSeriesInsightsAccessPolicy", _module_instance)
     pulumi.runtime.register_resource_module("azure", "iot/timeSeriesInsightsGen2Environment", _module_instance)

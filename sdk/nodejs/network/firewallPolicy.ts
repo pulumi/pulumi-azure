@@ -89,6 +89,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly ruleCollectionGroups!: pulumi.Output<string[]>;
     /**
+     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+     */
+    public readonly sku!: pulumi.Output<string>;
+    /**
      * A mapping of tags which should be assigned to the Firewall Policy.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -121,6 +125,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["ruleCollectionGroups"] = state ? state.ruleCollectionGroups : undefined;
+            inputs["sku"] = state ? state.sku : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["threatIntelligenceAllowlist"] = state ? state.threatIntelligenceAllowlist : undefined;
             inputs["threatIntelligenceMode"] = state ? state.threatIntelligenceMode : undefined;
@@ -134,6 +139,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["threatIntelligenceAllowlist"] = args ? args.threatIntelligenceAllowlist : undefined;
             inputs["threatIntelligenceMode"] = args ? args.threatIntelligenceMode : undefined;
@@ -189,6 +195,10 @@ export interface FirewallPolicyState {
      */
     readonly ruleCollectionGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+     */
+    readonly sku?: pulumi.Input<string>;
+    /**
      * A mapping of tags which should be assigned to the Firewall Policy.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -226,6 +236,10 @@ export interface FirewallPolicyArgs {
      * The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+     */
+    readonly sku?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Firewall Policy.
      */

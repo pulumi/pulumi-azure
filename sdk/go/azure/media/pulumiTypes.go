@@ -2688,6 +2688,1559 @@ func (o StreamingLocatorContentKeyArrayOutput) Index(i pulumi.IntInput) Streamin
 	}).(StreamingLocatorContentKeyOutput)
 }
 
+type StreamingPolicyCommonEncryptionCbcs struct {
+	// A `defaultContentKey` block as defined below. Changing this forces a new Streaming Policy to be created.
+	DefaultContentKey *StreamingPolicyCommonEncryptionCbcsDefaultContentKey `pulumi:"defaultContentKey"`
+	// A `drmFairplay` block as defined below. Changing this forces a new Streaming Policy to be created.
+	DrmFairplay *StreamingPolicyCommonEncryptionCbcsDrmFairplay `pulumi:"drmFairplay"`
+	// A `enabledProtocols` block as defined below. Changing this forces a new Streaming Policy to be created.
+	EnabledProtocols *StreamingPolicyCommonEncryptionCbcsEnabledProtocols `pulumi:"enabledProtocols"`
+}
+
+// StreamingPolicyCommonEncryptionCbcsInput is an input type that accepts StreamingPolicyCommonEncryptionCbcsArgs and StreamingPolicyCommonEncryptionCbcsOutput values.
+// You can construct a concrete instance of `StreamingPolicyCommonEncryptionCbcsInput` via:
+//
+//          StreamingPolicyCommonEncryptionCbcsArgs{...}
+type StreamingPolicyCommonEncryptionCbcsInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyCommonEncryptionCbcsOutput() StreamingPolicyCommonEncryptionCbcsOutput
+	ToStreamingPolicyCommonEncryptionCbcsOutputWithContext(context.Context) StreamingPolicyCommonEncryptionCbcsOutput
+}
+
+type StreamingPolicyCommonEncryptionCbcsArgs struct {
+	// A `defaultContentKey` block as defined below. Changing this forces a new Streaming Policy to be created.
+	DefaultContentKey StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrInput `pulumi:"defaultContentKey"`
+	// A `drmFairplay` block as defined below. Changing this forces a new Streaming Policy to be created.
+	DrmFairplay StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrInput `pulumi:"drmFairplay"`
+	// A `enabledProtocols` block as defined below. Changing this forces a new Streaming Policy to be created.
+	EnabledProtocols StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrInput `pulumi:"enabledProtocols"`
+}
+
+func (StreamingPolicyCommonEncryptionCbcsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyCommonEncryptionCbcs)(nil)).Elem()
+}
+
+func (i StreamingPolicyCommonEncryptionCbcsArgs) ToStreamingPolicyCommonEncryptionCbcsOutput() StreamingPolicyCommonEncryptionCbcsOutput {
+	return i.ToStreamingPolicyCommonEncryptionCbcsOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyCommonEncryptionCbcsArgs) ToStreamingPolicyCommonEncryptionCbcsOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsOutput)
+}
+
+func (i StreamingPolicyCommonEncryptionCbcsArgs) ToStreamingPolicyCommonEncryptionCbcsPtrOutput() StreamingPolicyCommonEncryptionCbcsPtrOutput {
+	return i.ToStreamingPolicyCommonEncryptionCbcsPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyCommonEncryptionCbcsArgs) ToStreamingPolicyCommonEncryptionCbcsPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsOutput).ToStreamingPolicyCommonEncryptionCbcsPtrOutputWithContext(ctx)
+}
+
+// StreamingPolicyCommonEncryptionCbcsPtrInput is an input type that accepts StreamingPolicyCommonEncryptionCbcsArgs, StreamingPolicyCommonEncryptionCbcsPtr and StreamingPolicyCommonEncryptionCbcsPtrOutput values.
+// You can construct a concrete instance of `StreamingPolicyCommonEncryptionCbcsPtrInput` via:
+//
+//          StreamingPolicyCommonEncryptionCbcsArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingPolicyCommonEncryptionCbcsPtrInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyCommonEncryptionCbcsPtrOutput() StreamingPolicyCommonEncryptionCbcsPtrOutput
+	ToStreamingPolicyCommonEncryptionCbcsPtrOutputWithContext(context.Context) StreamingPolicyCommonEncryptionCbcsPtrOutput
+}
+
+type streamingPolicyCommonEncryptionCbcsPtrType StreamingPolicyCommonEncryptionCbcsArgs
+
+func StreamingPolicyCommonEncryptionCbcsPtr(v *StreamingPolicyCommonEncryptionCbcsArgs) StreamingPolicyCommonEncryptionCbcsPtrInput {
+	return (*streamingPolicyCommonEncryptionCbcsPtrType)(v)
+}
+
+func (*streamingPolicyCommonEncryptionCbcsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyCommonEncryptionCbcs)(nil)).Elem()
+}
+
+func (i *streamingPolicyCommonEncryptionCbcsPtrType) ToStreamingPolicyCommonEncryptionCbcsPtrOutput() StreamingPolicyCommonEncryptionCbcsPtrOutput {
+	return i.ToStreamingPolicyCommonEncryptionCbcsPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingPolicyCommonEncryptionCbcsPtrType) ToStreamingPolicyCommonEncryptionCbcsPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCbcsOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyCommonEncryptionCbcsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyCommonEncryptionCbcs)(nil)).Elem()
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsOutput) ToStreamingPolicyCommonEncryptionCbcsOutput() StreamingPolicyCommonEncryptionCbcsOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsOutput) ToStreamingPolicyCommonEncryptionCbcsOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsOutput) ToStreamingPolicyCommonEncryptionCbcsPtrOutput() StreamingPolicyCommonEncryptionCbcsPtrOutput {
+	return o.ToStreamingPolicyCommonEncryptionCbcsPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsOutput) ToStreamingPolicyCommonEncryptionCbcsPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcs) *StreamingPolicyCommonEncryptionCbcs {
+		return &v
+	}).(StreamingPolicyCommonEncryptionCbcsPtrOutput)
+}
+
+// A `defaultContentKey` block as defined below. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsOutput) DefaultContentKey() StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcs) *StreamingPolicyCommonEncryptionCbcsDefaultContentKey {
+		return v.DefaultContentKey
+	}).(StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput)
+}
+
+// A `drmFairplay` block as defined below. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsOutput) DrmFairplay() StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcs) *StreamingPolicyCommonEncryptionCbcsDrmFairplay {
+		return v.DrmFairplay
+	}).(StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput)
+}
+
+// A `enabledProtocols` block as defined below. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsOutput) EnabledProtocols() StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcs) *StreamingPolicyCommonEncryptionCbcsEnabledProtocols {
+		return v.EnabledProtocols
+	}).(StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCbcsPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyCommonEncryptionCbcsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyCommonEncryptionCbcs)(nil)).Elem()
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsPtrOutput) ToStreamingPolicyCommonEncryptionCbcsPtrOutput() StreamingPolicyCommonEncryptionCbcsPtrOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsPtrOutput) ToStreamingPolicyCommonEncryptionCbcsPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsPtrOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsPtrOutput) Elem() StreamingPolicyCommonEncryptionCbcsOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcs) StreamingPolicyCommonEncryptionCbcs { return *v }).(StreamingPolicyCommonEncryptionCbcsOutput)
+}
+
+// A `defaultContentKey` block as defined below. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsPtrOutput) DefaultContentKey() StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcs) *StreamingPolicyCommonEncryptionCbcsDefaultContentKey {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultContentKey
+	}).(StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput)
+}
+
+// A `drmFairplay` block as defined below. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsPtrOutput) DrmFairplay() StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcs) *StreamingPolicyCommonEncryptionCbcsDrmFairplay {
+		if v == nil {
+			return nil
+		}
+		return v.DrmFairplay
+	}).(StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput)
+}
+
+// A `enabledProtocols` block as defined below. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsPtrOutput) EnabledProtocols() StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcs) *StreamingPolicyCommonEncryptionCbcsEnabledProtocols {
+		if v == nil {
+			return nil
+		}
+		return v.EnabledProtocols
+	}).(StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCbcsDefaultContentKey struct {
+	// Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+	Label *string `pulumi:"label"`
+	// Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
+	PolicyName *string `pulumi:"policyName"`
+}
+
+// StreamingPolicyCommonEncryptionCbcsDefaultContentKeyInput is an input type that accepts StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs and StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput values.
+// You can construct a concrete instance of `StreamingPolicyCommonEncryptionCbcsDefaultContentKeyInput` via:
+//
+//          StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs{...}
+type StreamingPolicyCommonEncryptionCbcsDefaultContentKeyInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput() StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput
+	ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutputWithContext(context.Context) StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput
+}
+
+type StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs struct {
+	// Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
+	PolicyName pulumi.StringPtrInput `pulumi:"policyName"`
+}
+
+func (StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyCommonEncryptionCbcsDefaultContentKey)(nil)).Elem()
+}
+
+func (i StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs) ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput() StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput {
+	return i.ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs) ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput)
+}
+
+func (i StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs) ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput() StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput {
+	return i.ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs) ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput).ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutputWithContext(ctx)
+}
+
+// StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrInput is an input type that accepts StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs, StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtr and StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput values.
+// You can construct a concrete instance of `StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrInput` via:
+//
+//          StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput() StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput
+	ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutputWithContext(context.Context) StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput
+}
+
+type streamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrType StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs
+
+func StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtr(v *StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs) StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrInput {
+	return (*streamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrType)(v)
+}
+
+func (*streamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyCommonEncryptionCbcsDefaultContentKey)(nil)).Elem()
+}
+
+func (i *streamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrType) ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput() StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput {
+	return i.ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrType) ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyCommonEncryptionCbcsDefaultContentKey)(nil)).Elem()
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput) ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput() StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput) ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput) ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput() StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput {
+	return o.ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput) ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcsDefaultContentKey) *StreamingPolicyCommonEncryptionCbcsDefaultContentKey {
+		return &v
+	}).(StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput)
+}
+
+// Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcsDefaultContentKey) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcsDefaultContentKey) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyCommonEncryptionCbcsDefaultContentKey)(nil)).Elem()
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput) ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput() StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput) ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput) Elem() StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcsDefaultContentKey) StreamingPolicyCommonEncryptionCbcsDefaultContentKey {
+		return *v
+	}).(StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput)
+}
+
+// Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcsDefaultContentKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+// Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcsDefaultContentKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyName
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCbcsDrmFairplay struct {
+	// All license to be persistent or not. Changing this forces a new Streaming Policy to be created.
+	AllowPersistentLicense *bool `pulumi:"allowPersistentLicense"`
+	// Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+	CustomLicenseAcquisitionUrlTemplate *string `pulumi:"customLicenseAcquisitionUrlTemplate"`
+}
+
+// StreamingPolicyCommonEncryptionCbcsDrmFairplayInput is an input type that accepts StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs and StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput values.
+// You can construct a concrete instance of `StreamingPolicyCommonEncryptionCbcsDrmFairplayInput` via:
+//
+//          StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs{...}
+type StreamingPolicyCommonEncryptionCbcsDrmFairplayInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyCommonEncryptionCbcsDrmFairplayOutput() StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput
+	ToStreamingPolicyCommonEncryptionCbcsDrmFairplayOutputWithContext(context.Context) StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput
+}
+
+type StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs struct {
+	// All license to be persistent or not. Changing this forces a new Streaming Policy to be created.
+	AllowPersistentLicense pulumi.BoolPtrInput `pulumi:"allowPersistentLicense"`
+	// Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+	CustomLicenseAcquisitionUrlTemplate pulumi.StringPtrInput `pulumi:"customLicenseAcquisitionUrlTemplate"`
+}
+
+func (StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyCommonEncryptionCbcsDrmFairplay)(nil)).Elem()
+}
+
+func (i StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs) ToStreamingPolicyCommonEncryptionCbcsDrmFairplayOutput() StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput {
+	return i.ToStreamingPolicyCommonEncryptionCbcsDrmFairplayOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs) ToStreamingPolicyCommonEncryptionCbcsDrmFairplayOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput)
+}
+
+func (i StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs) ToStreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput() StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput {
+	return i.ToStreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs) ToStreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput).ToStreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutputWithContext(ctx)
+}
+
+// StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrInput is an input type that accepts StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs, StreamingPolicyCommonEncryptionCbcsDrmFairplayPtr and StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput values.
+// You can construct a concrete instance of `StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrInput` via:
+//
+//          StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput() StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput
+	ToStreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutputWithContext(context.Context) StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput
+}
+
+type streamingPolicyCommonEncryptionCbcsDrmFairplayPtrType StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs
+
+func StreamingPolicyCommonEncryptionCbcsDrmFairplayPtr(v *StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs) StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrInput {
+	return (*streamingPolicyCommonEncryptionCbcsDrmFairplayPtrType)(v)
+}
+
+func (*streamingPolicyCommonEncryptionCbcsDrmFairplayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyCommonEncryptionCbcsDrmFairplay)(nil)).Elem()
+}
+
+func (i *streamingPolicyCommonEncryptionCbcsDrmFairplayPtrType) ToStreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput() StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput {
+	return i.ToStreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingPolicyCommonEncryptionCbcsDrmFairplayPtrType) ToStreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyCommonEncryptionCbcsDrmFairplay)(nil)).Elem()
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput) ToStreamingPolicyCommonEncryptionCbcsDrmFairplayOutput() StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput) ToStreamingPolicyCommonEncryptionCbcsDrmFairplayOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput) ToStreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput() StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput {
+	return o.ToStreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput) ToStreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcsDrmFairplay) *StreamingPolicyCommonEncryptionCbcsDrmFairplay {
+		return &v
+	}).(StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput)
+}
+
+// All license to be persistent or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput) AllowPersistentLicense() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcsDrmFairplay) *bool { return v.AllowPersistentLicense }).(pulumi.BoolPtrOutput)
+}
+
+// Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcsDrmFairplay) *string {
+		return v.CustomLicenseAcquisitionUrlTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyCommonEncryptionCbcsDrmFairplay)(nil)).Elem()
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput) ToStreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput() StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput) ToStreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput) Elem() StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcsDrmFairplay) StreamingPolicyCommonEncryptionCbcsDrmFairplay {
+		return *v
+	}).(StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput)
+}
+
+// All license to be persistent or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput) AllowPersistentLicense() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcsDrmFairplay) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowPersistentLicense
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcsDrmFairplay) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomLicenseAcquisitionUrlTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCbcsEnabledProtocols struct {
+	// Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+	Dash *bool `pulumi:"dash"`
+	// Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+	Download *bool `pulumi:"download"`
+	// Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+	Hls *bool `pulumi:"hls"`
+	// Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+	SmoothStreaming *bool `pulumi:"smoothStreaming"`
+}
+
+// StreamingPolicyCommonEncryptionCbcsEnabledProtocolsInput is an input type that accepts StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs and StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput values.
+// You can construct a concrete instance of `StreamingPolicyCommonEncryptionCbcsEnabledProtocolsInput` via:
+//
+//          StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs{...}
+type StreamingPolicyCommonEncryptionCbcsEnabledProtocolsInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput() StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput
+	ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutputWithContext(context.Context) StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput
+}
+
+type StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs struct {
+	// Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+	Dash pulumi.BoolPtrInput `pulumi:"dash"`
+	// Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+	Download pulumi.BoolPtrInput `pulumi:"download"`
+	// Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+	Hls pulumi.BoolPtrInput `pulumi:"hls"`
+	// Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+	SmoothStreaming pulumi.BoolPtrInput `pulumi:"smoothStreaming"`
+}
+
+func (StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyCommonEncryptionCbcsEnabledProtocols)(nil)).Elem()
+}
+
+func (i StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs) ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput() StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput {
+	return i.ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs) ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput)
+}
+
+func (i StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs) ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput() StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput {
+	return i.ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs) ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput).ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutputWithContext(ctx)
+}
+
+// StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrInput is an input type that accepts StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs, StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtr and StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput values.
+// You can construct a concrete instance of `StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrInput` via:
+//
+//          StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput() StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput
+	ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutputWithContext(context.Context) StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput
+}
+
+type streamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrType StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs
+
+func StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtr(v *StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs) StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrInput {
+	return (*streamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrType)(v)
+}
+
+func (*streamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyCommonEncryptionCbcsEnabledProtocols)(nil)).Elem()
+}
+
+func (i *streamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrType) ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput() StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput {
+	return i.ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrType) ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyCommonEncryptionCbcsEnabledProtocols)(nil)).Elem()
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput) ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput() StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput) ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput) ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput() StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput {
+	return o.ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput) ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcsEnabledProtocols) *StreamingPolicyCommonEncryptionCbcsEnabledProtocols {
+		return &v
+	}).(StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput)
+}
+
+// Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput) Dash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcsEnabledProtocols) *bool { return v.Dash }).(pulumi.BoolPtrOutput)
+}
+
+// Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput) Download() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcsEnabledProtocols) *bool { return v.Download }).(pulumi.BoolPtrOutput)
+}
+
+// Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput) Hls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcsEnabledProtocols) *bool { return v.Hls }).(pulumi.BoolPtrOutput)
+}
+
+// Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput) SmoothStreaming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcsEnabledProtocols) *bool { return v.SmoothStreaming }).(pulumi.BoolPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyCommonEncryptionCbcsEnabledProtocols)(nil)).Elem()
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput) ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput() StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput) ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput) Elem() StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcsEnabledProtocols) StreamingPolicyCommonEncryptionCbcsEnabledProtocols {
+		return *v
+	}).(StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput)
+}
+
+// Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput) Dash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcsEnabledProtocols) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Dash
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput) Download() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcsEnabledProtocols) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Download
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput) Hls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcsEnabledProtocols) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Hls
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput) SmoothStreaming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcsEnabledProtocols) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SmoothStreaming
+	}).(pulumi.BoolPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCenc struct {
+	// A `defaultContentKey` block as defined below. Changing this forces a new Streaming Policy to be created.
+	DefaultContentKey *StreamingPolicyCommonEncryptionCencDefaultContentKey `pulumi:"defaultContentKey"`
+	// A `drmPlayready` block as defined below. Changing this forces a new Streaming Policy to be created.
+	DrmPlayready *StreamingPolicyCommonEncryptionCencDrmPlayready `pulumi:"drmPlayready"`
+	// Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+	DrmWidevineCustomLicenseAcquisitionUrlTemplate *string `pulumi:"drmWidevineCustomLicenseAcquisitionUrlTemplate"`
+	// A `enabledProtocols` block as defined below. Changing this forces a new Streaming Policy to be created.
+	EnabledProtocols *StreamingPolicyCommonEncryptionCencEnabledProtocols `pulumi:"enabledProtocols"`
+}
+
+// StreamingPolicyCommonEncryptionCencInput is an input type that accepts StreamingPolicyCommonEncryptionCencArgs and StreamingPolicyCommonEncryptionCencOutput values.
+// You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencInput` via:
+//
+//          StreamingPolicyCommonEncryptionCencArgs{...}
+type StreamingPolicyCommonEncryptionCencInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyCommonEncryptionCencOutput() StreamingPolicyCommonEncryptionCencOutput
+	ToStreamingPolicyCommonEncryptionCencOutputWithContext(context.Context) StreamingPolicyCommonEncryptionCencOutput
+}
+
+type StreamingPolicyCommonEncryptionCencArgs struct {
+	// A `defaultContentKey` block as defined below. Changing this forces a new Streaming Policy to be created.
+	DefaultContentKey StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrInput `pulumi:"defaultContentKey"`
+	// A `drmPlayready` block as defined below. Changing this forces a new Streaming Policy to be created.
+	DrmPlayready StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrInput `pulumi:"drmPlayready"`
+	// Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+	DrmWidevineCustomLicenseAcquisitionUrlTemplate pulumi.StringPtrInput `pulumi:"drmWidevineCustomLicenseAcquisitionUrlTemplate"`
+	// A `enabledProtocols` block as defined below. Changing this forces a new Streaming Policy to be created.
+	EnabledProtocols StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrInput `pulumi:"enabledProtocols"`
+}
+
+func (StreamingPolicyCommonEncryptionCencArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyCommonEncryptionCenc)(nil)).Elem()
+}
+
+func (i StreamingPolicyCommonEncryptionCencArgs) ToStreamingPolicyCommonEncryptionCencOutput() StreamingPolicyCommonEncryptionCencOutput {
+	return i.ToStreamingPolicyCommonEncryptionCencOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyCommonEncryptionCencArgs) ToStreamingPolicyCommonEncryptionCencOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencOutput)
+}
+
+func (i StreamingPolicyCommonEncryptionCencArgs) ToStreamingPolicyCommonEncryptionCencPtrOutput() StreamingPolicyCommonEncryptionCencPtrOutput {
+	return i.ToStreamingPolicyCommonEncryptionCencPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyCommonEncryptionCencArgs) ToStreamingPolicyCommonEncryptionCencPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencOutput).ToStreamingPolicyCommonEncryptionCencPtrOutputWithContext(ctx)
+}
+
+// StreamingPolicyCommonEncryptionCencPtrInput is an input type that accepts StreamingPolicyCommonEncryptionCencArgs, StreamingPolicyCommonEncryptionCencPtr and StreamingPolicyCommonEncryptionCencPtrOutput values.
+// You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencPtrInput` via:
+//
+//          StreamingPolicyCommonEncryptionCencArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingPolicyCommonEncryptionCencPtrInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyCommonEncryptionCencPtrOutput() StreamingPolicyCommonEncryptionCencPtrOutput
+	ToStreamingPolicyCommonEncryptionCencPtrOutputWithContext(context.Context) StreamingPolicyCommonEncryptionCencPtrOutput
+}
+
+type streamingPolicyCommonEncryptionCencPtrType StreamingPolicyCommonEncryptionCencArgs
+
+func StreamingPolicyCommonEncryptionCencPtr(v *StreamingPolicyCommonEncryptionCencArgs) StreamingPolicyCommonEncryptionCencPtrInput {
+	return (*streamingPolicyCommonEncryptionCencPtrType)(v)
+}
+
+func (*streamingPolicyCommonEncryptionCencPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyCommonEncryptionCenc)(nil)).Elem()
+}
+
+func (i *streamingPolicyCommonEncryptionCencPtrType) ToStreamingPolicyCommonEncryptionCencPtrOutput() StreamingPolicyCommonEncryptionCencPtrOutput {
+	return i.ToStreamingPolicyCommonEncryptionCencPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingPolicyCommonEncryptionCencPtrType) ToStreamingPolicyCommonEncryptionCencPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCencOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyCommonEncryptionCencOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyCommonEncryptionCenc)(nil)).Elem()
+}
+
+func (o StreamingPolicyCommonEncryptionCencOutput) ToStreamingPolicyCommonEncryptionCencOutput() StreamingPolicyCommonEncryptionCencOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCencOutput) ToStreamingPolicyCommonEncryptionCencOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCencOutput) ToStreamingPolicyCommonEncryptionCencPtrOutput() StreamingPolicyCommonEncryptionCencPtrOutput {
+	return o.ToStreamingPolicyCommonEncryptionCencPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingPolicyCommonEncryptionCencOutput) ToStreamingPolicyCommonEncryptionCencPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCenc) *StreamingPolicyCommonEncryptionCenc {
+		return &v
+	}).(StreamingPolicyCommonEncryptionCencPtrOutput)
+}
+
+// A `defaultContentKey` block as defined below. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencOutput) DefaultContentKey() StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCenc) *StreamingPolicyCommonEncryptionCencDefaultContentKey {
+		return v.DefaultContentKey
+	}).(StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput)
+}
+
+// A `drmPlayready` block as defined below. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencOutput) DrmPlayready() StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCenc) *StreamingPolicyCommonEncryptionCencDrmPlayready {
+		return v.DrmPlayready
+	}).(StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput)
+}
+
+// Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencOutput) DrmWidevineCustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCenc) *string {
+		return v.DrmWidevineCustomLicenseAcquisitionUrlTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `enabledProtocols` block as defined below. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencOutput) EnabledProtocols() StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCenc) *StreamingPolicyCommonEncryptionCencEnabledProtocols {
+		return v.EnabledProtocols
+	}).(StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCencPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyCommonEncryptionCencPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyCommonEncryptionCenc)(nil)).Elem()
+}
+
+func (o StreamingPolicyCommonEncryptionCencPtrOutput) ToStreamingPolicyCommonEncryptionCencPtrOutput() StreamingPolicyCommonEncryptionCencPtrOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCencPtrOutput) ToStreamingPolicyCommonEncryptionCencPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencPtrOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCencPtrOutput) Elem() StreamingPolicyCommonEncryptionCencOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCenc) StreamingPolicyCommonEncryptionCenc { return *v }).(StreamingPolicyCommonEncryptionCencOutput)
+}
+
+// A `defaultContentKey` block as defined below. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencPtrOutput) DefaultContentKey() StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCenc) *StreamingPolicyCommonEncryptionCencDefaultContentKey {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultContentKey
+	}).(StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput)
+}
+
+// A `drmPlayready` block as defined below. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencPtrOutput) DrmPlayready() StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCenc) *StreamingPolicyCommonEncryptionCencDrmPlayready {
+		if v == nil {
+			return nil
+		}
+		return v.DrmPlayready
+	}).(StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput)
+}
+
+// Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencPtrOutput) DrmWidevineCustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCenc) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DrmWidevineCustomLicenseAcquisitionUrlTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `enabledProtocols` block as defined below. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencPtrOutput) EnabledProtocols() StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCenc) *StreamingPolicyCommonEncryptionCencEnabledProtocols {
+		if v == nil {
+			return nil
+		}
+		return v.EnabledProtocols
+	}).(StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCencDefaultContentKey struct {
+	// Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+	Label *string `pulumi:"label"`
+	// Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
+	PolicyName *string `pulumi:"policyName"`
+}
+
+// StreamingPolicyCommonEncryptionCencDefaultContentKeyInput is an input type that accepts StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs and StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput values.
+// You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencDefaultContentKeyInput` via:
+//
+//          StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs{...}
+type StreamingPolicyCommonEncryptionCencDefaultContentKeyInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyCommonEncryptionCencDefaultContentKeyOutput() StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput
+	ToStreamingPolicyCommonEncryptionCencDefaultContentKeyOutputWithContext(context.Context) StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput
+}
+
+type StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs struct {
+	// Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
+	PolicyName pulumi.StringPtrInput `pulumi:"policyName"`
+}
+
+func (StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyCommonEncryptionCencDefaultContentKey)(nil)).Elem()
+}
+
+func (i StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs) ToStreamingPolicyCommonEncryptionCencDefaultContentKeyOutput() StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput {
+	return i.ToStreamingPolicyCommonEncryptionCencDefaultContentKeyOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs) ToStreamingPolicyCommonEncryptionCencDefaultContentKeyOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput)
+}
+
+func (i StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs) ToStreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput() StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput {
+	return i.ToStreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs) ToStreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput).ToStreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutputWithContext(ctx)
+}
+
+// StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrInput is an input type that accepts StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs, StreamingPolicyCommonEncryptionCencDefaultContentKeyPtr and StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput values.
+// You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrInput` via:
+//
+//          StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput() StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput
+	ToStreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutputWithContext(context.Context) StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput
+}
+
+type streamingPolicyCommonEncryptionCencDefaultContentKeyPtrType StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs
+
+func StreamingPolicyCommonEncryptionCencDefaultContentKeyPtr(v *StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs) StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrInput {
+	return (*streamingPolicyCommonEncryptionCencDefaultContentKeyPtrType)(v)
+}
+
+func (*streamingPolicyCommonEncryptionCencDefaultContentKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyCommonEncryptionCencDefaultContentKey)(nil)).Elem()
+}
+
+func (i *streamingPolicyCommonEncryptionCencDefaultContentKeyPtrType) ToStreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput() StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput {
+	return i.ToStreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingPolicyCommonEncryptionCencDefaultContentKeyPtrType) ToStreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyCommonEncryptionCencDefaultContentKey)(nil)).Elem()
+}
+
+func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput) ToStreamingPolicyCommonEncryptionCencDefaultContentKeyOutput() StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput) ToStreamingPolicyCommonEncryptionCencDefaultContentKeyOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput) ToStreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput() StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput {
+	return o.ToStreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput) ToStreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCencDefaultContentKey) *StreamingPolicyCommonEncryptionCencDefaultContentKey {
+		return &v
+	}).(StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput)
+}
+
+// Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCencDefaultContentKey) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCencDefaultContentKey) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyCommonEncryptionCencDefaultContentKey)(nil)).Elem()
+}
+
+func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput) ToStreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput() StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput) ToStreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput) Elem() StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCencDefaultContentKey) StreamingPolicyCommonEncryptionCencDefaultContentKey {
+		return *v
+	}).(StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput)
+}
+
+// Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCencDefaultContentKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+// Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCencDefaultContentKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyName
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCencDrmPlayready struct {
+	// Custom attributes for PlayReady. Changing this forces a new Streaming Policy to be created.
+	CustomAttributes *string `pulumi:"customAttributes"`
+	// Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+	CustomLicenseAcquisitionUrlTemplate *string `pulumi:"customLicenseAcquisitionUrlTemplate"`
+}
+
+// StreamingPolicyCommonEncryptionCencDrmPlayreadyInput is an input type that accepts StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs and StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput values.
+// You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencDrmPlayreadyInput` via:
+//
+//          StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs{...}
+type StreamingPolicyCommonEncryptionCencDrmPlayreadyInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyCommonEncryptionCencDrmPlayreadyOutput() StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput
+	ToStreamingPolicyCommonEncryptionCencDrmPlayreadyOutputWithContext(context.Context) StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput
+}
+
+type StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs struct {
+	// Custom attributes for PlayReady. Changing this forces a new Streaming Policy to be created.
+	CustomAttributes pulumi.StringPtrInput `pulumi:"customAttributes"`
+	// Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+	CustomLicenseAcquisitionUrlTemplate pulumi.StringPtrInput `pulumi:"customLicenseAcquisitionUrlTemplate"`
+}
+
+func (StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyCommonEncryptionCencDrmPlayready)(nil)).Elem()
+}
+
+func (i StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs) ToStreamingPolicyCommonEncryptionCencDrmPlayreadyOutput() StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput {
+	return i.ToStreamingPolicyCommonEncryptionCencDrmPlayreadyOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs) ToStreamingPolicyCommonEncryptionCencDrmPlayreadyOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput)
+}
+
+func (i StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs) ToStreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput() StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput {
+	return i.ToStreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs) ToStreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput).ToStreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutputWithContext(ctx)
+}
+
+// StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrInput is an input type that accepts StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs, StreamingPolicyCommonEncryptionCencDrmPlayreadyPtr and StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput values.
+// You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrInput` via:
+//
+//          StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput() StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput
+	ToStreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutputWithContext(context.Context) StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput
+}
+
+type streamingPolicyCommonEncryptionCencDrmPlayreadyPtrType StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs
+
+func StreamingPolicyCommonEncryptionCencDrmPlayreadyPtr(v *StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs) StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrInput {
+	return (*streamingPolicyCommonEncryptionCencDrmPlayreadyPtrType)(v)
+}
+
+func (*streamingPolicyCommonEncryptionCencDrmPlayreadyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyCommonEncryptionCencDrmPlayready)(nil)).Elem()
+}
+
+func (i *streamingPolicyCommonEncryptionCencDrmPlayreadyPtrType) ToStreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput() StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput {
+	return i.ToStreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingPolicyCommonEncryptionCencDrmPlayreadyPtrType) ToStreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyCommonEncryptionCencDrmPlayready)(nil)).Elem()
+}
+
+func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput) ToStreamingPolicyCommonEncryptionCencDrmPlayreadyOutput() StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput) ToStreamingPolicyCommonEncryptionCencDrmPlayreadyOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput) ToStreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput() StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput {
+	return o.ToStreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput) ToStreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCencDrmPlayready) *StreamingPolicyCommonEncryptionCencDrmPlayready {
+		return &v
+	}).(StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput)
+}
+
+// Custom attributes for PlayReady. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput) CustomAttributes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCencDrmPlayready) *string { return v.CustomAttributes }).(pulumi.StringPtrOutput)
+}
+
+// Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCencDrmPlayready) *string {
+		return v.CustomLicenseAcquisitionUrlTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyCommonEncryptionCencDrmPlayready)(nil)).Elem()
+}
+
+func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput) ToStreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput() StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput) ToStreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput) Elem() StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCencDrmPlayready) StreamingPolicyCommonEncryptionCencDrmPlayready {
+		return *v
+	}).(StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput)
+}
+
+// Custom attributes for PlayReady. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput) CustomAttributes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCencDrmPlayready) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomAttributes
+	}).(pulumi.StringPtrOutput)
+}
+
+// Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCencDrmPlayready) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomLicenseAcquisitionUrlTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCencEnabledProtocols struct {
+	// Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+	Dash *bool `pulumi:"dash"`
+	// Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+	Download *bool `pulumi:"download"`
+	// Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+	Hls *bool `pulumi:"hls"`
+	// Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+	SmoothStreaming *bool `pulumi:"smoothStreaming"`
+}
+
+// StreamingPolicyCommonEncryptionCencEnabledProtocolsInput is an input type that accepts StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs and StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput values.
+// You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencEnabledProtocolsInput` via:
+//
+//          StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs{...}
+type StreamingPolicyCommonEncryptionCencEnabledProtocolsInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyCommonEncryptionCencEnabledProtocolsOutput() StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput
+	ToStreamingPolicyCommonEncryptionCencEnabledProtocolsOutputWithContext(context.Context) StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput
+}
+
+type StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs struct {
+	// Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+	Dash pulumi.BoolPtrInput `pulumi:"dash"`
+	// Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+	Download pulumi.BoolPtrInput `pulumi:"download"`
+	// Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+	Hls pulumi.BoolPtrInput `pulumi:"hls"`
+	// Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+	SmoothStreaming pulumi.BoolPtrInput `pulumi:"smoothStreaming"`
+}
+
+func (StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyCommonEncryptionCencEnabledProtocols)(nil)).Elem()
+}
+
+func (i StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs) ToStreamingPolicyCommonEncryptionCencEnabledProtocolsOutput() StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput {
+	return i.ToStreamingPolicyCommonEncryptionCencEnabledProtocolsOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs) ToStreamingPolicyCommonEncryptionCencEnabledProtocolsOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput)
+}
+
+func (i StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs) ToStreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput() StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput {
+	return i.ToStreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs) ToStreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput).ToStreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutputWithContext(ctx)
+}
+
+// StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrInput is an input type that accepts StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs, StreamingPolicyCommonEncryptionCencEnabledProtocolsPtr and StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput values.
+// You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrInput` via:
+//
+//          StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput() StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput
+	ToStreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutputWithContext(context.Context) StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput
+}
+
+type streamingPolicyCommonEncryptionCencEnabledProtocolsPtrType StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs
+
+func StreamingPolicyCommonEncryptionCencEnabledProtocolsPtr(v *StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs) StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrInput {
+	return (*streamingPolicyCommonEncryptionCencEnabledProtocolsPtrType)(v)
+}
+
+func (*streamingPolicyCommonEncryptionCencEnabledProtocolsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyCommonEncryptionCencEnabledProtocols)(nil)).Elem()
+}
+
+func (i *streamingPolicyCommonEncryptionCencEnabledProtocolsPtrType) ToStreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput() StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput {
+	return i.ToStreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingPolicyCommonEncryptionCencEnabledProtocolsPtrType) ToStreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyCommonEncryptionCencEnabledProtocols)(nil)).Elem()
+}
+
+func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput) ToStreamingPolicyCommonEncryptionCencEnabledProtocolsOutput() StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput) ToStreamingPolicyCommonEncryptionCencEnabledProtocolsOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput) ToStreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput() StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput {
+	return o.ToStreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput) ToStreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCencEnabledProtocols) *StreamingPolicyCommonEncryptionCencEnabledProtocols {
+		return &v
+	}).(StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput)
+}
+
+// Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput) Dash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCencEnabledProtocols) *bool { return v.Dash }).(pulumi.BoolPtrOutput)
+}
+
+// Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput) Download() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCencEnabledProtocols) *bool { return v.Download }).(pulumi.BoolPtrOutput)
+}
+
+// Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput) Hls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCencEnabledProtocols) *bool { return v.Hls }).(pulumi.BoolPtrOutput)
+}
+
+// Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput) SmoothStreaming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCencEnabledProtocols) *bool { return v.SmoothStreaming }).(pulumi.BoolPtrOutput)
+}
+
+type StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyCommonEncryptionCencEnabledProtocols)(nil)).Elem()
+}
+
+func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput) ToStreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput() StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput) ToStreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput {
+	return o
+}
+
+func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput) Elem() StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCencEnabledProtocols) StreamingPolicyCommonEncryptionCencEnabledProtocols {
+		return *v
+	}).(StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput)
+}
+
+// Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput) Dash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCencEnabledProtocols) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Dash
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput) Download() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCencEnabledProtocols) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Download
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput) Hls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCencEnabledProtocols) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Hls
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput) SmoothStreaming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCencEnabledProtocols) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SmoothStreaming
+	}).(pulumi.BoolPtrOutput)
+}
+
+type StreamingPolicyNoEncryptionEnabledProtocols struct {
+	// Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+	Dash *bool `pulumi:"dash"`
+	// Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+	Download *bool `pulumi:"download"`
+	// Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+	Hls *bool `pulumi:"hls"`
+	// Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+	SmoothStreaming *bool `pulumi:"smoothStreaming"`
+}
+
+// StreamingPolicyNoEncryptionEnabledProtocolsInput is an input type that accepts StreamingPolicyNoEncryptionEnabledProtocolsArgs and StreamingPolicyNoEncryptionEnabledProtocolsOutput values.
+// You can construct a concrete instance of `StreamingPolicyNoEncryptionEnabledProtocolsInput` via:
+//
+//          StreamingPolicyNoEncryptionEnabledProtocolsArgs{...}
+type StreamingPolicyNoEncryptionEnabledProtocolsInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyNoEncryptionEnabledProtocolsOutput() StreamingPolicyNoEncryptionEnabledProtocolsOutput
+	ToStreamingPolicyNoEncryptionEnabledProtocolsOutputWithContext(context.Context) StreamingPolicyNoEncryptionEnabledProtocolsOutput
+}
+
+type StreamingPolicyNoEncryptionEnabledProtocolsArgs struct {
+	// Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+	Dash pulumi.BoolPtrInput `pulumi:"dash"`
+	// Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+	Download pulumi.BoolPtrInput `pulumi:"download"`
+	// Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+	Hls pulumi.BoolPtrInput `pulumi:"hls"`
+	// Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+	SmoothStreaming pulumi.BoolPtrInput `pulumi:"smoothStreaming"`
+}
+
+func (StreamingPolicyNoEncryptionEnabledProtocolsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyNoEncryptionEnabledProtocols)(nil)).Elem()
+}
+
+func (i StreamingPolicyNoEncryptionEnabledProtocolsArgs) ToStreamingPolicyNoEncryptionEnabledProtocolsOutput() StreamingPolicyNoEncryptionEnabledProtocolsOutput {
+	return i.ToStreamingPolicyNoEncryptionEnabledProtocolsOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyNoEncryptionEnabledProtocolsArgs) ToStreamingPolicyNoEncryptionEnabledProtocolsOutputWithContext(ctx context.Context) StreamingPolicyNoEncryptionEnabledProtocolsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyNoEncryptionEnabledProtocolsOutput)
+}
+
+func (i StreamingPolicyNoEncryptionEnabledProtocolsArgs) ToStreamingPolicyNoEncryptionEnabledProtocolsPtrOutput() StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput {
+	return i.ToStreamingPolicyNoEncryptionEnabledProtocolsPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyNoEncryptionEnabledProtocolsArgs) ToStreamingPolicyNoEncryptionEnabledProtocolsPtrOutputWithContext(ctx context.Context) StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyNoEncryptionEnabledProtocolsOutput).ToStreamingPolicyNoEncryptionEnabledProtocolsPtrOutputWithContext(ctx)
+}
+
+// StreamingPolicyNoEncryptionEnabledProtocolsPtrInput is an input type that accepts StreamingPolicyNoEncryptionEnabledProtocolsArgs, StreamingPolicyNoEncryptionEnabledProtocolsPtr and StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput values.
+// You can construct a concrete instance of `StreamingPolicyNoEncryptionEnabledProtocolsPtrInput` via:
+//
+//          StreamingPolicyNoEncryptionEnabledProtocolsArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingPolicyNoEncryptionEnabledProtocolsPtrInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyNoEncryptionEnabledProtocolsPtrOutput() StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput
+	ToStreamingPolicyNoEncryptionEnabledProtocolsPtrOutputWithContext(context.Context) StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput
+}
+
+type streamingPolicyNoEncryptionEnabledProtocolsPtrType StreamingPolicyNoEncryptionEnabledProtocolsArgs
+
+func StreamingPolicyNoEncryptionEnabledProtocolsPtr(v *StreamingPolicyNoEncryptionEnabledProtocolsArgs) StreamingPolicyNoEncryptionEnabledProtocolsPtrInput {
+	return (*streamingPolicyNoEncryptionEnabledProtocolsPtrType)(v)
+}
+
+func (*streamingPolicyNoEncryptionEnabledProtocolsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyNoEncryptionEnabledProtocols)(nil)).Elem()
+}
+
+func (i *streamingPolicyNoEncryptionEnabledProtocolsPtrType) ToStreamingPolicyNoEncryptionEnabledProtocolsPtrOutput() StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput {
+	return i.ToStreamingPolicyNoEncryptionEnabledProtocolsPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingPolicyNoEncryptionEnabledProtocolsPtrType) ToStreamingPolicyNoEncryptionEnabledProtocolsPtrOutputWithContext(ctx context.Context) StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput)
+}
+
+type StreamingPolicyNoEncryptionEnabledProtocolsOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyNoEncryptionEnabledProtocolsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyNoEncryptionEnabledProtocols)(nil)).Elem()
+}
+
+func (o StreamingPolicyNoEncryptionEnabledProtocolsOutput) ToStreamingPolicyNoEncryptionEnabledProtocolsOutput() StreamingPolicyNoEncryptionEnabledProtocolsOutput {
+	return o
+}
+
+func (o StreamingPolicyNoEncryptionEnabledProtocolsOutput) ToStreamingPolicyNoEncryptionEnabledProtocolsOutputWithContext(ctx context.Context) StreamingPolicyNoEncryptionEnabledProtocolsOutput {
+	return o
+}
+
+func (o StreamingPolicyNoEncryptionEnabledProtocolsOutput) ToStreamingPolicyNoEncryptionEnabledProtocolsPtrOutput() StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput {
+	return o.ToStreamingPolicyNoEncryptionEnabledProtocolsPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingPolicyNoEncryptionEnabledProtocolsOutput) ToStreamingPolicyNoEncryptionEnabledProtocolsPtrOutputWithContext(ctx context.Context) StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyNoEncryptionEnabledProtocols) *StreamingPolicyNoEncryptionEnabledProtocols {
+		return &v
+	}).(StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput)
+}
+
+// Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyNoEncryptionEnabledProtocolsOutput) Dash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyNoEncryptionEnabledProtocols) *bool { return v.Dash }).(pulumi.BoolPtrOutput)
+}
+
+// Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyNoEncryptionEnabledProtocolsOutput) Download() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyNoEncryptionEnabledProtocols) *bool { return v.Download }).(pulumi.BoolPtrOutput)
+}
+
+// Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyNoEncryptionEnabledProtocolsOutput) Hls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyNoEncryptionEnabledProtocols) *bool { return v.Hls }).(pulumi.BoolPtrOutput)
+}
+
+// Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyNoEncryptionEnabledProtocolsOutput) SmoothStreaming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyNoEncryptionEnabledProtocols) *bool { return v.SmoothStreaming }).(pulumi.BoolPtrOutput)
+}
+
+type StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyNoEncryptionEnabledProtocols)(nil)).Elem()
+}
+
+func (o StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput) ToStreamingPolicyNoEncryptionEnabledProtocolsPtrOutput() StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput {
+	return o
+}
+
+func (o StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput) ToStreamingPolicyNoEncryptionEnabledProtocolsPtrOutputWithContext(ctx context.Context) StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput {
+	return o
+}
+
+func (o StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput) Elem() StreamingPolicyNoEncryptionEnabledProtocolsOutput {
+	return o.ApplyT(func(v *StreamingPolicyNoEncryptionEnabledProtocols) StreamingPolicyNoEncryptionEnabledProtocols {
+		return *v
+	}).(StreamingPolicyNoEncryptionEnabledProtocolsOutput)
+}
+
+// Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput) Dash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyNoEncryptionEnabledProtocols) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Dash
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput) Download() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyNoEncryptionEnabledProtocols) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Download
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput) Hls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyNoEncryptionEnabledProtocols) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Hls
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+func (o StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput) SmoothStreaming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyNoEncryptionEnabledProtocols) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SmoothStreaming
+	}).(pulumi.BoolPtrOutput)
+}
+
 type TransformOutput struct {
 	// A `audioAnalyzerPreset` block as defined below.
 	AudioAnalyzerPreset *TransformOutputAudioAnalyzerPreset `pulumi:"audioAnalyzerPreset"`
@@ -3444,6 +4997,24 @@ func init() {
 	pulumi.RegisterOutputType(StreamingEndpointCrossSiteAccessPolicyPtrOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorContentKeyOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorContentKeyArrayOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyCommonEncryptionCbcsOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyCommonEncryptionCbcsPtrOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyCommonEncryptionCencOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyCommonEncryptionCencPtrOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyNoEncryptionEnabledProtocolsOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput{})
 	pulumi.RegisterOutputType(TransformOutputOutput{})
 	pulumi.RegisterOutputType(TransformOutputArrayOutput{})
 	pulumi.RegisterOutputType(TransformOutputAudioAnalyzerPresetOutput{})

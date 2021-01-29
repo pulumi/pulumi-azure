@@ -1430,7 +1430,7 @@ export namespace appplatform {
         /**
          * Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
          */
-        type: string;
+        type?: string;
     }
 
     export interface SpringCloudAppPersistentDisk {
@@ -1896,7 +1896,7 @@ export namespace appservice {
          */
         ftpsState: string;
         /**
-         * The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
+         * The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
          */
         healthCheckPath?: string;
         /**
@@ -1935,6 +1935,10 @@ export namespace appservice {
          * The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
          */
         minTlsVersion: string;
+        /**
+         * The scaled number of workers (for per site scaling) of this App Service. Requires that `perSiteScaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+         */
+        numberOfWorkers: number;
         /**
          * The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
          */
@@ -2128,6 +2132,17 @@ export namespace appservice {
          * Status of the Key Vault secret.
          */
         provisioningState: string;
+    }
+
+    export interface EnvironmentClusterSetting {
+        /**
+         * The name of the Cluster Setting.
+         */
+        name: string;
+        /**
+         * The value for the Cluster Setting.
+         */
+        value: string;
     }
 
     export interface FunctionAppAuthSettings {
@@ -2763,6 +2778,17 @@ export namespace appservice {
         value: string;
     }
 
+    export interface GetAppServiceEnvironmentClusterSetting {
+        /**
+         * The name of this App Service Environment.
+         */
+        name: string;
+        /**
+         * The value for the Cluster Setting.
+         */
+        value: string;
+    }
+
     export interface GetAppServicePlanSku {
         /**
          * Specifies the number of workers associated with this App Service Plan.
@@ -2843,6 +2869,10 @@ export namespace appservice {
          * The minimum supported TLS version for this App Service.
          */
         minTlsVersion: string;
+        /**
+         * The scaled number of workers (for per site scaling) of this App Service.
+         */
+        numberOfWorkers: number;
         /**
          * The version of PHP used in this App Service.
          */
@@ -3486,6 +3516,7 @@ export namespace appservice {
          * The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
          */
         minTlsVersion: string;
+        numberOfWorkers: number;
         /**
          * The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
          */
@@ -8881,6 +8912,17 @@ export namespace datafactory {
         resourceId: string;
     }
 
+    export interface LinkedServiceSnowflakeKeyVaultPassword {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: string;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores Snowflake password.
+         */
+        secretName: string;
+    }
+
     export interface LinkedServiceSqlServerKeyVaultPassword {
         /**
          * Specifies the name of an existing Key Vault Data Factory Linked Service.
@@ -12973,6 +13015,21 @@ export namespace iot {
         type: string;
     }
 
+    export interface IoTHubEnrichment {
+        /**
+         * The list of endpoints which will be enriched.
+         */
+        endpointNames: string[];
+        /**
+         * The key of the enrichment.
+         */
+        key: string;
+        /**
+         * The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
+         */
+        value: string;
+    }
+
     export interface IoTHubFallbackRoute {
         /**
          * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
@@ -13125,6 +13182,73 @@ export namespace iot {
         name: string;
     }
 
+    export interface SecuritySolutionRecommendationsEnabled {
+        /**
+         * Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
+         */
+        acrAuthentication?: boolean;
+        /**
+         * Is Agent send underutilized messages enabled? Defaults to `true`.
+         */
+        agentSendUnutilizedMsg?: boolean;
+        /**
+         * Is Security related system configuration issues identified? Defaults to `true`.
+         */
+        baseline?: boolean;
+        /**
+         * Is IoT Edge Hub memory optimized? Defaults to `true`.
+         */
+        edgeHubMemOptimize?: boolean;
+        /**
+         * Is logging configured for IoT Edge module? Defaults to `true`.
+         */
+        edgeLoggingOption?: boolean;
+        /**
+         * Is inconsistent module settings enabled for SecurityGroup? Defaults to `true`.
+         */
+        inconsistentModuleSettings?: boolean;
+        /**
+         * is Azure IoT Security agent installed? Defaults to `true`.
+         */
+        installAgent?: boolean;
+        /**
+         * Is Default IP filter policy denied? Defaults to `true`.
+         */
+        ipFilterDenyAll?: boolean;
+        /**
+         * Is IP filter rule source allowable IP range too large? Defaults to `true`.
+         */
+        ipFilterPermissiveRule?: boolean;
+        /**
+         * Is any ports open on the device? Defaults to `true`.
+         */
+        openPorts?: boolean;
+        /**
+         * Does firewall policy exist which allow necessary communication to/from the device? Defaults to `true`.
+         */
+        permissiveFirewallPolicy?: boolean;
+        /**
+         * Is only necessary addresses or ports are permitted in? Defaults to `true`.
+         */
+        permissiveInputFirewallRules?: boolean;
+        /**
+         * Is only necessary addresses or ports are permitted out? Defaults to `true`.
+         */
+        permissiveOutputFirewallRules?: boolean;
+        /**
+         * Is high level permissions are needed for the module? Defaults to `true`.
+         */
+        privilegedDockerOptions?: boolean;
+        /**
+         * Is any credentials shared among devices? Defaults to `true`.
+         */
+        sharedCredentials?: boolean;
+        /**
+         * Does TLS cipher suite need to be updated? Defaults to `true`.
+         */
+        vulnerableTlsCipherSuite?: boolean;
+    }
+
     export interface TimeSeriesInsightsGen2EnvironmentStorage {
         /**
          * Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
@@ -13138,11 +13262,11 @@ export namespace iot {
 
     export interface TimeSeriesInsightsReferenceDataSetKeyProperty {
         /**
-         * The name of the key property.
+         * The name of the key property. Changing this forces a new resource to be created.
          */
         name: string;
         /**
-         * The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`.
+         * The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
          */
         type: string;
     }
@@ -14381,6 +14505,141 @@ export namespace media {
          * Value of Content Key. Changing this forces a new Streaming Locator to be created.
          */
         value?: string;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCbcs {
+        /**
+         * A `defaultContentKey` block as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        defaultContentKey?: outputs.media.StreamingPolicyCommonEncryptionCbcsDefaultContentKey;
+        /**
+         * A `drmFairplay` block as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        drmFairplay?: outputs.media.StreamingPolicyCommonEncryptionCbcsDrmFairplay;
+        /**
+         * A `enabledProtocols` block as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        enabledProtocols?: outputs.media.StreamingPolicyCommonEncryptionCbcsEnabledProtocols;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCbcsDefaultContentKey {
+        /**
+         * Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+         */
+        label?: string;
+        /**
+         * Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
+         */
+        policyName?: string;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCbcsDrmFairplay {
+        /**
+         * All license to be persistent or not. Changing this forces a new Streaming Policy to be created.
+         */
+        allowPersistentLicense?: boolean;
+        /**
+         * Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+         */
+        customLicenseAcquisitionUrlTemplate?: string;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCbcsEnabledProtocols {
+        /**
+         * Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        dash?: boolean;
+        /**
+         * Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        download?: boolean;
+        /**
+         * Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        hls?: boolean;
+        /**
+         * Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        smoothStreaming?: boolean;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCenc {
+        /**
+         * A `defaultContentKey` block as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        defaultContentKey?: outputs.media.StreamingPolicyCommonEncryptionCencDefaultContentKey;
+        /**
+         * A `drmPlayready` block as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        drmPlayready?: outputs.media.StreamingPolicyCommonEncryptionCencDrmPlayready;
+        /**
+         * Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+         */
+        drmWidevineCustomLicenseAcquisitionUrlTemplate?: string;
+        /**
+         * A `enabledProtocols` block as defined below. Changing this forces a new Streaming Policy to be created.
+         */
+        enabledProtocols?: outputs.media.StreamingPolicyCommonEncryptionCencEnabledProtocols;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCencDefaultContentKey {
+        /**
+         * Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+         */
+        label?: string;
+        /**
+         * Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
+         */
+        policyName?: string;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCencDrmPlayready {
+        /**
+         * Custom attributes for PlayReady. Changing this forces a new Streaming Policy to be created.
+         */
+        customAttributes?: string;
+        /**
+         * Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
+         */
+        customLicenseAcquisitionUrlTemplate?: string;
+    }
+
+    export interface StreamingPolicyCommonEncryptionCencEnabledProtocols {
+        /**
+         * Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        dash?: boolean;
+        /**
+         * Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        download?: boolean;
+        /**
+         * Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        hls?: boolean;
+        /**
+         * Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        smoothStreaming?: boolean;
+    }
+
+    export interface StreamingPolicyNoEncryptionEnabledProtocols {
+        /**
+         * Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        dash?: boolean;
+        /**
+         * Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        download?: boolean;
+        /**
+         * Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        hls?: boolean;
+        /**
+         * Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+         */
+        smoothStreaming?: boolean;
     }
 
     export interface TransformOutput {
@@ -19903,6 +20162,32 @@ export namespace role {
 }
 
 export namespace search {
+    export interface GetServiceIdentity {
+        /**
+         * The (Client) ID of the Service Principal.
+         */
+        principalId: string;
+        /**
+         * The ID of the Tenant the Service Principal is assigned in.
+         */
+        tenantId: string;
+        /**
+         * The Type of Managed Identity which is used for the Search Service.
+         */
+        type: string;
+    }
+
+    export interface GetServiceQueryKey {
+        /**
+         * The value of this Query Key.
+         */
+        key: string;
+        /**
+         * The Name of the Search Service.
+         */
+        name: string;
+    }
+
     export interface ServiceIdentity {
         /**
          * The (Client) ID of the Service Principal.
@@ -20829,6 +21114,25 @@ export namespace storage {
          * The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
          */
         indexDocument?: string;
+    }
+
+    export interface DataLakeGen2FilesystemAce {
+        /**
+         * Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
+         */
+        id?: string;
+        /**
+         * Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+         */
+        permissions: string;
+        /**
+         * Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
+         */
+        scope?: string;
+        /**
+         * Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
+         */
+        type: string;
     }
 
     export interface DataLakeGen2PathAce {

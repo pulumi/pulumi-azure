@@ -8,8 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Bastion Host.
  *
- * > **Note:** Bastion Hosts are a preview feature in Azure, and therefore are only supported in a select number of regions. [Read more](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq).
- *
  * ## Example Usage
  *
  * This example deploys an Azure Bastion Host Instance to a target virtual network.
@@ -91,7 +89,7 @@ export class BastionHost extends pulumi.CustomResource {
      */
     public readonly ipConfiguration!: pulumi.Output<outputs.compute.BastionHostIpConfiguration | undefined>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -161,7 +159,7 @@ export interface BastionHostState {
      */
     readonly ipConfiguration?: pulumi.Input<inputs.compute.BastionHostIpConfiguration>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
      */
     readonly location?: pulumi.Input<string>;
     /**
@@ -187,7 +185,7 @@ export interface BastionHostArgs {
      */
     readonly ipConfiguration?: pulumi.Input<inputs.compute.BastionHostIpConfiguration>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
      */
     readonly location?: pulumi.Input<string>;
     /**

@@ -11,9 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) which is still in preview).
+// Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration)).
+//
+// > **Note:** This resource can be used for both `appservice.AppService` and `appservice.FunctionApp`.
+//
+// > **Note:** There is a hard limit of [one VNet integration per App Service Plan](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
+// Multiple apps in the same App Service plan can use the same VNet.
 //
 // ## Example Usage
+// ### With App Service)
 //
 // ```go
 // package main
@@ -94,6 +100,91 @@ import (
 // 	})
 // }
 // ```
+// ### With Function App)
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/appservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/storage"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("10.0.0.0/16"),
+// 			},
+// 			Location:          pulumi.Any(azurerm_resource_group.Example.Location),
+// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Example.Name),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+// 			ResourceGroupName:  pulumi.Any(azurerm_resource_group.Example.Name),
+// 			VirtualNetworkName: exampleVirtualNetwork.Name,
+// 			AddressPrefixes: pulumi.StringArray{
+// 				pulumi.String("10.0.1.0/24"),
+// 			},
+// 			Delegations: network.SubnetDelegationArray{
+// 				&network.SubnetDelegationArgs{
+// 					Name: pulumi.String("example-delegation"),
+// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+// 						Name: pulumi.String("Microsoft.Web/serverFarms"),
+// 						Actions: pulumi.StringArray{
+// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
+// 			Location:          pulumi.Any(azurerm_resource_group.Example.Location),
+// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Example.Name),
+// 			Sku: &appservice.PlanSkuArgs{
+// 				Tier: pulumi.String("Standard"),
+// 				Size: pulumi.String("S1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+// 			ResourceGroupName:      pulumi.Any(azurerm_resource_group.Example.Name),
+// 			Location:               pulumi.Any(azurerm_resource_group.Example.Location),
+// 			AccountTier:            pulumi.String("Standard"),
+// 			AccountReplicationType: pulumi.String("LRS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleFunctionApp, err := appservice.NewFunctionApp(ctx, "exampleFunctionApp", &appservice.FunctionAppArgs{
+// 			Location:                pulumi.Any(azurerm_resource_group.Example.Location),
+// 			ResourceGroupName:       pulumi.Any(azurerm_resource_group.Example.Name),
+// 			AppServicePlanId:        examplePlan.ID(),
+// 			StorageAccountName:      exampleAccount.Name,
+// 			StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = appservice.NewVirtualNetworkSwiftConnection(ctx, "exampleVirtualNetworkSwiftConnection", &appservice.VirtualNetworkSwiftConnectionArgs{
+// 			AppServiceId: exampleFunctionApp.ID(),
+// 			SubnetId:     exampleSubnet.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -105,7 +196,7 @@ import (
 type VirtualNetworkSwiftConnection struct {
 	pulumi.CustomResourceState
 
-	// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+	// The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
 	AppServiceId pulumi.StringOutput `pulumi:"appServiceId"`
 	// The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
@@ -146,14 +237,14 @@ func GetVirtualNetworkSwiftConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetworkSwiftConnection resources.
 type virtualNetworkSwiftConnectionState struct {
-	// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+	// The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
 	AppServiceId *string `pulumi:"appServiceId"`
 	// The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
 	SubnetId *string `pulumi:"subnetId"`
 }
 
 type VirtualNetworkSwiftConnectionState struct {
-	// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+	// The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
 	AppServiceId pulumi.StringPtrInput
 	// The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
 	SubnetId pulumi.StringPtrInput
@@ -164,7 +255,7 @@ func (VirtualNetworkSwiftConnectionState) ElementType() reflect.Type {
 }
 
 type virtualNetworkSwiftConnectionArgs struct {
-	// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+	// The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
 	AppServiceId string `pulumi:"appServiceId"`
 	// The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
 	SubnetId string `pulumi:"subnetId"`
@@ -172,7 +263,7 @@ type virtualNetworkSwiftConnectionArgs struct {
 
 // The set of arguments for constructing a VirtualNetworkSwiftConnection resource.
 type VirtualNetworkSwiftConnectionArgs struct {
-	// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+	// The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
 	AppServiceId pulumi.StringInput
 	// The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
 	SubnetId pulumi.StringInput

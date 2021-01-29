@@ -54,6 +54,10 @@ export interface GetAppServiceEnvironmentArgs {
  */
 export interface GetAppServiceEnvironmentResult {
     /**
+     * Zero or more `clusterSetting` blocks as defined below.
+     */
+    readonly clusterSettings: outputs.appservice.GetAppServiceEnvironmentClusterSetting[];
+    /**
      * The number of app instances per App Service Environment Front End.
      */
     readonly frontEndScaleFactor: number;
@@ -69,6 +73,9 @@ export interface GetAppServiceEnvironmentResult {
      * The Azure Region where the App Service Environment exists.
      */
     readonly location: string;
+    /**
+     * The name of the Cluster Setting.
+     */
     readonly name: string;
     /**
      * List of outbound IP addresses of the App Service Environment.

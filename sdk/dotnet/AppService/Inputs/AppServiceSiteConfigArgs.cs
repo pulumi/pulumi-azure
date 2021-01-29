@@ -58,7 +58,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? FtpsState { get; set; }
 
         /// <summary>
-        /// The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
+        /// The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
         /// </summary>
         [Input("healthCheckPath")]
         public Input<string>? HealthCheckPath { get; set; }
@@ -122,6 +122,12 @@ namespace Pulumi.Azure.AppService.Inputs
         /// </summary>
         [Input("minTlsVersion")]
         public Input<string>? MinTlsVersion { get; set; }
+
+        /// <summary>
+        /// The scaled number of workers (for per site scaling) of this App Service. Requires that `per_site_scaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+        /// </summary>
+        [Input("numberOfWorkers")]
+        public Input<int>? NumberOfWorkers { get; set; }
 
         /// <summary>
         /// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.

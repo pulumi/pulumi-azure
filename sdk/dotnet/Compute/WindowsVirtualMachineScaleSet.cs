@@ -196,6 +196,12 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineScaleSetExtension>> Extensions { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+        /// </summary>
+        [Output("extensionsTimeBudget")]
+        public Output<string?> ExtensionsTimeBudget { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         /// </summary>
         [Output("healthProbeId")]
@@ -536,6 +542,12 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
+        /// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+        /// </summary>
+        [Input("extensionsTimeBudget")]
+        public Input<string>? ExtensionsTimeBudget { get; set; }
+
+        /// <summary>
         /// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         /// </summary>
         [Input("healthProbeId")]
@@ -859,6 +871,12 @@ namespace Pulumi.Azure.Compute
             get => _extensions ?? (_extensions = new InputList<Inputs.WindowsVirtualMachineScaleSetExtensionGetArgs>());
             set => _extensions = value;
         }
+
+        /// <summary>
+        /// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+        /// </summary>
+        [Input("extensionsTimeBudget")]
+        public Input<string>? ExtensionsTimeBudget { get; set; }
 
         /// <summary>
         /// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.

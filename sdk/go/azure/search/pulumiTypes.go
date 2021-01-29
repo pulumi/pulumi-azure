@@ -285,9 +285,234 @@ func (o ServiceQueryKeyArrayOutput) Index(i pulumi.IntInput) ServiceQueryKeyOutp
 	}).(ServiceQueryKeyOutput)
 }
 
+type GetServiceIdentity struct {
+	// The (Client) ID of the Service Principal.
+	PrincipalId string `pulumi:"principalId"`
+	// The ID of the Tenant the Service Principal is assigned in.
+	TenantId string `pulumi:"tenantId"`
+	// The Type of Managed Identity which is used for the Search Service.
+	Type string `pulumi:"type"`
+}
+
+// GetServiceIdentityInput is an input type that accepts GetServiceIdentityArgs and GetServiceIdentityOutput values.
+// You can construct a concrete instance of `GetServiceIdentityInput` via:
+//
+//          GetServiceIdentityArgs{...}
+type GetServiceIdentityInput interface {
+	pulumi.Input
+
+	ToGetServiceIdentityOutput() GetServiceIdentityOutput
+	ToGetServiceIdentityOutputWithContext(context.Context) GetServiceIdentityOutput
+}
+
+type GetServiceIdentityArgs struct {
+	// The (Client) ID of the Service Principal.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The ID of the Tenant the Service Principal is assigned in.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The Type of Managed Identity which is used for the Search Service.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetServiceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceIdentity)(nil)).Elem()
+}
+
+func (i GetServiceIdentityArgs) ToGetServiceIdentityOutput() GetServiceIdentityOutput {
+	return i.ToGetServiceIdentityOutputWithContext(context.Background())
+}
+
+func (i GetServiceIdentityArgs) ToGetServiceIdentityOutputWithContext(ctx context.Context) GetServiceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceIdentityOutput)
+}
+
+// GetServiceIdentityArrayInput is an input type that accepts GetServiceIdentityArray and GetServiceIdentityArrayOutput values.
+// You can construct a concrete instance of `GetServiceIdentityArrayInput` via:
+//
+//          GetServiceIdentityArray{ GetServiceIdentityArgs{...} }
+type GetServiceIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceIdentityArrayOutput() GetServiceIdentityArrayOutput
+	ToGetServiceIdentityArrayOutputWithContext(context.Context) GetServiceIdentityArrayOutput
+}
+
+type GetServiceIdentityArray []GetServiceIdentityInput
+
+func (GetServiceIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceIdentity)(nil)).Elem()
+}
+
+func (i GetServiceIdentityArray) ToGetServiceIdentityArrayOutput() GetServiceIdentityArrayOutput {
+	return i.ToGetServiceIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceIdentityArray) ToGetServiceIdentityArrayOutputWithContext(ctx context.Context) GetServiceIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceIdentityArrayOutput)
+}
+
+type GetServiceIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetServiceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceIdentity)(nil)).Elem()
+}
+
+func (o GetServiceIdentityOutput) ToGetServiceIdentityOutput() GetServiceIdentityOutput {
+	return o
+}
+
+func (o GetServiceIdentityOutput) ToGetServiceIdentityOutputWithContext(ctx context.Context) GetServiceIdentityOutput {
+	return o
+}
+
+// The (Client) ID of the Service Principal.
+func (o GetServiceIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The ID of the Tenant the Service Principal is assigned in.
+func (o GetServiceIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The Type of Managed Identity which is used for the Search Service.
+func (o GetServiceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetServiceIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceIdentity)(nil)).Elem()
+}
+
+func (o GetServiceIdentityArrayOutput) ToGetServiceIdentityArrayOutput() GetServiceIdentityArrayOutput {
+	return o
+}
+
+func (o GetServiceIdentityArrayOutput) ToGetServiceIdentityArrayOutputWithContext(ctx context.Context) GetServiceIdentityArrayOutput {
+	return o
+}
+
+func (o GetServiceIdentityArrayOutput) Index(i pulumi.IntInput) GetServiceIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceIdentity {
+		return vs[0].([]GetServiceIdentity)[vs[1].(int)]
+	}).(GetServiceIdentityOutput)
+}
+
+type GetServiceQueryKey struct {
+	// The value of this Query Key.
+	Key string `pulumi:"key"`
+	// The Name of the Search Service.
+	Name string `pulumi:"name"`
+}
+
+// GetServiceQueryKeyInput is an input type that accepts GetServiceQueryKeyArgs and GetServiceQueryKeyOutput values.
+// You can construct a concrete instance of `GetServiceQueryKeyInput` via:
+//
+//          GetServiceQueryKeyArgs{...}
+type GetServiceQueryKeyInput interface {
+	pulumi.Input
+
+	ToGetServiceQueryKeyOutput() GetServiceQueryKeyOutput
+	ToGetServiceQueryKeyOutputWithContext(context.Context) GetServiceQueryKeyOutput
+}
+
+type GetServiceQueryKeyArgs struct {
+	// The value of this Query Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Name of the Search Service.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetServiceQueryKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceQueryKey)(nil)).Elem()
+}
+
+func (i GetServiceQueryKeyArgs) ToGetServiceQueryKeyOutput() GetServiceQueryKeyOutput {
+	return i.ToGetServiceQueryKeyOutputWithContext(context.Background())
+}
+
+func (i GetServiceQueryKeyArgs) ToGetServiceQueryKeyOutputWithContext(ctx context.Context) GetServiceQueryKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceQueryKeyOutput)
+}
+
+// GetServiceQueryKeyArrayInput is an input type that accepts GetServiceQueryKeyArray and GetServiceQueryKeyArrayOutput values.
+// You can construct a concrete instance of `GetServiceQueryKeyArrayInput` via:
+//
+//          GetServiceQueryKeyArray{ GetServiceQueryKeyArgs{...} }
+type GetServiceQueryKeyArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceQueryKeyArrayOutput() GetServiceQueryKeyArrayOutput
+	ToGetServiceQueryKeyArrayOutputWithContext(context.Context) GetServiceQueryKeyArrayOutput
+}
+
+type GetServiceQueryKeyArray []GetServiceQueryKeyInput
+
+func (GetServiceQueryKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceQueryKey)(nil)).Elem()
+}
+
+func (i GetServiceQueryKeyArray) ToGetServiceQueryKeyArrayOutput() GetServiceQueryKeyArrayOutput {
+	return i.ToGetServiceQueryKeyArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceQueryKeyArray) ToGetServiceQueryKeyArrayOutputWithContext(ctx context.Context) GetServiceQueryKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceQueryKeyArrayOutput)
+}
+
+type GetServiceQueryKeyOutput struct{ *pulumi.OutputState }
+
+func (GetServiceQueryKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceQueryKey)(nil)).Elem()
+}
+
+func (o GetServiceQueryKeyOutput) ToGetServiceQueryKeyOutput() GetServiceQueryKeyOutput {
+	return o
+}
+
+func (o GetServiceQueryKeyOutput) ToGetServiceQueryKeyOutputWithContext(ctx context.Context) GetServiceQueryKeyOutput {
+	return o
+}
+
+// The value of this Query Key.
+func (o GetServiceQueryKeyOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceQueryKey) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Name of the Search Service.
+func (o GetServiceQueryKeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceQueryKey) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetServiceQueryKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceQueryKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceQueryKey)(nil)).Elem()
+}
+
+func (o GetServiceQueryKeyArrayOutput) ToGetServiceQueryKeyArrayOutput() GetServiceQueryKeyArrayOutput {
+	return o
+}
+
+func (o GetServiceQueryKeyArrayOutput) ToGetServiceQueryKeyArrayOutputWithContext(ctx context.Context) GetServiceQueryKeyArrayOutput {
+	return o
+}
+
+func (o GetServiceQueryKeyArrayOutput) Index(i pulumi.IntInput) GetServiceQueryKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceQueryKey {
+		return vs[0].([]GetServiceQueryKey)[vs[1].(int)]
+	}).(GetServiceQueryKeyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceIdentityOutput{})
 	pulumi.RegisterOutputType(ServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServiceQueryKeyOutput{})
 	pulumi.RegisterOutputType(ServiceQueryKeyArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceIdentityOutput{})
+	pulumi.RegisterOutputType(GetServiceIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceQueryKeyOutput{})
+	pulumi.RegisterOutputType(GetServiceQueryKeyArrayOutput{})
 }

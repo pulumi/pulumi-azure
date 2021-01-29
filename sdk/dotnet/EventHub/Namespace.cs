@@ -53,7 +53,7 @@ namespace Pulumi.Azure.EventHub
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+        /// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
         /// </summary>
         [Output("capacity")]
         public Output<int?> Capacity { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Azure.EventHub
     public sealed class NamespaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+        /// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.EventHub
     public sealed class NamespaceState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+        /// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }

@@ -32,6 +32,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]]] = None,
+                 extensions_time_budget: Optional[pulumi.Input[str]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetIdentityArgs']]] = None,
                  instances: Optional[pulumi.Input[int]] = None,
@@ -144,6 +145,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
+        :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetIdentityArgs']] identity: A `identity` block as defined below.
         :param pulumi.Input[int] instances: The number of Virtual Machines in the Scale Set.
@@ -206,6 +208,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             __props__['encryption_at_host_enabled'] = encryption_at_host_enabled
             __props__['eviction_policy'] = eviction_policy
             __props__['extensions'] = extensions
+            __props__['extensions_time_budget'] = extensions_time_budget
             __props__['health_probe_id'] = health_probe_id
             __props__['identity'] = identity
             if instances is None and not opts.urn:
@@ -269,6 +272,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
             extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]]] = None,
+            extensions_time_budget: Optional[pulumi.Input[str]] = None,
             health_probe_id: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetIdentityArgs']]] = None,
             instances: Optional[pulumi.Input[int]] = None,
@@ -319,6 +323,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
+        :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetIdentityArgs']] identity: A `identity` block as defined below.
         :param pulumi.Input[int] instances: The number of Virtual Machines in the Scale Set.
@@ -367,6 +372,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         __props__["encryption_at_host_enabled"] = encryption_at_host_enabled
         __props__["eviction_policy"] = eviction_policy
         __props__["extensions"] = extensions
+        __props__["extensions_time_budget"] = extensions_time_budget
         __props__["health_probe_id"] = health_probe_id
         __props__["identity"] = identity
         __props__["instances"] = instances
@@ -516,6 +522,14 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         One or more `extension` blocks as defined below
         """
         return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter(name="extensionsTimeBudget")
+    def extensions_time_budget(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+        """
+        return pulumi.get(self, "extensions_time_budget")
 
     @property
     @pulumi.getter(name="healthProbeId")

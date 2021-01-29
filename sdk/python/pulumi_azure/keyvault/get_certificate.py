@@ -20,10 +20,13 @@ class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
     """
-    def __init__(__self__, certificate_data=None, certificate_policies=None, id=None, key_vault_id=None, name=None, secret_id=None, tags=None, thumbprint=None, version=None):
+    def __init__(__self__, certificate_data=None, certificate_data_base64=None, certificate_policies=None, id=None, key_vault_id=None, name=None, secret_id=None, tags=None, thumbprint=None, version=None):
         if certificate_data and not isinstance(certificate_data, str):
             raise TypeError("Expected argument 'certificate_data' to be a str")
         pulumi.set(__self__, "certificate_data", certificate_data)
+        if certificate_data_base64 and not isinstance(certificate_data_base64, str):
+            raise TypeError("Expected argument 'certificate_data_base64' to be a str")
+        pulumi.set(__self__, "certificate_data_base64", certificate_data_base64)
         if certificate_policies and not isinstance(certificate_policies, list):
             raise TypeError("Expected argument 'certificate_policies' to be a list")
         pulumi.set(__self__, "certificate_policies", certificate_policies)
@@ -56,6 +59,14 @@ class GetCertificateResult:
         The raw Key Vault Certificate data represented as a hexadecimal string.
         """
         return pulumi.get(self, "certificate_data")
+
+    @property
+    @pulumi.getter(name="certificateDataBase64")
+    def certificate_data_base64(self) -> str:
+        """
+        The raw Key Vault Certificate data represented as a base64 string.
+        """
+        return pulumi.get(self, "certificate_data_base64")
 
     @property
     @pulumi.getter(name="certificatePolicies")
@@ -126,6 +137,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             yield self
         return GetCertificateResult(
             certificate_data=self.certificate_data,
+            certificate_data_base64=self.certificate_data_base64,
             certificate_policies=self.certificate_policies,
             id=self.id,
             key_vault_id=self.key_vault_id,
@@ -176,6 +188,7 @@ def get_certificate(key_vault_id: Optional[str] = None,
 
     return AwaitableGetCertificateResult(
         certificate_data=__ret__.certificate_data,
+        certificate_data_base64=__ret__.certificate_data_base64,
         certificate_policies=__ret__.certificate_policies,
         id=__ret__.id,
         key_vault_id=__ret__.key_vault_id,

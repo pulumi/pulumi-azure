@@ -97,6 +97,10 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
      */
     public readonly columnDelimiter!: pulumi.Output<string | undefined>;
     /**
+     * The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+     */
+    public readonly compressionCodec!: pulumi.Output<string | undefined>;
+    /**
      * The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
      */
     public readonly compressionLevel!: pulumi.Output<string | undefined>;
@@ -177,6 +181,7 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["azureBlobStorageLocation"] = state ? state.azureBlobStorageLocation : undefined;
             inputs["columnDelimiter"] = state ? state.columnDelimiter : undefined;
+            inputs["compressionCodec"] = state ? state.compressionCodec : undefined;
             inputs["compressionLevel"] = state ? state.compressionLevel : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -208,6 +213,7 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
             inputs["annotations"] = args ? args.annotations : undefined;
             inputs["azureBlobStorageLocation"] = args ? args.azureBlobStorageLocation : undefined;
             inputs["columnDelimiter"] = args ? args.columnDelimiter : undefined;
+            inputs["compressionCodec"] = args ? args.compressionCodec : undefined;
             inputs["compressionLevel"] = args ? args.compressionLevel : undefined;
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -256,6 +262,10 @@ export interface DatasetDelimitedTextState {
      * The column delimiter.
      */
     readonly columnDelimiter?: pulumi.Input<string>;
+    /**
+     * The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+     */
+    readonly compressionCodec?: pulumi.Input<string>;
     /**
      * The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
      */
@@ -342,6 +352,10 @@ export interface DatasetDelimitedTextArgs {
      * The column delimiter.
      */
     readonly columnDelimiter?: pulumi.Input<string>;
+    /**
+     * The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+     */
+    readonly compressionCodec?: pulumi.Input<string>;
     /**
      * The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
      */

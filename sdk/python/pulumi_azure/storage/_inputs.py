@@ -21,6 +21,7 @@ __all__ = [
     'AccountQueuePropertiesLoggingArgs',
     'AccountQueuePropertiesMinuteMetricsArgs',
     'AccountStaticWebsiteArgs',
+    'DataLakeGen2FilesystemAceArgs',
     'DataLakeGen2PathAceArgs',
     'ManagementPolicyRuleArgs',
     'ManagementPolicyRuleActionsArgs',
@@ -760,6 +761,75 @@ class AccountStaticWebsiteArgs:
     @index_document.setter
     def index_document(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "index_document", value)
+
+
+@pulumi.input_type
+class DataLakeGen2FilesystemAceArgs:
+    def __init__(__self__, *,
+                 permissions: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] permissions: Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+        :param pulumi.Input[str] type: Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
+        :param pulumi.Input[str] id: Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
+        :param pulumi.Input[str] scope: Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
+        """
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> pulumi.Input[str]:
+        """
+        Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: pulumi.Input[str]):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
 
 
 @pulumi.input_type

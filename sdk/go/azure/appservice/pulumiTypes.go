@@ -2874,7 +2874,7 @@ type AppServiceSiteConfig struct {
 	DotnetFrameworkVersion *string `pulumi:"dotnetFrameworkVersion"`
 	// State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
 	FtpsState *string `pulumi:"ftpsState"`
-	// The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](<https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)>).
+	// The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
 	HealthCheckPath *string `pulumi:"healthCheckPath"`
 	// Is HTTP2 Enabled on this App Service? Defaults to `false`.
 	Http2Enabled *bool `pulumi:"http2Enabled"`
@@ -2894,6 +2894,8 @@ type AppServiceSiteConfig struct {
 	ManagedPipelineMode *string `pulumi:"managedPipelineMode"`
 	// The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
+	// The scaled number of workers (for per site scaling) of this App Service. Requires that `perSiteScaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+	NumberOfWorkers *int `pulumi:"numberOfWorkers"`
 	// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
 	PhpVersion *string `pulumi:"phpVersion"`
 	// The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
@@ -2941,7 +2943,7 @@ type AppServiceSiteConfigArgs struct {
 	DotnetFrameworkVersion pulumi.StringPtrInput `pulumi:"dotnetFrameworkVersion"`
 	// State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
 	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
-	// The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](<https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)>).
+	// The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
 	HealthCheckPath pulumi.StringPtrInput `pulumi:"healthCheckPath"`
 	// Is HTTP2 Enabled on this App Service? Defaults to `false`.
 	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
@@ -2961,6 +2963,8 @@ type AppServiceSiteConfigArgs struct {
 	ManagedPipelineMode pulumi.StringPtrInput `pulumi:"managedPipelineMode"`
 	// The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
 	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
+	// The scaled number of workers (for per site scaling) of this App Service. Requires that `perSiteScaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+	NumberOfWorkers pulumi.IntPtrInput `pulumi:"numberOfWorkers"`
 	// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
 	PhpVersion pulumi.StringPtrInput `pulumi:"phpVersion"`
 	// The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
@@ -3094,7 +3098,7 @@ func (o AppServiceSiteConfigOutput) FtpsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.FtpsState }).(pulumi.StringPtrOutput)
 }
 
-// The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](<https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)>).
+// The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
 func (o AppServiceSiteConfigOutput) HealthCheckPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
 }
@@ -3142,6 +3146,11 @@ func (o AppServiceSiteConfigOutput) ManagedPipelineMode() pulumi.StringPtrOutput
 // The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
 func (o AppServiceSiteConfigOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// The scaled number of workers (for per site scaling) of this App Service. Requires that `perSiteScaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+func (o AppServiceSiteConfigOutput) NumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfig) *int { return v.NumberOfWorkers }).(pulumi.IntPtrOutput)
 }
 
 // The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
@@ -3281,7 +3290,7 @@ func (o AppServiceSiteConfigPtrOutput) FtpsState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](<https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)>).
+// The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
 func (o AppServiceSiteConfigPtrOutput) HealthCheckPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppServiceSiteConfig) *string {
 		if v == nil {
@@ -3379,6 +3388,16 @@ func (o AppServiceSiteConfigPtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
 		}
 		return v.MinTlsVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// The scaled number of workers (for per site scaling) of this App Service. Requires that `perSiteScaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+func (o AppServiceSiteConfigPtrOutput) NumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppServiceSiteConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfWorkers
+	}).(pulumi.IntPtrOutput)
 }
 
 // The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
@@ -4510,6 +4529,112 @@ func (o CertificateOrderCertificateArrayOutput) Index(i pulumi.IntInput) Certifi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateOrderCertificate {
 		return vs[0].([]CertificateOrderCertificate)[vs[1].(int)]
 	}).(CertificateOrderCertificateOutput)
+}
+
+type EnvironmentClusterSetting struct {
+	// The name of the Cluster Setting.
+	Name string `pulumi:"name"`
+	// The value for the Cluster Setting.
+	Value string `pulumi:"value"`
+}
+
+// EnvironmentClusterSettingInput is an input type that accepts EnvironmentClusterSettingArgs and EnvironmentClusterSettingOutput values.
+// You can construct a concrete instance of `EnvironmentClusterSettingInput` via:
+//
+//          EnvironmentClusterSettingArgs{...}
+type EnvironmentClusterSettingInput interface {
+	pulumi.Input
+
+	ToEnvironmentClusterSettingOutput() EnvironmentClusterSettingOutput
+	ToEnvironmentClusterSettingOutputWithContext(context.Context) EnvironmentClusterSettingOutput
+}
+
+type EnvironmentClusterSettingArgs struct {
+	// The name of the Cluster Setting.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value for the Cluster Setting.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EnvironmentClusterSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentClusterSetting)(nil)).Elem()
+}
+
+func (i EnvironmentClusterSettingArgs) ToEnvironmentClusterSettingOutput() EnvironmentClusterSettingOutput {
+	return i.ToEnvironmentClusterSettingOutputWithContext(context.Background())
+}
+
+func (i EnvironmentClusterSettingArgs) ToEnvironmentClusterSettingOutputWithContext(ctx context.Context) EnvironmentClusterSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentClusterSettingOutput)
+}
+
+// EnvironmentClusterSettingArrayInput is an input type that accepts EnvironmentClusterSettingArray and EnvironmentClusterSettingArrayOutput values.
+// You can construct a concrete instance of `EnvironmentClusterSettingArrayInput` via:
+//
+//          EnvironmentClusterSettingArray{ EnvironmentClusterSettingArgs{...} }
+type EnvironmentClusterSettingArrayInput interface {
+	pulumi.Input
+
+	ToEnvironmentClusterSettingArrayOutput() EnvironmentClusterSettingArrayOutput
+	ToEnvironmentClusterSettingArrayOutputWithContext(context.Context) EnvironmentClusterSettingArrayOutput
+}
+
+type EnvironmentClusterSettingArray []EnvironmentClusterSettingInput
+
+func (EnvironmentClusterSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentClusterSetting)(nil)).Elem()
+}
+
+func (i EnvironmentClusterSettingArray) ToEnvironmentClusterSettingArrayOutput() EnvironmentClusterSettingArrayOutput {
+	return i.ToEnvironmentClusterSettingArrayOutputWithContext(context.Background())
+}
+
+func (i EnvironmentClusterSettingArray) ToEnvironmentClusterSettingArrayOutputWithContext(ctx context.Context) EnvironmentClusterSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentClusterSettingArrayOutput)
+}
+
+type EnvironmentClusterSettingOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentClusterSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentClusterSetting)(nil)).Elem()
+}
+
+func (o EnvironmentClusterSettingOutput) ToEnvironmentClusterSettingOutput() EnvironmentClusterSettingOutput {
+	return o
+}
+
+func (o EnvironmentClusterSettingOutput) ToEnvironmentClusterSettingOutputWithContext(ctx context.Context) EnvironmentClusterSettingOutput {
+	return o
+}
+
+// The name of the Cluster Setting.
+func (o EnvironmentClusterSettingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentClusterSetting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value for the Cluster Setting.
+func (o EnvironmentClusterSettingOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentClusterSetting) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EnvironmentClusterSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentClusterSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentClusterSetting)(nil)).Elem()
+}
+
+func (o EnvironmentClusterSettingArrayOutput) ToEnvironmentClusterSettingArrayOutput() EnvironmentClusterSettingArrayOutput {
+	return o
+}
+
+func (o EnvironmentClusterSettingArrayOutput) ToEnvironmentClusterSettingArrayOutputWithContext(ctx context.Context) EnvironmentClusterSettingArrayOutput {
+	return o
+}
+
+func (o EnvironmentClusterSettingArrayOutput) Index(i pulumi.IntInput) EnvironmentClusterSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentClusterSetting {
+		return vs[0].([]EnvironmentClusterSetting)[vs[1].(int)]
+	}).(EnvironmentClusterSettingOutput)
 }
 
 type FunctionAppAuthSettings struct {
@@ -12258,7 +12383,8 @@ type SlotSiteConfig struct {
 	// The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
 	ManagedPipelineMode *string `pulumi:"managedPipelineMode"`
 	// The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
-	MinTlsVersion *string `pulumi:"minTlsVersion"`
+	MinTlsVersion   *string `pulumi:"minTlsVersion"`
+	NumberOfWorkers *int    `pulumi:"numberOfWorkers"`
 	// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
 	PhpVersion *string `pulumi:"phpVersion"`
 	// The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
@@ -12320,7 +12446,8 @@ type SlotSiteConfigArgs struct {
 	// The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
 	ManagedPipelineMode pulumi.StringPtrInput `pulumi:"managedPipelineMode"`
 	// The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
-	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
+	MinTlsVersion   pulumi.StringPtrInput `pulumi:"minTlsVersion"`
+	NumberOfWorkers pulumi.IntPtrInput    `pulumi:"numberOfWorkers"`
 	// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
 	PhpVersion pulumi.StringPtrInput `pulumi:"phpVersion"`
 	// The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
@@ -12497,6 +12624,10 @@ func (o SlotSiteConfigOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
 // The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
 func (o SlotSiteConfigOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o SlotSiteConfigOutput) NumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfig) *int { return v.NumberOfWorkers }).(pulumi.IntPtrOutput)
 }
 
 // The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
@@ -12729,6 +12860,15 @@ func (o SlotSiteConfigPtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
 		}
 		return v.MinTlsVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o SlotSiteConfigPtrOutput) NumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SlotSiteConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfWorkers
+	}).(pulumi.IntPtrOutput)
 }
 
 // The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
@@ -13501,6 +13641,112 @@ func (o GetAppServiceConnectionStringArrayOutput) Index(i pulumi.IntInput) GetAp
 	}).(GetAppServiceConnectionStringOutput)
 }
 
+type GetAppServiceEnvironmentClusterSetting struct {
+	// The name of this App Service Environment.
+	Name string `pulumi:"name"`
+	// The value for the Cluster Setting.
+	Value string `pulumi:"value"`
+}
+
+// GetAppServiceEnvironmentClusterSettingInput is an input type that accepts GetAppServiceEnvironmentClusterSettingArgs and GetAppServiceEnvironmentClusterSettingOutput values.
+// You can construct a concrete instance of `GetAppServiceEnvironmentClusterSettingInput` via:
+//
+//          GetAppServiceEnvironmentClusterSettingArgs{...}
+type GetAppServiceEnvironmentClusterSettingInput interface {
+	pulumi.Input
+
+	ToGetAppServiceEnvironmentClusterSettingOutput() GetAppServiceEnvironmentClusterSettingOutput
+	ToGetAppServiceEnvironmentClusterSettingOutputWithContext(context.Context) GetAppServiceEnvironmentClusterSettingOutput
+}
+
+type GetAppServiceEnvironmentClusterSettingArgs struct {
+	// The name of this App Service Environment.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value for the Cluster Setting.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAppServiceEnvironmentClusterSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppServiceEnvironmentClusterSetting)(nil)).Elem()
+}
+
+func (i GetAppServiceEnvironmentClusterSettingArgs) ToGetAppServiceEnvironmentClusterSettingOutput() GetAppServiceEnvironmentClusterSettingOutput {
+	return i.ToGetAppServiceEnvironmentClusterSettingOutputWithContext(context.Background())
+}
+
+func (i GetAppServiceEnvironmentClusterSettingArgs) ToGetAppServiceEnvironmentClusterSettingOutputWithContext(ctx context.Context) GetAppServiceEnvironmentClusterSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppServiceEnvironmentClusterSettingOutput)
+}
+
+// GetAppServiceEnvironmentClusterSettingArrayInput is an input type that accepts GetAppServiceEnvironmentClusterSettingArray and GetAppServiceEnvironmentClusterSettingArrayOutput values.
+// You can construct a concrete instance of `GetAppServiceEnvironmentClusterSettingArrayInput` via:
+//
+//          GetAppServiceEnvironmentClusterSettingArray{ GetAppServiceEnvironmentClusterSettingArgs{...} }
+type GetAppServiceEnvironmentClusterSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetAppServiceEnvironmentClusterSettingArrayOutput() GetAppServiceEnvironmentClusterSettingArrayOutput
+	ToGetAppServiceEnvironmentClusterSettingArrayOutputWithContext(context.Context) GetAppServiceEnvironmentClusterSettingArrayOutput
+}
+
+type GetAppServiceEnvironmentClusterSettingArray []GetAppServiceEnvironmentClusterSettingInput
+
+func (GetAppServiceEnvironmentClusterSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppServiceEnvironmentClusterSetting)(nil)).Elem()
+}
+
+func (i GetAppServiceEnvironmentClusterSettingArray) ToGetAppServiceEnvironmentClusterSettingArrayOutput() GetAppServiceEnvironmentClusterSettingArrayOutput {
+	return i.ToGetAppServiceEnvironmentClusterSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppServiceEnvironmentClusterSettingArray) ToGetAppServiceEnvironmentClusterSettingArrayOutputWithContext(ctx context.Context) GetAppServiceEnvironmentClusterSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppServiceEnvironmentClusterSettingArrayOutput)
+}
+
+type GetAppServiceEnvironmentClusterSettingOutput struct{ *pulumi.OutputState }
+
+func (GetAppServiceEnvironmentClusterSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppServiceEnvironmentClusterSetting)(nil)).Elem()
+}
+
+func (o GetAppServiceEnvironmentClusterSettingOutput) ToGetAppServiceEnvironmentClusterSettingOutput() GetAppServiceEnvironmentClusterSettingOutput {
+	return o
+}
+
+func (o GetAppServiceEnvironmentClusterSettingOutput) ToGetAppServiceEnvironmentClusterSettingOutputWithContext(ctx context.Context) GetAppServiceEnvironmentClusterSettingOutput {
+	return o
+}
+
+// The name of this App Service Environment.
+func (o GetAppServiceEnvironmentClusterSettingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppServiceEnvironmentClusterSetting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value for the Cluster Setting.
+func (o GetAppServiceEnvironmentClusterSettingOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppServiceEnvironmentClusterSetting) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAppServiceEnvironmentClusterSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppServiceEnvironmentClusterSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppServiceEnvironmentClusterSetting)(nil)).Elem()
+}
+
+func (o GetAppServiceEnvironmentClusterSettingArrayOutput) ToGetAppServiceEnvironmentClusterSettingArrayOutput() GetAppServiceEnvironmentClusterSettingArrayOutput {
+	return o
+}
+
+func (o GetAppServiceEnvironmentClusterSettingArrayOutput) ToGetAppServiceEnvironmentClusterSettingArrayOutputWithContext(ctx context.Context) GetAppServiceEnvironmentClusterSettingArrayOutput {
+	return o
+}
+
+func (o GetAppServiceEnvironmentClusterSettingArrayOutput) Index(i pulumi.IntInput) GetAppServiceEnvironmentClusterSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppServiceEnvironmentClusterSetting {
+		return vs[0].([]GetAppServiceEnvironmentClusterSetting)[vs[1].(int)]
+	}).(GetAppServiceEnvironmentClusterSettingOutput)
+}
+
 type GetAppServicePlanSku struct {
 	// Specifies the number of workers associated with this App Service Plan.
 	Capacity int `pulumi:"capacity"`
@@ -13604,6 +13850,8 @@ type GetAppServiceSiteConfig struct {
 	ManagedPipelineMode string `pulumi:"managedPipelineMode"`
 	// The minimum supported TLS version for this App Service.
 	MinTlsVersion string `pulumi:"minTlsVersion"`
+	// The scaled number of workers (for per site scaling) of this App Service.
+	NumberOfWorkers int `pulumi:"numberOfWorkers"`
 	// The version of PHP used in this App Service.
 	PhpVersion string `pulumi:"phpVersion"`
 	// The version of Python used in this App Service.
@@ -13670,6 +13918,8 @@ type GetAppServiceSiteConfigArgs struct {
 	ManagedPipelineMode pulumi.StringInput `pulumi:"managedPipelineMode"`
 	// The minimum supported TLS version for this App Service.
 	MinTlsVersion pulumi.StringInput `pulumi:"minTlsVersion"`
+	// The scaled number of workers (for per site scaling) of this App Service.
+	NumberOfWorkers pulumi.IntInput `pulumi:"numberOfWorkers"`
 	// The version of PHP used in this App Service.
 	PhpVersion pulumi.StringInput `pulumi:"phpVersion"`
 	// The version of Python used in this App Service.
@@ -13821,6 +14071,11 @@ func (o GetAppServiceSiteConfigOutput) ManagedPipelineMode() pulumi.StringOutput
 // The minimum supported TLS version for this App Service.
 func (o GetAppServiceSiteConfigOutput) MinTlsVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppServiceSiteConfig) string { return v.MinTlsVersion }).(pulumi.StringOutput)
+}
+
+// The scaled number of workers (for per site scaling) of this App Service.
+func (o GetAppServiceSiteConfigOutput) NumberOfWorkers() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfig) int { return v.NumberOfWorkers }).(pulumi.IntOutput)
 }
 
 // The version of PHP used in this App Service.
@@ -15740,6 +15995,8 @@ func init() {
 	pulumi.RegisterOutputType(AppServiceStorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(CertificateOrderCertificateOutput{})
 	pulumi.RegisterOutputType(CertificateOrderCertificateArrayOutput{})
+	pulumi.RegisterOutputType(EnvironmentClusterSettingOutput{})
+	pulumi.RegisterOutputType(EnvironmentClusterSettingArrayOutput{})
 	pulumi.RegisterOutputType(FunctionAppAuthSettingsOutput{})
 	pulumi.RegisterOutputType(FunctionAppAuthSettingsPtrOutput{})
 	pulumi.RegisterOutputType(FunctionAppAuthSettingsActiveDirectoryOutput{})
@@ -15836,6 +16093,8 @@ func init() {
 	pulumi.RegisterOutputType(SlotSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(GetAppServiceConnectionStringOutput{})
 	pulumi.RegisterOutputType(GetAppServiceConnectionStringArrayOutput{})
+	pulumi.RegisterOutputType(GetAppServiceEnvironmentClusterSettingOutput{})
+	pulumi.RegisterOutputType(GetAppServiceEnvironmentClusterSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetAppServicePlanSkuOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSiteConfigOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSiteConfigArrayOutput{})

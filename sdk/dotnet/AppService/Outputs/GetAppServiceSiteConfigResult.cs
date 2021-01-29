@@ -78,6 +78,10 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string MinTlsVersion;
         /// <summary>
+        /// The scaled number of workers (for per site scaling) of this App Service.
+        /// </summary>
+        public readonly int NumberOfWorkers;
+        /// <summary>
         /// The version of PHP used in this App Service.
         /// </summary>
         public readonly string PhpVersion;
@@ -152,6 +156,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string minTlsVersion,
 
+            int numberOfWorkers,
+
             string phpVersion,
 
             string pythonVersion,
@@ -188,6 +194,7 @@ namespace Pulumi.Azure.AppService.Outputs
             LocalMysqlEnabled = localMysqlEnabled;
             ManagedPipelineMode = managedPipelineMode;
             MinTlsVersion = minTlsVersion;
+            NumberOfWorkers = numberOfWorkers;
             PhpVersion = phpVersion;
             PythonVersion = pythonVersion;
             RemoteDebuggingEnabled = remoteDebuggingEnabled;

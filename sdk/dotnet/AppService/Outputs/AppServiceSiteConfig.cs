@@ -39,7 +39,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? FtpsState;
         /// <summary>
-        /// The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
+        /// The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
         /// </summary>
         public readonly string? HealthCheckPath;
         /// <summary>
@@ -78,6 +78,10 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
         /// </summary>
         public readonly string? MinTlsVersion;
+        /// <summary>
+        /// The scaled number of workers (for per site scaling) of this App Service. Requires that `per_site_scaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+        /// </summary>
+        public readonly int? NumberOfWorkers;
         /// <summary>
         /// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
         /// </summary>
@@ -155,6 +159,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string? minTlsVersion,
 
+            int? numberOfWorkers,
+
             string? phpVersion,
 
             string? pythonVersion,
@@ -192,6 +198,7 @@ namespace Pulumi.Azure.AppService.Outputs
             LocalMysqlEnabled = localMysqlEnabled;
             ManagedPipelineMode = managedPipelineMode;
             MinTlsVersion = minTlsVersion;
+            NumberOfWorkers = numberOfWorkers;
             PhpVersion = phpVersion;
             PythonVersion = pythonVersion;
             RemoteDebuggingEnabled = remoteDebuggingEnabled;

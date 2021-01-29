@@ -18,6 +18,7 @@ class IoTHub(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]]] = None,
+                 enrichments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEnrichmentArgs']]]]] = None,
                  event_hub_partition_count: Optional[pulumi.Input[int]] = None,
                  event_hub_retention_in_days: Optional[pulumi.Input[int]] = None,
                  fallback_route: Optional[pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']]] = None,
@@ -40,6 +41,8 @@ class IoTHub(pulumi.CustomResource):
         > **NOTE:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
 
         > **NOTE:** Routes can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+
+        > **NOTE:** Enrichments can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
         > **NOTE:** Fallback route can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
@@ -112,6 +115,14 @@ class IoTHub(pulumi.CustomResource):
                     enabled=True,
                 ),
             ],
+            enrichments=[azure.iot.IoTHubEnrichmentArgs(
+                key="tenant",
+                value="$twin.tags.Tenant",
+                endpoint_names=[
+                    "export",
+                    "export2",
+                ],
+            )],
             tags={
                 "purpose": "testing",
             })
@@ -128,12 +139,13 @@ class IoTHub(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]] endpoints: An `endpoint` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEnrichmentArgs']]]] enrichments: A `enrichment` block as defined below.
         :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
         :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`.
         :param pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
         :param pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]] ip_filter_rules: One or more `ip_filter_rule` blocks as defined below.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
@@ -160,6 +172,7 @@ class IoTHub(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['endpoints'] = endpoints
+            __props__['enrichments'] = enrichments
             __props__['event_hub_partition_count'] = event_hub_partition_count
             __props__['event_hub_retention_in_days'] = event_hub_retention_in_days
             __props__['fallback_route'] = fallback_route
@@ -195,6 +208,7 @@ class IoTHub(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]]] = None,
+            enrichments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEnrichmentArgs']]]]] = None,
             event_hub_events_endpoint: Optional[pulumi.Input[str]] = None,
             event_hub_events_path: Optional[pulumi.Input[str]] = None,
             event_hub_operations_endpoint: Optional[pulumi.Input[str]] = None,
@@ -223,6 +237,7 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]] endpoints: An `endpoint` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEnrichmentArgs']]]] enrichments: A `enrichment` block as defined below.
         :param pulumi.Input[str] event_hub_events_endpoint: The EventHub compatible endpoint for events data
         :param pulumi.Input[str] event_hub_events_path: The EventHub compatible path for events data
         :param pulumi.Input[str] event_hub_operations_endpoint: The EventHub compatible endpoint for operational data
@@ -233,7 +248,7 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[str] hostname: The hostname of the IotHub Resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]] ip_filter_rules: One or more `ip_filter_rule` blocks as defined below.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
@@ -249,6 +264,7 @@ class IoTHub(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["endpoints"] = endpoints
+        __props__["enrichments"] = enrichments
         __props__["event_hub_events_endpoint"] = event_hub_events_endpoint
         __props__["event_hub_events_path"] = event_hub_events_path
         __props__["event_hub_operations_endpoint"] = event_hub_operations_endpoint
@@ -278,6 +294,14 @@ class IoTHub(pulumi.CustomResource):
         An `endpoint` block as defined below.
         """
         return pulumi.get(self, "endpoints")
+
+    @property
+    @pulumi.getter
+    def enrichments(self) -> pulumi.Output[Sequence['outputs.IoTHubEnrichment']]:
+        """
+        A `enrichment` block as defined below.
+        """
+        return pulumi.get(self, "enrichments")
 
     @property
     @pulumi.getter(name="eventHubEventsEndpoint")
@@ -363,7 +387,7 @@ class IoTHub(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+        Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 

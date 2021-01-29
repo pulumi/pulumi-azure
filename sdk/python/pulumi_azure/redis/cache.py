@@ -31,7 +31,7 @@ class Cache(pulumi.CustomResource):
                  sku_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zones: Optional[pulumi.Input[str]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -111,7 +111,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of a one or more Availability Zones, where the Redis Cache should be allocated.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -191,7 +191,7 @@ class Cache(pulumi.CustomResource):
             ssl_port: Optional[pulumi.Input[int]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            zones: Optional[pulumi.Input[str]] = None) -> 'Cache':
+            zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Cache':
         """
         Get an existing Cache resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -222,7 +222,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[int] ssl_port: The SSL Port of the Redis Instance
         :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of a one or more Availability Zones, where the Redis Cache should be allocated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -424,9 +424,9 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> pulumi.Output[Optional[str]]:
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+        A list of a one or more Availability Zones, where the Redis Cache should be allocated.
         """
         return pulumi.get(self, "zones")
 
