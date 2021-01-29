@@ -1322,7 +1322,14 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_vpn_site":                               {Tok: azureResource(azureNetwork, "VpnSite")},
 
 			// Redis
-			"azurerm_redis_cache":         {Tok: azureResource(azureRedis, "Cache")},
+			"azurerm_redis_cache": {
+				Tok: azureResource(azureRedis, "Cache"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"zones": {
+						MaxItemsOne: boolRef(true),
+					},
+				},
+			},
 			"azurerm_redis_firewall_rule": {Tok: azureResource(azureRedis, "FirewallRule")},
 			"azurerm_redis_linked_server": {Tok: azureResource(azureRedis, "LinkedServer")},
 
@@ -1942,7 +1949,7 @@ func Provider() tfbridge.ProviderInfo {
 			Dependencies: map[string]string{
 				"@pulumi/pulumi":                "^2.17.0",
 				"azure-eventgrid":               "^1.6.0",
-				"@azure/functions":              "^1.0.3",
+				"@azure/functions":              "=1.2.2",
 				"@azure/ms-rest-azure-js":       "^2.0.1",
 				"@azure/ms-rest-nodeauth":       "^3.0.0",
 				"azure-functions-ts-essentials": "^1.3.2",

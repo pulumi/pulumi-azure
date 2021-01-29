@@ -133,7 +133,7 @@ type Cache struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
-	Zones pulumi.StringArrayOutput `pulumi:"zones"`
+	Zones pulumi.StringPtrOutput `pulumi:"zones"`
 }
 
 // NewCache registers a new resource with the given unique name, arguments, and options.
@@ -222,7 +222,7 @@ type cacheState struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
-	Zones []string `pulumi:"zones"`
+	Zones *string `pulumi:"zones"`
 }
 
 type CacheState struct {
@@ -271,7 +271,7 @@ type CacheState struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
-	Zones pulumi.StringArrayInput
+	Zones pulumi.StringPtrInput
 }
 
 func (CacheState) ElementType() reflect.Type {
@@ -310,7 +310,7 @@ type cacheArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
-	Zones []string `pulumi:"zones"`
+	Zones *string `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a Cache resource.
@@ -346,7 +346,7 @@ type CacheArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
-	Zones pulumi.StringArrayInput
+	Zones pulumi.StringPtrInput
 }
 
 func (CacheArgs) ElementType() reflect.Type {

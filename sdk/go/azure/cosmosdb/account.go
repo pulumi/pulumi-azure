@@ -28,7 +28,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
-// 			Location: pulumi.Any(_var.Resource_group_location),
+// 			Location: pulumi.String("westus"),
 // 		})
 // 		if err != nil {
 // 			return err

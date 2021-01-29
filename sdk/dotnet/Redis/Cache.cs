@@ -213,7 +213,7 @@ namespace Pulumi.Azure.Redis
         /// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
         /// </summary>
         [Output("zones")]
-        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
+        public Output<string?> Zones { get; private set; } = null!;
 
 
         /// <summary>
@@ -359,17 +359,11 @@ namespace Pulumi.Azure.Redis
             set => _tags = value;
         }
 
-        [Input("zones")]
-        private InputList<string>? _zones;
-
         /// <summary>
         /// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
         /// </summary>
-        public InputList<string> Zones
-        {
-            get => _zones ?? (_zones = new InputList<string>());
-            set => _zones = value;
-        }
+        [Input("zones")]
+        public Input<string>? Zones { get; set; }
 
         public CacheArgs()
         {
@@ -518,17 +512,11 @@ namespace Pulumi.Azure.Redis
             set => _tags = value;
         }
 
-        [Input("zones")]
-        private InputList<string>? _zones;
-
         /// <summary>
         /// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
         /// </summary>
-        public InputList<string> Zones
-        {
-            get => _zones ?? (_zones = new InputList<string>());
-            set => _zones = value;
-        }
+        [Input("zones")]
+        public Input<string>? Zones { get; set; }
 
         public CacheState()
         {
