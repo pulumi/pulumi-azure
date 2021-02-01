@@ -468,9 +468,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_app_service_certificate_binding": {Tok: azureResource(azureAppService, "CertificateBinding")},
 
 			// AppPlatform
-			"azurerm_spring_cloud_service":     {Tok: azureResource(azureAppPlatform, "SpringCloudService")},
-			"azurerm_spring_cloud_app":         {Tok: azureResource(azureAppPlatform, "SpringCloudApp")},
-			"azurerm_spring_cloud_certificate": {Tok: azureResource(azureAppPlatform, "SpringCloudCertificate")},
+			"azurerm_spring_cloud_service":           {Tok: azureResource(azureAppPlatform, "SpringCloudService")},
+			"azurerm_spring_cloud_app":               {Tok: azureResource(azureAppPlatform, "SpringCloudApp")},
+			"azurerm_spring_cloud_certificate":       {Tok: azureResource(azureAppPlatform, "SpringCloudCertificate")},
+			"azurerm_spring_cloud_active_deployment": {Tok: azureResource(azureAppPlatform, "SpringCloudActiveDeployment")},
+			"azurerm_spring_cloud_java_deployment":   {Tok: azureResource(azureAppPlatform, "SpringCloudJavaDeployment")},
 
 			// Automation
 			"azurerm_automation_account":                {Tok: azureResource(azureAutomation, "Account")},
@@ -735,9 +737,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_linked_service_cosmosdb": {
 				Tok: azureResource(azureDataFactory, "LinkedServiceCosmosDb"),
 			},
-			"azurerm_data_factory_linked_service_sftp":    {Tok: azureResource(azureDataFactory, "LinkedServiceSftp")},
-			"azurerm_data_factory_linked_service_web":     {Tok: azureResource(azureDataFactory, "LinkedServiceWeb")},
-			"azurerm_data_factory_linked_service_synapse": {Tok: azureResource(azureDataFactory, "LinkedServiceSynapse")},
+			"azurerm_data_factory_linked_service_sftp":      {Tok: azureResource(azureDataFactory, "LinkedServiceSftp")},
+			"azurerm_data_factory_linked_service_web":       {Tok: azureResource(azureDataFactory, "LinkedServiceWeb")},
+			"azurerm_data_factory_linked_service_synapse":   {Tok: azureResource(azureDataFactory, "LinkedServiceSynapse")},
+			"azurerm_data_factory_linked_service_snowflake": {Tok: azureResource(azureDataFactory, "LinkedServiceSnowflake")},
+			"azurerm_data_factory_linked_service_azure_table_storage": {
+				Tok: azureResource(azureDataFactory, "LinkedServiceAzureTableStorage"),
+			},
 			"azurerm_data_factory_linked_service_azure_function": {
 				Tok: azureResource(azureDataFactory, "LinkedServiceAzureFunction"),
 			},
@@ -841,6 +847,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_iothub_dps_certificate":            {Tok: azureResource(azureIot, "IotHubCertificate")},
 			"azurerm_iothub_fallback_route":             {Tok: azureResource(azureIot, "FallbackRoute")},
 			"azurerm_iothub_dps_shared_access_policy":   {Tok: azureResource(azureIot, "DpsSharedAccessPolicy")},
+			"azurerm_iothub_enrichment":                 {Tok: azureResource(azureIot, "Enrichment")},
+			"azurerm_iot_security_solution":             {Tok: azureResource(azureIot, "SecuritySolution")},
 			"azurerm_iot_time_series_insights_standard_environment": {
 				Tok: azureResource(azureIot, "TimeSeriesInsightsStandardEnvironment"),
 			},
@@ -1004,6 +1012,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_media_streaming_endpoint": {Tok: azureResource(azureMedia, "StreamingEndpoint")},
 			"azurerm_media_streaming_locator":  {Tok: azureResource(azureMedia, "StreamingLocator")},
 			"azurerm_media_content_key_policy": {Tok: azureResource(azureMedia, "ContentKeyPolicy")},
+			"azurerm_media_streaming_policy":   {Tok: azureResource(azureMedia, "StreamingPolicy")},
 
 			// Monitoring resources
 			"azurerm_monitor_action_group": {
@@ -1313,7 +1322,14 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_vpn_site":                               {Tok: azureResource(azureNetwork, "VpnSite")},
 
 			// Redis
-			"azurerm_redis_cache":         {Tok: azureResource(azureRedis, "Cache")},
+			"azurerm_redis_cache": {
+				Tok: azureResource(azureRedis, "Cache"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"zones": {
+						MaxItemsOne: boolRef(true),
+					},
+				},
+			},
 			"azurerm_redis_firewall_rule": {Tok: azureResource(azureRedis, "FirewallRule")},
 			"azurerm_redis_linked_server": {Tok: azureResource(azureRedis, "LinkedServer")},
 
@@ -1924,6 +1940,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mysql_server":                    {Tok: azureDataSource(azureMySQL, "getServer")},
 			"azurerm_cognitive_account":               {Tok: azureDataSource(azureCognitive, "getAccount")},
 			"azurerm_digital_twins_instance":          {Tok: azureDataSource(azureDigitalTwins, "getInstance")},
+			"azurerm_search_service":                  {Tok: azureDataSource(azureSearch, "getService")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{
@@ -1932,7 +1949,7 @@ func Provider() tfbridge.ProviderInfo {
 			Dependencies: map[string]string{
 				"@pulumi/pulumi":                "^2.17.0",
 				"azure-eventgrid":               "^1.6.0",
-				"@azure/functions":              "^1.0.3",
+				"@azure/functions":              "=1.2.2",
 				"@azure/ms-rest-azure-js":       "^2.0.1",
 				"@azure/ms-rest-nodeauth":       "^3.0.0",
 				"azure-functions-ts-essentials": "^1.3.2",

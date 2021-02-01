@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Iot.Inputs
     public sealed class TimeSeriesInsightsReferenceDataSetKeyPropertyGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the key property.
+        /// The name of the key property. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`.
+        /// The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

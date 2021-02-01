@@ -11,6 +11,8 @@ from .. import _utilities, _tables
 __all__ = [
     'ServiceIdentity',
     'ServiceQueryKey',
+    'GetServiceIdentityResult',
+    'GetServiceQueryKeyResult',
 ]
 
 @pulumi.output_type
@@ -90,5 +92,74 @@ class ServiceQueryKey(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GetServiceIdentityResult(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param str principal_id: The (Client) ID of the Service Principal.
+        :param str tenant_id: The ID of the Tenant the Service Principal is assigned in.
+        :param str type: The Type of Managed Identity which is used for the Search Service.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The (Client) ID of the Service Principal.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The ID of the Tenant the Service Principal is assigned in.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The Type of Managed Identity which is used for the Search Service.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetServiceQueryKeyResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 name: str):
+        """
+        :param str key: The value of this Query Key.
+        :param str name: The Name of the Search Service.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The value of this Query Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Name of the Search Service.
+        """
+        return pulumi.get(self, "name")
 
 

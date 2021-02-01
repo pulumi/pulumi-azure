@@ -68,11 +68,11 @@ export class TimeSeriesInsightsReferenceDataSet extends pulumi.CustomResource {
     }
 
     /**
-     * The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`.
+     * The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created.
      */
     public readonly dataStringComparisonBehavior!: pulumi.Output<string | undefined>;
     /**
-     * A `keyProperty` block as defined below.
+     * A `keyProperty` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly keyProperties!: pulumi.Output<outputs.iot.TimeSeriesInsightsReferenceDataSetKeyProperty[]>;
     /**
@@ -141,11 +141,11 @@ export class TimeSeriesInsightsReferenceDataSet extends pulumi.CustomResource {
  */
 export interface TimeSeriesInsightsReferenceDataSetState {
     /**
-     * The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`.
+     * The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created.
      */
     readonly dataStringComparisonBehavior?: pulumi.Input<string>;
     /**
-     * A `keyProperty` block as defined below.
+     * A `keyProperty` block as defined below. Changing this forces a new resource to be created.
      */
     readonly keyProperties?: pulumi.Input<pulumi.Input<inputs.iot.TimeSeriesInsightsReferenceDataSetKeyProperty>[]>;
     /**
@@ -171,11 +171,11 @@ export interface TimeSeriesInsightsReferenceDataSetState {
  */
 export interface TimeSeriesInsightsReferenceDataSetArgs {
     /**
-     * The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`.
+     * The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created.
      */
     readonly dataStringComparisonBehavior?: pulumi.Input<string>;
     /**
-     * A `keyProperty` block as defined below.
+     * A `keyProperty` block as defined below. Changing this forces a new resource to be created.
      */
     readonly keyProperties: pulumi.Input<pulumi.Input<inputs.iot.TimeSeriesInsightsReferenceDataSetKeyProperty>[]>;
     /**

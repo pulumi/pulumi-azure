@@ -9,6 +9,7 @@ from .job import *
 from .service_account import *
 from .streaming_endpoint import *
 from .streaming_locator import *
+from .streaming_policy import *
 from .transform import *
 from ._inputs import *
 from . import outputs
@@ -37,6 +38,8 @@ def _register_module():
                 return StreamingEndpoint(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:media/streamingLocator:StreamingLocator":
                 return StreamingLocator(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:media/streamingPolicy:StreamingPolicy":
+                return StreamingPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:media/transform:Transform":
                 return Transform(name, pulumi.ResourceOptions(urn=urn))
             else:
@@ -50,6 +53,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "media/serviceAccount", _module_instance)
     pulumi.runtime.register_resource_module("azure", "media/streamingEndpoint", _module_instance)
     pulumi.runtime.register_resource_module("azure", "media/streamingLocator", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "media/streamingPolicy", _module_instance)
     pulumi.runtime.register_resource_module("azure", "media/transform", _module_instance)
 
 _register_module()

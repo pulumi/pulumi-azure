@@ -48,7 +48,7 @@ class Account(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        rg = azure.core.ResourceGroup("rg", location=var["resource_group_location"])
+        rg = azure.core.ResourceGroup("rg", location="westus")
         ri = random.RandomInteger("ri",
             min=10000,
             max=99999)

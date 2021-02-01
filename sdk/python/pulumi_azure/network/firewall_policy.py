@@ -22,6 +22,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_intelligence_allowlist: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyThreatIntelligenceAllowlistArgs']]] = None,
                  threat_intelligence_mode: Optional[pulumi.Input[str]] = None,
@@ -57,6 +58,7 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
+        :param pulumi.Input[str] sku: The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Firewall Policy.
         :param pulumi.Input[pulumi.InputType['FirewallPolicyThreatIntelligenceAllowlistArgs']] threat_intelligence_allowlist: A `threat_intelligence_allowlist` block as defined below.
         :param pulumi.Input[str] threat_intelligence_mode: The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
@@ -85,6 +87,7 @@ class FirewallPolicy(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['threat_intelligence_allowlist'] = threat_intelligence_allowlist
             __props__['threat_intelligence_mode'] = threat_intelligence_mode
@@ -109,6 +112,7 @@ class FirewallPolicy(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             rule_collection_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            sku: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             threat_intelligence_allowlist: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyThreatIntelligenceAllowlistArgs']]] = None,
             threat_intelligence_mode: Optional[pulumi.Input[str]] = None) -> 'FirewallPolicy':
@@ -127,6 +131,7 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rule_collection_groups: A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
+        :param pulumi.Input[str] sku: The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Firewall Policy.
         :param pulumi.Input[pulumi.InputType['FirewallPolicyThreatIntelligenceAllowlistArgs']] threat_intelligence_allowlist: A `threat_intelligence_allowlist` block as defined below.
         :param pulumi.Input[str] threat_intelligence_mode: The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
@@ -143,6 +148,7 @@ class FirewallPolicy(pulumi.CustomResource):
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         __props__["rule_collection_groups"] = rule_collection_groups
+        __props__["sku"] = sku
         __props__["tags"] = tags
         __props__["threat_intelligence_allowlist"] = threat_intelligence_allowlist
         __props__["threat_intelligence_mode"] = threat_intelligence_mode
@@ -211,6 +217,14 @@ class FirewallPolicy(pulumi.CustomResource):
         A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
         """
         return pulumi.get(self, "rule_collection_groups")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Output[str]:
+        """
+        The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+        """
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter

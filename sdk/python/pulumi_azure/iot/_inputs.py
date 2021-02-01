@@ -10,6 +10,7 @@ from .. import _utilities, _tables
 
 __all__ = [
     'IoTHubEndpointArgs',
+    'IoTHubEnrichmentArgs',
     'IoTHubFallbackRouteArgs',
     'IoTHubFileUploadArgs',
     'IoTHubIpFilterRuleArgs',
@@ -18,6 +19,7 @@ __all__ = [
     'IoTHubSkuArgs',
     'IotHubDpsLinkedHubArgs',
     'IotHubDpsSkuArgs',
+    'SecuritySolutionRecommendationsEnabledArgs',
     'TimeSeriesInsightsGen2EnvironmentStorageArgs',
     'TimeSeriesInsightsReferenceDataSetKeyPropertyArgs',
 ]
@@ -168,6 +170,58 @@ class IoTHubEndpointArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group_name", value)
+
+
+@pulumi.input_type
+class IoTHubEnrichmentArgs:
+    def __init__(__self__, *,
+                 endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] endpoint_names: The list of endpoints which will be enriched.
+        :param pulumi.Input[str] key: The key of the enrichment.
+        :param pulumi.Input[str] value: The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
+        """
+        pulumi.set(__self__, "endpoint_names", endpoint_names)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="endpointNames")
+    def endpoint_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The list of endpoints which will be enriched.
+        """
+        return pulumi.get(self, "endpoint_names")
+
+    @endpoint_names.setter
+    def endpoint_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "endpoint_names", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key of the enrichment.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -724,6 +778,269 @@ class IotHubDpsSkuArgs:
 
 
 @pulumi.input_type
+class SecuritySolutionRecommendationsEnabledArgs:
+    def __init__(__self__, *,
+                 acr_authentication: Optional[pulumi.Input[bool]] = None,
+                 agent_send_unutilized_msg: Optional[pulumi.Input[bool]] = None,
+                 baseline: Optional[pulumi.Input[bool]] = None,
+                 edge_hub_mem_optimize: Optional[pulumi.Input[bool]] = None,
+                 edge_logging_option: Optional[pulumi.Input[bool]] = None,
+                 inconsistent_module_settings: Optional[pulumi.Input[bool]] = None,
+                 install_agent: Optional[pulumi.Input[bool]] = None,
+                 ip_filter_deny_all: Optional[pulumi.Input[bool]] = None,
+                 ip_filter_permissive_rule: Optional[pulumi.Input[bool]] = None,
+                 open_ports: Optional[pulumi.Input[bool]] = None,
+                 permissive_firewall_policy: Optional[pulumi.Input[bool]] = None,
+                 permissive_input_firewall_rules: Optional[pulumi.Input[bool]] = None,
+                 permissive_output_firewall_rules: Optional[pulumi.Input[bool]] = None,
+                 privileged_docker_options: Optional[pulumi.Input[bool]] = None,
+                 shared_credentials: Optional[pulumi.Input[bool]] = None,
+                 vulnerable_tls_cipher_suite: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] acr_authentication: Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
+        :param pulumi.Input[bool] agent_send_unutilized_msg: Is Agent send underutilized messages enabled? Defaults to `true`.
+        :param pulumi.Input[bool] baseline: Is Security related system configuration issues identified? Defaults to `true`.
+        :param pulumi.Input[bool] edge_hub_mem_optimize: Is IoT Edge Hub memory optimized? Defaults to `true`.
+        :param pulumi.Input[bool] edge_logging_option: Is logging configured for IoT Edge module? Defaults to `true`.
+        :param pulumi.Input[bool] inconsistent_module_settings: Is inconsistent module settings enabled for SecurityGroup? Defaults to `true`.
+        :param pulumi.Input[bool] install_agent: is Azure IoT Security agent installed? Defaults to `true`.
+        :param pulumi.Input[bool] ip_filter_deny_all: Is Default IP filter policy denied? Defaults to `true`.
+        :param pulumi.Input[bool] ip_filter_permissive_rule: Is IP filter rule source allowable IP range too large? Defaults to `true`.
+        :param pulumi.Input[bool] open_ports: Is any ports open on the device? Defaults to `true`.
+        :param pulumi.Input[bool] permissive_firewall_policy: Does firewall policy exist which allow necessary communication to/from the device? Defaults to `true`.
+        :param pulumi.Input[bool] permissive_input_firewall_rules: Is only necessary addresses or ports are permitted in? Defaults to `true`.
+        :param pulumi.Input[bool] permissive_output_firewall_rules: Is only necessary addresses or ports are permitted out? Defaults to `true`.
+        :param pulumi.Input[bool] privileged_docker_options: Is high level permissions are needed for the module? Defaults to `true`.
+        :param pulumi.Input[bool] shared_credentials: Is any credentials shared among devices? Defaults to `true`.
+        :param pulumi.Input[bool] vulnerable_tls_cipher_suite: Does TLS cipher suite need to be updated? Defaults to `true`.
+        """
+        if acr_authentication is not None:
+            pulumi.set(__self__, "acr_authentication", acr_authentication)
+        if agent_send_unutilized_msg is not None:
+            pulumi.set(__self__, "agent_send_unutilized_msg", agent_send_unutilized_msg)
+        if baseline is not None:
+            pulumi.set(__self__, "baseline", baseline)
+        if edge_hub_mem_optimize is not None:
+            pulumi.set(__self__, "edge_hub_mem_optimize", edge_hub_mem_optimize)
+        if edge_logging_option is not None:
+            pulumi.set(__self__, "edge_logging_option", edge_logging_option)
+        if inconsistent_module_settings is not None:
+            pulumi.set(__self__, "inconsistent_module_settings", inconsistent_module_settings)
+        if install_agent is not None:
+            pulumi.set(__self__, "install_agent", install_agent)
+        if ip_filter_deny_all is not None:
+            pulumi.set(__self__, "ip_filter_deny_all", ip_filter_deny_all)
+        if ip_filter_permissive_rule is not None:
+            pulumi.set(__self__, "ip_filter_permissive_rule", ip_filter_permissive_rule)
+        if open_ports is not None:
+            pulumi.set(__self__, "open_ports", open_ports)
+        if permissive_firewall_policy is not None:
+            pulumi.set(__self__, "permissive_firewall_policy", permissive_firewall_policy)
+        if permissive_input_firewall_rules is not None:
+            pulumi.set(__self__, "permissive_input_firewall_rules", permissive_input_firewall_rules)
+        if permissive_output_firewall_rules is not None:
+            pulumi.set(__self__, "permissive_output_firewall_rules", permissive_output_firewall_rules)
+        if privileged_docker_options is not None:
+            pulumi.set(__self__, "privileged_docker_options", privileged_docker_options)
+        if shared_credentials is not None:
+            pulumi.set(__self__, "shared_credentials", shared_credentials)
+        if vulnerable_tls_cipher_suite is not None:
+            pulumi.set(__self__, "vulnerable_tls_cipher_suite", vulnerable_tls_cipher_suite)
+
+    @property
+    @pulumi.getter(name="acrAuthentication")
+    def acr_authentication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
+        """
+        return pulumi.get(self, "acr_authentication")
+
+    @acr_authentication.setter
+    def acr_authentication(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "acr_authentication", value)
+
+    @property
+    @pulumi.getter(name="agentSendUnutilizedMsg")
+    def agent_send_unutilized_msg(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Agent send underutilized messages enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "agent_send_unutilized_msg")
+
+    @agent_send_unutilized_msg.setter
+    def agent_send_unutilized_msg(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "agent_send_unutilized_msg", value)
+
+    @property
+    @pulumi.getter
+    def baseline(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Security related system configuration issues identified? Defaults to `true`.
+        """
+        return pulumi.get(self, "baseline")
+
+    @baseline.setter
+    def baseline(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "baseline", value)
+
+    @property
+    @pulumi.getter(name="edgeHubMemOptimize")
+    def edge_hub_mem_optimize(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is IoT Edge Hub memory optimized? Defaults to `true`.
+        """
+        return pulumi.get(self, "edge_hub_mem_optimize")
+
+    @edge_hub_mem_optimize.setter
+    def edge_hub_mem_optimize(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "edge_hub_mem_optimize", value)
+
+    @property
+    @pulumi.getter(name="edgeLoggingOption")
+    def edge_logging_option(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is logging configured for IoT Edge module? Defaults to `true`.
+        """
+        return pulumi.get(self, "edge_logging_option")
+
+    @edge_logging_option.setter
+    def edge_logging_option(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "edge_logging_option", value)
+
+    @property
+    @pulumi.getter(name="inconsistentModuleSettings")
+    def inconsistent_module_settings(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is inconsistent module settings enabled for SecurityGroup? Defaults to `true`.
+        """
+        return pulumi.get(self, "inconsistent_module_settings")
+
+    @inconsistent_module_settings.setter
+    def inconsistent_module_settings(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "inconsistent_module_settings", value)
+
+    @property
+    @pulumi.getter(name="installAgent")
+    def install_agent(self) -> Optional[pulumi.Input[bool]]:
+        """
+        is Azure IoT Security agent installed? Defaults to `true`.
+        """
+        return pulumi.get(self, "install_agent")
+
+    @install_agent.setter
+    def install_agent(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "install_agent", value)
+
+    @property
+    @pulumi.getter(name="ipFilterDenyAll")
+    def ip_filter_deny_all(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Default IP filter policy denied? Defaults to `true`.
+        """
+        return pulumi.get(self, "ip_filter_deny_all")
+
+    @ip_filter_deny_all.setter
+    def ip_filter_deny_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ip_filter_deny_all", value)
+
+    @property
+    @pulumi.getter(name="ipFilterPermissiveRule")
+    def ip_filter_permissive_rule(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is IP filter rule source allowable IP range too large? Defaults to `true`.
+        """
+        return pulumi.get(self, "ip_filter_permissive_rule")
+
+    @ip_filter_permissive_rule.setter
+    def ip_filter_permissive_rule(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ip_filter_permissive_rule", value)
+
+    @property
+    @pulumi.getter(name="openPorts")
+    def open_ports(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is any ports open on the device? Defaults to `true`.
+        """
+        return pulumi.get(self, "open_ports")
+
+    @open_ports.setter
+    def open_ports(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "open_ports", value)
+
+    @property
+    @pulumi.getter(name="permissiveFirewallPolicy")
+    def permissive_firewall_policy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Does firewall policy exist which allow necessary communication to/from the device? Defaults to `true`.
+        """
+        return pulumi.get(self, "permissive_firewall_policy")
+
+    @permissive_firewall_policy.setter
+    def permissive_firewall_policy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "permissive_firewall_policy", value)
+
+    @property
+    @pulumi.getter(name="permissiveInputFirewallRules")
+    def permissive_input_firewall_rules(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is only necessary addresses or ports are permitted in? Defaults to `true`.
+        """
+        return pulumi.get(self, "permissive_input_firewall_rules")
+
+    @permissive_input_firewall_rules.setter
+    def permissive_input_firewall_rules(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "permissive_input_firewall_rules", value)
+
+    @property
+    @pulumi.getter(name="permissiveOutputFirewallRules")
+    def permissive_output_firewall_rules(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is only necessary addresses or ports are permitted out? Defaults to `true`.
+        """
+        return pulumi.get(self, "permissive_output_firewall_rules")
+
+    @permissive_output_firewall_rules.setter
+    def permissive_output_firewall_rules(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "permissive_output_firewall_rules", value)
+
+    @property
+    @pulumi.getter(name="privilegedDockerOptions")
+    def privileged_docker_options(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is high level permissions are needed for the module? Defaults to `true`.
+        """
+        return pulumi.get(self, "privileged_docker_options")
+
+    @privileged_docker_options.setter
+    def privileged_docker_options(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "privileged_docker_options", value)
+
+    @property
+    @pulumi.getter(name="sharedCredentials")
+    def shared_credentials(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is any credentials shared among devices? Defaults to `true`.
+        """
+        return pulumi.get(self, "shared_credentials")
+
+    @shared_credentials.setter
+    def shared_credentials(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "shared_credentials", value)
+
+    @property
+    @pulumi.getter(name="vulnerableTlsCipherSuite")
+    def vulnerable_tls_cipher_suite(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Does TLS cipher suite need to be updated? Defaults to `true`.
+        """
+        return pulumi.get(self, "vulnerable_tls_cipher_suite")
+
+    @vulnerable_tls_cipher_suite.setter
+    def vulnerable_tls_cipher_suite(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vulnerable_tls_cipher_suite", value)
+
+
+@pulumi.input_type
 class TimeSeriesInsightsGen2EnvironmentStorageArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -766,8 +1083,8 @@ class TimeSeriesInsightsReferenceDataSetKeyPropertyArgs:
                  name: pulumi.Input[str],
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: The name of the key property.
-        :param pulumi.Input[str] type: The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`.
+        :param pulumi.Input[str] name: The name of the key property. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] type: The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -776,7 +1093,7 @@ class TimeSeriesInsightsReferenceDataSetKeyPropertyArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the key property.
+        The name of the key property. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -788,7 +1105,7 @@ class TimeSeriesInsightsReferenceDataSetKeyPropertyArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`.
+        The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 

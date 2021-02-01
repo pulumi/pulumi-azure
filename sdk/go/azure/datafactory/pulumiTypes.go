@@ -2797,6 +2797,156 @@ func (o IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput) Index(i pulumi
 	}).(IntegrationRuntimeSelfHostedRbacAuthorizationOutput)
 }
 
+type LinkedServiceSnowflakeKeyVaultPassword struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName string `pulumi:"linkedServiceName"`
+	// Specifies the secret name in Azure Key Vault that stores Snowflake password.
+	SecretName string `pulumi:"secretName"`
+}
+
+// LinkedServiceSnowflakeKeyVaultPasswordInput is an input type that accepts LinkedServiceSnowflakeKeyVaultPasswordArgs and LinkedServiceSnowflakeKeyVaultPasswordOutput values.
+// You can construct a concrete instance of `LinkedServiceSnowflakeKeyVaultPasswordInput` via:
+//
+//          LinkedServiceSnowflakeKeyVaultPasswordArgs{...}
+type LinkedServiceSnowflakeKeyVaultPasswordInput interface {
+	pulumi.Input
+
+	ToLinkedServiceSnowflakeKeyVaultPasswordOutput() LinkedServiceSnowflakeKeyVaultPasswordOutput
+	ToLinkedServiceSnowflakeKeyVaultPasswordOutputWithContext(context.Context) LinkedServiceSnowflakeKeyVaultPasswordOutput
+}
+
+type LinkedServiceSnowflakeKeyVaultPasswordArgs struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
+	// Specifies the secret name in Azure Key Vault that stores Snowflake password.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (LinkedServiceSnowflakeKeyVaultPasswordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceSnowflakeKeyVaultPassword)(nil)).Elem()
+}
+
+func (i LinkedServiceSnowflakeKeyVaultPasswordArgs) ToLinkedServiceSnowflakeKeyVaultPasswordOutput() LinkedServiceSnowflakeKeyVaultPasswordOutput {
+	return i.ToLinkedServiceSnowflakeKeyVaultPasswordOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceSnowflakeKeyVaultPasswordArgs) ToLinkedServiceSnowflakeKeyVaultPasswordOutputWithContext(ctx context.Context) LinkedServiceSnowflakeKeyVaultPasswordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSnowflakeKeyVaultPasswordOutput)
+}
+
+func (i LinkedServiceSnowflakeKeyVaultPasswordArgs) ToLinkedServiceSnowflakeKeyVaultPasswordPtrOutput() LinkedServiceSnowflakeKeyVaultPasswordPtrOutput {
+	return i.ToLinkedServiceSnowflakeKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceSnowflakeKeyVaultPasswordArgs) ToLinkedServiceSnowflakeKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceSnowflakeKeyVaultPasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSnowflakeKeyVaultPasswordOutput).ToLinkedServiceSnowflakeKeyVaultPasswordPtrOutputWithContext(ctx)
+}
+
+// LinkedServiceSnowflakeKeyVaultPasswordPtrInput is an input type that accepts LinkedServiceSnowflakeKeyVaultPasswordArgs, LinkedServiceSnowflakeKeyVaultPasswordPtr and LinkedServiceSnowflakeKeyVaultPasswordPtrOutput values.
+// You can construct a concrete instance of `LinkedServiceSnowflakeKeyVaultPasswordPtrInput` via:
+//
+//          LinkedServiceSnowflakeKeyVaultPasswordArgs{...}
+//
+//  or:
+//
+//          nil
+type LinkedServiceSnowflakeKeyVaultPasswordPtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceSnowflakeKeyVaultPasswordPtrOutput() LinkedServiceSnowflakeKeyVaultPasswordPtrOutput
+	ToLinkedServiceSnowflakeKeyVaultPasswordPtrOutputWithContext(context.Context) LinkedServiceSnowflakeKeyVaultPasswordPtrOutput
+}
+
+type linkedServiceSnowflakeKeyVaultPasswordPtrType LinkedServiceSnowflakeKeyVaultPasswordArgs
+
+func LinkedServiceSnowflakeKeyVaultPasswordPtr(v *LinkedServiceSnowflakeKeyVaultPasswordArgs) LinkedServiceSnowflakeKeyVaultPasswordPtrInput {
+	return (*linkedServiceSnowflakeKeyVaultPasswordPtrType)(v)
+}
+
+func (*linkedServiceSnowflakeKeyVaultPasswordPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceSnowflakeKeyVaultPassword)(nil)).Elem()
+}
+
+func (i *linkedServiceSnowflakeKeyVaultPasswordPtrType) ToLinkedServiceSnowflakeKeyVaultPasswordPtrOutput() LinkedServiceSnowflakeKeyVaultPasswordPtrOutput {
+	return i.ToLinkedServiceSnowflakeKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceSnowflakeKeyVaultPasswordPtrType) ToLinkedServiceSnowflakeKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceSnowflakeKeyVaultPasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSnowflakeKeyVaultPasswordPtrOutput)
+}
+
+type LinkedServiceSnowflakeKeyVaultPasswordOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceSnowflakeKeyVaultPasswordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceSnowflakeKeyVaultPassword)(nil)).Elem()
+}
+
+func (o LinkedServiceSnowflakeKeyVaultPasswordOutput) ToLinkedServiceSnowflakeKeyVaultPasswordOutput() LinkedServiceSnowflakeKeyVaultPasswordOutput {
+	return o
+}
+
+func (o LinkedServiceSnowflakeKeyVaultPasswordOutput) ToLinkedServiceSnowflakeKeyVaultPasswordOutputWithContext(ctx context.Context) LinkedServiceSnowflakeKeyVaultPasswordOutput {
+	return o
+}
+
+func (o LinkedServiceSnowflakeKeyVaultPasswordOutput) ToLinkedServiceSnowflakeKeyVaultPasswordPtrOutput() LinkedServiceSnowflakeKeyVaultPasswordPtrOutput {
+	return o.ToLinkedServiceSnowflakeKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceSnowflakeKeyVaultPasswordOutput) ToLinkedServiceSnowflakeKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceSnowflakeKeyVaultPasswordPtrOutput {
+	return o.ApplyT(func(v LinkedServiceSnowflakeKeyVaultPassword) *LinkedServiceSnowflakeKeyVaultPassword {
+		return &v
+	}).(LinkedServiceSnowflakeKeyVaultPasswordPtrOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceSnowflakeKeyVaultPasswordOutput) LinkedServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceSnowflakeKeyVaultPassword) string { return v.LinkedServiceName }).(pulumi.StringOutput)
+}
+
+// Specifies the secret name in Azure Key Vault that stores Snowflake password.
+func (o LinkedServiceSnowflakeKeyVaultPasswordOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceSnowflakeKeyVaultPassword) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type LinkedServiceSnowflakeKeyVaultPasswordPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceSnowflakeKeyVaultPasswordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceSnowflakeKeyVaultPassword)(nil)).Elem()
+}
+
+func (o LinkedServiceSnowflakeKeyVaultPasswordPtrOutput) ToLinkedServiceSnowflakeKeyVaultPasswordPtrOutput() LinkedServiceSnowflakeKeyVaultPasswordPtrOutput {
+	return o
+}
+
+func (o LinkedServiceSnowflakeKeyVaultPasswordPtrOutput) ToLinkedServiceSnowflakeKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceSnowflakeKeyVaultPasswordPtrOutput {
+	return o
+}
+
+func (o LinkedServiceSnowflakeKeyVaultPasswordPtrOutput) Elem() LinkedServiceSnowflakeKeyVaultPasswordOutput {
+	return o.ApplyT(func(v *LinkedServiceSnowflakeKeyVaultPassword) LinkedServiceSnowflakeKeyVaultPassword { return *v }).(LinkedServiceSnowflakeKeyVaultPasswordOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceSnowflakeKeyVaultPasswordPtrOutput) LinkedServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceSnowflakeKeyVaultPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LinkedServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the secret name in Azure Key Vault that stores Snowflake password.
+func (o LinkedServiceSnowflakeKeyVaultPasswordPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceSnowflakeKeyVaultPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
 type LinkedServiceSqlServerKeyVaultPassword struct {
 	// Specifies the name of an existing Key Vault Data Factory Linked Service.
 	LinkedServiceName string `pulumi:"linkedServiceName"`
@@ -3526,6 +3676,8 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeManagedVnetIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSelfHostedRbacAuthorizationOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput{})
+	pulumi.RegisterOutputType(LinkedServiceSnowflakeKeyVaultPasswordOutput{})
+	pulumi.RegisterOutputType(LinkedServiceSnowflakeKeyVaultPasswordPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSqlServerKeyVaultPasswordOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSqlServerKeyVaultPasswordPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSynapseKeyVaultPasswordOutput{})

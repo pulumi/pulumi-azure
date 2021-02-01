@@ -1999,6 +1999,130 @@ func (o AccountStaticWebsitePtrOutput) IndexDocument() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type DataLakeGen2FilesystemAce struct {
+	// Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
+	Id *string `pulumi:"id"`
+	// Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+	Permissions string `pulumi:"permissions"`
+	// Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
+	Scope *string `pulumi:"scope"`
+	// Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
+	Type string `pulumi:"type"`
+}
+
+// DataLakeGen2FilesystemAceInput is an input type that accepts DataLakeGen2FilesystemAceArgs and DataLakeGen2FilesystemAceOutput values.
+// You can construct a concrete instance of `DataLakeGen2FilesystemAceInput` via:
+//
+//          DataLakeGen2FilesystemAceArgs{...}
+type DataLakeGen2FilesystemAceInput interface {
+	pulumi.Input
+
+	ToDataLakeGen2FilesystemAceOutput() DataLakeGen2FilesystemAceOutput
+	ToDataLakeGen2FilesystemAceOutputWithContext(context.Context) DataLakeGen2FilesystemAceOutput
+}
+
+type DataLakeGen2FilesystemAceArgs struct {
+	// Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+	Permissions pulumi.StringInput `pulumi:"permissions"`
+	// Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DataLakeGen2FilesystemAceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeGen2FilesystemAce)(nil)).Elem()
+}
+
+func (i DataLakeGen2FilesystemAceArgs) ToDataLakeGen2FilesystemAceOutput() DataLakeGen2FilesystemAceOutput {
+	return i.ToDataLakeGen2FilesystemAceOutputWithContext(context.Background())
+}
+
+func (i DataLakeGen2FilesystemAceArgs) ToDataLakeGen2FilesystemAceOutputWithContext(ctx context.Context) DataLakeGen2FilesystemAceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2FilesystemAceOutput)
+}
+
+// DataLakeGen2FilesystemAceArrayInput is an input type that accepts DataLakeGen2FilesystemAceArray and DataLakeGen2FilesystemAceArrayOutput values.
+// You can construct a concrete instance of `DataLakeGen2FilesystemAceArrayInput` via:
+//
+//          DataLakeGen2FilesystemAceArray{ DataLakeGen2FilesystemAceArgs{...} }
+type DataLakeGen2FilesystemAceArrayInput interface {
+	pulumi.Input
+
+	ToDataLakeGen2FilesystemAceArrayOutput() DataLakeGen2FilesystemAceArrayOutput
+	ToDataLakeGen2FilesystemAceArrayOutputWithContext(context.Context) DataLakeGen2FilesystemAceArrayOutput
+}
+
+type DataLakeGen2FilesystemAceArray []DataLakeGen2FilesystemAceInput
+
+func (DataLakeGen2FilesystemAceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataLakeGen2FilesystemAce)(nil)).Elem()
+}
+
+func (i DataLakeGen2FilesystemAceArray) ToDataLakeGen2FilesystemAceArrayOutput() DataLakeGen2FilesystemAceArrayOutput {
+	return i.ToDataLakeGen2FilesystemAceArrayOutputWithContext(context.Background())
+}
+
+func (i DataLakeGen2FilesystemAceArray) ToDataLakeGen2FilesystemAceArrayOutputWithContext(ctx context.Context) DataLakeGen2FilesystemAceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2FilesystemAceArrayOutput)
+}
+
+type DataLakeGen2FilesystemAceOutput struct{ *pulumi.OutputState }
+
+func (DataLakeGen2FilesystemAceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeGen2FilesystemAce)(nil)).Elem()
+}
+
+func (o DataLakeGen2FilesystemAceOutput) ToDataLakeGen2FilesystemAceOutput() DataLakeGen2FilesystemAceOutput {
+	return o
+}
+
+func (o DataLakeGen2FilesystemAceOutput) ToDataLakeGen2FilesystemAceOutputWithContext(ctx context.Context) DataLakeGen2FilesystemAceOutput {
+	return o
+}
+
+// Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
+func (o DataLakeGen2FilesystemAceOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataLakeGen2FilesystemAce) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+func (o DataLakeGen2FilesystemAceOutput) Permissions() pulumi.StringOutput {
+	return o.ApplyT(func(v DataLakeGen2FilesystemAce) string { return v.Permissions }).(pulumi.StringOutput)
+}
+
+// Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
+func (o DataLakeGen2FilesystemAceOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataLakeGen2FilesystemAce) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
+func (o DataLakeGen2FilesystemAceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DataLakeGen2FilesystemAce) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type DataLakeGen2FilesystemAceArrayOutput struct{ *pulumi.OutputState }
+
+func (DataLakeGen2FilesystemAceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataLakeGen2FilesystemAce)(nil)).Elem()
+}
+
+func (o DataLakeGen2FilesystemAceArrayOutput) ToDataLakeGen2FilesystemAceArrayOutput() DataLakeGen2FilesystemAceArrayOutput {
+	return o
+}
+
+func (o DataLakeGen2FilesystemAceArrayOutput) ToDataLakeGen2FilesystemAceArrayOutputWithContext(ctx context.Context) DataLakeGen2FilesystemAceArrayOutput {
+	return o
+}
+
+func (o DataLakeGen2FilesystemAceArrayOutput) Index(i pulumi.IntInput) DataLakeGen2FilesystemAceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataLakeGen2FilesystemAce {
+		return vs[0].([]DataLakeGen2FilesystemAce)[vs[1].(int)]
+	}).(DataLakeGen2FilesystemAceOutput)
+}
+
 type DataLakeGen2PathAce struct {
 	// Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
 	Id *string `pulumi:"id"`
@@ -4235,6 +4359,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountQueuePropertiesMinuteMetricsPtrOutput{})
 	pulumi.RegisterOutputType(AccountStaticWebsiteOutput{})
 	pulumi.RegisterOutputType(AccountStaticWebsitePtrOutput{})
+	pulumi.RegisterOutputType(DataLakeGen2FilesystemAceOutput{})
+	pulumi.RegisterOutputType(DataLakeGen2FilesystemAceArrayOutput{})
 	pulumi.RegisterOutputType(DataLakeGen2PathAceOutput{})
 	pulumi.RegisterOutputType(DataLakeGen2PathAceArrayOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleOutput{})

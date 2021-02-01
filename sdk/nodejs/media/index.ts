@@ -11,6 +11,7 @@ export * from "./job";
 export * from "./serviceAccount";
 export * from "./streamingEndpoint";
 export * from "./streamingLocator";
+export * from "./streamingPolicy";
 export * from "./transform";
 
 // Import resources to register:
@@ -20,6 +21,7 @@ import { Job } from "./job";
 import { ServiceAccount } from "./serviceAccount";
 import { StreamingEndpoint } from "./streamingEndpoint";
 import { StreamingLocator } from "./streamingLocator";
+import { StreamingPolicy } from "./streamingPolicy";
 import { Transform } from "./transform";
 
 const _module = {
@@ -38,6 +40,8 @@ const _module = {
                 return new StreamingEndpoint(name, <any>undefined, { urn })
             case "azure:media/streamingLocator:StreamingLocator":
                 return new StreamingLocator(name, <any>undefined, { urn })
+            case "azure:media/streamingPolicy:StreamingPolicy":
+                return new StreamingPolicy(name, <any>undefined, { urn })
             case "azure:media/transform:Transform":
                 return new Transform(name, <any>undefined, { urn })
             default:
@@ -51,4 +55,5 @@ pulumi.runtime.registerResourceModule("azure", "media/job", _module)
 pulumi.runtime.registerResourceModule("azure", "media/serviceAccount", _module)
 pulumi.runtime.registerResourceModule("azure", "media/streamingEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "media/streamingLocator", _module)
+pulumi.runtime.registerResourceModule("azure", "media/streamingPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "media/transform", _module)

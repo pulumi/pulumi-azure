@@ -22,6 +22,7 @@ __all__ = [
     'AccountQueuePropertiesLogging',
     'AccountQueuePropertiesMinuteMetrics',
     'AccountStaticWebsite',
+    'DataLakeGen2FilesystemAce',
     'DataLakeGen2PathAce',
     'ManagementPolicyRule',
     'ManagementPolicyRuleActions',
@@ -636,6 +637,62 @@ class AccountStaticWebsite(dict):
         The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
         """
         return pulumi.get(self, "index_document")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataLakeGen2FilesystemAce(dict):
+    def __init__(__self__, *,
+                 permissions: str,
+                 type: str,
+                 id: Optional[str] = None,
+                 scope: Optional[str] = None):
+        """
+        :param str permissions: Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+        :param str type: Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
+        :param str id: Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
+        :param str scope: Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
+        """
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> str:
+        """
+        Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+        """
+        return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
+        """
+        Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
+        """
+        return pulumi.get(self, "scope")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

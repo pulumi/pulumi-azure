@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -38,6 +39,10 @@ import * as utilities from "../utilities";
  *         "11.22.33.44/32",
  *         "55.66.77.0/24",
  *     ],
+ *     clusterSettings: [{
+ *         name: "DisableTls1.0",
+ *         value: "1",
+ *     }],
  * });
  * ```
  *
@@ -81,6 +86,10 @@ export class Environment extends pulumi.CustomResource {
      * Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
      */
     public readonly allowedUserIpCidrs!: pulumi.Output<string[]>;
+    /**
+     * Zero or more `clusterSetting` blocks as defined below.
+     */
+    public readonly clusterSettings!: pulumi.Output<outputs.appservice.EnvironmentClusterSetting[]>;
     /**
      * Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
      */
@@ -131,6 +140,7 @@ export class Environment extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as EnvironmentState | undefined;
             inputs["allowedUserIpCidrs"] = state ? state.allowedUserIpCidrs : undefined;
+            inputs["clusterSettings"] = state ? state.clusterSettings : undefined;
             inputs["frontEndScaleFactor"] = state ? state.frontEndScaleFactor : undefined;
             inputs["internalLoadBalancingMode"] = state ? state.internalLoadBalancingMode : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -146,6 +156,7 @@ export class Environment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subnetId'");
             }
             inputs["allowedUserIpCidrs"] = args ? args.allowedUserIpCidrs : undefined;
+            inputs["clusterSettings"] = args ? args.clusterSettings : undefined;
             inputs["frontEndScaleFactor"] = args ? args.frontEndScaleFactor : undefined;
             inputs["internalLoadBalancingMode"] = args ? args.internalLoadBalancingMode : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -175,6 +186,10 @@ export interface EnvironmentState {
      * Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
      */
     readonly allowedUserIpCidrs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Zero or more `clusterSetting` blocks as defined below.
+     */
+    readonly clusterSettings?: pulumi.Input<pulumi.Input<inputs.appservice.EnvironmentClusterSetting>[]>;
     /**
      * Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
      */
@@ -221,6 +236,10 @@ export interface EnvironmentArgs {
      * Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
      */
     readonly allowedUserIpCidrs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Zero or more `clusterSetting` blocks as defined below.
+     */
+    readonly clusterSettings?: pulumi.Input<pulumi.Input<inputs.appservice.EnvironmentClusterSetting>[]>;
     /**
      * Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
      */

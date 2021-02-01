@@ -24,7 +24,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
         /// <summary>
         /// Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private SpringCloudAppIdentity(
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
 
             string? tenantId,
 
-            string type)
+            string? type)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

@@ -132,7 +132,7 @@ type Cache struct {
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+	// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
 	Zones pulumi.StringPtrOutput `pulumi:"zones"`
 }
 
@@ -221,7 +221,7 @@ type cacheState struct {
 	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+	// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
 	Zones *string `pulumi:"zones"`
 }
 
@@ -270,7 +270,7 @@ type CacheState struct {
 	SubnetId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+	// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
 	Zones pulumi.StringPtrInput
 }
 
@@ -309,7 +309,7 @@ type cacheArgs struct {
 	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+	// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
 	Zones *string `pulumi:"zones"`
 }
 
@@ -345,7 +345,7 @@ type CacheArgs struct {
 	SubnetId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+	// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
 	Zones pulumi.StringPtrInput
 }
 

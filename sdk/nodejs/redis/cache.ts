@@ -179,7 +179,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+     * A list of a one or more Availability Zones, where the Redis Cache should be allocated.
      */
     public readonly zones!: pulumi.Output<string | undefined>;
 
@@ -356,7 +356,7 @@ export interface CacheState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+     * A list of a one or more Availability Zones, where the Redis Cache should be allocated.
      */
     readonly zones?: pulumi.Input<string>;
 }
@@ -424,7 +424,7 @@ export interface CacheArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+     * A list of a one or more Availability Zones, where the Redis Cache should be allocated.
      */
     readonly zones?: pulumi.Input<string>;
 }

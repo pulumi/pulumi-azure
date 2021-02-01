@@ -4,8 +4,10 @@
 
 # Export this package's modules as members:
 from .get_spring_cloud_service import *
+from .spring_cloud_active_deployment import *
 from .spring_cloud_app import *
 from .spring_cloud_certificate import *
+from .spring_cloud_java_deployment import *
 from .spring_cloud_service import *
 from ._inputs import *
 from . import outputs
@@ -22,10 +24,14 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure:appplatform/springCloudApp:SpringCloudApp":
+            if typ == "azure:appplatform/springCloudActiveDeployment:SpringCloudActiveDeployment":
+                return SpringCloudActiveDeployment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appplatform/springCloudApp:SpringCloudApp":
                 return SpringCloudApp(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:appplatform/springCloudCertificate:SpringCloudCertificate":
                 return SpringCloudCertificate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appplatform/springCloudJavaDeployment:SpringCloudJavaDeployment":
+                return SpringCloudJavaDeployment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:appplatform/springCloudService:SpringCloudService":
                 return SpringCloudService(name, pulumi.ResourceOptions(urn=urn))
             else:
@@ -33,8 +39,10 @@ def _register_module():
 
 
     _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure", "appplatform/springCloudActiveDeployment", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appplatform/springCloudApp", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appplatform/springCloudCertificate", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appplatform/springCloudJavaDeployment", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appplatform/springCloudService", _module_instance)
 
 _register_module()

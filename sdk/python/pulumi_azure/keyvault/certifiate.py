@@ -184,6 +184,7 @@ class Certifiate(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['certificate_attributes'] = None
             __props__['certificate_data'] = None
+            __props__['certificate_data_base64'] = None
             __props__['secret_id'] = None
             __props__['thumbprint'] = None
             __props__['version'] = None
@@ -200,6 +201,7 @@ class Certifiate(pulumi.CustomResource):
             certificate: Optional[pulumi.Input[pulumi.InputType['CertifiateCertificateArgs']]] = None,
             certificate_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertifiateCertificateAttributeArgs']]]]] = None,
             certificate_data: Optional[pulumi.Input[str]] = None,
+            certificate_data_base64: Optional[pulumi.Input[str]] = None,
             certificate_policy: Optional[pulumi.Input[pulumi.InputType['CertifiateCertificatePolicyArgs']]] = None,
             key_vault_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -217,6 +219,7 @@ class Certifiate(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CertifiateCertificateArgs']] certificate: A `certificate` block as defined below, used to Import an existing certificate.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertifiateCertificateAttributeArgs']]]] certificate_attributes: A `certificate_attribute` block as defined below.
         :param pulumi.Input[str] certificate_data: The raw Key Vault Certificate data represented as a hexadecimal string.
+        :param pulumi.Input[str] certificate_data_base64: The Base64 encoded Key Vault Certificate data.
         :param pulumi.Input[pulumi.InputType['CertifiateCertificatePolicyArgs']] certificate_policy: A `certificate_policy` block as defined below.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
@@ -232,6 +235,7 @@ class Certifiate(pulumi.CustomResource):
         __props__["certificate"] = certificate
         __props__["certificate_attributes"] = certificate_attributes
         __props__["certificate_data"] = certificate_data
+        __props__["certificate_data_base64"] = certificate_data_base64
         __props__["certificate_policy"] = certificate_policy
         __props__["key_vault_id"] = key_vault_id
         __props__["name"] = name
@@ -264,6 +268,14 @@ class Certifiate(pulumi.CustomResource):
         The raw Key Vault Certificate data represented as a hexadecimal string.
         """
         return pulumi.get(self, "certificate_data")
+
+    @property
+    @pulumi.getter(name="certificateDataBase64")
+    def certificate_data_base64(self) -> pulumi.Output[str]:
+        """
+        The Base64 encoded Key Vault Certificate data.
+        """
+        return pulumi.get(self, "certificate_data_base64")
 
     @property
     @pulumi.getter(name="certificatePolicy")

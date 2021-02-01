@@ -69,9 +69,9 @@ import (
 type TimeSeriesInsightsReferenceDataSet struct {
 	pulumi.CustomResourceState
 
-	// The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`.
+	// The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created.
 	DataStringComparisonBehavior pulumi.StringPtrOutput `pulumi:"dataStringComparisonBehavior"`
-	// A `keyProperty` block as defined below.
+	// A `keyProperty` block as defined below. Changing this forces a new resource to be created.
 	KeyProperties TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput `pulumi:"keyProperties"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -118,9 +118,9 @@ func GetTimeSeriesInsightsReferenceDataSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TimeSeriesInsightsReferenceDataSet resources.
 type timeSeriesInsightsReferenceDataSetState struct {
-	// The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`.
+	// The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created.
 	DataStringComparisonBehavior *string `pulumi:"dataStringComparisonBehavior"`
-	// A `keyProperty` block as defined below.
+	// A `keyProperty` block as defined below. Changing this forces a new resource to be created.
 	KeyProperties []TimeSeriesInsightsReferenceDataSetKeyProperty `pulumi:"keyProperties"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -133,9 +133,9 @@ type timeSeriesInsightsReferenceDataSetState struct {
 }
 
 type TimeSeriesInsightsReferenceDataSetState struct {
-	// The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`.
+	// The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created.
 	DataStringComparisonBehavior pulumi.StringPtrInput
-	// A `keyProperty` block as defined below.
+	// A `keyProperty` block as defined below. Changing this forces a new resource to be created.
 	KeyProperties TimeSeriesInsightsReferenceDataSetKeyPropertyArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -152,9 +152,9 @@ func (TimeSeriesInsightsReferenceDataSetState) ElementType() reflect.Type {
 }
 
 type timeSeriesInsightsReferenceDataSetArgs struct {
-	// The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`.
+	// The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created.
 	DataStringComparisonBehavior *string `pulumi:"dataStringComparisonBehavior"`
-	// A `keyProperty` block as defined below.
+	// A `keyProperty` block as defined below. Changing this forces a new resource to be created.
 	KeyProperties []TimeSeriesInsightsReferenceDataSetKeyProperty `pulumi:"keyProperties"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -168,9 +168,9 @@ type timeSeriesInsightsReferenceDataSetArgs struct {
 
 // The set of arguments for constructing a TimeSeriesInsightsReferenceDataSet resource.
 type TimeSeriesInsightsReferenceDataSetArgs struct {
-	// The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`.
+	// The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created.
 	DataStringComparisonBehavior pulumi.StringPtrInput
-	// A `keyProperty` block as defined below.
+	// A `keyProperty` block as defined below. Changing this forces a new resource to be created.
 	KeyProperties TimeSeriesInsightsReferenceDataSetKeyPropertyArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput

@@ -25,7 +25,7 @@ namespace Pulumi.Azure.CosmosDB
     ///     {
     ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = @var.Resource_group_location,
+    ///             Location = "westus",
     ///         });
     ///         var ri = new Random.RandomInteger("ri", new Random.RandomIntegerArgs
     ///         {

@@ -12,6 +12,8 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Routes can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
  *
+ * > **NOTE:** Enrichments can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+ *
  * > **NOTE:** Fallback route can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
  *
  * ## Example Usage
@@ -88,6 +90,14 @@ import * as utilities from "../utilities";
  *             enabled: true,
  *         },
  *     ],
+ *     enrichments: [{
+ *         key: "tenant",
+ *         value: `$twin.tags.Tenant`,
+ *         endpointNames: [
+ *             "export",
+ *             "export2",
+ *         ],
+ *     }],
  *     tags: {
  *         purpose: "testing",
  *     },
@@ -135,6 +145,10 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public readonly endpoints!: pulumi.Output<outputs.iot.IoTHubEndpoint[]>;
     /**
+     * A `enrichment` block as defined below.
+     */
+    public readonly enrichments!: pulumi.Output<outputs.iot.IoTHubEnrichment[]>;
+    /**
      * The EventHub compatible endpoint for events data
      */
     public /*out*/ readonly eventHubEventsEndpoint!: pulumi.Output<string>;
@@ -175,7 +189,7 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public readonly ipFilterRules!: pulumi.Output<outputs.iot.IoTHubIpFilterRule[] | undefined>;
     /**
-     * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -228,6 +242,7 @@ export class IoTHub extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as IoTHubState | undefined;
             inputs["endpoints"] = state ? state.endpoints : undefined;
+            inputs["enrichments"] = state ? state.enrichments : undefined;
             inputs["eventHubEventsEndpoint"] = state ? state.eventHubEventsEndpoint : undefined;
             inputs["eventHubEventsPath"] = state ? state.eventHubEventsPath : undefined;
             inputs["eventHubOperationsEndpoint"] = state ? state.eventHubOperationsEndpoint : undefined;
@@ -257,6 +272,7 @@ export class IoTHub extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["endpoints"] = args ? args.endpoints : undefined;
+            inputs["enrichments"] = args ? args.enrichments : undefined;
             inputs["eventHubPartitionCount"] = args ? args.eventHubPartitionCount : undefined;
             inputs["eventHubRetentionInDays"] = args ? args.eventHubRetentionInDays : undefined;
             inputs["fallbackRoute"] = args ? args.fallbackRoute : undefined;
@@ -298,6 +314,10 @@ export interface IoTHubState {
      */
     readonly endpoints?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEndpoint>[]>;
     /**
+     * A `enrichment` block as defined below.
+     */
+    readonly enrichments?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEnrichment>[]>;
+    /**
      * The EventHub compatible endpoint for events data
      */
     readonly eventHubEventsEndpoint?: pulumi.Input<string>;
@@ -338,7 +358,7 @@ export interface IoTHubState {
      */
     readonly ipFilterRules?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubIpFilterRule>[]>;
     /**
-     * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
@@ -388,6 +408,10 @@ export interface IoTHubArgs {
      */
     readonly endpoints?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEndpoint>[]>;
     /**
+     * A `enrichment` block as defined below.
+     */
+    readonly enrichments?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEnrichment>[]>;
+    /**
      * The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
      */
     readonly eventHubPartitionCount?: pulumi.Input<number>;
@@ -408,7 +432,7 @@ export interface IoTHubArgs {
      */
     readonly ipFilterRules?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubIpFilterRule>[]>;
     /**
-     * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**

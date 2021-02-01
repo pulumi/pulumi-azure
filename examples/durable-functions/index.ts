@@ -44,7 +44,7 @@ var app = new azure.appservice.MultiCallbackFunctionApp("durable", {
                 const client = df.getClient(context);
                 client.startNew("orch", request.params.id);
 
-                return client.waitForCompletionOrCreateCheckStatusResponse(request, request.params.id, 5000, 100);
+                return client.waitForCompletionOrCreateCheckStatusResponse(request, request.params.id!, 5000, 100);
             },
             inputs: [new azure.appservice.DurableOrchestrationClientInputBindingSettings("starter")]
         }),

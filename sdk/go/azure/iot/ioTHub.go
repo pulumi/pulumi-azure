@@ -17,6 +17,8 @@ import (
 //
 // > **NOTE:** Routes can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 //
+// > **NOTE:** Enrichments can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+//
 // > **NOTE:** Fallback route can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 //
 // ## Example Usage
@@ -25,6 +27,8 @@ import (
 // package main
 //
 // import (
+// 	"fmt"
+//
 // 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/eventhub"
 // 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/iot"
@@ -126,6 +130,16 @@ import (
 // 					Enabled: pulumi.Bool(true),
 // 				},
 // 			},
+// 			Enrichments: iot.IoTHubEnrichmentArray{
+// 				&iot.IoTHubEnrichmentArgs{
+// 					Key:   pulumi.String("tenant"),
+// 					Value: pulumi.String(fmt.Sprintf("%v%v", "$", "twin.tags.Tenant")),
+// 					EndpointNames: pulumi.StringArray{
+// 						pulumi.String("export"),
+// 						pulumi.String("export2"),
+// 					},
+// 				},
+// 			},
 // 			Tags: pulumi.StringMap{
 // 				"purpose": pulumi.String("testing"),
 // 			},
@@ -150,6 +164,8 @@ type IoTHub struct {
 
 	// An `endpoint` block as defined below.
 	Endpoints IoTHubEndpointArrayOutput `pulumi:"endpoints"`
+	// A `enrichment` block as defined below.
+	Enrichments IoTHubEnrichmentArrayOutput `pulumi:"enrichments"`
 	// The EventHub compatible endpoint for events data
 	EventHubEventsEndpoint pulumi.StringOutput `pulumi:"eventHubEventsEndpoint"`
 	// The EventHub compatible path for events data
@@ -170,7 +186,7 @@ type IoTHub struct {
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
 	// One or more `ipFilterRule` blocks as defined below.
 	IpFilterRules IoTHubIpFilterRuleArrayOutput `pulumi:"ipFilterRules"`
-	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
 	MinTlsVersion pulumi.StringPtrOutput `pulumi:"minTlsVersion"`
@@ -229,6 +245,8 @@ func GetIoTHub(ctx *pulumi.Context,
 type ioTHubState struct {
 	// An `endpoint` block as defined below.
 	Endpoints []IoTHubEndpoint `pulumi:"endpoints"`
+	// A `enrichment` block as defined below.
+	Enrichments []IoTHubEnrichment `pulumi:"enrichments"`
 	// The EventHub compatible endpoint for events data
 	EventHubEventsEndpoint *string `pulumi:"eventHubEventsEndpoint"`
 	// The EventHub compatible path for events data
@@ -249,7 +267,7 @@ type ioTHubState struct {
 	Hostname *string `pulumi:"hostname"`
 	// One or more `ipFilterRule` blocks as defined below.
 	IpFilterRules []IoTHubIpFilterRule `pulumi:"ipFilterRules"`
-	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
@@ -274,6 +292,8 @@ type ioTHubState struct {
 type IoTHubState struct {
 	// An `endpoint` block as defined below.
 	Endpoints IoTHubEndpointArrayInput
+	// A `enrichment` block as defined below.
+	Enrichments IoTHubEnrichmentArrayInput
 	// The EventHub compatible endpoint for events data
 	EventHubEventsEndpoint pulumi.StringPtrInput
 	// The EventHub compatible path for events data
@@ -294,7 +314,7 @@ type IoTHubState struct {
 	Hostname pulumi.StringPtrInput
 	// One or more `ipFilterRule` blocks as defined below.
 	IpFilterRules IoTHubIpFilterRuleArrayInput
-	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
 	MinTlsVersion pulumi.StringPtrInput
@@ -323,6 +343,8 @@ func (IoTHubState) ElementType() reflect.Type {
 type ioTHubArgs struct {
 	// An `endpoint` block as defined below.
 	Endpoints []IoTHubEndpoint `pulumi:"endpoints"`
+	// A `enrichment` block as defined below.
+	Enrichments []IoTHubEnrichment `pulumi:"enrichments"`
 	// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
 	EventHubPartitionCount *int `pulumi:"eventHubPartitionCount"`
 	// The event hub retention to use in days. Must be between `1` and `7`.
@@ -333,7 +355,7 @@ type ioTHubArgs struct {
 	FileUpload *IoTHubFileUpload `pulumi:"fileUpload"`
 	// One or more `ipFilterRule` blocks as defined below.
 	IpFilterRules []IoTHubIpFilterRule `pulumi:"ipFilterRules"`
-	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
@@ -355,6 +377,8 @@ type ioTHubArgs struct {
 type IoTHubArgs struct {
 	// An `endpoint` block as defined below.
 	Endpoints IoTHubEndpointArrayInput
+	// A `enrichment` block as defined below.
+	Enrichments IoTHubEnrichmentArrayInput
 	// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
 	EventHubPartitionCount pulumi.IntPtrInput
 	// The event hub retention to use in days. Must be between `1` and `7`.
@@ -365,7 +389,7 @@ type IoTHubArgs struct {
 	FileUpload IoTHubFileUploadPtrInput
 	// One or more `ipFilterRule` blocks as defined below.
 	IpFilterRules IoTHubIpFilterRuleArrayInput
-	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
 	MinTlsVersion pulumi.StringPtrInput

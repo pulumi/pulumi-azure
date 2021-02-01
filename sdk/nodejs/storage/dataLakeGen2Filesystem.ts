@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -69,6 +70,10 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
     }
 
     /**
+     * One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+     */
+    public readonly aces!: pulumi.Output<outputs.storage.DataLakeGen2FilesystemAce[]>;
+    /**
      * The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -93,6 +98,7 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as DataLakeGen2FilesystemState | undefined;
+            inputs["aces"] = state ? state.aces : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["properties"] = state ? state.properties : undefined;
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
@@ -101,6 +107,7 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
             if ((!args || args.storageAccountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
+            inputs["aces"] = args ? args.aces : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
@@ -121,6 +128,10 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
  */
 export interface DataLakeGen2FilesystemState {
     /**
+     * One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+     */
+    readonly aces?: pulumi.Input<pulumi.Input<inputs.storage.DataLakeGen2FilesystemAce>[]>;
+    /**
      * The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
@@ -138,6 +149,10 @@ export interface DataLakeGen2FilesystemState {
  * The set of arguments for constructing a DataLakeGen2Filesystem resource.
  */
 export interface DataLakeGen2FilesystemArgs {
+    /**
+     * One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+     */
+    readonly aces?: pulumi.Input<pulumi.Input<inputs.storage.DataLakeGen2FilesystemAce>[]>;
     /**
      * The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      */

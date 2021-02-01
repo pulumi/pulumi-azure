@@ -72,6 +72,12 @@ import (
 // 				pulumi.String("11.22.33.44/32"),
 // 				pulumi.String("55.66.77.0/24"),
 // 			},
+// 			ClusterSettings: appservice.EnvironmentClusterSettingArray{
+// 				&appservice.EnvironmentClusterSettingArgs{
+// 					Name:  pulumi.String("DisableTls1.0"),
+// 					Value: pulumi.String("1"),
+// 				},
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -93,6 +99,8 @@ type Environment struct {
 
 	// Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
 	AllowedUserIpCidrs pulumi.StringArrayOutput `pulumi:"allowedUserIpCidrs"`
+	// Zero or more `clusterSetting` blocks as defined below.
+	ClusterSettings EnvironmentClusterSettingArrayOutput `pulumi:"clusterSettings"`
 	// Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
 	FrontEndScaleFactor pulumi.IntPtrOutput `pulumi:"frontEndScaleFactor"`
 	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
@@ -147,6 +155,8 @@ func GetEnvironment(ctx *pulumi.Context,
 type environmentState struct {
 	// Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
 	AllowedUserIpCidrs []string `pulumi:"allowedUserIpCidrs"`
+	// Zero or more `clusterSetting` blocks as defined below.
+	ClusterSettings []EnvironmentClusterSetting `pulumi:"clusterSettings"`
 	// Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
 	FrontEndScaleFactor *int `pulumi:"frontEndScaleFactor"`
 	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
@@ -170,6 +180,8 @@ type environmentState struct {
 type EnvironmentState struct {
 	// Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
 	AllowedUserIpCidrs pulumi.StringArrayInput
+	// Zero or more `clusterSetting` blocks as defined below.
+	ClusterSettings EnvironmentClusterSettingArrayInput
 	// Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
 	FrontEndScaleFactor pulumi.IntPtrInput
 	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
@@ -197,6 +209,8 @@ func (EnvironmentState) ElementType() reflect.Type {
 type environmentArgs struct {
 	// Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
 	AllowedUserIpCidrs []string `pulumi:"allowedUserIpCidrs"`
+	// Zero or more `clusterSetting` blocks as defined below.
+	ClusterSettings []EnvironmentClusterSetting `pulumi:"clusterSettings"`
 	// Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
 	FrontEndScaleFactor *int `pulumi:"frontEndScaleFactor"`
 	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
@@ -219,6 +233,8 @@ type environmentArgs struct {
 type EnvironmentArgs struct {
 	// Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
 	AllowedUserIpCidrs pulumi.StringArrayInput
+	// Zero or more `clusterSetting` blocks as defined below.
+	ClusterSettings EnvironmentClusterSettingArrayInput
 	// Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
 	FrontEndScaleFactor pulumi.IntPtrInput
 	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.

@@ -91,6 +91,8 @@ type DatasetDelimitedText struct {
 	AzureBlobStorageLocation DatasetDelimitedTextAzureBlobStorageLocationPtrOutput `pulumi:"azureBlobStorageLocation"`
 	// The column delimiter.
 	ColumnDelimiter pulumi.StringPtrOutput `pulumi:"columnDelimiter"`
+	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+	CompressionCodec pulumi.StringPtrOutput `pulumi:"compressionCodec"`
 	// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
 	CompressionLevel pulumi.StringPtrOutput `pulumi:"compressionLevel"`
 	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
@@ -171,6 +173,8 @@ type datasetDelimitedTextState struct {
 	AzureBlobStorageLocation *DatasetDelimitedTextAzureBlobStorageLocation `pulumi:"azureBlobStorageLocation"`
 	// The column delimiter.
 	ColumnDelimiter *string `pulumi:"columnDelimiter"`
+	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+	CompressionCodec *string `pulumi:"compressionCodec"`
 	// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
 	CompressionLevel *string `pulumi:"compressionLevel"`
 	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
@@ -214,6 +218,8 @@ type DatasetDelimitedTextState struct {
 	AzureBlobStorageLocation DatasetDelimitedTextAzureBlobStorageLocationPtrInput
 	// The column delimiter.
 	ColumnDelimiter pulumi.StringPtrInput
+	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+	CompressionCodec pulumi.StringPtrInput
 	// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
 	CompressionLevel pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
@@ -261,6 +267,8 @@ type datasetDelimitedTextArgs struct {
 	AzureBlobStorageLocation *DatasetDelimitedTextAzureBlobStorageLocation `pulumi:"azureBlobStorageLocation"`
 	// The column delimiter.
 	ColumnDelimiter *string `pulumi:"columnDelimiter"`
+	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+	CompressionCodec *string `pulumi:"compressionCodec"`
 	// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
 	CompressionLevel *string `pulumi:"compressionLevel"`
 	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
@@ -305,6 +313,8 @@ type DatasetDelimitedTextArgs struct {
 	AzureBlobStorageLocation DatasetDelimitedTextAzureBlobStorageLocationPtrInput
 	// The column delimiter.
 	ColumnDelimiter pulumi.StringPtrInput
+	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+	CompressionCodec pulumi.StringPtrInput
 	// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
 	CompressionLevel pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.

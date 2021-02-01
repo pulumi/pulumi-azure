@@ -70,6 +70,10 @@ export interface GetCertificateResult {
      */
     readonly certificateData: string;
     /**
+     * The raw Key Vault Certificate data represented as a base64 string.
+     */
+    readonly certificateDataBase64: string;
+    /**
      * A `certificatePolicy` block as defined below.
      */
     readonly certificatePolicies: outputs.keyvault.GetCertificateCertificatePolicy[];

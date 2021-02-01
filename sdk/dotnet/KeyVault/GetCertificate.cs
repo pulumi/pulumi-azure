@@ -88,6 +88,10 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         public readonly string CertificateData;
         /// <summary>
+        /// The raw Key Vault Certificate data represented as a base64 string.
+        /// </summary>
+        public readonly string CertificateDataBase64;
+        /// <summary>
         /// A `certificate_policy` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCertificateCertificatePolicyResult> CertificatePolicies;
@@ -121,6 +125,8 @@ namespace Pulumi.Azure.KeyVault
         private GetCertificateResult(
             string certificateData,
 
+            string certificateDataBase64,
+
             ImmutableArray<Outputs.GetCertificateCertificatePolicyResult> certificatePolicies,
 
             string id,
@@ -138,6 +144,7 @@ namespace Pulumi.Azure.KeyVault
             string version)
         {
             CertificateData = certificateData;
+            CertificateDataBase64 = certificateDataBase64;
             CertificatePolicies = certificatePolicies;
             Id = id;
             KeyVaultId = keyVaultId;

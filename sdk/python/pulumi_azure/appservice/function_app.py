@@ -44,6 +44,9 @@ class FunctionApp(pulumi.CustomResource):
         """
         Manages a Function App.
 
+        > **Note:** To connect an Azure Function App and a subnet within the same region `appservice.VirtualNetworkSwiftConnection` can be used.
+        For an example, check the `appservice.VirtualNetworkSwiftConnection` documentation.
+
         ## Example Usage
         ### With App Service Plan)
 

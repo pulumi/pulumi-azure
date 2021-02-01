@@ -159,6 +159,10 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly extensions!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetExtension[]>;
     /**
+     * Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+     */
+    public readonly extensionsTimeBudget!: pulumi.Output<string | undefined>;
+    /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */
     public readonly healthProbeId!: pulumi.Output<string | undefined>;
@@ -310,6 +314,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
             inputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
             inputs["extensions"] = state ? state.extensions : undefined;
+            inputs["extensionsTimeBudget"] = state ? state.extensionsTimeBudget : undefined;
             inputs["healthProbeId"] = state ? state.healthProbeId : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["instances"] = state ? state.instances : undefined;
@@ -379,6 +384,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
             inputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
             inputs["extensions"] = args ? args.extensions : undefined;
+            inputs["extensionsTimeBudget"] = args ? args.extensionsTimeBudget : undefined;
             inputs["healthProbeId"] = args ? args.healthProbeId : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["instances"] = args ? args.instances : undefined;
@@ -486,6 +492,10 @@ export interface WindowsVirtualMachineScaleSetState {
      * One or more `extension` blocks as defined below
      */
     readonly extensions?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetExtension>[]>;
+    /**
+     * Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+     */
+    readonly extensionsTimeBudget?: pulumi.Input<string>;
     /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */
@@ -676,6 +686,10 @@ export interface WindowsVirtualMachineScaleSetArgs {
      * One or more `extension` blocks as defined below
      */
     readonly extensions?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetExtension>[]>;
+    /**
+     * Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+     */
+    readonly extensionsTimeBudget?: pulumi.Input<string>;
     /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */

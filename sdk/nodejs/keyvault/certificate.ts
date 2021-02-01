@@ -166,6 +166,10 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly certificateData!: pulumi.Output<string>;
     /**
+     * The Base64 encoded Key Vault Certificate data.
+     */
+    public /*out*/ readonly certificateDataBase64!: pulumi.Output<string>;
+    /**
      * A `certificatePolicy` block as defined below.
      */
     public readonly certificatePolicy!: pulumi.Output<outputs.keyvault.CertificateCertificatePolicy>;
@@ -209,6 +213,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["certificate"] = state ? state.certificate : undefined;
             inputs["certificateAttributes"] = state ? state.certificateAttributes : undefined;
             inputs["certificateData"] = state ? state.certificateData : undefined;
+            inputs["certificateDataBase64"] = state ? state.certificateDataBase64 : undefined;
             inputs["certificatePolicy"] = state ? state.certificatePolicy : undefined;
             inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -231,6 +236,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["certificateAttributes"] = undefined /*out*/;
             inputs["certificateData"] = undefined /*out*/;
+            inputs["certificateDataBase64"] = undefined /*out*/;
             inputs["secretId"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
@@ -264,6 +270,10 @@ export interface CertificateState {
      * The raw Key Vault Certificate data represented as a hexadecimal string.
      */
     readonly certificateData?: pulumi.Input<string>;
+    /**
+     * The Base64 encoded Key Vault Certificate data.
+     */
+    readonly certificateDataBase64?: pulumi.Input<string>;
     /**
      * A `certificatePolicy` block as defined below.
      */

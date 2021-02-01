@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Iot.Outputs
     public sealed class TimeSeriesInsightsReferenceDataSetKeyProperty
     {
         /// <summary>
-        /// The name of the key property.
+        /// The name of the key property. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`.
+        /// The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Type;
 

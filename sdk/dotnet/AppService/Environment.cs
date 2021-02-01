@@ -64,6 +64,14 @@ namespace Pulumi.Azure.AppService
     ///                 "11.22.33.44/32",
     ///                 "55.66.77.0/24",
     ///             },
+    ///             ClusterSettings = 
+    ///             {
+    ///                 new Azure.AppService.Inputs.EnvironmentClusterSettingArgs
+    ///                 {
+    ///                     Name = "DisableTls1.0",
+    ///                     Value = "1",
+    ///                 },
+    ///             },
     ///         });
     ///     }
     /// 
@@ -85,6 +93,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Output("allowedUserIpCidrs")]
         public Output<ImmutableArray<string>> AllowedUserIpCidrs { get; private set; } = null!;
+
+        /// <summary>
+        /// Zero or more `cluster_setting` blocks as defined below.
+        /// </summary>
+        [Output("clusterSettings")]
+        public Output<ImmutableArray<Outputs.EnvironmentClusterSetting>> ClusterSettings { get; private set; } = null!;
 
         /// <summary>
         /// Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
@@ -195,6 +209,18 @@ namespace Pulumi.Azure.AppService
             set => _allowedUserIpCidrs = value;
         }
 
+        [Input("clusterSettings")]
+        private InputList<Inputs.EnvironmentClusterSettingArgs>? _clusterSettings;
+
+        /// <summary>
+        /// Zero or more `cluster_setting` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.EnvironmentClusterSettingArgs> ClusterSettings
+        {
+            get => _clusterSettings ?? (_clusterSettings = new InputList<Inputs.EnvironmentClusterSettingArgs>());
+            set => _clusterSettings = value;
+        }
+
         /// <summary>
         /// Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
         /// </summary>
@@ -269,6 +295,18 @@ namespace Pulumi.Azure.AppService
         {
             get => _allowedUserIpCidrs ?? (_allowedUserIpCidrs = new InputList<string>());
             set => _allowedUserIpCidrs = value;
+        }
+
+        [Input("clusterSettings")]
+        private InputList<Inputs.EnvironmentClusterSettingGetArgs>? _clusterSettings;
+
+        /// <summary>
+        /// Zero or more `cluster_setting` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.EnvironmentClusterSettingGetArgs> ClusterSettings
+        {
+            get => _clusterSettings ?? (_clusterSettings = new InputList<Inputs.EnvironmentClusterSettingGetArgs>());
+            set => _clusterSettings = value;
         }
 
         /// <summary>

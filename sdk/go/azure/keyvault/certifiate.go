@@ -170,6 +170,8 @@ type Certifiate struct {
 	CertificateAttributes CertifiateCertificateAttributeArrayOutput `pulumi:"certificateAttributes"`
 	// The raw Key Vault Certificate data represented as a hexadecimal string.
 	CertificateData pulumi.StringOutput `pulumi:"certificateData"`
+	// The Base64 encoded Key Vault Certificate data.
+	CertificateDataBase64 pulumi.StringOutput `pulumi:"certificateDataBase64"`
 	// A `certificatePolicy` block as defined below.
 	CertificatePolicy CertifiateCertificatePolicyOutput `pulumi:"certificatePolicy"`
 	// The ID of the Key Vault where the Certificate should be created.
@@ -227,6 +229,8 @@ type certifiateState struct {
 	CertificateAttributes []CertifiateCertificateAttribute `pulumi:"certificateAttributes"`
 	// The raw Key Vault Certificate data represented as a hexadecimal string.
 	CertificateData *string `pulumi:"certificateData"`
+	// The Base64 encoded Key Vault Certificate data.
+	CertificateDataBase64 *string `pulumi:"certificateDataBase64"`
 	// A `certificatePolicy` block as defined below.
 	CertificatePolicy *CertifiateCertificatePolicy `pulumi:"certificatePolicy"`
 	// The ID of the Key Vault where the Certificate should be created.
@@ -250,6 +254,8 @@ type CertifiateState struct {
 	CertificateAttributes CertifiateCertificateAttributeArrayInput
 	// The raw Key Vault Certificate data represented as a hexadecimal string.
 	CertificateData pulumi.StringPtrInput
+	// The Base64 encoded Key Vault Certificate data.
+	CertificateDataBase64 pulumi.StringPtrInput
 	// A `certificatePolicy` block as defined below.
 	CertificatePolicy CertifiateCertificatePolicyPtrInput
 	// The ID of the Key Vault where the Certificate should be created.

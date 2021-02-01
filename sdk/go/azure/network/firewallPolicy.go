@@ -63,6 +63,8 @@ type FirewallPolicy struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
 	RuleCollectionGroups pulumi.StringArrayOutput `pulumi:"ruleCollectionGroups"`
+	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Firewall Policy.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `threatIntelligenceAllowlist` block as defined below.
@@ -119,6 +121,8 @@ type firewallPolicyState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
 	RuleCollectionGroups []string `pulumi:"ruleCollectionGroups"`
+	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+	Sku *string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Firewall Policy.
 	Tags map[string]string `pulumi:"tags"`
 	// A `threatIntelligenceAllowlist` block as defined below.
@@ -144,6 +148,8 @@ type FirewallPolicyState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
 	RuleCollectionGroups pulumi.StringArrayInput
+	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+	Sku pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Firewall Policy.
 	Tags pulumi.StringMapInput
 	// A `threatIntelligenceAllowlist` block as defined below.
@@ -167,6 +173,8 @@ type firewallPolicyArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+	Sku *string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Firewall Policy.
 	Tags map[string]string `pulumi:"tags"`
 	// A `threatIntelligenceAllowlist` block as defined below.
@@ -187,6 +195,8 @@ type FirewallPolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
 	ResourceGroupName pulumi.StringInput
+	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
+	Sku pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Firewall Policy.
 	Tags pulumi.StringMapInput
 	// A `threatIntelligenceAllowlist` block as defined below.

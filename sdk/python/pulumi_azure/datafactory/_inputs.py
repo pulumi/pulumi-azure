@@ -28,6 +28,7 @@ __all__ = [
     'IntegrationRuntimeManagedCustomSetupScriptArgs',
     'IntegrationRuntimeManagedVnetIntegrationArgs',
     'IntegrationRuntimeSelfHostedRbacAuthorizationArgs',
+    'LinkedServiceSnowflakeKeyVaultPasswordArgs',
     'LinkedServiceSqlServerKeyVaultPasswordArgs',
     'LinkedServiceSynapseKeyVaultPasswordArgs',
 ]
@@ -1067,6 +1068,43 @@ class IntegrationRuntimeSelfHostedRbacAuthorizationArgs:
     @resource_id.setter
     def resource_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
+class LinkedServiceSnowflakeKeyVaultPasswordArgs:
+    def __init__(__self__, *,
+                 linked_service_name: pulumi.Input[str],
+                 secret_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input[str] secret_name: Specifies the secret name in Azure Key Vault that stores Snowflake password.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the secret name in Azure Key Vault that stores Snowflake password.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_name", value)
 
 
 @pulumi.input_type

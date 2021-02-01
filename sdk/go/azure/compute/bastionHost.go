@@ -13,8 +13,6 @@ import (
 
 // Manages a Bastion Host.
 //
-// > **Note:** Bastion Hosts are a preview feature in Azure, and therefore are only supported in a select number of regions. [Read more](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq).
-//
 // ## Example Usage
 //
 // This example deploys an Azure Bastion Host Instance to a target virtual network.
@@ -97,7 +95,7 @@ type BastionHost struct {
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// A `ipConfiguration` block as defined below.
 	IpConfiguration BastionHostIpConfigurationPtrOutput `pulumi:"ipConfiguration"`
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -143,7 +141,7 @@ type bastionHostState struct {
 	DnsName *string `pulumi:"dnsName"`
 	// A `ipConfiguration` block as defined below.
 	IpConfiguration *BastionHostIpConfiguration `pulumi:"ipConfiguration"`
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -158,7 +156,7 @@ type BastionHostState struct {
 	DnsName pulumi.StringPtrInput
 	// A `ipConfiguration` block as defined below.
 	IpConfiguration BastionHostIpConfigurationPtrInput
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -175,7 +173,7 @@ func (BastionHostState) ElementType() reflect.Type {
 type bastionHostArgs struct {
 	// A `ipConfiguration` block as defined below.
 	IpConfiguration *BastionHostIpConfiguration `pulumi:"ipConfiguration"`
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -189,7 +187,7 @@ type bastionHostArgs struct {
 type BastionHostArgs struct {
 	// A `ipConfiguration` block as defined below.
 	IpConfiguration BastionHostIpConfigurationPtrInput
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput

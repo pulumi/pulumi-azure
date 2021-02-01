@@ -12,8 +12,6 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a Bastion Host.
     /// 
-    /// &gt; **Note:** Bastion Hosts are a preview feature in Azure, and therefore are only supported in a select number of regions. [Read more](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq).
-    /// 
     /// ## Example Usage
     /// 
     /// This example deploys an Azure Bastion Host Instance to a target virtual network.
@@ -94,7 +92,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.BastionHostIpConfiguration?> IpConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -170,7 +168,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.BastionHostIpConfigurationArgs>? IpConfiguration { get; set; }
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -219,7 +217,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.BastionHostIpConfigurationGetArgs>? IpConfiguration { get; set; }
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

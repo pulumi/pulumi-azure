@@ -117,6 +117,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("minTlsVersion")]
         public Input<string>? MinTlsVersion { get; set; }
 
+        [Input("numberOfWorkers")]
+        public Input<int>? NumberOfWorkers { get; set; }
+
         /// <summary>
         /// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
         /// </summary>

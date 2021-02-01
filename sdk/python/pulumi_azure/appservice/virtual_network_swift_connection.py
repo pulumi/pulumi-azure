@@ -21,9 +21,15 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) which is still in preview).
+        Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration)).
+
+        > **Note:** This resource can be used for both `appservice.AppService` and `appservice.FunctionApp`.
+
+        > **Note:** There is a hard limit of [one VNet integration per App Service Plan](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
+        Multiple apps in the same App Service plan can use the same VNet.
 
         ## Example Usage
+        ### With App Service)
 
         ```python
         import pulumi
@@ -60,6 +66,48 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
             app_service_id=example_app_service.id,
             subnet_id=example_subnet.id)
         ```
+        ### With Function App)
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=azurerm_resource_group["example"]["location"],
+            resource_group_name=azurerm_resource_group["example"]["name"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=azurerm_resource_group["example"]["name"],
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="example-delegation",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.Web/serverFarms",
+                    actions=["Microsoft.Network/virtualNetworks/subnets/action"],
+                ),
+            )])
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=azurerm_resource_group["example"]["location"],
+            resource_group_name=azurerm_resource_group["example"]["name"],
+            sku=azure.appservice.PlanSkuArgs(
+                tier="Standard",
+                size="S1",
+            ))
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=azurerm_resource_group["example"]["name"],
+            location=azurerm_resource_group["example"]["location"],
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_function_app = azure.appservice.FunctionApp("exampleFunctionApp",
+            location=azurerm_resource_group["example"]["location"],
+            resource_group_name=azurerm_resource_group["example"]["name"],
+            app_service_plan_id=example_plan.id,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key)
+        example_virtual_network_swift_connection = azure.appservice.VirtualNetworkSwiftConnection("exampleVirtualNetworkSwiftConnection",
+            app_service_id=example_function_app.id,
+            subnet_id=example_subnet.id)
+        ```
 
         ## Import
 
@@ -71,7 +119,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_service_id: The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] app_service_id: The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
         """
         if __name__ is not None:
@@ -116,7 +164,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_service_id: The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] app_service_id: The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -131,7 +179,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
     @pulumi.getter(name="appServiceId")
     def app_service_id(self) -> pulumi.Output[str]:
         """
-        The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+        The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "app_service_id")
 

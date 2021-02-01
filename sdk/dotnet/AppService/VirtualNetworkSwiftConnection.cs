@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService
 {
     /// <summary>
-    /// Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) which is still in preview).
+    /// Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration)).
+    /// 
+    /// &gt; **Note:** This resource can be used for both `azure.appservice.AppService` and `azure.appservice.FunctionApp`.
+    /// 
+    /// &gt; **Note:** There is a hard limit of [one VNet integration per App Service Plan](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
+    /// Multiple apps in the same App Service plan can use the same VNet.
     /// 
     /// ## Example Usage
+    /// ### With App Service)
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -84,6 +90,82 @@ namespace Pulumi.Azure.AppService
     /// 
     /// }
     /// ```
+    /// ### With Function App)
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///             Location = azurerm_resource_group.Example.Location,
+    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
+    ///         });
+    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.0.1.0/24",
+    ///             },
+    ///             Delegations = 
+    ///             {
+    ///                 new Azure.Network.Inputs.SubnetDelegationArgs
+    ///                 {
+    ///                     Name = "example-delegation",
+    ///                     ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                     {
+    ///                         Name = "Microsoft.Web/serverFarms",
+    ///                         Actions = 
+    ///                         {
+    ///                             "Microsoft.Network/virtualNetworks/subnets/action",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
+    ///         {
+    ///             Location = azurerm_resource_group.Example.Location,
+    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
+    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///             {
+    ///                 Tier = "Standard",
+    ///                 Size = "S1",
+    ///             },
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
+    ///             Location = azurerm_resource_group.Example.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///         });
+    ///         var exampleFunctionApp = new Azure.AppService.FunctionApp("exampleFunctionApp", new Azure.AppService.FunctionAppArgs
+    ///         {
+    ///             Location = azurerm_resource_group.Example.Location,
+    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
+    ///             AppServicePlanId = examplePlan.Id,
+    ///             StorageAccountName = exampleAccount.Name,
+    ///             StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///         });
+    ///         var exampleVirtualNetworkSwiftConnection = new Azure.AppService.VirtualNetworkSwiftConnection("exampleVirtualNetworkSwiftConnection", new Azure.AppService.VirtualNetworkSwiftConnectionArgs
+    ///         {
+    ///             AppServiceId = exampleFunctionApp.Id,
+    ///             SubnetId = exampleSubnet.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -96,7 +178,7 @@ namespace Pulumi.Azure.AppService
     public partial class VirtualNetworkSwiftConnection : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+        /// The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
         /// </summary>
         [Output("appServiceId")]
         public Output<string> AppServiceId { get; private set; } = null!;
@@ -154,7 +236,7 @@ namespace Pulumi.Azure.AppService
     public sealed class VirtualNetworkSwiftConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+        /// The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
         /// </summary>
         [Input("appServiceId", required: true)]
         public Input<string> AppServiceId { get; set; } = null!;
@@ -173,7 +255,7 @@ namespace Pulumi.Azure.AppService
     public sealed class VirtualNetworkSwiftConnectionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+        /// The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
         /// </summary>
         [Input("appServiceId")]
         public Input<string>? AppServiceId { get; set; }

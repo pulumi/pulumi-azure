@@ -210,7 +210,7 @@ namespace Pulumi.Azure.Redis
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+        /// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
         /// </summary>
         [Output("zones")]
         public Output<string?> Zones { get; private set; } = null!;
@@ -360,7 +360,7 @@ namespace Pulumi.Azure.Redis
         }
 
         /// <summary>
-        /// A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+        /// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
         /// </summary>
         [Input("zones")]
         public Input<string>? Zones { get; set; }
@@ -513,7 +513,7 @@ namespace Pulumi.Azure.Redis
         }
 
         /// <summary>
-        /// A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+        /// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
         /// </summary>
         [Input("zones")]
         public Input<string>? Zones { get; set; }

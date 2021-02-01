@@ -70,6 +70,10 @@ namespace Pulumi.Azure.AppService
     public sealed class GetAppServiceEnvironmentResult
     {
         /// <summary>
+        /// Zero or more `cluster_setting` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAppServiceEnvironmentClusterSettingResult> ClusterSettings;
+        /// <summary>
         /// The number of app instances per App Service Environment Front End.
         /// </summary>
         public readonly int FrontEndScaleFactor;
@@ -85,6 +89,9 @@ namespace Pulumi.Azure.AppService
         /// The Azure Region where the App Service Environment exists.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The name of the Cluster Setting.
+        /// </summary>
         public readonly string Name;
         /// <summary>
         /// List of outbound IP addresses of the App Service Environment.
@@ -106,6 +113,8 @@ namespace Pulumi.Azure.AppService
 
         [OutputConstructor]
         private GetAppServiceEnvironmentResult(
+            ImmutableArray<Outputs.GetAppServiceEnvironmentClusterSettingResult> clusterSettings,
+
             int frontEndScaleFactor,
 
             string id,
@@ -126,6 +135,7 @@ namespace Pulumi.Azure.AppService
 
             ImmutableDictionary<string, string> tags)
         {
+            ClusterSettings = clusterSettings;
             FrontEndScaleFactor = frontEndScaleFactor;
             Id = id;
             InternalIpAddress = internalIpAddress;

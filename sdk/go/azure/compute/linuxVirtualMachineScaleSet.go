@@ -59,6 +59,8 @@ type LinuxVirtualMachineScaleSet struct {
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// One or more `extension` blocks as defined below
 	Extensions LinuxVirtualMachineScaleSetExtensionArrayOutput `pulumi:"extensions"`
+	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrOutput `pulumi:"healthProbeId"`
 	// A `identity` block as defined below.
@@ -194,6 +196,8 @@ type linuxVirtualMachineScaleSetState struct {
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// One or more `extension` blocks as defined below
 	Extensions []LinuxVirtualMachineScaleSetExtension `pulumi:"extensions"`
+	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId *string `pulumi:"healthProbeId"`
 	// A `identity` block as defined below.
@@ -283,6 +287,8 @@ type LinuxVirtualMachineScaleSetState struct {
 	EvictionPolicy pulumi.StringPtrInput
 	// One or more `extension` blocks as defined below
 	Extensions LinuxVirtualMachineScaleSetExtensionArrayInput
+	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+	ExtensionsTimeBudget pulumi.StringPtrInput
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrInput
 	// A `identity` block as defined below.
@@ -376,6 +382,8 @@ type linuxVirtualMachineScaleSetArgs struct {
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// One or more `extension` blocks as defined below
 	Extensions []LinuxVirtualMachineScaleSetExtension `pulumi:"extensions"`
+	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId *string `pulumi:"healthProbeId"`
 	// A `identity` block as defined below.
@@ -464,6 +472,8 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	EvictionPolicy pulumi.StringPtrInput
 	// One or more `extension` blocks as defined below
 	Extensions LinuxVirtualMachineScaleSetExtensionArrayInput
+	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+	ExtensionsTimeBudget pulumi.StringPtrInput
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrInput
 	// A `identity` block as defined below.

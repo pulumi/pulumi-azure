@@ -11,6 +11,7 @@ export * from "./endpointEventhub";
 export * from "./endpointServicebusQueue";
 export * from "./endpointServicebusTopic";
 export * from "./endpointStorageContainer";
+export * from "./enrichment";
 export * from "./fallbackRoute";
 export * from "./getDps";
 export * from "./getDpsSharedAccessPolicy";
@@ -20,6 +21,7 @@ export * from "./ioTHub";
 export * from "./iotHubCertificate";
 export * from "./iotHubDps";
 export * from "./route";
+export * from "./securitySolution";
 export * from "./sharedAccessPolicy";
 export * from "./timeSeriesInsightsAccessPolicy";
 export * from "./timeSeriesInsightsGen2Environment";
@@ -34,11 +36,13 @@ import { EndpointEventhub } from "./endpointEventhub";
 import { EndpointServicebusQueue } from "./endpointServicebusQueue";
 import { EndpointServicebusTopic } from "./endpointServicebusTopic";
 import { EndpointStorageContainer } from "./endpointStorageContainer";
+import { Enrichment } from "./enrichment";
 import { FallbackRoute } from "./fallbackRoute";
 import { IoTHub } from "./ioTHub";
 import { IotHubCertificate } from "./iotHubCertificate";
 import { IotHubDps } from "./iotHubDps";
 import { Route } from "./route";
+import { SecuritySolution } from "./securitySolution";
 import { SharedAccessPolicy } from "./sharedAccessPolicy";
 import { TimeSeriesInsightsAccessPolicy } from "./timeSeriesInsightsAccessPolicy";
 import { TimeSeriesInsightsGen2Environment } from "./timeSeriesInsightsGen2Environment";
@@ -61,6 +65,8 @@ const _module = {
                 return new EndpointServicebusTopic(name, <any>undefined, { urn })
             case "azure:iot/endpointStorageContainer:EndpointStorageContainer":
                 return new EndpointStorageContainer(name, <any>undefined, { urn })
+            case "azure:iot/enrichment:Enrichment":
+                return new Enrichment(name, <any>undefined, { urn })
             case "azure:iot/fallbackRoute:FallbackRoute":
                 return new FallbackRoute(name, <any>undefined, { urn })
             case "azure:iot/ioTHub:IoTHub":
@@ -71,6 +77,8 @@ const _module = {
                 return new IotHubDps(name, <any>undefined, { urn })
             case "azure:iot/route:Route":
                 return new Route(name, <any>undefined, { urn })
+            case "azure:iot/securitySolution:SecuritySolution":
+                return new SecuritySolution(name, <any>undefined, { urn })
             case "azure:iot/sharedAccessPolicy:SharedAccessPolicy":
                 return new SharedAccessPolicy(name, <any>undefined, { urn })
             case "azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy":
@@ -92,11 +100,13 @@ pulumi.runtime.registerResourceModule("azure", "iot/endpointEventhub", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/endpointServicebusQueue", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/endpointServicebusTopic", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/endpointStorageContainer", _module)
+pulumi.runtime.registerResourceModule("azure", "iot/enrichment", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/fallbackRoute", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/ioTHub", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/iotHubCertificate", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/iotHubDps", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/route", _module)
+pulumi.runtime.registerResourceModule("azure", "iot/securitySolution", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/sharedAccessPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/timeSeriesInsightsAccessPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/timeSeriesInsightsGen2Environment", _module)

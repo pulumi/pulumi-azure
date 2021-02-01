@@ -19,12 +19,14 @@ from .linked_service_azure_blob_storage import *
 from .linked_service_azure_file_storage import *
 from .linked_service_azure_function import *
 from .linked_service_azure_sql_database import *
+from .linked_service_azure_table_storage import *
 from .linked_service_cosmos_db import *
 from .linked_service_data_lake_storage_gen2 import *
 from .linked_service_key_vault import *
 from .linked_service_mysql import *
 from .linked_service_postgresql import *
 from .linked_service_sftp import *
+from .linked_service_snowflake import *
 from .linked_service_sql_server import *
 from .linked_service_synapse import *
 from .linked_service_web import *
@@ -75,6 +77,8 @@ def _register_module():
                 return LinkedServiceAzureFunction(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:datafactory/linkedServiceAzureSqlDatabase:LinkedServiceAzureSqlDatabase":
                 return LinkedServiceAzureSqlDatabase(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:datafactory/linkedServiceAzureTableStorage:LinkedServiceAzureTableStorage":
+                return LinkedServiceAzureTableStorage(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:datafactory/linkedServiceCosmosDb:LinkedServiceCosmosDb":
                 return LinkedServiceCosmosDb(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2":
@@ -87,6 +91,8 @@ def _register_module():
                 return LinkedServicePostgresql(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:datafactory/linkedServiceSftp:LinkedServiceSftp":
                 return LinkedServiceSftp(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:datafactory/linkedServiceSnowflake:LinkedServiceSnowflake":
+                return LinkedServiceSnowflake(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer":
                 return LinkedServiceSqlServer(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:datafactory/linkedServiceSynapse:LinkedServiceSynapse":
@@ -117,12 +123,14 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceAzureFileStorage", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceAzureFunction", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceAzureSqlDatabase", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceAzureTableStorage", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceCosmosDb", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceDataLakeStorageGen2", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceKeyVault", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceMysql", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServicePostgresql", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceSftp", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceSnowflake", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceSqlServer", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceSynapse", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceWeb", _module_instance)

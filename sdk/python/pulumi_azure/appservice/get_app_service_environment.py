@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetAppServiceEnvironmentResult',
@@ -19,7 +20,10 @@ class GetAppServiceEnvironmentResult:
     """
     A collection of values returned by getAppServiceEnvironment.
     """
-    def __init__(__self__, front_end_scale_factor=None, id=None, internal_ip_address=None, location=None, name=None, outbound_ip_addresses=None, pricing_tier=None, resource_group_name=None, service_ip_address=None, tags=None):
+    def __init__(__self__, cluster_settings=None, front_end_scale_factor=None, id=None, internal_ip_address=None, location=None, name=None, outbound_ip_addresses=None, pricing_tier=None, resource_group_name=None, service_ip_address=None, tags=None):
+        if cluster_settings and not isinstance(cluster_settings, list):
+            raise TypeError("Expected argument 'cluster_settings' to be a list")
+        pulumi.set(__self__, "cluster_settings", cluster_settings)
         if front_end_scale_factor and not isinstance(front_end_scale_factor, int):
             raise TypeError("Expected argument 'front_end_scale_factor' to be a int")
         pulumi.set(__self__, "front_end_scale_factor", front_end_scale_factor)
@@ -50,6 +54,14 @@ class GetAppServiceEnvironmentResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="clusterSettings")
+    def cluster_settings(self) -> Sequence['outputs.GetAppServiceEnvironmentClusterSettingResult']:
+        """
+        Zero or more `cluster_setting` blocks as defined below.
+        """
+        return pulumi.get(self, "cluster_settings")
 
     @property
     @pulumi.getter(name="frontEndScaleFactor")
@@ -86,6 +98,9 @@ class GetAppServiceEnvironmentResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the Cluster Setting.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -132,6 +147,7 @@ class AwaitableGetAppServiceEnvironmentResult(GetAppServiceEnvironmentResult):
         if False:
             yield self
         return GetAppServiceEnvironmentResult(
+            cluster_settings=self.cluster_settings,
             front_end_scale_factor=self.front_end_scale_factor,
             id=self.id,
             internal_ip_address=self.internal_ip_address,
@@ -175,6 +191,7 @@ def get_app_service_environment(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment', __args__, opts=opts, typ=GetAppServiceEnvironmentResult).value
 
     return AwaitableGetAppServiceEnvironmentResult(
+        cluster_settings=__ret__.cluster_settings,
         front_end_scale_factor=__ret__.front_end_scale_factor,
         id=__ret__.id,
         internal_ip_address=__ret__.internal_ip_address,

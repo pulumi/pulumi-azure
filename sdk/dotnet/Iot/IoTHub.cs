@@ -16,6 +16,8 @@ namespace Pulumi.Azure.Iot
     /// 
     /// &gt; **NOTE:** Routes can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
     /// 
+    /// &gt; **NOTE:** Enrichments can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+    /// 
     /// &gt; **NOTE:** Fallback route can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
     /// 
     /// ## Example Usage
@@ -118,6 +120,19 @@ namespace Pulumi.Azure.Iot
     ///                     Enabled = true,
     ///                 },
     ///             },
+    ///             Enrichments = 
+    ///             {
+    ///                 new Azure.Iot.Inputs.IoTHubEnrichmentArgs
+    ///                 {
+    ///                     Key = "tenant",
+    ///                     Value = "$twin.tags.Tenant",
+    ///                     EndpointNames = 
+    ///                     {
+    ///                         "export",
+    ///                         "export2",
+    ///                     },
+    ///                 },
+    ///             },
     ///             Tags = 
     ///             {
     ///                 { "purpose", "testing" },
@@ -143,6 +158,12 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Output("endpoints")]
         public Output<ImmutableArray<Outputs.IoTHubEndpoint>> Endpoints { get; private set; } = null!;
+
+        /// <summary>
+        /// A `enrichment` block as defined below.
+        /// </summary>
+        [Output("enrichments")]
+        public Output<ImmutableArray<Outputs.IoTHubEnrichment>> Enrichments { get; private set; } = null!;
 
         /// <summary>
         /// The EventHub compatible endpoint for events data
@@ -205,7 +226,7 @@ namespace Pulumi.Azure.Iot
         public Output<ImmutableArray<Outputs.IoTHubIpFilterRule>> IpFilterRules { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+        /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -322,6 +343,18 @@ namespace Pulumi.Azure.Iot
             set => _endpoints = value;
         }
 
+        [Input("enrichments")]
+        private InputList<Inputs.IoTHubEnrichmentArgs>? _enrichments;
+
+        /// <summary>
+        /// A `enrichment` block as defined below.
+        /// </summary>
+        public InputList<Inputs.IoTHubEnrichmentArgs> Enrichments
+        {
+            get => _enrichments ?? (_enrichments = new InputList<Inputs.IoTHubEnrichmentArgs>());
+            set => _enrichments = value;
+        }
+
         /// <summary>
         /// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
         /// </summary>
@@ -359,7 +392,7 @@ namespace Pulumi.Azure.Iot
         }
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+        /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -437,6 +470,18 @@ namespace Pulumi.Azure.Iot
             set => _endpoints = value;
         }
 
+        [Input("enrichments")]
+        private InputList<Inputs.IoTHubEnrichmentGetArgs>? _enrichments;
+
+        /// <summary>
+        /// A `enrichment` block as defined below.
+        /// </summary>
+        public InputList<Inputs.IoTHubEnrichmentGetArgs> Enrichments
+        {
+            get => _enrichments ?? (_enrichments = new InputList<Inputs.IoTHubEnrichmentGetArgs>());
+            set => _enrichments = value;
+        }
+
         /// <summary>
         /// The EventHub compatible endpoint for events data
         /// </summary>
@@ -504,7 +549,7 @@ namespace Pulumi.Azure.Iot
         }
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+        /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

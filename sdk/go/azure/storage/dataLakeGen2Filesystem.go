@@ -69,6 +69,8 @@ import (
 type DataLakeGen2Filesystem struct {
 	pulumi.CustomResourceState
 
+	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+	Aces DataLakeGen2FilesystemAceArrayOutput `pulumi:"aces"`
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
@@ -109,6 +111,8 @@ func GetDataLakeGen2Filesystem(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataLakeGen2Filesystem resources.
 type dataLakeGen2FilesystemState struct {
+	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+	Aces []DataLakeGen2FilesystemAce `pulumi:"aces"`
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
@@ -118,6 +122,8 @@ type dataLakeGen2FilesystemState struct {
 }
 
 type DataLakeGen2FilesystemState struct {
+	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+	Aces DataLakeGen2FilesystemAceArrayInput
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
@@ -131,6 +137,8 @@ func (DataLakeGen2FilesystemState) ElementType() reflect.Type {
 }
 
 type dataLakeGen2FilesystemArgs struct {
+	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+	Aces []DataLakeGen2FilesystemAce `pulumi:"aces"`
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
@@ -141,6 +149,8 @@ type dataLakeGen2FilesystemArgs struct {
 
 // The set of arguments for constructing a DataLakeGen2Filesystem resource.
 type DataLakeGen2FilesystemArgs struct {
+	// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+	Aces DataLakeGen2FilesystemAceArrayInput
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
