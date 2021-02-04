@@ -348,6 +348,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_api_diagnostic":              {Tok: azureResource(azureAPIManagement, "ApiDiagnostic")},
 			"azurerm_api_management_custom_domain":               {Tok: azureResource(azureAPIManagement, "CustomDomain")},
 			"azurerm_api_management_policy":                      {Tok: azureResource(azureAPIManagement, "Policy")},
+			"azurerm_api_management_identity_provider_aadb2c":    {Tok: azureResource(azureAPIManagement, "IdentityProviderAadb2c")},
 
 			// Analysis Services
 			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
@@ -996,6 +997,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cosmosdb_gremlin_database":     {Tok: azureResource(azureCosmosDB, "GremlinDatabase")},
 			"azurerm_cosmosdb_gremlin_graph":        {Tok: azureResource(azureCosmosDB, "GremlinGraph")},
 			"azurerm_cosmosdb_sql_stored_procedure": {Tok: azureResource(azureCosmosDB, "SqlStoredProcedure")},
+			"azurerm_cosmosdb_cassandra_table":      {Tok: azureResource(azureCosmosDB, "CassandraTable")},
 
 			// Cost Management
 			"azurerm_cost_management_export_resource_group": {

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -29,10 +30,7 @@ import * as utilities from "../utilities";
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
  * });
- * const exampleBackendAddressPool = new azure.lb.BackendAddressPool("exampleBackendAddressPool", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     loadbalancerId: exampleLoadBalancer.id,
- * });
+ * const exampleBackendAddressPool = new azure.lb.BackendAddressPool("exampleBackendAddressPool", {loadbalancerId: exampleLoadBalancer.id});
  * ```
  *
  * ## Import
@@ -72,6 +70,10 @@ export class BackendAddressPool extends pulumi.CustomResource {
     }
 
     /**
+     * An array of `backendAddress` block as defined below.
+     */
+    public readonly backendAddresses!: pulumi.Output<outputs.lb.BackendAddressPoolBackendAddress[] | undefined>;
+    /**
      * The Backend IP Configurations associated with this Backend Address Pool.
      */
     public /*out*/ readonly backendIpConfigurations!: pulumi.Output<string[]>;
@@ -88,7 +90,11 @@ export class BackendAddressPool extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the resource.
+     * An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
+     */
+    public /*out*/ readonly outboundRules!: pulumi.Output<string[]>;
+    /**
+     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
 
@@ -104,24 +110,25 @@ export class BackendAddressPool extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as BackendAddressPoolState | undefined;
+            inputs["backendAddresses"] = state ? state.backendAddresses : undefined;
             inputs["backendIpConfigurations"] = state ? state.backendIpConfigurations : undefined;
             inputs["loadBalancingRules"] = state ? state.loadBalancingRules : undefined;
             inputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["outboundRules"] = state ? state.outboundRules : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as BackendAddressPoolArgs | undefined;
             if ((!args || args.loadbalancerId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadbalancerId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
+            inputs["backendAddresses"] = args ? args.backendAddresses : undefined;
             inputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["backendIpConfigurations"] = undefined /*out*/;
             inputs["loadBalancingRules"] = undefined /*out*/;
+            inputs["outboundRules"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -139,6 +146,10 @@ export class BackendAddressPool extends pulumi.CustomResource {
  */
 export interface BackendAddressPoolState {
     /**
+     * An array of `backendAddress` block as defined below.
+     */
+    readonly backendAddresses?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolBackendAddress>[]>;
+    /**
      * The Backend IP Configurations associated with this Backend Address Pool.
      */
     readonly backendIpConfigurations?: pulumi.Input<pulumi.Input<string>[]>;
@@ -155,7 +166,11 @@ export interface BackendAddressPoolState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the resource.
+     * An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
+     */
+    readonly outboundRules?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
     readonly resourceGroupName?: pulumi.Input<string>;
 }
@@ -165,6 +180,10 @@ export interface BackendAddressPoolState {
  */
 export interface BackendAddressPoolArgs {
     /**
+     * An array of `backendAddress` block as defined below.
+     */
+    readonly backendAddresses?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolBackendAddress>[]>;
+    /**
      * The ID of the Load Balancer in which to create the Backend Address Pool.
      */
     readonly loadbalancerId: pulumi.Input<string>;
@@ -173,7 +192,7 @@ export interface BackendAddressPoolArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the resource.
+     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName?: pulumi.Input<string>;
 }

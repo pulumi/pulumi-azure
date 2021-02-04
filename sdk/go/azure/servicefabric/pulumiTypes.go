@@ -1791,6 +1791,268 @@ func (o ClusterReverseProxyCertificatePtrOutput) X509StoreName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+type ClusterReverseProxyCertificateCommonNames struct {
+	// A `commonNames` block as defined below.
+	CommonNames []ClusterReverseProxyCertificateCommonNamesCommonName `pulumi:"commonNames"`
+	// The X509 Store where the Certificate Exists, such as `My`.
+	X509StoreName string `pulumi:"x509StoreName"`
+}
+
+// ClusterReverseProxyCertificateCommonNamesInput is an input type that accepts ClusterReverseProxyCertificateCommonNamesArgs and ClusterReverseProxyCertificateCommonNamesOutput values.
+// You can construct a concrete instance of `ClusterReverseProxyCertificateCommonNamesInput` via:
+//
+//          ClusterReverseProxyCertificateCommonNamesArgs{...}
+type ClusterReverseProxyCertificateCommonNamesInput interface {
+	pulumi.Input
+
+	ToClusterReverseProxyCertificateCommonNamesOutput() ClusterReverseProxyCertificateCommonNamesOutput
+	ToClusterReverseProxyCertificateCommonNamesOutputWithContext(context.Context) ClusterReverseProxyCertificateCommonNamesOutput
+}
+
+type ClusterReverseProxyCertificateCommonNamesArgs struct {
+	// A `commonNames` block as defined below.
+	CommonNames ClusterReverseProxyCertificateCommonNamesCommonNameArrayInput `pulumi:"commonNames"`
+	// The X509 Store where the Certificate Exists, such as `My`.
+	X509StoreName pulumi.StringInput `pulumi:"x509StoreName"`
+}
+
+func (ClusterReverseProxyCertificateCommonNamesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterReverseProxyCertificateCommonNames)(nil)).Elem()
+}
+
+func (i ClusterReverseProxyCertificateCommonNamesArgs) ToClusterReverseProxyCertificateCommonNamesOutput() ClusterReverseProxyCertificateCommonNamesOutput {
+	return i.ToClusterReverseProxyCertificateCommonNamesOutputWithContext(context.Background())
+}
+
+func (i ClusterReverseProxyCertificateCommonNamesArgs) ToClusterReverseProxyCertificateCommonNamesOutputWithContext(ctx context.Context) ClusterReverseProxyCertificateCommonNamesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterReverseProxyCertificateCommonNamesOutput)
+}
+
+func (i ClusterReverseProxyCertificateCommonNamesArgs) ToClusterReverseProxyCertificateCommonNamesPtrOutput() ClusterReverseProxyCertificateCommonNamesPtrOutput {
+	return i.ToClusterReverseProxyCertificateCommonNamesPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterReverseProxyCertificateCommonNamesArgs) ToClusterReverseProxyCertificateCommonNamesPtrOutputWithContext(ctx context.Context) ClusterReverseProxyCertificateCommonNamesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterReverseProxyCertificateCommonNamesOutput).ToClusterReverseProxyCertificateCommonNamesPtrOutputWithContext(ctx)
+}
+
+// ClusterReverseProxyCertificateCommonNamesPtrInput is an input type that accepts ClusterReverseProxyCertificateCommonNamesArgs, ClusterReverseProxyCertificateCommonNamesPtr and ClusterReverseProxyCertificateCommonNamesPtrOutput values.
+// You can construct a concrete instance of `ClusterReverseProxyCertificateCommonNamesPtrInput` via:
+//
+//          ClusterReverseProxyCertificateCommonNamesArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterReverseProxyCertificateCommonNamesPtrInput interface {
+	pulumi.Input
+
+	ToClusterReverseProxyCertificateCommonNamesPtrOutput() ClusterReverseProxyCertificateCommonNamesPtrOutput
+	ToClusterReverseProxyCertificateCommonNamesPtrOutputWithContext(context.Context) ClusterReverseProxyCertificateCommonNamesPtrOutput
+}
+
+type clusterReverseProxyCertificateCommonNamesPtrType ClusterReverseProxyCertificateCommonNamesArgs
+
+func ClusterReverseProxyCertificateCommonNamesPtr(v *ClusterReverseProxyCertificateCommonNamesArgs) ClusterReverseProxyCertificateCommonNamesPtrInput {
+	return (*clusterReverseProxyCertificateCommonNamesPtrType)(v)
+}
+
+func (*clusterReverseProxyCertificateCommonNamesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterReverseProxyCertificateCommonNames)(nil)).Elem()
+}
+
+func (i *clusterReverseProxyCertificateCommonNamesPtrType) ToClusterReverseProxyCertificateCommonNamesPtrOutput() ClusterReverseProxyCertificateCommonNamesPtrOutput {
+	return i.ToClusterReverseProxyCertificateCommonNamesPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterReverseProxyCertificateCommonNamesPtrType) ToClusterReverseProxyCertificateCommonNamesPtrOutputWithContext(ctx context.Context) ClusterReverseProxyCertificateCommonNamesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterReverseProxyCertificateCommonNamesPtrOutput)
+}
+
+type ClusterReverseProxyCertificateCommonNamesOutput struct{ *pulumi.OutputState }
+
+func (ClusterReverseProxyCertificateCommonNamesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterReverseProxyCertificateCommonNames)(nil)).Elem()
+}
+
+func (o ClusterReverseProxyCertificateCommonNamesOutput) ToClusterReverseProxyCertificateCommonNamesOutput() ClusterReverseProxyCertificateCommonNamesOutput {
+	return o
+}
+
+func (o ClusterReverseProxyCertificateCommonNamesOutput) ToClusterReverseProxyCertificateCommonNamesOutputWithContext(ctx context.Context) ClusterReverseProxyCertificateCommonNamesOutput {
+	return o
+}
+
+func (o ClusterReverseProxyCertificateCommonNamesOutput) ToClusterReverseProxyCertificateCommonNamesPtrOutput() ClusterReverseProxyCertificateCommonNamesPtrOutput {
+	return o.ToClusterReverseProxyCertificateCommonNamesPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterReverseProxyCertificateCommonNamesOutput) ToClusterReverseProxyCertificateCommonNamesPtrOutputWithContext(ctx context.Context) ClusterReverseProxyCertificateCommonNamesPtrOutput {
+	return o.ApplyT(func(v ClusterReverseProxyCertificateCommonNames) *ClusterReverseProxyCertificateCommonNames {
+		return &v
+	}).(ClusterReverseProxyCertificateCommonNamesPtrOutput)
+}
+
+// A `commonNames` block as defined below.
+func (o ClusterReverseProxyCertificateCommonNamesOutput) CommonNames() ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput {
+	return o.ApplyT(func(v ClusterReverseProxyCertificateCommonNames) []ClusterReverseProxyCertificateCommonNamesCommonName {
+		return v.CommonNames
+	}).(ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput)
+}
+
+// The X509 Store where the Certificate Exists, such as `My`.
+func (o ClusterReverseProxyCertificateCommonNamesOutput) X509StoreName() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterReverseProxyCertificateCommonNames) string { return v.X509StoreName }).(pulumi.StringOutput)
+}
+
+type ClusterReverseProxyCertificateCommonNamesPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterReverseProxyCertificateCommonNamesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterReverseProxyCertificateCommonNames)(nil)).Elem()
+}
+
+func (o ClusterReverseProxyCertificateCommonNamesPtrOutput) ToClusterReverseProxyCertificateCommonNamesPtrOutput() ClusterReverseProxyCertificateCommonNamesPtrOutput {
+	return o
+}
+
+func (o ClusterReverseProxyCertificateCommonNamesPtrOutput) ToClusterReverseProxyCertificateCommonNamesPtrOutputWithContext(ctx context.Context) ClusterReverseProxyCertificateCommonNamesPtrOutput {
+	return o
+}
+
+func (o ClusterReverseProxyCertificateCommonNamesPtrOutput) Elem() ClusterReverseProxyCertificateCommonNamesOutput {
+	return o.ApplyT(func(v *ClusterReverseProxyCertificateCommonNames) ClusterReverseProxyCertificateCommonNames {
+		return *v
+	}).(ClusterReverseProxyCertificateCommonNamesOutput)
+}
+
+// A `commonNames` block as defined below.
+func (o ClusterReverseProxyCertificateCommonNamesPtrOutput) CommonNames() ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput {
+	return o.ApplyT(func(v *ClusterReverseProxyCertificateCommonNames) []ClusterReverseProxyCertificateCommonNamesCommonName {
+		if v == nil {
+			return nil
+		}
+		return v.CommonNames
+	}).(ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput)
+}
+
+// The X509 Store where the Certificate Exists, such as `My`.
+func (o ClusterReverseProxyCertificateCommonNamesPtrOutput) X509StoreName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterReverseProxyCertificateCommonNames) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.X509StoreName
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterReverseProxyCertificateCommonNamesCommonName struct {
+	// The common or subject name of the certificate.
+	CertificateCommonName string `pulumi:"certificateCommonName"`
+	// The Issuer Thumbprint of the Certificate.
+	CertificateIssuerThumbprint *string `pulumi:"certificateIssuerThumbprint"`
+}
+
+// ClusterReverseProxyCertificateCommonNamesCommonNameInput is an input type that accepts ClusterReverseProxyCertificateCommonNamesCommonNameArgs and ClusterReverseProxyCertificateCommonNamesCommonNameOutput values.
+// You can construct a concrete instance of `ClusterReverseProxyCertificateCommonNamesCommonNameInput` via:
+//
+//          ClusterReverseProxyCertificateCommonNamesCommonNameArgs{...}
+type ClusterReverseProxyCertificateCommonNamesCommonNameInput interface {
+	pulumi.Input
+
+	ToClusterReverseProxyCertificateCommonNamesCommonNameOutput() ClusterReverseProxyCertificateCommonNamesCommonNameOutput
+	ToClusterReverseProxyCertificateCommonNamesCommonNameOutputWithContext(context.Context) ClusterReverseProxyCertificateCommonNamesCommonNameOutput
+}
+
+type ClusterReverseProxyCertificateCommonNamesCommonNameArgs struct {
+	// The common or subject name of the certificate.
+	CertificateCommonName pulumi.StringInput `pulumi:"certificateCommonName"`
+	// The Issuer Thumbprint of the Certificate.
+	CertificateIssuerThumbprint pulumi.StringPtrInput `pulumi:"certificateIssuerThumbprint"`
+}
+
+func (ClusterReverseProxyCertificateCommonNamesCommonNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterReverseProxyCertificateCommonNamesCommonName)(nil)).Elem()
+}
+
+func (i ClusterReverseProxyCertificateCommonNamesCommonNameArgs) ToClusterReverseProxyCertificateCommonNamesCommonNameOutput() ClusterReverseProxyCertificateCommonNamesCommonNameOutput {
+	return i.ToClusterReverseProxyCertificateCommonNamesCommonNameOutputWithContext(context.Background())
+}
+
+func (i ClusterReverseProxyCertificateCommonNamesCommonNameArgs) ToClusterReverseProxyCertificateCommonNamesCommonNameOutputWithContext(ctx context.Context) ClusterReverseProxyCertificateCommonNamesCommonNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterReverseProxyCertificateCommonNamesCommonNameOutput)
+}
+
+// ClusterReverseProxyCertificateCommonNamesCommonNameArrayInput is an input type that accepts ClusterReverseProxyCertificateCommonNamesCommonNameArray and ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput values.
+// You can construct a concrete instance of `ClusterReverseProxyCertificateCommonNamesCommonNameArrayInput` via:
+//
+//          ClusterReverseProxyCertificateCommonNamesCommonNameArray{ ClusterReverseProxyCertificateCommonNamesCommonNameArgs{...} }
+type ClusterReverseProxyCertificateCommonNamesCommonNameArrayInput interface {
+	pulumi.Input
+
+	ToClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput() ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput
+	ToClusterReverseProxyCertificateCommonNamesCommonNameArrayOutputWithContext(context.Context) ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput
+}
+
+type ClusterReverseProxyCertificateCommonNamesCommonNameArray []ClusterReverseProxyCertificateCommonNamesCommonNameInput
+
+func (ClusterReverseProxyCertificateCommonNamesCommonNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterReverseProxyCertificateCommonNamesCommonName)(nil)).Elem()
+}
+
+func (i ClusterReverseProxyCertificateCommonNamesCommonNameArray) ToClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput() ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput {
+	return i.ToClusterReverseProxyCertificateCommonNamesCommonNameArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterReverseProxyCertificateCommonNamesCommonNameArray) ToClusterReverseProxyCertificateCommonNamesCommonNameArrayOutputWithContext(ctx context.Context) ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput)
+}
+
+type ClusterReverseProxyCertificateCommonNamesCommonNameOutput struct{ *pulumi.OutputState }
+
+func (ClusterReverseProxyCertificateCommonNamesCommonNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterReverseProxyCertificateCommonNamesCommonName)(nil)).Elem()
+}
+
+func (o ClusterReverseProxyCertificateCommonNamesCommonNameOutput) ToClusterReverseProxyCertificateCommonNamesCommonNameOutput() ClusterReverseProxyCertificateCommonNamesCommonNameOutput {
+	return o
+}
+
+func (o ClusterReverseProxyCertificateCommonNamesCommonNameOutput) ToClusterReverseProxyCertificateCommonNamesCommonNameOutputWithContext(ctx context.Context) ClusterReverseProxyCertificateCommonNamesCommonNameOutput {
+	return o
+}
+
+// The common or subject name of the certificate.
+func (o ClusterReverseProxyCertificateCommonNamesCommonNameOutput) CertificateCommonName() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterReverseProxyCertificateCommonNamesCommonName) string { return v.CertificateCommonName }).(pulumi.StringOutput)
+}
+
+// The Issuer Thumbprint of the Certificate.
+func (o ClusterReverseProxyCertificateCommonNamesCommonNameOutput) CertificateIssuerThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterReverseProxyCertificateCommonNamesCommonName) *string {
+		return v.CertificateIssuerThumbprint
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterReverseProxyCertificateCommonNamesCommonName)(nil)).Elem()
+}
+
+func (o ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput) ToClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput() ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput {
+	return o
+}
+
+func (o ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput) ToClusterReverseProxyCertificateCommonNamesCommonNameArrayOutputWithContext(ctx context.Context) ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput {
+	return o
+}
+
+func (o ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput) Index(i pulumi.IntInput) ClusterReverseProxyCertificateCommonNamesCommonNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterReverseProxyCertificateCommonNamesCommonName {
+		return vs[0].([]ClusterReverseProxyCertificateCommonNamesCommonName)[vs[1].(int)]
+	}).(ClusterReverseProxyCertificateCommonNamesCommonNameOutput)
+}
+
 type MeshApplicationService struct {
 	// Any number `codePackage` block as described below.
 	CodePackages []MeshApplicationServiceCodePackage `pulumi:"codePackages"`
@@ -2326,6 +2588,10 @@ func init() {
 	pulumi.RegisterOutputType(ClusterNodeTypeEphemeralPortsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterReverseProxyCertificateOutput{})
 	pulumi.RegisterOutputType(ClusterReverseProxyCertificatePtrOutput{})
+	pulumi.RegisterOutputType(ClusterReverseProxyCertificateCommonNamesOutput{})
+	pulumi.RegisterOutputType(ClusterReverseProxyCertificateCommonNamesPtrOutput{})
+	pulumi.RegisterOutputType(ClusterReverseProxyCertificateCommonNamesCommonNameOutput{})
+	pulumi.RegisterOutputType(ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput{})
 	pulumi.RegisterOutputType(MeshApplicationServiceOutput{})
 	pulumi.RegisterOutputType(MeshApplicationServiceArrayOutput{})
 	pulumi.RegisterOutputType(MeshApplicationServiceCodePackageOutput{})

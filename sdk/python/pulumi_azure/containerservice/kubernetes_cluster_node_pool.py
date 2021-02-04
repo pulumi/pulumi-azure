@@ -17,6 +17,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
+                 enable_host_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
@@ -89,6 +90,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
+        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
         :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
@@ -130,6 +132,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
             __props__['availability_zones'] = availability_zones
             __props__['enable_auto_scaling'] = enable_auto_scaling
+            __props__['enable_host_encryption'] = enable_host_encryption
             __props__['enable_node_public_ip'] = enable_node_public_ip
             __props__['eviction_policy'] = eviction_policy
             if kubernetes_cluster_id is None and not opts.urn:
@@ -167,6 +170,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
+            enable_host_encryption: Optional[pulumi.Input[bool]] = None,
             enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
@@ -197,6 +201,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
+        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
         :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
@@ -225,6 +230,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
         __props__["availability_zones"] = availability_zones
         __props__["enable_auto_scaling"] = enable_auto_scaling
+        __props__["enable_host_encryption"] = enable_host_encryption
         __props__["enable_node_public_ip"] = enable_node_public_ip
         __props__["eviction_policy"] = eviction_policy
         __props__["kubernetes_cluster_id"] = kubernetes_cluster_id
@@ -263,6 +269,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
         """
         return pulumi.get(self, "enable_auto_scaling")
+
+    @property
+    @pulumi.getter(name="enableHostEncryption")
+    def enable_host_encryption(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_host_encryption")
 
     @property
     @pulumi.getter(name="enableNodePublicIp")

@@ -49,6 +49,10 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
         /// </summary>
         public readonly string Operator;
+        /// <summary>
+        /// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+        /// </summary>
+        public readonly bool? SkipMetricValidation;
 
         [OutputConstructor]
         private MetricAlertDynamicCriteria(
@@ -68,7 +72,9 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
             string metricNamespace,
 
-            string @operator)
+            string @operator,
+
+            bool? skipMetricValidation)
         {
             Aggregation = aggregation;
             AlertSensitivity = alertSensitivity;
@@ -79,6 +85,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
             MetricName = metricName;
             MetricNamespace = metricNamespace;
             Operator = @operator;
+            SkipMetricValidation = skipMetricValidation;
         }
     }
 }

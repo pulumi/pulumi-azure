@@ -24,6 +24,7 @@ from .get_user import *
 from .group import *
 from .group_user import *
 from .identity_provider_aad import *
+from .identity_provider_aadb2c import *
 from .identity_provider_facebook import *
 from .identity_provider_google import *
 from .identity_provider_microsoft import *
@@ -85,6 +86,8 @@ def _register_module():
                 return GroupUser(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:apimanagement/identityProviderAad:IdentityProviderAad":
                 return IdentityProviderAad(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c":
+                return IdentityProviderAadb2c(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook":
                 return IdentityProviderFacebook(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:apimanagement/identityProviderGoogle:IdentityProviderGoogle":
@@ -137,6 +140,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "apimanagement/group", _module_instance)
     pulumi.runtime.register_resource_module("azure", "apimanagement/groupUser", _module_instance)
     pulumi.runtime.register_resource_module("azure", "apimanagement/identityProviderAad", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/identityProviderAadb2c", _module_instance)
     pulumi.runtime.register_resource_module("azure", "apimanagement/identityProviderFacebook", _module_instance)
     pulumi.runtime.register_resource_module("azure", "apimanagement/identityProviderGoogle", _module_instance)
     pulumi.runtime.register_resource_module("azure", "apimanagement/identityProviderMicrosoft", _module_instance)

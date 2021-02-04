@@ -79,6 +79,10 @@ namespace Pulumi.Azure.Lb
     public sealed class GetBackendAddressPoolResult
     {
         /// <summary>
+        /// An array of `backend_address` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetBackendAddressPoolBackendAddressResult> BackendAddresses;
+        /// <summary>
         /// An array of references to IP addresses defined in network interfaces.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBackendAddressPoolBackendIpConfigurationResult> BackendIpConfigurations;
@@ -86,26 +90,43 @@ namespace Pulumi.Azure.Lb
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// An array of the Load Balancing Rules associated with this Backend Address Pool.
+        /// </summary>
+        public readonly ImmutableArray<string> LoadBalancingRules;
         public readonly string LoadbalancerId;
         /// <summary>
-        /// The name of the Backend Address Pool.
+        /// The name of the Backend Address.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
+        /// </summary>
+        public readonly ImmutableArray<string> OutboundRules;
 
         [OutputConstructor]
         private GetBackendAddressPoolResult(
+            ImmutableArray<Outputs.GetBackendAddressPoolBackendAddressResult> backendAddresses,
+
             ImmutableArray<Outputs.GetBackendAddressPoolBackendIpConfigurationResult> backendIpConfigurations,
 
             string id,
 
+            ImmutableArray<string> loadBalancingRules,
+
             string loadbalancerId,
 
-            string name)
+            string name,
+
+            ImmutableArray<string> outboundRules)
         {
+            BackendAddresses = backendAddresses;
             BackendIpConfigurations = backendIpConfigurations;
             Id = id;
+            LoadBalancingRules = loadBalancingRules;
             LoadbalancerId = loadbalancerId;
             Name = name;
+            OutboundRules = outboundRules;
         }
     }
 }

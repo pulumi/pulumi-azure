@@ -40,6 +40,10 @@ __all__ = [
     'CustomDomainPortalArgs',
     'CustomDomainProxyArgs',
     'CustomDomainScmArgs',
+    'DiagnosticBackendRequestArgs',
+    'DiagnosticBackendResponseArgs',
+    'DiagnosticFrontendRequestArgs',
+    'DiagnosticFrontendResponseArgs',
     'LoggerApplicationInsightsArgs',
     'LoggerEventhubArgs',
     'ServiceAdditionalLocationArgs',
@@ -2137,6 +2141,162 @@ class CustomDomainScmArgs:
     @negotiate_client_certificate.setter
     def negotiate_client_certificate(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "negotiate_client_certificate", value)
+
+
+@pulumi.input_type
+class DiagnosticBackendRequestArgs:
+    def __init__(__self__, *,
+                 body_bytes: Optional[pulumi.Input[int]] = None,
+                 headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[int] body_bytes: Number of payload bytes to log (up to 8192).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] headers_to_logs: Specifies a list of headers to log.
+        """
+        if body_bytes is not None:
+            pulumi.set(__self__, "body_bytes", body_bytes)
+        if headers_to_logs is not None:
+            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
+
+    @property
+    @pulumi.getter(name="bodyBytes")
+    def body_bytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of payload bytes to log (up to 8192).
+        """
+        return pulumi.get(self, "body_bytes")
+
+    @body_bytes.setter
+    def body_bytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "body_bytes", value)
+
+    @property
+    @pulumi.getter(name="headersToLogs")
+    def headers_to_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of headers to log.
+        """
+        return pulumi.get(self, "headers_to_logs")
+
+    @headers_to_logs.setter
+    def headers_to_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "headers_to_logs", value)
+
+
+@pulumi.input_type
+class DiagnosticBackendResponseArgs:
+    def __init__(__self__, *,
+                 body_bytes: Optional[pulumi.Input[int]] = None,
+                 headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[int] body_bytes: Number of payload bytes to log (up to 8192).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] headers_to_logs: Specifies a list of headers to log.
+        """
+        if body_bytes is not None:
+            pulumi.set(__self__, "body_bytes", body_bytes)
+        if headers_to_logs is not None:
+            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
+
+    @property
+    @pulumi.getter(name="bodyBytes")
+    def body_bytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of payload bytes to log (up to 8192).
+        """
+        return pulumi.get(self, "body_bytes")
+
+    @body_bytes.setter
+    def body_bytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "body_bytes", value)
+
+    @property
+    @pulumi.getter(name="headersToLogs")
+    def headers_to_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of headers to log.
+        """
+        return pulumi.get(self, "headers_to_logs")
+
+    @headers_to_logs.setter
+    def headers_to_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "headers_to_logs", value)
+
+
+@pulumi.input_type
+class DiagnosticFrontendRequestArgs:
+    def __init__(__self__, *,
+                 body_bytes: Optional[pulumi.Input[int]] = None,
+                 headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[int] body_bytes: Number of payload bytes to log (up to 8192).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] headers_to_logs: Specifies a list of headers to log.
+        """
+        if body_bytes is not None:
+            pulumi.set(__self__, "body_bytes", body_bytes)
+        if headers_to_logs is not None:
+            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
+
+    @property
+    @pulumi.getter(name="bodyBytes")
+    def body_bytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of payload bytes to log (up to 8192).
+        """
+        return pulumi.get(self, "body_bytes")
+
+    @body_bytes.setter
+    def body_bytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "body_bytes", value)
+
+    @property
+    @pulumi.getter(name="headersToLogs")
+    def headers_to_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of headers to log.
+        """
+        return pulumi.get(self, "headers_to_logs")
+
+    @headers_to_logs.setter
+    def headers_to_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "headers_to_logs", value)
+
+
+@pulumi.input_type
+class DiagnosticFrontendResponseArgs:
+    def __init__(__self__, *,
+                 body_bytes: Optional[pulumi.Input[int]] = None,
+                 headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[int] body_bytes: Number of payload bytes to log (up to 8192).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] headers_to_logs: Specifies a list of headers to log.
+        """
+        if body_bytes is not None:
+            pulumi.set(__self__, "body_bytes", body_bytes)
+        if headers_to_logs is not None:
+            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
+
+    @property
+    @pulumi.getter(name="bodyBytes")
+    def body_bytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of payload bytes to log (up to 8192).
+        """
+        return pulumi.get(self, "body_bytes")
+
+    @body_bytes.setter
+    def body_bytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "body_bytes", value)
+
+    @property
+    @pulumi.getter(name="headersToLogs")
+    def headers_to_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of headers to log.
+        """
+        return pulumi.get(self, "headers_to_logs")
+
+    @headers_to_logs.setter
+    def headers_to_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "headers_to_logs", value)
 
 
 @pulumi.input_type

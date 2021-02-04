@@ -142,6 +142,10 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly privateStaticIpAddress!: pulumi.Output<string>;
     /**
+     * Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */
     public readonly redisConfiguration!: pulumi.Output<outputs.redis.CacheRedisConfiguration>;
@@ -207,6 +211,7 @@ export class Cache extends pulumi.CustomResource {
             inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
             inputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
             inputs["privateStaticIpAddress"] = state ? state.privateStaticIpAddress : undefined;
+            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["redisConfiguration"] = state ? state.redisConfiguration : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
@@ -239,6 +244,7 @@ export class Cache extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["patchSchedules"] = args ? args.patchSchedules : undefined;
             inputs["privateStaticIpAddress"] = args ? args.privateStaticIpAddress : undefined;
+            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["redisConfiguration"] = args ? args.redisConfiguration : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shardCount"] = args ? args.shardCount : undefined;
@@ -319,6 +325,10 @@ export interface CacheState {
      */
     readonly privateStaticIpAddress?: pulumi.Input<string>;
     /**
+     * Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
+     */
+    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
      * A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */
     readonly redisConfiguration?: pulumi.Input<inputs.redis.CacheRedisConfiguration>;
@@ -398,6 +408,10 @@ export interface CacheArgs {
      * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
      */
     readonly privateStaticIpAddress?: pulumi.Input<string>;
+    /**
+     * Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
+     */
+    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */

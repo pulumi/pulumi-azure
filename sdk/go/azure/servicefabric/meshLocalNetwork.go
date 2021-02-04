@@ -11,40 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages a Service Fabric Mesh Local Network.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/servicefabric"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = servicefabric.NewMeshLocalNetwork(ctx, "exampleMeshLocalNetwork", &servicefabric.MeshLocalNetworkArgs{
-// 			ResourceGroupName:    exampleResourceGroup.Name,
-// 			Location:             exampleResourceGroup.Location,
-// 			NetworkAddressPrefix: pulumi.String("10.0.0.0/22"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // Service Fabric Mesh Local Network can be imported using the `resource id`, e.g.

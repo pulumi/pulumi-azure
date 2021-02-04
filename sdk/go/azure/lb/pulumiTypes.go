@@ -10,6 +10,121 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type BackendAddressPoolBackendAddress struct {
+	// The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtualNetworkId`.
+	IpAddress string `pulumi:"ipAddress"`
+	// The name of the Backend Address.
+	Name string `pulumi:"name"`
+	// The ID of the Virtual Network that is pre-allocated for this Backend Address.
+	VirtualNetworkId string `pulumi:"virtualNetworkId"`
+}
+
+// BackendAddressPoolBackendAddressInput is an input type that accepts BackendAddressPoolBackendAddressArgs and BackendAddressPoolBackendAddressOutput values.
+// You can construct a concrete instance of `BackendAddressPoolBackendAddressInput` via:
+//
+//          BackendAddressPoolBackendAddressArgs{...}
+type BackendAddressPoolBackendAddressInput interface {
+	pulumi.Input
+
+	ToBackendAddressPoolBackendAddressOutput() BackendAddressPoolBackendAddressOutput
+	ToBackendAddressPoolBackendAddressOutputWithContext(context.Context) BackendAddressPoolBackendAddressOutput
+}
+
+type BackendAddressPoolBackendAddressArgs struct {
+	// The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtualNetworkId`.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	// The name of the Backend Address.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of the Virtual Network that is pre-allocated for this Backend Address.
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+}
+
+func (BackendAddressPoolBackendAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendAddressPoolBackendAddress)(nil)).Elem()
+}
+
+func (i BackendAddressPoolBackendAddressArgs) ToBackendAddressPoolBackendAddressOutput() BackendAddressPoolBackendAddressOutput {
+	return i.ToBackendAddressPoolBackendAddressOutputWithContext(context.Background())
+}
+
+func (i BackendAddressPoolBackendAddressArgs) ToBackendAddressPoolBackendAddressOutputWithContext(ctx context.Context) BackendAddressPoolBackendAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackendAddressPoolBackendAddressOutput)
+}
+
+// BackendAddressPoolBackendAddressArrayInput is an input type that accepts BackendAddressPoolBackendAddressArray and BackendAddressPoolBackendAddressArrayOutput values.
+// You can construct a concrete instance of `BackendAddressPoolBackendAddressArrayInput` via:
+//
+//          BackendAddressPoolBackendAddressArray{ BackendAddressPoolBackendAddressArgs{...} }
+type BackendAddressPoolBackendAddressArrayInput interface {
+	pulumi.Input
+
+	ToBackendAddressPoolBackendAddressArrayOutput() BackendAddressPoolBackendAddressArrayOutput
+	ToBackendAddressPoolBackendAddressArrayOutputWithContext(context.Context) BackendAddressPoolBackendAddressArrayOutput
+}
+
+type BackendAddressPoolBackendAddressArray []BackendAddressPoolBackendAddressInput
+
+func (BackendAddressPoolBackendAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackendAddressPoolBackendAddress)(nil)).Elem()
+}
+
+func (i BackendAddressPoolBackendAddressArray) ToBackendAddressPoolBackendAddressArrayOutput() BackendAddressPoolBackendAddressArrayOutput {
+	return i.ToBackendAddressPoolBackendAddressArrayOutputWithContext(context.Background())
+}
+
+func (i BackendAddressPoolBackendAddressArray) ToBackendAddressPoolBackendAddressArrayOutputWithContext(ctx context.Context) BackendAddressPoolBackendAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackendAddressPoolBackendAddressArrayOutput)
+}
+
+type BackendAddressPoolBackendAddressOutput struct{ *pulumi.OutputState }
+
+func (BackendAddressPoolBackendAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendAddressPoolBackendAddress)(nil)).Elem()
+}
+
+func (o BackendAddressPoolBackendAddressOutput) ToBackendAddressPoolBackendAddressOutput() BackendAddressPoolBackendAddressOutput {
+	return o
+}
+
+func (o BackendAddressPoolBackendAddressOutput) ToBackendAddressPoolBackendAddressOutputWithContext(ctx context.Context) BackendAddressPoolBackendAddressOutput {
+	return o
+}
+
+// The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtualNetworkId`.
+func (o BackendAddressPoolBackendAddressOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v BackendAddressPoolBackendAddress) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// The name of the Backend Address.
+func (o BackendAddressPoolBackendAddressOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BackendAddressPoolBackendAddress) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the Virtual Network that is pre-allocated for this Backend Address.
+func (o BackendAddressPoolBackendAddressOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v BackendAddressPoolBackendAddress) string { return v.VirtualNetworkId }).(pulumi.StringOutput)
+}
+
+type BackendAddressPoolBackendAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (BackendAddressPoolBackendAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackendAddressPoolBackendAddress)(nil)).Elem()
+}
+
+func (o BackendAddressPoolBackendAddressArrayOutput) ToBackendAddressPoolBackendAddressArrayOutput() BackendAddressPoolBackendAddressArrayOutput {
+	return o
+}
+
+func (o BackendAddressPoolBackendAddressArrayOutput) ToBackendAddressPoolBackendAddressArrayOutputWithContext(ctx context.Context) BackendAddressPoolBackendAddressArrayOutput {
+	return o
+}
+
+func (o BackendAddressPoolBackendAddressArrayOutput) Index(i pulumi.IntInput) BackendAddressPoolBackendAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackendAddressPoolBackendAddress {
+		return vs[0].([]BackendAddressPoolBackendAddress)[vs[1].(int)]
+	}).(BackendAddressPoolBackendAddressOutput)
+}
+
 type LoadBalancerFrontendIpConfiguration struct {
 	// The id of the Frontend IP Configuration.
 	Id *string `pulumi:"id"`
@@ -312,6 +427,121 @@ func (o OutboundRuleFrontendIpConfigurationArrayOutput) Index(i pulumi.IntInput)
 	}).(OutboundRuleFrontendIpConfigurationOutput)
 }
 
+type GetBackendAddressPoolBackendAddress struct {
+	// The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtualNetworkId`.
+	IpAddress string `pulumi:"ipAddress"`
+	// Specifies the name of the Backend Address Pool.
+	Name string `pulumi:"name"`
+	// The ID of the Virtual Network that is pre-allocated for this Backend Address.
+	VirtualNetworkId string `pulumi:"virtualNetworkId"`
+}
+
+// GetBackendAddressPoolBackendAddressInput is an input type that accepts GetBackendAddressPoolBackendAddressArgs and GetBackendAddressPoolBackendAddressOutput values.
+// You can construct a concrete instance of `GetBackendAddressPoolBackendAddressInput` via:
+//
+//          GetBackendAddressPoolBackendAddressArgs{...}
+type GetBackendAddressPoolBackendAddressInput interface {
+	pulumi.Input
+
+	ToGetBackendAddressPoolBackendAddressOutput() GetBackendAddressPoolBackendAddressOutput
+	ToGetBackendAddressPoolBackendAddressOutputWithContext(context.Context) GetBackendAddressPoolBackendAddressOutput
+}
+
+type GetBackendAddressPoolBackendAddressArgs struct {
+	// The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtualNetworkId`.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	// Specifies the name of the Backend Address Pool.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of the Virtual Network that is pre-allocated for this Backend Address.
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+}
+
+func (GetBackendAddressPoolBackendAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBackendAddressPoolBackendAddress)(nil)).Elem()
+}
+
+func (i GetBackendAddressPoolBackendAddressArgs) ToGetBackendAddressPoolBackendAddressOutput() GetBackendAddressPoolBackendAddressOutput {
+	return i.ToGetBackendAddressPoolBackendAddressOutputWithContext(context.Background())
+}
+
+func (i GetBackendAddressPoolBackendAddressArgs) ToGetBackendAddressPoolBackendAddressOutputWithContext(ctx context.Context) GetBackendAddressPoolBackendAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBackendAddressPoolBackendAddressOutput)
+}
+
+// GetBackendAddressPoolBackendAddressArrayInput is an input type that accepts GetBackendAddressPoolBackendAddressArray and GetBackendAddressPoolBackendAddressArrayOutput values.
+// You can construct a concrete instance of `GetBackendAddressPoolBackendAddressArrayInput` via:
+//
+//          GetBackendAddressPoolBackendAddressArray{ GetBackendAddressPoolBackendAddressArgs{...} }
+type GetBackendAddressPoolBackendAddressArrayInput interface {
+	pulumi.Input
+
+	ToGetBackendAddressPoolBackendAddressArrayOutput() GetBackendAddressPoolBackendAddressArrayOutput
+	ToGetBackendAddressPoolBackendAddressArrayOutputWithContext(context.Context) GetBackendAddressPoolBackendAddressArrayOutput
+}
+
+type GetBackendAddressPoolBackendAddressArray []GetBackendAddressPoolBackendAddressInput
+
+func (GetBackendAddressPoolBackendAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBackendAddressPoolBackendAddress)(nil)).Elem()
+}
+
+func (i GetBackendAddressPoolBackendAddressArray) ToGetBackendAddressPoolBackendAddressArrayOutput() GetBackendAddressPoolBackendAddressArrayOutput {
+	return i.ToGetBackendAddressPoolBackendAddressArrayOutputWithContext(context.Background())
+}
+
+func (i GetBackendAddressPoolBackendAddressArray) ToGetBackendAddressPoolBackendAddressArrayOutputWithContext(ctx context.Context) GetBackendAddressPoolBackendAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBackendAddressPoolBackendAddressArrayOutput)
+}
+
+type GetBackendAddressPoolBackendAddressOutput struct{ *pulumi.OutputState }
+
+func (GetBackendAddressPoolBackendAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBackendAddressPoolBackendAddress)(nil)).Elem()
+}
+
+func (o GetBackendAddressPoolBackendAddressOutput) ToGetBackendAddressPoolBackendAddressOutput() GetBackendAddressPoolBackendAddressOutput {
+	return o
+}
+
+func (o GetBackendAddressPoolBackendAddressOutput) ToGetBackendAddressPoolBackendAddressOutputWithContext(ctx context.Context) GetBackendAddressPoolBackendAddressOutput {
+	return o
+}
+
+// The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtualNetworkId`.
+func (o GetBackendAddressPoolBackendAddressOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBackendAddressPoolBackendAddress) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the Backend Address Pool.
+func (o GetBackendAddressPoolBackendAddressOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBackendAddressPoolBackendAddress) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the Virtual Network that is pre-allocated for this Backend Address.
+func (o GetBackendAddressPoolBackendAddressOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBackendAddressPoolBackendAddress) string { return v.VirtualNetworkId }).(pulumi.StringOutput)
+}
+
+type GetBackendAddressPoolBackendAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBackendAddressPoolBackendAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBackendAddressPoolBackendAddress)(nil)).Elem()
+}
+
+func (o GetBackendAddressPoolBackendAddressArrayOutput) ToGetBackendAddressPoolBackendAddressArrayOutput() GetBackendAddressPoolBackendAddressArrayOutput {
+	return o
+}
+
+func (o GetBackendAddressPoolBackendAddressArrayOutput) ToGetBackendAddressPoolBackendAddressArrayOutputWithContext(ctx context.Context) GetBackendAddressPoolBackendAddressArrayOutput {
+	return o
+}
+
+func (o GetBackendAddressPoolBackendAddressArrayOutput) Index(i pulumi.IntInput) GetBackendAddressPoolBackendAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBackendAddressPoolBackendAddress {
+		return vs[0].([]GetBackendAddressPoolBackendAddress)[vs[1].(int)]
+	}).(GetBackendAddressPoolBackendAddressOutput)
+}
+
 type GetBackendAddressPoolBackendIpConfiguration struct {
 	// The ID of the Backend Address Pool.
 	Id string `pulumi:"id"`
@@ -570,10 +800,14 @@ func (o GetLBFrontendIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetLBF
 }
 
 func init() {
+	pulumi.RegisterOutputType(BackendAddressPoolBackendAddressOutput{})
+	pulumi.RegisterOutputType(BackendAddressPoolBackendAddressArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerFrontendIpConfigurationOutput{})
 	pulumi.RegisterOutputType(LoadBalancerFrontendIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(OutboundRuleFrontendIpConfigurationOutput{})
 	pulumi.RegisterOutputType(OutboundRuleFrontendIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetBackendAddressPoolBackendAddressOutput{})
+	pulumi.RegisterOutputType(GetBackendAddressPoolBackendAddressArrayOutput{})
 	pulumi.RegisterOutputType(GetBackendAddressPoolBackendIpConfigurationOutput{})
 	pulumi.RegisterOutputType(GetBackendAddressPoolBackendIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetLBFrontendIpConfigurationOutput{})

@@ -3664,6 +3664,8 @@ type KubernetesClusterDefaultNodePool struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
+	// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
 	// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
@@ -3712,6 +3714,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
+	// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+	EnableHostEncryption pulumi.BoolPtrInput `pulumi:"enableHostEncryption"`
 	// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
 	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
 	// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
@@ -3831,6 +3835,11 @@ func (o KubernetesClusterDefaultNodePoolOutput) EnableAutoScaling() pulumi.BoolP
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
 }
 
+// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+func (o KubernetesClusterDefaultNodePoolOutput) EnableHostEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableHostEncryption }).(pulumi.BoolPtrOutput)
+}
+
 // Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
 func (o KubernetesClusterDefaultNodePoolOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
@@ -3944,6 +3953,16 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableAutoScaling() pulumi.Bo
 			return nil
 		}
 		return v.EnableAutoScaling
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableHostEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableHostEncryption
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -4982,7 +5001,7 @@ type KubernetesClusterNetworkProfile struct {
 	LoadBalancerProfile *KubernetesClusterNetworkProfileLoadBalancerProfile `pulumi:"loadBalancerProfile"`
 	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
 	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
-	// Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
+	// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 	NetworkMode *string `pulumi:"networkMode"`
 	// Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
 	NetworkPlugin string `pulumi:"networkPlugin"`
@@ -5016,7 +5035,7 @@ type KubernetesClusterNetworkProfileArgs struct {
 	LoadBalancerProfile KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput `pulumi:"loadBalancerProfile"`
 	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
 	LoadBalancerSku pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
-	// Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
+	// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 	NetworkMode pulumi.StringPtrInput `pulumi:"networkMode"`
 	// Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
 	NetworkPlugin pulumi.StringInput `pulumi:"networkPlugin"`
@@ -5129,7 +5148,7 @@ func (o KubernetesClusterNetworkProfileOutput) LoadBalancerSku() pulumi.StringPt
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
 
-// Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
+// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) NetworkMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkMode }).(pulumi.StringPtrOutput)
 }
@@ -5217,7 +5236,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) LoadBalancerSku() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
+// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -6038,7 +6057,7 @@ func (o KubernetesClusterServicePrincipalPtrOutput) ClientSecret() pulumi.String
 }
 
 type KubernetesClusterWindowsProfile struct {
-	// The Admin Password for Windows VMs.
+	// The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
 	AdminPassword *string `pulumi:"adminPassword"`
 	// The Admin Username for Windows VMs.
 	AdminUsername string `pulumi:"adminUsername"`
@@ -6056,7 +6075,7 @@ type KubernetesClusterWindowsProfileInput interface {
 }
 
 type KubernetesClusterWindowsProfileArgs struct {
-	// The Admin Password for Windows VMs.
+	// The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
 	// The Admin Username for Windows VMs.
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
@@ -6139,7 +6158,7 @@ func (o KubernetesClusterWindowsProfileOutput) ToKubernetesClusterWindowsProfile
 	}).(KubernetesClusterWindowsProfilePtrOutput)
 }
 
-// The Admin Password for Windows VMs.
+// The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
 func (o KubernetesClusterWindowsProfileOutput) AdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterWindowsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
@@ -6167,7 +6186,7 @@ func (o KubernetesClusterWindowsProfilePtrOutput) Elem() KubernetesClusterWindow
 	return o.ApplyT(func(v *KubernetesClusterWindowsProfile) KubernetesClusterWindowsProfile { return *v }).(KubernetesClusterWindowsProfileOutput)
 }
 
-// The Admin Password for Windows VMs.
+// The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
 func (o KubernetesClusterWindowsProfilePtrOutput) AdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterWindowsProfile) *string {
 		if v == nil {

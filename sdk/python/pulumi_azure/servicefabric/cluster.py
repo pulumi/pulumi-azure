@@ -33,6 +33,7 @@ class Cluster(pulumi.CustomResource):
                  reliability_level: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  reverse_proxy_certificate: Optional[pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateArgs']]] = None,
+                 reverse_proxy_certificate_common_names: Optional[pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateCommonNamesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
                  vm_image: Optional[pulumi.Input[str]] = None,
@@ -91,7 +92,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterNodeTypeArgs']]]] node_types: One or more `node_type` blocks as defined below.
         :param pulumi.Input[str] reliability_level: Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateArgs']] reverse_proxy_certificate: A `reverse_proxy_certificate` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateArgs']] reverse_proxy_certificate: A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
+        :param pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateCommonNamesArgs']] reverse_proxy_certificate_common_names: A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_mode: Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
         :param pulumi.Input[str] vm_image: Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
@@ -137,6 +139,7 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['reverse_proxy_certificate'] = reverse_proxy_certificate
+            __props__['reverse_proxy_certificate_common_names'] = reverse_proxy_certificate_common_names
             __props__['tags'] = tags
             if upgrade_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'upgrade_mode'")
@@ -172,6 +175,7 @@ class Cluster(pulumi.CustomResource):
             reliability_level: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             reverse_proxy_certificate: Optional[pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateArgs']]] = None,
+            reverse_proxy_certificate_common_names: Optional[pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateCommonNamesArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             upgrade_mode: Optional[pulumi.Input[str]] = None,
             vm_image: Optional[pulumi.Input[str]] = None) -> 'Cluster':
@@ -198,7 +202,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterNodeTypeArgs']]]] node_types: One or more `node_type` blocks as defined below.
         :param pulumi.Input[str] reliability_level: Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateArgs']] reverse_proxy_certificate: A `reverse_proxy_certificate` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateArgs']] reverse_proxy_certificate: A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
+        :param pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateCommonNamesArgs']] reverse_proxy_certificate_common_names: A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_mode: Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
         :param pulumi.Input[str] vm_image: Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
@@ -224,6 +229,7 @@ class Cluster(pulumi.CustomResource):
         __props__["reliability_level"] = reliability_level
         __props__["resource_group_name"] = resource_group_name
         __props__["reverse_proxy_certificate"] = reverse_proxy_certificate
+        __props__["reverse_proxy_certificate_common_names"] = reverse_proxy_certificate_common_names
         __props__["tags"] = tags
         __props__["upgrade_mode"] = upgrade_mode
         __props__["vm_image"] = vm_image
@@ -361,9 +367,17 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="reverseProxyCertificate")
     def reverse_proxy_certificate(self) -> pulumi.Output[Optional['outputs.ClusterReverseProxyCertificate']]:
         """
-        A `reverse_proxy_certificate` block as defined below.
+        A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
         """
         return pulumi.get(self, "reverse_proxy_certificate")
+
+    @property
+    @pulumi.getter(name="reverseProxyCertificateCommonNames")
+    def reverse_proxy_certificate_common_names(self) -> pulumi.Output[Optional['outputs.ClusterReverseProxyCertificateCommonNames']]:
+        """
+        A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
+        """
+        return pulumi.get(self, "reverse_proxy_certificate_common_names")
 
     @property
     @pulumi.getter

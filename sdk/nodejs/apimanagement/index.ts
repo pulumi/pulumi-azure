@@ -26,6 +26,7 @@ export * from "./getUser";
 export * from "./group";
 export * from "./groupUser";
 export * from "./identityProviderAad";
+export * from "./identityProviderAadb2c";
 export * from "./identityProviderFacebook";
 export * from "./identityProviderGoogle";
 export * from "./identityProviderMicrosoft";
@@ -59,6 +60,7 @@ import { Diagnostic } from "./diagnostic";
 import { Group } from "./group";
 import { GroupUser } from "./groupUser";
 import { IdentityProviderAad } from "./identityProviderAad";
+import { IdentityProviderAadb2c } from "./identityProviderAadb2c";
 import { IdentityProviderFacebook } from "./identityProviderFacebook";
 import { IdentityProviderGoogle } from "./identityProviderGoogle";
 import { IdentityProviderMicrosoft } from "./identityProviderMicrosoft";
@@ -110,6 +112,8 @@ const _module = {
                 return new GroupUser(name, <any>undefined, { urn })
             case "azure:apimanagement/identityProviderAad:IdentityProviderAad":
                 return new IdentityProviderAad(name, <any>undefined, { urn })
+            case "azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c":
+                return new IdentityProviderAadb2c(name, <any>undefined, { urn })
             case "azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook":
                 return new IdentityProviderFacebook(name, <any>undefined, { urn })
             case "azure:apimanagement/identityProviderGoogle:IdentityProviderGoogle":
@@ -162,6 +166,7 @@ pulumi.runtime.registerResourceModule("azure", "apimanagement/diagnostic", _modu
 pulumi.runtime.registerResourceModule("azure", "apimanagement/group", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/groupUser", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/identityProviderAad", _module)
+pulumi.runtime.registerResourceModule("azure", "apimanagement/identityProviderAadb2c", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/identityProviderFacebook", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/identityProviderGoogle", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/identityProviderMicrosoft", _module)

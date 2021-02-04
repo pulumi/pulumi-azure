@@ -623,6 +623,50 @@ export namespace apimanagement {
         negotiateClientCertificate?: pulumi.Input<boolean>;
     }
 
+    export interface DiagnosticBackendRequest {
+        /**
+         * Number of payload bytes to log (up to 8192).
+         */
+        bodyBytes?: pulumi.Input<number>;
+        /**
+         * Specifies a list of headers to log.
+         */
+        headersToLogs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DiagnosticBackendResponse {
+        /**
+         * Number of payload bytes to log (up to 8192).
+         */
+        bodyBytes?: pulumi.Input<number>;
+        /**
+         * Specifies a list of headers to log.
+         */
+        headersToLogs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DiagnosticFrontendRequest {
+        /**
+         * Number of payload bytes to log (up to 8192).
+         */
+        bodyBytes?: pulumi.Input<number>;
+        /**
+         * Specifies a list of headers to log.
+         */
+        headersToLogs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DiagnosticFrontendResponse {
+        /**
+         * Number of payload bytes to log (up to 8192).
+         */
+        bodyBytes?: pulumi.Input<number>;
+        /**
+         * Specifies a list of headers to log.
+         */
+        headersToLogs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface LoggerApplicationInsights {
         /**
          * The instrumentation key used to push data to Application Insights.
@@ -6281,6 +6325,10 @@ export namespace containerservice {
          */
         enableAutoScaling?: pulumi.Input<boolean>;
         /**
+         * Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+         */
+        enableHostEncryption?: pulumi.Input<boolean>;
+        /**
          * Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
          */
         enableNodePublicIp?: pulumi.Input<boolean>;
@@ -6464,7 +6512,7 @@ export namespace containerservice {
          */
         loadBalancerSku?: pulumi.Input<string>;
         /**
-         * Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
+         * Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
          */
         networkMode?: pulumi.Input<string>;
         /**
@@ -6567,7 +6615,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterWindowsProfile {
         /**
-         * The Admin Password for Windows VMs.
+         * The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
          */
         adminPassword?: pulumi.Input<string>;
         /**
@@ -6732,6 +6780,57 @@ export namespace cosmosdb {
          * The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput?: pulumi.Input<number>;
+    }
+
+    export interface CassandraTableAutoscaleSettings {
+        /**
+         * The maximum throughput of the Cassandra Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+         */
+        maxThroughput?: pulumi.Input<number>;
+    }
+
+    export interface CassandraTableSchema {
+        /**
+         * One or more `clusterKey` blocks as defined below.
+         */
+        clusterKeys?: pulumi.Input<pulumi.Input<inputs.cosmosdb.CassandraTableSchemaClusterKey>[]>;
+        /**
+         * One or more `column` blocks as defined below.
+         */
+        columns: pulumi.Input<pulumi.Input<inputs.cosmosdb.CassandraTableSchemaColumn>[]>;
+        /**
+         * One or more `partitionKey` blocks as defined below.
+         */
+        partitionKeys: pulumi.Input<pulumi.Input<inputs.cosmosdb.CassandraTableSchemaPartitionKey>[]>;
+    }
+
+    export interface CassandraTableSchemaClusterKey {
+        /**
+         * Name of the cluster key to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Order of the key. Currently supported values are `Asc` and `Desc`.
+         */
+        orderBy: pulumi.Input<string>;
+    }
+
+    export interface CassandraTableSchemaColumn {
+        /**
+         * Name of the column to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Type of the column to be created.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface CassandraTableSchemaPartitionKey {
+        /**
+         * Name of the column to partition by.
+         */
+        name: pulumi.Input<string>;
     }
 
     export interface GremlinDatabaseAutoscaleSettings {
@@ -11942,6 +12041,21 @@ export namespace kusto {
 }
 
 export namespace lb {
+    export interface BackendAddressPoolBackendAddress {
+        /**
+         * The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtualNetworkId`.
+         */
+        ipAddress: pulumi.Input<string>;
+        /**
+         * The name of the Backend Address.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The ID of the Virtual Network that is pre-allocated for this Backend Address.
+         */
+        virtualNetworkId: pulumi.Input<string>;
+    }
+
     export interface LoadBalancerFrontendIpConfiguration {
         /**
          * The id of the Frontend IP Configuration.
@@ -13519,6 +13633,10 @@ export namespace monitoring {
          */
         operator: pulumi.Input<string>;
         /**
+         * Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+         */
+        skipMetricValidation?: pulumi.Input<boolean>;
+        /**
          * The criteria threshold value that activates the alert.
          */
         threshold: pulumi.Input<number>;
@@ -13576,6 +13694,10 @@ export namespace monitoring {
          * The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
          */
         operator: pulumi.Input<string>;
+        /**
+         * Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+         */
+        skipMetricValidation?: pulumi.Input<boolean>;
     }
 
     export interface MetricAlertDynamicCriteriaDimension {
@@ -17418,6 +17540,28 @@ export namespace servicefabric {
          * The X509 Store where the Certificate Exists, such as `My`.
          */
         x509StoreName: pulumi.Input<string>;
+    }
+
+    export interface ClusterReverseProxyCertificateCommonNames {
+        /**
+         * A `commonNames` block as defined below.
+         */
+        commonNames: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificateCommonNamesCommonName>[]>;
+        /**
+         * The X509 Store where the Certificate Exists, such as `My`.
+         */
+        x509StoreName: pulumi.Input<string>;
+    }
+
+    export interface ClusterReverseProxyCertificateCommonNamesCommonName {
+        /**
+         * The common or subject name of the certificate.
+         */
+        certificateCommonName: pulumi.Input<string>;
+        /**
+         * The Issuer Thumbprint of the Certificate.
+         */
+        certificateIssuerThumbprint?: pulumi.Input<string>;
     }
 
     export interface MeshApplicationService {

@@ -22,6 +22,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? EnableAutoScaling;
         /// <summary>
+        /// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+        /// </summary>
+        public readonly bool? EnableHostEncryption;
+        /// <summary>
         /// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
         /// </summary>
         public readonly bool? EnableNodePublicIp;
@@ -86,6 +90,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             bool? enableAutoScaling,
 
+            bool? enableHostEncryption,
+
             bool? enableNodePublicIp,
 
             int? maxCount,
@@ -120,6 +126,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         {
             AvailabilityZones = availabilityZones;
             EnableAutoScaling = enableAutoScaling;
+            EnableHostEncryption = enableHostEncryption;
             EnableNodePublicIp = enableNodePublicIp;
             MaxCount = maxCount;
             MaxPods = maxPods;

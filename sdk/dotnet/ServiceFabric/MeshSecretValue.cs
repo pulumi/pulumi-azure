@@ -10,38 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric
 {
     /// <summary>
-    /// Manages a Service Fabric Mesh Secret Value.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleMeshSecret = new Azure.ServiceFabric.MeshSecret("exampleMeshSecret", new Azure.ServiceFabric.MeshSecretArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleMeshSecretValue = new Azure.ServiceFabric.MeshSecretValue("exampleMeshSecretValue", new Azure.ServiceFabric.MeshSecretValueArgs
-    ///         {
-    ///             ServiceFabricMeshSecretId = azurerm_service_fabric_mesh_secret_inline.Test.Id,
-    ///             Location = azurerm_resource_group.Test.Location,
-    ///             Value = "testValue",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Service Fabric Mesh Secret Value can be imported using the `resource id`, e.g.

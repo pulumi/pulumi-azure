@@ -134,9 +134,13 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A `reverseProxyCertificate` block as defined below.
+     * A `reverseProxyCertificate` block as defined below. Conflicts with `reverseProxyCertificateCommonNames`.
      */
     public readonly reverseProxyCertificate!: pulumi.Output<outputs.servicefabric.ClusterReverseProxyCertificate | undefined>;
+    /**
+     * A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
+     */
+    public readonly reverseProxyCertificateCommonNames!: pulumi.Output<outputs.servicefabric.ClusterReverseProxyCertificateCommonNames | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -179,6 +183,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["reliabilityLevel"] = state ? state.reliabilityLevel : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["reverseProxyCertificate"] = state ? state.reverseProxyCertificate : undefined;
+            inputs["reverseProxyCertificateCommonNames"] = state ? state.reverseProxyCertificateCommonNames : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["upgradeMode"] = state ? state.upgradeMode : undefined;
             inputs["vmImage"] = state ? state.vmImage : undefined;
@@ -218,6 +223,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["reliabilityLevel"] = args ? args.reliabilityLevel : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["reverseProxyCertificate"] = args ? args.reverseProxyCertificate : undefined;
+            inputs["reverseProxyCertificateCommonNames"] = args ? args.reverseProxyCertificateCommonNames : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["upgradeMode"] = args ? args.upgradeMode : undefined;
             inputs["vmImage"] = args ? args.vmImage : undefined;
@@ -303,9 +309,13 @@ export interface ClusterState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * A `reverseProxyCertificate` block as defined below.
+     * A `reverseProxyCertificate` block as defined below. Conflicts with `reverseProxyCertificateCommonNames`.
      */
     readonly reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificate>;
+    /**
+     * A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
+     */
+    readonly reverseProxyCertificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificateCommonNames>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -385,9 +395,13 @@ export interface ClusterArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * A `reverseProxyCertificate` block as defined below.
+     * A `reverseProxyCertificate` block as defined below. Conflicts with `reverseProxyCertificateCommonNames`.
      */
     readonly reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificate>;
+    /**
+     * A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
+     */
+    readonly reverseProxyCertificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificateCommonNames>;
     /**
      * A mapping of tags to assign to the resource.
      */

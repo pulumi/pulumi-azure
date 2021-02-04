@@ -85,6 +85,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<bool?> EnableAutoScaling { get; private set; } = null!;
 
         /// <summary>
+        /// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+        /// </summary>
+        [Output("enableHostEncryption")]
+        public Output<bool?> EnableHostEncryption { get; private set; } = null!;
+
+        /// <summary>
         /// Should each node have a Public IP Address? Defaults to `false`.
         /// </summary>
         [Output("enableNodePublicIp")]
@@ -275,6 +281,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? EnableAutoScaling { get; set; }
 
         /// <summary>
+        /// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+        /// </summary>
+        [Input("enableHostEncryption")]
+        public Input<bool>? EnableHostEncryption { get; set; }
+
+        /// <summary>
         /// Should each node have a Public IP Address? Defaults to `false`.
         /// </summary>
         [Input("enableNodePublicIp")]
@@ -442,6 +454,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("enableAutoScaling")]
         public Input<bool>? EnableAutoScaling { get; set; }
+
+        /// <summary>
+        /// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+        /// </summary>
+        [Input("enableHostEncryption")]
+        public Input<bool>? EnableHostEncryption { get; set; }
 
         /// <summary>
         /// Should each node have a Public IP Address? Defaults to `false`.

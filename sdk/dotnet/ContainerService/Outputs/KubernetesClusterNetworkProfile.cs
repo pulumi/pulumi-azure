@@ -30,7 +30,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? LoadBalancerSku;
         /// <summary>
-        /// Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
+        /// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? NetworkMode;
         /// <summary>

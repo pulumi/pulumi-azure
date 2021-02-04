@@ -37,7 +37,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? LoadBalancerSku { get; set; }
 
         /// <summary>
-        /// Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
+        /// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkMode")]
         public Input<string>? NetworkMode { get; set; }

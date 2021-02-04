@@ -83,6 +83,8 @@ type KubernetesClusterNodePool struct {
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrOutput `pulumi:"enableAutoScaling"`
+	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+	EnableHostEncryption pulumi.BoolPtrOutput `pulumi:"enableHostEncryption"`
 	// Should each node have a Public IP Address? Defaults to `false`.
 	EnableNodePublicIp pulumi.BoolPtrOutput `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -166,6 +168,8 @@ type kubernetesClusterNodePoolState struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
+	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
 	// Should each node have a Public IP Address? Defaults to `false`.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -215,6 +219,8 @@ type KubernetesClusterNodePoolState struct {
 	AvailabilityZones pulumi.StringArrayInput
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrInput
+	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+	EnableHostEncryption pulumi.BoolPtrInput
 	// Should each node have a Public IP Address? Defaults to `false`.
 	EnableNodePublicIp pulumi.BoolPtrInput
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -268,6 +274,8 @@ type kubernetesClusterNodePoolArgs struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
+	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
 	// Should each node have a Public IP Address? Defaults to `false`.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -318,6 +326,8 @@ type KubernetesClusterNodePoolArgs struct {
 	AvailabilityZones pulumi.StringArrayInput
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrInput
+	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+	EnableHostEncryption pulumi.BoolPtrInput
 	// Should each node have a Public IP Address? Defaults to `false`.
 	EnableNodePublicIp pulumi.BoolPtrInput
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.

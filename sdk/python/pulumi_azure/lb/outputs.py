@@ -9,11 +9,56 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
+    'BackendAddressPoolBackendAddress',
     'LoadBalancerFrontendIpConfiguration',
     'OutboundRuleFrontendIpConfiguration',
+    'GetBackendAddressPoolBackendAddressResult',
     'GetBackendAddressPoolBackendIpConfigurationResult',
     'GetLBFrontendIpConfigurationResult',
 ]
+
+@pulumi.output_type
+class BackendAddressPoolBackendAddress(dict):
+    def __init__(__self__, *,
+                 ip_address: str,
+                 name: str,
+                 virtual_network_id: str):
+        """
+        :param str ip_address: The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtual_network_id`.
+        :param str name: The name of the Backend Address.
+        :param str virtual_network_id: The ID of the Virtual Network that is pre-allocated for this Backend Address.
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> str:
+        """
+        The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtual_network_id`.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Backend Address.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="virtualNetworkId")
+    def virtual_network_id(self) -> str:
+        """
+        The ID of the Virtual Network that is pre-allocated for this Backend Address.
+        """
+        return pulumi.get(self, "virtual_network_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class LoadBalancerFrontendIpConfiguration(dict):
@@ -199,6 +244,46 @@ class OutboundRuleFrontendIpConfiguration(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GetBackendAddressPoolBackendAddressResult(dict):
+    def __init__(__self__, *,
+                 ip_address: str,
+                 name: str,
+                 virtual_network_id: str):
+        """
+        :param str ip_address: The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtual_network_id`.
+        :param str name: Specifies the name of the Backend Address Pool.
+        :param str virtual_network_id: The ID of the Virtual Network that is pre-allocated for this Backend Address.
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> str:
+        """
+        The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtual_network_id`.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Backend Address Pool.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="virtualNetworkId")
+    def virtual_network_id(self) -> str:
+        """
+        The ID of the Virtual Network that is pre-allocated for this Backend Address.
+        """
+        return pulumi.get(self, "virtual_network_id")
 
 
 @pulumi.output_type

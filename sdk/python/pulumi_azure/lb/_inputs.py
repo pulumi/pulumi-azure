@@ -9,9 +9,62 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
+    'BackendAddressPoolBackendAddressArgs',
     'LoadBalancerFrontendIpConfigurationArgs',
     'OutboundRuleFrontendIpConfigurationArgs',
 ]
+
+@pulumi.input_type
+class BackendAddressPoolBackendAddressArgs:
+    def __init__(__self__, *,
+                 ip_address: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 virtual_network_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] ip_address: The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtual_network_id`.
+        :param pulumi.Input[str] name: The name of the Backend Address.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network that is pre-allocated for this Backend Address.
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> pulumi.Input[str]:
+        """
+        The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtual_network_id`.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Backend Address.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkId")
+    def virtual_network_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Virtual Network that is pre-allocated for this Backend Address.
+        """
+        return pulumi.get(self, "virtual_network_id")
+
+    @virtual_network_id.setter
+    def virtual_network_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_network_id", value)
+
 
 @pulumi.input_type
 class LoadBalancerFrontendIpConfigurationArgs:

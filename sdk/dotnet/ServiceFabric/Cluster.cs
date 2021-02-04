@@ -159,10 +159,16 @@ namespace Pulumi.Azure.ServiceFabric
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `reverse_proxy_certificate` block as defined below.
+        /// A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
         /// </summary>
         [Output("reverseProxyCertificate")]
         public Output<Outputs.ClusterReverseProxyCertificate?> ReverseProxyCertificate { get; private set; } = null!;
+
+        /// <summary>
+        /// A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
+        /// </summary>
+        [Output("reverseProxyCertificateCommonNames")]
+        public Output<Outputs.ClusterReverseProxyCertificateCommonNames?> ReverseProxyCertificateCommonNames { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -349,10 +355,16 @@ namespace Pulumi.Azure.ServiceFabric
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `reverse_proxy_certificate` block as defined below.
+        /// A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
         /// </summary>
         [Input("reverseProxyCertificate")]
         public Input<Inputs.ClusterReverseProxyCertificateArgs>? ReverseProxyCertificate { get; set; }
+
+        /// <summary>
+        /// A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
+        /// </summary>
+        [Input("reverseProxyCertificateCommonNames")]
+        public Input<Inputs.ClusterReverseProxyCertificateCommonNamesArgs>? ReverseProxyCertificateCommonNames { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -512,10 +524,16 @@ namespace Pulumi.Azure.ServiceFabric
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `reverse_proxy_certificate` block as defined below.
+        /// A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
         /// </summary>
         [Input("reverseProxyCertificate")]
         public Input<Inputs.ClusterReverseProxyCertificateGetArgs>? ReverseProxyCertificate { get; set; }
+
+        /// <summary>
+        /// A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
+        /// </summary>
+        [Input("reverseProxyCertificateCommonNames")]
+        public Input<Inputs.ClusterReverseProxyCertificateCommonNamesGetArgs>? ReverseProxyCertificateCommonNames { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

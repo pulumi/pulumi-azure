@@ -100,8 +100,10 @@ type Cluster struct {
 	ReliabilityLevel pulumi.StringOutput `pulumi:"reliabilityLevel"`
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A `reverseProxyCertificate` block as defined below.
+	// A `reverseProxyCertificate` block as defined below. Conflicts with `reverseProxyCertificateCommonNames`.
 	ReverseProxyCertificate ClusterReverseProxyCertificatePtrOutput `pulumi:"reverseProxyCertificate"`
+	// A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
+	ReverseProxyCertificateCommonNames ClusterReverseProxyCertificateCommonNamesPtrOutput `pulumi:"reverseProxyCertificateCommonNames"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
@@ -189,8 +191,10 @@ type clusterState struct {
 	ReliabilityLevel *string `pulumi:"reliabilityLevel"`
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A `reverseProxyCertificate` block as defined below.
+	// A `reverseProxyCertificate` block as defined below. Conflicts with `reverseProxyCertificateCommonNames`.
 	ReverseProxyCertificate *ClusterReverseProxyCertificate `pulumi:"reverseProxyCertificate"`
+	// A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
+	ReverseProxyCertificateCommonNames *ClusterReverseProxyCertificateCommonNames `pulumi:"reverseProxyCertificateCommonNames"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
@@ -232,8 +236,10 @@ type ClusterState struct {
 	ReliabilityLevel pulumi.StringPtrInput
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A `reverseProxyCertificate` block as defined below.
+	// A `reverseProxyCertificate` block as defined below. Conflicts with `reverseProxyCertificateCommonNames`.
 	ReverseProxyCertificate ClusterReverseProxyCertificatePtrInput
+	// A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
+	ReverseProxyCertificateCommonNames ClusterReverseProxyCertificateCommonNamesPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
@@ -277,8 +283,10 @@ type clusterArgs struct {
 	ReliabilityLevel string `pulumi:"reliabilityLevel"`
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A `reverseProxyCertificate` block as defined below.
+	// A `reverseProxyCertificate` block as defined below. Conflicts with `reverseProxyCertificateCommonNames`.
 	ReverseProxyCertificate *ClusterReverseProxyCertificate `pulumi:"reverseProxyCertificate"`
+	// A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
+	ReverseProxyCertificateCommonNames *ClusterReverseProxyCertificateCommonNames `pulumi:"reverseProxyCertificateCommonNames"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
@@ -319,8 +327,10 @@ type ClusterArgs struct {
 	ReliabilityLevel pulumi.StringInput
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// A `reverseProxyCertificate` block as defined below.
+	// A `reverseProxyCertificate` block as defined below. Conflicts with `reverseProxyCertificateCommonNames`.
 	ReverseProxyCertificate ClusterReverseProxyCertificatePtrInput
+	// A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
+	ReverseProxyCertificateCommonNames ClusterReverseProxyCertificateCommonNamesPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.

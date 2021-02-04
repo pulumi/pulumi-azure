@@ -113,6 +113,8 @@ type Cache struct {
 	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
 	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
 	PrivateStaticIpAddress pulumi.StringOutput `pulumi:"privateStaticIpAddress"`
+	// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration CacheRedisConfigurationOutput `pulumi:"redisConfiguration"`
 	// The name of the resource group in which to
@@ -202,6 +204,8 @@ type cacheState struct {
 	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
 	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
 	PrivateStaticIpAddress *string `pulumi:"privateStaticIpAddress"`
+	// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration *CacheRedisConfiguration `pulumi:"redisConfiguration"`
 	// The name of the resource group in which to
@@ -251,6 +255,8 @@ type CacheState struct {
 	PrimaryConnectionString pulumi.StringPtrInput
 	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
 	PrivateStaticIpAddress pulumi.StringPtrInput
+	// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration CacheRedisConfigurationPtrInput
 	// The name of the resource group in which to
@@ -296,6 +302,8 @@ type cacheArgs struct {
 	PatchSchedules []CachePatchSchedule `pulumi:"patchSchedules"`
 	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
 	PrivateStaticIpAddress *string `pulumi:"privateStaticIpAddress"`
+	// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration *CacheRedisConfiguration `pulumi:"redisConfiguration"`
 	// The name of the resource group in which to
@@ -332,6 +340,8 @@ type CacheArgs struct {
 	PatchSchedules CachePatchScheduleArrayInput
 	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
 	PrivateStaticIpAddress pulumi.StringPtrInput
+	// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration CacheRedisConfigurationPtrInput
 	// The name of the resource group in which to

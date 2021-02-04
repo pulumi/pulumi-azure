@@ -22,6 +22,8 @@ __all__ = [
     'ClusterNodeTypeApplicationPorts',
     'ClusterNodeTypeEphemeralPorts',
     'ClusterReverseProxyCertificate',
+    'ClusterReverseProxyCertificateCommonNames',
+    'ClusterReverseProxyCertificateCommonNamesCommonName',
     'MeshApplicationService',
     'MeshApplicationServiceCodePackage',
     'MeshApplicationServiceCodePackageResources',
@@ -591,6 +593,71 @@ class ClusterReverseProxyCertificate(dict):
         The Secondary Thumbprint of the Certificate.
         """
         return pulumi.get(self, "thumbprint_secondary")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterReverseProxyCertificateCommonNames(dict):
+    def __init__(__self__, *,
+                 common_names: Sequence['outputs.ClusterReverseProxyCertificateCommonNamesCommonName'],
+                 x509_store_name: str):
+        """
+        :param Sequence['ClusterReverseProxyCertificateCommonNamesCommonNameArgs'] common_names: A `common_names` block as defined below.
+        :param str x509_store_name: The X509 Store where the Certificate Exists, such as `My`.
+        """
+        pulumi.set(__self__, "common_names", common_names)
+        pulumi.set(__self__, "x509_store_name", x509_store_name)
+
+    @property
+    @pulumi.getter(name="commonNames")
+    def common_names(self) -> Sequence['outputs.ClusterReverseProxyCertificateCommonNamesCommonName']:
+        """
+        A `common_names` block as defined below.
+        """
+        return pulumi.get(self, "common_names")
+
+    @property
+    @pulumi.getter(name="x509StoreName")
+    def x509_store_name(self) -> str:
+        """
+        The X509 Store where the Certificate Exists, such as `My`.
+        """
+        return pulumi.get(self, "x509_store_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterReverseProxyCertificateCommonNamesCommonName(dict):
+    def __init__(__self__, *,
+                 certificate_common_name: str,
+                 certificate_issuer_thumbprint: Optional[str] = None):
+        """
+        :param str certificate_common_name: The common or subject name of the certificate.
+        :param str certificate_issuer_thumbprint: The Issuer Thumbprint of the Certificate.
+        """
+        pulumi.set(__self__, "certificate_common_name", certificate_common_name)
+        if certificate_issuer_thumbprint is not None:
+            pulumi.set(__self__, "certificate_issuer_thumbprint", certificate_issuer_thumbprint)
+
+    @property
+    @pulumi.getter(name="certificateCommonName")
+    def certificate_common_name(self) -> str:
+        """
+        The common or subject name of the certificate.
+        """
+        return pulumi.get(self, "certificate_common_name")
+
+    @property
+    @pulumi.getter(name="certificateIssuerThumbprint")
+    def certificate_issuer_thumbprint(self) -> Optional[str]:
+        """
+        The Issuer Thumbprint of the Certificate.
+        """
+        return pulumi.get(self, "certificate_issuer_thumbprint")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

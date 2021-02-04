@@ -1339,6 +1339,7 @@ class KubernetesClusterDefaultNodePool(dict):
                  vm_size: str,
                  availability_zones: Optional[Sequence[str]] = None,
                  enable_auto_scaling: Optional[bool] = None,
+                 enable_host_encryption: Optional[bool] = None,
                  enable_node_public_ip: Optional[bool] = None,
                  max_count: Optional[int] = None,
                  max_pods: Optional[int] = None,
@@ -1358,6 +1359,7 @@ class KubernetesClusterDefaultNodePool(dict):
         :param str vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`.
         :param Sequence[str] availability_zones: A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
         :param bool enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+        :param bool enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
         :param bool enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
         :param int max_count: The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param int max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
@@ -1377,6 +1379,8 @@ class KubernetesClusterDefaultNodePool(dict):
             pulumi.set(__self__, "availability_zones", availability_zones)
         if enable_auto_scaling is not None:
             pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
+        if enable_host_encryption is not None:
+            pulumi.set(__self__, "enable_host_encryption", enable_host_encryption)
         if enable_node_public_ip is not None:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if max_count is not None:
@@ -1437,6 +1441,14 @@ class KubernetesClusterDefaultNodePool(dict):
         Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
         """
         return pulumi.get(self, "enable_auto_scaling")
+
+    @property
+    @pulumi.getter(name="enableHostEncryption")
+    def enable_host_encryption(self) -> Optional[bool]:
+        """
+        Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_host_encryption")
 
     @property
     @pulumi.getter(name="enableNodePublicIp")
@@ -1887,7 +1899,7 @@ class KubernetesClusterNetworkProfile(dict):
         :param str docker_bridge_cidr: IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
         :param 'KubernetesClusterNetworkProfileLoadBalancerProfileArgs' load_balancer_profile: A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
         :param str load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
-        :param str network_mode: Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
+        :param str network_mode: Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
         :param str network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
         :param str outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
         :param str pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
@@ -1957,7 +1969,7 @@ class KubernetesClusterNetworkProfile(dict):
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> Optional[str]:
         """
-        Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
+        Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_mode")
 
@@ -2233,7 +2245,7 @@ class KubernetesClusterWindowsProfile(dict):
                  admin_password: Optional[str] = None):
         """
         :param str admin_username: The Admin Username for Windows VMs.
-        :param str admin_password: The Admin Password for Windows VMs.
+        :param str admin_password: The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         if admin_password is not None:
@@ -2251,7 +2263,7 @@ class KubernetesClusterWindowsProfile(dict):
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> Optional[str]:
         """
-        The Admin Password for Windows VMs.
+        The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
         """
         return pulumi.get(self, "admin_password")
 
