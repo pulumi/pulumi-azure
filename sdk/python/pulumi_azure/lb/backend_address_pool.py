@@ -139,7 +139,7 @@ class BackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendAddresses")
-    def backend_addresses(self) -> pulumi.Output[Optional[Sequence['outputs.BackendAddressPoolBackendAddress']]]:
+    def backend_addresses(self) -> pulumi.Output[Sequence['outputs.BackendAddressPoolBackendAddress']]:
         """
         An array of `backend_address` block as defined below.
         """

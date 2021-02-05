@@ -72,7 +72,7 @@ export class BackendAddressPool extends pulumi.CustomResource {
     /**
      * An array of `backendAddress` block as defined below.
      */
-    public readonly backendAddresses!: pulumi.Output<outputs.lb.BackendAddressPoolBackendAddress[] | undefined>;
+    public readonly backendAddresses!: pulumi.Output<outputs.lb.BackendAddressPoolBackendAddress[]>;
     /**
      * The Backend IP Configurations associated with this Backend Address Pool.
      */
