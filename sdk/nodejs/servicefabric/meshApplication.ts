@@ -6,35 +6,6 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Service Fabric Mesh Application.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleMeshApplication = new azure.servicefabric.MeshApplication("exampleMeshApplication", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     services: [{
- *         name: "testservice1",
- *         osType: "Linux",
- *         codePackages: [{
- *             name: "testcodepackage1",
- *             imageName: "seabreeze/sbz-helloworld:1.0-alpine",
- *             resources: {
- *                 requests: {
- *                     memory: 1,
- *                     cpu: 1,
- *                 },
- *             },
- *         }],
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Service Fabric Mesh Application can be imported using the `resource id`, e.g.

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -38,6 +39,43 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     apiManagementName: exampleService.name,
  *     apiManagementLoggerId: exampleLogger.id,
+ *     samplingPercentage: 5,
+ *     alwaysLogErrors: true,
+ *     logClientIp: true,
+ *     verbosity: "Verbose",
+ *     httpCorrelationProtocol: "W3C",
+ *     frontendRequest: {
+ *         bodyBytes: 32,
+ *         headersToLogs: [
+ *             "content-type",
+ *             "accept",
+ *             "origin",
+ *         ],
+ *     },
+ *     frontendResponse: {
+ *         bodyBytes: 32,
+ *         headersToLogs: [
+ *             "content-type",
+ *             "content-length",
+ *             "origin",
+ *         ],
+ *     },
+ *     backendRequest: {
+ *         bodyBytes: 32,
+ *         headersToLogs: [
+ *             "content-type",
+ *             "accept",
+ *             "origin",
+ *         ],
+ *     },
+ *     backendResponse: {
+ *         bodyBytes: 32,
+ *         headersToLogs: [
+ *             "content-type",
+ *             "content-length",
+ *             "origin",
+ *         ],
+ *     },
  * });
  * ```
  *
@@ -78,6 +116,10 @@ export class Diagnostic extends pulumi.CustomResource {
     }
 
     /**
+     * Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
+     */
+    public readonly alwaysLogErrors!: pulumi.Output<boolean>;
+    /**
      * The id of the target API Management Logger where the API Management Diagnostic should be saved.
      */
     public readonly apiManagementLoggerId!: pulumi.Output<string>;
@@ -86,17 +128,49 @@ export class Diagnostic extends pulumi.CustomResource {
      */
     public readonly apiManagementName!: pulumi.Output<string>;
     /**
+     * A `backendRequest` block as defined below.
+     */
+    public readonly backendRequest!: pulumi.Output<outputs.apimanagement.DiagnosticBackendRequest>;
+    /**
+     * A `backendResponse` block as defined below.
+     */
+    public readonly backendResponse!: pulumi.Output<outputs.apimanagement.DiagnosticBackendResponse>;
+    /**
      * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * A `frontendRequest` block as defined below.
+     */
+    public readonly frontendRequest!: pulumi.Output<outputs.apimanagement.DiagnosticFrontendRequest>;
+    /**
+     * A `frontendResponse` block as defined below.
+     */
+    public readonly frontendResponse!: pulumi.Output<outputs.apimanagement.DiagnosticFrontendResponse>;
+    /**
+     * The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
+     */
+    public readonly httpCorrelationProtocol!: pulumi.Output<string>;
     /**
      * The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
      */
     public readonly identifier!: pulumi.Output<string>;
     /**
+     * Log client IP address.
+     */
+    public readonly logClientIp!: pulumi.Output<boolean>;
+    /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+     */
+    public readonly samplingPercentage!: pulumi.Output<number>;
+    /**
+     * Logging verbosity. Possible values are `verbose`, `information` or `error`.
+     */
+    public readonly verbosity!: pulumi.Output<string>;
 
     /**
      * Create a Diagnostic resource with the given unique name, arguments, and options.
@@ -110,11 +184,20 @@ export class Diagnostic extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as DiagnosticState | undefined;
+            inputs["alwaysLogErrors"] = state ? state.alwaysLogErrors : undefined;
             inputs["apiManagementLoggerId"] = state ? state.apiManagementLoggerId : undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            inputs["backendRequest"] = state ? state.backendRequest : undefined;
+            inputs["backendResponse"] = state ? state.backendResponse : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
+            inputs["frontendRequest"] = state ? state.frontendRequest : undefined;
+            inputs["frontendResponse"] = state ? state.frontendResponse : undefined;
+            inputs["httpCorrelationProtocol"] = state ? state.httpCorrelationProtocol : undefined;
             inputs["identifier"] = state ? state.identifier : undefined;
+            inputs["logClientIp"] = state ? state.logClientIp : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["samplingPercentage"] = state ? state.samplingPercentage : undefined;
+            inputs["verbosity"] = state ? state.verbosity : undefined;
         } else {
             const args = argsOrState as DiagnosticArgs | undefined;
             if ((!args || args.apiManagementLoggerId === undefined) && !(opts && opts.urn)) {
@@ -129,11 +212,20 @@ export class Diagnostic extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["alwaysLogErrors"] = args ? args.alwaysLogErrors : undefined;
             inputs["apiManagementLoggerId"] = args ? args.apiManagementLoggerId : undefined;
             inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            inputs["backendRequest"] = args ? args.backendRequest : undefined;
+            inputs["backendResponse"] = args ? args.backendResponse : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["frontendRequest"] = args ? args.frontendRequest : undefined;
+            inputs["frontendResponse"] = args ? args.frontendResponse : undefined;
+            inputs["httpCorrelationProtocol"] = args ? args.httpCorrelationProtocol : undefined;
             inputs["identifier"] = args ? args.identifier : undefined;
+            inputs["logClientIp"] = args ? args.logClientIp : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
+            inputs["verbosity"] = args ? args.verbosity : undefined;
         }
         if (!opts) {
             opts = {}
@@ -151,6 +243,10 @@ export class Diagnostic extends pulumi.CustomResource {
  */
 export interface DiagnosticState {
     /**
+     * Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
+     */
+    readonly alwaysLogErrors?: pulumi.Input<boolean>;
+    /**
      * The id of the target API Management Logger where the API Management Diagnostic should be saved.
      */
     readonly apiManagementLoggerId?: pulumi.Input<string>;
@@ -159,23 +255,59 @@ export interface DiagnosticState {
      */
     readonly apiManagementName?: pulumi.Input<string>;
     /**
+     * A `backendRequest` block as defined below.
+     */
+    readonly backendRequest?: pulumi.Input<inputs.apimanagement.DiagnosticBackendRequest>;
+    /**
+     * A `backendResponse` block as defined below.
+     */
+    readonly backendResponse?: pulumi.Input<inputs.apimanagement.DiagnosticBackendResponse>;
+    /**
      * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
      */
     readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * A `frontendRequest` block as defined below.
+     */
+    readonly frontendRequest?: pulumi.Input<inputs.apimanagement.DiagnosticFrontendRequest>;
+    /**
+     * A `frontendResponse` block as defined below.
+     */
+    readonly frontendResponse?: pulumi.Input<inputs.apimanagement.DiagnosticFrontendResponse>;
+    /**
+     * The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
+     */
+    readonly httpCorrelationProtocol?: pulumi.Input<string>;
     /**
      * The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
      */
     readonly identifier?: pulumi.Input<string>;
     /**
+     * Log client IP address.
+     */
+    readonly logClientIp?: pulumi.Input<boolean>;
+    /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+     */
+    readonly samplingPercentage?: pulumi.Input<number>;
+    /**
+     * Logging verbosity. Possible values are `verbose`, `information` or `error`.
+     */
+    readonly verbosity?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a Diagnostic resource.
  */
 export interface DiagnosticArgs {
+    /**
+     * Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
+     */
+    readonly alwaysLogErrors?: pulumi.Input<boolean>;
     /**
      * The id of the target API Management Logger where the API Management Diagnostic should be saved.
      */
@@ -185,15 +317,47 @@ export interface DiagnosticArgs {
      */
     readonly apiManagementName: pulumi.Input<string>;
     /**
+     * A `backendRequest` block as defined below.
+     */
+    readonly backendRequest?: pulumi.Input<inputs.apimanagement.DiagnosticBackendRequest>;
+    /**
+     * A `backendResponse` block as defined below.
+     */
+    readonly backendResponse?: pulumi.Input<inputs.apimanagement.DiagnosticBackendResponse>;
+    /**
      * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
      */
     readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * A `frontendRequest` block as defined below.
+     */
+    readonly frontendRequest?: pulumi.Input<inputs.apimanagement.DiagnosticFrontendRequest>;
+    /**
+     * A `frontendResponse` block as defined below.
+     */
+    readonly frontendResponse?: pulumi.Input<inputs.apimanagement.DiagnosticFrontendResponse>;
+    /**
+     * The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
+     */
+    readonly httpCorrelationProtocol?: pulumi.Input<string>;
     /**
      * The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
      */
     readonly identifier: pulumi.Input<string>;
     /**
+     * Log client IP address.
+     */
+    readonly logClientIp?: pulumi.Input<boolean>;
+    /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+     */
+    readonly samplingPercentage?: pulumi.Input<number>;
+    /**
+     * Logging verbosity. Possible values are `verbose`, `information` or `error`.
+     */
+    readonly verbosity?: pulumi.Input<string>;
 }

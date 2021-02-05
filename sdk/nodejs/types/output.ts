@@ -661,6 +661,50 @@ export namespace apimanagement {
         negotiateClientCertificate?: boolean;
     }
 
+    export interface DiagnosticBackendRequest {
+        /**
+         * Number of payload bytes to log (up to 8192).
+         */
+        bodyBytes?: number;
+        /**
+         * Specifies a list of headers to log.
+         */
+        headersToLogs?: string[];
+    }
+
+    export interface DiagnosticBackendResponse {
+        /**
+         * Number of payload bytes to log (up to 8192).
+         */
+        bodyBytes?: number;
+        /**
+         * Specifies a list of headers to log.
+         */
+        headersToLogs?: string[];
+    }
+
+    export interface DiagnosticFrontendRequest {
+        /**
+         * Number of payload bytes to log (up to 8192).
+         */
+        bodyBytes?: number;
+        /**
+         * Specifies a list of headers to log.
+         */
+        headersToLogs?: string[];
+    }
+
+    export interface DiagnosticFrontendResponse {
+        /**
+         * Number of payload bytes to log (up to 8192).
+         */
+        bodyBytes?: number;
+        /**
+         * Specifies a list of headers to log.
+         */
+        headersToLogs?: string[];
+    }
+
     export interface GetApiSubscriptionKeyParameterName {
         /**
          * The name of the HTTP Header which should be used for the Subscription Key.
@@ -7782,6 +7826,10 @@ export namespace containerservice {
          */
         enableAutoScaling?: boolean;
         /**
+         * Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+         */
+        enableHostEncryption?: boolean;
+        /**
          * Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
          */
         enableNodePublicIp?: boolean;
@@ -7965,7 +8013,7 @@ export namespace containerservice {
          */
         loadBalancerSku?: string;
         /**
-         * Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
+         * Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
          */
         networkMode: string;
         /**
@@ -8068,7 +8116,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterWindowsProfile {
         /**
-         * The Admin Password for Windows VMs.
+         * The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
          */
         adminPassword?: string;
         /**
@@ -8290,6 +8338,57 @@ export namespace cosmosdb {
          * The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput: number;
+    }
+
+    export interface CassandraTableAutoscaleSettings {
+        /**
+         * The maximum throughput of the Cassandra Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+         */
+        maxThroughput: number;
+    }
+
+    export interface CassandraTableSchema {
+        /**
+         * One or more `clusterKey` blocks as defined below.
+         */
+        clusterKeys?: outputs.cosmosdb.CassandraTableSchemaClusterKey[];
+        /**
+         * One or more `column` blocks as defined below.
+         */
+        columns: outputs.cosmosdb.CassandraTableSchemaColumn[];
+        /**
+         * One or more `partitionKey` blocks as defined below.
+         */
+        partitionKeys: outputs.cosmosdb.CassandraTableSchemaPartitionKey[];
+    }
+
+    export interface CassandraTableSchemaClusterKey {
+        /**
+         * Name of the cluster key to be created.
+         */
+        name: string;
+        /**
+         * Order of the key. Currently supported values are `Asc` and `Desc`.
+         */
+        orderBy: string;
+    }
+
+    export interface CassandraTableSchemaColumn {
+        /**
+         * Name of the column to be created.
+         */
+        name: string;
+        /**
+         * Type of the column to be created.
+         */
+        type: string;
+    }
+
+    export interface CassandraTableSchemaPartitionKey {
+        /**
+         * Name of the column to partition by.
+         */
+        name: string;
     }
 
     export interface GetAccountCapability {
@@ -13919,6 +14018,36 @@ export namespace kusto {
 }
 
 export namespace lb {
+    export interface BackendAddressPoolBackendAddress {
+        /**
+         * The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtualNetworkId`.
+         */
+        ipAddress: string;
+        /**
+         * The name of the Backend Address.
+         */
+        name: string;
+        /**
+         * The ID of the Virtual Network that is pre-allocated for this Backend Address.
+         */
+        virtualNetworkId: string;
+    }
+
+    export interface GetBackendAddressPoolBackendAddress {
+        /**
+         * The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtualNetworkId`.
+         */
+        ipAddress: string;
+        /**
+         * Specifies the name of the Backend Address Pool.
+         */
+        name: string;
+        /**
+         * The ID of the Virtual Network that is pre-allocated for this Backend Address.
+         */
+        virtualNetworkId: string;
+    }
+
     export interface GetBackendAddressPoolBackendIpConfiguration {
         /**
          * The ID of the Backend Address Pool.
@@ -15822,6 +15951,10 @@ export namespace monitoring {
          */
         operator: string;
         /**
+         * Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+         */
+        skipMetricValidation?: boolean;
+        /**
          * The criteria threshold value that activates the alert.
          */
         threshold: number;
@@ -15879,6 +16012,10 @@ export namespace monitoring {
          * The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
          */
         operator: string;
+        /**
+         * Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+         */
+        skipMetricValidation?: boolean;
     }
 
     export interface MetricAlertDynamicCriteriaDimension {
@@ -20606,6 +20743,28 @@ export namespace servicefabric {
          * The X509 Store where the Certificate Exists, such as `My`.
          */
         x509StoreName: string;
+    }
+
+    export interface ClusterReverseProxyCertificateCommonNames {
+        /**
+         * A `commonNames` block as defined below.
+         */
+        commonNames: outputs.servicefabric.ClusterReverseProxyCertificateCommonNamesCommonName[];
+        /**
+         * The X509 Store where the Certificate Exists, such as `My`.
+         */
+        x509StoreName: string;
+    }
+
+    export interface ClusterReverseProxyCertificateCommonNamesCommonName {
+        /**
+         * The common or subject name of the certificate.
+         */
+        certificateCommonName: string;
+        /**
+         * The Issuer Thumbprint of the Certificate.
+         */
+        certificateIssuerThumbprint?: string;
     }
 
     export interface MeshApplicationService {

@@ -55,6 +55,51 @@ namespace Pulumi.Azure.ApiManagement
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             ApiManagementName = exampleService.Name,
     ///             ApiManagementLoggerId = exampleLogger.Id,
+    ///             SamplingPercentage = 5,
+    ///             AlwaysLogErrors = true,
+    ///             LogClientIp = true,
+    ///             Verbosity = "Verbose",
+    ///             HttpCorrelationProtocol = "W3C",
+    ///             FrontendRequest = new Azure.ApiManagement.Inputs.DiagnosticFrontendRequestArgs
+    ///             {
+    ///                 BodyBytes = 32,
+    ///                 HeadersToLogs = 
+    ///                 {
+    ///                     "content-type",
+    ///                     "accept",
+    ///                     "origin",
+    ///                 },
+    ///             },
+    ///             FrontendResponse = new Azure.ApiManagement.Inputs.DiagnosticFrontendResponseArgs
+    ///             {
+    ///                 BodyBytes = 32,
+    ///                 HeadersToLogs = 
+    ///                 {
+    ///                     "content-type",
+    ///                     "content-length",
+    ///                     "origin",
+    ///                 },
+    ///             },
+    ///             BackendRequest = new Azure.ApiManagement.Inputs.DiagnosticBackendRequestArgs
+    ///             {
+    ///                 BodyBytes = 32,
+    ///                 HeadersToLogs = 
+    ///                 {
+    ///                     "content-type",
+    ///                     "accept",
+    ///                     "origin",
+    ///                 },
+    ///             },
+    ///             BackendResponse = new Azure.ApiManagement.Inputs.DiagnosticBackendResponseArgs
+    ///             {
+    ///                 BodyBytes = 32,
+    ///                 HeadersToLogs = 
+    ///                 {
+    ///                     "content-type",
+    ///                     "content-length",
+    ///                     "origin",
+    ///                 },
+    ///             },
     ///         });
     ///     }
     /// 
@@ -72,6 +117,12 @@ namespace Pulumi.Azure.ApiManagement
     public partial class Diagnostic : Pulumi.CustomResource
     {
         /// <summary>
+        /// Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
+        /// </summary>
+        [Output("alwaysLogErrors")]
+        public Output<bool> AlwaysLogErrors { get; private set; } = null!;
+
+        /// <summary>
         /// The id of the target API Management Logger where the API Management Diagnostic should be saved.
         /// </summary>
         [Output("apiManagementLoggerId")]
@@ -83,8 +134,38 @@ namespace Pulumi.Azure.ApiManagement
         [Output("apiManagementName")]
         public Output<string> ApiManagementName { get; private set; } = null!;
 
+        /// <summary>
+        /// A `backend_request` block as defined below.
+        /// </summary>
+        [Output("backendRequest")]
+        public Output<Outputs.DiagnosticBackendRequest> BackendRequest { get; private set; } = null!;
+
+        /// <summary>
+        /// A `backend_response` block as defined below.
+        /// </summary>
+        [Output("backendResponse")]
+        public Output<Outputs.DiagnosticBackendResponse> BackendResponse { get; private set; } = null!;
+
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// A `frontend_request` block as defined below.
+        /// </summary>
+        [Output("frontendRequest")]
+        public Output<Outputs.DiagnosticFrontendRequest> FrontendRequest { get; private set; } = null!;
+
+        /// <summary>
+        /// A `frontend_response` block as defined below.
+        /// </summary>
+        [Output("frontendResponse")]
+        public Output<Outputs.DiagnosticFrontendResponse> FrontendResponse { get; private set; } = null!;
+
+        /// <summary>
+        /// The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
+        /// </summary>
+        [Output("httpCorrelationProtocol")]
+        public Output<string> HttpCorrelationProtocol { get; private set; } = null!;
 
         /// <summary>
         /// The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
@@ -93,10 +174,28 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> Identifier { get; private set; } = null!;
 
         /// <summary>
+        /// Log client IP address.
+        /// </summary>
+        [Output("logClientIp")]
+        public Output<bool> LogClientIp { get; private set; } = null!;
+
+        /// <summary>
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+        /// </summary>
+        [Output("samplingPercentage")]
+        public Output<double> SamplingPercentage { get; private set; } = null!;
+
+        /// <summary>
+        /// Logging verbosity. Possible values are `verbose`, `information` or `error`.
+        /// </summary>
+        [Output("verbosity")]
+        public Output<string> Verbosity { get; private set; } = null!;
 
 
         /// <summary>
@@ -145,6 +244,12 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class DiagnosticArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
+        /// </summary>
+        [Input("alwaysLogErrors")]
+        public Input<bool>? AlwaysLogErrors { get; set; }
+
+        /// <summary>
         /// The id of the target API Management Logger where the API Management Diagnostic should be saved.
         /// </summary>
         [Input("apiManagementLoggerId", required: true)]
@@ -156,8 +261,38 @@ namespace Pulumi.Azure.ApiManagement
         [Input("apiManagementName", required: true)]
         public Input<string> ApiManagementName { get; set; } = null!;
 
+        /// <summary>
+        /// A `backend_request` block as defined below.
+        /// </summary>
+        [Input("backendRequest")]
+        public Input<Inputs.DiagnosticBackendRequestArgs>? BackendRequest { get; set; }
+
+        /// <summary>
+        /// A `backend_response` block as defined below.
+        /// </summary>
+        [Input("backendResponse")]
+        public Input<Inputs.DiagnosticBackendResponseArgs>? BackendResponse { get; set; }
+
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// A `frontend_request` block as defined below.
+        /// </summary>
+        [Input("frontendRequest")]
+        public Input<Inputs.DiagnosticFrontendRequestArgs>? FrontendRequest { get; set; }
+
+        /// <summary>
+        /// A `frontend_response` block as defined below.
+        /// </summary>
+        [Input("frontendResponse")]
+        public Input<Inputs.DiagnosticFrontendResponseArgs>? FrontendResponse { get; set; }
+
+        /// <summary>
+        /// The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
+        /// </summary>
+        [Input("httpCorrelationProtocol")]
+        public Input<string>? HttpCorrelationProtocol { get; set; }
 
         /// <summary>
         /// The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
@@ -166,10 +301,28 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> Identifier { get; set; } = null!;
 
         /// <summary>
+        /// Log client IP address.
+        /// </summary>
+        [Input("logClientIp")]
+        public Input<bool>? LogClientIp { get; set; }
+
+        /// <summary>
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+        /// </summary>
+        [Input("samplingPercentage")]
+        public Input<double>? SamplingPercentage { get; set; }
+
+        /// <summary>
+        /// Logging verbosity. Possible values are `verbose`, `information` or `error`.
+        /// </summary>
+        [Input("verbosity")]
+        public Input<string>? Verbosity { get; set; }
 
         public DiagnosticArgs()
         {
@@ -178,6 +331,12 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class DiagnosticState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
+        /// </summary>
+        [Input("alwaysLogErrors")]
+        public Input<bool>? AlwaysLogErrors { get; set; }
+
         /// <summary>
         /// The id of the target API Management Logger where the API Management Diagnostic should be saved.
         /// </summary>
@@ -190,8 +349,38 @@ namespace Pulumi.Azure.ApiManagement
         [Input("apiManagementName")]
         public Input<string>? ApiManagementName { get; set; }
 
+        /// <summary>
+        /// A `backend_request` block as defined below.
+        /// </summary>
+        [Input("backendRequest")]
+        public Input<Inputs.DiagnosticBackendRequestGetArgs>? BackendRequest { get; set; }
+
+        /// <summary>
+        /// A `backend_response` block as defined below.
+        /// </summary>
+        [Input("backendResponse")]
+        public Input<Inputs.DiagnosticBackendResponseGetArgs>? BackendResponse { get; set; }
+
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// A `frontend_request` block as defined below.
+        /// </summary>
+        [Input("frontendRequest")]
+        public Input<Inputs.DiagnosticFrontendRequestGetArgs>? FrontendRequest { get; set; }
+
+        /// <summary>
+        /// A `frontend_response` block as defined below.
+        /// </summary>
+        [Input("frontendResponse")]
+        public Input<Inputs.DiagnosticFrontendResponseGetArgs>? FrontendResponse { get; set; }
+
+        /// <summary>
+        /// The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
+        /// </summary>
+        [Input("httpCorrelationProtocol")]
+        public Input<string>? HttpCorrelationProtocol { get; set; }
 
         /// <summary>
         /// The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
@@ -200,10 +389,28 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Identifier { get; set; }
 
         /// <summary>
+        /// Log client IP address.
+        /// </summary>
+        [Input("logClientIp")]
+        public Input<bool>? LogClientIp { get; set; }
+
+        /// <summary>
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+        /// </summary>
+        [Input("samplingPercentage")]
+        public Input<double>? SamplingPercentage { get; set; }
+
+        /// <summary>
+        /// Logging verbosity. Possible values are `verbose`, `information` or `error`.
+        /// </summary>
+        [Input("verbosity")]
+        public Input<string>? Verbosity { get; set; }
 
         public DiagnosticState()
         {

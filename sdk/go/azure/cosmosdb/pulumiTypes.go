@@ -652,6 +652,615 @@ func (o CassandraKeyspaceAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+type CassandraTableAutoscaleSettings struct {
+	// The maximum throughput of the Cassandra Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	MaxThroughput *int `pulumi:"maxThroughput"`
+}
+
+// CassandraTableAutoscaleSettingsInput is an input type that accepts CassandraTableAutoscaleSettingsArgs and CassandraTableAutoscaleSettingsOutput values.
+// You can construct a concrete instance of `CassandraTableAutoscaleSettingsInput` via:
+//
+//          CassandraTableAutoscaleSettingsArgs{...}
+type CassandraTableAutoscaleSettingsInput interface {
+	pulumi.Input
+
+	ToCassandraTableAutoscaleSettingsOutput() CassandraTableAutoscaleSettingsOutput
+	ToCassandraTableAutoscaleSettingsOutputWithContext(context.Context) CassandraTableAutoscaleSettingsOutput
+}
+
+type CassandraTableAutoscaleSettingsArgs struct {
+	// The maximum throughput of the Cassandra Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	MaxThroughput pulumi.IntPtrInput `pulumi:"maxThroughput"`
+}
+
+func (CassandraTableAutoscaleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraTableAutoscaleSettings)(nil)).Elem()
+}
+
+func (i CassandraTableAutoscaleSettingsArgs) ToCassandraTableAutoscaleSettingsOutput() CassandraTableAutoscaleSettingsOutput {
+	return i.ToCassandraTableAutoscaleSettingsOutputWithContext(context.Background())
+}
+
+func (i CassandraTableAutoscaleSettingsArgs) ToCassandraTableAutoscaleSettingsOutputWithContext(ctx context.Context) CassandraTableAutoscaleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableAutoscaleSettingsOutput)
+}
+
+func (i CassandraTableAutoscaleSettingsArgs) ToCassandraTableAutoscaleSettingsPtrOutput() CassandraTableAutoscaleSettingsPtrOutput {
+	return i.ToCassandraTableAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i CassandraTableAutoscaleSettingsArgs) ToCassandraTableAutoscaleSettingsPtrOutputWithContext(ctx context.Context) CassandraTableAutoscaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableAutoscaleSettingsOutput).ToCassandraTableAutoscaleSettingsPtrOutputWithContext(ctx)
+}
+
+// CassandraTableAutoscaleSettingsPtrInput is an input type that accepts CassandraTableAutoscaleSettingsArgs, CassandraTableAutoscaleSettingsPtr and CassandraTableAutoscaleSettingsPtrOutput values.
+// You can construct a concrete instance of `CassandraTableAutoscaleSettingsPtrInput` via:
+//
+//          CassandraTableAutoscaleSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type CassandraTableAutoscaleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToCassandraTableAutoscaleSettingsPtrOutput() CassandraTableAutoscaleSettingsPtrOutput
+	ToCassandraTableAutoscaleSettingsPtrOutputWithContext(context.Context) CassandraTableAutoscaleSettingsPtrOutput
+}
+
+type cassandraTableAutoscaleSettingsPtrType CassandraTableAutoscaleSettingsArgs
+
+func CassandraTableAutoscaleSettingsPtr(v *CassandraTableAutoscaleSettingsArgs) CassandraTableAutoscaleSettingsPtrInput {
+	return (*cassandraTableAutoscaleSettingsPtrType)(v)
+}
+
+func (*cassandraTableAutoscaleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraTableAutoscaleSettings)(nil)).Elem()
+}
+
+func (i *cassandraTableAutoscaleSettingsPtrType) ToCassandraTableAutoscaleSettingsPtrOutput() CassandraTableAutoscaleSettingsPtrOutput {
+	return i.ToCassandraTableAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *cassandraTableAutoscaleSettingsPtrType) ToCassandraTableAutoscaleSettingsPtrOutputWithContext(ctx context.Context) CassandraTableAutoscaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableAutoscaleSettingsPtrOutput)
+}
+
+type CassandraTableAutoscaleSettingsOutput struct{ *pulumi.OutputState }
+
+func (CassandraTableAutoscaleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraTableAutoscaleSettings)(nil)).Elem()
+}
+
+func (o CassandraTableAutoscaleSettingsOutput) ToCassandraTableAutoscaleSettingsOutput() CassandraTableAutoscaleSettingsOutput {
+	return o
+}
+
+func (o CassandraTableAutoscaleSettingsOutput) ToCassandraTableAutoscaleSettingsOutputWithContext(ctx context.Context) CassandraTableAutoscaleSettingsOutput {
+	return o
+}
+
+func (o CassandraTableAutoscaleSettingsOutput) ToCassandraTableAutoscaleSettingsPtrOutput() CassandraTableAutoscaleSettingsPtrOutput {
+	return o.ToCassandraTableAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o CassandraTableAutoscaleSettingsOutput) ToCassandraTableAutoscaleSettingsPtrOutputWithContext(ctx context.Context) CassandraTableAutoscaleSettingsPtrOutput {
+	return o.ApplyT(func(v CassandraTableAutoscaleSettings) *CassandraTableAutoscaleSettings {
+		return &v
+	}).(CassandraTableAutoscaleSettingsPtrOutput)
+}
+
+// The maximum throughput of the Cassandra Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+func (o CassandraTableAutoscaleSettingsOutput) MaxThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CassandraTableAutoscaleSettings) *int { return v.MaxThroughput }).(pulumi.IntPtrOutput)
+}
+
+type CassandraTableAutoscaleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (CassandraTableAutoscaleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraTableAutoscaleSettings)(nil)).Elem()
+}
+
+func (o CassandraTableAutoscaleSettingsPtrOutput) ToCassandraTableAutoscaleSettingsPtrOutput() CassandraTableAutoscaleSettingsPtrOutput {
+	return o
+}
+
+func (o CassandraTableAutoscaleSettingsPtrOutput) ToCassandraTableAutoscaleSettingsPtrOutputWithContext(ctx context.Context) CassandraTableAutoscaleSettingsPtrOutput {
+	return o
+}
+
+func (o CassandraTableAutoscaleSettingsPtrOutput) Elem() CassandraTableAutoscaleSettingsOutput {
+	return o.ApplyT(func(v *CassandraTableAutoscaleSettings) CassandraTableAutoscaleSettings { return *v }).(CassandraTableAutoscaleSettingsOutput)
+}
+
+// The maximum throughput of the Cassandra Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+func (o CassandraTableAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CassandraTableAutoscaleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxThroughput
+	}).(pulumi.IntPtrOutput)
+}
+
+type CassandraTableSchema struct {
+	// One or more `clusterKey` blocks as defined below.
+	ClusterKeys []CassandraTableSchemaClusterKey `pulumi:"clusterKeys"`
+	// One or more `column` blocks as defined below.
+	Columns []CassandraTableSchemaColumn `pulumi:"columns"`
+	// One or more `partitionKey` blocks as defined below.
+	PartitionKeys []CassandraTableSchemaPartitionKey `pulumi:"partitionKeys"`
+}
+
+// CassandraTableSchemaInput is an input type that accepts CassandraTableSchemaArgs and CassandraTableSchemaOutput values.
+// You can construct a concrete instance of `CassandraTableSchemaInput` via:
+//
+//          CassandraTableSchemaArgs{...}
+type CassandraTableSchemaInput interface {
+	pulumi.Input
+
+	ToCassandraTableSchemaOutput() CassandraTableSchemaOutput
+	ToCassandraTableSchemaOutputWithContext(context.Context) CassandraTableSchemaOutput
+}
+
+type CassandraTableSchemaArgs struct {
+	// One or more `clusterKey` blocks as defined below.
+	ClusterKeys CassandraTableSchemaClusterKeyArrayInput `pulumi:"clusterKeys"`
+	// One or more `column` blocks as defined below.
+	Columns CassandraTableSchemaColumnArrayInput `pulumi:"columns"`
+	// One or more `partitionKey` blocks as defined below.
+	PartitionKeys CassandraTableSchemaPartitionKeyArrayInput `pulumi:"partitionKeys"`
+}
+
+func (CassandraTableSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraTableSchema)(nil)).Elem()
+}
+
+func (i CassandraTableSchemaArgs) ToCassandraTableSchemaOutput() CassandraTableSchemaOutput {
+	return i.ToCassandraTableSchemaOutputWithContext(context.Background())
+}
+
+func (i CassandraTableSchemaArgs) ToCassandraTableSchemaOutputWithContext(ctx context.Context) CassandraTableSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableSchemaOutput)
+}
+
+func (i CassandraTableSchemaArgs) ToCassandraTableSchemaPtrOutput() CassandraTableSchemaPtrOutput {
+	return i.ToCassandraTableSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i CassandraTableSchemaArgs) ToCassandraTableSchemaPtrOutputWithContext(ctx context.Context) CassandraTableSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableSchemaOutput).ToCassandraTableSchemaPtrOutputWithContext(ctx)
+}
+
+// CassandraTableSchemaPtrInput is an input type that accepts CassandraTableSchemaArgs, CassandraTableSchemaPtr and CassandraTableSchemaPtrOutput values.
+// You can construct a concrete instance of `CassandraTableSchemaPtrInput` via:
+//
+//          CassandraTableSchemaArgs{...}
+//
+//  or:
+//
+//          nil
+type CassandraTableSchemaPtrInput interface {
+	pulumi.Input
+
+	ToCassandraTableSchemaPtrOutput() CassandraTableSchemaPtrOutput
+	ToCassandraTableSchemaPtrOutputWithContext(context.Context) CassandraTableSchemaPtrOutput
+}
+
+type cassandraTableSchemaPtrType CassandraTableSchemaArgs
+
+func CassandraTableSchemaPtr(v *CassandraTableSchemaArgs) CassandraTableSchemaPtrInput {
+	return (*cassandraTableSchemaPtrType)(v)
+}
+
+func (*cassandraTableSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraTableSchema)(nil)).Elem()
+}
+
+func (i *cassandraTableSchemaPtrType) ToCassandraTableSchemaPtrOutput() CassandraTableSchemaPtrOutput {
+	return i.ToCassandraTableSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *cassandraTableSchemaPtrType) ToCassandraTableSchemaPtrOutputWithContext(ctx context.Context) CassandraTableSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableSchemaPtrOutput)
+}
+
+type CassandraTableSchemaOutput struct{ *pulumi.OutputState }
+
+func (CassandraTableSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraTableSchema)(nil)).Elem()
+}
+
+func (o CassandraTableSchemaOutput) ToCassandraTableSchemaOutput() CassandraTableSchemaOutput {
+	return o
+}
+
+func (o CassandraTableSchemaOutput) ToCassandraTableSchemaOutputWithContext(ctx context.Context) CassandraTableSchemaOutput {
+	return o
+}
+
+func (o CassandraTableSchemaOutput) ToCassandraTableSchemaPtrOutput() CassandraTableSchemaPtrOutput {
+	return o.ToCassandraTableSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o CassandraTableSchemaOutput) ToCassandraTableSchemaPtrOutputWithContext(ctx context.Context) CassandraTableSchemaPtrOutput {
+	return o.ApplyT(func(v CassandraTableSchema) *CassandraTableSchema {
+		return &v
+	}).(CassandraTableSchemaPtrOutput)
+}
+
+// One or more `clusterKey` blocks as defined below.
+func (o CassandraTableSchemaOutput) ClusterKeys() CassandraTableSchemaClusterKeyArrayOutput {
+	return o.ApplyT(func(v CassandraTableSchema) []CassandraTableSchemaClusterKey { return v.ClusterKeys }).(CassandraTableSchemaClusterKeyArrayOutput)
+}
+
+// One or more `column` blocks as defined below.
+func (o CassandraTableSchemaOutput) Columns() CassandraTableSchemaColumnArrayOutput {
+	return o.ApplyT(func(v CassandraTableSchema) []CassandraTableSchemaColumn { return v.Columns }).(CassandraTableSchemaColumnArrayOutput)
+}
+
+// One or more `partitionKey` blocks as defined below.
+func (o CassandraTableSchemaOutput) PartitionKeys() CassandraTableSchemaPartitionKeyArrayOutput {
+	return o.ApplyT(func(v CassandraTableSchema) []CassandraTableSchemaPartitionKey { return v.PartitionKeys }).(CassandraTableSchemaPartitionKeyArrayOutput)
+}
+
+type CassandraTableSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (CassandraTableSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraTableSchema)(nil)).Elem()
+}
+
+func (o CassandraTableSchemaPtrOutput) ToCassandraTableSchemaPtrOutput() CassandraTableSchemaPtrOutput {
+	return o
+}
+
+func (o CassandraTableSchemaPtrOutput) ToCassandraTableSchemaPtrOutputWithContext(ctx context.Context) CassandraTableSchemaPtrOutput {
+	return o
+}
+
+func (o CassandraTableSchemaPtrOutput) Elem() CassandraTableSchemaOutput {
+	return o.ApplyT(func(v *CassandraTableSchema) CassandraTableSchema { return *v }).(CassandraTableSchemaOutput)
+}
+
+// One or more `clusterKey` blocks as defined below.
+func (o CassandraTableSchemaPtrOutput) ClusterKeys() CassandraTableSchemaClusterKeyArrayOutput {
+	return o.ApplyT(func(v *CassandraTableSchema) []CassandraTableSchemaClusterKey {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterKeys
+	}).(CassandraTableSchemaClusterKeyArrayOutput)
+}
+
+// One or more `column` blocks as defined below.
+func (o CassandraTableSchemaPtrOutput) Columns() CassandraTableSchemaColumnArrayOutput {
+	return o.ApplyT(func(v *CassandraTableSchema) []CassandraTableSchemaColumn {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(CassandraTableSchemaColumnArrayOutput)
+}
+
+// One or more `partitionKey` blocks as defined below.
+func (o CassandraTableSchemaPtrOutput) PartitionKeys() CassandraTableSchemaPartitionKeyArrayOutput {
+	return o.ApplyT(func(v *CassandraTableSchema) []CassandraTableSchemaPartitionKey {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionKeys
+	}).(CassandraTableSchemaPartitionKeyArrayOutput)
+}
+
+type CassandraTableSchemaClusterKey struct {
+	// Name of the cluster key to be created.
+	Name string `pulumi:"name"`
+	// Order of the key. Currently supported values are `Asc` and `Desc`.
+	OrderBy string `pulumi:"orderBy"`
+}
+
+// CassandraTableSchemaClusterKeyInput is an input type that accepts CassandraTableSchemaClusterKeyArgs and CassandraTableSchemaClusterKeyOutput values.
+// You can construct a concrete instance of `CassandraTableSchemaClusterKeyInput` via:
+//
+//          CassandraTableSchemaClusterKeyArgs{...}
+type CassandraTableSchemaClusterKeyInput interface {
+	pulumi.Input
+
+	ToCassandraTableSchemaClusterKeyOutput() CassandraTableSchemaClusterKeyOutput
+	ToCassandraTableSchemaClusterKeyOutputWithContext(context.Context) CassandraTableSchemaClusterKeyOutput
+}
+
+type CassandraTableSchemaClusterKeyArgs struct {
+	// Name of the cluster key to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Order of the key. Currently supported values are `Asc` and `Desc`.
+	OrderBy pulumi.StringInput `pulumi:"orderBy"`
+}
+
+func (CassandraTableSchemaClusterKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraTableSchemaClusterKey)(nil)).Elem()
+}
+
+func (i CassandraTableSchemaClusterKeyArgs) ToCassandraTableSchemaClusterKeyOutput() CassandraTableSchemaClusterKeyOutput {
+	return i.ToCassandraTableSchemaClusterKeyOutputWithContext(context.Background())
+}
+
+func (i CassandraTableSchemaClusterKeyArgs) ToCassandraTableSchemaClusterKeyOutputWithContext(ctx context.Context) CassandraTableSchemaClusterKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableSchemaClusterKeyOutput)
+}
+
+// CassandraTableSchemaClusterKeyArrayInput is an input type that accepts CassandraTableSchemaClusterKeyArray and CassandraTableSchemaClusterKeyArrayOutput values.
+// You can construct a concrete instance of `CassandraTableSchemaClusterKeyArrayInput` via:
+//
+//          CassandraTableSchemaClusterKeyArray{ CassandraTableSchemaClusterKeyArgs{...} }
+type CassandraTableSchemaClusterKeyArrayInput interface {
+	pulumi.Input
+
+	ToCassandraTableSchemaClusterKeyArrayOutput() CassandraTableSchemaClusterKeyArrayOutput
+	ToCassandraTableSchemaClusterKeyArrayOutputWithContext(context.Context) CassandraTableSchemaClusterKeyArrayOutput
+}
+
+type CassandraTableSchemaClusterKeyArray []CassandraTableSchemaClusterKeyInput
+
+func (CassandraTableSchemaClusterKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CassandraTableSchemaClusterKey)(nil)).Elem()
+}
+
+func (i CassandraTableSchemaClusterKeyArray) ToCassandraTableSchemaClusterKeyArrayOutput() CassandraTableSchemaClusterKeyArrayOutput {
+	return i.ToCassandraTableSchemaClusterKeyArrayOutputWithContext(context.Background())
+}
+
+func (i CassandraTableSchemaClusterKeyArray) ToCassandraTableSchemaClusterKeyArrayOutputWithContext(ctx context.Context) CassandraTableSchemaClusterKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableSchemaClusterKeyArrayOutput)
+}
+
+type CassandraTableSchemaClusterKeyOutput struct{ *pulumi.OutputState }
+
+func (CassandraTableSchemaClusterKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraTableSchemaClusterKey)(nil)).Elem()
+}
+
+func (o CassandraTableSchemaClusterKeyOutput) ToCassandraTableSchemaClusterKeyOutput() CassandraTableSchemaClusterKeyOutput {
+	return o
+}
+
+func (o CassandraTableSchemaClusterKeyOutput) ToCassandraTableSchemaClusterKeyOutputWithContext(ctx context.Context) CassandraTableSchemaClusterKeyOutput {
+	return o
+}
+
+// Name of the cluster key to be created.
+func (o CassandraTableSchemaClusterKeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraTableSchemaClusterKey) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Order of the key. Currently supported values are `Asc` and `Desc`.
+func (o CassandraTableSchemaClusterKeyOutput) OrderBy() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraTableSchemaClusterKey) string { return v.OrderBy }).(pulumi.StringOutput)
+}
+
+type CassandraTableSchemaClusterKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (CassandraTableSchemaClusterKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CassandraTableSchemaClusterKey)(nil)).Elem()
+}
+
+func (o CassandraTableSchemaClusterKeyArrayOutput) ToCassandraTableSchemaClusterKeyArrayOutput() CassandraTableSchemaClusterKeyArrayOutput {
+	return o
+}
+
+func (o CassandraTableSchemaClusterKeyArrayOutput) ToCassandraTableSchemaClusterKeyArrayOutputWithContext(ctx context.Context) CassandraTableSchemaClusterKeyArrayOutput {
+	return o
+}
+
+func (o CassandraTableSchemaClusterKeyArrayOutput) Index(i pulumi.IntInput) CassandraTableSchemaClusterKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CassandraTableSchemaClusterKey {
+		return vs[0].([]CassandraTableSchemaClusterKey)[vs[1].(int)]
+	}).(CassandraTableSchemaClusterKeyOutput)
+}
+
+type CassandraTableSchemaColumn struct {
+	// Name of the column to be created.
+	Name string `pulumi:"name"`
+	// Type of the column to be created.
+	Type string `pulumi:"type"`
+}
+
+// CassandraTableSchemaColumnInput is an input type that accepts CassandraTableSchemaColumnArgs and CassandraTableSchemaColumnOutput values.
+// You can construct a concrete instance of `CassandraTableSchemaColumnInput` via:
+//
+//          CassandraTableSchemaColumnArgs{...}
+type CassandraTableSchemaColumnInput interface {
+	pulumi.Input
+
+	ToCassandraTableSchemaColumnOutput() CassandraTableSchemaColumnOutput
+	ToCassandraTableSchemaColumnOutputWithContext(context.Context) CassandraTableSchemaColumnOutput
+}
+
+type CassandraTableSchemaColumnArgs struct {
+	// Name of the column to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Type of the column to be created.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CassandraTableSchemaColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraTableSchemaColumn)(nil)).Elem()
+}
+
+func (i CassandraTableSchemaColumnArgs) ToCassandraTableSchemaColumnOutput() CassandraTableSchemaColumnOutput {
+	return i.ToCassandraTableSchemaColumnOutputWithContext(context.Background())
+}
+
+func (i CassandraTableSchemaColumnArgs) ToCassandraTableSchemaColumnOutputWithContext(ctx context.Context) CassandraTableSchemaColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableSchemaColumnOutput)
+}
+
+// CassandraTableSchemaColumnArrayInput is an input type that accepts CassandraTableSchemaColumnArray and CassandraTableSchemaColumnArrayOutput values.
+// You can construct a concrete instance of `CassandraTableSchemaColumnArrayInput` via:
+//
+//          CassandraTableSchemaColumnArray{ CassandraTableSchemaColumnArgs{...} }
+type CassandraTableSchemaColumnArrayInput interface {
+	pulumi.Input
+
+	ToCassandraTableSchemaColumnArrayOutput() CassandraTableSchemaColumnArrayOutput
+	ToCassandraTableSchemaColumnArrayOutputWithContext(context.Context) CassandraTableSchemaColumnArrayOutput
+}
+
+type CassandraTableSchemaColumnArray []CassandraTableSchemaColumnInput
+
+func (CassandraTableSchemaColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CassandraTableSchemaColumn)(nil)).Elem()
+}
+
+func (i CassandraTableSchemaColumnArray) ToCassandraTableSchemaColumnArrayOutput() CassandraTableSchemaColumnArrayOutput {
+	return i.ToCassandraTableSchemaColumnArrayOutputWithContext(context.Background())
+}
+
+func (i CassandraTableSchemaColumnArray) ToCassandraTableSchemaColumnArrayOutputWithContext(ctx context.Context) CassandraTableSchemaColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableSchemaColumnArrayOutput)
+}
+
+type CassandraTableSchemaColumnOutput struct{ *pulumi.OutputState }
+
+func (CassandraTableSchemaColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraTableSchemaColumn)(nil)).Elem()
+}
+
+func (o CassandraTableSchemaColumnOutput) ToCassandraTableSchemaColumnOutput() CassandraTableSchemaColumnOutput {
+	return o
+}
+
+func (o CassandraTableSchemaColumnOutput) ToCassandraTableSchemaColumnOutputWithContext(ctx context.Context) CassandraTableSchemaColumnOutput {
+	return o
+}
+
+// Name of the column to be created.
+func (o CassandraTableSchemaColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraTableSchemaColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of the column to be created.
+func (o CassandraTableSchemaColumnOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraTableSchemaColumn) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type CassandraTableSchemaColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (CassandraTableSchemaColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CassandraTableSchemaColumn)(nil)).Elem()
+}
+
+func (o CassandraTableSchemaColumnArrayOutput) ToCassandraTableSchemaColumnArrayOutput() CassandraTableSchemaColumnArrayOutput {
+	return o
+}
+
+func (o CassandraTableSchemaColumnArrayOutput) ToCassandraTableSchemaColumnArrayOutputWithContext(ctx context.Context) CassandraTableSchemaColumnArrayOutput {
+	return o
+}
+
+func (o CassandraTableSchemaColumnArrayOutput) Index(i pulumi.IntInput) CassandraTableSchemaColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CassandraTableSchemaColumn {
+		return vs[0].([]CassandraTableSchemaColumn)[vs[1].(int)]
+	}).(CassandraTableSchemaColumnOutput)
+}
+
+type CassandraTableSchemaPartitionKey struct {
+	// Name of the column to partition by.
+	Name string `pulumi:"name"`
+}
+
+// CassandraTableSchemaPartitionKeyInput is an input type that accepts CassandraTableSchemaPartitionKeyArgs and CassandraTableSchemaPartitionKeyOutput values.
+// You can construct a concrete instance of `CassandraTableSchemaPartitionKeyInput` via:
+//
+//          CassandraTableSchemaPartitionKeyArgs{...}
+type CassandraTableSchemaPartitionKeyInput interface {
+	pulumi.Input
+
+	ToCassandraTableSchemaPartitionKeyOutput() CassandraTableSchemaPartitionKeyOutput
+	ToCassandraTableSchemaPartitionKeyOutputWithContext(context.Context) CassandraTableSchemaPartitionKeyOutput
+}
+
+type CassandraTableSchemaPartitionKeyArgs struct {
+	// Name of the column to partition by.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (CassandraTableSchemaPartitionKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraTableSchemaPartitionKey)(nil)).Elem()
+}
+
+func (i CassandraTableSchemaPartitionKeyArgs) ToCassandraTableSchemaPartitionKeyOutput() CassandraTableSchemaPartitionKeyOutput {
+	return i.ToCassandraTableSchemaPartitionKeyOutputWithContext(context.Background())
+}
+
+func (i CassandraTableSchemaPartitionKeyArgs) ToCassandraTableSchemaPartitionKeyOutputWithContext(ctx context.Context) CassandraTableSchemaPartitionKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableSchemaPartitionKeyOutput)
+}
+
+// CassandraTableSchemaPartitionKeyArrayInput is an input type that accepts CassandraTableSchemaPartitionKeyArray and CassandraTableSchemaPartitionKeyArrayOutput values.
+// You can construct a concrete instance of `CassandraTableSchemaPartitionKeyArrayInput` via:
+//
+//          CassandraTableSchemaPartitionKeyArray{ CassandraTableSchemaPartitionKeyArgs{...} }
+type CassandraTableSchemaPartitionKeyArrayInput interface {
+	pulumi.Input
+
+	ToCassandraTableSchemaPartitionKeyArrayOutput() CassandraTableSchemaPartitionKeyArrayOutput
+	ToCassandraTableSchemaPartitionKeyArrayOutputWithContext(context.Context) CassandraTableSchemaPartitionKeyArrayOutput
+}
+
+type CassandraTableSchemaPartitionKeyArray []CassandraTableSchemaPartitionKeyInput
+
+func (CassandraTableSchemaPartitionKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CassandraTableSchemaPartitionKey)(nil)).Elem()
+}
+
+func (i CassandraTableSchemaPartitionKeyArray) ToCassandraTableSchemaPartitionKeyArrayOutput() CassandraTableSchemaPartitionKeyArrayOutput {
+	return i.ToCassandraTableSchemaPartitionKeyArrayOutputWithContext(context.Background())
+}
+
+func (i CassandraTableSchemaPartitionKeyArray) ToCassandraTableSchemaPartitionKeyArrayOutputWithContext(ctx context.Context) CassandraTableSchemaPartitionKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableSchemaPartitionKeyArrayOutput)
+}
+
+type CassandraTableSchemaPartitionKeyOutput struct{ *pulumi.OutputState }
+
+func (CassandraTableSchemaPartitionKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraTableSchemaPartitionKey)(nil)).Elem()
+}
+
+func (o CassandraTableSchemaPartitionKeyOutput) ToCassandraTableSchemaPartitionKeyOutput() CassandraTableSchemaPartitionKeyOutput {
+	return o
+}
+
+func (o CassandraTableSchemaPartitionKeyOutput) ToCassandraTableSchemaPartitionKeyOutputWithContext(ctx context.Context) CassandraTableSchemaPartitionKeyOutput {
+	return o
+}
+
+// Name of the column to partition by.
+func (o CassandraTableSchemaPartitionKeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraTableSchemaPartitionKey) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type CassandraTableSchemaPartitionKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (CassandraTableSchemaPartitionKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CassandraTableSchemaPartitionKey)(nil)).Elem()
+}
+
+func (o CassandraTableSchemaPartitionKeyArrayOutput) ToCassandraTableSchemaPartitionKeyArrayOutput() CassandraTableSchemaPartitionKeyArrayOutput {
+	return o
+}
+
+func (o CassandraTableSchemaPartitionKeyArrayOutput) ToCassandraTableSchemaPartitionKeyArrayOutputWithContext(ctx context.Context) CassandraTableSchemaPartitionKeyArrayOutput {
+	return o
+}
+
+func (o CassandraTableSchemaPartitionKeyArrayOutput) Index(i pulumi.IntInput) CassandraTableSchemaPartitionKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CassandraTableSchemaPartitionKey {
+		return vs[0].([]CassandraTableSchemaPartitionKey)[vs[1].(int)]
+	}).(CassandraTableSchemaPartitionKeyOutput)
+}
+
 type GremlinDatabaseAutoscaleSettings struct {
 	// The maximum throughput of the Gremlin database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput *int `pulumi:"maxThroughput"`
@@ -3235,6 +3844,16 @@ func init() {
 	pulumi.RegisterOutputType(AccountVirtualNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(CassandraKeyspaceAutoscaleSettingsOutput{})
 	pulumi.RegisterOutputType(CassandraKeyspaceAutoscaleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(CassandraTableAutoscaleSettingsOutput{})
+	pulumi.RegisterOutputType(CassandraTableAutoscaleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(CassandraTableSchemaOutput{})
+	pulumi.RegisterOutputType(CassandraTableSchemaPtrOutput{})
+	pulumi.RegisterOutputType(CassandraTableSchemaClusterKeyOutput{})
+	pulumi.RegisterOutputType(CassandraTableSchemaClusterKeyArrayOutput{})
+	pulumi.RegisterOutputType(CassandraTableSchemaColumnOutput{})
+	pulumi.RegisterOutputType(CassandraTableSchemaColumnArrayOutput{})
+	pulumi.RegisterOutputType(CassandraTableSchemaPartitionKeyOutput{})
+	pulumi.RegisterOutputType(CassandraTableSchemaPartitionKeyArrayOutput{})
 	pulumi.RegisterOutputType(GremlinDatabaseAutoscaleSettingsOutput{})
 	pulumi.RegisterOutputType(GremlinDatabaseAutoscaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GremlinGraphAutoscaleSettingsOutput{})

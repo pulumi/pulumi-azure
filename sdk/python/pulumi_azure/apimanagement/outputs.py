@@ -41,6 +41,10 @@ __all__ = [
     'CustomDomainPortal',
     'CustomDomainProxy',
     'CustomDomainScm',
+    'DiagnosticBackendRequest',
+    'DiagnosticBackendResponse',
+    'DiagnosticFrontendRequest',
+    'DiagnosticFrontendResponse',
     'LoggerApplicationInsights',
     'LoggerEventhub',
     'ServiceAdditionalLocation',
@@ -1761,6 +1765,142 @@ class CustomDomainScm(dict):
         Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
         """
         return pulumi.get(self, "negotiate_client_certificate")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DiagnosticBackendRequest(dict):
+    def __init__(__self__, *,
+                 body_bytes: Optional[int] = None,
+                 headers_to_logs: Optional[Sequence[str]] = None):
+        """
+        :param int body_bytes: Number of payload bytes to log (up to 8192).
+        :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
+        """
+        if body_bytes is not None:
+            pulumi.set(__self__, "body_bytes", body_bytes)
+        if headers_to_logs is not None:
+            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
+
+    @property
+    @pulumi.getter(name="bodyBytes")
+    def body_bytes(self) -> Optional[int]:
+        """
+        Number of payload bytes to log (up to 8192).
+        """
+        return pulumi.get(self, "body_bytes")
+
+    @property
+    @pulumi.getter(name="headersToLogs")
+    def headers_to_logs(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of headers to log.
+        """
+        return pulumi.get(self, "headers_to_logs")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DiagnosticBackendResponse(dict):
+    def __init__(__self__, *,
+                 body_bytes: Optional[int] = None,
+                 headers_to_logs: Optional[Sequence[str]] = None):
+        """
+        :param int body_bytes: Number of payload bytes to log (up to 8192).
+        :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
+        """
+        if body_bytes is not None:
+            pulumi.set(__self__, "body_bytes", body_bytes)
+        if headers_to_logs is not None:
+            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
+
+    @property
+    @pulumi.getter(name="bodyBytes")
+    def body_bytes(self) -> Optional[int]:
+        """
+        Number of payload bytes to log (up to 8192).
+        """
+        return pulumi.get(self, "body_bytes")
+
+    @property
+    @pulumi.getter(name="headersToLogs")
+    def headers_to_logs(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of headers to log.
+        """
+        return pulumi.get(self, "headers_to_logs")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DiagnosticFrontendRequest(dict):
+    def __init__(__self__, *,
+                 body_bytes: Optional[int] = None,
+                 headers_to_logs: Optional[Sequence[str]] = None):
+        """
+        :param int body_bytes: Number of payload bytes to log (up to 8192).
+        :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
+        """
+        if body_bytes is not None:
+            pulumi.set(__self__, "body_bytes", body_bytes)
+        if headers_to_logs is not None:
+            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
+
+    @property
+    @pulumi.getter(name="bodyBytes")
+    def body_bytes(self) -> Optional[int]:
+        """
+        Number of payload bytes to log (up to 8192).
+        """
+        return pulumi.get(self, "body_bytes")
+
+    @property
+    @pulumi.getter(name="headersToLogs")
+    def headers_to_logs(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of headers to log.
+        """
+        return pulumi.get(self, "headers_to_logs")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DiagnosticFrontendResponse(dict):
+    def __init__(__self__, *,
+                 body_bytes: Optional[int] = None,
+                 headers_to_logs: Optional[Sequence[str]] = None):
+        """
+        :param int body_bytes: Number of payload bytes to log (up to 8192).
+        :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
+        """
+        if body_bytes is not None:
+            pulumi.set(__self__, "body_bytes", body_bytes)
+        if headers_to_logs is not None:
+            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
+
+    @property
+    @pulumi.getter(name="bodyBytes")
+    def body_bytes(self) -> Optional[int]:
+        """
+        Number of payload bytes to log (up to 8192).
+        """
+        return pulumi.get(self, "body_bytes")
+
+    @property
+    @pulumi.getter(name="headersToLogs")
+    def headers_to_logs(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of headers to log.
+        """
+        return pulumi.get(self, "headers_to_logs")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

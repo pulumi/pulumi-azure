@@ -64,11 +64,17 @@ type LookupBackendAddressPoolArgs struct {
 
 // A collection of values returned by getBackendAddressPool.
 type LookupBackendAddressPoolResult struct {
+	// An array of `backendAddress` block as defined below.
+	BackendAddresses []GetBackendAddressPoolBackendAddress `pulumi:"backendAddresses"`
 	// An array of references to IP addresses defined in network interfaces.
 	BackendIpConfigurations []GetBackendAddressPoolBackendIpConfiguration `pulumi:"backendIpConfigurations"`
 	// The provider-assigned unique ID for this managed resource.
-	Id             string `pulumi:"id"`
-	LoadbalancerId string `pulumi:"loadbalancerId"`
-	// The name of the Backend Address Pool.
+	Id string `pulumi:"id"`
+	// An array of the Load Balancing Rules associated with this Backend Address Pool.
+	LoadBalancingRules []string `pulumi:"loadBalancingRules"`
+	LoadbalancerId     string   `pulumi:"loadbalancerId"`
+	// The name of the Backend Address.
 	Name string `pulumi:"name"`
+	// An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
+	OutboundRules []string `pulumi:"outboundRules"`
 }

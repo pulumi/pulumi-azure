@@ -2931,7 +2931,8 @@ class MetricAlertCriteriaArgs:
                  metric_namespace: pulumi.Input[str],
                  operator: pulumi.Input[str],
                  threshold: pulumi.Input[float],
-                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaDimensionArgs']]]] = None):
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaDimensionArgs']]]] = None,
+                 skip_metric_validation: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] aggregation: The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
         :param pulumi.Input[str] metric_name: One of the metric names to be monitored.
@@ -2939,6 +2940,7 @@ class MetricAlertCriteriaArgs:
         :param pulumi.Input[str] operator: The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param pulumi.Input[float] threshold: The criteria threshold value that activates the alert.
         :param pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaDimensionArgs']]] dimensions: One or more `dimension` blocks as defined below.
+        :param pulumi.Input[bool] skip_metric_validation: Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
         """
         pulumi.set(__self__, "aggregation", aggregation)
         pulumi.set(__self__, "metric_name", metric_name)
@@ -2947,6 +2949,8 @@ class MetricAlertCriteriaArgs:
         pulumi.set(__self__, "threshold", threshold)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
+        if skip_metric_validation is not None:
+            pulumi.set(__self__, "skip_metric_validation", skip_metric_validation)
 
     @property
     @pulumi.getter
@@ -3020,6 +3024,18 @@ class MetricAlertCriteriaArgs:
     def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaDimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
 
+    @property
+    @pulumi.getter(name="skipMetricValidation")
+    def skip_metric_validation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+        """
+        return pulumi.get(self, "skip_metric_validation")
+
+    @skip_metric_validation.setter
+    def skip_metric_validation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_metric_validation", value)
+
 
 @pulumi.input_type
 class MetricAlertCriteriaDimensionArgs:
@@ -3084,7 +3100,8 @@ class MetricAlertDynamicCriteriaArgs:
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertDynamicCriteriaDimensionArgs']]]] = None,
                  evaluation_failure_count: Optional[pulumi.Input[int]] = None,
                  evaluation_total_count: Optional[pulumi.Input[int]] = None,
-                 ignore_data_before: Optional[pulumi.Input[str]] = None):
+                 ignore_data_before: Optional[pulumi.Input[str]] = None,
+                 skip_metric_validation: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] aggregation: The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
         :param pulumi.Input[str] alert_sensitivity: The extent of deviation required to trigger an alert. Possible values are `Low`, `Medium` and `High`.
@@ -3095,6 +3112,7 @@ class MetricAlertDynamicCriteriaArgs:
         :param pulumi.Input[int] evaluation_failure_count: The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`.
         :param pulumi.Input[int] evaluation_total_count: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points.
         :param pulumi.Input[str] ignore_data_before: The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
+        :param pulumi.Input[bool] skip_metric_validation: Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
         """
         pulumi.set(__self__, "aggregation", aggregation)
         pulumi.set(__self__, "alert_sensitivity", alert_sensitivity)
@@ -3109,6 +3127,8 @@ class MetricAlertDynamicCriteriaArgs:
             pulumi.set(__self__, "evaluation_total_count", evaluation_total_count)
         if ignore_data_before is not None:
             pulumi.set(__self__, "ignore_data_before", ignore_data_before)
+        if skip_metric_validation is not None:
+            pulumi.set(__self__, "skip_metric_validation", skip_metric_validation)
 
     @property
     @pulumi.getter
@@ -3217,6 +3237,18 @@ class MetricAlertDynamicCriteriaArgs:
     @ignore_data_before.setter
     def ignore_data_before(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ignore_data_before", value)
+
+    @property
+    @pulumi.getter(name="skipMetricValidation")
+    def skip_metric_validation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+        """
+        return pulumi.get(self, "skip_metric_validation")
+
+    @skip_metric_validation.setter
+    def skip_metric_validation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_metric_validation", value)
 
 
 @pulumi.input_type

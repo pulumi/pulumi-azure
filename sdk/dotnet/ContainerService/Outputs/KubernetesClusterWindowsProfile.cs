@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterWindowsProfile
     {
         /// <summary>
-        /// The Admin Password for Windows VMs.
+        /// The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
         /// </summary>
         public readonly string? AdminPassword;
         /// <summary>

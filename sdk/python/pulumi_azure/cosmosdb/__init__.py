@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .account import *
 from .cassandra_keyspace import *
+from .cassandra_table import *
 from .get_account import *
 from .gremlin_database import *
 from .gremlin_graph import *
@@ -33,6 +34,8 @@ def _register_module():
                 return Account(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:cosmosdb/cassandraKeyspace:CassandraKeyspace":
                 return CassandraKeyspace(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:cosmosdb/cassandraTable:CassandraTable":
+                return CassandraTable(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:cosmosdb/gremlinDatabase:GremlinDatabase":
                 return GremlinDatabase(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:cosmosdb/gremlinGraph:GremlinGraph":
@@ -56,6 +59,7 @@ def _register_module():
     _module_instance = Module()
     pulumi.runtime.register_resource_module("azure", "cosmosdb/account", _module_instance)
     pulumi.runtime.register_resource_module("azure", "cosmosdb/cassandraKeyspace", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "cosmosdb/cassandraTable", _module_instance)
     pulumi.runtime.register_resource_module("azure", "cosmosdb/gremlinDatabase", _module_instance)
     pulumi.runtime.register_resource_module("azure", "cosmosdb/gremlinGraph", _module_instance)
     pulumi.runtime.register_resource_module("azure", "cosmosdb/mongoCollection", _module_instance)

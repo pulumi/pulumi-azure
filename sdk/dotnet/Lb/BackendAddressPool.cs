@@ -49,7 +49,6 @@ namespace Pulumi.Azure.Lb
     ///         });
     ///         var exampleBackendAddressPool = new Azure.Lb.BackendAddressPool("exampleBackendAddressPool", new Azure.Lb.BackendAddressPoolArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             LoadbalancerId = exampleLoadBalancer.Id,
     ///         });
     ///     }
@@ -67,6 +66,12 @@ namespace Pulumi.Azure.Lb
     /// </summary>
     public partial class BackendAddressPool : Pulumi.CustomResource
     {
+        /// <summary>
+        /// An array of `backend_address` block as defined below.
+        /// </summary>
+        [Output("backendAddresses")]
+        public Output<ImmutableArray<Outputs.BackendAddressPoolBackendAddress>> BackendAddresses { get; private set; } = null!;
+
         /// <summary>
         /// The Backend IP Configurations associated with this Backend Address Pool.
         /// </summary>
@@ -92,8 +97,11 @@ namespace Pulumi.Azure.Lb
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the resource.
+        /// An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
         /// </summary>
+        [Output("outboundRules")]
+        public Output<ImmutableArray<string>> OutboundRules { get; private set; } = null!;
+
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
@@ -143,6 +151,18 @@ namespace Pulumi.Azure.Lb
 
     public sealed class BackendAddressPoolArgs : Pulumi.ResourceArgs
     {
+        [Input("backendAddresses")]
+        private InputList<Inputs.BackendAddressPoolBackendAddressArgs>? _backendAddresses;
+
+        /// <summary>
+        /// An array of `backend_address` block as defined below.
+        /// </summary>
+        public InputList<Inputs.BackendAddressPoolBackendAddressArgs> BackendAddresses
+        {
+            get => _backendAddresses ?? (_backendAddresses = new InputList<Inputs.BackendAddressPoolBackendAddressArgs>());
+            set => _backendAddresses = value;
+        }
+
         /// <summary>
         /// The ID of the Load Balancer in which to create the Backend Address Pool.
         /// </summary>
@@ -155,11 +175,8 @@ namespace Pulumi.Azure.Lb
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The name of the resource group in which to create the resource.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         public BackendAddressPoolArgs()
         {
@@ -168,6 +185,18 @@ namespace Pulumi.Azure.Lb
 
     public sealed class BackendAddressPoolState : Pulumi.ResourceArgs
     {
+        [Input("backendAddresses")]
+        private InputList<Inputs.BackendAddressPoolBackendAddressGetArgs>? _backendAddresses;
+
+        /// <summary>
+        /// An array of `backend_address` block as defined below.
+        /// </summary>
+        public InputList<Inputs.BackendAddressPoolBackendAddressGetArgs> BackendAddresses
+        {
+            get => _backendAddresses ?? (_backendAddresses = new InputList<Inputs.BackendAddressPoolBackendAddressGetArgs>());
+            set => _backendAddresses = value;
+        }
+
         [Input("backendIpConfigurations")]
         private InputList<string>? _backendIpConfigurations;
 
@@ -204,9 +233,18 @@ namespace Pulumi.Azure.Lb
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("outboundRules")]
+        private InputList<string>? _outboundRules;
+
         /// <summary>
-        /// The name of the resource group in which to create the resource.
+        /// An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
         /// </summary>
+        public InputList<string> OutboundRules
+        {
+            get => _outboundRules ?? (_outboundRules = new InputList<string>());
+            set => _outboundRules = value;
+        }
+
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 

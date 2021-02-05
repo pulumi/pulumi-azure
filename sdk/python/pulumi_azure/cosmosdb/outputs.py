@@ -15,6 +15,11 @@ __all__ = [
     'AccountGeoLocation',
     'AccountVirtualNetworkRule',
     'CassandraKeyspaceAutoscaleSettings',
+    'CassandraTableAutoscaleSettings',
+    'CassandraTableSchema',
+    'CassandraTableSchemaClusterKey',
+    'CassandraTableSchemaColumn',
+    'CassandraTableSchemaPartitionKey',
     'GremlinDatabaseAutoscaleSettings',
     'GremlinGraphAutoscaleSettings',
     'GremlinGraphConflictResolutionPolicy',
@@ -223,6 +228,157 @@ class CassandraKeyspaceAutoscaleSettings(dict):
         The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CassandraTableAutoscaleSettings(dict):
+    def __init__(__self__, *,
+                 max_throughput: Optional[int] = None):
+        """
+        :param int max_throughput: The maximum throughput of the Cassandra Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        """
+        if max_throughput is not None:
+            pulumi.set(__self__, "max_throughput", max_throughput)
+
+    @property
+    @pulumi.getter(name="maxThroughput")
+    def max_throughput(self) -> Optional[int]:
+        """
+        The maximum throughput of the Cassandra Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        """
+        return pulumi.get(self, "max_throughput")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CassandraTableSchema(dict):
+    def __init__(__self__, *,
+                 columns: Sequence['outputs.CassandraTableSchemaColumn'],
+                 partition_keys: Sequence['outputs.CassandraTableSchemaPartitionKey'],
+                 cluster_keys: Optional[Sequence['outputs.CassandraTableSchemaClusterKey']] = None):
+        """
+        :param Sequence['CassandraTableSchemaColumnArgs'] columns: One or more `column` blocks as defined below.
+        :param Sequence['CassandraTableSchemaPartitionKeyArgs'] partition_keys: One or more `partition_key` blocks as defined below.
+        :param Sequence['CassandraTableSchemaClusterKeyArgs'] cluster_keys: One or more `cluster_key` blocks as defined below.
+        """
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "partition_keys", partition_keys)
+        if cluster_keys is not None:
+            pulumi.set(__self__, "cluster_keys", cluster_keys)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Sequence['outputs.CassandraTableSchemaColumn']:
+        """
+        One or more `column` blocks as defined below.
+        """
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter(name="partitionKeys")
+    def partition_keys(self) -> Sequence['outputs.CassandraTableSchemaPartitionKey']:
+        """
+        One or more `partition_key` blocks as defined below.
+        """
+        return pulumi.get(self, "partition_keys")
+
+    @property
+    @pulumi.getter(name="clusterKeys")
+    def cluster_keys(self) -> Optional[Sequence['outputs.CassandraTableSchemaClusterKey']]:
+        """
+        One or more `cluster_key` blocks as defined below.
+        """
+        return pulumi.get(self, "cluster_keys")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CassandraTableSchemaClusterKey(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 order_by: str):
+        """
+        :param str name: Name of the cluster key to be created.
+        :param str order_by: Order of the key. Currently supported values are `Asc` and `Desc`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "order_by", order_by)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the cluster key to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="orderBy")
+    def order_by(self) -> str:
+        """
+        Order of the key. Currently supported values are `Asc` and `Desc`.
+        """
+        return pulumi.get(self, "order_by")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CassandraTableSchemaColumn(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        :param str name: Name of the column to be created.
+        :param str type: Type of the column to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the column to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the column to be created.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CassandraTableSchemaPartitionKey(dict):
+    def __init__(__self__, *,
+                 name: str):
+        """
+        :param str name: Name of the column to partition by.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the column to partition by.
+        """
+        return pulumi.get(self, "name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

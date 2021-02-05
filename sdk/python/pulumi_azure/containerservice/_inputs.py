@@ -1610,6 +1610,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                  vm_size: pulumi.Input[str],
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
+                 enable_host_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
@@ -1629,6 +1630,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[str] vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
         :param pulumi.Input[bool] enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
@@ -1648,6 +1650,8 @@ class KubernetesClusterDefaultNodePoolArgs:
             pulumi.set(__self__, "availability_zones", availability_zones)
         if enable_auto_scaling is not None:
             pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
+        if enable_host_encryption is not None:
+            pulumi.set(__self__, "enable_host_encryption", enable_host_encryption)
         if enable_node_public_ip is not None:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if max_count is not None:
@@ -1724,6 +1728,18 @@ class KubernetesClusterDefaultNodePoolArgs:
     @enable_auto_scaling.setter
     def enable_auto_scaling(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_auto_scaling", value)
+
+    @property
+    @pulumi.getter(name="enableHostEncryption")
+    def enable_host_encryption(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_host_encryption")
+
+    @enable_host_encryption.setter
+    def enable_host_encryption(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_host_encryption", value)
 
     @property
     @pulumi.getter(name="enableNodePublicIp")
@@ -2297,7 +2313,7 @@ class KubernetesClusterNetworkProfileArgs:
         :param pulumi.Input[str] docker_bridge_cidr: IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs'] load_balancer_profile: A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
         :param pulumi.Input[str] load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
-        :param pulumi.Input[str] network_mode: Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_mode: Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
         :param pulumi.Input[str] pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
@@ -2387,7 +2403,7 @@ class KubernetesClusterNetworkProfileArgs:
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Network mode to be used with Azure CNI. Possible values are `bridge` or `transparent`. Changing this forces a new resource to be created.
+        Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_mode")
 
@@ -2732,7 +2748,7 @@ class KubernetesClusterWindowsProfileArgs:
                  admin_password: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] admin_username: The Admin Username for Windows VMs.
-        :param pulumi.Input[str] admin_password: The Admin Password for Windows VMs.
+        :param pulumi.Input[str] admin_password: The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         if admin_password is not None:
@@ -2754,7 +2770,7 @@ class KubernetesClusterWindowsProfileArgs:
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> Optional[pulumi.Input[str]]:
         """
-        The Admin Password for Windows VMs.
+        The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
         """
         return pulumi.get(self, "admin_password")
 

@@ -5,21 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Service Fabric Mesh Secret.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleMeshSecret = new azure.servicefabric.MeshSecret("exampleMeshSecret", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- * });
- * ```
- *
  * ## Import
  *
  * Service Fabric Mesh Secret can be imported using the `resource id`, e.g.

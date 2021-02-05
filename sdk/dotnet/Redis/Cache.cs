@@ -155,6 +155,12 @@ namespace Pulumi.Azure.Redis
         public Output<string> PrivateStaticIpAddress { get; private set; } = null!;
 
         /// <summary>
+        /// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         /// </summary>
         [Output("redisConfiguration")]
@@ -317,6 +323,12 @@ namespace Pulumi.Azure.Redis
         public Input<string>? PrivateStaticIpAddress { get; set; }
 
         /// <summary>
+        /// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         /// </summary>
         [Input("redisConfiguration")]
@@ -450,6 +462,12 @@ namespace Pulumi.Azure.Redis
         /// </summary>
         [Input("privateStaticIpAddress")]
         public Input<string>? PrivateStaticIpAddress { get; set; }
+
+        /// <summary>
+        /// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.

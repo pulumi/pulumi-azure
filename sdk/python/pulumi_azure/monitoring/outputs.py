@@ -2446,7 +2446,8 @@ class MetricAlertCriteria(dict):
                  metric_namespace: str,
                  operator: str,
                  threshold: float,
-                 dimensions: Optional[Sequence['outputs.MetricAlertCriteriaDimension']] = None):
+                 dimensions: Optional[Sequence['outputs.MetricAlertCriteriaDimension']] = None,
+                 skip_metric_validation: Optional[bool] = None):
         """
         :param str aggregation: The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
         :param str metric_name: One of the metric names to be monitored.
@@ -2454,6 +2455,7 @@ class MetricAlertCriteria(dict):
         :param str operator: The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param float threshold: The criteria threshold value that activates the alert.
         :param Sequence['MetricAlertCriteriaDimensionArgs'] dimensions: One or more `dimension` blocks as defined below.
+        :param bool skip_metric_validation: Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
         """
         pulumi.set(__self__, "aggregation", aggregation)
         pulumi.set(__self__, "metric_name", metric_name)
@@ -2462,6 +2464,8 @@ class MetricAlertCriteria(dict):
         pulumi.set(__self__, "threshold", threshold)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
+        if skip_metric_validation is not None:
+            pulumi.set(__self__, "skip_metric_validation", skip_metric_validation)
 
     @property
     @pulumi.getter
@@ -2510,6 +2514,14 @@ class MetricAlertCriteria(dict):
         One or more `dimension` blocks as defined below.
         """
         return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="skipMetricValidation")
+    def skip_metric_validation(self) -> Optional[bool]:
+        """
+        Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+        """
+        return pulumi.get(self, "skip_metric_validation")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2569,7 +2581,8 @@ class MetricAlertDynamicCriteria(dict):
                  dimensions: Optional[Sequence['outputs.MetricAlertDynamicCriteriaDimension']] = None,
                  evaluation_failure_count: Optional[int] = None,
                  evaluation_total_count: Optional[int] = None,
-                 ignore_data_before: Optional[str] = None):
+                 ignore_data_before: Optional[str] = None,
+                 skip_metric_validation: Optional[bool] = None):
         """
         :param str aggregation: The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
         :param str alert_sensitivity: The extent of deviation required to trigger an alert. Possible values are `Low`, `Medium` and `High`.
@@ -2580,6 +2593,7 @@ class MetricAlertDynamicCriteria(dict):
         :param int evaluation_failure_count: The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`.
         :param int evaluation_total_count: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points.
         :param str ignore_data_before: The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
+        :param bool skip_metric_validation: Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
         """
         pulumi.set(__self__, "aggregation", aggregation)
         pulumi.set(__self__, "alert_sensitivity", alert_sensitivity)
@@ -2594,6 +2608,8 @@ class MetricAlertDynamicCriteria(dict):
             pulumi.set(__self__, "evaluation_total_count", evaluation_total_count)
         if ignore_data_before is not None:
             pulumi.set(__self__, "ignore_data_before", ignore_data_before)
+        if skip_metric_validation is not None:
+            pulumi.set(__self__, "skip_metric_validation", skip_metric_validation)
 
     @property
     @pulumi.getter
@@ -2666,6 +2682,14 @@ class MetricAlertDynamicCriteria(dict):
         The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
         """
         return pulumi.get(self, "ignore_data_before")
+
+    @property
+    @pulumi.getter(name="skipMetricValidation")
+    def skip_metric_validation(self) -> Optional[bool]:
+        """
+        Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+        """
+        return pulumi.get(self, "skip_metric_validation")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

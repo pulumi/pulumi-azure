@@ -14,6 +14,11 @@ __all__ = [
     'AccountGeoLocationArgs',
     'AccountVirtualNetworkRuleArgs',
     'CassandraKeyspaceAutoscaleSettingsArgs',
+    'CassandraTableAutoscaleSettingsArgs',
+    'CassandraTableSchemaArgs',
+    'CassandraTableSchemaClusterKeyArgs',
+    'CassandraTableSchemaColumnArgs',
+    'CassandraTableSchemaPartitionKeyArgs',
     'GremlinDatabaseAutoscaleSettingsArgs',
     'GremlinGraphAutoscaleSettingsArgs',
     'GremlinGraphConflictResolutionPolicyArgs',
@@ -257,6 +262,178 @@ class CassandraKeyspaceAutoscaleSettingsArgs:
     @max_throughput.setter
     def max_throughput(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_throughput", value)
+
+
+@pulumi.input_type
+class CassandraTableAutoscaleSettingsArgs:
+    def __init__(__self__, *,
+                 max_throughput: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max_throughput: The maximum throughput of the Cassandra Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        """
+        if max_throughput is not None:
+            pulumi.set(__self__, "max_throughput", max_throughput)
+
+    @property
+    @pulumi.getter(name="maxThroughput")
+    def max_throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum throughput of the Cassandra Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        """
+        return pulumi.get(self, "max_throughput")
+
+    @max_throughput.setter
+    def max_throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_throughput", value)
+
+
+@pulumi.input_type
+class CassandraTableSchemaArgs:
+    def __init__(__self__, *,
+                 columns: pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaColumnArgs']]],
+                 partition_keys: pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaPartitionKeyArgs']]],
+                 cluster_keys: Optional[pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaColumnArgs']]] columns: One or more `column` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaPartitionKeyArgs']]] partition_keys: One or more `partition_key` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArgs']]] cluster_keys: One or more `cluster_key` blocks as defined below.
+        """
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "partition_keys", partition_keys)
+        if cluster_keys is not None:
+            pulumi.set(__self__, "cluster_keys", cluster_keys)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaColumnArgs']]]:
+        """
+        One or more `column` blocks as defined below.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaColumnArgs']]]):
+        pulumi.set(self, "columns", value)
+
+    @property
+    @pulumi.getter(name="partitionKeys")
+    def partition_keys(self) -> pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaPartitionKeyArgs']]]:
+        """
+        One or more `partition_key` blocks as defined below.
+        """
+        return pulumi.get(self, "partition_keys")
+
+    @partition_keys.setter
+    def partition_keys(self, value: pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaPartitionKeyArgs']]]):
+        pulumi.set(self, "partition_keys", value)
+
+    @property
+    @pulumi.getter(name="clusterKeys")
+    def cluster_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArgs']]]]:
+        """
+        One or more `cluster_key` blocks as defined below.
+        """
+        return pulumi.get(self, "cluster_keys")
+
+    @cluster_keys.setter
+    def cluster_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArgs']]]]):
+        pulumi.set(self, "cluster_keys", value)
+
+
+@pulumi.input_type
+class CassandraTableSchemaClusterKeyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 order_by: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: Name of the cluster key to be created.
+        :param pulumi.Input[str] order_by: Order of the key. Currently supported values are `Asc` and `Desc`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "order_by", order_by)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the cluster key to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="orderBy")
+    def order_by(self) -> pulumi.Input[str]:
+        """
+        Order of the key. Currently supported values are `Asc` and `Desc`.
+        """
+        return pulumi.get(self, "order_by")
+
+    @order_by.setter
+    def order_by(self, value: pulumi.Input[str]):
+        pulumi.set(self, "order_by", value)
+
+
+@pulumi.input_type
+class CassandraTableSchemaColumnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: Name of the column to be created.
+        :param pulumi.Input[str] type: Type of the column to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the column to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of the column to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class CassandraTableSchemaPartitionKeyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: Name of the column to partition by.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the column to partition by.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

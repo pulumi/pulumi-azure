@@ -87,6 +87,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly enableAutoScaling!: pulumi.Output<boolean | undefined>;
     /**
+     * Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+     */
+    public readonly enableHostEncryption!: pulumi.Output<boolean | undefined>;
+    /**
      * Should each node have a Public IP Address? Defaults to `false`.
      */
     public readonly enableNodePublicIp!: pulumi.Output<boolean | undefined>;
@@ -185,6 +189,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             const state = argsOrState as KubernetesClusterNodePoolState | undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             inputs["enableAutoScaling"] = state ? state.enableAutoScaling : undefined;
+            inputs["enableHostEncryption"] = state ? state.enableHostEncryption : undefined;
             inputs["enableNodePublicIp"] = state ? state.enableNodePublicIp : undefined;
             inputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
             inputs["kubernetesClusterId"] = state ? state.kubernetesClusterId : undefined;
@@ -216,6 +221,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             }
             inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             inputs["enableAutoScaling"] = args ? args.enableAutoScaling : undefined;
+            inputs["enableHostEncryption"] = args ? args.enableHostEncryption : undefined;
             inputs["enableNodePublicIp"] = args ? args.enableNodePublicIp : undefined;
             inputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
             inputs["kubernetesClusterId"] = args ? args.kubernetesClusterId : undefined;
@@ -261,6 +267,10 @@ export interface KubernetesClusterNodePoolState {
      * Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
      */
     readonly enableAutoScaling?: pulumi.Input<boolean>;
+    /**
+     * Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+     */
+    readonly enableHostEncryption?: pulumi.Input<boolean>;
     /**
      * Should each node have a Public IP Address? Defaults to `false`.
      */
@@ -359,6 +369,10 @@ export interface KubernetesClusterNodePoolArgs {
      * Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
      */
     readonly enableAutoScaling?: pulumi.Input<boolean>;
+    /**
+     * Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+     */
+    readonly enableHostEncryption?: pulumi.Input<boolean>;
     /**
      * Should each node have a Public IP Address? Defaults to `false`.
      */

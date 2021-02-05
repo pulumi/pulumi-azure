@@ -31,6 +31,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<bool>? EnableAutoScaling { get; set; }
 
         /// <summary>
+        /// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+        /// </summary>
+        [Input("enableHostEncryption")]
+        public Input<bool>? EnableHostEncryption { get; set; }
+
+        /// <summary>
         /// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
         /// </summary>
         [Input("enableNodePublicIp")]

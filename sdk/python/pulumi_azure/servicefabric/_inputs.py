@@ -21,6 +21,8 @@ __all__ = [
     'ClusterNodeTypeApplicationPortsArgs',
     'ClusterNodeTypeEphemeralPortsArgs',
     'ClusterReverseProxyCertificateArgs',
+    'ClusterReverseProxyCertificateCommonNamesArgs',
+    'ClusterReverseProxyCertificateCommonNamesCommonNameArgs',
     'MeshApplicationServiceArgs',
     'MeshApplicationServiceCodePackageArgs',
     'MeshApplicationServiceCodePackageResourcesArgs',
@@ -717,6 +719,81 @@ class ClusterReverseProxyCertificateArgs:
     @thumbprint_secondary.setter
     def thumbprint_secondary(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "thumbprint_secondary", value)
+
+
+@pulumi.input_type
+class ClusterReverseProxyCertificateCommonNamesArgs:
+    def __init__(__self__, *,
+                 common_names: pulumi.Input[Sequence[pulumi.Input['ClusterReverseProxyCertificateCommonNamesCommonNameArgs']]],
+                 x509_store_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterReverseProxyCertificateCommonNamesCommonNameArgs']]] common_names: A `common_names` block as defined below.
+        :param pulumi.Input[str] x509_store_name: The X509 Store where the Certificate Exists, such as `My`.
+        """
+        pulumi.set(__self__, "common_names", common_names)
+        pulumi.set(__self__, "x509_store_name", x509_store_name)
+
+    @property
+    @pulumi.getter(name="commonNames")
+    def common_names(self) -> pulumi.Input[Sequence[pulumi.Input['ClusterReverseProxyCertificateCommonNamesCommonNameArgs']]]:
+        """
+        A `common_names` block as defined below.
+        """
+        return pulumi.get(self, "common_names")
+
+    @common_names.setter
+    def common_names(self, value: pulumi.Input[Sequence[pulumi.Input['ClusterReverseProxyCertificateCommonNamesCommonNameArgs']]]):
+        pulumi.set(self, "common_names", value)
+
+    @property
+    @pulumi.getter(name="x509StoreName")
+    def x509_store_name(self) -> pulumi.Input[str]:
+        """
+        The X509 Store where the Certificate Exists, such as `My`.
+        """
+        return pulumi.get(self, "x509_store_name")
+
+    @x509_store_name.setter
+    def x509_store_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "x509_store_name", value)
+
+
+@pulumi.input_type
+class ClusterReverseProxyCertificateCommonNamesCommonNameArgs:
+    def __init__(__self__, *,
+                 certificate_common_name: pulumi.Input[str],
+                 certificate_issuer_thumbprint: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] certificate_common_name: The common or subject name of the certificate.
+        :param pulumi.Input[str] certificate_issuer_thumbprint: The Issuer Thumbprint of the Certificate.
+        """
+        pulumi.set(__self__, "certificate_common_name", certificate_common_name)
+        if certificate_issuer_thumbprint is not None:
+            pulumi.set(__self__, "certificate_issuer_thumbprint", certificate_issuer_thumbprint)
+
+    @property
+    @pulumi.getter(name="certificateCommonName")
+    def certificate_common_name(self) -> pulumi.Input[str]:
+        """
+        The common or subject name of the certificate.
+        """
+        return pulumi.get(self, "certificate_common_name")
+
+    @certificate_common_name.setter
+    def certificate_common_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "certificate_common_name", value)
+
+    @property
+    @pulumi.getter(name="certificateIssuerThumbprint")
+    def certificate_issuer_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Issuer Thumbprint of the Certificate.
+        """
+        return pulumi.get(self, "certificate_issuer_thumbprint")
+
+    @certificate_issuer_thumbprint.setter
+    def certificate_issuer_thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_issuer_thumbprint", value)
 
 
 @pulumi.input_type

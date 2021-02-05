@@ -57,8 +57,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = lb.NewBackendAddressPool(ctx, "exampleBackendAddressPool", &lb.BackendAddressPoolArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			LoadbalancerId:    exampleLoadBalancer.ID(),
+// 			LoadbalancerId: exampleLoadBalancer.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -78,6 +77,8 @@ import (
 type BackendAddressPool struct {
 	pulumi.CustomResourceState
 
+	// An array of `backendAddress` block as defined below.
+	BackendAddresses BackendAddressPoolBackendAddressArrayOutput `pulumi:"backendAddresses"`
 	// The Backend IP Configurations associated with this Backend Address Pool.
 	BackendIpConfigurations pulumi.StringArrayOutput `pulumi:"backendIpConfigurations"`
 	// The Load Balancing Rules associated with this Backend Address Pool.
@@ -86,7 +87,9 @@ type BackendAddressPool struct {
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
 	// Specifies the name of the Backend Address Pool.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to create the resource.
+	// An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
+	OutboundRules pulumi.StringArrayOutput `pulumi:"outboundRules"`
+	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
@@ -99,9 +102,6 @@ func NewBackendAddressPool(ctx *pulumi.Context,
 
 	if args.LoadbalancerId == nil {
 		return nil, errors.New("invalid value for required argument 'LoadbalancerId'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource BackendAddressPool
 	err := ctx.RegisterResource("azure:lb/backendAddressPool:BackendAddressPool", name, args, &resource, opts...)
@@ -125,6 +125,8 @@ func GetBackendAddressPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackendAddressPool resources.
 type backendAddressPoolState struct {
+	// An array of `backendAddress` block as defined below.
+	BackendAddresses []BackendAddressPoolBackendAddress `pulumi:"backendAddresses"`
 	// The Backend IP Configurations associated with this Backend Address Pool.
 	BackendIpConfigurations []string `pulumi:"backendIpConfigurations"`
 	// The Load Balancing Rules associated with this Backend Address Pool.
@@ -133,11 +135,15 @@ type backendAddressPoolState struct {
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
 	// Specifies the name of the Backend Address Pool.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the resource.
+	// An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
+	OutboundRules []string `pulumi:"outboundRules"`
+	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 type BackendAddressPoolState struct {
+	// An array of `backendAddress` block as defined below.
+	BackendAddresses BackendAddressPoolBackendAddressArrayInput
 	// The Backend IP Configurations associated with this Backend Address Pool.
 	BackendIpConfigurations pulumi.StringArrayInput
 	// The Load Balancing Rules associated with this Backend Address Pool.
@@ -146,7 +152,9 @@ type BackendAddressPoolState struct {
 	LoadbalancerId pulumi.StringPtrInput
 	// Specifies the name of the Backend Address Pool.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the resource.
+	// An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
+	OutboundRules pulumi.StringArrayInput
+	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
 	ResourceGroupName pulumi.StringPtrInput
 }
 
@@ -155,22 +163,26 @@ func (BackendAddressPoolState) ElementType() reflect.Type {
 }
 
 type backendAddressPoolArgs struct {
+	// An array of `backendAddress` block as defined below.
+	BackendAddresses []BackendAddressPoolBackendAddress `pulumi:"backendAddresses"`
 	// The ID of the Load Balancer in which to create the Backend Address Pool.
 	LoadbalancerId string `pulumi:"loadbalancerId"`
 	// Specifies the name of the Backend Address Pool.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the resource.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a BackendAddressPool resource.
 type BackendAddressPoolArgs struct {
+	// An array of `backendAddress` block as defined below.
+	BackendAddresses BackendAddressPoolBackendAddressArrayInput
 	// The ID of the Load Balancer in which to create the Backend Address Pool.
 	LoadbalancerId pulumi.StringInput
 	// Specifies the name of the Backend Address Pool.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the resource.
-	ResourceGroupName pulumi.StringInput
+	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
+	ResourceGroupName pulumi.StringPtrInput
 }
 
 func (BackendAddressPoolArgs) ElementType() reflect.Type {

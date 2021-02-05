@@ -34,6 +34,10 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string Operator;
         /// <summary>
+        /// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+        /// </summary>
+        public readonly bool? SkipMetricValidation;
+        /// <summary>
         /// The criteria threshold value that activates the alert.
         /// </summary>
         public readonly double Threshold;
@@ -50,6 +54,8 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
             string @operator,
 
+            bool? skipMetricValidation,
+
             double threshold)
         {
             Aggregation = aggregation;
@@ -57,6 +63,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
             MetricName = metricName;
             MetricNamespace = metricNamespace;
             Operator = @operator;
+            SkipMetricValidation = skipMetricValidation;
             Threshold = threshold;
         }
     }

@@ -25,6 +25,7 @@ class Cache(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]]] = None,
                  private_static_ip_address: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  redis_configuration: Optional[pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
@@ -104,6 +105,7 @@ class Cache(pulumi.CustomResource):
                new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]] patch_schedules: A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Redis instance.
@@ -142,6 +144,7 @@ class Cache(pulumi.CustomResource):
             __props__['name'] = name
             __props__['patch_schedules'] = patch_schedules
             __props__['private_static_ip_address'] = private_static_ip_address
+            __props__['public_network_access_enabled'] = public_network_access_enabled
             __props__['redis_configuration'] = redis_configuration
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -182,6 +185,7 @@ class Cache(pulumi.CustomResource):
             primary_access_key: Optional[pulumi.Input[str]] = None,
             primary_connection_string: Optional[pulumi.Input[str]] = None,
             private_static_ip_address: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             redis_configuration: Optional[pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             secondary_access_key: Optional[pulumi.Input[str]] = None,
@@ -212,6 +216,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] primary_access_key: The Primary Access Key for the Redis Instance
         :param pulumi.Input[str] primary_connection_string: The primary connection string of the Redis Instance.
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Redis instance.
@@ -240,6 +245,7 @@ class Cache(pulumi.CustomResource):
         __props__["primary_access_key"] = primary_access_key
         __props__["primary_connection_string"] = primary_connection_string
         __props__["private_static_ip_address"] = private_static_ip_address
+        __props__["public_network_access_enabled"] = public_network_access_enabled
         __props__["redis_configuration"] = redis_configuration
         __props__["resource_group_name"] = resource_group_name
         __props__["secondary_access_key"] = secondary_access_key
@@ -348,6 +354,14 @@ class Cache(pulumi.CustomResource):
         The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_static_ip_address")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="redisConfiguration")

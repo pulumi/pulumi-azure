@@ -72,6 +72,12 @@ namespace Pulumi.Azure.Monitoring.Inputs
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
+        /// <summary>
+        /// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+        /// </summary>
+        [Input("skipMetricValidation")]
+        public Input<bool>? SkipMetricValidation { get; set; }
+
         public MetricAlertDynamicCriteriaGetArgs()
         {
         }

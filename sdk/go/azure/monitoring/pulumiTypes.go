@@ -7355,6 +7355,8 @@ type MetricAlertCriteria struct {
 	MetricNamespace string `pulumi:"metricNamespace"`
 	// The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
 	Operator string `pulumi:"operator"`
+	// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+	SkipMetricValidation *bool `pulumi:"skipMetricValidation"`
 	// The criteria threshold value that activates the alert.
 	Threshold float64 `pulumi:"threshold"`
 }
@@ -7381,6 +7383,8 @@ type MetricAlertCriteriaArgs struct {
 	MetricNamespace pulumi.StringInput `pulumi:"metricNamespace"`
 	// The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
 	Operator pulumi.StringInput `pulumi:"operator"`
+	// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+	SkipMetricValidation pulumi.BoolPtrInput `pulumi:"skipMetricValidation"`
 	// The criteria threshold value that activates the alert.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 }
@@ -7459,6 +7463,11 @@ func (o MetricAlertCriteriaOutput) MetricNamespace() pulumi.StringOutput {
 // The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
 func (o MetricAlertCriteriaOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertCriteria) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+func (o MetricAlertCriteriaOutput) SkipMetricValidation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MetricAlertCriteria) *bool { return v.SkipMetricValidation }).(pulumi.BoolPtrOutput)
 }
 
 // The criteria threshold value that activates the alert.
@@ -7620,6 +7629,8 @@ type MetricAlertDynamicCriteria struct {
 	MetricNamespace string `pulumi:"metricNamespace"`
 	// The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
 	Operator string `pulumi:"operator"`
+	// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+	SkipMetricValidation *bool `pulumi:"skipMetricValidation"`
 }
 
 // MetricAlertDynamicCriteriaInput is an input type that accepts MetricAlertDynamicCriteriaArgs and MetricAlertDynamicCriteriaOutput values.
@@ -7652,6 +7663,8 @@ type MetricAlertDynamicCriteriaArgs struct {
 	MetricNamespace pulumi.StringInput `pulumi:"metricNamespace"`
 	// The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
 	Operator pulumi.StringInput `pulumi:"operator"`
+	// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+	SkipMetricValidation pulumi.BoolPtrInput `pulumi:"skipMetricValidation"`
 }
 
 func (MetricAlertDynamicCriteriaArgs) ElementType() reflect.Type {
@@ -7776,6 +7789,11 @@ func (o MetricAlertDynamicCriteriaOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertDynamicCriteria) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+func (o MetricAlertDynamicCriteriaOutput) SkipMetricValidation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MetricAlertDynamicCriteria) *bool { return v.SkipMetricValidation }).(pulumi.BoolPtrOutput)
+}
+
 type MetricAlertDynamicCriteriaPtrOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertDynamicCriteriaPtrOutput) ElementType() reflect.Type {
@@ -7882,6 +7900,16 @@ func (o MetricAlertDynamicCriteriaPtrOutput) Operator() pulumi.StringPtrOutput {
 		}
 		return &v.Operator
 	}).(pulumi.StringPtrOutput)
+}
+
+// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+func (o MetricAlertDynamicCriteriaPtrOutput) SkipMetricValidation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MetricAlertDynamicCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SkipMetricValidation
+	}).(pulumi.BoolPtrOutput)
 }
 
 type MetricAlertDynamicCriteriaDimension struct {
