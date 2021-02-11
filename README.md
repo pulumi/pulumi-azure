@@ -8,6 +8,8 @@
 
 # Microsoft Azure Resource Provider
 
+> **_NOTE:_** A next generation Microsoft Azure provider for Pulumi is now available in [`pulumi-azure-nextgen`](https://github.com/pulumi/pulumi-azure-nextgen). The Azure NextGen provider works directly with the Azure Resource Manager (ARM) platform instead of depending on a handwritten layer as with the provider in this repo. Lean more in [Announcing Next Generation Pulumi Azure Provider](https://www.pulumi.com/blog/announcing-nextgen-azure-provider/).
+
 The Microsoft Azure resource provider for Pulumi lets you use Azure resources in your cloud programs.  To use
 this package, please [install the Pulumi CLI first](https://pulumi.io/). For a streamlined Pulumi walkthrough, including language runtime installation and Azure configuration, click "Get Started" below.
 
