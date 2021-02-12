@@ -32,6 +32,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
                  private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
+                 private_dns_zone_id: Optional[pulumi.Input[str]] = None,
                  private_link_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterRoleBasedAccessControlArgs']]] = None,
@@ -97,6 +98,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, or `System` to have AKS manage this.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterRoleBasedAccessControlArgs']] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below.
@@ -140,6 +142,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__['network_profile'] = network_profile
             __props__['node_resource_group'] = node_resource_group
             __props__['private_cluster_enabled'] = private_cluster_enabled
+            __props__['private_dns_zone_id'] = private_dns_zone_id
             if private_link_enabled is not None and not opts.urn:
                 warnings.warn("""Deprecated in favour of `private_cluster_enabled`""", DeprecationWarning)
                 pulumi.log.warn("private_link_enabled is deprecated: Deprecated in favour of `private_cluster_enabled`")
@@ -190,6 +193,7 @@ class KubernetesCluster(pulumi.CustomResource):
             network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
             node_resource_group: Optional[pulumi.Input[str]] = None,
             private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
+            private_dns_zone_id: Optional[pulumi.Input[str]] = None,
             private_fqdn: Optional[pulumi.Input[str]] = None,
             private_link_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -225,6 +229,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, or `System` to have AKS manage this.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterRoleBasedAccessControlArgs']] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
@@ -258,6 +263,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__["network_profile"] = network_profile
         __props__["node_resource_group"] = node_resource_group
         __props__["private_cluster_enabled"] = private_cluster_enabled
+        __props__["private_dns_zone_id"] = private_dns_zone_id
         __props__["private_fqdn"] = private_fqdn
         __props__["private_link_enabled"] = private_link_enabled
         __props__["resource_group_name"] = resource_group_name
@@ -432,6 +438,14 @@ class KubernetesCluster(pulumi.CustomResource):
         Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_cluster_enabled")
+
+    @property
+    @pulumi.getter(name="privateDnsZoneId")
+    def private_dns_zone_id(self) -> pulumi.Output[str]:
+        """
+        Either the ID of Private DNS Zone which should be delegated to this Cluster, or `System` to have AKS manage this.
+        """
+        return pulumi.get(self, "private_dns_zone_id")
 
     @property
     @pulumi.getter(name="privateFqdn")

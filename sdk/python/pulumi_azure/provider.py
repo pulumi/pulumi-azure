@@ -61,7 +61,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
                automatically.
         :param pulumi.Input[str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
-        :param pulumi.Input[bool] skip_credentials_validation: This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
+        :param pulumi.Input[bool] skip_credentials_validation: [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
         :param pulumi.Input[bool] skip_provider_registration: Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
                registered?
         :param pulumi.Input[bool] storage_use_azuread: Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
@@ -108,6 +108,9 @@ class Provider(pulumi.ProviderResource):
             __props__['metadata_url'] = metadata_url
             __props__['msi_endpoint'] = msi_endpoint
             __props__['partner_id'] = partner_id
+            if skip_credentials_validation is not None and not opts.urn:
+                warnings.warn("""This field is deprecated and will be removed in version 3.0 of the Azure Provider""", DeprecationWarning)
+                pulumi.log.warn("skip_credentials_validation is deprecated: This field is deprecated and will be removed in version 3.0 of the Azure Provider")
             __props__['skip_credentials_validation'] = pulumi.Output.from_input(skip_credentials_validation).apply(pulumi.runtime.to_json) if skip_credentials_validation is not None else None
             if skip_provider_registration is None:
                 skip_provider_registration = (_utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)

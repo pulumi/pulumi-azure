@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .backend_address_pool import *
+from .backend_address_pool_address import *
 from .get_backend_address_pool import *
 from .get_lb import *
 from .get_lb_rule import *
@@ -30,6 +31,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure:lb/backendAddressPool:BackendAddressPool":
                 return BackendAddressPool(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress":
+                return BackendAddressPoolAddress(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:lb/loadBalancer:LoadBalancer":
                 return LoadBalancer(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:lb/natPool:NatPool":
@@ -48,6 +51,7 @@ def _register_module():
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("azure", "lb/backendAddressPool", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "lb/backendAddressPoolAddress", _module_instance)
     pulumi.runtime.register_resource_module("azure", "lb/loadBalancer", _module_instance)
     pulumi.runtime.register_resource_module("azure", "lb/natPool", _module_instance)
     pulumi.runtime.register_resource_module("azure", "lb/natRule", _module_instance)

@@ -30,13 +30,13 @@ namespace Pulumi.Azure.Lb
     ///         });
     ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             AllocationMethod = "Static",
     ///         });
     ///         var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new Azure.Lb.LoadBalancerArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             FrontendIpConfigurations = 
     ///             {
@@ -66,9 +66,6 @@ namespace Pulumi.Azure.Lb
     /// </summary>
     public partial class BackendAddressPool : Pulumi.CustomResource
     {
-        /// <summary>
-        /// An array of `backend_address` block as defined below.
-        /// </summary>
         [Output("backendAddresses")]
         public Output<ImmutableArray<Outputs.BackendAddressPoolBackendAddress>> BackendAddresses { get; private set; } = null!;
 
@@ -153,10 +150,7 @@ namespace Pulumi.Azure.Lb
     {
         [Input("backendAddresses")]
         private InputList<Inputs.BackendAddressPoolBackendAddressArgs>? _backendAddresses;
-
-        /// <summary>
-        /// An array of `backend_address` block as defined below.
-        /// </summary>
+        [Obsolete(@"This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.")]
         public InputList<Inputs.BackendAddressPoolBackendAddressArgs> BackendAddresses
         {
             get => _backendAddresses ?? (_backendAddresses = new InputList<Inputs.BackendAddressPoolBackendAddressArgs>());
@@ -187,10 +181,7 @@ namespace Pulumi.Azure.Lb
     {
         [Input("backendAddresses")]
         private InputList<Inputs.BackendAddressPoolBackendAddressGetArgs>? _backendAddresses;
-
-        /// <summary>
-        /// An array of `backend_address` block as defined below.
-        /// </summary>
+        [Obsolete(@"This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.")]
         public InputList<Inputs.BackendAddressPoolBackendAddressGetArgs> BackendAddresses
         {
             get => _backendAddresses ?? (_backendAddresses = new InputList<Inputs.BackendAddressPoolBackendAddressGetArgs>());

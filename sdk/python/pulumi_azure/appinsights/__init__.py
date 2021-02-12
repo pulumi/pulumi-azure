@@ -7,6 +7,7 @@ from .analytics_item import *
 from .api_key import *
 from .get_insights import *
 from .insights import *
+from .smart_detection_rule import *
 from .web_test import *
 
 def _register_module():
@@ -27,6 +28,8 @@ def _register_module():
                 return ApiKey(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:appinsights/insights:Insights":
                 return Insights(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appinsights/smartDetectionRule:SmartDetectionRule":
+                return SmartDetectionRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:appinsights/webTest:WebTest":
                 return WebTest(name, pulumi.ResourceOptions(urn=urn))
             else:
@@ -37,6 +40,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "appinsights/analyticsItem", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appinsights/apiKey", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appinsights/insights", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appinsights/smartDetectionRule", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appinsights/webTest", _module_instance)
 
 _register_module()

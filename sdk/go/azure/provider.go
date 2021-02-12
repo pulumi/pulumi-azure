@@ -82,7 +82,9 @@ type providerArgs struct {
 	MsiEndpoint *string `pulumi:"msiEndpoint"`
 	// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 	PartnerId *string `pulumi:"partnerId"`
-	// This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
+	// [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
+	//
+	// Deprecated: This field is deprecated and will be removed in version 3.0 of the Azure Provider
 	SkipCredentialsValidation *bool `pulumi:"skipCredentialsValidation"`
 	// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
 	// registered?
@@ -129,7 +131,9 @@ type ProviderArgs struct {
 	MsiEndpoint pulumi.StringPtrInput
 	// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 	PartnerId pulumi.StringPtrInput
-	// This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
+	// [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
+	//
+	// Deprecated: This field is deprecated and will be removed in version 3.0 of the Azure Provider
 	SkipCredentialsValidation pulumi.BoolPtrInput
 	// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
 	// registered?

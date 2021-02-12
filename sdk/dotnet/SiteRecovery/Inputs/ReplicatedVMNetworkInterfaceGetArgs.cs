@@ -13,6 +13,12 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
     public sealed class ReplicatedVMNetworkInterfaceGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Id of the public IP object to use when a failover is done.
+        /// </summary>
+        [Input("recoveryPublicIpAddressId")]
+        public Input<string>? RecoveryPublicIpAddressId { get; set; }
+
+        /// <summary>
         /// Id source network interface.
         /// </summary>
         [Input("sourceNetworkInterfaceId")]

@@ -61,6 +61,12 @@ namespace Pulumi.Azure.MSSql
     public partial class VirtualMachine : Pulumi.CustomResource
     {
         /// <summary>
+        /// An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
+        /// </summary>
+        [Output("autoBackup")]
+        public Output<Outputs.VirtualMachineAutoBackup?> AutoBackup { get; private set; } = null!;
+
+        /// <summary>
         /// An `auto_patching` block as defined below.
         /// </summary>
         [Output("autoPatching")]
@@ -173,6 +179,12 @@ namespace Pulumi.Azure.MSSql
     public sealed class VirtualMachineArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
+        /// </summary>
+        [Input("autoBackup")]
+        public Input<Inputs.VirtualMachineAutoBackupArgs>? AutoBackup { get; set; }
+
+        /// <summary>
         /// An `auto_patching` block as defined below.
         /// </summary>
         [Input("autoPatching")]
@@ -251,6 +263,12 @@ namespace Pulumi.Azure.MSSql
 
     public sealed class VirtualMachineState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
+        /// </summary>
+        [Input("autoBackup")]
+        public Input<Inputs.VirtualMachineAutoBackupGetArgs>? AutoBackup { get; set; }
+
         /// <summary>
         /// An `auto_patching` block as defined below.
         /// </summary>

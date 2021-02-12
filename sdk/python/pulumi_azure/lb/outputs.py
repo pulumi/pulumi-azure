@@ -24,9 +24,7 @@ class BackendAddressPoolBackendAddress(dict):
                  name: str,
                  virtual_network_id: str):
         """
-        :param str ip_address: The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtual_network_id`.
-        :param str name: The name of the Backend Address.
-        :param str virtual_network_id: The ID of the Virtual Network that is pre-allocated for this Backend Address.
+        :param str name: Specifies the name of the Backend Address Pool.
         """
         pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "name", name)
@@ -35,25 +33,19 @@ class BackendAddressPoolBackendAddress(dict):
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
-        """
-        The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtual_network_id`.
-        """
         return pulumi.get(self, "ip_address")
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Backend Address.
+        Specifies the name of the Backend Address Pool.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> str:
-        """
-        The ID of the Virtual Network that is pre-allocated for this Backend Address.
-        """
         return pulumi.get(self, "virtual_network_id")
 
     def _translate_property(self, prop):
@@ -253,9 +245,9 @@ class GetBackendAddressPoolBackendAddressResult(dict):
                  name: str,
                  virtual_network_id: str):
         """
-        :param str ip_address: The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtual_network_id`.
+        :param str ip_address: The Static IP address for this Load Balancer within the Virtual Network.
         :param str name: Specifies the name of the Backend Address Pool.
-        :param str virtual_network_id: The ID of the Virtual Network that is pre-allocated for this Backend Address.
+        :param str virtual_network_id: The ID of the Virtual Network where the Backend Address of the Load Balancer exists.
         """
         pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "name", name)
@@ -265,7 +257,7 @@ class GetBackendAddressPoolBackendAddressResult(dict):
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
         """
-        The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtual_network_id`.
+        The Static IP address for this Load Balancer within the Virtual Network.
         """
         return pulumi.get(self, "ip_address")
 
@@ -281,7 +273,7 @@ class GetBackendAddressPoolBackendAddressResult(dict):
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> str:
         """
-        The ID of the Virtual Network that is pre-allocated for this Backend Address.
+        The ID of the Virtual Network where the Backend Address of the Load Balancer exists.
         """
         return pulumi.get(self, "virtual_network_id")
 

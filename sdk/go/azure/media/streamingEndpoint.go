@@ -174,6 +174,8 @@ type StreamingEndpoint struct {
 	CustomHostNames pulumi.StringArrayOutput `pulumi:"customHostNames"`
 	// The streaming endpoint description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The host name of the Streaming Endpoint.
+	HostName pulumi.StringOutput `pulumi:"hostName"`
 	// The Azure Region where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Max cache age in seconds.
@@ -244,6 +246,8 @@ type streamingEndpointState struct {
 	CustomHostNames []string `pulumi:"customHostNames"`
 	// The streaming endpoint description.
 	Description *string `pulumi:"description"`
+	// The host name of the Streaming Endpoint.
+	HostName *string `pulumi:"hostName"`
 	// The Azure Region where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
 	Location *string `pulumi:"location"`
 	// Max cache age in seconds.
@@ -277,6 +281,8 @@ type StreamingEndpointState struct {
 	CustomHostNames pulumi.StringArrayInput
 	// The streaming endpoint description.
 	Description pulumi.StringPtrInput
+	// The host name of the Streaming Endpoint.
+	HostName pulumi.StringPtrInput
 	// The Azure Region where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
 	Location pulumi.StringPtrInput
 	// Max cache age in seconds.

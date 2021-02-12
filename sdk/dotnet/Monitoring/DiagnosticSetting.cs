@@ -98,7 +98,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> LogAnalyticsDestinationType { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+        /// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
         /// </summary>
         [Output("logAnalyticsWorkspaceId")]
         public Output<string?> LogAnalyticsWorkspaceId { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? LogAnalyticsDestinationType { get; set; }
 
         /// <summary>
-        /// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+        /// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
         /// </summary>
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
@@ -271,7 +271,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? LogAnalyticsDestinationType { get; set; }
 
         /// <summary>
-        /// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+        /// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
         /// </summary>
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }

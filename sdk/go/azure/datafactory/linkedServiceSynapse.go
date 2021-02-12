@@ -142,7 +142,8 @@ type LinkedServiceSynapse struct {
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
 	// A `keyVaultPassword` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword LinkedServiceSynapseKeyVaultPasswordPtrOutput `pulumi:"keyVaultPassword"`
-	// Specifies the name of the Data Factory Linked Service Synapse. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service Synapse. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service Synapse.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
@@ -202,7 +203,8 @@ type linkedServiceSynapseState struct {
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// A `keyVaultPassword` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword *LinkedServiceSynapseKeyVaultPassword `pulumi:"keyVaultPassword"`
-	// Specifies the name of the Data Factory Linked Service Synapse. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service Synapse. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service Synapse.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -225,7 +227,8 @@ type LinkedServiceSynapseState struct {
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// A `keyVaultPassword` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword LinkedServiceSynapseKeyVaultPasswordPtrInput
-	// Specifies the name of the Data Factory Linked Service Synapse. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service Synapse. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service Synapse.
 	Parameters pulumi.StringMapInput
@@ -252,7 +255,8 @@ type linkedServiceSynapseArgs struct {
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// A `keyVaultPassword` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword *LinkedServiceSynapseKeyVaultPassword `pulumi:"keyVaultPassword"`
-	// Specifies the name of the Data Factory Linked Service Synapse. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service Synapse. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service Synapse.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -276,7 +280,8 @@ type LinkedServiceSynapseArgs struct {
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// A `keyVaultPassword` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword LinkedServiceSynapseKeyVaultPasswordPtrInput
-	// Specifies the name of the Data Factory Linked Service Synapse. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service Synapse. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service Synapse.
 	Parameters pulumi.StringMapInput

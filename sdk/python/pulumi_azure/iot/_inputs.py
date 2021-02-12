@@ -19,6 +19,8 @@ __all__ = [
     'IoTHubSkuArgs',
     'IotHubDpsLinkedHubArgs',
     'IotHubDpsSkuArgs',
+    'SecurityDeviceGroupAllowRuleArgs',
+    'SecurityDeviceGroupRangeRuleArgs',
     'SecuritySolutionRecommendationsEnabledArgs',
     'TimeSeriesInsightsGen2EnvironmentStorageArgs',
     'TimeSeriesInsightsReferenceDataSetKeyPropertyArgs',
@@ -775,6 +777,128 @@ class IotHubDpsSkuArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class SecurityDeviceGroupAllowRuleArgs:
+    def __init__(__self__, *,
+                 connection_to_ip_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 local_user_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 process_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_to_ip_not_alloweds: Specifies which Ip is not allowed to be connected to in current device group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] local_user_not_alloweds: Specifies which local user is not allowed to Login in current device group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] process_not_alloweds: Specifies which process is not allowed to be executed in current device group.
+        """
+        if connection_to_ip_not_alloweds is not None:
+            pulumi.set(__self__, "connection_to_ip_not_alloweds", connection_to_ip_not_alloweds)
+        if local_user_not_alloweds is not None:
+            pulumi.set(__self__, "local_user_not_alloweds", local_user_not_alloweds)
+        if process_not_alloweds is not None:
+            pulumi.set(__self__, "process_not_alloweds", process_not_alloweds)
+
+    @property
+    @pulumi.getter(name="connectionToIpNotAlloweds")
+    def connection_to_ip_not_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies which Ip is not allowed to be connected to in current device group.
+        """
+        return pulumi.get(self, "connection_to_ip_not_alloweds")
+
+    @connection_to_ip_not_alloweds.setter
+    def connection_to_ip_not_alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "connection_to_ip_not_alloweds", value)
+
+    @property
+    @pulumi.getter(name="localUserNotAlloweds")
+    def local_user_not_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies which local user is not allowed to Login in current device group.
+        """
+        return pulumi.get(self, "local_user_not_alloweds")
+
+    @local_user_not_alloweds.setter
+    def local_user_not_alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "local_user_not_alloweds", value)
+
+    @property
+    @pulumi.getter(name="processNotAlloweds")
+    def process_not_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies which process is not allowed to be executed in current device group.
+        """
+        return pulumi.get(self, "process_not_alloweds")
+
+    @process_not_alloweds.setter
+    def process_not_alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "process_not_alloweds", value)
+
+
+@pulumi.input_type
+class SecurityDeviceGroupRangeRuleArgs:
+    def __init__(__self__, *,
+                 duration: pulumi.Input[str],
+                 max: pulumi.Input[int],
+                 min: pulumi.Input[int],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] duration: Specifies the time range. represented in ISO 8601 duration format.
+        :param pulumi.Input[int] max: The maximum threshold in the given time window.
+        :param pulumi.Input[int] min: The minimum threshold in the given time window.
+        :param pulumi.Input[str] type: The type of supported rule type. Possible Values are `ActiveConnectionsNotInAllowedRange`, `AmqpC2DMessagesNotInAllowedRange`, `MqttC2DMessagesNotInAllowedRange`, `HttpC2DMessagesNotInAllowedRange`, `AmqpC2DRejectedMessagesNotInAllowedRange`, `MqttC2DRejectedMessagesNotInAllowedRange`, `HttpC2DRejectedMessagesNotInAllowedRange`, `AmqpD2CMessagesNotInAllowedRange`, `MqttD2CMessagesNotInAllowedRange`, `HttpD2CMessagesNotInAllowedRange`, `DirectMethodInvokesNotInAllowedRange`, `FailedLocalLoginsNotInAllowedRange`, `FileUploadsNotInAllowedRange`, `QueuePurgesNotInAllowedRange`, `TwinUpdatesNotInAllowedRange` and `UnauthorizedOperationsNotInAllowedRange`.
+        """
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "max", max)
+        pulumi.set(__self__, "min", min)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> pulumi.Input[str]:
+        """
+        Specifies the time range. represented in ISO 8601 duration format.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "duration", value)
+
+    @property
+    @pulumi.getter
+    def max(self) -> pulumi.Input[int]:
+        """
+        The maximum threshold in the given time window.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> pulumi.Input[int]:
+        """
+        The minimum threshold in the given time window.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: pulumi.Input[int]):
+        pulumi.set(self, "min", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of supported rule type. Possible Values are `ActiveConnectionsNotInAllowedRange`, `AmqpC2DMessagesNotInAllowedRange`, `MqttC2DMessagesNotInAllowedRange`, `HttpC2DMessagesNotInAllowedRange`, `AmqpC2DRejectedMessagesNotInAllowedRange`, `MqttC2DRejectedMessagesNotInAllowedRange`, `HttpC2DRejectedMessagesNotInAllowedRange`, `AmqpD2CMessagesNotInAllowedRange`, `MqttD2CMessagesNotInAllowedRange`, `HttpD2CMessagesNotInAllowedRange`, `DirectMethodInvokesNotInAllowedRange`, `FailedLocalLoginsNotInAllowedRange`, `FileUploadsNotInAllowedRange`, `QueuePurgesNotInAllowedRange`, `TwinUpdatesNotInAllowedRange` and `UnauthorizedOperationsNotInAllowedRange`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

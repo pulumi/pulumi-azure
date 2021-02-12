@@ -76,7 +76,8 @@ type LinkedServiceAzureSqlDatabase struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
-	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
@@ -134,7 +135,8 @@ type linkedServiceAzureSqlDatabaseState struct {
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
-	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -155,7 +157,8 @@ type LinkedServiceAzureSqlDatabaseState struct {
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
 	IntegrationRuntimeName pulumi.StringPtrInput
-	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
 	Parameters pulumi.StringMapInput
@@ -180,7 +183,8 @@ type linkedServiceAzureSqlDatabaseArgs struct {
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
-	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -202,7 +206,8 @@ type LinkedServiceAzureSqlDatabaseArgs struct {
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
 	IntegrationRuntimeName pulumi.StringPtrInput
-	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
 	Parameters pulumi.StringMapInput

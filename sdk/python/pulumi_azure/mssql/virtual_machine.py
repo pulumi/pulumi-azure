@@ -17,6 +17,7 @@ class VirtualMachine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_backup: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoBackupArgs']]] = None,
                  auto_patching: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']]] = None,
                  key_vault_credential: Optional[pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']]] = None,
                  r_services_enabled: Optional[pulumi.Input[bool]] = None,
@@ -69,6 +70,7 @@ class VirtualMachine(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineAutoBackupArgs']] auto_backup: An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']] auto_patching: An `auto_patching` block as defined below.
         :param pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']] key_vault_credential: (Optional) An `key_vault_credential` block as defined below.
         :param pulumi.Input[bool] r_services_enabled: Should R Services be enabled?
@@ -98,6 +100,7 @@ class VirtualMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['auto_backup'] = auto_backup
             __props__['auto_patching'] = auto_patching
             __props__['key_vault_credential'] = key_vault_credential
             __props__['r_services_enabled'] = r_services_enabled
@@ -123,6 +126,7 @@ class VirtualMachine(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            auto_backup: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoBackupArgs']]] = None,
             auto_patching: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']]] = None,
             key_vault_credential: Optional[pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']]] = None,
             r_services_enabled: Optional[pulumi.Input[bool]] = None,
@@ -141,6 +145,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineAutoBackupArgs']] auto_backup: An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']] auto_patching: An `auto_patching` block as defined below.
         :param pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']] key_vault_credential: (Optional) An `key_vault_credential` block as defined below.
         :param pulumi.Input[bool] r_services_enabled: Should R Services be enabled?
@@ -157,6 +162,7 @@ class VirtualMachine(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["auto_backup"] = auto_backup
         __props__["auto_patching"] = auto_patching
         __props__["key_vault_credential"] = key_vault_credential
         __props__["r_services_enabled"] = r_services_enabled
@@ -169,6 +175,14 @@ class VirtualMachine(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["virtual_machine_id"] = virtual_machine_id
         return VirtualMachine(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="autoBackup")
+    def auto_backup(self) -> pulumi.Output[Optional['outputs.VirtualMachineAutoBackup']]:
+        """
+        An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
+        """
+        return pulumi.get(self, "auto_backup")
 
     @property
     @pulumi.getter(name="autoPatching")

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Lb.Outputs
     public sealed class GetBackendAddressPoolBackendAddressResult
     {
         /// <summary>
-        /// The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtual_network_id`.
+        /// The Static IP address for this Load Balancer within the Virtual Network.
         /// </summary>
         public readonly string IpAddress;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Lb.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The ID of the Virtual Network that is pre-allocated for this Backend Address.
+        /// The ID of the Virtual Network where the Backend Address of the Load Balancer exists.
         /// </summary>
         public readonly string VirtualNetworkId;
 

@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     value: "Example Value",
  * });
  * const examplePolicy = new azure.apimanagement.Policy("examplePolicy", {
- *     apimManagementId: exampleService.id,
+ *     apiManagementId: exampleService.id,
  *     xmlContent: fs.readFileSync("example.xml"),
  * });
  * ```

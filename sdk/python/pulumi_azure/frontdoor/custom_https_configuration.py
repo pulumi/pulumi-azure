@@ -31,6 +31,8 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
 
         > **NOTE:** Defining custom https configurations using a separate `frontdoor.CustomHttpsConfiguration` resource allows for parallel creation/update.
 
+        > **NOTE:** UPCOMING BREAKING CHANGE: In order to address the ordering issue we have changed the design on how to retrieve existing sub resources such as frontend endpoints. Existing design will be deprecated and will result in an incorrect configuration. Please refer to the updated documentation below for more information.
+
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -82,10 +84,10 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
                 ),
             ])
         example_custom_https0 = azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps0",
-            frontend_endpoint_id=example_frontdoor.frontend_endpoints[0].id,
+            frontend_endpoint_id=example_frontdoor.frontend_endpoints_map["exampleFrontendEndpoint1"],
             custom_https_provisioning_enabled=False)
         example_custom_https1 = azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps1",
-            frontend_endpoint_id=example_frontdoor.frontend_endpoints[1].id,
+            frontend_endpoint_id=example_frontdoor.frontend_endpoints_map["exampleFrontendEndpoint2"],
             custom_https_provisioning_enabled=True,
             custom_https_configuration=azure.frontdoor.CustomHttpsConfigurationCustomHttpsConfigurationArgs(
                 certificate_source="AzureKeyVault",

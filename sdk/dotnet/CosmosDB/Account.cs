@@ -156,7 +156,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<bool?> IsVirtualNetworkFilterEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+        /// A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
         /// </summary>
         [Output("keyVaultKeyId")]
         public Output<string?> KeyVaultKeyId { get; private set; } = null!;
@@ -370,7 +370,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<bool>? IsVirtualNetworkFilterEnabled { get; set; }
 
         /// <summary>
-        /// A Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+        /// A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultKeyId")]
         public Input<string>? KeyVaultKeyId { get; set; }
@@ -527,7 +527,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<bool>? IsVirtualNetworkFilterEnabled { get; set; }
 
         /// <summary>
-        /// A Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+        /// A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultKeyId")]
         public Input<string>? KeyVaultKeyId { get; set; }

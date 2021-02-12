@@ -133,6 +133,10 @@ export class Key extends pulumi.CustomResource {
      */
     public /*out*/ readonly version!: pulumi.Output<string>;
     /**
+     * The Base ID of the Key Vault Key.
+     */
+    public /*out*/ readonly versionlessId!: pulumi.Output<string>;
+    /**
      * The EC X component of this Key Vault Key.
      */
     public /*out*/ readonly x!: pulumi.Output<string>;
@@ -165,6 +169,7 @@ export class Key extends pulumi.CustomResource {
             inputs["notBeforeDate"] = state ? state.notBeforeDate : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["version"] = state ? state.version : undefined;
+            inputs["versionlessId"] = state ? state.versionlessId : undefined;
             inputs["x"] = state ? state.x : undefined;
             inputs["y"] = state ? state.y : undefined;
         } else {
@@ -190,6 +195,7 @@ export class Key extends pulumi.CustomResource {
             inputs["e"] = undefined /*out*/;
             inputs["n"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
+            inputs["versionlessId"] = undefined /*out*/;
             inputs["x"] = undefined /*out*/;
             inputs["y"] = undefined /*out*/;
         }
@@ -256,6 +262,10 @@ export interface KeyState {
      * The current version of the Key Vault Key.
      */
     readonly version?: pulumi.Input<string>;
+    /**
+     * The Base ID of the Key Vault Key.
+     */
+    readonly versionlessId?: pulumi.Input<string>;
     /**
      * The EC X component of this Key Vault Key.
      */

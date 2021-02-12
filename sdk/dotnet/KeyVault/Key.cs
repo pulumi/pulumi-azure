@@ -157,6 +157,12 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> Version { get; private set; } = null!;
 
         /// <summary>
+        /// The Base ID of the Key Vault Key.
+        /// </summary>
+        [Output("versionlessId")]
+        public Output<string> VersionlessId { get; private set; } = null!;
+
+        /// <summary>
         /// The EC X component of this Key Vault Key.
         /// </summary>
         [Output("x")]
@@ -370,6 +376,12 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
+
+        /// <summary>
+        /// The Base ID of the Key Vault Key.
+        /// </summary>
+        [Input("versionlessId")]
+        public Input<string>? VersionlessId { get; set; }
 
         /// <summary>
         /// The EC X component of this Key Vault Key.

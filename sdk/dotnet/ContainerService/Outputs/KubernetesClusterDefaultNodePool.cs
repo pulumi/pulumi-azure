@@ -55,6 +55,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         public readonly ImmutableDictionary<string, string>? NodeLabels;
         public readonly ImmutableArray<string> NodeTaints;
         /// <summary>
+        /// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly bool? OnlyCriticalAddonsEnabled;
+        /// <summary>
         /// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
         /// </summary>
         public readonly string? OrchestratorVersion;
@@ -108,6 +112,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             ImmutableArray<string> nodeTaints,
 
+            bool? onlyCriticalAddonsEnabled,
+
             string? orchestratorVersion,
 
             int? osDiskSizeGb,
@@ -135,6 +141,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             NodeCount = nodeCount;
             NodeLabels = nodeLabels;
             NodeTaints = nodeTaints;
+            OnlyCriticalAddonsEnabled = onlyCriticalAddonsEnabled;
             OrchestratorVersion = orchestratorVersion;
             OsDiskSizeGb = osDiskSizeGb;
             OsDiskType = osDiskType;

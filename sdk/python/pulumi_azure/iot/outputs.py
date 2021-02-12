@@ -19,6 +19,8 @@ __all__ = [
     'IoTHubSku',
     'IotHubDpsLinkedHub',
     'IotHubDpsSku',
+    'SecurityDeviceGroupAllowRule',
+    'SecurityDeviceGroupRangeRule',
     'SecuritySolutionRecommendationsEnabled',
     'TimeSeriesInsightsGen2EnvironmentStorage',
     'TimeSeriesInsightsReferenceDataSetKeyProperty',
@@ -626,6 +628,106 @@ class IotHubDpsSku(dict):
         The name of the sku. Currently can only be set to `S1`.
         """
         return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SecurityDeviceGroupAllowRule(dict):
+    def __init__(__self__, *,
+                 connection_to_ip_not_alloweds: Optional[Sequence[str]] = None,
+                 local_user_not_alloweds: Optional[Sequence[str]] = None,
+                 process_not_alloweds: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] connection_to_ip_not_alloweds: Specifies which Ip is not allowed to be connected to in current device group.
+        :param Sequence[str] local_user_not_alloweds: Specifies which local user is not allowed to Login in current device group.
+        :param Sequence[str] process_not_alloweds: Specifies which process is not allowed to be executed in current device group.
+        """
+        if connection_to_ip_not_alloweds is not None:
+            pulumi.set(__self__, "connection_to_ip_not_alloweds", connection_to_ip_not_alloweds)
+        if local_user_not_alloweds is not None:
+            pulumi.set(__self__, "local_user_not_alloweds", local_user_not_alloweds)
+        if process_not_alloweds is not None:
+            pulumi.set(__self__, "process_not_alloweds", process_not_alloweds)
+
+    @property
+    @pulumi.getter(name="connectionToIpNotAlloweds")
+    def connection_to_ip_not_alloweds(self) -> Optional[Sequence[str]]:
+        """
+        Specifies which Ip is not allowed to be connected to in current device group.
+        """
+        return pulumi.get(self, "connection_to_ip_not_alloweds")
+
+    @property
+    @pulumi.getter(name="localUserNotAlloweds")
+    def local_user_not_alloweds(self) -> Optional[Sequence[str]]:
+        """
+        Specifies which local user is not allowed to Login in current device group.
+        """
+        return pulumi.get(self, "local_user_not_alloweds")
+
+    @property
+    @pulumi.getter(name="processNotAlloweds")
+    def process_not_alloweds(self) -> Optional[Sequence[str]]:
+        """
+        Specifies which process is not allowed to be executed in current device group.
+        """
+        return pulumi.get(self, "process_not_alloweds")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SecurityDeviceGroupRangeRule(dict):
+    def __init__(__self__, *,
+                 duration: str,
+                 max: int,
+                 min: int,
+                 type: str):
+        """
+        :param str duration: Specifies the time range. represented in ISO 8601 duration format.
+        :param int max: The maximum threshold in the given time window.
+        :param int min: The minimum threshold in the given time window.
+        :param str type: The type of supported rule type. Possible Values are `ActiveConnectionsNotInAllowedRange`, `AmqpC2DMessagesNotInAllowedRange`, `MqttC2DMessagesNotInAllowedRange`, `HttpC2DMessagesNotInAllowedRange`, `AmqpC2DRejectedMessagesNotInAllowedRange`, `MqttC2DRejectedMessagesNotInAllowedRange`, `HttpC2DRejectedMessagesNotInAllowedRange`, `AmqpD2CMessagesNotInAllowedRange`, `MqttD2CMessagesNotInAllowedRange`, `HttpD2CMessagesNotInAllowedRange`, `DirectMethodInvokesNotInAllowedRange`, `FailedLocalLoginsNotInAllowedRange`, `FileUploadsNotInAllowedRange`, `QueuePurgesNotInAllowedRange`, `TwinUpdatesNotInAllowedRange` and `UnauthorizedOperationsNotInAllowedRange`.
+        """
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "max", max)
+        pulumi.set(__self__, "min", min)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> str:
+        """
+        Specifies the time range. represented in ISO 8601 duration format.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter
+    def max(self) -> int:
+        """
+        The maximum threshold in the given time window.
+        """
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> int:
+        """
+        The minimum threshold in the given time window.
+        """
+        return pulumi.get(self, "min")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of supported rule type. Possible Values are `ActiveConnectionsNotInAllowedRange`, `AmqpC2DMessagesNotInAllowedRange`, `MqttC2DMessagesNotInAllowedRange`, `HttpC2DMessagesNotInAllowedRange`, `AmqpC2DRejectedMessagesNotInAllowedRange`, `MqttC2DRejectedMessagesNotInAllowedRange`, `HttpC2DRejectedMessagesNotInAllowedRange`, `AmqpD2CMessagesNotInAllowedRange`, `MqttD2CMessagesNotInAllowedRange`, `HttpD2CMessagesNotInAllowedRange`, `DirectMethodInvokesNotInAllowedRange`, `FailedLocalLoginsNotInAllowedRange`, `FileUploadsNotInAllowedRange`, `QueuePurgesNotInAllowedRange`, `TwinUpdatesNotInAllowedRange` and `UnauthorizedOperationsNotInAllowedRange`.
+        """
+        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

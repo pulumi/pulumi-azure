@@ -74,7 +74,7 @@ namespace Pulumi.Azure
         public static string? PartnerId { get; set; } = __config.Get("partnerId");
 
         /// <summary>
-        /// This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
+        /// [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
         /// </summary>
         public static bool? SkipCredentialsValidation { get; set; } = __config.GetBoolean("skipCredentialsValidation");
 

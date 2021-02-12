@@ -88,7 +88,8 @@ type LinkedServiceKeyVault struct {
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
 	// The ID the Azure Key Vault resource.
 	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
-	// Specifies the name of the Data Factory Linked Service Key Vault. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service Key Vault. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service Key Vault.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
@@ -146,7 +147,8 @@ type linkedServiceKeyVaultState struct {
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// The ID the Azure Key Vault resource.
 	KeyVaultId *string `pulumi:"keyVaultId"`
-	// Specifies the name of the Data Factory Linked Service Key Vault. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service Key Vault. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service Key Vault.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -167,7 +169,8 @@ type LinkedServiceKeyVaultState struct {
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// The ID the Azure Key Vault resource.
 	KeyVaultId pulumi.StringPtrInput
-	// Specifies the name of the Data Factory Linked Service Key Vault. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service Key Vault. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service Key Vault.
 	Parameters pulumi.StringMapInput
@@ -192,7 +195,8 @@ type linkedServiceKeyVaultArgs struct {
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// The ID the Azure Key Vault resource.
 	KeyVaultId string `pulumi:"keyVaultId"`
-	// Specifies the name of the Data Factory Linked Service Key Vault. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service Key Vault. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service Key Vault.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -214,7 +218,8 @@ type LinkedServiceKeyVaultArgs struct {
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// The ID the Azure Key Vault resource.
 	KeyVaultId pulumi.StringInput
-	// Specifies the name of the Data Factory Linked Service Key Vault. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service Key Vault. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service Key Vault.
 	Parameters pulumi.StringMapInput

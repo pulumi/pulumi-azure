@@ -142,7 +142,8 @@ type LinkedServiceSnowflake struct {
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
 	// A `keyVaultPassword` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword LinkedServiceSnowflakeKeyVaultPasswordPtrOutput `pulumi:"keyVaultPassword"`
-	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
@@ -202,7 +203,8 @@ type linkedServiceSnowflakeState struct {
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// A `keyVaultPassword` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword *LinkedServiceSnowflakeKeyVaultPassword `pulumi:"keyVaultPassword"`
-	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -225,7 +227,8 @@ type LinkedServiceSnowflakeState struct {
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// A `keyVaultPassword` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword LinkedServiceSnowflakeKeyVaultPasswordPtrInput
-	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
@@ -252,7 +255,8 @@ type linkedServiceSnowflakeArgs struct {
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// A `keyVaultPassword` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword *LinkedServiceSnowflakeKeyVaultPassword `pulumi:"keyVaultPassword"`
-	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -276,7 +280,8 @@ type LinkedServiceSnowflakeArgs struct {
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// A `keyVaultPassword` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword LinkedServiceSnowflakeKeyVaultPasswordPtrInput
-	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput

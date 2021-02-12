@@ -16,6 +16,8 @@ namespace Pulumi.Azure.FrontDoor
     /// 
     /// &gt; **NOTE:** Defining custom https configurations using a separate `azure.frontdoor.CustomHttpsConfiguration` resource allows for parallel creation/update.
     /// 
+    /// &gt; **NOTE:** UPCOMING BREAKING CHANGE: In order to address the ordering issue we have changed the design on how to retrieve existing sub resources such as frontend endpoints. Existing design will be deprecated and will result in an incorrect configuration. Please refer to the updated documentation below for more information.
+    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
@@ -111,12 +113,12 @@ namespace Pulumi.Azure.FrontDoor
     ///         });
     ///         var exampleCustomHttps0 = new Azure.FrontDoor.CustomHttpsConfiguration("exampleCustomHttps0", new Azure.FrontDoor.CustomHttpsConfigurationArgs
     ///         {
-    ///             FrontendEndpointId = exampleFrontdoor.FrontendEndpoints.Apply(frontendEndpoints =&gt; frontendEndpoints[0].Id),
+    ///             FrontendEndpointId = exampleFrontdoor.FrontendEndpointsMap.Apply(frontendEndpointsMap =&gt; frontendEndpointsMap.ExampleFrontendEndpoint1),
     ///             CustomHttpsProvisioningEnabled = false,
     ///         });
     ///         var exampleCustomHttps1 = new Azure.FrontDoor.CustomHttpsConfiguration("exampleCustomHttps1", new Azure.FrontDoor.CustomHttpsConfigurationArgs
     ///         {
-    ///             FrontendEndpointId = exampleFrontdoor.FrontendEndpoints.Apply(frontendEndpoints =&gt; frontendEndpoints[1].Id),
+    ///             FrontendEndpointId = exampleFrontdoor.FrontendEndpointsMap.Apply(frontendEndpointsMap =&gt; frontendEndpointsMap.ExampleFrontendEndpoint2),
     ///             CustomHttpsProvisioningEnabled = true,
     ///             CustomHttpsConfiguration = new Azure.FrontDoor.Inputs.CustomHttpsConfigurationCustomHttpsConfigurationArgs
     ///             {

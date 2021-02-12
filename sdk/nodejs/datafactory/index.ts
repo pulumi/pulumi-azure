@@ -16,7 +16,9 @@ export * from "./datasetSqlServerTable";
 export * from "./factory";
 export * from "./getFactory";
 export * from "./integrationRuntimeManaged";
+export * from "./integrationRuntimeRule";
 export * from "./integrationRuntimeSelfHosted";
+export * from "./integrationRuntimeSsis";
 export * from "./linkedServiceAzureBlobStorage";
 export * from "./linkedServiceAzureFileStorage";
 export * from "./linkedServiceAzureFunction";
@@ -46,7 +48,9 @@ import { DatasetPostgresql } from "./datasetPostgresql";
 import { DatasetSqlServerTable } from "./datasetSqlServerTable";
 import { Factory } from "./factory";
 import { IntegrationRuntimeManaged } from "./integrationRuntimeManaged";
+import { IntegrationRuntimeRule } from "./integrationRuntimeRule";
 import { IntegrationRuntimeSelfHosted } from "./integrationRuntimeSelfHosted";
+import { IntegrationRuntimeSsis } from "./integrationRuntimeSsis";
 import { LinkedServiceAzureBlobStorage } from "./linkedServiceAzureBlobStorage";
 import { LinkedServiceAzureFileStorage } from "./linkedServiceAzureFileStorage";
 import { LinkedServiceAzureFunction } from "./linkedServiceAzureFunction";
@@ -89,8 +93,12 @@ const _module = {
                 return new Factory(name, <any>undefined, { urn })
             case "azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged":
                 return new IntegrationRuntimeManaged(name, <any>undefined, { urn })
+            case "azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule":
+                return new IntegrationRuntimeRule(name, <any>undefined, { urn })
             case "azure:datafactory/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted":
                 return new IntegrationRuntimeSelfHosted(name, <any>undefined, { urn })
+            case "azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis":
+                return new IntegrationRuntimeSsis(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage":
                 return new LinkedServiceAzureBlobStorage(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceAzureFileStorage:LinkedServiceAzureFileStorage":
@@ -140,7 +148,9 @@ pulumi.runtime.registerResourceModule("azure", "datafactory/datasetPostgresql", 
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetSqlServerTable", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/factory", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/integrationRuntimeManaged", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/integrationRuntimeRule", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/integrationRuntimeSelfHosted", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/integrationRuntimeSsis", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureBlobStorage", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureFileStorage", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureFunction", _module)

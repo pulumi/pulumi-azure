@@ -14,7 +14,9 @@ from .dataset_sql_server_table import *
 from .factory import *
 from .get_factory import *
 from .integration_runtime_managed import *
+from .integration_runtime_rule import *
 from .integration_runtime_self_hosted import *
+from .integration_runtime_ssis import *
 from .linked_service_azure_blob_storage import *
 from .linked_service_azure_file_storage import *
 from .linked_service_azure_function import *
@@ -67,8 +69,12 @@ def _register_module():
                 return Factory(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged":
                 return IntegrationRuntimeManaged(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule":
+                return IntegrationRuntimeRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:datafactory/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted":
                 return IntegrationRuntimeSelfHosted(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis":
+                return IntegrationRuntimeSsis(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage":
                 return LinkedServiceAzureBlobStorage(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:datafactory/linkedServiceAzureFileStorage:LinkedServiceAzureFileStorage":
@@ -118,7 +124,9 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "datafactory/datasetSqlServerTable", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/factory", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/integrationRuntimeManaged", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "datafactory/integrationRuntimeRule", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/integrationRuntimeSelfHosted", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "datafactory/integrationRuntimeSsis", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceAzureBlobStorage", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceAzureFileStorage", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceAzureFunction", _module_instance)

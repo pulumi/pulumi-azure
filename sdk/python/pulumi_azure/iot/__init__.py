@@ -19,6 +19,7 @@ from .io_t_hub import *
 from .iot_hub_certificate import *
 from .iot_hub_dps import *
 from .route import *
+from .security_device_group import *
 from .security_solution import *
 from .shared_access_policy import *
 from .time_series_insights_access_policy import *
@@ -64,6 +65,8 @@ def _register_module():
                 return IotHubDps(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:iot/route:Route":
                 return Route(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:iot/securityDeviceGroup:SecurityDeviceGroup":
+                return SecurityDeviceGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:iot/securitySolution:SecuritySolution":
                 return SecuritySolution(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:iot/sharedAccessPolicy:SharedAccessPolicy":
@@ -93,6 +96,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "iot/iotHubCertificate", _module_instance)
     pulumi.runtime.register_resource_module("azure", "iot/iotHubDps", _module_instance)
     pulumi.runtime.register_resource_module("azure", "iot/route", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "iot/securityDeviceGroup", _module_instance)
     pulumi.runtime.register_resource_module("azure", "iot/securitySolution", _module_instance)
     pulumi.runtime.register_resource_module("azure", "iot/sharedAccessPolicy", _module_instance)
     pulumi.runtime.register_resource_module("azure", "iot/timeSeriesInsightsAccessPolicy", _module_instance)

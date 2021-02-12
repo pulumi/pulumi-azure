@@ -54,6 +54,9 @@ namespace Pulumi.Azure.Network
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the name of the resource group the Traffic Manager Profile is located in.
+        /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 

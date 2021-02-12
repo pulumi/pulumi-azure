@@ -126,7 +126,7 @@ namespace Pulumi.Azure
         public Input<string>? PartnerId { get; set; }
 
         /// <summary>
-        /// This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
+        /// [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
         /// </summary>
         [Input("skipCredentialsValidation", json: true)]
         public Input<bool>? SkipCredentialsValidation { get; set; }

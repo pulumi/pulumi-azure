@@ -145,7 +145,8 @@ namespace Pulumi.Azure.DataFactory
         public Output<Outputs.LinkedServiceSnowflakeKeyVaultPassword?> KeyVaultPassword { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
+        /// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -263,7 +264,8 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.LinkedServiceSnowflakeKeyVaultPasswordArgs>? KeyVaultPassword { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
+        /// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -348,7 +350,8 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.LinkedServiceSnowflakeKeyVaultPasswordGetArgs>? KeyVaultPassword { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
+        /// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

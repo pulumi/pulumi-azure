@@ -113,7 +113,7 @@ type Account struct {
 	IpRangeFilter pulumi.StringPtrOutput `pulumi:"ipRangeFilter"`
 	// Enables virtual network filtering for this Cosmos DB account.
 	IsVirtualNetworkFilterEnabled pulumi.BoolPtrOutput `pulumi:"isVirtualNetworkFilterEnabled"`
-	// A Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+	// A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
 	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
@@ -216,7 +216,7 @@ type accountState struct {
 	IpRangeFilter *string `pulumi:"ipRangeFilter"`
 	// Enables virtual network filtering for this Cosmos DB account.
 	IsVirtualNetworkFilterEnabled *bool `pulumi:"isVirtualNetworkFilterEnabled"`
-	// A Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+	// A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 	Kind *string `pulumi:"kind"`
@@ -279,7 +279,7 @@ type AccountState struct {
 	IpRangeFilter pulumi.StringPtrInput
 	// Enables virtual network filtering for this Cosmos DB account.
 	IsVirtualNetworkFilterEnabled pulumi.BoolPtrInput
-	// A Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+	// A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId pulumi.StringPtrInput
 	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 	Kind pulumi.StringPtrInput
@@ -342,7 +342,7 @@ type accountArgs struct {
 	IpRangeFilter *string `pulumi:"ipRangeFilter"`
 	// Enables virtual network filtering for this Cosmos DB account.
 	IsVirtualNetworkFilterEnabled *bool `pulumi:"isVirtualNetworkFilterEnabled"`
-	// A Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+	// A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 	Kind *string `pulumi:"kind"`
@@ -382,7 +382,7 @@ type AccountArgs struct {
 	IpRangeFilter pulumi.StringPtrInput
 	// Enables virtual network filtering for this Cosmos DB account.
 	IsVirtualNetworkFilterEnabled pulumi.BoolPtrInput
-	// A Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+	// A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId pulumi.StringPtrInput
 	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 	Kind pulumi.StringPtrInput

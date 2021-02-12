@@ -177,6 +177,7 @@ class StreamingEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scale_units'")
             __props__['scale_units'] = scale_units
             __props__['tags'] = tags
+            __props__['host_name'] = None
         super(StreamingEndpoint, __self__).__init__(
             'azure:media/streamingEndpoint:StreamingEndpoint',
             resource_name,
@@ -195,6 +196,7 @@ class StreamingEndpoint(pulumi.CustomResource):
             cross_site_access_policy: Optional[pulumi.Input[pulumi.InputType['StreamingEndpointCrossSiteAccessPolicyArgs']]] = None,
             custom_host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            host_name: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             max_cache_age_seconds: Optional[pulumi.Input[int]] = None,
             media_services_account_name: Optional[pulumi.Input[str]] = None,
@@ -217,6 +219,7 @@ class StreamingEndpoint(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['StreamingEndpointCrossSiteAccessPolicyArgs']] cross_site_access_policy: A `cross_site_access_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_host_names: The custom host names of the streaming endpoint.
         :param pulumi.Input[str] description: The streaming endpoint description.
+        :param pulumi.Input[str] host_name: The host name of the Streaming Endpoint.
         :param pulumi.Input[str] location: The Azure Region where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
         :param pulumi.Input[int] max_cache_age_seconds: Max cache age in seconds.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Streaming Endpoint to be created.
@@ -237,6 +240,7 @@ class StreamingEndpoint(pulumi.CustomResource):
         __props__["cross_site_access_policy"] = cross_site_access_policy
         __props__["custom_host_names"] = custom_host_names
         __props__["description"] = description
+        __props__["host_name"] = host_name
         __props__["location"] = location
         __props__["max_cache_age_seconds"] = max_cache_age_seconds
         __props__["media_services_account_name"] = media_services_account_name
@@ -309,6 +313,14 @@ class StreamingEndpoint(pulumi.CustomResource):
         The streaming endpoint description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> pulumi.Output[str]:
+        """
+        The host name of the Streaming Endpoint.
+        """
+        return pulumi.get(self, "host_name")
 
     @property
     @pulumi.getter

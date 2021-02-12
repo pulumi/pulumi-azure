@@ -86,7 +86,8 @@ export class LinkedServiceMysql extends pulumi.CustomResource {
      */
     public readonly integrationRuntimeName!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be unique within a data
+     * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -180,7 +181,8 @@ export interface LinkedServiceMysqlState {
      */
     readonly integrationRuntimeName?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be unique within a data
+     * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -222,7 +224,8 @@ export interface LinkedServiceMysqlArgs {
      */
     readonly integrationRuntimeName?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be unique within a data
+     * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     readonly name?: pulumi.Input<string>;
     /**

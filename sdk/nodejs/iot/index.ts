@@ -21,6 +21,7 @@ export * from "./ioTHub";
 export * from "./iotHubCertificate";
 export * from "./iotHubDps";
 export * from "./route";
+export * from "./securityDeviceGroup";
 export * from "./securitySolution";
 export * from "./sharedAccessPolicy";
 export * from "./timeSeriesInsightsAccessPolicy";
@@ -42,6 +43,7 @@ import { IoTHub } from "./ioTHub";
 import { IotHubCertificate } from "./iotHubCertificate";
 import { IotHubDps } from "./iotHubDps";
 import { Route } from "./route";
+import { SecurityDeviceGroup } from "./securityDeviceGroup";
 import { SecuritySolution } from "./securitySolution";
 import { SharedAccessPolicy } from "./sharedAccessPolicy";
 import { TimeSeriesInsightsAccessPolicy } from "./timeSeriesInsightsAccessPolicy";
@@ -77,6 +79,8 @@ const _module = {
                 return new IotHubDps(name, <any>undefined, { urn })
             case "azure:iot/route:Route":
                 return new Route(name, <any>undefined, { urn })
+            case "azure:iot/securityDeviceGroup:SecurityDeviceGroup":
+                return new SecurityDeviceGroup(name, <any>undefined, { urn })
             case "azure:iot/securitySolution:SecuritySolution":
                 return new SecuritySolution(name, <any>undefined, { urn })
             case "azure:iot/sharedAccessPolicy:SharedAccessPolicy":
@@ -106,6 +110,7 @@ pulumi.runtime.registerResourceModule("azure", "iot/ioTHub", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/iotHubCertificate", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/iotHubDps", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/route", _module)
+pulumi.runtime.registerResourceModule("azure", "iot/securityDeviceGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/securitySolution", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/sharedAccessPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/timeSeriesInsightsAccessPolicy", _module)
