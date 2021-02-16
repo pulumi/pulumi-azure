@@ -17,6 +17,8 @@ import (
 //
 // > **NOTE:** Defining custom https configurations using a separate `frontdoor.CustomHttpsConfiguration` resource allows for parallel creation/update.
 //
+// > **NOTE:** UPCOMING BREAKING CHANGE: In order to address the ordering issue we have changed the design on how to retrieve existing sub resources such as frontend endpoints. Existing design will be deprecated and will result in an incorrect configuration. Please refer to the updated documentation below for more information.
+//
 // ```go
 // package main
 //
@@ -104,18 +106,18 @@ import (
 // 			return err
 // 		}
 // 		_, err = frontdoor.NewCustomHttpsConfiguration(ctx, "exampleCustomHttps0", &frontdoor.CustomHttpsConfigurationArgs{
-// 			FrontendEndpointId: pulumi.String(exampleFrontdoor.FrontendEndpoints.ApplyT(func(frontendEndpoints []frontdoor.FrontdoorFrontendEndpoint) (string, error) {
-// 				return frontendEndpoints[0].Id, nil
-// 			}).(pulumi.StringOutput)),
+// 			FrontendEndpointId: exampleFrontdoor.FrontendEndpointsMap.ApplyT(func(frontendEndpointsMap map[string]string) (string, error) {
+// 				return frontendEndpointsMap.ExampleFrontendEndpoint1, nil
+// 			}).(pulumi.StringOutput),
 // 			CustomHttpsProvisioningEnabled: pulumi.Bool(false),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = frontdoor.NewCustomHttpsConfiguration(ctx, "exampleCustomHttps1", &frontdoor.CustomHttpsConfigurationArgs{
-// 			FrontendEndpointId: pulumi.String(exampleFrontdoor.FrontendEndpoints.ApplyT(func(frontendEndpoints []frontdoor.FrontdoorFrontendEndpoint) (string, error) {
-// 				return frontendEndpoints[1].Id, nil
-// 			}).(pulumi.StringOutput)),
+// 			FrontendEndpointId: exampleFrontdoor.FrontendEndpointsMap.ApplyT(func(frontendEndpointsMap map[string]string) (string, error) {
+// 				return frontendEndpointsMap.ExampleFrontendEndpoint2, nil
+// 			}).(pulumi.StringOutput),
 // 			CustomHttpsProvisioningEnabled: pulumi.Bool(true),
 // 			CustomHttpsConfiguration: &frontdoor.CustomHttpsConfigurationCustomHttpsConfigurationArgs{
 // 				CertificateSource:                     pulumi.String("AzureKeyVault"),

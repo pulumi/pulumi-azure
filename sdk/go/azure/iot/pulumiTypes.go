@@ -1532,6 +1532,299 @@ func (o IotHubDpsSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SecurityDeviceGroupAllowRule struct {
+	// Specifies which Ip is not allowed to be connected to in current device group.
+	ConnectionToIpNotAlloweds []string `pulumi:"connectionToIpNotAlloweds"`
+	// Specifies which local user is not allowed to Login in current device group.
+	LocalUserNotAlloweds []string `pulumi:"localUserNotAlloweds"`
+	// Specifies which process is not allowed to be executed in current device group.
+	ProcessNotAlloweds []string `pulumi:"processNotAlloweds"`
+}
+
+// SecurityDeviceGroupAllowRuleInput is an input type that accepts SecurityDeviceGroupAllowRuleArgs and SecurityDeviceGroupAllowRuleOutput values.
+// You can construct a concrete instance of `SecurityDeviceGroupAllowRuleInput` via:
+//
+//          SecurityDeviceGroupAllowRuleArgs{...}
+type SecurityDeviceGroupAllowRuleInput interface {
+	pulumi.Input
+
+	ToSecurityDeviceGroupAllowRuleOutput() SecurityDeviceGroupAllowRuleOutput
+	ToSecurityDeviceGroupAllowRuleOutputWithContext(context.Context) SecurityDeviceGroupAllowRuleOutput
+}
+
+type SecurityDeviceGroupAllowRuleArgs struct {
+	// Specifies which Ip is not allowed to be connected to in current device group.
+	ConnectionToIpNotAlloweds pulumi.StringArrayInput `pulumi:"connectionToIpNotAlloweds"`
+	// Specifies which local user is not allowed to Login in current device group.
+	LocalUserNotAlloweds pulumi.StringArrayInput `pulumi:"localUserNotAlloweds"`
+	// Specifies which process is not allowed to be executed in current device group.
+	ProcessNotAlloweds pulumi.StringArrayInput `pulumi:"processNotAlloweds"`
+}
+
+func (SecurityDeviceGroupAllowRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityDeviceGroupAllowRule)(nil)).Elem()
+}
+
+func (i SecurityDeviceGroupAllowRuleArgs) ToSecurityDeviceGroupAllowRuleOutput() SecurityDeviceGroupAllowRuleOutput {
+	return i.ToSecurityDeviceGroupAllowRuleOutputWithContext(context.Background())
+}
+
+func (i SecurityDeviceGroupAllowRuleArgs) ToSecurityDeviceGroupAllowRuleOutputWithContext(ctx context.Context) SecurityDeviceGroupAllowRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityDeviceGroupAllowRuleOutput)
+}
+
+func (i SecurityDeviceGroupAllowRuleArgs) ToSecurityDeviceGroupAllowRulePtrOutput() SecurityDeviceGroupAllowRulePtrOutput {
+	return i.ToSecurityDeviceGroupAllowRulePtrOutputWithContext(context.Background())
+}
+
+func (i SecurityDeviceGroupAllowRuleArgs) ToSecurityDeviceGroupAllowRulePtrOutputWithContext(ctx context.Context) SecurityDeviceGroupAllowRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityDeviceGroupAllowRuleOutput).ToSecurityDeviceGroupAllowRulePtrOutputWithContext(ctx)
+}
+
+// SecurityDeviceGroupAllowRulePtrInput is an input type that accepts SecurityDeviceGroupAllowRuleArgs, SecurityDeviceGroupAllowRulePtr and SecurityDeviceGroupAllowRulePtrOutput values.
+// You can construct a concrete instance of `SecurityDeviceGroupAllowRulePtrInput` via:
+//
+//          SecurityDeviceGroupAllowRuleArgs{...}
+//
+//  or:
+//
+//          nil
+type SecurityDeviceGroupAllowRulePtrInput interface {
+	pulumi.Input
+
+	ToSecurityDeviceGroupAllowRulePtrOutput() SecurityDeviceGroupAllowRulePtrOutput
+	ToSecurityDeviceGroupAllowRulePtrOutputWithContext(context.Context) SecurityDeviceGroupAllowRulePtrOutput
+}
+
+type securityDeviceGroupAllowRulePtrType SecurityDeviceGroupAllowRuleArgs
+
+func SecurityDeviceGroupAllowRulePtr(v *SecurityDeviceGroupAllowRuleArgs) SecurityDeviceGroupAllowRulePtrInput {
+	return (*securityDeviceGroupAllowRulePtrType)(v)
+}
+
+func (*securityDeviceGroupAllowRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityDeviceGroupAllowRule)(nil)).Elem()
+}
+
+func (i *securityDeviceGroupAllowRulePtrType) ToSecurityDeviceGroupAllowRulePtrOutput() SecurityDeviceGroupAllowRulePtrOutput {
+	return i.ToSecurityDeviceGroupAllowRulePtrOutputWithContext(context.Background())
+}
+
+func (i *securityDeviceGroupAllowRulePtrType) ToSecurityDeviceGroupAllowRulePtrOutputWithContext(ctx context.Context) SecurityDeviceGroupAllowRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityDeviceGroupAllowRulePtrOutput)
+}
+
+type SecurityDeviceGroupAllowRuleOutput struct{ *pulumi.OutputState }
+
+func (SecurityDeviceGroupAllowRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityDeviceGroupAllowRule)(nil)).Elem()
+}
+
+func (o SecurityDeviceGroupAllowRuleOutput) ToSecurityDeviceGroupAllowRuleOutput() SecurityDeviceGroupAllowRuleOutput {
+	return o
+}
+
+func (o SecurityDeviceGroupAllowRuleOutput) ToSecurityDeviceGroupAllowRuleOutputWithContext(ctx context.Context) SecurityDeviceGroupAllowRuleOutput {
+	return o
+}
+
+func (o SecurityDeviceGroupAllowRuleOutput) ToSecurityDeviceGroupAllowRulePtrOutput() SecurityDeviceGroupAllowRulePtrOutput {
+	return o.ToSecurityDeviceGroupAllowRulePtrOutputWithContext(context.Background())
+}
+
+func (o SecurityDeviceGroupAllowRuleOutput) ToSecurityDeviceGroupAllowRulePtrOutputWithContext(ctx context.Context) SecurityDeviceGroupAllowRulePtrOutput {
+	return o.ApplyT(func(v SecurityDeviceGroupAllowRule) *SecurityDeviceGroupAllowRule {
+		return &v
+	}).(SecurityDeviceGroupAllowRulePtrOutput)
+}
+
+// Specifies which Ip is not allowed to be connected to in current device group.
+func (o SecurityDeviceGroupAllowRuleOutput) ConnectionToIpNotAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityDeviceGroupAllowRule) []string { return v.ConnectionToIpNotAlloweds }).(pulumi.StringArrayOutput)
+}
+
+// Specifies which local user is not allowed to Login in current device group.
+func (o SecurityDeviceGroupAllowRuleOutput) LocalUserNotAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityDeviceGroupAllowRule) []string { return v.LocalUserNotAlloweds }).(pulumi.StringArrayOutput)
+}
+
+// Specifies which process is not allowed to be executed in current device group.
+func (o SecurityDeviceGroupAllowRuleOutput) ProcessNotAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityDeviceGroupAllowRule) []string { return v.ProcessNotAlloweds }).(pulumi.StringArrayOutput)
+}
+
+type SecurityDeviceGroupAllowRulePtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityDeviceGroupAllowRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityDeviceGroupAllowRule)(nil)).Elem()
+}
+
+func (o SecurityDeviceGroupAllowRulePtrOutput) ToSecurityDeviceGroupAllowRulePtrOutput() SecurityDeviceGroupAllowRulePtrOutput {
+	return o
+}
+
+func (o SecurityDeviceGroupAllowRulePtrOutput) ToSecurityDeviceGroupAllowRulePtrOutputWithContext(ctx context.Context) SecurityDeviceGroupAllowRulePtrOutput {
+	return o
+}
+
+func (o SecurityDeviceGroupAllowRulePtrOutput) Elem() SecurityDeviceGroupAllowRuleOutput {
+	return o.ApplyT(func(v *SecurityDeviceGroupAllowRule) SecurityDeviceGroupAllowRule { return *v }).(SecurityDeviceGroupAllowRuleOutput)
+}
+
+// Specifies which Ip is not allowed to be connected to in current device group.
+func (o SecurityDeviceGroupAllowRulePtrOutput) ConnectionToIpNotAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityDeviceGroupAllowRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionToIpNotAlloweds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies which local user is not allowed to Login in current device group.
+func (o SecurityDeviceGroupAllowRulePtrOutput) LocalUserNotAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityDeviceGroupAllowRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalUserNotAlloweds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies which process is not allowed to be executed in current device group.
+func (o SecurityDeviceGroupAllowRulePtrOutput) ProcessNotAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityDeviceGroupAllowRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessNotAlloweds
+	}).(pulumi.StringArrayOutput)
+}
+
+type SecurityDeviceGroupRangeRule struct {
+	// Specifies the time range. represented in ISO 8601 duration format.
+	Duration string `pulumi:"duration"`
+	// The maximum threshold in the given time window.
+	Max int `pulumi:"max"`
+	// The minimum threshold in the given time window.
+	Min int `pulumi:"min"`
+	// The type of supported rule type. Possible Values are `ActiveConnectionsNotInAllowedRange`, `AmqpC2DMessagesNotInAllowedRange`, `MqttC2DMessagesNotInAllowedRange`, `HttpC2DMessagesNotInAllowedRange`, `AmqpC2DRejectedMessagesNotInAllowedRange`, `MqttC2DRejectedMessagesNotInAllowedRange`, `HttpC2DRejectedMessagesNotInAllowedRange`, `AmqpD2CMessagesNotInAllowedRange`, `MqttD2CMessagesNotInAllowedRange`, `HttpD2CMessagesNotInAllowedRange`, `DirectMethodInvokesNotInAllowedRange`, `FailedLocalLoginsNotInAllowedRange`, `FileUploadsNotInAllowedRange`, `QueuePurgesNotInAllowedRange`, `TwinUpdatesNotInAllowedRange` and `UnauthorizedOperationsNotInAllowedRange`.
+	Type string `pulumi:"type"`
+}
+
+// SecurityDeviceGroupRangeRuleInput is an input type that accepts SecurityDeviceGroupRangeRuleArgs and SecurityDeviceGroupRangeRuleOutput values.
+// You can construct a concrete instance of `SecurityDeviceGroupRangeRuleInput` via:
+//
+//          SecurityDeviceGroupRangeRuleArgs{...}
+type SecurityDeviceGroupRangeRuleInput interface {
+	pulumi.Input
+
+	ToSecurityDeviceGroupRangeRuleOutput() SecurityDeviceGroupRangeRuleOutput
+	ToSecurityDeviceGroupRangeRuleOutputWithContext(context.Context) SecurityDeviceGroupRangeRuleOutput
+}
+
+type SecurityDeviceGroupRangeRuleArgs struct {
+	// Specifies the time range. represented in ISO 8601 duration format.
+	Duration pulumi.StringInput `pulumi:"duration"`
+	// The maximum threshold in the given time window.
+	Max pulumi.IntInput `pulumi:"max"`
+	// The minimum threshold in the given time window.
+	Min pulumi.IntInput `pulumi:"min"`
+	// The type of supported rule type. Possible Values are `ActiveConnectionsNotInAllowedRange`, `AmqpC2DMessagesNotInAllowedRange`, `MqttC2DMessagesNotInAllowedRange`, `HttpC2DMessagesNotInAllowedRange`, `AmqpC2DRejectedMessagesNotInAllowedRange`, `MqttC2DRejectedMessagesNotInAllowedRange`, `HttpC2DRejectedMessagesNotInAllowedRange`, `AmqpD2CMessagesNotInAllowedRange`, `MqttD2CMessagesNotInAllowedRange`, `HttpD2CMessagesNotInAllowedRange`, `DirectMethodInvokesNotInAllowedRange`, `FailedLocalLoginsNotInAllowedRange`, `FileUploadsNotInAllowedRange`, `QueuePurgesNotInAllowedRange`, `TwinUpdatesNotInAllowedRange` and `UnauthorizedOperationsNotInAllowedRange`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SecurityDeviceGroupRangeRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityDeviceGroupRangeRule)(nil)).Elem()
+}
+
+func (i SecurityDeviceGroupRangeRuleArgs) ToSecurityDeviceGroupRangeRuleOutput() SecurityDeviceGroupRangeRuleOutput {
+	return i.ToSecurityDeviceGroupRangeRuleOutputWithContext(context.Background())
+}
+
+func (i SecurityDeviceGroupRangeRuleArgs) ToSecurityDeviceGroupRangeRuleOutputWithContext(ctx context.Context) SecurityDeviceGroupRangeRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityDeviceGroupRangeRuleOutput)
+}
+
+// SecurityDeviceGroupRangeRuleArrayInput is an input type that accepts SecurityDeviceGroupRangeRuleArray and SecurityDeviceGroupRangeRuleArrayOutput values.
+// You can construct a concrete instance of `SecurityDeviceGroupRangeRuleArrayInput` via:
+//
+//          SecurityDeviceGroupRangeRuleArray{ SecurityDeviceGroupRangeRuleArgs{...} }
+type SecurityDeviceGroupRangeRuleArrayInput interface {
+	pulumi.Input
+
+	ToSecurityDeviceGroupRangeRuleArrayOutput() SecurityDeviceGroupRangeRuleArrayOutput
+	ToSecurityDeviceGroupRangeRuleArrayOutputWithContext(context.Context) SecurityDeviceGroupRangeRuleArrayOutput
+}
+
+type SecurityDeviceGroupRangeRuleArray []SecurityDeviceGroupRangeRuleInput
+
+func (SecurityDeviceGroupRangeRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityDeviceGroupRangeRule)(nil)).Elem()
+}
+
+func (i SecurityDeviceGroupRangeRuleArray) ToSecurityDeviceGroupRangeRuleArrayOutput() SecurityDeviceGroupRangeRuleArrayOutput {
+	return i.ToSecurityDeviceGroupRangeRuleArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityDeviceGroupRangeRuleArray) ToSecurityDeviceGroupRangeRuleArrayOutputWithContext(ctx context.Context) SecurityDeviceGroupRangeRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityDeviceGroupRangeRuleArrayOutput)
+}
+
+type SecurityDeviceGroupRangeRuleOutput struct{ *pulumi.OutputState }
+
+func (SecurityDeviceGroupRangeRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityDeviceGroupRangeRule)(nil)).Elem()
+}
+
+func (o SecurityDeviceGroupRangeRuleOutput) ToSecurityDeviceGroupRangeRuleOutput() SecurityDeviceGroupRangeRuleOutput {
+	return o
+}
+
+func (o SecurityDeviceGroupRangeRuleOutput) ToSecurityDeviceGroupRangeRuleOutputWithContext(ctx context.Context) SecurityDeviceGroupRangeRuleOutput {
+	return o
+}
+
+// Specifies the time range. represented in ISO 8601 duration format.
+func (o SecurityDeviceGroupRangeRuleOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityDeviceGroupRangeRule) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+// The maximum threshold in the given time window.
+func (o SecurityDeviceGroupRangeRuleOutput) Max() pulumi.IntOutput {
+	return o.ApplyT(func(v SecurityDeviceGroupRangeRule) int { return v.Max }).(pulumi.IntOutput)
+}
+
+// The minimum threshold in the given time window.
+func (o SecurityDeviceGroupRangeRuleOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v SecurityDeviceGroupRangeRule) int { return v.Min }).(pulumi.IntOutput)
+}
+
+// The type of supported rule type. Possible Values are `ActiveConnectionsNotInAllowedRange`, `AmqpC2DMessagesNotInAllowedRange`, `MqttC2DMessagesNotInAllowedRange`, `HttpC2DMessagesNotInAllowedRange`, `AmqpC2DRejectedMessagesNotInAllowedRange`, `MqttC2DRejectedMessagesNotInAllowedRange`, `HttpC2DRejectedMessagesNotInAllowedRange`, `AmqpD2CMessagesNotInAllowedRange`, `MqttD2CMessagesNotInAllowedRange`, `HttpD2CMessagesNotInAllowedRange`, `DirectMethodInvokesNotInAllowedRange`, `FailedLocalLoginsNotInAllowedRange`, `FileUploadsNotInAllowedRange`, `QueuePurgesNotInAllowedRange`, `TwinUpdatesNotInAllowedRange` and `UnauthorizedOperationsNotInAllowedRange`.
+func (o SecurityDeviceGroupRangeRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityDeviceGroupRangeRule) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SecurityDeviceGroupRangeRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityDeviceGroupRangeRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityDeviceGroupRangeRule)(nil)).Elem()
+}
+
+func (o SecurityDeviceGroupRangeRuleArrayOutput) ToSecurityDeviceGroupRangeRuleArrayOutput() SecurityDeviceGroupRangeRuleArrayOutput {
+	return o
+}
+
+func (o SecurityDeviceGroupRangeRuleArrayOutput) ToSecurityDeviceGroupRangeRuleArrayOutputWithContext(ctx context.Context) SecurityDeviceGroupRangeRuleArrayOutput {
+	return o
+}
+
+func (o SecurityDeviceGroupRangeRuleArrayOutput) Index(i pulumi.IntInput) SecurityDeviceGroupRangeRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityDeviceGroupRangeRule {
+		return vs[0].([]SecurityDeviceGroupRangeRule)[vs[1].(int)]
+	}).(SecurityDeviceGroupRangeRuleOutput)
+}
+
 type SecuritySolutionRecommendationsEnabled struct {
 	// Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
 	AcrAuthentication *bool `pulumi:"acrAuthentication"`
@@ -2225,6 +2518,10 @@ func init() {
 	pulumi.RegisterOutputType(IotHubDpsLinkedHubArrayOutput{})
 	pulumi.RegisterOutputType(IotHubDpsSkuOutput{})
 	pulumi.RegisterOutputType(IotHubDpsSkuPtrOutput{})
+	pulumi.RegisterOutputType(SecurityDeviceGroupAllowRuleOutput{})
+	pulumi.RegisterOutputType(SecurityDeviceGroupAllowRulePtrOutput{})
+	pulumi.RegisterOutputType(SecurityDeviceGroupRangeRuleOutput{})
+	pulumi.RegisterOutputType(SecurityDeviceGroupRangeRuleArrayOutput{})
 	pulumi.RegisterOutputType(SecuritySolutionRecommendationsEnabledOutput{})
 	pulumi.RegisterOutputType(SecuritySolutionRecommendationsEnabledPtrOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsGen2EnvironmentStorageOutput{})

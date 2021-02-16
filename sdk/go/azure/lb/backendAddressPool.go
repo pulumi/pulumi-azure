@@ -36,7 +36,7 @@ import (
 // 			return err
 // 		}
 // 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Location:          pulumi.String("West US"),
+// 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			AllocationMethod:  pulumi.String("Static"),
 // 		})
@@ -44,7 +44,7 @@ import (
 // 			return err
 // 		}
 // 		exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
-// 			Location:          pulumi.String("West US"),
+// 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 // 				&lb.LoadBalancerFrontendIpConfigurationArgs{
@@ -77,7 +77,7 @@ import (
 type BackendAddressPool struct {
 	pulumi.CustomResourceState
 
-	// An array of `backendAddress` block as defined below.
+	// Deprecated: This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.
 	BackendAddresses BackendAddressPoolBackendAddressArrayOutput `pulumi:"backendAddresses"`
 	// The Backend IP Configurations associated with this Backend Address Pool.
 	BackendIpConfigurations pulumi.StringArrayOutput `pulumi:"backendIpConfigurations"`
@@ -125,7 +125,7 @@ func GetBackendAddressPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackendAddressPool resources.
 type backendAddressPoolState struct {
-	// An array of `backendAddress` block as defined below.
+	// Deprecated: This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.
 	BackendAddresses []BackendAddressPoolBackendAddress `pulumi:"backendAddresses"`
 	// The Backend IP Configurations associated with this Backend Address Pool.
 	BackendIpConfigurations []string `pulumi:"backendIpConfigurations"`
@@ -142,7 +142,7 @@ type backendAddressPoolState struct {
 }
 
 type BackendAddressPoolState struct {
-	// An array of `backendAddress` block as defined below.
+	// Deprecated: This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.
 	BackendAddresses BackendAddressPoolBackendAddressArrayInput
 	// The Backend IP Configurations associated with this Backend Address Pool.
 	BackendIpConfigurations pulumi.StringArrayInput
@@ -163,7 +163,7 @@ func (BackendAddressPoolState) ElementType() reflect.Type {
 }
 
 type backendAddressPoolArgs struct {
-	// An array of `backendAddress` block as defined below.
+	// Deprecated: This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.
 	BackendAddresses []BackendAddressPoolBackendAddress `pulumi:"backendAddresses"`
 	// The ID of the Load Balancer in which to create the Backend Address Pool.
 	LoadbalancerId string `pulumi:"loadbalancerId"`
@@ -175,7 +175,7 @@ type backendAddressPoolArgs struct {
 
 // The set of arguments for constructing a BackendAddressPool resource.
 type BackendAddressPoolArgs struct {
-	// An array of `backendAddress` block as defined below.
+	// Deprecated: This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.
 	BackendAddresses BackendAddressPoolBackendAddressArrayInput
 	// The ID of the Load Balancer in which to create the Backend Address Pool.
 	LoadbalancerId pulumi.StringInput

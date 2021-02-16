@@ -105,6 +105,14 @@ export class Frontdoor extends pulumi.CustomResource {
      */
     public readonly backendPoolHealthProbes!: pulumi.Output<outputs.frontdoor.FrontdoorBackendPoolHealthProbe[]>;
     /**
+     * A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
+     */
+    public /*out*/ readonly backendPoolHealthProbesMap!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
+     */
+    public /*out*/ readonly backendPoolLoadBalancingSettingsMap!: pulumi.Output<{[key: string]: string}>;
+    /**
      * A `backendPoolLoadBalancing` block as defined below.
      */
     public readonly backendPoolLoadBalancings!: pulumi.Output<outputs.frontdoor.FrontdoorBackendPoolLoadBalancing[]>;
@@ -112,6 +120,10 @@ export class Frontdoor extends pulumi.CustomResource {
      * A `backendPool` block as defined below.
      */
     public readonly backendPools!: pulumi.Output<outputs.frontdoor.FrontdoorBackendPool[]>;
+    /**
+     * A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
+     */
+    public /*out*/ readonly backendPoolsMap!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
      */
@@ -132,6 +144,10 @@ export class Frontdoor extends pulumi.CustomResource {
      * A `frontendEndpoint` block as defined below.
      */
     public readonly frontendEndpoints!: pulumi.Output<outputs.frontdoor.FrontdoorFrontendEndpoint[]>;
+    /**
+     * The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
+     */
+    public /*out*/ readonly frontendEndpointsMap!: pulumi.Output<{[key: string]: string}>;
     /**
      * The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
      */
@@ -159,6 +175,10 @@ export class Frontdoor extends pulumi.CustomResource {
      */
     public readonly routingRules!: pulumi.Output<outputs.frontdoor.FrontdoorRoutingRule[]>;
     /**
+     * A map/dictionary of Routing Rule Names (key) to the Routing Rule ID (value)
+     */
+    public /*out*/ readonly routingRulesMap!: pulumi.Output<{[key: string]: string}>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -176,19 +196,24 @@ export class Frontdoor extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as FrontdoorState | undefined;
             inputs["backendPoolHealthProbes"] = state ? state.backendPoolHealthProbes : undefined;
+            inputs["backendPoolHealthProbesMap"] = state ? state.backendPoolHealthProbesMap : undefined;
+            inputs["backendPoolLoadBalancingSettingsMap"] = state ? state.backendPoolLoadBalancingSettingsMap : undefined;
             inputs["backendPoolLoadBalancings"] = state ? state.backendPoolLoadBalancings : undefined;
             inputs["backendPools"] = state ? state.backendPools : undefined;
+            inputs["backendPoolsMap"] = state ? state.backendPoolsMap : undefined;
             inputs["backendPoolsSendReceiveTimeoutSeconds"] = state ? state.backendPoolsSendReceiveTimeoutSeconds : undefined;
             inputs["cname"] = state ? state.cname : undefined;
             inputs["enforceBackendPoolsCertificateNameCheck"] = state ? state.enforceBackendPoolsCertificateNameCheck : undefined;
             inputs["friendlyName"] = state ? state.friendlyName : undefined;
             inputs["frontendEndpoints"] = state ? state.frontendEndpoints : undefined;
+            inputs["frontendEndpointsMap"] = state ? state.frontendEndpointsMap : undefined;
             inputs["headerFrontdoorId"] = state ? state.headerFrontdoorId : undefined;
             inputs["loadBalancerEnabled"] = state ? state.loadBalancerEnabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["routingRules"] = state ? state.routingRules : undefined;
+            inputs["routingRulesMap"] = state ? state.routingRulesMap : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as FrontdoorArgs | undefined;
@@ -226,8 +251,13 @@ export class Frontdoor extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routingRules"] = args ? args.routingRules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["backendPoolHealthProbesMap"] = undefined /*out*/;
+            inputs["backendPoolLoadBalancingSettingsMap"] = undefined /*out*/;
+            inputs["backendPoolsMap"] = undefined /*out*/;
             inputs["cname"] = undefined /*out*/;
+            inputs["frontendEndpointsMap"] = undefined /*out*/;
             inputs["headerFrontdoorId"] = undefined /*out*/;
+            inputs["routingRulesMap"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -249,6 +279,14 @@ export interface FrontdoorState {
      */
     readonly backendPoolHealthProbes?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolHealthProbe>[]>;
     /**
+     * A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
+     */
+    readonly backendPoolHealthProbesMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
+     */
+    readonly backendPoolLoadBalancingSettingsMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * A `backendPoolLoadBalancing` block as defined below.
      */
     readonly backendPoolLoadBalancings?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolLoadBalancing>[]>;
@@ -256,6 +294,10 @@ export interface FrontdoorState {
      * A `backendPool` block as defined below.
      */
     readonly backendPools?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPool>[]>;
+    /**
+     * A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
+     */
+    readonly backendPoolsMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
      */
@@ -276,6 +318,10 @@ export interface FrontdoorState {
      * A `frontendEndpoint` block as defined below.
      */
     readonly frontendEndpoints?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorFrontendEndpoint>[]>;
+    /**
+     * The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
+     */
+    readonly frontendEndpointsMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
      */
@@ -302,6 +348,10 @@ export interface FrontdoorState {
      * A `routingRule` block as defined below.
      */
     readonly routingRules?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorRoutingRule>[]>;
+    /**
+     * A map/dictionary of Routing Rule Names (key) to the Routing Rule ID (value)
+     */
+    readonly routingRulesMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A mapping of tags to assign to the resource.
      */

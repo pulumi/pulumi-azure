@@ -12,6 +12,8 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Defining custom https configurations using a separate `azure.frontdoor.CustomHttpsConfiguration` resource allows for parallel creation/update.
  *
+ * > **NOTE:** UPCOMING BREAKING CHANGE: In order to address the ordering issue we have changed the design on how to retrieve existing sub resources such as frontend endpoints. Existing design will be deprecated and will result in an incorrect configuration. Please refer to the updated documentation below for more information.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -66,11 +68,11 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const exampleCustomHttps0 = new azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps0", {
- *     frontendEndpointId: exampleFrontdoor.frontendEndpoints.apply(frontendEndpoints => frontendEndpoints[0].id),
+ *     frontendEndpointId: exampleFrontdoor.frontendEndpointsMap.exampleFrontendEndpoint1,
  *     customHttpsProvisioningEnabled: false,
  * });
  * const exampleCustomHttps1 = new azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps1", {
- *     frontendEndpointId: exampleFrontdoor.frontendEndpoints.apply(frontendEndpoints => frontendEndpoints[1].id),
+ *     frontendEndpointId: exampleFrontdoor.frontendEndpointsMap.exampleFrontendEndpoint2,
  *     customHttpsProvisioningEnabled: true,
  *     customHttpsConfiguration: {
  *         certificateSource: "AzureKeyVault",

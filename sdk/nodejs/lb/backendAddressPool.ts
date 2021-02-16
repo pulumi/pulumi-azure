@@ -18,12 +18,12 @@ import * as utilities from "../utilities";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     location: "West US",
+ *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     allocationMethod: "Static",
  * });
  * const exampleLoadBalancer = new azure.lb.LoadBalancer("exampleLoadBalancer", {
- *     location: "West US",
+ *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     frontendIpConfigurations: [{
  *         name: "PublicIPAddress",
@@ -70,9 +70,9 @@ export class BackendAddressPool extends pulumi.CustomResource {
     }
 
     /**
-     * An array of `backendAddress` block as defined below.
+     * @deprecated This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.
      */
-    public readonly backendAddresses!: pulumi.Output<outputs.lb.BackendAddressPoolBackendAddress[]>;
+    public readonly backendAddresses!: pulumi.Output<outputs.lb.BackendAddressPoolBackendAddress[] | undefined>;
     /**
      * The Backend IP Configurations associated with this Backend Address Pool.
      */
@@ -146,7 +146,7 @@ export class BackendAddressPool extends pulumi.CustomResource {
  */
 export interface BackendAddressPoolState {
     /**
-     * An array of `backendAddress` block as defined below.
+     * @deprecated This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.
      */
     readonly backendAddresses?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolBackendAddress>[]>;
     /**
@@ -180,7 +180,7 @@ export interface BackendAddressPoolState {
  */
 export interface BackendAddressPoolArgs {
     /**
-     * An array of `backendAddress` block as defined below.
+     * @deprecated This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.
      */
     readonly backendAddresses?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolBackendAddress>[]>;
     /**

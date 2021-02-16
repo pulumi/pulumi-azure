@@ -124,7 +124,8 @@ export class LinkedServiceSqlServer extends pulumi.CustomResource {
      */
     public readonly keyVaultPassword!: pulumi.Output<outputs.datafactory.LinkedServiceSqlServerKeyVaultPassword | undefined>;
     /**
-     * Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be unique within a data
+     * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -224,7 +225,8 @@ export interface LinkedServiceSqlServerState {
      */
     readonly keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceSqlServerKeyVaultPassword>;
     /**
-     * Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be unique within a data
+     * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -270,7 +272,8 @@ export interface LinkedServiceSqlServerArgs {
      */
     readonly keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceSqlServerKeyVaultPassword>;
     /**
-     * Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be unique within a data
+     * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     readonly name?: pulumi.Input<string>;
     /**

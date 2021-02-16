@@ -93,6 +93,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
+        /// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("onlyCriticalAddonsEnabled")]
+        public Input<bool>? OnlyCriticalAddonsEnabled { get; set; }
+
+        /// <summary>
         /// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
         /// </summary>
         [Input("orchestratorVersion")]

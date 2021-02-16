@@ -83,7 +83,7 @@ type DiagnosticSetting struct {
 	EventhubName pulumi.StringPtrOutput `pulumi:"eventhubName"`
 	// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
 	LogAnalyticsDestinationType pulumi.StringPtrOutput `pulumi:"logAnalyticsDestinationType"`
-	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId pulumi.StringPtrOutput `pulumi:"logAnalyticsWorkspaceId"`
 	// One or more `log` blocks as defined below.
 	Logs DiagnosticSettingLogArrayOutput `pulumi:"logs"`
@@ -135,7 +135,7 @@ type diagnosticSettingState struct {
 	EventhubName *string `pulumi:"eventhubName"`
 	// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
 	LogAnalyticsDestinationType *string `pulumi:"logAnalyticsDestinationType"`
-	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
 	// One or more `log` blocks as defined below.
 	Logs []DiagnosticSettingLog `pulumi:"logs"`
@@ -156,7 +156,7 @@ type DiagnosticSettingState struct {
 	EventhubName pulumi.StringPtrInput
 	// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
 	LogAnalyticsDestinationType pulumi.StringPtrInput
-	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
 	// One or more `log` blocks as defined below.
 	Logs DiagnosticSettingLogArrayInput
@@ -181,7 +181,7 @@ type diagnosticSettingArgs struct {
 	EventhubName *string `pulumi:"eventhubName"`
 	// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
 	LogAnalyticsDestinationType *string `pulumi:"logAnalyticsDestinationType"`
-	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
 	// One or more `log` blocks as defined below.
 	Logs []DiagnosticSettingLog `pulumi:"logs"`
@@ -203,7 +203,7 @@ type DiagnosticSettingArgs struct {
 	EventhubName pulumi.StringPtrInput
 	// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
 	LogAnalyticsDestinationType pulumi.StringPtrInput
-	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
 	// One or more `log` blocks as defined below.
 	Logs DiagnosticSettingLogArrayInput

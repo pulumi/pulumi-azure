@@ -91,7 +91,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      */
     public readonly logAnalyticsDestinationType!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+     * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
      */
     public readonly logAnalyticsWorkspaceId!: pulumi.Output<string | undefined>;
     /**
@@ -179,7 +179,7 @@ export interface DiagnosticSettingState {
      */
     readonly logAnalyticsDestinationType?: pulumi.Input<string>;
     /**
-     * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+     * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
      */
     readonly logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
@@ -221,7 +221,7 @@ export interface DiagnosticSettingArgs {
      */
     readonly logAnalyticsDestinationType?: pulumi.Input<string>;
     /**
-     * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+     * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
      */
     readonly logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**

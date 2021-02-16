@@ -125,7 +125,9 @@ export interface ProviderArgs {
      */
     readonly partnerId?: pulumi.Input<string>;
     /**
-     * This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
+     * [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
+     *
+     * @deprecated This field is deprecated and will be removed in version 3.0 of the Azure Provider
      */
     readonly skipCredentialsValidation?: pulumi.Input<boolean>;
     /**

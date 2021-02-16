@@ -14,6 +14,10 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
     public sealed class ReplicatedVMNetworkInterface
     {
         /// <summary>
+        /// Id of the public IP object to use when a failover is done.
+        /// </summary>
+        public readonly string? RecoveryPublicIpAddressId;
+        /// <summary>
         /// Id source network interface.
         /// </summary>
         public readonly string? SourceNetworkInterfaceId;
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
 
         [OutputConstructor]
         private ReplicatedVMNetworkInterface(
+            string? recoveryPublicIpAddressId,
+
             string? sourceNetworkInterfaceId,
 
             string? targetStaticIp,
 
             string? targetSubnetName)
         {
+            RecoveryPublicIpAddressId = recoveryPublicIpAddressId;
             SourceNetworkInterfaceId = sourceNetworkInterfaceId;
             TargetStaticIp = targetStaticIp;
             TargetSubnetName = targetSubnetName;

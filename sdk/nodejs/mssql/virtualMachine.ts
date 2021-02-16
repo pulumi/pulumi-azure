@@ -73,6 +73,10 @@ export class VirtualMachine extends pulumi.CustomResource {
     }
 
     /**
+     * An `autoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
+     */
+    public readonly autoBackup!: pulumi.Output<outputs.mssql.VirtualMachineAutoBackup | undefined>;
+    /**
      * An `autoPatching` block as defined below.
      */
     public readonly autoPatching!: pulumi.Output<outputs.mssql.VirtualMachineAutoPatching | undefined>;
@@ -129,6 +133,7 @@ export class VirtualMachine extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as VirtualMachineState | undefined;
+            inputs["autoBackup"] = state ? state.autoBackup : undefined;
             inputs["autoPatching"] = state ? state.autoPatching : undefined;
             inputs["keyVaultCredential"] = state ? state.keyVaultCredential : undefined;
             inputs["rServicesEnabled"] = state ? state.rServicesEnabled : undefined;
@@ -148,6 +153,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             if ((!args || args.virtualMachineId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
+            inputs["autoBackup"] = args ? args.autoBackup : undefined;
             inputs["autoPatching"] = args ? args.autoPatching : undefined;
             inputs["keyVaultCredential"] = args ? args.keyVaultCredential : undefined;
             inputs["rServicesEnabled"] = args ? args.rServicesEnabled : undefined;
@@ -175,6 +181,10 @@ export class VirtualMachine extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VirtualMachine resources.
  */
 export interface VirtualMachineState {
+    /**
+     * An `autoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
+     */
+    readonly autoBackup?: pulumi.Input<inputs.mssql.VirtualMachineAutoBackup>;
     /**
      * An `autoPatching` block as defined below.
      */
@@ -225,6 +235,10 @@ export interface VirtualMachineState {
  * The set of arguments for constructing a VirtualMachine resource.
  */
 export interface VirtualMachineArgs {
+    /**
+     * An `autoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
+     */
+    readonly autoBackup?: pulumi.Input<inputs.mssql.VirtualMachineAutoBackup>;
     /**
      * An `autoPatching` block as defined below.
      */

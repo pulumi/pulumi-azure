@@ -115,10 +115,16 @@ type Frontdoor struct {
 
 	// A `backendPoolHealthProbe` block as defined below.
 	BackendPoolHealthProbes FrontdoorBackendPoolHealthProbeArrayOutput `pulumi:"backendPoolHealthProbes"`
+	// A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
+	BackendPoolHealthProbesMap pulumi.StringMapOutput `pulumi:"backendPoolHealthProbesMap"`
+	// A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
+	BackendPoolLoadBalancingSettingsMap pulumi.StringMapOutput `pulumi:"backendPoolLoadBalancingSettingsMap"`
 	// A `backendPoolLoadBalancing` block as defined below.
 	BackendPoolLoadBalancings FrontdoorBackendPoolLoadBalancingArrayOutput `pulumi:"backendPoolLoadBalancings"`
 	// A `backendPool` block as defined below.
 	BackendPools FrontdoorBackendPoolArrayOutput `pulumi:"backendPools"`
+	// A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
+	BackendPoolsMap pulumi.StringMapOutput `pulumi:"backendPoolsMap"`
 	// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
 	BackendPoolsSendReceiveTimeoutSeconds pulumi.IntPtrOutput `pulumi:"backendPoolsSendReceiveTimeoutSeconds"`
 	// The host that each frontendEndpoint must CNAME to.
@@ -129,6 +135,8 @@ type Frontdoor struct {
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
 	// A `frontendEndpoint` block as defined below.
 	FrontendEndpoints FrontdoorFrontendEndpointArrayOutput `pulumi:"frontendEndpoints"`
+	// The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
+	FrontendEndpointsMap pulumi.StringMapOutput `pulumi:"frontendEndpointsMap"`
 	// The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
 	HeaderFrontdoorId pulumi.StringOutput `pulumi:"headerFrontdoorId"`
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
@@ -143,6 +151,8 @@ type Frontdoor struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `routingRule` block as defined below.
 	RoutingRules FrontdoorRoutingRuleArrayOutput `pulumi:"routingRules"`
+	// A map/dictionary of Routing Rule Names (key) to the Routing Rule ID (value)
+	RoutingRulesMap pulumi.StringMapOutput `pulumi:"routingRulesMap"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -199,10 +209,16 @@ func GetFrontdoor(ctx *pulumi.Context,
 type frontdoorState struct {
 	// A `backendPoolHealthProbe` block as defined below.
 	BackendPoolHealthProbes []FrontdoorBackendPoolHealthProbe `pulumi:"backendPoolHealthProbes"`
+	// A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
+	BackendPoolHealthProbesMap map[string]string `pulumi:"backendPoolHealthProbesMap"`
+	// A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
+	BackendPoolLoadBalancingSettingsMap map[string]string `pulumi:"backendPoolLoadBalancingSettingsMap"`
 	// A `backendPoolLoadBalancing` block as defined below.
 	BackendPoolLoadBalancings []FrontdoorBackendPoolLoadBalancing `pulumi:"backendPoolLoadBalancings"`
 	// A `backendPool` block as defined below.
 	BackendPools []FrontdoorBackendPool `pulumi:"backendPools"`
+	// A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
+	BackendPoolsMap map[string]string `pulumi:"backendPoolsMap"`
 	// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
 	BackendPoolsSendReceiveTimeoutSeconds *int `pulumi:"backendPoolsSendReceiveTimeoutSeconds"`
 	// The host that each frontendEndpoint must CNAME to.
@@ -213,6 +229,8 @@ type frontdoorState struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// A `frontendEndpoint` block as defined below.
 	FrontendEndpoints []FrontdoorFrontendEndpoint `pulumi:"frontendEndpoints"`
+	// The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
+	FrontendEndpointsMap map[string]string `pulumi:"frontendEndpointsMap"`
 	// The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
 	HeaderFrontdoorId *string `pulumi:"headerFrontdoorId"`
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
@@ -227,6 +245,8 @@ type frontdoorState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `routingRule` block as defined below.
 	RoutingRules []FrontdoorRoutingRule `pulumi:"routingRules"`
+	// A map/dictionary of Routing Rule Names (key) to the Routing Rule ID (value)
+	RoutingRulesMap map[string]string `pulumi:"routingRulesMap"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -234,10 +254,16 @@ type frontdoorState struct {
 type FrontdoorState struct {
 	// A `backendPoolHealthProbe` block as defined below.
 	BackendPoolHealthProbes FrontdoorBackendPoolHealthProbeArrayInput
+	// A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
+	BackendPoolHealthProbesMap pulumi.StringMapInput
+	// A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
+	BackendPoolLoadBalancingSettingsMap pulumi.StringMapInput
 	// A `backendPoolLoadBalancing` block as defined below.
 	BackendPoolLoadBalancings FrontdoorBackendPoolLoadBalancingArrayInput
 	// A `backendPool` block as defined below.
 	BackendPools FrontdoorBackendPoolArrayInput
+	// A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
+	BackendPoolsMap pulumi.StringMapInput
 	// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
 	BackendPoolsSendReceiveTimeoutSeconds pulumi.IntPtrInput
 	// The host that each frontendEndpoint must CNAME to.
@@ -248,6 +274,8 @@ type FrontdoorState struct {
 	FriendlyName pulumi.StringPtrInput
 	// A `frontendEndpoint` block as defined below.
 	FrontendEndpoints FrontdoorFrontendEndpointArrayInput
+	// The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
+	FrontendEndpointsMap pulumi.StringMapInput
 	// The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
 	HeaderFrontdoorId pulumi.StringPtrInput
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
@@ -262,6 +290,8 @@ type FrontdoorState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `routingRule` block as defined below.
 	RoutingRules FrontdoorRoutingRuleArrayInput
+	// A map/dictionary of Routing Rule Names (key) to the Routing Rule ID (value)
+	RoutingRulesMap pulumi.StringMapInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }

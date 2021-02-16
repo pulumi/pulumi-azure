@@ -98,20 +98,36 @@ class ReplicatedVMManagedDiskArgs:
 @pulumi.input_type
 class ReplicatedVMNetworkInterfaceArgs:
     def __init__(__self__, *,
+                 recovery_public_ip_address_id: Optional[pulumi.Input[str]] = None,
                  source_network_interface_id: Optional[pulumi.Input[str]] = None,
                  target_static_ip: Optional[pulumi.Input[str]] = None,
                  target_subnet_name: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] recovery_public_ip_address_id: Id of the public IP object to use when a failover is done.
         :param pulumi.Input[str] source_network_interface_id: Id source network interface.
         :param pulumi.Input[str] target_static_ip: Static IP to assign when a failover is done.
         :param pulumi.Input[str] target_subnet_name: Name of the subnet to to use when a failover is done.
         """
+        if recovery_public_ip_address_id is not None:
+            pulumi.set(__self__, "recovery_public_ip_address_id", recovery_public_ip_address_id)
         if source_network_interface_id is not None:
             pulumi.set(__self__, "source_network_interface_id", source_network_interface_id)
         if target_static_ip is not None:
             pulumi.set(__self__, "target_static_ip", target_static_ip)
         if target_subnet_name is not None:
             pulumi.set(__self__, "target_subnet_name", target_subnet_name)
+
+    @property
+    @pulumi.getter(name="recoveryPublicIpAddressId")
+    def recovery_public_ip_address_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the public IP object to use when a failover is done.
+        """
+        return pulumi.get(self, "recovery_public_ip_address_id")
+
+    @recovery_public_ip_address_id.setter
+    def recovery_public_ip_address_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_public_ip_address_id", value)
 
     @property
     @pulumi.getter(name="sourceNetworkInterfaceId")

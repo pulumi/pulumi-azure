@@ -47,7 +47,7 @@ class GetBackendAddressPoolResult:
     @pulumi.getter(name="backendAddresses")
     def backend_addresses(self) -> Sequence['outputs.GetBackendAddressPoolBackendAddressResult']:
         """
-        An array of `backend_address` block as defined below.
+        A list of `backend_address` block as defined below.
         """
         return pulumi.get(self, "backend_addresses")
 
@@ -55,7 +55,7 @@ class GetBackendAddressPoolResult:
     @pulumi.getter(name="backendIpConfigurations")
     def backend_ip_configurations(self) -> Sequence['outputs.GetBackendAddressPoolBackendIpConfigurationResult']:
         """
-        An array of references to IP addresses defined in network interfaces.
+        A list of references to IP addresses defined in network interfaces.
         """
         return pulumi.get(self, "backend_ip_configurations")
 
@@ -71,7 +71,7 @@ class GetBackendAddressPoolResult:
     @pulumi.getter(name="loadBalancingRules")
     def load_balancing_rules(self) -> Sequence[str]:
         """
-        An array of the Load Balancing Rules associated with this Backend Address Pool.
+        A list of the Load Balancing Rules associated with this Backend Address Pool.
         """
         return pulumi.get(self, "load_balancing_rules")
 
@@ -92,7 +92,7 @@ class GetBackendAddressPoolResult:
     @pulumi.getter(name="outboundRules")
     def outbound_rules(self) -> Sequence[str]:
         """
-        An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
+        A list of the Load Balancing Outbound Rules associated with this Backend Address Pool.
         """
         return pulumi.get(self, "outbound_rules")
 

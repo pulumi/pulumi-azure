@@ -59,11 +59,11 @@ export interface GetBackendAddressPoolArgs {
  */
 export interface GetBackendAddressPoolResult {
     /**
-     * An array of `backendAddress` block as defined below.
+     * A list of `backendAddress` block as defined below.
      */
     readonly backendAddresses: outputs.lb.GetBackendAddressPoolBackendAddress[];
     /**
-     * An array of references to IP addresses defined in network interfaces.
+     * A list of references to IP addresses defined in network interfaces.
      */
     readonly backendIpConfigurations: outputs.lb.GetBackendAddressPoolBackendIpConfiguration[];
     /**
@@ -71,7 +71,7 @@ export interface GetBackendAddressPoolResult {
      */
     readonly id: string;
     /**
-     * An array of the Load Balancing Rules associated with this Backend Address Pool.
+     * A list of the Load Balancing Rules associated with this Backend Address Pool.
      */
     readonly loadBalancingRules: string[];
     readonly loadbalancerId: string;
@@ -80,7 +80,7 @@ export interface GetBackendAddressPoolResult {
      */
     readonly name: string;
     /**
-     * An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
+     * A list of the Load Balancing Outbound Rules associated with this Backend Address Pool.
      */
     readonly outboundRules: string[];
 }

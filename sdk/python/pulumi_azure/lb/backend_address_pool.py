@@ -37,11 +37,11 @@ class BackendAddressPool(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
         example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location="West US",
+            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             allocation_method="Static")
         example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location="West US",
+            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
                 name="PublicIPAddress",
@@ -60,7 +60,6 @@ class BackendAddressPool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolBackendAddressArgs']]]] backend_addresses: An array of `backend_address` block as defined below.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool.
         :param pulumi.Input[str] name: Specifies the name of the Backend Address Pool.
         """
@@ -81,6 +80,9 @@ class BackendAddressPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if backend_addresses is not None and not opts.urn:
+                warnings.warn("""This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.""", DeprecationWarning)
+                pulumi.log.warn("backend_addresses is deprecated: This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.")
             __props__['backend_addresses'] = backend_addresses
             if loadbalancer_id is None and not opts.urn:
                 raise TypeError("Missing required property 'loadbalancer_id'")
@@ -117,7 +119,6 @@ class BackendAddressPool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolBackendAddressArgs']]]] backend_addresses: An array of `backend_address` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backend_ip_configurations: The Backend IP Configurations associated with this Backend Address Pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancing_rules: The Load Balancing Rules associated with this Backend Address Pool.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool.
@@ -139,10 +140,7 @@ class BackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendAddresses")
-    def backend_addresses(self) -> pulumi.Output[Sequence['outputs.BackendAddressPoolBackendAddress']]:
-        """
-        An array of `backend_address` block as defined below.
-        """
+    def backend_addresses(self) -> pulumi.Output[Optional[Sequence['outputs.BackendAddressPoolBackendAddress']]]:
         return pulumi.get(self, "backend_addresses")
 
     @property

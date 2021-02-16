@@ -128,6 +128,18 @@ namespace Pulumi.Azure.FrontDoor
         public Output<ImmutableArray<Outputs.FrontdoorBackendPoolHealthProbe>> BackendPoolHealthProbes { get; private set; } = null!;
 
         /// <summary>
+        /// A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
+        /// </summary>
+        [Output("backendPoolHealthProbesMap")]
+        public Output<ImmutableDictionary<string, string>> BackendPoolHealthProbesMap { get; private set; } = null!;
+
+        /// <summary>
+        /// A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
+        /// </summary>
+        [Output("backendPoolLoadBalancingSettingsMap")]
+        public Output<ImmutableDictionary<string, string>> BackendPoolLoadBalancingSettingsMap { get; private set; } = null!;
+
+        /// <summary>
         /// A `backend_pool_load_balancing` block as defined below.
         /// </summary>
         [Output("backendPoolLoadBalancings")]
@@ -138,6 +150,12 @@ namespace Pulumi.Azure.FrontDoor
         /// </summary>
         [Output("backendPools")]
         public Output<ImmutableArray<Outputs.FrontdoorBackendPool>> BackendPools { get; private set; } = null!;
+
+        /// <summary>
+        /// A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
+        /// </summary>
+        [Output("backendPoolsMap")]
+        public Output<ImmutableDictionary<string, string>> BackendPoolsMap { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
@@ -168,6 +186,12 @@ namespace Pulumi.Azure.FrontDoor
         /// </summary>
         [Output("frontendEndpoints")]
         public Output<ImmutableArray<Outputs.FrontdoorFrontendEndpoint>> FrontendEndpoints { get; private set; } = null!;
+
+        /// <summary>
+        /// The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+        /// </summary>
+        [Output("frontendEndpointsMap")]
+        public Output<ImmutableDictionary<string, string>> FrontendEndpointsMap { get; private set; } = null!;
 
         /// <summary>
         /// The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
@@ -204,6 +228,12 @@ namespace Pulumi.Azure.FrontDoor
         /// </summary>
         [Output("routingRules")]
         public Output<ImmutableArray<Outputs.FrontdoorRoutingRule>> RoutingRules { get; private set; } = null!;
+
+        /// <summary>
+        /// A map/dictionary of Routing Rule Names (key) to the Routing Rule ID (value)
+        /// </summary>
+        [Output("routingRulesMap")]
+        public Output<ImmutableDictionary<string, string>> RoutingRulesMap { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -390,6 +420,30 @@ namespace Pulumi.Azure.FrontDoor
             set => _backendPoolHealthProbes = value;
         }
 
+        [Input("backendPoolHealthProbesMap")]
+        private InputMap<string>? _backendPoolHealthProbesMap;
+
+        /// <summary>
+        /// A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
+        /// </summary>
+        public InputMap<string> BackendPoolHealthProbesMap
+        {
+            get => _backendPoolHealthProbesMap ?? (_backendPoolHealthProbesMap = new InputMap<string>());
+            set => _backendPoolHealthProbesMap = value;
+        }
+
+        [Input("backendPoolLoadBalancingSettingsMap")]
+        private InputMap<string>? _backendPoolLoadBalancingSettingsMap;
+
+        /// <summary>
+        /// A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
+        /// </summary>
+        public InputMap<string> BackendPoolLoadBalancingSettingsMap
+        {
+            get => _backendPoolLoadBalancingSettingsMap ?? (_backendPoolLoadBalancingSettingsMap = new InputMap<string>());
+            set => _backendPoolLoadBalancingSettingsMap = value;
+        }
+
         [Input("backendPoolLoadBalancings")]
         private InputList<Inputs.FrontdoorBackendPoolLoadBalancingGetArgs>? _backendPoolLoadBalancings;
 
@@ -412,6 +466,18 @@ namespace Pulumi.Azure.FrontDoor
         {
             get => _backendPools ?? (_backendPools = new InputList<Inputs.FrontdoorBackendPoolGetArgs>());
             set => _backendPools = value;
+        }
+
+        [Input("backendPoolsMap")]
+        private InputMap<string>? _backendPoolsMap;
+
+        /// <summary>
+        /// A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
+        /// </summary>
+        public InputMap<string> BackendPoolsMap
+        {
+            get => _backendPoolsMap ?? (_backendPoolsMap = new InputMap<string>());
+            set => _backendPoolsMap = value;
         }
 
         /// <summary>
@@ -448,6 +514,18 @@ namespace Pulumi.Azure.FrontDoor
         {
             get => _frontendEndpoints ?? (_frontendEndpoints = new InputList<Inputs.FrontdoorFrontendEndpointGetArgs>());
             set => _frontendEndpoints = value;
+        }
+
+        [Input("frontendEndpointsMap")]
+        private InputMap<string>? _frontendEndpointsMap;
+
+        /// <summary>
+        /// The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+        /// </summary>
+        public InputMap<string> FrontendEndpointsMap
+        {
+            get => _frontendEndpointsMap ?? (_frontendEndpointsMap = new InputMap<string>());
+            set => _frontendEndpointsMap = value;
         }
 
         /// <summary>
@@ -490,6 +568,18 @@ namespace Pulumi.Azure.FrontDoor
         {
             get => _routingRules ?? (_routingRules = new InputList<Inputs.FrontdoorRoutingRuleGetArgs>());
             set => _routingRules = value;
+        }
+
+        [Input("routingRulesMap")]
+        private InputMap<string>? _routingRulesMap;
+
+        /// <summary>
+        /// A map/dictionary of Routing Rule Names (key) to the Routing Rule ID (value)
+        /// </summary>
+        public InputMap<string> RoutingRulesMap
+        {
+            get => _routingRulesMap ?? (_routingRulesMap = new InputMap<string>());
+            set => _routingRulesMap = value;
         }
 
         [Input("tags")]

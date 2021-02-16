@@ -169,6 +169,7 @@ def get_traffic_manager_profile(name: Optional[str] = None,
 
 
     :param str name: Specifies the name of the Traffic Manager Profile.
+    :param str resource_group_name: Specifies the name of the resource group the Traffic Manager Profile is located in.
     :param Mapping[str, str] tags: A mapping of tags to assign to the resource.
     :param bool traffic_view_enabled: Indicates whether Traffic View is enabled for the Traffic Manager profile.
     """

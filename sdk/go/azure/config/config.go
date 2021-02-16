@@ -95,7 +95,9 @@ func GetPartnerId(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azure:partnerId")
 }
 
-// This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
+// [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
+//
+// Deprecated: This field is deprecated and will be removed in version 3.0 of the Azure Provider
 func GetSkipCredentialsValidation(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "azure:skipCredentialsValidation")
 }

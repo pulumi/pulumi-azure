@@ -9,12 +9,14 @@ export * from "./analyticsItem";
 export * from "./apiKey";
 export * from "./getInsights";
 export * from "./insights";
+export * from "./smartDetectionRule";
 export * from "./webTest";
 
 // Import resources to register:
 import { AnalyticsItem } from "./analyticsItem";
 import { ApiKey } from "./apiKey";
 import { Insights } from "./insights";
+import { SmartDetectionRule } from "./smartDetectionRule";
 import { WebTest } from "./webTest";
 
 const _module = {
@@ -27,6 +29,8 @@ const _module = {
                 return new ApiKey(name, <any>undefined, { urn })
             case "azure:appinsights/insights:Insights":
                 return new Insights(name, <any>undefined, { urn })
+            case "azure:appinsights/smartDetectionRule:SmartDetectionRule":
+                return new SmartDetectionRule(name, <any>undefined, { urn })
             case "azure:appinsights/webTest:WebTest":
                 return new WebTest(name, <any>undefined, { urn })
             default:
@@ -37,4 +41,5 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "appinsights/analyticsItem", _module)
 pulumi.runtime.registerResourceModule("azure", "appinsights/apiKey", _module)
 pulumi.runtime.registerResourceModule("azure", "appinsights/insights", _module)
+pulumi.runtime.registerResourceModule("azure", "appinsights/smartDetectionRule", _module)
 pulumi.runtime.registerResourceModule("azure", "appinsights/webTest", _module)

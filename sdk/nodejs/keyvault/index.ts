@@ -11,6 +11,7 @@ export * from "./certificate";
 export * from "./certificateIssuer";
 export * from "./getAccessPolicy";
 export * from "./getCertificate";
+export * from "./getCertificateData";
 export * from "./getCertificateIssuer";
 export * from "./getKey";
 export * from "./getKeyVault";

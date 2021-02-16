@@ -7859,6 +7859,10 @@ export namespace containerservice {
         nodeLabels?: {[key: string]: string};
         nodeTaints?: string[];
         /**
+         * Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
+         */
+        onlyCriticalAddonsEnabled?: boolean;
+        /**
          * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
          */
         orchestratorVersion: string;
@@ -9009,6 +9013,47 @@ export namespace datafactory {
          * The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
          */
         resourceId: string;
+    }
+
+    export interface IntegrationRuntimeSsisCatalogInfo {
+        /**
+         * Administrator login name for the SQL Server.
+         */
+        administratorLogin: string;
+        /**
+         * Administrator login password for the SQL Server.
+         */
+        administratorPassword: string;
+        /**
+         * Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+         */
+        pricingTier?: string;
+        /**
+         * The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
+         */
+        serverEndpoint: string;
+    }
+
+    export interface IntegrationRuntimeSsisCustomSetupScript {
+        /**
+         * The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+         */
+        blobContainerUri: string;
+        /**
+         * A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+         */
+        sasToken: string;
+    }
+
+    export interface IntegrationRuntimeSsisVnetIntegration {
+        /**
+         * Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+         */
+        subnetName: string;
+        /**
+         * ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
+         */
+        vnetId: string;
     }
 
     export interface LinkedServiceSnowflakeKeyVaultPassword {
@@ -13281,6 +13326,40 @@ export namespace iot {
         name: string;
     }
 
+    export interface SecurityDeviceGroupAllowRule {
+        /**
+         * Specifies which Ip is not allowed to be connected to in current device group.
+         */
+        connectionToIpNotAlloweds?: string[];
+        /**
+         * Specifies which local user is not allowed to Login in current device group.
+         */
+        localUserNotAlloweds?: string[];
+        /**
+         * Specifies which process is not allowed to be executed in current device group.
+         */
+        processNotAlloweds?: string[];
+    }
+
+    export interface SecurityDeviceGroupRangeRule {
+        /**
+         * Specifies the time range. represented in ISO 8601 duration format.
+         */
+        duration: string;
+        /**
+         * The maximum threshold in the given time window.
+         */
+        max: number;
+        /**
+         * The minimum threshold in the given time window.
+         */
+        min: number;
+        /**
+         * The type of supported rule type. Possible Values are `ActiveConnectionsNotInAllowedRange`, `AmqpC2DMessagesNotInAllowedRange`, `MqttC2DMessagesNotInAllowedRange`, `HttpC2DMessagesNotInAllowedRange`, `AmqpC2DRejectedMessagesNotInAllowedRange`, `MqttC2DRejectedMessagesNotInAllowedRange`, `HttpC2DRejectedMessagesNotInAllowedRange`, `AmqpD2CMessagesNotInAllowedRange`, `MqttD2CMessagesNotInAllowedRange`, `HttpD2CMessagesNotInAllowedRange`, `DirectMethodInvokesNotInAllowedRange`, `FailedLocalLoginsNotInAllowedRange`, `FileUploadsNotInAllowedRange`, `QueuePurgesNotInAllowedRange`, `TwinUpdatesNotInAllowedRange` and `UnauthorizedOperationsNotInAllowedRange`.
+         */
+        type: string;
+    }
+
     export interface SecuritySolutionRecommendationsEnabled {
         /**
          * Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
@@ -14019,23 +14098,17 @@ export namespace kusto {
 
 export namespace lb {
     export interface BackendAddressPoolBackendAddress {
-        /**
-         * The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtualNetworkId`.
-         */
         ipAddress: string;
         /**
-         * The name of the Backend Address.
+         * Specifies the name of the Backend Address Pool.
          */
         name: string;
-        /**
-         * The ID of the Virtual Network that is pre-allocated for this Backend Address.
-         */
         virtualNetworkId: string;
     }
 
     export interface GetBackendAddressPoolBackendAddress {
         /**
-         * The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtualNetworkId`.
+         * The Static IP address for this Load Balancer within the Virtual Network.
          */
         ipAddress: string;
         /**
@@ -14043,7 +14116,7 @@ export namespace lb {
          */
         name: string;
         /**
-         * The ID of the Virtual Network that is pre-allocated for this Backend Address.
+         * The ID of the Virtual Network where the Backend Address of the Load Balancer exists.
          */
         virtualNetworkId: string;
     }
@@ -16310,6 +16383,56 @@ export namespace mssql {
          * Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
          */
         enabled?: boolean;
+    }
+
+    export interface VirtualMachineAutoBackup {
+        /**
+         * Enable or disable encryption for backups. Defaults to `false`.
+         */
+        encryptionEnabled?: boolean;
+        /**
+         * Encryption password to use. Must be specified when encryption is enabled.
+         */
+        encryptionPassword?: string;
+        /**
+         * A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+         */
+        manualSchedule?: outputs.mssql.VirtualMachineAutoBackupManualSchedule;
+        /**
+         * Retention period of backups, in days. Valid values are from `1` to `30`.
+         */
+        retentionPeriodInDays: number;
+        /**
+         * Access key for the storage account where backups will be kept.
+         */
+        storageAccountAccessKey: string;
+        /**
+         * Blob endpoint for the storage account where backups will be kept.
+         */
+        storageBlobEndpoint: string;
+        /**
+         * Include or exclude system databases from auto backup. Defaults to `false`.
+         */
+        systemDatabasesBackupEnabled?: boolean;
+    }
+
+    export interface VirtualMachineAutoBackupManualSchedule {
+        /**
+         * Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backupScheduleAutomated` is false.
+         */
+        fullBackupFrequency: string;
+        /**
+         * Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backupScheduleAutomated` is false.
+         */
+        fullBackupStartHour: number;
+        /**
+         * Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backupScheduleAutomated` is false.
+         */
+        fullBackupWindowInHours: number;
+        /**
+         * Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backupScheduleAutomated` is false.
+         */
+        logBackupFrequencyInMinutes: number;
     }
 
     export interface VirtualMachineAutoPatching {
@@ -20887,6 +21010,10 @@ export namespace siterecovery {
     }
 
     export interface ReplicatedVMNetworkInterface {
+        /**
+         * Id of the public IP object to use when a failover is done.
+         */
+        recoveryPublicIpAddressId?: string;
         /**
          * Id source network interface.
          */

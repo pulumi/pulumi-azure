@@ -193,6 +193,12 @@ namespace Pulumi.Azure.Media
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The host name of the Streaming Endpoint.
+        /// </summary>
+        [Output("hostName")]
+        public Output<string> HostName { get; private set; } = null!;
+
+        /// <summary>
         /// The Azure Region where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
         /// </summary>
         [Output("location")]
@@ -442,6 +448,12 @@ namespace Pulumi.Azure.Media
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The host name of the Streaming Endpoint.
+        /// </summary>
+        [Input("hostName")]
+        public Input<string>? HostName { get; set; }
 
         /// <summary>
         /// The Azure Region where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.

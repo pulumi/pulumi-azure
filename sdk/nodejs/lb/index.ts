@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./backendAddressPool";
+export * from "./backendAddressPoolAddress";
 export * from "./getBackendAddressPool";
 export * from "./getLB";
 export * from "./getLBRule";
@@ -18,6 +19,7 @@ export * from "./rule";
 
 // Import resources to register:
 import { BackendAddressPool } from "./backendAddressPool";
+import { BackendAddressPoolAddress } from "./backendAddressPoolAddress";
 import { LoadBalancer } from "./loadBalancer";
 import { NatPool } from "./natPool";
 import { NatRule } from "./natRule";
@@ -31,6 +33,8 @@ const _module = {
         switch (type) {
             case "azure:lb/backendAddressPool:BackendAddressPool":
                 return new BackendAddressPool(name, <any>undefined, { urn })
+            case "azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress":
+                return new BackendAddressPoolAddress(name, <any>undefined, { urn })
             case "azure:lb/loadBalancer:LoadBalancer":
                 return new LoadBalancer(name, <any>undefined, { urn })
             case "azure:lb/natPool:NatPool":
@@ -49,6 +53,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "lb/backendAddressPool", _module)
+pulumi.runtime.registerResourceModule("azure", "lb/backendAddressPoolAddress", _module)
 pulumi.runtime.registerResourceModule("azure", "lb/loadBalancer", _module)
 pulumi.runtime.registerResourceModule("azure", "lb/natPool", _module)
 pulumi.runtime.registerResourceModule("azure", "lb/natRule", _module)

@@ -12,21 +12,15 @@ namespace Pulumi.Azure.Lb.Inputs
 
     public sealed class BackendAddressPoolBackendAddressGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtual_network_id`.
-        /// </summary>
         [Input("ipAddress", required: true)]
         public Input<string> IpAddress { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Backend Address.
+        /// Specifies the name of the Backend Address Pool.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the Virtual Network that is pre-allocated for this Backend Address.
-        /// </summary>
         [Input("virtualNetworkId", required: true)]
         public Input<string> VirtualNetworkId { get; set; } = null!;
 

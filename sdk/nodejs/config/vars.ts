@@ -59,7 +59,7 @@ export let msiEndpoint: string | undefined = __config.get("msiEndpoint");
  */
 export let partnerId: string | undefined = __config.get("partnerId");
 /**
- * This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
+ * [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
  */
 export let skipCredentialsValidation: boolean | undefined = __config.getObject<boolean>("skipCredentialsValidation");
 /**

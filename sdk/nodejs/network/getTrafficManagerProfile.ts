@@ -45,6 +45,9 @@ export interface GetTrafficManagerProfileArgs {
      * Specifies the name of the Traffic Manager Profile.
      */
     readonly name: string;
+    /**
+     * Specifies the name of the resource group the Traffic Manager Profile is located in.
+     */
     readonly resourceGroupName: string;
     /**
      * A mapping of tags to assign to the resource.

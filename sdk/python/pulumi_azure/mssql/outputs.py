@@ -21,6 +21,8 @@ __all__ = [
     'ServerExtendedAuditingPolicy',
     'ServerIdentity',
     'ServerVulnerabilityAssessmentRecurringScans',
+    'VirtualMachineAutoBackup',
+    'VirtualMachineAutoBackupManualSchedule',
     'VirtualMachineAutoPatching',
     'VirtualMachineKeyVaultCredential',
     'VirtualMachineStorageConfiguration',
@@ -565,6 +567,151 @@ class ServerVulnerabilityAssessmentRecurringScans(dict):
         Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
         """
         return pulumi.get(self, "enabled")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualMachineAutoBackup(dict):
+    def __init__(__self__, *,
+                 retention_period_in_days: int,
+                 storage_account_access_key: str,
+                 storage_blob_endpoint: str,
+                 encryption_enabled: Optional[bool] = None,
+                 encryption_password: Optional[str] = None,
+                 manual_schedule: Optional['outputs.VirtualMachineAutoBackupManualSchedule'] = None,
+                 system_databases_backup_enabled: Optional[bool] = None):
+        """
+        :param int retention_period_in_days: Retention period of backups, in days. Valid values are from `1` to `30`.
+        :param str storage_account_access_key: Access key for the storage account where backups will be kept.
+        :param str storage_blob_endpoint: Blob endpoint for the storage account where backups will be kept.
+        :param bool encryption_enabled: Enable or disable encryption for backups. Defaults to `false`.
+        :param str encryption_password: Encryption password to use. Must be specified when encryption is enabled.
+        :param 'VirtualMachineAutoBackupManualScheduleArgs' manual_schedule: A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+        :param bool system_databases_backup_enabled: Include or exclude system databases from auto backup. Defaults to `false`.
+        """
+        pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
+        pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+        pulumi.set(__self__, "storage_blob_endpoint", storage_blob_endpoint)
+        if encryption_enabled is not None:
+            pulumi.set(__self__, "encryption_enabled", encryption_enabled)
+        if encryption_password is not None:
+            pulumi.set(__self__, "encryption_password", encryption_password)
+        if manual_schedule is not None:
+            pulumi.set(__self__, "manual_schedule", manual_schedule)
+        if system_databases_backup_enabled is not None:
+            pulumi.set(__self__, "system_databases_backup_enabled", system_databases_backup_enabled)
+
+    @property
+    @pulumi.getter(name="retentionPeriodInDays")
+    def retention_period_in_days(self) -> int:
+        """
+        Retention period of backups, in days. Valid values are from `1` to `30`.
+        """
+        return pulumi.get(self, "retention_period_in_days")
+
+    @property
+    @pulumi.getter(name="storageAccountAccessKey")
+    def storage_account_access_key(self) -> str:
+        """
+        Access key for the storage account where backups will be kept.
+        """
+        return pulumi.get(self, "storage_account_access_key")
+
+    @property
+    @pulumi.getter(name="storageBlobEndpoint")
+    def storage_blob_endpoint(self) -> str:
+        """
+        Blob endpoint for the storage account where backups will be kept.
+        """
+        return pulumi.get(self, "storage_blob_endpoint")
+
+    @property
+    @pulumi.getter(name="encryptionEnabled")
+    def encryption_enabled(self) -> Optional[bool]:
+        """
+        Enable or disable encryption for backups. Defaults to `false`.
+        """
+        return pulumi.get(self, "encryption_enabled")
+
+    @property
+    @pulumi.getter(name="encryptionPassword")
+    def encryption_password(self) -> Optional[str]:
+        """
+        Encryption password to use. Must be specified when encryption is enabled.
+        """
+        return pulumi.get(self, "encryption_password")
+
+    @property
+    @pulumi.getter(name="manualSchedule")
+    def manual_schedule(self) -> Optional['outputs.VirtualMachineAutoBackupManualSchedule']:
+        """
+        A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+        """
+        return pulumi.get(self, "manual_schedule")
+
+    @property
+    @pulumi.getter(name="systemDatabasesBackupEnabled")
+    def system_databases_backup_enabled(self) -> Optional[bool]:
+        """
+        Include or exclude system databases from auto backup. Defaults to `false`.
+        """
+        return pulumi.get(self, "system_databases_backup_enabled")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualMachineAutoBackupManualSchedule(dict):
+    def __init__(__self__, *,
+                 full_backup_frequency: str,
+                 full_backup_start_hour: int,
+                 full_backup_window_in_hours: int,
+                 log_backup_frequency_in_minutes: int):
+        """
+        :param str full_backup_frequency: Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backup_schedule_automated` is false.
+        :param int full_backup_start_hour: Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backup_schedule_automated` is false.
+        :param int full_backup_window_in_hours: Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backup_schedule_automated` is false.
+        :param int log_backup_frequency_in_minutes: Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backup_schedule_automated` is false.
+        """
+        pulumi.set(__self__, "full_backup_frequency", full_backup_frequency)
+        pulumi.set(__self__, "full_backup_start_hour", full_backup_start_hour)
+        pulumi.set(__self__, "full_backup_window_in_hours", full_backup_window_in_hours)
+        pulumi.set(__self__, "log_backup_frequency_in_minutes", log_backup_frequency_in_minutes)
+
+    @property
+    @pulumi.getter(name="fullBackupFrequency")
+    def full_backup_frequency(self) -> str:
+        """
+        Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backup_schedule_automated` is false.
+        """
+        return pulumi.get(self, "full_backup_frequency")
+
+    @property
+    @pulumi.getter(name="fullBackupStartHour")
+    def full_backup_start_hour(self) -> int:
+        """
+        Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backup_schedule_automated` is false.
+        """
+        return pulumi.get(self, "full_backup_start_hour")
+
+    @property
+    @pulumi.getter(name="fullBackupWindowInHours")
+    def full_backup_window_in_hours(self) -> int:
+        """
+        Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backup_schedule_automated` is false.
+        """
+        return pulumi.get(self, "full_backup_window_in_hours")
+
+    @property
+    @pulumi.getter(name="logBackupFrequencyInMinutes")
+    def log_backup_frequency_in_minutes(self) -> int:
+        """
+        Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backup_schedule_automated` is false.
+        """
+        return pulumi.get(self, "log_backup_frequency_in_minutes")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -116,6 +116,8 @@ type Key struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The current version of the Key Vault Key.
 	Version pulumi.StringOutput `pulumi:"version"`
+	// The Base ID of the Key Vault Key.
+	VersionlessId pulumi.StringOutput `pulumi:"versionlessId"`
 	// The EC X component of this Key Vault Key.
 	X pulumi.StringOutput `pulumi:"x"`
 	// The EC Y component of this Key Vault Key.
@@ -184,6 +186,8 @@ type keyState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The current version of the Key Vault Key.
 	Version *string `pulumi:"version"`
+	// The Base ID of the Key Vault Key.
+	VersionlessId *string `pulumi:"versionlessId"`
 	// The EC X component of this Key Vault Key.
 	X *string `pulumi:"x"`
 	// The EC Y component of this Key Vault Key.
@@ -215,6 +219,8 @@ type KeyState struct {
 	Tags pulumi.StringMapInput
 	// The current version of the Key Vault Key.
 	Version pulumi.StringPtrInput
+	// The Base ID of the Key Vault Key.
+	VersionlessId pulumi.StringPtrInput
 	// The EC X component of this Key Vault Key.
 	X pulumi.StringPtrInput
 	// The EC Y component of this Key Vault Key.

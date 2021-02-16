@@ -382,7 +382,8 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "application_insights_webtests.html.markdown",
 				},
 			},
-			"azurerm_application_insights_analytics_item": {Tok: azureResource(azureAppInsights, "AnalyticsItem")},
+			"azurerm_application_insights_analytics_item":       {Tok: azureResource(azureAppInsights, "AnalyticsItem")},
+			"azurerm_application_insights_smart_detection_rule": {Tok: azureResource(azureAppInsights, "SmartDetectionRule")},
 
 			// App Service
 			"azurerm_app_service": {
@@ -751,6 +752,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_linked_service_azure_sql_database": {
 				Tok: azureResource(azureDataFactory, "LinkedServiceAzureSqlDatabase"),
 			},
+			"azurerm_data_factory_integration_runtime_azure":      {Tok: azureResource(azureDataFactory, "IntegrationRuntimeRule")},
+			"azurerm_data_factory_integration_runtime_azure_ssis": {Tok: azureResource(azureDataFactory, "IntegrationRuntimeSsis")},
 
 			// Data Lake
 			"azurerm_data_lake_analytics_account":       {Tok: azureResource(azureDatalake, "AnalyticsAccount")},
@@ -862,6 +865,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_iot_time_series_insights_gen2_environment": {
 				Tok: azureResource(azureIot, "TimeSeriesInsightsGen2Environment"),
 			},
+			"azurerm_iot_security_device_group": {Tok: azureResource(azureIot, "SecurityDeviceGroup")},
 
 			// KeyVault
 			"azurerm_key_vault":                    {Tok: azureResource(azureKeyVault, "KeyVault")},
@@ -918,6 +922,7 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "loadbalancer_rule.html.markdown",
 				},
 			},
+			"azurerm_lb_backend_address_pool_address": {Tok: azureResource(azureLB, "BackendAddressPoolAddress")},
 
 			// Log Analytics
 			"azurerm_log_analytics_linked_service": {Tok: azureResource(azureLogAnalytics, "LinkedService")},
@@ -1511,6 +1516,13 @@ func Provider() tfbridge.ProviderInfo {
 			// Frontdoor
 			"azurerm_frontdoor": {
 				Tok: azureResource(azureFrontdoor, "Frontdoor"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"backend_pool_health_probes":           {Name: "backendPoolHealthProbesMap"},
+					"backend_pool_load_balancing_settings": {Name: "backendPoolLoadBalancingSettingsMap"},
+					"backend_pools":                        {Name: "backendPoolsMap"},
+					"frontend_endpoints":                   {Name: "frontendEndpointsMap"},
+					"routing_rules":                        {Name: "routingRulesMap"},
+				},
 				Docs: &tfbridge.DocInfo{
 					Source: "front_door.html.markdown",
 				},
@@ -1775,6 +1787,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_key_vault_secret":             {Tok: azureDataSource(azureKeyVault, "getSecret")},
 			"azurerm_key_vault_certificate":        {Tok: azureDataSource(azureKeyVault, "getCertificate")},
 			"azurerm_key_vault_certificate_issuer": {Tok: azureDataSource(azureKeyVault, "getCertificateIssuer")},
+			"azurerm_key_vault_certificate_data":   {Tok: azureDataSource(azureKeyVault, "getCertificateData")},
 			"azurerm_kubernetes_cluster": {
 				Tok: azureDataSource(azureContainerService, "getKubernetesCluster"),
 			},

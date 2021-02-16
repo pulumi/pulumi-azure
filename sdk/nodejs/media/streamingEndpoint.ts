@@ -158,6 +158,10 @@ export class StreamingEndpoint extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The host name of the Streaming Endpoint.
+     */
+    public /*out*/ readonly hostName!: pulumi.Output<string>;
+    /**
      * The Azure Region where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -206,6 +210,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
             inputs["crossSiteAccessPolicy"] = state ? state.crossSiteAccessPolicy : undefined;
             inputs["customHostNames"] = state ? state.customHostNames : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["hostName"] = state ? state.hostName : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["maxCacheAgeSeconds"] = state ? state.maxCacheAgeSeconds : undefined;
             inputs["mediaServicesAccountName"] = state ? state.mediaServicesAccountName : undefined;
@@ -239,6 +244,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scaleUnits"] = args ? args.scaleUnits : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["hostName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -287,6 +293,10 @@ export interface StreamingEndpointState {
      * The streaming endpoint description.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * The host name of the Streaming Endpoint.
+     */
+    readonly hostName?: pulumi.Input<string>;
     /**
      * The Azure Region where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
      */

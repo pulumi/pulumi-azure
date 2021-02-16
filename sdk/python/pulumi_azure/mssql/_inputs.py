@@ -20,6 +20,8 @@ __all__ = [
     'ServerExtendedAuditingPolicyArgs',
     'ServerIdentityArgs',
     'ServerVulnerabilityAssessmentRecurringScansArgs',
+    'VirtualMachineAutoBackupArgs',
+    'VirtualMachineAutoBackupManualScheduleArgs',
     'VirtualMachineAutoPatchingArgs',
     'VirtualMachineKeyVaultCredentialArgs',
     'VirtualMachineStorageConfigurationArgs',
@@ -681,6 +683,189 @@ class ServerVulnerabilityAssessmentRecurringScansArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class VirtualMachineAutoBackupArgs:
+    def __init__(__self__, *,
+                 retention_period_in_days: pulumi.Input[int],
+                 storage_account_access_key: pulumi.Input[str],
+                 storage_blob_endpoint: pulumi.Input[str],
+                 encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 encryption_password: Optional[pulumi.Input[str]] = None,
+                 manual_schedule: Optional[pulumi.Input['VirtualMachineAutoBackupManualScheduleArgs']] = None,
+                 system_databases_backup_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[int] retention_period_in_days: Retention period of backups, in days. Valid values are from `1` to `30`.
+        :param pulumi.Input[str] storage_account_access_key: Access key for the storage account where backups will be kept.
+        :param pulumi.Input[str] storage_blob_endpoint: Blob endpoint for the storage account where backups will be kept.
+        :param pulumi.Input[bool] encryption_enabled: Enable or disable encryption for backups. Defaults to `false`.
+        :param pulumi.Input[str] encryption_password: Encryption password to use. Must be specified when encryption is enabled.
+        :param pulumi.Input['VirtualMachineAutoBackupManualScheduleArgs'] manual_schedule: A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+        :param pulumi.Input[bool] system_databases_backup_enabled: Include or exclude system databases from auto backup. Defaults to `false`.
+        """
+        pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
+        pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+        pulumi.set(__self__, "storage_blob_endpoint", storage_blob_endpoint)
+        if encryption_enabled is not None:
+            pulumi.set(__self__, "encryption_enabled", encryption_enabled)
+        if encryption_password is not None:
+            pulumi.set(__self__, "encryption_password", encryption_password)
+        if manual_schedule is not None:
+            pulumi.set(__self__, "manual_schedule", manual_schedule)
+        if system_databases_backup_enabled is not None:
+            pulumi.set(__self__, "system_databases_backup_enabled", system_databases_backup_enabled)
+
+    @property
+    @pulumi.getter(name="retentionPeriodInDays")
+    def retention_period_in_days(self) -> pulumi.Input[int]:
+        """
+        Retention period of backups, in days. Valid values are from `1` to `30`.
+        """
+        return pulumi.get(self, "retention_period_in_days")
+
+    @retention_period_in_days.setter
+    def retention_period_in_days(self, value: pulumi.Input[int]):
+        pulumi.set(self, "retention_period_in_days", value)
+
+    @property
+    @pulumi.getter(name="storageAccountAccessKey")
+    def storage_account_access_key(self) -> pulumi.Input[str]:
+        """
+        Access key for the storage account where backups will be kept.
+        """
+        return pulumi.get(self, "storage_account_access_key")
+
+    @storage_account_access_key.setter
+    def storage_account_access_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_access_key", value)
+
+    @property
+    @pulumi.getter(name="storageBlobEndpoint")
+    def storage_blob_endpoint(self) -> pulumi.Input[str]:
+        """
+        Blob endpoint for the storage account where backups will be kept.
+        """
+        return pulumi.get(self, "storage_blob_endpoint")
+
+    @storage_blob_endpoint.setter
+    def storage_blob_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_blob_endpoint", value)
+
+    @property
+    @pulumi.getter(name="encryptionEnabled")
+    def encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable encryption for backups. Defaults to `false`.
+        """
+        return pulumi.get(self, "encryption_enabled")
+
+    @encryption_enabled.setter
+    def encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encryption_enabled", value)
+
+    @property
+    @pulumi.getter(name="encryptionPassword")
+    def encryption_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Encryption password to use. Must be specified when encryption is enabled.
+        """
+        return pulumi.get(self, "encryption_password")
+
+    @encryption_password.setter
+    def encryption_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_password", value)
+
+    @property
+    @pulumi.getter(name="manualSchedule")
+    def manual_schedule(self) -> Optional[pulumi.Input['VirtualMachineAutoBackupManualScheduleArgs']]:
+        """
+        A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+        """
+        return pulumi.get(self, "manual_schedule")
+
+    @manual_schedule.setter
+    def manual_schedule(self, value: Optional[pulumi.Input['VirtualMachineAutoBackupManualScheduleArgs']]):
+        pulumi.set(self, "manual_schedule", value)
+
+    @property
+    @pulumi.getter(name="systemDatabasesBackupEnabled")
+    def system_databases_backup_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Include or exclude system databases from auto backup. Defaults to `false`.
+        """
+        return pulumi.get(self, "system_databases_backup_enabled")
+
+    @system_databases_backup_enabled.setter
+    def system_databases_backup_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "system_databases_backup_enabled", value)
+
+
+@pulumi.input_type
+class VirtualMachineAutoBackupManualScheduleArgs:
+    def __init__(__self__, *,
+                 full_backup_frequency: pulumi.Input[str],
+                 full_backup_start_hour: pulumi.Input[int],
+                 full_backup_window_in_hours: pulumi.Input[int],
+                 log_backup_frequency_in_minutes: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] full_backup_frequency: Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backup_schedule_automated` is false.
+        :param pulumi.Input[int] full_backup_start_hour: Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backup_schedule_automated` is false.
+        :param pulumi.Input[int] full_backup_window_in_hours: Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backup_schedule_automated` is false.
+        :param pulumi.Input[int] log_backup_frequency_in_minutes: Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backup_schedule_automated` is false.
+        """
+        pulumi.set(__self__, "full_backup_frequency", full_backup_frequency)
+        pulumi.set(__self__, "full_backup_start_hour", full_backup_start_hour)
+        pulumi.set(__self__, "full_backup_window_in_hours", full_backup_window_in_hours)
+        pulumi.set(__self__, "log_backup_frequency_in_minutes", log_backup_frequency_in_minutes)
+
+    @property
+    @pulumi.getter(name="fullBackupFrequency")
+    def full_backup_frequency(self) -> pulumi.Input[str]:
+        """
+        Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backup_schedule_automated` is false.
+        """
+        return pulumi.get(self, "full_backup_frequency")
+
+    @full_backup_frequency.setter
+    def full_backup_frequency(self, value: pulumi.Input[str]):
+        pulumi.set(self, "full_backup_frequency", value)
+
+    @property
+    @pulumi.getter(name="fullBackupStartHour")
+    def full_backup_start_hour(self) -> pulumi.Input[int]:
+        """
+        Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backup_schedule_automated` is false.
+        """
+        return pulumi.get(self, "full_backup_start_hour")
+
+    @full_backup_start_hour.setter
+    def full_backup_start_hour(self, value: pulumi.Input[int]):
+        pulumi.set(self, "full_backup_start_hour", value)
+
+    @property
+    @pulumi.getter(name="fullBackupWindowInHours")
+    def full_backup_window_in_hours(self) -> pulumi.Input[int]:
+        """
+        Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backup_schedule_automated` is false.
+        """
+        return pulumi.get(self, "full_backup_window_in_hours")
+
+    @full_backup_window_in_hours.setter
+    def full_backup_window_in_hours(self, value: pulumi.Input[int]):
+        pulumi.set(self, "full_backup_window_in_hours", value)
+
+    @property
+    @pulumi.getter(name="logBackupFrequencyInMinutes")
+    def log_backup_frequency_in_minutes(self) -> pulumi.Input[int]:
+        """
+        Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backup_schedule_automated` is false.
+        """
+        return pulumi.get(self, "log_backup_frequency_in_minutes")
+
+    @log_backup_frequency_in_minutes.setter
+    def log_backup_frequency_in_minutes(self, value: pulumi.Input[int]):
+        pulumi.set(self, "log_backup_frequency_in_minutes", value)
 
 
 @pulumi.input_type

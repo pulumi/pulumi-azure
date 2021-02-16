@@ -193,6 +193,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<bool> PrivateClusterEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Either the ID of Private DNS Zone which should be delegated to this Cluster, or `System` to have AKS manage this.
+        /// </summary>
+        [Output("privateDnsZoneId")]
+        public Output<string> PrivateDnsZoneId { get; private set; } = null!;
+
+        /// <summary>
         /// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         /// </summary>
         [Output("privateFqdn")]
@@ -375,6 +381,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("privateClusterEnabled")]
         public Input<bool>? PrivateClusterEnabled { get; set; }
+
+        /// <summary>
+        /// Either the ID of Private DNS Zone which should be delegated to this Cluster, or `System` to have AKS manage this.
+        /// </summary>
+        [Input("privateDnsZoneId")]
+        public Input<string>? PrivateDnsZoneId { get; set; }
 
         [Input("privateLinkEnabled")]
         public Input<bool>? PrivateLinkEnabled { get; set; }
@@ -574,6 +586,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("privateClusterEnabled")]
         public Input<bool>? PrivateClusterEnabled { get; set; }
+
+        /// <summary>
+        /// Either the ID of Private DNS Zone which should be delegated to this Cluster, or `System` to have AKS manage this.
+        /// </summary>
+        [Input("privateDnsZoneId")]
+        public Input<string>? PrivateDnsZoneId { get; set; }
 
         /// <summary>
         /// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.

@@ -9,6 +9,7 @@ from .certificate import *
 from .certificate_issuer import *
 from .get_access_policy import *
 from .get_certificate import *
+from .get_certificate_data import *
 from .get_certificate_issuer import *
 from .get_key import *
 from .get_key_vault import *

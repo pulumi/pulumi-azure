@@ -124,6 +124,7 @@ class Key(pulumi.CustomResource):
             __props__['e'] = None
             __props__['n'] = None
             __props__['version'] = None
+            __props__['versionless_id'] = None
             __props__['x'] = None
             __props__['y'] = None
         super(Key, __self__).__init__(
@@ -148,6 +149,7 @@ class Key(pulumi.CustomResource):
             not_before_date: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             version: Optional[pulumi.Input[str]] = None,
+            versionless_id: Optional[pulumi.Input[str]] = None,
             x: Optional[pulumi.Input[str]] = None,
             y: Optional[pulumi.Input[str]] = None) -> 'Key':
         """
@@ -169,6 +171,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The current version of the Key Vault Key.
+        :param pulumi.Input[str] versionless_id: The Base ID of the Key Vault Key.
         :param pulumi.Input[str] x: The EC X component of this Key Vault Key.
         :param pulumi.Input[str] y: The EC Y component of this Key Vault Key.
         """
@@ -188,6 +191,7 @@ class Key(pulumi.CustomResource):
         __props__["not_before_date"] = not_before_date
         __props__["tags"] = tags
         __props__["version"] = version
+        __props__["versionless_id"] = versionless_id
         __props__["x"] = x
         __props__["y"] = y
         return Key(resource_name, opts=opts, __props__=__props__)
@@ -287,6 +291,14 @@ class Key(pulumi.CustomResource):
         The current version of the Key Vault Key.
         """
         return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="versionlessId")
+    def versionless_id(self) -> pulumi.Output[str]:
+        """
+        The Base ID of the Key Vault Key.
+        """
+        return pulumi.get(self, "versionless_id")
 
     @property
     @pulumi.getter

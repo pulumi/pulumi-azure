@@ -74,7 +74,8 @@ type LinkedServiceMysql struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service MySQL.
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
-	// Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service MySQL.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
@@ -132,7 +133,8 @@ type linkedServiceMysqlState struct {
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service MySQL.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
-	// Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service MySQL.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -153,7 +155,8 @@ type LinkedServiceMysqlState struct {
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service MySQL.
 	IntegrationRuntimeName pulumi.StringPtrInput
-	// Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service MySQL.
 	Parameters pulumi.StringMapInput
@@ -178,7 +181,8 @@ type linkedServiceMysqlArgs struct {
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service MySQL.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
-	// Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service MySQL.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -200,7 +204,8 @@ type LinkedServiceMysqlArgs struct {
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service MySQL.
 	IntegrationRuntimeName pulumi.StringPtrInput
-	// Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be unique within a data
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service MySQL.
 	Parameters pulumi.StringMapInput

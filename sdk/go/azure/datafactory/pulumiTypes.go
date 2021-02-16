@@ -2797,6 +2797,494 @@ func (o IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput) Index(i pulumi
 	}).(IntegrationRuntimeSelfHostedRbacAuthorizationOutput)
 }
 
+type IntegrationRuntimeSsisCatalogInfo struct {
+	// Administrator login name for the SQL Server.
+	AdministratorLogin string `pulumi:"administratorLogin"`
+	// Administrator login password for the SQL Server.
+	AdministratorPassword string `pulumi:"administratorPassword"`
+	// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+	PricingTier *string `pulumi:"pricingTier"`
+	// The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
+	ServerEndpoint string `pulumi:"serverEndpoint"`
+}
+
+// IntegrationRuntimeSsisCatalogInfoInput is an input type that accepts IntegrationRuntimeSsisCatalogInfoArgs and IntegrationRuntimeSsisCatalogInfoOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisCatalogInfoInput` via:
+//
+//          IntegrationRuntimeSsisCatalogInfoArgs{...}
+type IntegrationRuntimeSsisCatalogInfoInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisCatalogInfoOutput() IntegrationRuntimeSsisCatalogInfoOutput
+	ToIntegrationRuntimeSsisCatalogInfoOutputWithContext(context.Context) IntegrationRuntimeSsisCatalogInfoOutput
+}
+
+type IntegrationRuntimeSsisCatalogInfoArgs struct {
+	// Administrator login name for the SQL Server.
+	AdministratorLogin pulumi.StringInput `pulumi:"administratorLogin"`
+	// Administrator login password for the SQL Server.
+	AdministratorPassword pulumi.StringInput `pulumi:"administratorPassword"`
+	// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+	PricingTier pulumi.StringPtrInput `pulumi:"pricingTier"`
+	// The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
+	ServerEndpoint pulumi.StringInput `pulumi:"serverEndpoint"`
+}
+
+func (IntegrationRuntimeSsisCatalogInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisCatalogInfo)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeSsisCatalogInfoArgs) ToIntegrationRuntimeSsisCatalogInfoOutput() IntegrationRuntimeSsisCatalogInfoOutput {
+	return i.ToIntegrationRuntimeSsisCatalogInfoOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisCatalogInfoArgs) ToIntegrationRuntimeSsisCatalogInfoOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisCatalogInfoOutput)
+}
+
+func (i IntegrationRuntimeSsisCatalogInfoArgs) ToIntegrationRuntimeSsisCatalogInfoPtrOutput() IntegrationRuntimeSsisCatalogInfoPtrOutput {
+	return i.ToIntegrationRuntimeSsisCatalogInfoPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisCatalogInfoArgs) ToIntegrationRuntimeSsisCatalogInfoPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisCatalogInfoOutput).ToIntegrationRuntimeSsisCatalogInfoPtrOutputWithContext(ctx)
+}
+
+// IntegrationRuntimeSsisCatalogInfoPtrInput is an input type that accepts IntegrationRuntimeSsisCatalogInfoArgs, IntegrationRuntimeSsisCatalogInfoPtr and IntegrationRuntimeSsisCatalogInfoPtrOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisCatalogInfoPtrInput` via:
+//
+//          IntegrationRuntimeSsisCatalogInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationRuntimeSsisCatalogInfoPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisCatalogInfoPtrOutput() IntegrationRuntimeSsisCatalogInfoPtrOutput
+	ToIntegrationRuntimeSsisCatalogInfoPtrOutputWithContext(context.Context) IntegrationRuntimeSsisCatalogInfoPtrOutput
+}
+
+type integrationRuntimeSsisCatalogInfoPtrType IntegrationRuntimeSsisCatalogInfoArgs
+
+func IntegrationRuntimeSsisCatalogInfoPtr(v *IntegrationRuntimeSsisCatalogInfoArgs) IntegrationRuntimeSsisCatalogInfoPtrInput {
+	return (*integrationRuntimeSsisCatalogInfoPtrType)(v)
+}
+
+func (*integrationRuntimeSsisCatalogInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisCatalogInfo)(nil)).Elem()
+}
+
+func (i *integrationRuntimeSsisCatalogInfoPtrType) ToIntegrationRuntimeSsisCatalogInfoPtrOutput() IntegrationRuntimeSsisCatalogInfoPtrOutput {
+	return i.ToIntegrationRuntimeSsisCatalogInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationRuntimeSsisCatalogInfoPtrType) ToIntegrationRuntimeSsisCatalogInfoPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisCatalogInfoPtrOutput)
+}
+
+type IntegrationRuntimeSsisCatalogInfoOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisCatalogInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisCatalogInfo)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisCatalogInfoOutput) ToIntegrationRuntimeSsisCatalogInfoOutput() IntegrationRuntimeSsisCatalogInfoOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisCatalogInfoOutput) ToIntegrationRuntimeSsisCatalogInfoOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogInfoOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisCatalogInfoOutput) ToIntegrationRuntimeSsisCatalogInfoPtrOutput() IntegrationRuntimeSsisCatalogInfoPtrOutput {
+	return o.ToIntegrationRuntimeSsisCatalogInfoPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeSsisCatalogInfoOutput) ToIntegrationRuntimeSsisCatalogInfoPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogInfoPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) *IntegrationRuntimeSsisCatalogInfo {
+		return &v
+	}).(IntegrationRuntimeSsisCatalogInfoPtrOutput)
+}
+
+// Administrator login name for the SQL Server.
+func (o IntegrationRuntimeSsisCatalogInfoOutput) AdministratorLogin() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) string { return v.AdministratorLogin }).(pulumi.StringOutput)
+}
+
+// Administrator login password for the SQL Server.
+func (o IntegrationRuntimeSsisCatalogInfoOutput) AdministratorPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) string { return v.AdministratorPassword }).(pulumi.StringOutput)
+}
+
+// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+func (o IntegrationRuntimeSsisCatalogInfoOutput) PricingTier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) *string { return v.PricingTier }).(pulumi.StringPtrOutput)
+}
+
+// The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
+func (o IntegrationRuntimeSsisCatalogInfoOutput) ServerEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) string { return v.ServerEndpoint }).(pulumi.StringOutput)
+}
+
+type IntegrationRuntimeSsisCatalogInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisCatalogInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisCatalogInfo)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) ToIntegrationRuntimeSsisCatalogInfoPtrOutput() IntegrationRuntimeSsisCatalogInfoPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) ToIntegrationRuntimeSsisCatalogInfoPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogInfoPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) Elem() IntegrationRuntimeSsisCatalogInfoOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisCatalogInfo) IntegrationRuntimeSsisCatalogInfo { return *v }).(IntegrationRuntimeSsisCatalogInfoOutput)
+}
+
+// Administrator login name for the SQL Server.
+func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) AdministratorLogin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisCatalogInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AdministratorLogin
+	}).(pulumi.StringPtrOutput)
+}
+
+// Administrator login password for the SQL Server.
+func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) AdministratorPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisCatalogInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AdministratorPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) PricingTier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisCatalogInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PricingTier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
+func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) ServerEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisCatalogInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServerEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationRuntimeSsisCustomSetupScript struct {
+	// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+	BlobContainerUri string `pulumi:"blobContainerUri"`
+	// A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+	SasToken string `pulumi:"sasToken"`
+}
+
+// IntegrationRuntimeSsisCustomSetupScriptInput is an input type that accepts IntegrationRuntimeSsisCustomSetupScriptArgs and IntegrationRuntimeSsisCustomSetupScriptOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisCustomSetupScriptInput` via:
+//
+//          IntegrationRuntimeSsisCustomSetupScriptArgs{...}
+type IntegrationRuntimeSsisCustomSetupScriptInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisCustomSetupScriptOutput() IntegrationRuntimeSsisCustomSetupScriptOutput
+	ToIntegrationRuntimeSsisCustomSetupScriptOutputWithContext(context.Context) IntegrationRuntimeSsisCustomSetupScriptOutput
+}
+
+type IntegrationRuntimeSsisCustomSetupScriptArgs struct {
+	// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+	BlobContainerUri pulumi.StringInput `pulumi:"blobContainerUri"`
+	// A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+	SasToken pulumi.StringInput `pulumi:"sasToken"`
+}
+
+func (IntegrationRuntimeSsisCustomSetupScriptArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisCustomSetupScript)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeSsisCustomSetupScriptArgs) ToIntegrationRuntimeSsisCustomSetupScriptOutput() IntegrationRuntimeSsisCustomSetupScriptOutput {
+	return i.ToIntegrationRuntimeSsisCustomSetupScriptOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisCustomSetupScriptArgs) ToIntegrationRuntimeSsisCustomSetupScriptOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCustomSetupScriptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisCustomSetupScriptOutput)
+}
+
+func (i IntegrationRuntimeSsisCustomSetupScriptArgs) ToIntegrationRuntimeSsisCustomSetupScriptPtrOutput() IntegrationRuntimeSsisCustomSetupScriptPtrOutput {
+	return i.ToIntegrationRuntimeSsisCustomSetupScriptPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisCustomSetupScriptArgs) ToIntegrationRuntimeSsisCustomSetupScriptPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCustomSetupScriptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisCustomSetupScriptOutput).ToIntegrationRuntimeSsisCustomSetupScriptPtrOutputWithContext(ctx)
+}
+
+// IntegrationRuntimeSsisCustomSetupScriptPtrInput is an input type that accepts IntegrationRuntimeSsisCustomSetupScriptArgs, IntegrationRuntimeSsisCustomSetupScriptPtr and IntegrationRuntimeSsisCustomSetupScriptPtrOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisCustomSetupScriptPtrInput` via:
+//
+//          IntegrationRuntimeSsisCustomSetupScriptArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationRuntimeSsisCustomSetupScriptPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisCustomSetupScriptPtrOutput() IntegrationRuntimeSsisCustomSetupScriptPtrOutput
+	ToIntegrationRuntimeSsisCustomSetupScriptPtrOutputWithContext(context.Context) IntegrationRuntimeSsisCustomSetupScriptPtrOutput
+}
+
+type integrationRuntimeSsisCustomSetupScriptPtrType IntegrationRuntimeSsisCustomSetupScriptArgs
+
+func IntegrationRuntimeSsisCustomSetupScriptPtr(v *IntegrationRuntimeSsisCustomSetupScriptArgs) IntegrationRuntimeSsisCustomSetupScriptPtrInput {
+	return (*integrationRuntimeSsisCustomSetupScriptPtrType)(v)
+}
+
+func (*integrationRuntimeSsisCustomSetupScriptPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisCustomSetupScript)(nil)).Elem()
+}
+
+func (i *integrationRuntimeSsisCustomSetupScriptPtrType) ToIntegrationRuntimeSsisCustomSetupScriptPtrOutput() IntegrationRuntimeSsisCustomSetupScriptPtrOutput {
+	return i.ToIntegrationRuntimeSsisCustomSetupScriptPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationRuntimeSsisCustomSetupScriptPtrType) ToIntegrationRuntimeSsisCustomSetupScriptPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCustomSetupScriptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisCustomSetupScriptPtrOutput)
+}
+
+type IntegrationRuntimeSsisCustomSetupScriptOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisCustomSetupScriptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisCustomSetupScript)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisCustomSetupScriptOutput) ToIntegrationRuntimeSsisCustomSetupScriptOutput() IntegrationRuntimeSsisCustomSetupScriptOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisCustomSetupScriptOutput) ToIntegrationRuntimeSsisCustomSetupScriptOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCustomSetupScriptOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisCustomSetupScriptOutput) ToIntegrationRuntimeSsisCustomSetupScriptPtrOutput() IntegrationRuntimeSsisCustomSetupScriptPtrOutput {
+	return o.ToIntegrationRuntimeSsisCustomSetupScriptPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeSsisCustomSetupScriptOutput) ToIntegrationRuntimeSsisCustomSetupScriptPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCustomSetupScriptPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisCustomSetupScript) *IntegrationRuntimeSsisCustomSetupScript {
+		return &v
+	}).(IntegrationRuntimeSsisCustomSetupScriptPtrOutput)
+}
+
+// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+func (o IntegrationRuntimeSsisCustomSetupScriptOutput) BlobContainerUri() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisCustomSetupScript) string { return v.BlobContainerUri }).(pulumi.StringOutput)
+}
+
+// A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+func (o IntegrationRuntimeSsisCustomSetupScriptOutput) SasToken() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisCustomSetupScript) string { return v.SasToken }).(pulumi.StringOutput)
+}
+
+type IntegrationRuntimeSsisCustomSetupScriptPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisCustomSetupScriptPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisCustomSetupScript)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisCustomSetupScriptPtrOutput) ToIntegrationRuntimeSsisCustomSetupScriptPtrOutput() IntegrationRuntimeSsisCustomSetupScriptPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisCustomSetupScriptPtrOutput) ToIntegrationRuntimeSsisCustomSetupScriptPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCustomSetupScriptPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisCustomSetupScriptPtrOutput) Elem() IntegrationRuntimeSsisCustomSetupScriptOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisCustomSetupScript) IntegrationRuntimeSsisCustomSetupScript { return *v }).(IntegrationRuntimeSsisCustomSetupScriptOutput)
+}
+
+// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+func (o IntegrationRuntimeSsisCustomSetupScriptPtrOutput) BlobContainerUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisCustomSetupScript) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BlobContainerUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+func (o IntegrationRuntimeSsisCustomSetupScriptPtrOutput) SasToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisCustomSetupScript) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SasToken
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationRuntimeSsisVnetIntegration struct {
+	// Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+	SubnetName string `pulumi:"subnetName"`
+	// ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
+	VnetId string `pulumi:"vnetId"`
+}
+
+// IntegrationRuntimeSsisVnetIntegrationInput is an input type that accepts IntegrationRuntimeSsisVnetIntegrationArgs and IntegrationRuntimeSsisVnetIntegrationOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisVnetIntegrationInput` via:
+//
+//          IntegrationRuntimeSsisVnetIntegrationArgs{...}
+type IntegrationRuntimeSsisVnetIntegrationInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisVnetIntegrationOutput() IntegrationRuntimeSsisVnetIntegrationOutput
+	ToIntegrationRuntimeSsisVnetIntegrationOutputWithContext(context.Context) IntegrationRuntimeSsisVnetIntegrationOutput
+}
+
+type IntegrationRuntimeSsisVnetIntegrationArgs struct {
+	// Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+	SubnetName pulumi.StringInput `pulumi:"subnetName"`
+	// ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
+	VnetId pulumi.StringInput `pulumi:"vnetId"`
+}
+
+func (IntegrationRuntimeSsisVnetIntegrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisVnetIntegration)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeSsisVnetIntegrationArgs) ToIntegrationRuntimeSsisVnetIntegrationOutput() IntegrationRuntimeSsisVnetIntegrationOutput {
+	return i.ToIntegrationRuntimeSsisVnetIntegrationOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisVnetIntegrationArgs) ToIntegrationRuntimeSsisVnetIntegrationOutputWithContext(ctx context.Context) IntegrationRuntimeSsisVnetIntegrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisVnetIntegrationOutput)
+}
+
+func (i IntegrationRuntimeSsisVnetIntegrationArgs) ToIntegrationRuntimeSsisVnetIntegrationPtrOutput() IntegrationRuntimeSsisVnetIntegrationPtrOutput {
+	return i.ToIntegrationRuntimeSsisVnetIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisVnetIntegrationArgs) ToIntegrationRuntimeSsisVnetIntegrationPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisVnetIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisVnetIntegrationOutput).ToIntegrationRuntimeSsisVnetIntegrationPtrOutputWithContext(ctx)
+}
+
+// IntegrationRuntimeSsisVnetIntegrationPtrInput is an input type that accepts IntegrationRuntimeSsisVnetIntegrationArgs, IntegrationRuntimeSsisVnetIntegrationPtr and IntegrationRuntimeSsisVnetIntegrationPtrOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisVnetIntegrationPtrInput` via:
+//
+//          IntegrationRuntimeSsisVnetIntegrationArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationRuntimeSsisVnetIntegrationPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisVnetIntegrationPtrOutput() IntegrationRuntimeSsisVnetIntegrationPtrOutput
+	ToIntegrationRuntimeSsisVnetIntegrationPtrOutputWithContext(context.Context) IntegrationRuntimeSsisVnetIntegrationPtrOutput
+}
+
+type integrationRuntimeSsisVnetIntegrationPtrType IntegrationRuntimeSsisVnetIntegrationArgs
+
+func IntegrationRuntimeSsisVnetIntegrationPtr(v *IntegrationRuntimeSsisVnetIntegrationArgs) IntegrationRuntimeSsisVnetIntegrationPtrInput {
+	return (*integrationRuntimeSsisVnetIntegrationPtrType)(v)
+}
+
+func (*integrationRuntimeSsisVnetIntegrationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisVnetIntegration)(nil)).Elem()
+}
+
+func (i *integrationRuntimeSsisVnetIntegrationPtrType) ToIntegrationRuntimeSsisVnetIntegrationPtrOutput() IntegrationRuntimeSsisVnetIntegrationPtrOutput {
+	return i.ToIntegrationRuntimeSsisVnetIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationRuntimeSsisVnetIntegrationPtrType) ToIntegrationRuntimeSsisVnetIntegrationPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisVnetIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisVnetIntegrationPtrOutput)
+}
+
+type IntegrationRuntimeSsisVnetIntegrationOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisVnetIntegrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisVnetIntegration)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisVnetIntegrationOutput) ToIntegrationRuntimeSsisVnetIntegrationOutput() IntegrationRuntimeSsisVnetIntegrationOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisVnetIntegrationOutput) ToIntegrationRuntimeSsisVnetIntegrationOutputWithContext(ctx context.Context) IntegrationRuntimeSsisVnetIntegrationOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisVnetIntegrationOutput) ToIntegrationRuntimeSsisVnetIntegrationPtrOutput() IntegrationRuntimeSsisVnetIntegrationPtrOutput {
+	return o.ToIntegrationRuntimeSsisVnetIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeSsisVnetIntegrationOutput) ToIntegrationRuntimeSsisVnetIntegrationPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisVnetIntegrationPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisVnetIntegration) *IntegrationRuntimeSsisVnetIntegration {
+		return &v
+	}).(IntegrationRuntimeSsisVnetIntegrationPtrOutput)
+}
+
+// Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+func (o IntegrationRuntimeSsisVnetIntegrationOutput) SubnetName() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisVnetIntegration) string { return v.SubnetName }).(pulumi.StringOutput)
+}
+
+// ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
+func (o IntegrationRuntimeSsisVnetIntegrationOutput) VnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisVnetIntegration) string { return v.VnetId }).(pulumi.StringOutput)
+}
+
+type IntegrationRuntimeSsisVnetIntegrationPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisVnetIntegrationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisVnetIntegration)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisVnetIntegrationPtrOutput) ToIntegrationRuntimeSsisVnetIntegrationPtrOutput() IntegrationRuntimeSsisVnetIntegrationPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisVnetIntegrationPtrOutput) ToIntegrationRuntimeSsisVnetIntegrationPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisVnetIntegrationPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisVnetIntegrationPtrOutput) Elem() IntegrationRuntimeSsisVnetIntegrationOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisVnetIntegration) IntegrationRuntimeSsisVnetIntegration { return *v }).(IntegrationRuntimeSsisVnetIntegrationOutput)
+}
+
+// Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+func (o IntegrationRuntimeSsisVnetIntegrationPtrOutput) SubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisVnetIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SubnetName
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
+func (o IntegrationRuntimeSsisVnetIntegrationPtrOutput) VnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisVnetIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VnetId
+	}).(pulumi.StringPtrOutput)
+}
+
 type LinkedServiceSnowflakeKeyVaultPassword struct {
 	// Specifies the name of an existing Key Vault Data Factory Linked Service.
 	LinkedServiceName string `pulumi:"linkedServiceName"`
@@ -3676,6 +4164,12 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeManagedVnetIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSelfHostedRbacAuthorizationOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisCatalogInfoOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisCatalogInfoPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisCustomSetupScriptOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisCustomSetupScriptPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisVnetIntegrationOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisVnetIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSnowflakeKeyVaultPasswordOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSnowflakeKeyVaultPasswordPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSqlServerKeyVaultPasswordOutput{})

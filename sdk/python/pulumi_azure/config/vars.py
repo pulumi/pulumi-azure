@@ -101,7 +101,7 @@ A GUID/UUID that is registered with Microsoft to facilitate partner resource usa
 
 skip_credentials_validation = __config__.get('skipCredentialsValidation')
 """
-This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
+[DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
 """
 
 skip_provider_registration = __config__.get('skipProviderRegistration') or (_utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)

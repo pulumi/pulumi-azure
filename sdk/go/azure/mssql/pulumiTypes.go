@@ -1913,6 +1913,439 @@ func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) Enabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+type VirtualMachineAutoBackup struct {
+	// Enable or disable encryption for backups. Defaults to `false`.
+	EncryptionEnabled *bool `pulumi:"encryptionEnabled"`
+	// Encryption password to use. Must be specified when encryption is enabled.
+	EncryptionPassword *string `pulumi:"encryptionPassword"`
+	// A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+	ManualSchedule *VirtualMachineAutoBackupManualSchedule `pulumi:"manualSchedule"`
+	// Retention period of backups, in days. Valid values are from `1` to `30`.
+	RetentionPeriodInDays int `pulumi:"retentionPeriodInDays"`
+	// Access key for the storage account where backups will be kept.
+	StorageAccountAccessKey string `pulumi:"storageAccountAccessKey"`
+	// Blob endpoint for the storage account where backups will be kept.
+	StorageBlobEndpoint string `pulumi:"storageBlobEndpoint"`
+	// Include or exclude system databases from auto backup. Defaults to `false`.
+	SystemDatabasesBackupEnabled *bool `pulumi:"systemDatabasesBackupEnabled"`
+}
+
+// VirtualMachineAutoBackupInput is an input type that accepts VirtualMachineAutoBackupArgs and VirtualMachineAutoBackupOutput values.
+// You can construct a concrete instance of `VirtualMachineAutoBackupInput` via:
+//
+//          VirtualMachineAutoBackupArgs{...}
+type VirtualMachineAutoBackupInput interface {
+	pulumi.Input
+
+	ToVirtualMachineAutoBackupOutput() VirtualMachineAutoBackupOutput
+	ToVirtualMachineAutoBackupOutputWithContext(context.Context) VirtualMachineAutoBackupOutput
+}
+
+type VirtualMachineAutoBackupArgs struct {
+	// Enable or disable encryption for backups. Defaults to `false`.
+	EncryptionEnabled pulumi.BoolPtrInput `pulumi:"encryptionEnabled"`
+	// Encryption password to use. Must be specified when encryption is enabled.
+	EncryptionPassword pulumi.StringPtrInput `pulumi:"encryptionPassword"`
+	// A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+	ManualSchedule VirtualMachineAutoBackupManualSchedulePtrInput `pulumi:"manualSchedule"`
+	// Retention period of backups, in days. Valid values are from `1` to `30`.
+	RetentionPeriodInDays pulumi.IntInput `pulumi:"retentionPeriodInDays"`
+	// Access key for the storage account where backups will be kept.
+	StorageAccountAccessKey pulumi.StringInput `pulumi:"storageAccountAccessKey"`
+	// Blob endpoint for the storage account where backups will be kept.
+	StorageBlobEndpoint pulumi.StringInput `pulumi:"storageBlobEndpoint"`
+	// Include or exclude system databases from auto backup. Defaults to `false`.
+	SystemDatabasesBackupEnabled pulumi.BoolPtrInput `pulumi:"systemDatabasesBackupEnabled"`
+}
+
+func (VirtualMachineAutoBackupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineAutoBackup)(nil)).Elem()
+}
+
+func (i VirtualMachineAutoBackupArgs) ToVirtualMachineAutoBackupOutput() VirtualMachineAutoBackupOutput {
+	return i.ToVirtualMachineAutoBackupOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineAutoBackupArgs) ToVirtualMachineAutoBackupOutputWithContext(ctx context.Context) VirtualMachineAutoBackupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAutoBackupOutput)
+}
+
+func (i VirtualMachineAutoBackupArgs) ToVirtualMachineAutoBackupPtrOutput() VirtualMachineAutoBackupPtrOutput {
+	return i.ToVirtualMachineAutoBackupPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineAutoBackupArgs) ToVirtualMachineAutoBackupPtrOutputWithContext(ctx context.Context) VirtualMachineAutoBackupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAutoBackupOutput).ToVirtualMachineAutoBackupPtrOutputWithContext(ctx)
+}
+
+// VirtualMachineAutoBackupPtrInput is an input type that accepts VirtualMachineAutoBackupArgs, VirtualMachineAutoBackupPtr and VirtualMachineAutoBackupPtrOutput values.
+// You can construct a concrete instance of `VirtualMachineAutoBackupPtrInput` via:
+//
+//          VirtualMachineAutoBackupArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualMachineAutoBackupPtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineAutoBackupPtrOutput() VirtualMachineAutoBackupPtrOutput
+	ToVirtualMachineAutoBackupPtrOutputWithContext(context.Context) VirtualMachineAutoBackupPtrOutput
+}
+
+type virtualMachineAutoBackupPtrType VirtualMachineAutoBackupArgs
+
+func VirtualMachineAutoBackupPtr(v *VirtualMachineAutoBackupArgs) VirtualMachineAutoBackupPtrInput {
+	return (*virtualMachineAutoBackupPtrType)(v)
+}
+
+func (*virtualMachineAutoBackupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineAutoBackup)(nil)).Elem()
+}
+
+func (i *virtualMachineAutoBackupPtrType) ToVirtualMachineAutoBackupPtrOutput() VirtualMachineAutoBackupPtrOutput {
+	return i.ToVirtualMachineAutoBackupPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineAutoBackupPtrType) ToVirtualMachineAutoBackupPtrOutputWithContext(ctx context.Context) VirtualMachineAutoBackupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAutoBackupPtrOutput)
+}
+
+type VirtualMachineAutoBackupOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineAutoBackupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineAutoBackup)(nil)).Elem()
+}
+
+func (o VirtualMachineAutoBackupOutput) ToVirtualMachineAutoBackupOutput() VirtualMachineAutoBackupOutput {
+	return o
+}
+
+func (o VirtualMachineAutoBackupOutput) ToVirtualMachineAutoBackupOutputWithContext(ctx context.Context) VirtualMachineAutoBackupOutput {
+	return o
+}
+
+func (o VirtualMachineAutoBackupOutput) ToVirtualMachineAutoBackupPtrOutput() VirtualMachineAutoBackupPtrOutput {
+	return o.ToVirtualMachineAutoBackupPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineAutoBackupOutput) ToVirtualMachineAutoBackupPtrOutputWithContext(ctx context.Context) VirtualMachineAutoBackupPtrOutput {
+	return o.ApplyT(func(v VirtualMachineAutoBackup) *VirtualMachineAutoBackup {
+		return &v
+	}).(VirtualMachineAutoBackupPtrOutput)
+}
+
+// Enable or disable encryption for backups. Defaults to `false`.
+func (o VirtualMachineAutoBackupOutput) EncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineAutoBackup) *bool { return v.EncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Encryption password to use. Must be specified when encryption is enabled.
+func (o VirtualMachineAutoBackupOutput) EncryptionPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineAutoBackup) *string { return v.EncryptionPassword }).(pulumi.StringPtrOutput)
+}
+
+// A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+func (o VirtualMachineAutoBackupOutput) ManualSchedule() VirtualMachineAutoBackupManualSchedulePtrOutput {
+	return o.ApplyT(func(v VirtualMachineAutoBackup) *VirtualMachineAutoBackupManualSchedule { return v.ManualSchedule }).(VirtualMachineAutoBackupManualSchedulePtrOutput)
+}
+
+// Retention period of backups, in days. Valid values are from `1` to `30`.
+func (o VirtualMachineAutoBackupOutput) RetentionPeriodInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualMachineAutoBackup) int { return v.RetentionPeriodInDays }).(pulumi.IntOutput)
+}
+
+// Access key for the storage account where backups will be kept.
+func (o VirtualMachineAutoBackupOutput) StorageAccountAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineAutoBackup) string { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
+}
+
+// Blob endpoint for the storage account where backups will be kept.
+func (o VirtualMachineAutoBackupOutput) StorageBlobEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineAutoBackup) string { return v.StorageBlobEndpoint }).(pulumi.StringOutput)
+}
+
+// Include or exclude system databases from auto backup. Defaults to `false`.
+func (o VirtualMachineAutoBackupOutput) SystemDatabasesBackupEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineAutoBackup) *bool { return v.SystemDatabasesBackupEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type VirtualMachineAutoBackupPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineAutoBackupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineAutoBackup)(nil)).Elem()
+}
+
+func (o VirtualMachineAutoBackupPtrOutput) ToVirtualMachineAutoBackupPtrOutput() VirtualMachineAutoBackupPtrOutput {
+	return o
+}
+
+func (o VirtualMachineAutoBackupPtrOutput) ToVirtualMachineAutoBackupPtrOutputWithContext(ctx context.Context) VirtualMachineAutoBackupPtrOutput {
+	return o
+}
+
+func (o VirtualMachineAutoBackupPtrOutput) Elem() VirtualMachineAutoBackupOutput {
+	return o.ApplyT(func(v *VirtualMachineAutoBackup) VirtualMachineAutoBackup { return *v }).(VirtualMachineAutoBackupOutput)
+}
+
+// Enable or disable encryption for backups. Defaults to `false`.
+func (o VirtualMachineAutoBackupPtrOutput) EncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAutoBackup) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Encryption password to use. Must be specified when encryption is enabled.
+func (o VirtualMachineAutoBackupPtrOutput) EncryptionPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAutoBackup) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+func (o VirtualMachineAutoBackupPtrOutput) ManualSchedule() VirtualMachineAutoBackupManualSchedulePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAutoBackup) *VirtualMachineAutoBackupManualSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.ManualSchedule
+	}).(VirtualMachineAutoBackupManualSchedulePtrOutput)
+}
+
+// Retention period of backups, in days. Valid values are from `1` to `30`.
+func (o VirtualMachineAutoBackupPtrOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAutoBackup) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.RetentionPeriodInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// Access key for the storage account where backups will be kept.
+func (o VirtualMachineAutoBackupPtrOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAutoBackup) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageAccountAccessKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Blob endpoint for the storage account where backups will be kept.
+func (o VirtualMachineAutoBackupPtrOutput) StorageBlobEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAutoBackup) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageBlobEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Include or exclude system databases from auto backup. Defaults to `false`.
+func (o VirtualMachineAutoBackupPtrOutput) SystemDatabasesBackupEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAutoBackup) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SystemDatabasesBackupEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type VirtualMachineAutoBackupManualSchedule struct {
+	// Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backupScheduleAutomated` is false.
+	FullBackupFrequency string `pulumi:"fullBackupFrequency"`
+	// Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backupScheduleAutomated` is false.
+	FullBackupStartHour int `pulumi:"fullBackupStartHour"`
+	// Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backupScheduleAutomated` is false.
+	FullBackupWindowInHours int `pulumi:"fullBackupWindowInHours"`
+	// Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backupScheduleAutomated` is false.
+	LogBackupFrequencyInMinutes int `pulumi:"logBackupFrequencyInMinutes"`
+}
+
+// VirtualMachineAutoBackupManualScheduleInput is an input type that accepts VirtualMachineAutoBackupManualScheduleArgs and VirtualMachineAutoBackupManualScheduleOutput values.
+// You can construct a concrete instance of `VirtualMachineAutoBackupManualScheduleInput` via:
+//
+//          VirtualMachineAutoBackupManualScheduleArgs{...}
+type VirtualMachineAutoBackupManualScheduleInput interface {
+	pulumi.Input
+
+	ToVirtualMachineAutoBackupManualScheduleOutput() VirtualMachineAutoBackupManualScheduleOutput
+	ToVirtualMachineAutoBackupManualScheduleOutputWithContext(context.Context) VirtualMachineAutoBackupManualScheduleOutput
+}
+
+type VirtualMachineAutoBackupManualScheduleArgs struct {
+	// Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backupScheduleAutomated` is false.
+	FullBackupFrequency pulumi.StringInput `pulumi:"fullBackupFrequency"`
+	// Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backupScheduleAutomated` is false.
+	FullBackupStartHour pulumi.IntInput `pulumi:"fullBackupStartHour"`
+	// Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backupScheduleAutomated` is false.
+	FullBackupWindowInHours pulumi.IntInput `pulumi:"fullBackupWindowInHours"`
+	// Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backupScheduleAutomated` is false.
+	LogBackupFrequencyInMinutes pulumi.IntInput `pulumi:"logBackupFrequencyInMinutes"`
+}
+
+func (VirtualMachineAutoBackupManualScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineAutoBackupManualSchedule)(nil)).Elem()
+}
+
+func (i VirtualMachineAutoBackupManualScheduleArgs) ToVirtualMachineAutoBackupManualScheduleOutput() VirtualMachineAutoBackupManualScheduleOutput {
+	return i.ToVirtualMachineAutoBackupManualScheduleOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineAutoBackupManualScheduleArgs) ToVirtualMachineAutoBackupManualScheduleOutputWithContext(ctx context.Context) VirtualMachineAutoBackupManualScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAutoBackupManualScheduleOutput)
+}
+
+func (i VirtualMachineAutoBackupManualScheduleArgs) ToVirtualMachineAutoBackupManualSchedulePtrOutput() VirtualMachineAutoBackupManualSchedulePtrOutput {
+	return i.ToVirtualMachineAutoBackupManualSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineAutoBackupManualScheduleArgs) ToVirtualMachineAutoBackupManualSchedulePtrOutputWithContext(ctx context.Context) VirtualMachineAutoBackupManualSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAutoBackupManualScheduleOutput).ToVirtualMachineAutoBackupManualSchedulePtrOutputWithContext(ctx)
+}
+
+// VirtualMachineAutoBackupManualSchedulePtrInput is an input type that accepts VirtualMachineAutoBackupManualScheduleArgs, VirtualMachineAutoBackupManualSchedulePtr and VirtualMachineAutoBackupManualSchedulePtrOutput values.
+// You can construct a concrete instance of `VirtualMachineAutoBackupManualSchedulePtrInput` via:
+//
+//          VirtualMachineAutoBackupManualScheduleArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualMachineAutoBackupManualSchedulePtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineAutoBackupManualSchedulePtrOutput() VirtualMachineAutoBackupManualSchedulePtrOutput
+	ToVirtualMachineAutoBackupManualSchedulePtrOutputWithContext(context.Context) VirtualMachineAutoBackupManualSchedulePtrOutput
+}
+
+type virtualMachineAutoBackupManualSchedulePtrType VirtualMachineAutoBackupManualScheduleArgs
+
+func VirtualMachineAutoBackupManualSchedulePtr(v *VirtualMachineAutoBackupManualScheduleArgs) VirtualMachineAutoBackupManualSchedulePtrInput {
+	return (*virtualMachineAutoBackupManualSchedulePtrType)(v)
+}
+
+func (*virtualMachineAutoBackupManualSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineAutoBackupManualSchedule)(nil)).Elem()
+}
+
+func (i *virtualMachineAutoBackupManualSchedulePtrType) ToVirtualMachineAutoBackupManualSchedulePtrOutput() VirtualMachineAutoBackupManualSchedulePtrOutput {
+	return i.ToVirtualMachineAutoBackupManualSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineAutoBackupManualSchedulePtrType) ToVirtualMachineAutoBackupManualSchedulePtrOutputWithContext(ctx context.Context) VirtualMachineAutoBackupManualSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAutoBackupManualSchedulePtrOutput)
+}
+
+type VirtualMachineAutoBackupManualScheduleOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineAutoBackupManualScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineAutoBackupManualSchedule)(nil)).Elem()
+}
+
+func (o VirtualMachineAutoBackupManualScheduleOutput) ToVirtualMachineAutoBackupManualScheduleOutput() VirtualMachineAutoBackupManualScheduleOutput {
+	return o
+}
+
+func (o VirtualMachineAutoBackupManualScheduleOutput) ToVirtualMachineAutoBackupManualScheduleOutputWithContext(ctx context.Context) VirtualMachineAutoBackupManualScheduleOutput {
+	return o
+}
+
+func (o VirtualMachineAutoBackupManualScheduleOutput) ToVirtualMachineAutoBackupManualSchedulePtrOutput() VirtualMachineAutoBackupManualSchedulePtrOutput {
+	return o.ToVirtualMachineAutoBackupManualSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineAutoBackupManualScheduleOutput) ToVirtualMachineAutoBackupManualSchedulePtrOutputWithContext(ctx context.Context) VirtualMachineAutoBackupManualSchedulePtrOutput {
+	return o.ApplyT(func(v VirtualMachineAutoBackupManualSchedule) *VirtualMachineAutoBackupManualSchedule {
+		return &v
+	}).(VirtualMachineAutoBackupManualSchedulePtrOutput)
+}
+
+// Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backupScheduleAutomated` is false.
+func (o VirtualMachineAutoBackupManualScheduleOutput) FullBackupFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineAutoBackupManualSchedule) string { return v.FullBackupFrequency }).(pulumi.StringOutput)
+}
+
+// Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backupScheduleAutomated` is false.
+func (o VirtualMachineAutoBackupManualScheduleOutput) FullBackupStartHour() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualMachineAutoBackupManualSchedule) int { return v.FullBackupStartHour }).(pulumi.IntOutput)
+}
+
+// Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backupScheduleAutomated` is false.
+func (o VirtualMachineAutoBackupManualScheduleOutput) FullBackupWindowInHours() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualMachineAutoBackupManualSchedule) int { return v.FullBackupWindowInHours }).(pulumi.IntOutput)
+}
+
+// Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backupScheduleAutomated` is false.
+func (o VirtualMachineAutoBackupManualScheduleOutput) LogBackupFrequencyInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualMachineAutoBackupManualSchedule) int { return v.LogBackupFrequencyInMinutes }).(pulumi.IntOutput)
+}
+
+type VirtualMachineAutoBackupManualSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineAutoBackupManualSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineAutoBackupManualSchedule)(nil)).Elem()
+}
+
+func (o VirtualMachineAutoBackupManualSchedulePtrOutput) ToVirtualMachineAutoBackupManualSchedulePtrOutput() VirtualMachineAutoBackupManualSchedulePtrOutput {
+	return o
+}
+
+func (o VirtualMachineAutoBackupManualSchedulePtrOutput) ToVirtualMachineAutoBackupManualSchedulePtrOutputWithContext(ctx context.Context) VirtualMachineAutoBackupManualSchedulePtrOutput {
+	return o
+}
+
+func (o VirtualMachineAutoBackupManualSchedulePtrOutput) Elem() VirtualMachineAutoBackupManualScheduleOutput {
+	return o.ApplyT(func(v *VirtualMachineAutoBackupManualSchedule) VirtualMachineAutoBackupManualSchedule { return *v }).(VirtualMachineAutoBackupManualScheduleOutput)
+}
+
+// Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backupScheduleAutomated` is false.
+func (o VirtualMachineAutoBackupManualSchedulePtrOutput) FullBackupFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAutoBackupManualSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FullBackupFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backupScheduleAutomated` is false.
+func (o VirtualMachineAutoBackupManualSchedulePtrOutput) FullBackupStartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAutoBackupManualSchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.FullBackupStartHour
+	}).(pulumi.IntPtrOutput)
+}
+
+// Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backupScheduleAutomated` is false.
+func (o VirtualMachineAutoBackupManualSchedulePtrOutput) FullBackupWindowInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAutoBackupManualSchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.FullBackupWindowInHours
+	}).(pulumi.IntPtrOutput)
+}
+
+// Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backupScheduleAutomated` is false.
+func (o VirtualMachineAutoBackupManualSchedulePtrOutput) LogBackupFrequencyInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAutoBackupManualSchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.LogBackupFrequencyInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
 type VirtualMachineAutoPatching struct {
 	// The day of week to apply the patch on.
 	DayOfWeek string `pulumi:"dayOfWeek"`
@@ -3077,6 +3510,10 @@ func init() {
 	pulumi.RegisterOutputType(ServerIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServerVulnerabilityAssessmentRecurringScansOutput{})
 	pulumi.RegisterOutputType(ServerVulnerabilityAssessmentRecurringScansPtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineAutoBackupOutput{})
+	pulumi.RegisterOutputType(VirtualMachineAutoBackupPtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineAutoBackupManualScheduleOutput{})
+	pulumi.RegisterOutputType(VirtualMachineAutoBackupManualSchedulePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineAutoPatchingOutput{})
 	pulumi.RegisterOutputType(VirtualMachineAutoPatchingPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineKeyVaultCredentialOutput{})

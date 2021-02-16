@@ -11,11 +11,9 @@ import (
 )
 
 type BackendAddressPoolBackendAddress struct {
-	// The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtualNetworkId`.
 	IpAddress string `pulumi:"ipAddress"`
-	// The name of the Backend Address.
-	Name string `pulumi:"name"`
-	// The ID of the Virtual Network that is pre-allocated for this Backend Address.
+	// Specifies the name of the Backend Address Pool.
+	Name             string `pulumi:"name"`
 	VirtualNetworkId string `pulumi:"virtualNetworkId"`
 }
 
@@ -31,11 +29,9 @@ type BackendAddressPoolBackendAddressInput interface {
 }
 
 type BackendAddressPoolBackendAddressArgs struct {
-	// The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtualNetworkId`.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
-	// The name of the Backend Address.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The ID of the Virtual Network that is pre-allocated for this Backend Address.
+	// Specifies the name of the Backend Address Pool.
+	Name             pulumi.StringInput `pulumi:"name"`
 	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
 }
 
@@ -90,17 +86,15 @@ func (o BackendAddressPoolBackendAddressOutput) ToBackendAddressPoolBackendAddre
 	return o
 }
 
-// The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtualNetworkId`.
 func (o BackendAddressPoolBackendAddressOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendAddressPoolBackendAddress) string { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// The name of the Backend Address.
+// Specifies the name of the Backend Address Pool.
 func (o BackendAddressPoolBackendAddressOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendAddressPoolBackendAddress) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the Virtual Network that is pre-allocated for this Backend Address.
 func (o BackendAddressPoolBackendAddressOutput) VirtualNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendAddressPoolBackendAddress) string { return v.VirtualNetworkId }).(pulumi.StringOutput)
 }
@@ -428,11 +422,11 @@ func (o OutboundRuleFrontendIpConfigurationArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetBackendAddressPoolBackendAddress struct {
-	// The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtualNetworkId`.
+	// The Static IP address for this Load Balancer within the Virtual Network.
 	IpAddress string `pulumi:"ipAddress"`
 	// Specifies the name of the Backend Address Pool.
 	Name string `pulumi:"name"`
-	// The ID of the Virtual Network that is pre-allocated for this Backend Address.
+	// The ID of the Virtual Network where the Backend Address of the Load Balancer exists.
 	VirtualNetworkId string `pulumi:"virtualNetworkId"`
 }
 
@@ -448,11 +442,11 @@ type GetBackendAddressPoolBackendAddressInput interface {
 }
 
 type GetBackendAddressPoolBackendAddressArgs struct {
-	// The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtualNetworkId`.
+	// The Static IP address for this Load Balancer within the Virtual Network.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// Specifies the name of the Backend Address Pool.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The ID of the Virtual Network that is pre-allocated for this Backend Address.
+	// The ID of the Virtual Network where the Backend Address of the Load Balancer exists.
 	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
 }
 
@@ -507,7 +501,7 @@ func (o GetBackendAddressPoolBackendAddressOutput) ToGetBackendAddressPoolBacken
 	return o
 }
 
-// The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtualNetworkId`.
+// The Static IP address for this Load Balancer within the Virtual Network.
 func (o GetBackendAddressPoolBackendAddressOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackendAddressPoolBackendAddress) string { return v.IpAddress }).(pulumi.StringOutput)
 }
@@ -517,7 +511,7 @@ func (o GetBackendAddressPoolBackendAddressOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackendAddressPoolBackendAddress) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the Virtual Network that is pre-allocated for this Backend Address.
+// The ID of the Virtual Network where the Backend Address of the Load Balancer exists.
 func (o GetBackendAddressPoolBackendAddressOutput) VirtualNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackendAddressPoolBackendAddress) string { return v.VirtualNetworkId }).(pulumi.StringOutput)
 }

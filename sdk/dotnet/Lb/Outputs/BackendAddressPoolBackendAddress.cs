@@ -13,17 +13,11 @@ namespace Pulumi.Azure.Lb.Outputs
     [OutputType]
     public sealed class BackendAddressPoolBackendAddress
     {
-        /// <summary>
-        /// The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtual_network_id`.
-        /// </summary>
         public readonly string IpAddress;
         /// <summary>
-        /// The name of the Backend Address.
+        /// Specifies the name of the Backend Address Pool.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The ID of the Virtual Network that is pre-allocated for this Backend Address.
-        /// </summary>
         public readonly string VirtualNetworkId;
 
         [OutputConstructor]

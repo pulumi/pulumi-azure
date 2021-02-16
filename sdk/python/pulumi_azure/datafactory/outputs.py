@@ -28,6 +28,9 @@ __all__ = [
     'IntegrationRuntimeManagedCustomSetupScript',
     'IntegrationRuntimeManagedVnetIntegration',
     'IntegrationRuntimeSelfHostedRbacAuthorization',
+    'IntegrationRuntimeSsisCatalogInfo',
+    'IntegrationRuntimeSsisCustomSetupScript',
+    'IntegrationRuntimeSsisVnetIntegration',
     'LinkedServiceSnowflakeKeyVaultPassword',
     'LinkedServiceSqlServerKeyVaultPassword',
     'LinkedServiceSynapseKeyVaultPassword',
@@ -889,6 +892,125 @@ class IntegrationRuntimeSelfHostedRbacAuthorization(dict):
         The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
         """
         return pulumi.get(self, "resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IntegrationRuntimeSsisCatalogInfo(dict):
+    def __init__(__self__, *,
+                 administrator_login: str,
+                 administrator_password: str,
+                 server_endpoint: str,
+                 pricing_tier: Optional[str] = None):
+        """
+        :param str administrator_login: Administrator login name for the SQL Server.
+        :param str administrator_password: Administrator login password for the SQL Server.
+        :param str server_endpoint: The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
+        :param str pricing_tier: Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+        """
+        pulumi.set(__self__, "administrator_login", administrator_login)
+        pulumi.set(__self__, "administrator_password", administrator_password)
+        pulumi.set(__self__, "server_endpoint", server_endpoint)
+        if pricing_tier is not None:
+            pulumi.set(__self__, "pricing_tier", pricing_tier)
+
+    @property
+    @pulumi.getter(name="administratorLogin")
+    def administrator_login(self) -> str:
+        """
+        Administrator login name for the SQL Server.
+        """
+        return pulumi.get(self, "administrator_login")
+
+    @property
+    @pulumi.getter(name="administratorPassword")
+    def administrator_password(self) -> str:
+        """
+        Administrator login password for the SQL Server.
+        """
+        return pulumi.get(self, "administrator_password")
+
+    @property
+    @pulumi.getter(name="serverEndpoint")
+    def server_endpoint(self) -> str:
+        """
+        The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
+        """
+        return pulumi.get(self, "server_endpoint")
+
+    @property
+    @pulumi.getter(name="pricingTier")
+    def pricing_tier(self) -> Optional[str]:
+        """
+        Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+        """
+        return pulumi.get(self, "pricing_tier")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IntegrationRuntimeSsisCustomSetupScript(dict):
+    def __init__(__self__, *,
+                 blob_container_uri: str,
+                 sas_token: str):
+        """
+        :param str blob_container_uri: The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        :param str sas_token: A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        """
+        pulumi.set(__self__, "blob_container_uri", blob_container_uri)
+        pulumi.set(__self__, "sas_token", sas_token)
+
+    @property
+    @pulumi.getter(name="blobContainerUri")
+    def blob_container_uri(self) -> str:
+        """
+        The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        """
+        return pulumi.get(self, "blob_container_uri")
+
+    @property
+    @pulumi.getter(name="sasToken")
+    def sas_token(self) -> str:
+        """
+        A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        """
+        return pulumi.get(self, "sas_token")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IntegrationRuntimeSsisVnetIntegration(dict):
+    def __init__(__self__, *,
+                 subnet_name: str,
+                 vnet_id: str):
+        """
+        :param str subnet_name: Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+        :param str vnet_id: ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
+        """
+        pulumi.set(__self__, "subnet_name", subnet_name)
+        pulumi.set(__self__, "vnet_id", vnet_id)
+
+    @property
+    @pulumi.getter(name="subnetName")
+    def subnet_name(self) -> str:
+        """
+        Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+        """
+        return pulumi.get(self, "subnet_name")
+
+    @property
+    @pulumi.getter(name="vnetId")
+    def vnet_id(self) -> str:
+        """
+        ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
+        """
+        return pulumi.get(self, "vnet_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

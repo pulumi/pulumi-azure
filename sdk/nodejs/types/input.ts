@@ -6358,6 +6358,10 @@ export namespace containerservice {
         nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
         /**
+         * Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
+         */
+        onlyCriticalAddonsEnabled?: pulumi.Input<boolean>;
+        /**
          * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
          */
         orchestratorVersion?: pulumi.Input<string>;
@@ -7345,6 +7349,47 @@ export namespace datafactory {
          * The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
          */
         resourceId: pulumi.Input<string>;
+    }
+
+    export interface IntegrationRuntimeSsisCatalogInfo {
+        /**
+         * Administrator login name for the SQL Server.
+         */
+        administratorLogin: pulumi.Input<string>;
+        /**
+         * Administrator login password for the SQL Server.
+         */
+        administratorPassword: pulumi.Input<string>;
+        /**
+         * Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+         */
+        pricingTier?: pulumi.Input<string>;
+        /**
+         * The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
+         */
+        serverEndpoint: pulumi.Input<string>;
+    }
+
+    export interface IntegrationRuntimeSsisCustomSetupScript {
+        /**
+         * The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+         */
+        blobContainerUri: pulumi.Input<string>;
+        /**
+         * A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+         */
+        sasToken: pulumi.Input<string>;
+    }
+
+    export interface IntegrationRuntimeSsisVnetIntegration {
+        /**
+         * Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+         */
+        subnetName: pulumi.Input<string>;
+        /**
+         * ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
+         */
+        vnetId: pulumi.Input<string>;
     }
 
     export interface LinkedServiceSnowflakeKeyVaultPassword {
@@ -11484,6 +11529,40 @@ export namespace iot {
         name: pulumi.Input<string>;
     }
 
+    export interface SecurityDeviceGroupAllowRule {
+        /**
+         * Specifies which Ip is not allowed to be connected to in current device group.
+         */
+        connectionToIpNotAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies which local user is not allowed to Login in current device group.
+         */
+        localUserNotAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies which process is not allowed to be executed in current device group.
+         */
+        processNotAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface SecurityDeviceGroupRangeRule {
+        /**
+         * Specifies the time range. represented in ISO 8601 duration format.
+         */
+        duration: pulumi.Input<string>;
+        /**
+         * The maximum threshold in the given time window.
+         */
+        max: pulumi.Input<number>;
+        /**
+         * The minimum threshold in the given time window.
+         */
+        min: pulumi.Input<number>;
+        /**
+         * The type of supported rule type. Possible Values are `ActiveConnectionsNotInAllowedRange`, `AmqpC2DMessagesNotInAllowedRange`, `MqttC2DMessagesNotInAllowedRange`, `HttpC2DMessagesNotInAllowedRange`, `AmqpC2DRejectedMessagesNotInAllowedRange`, `MqttC2DRejectedMessagesNotInAllowedRange`, `HttpC2DRejectedMessagesNotInAllowedRange`, `AmqpD2CMessagesNotInAllowedRange`, `MqttD2CMessagesNotInAllowedRange`, `HttpD2CMessagesNotInAllowedRange`, `DirectMethodInvokesNotInAllowedRange`, `FailedLocalLoginsNotInAllowedRange`, `FileUploadsNotInAllowedRange`, `QueuePurgesNotInAllowedRange`, `TwinUpdatesNotInAllowedRange` and `UnauthorizedOperationsNotInAllowedRange`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface SecuritySolutionRecommendationsEnabled {
         /**
          * Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
@@ -12042,17 +12121,11 @@ export namespace kusto {
 
 export namespace lb {
     export interface BackendAddressPoolBackendAddress {
-        /**
-         * The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtualNetworkId`.
-         */
         ipAddress: pulumi.Input<string>;
         /**
-         * The name of the Backend Address.
+         * Specifies the name of the Backend Address Pool.
          */
         name: pulumi.Input<string>;
-        /**
-         * The ID of the Virtual Network that is pre-allocated for this Backend Address.
-         */
         virtualNetworkId: pulumi.Input<string>;
     }
 
@@ -13977,6 +14050,56 @@ export namespace mssql {
          * Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
          */
         enabled?: pulumi.Input<boolean>;
+    }
+
+    export interface VirtualMachineAutoBackup {
+        /**
+         * Enable or disable encryption for backups. Defaults to `false`.
+         */
+        encryptionEnabled?: pulumi.Input<boolean>;
+        /**
+         * Encryption password to use. Must be specified when encryption is enabled.
+         */
+        encryptionPassword?: pulumi.Input<string>;
+        /**
+         * A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+         */
+        manualSchedule?: pulumi.Input<inputs.mssql.VirtualMachineAutoBackupManualSchedule>;
+        /**
+         * Retention period of backups, in days. Valid values are from `1` to `30`.
+         */
+        retentionPeriodInDays: pulumi.Input<number>;
+        /**
+         * Access key for the storage account where backups will be kept.
+         */
+        storageAccountAccessKey: pulumi.Input<string>;
+        /**
+         * Blob endpoint for the storage account where backups will be kept.
+         */
+        storageBlobEndpoint: pulumi.Input<string>;
+        /**
+         * Include or exclude system databases from auto backup. Defaults to `false`.
+         */
+        systemDatabasesBackupEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface VirtualMachineAutoBackupManualSchedule {
+        /**
+         * Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backupScheduleAutomated` is false.
+         */
+        fullBackupFrequency: pulumi.Input<string>;
+        /**
+         * Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backupScheduleAutomated` is false.
+         */
+        fullBackupStartHour: pulumi.Input<number>;
+        /**
+         * Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backupScheduleAutomated` is false.
+         */
+        fullBackupWindowInHours: pulumi.Input<number>;
+        /**
+         * Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backupScheduleAutomated` is false.
+         */
+        logBackupFrequencyInMinutes: pulumi.Input<number>;
     }
 
     export interface VirtualMachineAutoPatching {
@@ -17684,6 +17807,10 @@ export namespace siterecovery {
     }
 
     export interface ReplicatedVMNetworkInterface {
+        /**
+         * Id of the public IP object to use when a failover is done.
+         */
+        recoveryPublicIpAddressId?: pulumi.Input<string>;
         /**
          * Id source network interface.
          */

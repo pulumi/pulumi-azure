@@ -21,9 +21,7 @@ class BackendAddressPoolBackendAddressArgs:
                  name: pulumi.Input[str],
                  virtual_network_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] ip_address: The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtual_network_id`.
-        :param pulumi.Input[str] name: The name of the Backend Address.
-        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network that is pre-allocated for this Backend Address.
+        :param pulumi.Input[str] name: Specifies the name of the Backend Address Pool.
         """
         pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "name", name)
@@ -32,9 +30,6 @@ class BackendAddressPoolBackendAddressArgs:
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Input[str]:
-        """
-        The IP address pre-allocated for this Backend Address with in the Virtual Network of `virtual_network_id`.
-        """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
@@ -45,7 +40,7 @@ class BackendAddressPoolBackendAddressArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Backend Address.
+        Specifies the name of the Backend Address Pool.
         """
         return pulumi.get(self, "name")
 
@@ -56,9 +51,6 @@ class BackendAddressPoolBackendAddressArgs:
     @property
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the Virtual Network that is pre-allocated for this Backend Address.
-        """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter

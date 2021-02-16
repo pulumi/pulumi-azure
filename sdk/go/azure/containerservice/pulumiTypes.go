@@ -3681,6 +3681,8 @@ type KubernetesClusterDefaultNodePool struct {
 	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	NodeTaints []string          `pulumi:"nodeTaints"`
+	// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
+	OnlyCriticalAddonsEnabled *bool `pulumi:"onlyCriticalAddonsEnabled"`
 	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
@@ -3731,6 +3733,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
 	NodeLabels pulumi.StringMapInput   `pulumi:"nodeLabels"`
 	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
+	// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
+	OnlyCriticalAddonsEnabled pulumi.BoolPtrInput `pulumi:"onlyCriticalAddonsEnabled"`
 	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
 	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
@@ -3877,6 +3881,11 @@ func (o KubernetesClusterDefaultNodePoolOutput) NodeLabels() pulumi.StringMapOut
 
 func (o KubernetesClusterDefaultNodePoolOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
+}
+
+// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolOutput) OnlyCriticalAddonsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.OnlyCriticalAddonsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
@@ -4043,6 +4052,16 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeTaints() pulumi.StringArr
 		}
 		return v.NodeTaints
 	}).(pulumi.StringArrayOutput)
+}
+
+// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) OnlyCriticalAddonsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OnlyCriticalAddonsEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)

@@ -45,7 +45,8 @@ func LookupTrafficManagerProfile(ctx *pulumi.Context, args *LookupTrafficManager
 // A collection of arguments for invoking getTrafficManagerProfile.
 type LookupTrafficManagerProfileArgs struct {
 	// Specifies the name of the Traffic Manager Profile.
-	Name              string `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Specifies the name of the resource group the Traffic Manager Profile is located in.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`

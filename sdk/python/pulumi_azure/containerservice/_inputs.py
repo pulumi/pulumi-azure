@@ -1618,6 +1618,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 only_critical_addons_enabled: Optional[pulumi.Input[bool]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  os_disk_type: Optional[pulumi.Input[str]] = None,
@@ -1637,6 +1638,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[int] min_count: The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param pulumi.Input[int] node_count: The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
         :param pulumi.Input[int] os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
@@ -1666,6 +1668,8 @@ class KubernetesClusterDefaultNodePoolArgs:
             pulumi.set(__self__, "node_labels", node_labels)
         if node_taints is not None:
             pulumi.set(__self__, "node_taints", node_taints)
+        if only_critical_addons_enabled is not None:
+            pulumi.set(__self__, "only_critical_addons_enabled", only_critical_addons_enabled)
         if orchestrator_version is not None:
             pulumi.set(__self__, "orchestrator_version", orchestrator_version)
         if os_disk_size_gb is not None:
@@ -1821,6 +1825,18 @@ class KubernetesClusterDefaultNodePoolArgs:
     @node_taints.setter
     def node_taints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "node_taints", value)
+
+    @property
+    @pulumi.getter(name="onlyCriticalAddonsEnabled")
+    def only_critical_addons_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "only_critical_addons_enabled")
+
+    @only_critical_addons_enabled.setter
+    def only_critical_addons_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "only_critical_addons_enabled", value)
 
     @property
     @pulumi.getter(name="orchestratorVersion")

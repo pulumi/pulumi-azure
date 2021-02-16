@@ -136,7 +136,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly isVirtualNetworkFilterEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * A Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+     * A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
      */
     public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
     /**
@@ -359,7 +359,7 @@ export interface AccountState {
      */
     readonly isVirtualNetworkFilterEnabled?: pulumi.Input<boolean>;
     /**
-     * A Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+     * A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
      */
     readonly keyVaultKeyId?: pulumi.Input<string>;
     /**
@@ -477,7 +477,7 @@ export interface AccountArgs {
      */
     readonly isVirtualNetworkFilterEnabled?: pulumi.Input<boolean>;
     /**
-     * A Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+     * A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
      */
     readonly keyVaultKeyId?: pulumi.Input<string>;
     /**
