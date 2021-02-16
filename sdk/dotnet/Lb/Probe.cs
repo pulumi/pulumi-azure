@@ -66,6 +66,7 @@ namespace Pulumi.Azure.Lb
     ///  $ pulumi import azure:lb/probe:Probe example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/probes/probe1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:lb/probe:Probe")]
     public partial class Probe : Pulumi.CustomResource
     {
         /// <summary>

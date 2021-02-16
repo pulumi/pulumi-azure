@@ -70,6 +70,7 @@ namespace Pulumi.Azure.PrivateDns
     ///  $ pulumi import azure:privatedns/sRVRecord:SRVRecord test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/SRV/test
     /// ```
     /// </summary>
+    [AzureResourceType("azure:privatedns/sRVRecord:SRVRecord")]
     public partial class SRVRecord : Pulumi.CustomResource
     {
         /// <summary>

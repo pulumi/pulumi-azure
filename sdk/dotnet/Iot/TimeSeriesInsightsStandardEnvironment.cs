@@ -46,6 +46,7 @@ namespace Pulumi.Azure.Iot
     ///  $ pulumi import azure:iot/timeSeriesInsightsStandardEnvironment:TimeSeriesInsightsStandardEnvironment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:iot/timeSeriesInsightsStandardEnvironment:TimeSeriesInsightsStandardEnvironment")]
     public partial class TimeSeriesInsightsStandardEnvironment : Pulumi.CustomResource
     {
         /// <summary>

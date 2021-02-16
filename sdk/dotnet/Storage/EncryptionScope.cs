@@ -57,6 +57,7 @@ namespace Pulumi.Azure.Storage
     ///  $ pulumi import azure:storage/encryptionScope:EncryptionScope example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/account1/encryptionScopes/scope1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:storage/encryptionScope:EncryptionScope")]
     public partial class EncryptionScope : Pulumi.CustomResource
     {
         /// <summary>

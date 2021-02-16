@@ -179,16 +179,95 @@ type ConnectionServicePrincipalInput interface {
 	ToConnectionServicePrincipalOutputWithContext(ctx context.Context) ConnectionServicePrincipalOutput
 }
 
-func (ConnectionServicePrincipal) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionServicePrincipal)(nil)).Elem()
+func (*ConnectionServicePrincipal) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionServicePrincipal)(nil))
 }
 
-func (i ConnectionServicePrincipal) ToConnectionServicePrincipalOutput() ConnectionServicePrincipalOutput {
+func (i *ConnectionServicePrincipal) ToConnectionServicePrincipalOutput() ConnectionServicePrincipalOutput {
 	return i.ToConnectionServicePrincipalOutputWithContext(context.Background())
 }
 
-func (i ConnectionServicePrincipal) ToConnectionServicePrincipalOutputWithContext(ctx context.Context) ConnectionServicePrincipalOutput {
+func (i *ConnectionServicePrincipal) ToConnectionServicePrincipalOutputWithContext(ctx context.Context) ConnectionServicePrincipalOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionServicePrincipalOutput)
+}
+
+func (i *ConnectionServicePrincipal) ToConnectionServicePrincipalPtrOutput() ConnectionServicePrincipalPtrOutput {
+	return i.ToConnectionServicePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *ConnectionServicePrincipal) ToConnectionServicePrincipalPtrOutputWithContext(ctx context.Context) ConnectionServicePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionServicePrincipalPtrOutput)
+}
+
+type ConnectionServicePrincipalPtrInput interface {
+	pulumi.Input
+
+	ToConnectionServicePrincipalPtrOutput() ConnectionServicePrincipalPtrOutput
+	ToConnectionServicePrincipalPtrOutputWithContext(ctx context.Context) ConnectionServicePrincipalPtrOutput
+}
+
+type connectionServicePrincipalPtrType ConnectionServicePrincipalArgs
+
+func (*connectionServicePrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionServicePrincipal)(nil))
+}
+
+func (i *connectionServicePrincipalPtrType) ToConnectionServicePrincipalPtrOutput() ConnectionServicePrincipalPtrOutput {
+	return i.ToConnectionServicePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionServicePrincipalPtrType) ToConnectionServicePrincipalPtrOutputWithContext(ctx context.Context) ConnectionServicePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionServicePrincipalPtrOutput)
+}
+
+// ConnectionServicePrincipalArrayInput is an input type that accepts ConnectionServicePrincipalArray and ConnectionServicePrincipalArrayOutput values.
+// You can construct a concrete instance of `ConnectionServicePrincipalArrayInput` via:
+//
+//          ConnectionServicePrincipalArray{ ConnectionServicePrincipalArgs{...} }
+type ConnectionServicePrincipalArrayInput interface {
+	pulumi.Input
+
+	ToConnectionServicePrincipalArrayOutput() ConnectionServicePrincipalArrayOutput
+	ToConnectionServicePrincipalArrayOutputWithContext(context.Context) ConnectionServicePrincipalArrayOutput
+}
+
+type ConnectionServicePrincipalArray []ConnectionServicePrincipalInput
+
+func (ConnectionServicePrincipalArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ConnectionServicePrincipal)(nil))
+}
+
+func (i ConnectionServicePrincipalArray) ToConnectionServicePrincipalArrayOutput() ConnectionServicePrincipalArrayOutput {
+	return i.ToConnectionServicePrincipalArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectionServicePrincipalArray) ToConnectionServicePrincipalArrayOutputWithContext(ctx context.Context) ConnectionServicePrincipalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionServicePrincipalArrayOutput)
+}
+
+// ConnectionServicePrincipalMapInput is an input type that accepts ConnectionServicePrincipalMap and ConnectionServicePrincipalMapOutput values.
+// You can construct a concrete instance of `ConnectionServicePrincipalMapInput` via:
+//
+//          ConnectionServicePrincipalMap{ "key": ConnectionServicePrincipalArgs{...} }
+type ConnectionServicePrincipalMapInput interface {
+	pulumi.Input
+
+	ToConnectionServicePrincipalMapOutput() ConnectionServicePrincipalMapOutput
+	ToConnectionServicePrincipalMapOutputWithContext(context.Context) ConnectionServicePrincipalMapOutput
+}
+
+type ConnectionServicePrincipalMap map[string]ConnectionServicePrincipalInput
+
+func (ConnectionServicePrincipalMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ConnectionServicePrincipal)(nil))
+}
+
+func (i ConnectionServicePrincipalMap) ToConnectionServicePrincipalMapOutput() ConnectionServicePrincipalMapOutput {
+	return i.ToConnectionServicePrincipalMapOutputWithContext(context.Background())
+}
+
+func (i ConnectionServicePrincipalMap) ToConnectionServicePrincipalMapOutputWithContext(ctx context.Context) ConnectionServicePrincipalMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionServicePrincipalMapOutput)
 }
 
 type ConnectionServicePrincipalOutput struct {
@@ -196,7 +275,7 @@ type ConnectionServicePrincipalOutput struct {
 }
 
 func (ConnectionServicePrincipalOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionServicePrincipalOutput)(nil)).Elem()
+	return reflect.TypeOf((*ConnectionServicePrincipal)(nil))
 }
 
 func (o ConnectionServicePrincipalOutput) ToConnectionServicePrincipalOutput() ConnectionServicePrincipalOutput {
@@ -207,6 +286,75 @@ func (o ConnectionServicePrincipalOutput) ToConnectionServicePrincipalOutputWith
 	return o
 }
 
+func (o ConnectionServicePrincipalOutput) ToConnectionServicePrincipalPtrOutput() ConnectionServicePrincipalPtrOutput {
+	return o.ToConnectionServicePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionServicePrincipalOutput) ToConnectionServicePrincipalPtrOutputWithContext(ctx context.Context) ConnectionServicePrincipalPtrOutput {
+	return o.ApplyT(func(v ConnectionServicePrincipal) *ConnectionServicePrincipal {
+		return &v
+	}).(ConnectionServicePrincipalPtrOutput)
+}
+
+type ConnectionServicePrincipalPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConnectionServicePrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionServicePrincipal)(nil))
+}
+
+func (o ConnectionServicePrincipalPtrOutput) ToConnectionServicePrincipalPtrOutput() ConnectionServicePrincipalPtrOutput {
+	return o
+}
+
+func (o ConnectionServicePrincipalPtrOutput) ToConnectionServicePrincipalPtrOutputWithContext(ctx context.Context) ConnectionServicePrincipalPtrOutput {
+	return o
+}
+
+type ConnectionServicePrincipalArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectionServicePrincipalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionServicePrincipal)(nil))
+}
+
+func (o ConnectionServicePrincipalArrayOutput) ToConnectionServicePrincipalArrayOutput() ConnectionServicePrincipalArrayOutput {
+	return o
+}
+
+func (o ConnectionServicePrincipalArrayOutput) ToConnectionServicePrincipalArrayOutputWithContext(ctx context.Context) ConnectionServicePrincipalArrayOutput {
+	return o
+}
+
+func (o ConnectionServicePrincipalArrayOutput) Index(i pulumi.IntInput) ConnectionServicePrincipalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectionServicePrincipal {
+		return vs[0].([]ConnectionServicePrincipal)[vs[1].(int)]
+	}).(ConnectionServicePrincipalOutput)
+}
+
+type ConnectionServicePrincipalMapOutput struct{ *pulumi.OutputState }
+
+func (ConnectionServicePrincipalMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConnectionServicePrincipal)(nil))
+}
+
+func (o ConnectionServicePrincipalMapOutput) ToConnectionServicePrincipalMapOutput() ConnectionServicePrincipalMapOutput {
+	return o
+}
+
+func (o ConnectionServicePrincipalMapOutput) ToConnectionServicePrincipalMapOutputWithContext(ctx context.Context) ConnectionServicePrincipalMapOutput {
+	return o
+}
+
+func (o ConnectionServicePrincipalMapOutput) MapIndex(k pulumi.StringInput) ConnectionServicePrincipalOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConnectionServicePrincipal {
+		return vs[0].(map[string]ConnectionServicePrincipal)[vs[1].(string)]
+	}).(ConnectionServicePrincipalOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConnectionServicePrincipalOutput{})
+	pulumi.RegisterOutputType(ConnectionServicePrincipalPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionServicePrincipalArrayOutput{})
+	pulumi.RegisterOutputType(ConnectionServicePrincipalMapOutput{})
 }

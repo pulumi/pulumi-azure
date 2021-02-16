@@ -44,6 +44,7 @@ namespace Pulumi.Azure.SecurityCenter
     ///  $ pulumi import azure:securitycenter/setting:Setting example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/settings/&lt;setting_name&gt;
     /// ```
     /// </summary>
+    [AzureResourceType("azure:securitycenter/setting:Setting")]
     public partial class Setting : Pulumi.CustomResource
     {
         /// <summary>

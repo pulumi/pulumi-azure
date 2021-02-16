@@ -56,6 +56,7 @@ namespace Pulumi.Azure.Sql
     ///  $ pulumi import azure:sql/activeDirectoryAdministrator:ActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/administrators/activeDirectory
     /// ```
     /// </summary>
+    [AzureResourceType("azure:sql/activeDirectoryAdministrator:ActiveDirectoryAdministrator")]
     public partial class ActiveDirectoryAdministrator : Pulumi.CustomResource
     {
         /// <summary>

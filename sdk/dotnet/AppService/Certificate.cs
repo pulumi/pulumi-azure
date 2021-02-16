@@ -20,6 +20,7 @@ namespace Pulumi.Azure.AppService
     ///  $ pulumi import azure:appservice/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/certificates/certificate1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:appservice/certificate:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>

@@ -287,16 +287,95 @@ type LinuxVirtualMachineInput interface {
 	ToLinuxVirtualMachineOutputWithContext(ctx context.Context) LinuxVirtualMachineOutput
 }
 
-func (LinuxVirtualMachine) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinuxVirtualMachine)(nil)).Elem()
+func (*LinuxVirtualMachine) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachine)(nil))
 }
 
-func (i LinuxVirtualMachine) ToLinuxVirtualMachineOutput() LinuxVirtualMachineOutput {
+func (i *LinuxVirtualMachine) ToLinuxVirtualMachineOutput() LinuxVirtualMachineOutput {
 	return i.ToLinuxVirtualMachineOutputWithContext(context.Background())
 }
 
-func (i LinuxVirtualMachine) ToLinuxVirtualMachineOutputWithContext(ctx context.Context) LinuxVirtualMachineOutput {
+func (i *LinuxVirtualMachine) ToLinuxVirtualMachineOutputWithContext(ctx context.Context) LinuxVirtualMachineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineOutput)
+}
+
+func (i *LinuxVirtualMachine) ToLinuxVirtualMachinePtrOutput() LinuxVirtualMachinePtrOutput {
+	return i.ToLinuxVirtualMachinePtrOutputWithContext(context.Background())
+}
+
+func (i *LinuxVirtualMachine) ToLinuxVirtualMachinePtrOutputWithContext(ctx context.Context) LinuxVirtualMachinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachinePtrOutput)
+}
+
+type LinuxVirtualMachinePtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachinePtrOutput() LinuxVirtualMachinePtrOutput
+	ToLinuxVirtualMachinePtrOutputWithContext(ctx context.Context) LinuxVirtualMachinePtrOutput
+}
+
+type linuxVirtualMachinePtrType LinuxVirtualMachineArgs
+
+func (*linuxVirtualMachinePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachine)(nil))
+}
+
+func (i *linuxVirtualMachinePtrType) ToLinuxVirtualMachinePtrOutput() LinuxVirtualMachinePtrOutput {
+	return i.ToLinuxVirtualMachinePtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachinePtrType) ToLinuxVirtualMachinePtrOutputWithContext(ctx context.Context) LinuxVirtualMachinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachinePtrOutput)
+}
+
+// LinuxVirtualMachineArrayInput is an input type that accepts LinuxVirtualMachineArray and LinuxVirtualMachineArrayOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineArrayInput` via:
+//
+//          LinuxVirtualMachineArray{ LinuxVirtualMachineArgs{...} }
+type LinuxVirtualMachineArrayInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineArrayOutput() LinuxVirtualMachineArrayOutput
+	ToLinuxVirtualMachineArrayOutputWithContext(context.Context) LinuxVirtualMachineArrayOutput
+}
+
+type LinuxVirtualMachineArray []LinuxVirtualMachineInput
+
+func (LinuxVirtualMachineArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LinuxVirtualMachine)(nil))
+}
+
+func (i LinuxVirtualMachineArray) ToLinuxVirtualMachineArrayOutput() LinuxVirtualMachineArrayOutput {
+	return i.ToLinuxVirtualMachineArrayOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineArray) ToLinuxVirtualMachineArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineArrayOutput)
+}
+
+// LinuxVirtualMachineMapInput is an input type that accepts LinuxVirtualMachineMap and LinuxVirtualMachineMapOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineMapInput` via:
+//
+//          LinuxVirtualMachineMap{ "key": LinuxVirtualMachineArgs{...} }
+type LinuxVirtualMachineMapInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineMapOutput() LinuxVirtualMachineMapOutput
+	ToLinuxVirtualMachineMapOutputWithContext(context.Context) LinuxVirtualMachineMapOutput
+}
+
+type LinuxVirtualMachineMap map[string]LinuxVirtualMachineInput
+
+func (LinuxVirtualMachineMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LinuxVirtualMachine)(nil))
+}
+
+func (i LinuxVirtualMachineMap) ToLinuxVirtualMachineMapOutput() LinuxVirtualMachineMapOutput {
+	return i.ToLinuxVirtualMachineMapOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineMap) ToLinuxVirtualMachineMapOutputWithContext(ctx context.Context) LinuxVirtualMachineMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineMapOutput)
 }
 
 type LinuxVirtualMachineOutput struct {
@@ -304,7 +383,7 @@ type LinuxVirtualMachineOutput struct {
 }
 
 func (LinuxVirtualMachineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinuxVirtualMachineOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinuxVirtualMachine)(nil))
 }
 
 func (o LinuxVirtualMachineOutput) ToLinuxVirtualMachineOutput() LinuxVirtualMachineOutput {
@@ -315,6 +394,75 @@ func (o LinuxVirtualMachineOutput) ToLinuxVirtualMachineOutputWithContext(ctx co
 	return o
 }
 
+func (o LinuxVirtualMachineOutput) ToLinuxVirtualMachinePtrOutput() LinuxVirtualMachinePtrOutput {
+	return o.ToLinuxVirtualMachinePtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineOutput) ToLinuxVirtualMachinePtrOutputWithContext(ctx context.Context) LinuxVirtualMachinePtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachine) *LinuxVirtualMachine {
+		return &v
+	}).(LinuxVirtualMachinePtrOutput)
+}
+
+type LinuxVirtualMachinePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinuxVirtualMachinePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachine)(nil))
+}
+
+func (o LinuxVirtualMachinePtrOutput) ToLinuxVirtualMachinePtrOutput() LinuxVirtualMachinePtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachinePtrOutput) ToLinuxVirtualMachinePtrOutputWithContext(ctx context.Context) LinuxVirtualMachinePtrOutput {
+	return o
+}
+
+type LinuxVirtualMachineArrayOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachine)(nil))
+}
+
+func (o LinuxVirtualMachineArrayOutput) ToLinuxVirtualMachineArrayOutput() LinuxVirtualMachineArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineArrayOutput) ToLinuxVirtualMachineArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachine {
+		return vs[0].([]LinuxVirtualMachine)[vs[1].(int)]
+	}).(LinuxVirtualMachineOutput)
+}
+
+type LinuxVirtualMachineMapOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LinuxVirtualMachine)(nil))
+}
+
+func (o LinuxVirtualMachineMapOutput) ToLinuxVirtualMachineMapOutput() LinuxVirtualMachineMapOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineMapOutput) ToLinuxVirtualMachineMapOutputWithContext(ctx context.Context) LinuxVirtualMachineMapOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineMapOutput) MapIndex(k pulumi.StringInput) LinuxVirtualMachineOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinuxVirtualMachine {
+		return vs[0].(map[string]LinuxVirtualMachine)[vs[1].(string)]
+	}).(LinuxVirtualMachineOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LinuxVirtualMachineOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachinePtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineArrayOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineMapOutput{})
 }

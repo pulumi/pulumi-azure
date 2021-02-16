@@ -136,7 +136,8 @@ export class Profile extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProfileArgs | ProfileState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Profile is deprecated: azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProfileState | undefined;
             inputs["dnsConfig"] = state ? state.dnsConfig : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
@@ -150,16 +151,16 @@ export class Profile extends pulumi.CustomResource {
             inputs["trafficViewEnabled"] = state ? state.trafficViewEnabled : undefined;
         } else {
             const args = argsOrState as ProfileArgs | undefined;
-            if ((!args || args.dnsConfig === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dnsConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dnsConfig'");
             }
-            if ((!args || args.monitorConfig === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.monitorConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitorConfig'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.trafficRoutingMethod === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.trafficRoutingMethod === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trafficRoutingMethod'");
             }
             inputs["dnsConfig"] = args ? args.dnsConfig : undefined;
@@ -173,12 +174,8 @@ export class Profile extends pulumi.CustomResource {
             inputs["trafficViewEnabled"] = args ? args.trafficViewEnabled : undefined;
             inputs["fqdn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Profile.__pulumiType, name, inputs, opts);
     }

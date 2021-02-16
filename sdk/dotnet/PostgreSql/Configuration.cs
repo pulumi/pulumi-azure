@@ -64,6 +64,7 @@ namespace Pulumi.Azure.PostgreSql
     ///  $ pulumi import azure:postgresql/configuration:Configuration backslash_quote /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/servers/server1/configurations/backslash_quote
     /// ```
     /// </summary>
+    [AzureResourceType("azure:postgresql/configuration:Configuration")]
     public partial class Configuration : Pulumi.CustomResource
     {
         /// <summary>

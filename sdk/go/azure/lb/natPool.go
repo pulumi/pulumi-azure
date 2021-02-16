@@ -247,16 +247,95 @@ type NatPoolInput interface {
 	ToNatPoolOutputWithContext(ctx context.Context) NatPoolOutput
 }
 
-func (NatPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*NatPool)(nil)).Elem()
+func (*NatPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatPool)(nil))
 }
 
-func (i NatPool) ToNatPoolOutput() NatPoolOutput {
+func (i *NatPool) ToNatPoolOutput() NatPoolOutput {
 	return i.ToNatPoolOutputWithContext(context.Background())
 }
 
-func (i NatPool) ToNatPoolOutputWithContext(ctx context.Context) NatPoolOutput {
+func (i *NatPool) ToNatPoolOutputWithContext(ctx context.Context) NatPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NatPoolOutput)
+}
+
+func (i *NatPool) ToNatPoolPtrOutput() NatPoolPtrOutput {
+	return i.ToNatPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *NatPool) ToNatPoolPtrOutputWithContext(ctx context.Context) NatPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatPoolPtrOutput)
+}
+
+type NatPoolPtrInput interface {
+	pulumi.Input
+
+	ToNatPoolPtrOutput() NatPoolPtrOutput
+	ToNatPoolPtrOutputWithContext(ctx context.Context) NatPoolPtrOutput
+}
+
+type natPoolPtrType NatPoolArgs
+
+func (*natPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NatPool)(nil))
+}
+
+func (i *natPoolPtrType) ToNatPoolPtrOutput() NatPoolPtrOutput {
+	return i.ToNatPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *natPoolPtrType) ToNatPoolPtrOutputWithContext(ctx context.Context) NatPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatPoolPtrOutput)
+}
+
+// NatPoolArrayInput is an input type that accepts NatPoolArray and NatPoolArrayOutput values.
+// You can construct a concrete instance of `NatPoolArrayInput` via:
+//
+//          NatPoolArray{ NatPoolArgs{...} }
+type NatPoolArrayInput interface {
+	pulumi.Input
+
+	ToNatPoolArrayOutput() NatPoolArrayOutput
+	ToNatPoolArrayOutputWithContext(context.Context) NatPoolArrayOutput
+}
+
+type NatPoolArray []NatPoolInput
+
+func (NatPoolArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*NatPool)(nil))
+}
+
+func (i NatPoolArray) ToNatPoolArrayOutput() NatPoolArrayOutput {
+	return i.ToNatPoolArrayOutputWithContext(context.Background())
+}
+
+func (i NatPoolArray) ToNatPoolArrayOutputWithContext(ctx context.Context) NatPoolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatPoolArrayOutput)
+}
+
+// NatPoolMapInput is an input type that accepts NatPoolMap and NatPoolMapOutput values.
+// You can construct a concrete instance of `NatPoolMapInput` via:
+//
+//          NatPoolMap{ "key": NatPoolArgs{...} }
+type NatPoolMapInput interface {
+	pulumi.Input
+
+	ToNatPoolMapOutput() NatPoolMapOutput
+	ToNatPoolMapOutputWithContext(context.Context) NatPoolMapOutput
+}
+
+type NatPoolMap map[string]NatPoolInput
+
+func (NatPoolMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*NatPool)(nil))
+}
+
+func (i NatPoolMap) ToNatPoolMapOutput() NatPoolMapOutput {
+	return i.ToNatPoolMapOutputWithContext(context.Background())
+}
+
+func (i NatPoolMap) ToNatPoolMapOutputWithContext(ctx context.Context) NatPoolMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatPoolMapOutput)
 }
 
 type NatPoolOutput struct {
@@ -264,7 +343,7 @@ type NatPoolOutput struct {
 }
 
 func (NatPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NatPoolOutput)(nil)).Elem()
+	return reflect.TypeOf((*NatPool)(nil))
 }
 
 func (o NatPoolOutput) ToNatPoolOutput() NatPoolOutput {
@@ -275,6 +354,75 @@ func (o NatPoolOutput) ToNatPoolOutputWithContext(ctx context.Context) NatPoolOu
 	return o
 }
 
+func (o NatPoolOutput) ToNatPoolPtrOutput() NatPoolPtrOutput {
+	return o.ToNatPoolPtrOutputWithContext(context.Background())
+}
+
+func (o NatPoolOutput) ToNatPoolPtrOutputWithContext(ctx context.Context) NatPoolPtrOutput {
+	return o.ApplyT(func(v NatPool) *NatPool {
+		return &v
+	}).(NatPoolPtrOutput)
+}
+
+type NatPoolPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (NatPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NatPool)(nil))
+}
+
+func (o NatPoolPtrOutput) ToNatPoolPtrOutput() NatPoolPtrOutput {
+	return o
+}
+
+func (o NatPoolPtrOutput) ToNatPoolPtrOutputWithContext(ctx context.Context) NatPoolPtrOutput {
+	return o
+}
+
+type NatPoolArrayOutput struct{ *pulumi.OutputState }
+
+func (NatPoolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NatPool)(nil))
+}
+
+func (o NatPoolArrayOutput) ToNatPoolArrayOutput() NatPoolArrayOutput {
+	return o
+}
+
+func (o NatPoolArrayOutput) ToNatPoolArrayOutputWithContext(ctx context.Context) NatPoolArrayOutput {
+	return o
+}
+
+func (o NatPoolArrayOutput) Index(i pulumi.IntInput) NatPoolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NatPool {
+		return vs[0].([]NatPool)[vs[1].(int)]
+	}).(NatPoolOutput)
+}
+
+type NatPoolMapOutput struct{ *pulumi.OutputState }
+
+func (NatPoolMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NatPool)(nil))
+}
+
+func (o NatPoolMapOutput) ToNatPoolMapOutput() NatPoolMapOutput {
+	return o
+}
+
+func (o NatPoolMapOutput) ToNatPoolMapOutputWithContext(ctx context.Context) NatPoolMapOutput {
+	return o
+}
+
+func (o NatPoolMapOutput) MapIndex(k pulumi.StringInput) NatPoolOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NatPool {
+		return vs[0].(map[string]NatPool)[vs[1].(string)]
+	}).(NatPoolOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NatPoolOutput{})
+	pulumi.RegisterOutputType(NatPoolPtrOutput{})
+	pulumi.RegisterOutputType(NatPoolArrayOutput{})
+	pulumi.RegisterOutputType(NatPoolMapOutput{})
 }

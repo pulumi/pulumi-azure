@@ -204,16 +204,95 @@ type VirtualHubInput interface {
 	ToVirtualHubOutputWithContext(ctx context.Context) VirtualHubOutput
 }
 
-func (VirtualHub) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHub)(nil)).Elem()
+func (*VirtualHub) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHub)(nil))
 }
 
-func (i VirtualHub) ToVirtualHubOutput() VirtualHubOutput {
+func (i *VirtualHub) ToVirtualHubOutput() VirtualHubOutput {
 	return i.ToVirtualHubOutputWithContext(context.Background())
 }
 
-func (i VirtualHub) ToVirtualHubOutputWithContext(ctx context.Context) VirtualHubOutput {
+func (i *VirtualHub) ToVirtualHubOutputWithContext(ctx context.Context) VirtualHubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubOutput)
+}
+
+func (i *VirtualHub) ToVirtualHubPtrOutput() VirtualHubPtrOutput {
+	return i.ToVirtualHubPtrOutputWithContext(context.Background())
+}
+
+func (i *VirtualHub) ToVirtualHubPtrOutputWithContext(ctx context.Context) VirtualHubPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubPtrOutput)
+}
+
+type VirtualHubPtrInput interface {
+	pulumi.Input
+
+	ToVirtualHubPtrOutput() VirtualHubPtrOutput
+	ToVirtualHubPtrOutputWithContext(ctx context.Context) VirtualHubPtrOutput
+}
+
+type virtualHubPtrType VirtualHubArgs
+
+func (*virtualHubPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualHub)(nil))
+}
+
+func (i *virtualHubPtrType) ToVirtualHubPtrOutput() VirtualHubPtrOutput {
+	return i.ToVirtualHubPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualHubPtrType) ToVirtualHubPtrOutputWithContext(ctx context.Context) VirtualHubPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubPtrOutput)
+}
+
+// VirtualHubArrayInput is an input type that accepts VirtualHubArray and VirtualHubArrayOutput values.
+// You can construct a concrete instance of `VirtualHubArrayInput` via:
+//
+//          VirtualHubArray{ VirtualHubArgs{...} }
+type VirtualHubArrayInput interface {
+	pulumi.Input
+
+	ToVirtualHubArrayOutput() VirtualHubArrayOutput
+	ToVirtualHubArrayOutputWithContext(context.Context) VirtualHubArrayOutput
+}
+
+type VirtualHubArray []VirtualHubInput
+
+func (VirtualHubArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VirtualHub)(nil))
+}
+
+func (i VirtualHubArray) ToVirtualHubArrayOutput() VirtualHubArrayOutput {
+	return i.ToVirtualHubArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualHubArray) ToVirtualHubArrayOutputWithContext(ctx context.Context) VirtualHubArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubArrayOutput)
+}
+
+// VirtualHubMapInput is an input type that accepts VirtualHubMap and VirtualHubMapOutput values.
+// You can construct a concrete instance of `VirtualHubMapInput` via:
+//
+//          VirtualHubMap{ "key": VirtualHubArgs{...} }
+type VirtualHubMapInput interface {
+	pulumi.Input
+
+	ToVirtualHubMapOutput() VirtualHubMapOutput
+	ToVirtualHubMapOutputWithContext(context.Context) VirtualHubMapOutput
+}
+
+type VirtualHubMap map[string]VirtualHubInput
+
+func (VirtualHubMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VirtualHub)(nil))
+}
+
+func (i VirtualHubMap) ToVirtualHubMapOutput() VirtualHubMapOutput {
+	return i.ToVirtualHubMapOutputWithContext(context.Background())
+}
+
+func (i VirtualHubMap) ToVirtualHubMapOutputWithContext(ctx context.Context) VirtualHubMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubMapOutput)
 }
 
 type VirtualHubOutput struct {
@@ -221,7 +300,7 @@ type VirtualHubOutput struct {
 }
 
 func (VirtualHubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualHub)(nil))
 }
 
 func (o VirtualHubOutput) ToVirtualHubOutput() VirtualHubOutput {
@@ -232,6 +311,75 @@ func (o VirtualHubOutput) ToVirtualHubOutputWithContext(ctx context.Context) Vir
 	return o
 }
 
+func (o VirtualHubOutput) ToVirtualHubPtrOutput() VirtualHubPtrOutput {
+	return o.ToVirtualHubPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualHubOutput) ToVirtualHubPtrOutputWithContext(ctx context.Context) VirtualHubPtrOutput {
+	return o.ApplyT(func(v VirtualHub) *VirtualHub {
+		return &v
+	}).(VirtualHubPtrOutput)
+}
+
+type VirtualHubPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualHubPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualHub)(nil))
+}
+
+func (o VirtualHubPtrOutput) ToVirtualHubPtrOutput() VirtualHubPtrOutput {
+	return o
+}
+
+func (o VirtualHubPtrOutput) ToVirtualHubPtrOutputWithContext(ctx context.Context) VirtualHubPtrOutput {
+	return o
+}
+
+type VirtualHubArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualHubArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualHub)(nil))
+}
+
+func (o VirtualHubArrayOutput) ToVirtualHubArrayOutput() VirtualHubArrayOutput {
+	return o
+}
+
+func (o VirtualHubArrayOutput) ToVirtualHubArrayOutputWithContext(ctx context.Context) VirtualHubArrayOutput {
+	return o
+}
+
+func (o VirtualHubArrayOutput) Index(i pulumi.IntInput) VirtualHubOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualHub {
+		return vs[0].([]VirtualHub)[vs[1].(int)]
+	}).(VirtualHubOutput)
+}
+
+type VirtualHubMapOutput struct{ *pulumi.OutputState }
+
+func (VirtualHubMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VirtualHub)(nil))
+}
+
+func (o VirtualHubMapOutput) ToVirtualHubMapOutput() VirtualHubMapOutput {
+	return o
+}
+
+func (o VirtualHubMapOutput) ToVirtualHubMapOutputWithContext(ctx context.Context) VirtualHubMapOutput {
+	return o
+}
+
+func (o VirtualHubMapOutput) MapIndex(k pulumi.StringInput) VirtualHubOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualHub {
+		return vs[0].(map[string]VirtualHub)[vs[1].(string)]
+	}).(VirtualHubOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualHubOutput{})
+	pulumi.RegisterOutputType(VirtualHubPtrOutput{})
+	pulumi.RegisterOutputType(VirtualHubArrayOutput{})
+	pulumi.RegisterOutputType(VirtualHubMapOutput{})
 }

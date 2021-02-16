@@ -133,7 +133,8 @@ export class HostPool extends pulumi.CustomResource {
     constructor(name: string, args: HostPoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HostPoolArgs | HostPoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as HostPoolState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["friendlyName"] = state ? state.friendlyName : undefined;
@@ -150,13 +151,13 @@ export class HostPool extends pulumi.CustomResource {
             inputs["validateEnvironment"] = state ? state.validateEnvironment : undefined;
         } else {
             const args = argsOrState as HostPoolArgs | undefined;
-            if ((!args || args.loadBalancerType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loadBalancerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -173,12 +174,8 @@ export class HostPool extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["validateEnvironment"] = args ? args.validateEnvironment : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(HostPool.__pulumiType, name, inputs, opts);
     }

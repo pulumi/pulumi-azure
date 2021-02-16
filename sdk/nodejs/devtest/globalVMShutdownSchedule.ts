@@ -144,7 +144,8 @@ export class GlobalVMShutdownSchedule extends pulumi.CustomResource {
     constructor(name: string, args: GlobalVMShutdownScheduleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GlobalVMShutdownScheduleArgs | GlobalVMShutdownScheduleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GlobalVMShutdownScheduleState | undefined;
             inputs["dailyRecurrenceTime"] = state ? state.dailyRecurrenceTime : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -155,16 +156,16 @@ export class GlobalVMShutdownSchedule extends pulumi.CustomResource {
             inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
         } else {
             const args = argsOrState as GlobalVMShutdownScheduleArgs | undefined;
-            if ((!args || args.dailyRecurrenceTime === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dailyRecurrenceTime === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dailyRecurrenceTime'");
             }
-            if ((!args || args.notificationSettings === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.notificationSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'notificationSettings'");
             }
-            if ((!args || args.timezone === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.timezone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timezone'");
             }
-            if ((!args || args.virtualMachineId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualMachineId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
             inputs["dailyRecurrenceTime"] = args ? args.dailyRecurrenceTime : undefined;
@@ -175,12 +176,8 @@ export class GlobalVMShutdownSchedule extends pulumi.CustomResource {
             inputs["timezone"] = args ? args.timezone : undefined;
             inputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(GlobalVMShutdownSchedule.__pulumiType, name, inputs, opts);
     }

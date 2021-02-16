@@ -57,6 +57,7 @@ namespace Pulumi.Azure.DataLake
     ///  $ pulumi import azure:datalake/analyticsFirewallRule:AnalyticsFirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DataLakeAnalytics/accounts/mydatalakeaccount/firewallRules/rule1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:datalake/analyticsFirewallRule:AnalyticsFirewallRule")]
     public partial class AnalyticsFirewallRule : Pulumi.CustomResource
     {
         /// <summary>

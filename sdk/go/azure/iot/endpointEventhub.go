@@ -198,16 +198,95 @@ type EndpointEventhubInput interface {
 	ToEndpointEventhubOutputWithContext(ctx context.Context) EndpointEventhubOutput
 }
 
-func (EndpointEventhub) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointEventhub)(nil)).Elem()
+func (*EndpointEventhub) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointEventhub)(nil))
 }
 
-func (i EndpointEventhub) ToEndpointEventhubOutput() EndpointEventhubOutput {
+func (i *EndpointEventhub) ToEndpointEventhubOutput() EndpointEventhubOutput {
 	return i.ToEndpointEventhubOutputWithContext(context.Background())
 }
 
-func (i EndpointEventhub) ToEndpointEventhubOutputWithContext(ctx context.Context) EndpointEventhubOutput {
+func (i *EndpointEventhub) ToEndpointEventhubOutputWithContext(ctx context.Context) EndpointEventhubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventhubOutput)
+}
+
+func (i *EndpointEventhub) ToEndpointEventhubPtrOutput() EndpointEventhubPtrOutput {
+	return i.ToEndpointEventhubPtrOutputWithContext(context.Background())
+}
+
+func (i *EndpointEventhub) ToEndpointEventhubPtrOutputWithContext(ctx context.Context) EndpointEventhubPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventhubPtrOutput)
+}
+
+type EndpointEventhubPtrInput interface {
+	pulumi.Input
+
+	ToEndpointEventhubPtrOutput() EndpointEventhubPtrOutput
+	ToEndpointEventhubPtrOutputWithContext(ctx context.Context) EndpointEventhubPtrOutput
+}
+
+type endpointEventhubPtrType EndpointEventhubArgs
+
+func (*endpointEventhubPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointEventhub)(nil))
+}
+
+func (i *endpointEventhubPtrType) ToEndpointEventhubPtrOutput() EndpointEventhubPtrOutput {
+	return i.ToEndpointEventhubPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointEventhubPtrType) ToEndpointEventhubPtrOutputWithContext(ctx context.Context) EndpointEventhubPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventhubPtrOutput)
+}
+
+// EndpointEventhubArrayInput is an input type that accepts EndpointEventhubArray and EndpointEventhubArrayOutput values.
+// You can construct a concrete instance of `EndpointEventhubArrayInput` via:
+//
+//          EndpointEventhubArray{ EndpointEventhubArgs{...} }
+type EndpointEventhubArrayInput interface {
+	pulumi.Input
+
+	ToEndpointEventhubArrayOutput() EndpointEventhubArrayOutput
+	ToEndpointEventhubArrayOutputWithContext(context.Context) EndpointEventhubArrayOutput
+}
+
+type EndpointEventhubArray []EndpointEventhubInput
+
+func (EndpointEventhubArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EndpointEventhub)(nil))
+}
+
+func (i EndpointEventhubArray) ToEndpointEventhubArrayOutput() EndpointEventhubArrayOutput {
+	return i.ToEndpointEventhubArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointEventhubArray) ToEndpointEventhubArrayOutputWithContext(ctx context.Context) EndpointEventhubArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventhubArrayOutput)
+}
+
+// EndpointEventhubMapInput is an input type that accepts EndpointEventhubMap and EndpointEventhubMapOutput values.
+// You can construct a concrete instance of `EndpointEventhubMapInput` via:
+//
+//          EndpointEventhubMap{ "key": EndpointEventhubArgs{...} }
+type EndpointEventhubMapInput interface {
+	pulumi.Input
+
+	ToEndpointEventhubMapOutput() EndpointEventhubMapOutput
+	ToEndpointEventhubMapOutputWithContext(context.Context) EndpointEventhubMapOutput
+}
+
+type EndpointEventhubMap map[string]EndpointEventhubInput
+
+func (EndpointEventhubMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EndpointEventhub)(nil))
+}
+
+func (i EndpointEventhubMap) ToEndpointEventhubMapOutput() EndpointEventhubMapOutput {
+	return i.ToEndpointEventhubMapOutputWithContext(context.Background())
+}
+
+func (i EndpointEventhubMap) ToEndpointEventhubMapOutputWithContext(ctx context.Context) EndpointEventhubMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventhubMapOutput)
 }
 
 type EndpointEventhubOutput struct {
@@ -215,7 +294,7 @@ type EndpointEventhubOutput struct {
 }
 
 func (EndpointEventhubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointEventhubOutput)(nil)).Elem()
+	return reflect.TypeOf((*EndpointEventhub)(nil))
 }
 
 func (o EndpointEventhubOutput) ToEndpointEventhubOutput() EndpointEventhubOutput {
@@ -226,6 +305,75 @@ func (o EndpointEventhubOutput) ToEndpointEventhubOutputWithContext(ctx context.
 	return o
 }
 
+func (o EndpointEventhubOutput) ToEndpointEventhubPtrOutput() EndpointEventhubPtrOutput {
+	return o.ToEndpointEventhubPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointEventhubOutput) ToEndpointEventhubPtrOutputWithContext(ctx context.Context) EndpointEventhubPtrOutput {
+	return o.ApplyT(func(v EndpointEventhub) *EndpointEventhub {
+		return &v
+	}).(EndpointEventhubPtrOutput)
+}
+
+type EndpointEventhubPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EndpointEventhubPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointEventhub)(nil))
+}
+
+func (o EndpointEventhubPtrOutput) ToEndpointEventhubPtrOutput() EndpointEventhubPtrOutput {
+	return o
+}
+
+func (o EndpointEventhubPtrOutput) ToEndpointEventhubPtrOutputWithContext(ctx context.Context) EndpointEventhubPtrOutput {
+	return o
+}
+
+type EndpointEventhubArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointEventhubArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointEventhub)(nil))
+}
+
+func (o EndpointEventhubArrayOutput) ToEndpointEventhubArrayOutput() EndpointEventhubArrayOutput {
+	return o
+}
+
+func (o EndpointEventhubArrayOutput) ToEndpointEventhubArrayOutputWithContext(ctx context.Context) EndpointEventhubArrayOutput {
+	return o
+}
+
+func (o EndpointEventhubArrayOutput) Index(i pulumi.IntInput) EndpointEventhubOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointEventhub {
+		return vs[0].([]EndpointEventhub)[vs[1].(int)]
+	}).(EndpointEventhubOutput)
+}
+
+type EndpointEventhubMapOutput struct{ *pulumi.OutputState }
+
+func (EndpointEventhubMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EndpointEventhub)(nil))
+}
+
+func (o EndpointEventhubMapOutput) ToEndpointEventhubMapOutput() EndpointEventhubMapOutput {
+	return o
+}
+
+func (o EndpointEventhubMapOutput) ToEndpointEventhubMapOutputWithContext(ctx context.Context) EndpointEventhubMapOutput {
+	return o
+}
+
+func (o EndpointEventhubMapOutput) MapIndex(k pulumi.StringInput) EndpointEventhubOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EndpointEventhub {
+		return vs[0].(map[string]EndpointEventhub)[vs[1].(string)]
+	}).(EndpointEventhubOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EndpointEventhubOutput{})
+	pulumi.RegisterOutputType(EndpointEventhubPtrOutput{})
+	pulumi.RegisterOutputType(EndpointEventhubArrayOutput{})
+	pulumi.RegisterOutputType(EndpointEventhubMapOutput{})
 }

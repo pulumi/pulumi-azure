@@ -274,16 +274,95 @@ type DatasetJsonInput interface {
 	ToDatasetJsonOutputWithContext(ctx context.Context) DatasetJsonOutput
 }
 
-func (DatasetJson) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetJson)(nil)).Elem()
+func (*DatasetJson) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetJson)(nil))
 }
 
-func (i DatasetJson) ToDatasetJsonOutput() DatasetJsonOutput {
+func (i *DatasetJson) ToDatasetJsonOutput() DatasetJsonOutput {
 	return i.ToDatasetJsonOutputWithContext(context.Background())
 }
 
-func (i DatasetJson) ToDatasetJsonOutputWithContext(ctx context.Context) DatasetJsonOutput {
+func (i *DatasetJson) ToDatasetJsonOutputWithContext(ctx context.Context) DatasetJsonOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetJsonOutput)
+}
+
+func (i *DatasetJson) ToDatasetJsonPtrOutput() DatasetJsonPtrOutput {
+	return i.ToDatasetJsonPtrOutputWithContext(context.Background())
+}
+
+func (i *DatasetJson) ToDatasetJsonPtrOutputWithContext(ctx context.Context) DatasetJsonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetJsonPtrOutput)
+}
+
+type DatasetJsonPtrInput interface {
+	pulumi.Input
+
+	ToDatasetJsonPtrOutput() DatasetJsonPtrOutput
+	ToDatasetJsonPtrOutputWithContext(ctx context.Context) DatasetJsonPtrOutput
+}
+
+type datasetJsonPtrType DatasetJsonArgs
+
+func (*datasetJsonPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetJson)(nil))
+}
+
+func (i *datasetJsonPtrType) ToDatasetJsonPtrOutput() DatasetJsonPtrOutput {
+	return i.ToDatasetJsonPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetJsonPtrType) ToDatasetJsonPtrOutputWithContext(ctx context.Context) DatasetJsonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetJsonPtrOutput)
+}
+
+// DatasetJsonArrayInput is an input type that accepts DatasetJsonArray and DatasetJsonArrayOutput values.
+// You can construct a concrete instance of `DatasetJsonArrayInput` via:
+//
+//          DatasetJsonArray{ DatasetJsonArgs{...} }
+type DatasetJsonArrayInput interface {
+	pulumi.Input
+
+	ToDatasetJsonArrayOutput() DatasetJsonArrayOutput
+	ToDatasetJsonArrayOutputWithContext(context.Context) DatasetJsonArrayOutput
+}
+
+type DatasetJsonArray []DatasetJsonInput
+
+func (DatasetJsonArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DatasetJson)(nil))
+}
+
+func (i DatasetJsonArray) ToDatasetJsonArrayOutput() DatasetJsonArrayOutput {
+	return i.ToDatasetJsonArrayOutputWithContext(context.Background())
+}
+
+func (i DatasetJsonArray) ToDatasetJsonArrayOutputWithContext(ctx context.Context) DatasetJsonArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetJsonArrayOutput)
+}
+
+// DatasetJsonMapInput is an input type that accepts DatasetJsonMap and DatasetJsonMapOutput values.
+// You can construct a concrete instance of `DatasetJsonMapInput` via:
+//
+//          DatasetJsonMap{ "key": DatasetJsonArgs{...} }
+type DatasetJsonMapInput interface {
+	pulumi.Input
+
+	ToDatasetJsonMapOutput() DatasetJsonMapOutput
+	ToDatasetJsonMapOutputWithContext(context.Context) DatasetJsonMapOutput
+}
+
+type DatasetJsonMap map[string]DatasetJsonInput
+
+func (DatasetJsonMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DatasetJson)(nil))
+}
+
+func (i DatasetJsonMap) ToDatasetJsonMapOutput() DatasetJsonMapOutput {
+	return i.ToDatasetJsonMapOutputWithContext(context.Background())
+}
+
+func (i DatasetJsonMap) ToDatasetJsonMapOutputWithContext(ctx context.Context) DatasetJsonMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetJsonMapOutput)
 }
 
 type DatasetJsonOutput struct {
@@ -291,7 +370,7 @@ type DatasetJsonOutput struct {
 }
 
 func (DatasetJsonOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetJsonOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatasetJson)(nil))
 }
 
 func (o DatasetJsonOutput) ToDatasetJsonOutput() DatasetJsonOutput {
@@ -302,6 +381,75 @@ func (o DatasetJsonOutput) ToDatasetJsonOutputWithContext(ctx context.Context) D
 	return o
 }
 
+func (o DatasetJsonOutput) ToDatasetJsonPtrOutput() DatasetJsonPtrOutput {
+	return o.ToDatasetJsonPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetJsonOutput) ToDatasetJsonPtrOutputWithContext(ctx context.Context) DatasetJsonPtrOutput {
+	return o.ApplyT(func(v DatasetJson) *DatasetJson {
+		return &v
+	}).(DatasetJsonPtrOutput)
+}
+
+type DatasetJsonPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatasetJsonPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetJson)(nil))
+}
+
+func (o DatasetJsonPtrOutput) ToDatasetJsonPtrOutput() DatasetJsonPtrOutput {
+	return o
+}
+
+func (o DatasetJsonPtrOutput) ToDatasetJsonPtrOutputWithContext(ctx context.Context) DatasetJsonPtrOutput {
+	return o
+}
+
+type DatasetJsonArrayOutput struct{ *pulumi.OutputState }
+
+func (DatasetJsonArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetJson)(nil))
+}
+
+func (o DatasetJsonArrayOutput) ToDatasetJsonArrayOutput() DatasetJsonArrayOutput {
+	return o
+}
+
+func (o DatasetJsonArrayOutput) ToDatasetJsonArrayOutputWithContext(ctx context.Context) DatasetJsonArrayOutput {
+	return o
+}
+
+func (o DatasetJsonArrayOutput) Index(i pulumi.IntInput) DatasetJsonOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetJson {
+		return vs[0].([]DatasetJson)[vs[1].(int)]
+	}).(DatasetJsonOutput)
+}
+
+type DatasetJsonMapOutput struct{ *pulumi.OutputState }
+
+func (DatasetJsonMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DatasetJson)(nil))
+}
+
+func (o DatasetJsonMapOutput) ToDatasetJsonMapOutput() DatasetJsonMapOutput {
+	return o
+}
+
+func (o DatasetJsonMapOutput) ToDatasetJsonMapOutputWithContext(ctx context.Context) DatasetJsonMapOutput {
+	return o
+}
+
+func (o DatasetJsonMapOutput) MapIndex(k pulumi.StringInput) DatasetJsonOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatasetJson {
+		return vs[0].(map[string]DatasetJson)[vs[1].(string)]
+	}).(DatasetJsonOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatasetJsonOutput{})
+	pulumi.RegisterOutputType(DatasetJsonPtrOutput{})
+	pulumi.RegisterOutputType(DatasetJsonArrayOutput{})
+	pulumi.RegisterOutputType(DatasetJsonMapOutput{})
 }

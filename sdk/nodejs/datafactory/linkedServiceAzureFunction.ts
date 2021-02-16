@@ -120,7 +120,8 @@ export class LinkedServiceAzureFunction extends pulumi.CustomResource {
     constructor(name: string, args: LinkedServiceAzureFunctionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LinkedServiceAzureFunctionArgs | LinkedServiceAzureFunctionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LinkedServiceAzureFunctionState | undefined;
             inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
@@ -134,16 +135,16 @@ export class LinkedServiceAzureFunction extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as LinkedServiceAzureFunctionArgs | undefined;
-            if ((!args || args.dataFactoryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryName'");
             }
-            if ((!args || args.key === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.url === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
             inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
@@ -157,12 +158,8 @@ export class LinkedServiceAzureFunction extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["url"] = args ? args.url : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LinkedServiceAzureFunction.__pulumiType, name, inputs, opts);
     }

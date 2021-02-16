@@ -93,7 +93,8 @@ export class Embedded extends pulumi.CustomResource {
     constructor(name: string, args: EmbeddedArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EmbeddedArgs | EmbeddedState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EmbeddedState | undefined;
             inputs["administrators"] = state ? state.administrators : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -103,13 +104,13 @@ export class Embedded extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as EmbeddedArgs | undefined;
-            if ((!args || args.administrators === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.administrators === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'administrators'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
             inputs["administrators"] = args ? args.administrators : undefined;
@@ -119,12 +120,8 @@ export class Embedded extends pulumi.CustomResource {
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Embedded.__pulumiType, name, inputs, opts);
     }

@@ -152,7 +152,8 @@ export class DataDiskAttachment extends pulumi.CustomResource {
     constructor(name: string, args: DataDiskAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataDiskAttachmentArgs | DataDiskAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DataDiskAttachmentState | undefined;
             inputs["caching"] = state ? state.caching : undefined;
             inputs["createOption"] = state ? state.createOption : undefined;
@@ -162,16 +163,16 @@ export class DataDiskAttachment extends pulumi.CustomResource {
             inputs["writeAcceleratorEnabled"] = state ? state.writeAcceleratorEnabled : undefined;
         } else {
             const args = argsOrState as DataDiskAttachmentArgs | undefined;
-            if ((!args || args.caching === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.caching === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'caching'");
             }
-            if ((!args || args.lun === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.lun === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lun'");
             }
-            if ((!args || args.managedDiskId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.managedDiskId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managedDiskId'");
             }
-            if ((!args || args.virtualMachineId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualMachineId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
             inputs["caching"] = args ? args.caching : undefined;
@@ -181,12 +182,8 @@ export class DataDiskAttachment extends pulumi.CustomResource {
             inputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
             inputs["writeAcceleratorEnabled"] = args ? args.writeAcceleratorEnabled : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DataDiskAttachment.__pulumiType, name, inputs, opts);
     }

@@ -118,7 +118,8 @@ export class TriggerSchedule extends pulumi.CustomResource {
     constructor(name: string, args: TriggerScheduleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TriggerScheduleArgs | TriggerScheduleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TriggerScheduleState | undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
@@ -132,13 +133,13 @@ export class TriggerSchedule extends pulumi.CustomResource {
             inputs["startTime"] = state ? state.startTime : undefined;
         } else {
             const args = argsOrState as TriggerScheduleArgs | undefined;
-            if ((!args || args.dataFactoryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryName'");
             }
-            if ((!args || args.pipelineName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.pipelineName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pipelineName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["annotations"] = args ? args.annotations : undefined;
@@ -152,12 +153,8 @@ export class TriggerSchedule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["startTime"] = args ? args.startTime : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TriggerSchedule.__pulumiType, name, inputs, opts);
     }

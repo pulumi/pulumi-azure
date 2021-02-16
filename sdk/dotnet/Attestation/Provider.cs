@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Attestation
 {
+    [AzureResourceType("azure:attestation/provider:Provider")]
     public partial class Provider : Pulumi.CustomResource
     {
         [Output("attestationUri")]

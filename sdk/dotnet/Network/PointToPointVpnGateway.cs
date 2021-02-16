@@ -43,6 +43,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/pointToPointVpnGateway:PointToPointVpnGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/p2svpnGateways/gateway1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/pointToPointVpnGateway:PointToPointVpnGateway")]
     public partial class PointToPointVpnGateway : Pulumi.CustomResource
     {
         /// <summary>

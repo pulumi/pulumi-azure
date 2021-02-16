@@ -162,7 +162,8 @@ export class Module extends pulumi.CustomResource {
     constructor(name: string, args: ModuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ModuleArgs | ModuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ModuleState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -174,13 +175,13 @@ export class Module extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as ModuleArgs | undefined;
-            if ((!args || args.networkProfile === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.networkProfile === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkProfile'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -192,12 +193,8 @@ export class Module extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Module.__pulumiType, name, inputs, opts);
     }

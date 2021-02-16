@@ -46,6 +46,7 @@ namespace Pulumi.Azure.NotificationHub
     ///  $ pulumi import azure:notificationhub/namespace:Namespace namespace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}
     /// ```
     /// </summary>
+    [AzureResourceType("azure:notificationhub/namespace:Namespace")]
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>

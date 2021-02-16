@@ -229,16 +229,95 @@ type EventHubNamespaceAuthorizationRuleInput interface {
 	ToEventHubNamespaceAuthorizationRuleOutputWithContext(ctx context.Context) EventHubNamespaceAuthorizationRuleOutput
 }
 
-func (EventHubNamespaceAuthorizationRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHubNamespaceAuthorizationRule)(nil)).Elem()
+func (*EventHubNamespaceAuthorizationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubNamespaceAuthorizationRule)(nil))
 }
 
-func (i EventHubNamespaceAuthorizationRule) ToEventHubNamespaceAuthorizationRuleOutput() EventHubNamespaceAuthorizationRuleOutput {
+func (i *EventHubNamespaceAuthorizationRule) ToEventHubNamespaceAuthorizationRuleOutput() EventHubNamespaceAuthorizationRuleOutput {
 	return i.ToEventHubNamespaceAuthorizationRuleOutputWithContext(context.Background())
 }
 
-func (i EventHubNamespaceAuthorizationRule) ToEventHubNamespaceAuthorizationRuleOutputWithContext(ctx context.Context) EventHubNamespaceAuthorizationRuleOutput {
+func (i *EventHubNamespaceAuthorizationRule) ToEventHubNamespaceAuthorizationRuleOutputWithContext(ctx context.Context) EventHubNamespaceAuthorizationRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceAuthorizationRuleOutput)
+}
+
+func (i *EventHubNamespaceAuthorizationRule) ToEventHubNamespaceAuthorizationRulePtrOutput() EventHubNamespaceAuthorizationRulePtrOutput {
+	return i.ToEventHubNamespaceAuthorizationRulePtrOutputWithContext(context.Background())
+}
+
+func (i *EventHubNamespaceAuthorizationRule) ToEventHubNamespaceAuthorizationRulePtrOutputWithContext(ctx context.Context) EventHubNamespaceAuthorizationRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceAuthorizationRulePtrOutput)
+}
+
+type EventHubNamespaceAuthorizationRulePtrInput interface {
+	pulumi.Input
+
+	ToEventHubNamespaceAuthorizationRulePtrOutput() EventHubNamespaceAuthorizationRulePtrOutput
+	ToEventHubNamespaceAuthorizationRulePtrOutputWithContext(ctx context.Context) EventHubNamespaceAuthorizationRulePtrOutput
+}
+
+type eventHubNamespaceAuthorizationRulePtrType EventHubNamespaceAuthorizationRuleArgs
+
+func (*eventHubNamespaceAuthorizationRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventHubNamespaceAuthorizationRule)(nil))
+}
+
+func (i *eventHubNamespaceAuthorizationRulePtrType) ToEventHubNamespaceAuthorizationRulePtrOutput() EventHubNamespaceAuthorizationRulePtrOutput {
+	return i.ToEventHubNamespaceAuthorizationRulePtrOutputWithContext(context.Background())
+}
+
+func (i *eventHubNamespaceAuthorizationRulePtrType) ToEventHubNamespaceAuthorizationRulePtrOutputWithContext(ctx context.Context) EventHubNamespaceAuthorizationRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceAuthorizationRulePtrOutput)
+}
+
+// EventHubNamespaceAuthorizationRuleArrayInput is an input type that accepts EventHubNamespaceAuthorizationRuleArray and EventHubNamespaceAuthorizationRuleArrayOutput values.
+// You can construct a concrete instance of `EventHubNamespaceAuthorizationRuleArrayInput` via:
+//
+//          EventHubNamespaceAuthorizationRuleArray{ EventHubNamespaceAuthorizationRuleArgs{...} }
+type EventHubNamespaceAuthorizationRuleArrayInput interface {
+	pulumi.Input
+
+	ToEventHubNamespaceAuthorizationRuleArrayOutput() EventHubNamespaceAuthorizationRuleArrayOutput
+	ToEventHubNamespaceAuthorizationRuleArrayOutputWithContext(context.Context) EventHubNamespaceAuthorizationRuleArrayOutput
+}
+
+type EventHubNamespaceAuthorizationRuleArray []EventHubNamespaceAuthorizationRuleInput
+
+func (EventHubNamespaceAuthorizationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EventHubNamespaceAuthorizationRule)(nil))
+}
+
+func (i EventHubNamespaceAuthorizationRuleArray) ToEventHubNamespaceAuthorizationRuleArrayOutput() EventHubNamespaceAuthorizationRuleArrayOutput {
+	return i.ToEventHubNamespaceAuthorizationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i EventHubNamespaceAuthorizationRuleArray) ToEventHubNamespaceAuthorizationRuleArrayOutputWithContext(ctx context.Context) EventHubNamespaceAuthorizationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceAuthorizationRuleArrayOutput)
+}
+
+// EventHubNamespaceAuthorizationRuleMapInput is an input type that accepts EventHubNamespaceAuthorizationRuleMap and EventHubNamespaceAuthorizationRuleMapOutput values.
+// You can construct a concrete instance of `EventHubNamespaceAuthorizationRuleMapInput` via:
+//
+//          EventHubNamespaceAuthorizationRuleMap{ "key": EventHubNamespaceAuthorizationRuleArgs{...} }
+type EventHubNamespaceAuthorizationRuleMapInput interface {
+	pulumi.Input
+
+	ToEventHubNamespaceAuthorizationRuleMapOutput() EventHubNamespaceAuthorizationRuleMapOutput
+	ToEventHubNamespaceAuthorizationRuleMapOutputWithContext(context.Context) EventHubNamespaceAuthorizationRuleMapOutput
+}
+
+type EventHubNamespaceAuthorizationRuleMap map[string]EventHubNamespaceAuthorizationRuleInput
+
+func (EventHubNamespaceAuthorizationRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EventHubNamespaceAuthorizationRule)(nil))
+}
+
+func (i EventHubNamespaceAuthorizationRuleMap) ToEventHubNamespaceAuthorizationRuleMapOutput() EventHubNamespaceAuthorizationRuleMapOutput {
+	return i.ToEventHubNamespaceAuthorizationRuleMapOutputWithContext(context.Background())
+}
+
+func (i EventHubNamespaceAuthorizationRuleMap) ToEventHubNamespaceAuthorizationRuleMapOutputWithContext(ctx context.Context) EventHubNamespaceAuthorizationRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceAuthorizationRuleMapOutput)
 }
 
 type EventHubNamespaceAuthorizationRuleOutput struct {
@@ -246,7 +325,7 @@ type EventHubNamespaceAuthorizationRuleOutput struct {
 }
 
 func (EventHubNamespaceAuthorizationRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHubNamespaceAuthorizationRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*EventHubNamespaceAuthorizationRule)(nil))
 }
 
 func (o EventHubNamespaceAuthorizationRuleOutput) ToEventHubNamespaceAuthorizationRuleOutput() EventHubNamespaceAuthorizationRuleOutput {
@@ -257,6 +336,75 @@ func (o EventHubNamespaceAuthorizationRuleOutput) ToEventHubNamespaceAuthorizati
 	return o
 }
 
+func (o EventHubNamespaceAuthorizationRuleOutput) ToEventHubNamespaceAuthorizationRulePtrOutput() EventHubNamespaceAuthorizationRulePtrOutput {
+	return o.ToEventHubNamespaceAuthorizationRulePtrOutputWithContext(context.Background())
+}
+
+func (o EventHubNamespaceAuthorizationRuleOutput) ToEventHubNamespaceAuthorizationRulePtrOutputWithContext(ctx context.Context) EventHubNamespaceAuthorizationRulePtrOutput {
+	return o.ApplyT(func(v EventHubNamespaceAuthorizationRule) *EventHubNamespaceAuthorizationRule {
+		return &v
+	}).(EventHubNamespaceAuthorizationRulePtrOutput)
+}
+
+type EventHubNamespaceAuthorizationRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventHubNamespaceAuthorizationRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventHubNamespaceAuthorizationRule)(nil))
+}
+
+func (o EventHubNamespaceAuthorizationRulePtrOutput) ToEventHubNamespaceAuthorizationRulePtrOutput() EventHubNamespaceAuthorizationRulePtrOutput {
+	return o
+}
+
+func (o EventHubNamespaceAuthorizationRulePtrOutput) ToEventHubNamespaceAuthorizationRulePtrOutputWithContext(ctx context.Context) EventHubNamespaceAuthorizationRulePtrOutput {
+	return o
+}
+
+type EventHubNamespaceAuthorizationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (EventHubNamespaceAuthorizationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventHubNamespaceAuthorizationRule)(nil))
+}
+
+func (o EventHubNamespaceAuthorizationRuleArrayOutput) ToEventHubNamespaceAuthorizationRuleArrayOutput() EventHubNamespaceAuthorizationRuleArrayOutput {
+	return o
+}
+
+func (o EventHubNamespaceAuthorizationRuleArrayOutput) ToEventHubNamespaceAuthorizationRuleArrayOutputWithContext(ctx context.Context) EventHubNamespaceAuthorizationRuleArrayOutput {
+	return o
+}
+
+func (o EventHubNamespaceAuthorizationRuleArrayOutput) Index(i pulumi.IntInput) EventHubNamespaceAuthorizationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventHubNamespaceAuthorizationRule {
+		return vs[0].([]EventHubNamespaceAuthorizationRule)[vs[1].(int)]
+	}).(EventHubNamespaceAuthorizationRuleOutput)
+}
+
+type EventHubNamespaceAuthorizationRuleMapOutput struct{ *pulumi.OutputState }
+
+func (EventHubNamespaceAuthorizationRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EventHubNamespaceAuthorizationRule)(nil))
+}
+
+func (o EventHubNamespaceAuthorizationRuleMapOutput) ToEventHubNamespaceAuthorizationRuleMapOutput() EventHubNamespaceAuthorizationRuleMapOutput {
+	return o
+}
+
+func (o EventHubNamespaceAuthorizationRuleMapOutput) ToEventHubNamespaceAuthorizationRuleMapOutputWithContext(ctx context.Context) EventHubNamespaceAuthorizationRuleMapOutput {
+	return o
+}
+
+func (o EventHubNamespaceAuthorizationRuleMapOutput) MapIndex(k pulumi.StringInput) EventHubNamespaceAuthorizationRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventHubNamespaceAuthorizationRule {
+		return vs[0].(map[string]EventHubNamespaceAuthorizationRule)[vs[1].(string)]
+	}).(EventHubNamespaceAuthorizationRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventHubNamespaceAuthorizationRuleOutput{})
+	pulumi.RegisterOutputType(EventHubNamespaceAuthorizationRulePtrOutput{})
+	pulumi.RegisterOutputType(EventHubNamespaceAuthorizationRuleArrayOutput{})
+	pulumi.RegisterOutputType(EventHubNamespaceAuthorizationRuleMapOutput{})
 }

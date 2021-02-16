@@ -110,7 +110,8 @@ export class SyncCloudEndpoint extends pulumi.CustomResource {
     constructor(name: string, args: SyncCloudEndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SyncCloudEndpointArgs | SyncCloudEndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SyncCloudEndpointState | undefined;
             inputs["fileShareName"] = state ? state.fileShareName : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -119,13 +120,13 @@ export class SyncCloudEndpoint extends pulumi.CustomResource {
             inputs["storageSyncGroupId"] = state ? state.storageSyncGroupId : undefined;
         } else {
             const args = argsOrState as SyncCloudEndpointArgs | undefined;
-            if ((!args || args.fileShareName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.fileShareName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fileShareName'");
             }
-            if ((!args || args.storageAccountId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            if ((!args || args.storageSyncGroupId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageSyncGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageSyncGroupId'");
             }
             inputs["fileShareName"] = args ? args.fileShareName : undefined;
@@ -134,12 +135,8 @@ export class SyncCloudEndpoint extends pulumi.CustomResource {
             inputs["storageAccountTenantId"] = args ? args.storageAccountTenantId : undefined;
             inputs["storageSyncGroupId"] = args ? args.storageSyncGroupId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SyncCloudEndpoint.__pulumiType, name, inputs, opts);
     }

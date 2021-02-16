@@ -54,6 +54,7 @@ namespace Pulumi.Azure.Management
     ///  $ pulumi import azure:management/group:Group example /providers/Microsoft.Management/managementGroups/group1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:management/group:Group")]
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>

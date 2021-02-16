@@ -227,16 +227,95 @@ type LocalNetworkGatewayInput interface {
 	ToLocalNetworkGatewayOutputWithContext(ctx context.Context) LocalNetworkGatewayOutput
 }
 
-func (LocalNetworkGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalNetworkGateway)(nil)).Elem()
+func (*LocalNetworkGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalNetworkGateway)(nil))
 }
 
-func (i LocalNetworkGateway) ToLocalNetworkGatewayOutput() LocalNetworkGatewayOutput {
+func (i *LocalNetworkGateway) ToLocalNetworkGatewayOutput() LocalNetworkGatewayOutput {
 	return i.ToLocalNetworkGatewayOutputWithContext(context.Background())
 }
 
-func (i LocalNetworkGateway) ToLocalNetworkGatewayOutputWithContext(ctx context.Context) LocalNetworkGatewayOutput {
+func (i *LocalNetworkGateway) ToLocalNetworkGatewayOutputWithContext(ctx context.Context) LocalNetworkGatewayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalNetworkGatewayOutput)
+}
+
+func (i *LocalNetworkGateway) ToLocalNetworkGatewayPtrOutput() LocalNetworkGatewayPtrOutput {
+	return i.ToLocalNetworkGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *LocalNetworkGateway) ToLocalNetworkGatewayPtrOutputWithContext(ctx context.Context) LocalNetworkGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalNetworkGatewayPtrOutput)
+}
+
+type LocalNetworkGatewayPtrInput interface {
+	pulumi.Input
+
+	ToLocalNetworkGatewayPtrOutput() LocalNetworkGatewayPtrOutput
+	ToLocalNetworkGatewayPtrOutputWithContext(ctx context.Context) LocalNetworkGatewayPtrOutput
+}
+
+type localNetworkGatewayPtrType LocalNetworkGatewayArgs
+
+func (*localNetworkGatewayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocalNetworkGateway)(nil))
+}
+
+func (i *localNetworkGatewayPtrType) ToLocalNetworkGatewayPtrOutput() LocalNetworkGatewayPtrOutput {
+	return i.ToLocalNetworkGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *localNetworkGatewayPtrType) ToLocalNetworkGatewayPtrOutputWithContext(ctx context.Context) LocalNetworkGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalNetworkGatewayPtrOutput)
+}
+
+// LocalNetworkGatewayArrayInput is an input type that accepts LocalNetworkGatewayArray and LocalNetworkGatewayArrayOutput values.
+// You can construct a concrete instance of `LocalNetworkGatewayArrayInput` via:
+//
+//          LocalNetworkGatewayArray{ LocalNetworkGatewayArgs{...} }
+type LocalNetworkGatewayArrayInput interface {
+	pulumi.Input
+
+	ToLocalNetworkGatewayArrayOutput() LocalNetworkGatewayArrayOutput
+	ToLocalNetworkGatewayArrayOutputWithContext(context.Context) LocalNetworkGatewayArrayOutput
+}
+
+type LocalNetworkGatewayArray []LocalNetworkGatewayInput
+
+func (LocalNetworkGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LocalNetworkGateway)(nil))
+}
+
+func (i LocalNetworkGatewayArray) ToLocalNetworkGatewayArrayOutput() LocalNetworkGatewayArrayOutput {
+	return i.ToLocalNetworkGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i LocalNetworkGatewayArray) ToLocalNetworkGatewayArrayOutputWithContext(ctx context.Context) LocalNetworkGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalNetworkGatewayArrayOutput)
+}
+
+// LocalNetworkGatewayMapInput is an input type that accepts LocalNetworkGatewayMap and LocalNetworkGatewayMapOutput values.
+// You can construct a concrete instance of `LocalNetworkGatewayMapInput` via:
+//
+//          LocalNetworkGatewayMap{ "key": LocalNetworkGatewayArgs{...} }
+type LocalNetworkGatewayMapInput interface {
+	pulumi.Input
+
+	ToLocalNetworkGatewayMapOutput() LocalNetworkGatewayMapOutput
+	ToLocalNetworkGatewayMapOutputWithContext(context.Context) LocalNetworkGatewayMapOutput
+}
+
+type LocalNetworkGatewayMap map[string]LocalNetworkGatewayInput
+
+func (LocalNetworkGatewayMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LocalNetworkGateway)(nil))
+}
+
+func (i LocalNetworkGatewayMap) ToLocalNetworkGatewayMapOutput() LocalNetworkGatewayMapOutput {
+	return i.ToLocalNetworkGatewayMapOutputWithContext(context.Background())
+}
+
+func (i LocalNetworkGatewayMap) ToLocalNetworkGatewayMapOutputWithContext(ctx context.Context) LocalNetworkGatewayMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalNetworkGatewayMapOutput)
 }
 
 type LocalNetworkGatewayOutput struct {
@@ -244,7 +323,7 @@ type LocalNetworkGatewayOutput struct {
 }
 
 func (LocalNetworkGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalNetworkGatewayOutput)(nil)).Elem()
+	return reflect.TypeOf((*LocalNetworkGateway)(nil))
 }
 
 func (o LocalNetworkGatewayOutput) ToLocalNetworkGatewayOutput() LocalNetworkGatewayOutput {
@@ -255,6 +334,75 @@ func (o LocalNetworkGatewayOutput) ToLocalNetworkGatewayOutputWithContext(ctx co
 	return o
 }
 
+func (o LocalNetworkGatewayOutput) ToLocalNetworkGatewayPtrOutput() LocalNetworkGatewayPtrOutput {
+	return o.ToLocalNetworkGatewayPtrOutputWithContext(context.Background())
+}
+
+func (o LocalNetworkGatewayOutput) ToLocalNetworkGatewayPtrOutputWithContext(ctx context.Context) LocalNetworkGatewayPtrOutput {
+	return o.ApplyT(func(v LocalNetworkGateway) *LocalNetworkGateway {
+		return &v
+	}).(LocalNetworkGatewayPtrOutput)
+}
+
+type LocalNetworkGatewayPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LocalNetworkGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocalNetworkGateway)(nil))
+}
+
+func (o LocalNetworkGatewayPtrOutput) ToLocalNetworkGatewayPtrOutput() LocalNetworkGatewayPtrOutput {
+	return o
+}
+
+func (o LocalNetworkGatewayPtrOutput) ToLocalNetworkGatewayPtrOutputWithContext(ctx context.Context) LocalNetworkGatewayPtrOutput {
+	return o
+}
+
+type LocalNetworkGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (LocalNetworkGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocalNetworkGateway)(nil))
+}
+
+func (o LocalNetworkGatewayArrayOutput) ToLocalNetworkGatewayArrayOutput() LocalNetworkGatewayArrayOutput {
+	return o
+}
+
+func (o LocalNetworkGatewayArrayOutput) ToLocalNetworkGatewayArrayOutputWithContext(ctx context.Context) LocalNetworkGatewayArrayOutput {
+	return o
+}
+
+func (o LocalNetworkGatewayArrayOutput) Index(i pulumi.IntInput) LocalNetworkGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalNetworkGateway {
+		return vs[0].([]LocalNetworkGateway)[vs[1].(int)]
+	}).(LocalNetworkGatewayOutput)
+}
+
+type LocalNetworkGatewayMapOutput struct{ *pulumi.OutputState }
+
+func (LocalNetworkGatewayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LocalNetworkGateway)(nil))
+}
+
+func (o LocalNetworkGatewayMapOutput) ToLocalNetworkGatewayMapOutput() LocalNetworkGatewayMapOutput {
+	return o
+}
+
+func (o LocalNetworkGatewayMapOutput) ToLocalNetworkGatewayMapOutputWithContext(ctx context.Context) LocalNetworkGatewayMapOutput {
+	return o
+}
+
+func (o LocalNetworkGatewayMapOutput) MapIndex(k pulumi.StringInput) LocalNetworkGatewayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalNetworkGateway {
+		return vs[0].(map[string]LocalNetworkGateway)[vs[1].(string)]
+	}).(LocalNetworkGatewayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LocalNetworkGatewayOutput{})
+	pulumi.RegisterOutputType(LocalNetworkGatewayPtrOutput{})
+	pulumi.RegisterOutputType(LocalNetworkGatewayArrayOutput{})
+	pulumi.RegisterOutputType(LocalNetworkGatewayMapOutput{})
 }

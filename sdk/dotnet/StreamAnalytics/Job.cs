@@ -59,6 +59,7 @@ namespace Pulumi.Azure.StreamAnalytics
     ///  $ pulumi import azure:streamanalytics/job:Job example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:streamanalytics/job:Job")]
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>

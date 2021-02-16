@@ -230,16 +230,95 @@ type EventGridTopicInput interface {
 	ToEventGridTopicOutputWithContext(ctx context.Context) EventGridTopicOutput
 }
 
-func (EventGridTopic) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventGridTopic)(nil)).Elem()
+func (*EventGridTopic) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventGridTopic)(nil))
 }
 
-func (i EventGridTopic) ToEventGridTopicOutput() EventGridTopicOutput {
+func (i *EventGridTopic) ToEventGridTopicOutput() EventGridTopicOutput {
 	return i.ToEventGridTopicOutputWithContext(context.Background())
 }
 
-func (i EventGridTopic) ToEventGridTopicOutputWithContext(ctx context.Context) EventGridTopicOutput {
+func (i *EventGridTopic) ToEventGridTopicOutputWithContext(ctx context.Context) EventGridTopicOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicOutput)
+}
+
+func (i *EventGridTopic) ToEventGridTopicPtrOutput() EventGridTopicPtrOutput {
+	return i.ToEventGridTopicPtrOutputWithContext(context.Background())
+}
+
+func (i *EventGridTopic) ToEventGridTopicPtrOutputWithContext(ctx context.Context) EventGridTopicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicPtrOutput)
+}
+
+type EventGridTopicPtrInput interface {
+	pulumi.Input
+
+	ToEventGridTopicPtrOutput() EventGridTopicPtrOutput
+	ToEventGridTopicPtrOutputWithContext(ctx context.Context) EventGridTopicPtrOutput
+}
+
+type eventGridTopicPtrType EventGridTopicArgs
+
+func (*eventGridTopicPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventGridTopic)(nil))
+}
+
+func (i *eventGridTopicPtrType) ToEventGridTopicPtrOutput() EventGridTopicPtrOutput {
+	return i.ToEventGridTopicPtrOutputWithContext(context.Background())
+}
+
+func (i *eventGridTopicPtrType) ToEventGridTopicPtrOutputWithContext(ctx context.Context) EventGridTopicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicPtrOutput)
+}
+
+// EventGridTopicArrayInput is an input type that accepts EventGridTopicArray and EventGridTopicArrayOutput values.
+// You can construct a concrete instance of `EventGridTopicArrayInput` via:
+//
+//          EventGridTopicArray{ EventGridTopicArgs{...} }
+type EventGridTopicArrayInput interface {
+	pulumi.Input
+
+	ToEventGridTopicArrayOutput() EventGridTopicArrayOutput
+	ToEventGridTopicArrayOutputWithContext(context.Context) EventGridTopicArrayOutput
+}
+
+type EventGridTopicArray []EventGridTopicInput
+
+func (EventGridTopicArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EventGridTopic)(nil))
+}
+
+func (i EventGridTopicArray) ToEventGridTopicArrayOutput() EventGridTopicArrayOutput {
+	return i.ToEventGridTopicArrayOutputWithContext(context.Background())
+}
+
+func (i EventGridTopicArray) ToEventGridTopicArrayOutputWithContext(ctx context.Context) EventGridTopicArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicArrayOutput)
+}
+
+// EventGridTopicMapInput is an input type that accepts EventGridTopicMap and EventGridTopicMapOutput values.
+// You can construct a concrete instance of `EventGridTopicMapInput` via:
+//
+//          EventGridTopicMap{ "key": EventGridTopicArgs{...} }
+type EventGridTopicMapInput interface {
+	pulumi.Input
+
+	ToEventGridTopicMapOutput() EventGridTopicMapOutput
+	ToEventGridTopicMapOutputWithContext(context.Context) EventGridTopicMapOutput
+}
+
+type EventGridTopicMap map[string]EventGridTopicInput
+
+func (EventGridTopicMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EventGridTopic)(nil))
+}
+
+func (i EventGridTopicMap) ToEventGridTopicMapOutput() EventGridTopicMapOutput {
+	return i.ToEventGridTopicMapOutputWithContext(context.Background())
+}
+
+func (i EventGridTopicMap) ToEventGridTopicMapOutputWithContext(ctx context.Context) EventGridTopicMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicMapOutput)
 }
 
 type EventGridTopicOutput struct {
@@ -247,7 +326,7 @@ type EventGridTopicOutput struct {
 }
 
 func (EventGridTopicOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventGridTopicOutput)(nil)).Elem()
+	return reflect.TypeOf((*EventGridTopic)(nil))
 }
 
 func (o EventGridTopicOutput) ToEventGridTopicOutput() EventGridTopicOutput {
@@ -258,6 +337,75 @@ func (o EventGridTopicOutput) ToEventGridTopicOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o EventGridTopicOutput) ToEventGridTopicPtrOutput() EventGridTopicPtrOutput {
+	return o.ToEventGridTopicPtrOutputWithContext(context.Background())
+}
+
+func (o EventGridTopicOutput) ToEventGridTopicPtrOutputWithContext(ctx context.Context) EventGridTopicPtrOutput {
+	return o.ApplyT(func(v EventGridTopic) *EventGridTopic {
+		return &v
+	}).(EventGridTopicPtrOutput)
+}
+
+type EventGridTopicPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventGridTopicPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventGridTopic)(nil))
+}
+
+func (o EventGridTopicPtrOutput) ToEventGridTopicPtrOutput() EventGridTopicPtrOutput {
+	return o
+}
+
+func (o EventGridTopicPtrOutput) ToEventGridTopicPtrOutputWithContext(ctx context.Context) EventGridTopicPtrOutput {
+	return o
+}
+
+type EventGridTopicArrayOutput struct{ *pulumi.OutputState }
+
+func (EventGridTopicArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventGridTopic)(nil))
+}
+
+func (o EventGridTopicArrayOutput) ToEventGridTopicArrayOutput() EventGridTopicArrayOutput {
+	return o
+}
+
+func (o EventGridTopicArrayOutput) ToEventGridTopicArrayOutputWithContext(ctx context.Context) EventGridTopicArrayOutput {
+	return o
+}
+
+func (o EventGridTopicArrayOutput) Index(i pulumi.IntInput) EventGridTopicOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventGridTopic {
+		return vs[0].([]EventGridTopic)[vs[1].(int)]
+	}).(EventGridTopicOutput)
+}
+
+type EventGridTopicMapOutput struct{ *pulumi.OutputState }
+
+func (EventGridTopicMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EventGridTopic)(nil))
+}
+
+func (o EventGridTopicMapOutput) ToEventGridTopicMapOutput() EventGridTopicMapOutput {
+	return o
+}
+
+func (o EventGridTopicMapOutput) ToEventGridTopicMapOutputWithContext(ctx context.Context) EventGridTopicMapOutput {
+	return o
+}
+
+func (o EventGridTopicMapOutput) MapIndex(k pulumi.StringInput) EventGridTopicOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventGridTopic {
+		return vs[0].(map[string]EventGridTopic)[vs[1].(string)]
+	}).(EventGridTopicOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventGridTopicOutput{})
+	pulumi.RegisterOutputType(EventGridTopicPtrOutput{})
+	pulumi.RegisterOutputType(EventGridTopicArrayOutput{})
+	pulumi.RegisterOutputType(EventGridTopicMapOutput{})
 }

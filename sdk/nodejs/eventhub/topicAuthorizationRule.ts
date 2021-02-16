@@ -133,7 +133,8 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TopicAuthorizationRuleArgs | TopicAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("TopicAuthorizationRule is deprecated: azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TopicAuthorizationRuleState | undefined;
             inputs["listen"] = state ? state.listen : undefined;
             inputs["manage"] = state ? state.manage : undefined;
@@ -148,13 +149,13 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
             inputs["topicName"] = state ? state.topicName : undefined;
         } else {
             const args = argsOrState as TopicAuthorizationRuleArgs | undefined;
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.topicName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.topicName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicName'");
             }
             inputs["listen"] = args ? args.listen : undefined;
@@ -169,12 +170,8 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
             inputs["secondaryConnectionString"] = undefined /*out*/;
             inputs["secondaryKey"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TopicAuthorizationRule.__pulumiType, name, inputs, opts);
     }

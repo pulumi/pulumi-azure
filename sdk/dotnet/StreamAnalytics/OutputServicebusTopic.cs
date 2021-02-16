@@ -69,6 +69,7 @@ namespace Pulumi.Azure.StreamAnalytics
     ///  $ pulumi import azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/outputs/output1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic")]
     public partial class OutputServicebusTopic : Pulumi.CustomResource
     {
         /// <summary>

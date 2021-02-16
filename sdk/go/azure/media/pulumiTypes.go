@@ -4241,7 +4241,7 @@ func (o StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput) SmoothStreaming() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-type TransformOutput struct {
+type TransformOutputType struct {
 	// A `audioAnalyzerPreset` block as defined below.
 	AudioAnalyzerPreset *TransformOutputAudioAnalyzerPreset `pulumi:"audioAnalyzerPreset"`
 	// A `builtinPreset` block as defined below.
@@ -4256,18 +4256,18 @@ type TransformOutput struct {
 	VideoAnalyzerPreset *TransformOutputVideoAnalyzerPreset `pulumi:"videoAnalyzerPreset"`
 }
 
-// TransformOutputInput is an input type that accepts TransformOutputArgs and TransformOutputOutput values.
-// You can construct a concrete instance of `TransformOutputInput` via:
+// TransformOutputTypeInput is an input type that accepts TransformOutputTypeArgs and TransformOutputTypeOutput values.
+// You can construct a concrete instance of `TransformOutputTypeInput` via:
 //
-//          TransformOutputArgs{...}
-type TransformOutputInput interface {
+//          TransformOutputTypeArgs{...}
+type TransformOutputTypeInput interface {
 	pulumi.Input
 
-	ToTransformOutputOutput() TransformOutputOutput
-	ToTransformOutputOutputWithContext(context.Context) TransformOutputOutput
+	ToTransformOutputTypeOutput() TransformOutputTypeOutput
+	ToTransformOutputTypeOutputWithContext(context.Context) TransformOutputTypeOutput
 }
 
-type TransformOutputArgs struct {
+type TransformOutputTypeArgs struct {
 	// A `audioAnalyzerPreset` block as defined below.
 	AudioAnalyzerPreset TransformOutputAudioAnalyzerPresetPtrInput `pulumi:"audioAnalyzerPreset"`
 	// A `builtinPreset` block as defined below.
@@ -4282,105 +4282,105 @@ type TransformOutputArgs struct {
 	VideoAnalyzerPreset TransformOutputVideoAnalyzerPresetPtrInput `pulumi:"videoAnalyzerPreset"`
 }
 
-func (TransformOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransformOutput)(nil)).Elem()
+func (TransformOutputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputType)(nil)).Elem()
 }
 
-func (i TransformOutputArgs) ToTransformOutputOutput() TransformOutputOutput {
-	return i.ToTransformOutputOutputWithContext(context.Background())
+func (i TransformOutputTypeArgs) ToTransformOutputTypeOutput() TransformOutputTypeOutput {
+	return i.ToTransformOutputTypeOutputWithContext(context.Background())
 }
 
-func (i TransformOutputArgs) ToTransformOutputOutputWithContext(ctx context.Context) TransformOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputOutput)
+func (i TransformOutputTypeArgs) ToTransformOutputTypeOutputWithContext(ctx context.Context) TransformOutputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputTypeOutput)
 }
 
-// TransformOutputArrayInput is an input type that accepts TransformOutputArray and TransformOutputArrayOutput values.
-// You can construct a concrete instance of `TransformOutputArrayInput` via:
+// TransformOutputTypeArrayInput is an input type that accepts TransformOutputTypeArray and TransformOutputTypeArrayOutput values.
+// You can construct a concrete instance of `TransformOutputTypeArrayInput` via:
 //
-//          TransformOutputArray{ TransformOutputArgs{...} }
-type TransformOutputArrayInput interface {
+//          TransformOutputTypeArray{ TransformOutputTypeArgs{...} }
+type TransformOutputTypeArrayInput interface {
 	pulumi.Input
 
-	ToTransformOutputArrayOutput() TransformOutputArrayOutput
-	ToTransformOutputArrayOutputWithContext(context.Context) TransformOutputArrayOutput
+	ToTransformOutputTypeArrayOutput() TransformOutputTypeArrayOutput
+	ToTransformOutputTypeArrayOutputWithContext(context.Context) TransformOutputTypeArrayOutput
 }
 
-type TransformOutputArray []TransformOutputInput
+type TransformOutputTypeArray []TransformOutputTypeInput
 
-func (TransformOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TransformOutput)(nil)).Elem()
+func (TransformOutputTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputType)(nil)).Elem()
 }
 
-func (i TransformOutputArray) ToTransformOutputArrayOutput() TransformOutputArrayOutput {
-	return i.ToTransformOutputArrayOutputWithContext(context.Background())
+func (i TransformOutputTypeArray) ToTransformOutputTypeArrayOutput() TransformOutputTypeArrayOutput {
+	return i.ToTransformOutputTypeArrayOutputWithContext(context.Background())
 }
 
-func (i TransformOutputArray) ToTransformOutputArrayOutputWithContext(ctx context.Context) TransformOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputArrayOutput)
+func (i TransformOutputTypeArray) ToTransformOutputTypeArrayOutputWithContext(ctx context.Context) TransformOutputTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputTypeArrayOutput)
 }
 
-type TransformOutputOutput struct{ *pulumi.OutputState }
+type TransformOutputTypeOutput struct{ *pulumi.OutputState }
 
-func (TransformOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransformOutput)(nil)).Elem()
+func (TransformOutputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputType)(nil)).Elem()
 }
 
-func (o TransformOutputOutput) ToTransformOutputOutput() TransformOutputOutput {
+func (o TransformOutputTypeOutput) ToTransformOutputTypeOutput() TransformOutputTypeOutput {
 	return o
 }
 
-func (o TransformOutputOutput) ToTransformOutputOutputWithContext(ctx context.Context) TransformOutputOutput {
+func (o TransformOutputTypeOutput) ToTransformOutputTypeOutputWithContext(ctx context.Context) TransformOutputTypeOutput {
 	return o
 }
 
 // A `audioAnalyzerPreset` block as defined below.
-func (o TransformOutputOutput) AudioAnalyzerPreset() TransformOutputAudioAnalyzerPresetPtrOutput {
-	return o.ApplyT(func(v TransformOutput) *TransformOutputAudioAnalyzerPreset { return v.AudioAnalyzerPreset }).(TransformOutputAudioAnalyzerPresetPtrOutput)
+func (o TransformOutputTypeOutput) AudioAnalyzerPreset() TransformOutputAudioAnalyzerPresetPtrOutput {
+	return o.ApplyT(func(v TransformOutputType) *TransformOutputAudioAnalyzerPreset { return v.AudioAnalyzerPreset }).(TransformOutputAudioAnalyzerPresetPtrOutput)
 }
 
 // A `builtinPreset` block as defined below.
-func (o TransformOutputOutput) BuiltinPreset() TransformOutputBuiltinPresetPtrOutput {
-	return o.ApplyT(func(v TransformOutput) *TransformOutputBuiltinPreset { return v.BuiltinPreset }).(TransformOutputBuiltinPresetPtrOutput)
+func (o TransformOutputTypeOutput) BuiltinPreset() TransformOutputBuiltinPresetPtrOutput {
+	return o.ApplyT(func(v TransformOutputType) *TransformOutputBuiltinPreset { return v.BuiltinPreset }).(TransformOutputBuiltinPresetPtrOutput)
 }
 
 // A `faceDetectorPreset` block as defined below.
-func (o TransformOutputOutput) FaceDetectorPreset() TransformOutputFaceDetectorPresetPtrOutput {
-	return o.ApplyT(func(v TransformOutput) *TransformOutputFaceDetectorPreset { return v.FaceDetectorPreset }).(TransformOutputFaceDetectorPresetPtrOutput)
+func (o TransformOutputTypeOutput) FaceDetectorPreset() TransformOutputFaceDetectorPresetPtrOutput {
+	return o.ApplyT(func(v TransformOutputType) *TransformOutputFaceDetectorPreset { return v.FaceDetectorPreset }).(TransformOutputFaceDetectorPresetPtrOutput)
 }
 
 // A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possibles value are `StopProcessingJob` or `ContinueJob`.
-func (o TransformOutputOutput) OnErrorAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TransformOutput) *string { return v.OnErrorAction }).(pulumi.StringPtrOutput)
+func (o TransformOutputTypeOutput) OnErrorAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputType) *string { return v.OnErrorAction }).(pulumi.StringPtrOutput)
 }
 
 // Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possibles value are `High`, `Normal` or `Low`.
-func (o TransformOutputOutput) RelativePriority() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TransformOutput) *string { return v.RelativePriority }).(pulumi.StringPtrOutput)
+func (o TransformOutputTypeOutput) RelativePriority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputType) *string { return v.RelativePriority }).(pulumi.StringPtrOutput)
 }
 
 // A `videoAnalyzerPreset` block as defined below.
-func (o TransformOutputOutput) VideoAnalyzerPreset() TransformOutputVideoAnalyzerPresetPtrOutput {
-	return o.ApplyT(func(v TransformOutput) *TransformOutputVideoAnalyzerPreset { return v.VideoAnalyzerPreset }).(TransformOutputVideoAnalyzerPresetPtrOutput)
+func (o TransformOutputTypeOutput) VideoAnalyzerPreset() TransformOutputVideoAnalyzerPresetPtrOutput {
+	return o.ApplyT(func(v TransformOutputType) *TransformOutputVideoAnalyzerPreset { return v.VideoAnalyzerPreset }).(TransformOutputVideoAnalyzerPresetPtrOutput)
 }
 
-type TransformOutputArrayOutput struct{ *pulumi.OutputState }
+type TransformOutputTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (TransformOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TransformOutput)(nil)).Elem()
+func (TransformOutputTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputType)(nil)).Elem()
 }
 
-func (o TransformOutputArrayOutput) ToTransformOutputArrayOutput() TransformOutputArrayOutput {
+func (o TransformOutputTypeArrayOutput) ToTransformOutputTypeArrayOutput() TransformOutputTypeArrayOutput {
 	return o
 }
 
-func (o TransformOutputArrayOutput) ToTransformOutputArrayOutputWithContext(ctx context.Context) TransformOutputArrayOutput {
+func (o TransformOutputTypeArrayOutput) ToTransformOutputTypeArrayOutputWithContext(ctx context.Context) TransformOutputTypeArrayOutput {
 	return o
 }
 
-func (o TransformOutputArrayOutput) Index(i pulumi.IntInput) TransformOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutput {
-		return vs[0].([]TransformOutput)[vs[1].(int)]
-	}).(TransformOutputOutput)
+func (o TransformOutputTypeArrayOutput) Index(i pulumi.IntInput) TransformOutputTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutputType {
+		return vs[0].([]TransformOutputType)[vs[1].(int)]
+	}).(TransformOutputTypeOutput)
 }
 
 type TransformOutputAudioAnalyzerPreset struct {
@@ -5015,8 +5015,8 @@ func init() {
 	pulumi.RegisterOutputType(StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyNoEncryptionEnabledProtocolsOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput{})
-	pulumi.RegisterOutputType(TransformOutputOutput{})
-	pulumi.RegisterOutputType(TransformOutputArrayOutput{})
+	pulumi.RegisterOutputType(TransformOutputTypeOutput{})
+	pulumi.RegisterOutputType(TransformOutputTypeArrayOutput{})
 	pulumi.RegisterOutputType(TransformOutputAudioAnalyzerPresetOutput{})
 	pulumi.RegisterOutputType(TransformOutputAudioAnalyzerPresetPtrOutput{})
 	pulumi.RegisterOutputType(TransformOutputBuiltinPresetOutput{})

@@ -199,16 +199,95 @@ type ActionHttpInput interface {
 	ToActionHttpOutputWithContext(ctx context.Context) ActionHttpOutput
 }
 
-func (ActionHttp) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionHttp)(nil)).Elem()
+func (*ActionHttp) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionHttp)(nil))
 }
 
-func (i ActionHttp) ToActionHttpOutput() ActionHttpOutput {
+func (i *ActionHttp) ToActionHttpOutput() ActionHttpOutput {
 	return i.ToActionHttpOutputWithContext(context.Background())
 }
 
-func (i ActionHttp) ToActionHttpOutputWithContext(ctx context.Context) ActionHttpOutput {
+func (i *ActionHttp) ToActionHttpOutputWithContext(ctx context.Context) ActionHttpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionHttpOutput)
+}
+
+func (i *ActionHttp) ToActionHttpPtrOutput() ActionHttpPtrOutput {
+	return i.ToActionHttpPtrOutputWithContext(context.Background())
+}
+
+func (i *ActionHttp) ToActionHttpPtrOutputWithContext(ctx context.Context) ActionHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionHttpPtrOutput)
+}
+
+type ActionHttpPtrInput interface {
+	pulumi.Input
+
+	ToActionHttpPtrOutput() ActionHttpPtrOutput
+	ToActionHttpPtrOutputWithContext(ctx context.Context) ActionHttpPtrOutput
+}
+
+type actionHttpPtrType ActionHttpArgs
+
+func (*actionHttpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionHttp)(nil))
+}
+
+func (i *actionHttpPtrType) ToActionHttpPtrOutput() ActionHttpPtrOutput {
+	return i.ToActionHttpPtrOutputWithContext(context.Background())
+}
+
+func (i *actionHttpPtrType) ToActionHttpPtrOutputWithContext(ctx context.Context) ActionHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionHttpPtrOutput)
+}
+
+// ActionHttpArrayInput is an input type that accepts ActionHttpArray and ActionHttpArrayOutput values.
+// You can construct a concrete instance of `ActionHttpArrayInput` via:
+//
+//          ActionHttpArray{ ActionHttpArgs{...} }
+type ActionHttpArrayInput interface {
+	pulumi.Input
+
+	ToActionHttpArrayOutput() ActionHttpArrayOutput
+	ToActionHttpArrayOutputWithContext(context.Context) ActionHttpArrayOutput
+}
+
+type ActionHttpArray []ActionHttpInput
+
+func (ActionHttpArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ActionHttp)(nil))
+}
+
+func (i ActionHttpArray) ToActionHttpArrayOutput() ActionHttpArrayOutput {
+	return i.ToActionHttpArrayOutputWithContext(context.Background())
+}
+
+func (i ActionHttpArray) ToActionHttpArrayOutputWithContext(ctx context.Context) ActionHttpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionHttpArrayOutput)
+}
+
+// ActionHttpMapInput is an input type that accepts ActionHttpMap and ActionHttpMapOutput values.
+// You can construct a concrete instance of `ActionHttpMapInput` via:
+//
+//          ActionHttpMap{ "key": ActionHttpArgs{...} }
+type ActionHttpMapInput interface {
+	pulumi.Input
+
+	ToActionHttpMapOutput() ActionHttpMapOutput
+	ToActionHttpMapOutputWithContext(context.Context) ActionHttpMapOutput
+}
+
+type ActionHttpMap map[string]ActionHttpInput
+
+func (ActionHttpMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ActionHttp)(nil))
+}
+
+func (i ActionHttpMap) ToActionHttpMapOutput() ActionHttpMapOutput {
+	return i.ToActionHttpMapOutputWithContext(context.Background())
+}
+
+func (i ActionHttpMap) ToActionHttpMapOutputWithContext(ctx context.Context) ActionHttpMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionHttpMapOutput)
 }
 
 type ActionHttpOutput struct {
@@ -216,7 +295,7 @@ type ActionHttpOutput struct {
 }
 
 func (ActionHttpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionHttpOutput)(nil)).Elem()
+	return reflect.TypeOf((*ActionHttp)(nil))
 }
 
 func (o ActionHttpOutput) ToActionHttpOutput() ActionHttpOutput {
@@ -227,6 +306,75 @@ func (o ActionHttpOutput) ToActionHttpOutputWithContext(ctx context.Context) Act
 	return o
 }
 
+func (o ActionHttpOutput) ToActionHttpPtrOutput() ActionHttpPtrOutput {
+	return o.ToActionHttpPtrOutputWithContext(context.Background())
+}
+
+func (o ActionHttpOutput) ToActionHttpPtrOutputWithContext(ctx context.Context) ActionHttpPtrOutput {
+	return o.ApplyT(func(v ActionHttp) *ActionHttp {
+		return &v
+	}).(ActionHttpPtrOutput)
+}
+
+type ActionHttpPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ActionHttpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionHttp)(nil))
+}
+
+func (o ActionHttpPtrOutput) ToActionHttpPtrOutput() ActionHttpPtrOutput {
+	return o
+}
+
+func (o ActionHttpPtrOutput) ToActionHttpPtrOutputWithContext(ctx context.Context) ActionHttpPtrOutput {
+	return o
+}
+
+type ActionHttpArrayOutput struct{ *pulumi.OutputState }
+
+func (ActionHttpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionHttp)(nil))
+}
+
+func (o ActionHttpArrayOutput) ToActionHttpArrayOutput() ActionHttpArrayOutput {
+	return o
+}
+
+func (o ActionHttpArrayOutput) ToActionHttpArrayOutputWithContext(ctx context.Context) ActionHttpArrayOutput {
+	return o
+}
+
+func (o ActionHttpArrayOutput) Index(i pulumi.IntInput) ActionHttpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionHttp {
+		return vs[0].([]ActionHttp)[vs[1].(int)]
+	}).(ActionHttpOutput)
+}
+
+type ActionHttpMapOutput struct{ *pulumi.OutputState }
+
+func (ActionHttpMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ActionHttp)(nil))
+}
+
+func (o ActionHttpMapOutput) ToActionHttpMapOutput() ActionHttpMapOutput {
+	return o
+}
+
+func (o ActionHttpMapOutput) ToActionHttpMapOutputWithContext(ctx context.Context) ActionHttpMapOutput {
+	return o
+}
+
+func (o ActionHttpMapOutput) MapIndex(k pulumi.StringInput) ActionHttpOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ActionHttp {
+		return vs[0].(map[string]ActionHttp)[vs[1].(string)]
+	}).(ActionHttpOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ActionHttpOutput{})
+	pulumi.RegisterOutputType(ActionHttpPtrOutput{})
+	pulumi.RegisterOutputType(ActionHttpArrayOutput{})
+	pulumi.RegisterOutputType(ActionHttpMapOutput{})
 }

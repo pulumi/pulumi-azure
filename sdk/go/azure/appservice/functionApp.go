@@ -504,16 +504,95 @@ type FunctionAppInput interface {
 	ToFunctionAppOutputWithContext(ctx context.Context) FunctionAppOutput
 }
 
-func (FunctionApp) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionApp)(nil)).Elem()
+func (*FunctionApp) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionApp)(nil))
 }
 
-func (i FunctionApp) ToFunctionAppOutput() FunctionAppOutput {
+func (i *FunctionApp) ToFunctionAppOutput() FunctionAppOutput {
 	return i.ToFunctionAppOutputWithContext(context.Background())
 }
 
-func (i FunctionApp) ToFunctionAppOutputWithContext(ctx context.Context) FunctionAppOutput {
+func (i *FunctionApp) ToFunctionAppOutputWithContext(ctx context.Context) FunctionAppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppOutput)
+}
+
+func (i *FunctionApp) ToFunctionAppPtrOutput() FunctionAppPtrOutput {
+	return i.ToFunctionAppPtrOutputWithContext(context.Background())
+}
+
+func (i *FunctionApp) ToFunctionAppPtrOutputWithContext(ctx context.Context) FunctionAppPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppPtrOutput)
+}
+
+type FunctionAppPtrInput interface {
+	pulumi.Input
+
+	ToFunctionAppPtrOutput() FunctionAppPtrOutput
+	ToFunctionAppPtrOutputWithContext(ctx context.Context) FunctionAppPtrOutput
+}
+
+type functionAppPtrType FunctionAppArgs
+
+func (*functionAppPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionApp)(nil))
+}
+
+func (i *functionAppPtrType) ToFunctionAppPtrOutput() FunctionAppPtrOutput {
+	return i.ToFunctionAppPtrOutputWithContext(context.Background())
+}
+
+func (i *functionAppPtrType) ToFunctionAppPtrOutputWithContext(ctx context.Context) FunctionAppPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppPtrOutput)
+}
+
+// FunctionAppArrayInput is an input type that accepts FunctionAppArray and FunctionAppArrayOutput values.
+// You can construct a concrete instance of `FunctionAppArrayInput` via:
+//
+//          FunctionAppArray{ FunctionAppArgs{...} }
+type FunctionAppArrayInput interface {
+	pulumi.Input
+
+	ToFunctionAppArrayOutput() FunctionAppArrayOutput
+	ToFunctionAppArrayOutputWithContext(context.Context) FunctionAppArrayOutput
+}
+
+type FunctionAppArray []FunctionAppInput
+
+func (FunctionAppArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*FunctionApp)(nil))
+}
+
+func (i FunctionAppArray) ToFunctionAppArrayOutput() FunctionAppArrayOutput {
+	return i.ToFunctionAppArrayOutputWithContext(context.Background())
+}
+
+func (i FunctionAppArray) ToFunctionAppArrayOutputWithContext(ctx context.Context) FunctionAppArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppArrayOutput)
+}
+
+// FunctionAppMapInput is an input type that accepts FunctionAppMap and FunctionAppMapOutput values.
+// You can construct a concrete instance of `FunctionAppMapInput` via:
+//
+//          FunctionAppMap{ "key": FunctionAppArgs{...} }
+type FunctionAppMapInput interface {
+	pulumi.Input
+
+	ToFunctionAppMapOutput() FunctionAppMapOutput
+	ToFunctionAppMapOutputWithContext(context.Context) FunctionAppMapOutput
+}
+
+type FunctionAppMap map[string]FunctionAppInput
+
+func (FunctionAppMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*FunctionApp)(nil))
+}
+
+func (i FunctionAppMap) ToFunctionAppMapOutput() FunctionAppMapOutput {
+	return i.ToFunctionAppMapOutputWithContext(context.Background())
+}
+
+func (i FunctionAppMap) ToFunctionAppMapOutputWithContext(ctx context.Context) FunctionAppMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppMapOutput)
 }
 
 type FunctionAppOutput struct {
@@ -521,7 +600,7 @@ type FunctionAppOutput struct {
 }
 
 func (FunctionAppOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionAppOutput)(nil)).Elem()
+	return reflect.TypeOf((*FunctionApp)(nil))
 }
 
 func (o FunctionAppOutput) ToFunctionAppOutput() FunctionAppOutput {
@@ -532,6 +611,75 @@ func (o FunctionAppOutput) ToFunctionAppOutputWithContext(ctx context.Context) F
 	return o
 }
 
+func (o FunctionAppOutput) ToFunctionAppPtrOutput() FunctionAppPtrOutput {
+	return o.ToFunctionAppPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionAppOutput) ToFunctionAppPtrOutputWithContext(ctx context.Context) FunctionAppPtrOutput {
+	return o.ApplyT(func(v FunctionApp) *FunctionApp {
+		return &v
+	}).(FunctionAppPtrOutput)
+}
+
+type FunctionAppPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (FunctionAppPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionApp)(nil))
+}
+
+func (o FunctionAppPtrOutput) ToFunctionAppPtrOutput() FunctionAppPtrOutput {
+	return o
+}
+
+func (o FunctionAppPtrOutput) ToFunctionAppPtrOutputWithContext(ctx context.Context) FunctionAppPtrOutput {
+	return o
+}
+
+type FunctionAppArrayOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionApp)(nil))
+}
+
+func (o FunctionAppArrayOutput) ToFunctionAppArrayOutput() FunctionAppArrayOutput {
+	return o
+}
+
+func (o FunctionAppArrayOutput) ToFunctionAppArrayOutputWithContext(ctx context.Context) FunctionAppArrayOutput {
+	return o
+}
+
+func (o FunctionAppArrayOutput) Index(i pulumi.IntInput) FunctionAppOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionApp {
+		return vs[0].([]FunctionApp)[vs[1].(int)]
+	}).(FunctionAppOutput)
+}
+
+type FunctionAppMapOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]FunctionApp)(nil))
+}
+
+func (o FunctionAppMapOutput) ToFunctionAppMapOutput() FunctionAppMapOutput {
+	return o
+}
+
+func (o FunctionAppMapOutput) ToFunctionAppMapOutputWithContext(ctx context.Context) FunctionAppMapOutput {
+	return o
+}
+
+func (o FunctionAppMapOutput) MapIndex(k pulumi.StringInput) FunctionAppOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FunctionApp {
+		return vs[0].(map[string]FunctionApp)[vs[1].(string)]
+	}).(FunctionAppOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FunctionAppOutput{})
+	pulumi.RegisterOutputType(FunctionAppPtrOutput{})
+	pulumi.RegisterOutputType(FunctionAppArrayOutput{})
+	pulumi.RegisterOutputType(FunctionAppMapOutput{})
 }

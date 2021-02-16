@@ -129,7 +129,8 @@ export class CacheBlobTarget extends pulumi.CustomResource {
     constructor(name: string, args: CacheBlobTargetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CacheBlobTargetArgs | CacheBlobTargetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CacheBlobTargetState | undefined;
             inputs["cacheName"] = state ? state.cacheName : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -138,16 +139,16 @@ export class CacheBlobTarget extends pulumi.CustomResource {
             inputs["storageContainerId"] = state ? state.storageContainerId : undefined;
         } else {
             const args = argsOrState as CacheBlobTargetArgs | undefined;
-            if ((!args || args.cacheName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.cacheName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cacheName'");
             }
-            if ((!args || args.namespacePath === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.namespacePath === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespacePath'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageContainerId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageContainerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageContainerId'");
             }
             inputs["cacheName"] = args ? args.cacheName : undefined;
@@ -156,12 +157,8 @@ export class CacheBlobTarget extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageContainerId"] = args ? args.storageContainerId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CacheBlobTarget.__pulumiType, name, inputs, opts);
     }

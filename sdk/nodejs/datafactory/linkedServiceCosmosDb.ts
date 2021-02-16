@@ -105,7 +105,8 @@ export class LinkedServiceCosmosDb extends pulumi.CustomResource {
     constructor(name: string, args: LinkedServiceCosmosDbArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LinkedServiceCosmosDbArgs | LinkedServiceCosmosDbState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LinkedServiceCosmosDbState | undefined;
             inputs["accountEndpoint"] = state ? state.accountEndpoint : undefined;
             inputs["accountKey"] = state ? state.accountKey : undefined;
@@ -121,10 +122,10 @@ export class LinkedServiceCosmosDb extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as LinkedServiceCosmosDbArgs | undefined;
-            if ((!args || args.dataFactoryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountEndpoint"] = args ? args.accountEndpoint : undefined;
@@ -140,12 +141,8 @@ export class LinkedServiceCosmosDb extends pulumi.CustomResource {
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LinkedServiceCosmosDb.__pulumiType, name, inputs, opts);
     }

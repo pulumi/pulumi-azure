@@ -116,7 +116,8 @@ export class MongoCollection extends pulumi.CustomResource {
     constructor(name: string, args: MongoCollectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MongoCollectionArgs | MongoCollectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MongoCollectionState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
@@ -130,13 +131,13 @@ export class MongoCollection extends pulumi.CustomResource {
             inputs["throughput"] = state ? state.throughput : undefined;
         } else {
             const args = argsOrState as MongoCollectionArgs | undefined;
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -150,12 +151,8 @@ export class MongoCollection extends pulumi.CustomResource {
             inputs["throughput"] = args ? args.throughput : undefined;
             inputs["systemIndexes"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(MongoCollection.__pulumiType, name, inputs, opts);
     }

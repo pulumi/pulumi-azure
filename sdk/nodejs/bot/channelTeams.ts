@@ -97,7 +97,8 @@ export class ChannelTeams extends pulumi.CustomResource {
     constructor(name: string, args: ChannelTeamsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ChannelTeamsArgs | ChannelTeamsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ChannelTeamsState | undefined;
             inputs["botName"] = state ? state.botName : undefined;
             inputs["callingWebHook"] = state ? state.callingWebHook : undefined;
@@ -106,10 +107,10 @@ export class ChannelTeams extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ChannelTeamsArgs | undefined;
-            if ((!args || args.botName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.botName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'botName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["botName"] = args ? args.botName : undefined;
@@ -118,12 +119,8 @@ export class ChannelTeams extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ChannelTeams.__pulumiType, name, inputs, opts);
     }

@@ -104,7 +104,8 @@ export class ProtectedVM extends pulumi.CustomResource {
     constructor(name: string, args: ProtectedVMArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProtectedVMArgs | ProtectedVMState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProtectedVMState | undefined;
             inputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
             inputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
@@ -113,16 +114,16 @@ export class ProtectedVM extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ProtectedVMArgs | undefined;
-            if ((!args || args.backupPolicyId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.backupPolicyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backupPolicyId'");
             }
-            if ((!args || args.recoveryVaultName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.recoveryVaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceVmId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceVmId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceVmId'");
             }
             inputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
@@ -131,12 +132,8 @@ export class ProtectedVM extends pulumi.CustomResource {
             inputs["sourceVmId"] = args ? args.sourceVmId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ProtectedVM.__pulumiType, name, inputs, opts);
     }

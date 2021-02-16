@@ -155,16 +155,95 @@ type NetworkWatcherInput interface {
 	ToNetworkWatcherOutputWithContext(ctx context.Context) NetworkWatcherOutput
 }
 
-func (NetworkWatcher) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkWatcher)(nil)).Elem()
+func (*NetworkWatcher) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkWatcher)(nil))
 }
 
-func (i NetworkWatcher) ToNetworkWatcherOutput() NetworkWatcherOutput {
+func (i *NetworkWatcher) ToNetworkWatcherOutput() NetworkWatcherOutput {
 	return i.ToNetworkWatcherOutputWithContext(context.Background())
 }
 
-func (i NetworkWatcher) ToNetworkWatcherOutputWithContext(ctx context.Context) NetworkWatcherOutput {
+func (i *NetworkWatcher) ToNetworkWatcherOutputWithContext(ctx context.Context) NetworkWatcherOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkWatcherOutput)
+}
+
+func (i *NetworkWatcher) ToNetworkWatcherPtrOutput() NetworkWatcherPtrOutput {
+	return i.ToNetworkWatcherPtrOutputWithContext(context.Background())
+}
+
+func (i *NetworkWatcher) ToNetworkWatcherPtrOutputWithContext(ctx context.Context) NetworkWatcherPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkWatcherPtrOutput)
+}
+
+type NetworkWatcherPtrInput interface {
+	pulumi.Input
+
+	ToNetworkWatcherPtrOutput() NetworkWatcherPtrOutput
+	ToNetworkWatcherPtrOutputWithContext(ctx context.Context) NetworkWatcherPtrOutput
+}
+
+type networkWatcherPtrType NetworkWatcherArgs
+
+func (*networkWatcherPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkWatcher)(nil))
+}
+
+func (i *networkWatcherPtrType) ToNetworkWatcherPtrOutput() NetworkWatcherPtrOutput {
+	return i.ToNetworkWatcherPtrOutputWithContext(context.Background())
+}
+
+func (i *networkWatcherPtrType) ToNetworkWatcherPtrOutputWithContext(ctx context.Context) NetworkWatcherPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkWatcherPtrOutput)
+}
+
+// NetworkWatcherArrayInput is an input type that accepts NetworkWatcherArray and NetworkWatcherArrayOutput values.
+// You can construct a concrete instance of `NetworkWatcherArrayInput` via:
+//
+//          NetworkWatcherArray{ NetworkWatcherArgs{...} }
+type NetworkWatcherArrayInput interface {
+	pulumi.Input
+
+	ToNetworkWatcherArrayOutput() NetworkWatcherArrayOutput
+	ToNetworkWatcherArrayOutputWithContext(context.Context) NetworkWatcherArrayOutput
+}
+
+type NetworkWatcherArray []NetworkWatcherInput
+
+func (NetworkWatcherArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*NetworkWatcher)(nil))
+}
+
+func (i NetworkWatcherArray) ToNetworkWatcherArrayOutput() NetworkWatcherArrayOutput {
+	return i.ToNetworkWatcherArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkWatcherArray) ToNetworkWatcherArrayOutputWithContext(ctx context.Context) NetworkWatcherArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkWatcherArrayOutput)
+}
+
+// NetworkWatcherMapInput is an input type that accepts NetworkWatcherMap and NetworkWatcherMapOutput values.
+// You can construct a concrete instance of `NetworkWatcherMapInput` via:
+//
+//          NetworkWatcherMap{ "key": NetworkWatcherArgs{...} }
+type NetworkWatcherMapInput interface {
+	pulumi.Input
+
+	ToNetworkWatcherMapOutput() NetworkWatcherMapOutput
+	ToNetworkWatcherMapOutputWithContext(context.Context) NetworkWatcherMapOutput
+}
+
+type NetworkWatcherMap map[string]NetworkWatcherInput
+
+func (NetworkWatcherMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*NetworkWatcher)(nil))
+}
+
+func (i NetworkWatcherMap) ToNetworkWatcherMapOutput() NetworkWatcherMapOutput {
+	return i.ToNetworkWatcherMapOutputWithContext(context.Background())
+}
+
+func (i NetworkWatcherMap) ToNetworkWatcherMapOutputWithContext(ctx context.Context) NetworkWatcherMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkWatcherMapOutput)
 }
 
 type NetworkWatcherOutput struct {
@@ -172,7 +251,7 @@ type NetworkWatcherOutput struct {
 }
 
 func (NetworkWatcherOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkWatcherOutput)(nil)).Elem()
+	return reflect.TypeOf((*NetworkWatcher)(nil))
 }
 
 func (o NetworkWatcherOutput) ToNetworkWatcherOutput() NetworkWatcherOutput {
@@ -183,6 +262,75 @@ func (o NetworkWatcherOutput) ToNetworkWatcherOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o NetworkWatcherOutput) ToNetworkWatcherPtrOutput() NetworkWatcherPtrOutput {
+	return o.ToNetworkWatcherPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkWatcherOutput) ToNetworkWatcherPtrOutputWithContext(ctx context.Context) NetworkWatcherPtrOutput {
+	return o.ApplyT(func(v NetworkWatcher) *NetworkWatcher {
+		return &v
+	}).(NetworkWatcherPtrOutput)
+}
+
+type NetworkWatcherPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkWatcherPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkWatcher)(nil))
+}
+
+func (o NetworkWatcherPtrOutput) ToNetworkWatcherPtrOutput() NetworkWatcherPtrOutput {
+	return o
+}
+
+func (o NetworkWatcherPtrOutput) ToNetworkWatcherPtrOutputWithContext(ctx context.Context) NetworkWatcherPtrOutput {
+	return o
+}
+
+type NetworkWatcherArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkWatcherArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkWatcher)(nil))
+}
+
+func (o NetworkWatcherArrayOutput) ToNetworkWatcherArrayOutput() NetworkWatcherArrayOutput {
+	return o
+}
+
+func (o NetworkWatcherArrayOutput) ToNetworkWatcherArrayOutputWithContext(ctx context.Context) NetworkWatcherArrayOutput {
+	return o
+}
+
+func (o NetworkWatcherArrayOutput) Index(i pulumi.IntInput) NetworkWatcherOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkWatcher {
+		return vs[0].([]NetworkWatcher)[vs[1].(int)]
+	}).(NetworkWatcherOutput)
+}
+
+type NetworkWatcherMapOutput struct{ *pulumi.OutputState }
+
+func (NetworkWatcherMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NetworkWatcher)(nil))
+}
+
+func (o NetworkWatcherMapOutput) ToNetworkWatcherMapOutput() NetworkWatcherMapOutput {
+	return o
+}
+
+func (o NetworkWatcherMapOutput) ToNetworkWatcherMapOutputWithContext(ctx context.Context) NetworkWatcherMapOutput {
+	return o
+}
+
+func (o NetworkWatcherMapOutput) MapIndex(k pulumi.StringInput) NetworkWatcherOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NetworkWatcher {
+		return vs[0].(map[string]NetworkWatcher)[vs[1].(string)]
+	}).(NetworkWatcherOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NetworkWatcherOutput{})
+	pulumi.RegisterOutputType(NetworkWatcherPtrOutput{})
+	pulumi.RegisterOutputType(NetworkWatcherArrayOutput{})
+	pulumi.RegisterOutputType(NetworkWatcherMapOutput{})
 }

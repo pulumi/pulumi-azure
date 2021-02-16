@@ -104,7 +104,8 @@ export class TableEntity extends pulumi.CustomResource {
     constructor(name: string, args: TableEntityArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TableEntityArgs | TableEntityState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TableEntityState | undefined;
             inputs["entity"] = state ? state.entity : undefined;
             inputs["partitionKey"] = state ? state.partitionKey : undefined;
@@ -113,19 +114,19 @@ export class TableEntity extends pulumi.CustomResource {
             inputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as TableEntityArgs | undefined;
-            if ((!args || args.entity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.entity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'entity'");
             }
-            if ((!args || args.partitionKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.partitionKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'partitionKey'");
             }
-            if ((!args || args.rowKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.rowKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rowKey'");
             }
-            if ((!args || args.storageAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            if ((!args || args.tableName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
             inputs["entity"] = args ? args.entity : undefined;
@@ -134,12 +135,8 @@ export class TableEntity extends pulumi.CustomResource {
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             inputs["tableName"] = args ? args.tableName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TableEntity.__pulumiType, name, inputs, opts);
     }

@@ -155,16 +155,95 @@ type SpatialAnchorsAccountInput interface {
 	ToSpatialAnchorsAccountOutputWithContext(ctx context.Context) SpatialAnchorsAccountOutput
 }
 
-func (SpatialAnchorsAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpatialAnchorsAccount)(nil)).Elem()
+func (*SpatialAnchorsAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpatialAnchorsAccount)(nil))
 }
 
-func (i SpatialAnchorsAccount) ToSpatialAnchorsAccountOutput() SpatialAnchorsAccountOutput {
+func (i *SpatialAnchorsAccount) ToSpatialAnchorsAccountOutput() SpatialAnchorsAccountOutput {
 	return i.ToSpatialAnchorsAccountOutputWithContext(context.Background())
 }
 
-func (i SpatialAnchorsAccount) ToSpatialAnchorsAccountOutputWithContext(ctx context.Context) SpatialAnchorsAccountOutput {
+func (i *SpatialAnchorsAccount) ToSpatialAnchorsAccountOutputWithContext(ctx context.Context) SpatialAnchorsAccountOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpatialAnchorsAccountOutput)
+}
+
+func (i *SpatialAnchorsAccount) ToSpatialAnchorsAccountPtrOutput() SpatialAnchorsAccountPtrOutput {
+	return i.ToSpatialAnchorsAccountPtrOutputWithContext(context.Background())
+}
+
+func (i *SpatialAnchorsAccount) ToSpatialAnchorsAccountPtrOutputWithContext(ctx context.Context) SpatialAnchorsAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpatialAnchorsAccountPtrOutput)
+}
+
+type SpatialAnchorsAccountPtrInput interface {
+	pulumi.Input
+
+	ToSpatialAnchorsAccountPtrOutput() SpatialAnchorsAccountPtrOutput
+	ToSpatialAnchorsAccountPtrOutputWithContext(ctx context.Context) SpatialAnchorsAccountPtrOutput
+}
+
+type spatialAnchorsAccountPtrType SpatialAnchorsAccountArgs
+
+func (*spatialAnchorsAccountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpatialAnchorsAccount)(nil))
+}
+
+func (i *spatialAnchorsAccountPtrType) ToSpatialAnchorsAccountPtrOutput() SpatialAnchorsAccountPtrOutput {
+	return i.ToSpatialAnchorsAccountPtrOutputWithContext(context.Background())
+}
+
+func (i *spatialAnchorsAccountPtrType) ToSpatialAnchorsAccountPtrOutputWithContext(ctx context.Context) SpatialAnchorsAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpatialAnchorsAccountPtrOutput)
+}
+
+// SpatialAnchorsAccountArrayInput is an input type that accepts SpatialAnchorsAccountArray and SpatialAnchorsAccountArrayOutput values.
+// You can construct a concrete instance of `SpatialAnchorsAccountArrayInput` via:
+//
+//          SpatialAnchorsAccountArray{ SpatialAnchorsAccountArgs{...} }
+type SpatialAnchorsAccountArrayInput interface {
+	pulumi.Input
+
+	ToSpatialAnchorsAccountArrayOutput() SpatialAnchorsAccountArrayOutput
+	ToSpatialAnchorsAccountArrayOutputWithContext(context.Context) SpatialAnchorsAccountArrayOutput
+}
+
+type SpatialAnchorsAccountArray []SpatialAnchorsAccountInput
+
+func (SpatialAnchorsAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SpatialAnchorsAccount)(nil))
+}
+
+func (i SpatialAnchorsAccountArray) ToSpatialAnchorsAccountArrayOutput() SpatialAnchorsAccountArrayOutput {
+	return i.ToSpatialAnchorsAccountArrayOutputWithContext(context.Background())
+}
+
+func (i SpatialAnchorsAccountArray) ToSpatialAnchorsAccountArrayOutputWithContext(ctx context.Context) SpatialAnchorsAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpatialAnchorsAccountArrayOutput)
+}
+
+// SpatialAnchorsAccountMapInput is an input type that accepts SpatialAnchorsAccountMap and SpatialAnchorsAccountMapOutput values.
+// You can construct a concrete instance of `SpatialAnchorsAccountMapInput` via:
+//
+//          SpatialAnchorsAccountMap{ "key": SpatialAnchorsAccountArgs{...} }
+type SpatialAnchorsAccountMapInput interface {
+	pulumi.Input
+
+	ToSpatialAnchorsAccountMapOutput() SpatialAnchorsAccountMapOutput
+	ToSpatialAnchorsAccountMapOutputWithContext(context.Context) SpatialAnchorsAccountMapOutput
+}
+
+type SpatialAnchorsAccountMap map[string]SpatialAnchorsAccountInput
+
+func (SpatialAnchorsAccountMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SpatialAnchorsAccount)(nil))
+}
+
+func (i SpatialAnchorsAccountMap) ToSpatialAnchorsAccountMapOutput() SpatialAnchorsAccountMapOutput {
+	return i.ToSpatialAnchorsAccountMapOutputWithContext(context.Background())
+}
+
+func (i SpatialAnchorsAccountMap) ToSpatialAnchorsAccountMapOutputWithContext(ctx context.Context) SpatialAnchorsAccountMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpatialAnchorsAccountMapOutput)
 }
 
 type SpatialAnchorsAccountOutput struct {
@@ -172,7 +251,7 @@ type SpatialAnchorsAccountOutput struct {
 }
 
 func (SpatialAnchorsAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpatialAnchorsAccountOutput)(nil)).Elem()
+	return reflect.TypeOf((*SpatialAnchorsAccount)(nil))
 }
 
 func (o SpatialAnchorsAccountOutput) ToSpatialAnchorsAccountOutput() SpatialAnchorsAccountOutput {
@@ -183,6 +262,75 @@ func (o SpatialAnchorsAccountOutput) ToSpatialAnchorsAccountOutputWithContext(ct
 	return o
 }
 
+func (o SpatialAnchorsAccountOutput) ToSpatialAnchorsAccountPtrOutput() SpatialAnchorsAccountPtrOutput {
+	return o.ToSpatialAnchorsAccountPtrOutputWithContext(context.Background())
+}
+
+func (o SpatialAnchorsAccountOutput) ToSpatialAnchorsAccountPtrOutputWithContext(ctx context.Context) SpatialAnchorsAccountPtrOutput {
+	return o.ApplyT(func(v SpatialAnchorsAccount) *SpatialAnchorsAccount {
+		return &v
+	}).(SpatialAnchorsAccountPtrOutput)
+}
+
+type SpatialAnchorsAccountPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SpatialAnchorsAccountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpatialAnchorsAccount)(nil))
+}
+
+func (o SpatialAnchorsAccountPtrOutput) ToSpatialAnchorsAccountPtrOutput() SpatialAnchorsAccountPtrOutput {
+	return o
+}
+
+func (o SpatialAnchorsAccountPtrOutput) ToSpatialAnchorsAccountPtrOutputWithContext(ctx context.Context) SpatialAnchorsAccountPtrOutput {
+	return o
+}
+
+type SpatialAnchorsAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (SpatialAnchorsAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpatialAnchorsAccount)(nil))
+}
+
+func (o SpatialAnchorsAccountArrayOutput) ToSpatialAnchorsAccountArrayOutput() SpatialAnchorsAccountArrayOutput {
+	return o
+}
+
+func (o SpatialAnchorsAccountArrayOutput) ToSpatialAnchorsAccountArrayOutputWithContext(ctx context.Context) SpatialAnchorsAccountArrayOutput {
+	return o
+}
+
+func (o SpatialAnchorsAccountArrayOutput) Index(i pulumi.IntInput) SpatialAnchorsAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpatialAnchorsAccount {
+		return vs[0].([]SpatialAnchorsAccount)[vs[1].(int)]
+	}).(SpatialAnchorsAccountOutput)
+}
+
+type SpatialAnchorsAccountMapOutput struct{ *pulumi.OutputState }
+
+func (SpatialAnchorsAccountMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SpatialAnchorsAccount)(nil))
+}
+
+func (o SpatialAnchorsAccountMapOutput) ToSpatialAnchorsAccountMapOutput() SpatialAnchorsAccountMapOutput {
+	return o
+}
+
+func (o SpatialAnchorsAccountMapOutput) ToSpatialAnchorsAccountMapOutputWithContext(ctx context.Context) SpatialAnchorsAccountMapOutput {
+	return o
+}
+
+func (o SpatialAnchorsAccountMapOutput) MapIndex(k pulumi.StringInput) SpatialAnchorsAccountOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SpatialAnchorsAccount {
+		return vs[0].(map[string]SpatialAnchorsAccount)[vs[1].(string)]
+	}).(SpatialAnchorsAccountOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SpatialAnchorsAccountOutput{})
+	pulumi.RegisterOutputType(SpatialAnchorsAccountPtrOutput{})
+	pulumi.RegisterOutputType(SpatialAnchorsAccountArrayOutput{})
+	pulumi.RegisterOutputType(SpatialAnchorsAccountMapOutput{})
 }

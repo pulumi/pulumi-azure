@@ -135,16 +135,95 @@ type MeshApplicationInput interface {
 	ToMeshApplicationOutputWithContext(ctx context.Context) MeshApplicationOutput
 }
 
-func (MeshApplication) ElementType() reflect.Type {
-	return reflect.TypeOf((*MeshApplication)(nil)).Elem()
+func (*MeshApplication) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshApplication)(nil))
 }
 
-func (i MeshApplication) ToMeshApplicationOutput() MeshApplicationOutput {
+func (i *MeshApplication) ToMeshApplicationOutput() MeshApplicationOutput {
 	return i.ToMeshApplicationOutputWithContext(context.Background())
 }
 
-func (i MeshApplication) ToMeshApplicationOutputWithContext(ctx context.Context) MeshApplicationOutput {
+func (i *MeshApplication) ToMeshApplicationOutputWithContext(ctx context.Context) MeshApplicationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MeshApplicationOutput)
+}
+
+func (i *MeshApplication) ToMeshApplicationPtrOutput() MeshApplicationPtrOutput {
+	return i.ToMeshApplicationPtrOutputWithContext(context.Background())
+}
+
+func (i *MeshApplication) ToMeshApplicationPtrOutputWithContext(ctx context.Context) MeshApplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshApplicationPtrOutput)
+}
+
+type MeshApplicationPtrInput interface {
+	pulumi.Input
+
+	ToMeshApplicationPtrOutput() MeshApplicationPtrOutput
+	ToMeshApplicationPtrOutputWithContext(ctx context.Context) MeshApplicationPtrOutput
+}
+
+type meshApplicationPtrType MeshApplicationArgs
+
+func (*meshApplicationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MeshApplication)(nil))
+}
+
+func (i *meshApplicationPtrType) ToMeshApplicationPtrOutput() MeshApplicationPtrOutput {
+	return i.ToMeshApplicationPtrOutputWithContext(context.Background())
+}
+
+func (i *meshApplicationPtrType) ToMeshApplicationPtrOutputWithContext(ctx context.Context) MeshApplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshApplicationPtrOutput)
+}
+
+// MeshApplicationArrayInput is an input type that accepts MeshApplicationArray and MeshApplicationArrayOutput values.
+// You can construct a concrete instance of `MeshApplicationArrayInput` via:
+//
+//          MeshApplicationArray{ MeshApplicationArgs{...} }
+type MeshApplicationArrayInput interface {
+	pulumi.Input
+
+	ToMeshApplicationArrayOutput() MeshApplicationArrayOutput
+	ToMeshApplicationArrayOutputWithContext(context.Context) MeshApplicationArrayOutput
+}
+
+type MeshApplicationArray []MeshApplicationInput
+
+func (MeshApplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*MeshApplication)(nil))
+}
+
+func (i MeshApplicationArray) ToMeshApplicationArrayOutput() MeshApplicationArrayOutput {
+	return i.ToMeshApplicationArrayOutputWithContext(context.Background())
+}
+
+func (i MeshApplicationArray) ToMeshApplicationArrayOutputWithContext(ctx context.Context) MeshApplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshApplicationArrayOutput)
+}
+
+// MeshApplicationMapInput is an input type that accepts MeshApplicationMap and MeshApplicationMapOutput values.
+// You can construct a concrete instance of `MeshApplicationMapInput` via:
+//
+//          MeshApplicationMap{ "key": MeshApplicationArgs{...} }
+type MeshApplicationMapInput interface {
+	pulumi.Input
+
+	ToMeshApplicationMapOutput() MeshApplicationMapOutput
+	ToMeshApplicationMapOutputWithContext(context.Context) MeshApplicationMapOutput
+}
+
+type MeshApplicationMap map[string]MeshApplicationInput
+
+func (MeshApplicationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*MeshApplication)(nil))
+}
+
+func (i MeshApplicationMap) ToMeshApplicationMapOutput() MeshApplicationMapOutput {
+	return i.ToMeshApplicationMapOutputWithContext(context.Background())
+}
+
+func (i MeshApplicationMap) ToMeshApplicationMapOutputWithContext(ctx context.Context) MeshApplicationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshApplicationMapOutput)
 }
 
 type MeshApplicationOutput struct {
@@ -152,7 +231,7 @@ type MeshApplicationOutput struct {
 }
 
 func (MeshApplicationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MeshApplicationOutput)(nil)).Elem()
+	return reflect.TypeOf((*MeshApplication)(nil))
 }
 
 func (o MeshApplicationOutput) ToMeshApplicationOutput() MeshApplicationOutput {
@@ -163,6 +242,75 @@ func (o MeshApplicationOutput) ToMeshApplicationOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o MeshApplicationOutput) ToMeshApplicationPtrOutput() MeshApplicationPtrOutput {
+	return o.ToMeshApplicationPtrOutputWithContext(context.Background())
+}
+
+func (o MeshApplicationOutput) ToMeshApplicationPtrOutputWithContext(ctx context.Context) MeshApplicationPtrOutput {
+	return o.ApplyT(func(v MeshApplication) *MeshApplication {
+		return &v
+	}).(MeshApplicationPtrOutput)
+}
+
+type MeshApplicationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (MeshApplicationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MeshApplication)(nil))
+}
+
+func (o MeshApplicationPtrOutput) ToMeshApplicationPtrOutput() MeshApplicationPtrOutput {
+	return o
+}
+
+func (o MeshApplicationPtrOutput) ToMeshApplicationPtrOutputWithContext(ctx context.Context) MeshApplicationPtrOutput {
+	return o
+}
+
+type MeshApplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (MeshApplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MeshApplication)(nil))
+}
+
+func (o MeshApplicationArrayOutput) ToMeshApplicationArrayOutput() MeshApplicationArrayOutput {
+	return o
+}
+
+func (o MeshApplicationArrayOutput) ToMeshApplicationArrayOutputWithContext(ctx context.Context) MeshApplicationArrayOutput {
+	return o
+}
+
+func (o MeshApplicationArrayOutput) Index(i pulumi.IntInput) MeshApplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MeshApplication {
+		return vs[0].([]MeshApplication)[vs[1].(int)]
+	}).(MeshApplicationOutput)
+}
+
+type MeshApplicationMapOutput struct{ *pulumi.OutputState }
+
+func (MeshApplicationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]MeshApplication)(nil))
+}
+
+func (o MeshApplicationMapOutput) ToMeshApplicationMapOutput() MeshApplicationMapOutput {
+	return o
+}
+
+func (o MeshApplicationMapOutput) ToMeshApplicationMapOutputWithContext(ctx context.Context) MeshApplicationMapOutput {
+	return o
+}
+
+func (o MeshApplicationMapOutput) MapIndex(k pulumi.StringInput) MeshApplicationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MeshApplication {
+		return vs[0].(map[string]MeshApplication)[vs[1].(string)]
+	}).(MeshApplicationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MeshApplicationOutput{})
+	pulumi.RegisterOutputType(MeshApplicationPtrOutput{})
+	pulumi.RegisterOutputType(MeshApplicationArrayOutput{})
+	pulumi.RegisterOutputType(MeshApplicationMapOutput{})
 }

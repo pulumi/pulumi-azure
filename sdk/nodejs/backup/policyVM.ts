@@ -151,7 +151,8 @@ export class PolicyVM extends pulumi.CustomResource {
     constructor(name: string, args: PolicyVMArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicyVMArgs | PolicyVMState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PolicyVMState | undefined;
             inputs["backup"] = state ? state.backup : undefined;
             inputs["instantRestoreRetentionDays"] = state ? state.instantRestoreRetentionDays : undefined;
@@ -166,13 +167,13 @@ export class PolicyVM extends pulumi.CustomResource {
             inputs["timezone"] = state ? state.timezone : undefined;
         } else {
             const args = argsOrState as PolicyVMArgs | undefined;
-            if ((!args || args.backup === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.backup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backup'");
             }
-            if ((!args || args.recoveryVaultName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.recoveryVaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["backup"] = args ? args.backup : undefined;
@@ -187,12 +188,8 @@ export class PolicyVM extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["timezone"] = args ? args.timezone : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PolicyVM.__pulumiType, name, inputs, opts);
     }

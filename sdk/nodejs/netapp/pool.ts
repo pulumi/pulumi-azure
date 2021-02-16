@@ -102,7 +102,8 @@ export class Pool extends pulumi.CustomResource {
     constructor(name: string, args: PoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PoolArgs | PoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PoolState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -113,16 +114,16 @@ export class Pool extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as PoolArgs | undefined;
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceLevel === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceLevel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceLevel'");
             }
-            if ((!args || args.sizeInTb === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sizeInTb === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sizeInTb'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -133,12 +134,8 @@ export class Pool extends pulumi.CustomResource {
             inputs["sizeInTb"] = args ? args.sizeInTb : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Pool.__pulumiType, name, inputs, opts);
     }

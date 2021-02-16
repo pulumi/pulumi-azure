@@ -158,16 +158,95 @@ type CacheNfsTargetInput interface {
 	ToCacheNfsTargetOutputWithContext(ctx context.Context) CacheNfsTargetOutput
 }
 
-func (CacheNfsTarget) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheNfsTarget)(nil)).Elem()
+func (*CacheNfsTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheNfsTarget)(nil))
 }
 
-func (i CacheNfsTarget) ToCacheNfsTargetOutput() CacheNfsTargetOutput {
+func (i *CacheNfsTarget) ToCacheNfsTargetOutput() CacheNfsTargetOutput {
 	return i.ToCacheNfsTargetOutputWithContext(context.Background())
 }
 
-func (i CacheNfsTarget) ToCacheNfsTargetOutputWithContext(ctx context.Context) CacheNfsTargetOutput {
+func (i *CacheNfsTarget) ToCacheNfsTargetOutputWithContext(ctx context.Context) CacheNfsTargetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CacheNfsTargetOutput)
+}
+
+func (i *CacheNfsTarget) ToCacheNfsTargetPtrOutput() CacheNfsTargetPtrOutput {
+	return i.ToCacheNfsTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *CacheNfsTarget) ToCacheNfsTargetPtrOutputWithContext(ctx context.Context) CacheNfsTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheNfsTargetPtrOutput)
+}
+
+type CacheNfsTargetPtrInput interface {
+	pulumi.Input
+
+	ToCacheNfsTargetPtrOutput() CacheNfsTargetPtrOutput
+	ToCacheNfsTargetPtrOutputWithContext(ctx context.Context) CacheNfsTargetPtrOutput
+}
+
+type cacheNfsTargetPtrType CacheNfsTargetArgs
+
+func (*cacheNfsTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheNfsTarget)(nil))
+}
+
+func (i *cacheNfsTargetPtrType) ToCacheNfsTargetPtrOutput() CacheNfsTargetPtrOutput {
+	return i.ToCacheNfsTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheNfsTargetPtrType) ToCacheNfsTargetPtrOutputWithContext(ctx context.Context) CacheNfsTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheNfsTargetPtrOutput)
+}
+
+// CacheNfsTargetArrayInput is an input type that accepts CacheNfsTargetArray and CacheNfsTargetArrayOutput values.
+// You can construct a concrete instance of `CacheNfsTargetArrayInput` via:
+//
+//          CacheNfsTargetArray{ CacheNfsTargetArgs{...} }
+type CacheNfsTargetArrayInput interface {
+	pulumi.Input
+
+	ToCacheNfsTargetArrayOutput() CacheNfsTargetArrayOutput
+	ToCacheNfsTargetArrayOutputWithContext(context.Context) CacheNfsTargetArrayOutput
+}
+
+type CacheNfsTargetArray []CacheNfsTargetInput
+
+func (CacheNfsTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*CacheNfsTarget)(nil))
+}
+
+func (i CacheNfsTargetArray) ToCacheNfsTargetArrayOutput() CacheNfsTargetArrayOutput {
+	return i.ToCacheNfsTargetArrayOutputWithContext(context.Background())
+}
+
+func (i CacheNfsTargetArray) ToCacheNfsTargetArrayOutputWithContext(ctx context.Context) CacheNfsTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheNfsTargetArrayOutput)
+}
+
+// CacheNfsTargetMapInput is an input type that accepts CacheNfsTargetMap and CacheNfsTargetMapOutput values.
+// You can construct a concrete instance of `CacheNfsTargetMapInput` via:
+//
+//          CacheNfsTargetMap{ "key": CacheNfsTargetArgs{...} }
+type CacheNfsTargetMapInput interface {
+	pulumi.Input
+
+	ToCacheNfsTargetMapOutput() CacheNfsTargetMapOutput
+	ToCacheNfsTargetMapOutputWithContext(context.Context) CacheNfsTargetMapOutput
+}
+
+type CacheNfsTargetMap map[string]CacheNfsTargetInput
+
+func (CacheNfsTargetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*CacheNfsTarget)(nil))
+}
+
+func (i CacheNfsTargetMap) ToCacheNfsTargetMapOutput() CacheNfsTargetMapOutput {
+	return i.ToCacheNfsTargetMapOutputWithContext(context.Background())
+}
+
+func (i CacheNfsTargetMap) ToCacheNfsTargetMapOutputWithContext(ctx context.Context) CacheNfsTargetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheNfsTargetMapOutput)
 }
 
 type CacheNfsTargetOutput struct {
@@ -175,7 +254,7 @@ type CacheNfsTargetOutput struct {
 }
 
 func (CacheNfsTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheNfsTargetOutput)(nil)).Elem()
+	return reflect.TypeOf((*CacheNfsTarget)(nil))
 }
 
 func (o CacheNfsTargetOutput) ToCacheNfsTargetOutput() CacheNfsTargetOutput {
@@ -186,6 +265,75 @@ func (o CacheNfsTargetOutput) ToCacheNfsTargetOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o CacheNfsTargetOutput) ToCacheNfsTargetPtrOutput() CacheNfsTargetPtrOutput {
+	return o.ToCacheNfsTargetPtrOutputWithContext(context.Background())
+}
+
+func (o CacheNfsTargetOutput) ToCacheNfsTargetPtrOutputWithContext(ctx context.Context) CacheNfsTargetPtrOutput {
+	return o.ApplyT(func(v CacheNfsTarget) *CacheNfsTarget {
+		return &v
+	}).(CacheNfsTargetPtrOutput)
+}
+
+type CacheNfsTargetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CacheNfsTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheNfsTarget)(nil))
+}
+
+func (o CacheNfsTargetPtrOutput) ToCacheNfsTargetPtrOutput() CacheNfsTargetPtrOutput {
+	return o
+}
+
+func (o CacheNfsTargetPtrOutput) ToCacheNfsTargetPtrOutputWithContext(ctx context.Context) CacheNfsTargetPtrOutput {
+	return o
+}
+
+type CacheNfsTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CacheNfsTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CacheNfsTarget)(nil))
+}
+
+func (o CacheNfsTargetArrayOutput) ToCacheNfsTargetArrayOutput() CacheNfsTargetArrayOutput {
+	return o
+}
+
+func (o CacheNfsTargetArrayOutput) ToCacheNfsTargetArrayOutputWithContext(ctx context.Context) CacheNfsTargetArrayOutput {
+	return o
+}
+
+func (o CacheNfsTargetArrayOutput) Index(i pulumi.IntInput) CacheNfsTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CacheNfsTarget {
+		return vs[0].([]CacheNfsTarget)[vs[1].(int)]
+	}).(CacheNfsTargetOutput)
+}
+
+type CacheNfsTargetMapOutput struct{ *pulumi.OutputState }
+
+func (CacheNfsTargetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CacheNfsTarget)(nil))
+}
+
+func (o CacheNfsTargetMapOutput) ToCacheNfsTargetMapOutput() CacheNfsTargetMapOutput {
+	return o
+}
+
+func (o CacheNfsTargetMapOutput) ToCacheNfsTargetMapOutputWithContext(ctx context.Context) CacheNfsTargetMapOutput {
+	return o
+}
+
+func (o CacheNfsTargetMapOutput) MapIndex(k pulumi.StringInput) CacheNfsTargetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CacheNfsTarget {
+		return vs[0].(map[string]CacheNfsTarget)[vs[1].(string)]
+	}).(CacheNfsTargetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CacheNfsTargetOutput{})
+	pulumi.RegisterOutputType(CacheNfsTargetPtrOutput{})
+	pulumi.RegisterOutputType(CacheNfsTargetArrayOutput{})
+	pulumi.RegisterOutputType(CacheNfsTargetMapOutput{})
 }

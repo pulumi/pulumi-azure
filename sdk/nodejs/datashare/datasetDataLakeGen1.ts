@@ -125,7 +125,8 @@ export class DatasetDataLakeGen1 extends pulumi.CustomResource {
     constructor(name: string, args: DatasetDataLakeGen1Args, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DatasetDataLakeGen1Args | DatasetDataLakeGen1State, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DatasetDataLakeGen1State | undefined;
             inputs["dataLakeStoreId"] = state ? state.dataLakeStoreId : undefined;
             inputs["dataShareId"] = state ? state.dataShareId : undefined;
@@ -135,13 +136,13 @@ export class DatasetDataLakeGen1 extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as DatasetDataLakeGen1Args | undefined;
-            if ((!args || args.dataLakeStoreId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataLakeStoreId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataLakeStoreId'");
             }
-            if ((!args || args.dataShareId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataShareId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataShareId'");
             }
-            if ((!args || args.folderPath === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.folderPath === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'folderPath'");
             }
             inputs["dataLakeStoreId"] = args ? args.dataLakeStoreId : undefined;
@@ -151,12 +152,8 @@ export class DatasetDataLakeGen1 extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["displayName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DatasetDataLakeGen1.__pulumiType, name, inputs, opts);
     }

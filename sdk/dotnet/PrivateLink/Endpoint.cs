@@ -121,6 +121,7 @@ namespace Pulumi.Azure.PrivateLink
     ///  $ pulumi import azure:privatelink/endpoint:Endpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/privateEndpoints/endpoint1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:privatelink/endpoint:Endpoint")]
     public partial class Endpoint : Pulumi.CustomResource
     {
         [Output("customDnsConfigs")]

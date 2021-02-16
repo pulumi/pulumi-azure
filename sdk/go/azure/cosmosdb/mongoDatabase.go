@@ -169,16 +169,95 @@ type MongoDatabaseInput interface {
 	ToMongoDatabaseOutputWithContext(ctx context.Context) MongoDatabaseOutput
 }
 
-func (MongoDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDatabase)(nil)).Elem()
+func (*MongoDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDatabase)(nil))
 }
 
-func (i MongoDatabase) ToMongoDatabaseOutput() MongoDatabaseOutput {
+func (i *MongoDatabase) ToMongoDatabaseOutput() MongoDatabaseOutput {
 	return i.ToMongoDatabaseOutputWithContext(context.Background())
 }
 
-func (i MongoDatabase) ToMongoDatabaseOutputWithContext(ctx context.Context) MongoDatabaseOutput {
+func (i *MongoDatabase) ToMongoDatabaseOutputWithContext(ctx context.Context) MongoDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MongoDatabaseOutput)
+}
+
+func (i *MongoDatabase) ToMongoDatabasePtrOutput() MongoDatabasePtrOutput {
+	return i.ToMongoDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i *MongoDatabase) ToMongoDatabasePtrOutputWithContext(ctx context.Context) MongoDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDatabasePtrOutput)
+}
+
+type MongoDatabasePtrInput interface {
+	pulumi.Input
+
+	ToMongoDatabasePtrOutput() MongoDatabasePtrOutput
+	ToMongoDatabasePtrOutputWithContext(ctx context.Context) MongoDatabasePtrOutput
+}
+
+type mongoDatabasePtrType MongoDatabaseArgs
+
+func (*mongoDatabasePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoDatabase)(nil))
+}
+
+func (i *mongoDatabasePtrType) ToMongoDatabasePtrOutput() MongoDatabasePtrOutput {
+	return i.ToMongoDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i *mongoDatabasePtrType) ToMongoDatabasePtrOutputWithContext(ctx context.Context) MongoDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDatabasePtrOutput)
+}
+
+// MongoDatabaseArrayInput is an input type that accepts MongoDatabaseArray and MongoDatabaseArrayOutput values.
+// You can construct a concrete instance of `MongoDatabaseArrayInput` via:
+//
+//          MongoDatabaseArray{ MongoDatabaseArgs{...} }
+type MongoDatabaseArrayInput interface {
+	pulumi.Input
+
+	ToMongoDatabaseArrayOutput() MongoDatabaseArrayOutput
+	ToMongoDatabaseArrayOutputWithContext(context.Context) MongoDatabaseArrayOutput
+}
+
+type MongoDatabaseArray []MongoDatabaseInput
+
+func (MongoDatabaseArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*MongoDatabase)(nil))
+}
+
+func (i MongoDatabaseArray) ToMongoDatabaseArrayOutput() MongoDatabaseArrayOutput {
+	return i.ToMongoDatabaseArrayOutputWithContext(context.Background())
+}
+
+func (i MongoDatabaseArray) ToMongoDatabaseArrayOutputWithContext(ctx context.Context) MongoDatabaseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDatabaseArrayOutput)
+}
+
+// MongoDatabaseMapInput is an input type that accepts MongoDatabaseMap and MongoDatabaseMapOutput values.
+// You can construct a concrete instance of `MongoDatabaseMapInput` via:
+//
+//          MongoDatabaseMap{ "key": MongoDatabaseArgs{...} }
+type MongoDatabaseMapInput interface {
+	pulumi.Input
+
+	ToMongoDatabaseMapOutput() MongoDatabaseMapOutput
+	ToMongoDatabaseMapOutputWithContext(context.Context) MongoDatabaseMapOutput
+}
+
+type MongoDatabaseMap map[string]MongoDatabaseInput
+
+func (MongoDatabaseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*MongoDatabase)(nil))
+}
+
+func (i MongoDatabaseMap) ToMongoDatabaseMapOutput() MongoDatabaseMapOutput {
+	return i.ToMongoDatabaseMapOutputWithContext(context.Background())
+}
+
+func (i MongoDatabaseMap) ToMongoDatabaseMapOutputWithContext(ctx context.Context) MongoDatabaseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDatabaseMapOutput)
 }
 
 type MongoDatabaseOutput struct {
@@ -186,7 +265,7 @@ type MongoDatabaseOutput struct {
 }
 
 func (MongoDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDatabaseOutput)(nil)).Elem()
+	return reflect.TypeOf((*MongoDatabase)(nil))
 }
 
 func (o MongoDatabaseOutput) ToMongoDatabaseOutput() MongoDatabaseOutput {
@@ -197,6 +276,75 @@ func (o MongoDatabaseOutput) ToMongoDatabaseOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o MongoDatabaseOutput) ToMongoDatabasePtrOutput() MongoDatabasePtrOutput {
+	return o.ToMongoDatabasePtrOutputWithContext(context.Background())
+}
+
+func (o MongoDatabaseOutput) ToMongoDatabasePtrOutputWithContext(ctx context.Context) MongoDatabasePtrOutput {
+	return o.ApplyT(func(v MongoDatabase) *MongoDatabase {
+		return &v
+	}).(MongoDatabasePtrOutput)
+}
+
+type MongoDatabasePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (MongoDatabasePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoDatabase)(nil))
+}
+
+func (o MongoDatabasePtrOutput) ToMongoDatabasePtrOutput() MongoDatabasePtrOutput {
+	return o
+}
+
+func (o MongoDatabasePtrOutput) ToMongoDatabasePtrOutputWithContext(ctx context.Context) MongoDatabasePtrOutput {
+	return o
+}
+
+type MongoDatabaseArrayOutput struct{ *pulumi.OutputState }
+
+func (MongoDatabaseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MongoDatabase)(nil))
+}
+
+func (o MongoDatabaseArrayOutput) ToMongoDatabaseArrayOutput() MongoDatabaseArrayOutput {
+	return o
+}
+
+func (o MongoDatabaseArrayOutput) ToMongoDatabaseArrayOutputWithContext(ctx context.Context) MongoDatabaseArrayOutput {
+	return o
+}
+
+func (o MongoDatabaseArrayOutput) Index(i pulumi.IntInput) MongoDatabaseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MongoDatabase {
+		return vs[0].([]MongoDatabase)[vs[1].(int)]
+	}).(MongoDatabaseOutput)
+}
+
+type MongoDatabaseMapOutput struct{ *pulumi.OutputState }
+
+func (MongoDatabaseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]MongoDatabase)(nil))
+}
+
+func (o MongoDatabaseMapOutput) ToMongoDatabaseMapOutput() MongoDatabaseMapOutput {
+	return o
+}
+
+func (o MongoDatabaseMapOutput) ToMongoDatabaseMapOutputWithContext(ctx context.Context) MongoDatabaseMapOutput {
+	return o
+}
+
+func (o MongoDatabaseMapOutput) MapIndex(k pulumi.StringInput) MongoDatabaseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MongoDatabase {
+		return vs[0].(map[string]MongoDatabase)[vs[1].(string)]
+	}).(MongoDatabaseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MongoDatabaseOutput{})
+	pulumi.RegisterOutputType(MongoDatabasePtrOutput{})
+	pulumi.RegisterOutputType(MongoDatabaseArrayOutput{})
+	pulumi.RegisterOutputType(MongoDatabaseMapOutput{})
 }

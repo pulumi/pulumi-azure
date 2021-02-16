@@ -244,7 +244,8 @@ export class ApplicationGateway extends pulumi.CustomResource {
     constructor(name: string, args: ApplicationGatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationGatewayArgs | ApplicationGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ApplicationGatewayState | undefined;
             inputs["authenticationCertificates"] = state ? state.authenticationCertificates : undefined;
             inputs["autoscaleConfiguration"] = state ? state.autoscaleConfiguration : undefined;
@@ -275,31 +276,31 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as ApplicationGatewayArgs | undefined;
-            if ((!args || args.backendAddressPools === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.backendAddressPools === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backendAddressPools'");
             }
-            if ((!args || args.backendHttpSettings === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.backendHttpSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backendHttpSettings'");
             }
-            if ((!args || args.frontendIpConfigurations === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.frontendIpConfigurations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frontendIpConfigurations'");
             }
-            if ((!args || args.frontendPorts === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.frontendPorts === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frontendPorts'");
             }
-            if ((!args || args.gatewayIpConfigurations === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.gatewayIpConfigurations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewayIpConfigurations'");
             }
-            if ((!args || args.httpListeners === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.httpListeners === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'httpListeners'");
             }
-            if ((!args || args.requestRoutingRules === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.requestRoutingRules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'requestRoutingRules'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["authenticationCertificates"] = args ? args.authenticationCertificates : undefined;
@@ -330,12 +331,8 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["wafConfiguration"] = args ? args.wafConfiguration : undefined;
             inputs["zones"] = args ? args.zones : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ApplicationGateway.__pulumiType, name, inputs, opts);
     }

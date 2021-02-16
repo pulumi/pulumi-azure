@@ -75,6 +75,7 @@ namespace Pulumi.Azure.Sql
     ///  $ pulumi import azure:sql/virtualNetworkRule:VirtualNetworkRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/virtualNetworkRules/vnetrulename
     /// ```
     /// </summary>
+    [AzureResourceType("azure:sql/virtualNetworkRule:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>

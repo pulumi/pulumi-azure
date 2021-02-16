@@ -123,7 +123,8 @@ export class ApiKey extends pulumi.CustomResource {
     constructor(name: string, args: ApiKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiKeyArgs | ApiKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ApiKeyState | undefined;
             inputs["apiKey"] = state ? state.apiKey : undefined;
             inputs["applicationInsightsId"] = state ? state.applicationInsightsId : undefined;
@@ -132,7 +133,7 @@ export class ApiKey extends pulumi.CustomResource {
             inputs["writePermissions"] = state ? state.writePermissions : undefined;
         } else {
             const args = argsOrState as ApiKeyArgs | undefined;
-            if ((!args || args.applicationInsightsId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.applicationInsightsId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationInsightsId'");
             }
             inputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;
@@ -141,12 +142,8 @@ export class ApiKey extends pulumi.CustomResource {
             inputs["writePermissions"] = args ? args.writePermissions : undefined;
             inputs["apiKey"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ApiKey.__pulumiType, name, inputs, opts);
     }

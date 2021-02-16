@@ -131,7 +131,8 @@ export class ProtectionContainerMapping extends pulumi.CustomResource {
     constructor(name: string, args: ProtectionContainerMappingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProtectionContainerMappingArgs | ProtectionContainerMappingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProtectionContainerMappingState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["recoveryFabricName"] = state ? state.recoveryFabricName : undefined;
@@ -142,22 +143,22 @@ export class ProtectionContainerMapping extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ProtectionContainerMappingArgs | undefined;
-            if ((!args || args.recoveryFabricName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.recoveryFabricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recoveryFabricName'");
             }
-            if ((!args || args.recoveryReplicationPolicyId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.recoveryReplicationPolicyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recoveryReplicationPolicyId'");
             }
-            if ((!args || args.recoverySourceProtectionContainerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.recoverySourceProtectionContainerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recoverySourceProtectionContainerName'");
             }
-            if ((!args || args.recoveryTargetProtectionContainerId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.recoveryTargetProtectionContainerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recoveryTargetProtectionContainerId'");
             }
-            if ((!args || args.recoveryVaultName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.recoveryVaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -168,12 +169,8 @@ export class ProtectionContainerMapping extends pulumi.CustomResource {
             inputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ProtectionContainerMapping.__pulumiType, name, inputs, opts);
     }

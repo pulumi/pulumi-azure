@@ -118,7 +118,8 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
     constructor(name: string, args: AlertRuleMsSecurityIncidentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertRuleMsSecurityIncidentArgs | AlertRuleMsSecurityIncidentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AlertRuleMsSecurityIncidentState | undefined;
             inputs["alertRuleTemplateGuid"] = state ? state.alertRuleTemplateGuid : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -133,16 +134,16 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
             inputs["textWhitelists"] = state ? state.textWhitelists : undefined;
         } else {
             const args = argsOrState as AlertRuleMsSecurityIncidentArgs | undefined;
-            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            if ((!args || args.productFilter === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.productFilter === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'productFilter'");
             }
-            if ((!args || args.severityFilters === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.severityFilters === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'severityFilters'");
             }
             inputs["alertRuleTemplateGuid"] = args ? args.alertRuleTemplateGuid : undefined;
@@ -157,12 +158,8 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
             inputs["severityFilters"] = args ? args.severityFilters : undefined;
             inputs["textWhitelists"] = args ? args.textWhitelists : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AlertRuleMsSecurityIncident.__pulumiType, name, inputs, opts);
     }

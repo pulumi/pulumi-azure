@@ -69,6 +69,7 @@ namespace Pulumi.Azure.Storage
     ///  $ pulumi import azure:storage/share:Share exampleShare https://account1.file.core.windows.net/share1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:storage/share:Share")]
     public partial class Share : Pulumi.CustomResource
     {
         /// <summary>

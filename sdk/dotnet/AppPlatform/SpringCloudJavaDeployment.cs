@@ -67,6 +67,7 @@ namespace Pulumi.Azure.AppPlatform
     ///  $ pulumi import azure:appplatform/springCloudJavaDeployment:SpringCloudJavaDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/Spring/service1/apps/app1/deployments/deploy1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:appplatform/springCloudJavaDeployment:SpringCloudJavaDeployment")]
     public partial class SpringCloudJavaDeployment : Pulumi.CustomResource
     {
         /// <summary>

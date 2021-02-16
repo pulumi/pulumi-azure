@@ -172,7 +172,8 @@ export class ManagedDisk extends pulumi.CustomResource {
     constructor(name: string, args: ManagedDiskArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedDiskArgs | ManagedDiskState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ManagedDiskState | undefined;
             inputs["createOption"] = state ? state.createOption : undefined;
             inputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
@@ -193,13 +194,13 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as ManagedDiskArgs | undefined;
-            if ((!args || args.createOption === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.createOption === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'createOption'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountType'");
             }
             inputs["createOption"] = args ? args.createOption : undefined;
@@ -220,12 +221,8 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ManagedDisk.__pulumiType, name, inputs, opts);
     }

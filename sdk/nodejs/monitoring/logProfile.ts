@@ -120,7 +120,8 @@ export class LogProfile extends pulumi.CustomResource {
     constructor(name: string, args: LogProfileArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogProfileArgs | LogProfileState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LogProfileState | undefined;
             inputs["categories"] = state ? state.categories : undefined;
             inputs["locations"] = state ? state.locations : undefined;
@@ -130,13 +131,13 @@ export class LogProfile extends pulumi.CustomResource {
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
             const args = argsOrState as LogProfileArgs | undefined;
-            if ((!args || args.categories === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.categories === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'categories'");
             }
-            if ((!args || args.locations === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.locations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'locations'");
             }
-            if ((!args || args.retentionPolicy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.retentionPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'retentionPolicy'");
             }
             inputs["categories"] = args ? args.categories : undefined;
@@ -146,12 +147,8 @@ export class LogProfile extends pulumi.CustomResource {
             inputs["servicebusRuleId"] = args ? args.servicebusRuleId : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LogProfile.__pulumiType, name, inputs, opts);
     }

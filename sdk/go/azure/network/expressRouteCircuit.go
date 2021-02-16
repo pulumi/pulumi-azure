@@ -239,16 +239,95 @@ type ExpressRouteCircuitInput interface {
 	ToExpressRouteCircuitOutputWithContext(ctx context.Context) ExpressRouteCircuitOutput
 }
 
-func (ExpressRouteCircuit) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCircuit)(nil)).Elem()
+func (*ExpressRouteCircuit) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteCircuit)(nil))
 }
 
-func (i ExpressRouteCircuit) ToExpressRouteCircuitOutput() ExpressRouteCircuitOutput {
+func (i *ExpressRouteCircuit) ToExpressRouteCircuitOutput() ExpressRouteCircuitOutput {
 	return i.ToExpressRouteCircuitOutputWithContext(context.Background())
 }
 
-func (i ExpressRouteCircuit) ToExpressRouteCircuitOutputWithContext(ctx context.Context) ExpressRouteCircuitOutput {
+func (i *ExpressRouteCircuit) ToExpressRouteCircuitOutputWithContext(ctx context.Context) ExpressRouteCircuitOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitOutput)
+}
+
+func (i *ExpressRouteCircuit) ToExpressRouteCircuitPtrOutput() ExpressRouteCircuitPtrOutput {
+	return i.ToExpressRouteCircuitPtrOutputWithContext(context.Background())
+}
+
+func (i *ExpressRouteCircuit) ToExpressRouteCircuitPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPtrOutput)
+}
+
+type ExpressRouteCircuitPtrInput interface {
+	pulumi.Input
+
+	ToExpressRouteCircuitPtrOutput() ExpressRouteCircuitPtrOutput
+	ToExpressRouteCircuitPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPtrOutput
+}
+
+type expressRouteCircuitPtrType ExpressRouteCircuitArgs
+
+func (*expressRouteCircuitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressRouteCircuit)(nil))
+}
+
+func (i *expressRouteCircuitPtrType) ToExpressRouteCircuitPtrOutput() ExpressRouteCircuitPtrOutput {
+	return i.ToExpressRouteCircuitPtrOutputWithContext(context.Background())
+}
+
+func (i *expressRouteCircuitPtrType) ToExpressRouteCircuitPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPtrOutput)
+}
+
+// ExpressRouteCircuitArrayInput is an input type that accepts ExpressRouteCircuitArray and ExpressRouteCircuitArrayOutput values.
+// You can construct a concrete instance of `ExpressRouteCircuitArrayInput` via:
+//
+//          ExpressRouteCircuitArray{ ExpressRouteCircuitArgs{...} }
+type ExpressRouteCircuitArrayInput interface {
+	pulumi.Input
+
+	ToExpressRouteCircuitArrayOutput() ExpressRouteCircuitArrayOutput
+	ToExpressRouteCircuitArrayOutputWithContext(context.Context) ExpressRouteCircuitArrayOutput
+}
+
+type ExpressRouteCircuitArray []ExpressRouteCircuitInput
+
+func (ExpressRouteCircuitArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ExpressRouteCircuit)(nil))
+}
+
+func (i ExpressRouteCircuitArray) ToExpressRouteCircuitArrayOutput() ExpressRouteCircuitArrayOutput {
+	return i.ToExpressRouteCircuitArrayOutputWithContext(context.Background())
+}
+
+func (i ExpressRouteCircuitArray) ToExpressRouteCircuitArrayOutputWithContext(ctx context.Context) ExpressRouteCircuitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitArrayOutput)
+}
+
+// ExpressRouteCircuitMapInput is an input type that accepts ExpressRouteCircuitMap and ExpressRouteCircuitMapOutput values.
+// You can construct a concrete instance of `ExpressRouteCircuitMapInput` via:
+//
+//          ExpressRouteCircuitMap{ "key": ExpressRouteCircuitArgs{...} }
+type ExpressRouteCircuitMapInput interface {
+	pulumi.Input
+
+	ToExpressRouteCircuitMapOutput() ExpressRouteCircuitMapOutput
+	ToExpressRouteCircuitMapOutputWithContext(context.Context) ExpressRouteCircuitMapOutput
+}
+
+type ExpressRouteCircuitMap map[string]ExpressRouteCircuitInput
+
+func (ExpressRouteCircuitMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ExpressRouteCircuit)(nil))
+}
+
+func (i ExpressRouteCircuitMap) ToExpressRouteCircuitMapOutput() ExpressRouteCircuitMapOutput {
+	return i.ToExpressRouteCircuitMapOutputWithContext(context.Background())
+}
+
+func (i ExpressRouteCircuitMap) ToExpressRouteCircuitMapOutputWithContext(ctx context.Context) ExpressRouteCircuitMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitMapOutput)
 }
 
 type ExpressRouteCircuitOutput struct {
@@ -256,7 +335,7 @@ type ExpressRouteCircuitOutput struct {
 }
 
 func (ExpressRouteCircuitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCircuitOutput)(nil)).Elem()
+	return reflect.TypeOf((*ExpressRouteCircuit)(nil))
 }
 
 func (o ExpressRouteCircuitOutput) ToExpressRouteCircuitOutput() ExpressRouteCircuitOutput {
@@ -267,6 +346,75 @@ func (o ExpressRouteCircuitOutput) ToExpressRouteCircuitOutputWithContext(ctx co
 	return o
 }
 
+func (o ExpressRouteCircuitOutput) ToExpressRouteCircuitPtrOutput() ExpressRouteCircuitPtrOutput {
+	return o.ToExpressRouteCircuitPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressRouteCircuitOutput) ToExpressRouteCircuitPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuit) *ExpressRouteCircuit {
+		return &v
+	}).(ExpressRouteCircuitPtrOutput)
+}
+
+type ExpressRouteCircuitPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ExpressRouteCircuitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressRouteCircuit)(nil))
+}
+
+func (o ExpressRouteCircuitPtrOutput) ToExpressRouteCircuitPtrOutput() ExpressRouteCircuitPtrOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitPtrOutput) ToExpressRouteCircuitPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPtrOutput {
+	return o
+}
+
+type ExpressRouteCircuitArrayOutput struct{ *pulumi.OutputState }
+
+func (ExpressRouteCircuitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressRouteCircuit)(nil))
+}
+
+func (o ExpressRouteCircuitArrayOutput) ToExpressRouteCircuitArrayOutput() ExpressRouteCircuitArrayOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitArrayOutput) ToExpressRouteCircuitArrayOutputWithContext(ctx context.Context) ExpressRouteCircuitArrayOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitArrayOutput) Index(i pulumi.IntInput) ExpressRouteCircuitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressRouteCircuit {
+		return vs[0].([]ExpressRouteCircuit)[vs[1].(int)]
+	}).(ExpressRouteCircuitOutput)
+}
+
+type ExpressRouteCircuitMapOutput struct{ *pulumi.OutputState }
+
+func (ExpressRouteCircuitMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ExpressRouteCircuit)(nil))
+}
+
+func (o ExpressRouteCircuitMapOutput) ToExpressRouteCircuitMapOutput() ExpressRouteCircuitMapOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitMapOutput) ToExpressRouteCircuitMapOutputWithContext(ctx context.Context) ExpressRouteCircuitMapOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitMapOutput) MapIndex(k pulumi.StringInput) ExpressRouteCircuitOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ExpressRouteCircuit {
+		return vs[0].(map[string]ExpressRouteCircuit)[vs[1].(string)]
+	}).(ExpressRouteCircuitOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExpressRouteCircuitOutput{})
+	pulumi.RegisterOutputType(ExpressRouteCircuitPtrOutput{})
+	pulumi.RegisterOutputType(ExpressRouteCircuitArrayOutput{})
+	pulumi.RegisterOutputType(ExpressRouteCircuitMapOutput{})
 }

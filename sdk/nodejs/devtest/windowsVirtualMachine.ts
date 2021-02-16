@@ -127,7 +127,8 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     constructor(name: string, args: WindowsVirtualMachineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WindowsVirtualMachineArgs | WindowsVirtualMachineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as WindowsVirtualMachineState | undefined;
             inputs["allowClaim"] = state ? state.allowClaim : undefined;
             inputs["disallowPublicIpAddress"] = state ? state.disallowPublicIpAddress : undefined;
@@ -149,31 +150,31 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as WindowsVirtualMachineArgs | undefined;
-            if ((!args || args.galleryImageReference === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.galleryImageReference === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'galleryImageReference'");
             }
-            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.labSubnetName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.labSubnetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labSubnetName'");
             }
-            if ((!args || args.labVirtualNetworkId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.labVirtualNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labVirtualNetworkId'");
             }
-            if ((!args || args.password === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.password === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.size === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.size === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'size'");
             }
-            if ((!args || args.storageType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageType'");
             }
-            if ((!args || args.username === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
             inputs["allowClaim"] = args ? args.allowClaim : undefined;
@@ -195,12 +196,8 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             inputs["fqdn"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(WindowsVirtualMachine.__pulumiType, name, inputs, opts);
     }

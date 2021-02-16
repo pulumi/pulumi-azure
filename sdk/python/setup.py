@@ -48,7 +48,7 @@ setup(name='pulumi_azure',
       packages=find_packages(),
       package_data={
           'pulumi_azure': [
-              'py.typed'
+              'py.typed',
           ]
       },
       install_requires=[

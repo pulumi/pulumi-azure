@@ -104,7 +104,8 @@ export class Container extends pulumi.CustomResource {
     constructor(name: string, args: ContainerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ContainerArgs | ContainerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ContainerState | undefined;
             inputs["containerAccessType"] = state ? state.containerAccessType : undefined;
             inputs["hasImmutabilityPolicy"] = state ? state.hasImmutabilityPolicy : undefined;
@@ -115,7 +116,7 @@ export class Container extends pulumi.CustomResource {
             inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
         } else {
             const args = argsOrState as ContainerArgs | undefined;
-            if ((!args || args.storageAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
             inputs["containerAccessType"] = args ? args.containerAccessType : undefined;
@@ -126,12 +127,8 @@ export class Container extends pulumi.CustomResource {
             inputs["hasLegalHold"] = undefined /*out*/;
             inputs["resourceManagerId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Container.__pulumiType, name, inputs, opts);
     }

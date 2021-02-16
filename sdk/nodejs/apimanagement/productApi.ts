@@ -99,7 +99,8 @@ export class ProductApi extends pulumi.CustomResource {
     constructor(name: string, args: ProductApiArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProductApiArgs | ProductApiState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProductApiState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["apiName"] = state ? state.apiName : undefined;
@@ -107,16 +108,16 @@ export class ProductApi extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ProductApiArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.apiName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiName'");
             }
-            if ((!args || args.productId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.productId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
@@ -124,12 +125,8 @@ export class ProductApi extends pulumi.CustomResource {
             inputs["productId"] = args ? args.productId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ProductApi.__pulumiType, name, inputs, opts);
     }

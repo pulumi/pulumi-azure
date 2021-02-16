@@ -160,7 +160,8 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
     constructor(name: string, args: FirewallPolicyRuleCollectionGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FirewallPolicyRuleCollectionGroupArgs | FirewallPolicyRuleCollectionGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FirewallPolicyRuleCollectionGroupState | undefined;
             inputs["applicationRuleCollections"] = state ? state.applicationRuleCollections : undefined;
             inputs["firewallPolicyId"] = state ? state.firewallPolicyId : undefined;
@@ -170,10 +171,10 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
             inputs["priority"] = state ? state.priority : undefined;
         } else {
             const args = argsOrState as FirewallPolicyRuleCollectionGroupArgs | undefined;
-            if ((!args || args.firewallPolicyId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.firewallPolicyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'firewallPolicyId'");
             }
-            if ((!args || args.priority === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
             inputs["applicationRuleCollections"] = args ? args.applicationRuleCollections : undefined;
@@ -183,12 +184,8 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
             inputs["networkRuleCollections"] = args ? args.networkRuleCollections : undefined;
             inputs["priority"] = args ? args.priority : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(FirewallPolicyRuleCollectionGroup.__pulumiType, name, inputs, opts);
     }

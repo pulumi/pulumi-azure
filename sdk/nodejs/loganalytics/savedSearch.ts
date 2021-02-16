@@ -107,7 +107,8 @@ export class SavedSearch extends pulumi.CustomResource {
     constructor(name: string, args: SavedSearchArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SavedSearchArgs | SavedSearchState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SavedSearchState | undefined;
             inputs["category"] = state ? state.category : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
@@ -119,16 +120,16 @@ export class SavedSearch extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SavedSearchArgs | undefined;
-            if ((!args || args.category === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.category === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'category'");
             }
-            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            if ((!args || args.query === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.query === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
             inputs["category"] = args ? args.category : undefined;
@@ -140,12 +141,8 @@ export class SavedSearch extends pulumi.CustomResource {
             inputs["query"] = args ? args.query : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SavedSearch.__pulumiType, name, inputs, opts);
     }

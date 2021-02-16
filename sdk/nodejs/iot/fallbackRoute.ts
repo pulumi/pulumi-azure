@@ -127,7 +127,8 @@ export class FallbackRoute extends pulumi.CustomResource {
     constructor(name: string, args: FallbackRouteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FallbackRouteArgs | FallbackRouteState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FallbackRouteState | undefined;
             inputs["condition"] = state ? state.condition : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -136,16 +137,16 @@ export class FallbackRoute extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as FallbackRouteArgs | undefined;
-            if ((!args || args.enabled === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.enabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.endpointNames === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.endpointNames === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointNames'");
             }
-            if ((!args || args.iothubName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.iothubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iothubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["condition"] = args ? args.condition : undefined;
@@ -154,12 +155,8 @@ export class FallbackRoute extends pulumi.CustomResource {
             inputs["iothubName"] = args ? args.iothubName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(FallbackRoute.__pulumiType, name, inputs, opts);
     }

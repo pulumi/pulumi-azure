@@ -191,16 +191,95 @@ type AnalyticsFirewallRuleInput interface {
 	ToAnalyticsFirewallRuleOutputWithContext(ctx context.Context) AnalyticsFirewallRuleOutput
 }
 
-func (AnalyticsFirewallRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsFirewallRule)(nil)).Elem()
+func (*AnalyticsFirewallRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsFirewallRule)(nil))
 }
 
-func (i AnalyticsFirewallRule) ToAnalyticsFirewallRuleOutput() AnalyticsFirewallRuleOutput {
+func (i *AnalyticsFirewallRule) ToAnalyticsFirewallRuleOutput() AnalyticsFirewallRuleOutput {
 	return i.ToAnalyticsFirewallRuleOutputWithContext(context.Background())
 }
 
-func (i AnalyticsFirewallRule) ToAnalyticsFirewallRuleOutputWithContext(ctx context.Context) AnalyticsFirewallRuleOutput {
+func (i *AnalyticsFirewallRule) ToAnalyticsFirewallRuleOutputWithContext(ctx context.Context) AnalyticsFirewallRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsFirewallRuleOutput)
+}
+
+func (i *AnalyticsFirewallRule) ToAnalyticsFirewallRulePtrOutput() AnalyticsFirewallRulePtrOutput {
+	return i.ToAnalyticsFirewallRulePtrOutputWithContext(context.Background())
+}
+
+func (i *AnalyticsFirewallRule) ToAnalyticsFirewallRulePtrOutputWithContext(ctx context.Context) AnalyticsFirewallRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsFirewallRulePtrOutput)
+}
+
+type AnalyticsFirewallRulePtrInput interface {
+	pulumi.Input
+
+	ToAnalyticsFirewallRulePtrOutput() AnalyticsFirewallRulePtrOutput
+	ToAnalyticsFirewallRulePtrOutputWithContext(ctx context.Context) AnalyticsFirewallRulePtrOutput
+}
+
+type analyticsFirewallRulePtrType AnalyticsFirewallRuleArgs
+
+func (*analyticsFirewallRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyticsFirewallRule)(nil))
+}
+
+func (i *analyticsFirewallRulePtrType) ToAnalyticsFirewallRulePtrOutput() AnalyticsFirewallRulePtrOutput {
+	return i.ToAnalyticsFirewallRulePtrOutputWithContext(context.Background())
+}
+
+func (i *analyticsFirewallRulePtrType) ToAnalyticsFirewallRulePtrOutputWithContext(ctx context.Context) AnalyticsFirewallRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsFirewallRulePtrOutput)
+}
+
+// AnalyticsFirewallRuleArrayInput is an input type that accepts AnalyticsFirewallRuleArray and AnalyticsFirewallRuleArrayOutput values.
+// You can construct a concrete instance of `AnalyticsFirewallRuleArrayInput` via:
+//
+//          AnalyticsFirewallRuleArray{ AnalyticsFirewallRuleArgs{...} }
+type AnalyticsFirewallRuleArrayInput interface {
+	pulumi.Input
+
+	ToAnalyticsFirewallRuleArrayOutput() AnalyticsFirewallRuleArrayOutput
+	ToAnalyticsFirewallRuleArrayOutputWithContext(context.Context) AnalyticsFirewallRuleArrayOutput
+}
+
+type AnalyticsFirewallRuleArray []AnalyticsFirewallRuleInput
+
+func (AnalyticsFirewallRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AnalyticsFirewallRule)(nil))
+}
+
+func (i AnalyticsFirewallRuleArray) ToAnalyticsFirewallRuleArrayOutput() AnalyticsFirewallRuleArrayOutput {
+	return i.ToAnalyticsFirewallRuleArrayOutputWithContext(context.Background())
+}
+
+func (i AnalyticsFirewallRuleArray) ToAnalyticsFirewallRuleArrayOutputWithContext(ctx context.Context) AnalyticsFirewallRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsFirewallRuleArrayOutput)
+}
+
+// AnalyticsFirewallRuleMapInput is an input type that accepts AnalyticsFirewallRuleMap and AnalyticsFirewallRuleMapOutput values.
+// You can construct a concrete instance of `AnalyticsFirewallRuleMapInput` via:
+//
+//          AnalyticsFirewallRuleMap{ "key": AnalyticsFirewallRuleArgs{...} }
+type AnalyticsFirewallRuleMapInput interface {
+	pulumi.Input
+
+	ToAnalyticsFirewallRuleMapOutput() AnalyticsFirewallRuleMapOutput
+	ToAnalyticsFirewallRuleMapOutputWithContext(context.Context) AnalyticsFirewallRuleMapOutput
+}
+
+type AnalyticsFirewallRuleMap map[string]AnalyticsFirewallRuleInput
+
+func (AnalyticsFirewallRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AnalyticsFirewallRule)(nil))
+}
+
+func (i AnalyticsFirewallRuleMap) ToAnalyticsFirewallRuleMapOutput() AnalyticsFirewallRuleMapOutput {
+	return i.ToAnalyticsFirewallRuleMapOutputWithContext(context.Background())
+}
+
+func (i AnalyticsFirewallRuleMap) ToAnalyticsFirewallRuleMapOutputWithContext(ctx context.Context) AnalyticsFirewallRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsFirewallRuleMapOutput)
 }
 
 type AnalyticsFirewallRuleOutput struct {
@@ -208,7 +287,7 @@ type AnalyticsFirewallRuleOutput struct {
 }
 
 func (AnalyticsFirewallRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsFirewallRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*AnalyticsFirewallRule)(nil))
 }
 
 func (o AnalyticsFirewallRuleOutput) ToAnalyticsFirewallRuleOutput() AnalyticsFirewallRuleOutput {
@@ -219,6 +298,75 @@ func (o AnalyticsFirewallRuleOutput) ToAnalyticsFirewallRuleOutputWithContext(ct
 	return o
 }
 
+func (o AnalyticsFirewallRuleOutput) ToAnalyticsFirewallRulePtrOutput() AnalyticsFirewallRulePtrOutput {
+	return o.ToAnalyticsFirewallRulePtrOutputWithContext(context.Background())
+}
+
+func (o AnalyticsFirewallRuleOutput) ToAnalyticsFirewallRulePtrOutputWithContext(ctx context.Context) AnalyticsFirewallRulePtrOutput {
+	return o.ApplyT(func(v AnalyticsFirewallRule) *AnalyticsFirewallRule {
+		return &v
+	}).(AnalyticsFirewallRulePtrOutput)
+}
+
+type AnalyticsFirewallRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AnalyticsFirewallRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyticsFirewallRule)(nil))
+}
+
+func (o AnalyticsFirewallRulePtrOutput) ToAnalyticsFirewallRulePtrOutput() AnalyticsFirewallRulePtrOutput {
+	return o
+}
+
+func (o AnalyticsFirewallRulePtrOutput) ToAnalyticsFirewallRulePtrOutputWithContext(ctx context.Context) AnalyticsFirewallRulePtrOutput {
+	return o
+}
+
+type AnalyticsFirewallRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalyticsFirewallRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalyticsFirewallRule)(nil))
+}
+
+func (o AnalyticsFirewallRuleArrayOutput) ToAnalyticsFirewallRuleArrayOutput() AnalyticsFirewallRuleArrayOutput {
+	return o
+}
+
+func (o AnalyticsFirewallRuleArrayOutput) ToAnalyticsFirewallRuleArrayOutputWithContext(ctx context.Context) AnalyticsFirewallRuleArrayOutput {
+	return o
+}
+
+func (o AnalyticsFirewallRuleArrayOutput) Index(i pulumi.IntInput) AnalyticsFirewallRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalyticsFirewallRule {
+		return vs[0].([]AnalyticsFirewallRule)[vs[1].(int)]
+	}).(AnalyticsFirewallRuleOutput)
+}
+
+type AnalyticsFirewallRuleMapOutput struct{ *pulumi.OutputState }
+
+func (AnalyticsFirewallRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AnalyticsFirewallRule)(nil))
+}
+
+func (o AnalyticsFirewallRuleMapOutput) ToAnalyticsFirewallRuleMapOutput() AnalyticsFirewallRuleMapOutput {
+	return o
+}
+
+func (o AnalyticsFirewallRuleMapOutput) ToAnalyticsFirewallRuleMapOutputWithContext(ctx context.Context) AnalyticsFirewallRuleMapOutput {
+	return o
+}
+
+func (o AnalyticsFirewallRuleMapOutput) MapIndex(k pulumi.StringInput) AnalyticsFirewallRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AnalyticsFirewallRule {
+		return vs[0].(map[string]AnalyticsFirewallRule)[vs[1].(string)]
+	}).(AnalyticsFirewallRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AnalyticsFirewallRuleOutput{})
+	pulumi.RegisterOutputType(AnalyticsFirewallRulePtrOutput{})
+	pulumi.RegisterOutputType(AnalyticsFirewallRuleArrayOutput{})
+	pulumi.RegisterOutputType(AnalyticsFirewallRuleMapOutput{})
 }

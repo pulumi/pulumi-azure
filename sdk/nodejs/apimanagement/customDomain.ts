@@ -153,7 +153,8 @@ export class CustomDomain extends pulumi.CustomResource {
     constructor(name: string, args: CustomDomainArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CustomDomainArgs | CustomDomainState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CustomDomainState | undefined;
             inputs["apiManagementId"] = state ? state.apiManagementId : undefined;
             inputs["developerPortals"] = state ? state.developerPortals : undefined;
@@ -163,7 +164,7 @@ export class CustomDomain extends pulumi.CustomResource {
             inputs["scms"] = state ? state.scms : undefined;
         } else {
             const args = argsOrState as CustomDomainArgs | undefined;
-            if ((!args || args.apiManagementId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiManagementId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementId'");
             }
             inputs["apiManagementId"] = args ? args.apiManagementId : undefined;
@@ -173,12 +174,8 @@ export class CustomDomain extends pulumi.CustomResource {
             inputs["proxies"] = args ? args.proxies : undefined;
             inputs["scms"] = args ? args.scms : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CustomDomain.__pulumiType, name, inputs, opts);
     }

@@ -20,6 +20,7 @@ namespace Pulumi.Azure.ApiManagement
     ///  $ pulumi import azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service1/identityProviders/AadB2C
     /// ```
     /// </summary>
+    [AzureResourceType("azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c")]
     public partial class IdentityProviderAadb2c : Pulumi.CustomResource
     {
         /// <summary>

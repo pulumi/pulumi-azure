@@ -195,16 +195,95 @@ type FactoryInput interface {
 	ToFactoryOutputWithContext(ctx context.Context) FactoryOutput
 }
 
-func (Factory) ElementType() reflect.Type {
-	return reflect.TypeOf((*Factory)(nil)).Elem()
+func (*Factory) ElementType() reflect.Type {
+	return reflect.TypeOf((*Factory)(nil))
 }
 
-func (i Factory) ToFactoryOutput() FactoryOutput {
+func (i *Factory) ToFactoryOutput() FactoryOutput {
 	return i.ToFactoryOutputWithContext(context.Background())
 }
 
-func (i Factory) ToFactoryOutputWithContext(ctx context.Context) FactoryOutput {
+func (i *Factory) ToFactoryOutputWithContext(ctx context.Context) FactoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FactoryOutput)
+}
+
+func (i *Factory) ToFactoryPtrOutput() FactoryPtrOutput {
+	return i.ToFactoryPtrOutputWithContext(context.Background())
+}
+
+func (i *Factory) ToFactoryPtrOutputWithContext(ctx context.Context) FactoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FactoryPtrOutput)
+}
+
+type FactoryPtrInput interface {
+	pulumi.Input
+
+	ToFactoryPtrOutput() FactoryPtrOutput
+	ToFactoryPtrOutputWithContext(ctx context.Context) FactoryPtrOutput
+}
+
+type factoryPtrType FactoryArgs
+
+func (*factoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Factory)(nil))
+}
+
+func (i *factoryPtrType) ToFactoryPtrOutput() FactoryPtrOutput {
+	return i.ToFactoryPtrOutputWithContext(context.Background())
+}
+
+func (i *factoryPtrType) ToFactoryPtrOutputWithContext(ctx context.Context) FactoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FactoryPtrOutput)
+}
+
+// FactoryArrayInput is an input type that accepts FactoryArray and FactoryArrayOutput values.
+// You can construct a concrete instance of `FactoryArrayInput` via:
+//
+//          FactoryArray{ FactoryArgs{...} }
+type FactoryArrayInput interface {
+	pulumi.Input
+
+	ToFactoryArrayOutput() FactoryArrayOutput
+	ToFactoryArrayOutputWithContext(context.Context) FactoryArrayOutput
+}
+
+type FactoryArray []FactoryInput
+
+func (FactoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Factory)(nil))
+}
+
+func (i FactoryArray) ToFactoryArrayOutput() FactoryArrayOutput {
+	return i.ToFactoryArrayOutputWithContext(context.Background())
+}
+
+func (i FactoryArray) ToFactoryArrayOutputWithContext(ctx context.Context) FactoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FactoryArrayOutput)
+}
+
+// FactoryMapInput is an input type that accepts FactoryMap and FactoryMapOutput values.
+// You can construct a concrete instance of `FactoryMapInput` via:
+//
+//          FactoryMap{ "key": FactoryArgs{...} }
+type FactoryMapInput interface {
+	pulumi.Input
+
+	ToFactoryMapOutput() FactoryMapOutput
+	ToFactoryMapOutputWithContext(context.Context) FactoryMapOutput
+}
+
+type FactoryMap map[string]FactoryInput
+
+func (FactoryMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Factory)(nil))
+}
+
+func (i FactoryMap) ToFactoryMapOutput() FactoryMapOutput {
+	return i.ToFactoryMapOutputWithContext(context.Background())
+}
+
+func (i FactoryMap) ToFactoryMapOutputWithContext(ctx context.Context) FactoryMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FactoryMapOutput)
 }
 
 type FactoryOutput struct {
@@ -212,7 +291,7 @@ type FactoryOutput struct {
 }
 
 func (FactoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FactoryOutput)(nil)).Elem()
+	return reflect.TypeOf((*Factory)(nil))
 }
 
 func (o FactoryOutput) ToFactoryOutput() FactoryOutput {
@@ -223,6 +302,75 @@ func (o FactoryOutput) ToFactoryOutputWithContext(ctx context.Context) FactoryOu
 	return o
 }
 
+func (o FactoryOutput) ToFactoryPtrOutput() FactoryPtrOutput {
+	return o.ToFactoryPtrOutputWithContext(context.Background())
+}
+
+func (o FactoryOutput) ToFactoryPtrOutputWithContext(ctx context.Context) FactoryPtrOutput {
+	return o.ApplyT(func(v Factory) *Factory {
+		return &v
+	}).(FactoryPtrOutput)
+}
+
+type FactoryPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (FactoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Factory)(nil))
+}
+
+func (o FactoryPtrOutput) ToFactoryPtrOutput() FactoryPtrOutput {
+	return o
+}
+
+func (o FactoryPtrOutput) ToFactoryPtrOutputWithContext(ctx context.Context) FactoryPtrOutput {
+	return o
+}
+
+type FactoryArrayOutput struct{ *pulumi.OutputState }
+
+func (FactoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Factory)(nil))
+}
+
+func (o FactoryArrayOutput) ToFactoryArrayOutput() FactoryArrayOutput {
+	return o
+}
+
+func (o FactoryArrayOutput) ToFactoryArrayOutputWithContext(ctx context.Context) FactoryArrayOutput {
+	return o
+}
+
+func (o FactoryArrayOutput) Index(i pulumi.IntInput) FactoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Factory {
+		return vs[0].([]Factory)[vs[1].(int)]
+	}).(FactoryOutput)
+}
+
+type FactoryMapOutput struct{ *pulumi.OutputState }
+
+func (FactoryMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Factory)(nil))
+}
+
+func (o FactoryMapOutput) ToFactoryMapOutput() FactoryMapOutput {
+	return o
+}
+
+func (o FactoryMapOutput) ToFactoryMapOutputWithContext(ctx context.Context) FactoryMapOutput {
+	return o
+}
+
+func (o FactoryMapOutput) MapIndex(k pulumi.StringInput) FactoryOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Factory {
+		return vs[0].(map[string]Factory)[vs[1].(string)]
+	}).(FactoryOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FactoryOutput{})
+	pulumi.RegisterOutputType(FactoryPtrOutput{})
+	pulumi.RegisterOutputType(FactoryArrayOutput{})
+	pulumi.RegisterOutputType(FactoryMapOutput{})
 }

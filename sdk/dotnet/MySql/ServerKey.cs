@@ -20,6 +20,7 @@ namespace Pulumi.Azure.MySql
     ///  $ pulumi import azure:mysql/serverKey:ServerKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforMySQL/servers/server1/keys/keyvaultname_key-name_keyversion
     /// ```
     /// </summary>
+    [AzureResourceType("azure:mysql/serverKey:ServerKey")]
     public partial class ServerKey : Pulumi.CustomResource
     {
         /// <summary>

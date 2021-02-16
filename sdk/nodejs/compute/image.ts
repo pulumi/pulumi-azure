@@ -127,7 +127,8 @@ export class Image extends pulumi.CustomResource {
     constructor(name: string, args: ImageArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ImageArgs | ImageState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ImageState | undefined;
             inputs["dataDisks"] = state ? state.dataDisks : undefined;
             inputs["hyperVGeneration"] = state ? state.hyperVGeneration : undefined;
@@ -140,7 +141,7 @@ export class Image extends pulumi.CustomResource {
             inputs["zoneResilient"] = state ? state.zoneResilient : undefined;
         } else {
             const args = argsOrState as ImageArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dataDisks"] = args ? args.dataDisks : undefined;
@@ -153,12 +154,8 @@ export class Image extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zoneResilient"] = args ? args.zoneResilient : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Image.__pulumiType, name, inputs, opts);
     }

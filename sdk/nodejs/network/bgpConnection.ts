@@ -113,7 +113,8 @@ export class BgpConnection extends pulumi.CustomResource {
     constructor(name: string, args: BgpConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BgpConnectionArgs | BgpConnectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BgpConnectionState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["peerAsn"] = state ? state.peerAsn : undefined;
@@ -121,13 +122,13 @@ export class BgpConnection extends pulumi.CustomResource {
             inputs["virtualHubId"] = state ? state.virtualHubId : undefined;
         } else {
             const args = argsOrState as BgpConnectionArgs | undefined;
-            if ((!args || args.peerAsn === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.peerAsn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'peerAsn'");
             }
-            if ((!args || args.peerIp === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.peerIp === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'peerIp'");
             }
-            if ((!args || args.virtualHubId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualHubId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -135,12 +136,8 @@ export class BgpConnection extends pulumi.CustomResource {
             inputs["peerIp"] = args ? args.peerIp : undefined;
             inputs["virtualHubId"] = args ? args.virtualHubId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BgpConnection.__pulumiType, name, inputs, opts);
     }

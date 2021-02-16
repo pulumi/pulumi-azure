@@ -152,16 +152,95 @@ type DiskEncryptionSetInput interface {
 	ToDiskEncryptionSetOutputWithContext(ctx context.Context) DiskEncryptionSetOutput
 }
 
-func (DiskEncryptionSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskEncryptionSet)(nil)).Elem()
+func (*DiskEncryptionSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskEncryptionSet)(nil))
 }
 
-func (i DiskEncryptionSet) ToDiskEncryptionSetOutput() DiskEncryptionSetOutput {
+func (i *DiskEncryptionSet) ToDiskEncryptionSetOutput() DiskEncryptionSetOutput {
 	return i.ToDiskEncryptionSetOutputWithContext(context.Background())
 }
 
-func (i DiskEncryptionSet) ToDiskEncryptionSetOutputWithContext(ctx context.Context) DiskEncryptionSetOutput {
+func (i *DiskEncryptionSet) ToDiskEncryptionSetOutputWithContext(ctx context.Context) DiskEncryptionSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetOutput)
+}
+
+func (i *DiskEncryptionSet) ToDiskEncryptionSetPtrOutput() DiskEncryptionSetPtrOutput {
+	return i.ToDiskEncryptionSetPtrOutputWithContext(context.Background())
+}
+
+func (i *DiskEncryptionSet) ToDiskEncryptionSetPtrOutputWithContext(ctx context.Context) DiskEncryptionSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetPtrOutput)
+}
+
+type DiskEncryptionSetPtrInput interface {
+	pulumi.Input
+
+	ToDiskEncryptionSetPtrOutput() DiskEncryptionSetPtrOutput
+	ToDiskEncryptionSetPtrOutputWithContext(ctx context.Context) DiskEncryptionSetPtrOutput
+}
+
+type diskEncryptionSetPtrType DiskEncryptionSetArgs
+
+func (*diskEncryptionSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiskEncryptionSet)(nil))
+}
+
+func (i *diskEncryptionSetPtrType) ToDiskEncryptionSetPtrOutput() DiskEncryptionSetPtrOutput {
+	return i.ToDiskEncryptionSetPtrOutputWithContext(context.Background())
+}
+
+func (i *diskEncryptionSetPtrType) ToDiskEncryptionSetPtrOutputWithContext(ctx context.Context) DiskEncryptionSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetPtrOutput)
+}
+
+// DiskEncryptionSetArrayInput is an input type that accepts DiskEncryptionSetArray and DiskEncryptionSetArrayOutput values.
+// You can construct a concrete instance of `DiskEncryptionSetArrayInput` via:
+//
+//          DiskEncryptionSetArray{ DiskEncryptionSetArgs{...} }
+type DiskEncryptionSetArrayInput interface {
+	pulumi.Input
+
+	ToDiskEncryptionSetArrayOutput() DiskEncryptionSetArrayOutput
+	ToDiskEncryptionSetArrayOutputWithContext(context.Context) DiskEncryptionSetArrayOutput
+}
+
+type DiskEncryptionSetArray []DiskEncryptionSetInput
+
+func (DiskEncryptionSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DiskEncryptionSet)(nil))
+}
+
+func (i DiskEncryptionSetArray) ToDiskEncryptionSetArrayOutput() DiskEncryptionSetArrayOutput {
+	return i.ToDiskEncryptionSetArrayOutputWithContext(context.Background())
+}
+
+func (i DiskEncryptionSetArray) ToDiskEncryptionSetArrayOutputWithContext(ctx context.Context) DiskEncryptionSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetArrayOutput)
+}
+
+// DiskEncryptionSetMapInput is an input type that accepts DiskEncryptionSetMap and DiskEncryptionSetMapOutput values.
+// You can construct a concrete instance of `DiskEncryptionSetMapInput` via:
+//
+//          DiskEncryptionSetMap{ "key": DiskEncryptionSetArgs{...} }
+type DiskEncryptionSetMapInput interface {
+	pulumi.Input
+
+	ToDiskEncryptionSetMapOutput() DiskEncryptionSetMapOutput
+	ToDiskEncryptionSetMapOutputWithContext(context.Context) DiskEncryptionSetMapOutput
+}
+
+type DiskEncryptionSetMap map[string]DiskEncryptionSetInput
+
+func (DiskEncryptionSetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DiskEncryptionSet)(nil))
+}
+
+func (i DiskEncryptionSetMap) ToDiskEncryptionSetMapOutput() DiskEncryptionSetMapOutput {
+	return i.ToDiskEncryptionSetMapOutputWithContext(context.Background())
+}
+
+func (i DiskEncryptionSetMap) ToDiskEncryptionSetMapOutputWithContext(ctx context.Context) DiskEncryptionSetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetMapOutput)
 }
 
 type DiskEncryptionSetOutput struct {
@@ -169,7 +248,7 @@ type DiskEncryptionSetOutput struct {
 }
 
 func (DiskEncryptionSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskEncryptionSetOutput)(nil)).Elem()
+	return reflect.TypeOf((*DiskEncryptionSet)(nil))
 }
 
 func (o DiskEncryptionSetOutput) ToDiskEncryptionSetOutput() DiskEncryptionSetOutput {
@@ -180,6 +259,75 @@ func (o DiskEncryptionSetOutput) ToDiskEncryptionSetOutputWithContext(ctx contex
 	return o
 }
 
+func (o DiskEncryptionSetOutput) ToDiskEncryptionSetPtrOutput() DiskEncryptionSetPtrOutput {
+	return o.ToDiskEncryptionSetPtrOutputWithContext(context.Background())
+}
+
+func (o DiskEncryptionSetOutput) ToDiskEncryptionSetPtrOutputWithContext(ctx context.Context) DiskEncryptionSetPtrOutput {
+	return o.ApplyT(func(v DiskEncryptionSet) *DiskEncryptionSet {
+		return &v
+	}).(DiskEncryptionSetPtrOutput)
+}
+
+type DiskEncryptionSetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DiskEncryptionSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiskEncryptionSet)(nil))
+}
+
+func (o DiskEncryptionSetPtrOutput) ToDiskEncryptionSetPtrOutput() DiskEncryptionSetPtrOutput {
+	return o
+}
+
+func (o DiskEncryptionSetPtrOutput) ToDiskEncryptionSetPtrOutputWithContext(ctx context.Context) DiskEncryptionSetPtrOutput {
+	return o
+}
+
+type DiskEncryptionSetArrayOutput struct{ *pulumi.OutputState }
+
+func (DiskEncryptionSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiskEncryptionSet)(nil))
+}
+
+func (o DiskEncryptionSetArrayOutput) ToDiskEncryptionSetArrayOutput() DiskEncryptionSetArrayOutput {
+	return o
+}
+
+func (o DiskEncryptionSetArrayOutput) ToDiskEncryptionSetArrayOutputWithContext(ctx context.Context) DiskEncryptionSetArrayOutput {
+	return o
+}
+
+func (o DiskEncryptionSetArrayOutput) Index(i pulumi.IntInput) DiskEncryptionSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiskEncryptionSet {
+		return vs[0].([]DiskEncryptionSet)[vs[1].(int)]
+	}).(DiskEncryptionSetOutput)
+}
+
+type DiskEncryptionSetMapOutput struct{ *pulumi.OutputState }
+
+func (DiskEncryptionSetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DiskEncryptionSet)(nil))
+}
+
+func (o DiskEncryptionSetMapOutput) ToDiskEncryptionSetMapOutput() DiskEncryptionSetMapOutput {
+	return o
+}
+
+func (o DiskEncryptionSetMapOutput) ToDiskEncryptionSetMapOutputWithContext(ctx context.Context) DiskEncryptionSetMapOutput {
+	return o
+}
+
+func (o DiskEncryptionSetMapOutput) MapIndex(k pulumi.StringInput) DiskEncryptionSetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DiskEncryptionSet {
+		return vs[0].(map[string]DiskEncryptionSet)[vs[1].(string)]
+	}).(DiskEncryptionSetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DiskEncryptionSetOutput{})
+	pulumi.RegisterOutputType(DiskEncryptionSetPtrOutput{})
+	pulumi.RegisterOutputType(DiskEncryptionSetArrayOutput{})
+	pulumi.RegisterOutputType(DiskEncryptionSetMapOutput{})
 }

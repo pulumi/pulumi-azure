@@ -132,7 +132,8 @@ export class ElasticPool extends pulumi.CustomResource {
     constructor(name: string, args: ElasticPoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ElasticPoolArgs | ElasticPoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ElasticPoolState | undefined;
             inputs["licenseType"] = state ? state.licenseType : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -147,16 +148,16 @@ export class ElasticPool extends pulumi.CustomResource {
             inputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
         } else {
             const args = argsOrState as ElasticPoolArgs | undefined;
-            if ((!args || args.perDatabaseSettings === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.perDatabaseSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'perDatabaseSettings'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["licenseType"] = args ? args.licenseType : undefined;
@@ -171,12 +172,8 @@ export class ElasticPool extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ElasticPool.__pulumiType, name, inputs, opts);
     }

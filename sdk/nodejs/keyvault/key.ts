@@ -155,7 +155,8 @@ export class Key extends pulumi.CustomResource {
     constructor(name: string, args: KeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: KeyArgs | KeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as KeyState | undefined;
             inputs["curve"] = state ? state.curve : undefined;
             inputs["e"] = state ? state.e : undefined;
@@ -174,13 +175,13 @@ export class Key extends pulumi.CustomResource {
             inputs["y"] = state ? state.y : undefined;
         } else {
             const args = argsOrState as KeyArgs | undefined;
-            if ((!args || args.keyOpts === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.keyOpts === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyOpts'");
             }
-            if ((!args || args.keyType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.keyType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyType'");
             }
-            if ((!args || args.keyVaultId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.keyVaultId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
             inputs["curve"] = args ? args.curve : undefined;
@@ -199,12 +200,8 @@ export class Key extends pulumi.CustomResource {
             inputs["x"] = undefined /*out*/;
             inputs["y"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Key.__pulumiType, name, inputs, opts);
     }

@@ -79,7 +79,8 @@ export class VpnGatewayConnection extends pulumi.CustomResource {
     constructor(name: string, args: VpnGatewayConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpnGatewayConnectionArgs | VpnGatewayConnectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VpnGatewayConnectionState | undefined;
             inputs["internetSecurityEnabled"] = state ? state.internetSecurityEnabled : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -89,13 +90,13 @@ export class VpnGatewayConnection extends pulumi.CustomResource {
             inputs["vpnLinks"] = state ? state.vpnLinks : undefined;
         } else {
             const args = argsOrState as VpnGatewayConnectionArgs | undefined;
-            if ((!args || args.remoteVpnSiteId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.remoteVpnSiteId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'remoteVpnSiteId'");
             }
-            if ((!args || args.vpnGatewayId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpnGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpnGatewayId'");
             }
-            if ((!args || args.vpnLinks === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpnLinks === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpnLinks'");
             }
             inputs["internetSecurityEnabled"] = args ? args.internetSecurityEnabled : undefined;
@@ -105,12 +106,8 @@ export class VpnGatewayConnection extends pulumi.CustomResource {
             inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
             inputs["vpnLinks"] = args ? args.vpnLinks : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VpnGatewayConnection.__pulumiType, name, inputs, opts);
     }

@@ -110,7 +110,8 @@ export class EndpointServicebusQueue extends pulumi.CustomResource {
     constructor(name: string, args: EndpointServicebusQueueArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointServicebusQueueArgs | EndpointServicebusQueueState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EndpointServicebusQueueState | undefined;
             inputs["connectionString"] = state ? state.connectionString : undefined;
             inputs["iothubName"] = state ? state.iothubName : undefined;
@@ -118,13 +119,13 @@ export class EndpointServicebusQueue extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as EndpointServicebusQueueArgs | undefined;
-            if ((!args || args.connectionString === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.connectionString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionString'");
             }
-            if ((!args || args.iothubName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.iothubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iothubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["connectionString"] = args ? args.connectionString : undefined;
@@ -132,12 +133,8 @@ export class EndpointServicebusQueue extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EndpointServicebusQueue.__pulumiType, name, inputs, opts);
     }

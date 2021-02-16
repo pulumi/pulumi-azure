@@ -113,7 +113,8 @@ export class VpnSite extends pulumi.CustomResource {
     constructor(name: string, args: VpnSiteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpnSiteArgs | VpnSiteState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VpnSiteState | undefined;
             inputs["addressCidrs"] = state ? state.addressCidrs : undefined;
             inputs["deviceModel"] = state ? state.deviceModel : undefined;
@@ -126,10 +127,10 @@ export class VpnSite extends pulumi.CustomResource {
             inputs["virtualWanId"] = state ? state.virtualWanId : undefined;
         } else {
             const args = argsOrState as VpnSiteArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualWanId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualWanId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualWanId'");
             }
             inputs["addressCidrs"] = args ? args.addressCidrs : undefined;
@@ -142,12 +143,8 @@ export class VpnSite extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualWanId"] = args ? args.virtualWanId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VpnSite.__pulumiType, name, inputs, opts);
     }

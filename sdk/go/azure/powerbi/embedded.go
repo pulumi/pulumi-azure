@@ -185,16 +185,95 @@ type EmbeddedInput interface {
 	ToEmbeddedOutputWithContext(ctx context.Context) EmbeddedOutput
 }
 
-func (Embedded) ElementType() reflect.Type {
-	return reflect.TypeOf((*Embedded)(nil)).Elem()
+func (*Embedded) ElementType() reflect.Type {
+	return reflect.TypeOf((*Embedded)(nil))
 }
 
-func (i Embedded) ToEmbeddedOutput() EmbeddedOutput {
+func (i *Embedded) ToEmbeddedOutput() EmbeddedOutput {
 	return i.ToEmbeddedOutputWithContext(context.Background())
 }
 
-func (i Embedded) ToEmbeddedOutputWithContext(ctx context.Context) EmbeddedOutput {
+func (i *Embedded) ToEmbeddedOutputWithContext(ctx context.Context) EmbeddedOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmbeddedOutput)
+}
+
+func (i *Embedded) ToEmbeddedPtrOutput() EmbeddedPtrOutput {
+	return i.ToEmbeddedPtrOutputWithContext(context.Background())
+}
+
+func (i *Embedded) ToEmbeddedPtrOutputWithContext(ctx context.Context) EmbeddedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmbeddedPtrOutput)
+}
+
+type EmbeddedPtrInput interface {
+	pulumi.Input
+
+	ToEmbeddedPtrOutput() EmbeddedPtrOutput
+	ToEmbeddedPtrOutputWithContext(ctx context.Context) EmbeddedPtrOutput
+}
+
+type embeddedPtrType EmbeddedArgs
+
+func (*embeddedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Embedded)(nil))
+}
+
+func (i *embeddedPtrType) ToEmbeddedPtrOutput() EmbeddedPtrOutput {
+	return i.ToEmbeddedPtrOutputWithContext(context.Background())
+}
+
+func (i *embeddedPtrType) ToEmbeddedPtrOutputWithContext(ctx context.Context) EmbeddedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmbeddedPtrOutput)
+}
+
+// EmbeddedArrayInput is an input type that accepts EmbeddedArray and EmbeddedArrayOutput values.
+// You can construct a concrete instance of `EmbeddedArrayInput` via:
+//
+//          EmbeddedArray{ EmbeddedArgs{...} }
+type EmbeddedArrayInput interface {
+	pulumi.Input
+
+	ToEmbeddedArrayOutput() EmbeddedArrayOutput
+	ToEmbeddedArrayOutputWithContext(context.Context) EmbeddedArrayOutput
+}
+
+type EmbeddedArray []EmbeddedInput
+
+func (EmbeddedArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Embedded)(nil))
+}
+
+func (i EmbeddedArray) ToEmbeddedArrayOutput() EmbeddedArrayOutput {
+	return i.ToEmbeddedArrayOutputWithContext(context.Background())
+}
+
+func (i EmbeddedArray) ToEmbeddedArrayOutputWithContext(ctx context.Context) EmbeddedArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmbeddedArrayOutput)
+}
+
+// EmbeddedMapInput is an input type that accepts EmbeddedMap and EmbeddedMapOutput values.
+// You can construct a concrete instance of `EmbeddedMapInput` via:
+//
+//          EmbeddedMap{ "key": EmbeddedArgs{...} }
+type EmbeddedMapInput interface {
+	pulumi.Input
+
+	ToEmbeddedMapOutput() EmbeddedMapOutput
+	ToEmbeddedMapOutputWithContext(context.Context) EmbeddedMapOutput
+}
+
+type EmbeddedMap map[string]EmbeddedInput
+
+func (EmbeddedMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Embedded)(nil))
+}
+
+func (i EmbeddedMap) ToEmbeddedMapOutput() EmbeddedMapOutput {
+	return i.ToEmbeddedMapOutputWithContext(context.Background())
+}
+
+func (i EmbeddedMap) ToEmbeddedMapOutputWithContext(ctx context.Context) EmbeddedMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmbeddedMapOutput)
 }
 
 type EmbeddedOutput struct {
@@ -202,7 +281,7 @@ type EmbeddedOutput struct {
 }
 
 func (EmbeddedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmbeddedOutput)(nil)).Elem()
+	return reflect.TypeOf((*Embedded)(nil))
 }
 
 func (o EmbeddedOutput) ToEmbeddedOutput() EmbeddedOutput {
@@ -213,6 +292,75 @@ func (o EmbeddedOutput) ToEmbeddedOutputWithContext(ctx context.Context) Embedde
 	return o
 }
 
+func (o EmbeddedOutput) ToEmbeddedPtrOutput() EmbeddedPtrOutput {
+	return o.ToEmbeddedPtrOutputWithContext(context.Background())
+}
+
+func (o EmbeddedOutput) ToEmbeddedPtrOutputWithContext(ctx context.Context) EmbeddedPtrOutput {
+	return o.ApplyT(func(v Embedded) *Embedded {
+		return &v
+	}).(EmbeddedPtrOutput)
+}
+
+type EmbeddedPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EmbeddedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Embedded)(nil))
+}
+
+func (o EmbeddedPtrOutput) ToEmbeddedPtrOutput() EmbeddedPtrOutput {
+	return o
+}
+
+func (o EmbeddedPtrOutput) ToEmbeddedPtrOutputWithContext(ctx context.Context) EmbeddedPtrOutput {
+	return o
+}
+
+type EmbeddedArrayOutput struct{ *pulumi.OutputState }
+
+func (EmbeddedArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Embedded)(nil))
+}
+
+func (o EmbeddedArrayOutput) ToEmbeddedArrayOutput() EmbeddedArrayOutput {
+	return o
+}
+
+func (o EmbeddedArrayOutput) ToEmbeddedArrayOutputWithContext(ctx context.Context) EmbeddedArrayOutput {
+	return o
+}
+
+func (o EmbeddedArrayOutput) Index(i pulumi.IntInput) EmbeddedOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Embedded {
+		return vs[0].([]Embedded)[vs[1].(int)]
+	}).(EmbeddedOutput)
+}
+
+type EmbeddedMapOutput struct{ *pulumi.OutputState }
+
+func (EmbeddedMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Embedded)(nil))
+}
+
+func (o EmbeddedMapOutput) ToEmbeddedMapOutput() EmbeddedMapOutput {
+	return o
+}
+
+func (o EmbeddedMapOutput) ToEmbeddedMapOutputWithContext(ctx context.Context) EmbeddedMapOutput {
+	return o
+}
+
+func (o EmbeddedMapOutput) MapIndex(k pulumi.StringInput) EmbeddedOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Embedded {
+		return vs[0].(map[string]Embedded)[vs[1].(string)]
+	}).(EmbeddedOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EmbeddedOutput{})
+	pulumi.RegisterOutputType(EmbeddedPtrOutput{})
+	pulumi.RegisterOutputType(EmbeddedArrayOutput{})
+	pulumi.RegisterOutputType(EmbeddedMapOutput{})
 }

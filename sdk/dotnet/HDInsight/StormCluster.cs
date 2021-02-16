@@ -101,6 +101,7 @@ namespace Pulumi.Azure.HDInsight
     ///  $ pulumi import azure:hdinsight/stormCluster:StormCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:hdinsight/stormCluster:StormCluster")]
     public partial class StormCluster : Pulumi.CustomResource
     {
         /// <summary>

@@ -74,7 +74,8 @@ export class DatasetKustoDatabase extends pulumi.CustomResource {
     constructor(name: string, args: DatasetKustoDatabaseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DatasetKustoDatabaseArgs | DatasetKustoDatabaseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DatasetKustoDatabaseState | undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["kustoClusterLocation"] = state ? state.kustoClusterLocation : undefined;
@@ -83,10 +84,10 @@ export class DatasetKustoDatabase extends pulumi.CustomResource {
             inputs["shareId"] = state ? state.shareId : undefined;
         } else {
             const args = argsOrState as DatasetKustoDatabaseArgs | undefined;
-            if ((!args || args.kustoDatabaseId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.kustoDatabaseId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kustoDatabaseId'");
             }
-            if ((!args || args.shareId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.shareId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareId'");
             }
             inputs["kustoDatabaseId"] = args ? args.kustoDatabaseId : undefined;
@@ -95,12 +96,8 @@ export class DatasetKustoDatabase extends pulumi.CustomResource {
             inputs["displayName"] = undefined /*out*/;
             inputs["kustoClusterLocation"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DatasetKustoDatabase.__pulumiType, name, inputs, opts);
     }

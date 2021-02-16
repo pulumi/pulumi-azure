@@ -100,7 +100,8 @@ export class Factory extends pulumi.CustomResource {
     constructor(name: string, args: FactoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FactoryArgs | FactoryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FactoryState | undefined;
             inputs["githubConfiguration"] = state ? state.githubConfiguration : undefined;
             inputs["identity"] = state ? state.identity : undefined;
@@ -112,7 +113,7 @@ export class Factory extends pulumi.CustomResource {
             inputs["vstsConfiguration"] = state ? state.vstsConfiguration : undefined;
         } else {
             const args = argsOrState as FactoryArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["githubConfiguration"] = args ? args.githubConfiguration : undefined;
@@ -124,12 +125,8 @@ export class Factory extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vstsConfiguration"] = args ? args.vstsConfiguration : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Factory.__pulumiType, name, inputs, opts);
     }

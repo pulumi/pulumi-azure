@@ -126,7 +126,8 @@ export class ApiOperation extends pulumi.CustomResource {
     constructor(name: string, args: ApiOperationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiOperationArgs | ApiOperationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ApiOperationState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["apiName"] = state ? state.apiName : undefined;
@@ -141,25 +142,25 @@ export class ApiOperation extends pulumi.CustomResource {
             inputs["urlTemplate"] = state ? state.urlTemplate : undefined;
         } else {
             const args = argsOrState as ApiOperationArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.apiName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiName'");
             }
-            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.method === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.method === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'method'");
             }
-            if ((!args || args.operationId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.operationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'operationId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.urlTemplate === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.urlTemplate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'urlTemplate'");
             }
             inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
@@ -174,12 +175,8 @@ export class ApiOperation extends pulumi.CustomResource {
             inputs["templateParameters"] = args ? args.templateParameters : undefined;
             inputs["urlTemplate"] = args ? args.urlTemplate : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ApiOperation.__pulumiType, name, inputs, opts);
     }

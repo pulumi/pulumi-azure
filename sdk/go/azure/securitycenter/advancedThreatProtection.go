@@ -151,16 +151,95 @@ type AdvancedThreatProtectionInput interface {
 	ToAdvancedThreatProtectionOutputWithContext(ctx context.Context) AdvancedThreatProtectionOutput
 }
 
-func (AdvancedThreatProtection) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdvancedThreatProtection)(nil)).Elem()
+func (*AdvancedThreatProtection) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdvancedThreatProtection)(nil))
 }
 
-func (i AdvancedThreatProtection) ToAdvancedThreatProtectionOutput() AdvancedThreatProtectionOutput {
+func (i *AdvancedThreatProtection) ToAdvancedThreatProtectionOutput() AdvancedThreatProtectionOutput {
 	return i.ToAdvancedThreatProtectionOutputWithContext(context.Background())
 }
 
-func (i AdvancedThreatProtection) ToAdvancedThreatProtectionOutputWithContext(ctx context.Context) AdvancedThreatProtectionOutput {
+func (i *AdvancedThreatProtection) ToAdvancedThreatProtectionOutputWithContext(ctx context.Context) AdvancedThreatProtectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AdvancedThreatProtectionOutput)
+}
+
+func (i *AdvancedThreatProtection) ToAdvancedThreatProtectionPtrOutput() AdvancedThreatProtectionPtrOutput {
+	return i.ToAdvancedThreatProtectionPtrOutputWithContext(context.Background())
+}
+
+func (i *AdvancedThreatProtection) ToAdvancedThreatProtectionPtrOutputWithContext(ctx context.Context) AdvancedThreatProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdvancedThreatProtectionPtrOutput)
+}
+
+type AdvancedThreatProtectionPtrInput interface {
+	pulumi.Input
+
+	ToAdvancedThreatProtectionPtrOutput() AdvancedThreatProtectionPtrOutput
+	ToAdvancedThreatProtectionPtrOutputWithContext(ctx context.Context) AdvancedThreatProtectionPtrOutput
+}
+
+type advancedThreatProtectionPtrType AdvancedThreatProtectionArgs
+
+func (*advancedThreatProtectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdvancedThreatProtection)(nil))
+}
+
+func (i *advancedThreatProtectionPtrType) ToAdvancedThreatProtectionPtrOutput() AdvancedThreatProtectionPtrOutput {
+	return i.ToAdvancedThreatProtectionPtrOutputWithContext(context.Background())
+}
+
+func (i *advancedThreatProtectionPtrType) ToAdvancedThreatProtectionPtrOutputWithContext(ctx context.Context) AdvancedThreatProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdvancedThreatProtectionPtrOutput)
+}
+
+// AdvancedThreatProtectionArrayInput is an input type that accepts AdvancedThreatProtectionArray and AdvancedThreatProtectionArrayOutput values.
+// You can construct a concrete instance of `AdvancedThreatProtectionArrayInput` via:
+//
+//          AdvancedThreatProtectionArray{ AdvancedThreatProtectionArgs{...} }
+type AdvancedThreatProtectionArrayInput interface {
+	pulumi.Input
+
+	ToAdvancedThreatProtectionArrayOutput() AdvancedThreatProtectionArrayOutput
+	ToAdvancedThreatProtectionArrayOutputWithContext(context.Context) AdvancedThreatProtectionArrayOutput
+}
+
+type AdvancedThreatProtectionArray []AdvancedThreatProtectionInput
+
+func (AdvancedThreatProtectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AdvancedThreatProtection)(nil))
+}
+
+func (i AdvancedThreatProtectionArray) ToAdvancedThreatProtectionArrayOutput() AdvancedThreatProtectionArrayOutput {
+	return i.ToAdvancedThreatProtectionArrayOutputWithContext(context.Background())
+}
+
+func (i AdvancedThreatProtectionArray) ToAdvancedThreatProtectionArrayOutputWithContext(ctx context.Context) AdvancedThreatProtectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdvancedThreatProtectionArrayOutput)
+}
+
+// AdvancedThreatProtectionMapInput is an input type that accepts AdvancedThreatProtectionMap and AdvancedThreatProtectionMapOutput values.
+// You can construct a concrete instance of `AdvancedThreatProtectionMapInput` via:
+//
+//          AdvancedThreatProtectionMap{ "key": AdvancedThreatProtectionArgs{...} }
+type AdvancedThreatProtectionMapInput interface {
+	pulumi.Input
+
+	ToAdvancedThreatProtectionMapOutput() AdvancedThreatProtectionMapOutput
+	ToAdvancedThreatProtectionMapOutputWithContext(context.Context) AdvancedThreatProtectionMapOutput
+}
+
+type AdvancedThreatProtectionMap map[string]AdvancedThreatProtectionInput
+
+func (AdvancedThreatProtectionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AdvancedThreatProtection)(nil))
+}
+
+func (i AdvancedThreatProtectionMap) ToAdvancedThreatProtectionMapOutput() AdvancedThreatProtectionMapOutput {
+	return i.ToAdvancedThreatProtectionMapOutputWithContext(context.Background())
+}
+
+func (i AdvancedThreatProtectionMap) ToAdvancedThreatProtectionMapOutputWithContext(ctx context.Context) AdvancedThreatProtectionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdvancedThreatProtectionMapOutput)
 }
 
 type AdvancedThreatProtectionOutput struct {
@@ -168,7 +247,7 @@ type AdvancedThreatProtectionOutput struct {
 }
 
 func (AdvancedThreatProtectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdvancedThreatProtectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*AdvancedThreatProtection)(nil))
 }
 
 func (o AdvancedThreatProtectionOutput) ToAdvancedThreatProtectionOutput() AdvancedThreatProtectionOutput {
@@ -179,6 +258,75 @@ func (o AdvancedThreatProtectionOutput) ToAdvancedThreatProtectionOutputWithCont
 	return o
 }
 
+func (o AdvancedThreatProtectionOutput) ToAdvancedThreatProtectionPtrOutput() AdvancedThreatProtectionPtrOutput {
+	return o.ToAdvancedThreatProtectionPtrOutputWithContext(context.Background())
+}
+
+func (o AdvancedThreatProtectionOutput) ToAdvancedThreatProtectionPtrOutputWithContext(ctx context.Context) AdvancedThreatProtectionPtrOutput {
+	return o.ApplyT(func(v AdvancedThreatProtection) *AdvancedThreatProtection {
+		return &v
+	}).(AdvancedThreatProtectionPtrOutput)
+}
+
+type AdvancedThreatProtectionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AdvancedThreatProtectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdvancedThreatProtection)(nil))
+}
+
+func (o AdvancedThreatProtectionPtrOutput) ToAdvancedThreatProtectionPtrOutput() AdvancedThreatProtectionPtrOutput {
+	return o
+}
+
+func (o AdvancedThreatProtectionPtrOutput) ToAdvancedThreatProtectionPtrOutputWithContext(ctx context.Context) AdvancedThreatProtectionPtrOutput {
+	return o
+}
+
+type AdvancedThreatProtectionArrayOutput struct{ *pulumi.OutputState }
+
+func (AdvancedThreatProtectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdvancedThreatProtection)(nil))
+}
+
+func (o AdvancedThreatProtectionArrayOutput) ToAdvancedThreatProtectionArrayOutput() AdvancedThreatProtectionArrayOutput {
+	return o
+}
+
+func (o AdvancedThreatProtectionArrayOutput) ToAdvancedThreatProtectionArrayOutputWithContext(ctx context.Context) AdvancedThreatProtectionArrayOutput {
+	return o
+}
+
+func (o AdvancedThreatProtectionArrayOutput) Index(i pulumi.IntInput) AdvancedThreatProtectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AdvancedThreatProtection {
+		return vs[0].([]AdvancedThreatProtection)[vs[1].(int)]
+	}).(AdvancedThreatProtectionOutput)
+}
+
+type AdvancedThreatProtectionMapOutput struct{ *pulumi.OutputState }
+
+func (AdvancedThreatProtectionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AdvancedThreatProtection)(nil))
+}
+
+func (o AdvancedThreatProtectionMapOutput) ToAdvancedThreatProtectionMapOutput() AdvancedThreatProtectionMapOutput {
+	return o
+}
+
+func (o AdvancedThreatProtectionMapOutput) ToAdvancedThreatProtectionMapOutputWithContext(ctx context.Context) AdvancedThreatProtectionMapOutput {
+	return o
+}
+
+func (o AdvancedThreatProtectionMapOutput) MapIndex(k pulumi.StringInput) AdvancedThreatProtectionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AdvancedThreatProtection {
+		return vs[0].(map[string]AdvancedThreatProtection)[vs[1].(string)]
+	}).(AdvancedThreatProtectionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AdvancedThreatProtectionOutput{})
+	pulumi.RegisterOutputType(AdvancedThreatProtectionPtrOutput{})
+	pulumi.RegisterOutputType(AdvancedThreatProtectionArrayOutput{})
+	pulumi.RegisterOutputType(AdvancedThreatProtectionMapOutput{})
 }

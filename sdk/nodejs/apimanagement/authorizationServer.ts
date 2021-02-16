@@ -154,7 +154,8 @@ export class AuthorizationServer extends pulumi.CustomResource {
     constructor(name: string, args: AuthorizationServerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AuthorizationServerArgs | AuthorizationServerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AuthorizationServerState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["authorizationEndpoint"] = state ? state.authorizationEndpoint : undefined;
@@ -177,28 +178,28 @@ export class AuthorizationServer extends pulumi.CustomResource {
             inputs["tokenEndpoint"] = state ? state.tokenEndpoint : undefined;
         } else {
             const args = argsOrState as AuthorizationServerArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.authorizationEndpoint === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authorizationEndpoint === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorizationEndpoint'");
             }
-            if ((!args || args.authorizationMethods === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authorizationMethods === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorizationMethods'");
             }
-            if ((!args || args.clientId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.clientRegistrationEndpoint === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientRegistrationEndpoint === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientRegistrationEndpoint'");
             }
-            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.grantTypes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.grantTypes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'grantTypes'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
@@ -221,12 +222,8 @@ export class AuthorizationServer extends pulumi.CustomResource {
             inputs["tokenBodyParameters"] = args ? args.tokenBodyParameters : undefined;
             inputs["tokenEndpoint"] = args ? args.tokenEndpoint : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AuthorizationServer.__pulumiType, name, inputs, opts);
     }

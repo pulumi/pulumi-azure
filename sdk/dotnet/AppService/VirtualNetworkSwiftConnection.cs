@@ -175,6 +175,7 @@ namespace Pulumi.Azure.AppService
     ///  $ pulumi import azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection myassociation /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/config/virtualNetwork
     /// ```
     /// </summary>
+    [AzureResourceType("azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection")]
     public partial class VirtualNetworkSwiftConnection : Pulumi.CustomResource
     {
         /// <summary>

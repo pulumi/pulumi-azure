@@ -150,16 +150,95 @@ type ZipBlobInput interface {
 	ToZipBlobOutputWithContext(ctx context.Context) ZipBlobOutput
 }
 
-func (ZipBlob) ElementType() reflect.Type {
-	return reflect.TypeOf((*ZipBlob)(nil)).Elem()
+func (*ZipBlob) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZipBlob)(nil))
 }
 
-func (i ZipBlob) ToZipBlobOutput() ZipBlobOutput {
+func (i *ZipBlob) ToZipBlobOutput() ZipBlobOutput {
 	return i.ToZipBlobOutputWithContext(context.Background())
 }
 
-func (i ZipBlob) ToZipBlobOutputWithContext(ctx context.Context) ZipBlobOutput {
+func (i *ZipBlob) ToZipBlobOutputWithContext(ctx context.Context) ZipBlobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ZipBlobOutput)
+}
+
+func (i *ZipBlob) ToZipBlobPtrOutput() ZipBlobPtrOutput {
+	return i.ToZipBlobPtrOutputWithContext(context.Background())
+}
+
+func (i *ZipBlob) ToZipBlobPtrOutputWithContext(ctx context.Context) ZipBlobPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZipBlobPtrOutput)
+}
+
+type ZipBlobPtrInput interface {
+	pulumi.Input
+
+	ToZipBlobPtrOutput() ZipBlobPtrOutput
+	ToZipBlobPtrOutputWithContext(ctx context.Context) ZipBlobPtrOutput
+}
+
+type zipBlobPtrType ZipBlobArgs
+
+func (*zipBlobPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ZipBlob)(nil))
+}
+
+func (i *zipBlobPtrType) ToZipBlobPtrOutput() ZipBlobPtrOutput {
+	return i.ToZipBlobPtrOutputWithContext(context.Background())
+}
+
+func (i *zipBlobPtrType) ToZipBlobPtrOutputWithContext(ctx context.Context) ZipBlobPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZipBlobPtrOutput)
+}
+
+// ZipBlobArrayInput is an input type that accepts ZipBlobArray and ZipBlobArrayOutput values.
+// You can construct a concrete instance of `ZipBlobArrayInput` via:
+//
+//          ZipBlobArray{ ZipBlobArgs{...} }
+type ZipBlobArrayInput interface {
+	pulumi.Input
+
+	ToZipBlobArrayOutput() ZipBlobArrayOutput
+	ToZipBlobArrayOutputWithContext(context.Context) ZipBlobArrayOutput
+}
+
+type ZipBlobArray []ZipBlobInput
+
+func (ZipBlobArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ZipBlob)(nil))
+}
+
+func (i ZipBlobArray) ToZipBlobArrayOutput() ZipBlobArrayOutput {
+	return i.ToZipBlobArrayOutputWithContext(context.Background())
+}
+
+func (i ZipBlobArray) ToZipBlobArrayOutputWithContext(ctx context.Context) ZipBlobArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZipBlobArrayOutput)
+}
+
+// ZipBlobMapInput is an input type that accepts ZipBlobMap and ZipBlobMapOutput values.
+// You can construct a concrete instance of `ZipBlobMapInput` via:
+//
+//          ZipBlobMap{ "key": ZipBlobArgs{...} }
+type ZipBlobMapInput interface {
+	pulumi.Input
+
+	ToZipBlobMapOutput() ZipBlobMapOutput
+	ToZipBlobMapOutputWithContext(context.Context) ZipBlobMapOutput
+}
+
+type ZipBlobMap map[string]ZipBlobInput
+
+func (ZipBlobMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ZipBlob)(nil))
+}
+
+func (i ZipBlobMap) ToZipBlobMapOutput() ZipBlobMapOutput {
+	return i.ToZipBlobMapOutputWithContext(context.Background())
+}
+
+func (i ZipBlobMap) ToZipBlobMapOutputWithContext(ctx context.Context) ZipBlobMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZipBlobMapOutput)
 }
 
 type ZipBlobOutput struct {
@@ -167,7 +246,7 @@ type ZipBlobOutput struct {
 }
 
 func (ZipBlobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ZipBlobOutput)(nil)).Elem()
+	return reflect.TypeOf((*ZipBlob)(nil))
 }
 
 func (o ZipBlobOutput) ToZipBlobOutput() ZipBlobOutput {
@@ -178,6 +257,75 @@ func (o ZipBlobOutput) ToZipBlobOutputWithContext(ctx context.Context) ZipBlobOu
 	return o
 }
 
+func (o ZipBlobOutput) ToZipBlobPtrOutput() ZipBlobPtrOutput {
+	return o.ToZipBlobPtrOutputWithContext(context.Background())
+}
+
+func (o ZipBlobOutput) ToZipBlobPtrOutputWithContext(ctx context.Context) ZipBlobPtrOutput {
+	return o.ApplyT(func(v ZipBlob) *ZipBlob {
+		return &v
+	}).(ZipBlobPtrOutput)
+}
+
+type ZipBlobPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ZipBlobPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ZipBlob)(nil))
+}
+
+func (o ZipBlobPtrOutput) ToZipBlobPtrOutput() ZipBlobPtrOutput {
+	return o
+}
+
+func (o ZipBlobPtrOutput) ToZipBlobPtrOutputWithContext(ctx context.Context) ZipBlobPtrOutput {
+	return o
+}
+
+type ZipBlobArrayOutput struct{ *pulumi.OutputState }
+
+func (ZipBlobArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ZipBlob)(nil))
+}
+
+func (o ZipBlobArrayOutput) ToZipBlobArrayOutput() ZipBlobArrayOutput {
+	return o
+}
+
+func (o ZipBlobArrayOutput) ToZipBlobArrayOutputWithContext(ctx context.Context) ZipBlobArrayOutput {
+	return o
+}
+
+func (o ZipBlobArrayOutput) Index(i pulumi.IntInput) ZipBlobOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ZipBlob {
+		return vs[0].([]ZipBlob)[vs[1].(int)]
+	}).(ZipBlobOutput)
+}
+
+type ZipBlobMapOutput struct{ *pulumi.OutputState }
+
+func (ZipBlobMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ZipBlob)(nil))
+}
+
+func (o ZipBlobMapOutput) ToZipBlobMapOutput() ZipBlobMapOutput {
+	return o
+}
+
+func (o ZipBlobMapOutput) ToZipBlobMapOutputWithContext(ctx context.Context) ZipBlobMapOutput {
+	return o
+}
+
+func (o ZipBlobMapOutput) MapIndex(k pulumi.StringInput) ZipBlobOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ZipBlob {
+		return vs[0].(map[string]ZipBlob)[vs[1].(string)]
+	}).(ZipBlobOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ZipBlobOutput{})
+	pulumi.RegisterOutputType(ZipBlobPtrOutput{})
+	pulumi.RegisterOutputType(ZipBlobArrayOutput{})
+	pulumi.RegisterOutputType(ZipBlobMapOutput{})
 }

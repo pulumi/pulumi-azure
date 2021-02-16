@@ -72,6 +72,7 @@ namespace Pulumi.Azure.Media
     ///  $ pulumi import azure:media/streamingLocator:StreamingLocator example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/account1/streaminglocators/locator1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:media/streamingLocator:StreamingLocator")]
     public partial class StreamingLocator : Pulumi.CustomResource
     {
         /// <summary>

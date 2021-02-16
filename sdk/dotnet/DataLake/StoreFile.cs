@@ -23,6 +23,7 @@ namespace Pulumi.Azure.DataLake
     ///  $ pulumi import azure:datalake/storeFile:StoreFile txt
     /// ```
     /// </summary>
+    [AzureResourceType("azure:datalake/storeFile:StoreFile")]
     public partial class StoreFile : Pulumi.CustomResource
     {
         /// <summary>

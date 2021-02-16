@@ -22,6 +22,7 @@ namespace Pulumi.Azure.DatabaseMigration
     ///  $ pulumi import azure:databasemigration/project:Project example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.DataMigration/services/example-dms/projects/project1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:databasemigration/project:Project")]
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>

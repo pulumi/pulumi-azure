@@ -20,6 +20,7 @@ namespace Pulumi.Azure.Batch
     ///  $ pulumi import azure:batch/pool:Pool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.Batch/batchAccounts/myBatchAccount1/pools/myBatchPool1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:batch/pool:Pool")]
     public partial class Pool : Pulumi.CustomResource
     {
         /// <summary>

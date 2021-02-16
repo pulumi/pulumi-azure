@@ -229,16 +229,95 @@ type ProtectedFileShareInput interface {
 	ToProtectedFileShareOutputWithContext(ctx context.Context) ProtectedFileShareOutput
 }
 
-func (ProtectedFileShare) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedFileShare)(nil)).Elem()
+func (*ProtectedFileShare) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectedFileShare)(nil))
 }
 
-func (i ProtectedFileShare) ToProtectedFileShareOutput() ProtectedFileShareOutput {
+func (i *ProtectedFileShare) ToProtectedFileShareOutput() ProtectedFileShareOutput {
 	return i.ToProtectedFileShareOutputWithContext(context.Background())
 }
 
-func (i ProtectedFileShare) ToProtectedFileShareOutputWithContext(ctx context.Context) ProtectedFileShareOutput {
+func (i *ProtectedFileShare) ToProtectedFileShareOutputWithContext(ctx context.Context) ProtectedFileShareOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectedFileShareOutput)
+}
+
+func (i *ProtectedFileShare) ToProtectedFileSharePtrOutput() ProtectedFileSharePtrOutput {
+	return i.ToProtectedFileSharePtrOutputWithContext(context.Background())
+}
+
+func (i *ProtectedFileShare) ToProtectedFileSharePtrOutputWithContext(ctx context.Context) ProtectedFileSharePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectedFileSharePtrOutput)
+}
+
+type ProtectedFileSharePtrInput interface {
+	pulumi.Input
+
+	ToProtectedFileSharePtrOutput() ProtectedFileSharePtrOutput
+	ToProtectedFileSharePtrOutputWithContext(ctx context.Context) ProtectedFileSharePtrOutput
+}
+
+type protectedFileSharePtrType ProtectedFileShareArgs
+
+func (*protectedFileSharePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectedFileShare)(nil))
+}
+
+func (i *protectedFileSharePtrType) ToProtectedFileSharePtrOutput() ProtectedFileSharePtrOutput {
+	return i.ToProtectedFileSharePtrOutputWithContext(context.Background())
+}
+
+func (i *protectedFileSharePtrType) ToProtectedFileSharePtrOutputWithContext(ctx context.Context) ProtectedFileSharePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectedFileSharePtrOutput)
+}
+
+// ProtectedFileShareArrayInput is an input type that accepts ProtectedFileShareArray and ProtectedFileShareArrayOutput values.
+// You can construct a concrete instance of `ProtectedFileShareArrayInput` via:
+//
+//          ProtectedFileShareArray{ ProtectedFileShareArgs{...} }
+type ProtectedFileShareArrayInput interface {
+	pulumi.Input
+
+	ToProtectedFileShareArrayOutput() ProtectedFileShareArrayOutput
+	ToProtectedFileShareArrayOutputWithContext(context.Context) ProtectedFileShareArrayOutput
+}
+
+type ProtectedFileShareArray []ProtectedFileShareInput
+
+func (ProtectedFileShareArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ProtectedFileShare)(nil))
+}
+
+func (i ProtectedFileShareArray) ToProtectedFileShareArrayOutput() ProtectedFileShareArrayOutput {
+	return i.ToProtectedFileShareArrayOutputWithContext(context.Background())
+}
+
+func (i ProtectedFileShareArray) ToProtectedFileShareArrayOutputWithContext(ctx context.Context) ProtectedFileShareArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectedFileShareArrayOutput)
+}
+
+// ProtectedFileShareMapInput is an input type that accepts ProtectedFileShareMap and ProtectedFileShareMapOutput values.
+// You can construct a concrete instance of `ProtectedFileShareMapInput` via:
+//
+//          ProtectedFileShareMap{ "key": ProtectedFileShareArgs{...} }
+type ProtectedFileShareMapInput interface {
+	pulumi.Input
+
+	ToProtectedFileShareMapOutput() ProtectedFileShareMapOutput
+	ToProtectedFileShareMapOutputWithContext(context.Context) ProtectedFileShareMapOutput
+}
+
+type ProtectedFileShareMap map[string]ProtectedFileShareInput
+
+func (ProtectedFileShareMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ProtectedFileShare)(nil))
+}
+
+func (i ProtectedFileShareMap) ToProtectedFileShareMapOutput() ProtectedFileShareMapOutput {
+	return i.ToProtectedFileShareMapOutputWithContext(context.Background())
+}
+
+func (i ProtectedFileShareMap) ToProtectedFileShareMapOutputWithContext(ctx context.Context) ProtectedFileShareMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectedFileShareMapOutput)
 }
 
 type ProtectedFileShareOutput struct {
@@ -246,7 +325,7 @@ type ProtectedFileShareOutput struct {
 }
 
 func (ProtectedFileShareOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedFileShareOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProtectedFileShare)(nil))
 }
 
 func (o ProtectedFileShareOutput) ToProtectedFileShareOutput() ProtectedFileShareOutput {
@@ -257,6 +336,75 @@ func (o ProtectedFileShareOutput) ToProtectedFileShareOutputWithContext(ctx cont
 	return o
 }
 
+func (o ProtectedFileShareOutput) ToProtectedFileSharePtrOutput() ProtectedFileSharePtrOutput {
+	return o.ToProtectedFileSharePtrOutputWithContext(context.Background())
+}
+
+func (o ProtectedFileShareOutput) ToProtectedFileSharePtrOutputWithContext(ctx context.Context) ProtectedFileSharePtrOutput {
+	return o.ApplyT(func(v ProtectedFileShare) *ProtectedFileShare {
+		return &v
+	}).(ProtectedFileSharePtrOutput)
+}
+
+type ProtectedFileSharePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProtectedFileSharePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectedFileShare)(nil))
+}
+
+func (o ProtectedFileSharePtrOutput) ToProtectedFileSharePtrOutput() ProtectedFileSharePtrOutput {
+	return o
+}
+
+func (o ProtectedFileSharePtrOutput) ToProtectedFileSharePtrOutputWithContext(ctx context.Context) ProtectedFileSharePtrOutput {
+	return o
+}
+
+type ProtectedFileShareArrayOutput struct{ *pulumi.OutputState }
+
+func (ProtectedFileShareArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProtectedFileShare)(nil))
+}
+
+func (o ProtectedFileShareArrayOutput) ToProtectedFileShareArrayOutput() ProtectedFileShareArrayOutput {
+	return o
+}
+
+func (o ProtectedFileShareArrayOutput) ToProtectedFileShareArrayOutputWithContext(ctx context.Context) ProtectedFileShareArrayOutput {
+	return o
+}
+
+func (o ProtectedFileShareArrayOutput) Index(i pulumi.IntInput) ProtectedFileShareOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProtectedFileShare {
+		return vs[0].([]ProtectedFileShare)[vs[1].(int)]
+	}).(ProtectedFileShareOutput)
+}
+
+type ProtectedFileShareMapOutput struct{ *pulumi.OutputState }
+
+func (ProtectedFileShareMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ProtectedFileShare)(nil))
+}
+
+func (o ProtectedFileShareMapOutput) ToProtectedFileShareMapOutput() ProtectedFileShareMapOutput {
+	return o
+}
+
+func (o ProtectedFileShareMapOutput) ToProtectedFileShareMapOutputWithContext(ctx context.Context) ProtectedFileShareMapOutput {
+	return o
+}
+
+func (o ProtectedFileShareMapOutput) MapIndex(k pulumi.StringInput) ProtectedFileShareOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProtectedFileShare {
+		return vs[0].(map[string]ProtectedFileShare)[vs[1].(string)]
+	}).(ProtectedFileShareOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProtectedFileShareOutput{})
+	pulumi.RegisterOutputType(ProtectedFileSharePtrOutput{})
+	pulumi.RegisterOutputType(ProtectedFileShareArrayOutput{})
+	pulumi.RegisterOutputType(ProtectedFileShareMapOutput{})
 }

@@ -174,16 +174,95 @@ type FabricInput interface {
 	ToFabricOutputWithContext(ctx context.Context) FabricOutput
 }
 
-func (Fabric) ElementType() reflect.Type {
-	return reflect.TypeOf((*Fabric)(nil)).Elem()
+func (*Fabric) ElementType() reflect.Type {
+	return reflect.TypeOf((*Fabric)(nil))
 }
 
-func (i Fabric) ToFabricOutput() FabricOutput {
+func (i *Fabric) ToFabricOutput() FabricOutput {
 	return i.ToFabricOutputWithContext(context.Background())
 }
 
-func (i Fabric) ToFabricOutputWithContext(ctx context.Context) FabricOutput {
+func (i *Fabric) ToFabricOutputWithContext(ctx context.Context) FabricOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FabricOutput)
+}
+
+func (i *Fabric) ToFabricPtrOutput() FabricPtrOutput {
+	return i.ToFabricPtrOutputWithContext(context.Background())
+}
+
+func (i *Fabric) ToFabricPtrOutputWithContext(ctx context.Context) FabricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FabricPtrOutput)
+}
+
+type FabricPtrInput interface {
+	pulumi.Input
+
+	ToFabricPtrOutput() FabricPtrOutput
+	ToFabricPtrOutputWithContext(ctx context.Context) FabricPtrOutput
+}
+
+type fabricPtrType FabricArgs
+
+func (*fabricPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Fabric)(nil))
+}
+
+func (i *fabricPtrType) ToFabricPtrOutput() FabricPtrOutput {
+	return i.ToFabricPtrOutputWithContext(context.Background())
+}
+
+func (i *fabricPtrType) ToFabricPtrOutputWithContext(ctx context.Context) FabricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FabricPtrOutput)
+}
+
+// FabricArrayInput is an input type that accepts FabricArray and FabricArrayOutput values.
+// You can construct a concrete instance of `FabricArrayInput` via:
+//
+//          FabricArray{ FabricArgs{...} }
+type FabricArrayInput interface {
+	pulumi.Input
+
+	ToFabricArrayOutput() FabricArrayOutput
+	ToFabricArrayOutputWithContext(context.Context) FabricArrayOutput
+}
+
+type FabricArray []FabricInput
+
+func (FabricArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Fabric)(nil))
+}
+
+func (i FabricArray) ToFabricArrayOutput() FabricArrayOutput {
+	return i.ToFabricArrayOutputWithContext(context.Background())
+}
+
+func (i FabricArray) ToFabricArrayOutputWithContext(ctx context.Context) FabricArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FabricArrayOutput)
+}
+
+// FabricMapInput is an input type that accepts FabricMap and FabricMapOutput values.
+// You can construct a concrete instance of `FabricMapInput` via:
+//
+//          FabricMap{ "key": FabricArgs{...} }
+type FabricMapInput interface {
+	pulumi.Input
+
+	ToFabricMapOutput() FabricMapOutput
+	ToFabricMapOutputWithContext(context.Context) FabricMapOutput
+}
+
+type FabricMap map[string]FabricInput
+
+func (FabricMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Fabric)(nil))
+}
+
+func (i FabricMap) ToFabricMapOutput() FabricMapOutput {
+	return i.ToFabricMapOutputWithContext(context.Background())
+}
+
+func (i FabricMap) ToFabricMapOutputWithContext(ctx context.Context) FabricMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FabricMapOutput)
 }
 
 type FabricOutput struct {
@@ -191,7 +270,7 @@ type FabricOutput struct {
 }
 
 func (FabricOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FabricOutput)(nil)).Elem()
+	return reflect.TypeOf((*Fabric)(nil))
 }
 
 func (o FabricOutput) ToFabricOutput() FabricOutput {
@@ -202,6 +281,75 @@ func (o FabricOutput) ToFabricOutputWithContext(ctx context.Context) FabricOutpu
 	return o
 }
 
+func (o FabricOutput) ToFabricPtrOutput() FabricPtrOutput {
+	return o.ToFabricPtrOutputWithContext(context.Background())
+}
+
+func (o FabricOutput) ToFabricPtrOutputWithContext(ctx context.Context) FabricPtrOutput {
+	return o.ApplyT(func(v Fabric) *Fabric {
+		return &v
+	}).(FabricPtrOutput)
+}
+
+type FabricPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (FabricPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Fabric)(nil))
+}
+
+func (o FabricPtrOutput) ToFabricPtrOutput() FabricPtrOutput {
+	return o
+}
+
+func (o FabricPtrOutput) ToFabricPtrOutputWithContext(ctx context.Context) FabricPtrOutput {
+	return o
+}
+
+type FabricArrayOutput struct{ *pulumi.OutputState }
+
+func (FabricArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Fabric)(nil))
+}
+
+func (o FabricArrayOutput) ToFabricArrayOutput() FabricArrayOutput {
+	return o
+}
+
+func (o FabricArrayOutput) ToFabricArrayOutputWithContext(ctx context.Context) FabricArrayOutput {
+	return o
+}
+
+func (o FabricArrayOutput) Index(i pulumi.IntInput) FabricOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Fabric {
+		return vs[0].([]Fabric)[vs[1].(int)]
+	}).(FabricOutput)
+}
+
+type FabricMapOutput struct{ *pulumi.OutputState }
+
+func (FabricMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Fabric)(nil))
+}
+
+func (o FabricMapOutput) ToFabricMapOutput() FabricMapOutput {
+	return o
+}
+
+func (o FabricMapOutput) ToFabricMapOutputWithContext(ctx context.Context) FabricMapOutput {
+	return o
+}
+
+func (o FabricMapOutput) MapIndex(k pulumi.StringInput) FabricOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Fabric {
+		return vs[0].(map[string]Fabric)[vs[1].(string)]
+	}).(FabricOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FabricOutput{})
+	pulumi.RegisterOutputType(FabricPtrOutput{})
+	pulumi.RegisterOutputType(FabricArrayOutput{})
+	pulumi.RegisterOutputType(FabricMapOutput{})
 }

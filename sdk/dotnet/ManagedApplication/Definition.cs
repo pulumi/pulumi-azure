@@ -57,6 +57,7 @@ namespace Pulumi.Azure.ManagedApplication
     ///  $ pulumi import azure:managedapplication/definition:Definition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Solutions/applicationDefinitions/appDefinition1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:managedapplication/definition:Definition")]
     public partial class Definition : Pulumi.CustomResource
     {
         /// <summary>

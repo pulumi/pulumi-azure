@@ -143,7 +143,8 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: VpnServerConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpnServerConfigurationArgs | VpnServerConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VpnServerConfigurationState | undefined;
             inputs["azureActiveDirectoryAuthentications"] = state ? state.azureActiveDirectoryAuthentications : undefined;
             inputs["clientRevokedCertificates"] = state ? state.clientRevokedCertificates : undefined;
@@ -159,10 +160,10 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
             inputs["vpnProtocols"] = state ? state.vpnProtocols : undefined;
         } else {
             const args = argsOrState as VpnServerConfigurationArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vpnAuthenticationTypes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpnAuthenticationTypes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpnAuthenticationTypes'");
             }
             inputs["azureActiveDirectoryAuthentications"] = args ? args.azureActiveDirectoryAuthentications : undefined;
@@ -178,12 +179,8 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
             inputs["vpnAuthenticationTypes"] = args ? args.vpnAuthenticationTypes : undefined;
             inputs["vpnProtocols"] = args ? args.vpnProtocols : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VpnServerConfiguration.__pulumiType, name, inputs, opts);
     }

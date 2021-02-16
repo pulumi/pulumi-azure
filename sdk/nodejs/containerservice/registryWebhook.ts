@@ -118,7 +118,8 @@ export class RegistryWebhook extends pulumi.CustomResource {
     constructor(name: string, args: RegistryWebhookArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RegistryWebhookArgs | RegistryWebhookState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RegistryWebhookState | undefined;
             inputs["actions"] = state ? state.actions : undefined;
             inputs["customHeaders"] = state ? state.customHeaders : undefined;
@@ -132,16 +133,16 @@ export class RegistryWebhook extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RegistryWebhookArgs | undefined;
-            if ((!args || args.actions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.actions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.registryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceUri === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceUri'");
             }
             inputs["actions"] = args ? args.actions : undefined;
@@ -155,15 +156,11 @@ export class RegistryWebhook extends pulumi.CustomResource {
             inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure:containerservice/registryWebook:RegistryWebook" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegistryWebhook.__pulumiType, name, inputs, opts);
     }
 }

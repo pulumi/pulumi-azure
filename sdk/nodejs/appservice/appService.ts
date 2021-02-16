@@ -193,7 +193,8 @@ export class AppService extends pulumi.CustomResource {
     constructor(name: string, args: AppServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AppServiceArgs | AppServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AppServiceState | undefined;
             inputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
             inputs["appSettings"] = state ? state.appSettings : undefined;
@@ -222,10 +223,10 @@ export class AppService extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AppServiceArgs | undefined;
-            if ((!args || args.appServicePlanId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.appServicePlanId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appServicePlanId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
@@ -254,12 +255,8 @@ export class AppService extends pulumi.CustomResource {
             inputs["possibleOutboundIpAddresses"] = undefined /*out*/;
             inputs["siteCredentials"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AppService.__pulumiType, name, inputs, opts);
     }

@@ -166,6 +166,7 @@ namespace Pulumi.Azure.KeyVault
     /// ```
     /// </summary>
     [Obsolete(@"azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate")]
+    [AzureResourceType("azure:keyvault/certifiate:Certifiate")]
     public partial class Certifiate : Pulumi.CustomResource
     {
         /// <summary>

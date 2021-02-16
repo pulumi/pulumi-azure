@@ -125,7 +125,8 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
     constructor(name: string, args: DatabasePrincipalAssignmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DatabasePrincipalAssignmentArgs | DatabasePrincipalAssignmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DatabasePrincipalAssignmentState | undefined;
             inputs["clusterName"] = state ? state.clusterName : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
@@ -139,25 +140,25 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
             inputs["tenantName"] = state ? state.tenantName : undefined;
         } else {
             const args = argsOrState as DatabasePrincipalAssignmentArgs | undefined;
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.principalId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.principalId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if ((!args || args.principalType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.principalType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.role === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.role === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            if ((!args || args.tenantId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tenantId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
@@ -171,12 +172,8 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
             inputs["principalName"] = undefined /*out*/;
             inputs["tenantName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DatabasePrincipalAssignment.__pulumiType, name, inputs, opts);
     }

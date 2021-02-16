@@ -53,6 +53,7 @@ namespace Pulumi.Azure.PrivateDns
     ///  $ pulumi import azure:privatedns/aRecord:ARecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/zone1/A/myrecord1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:privatedns/aRecord:ARecord")]
     public partial class ARecord : Pulumi.CustomResource
     {
         /// <summary>

@@ -62,6 +62,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/expressRouteGateway:ExpressRouteGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteGateways/myExpressRouteGateway
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/expressRouteGateway:ExpressRouteGateway")]
     public partial class ExpressRouteGateway : Pulumi.CustomResource
     {
         /// <summary>

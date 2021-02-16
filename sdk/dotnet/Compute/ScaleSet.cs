@@ -348,6 +348,7 @@ namespace Pulumi.Azure.Compute
     ///  $ pulumi import azure:compute/scaleSet:ScaleSet scaleset1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:compute/scaleSet:ScaleSet")]
     public partial class ScaleSet : Pulumi.CustomResource
     {
         /// <summary>

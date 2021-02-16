@@ -59,6 +59,7 @@ namespace Pulumi.Azure.Automation
     ///  $ pulumi import azure:automation/runBook:RunBook Get-AzureVMTutorial /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/runbooks/Get-AzureVMTutorial
     /// ```
     /// </summary>
+    [AzureResourceType("azure:automation/runBook:RunBook")]
     public partial class RunBook : Pulumi.CustomResource
     {
         /// <summary>

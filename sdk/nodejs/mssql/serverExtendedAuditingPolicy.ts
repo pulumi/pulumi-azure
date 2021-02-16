@@ -105,7 +105,8 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
     constructor(name: string, args: ServerExtendedAuditingPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerExtendedAuditingPolicyArgs | ServerExtendedAuditingPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServerExtendedAuditingPolicyState | undefined;
             inputs["retentionInDays"] = state ? state.retentionInDays : undefined;
             inputs["serverId"] = state ? state.serverId : undefined;
@@ -114,10 +115,10 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
             inputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
         } else {
             const args = argsOrState as ServerExtendedAuditingPolicyArgs | undefined;
-            if ((!args || args.serverId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            if ((!args || args.storageEndpoint === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageEndpoint === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageEndpoint'");
             }
             inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
@@ -126,12 +127,8 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
             inputs["storageAccountAccessKeyIsSecondary"] = args ? args.storageAccountAccessKeyIsSecondary : undefined;
             inputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ServerExtendedAuditingPolicy.__pulumiType, name, inputs, opts);
     }

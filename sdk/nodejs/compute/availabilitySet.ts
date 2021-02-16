@@ -102,7 +102,8 @@ export class AvailabilitySet extends pulumi.CustomResource {
     constructor(name: string, args: AvailabilitySetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AvailabilitySetArgs | AvailabilitySetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AvailabilitySetState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["managed"] = state ? state.managed : undefined;
@@ -114,7 +115,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AvailabilitySetArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -126,12 +127,8 @@ export class AvailabilitySet extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AvailabilitySet.__pulumiType, name, inputs, opts);
     }

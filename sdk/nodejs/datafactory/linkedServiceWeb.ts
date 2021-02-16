@@ -118,7 +118,8 @@ export class LinkedServiceWeb extends pulumi.CustomResource {
     constructor(name: string, args: LinkedServiceWebArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LinkedServiceWebArgs | LinkedServiceWebState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LinkedServiceWebState | undefined;
             inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
@@ -134,16 +135,16 @@ export class LinkedServiceWeb extends pulumi.CustomResource {
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as LinkedServiceWebArgs | undefined;
-            if ((!args || args.authenticationType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authenticationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authenticationType'");
             }
-            if ((!args || args.dataFactoryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.url === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
             inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
@@ -159,12 +160,8 @@ export class LinkedServiceWeb extends pulumi.CustomResource {
             inputs["url"] = args ? args.url : undefined;
             inputs["username"] = args ? args.username : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LinkedServiceWeb.__pulumiType, name, inputs, opts);
     }

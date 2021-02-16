@@ -327,16 +327,95 @@ type MetricAlertInput interface {
 	ToMetricAlertOutputWithContext(ctx context.Context) MetricAlertOutput
 }
 
-func (MetricAlert) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlert)(nil)).Elem()
+func (*MetricAlert) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlert)(nil))
 }
 
-func (i MetricAlert) ToMetricAlertOutput() MetricAlertOutput {
+func (i *MetricAlert) ToMetricAlertOutput() MetricAlertOutput {
 	return i.ToMetricAlertOutputWithContext(context.Background())
 }
 
-func (i MetricAlert) ToMetricAlertOutputWithContext(ctx context.Context) MetricAlertOutput {
+func (i *MetricAlert) ToMetricAlertOutputWithContext(ctx context.Context) MetricAlertOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertOutput)
+}
+
+func (i *MetricAlert) ToMetricAlertPtrOutput() MetricAlertPtrOutput {
+	return i.ToMetricAlertPtrOutputWithContext(context.Background())
+}
+
+func (i *MetricAlert) ToMetricAlertPtrOutputWithContext(ctx context.Context) MetricAlertPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertPtrOutput)
+}
+
+type MetricAlertPtrInput interface {
+	pulumi.Input
+
+	ToMetricAlertPtrOutput() MetricAlertPtrOutput
+	ToMetricAlertPtrOutputWithContext(ctx context.Context) MetricAlertPtrOutput
+}
+
+type metricAlertPtrType MetricAlertArgs
+
+func (*metricAlertPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricAlert)(nil))
+}
+
+func (i *metricAlertPtrType) ToMetricAlertPtrOutput() MetricAlertPtrOutput {
+	return i.ToMetricAlertPtrOutputWithContext(context.Background())
+}
+
+func (i *metricAlertPtrType) ToMetricAlertPtrOutputWithContext(ctx context.Context) MetricAlertPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertPtrOutput)
+}
+
+// MetricAlertArrayInput is an input type that accepts MetricAlertArray and MetricAlertArrayOutput values.
+// You can construct a concrete instance of `MetricAlertArrayInput` via:
+//
+//          MetricAlertArray{ MetricAlertArgs{...} }
+type MetricAlertArrayInput interface {
+	pulumi.Input
+
+	ToMetricAlertArrayOutput() MetricAlertArrayOutput
+	ToMetricAlertArrayOutputWithContext(context.Context) MetricAlertArrayOutput
+}
+
+type MetricAlertArray []MetricAlertInput
+
+func (MetricAlertArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*MetricAlert)(nil))
+}
+
+func (i MetricAlertArray) ToMetricAlertArrayOutput() MetricAlertArrayOutput {
+	return i.ToMetricAlertArrayOutputWithContext(context.Background())
+}
+
+func (i MetricAlertArray) ToMetricAlertArrayOutputWithContext(ctx context.Context) MetricAlertArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertArrayOutput)
+}
+
+// MetricAlertMapInput is an input type that accepts MetricAlertMap and MetricAlertMapOutput values.
+// You can construct a concrete instance of `MetricAlertMapInput` via:
+//
+//          MetricAlertMap{ "key": MetricAlertArgs{...} }
+type MetricAlertMapInput interface {
+	pulumi.Input
+
+	ToMetricAlertMapOutput() MetricAlertMapOutput
+	ToMetricAlertMapOutputWithContext(context.Context) MetricAlertMapOutput
+}
+
+type MetricAlertMap map[string]MetricAlertInput
+
+func (MetricAlertMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*MetricAlert)(nil))
+}
+
+func (i MetricAlertMap) ToMetricAlertMapOutput() MetricAlertMapOutput {
+	return i.ToMetricAlertMapOutputWithContext(context.Background())
+}
+
+func (i MetricAlertMap) ToMetricAlertMapOutputWithContext(ctx context.Context) MetricAlertMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertMapOutput)
 }
 
 type MetricAlertOutput struct {
@@ -344,7 +423,7 @@ type MetricAlertOutput struct {
 }
 
 func (MetricAlertOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertOutput)(nil)).Elem()
+	return reflect.TypeOf((*MetricAlert)(nil))
 }
 
 func (o MetricAlertOutput) ToMetricAlertOutput() MetricAlertOutput {
@@ -355,6 +434,75 @@ func (o MetricAlertOutput) ToMetricAlertOutputWithContext(ctx context.Context) M
 	return o
 }
 
+func (o MetricAlertOutput) ToMetricAlertPtrOutput() MetricAlertPtrOutput {
+	return o.ToMetricAlertPtrOutputWithContext(context.Background())
+}
+
+func (o MetricAlertOutput) ToMetricAlertPtrOutputWithContext(ctx context.Context) MetricAlertPtrOutput {
+	return o.ApplyT(func(v MetricAlert) *MetricAlert {
+		return &v
+	}).(MetricAlertPtrOutput)
+}
+
+type MetricAlertPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (MetricAlertPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricAlert)(nil))
+}
+
+func (o MetricAlertPtrOutput) ToMetricAlertPtrOutput() MetricAlertPtrOutput {
+	return o
+}
+
+func (o MetricAlertPtrOutput) ToMetricAlertPtrOutputWithContext(ctx context.Context) MetricAlertPtrOutput {
+	return o
+}
+
+type MetricAlertArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricAlertArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricAlert)(nil))
+}
+
+func (o MetricAlertArrayOutput) ToMetricAlertArrayOutput() MetricAlertArrayOutput {
+	return o
+}
+
+func (o MetricAlertArrayOutput) ToMetricAlertArrayOutputWithContext(ctx context.Context) MetricAlertArrayOutput {
+	return o
+}
+
+func (o MetricAlertArrayOutput) Index(i pulumi.IntInput) MetricAlertOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricAlert {
+		return vs[0].([]MetricAlert)[vs[1].(int)]
+	}).(MetricAlertOutput)
+}
+
+type MetricAlertMapOutput struct{ *pulumi.OutputState }
+
+func (MetricAlertMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]MetricAlert)(nil))
+}
+
+func (o MetricAlertMapOutput) ToMetricAlertMapOutput() MetricAlertMapOutput {
+	return o
+}
+
+func (o MetricAlertMapOutput) ToMetricAlertMapOutputWithContext(ctx context.Context) MetricAlertMapOutput {
+	return o
+}
+
+func (o MetricAlertMapOutput) MapIndex(k pulumi.StringInput) MetricAlertOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MetricAlert {
+		return vs[0].(map[string]MetricAlert)[vs[1].(string)]
+	}).(MetricAlertOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MetricAlertOutput{})
+	pulumi.RegisterOutputType(MetricAlertPtrOutput{})
+	pulumi.RegisterOutputType(MetricAlertArrayOutput{})
+	pulumi.RegisterOutputType(MetricAlertMapOutput{})
 }

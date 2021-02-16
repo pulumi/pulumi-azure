@@ -20,6 +20,7 @@ namespace Pulumi.Azure.Automation
     ///  $ pulumi import azure:automation/dateTimeVariable:DateTimeVariable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/tfex-example-rg/providers/Microsoft.Automation/automationAccounts/tfex-example-account/variables/tfex-example-var
     /// ```
     /// </summary>
+    [AzureResourceType("azure:automation/dateTimeVariable:DateTimeVariable")]
     public partial class DateTimeVariable : Pulumi.CustomResource
     {
         /// <summary>

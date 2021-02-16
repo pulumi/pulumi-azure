@@ -94,7 +94,8 @@ export class TimeSeriesInsightsAccessPolicy extends pulumi.CustomResource {
     constructor(name: string, args: TimeSeriesInsightsAccessPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TimeSeriesInsightsAccessPolicyArgs | TimeSeriesInsightsAccessPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TimeSeriesInsightsAccessPolicyState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -103,13 +104,13 @@ export class TimeSeriesInsightsAccessPolicy extends pulumi.CustomResource {
             inputs["timeSeriesInsightsEnvironmentId"] = state ? state.timeSeriesInsightsEnvironmentId : undefined;
         } else {
             const args = argsOrState as TimeSeriesInsightsAccessPolicyArgs | undefined;
-            if ((!args || args.principalObjectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.principalObjectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalObjectId'");
             }
-            if ((!args || args.roles === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roles === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roles'");
             }
-            if ((!args || args.timeSeriesInsightsEnvironmentId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.timeSeriesInsightsEnvironmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeSeriesInsightsEnvironmentId'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -118,12 +119,8 @@ export class TimeSeriesInsightsAccessPolicy extends pulumi.CustomResource {
             inputs["roles"] = args ? args.roles : undefined;
             inputs["timeSeriesInsightsEnvironmentId"] = args ? args.timeSeriesInsightsEnvironmentId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TimeSeriesInsightsAccessPolicy.__pulumiType, name, inputs, opts);
     }

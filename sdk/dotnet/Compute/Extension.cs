@@ -150,6 +150,7 @@ namespace Pulumi.Azure.Compute
     ///  $ pulumi import azure:compute/extension:Extension example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/myVM/extensions/hostname
     /// ```
     /// </summary>
+    [AzureResourceType("azure:compute/extension:Extension")]
     public partial class Extension : Pulumi.CustomResource
     {
         /// <summary>

@@ -70,6 +70,7 @@ namespace Pulumi.Azure.MSSql
     ///  $ pulumi import azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/acceptanceTestResourceGroup1/providers/Microsoft.Sql/servers/mssqlserver/securityAlertPolicies/Default
     /// ```
     /// </summary>
+    [AzureResourceType("azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy")]
     public partial class ServerSecurityAlertPolicy : Pulumi.CustomResource
     {
         /// <summary>

@@ -214,16 +214,95 @@ type VirtualHubConnectionInput interface {
 	ToVirtualHubConnectionOutputWithContext(ctx context.Context) VirtualHubConnectionOutput
 }
 
-func (VirtualHubConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubConnection)(nil)).Elem()
+func (*VirtualHubConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubConnection)(nil))
 }
 
-func (i VirtualHubConnection) ToVirtualHubConnectionOutput() VirtualHubConnectionOutput {
+func (i *VirtualHubConnection) ToVirtualHubConnectionOutput() VirtualHubConnectionOutput {
 	return i.ToVirtualHubConnectionOutputWithContext(context.Background())
 }
 
-func (i VirtualHubConnection) ToVirtualHubConnectionOutputWithContext(ctx context.Context) VirtualHubConnectionOutput {
+func (i *VirtualHubConnection) ToVirtualHubConnectionOutputWithContext(ctx context.Context) VirtualHubConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubConnectionOutput)
+}
+
+func (i *VirtualHubConnection) ToVirtualHubConnectionPtrOutput() VirtualHubConnectionPtrOutput {
+	return i.ToVirtualHubConnectionPtrOutputWithContext(context.Background())
+}
+
+func (i *VirtualHubConnection) ToVirtualHubConnectionPtrOutputWithContext(ctx context.Context) VirtualHubConnectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubConnectionPtrOutput)
+}
+
+type VirtualHubConnectionPtrInput interface {
+	pulumi.Input
+
+	ToVirtualHubConnectionPtrOutput() VirtualHubConnectionPtrOutput
+	ToVirtualHubConnectionPtrOutputWithContext(ctx context.Context) VirtualHubConnectionPtrOutput
+}
+
+type virtualHubConnectionPtrType VirtualHubConnectionArgs
+
+func (*virtualHubConnectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualHubConnection)(nil))
+}
+
+func (i *virtualHubConnectionPtrType) ToVirtualHubConnectionPtrOutput() VirtualHubConnectionPtrOutput {
+	return i.ToVirtualHubConnectionPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualHubConnectionPtrType) ToVirtualHubConnectionPtrOutputWithContext(ctx context.Context) VirtualHubConnectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubConnectionPtrOutput)
+}
+
+// VirtualHubConnectionArrayInput is an input type that accepts VirtualHubConnectionArray and VirtualHubConnectionArrayOutput values.
+// You can construct a concrete instance of `VirtualHubConnectionArrayInput` via:
+//
+//          VirtualHubConnectionArray{ VirtualHubConnectionArgs{...} }
+type VirtualHubConnectionArrayInput interface {
+	pulumi.Input
+
+	ToVirtualHubConnectionArrayOutput() VirtualHubConnectionArrayOutput
+	ToVirtualHubConnectionArrayOutputWithContext(context.Context) VirtualHubConnectionArrayOutput
+}
+
+type VirtualHubConnectionArray []VirtualHubConnectionInput
+
+func (VirtualHubConnectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VirtualHubConnection)(nil))
+}
+
+func (i VirtualHubConnectionArray) ToVirtualHubConnectionArrayOutput() VirtualHubConnectionArrayOutput {
+	return i.ToVirtualHubConnectionArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualHubConnectionArray) ToVirtualHubConnectionArrayOutputWithContext(ctx context.Context) VirtualHubConnectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubConnectionArrayOutput)
+}
+
+// VirtualHubConnectionMapInput is an input type that accepts VirtualHubConnectionMap and VirtualHubConnectionMapOutput values.
+// You can construct a concrete instance of `VirtualHubConnectionMapInput` via:
+//
+//          VirtualHubConnectionMap{ "key": VirtualHubConnectionArgs{...} }
+type VirtualHubConnectionMapInput interface {
+	pulumi.Input
+
+	ToVirtualHubConnectionMapOutput() VirtualHubConnectionMapOutput
+	ToVirtualHubConnectionMapOutputWithContext(context.Context) VirtualHubConnectionMapOutput
+}
+
+type VirtualHubConnectionMap map[string]VirtualHubConnectionInput
+
+func (VirtualHubConnectionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VirtualHubConnection)(nil))
+}
+
+func (i VirtualHubConnectionMap) ToVirtualHubConnectionMapOutput() VirtualHubConnectionMapOutput {
+	return i.ToVirtualHubConnectionMapOutputWithContext(context.Background())
+}
+
+func (i VirtualHubConnectionMap) ToVirtualHubConnectionMapOutputWithContext(ctx context.Context) VirtualHubConnectionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubConnectionMapOutput)
 }
 
 type VirtualHubConnectionOutput struct {
@@ -231,7 +310,7 @@ type VirtualHubConnectionOutput struct {
 }
 
 func (VirtualHubConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualHubConnection)(nil))
 }
 
 func (o VirtualHubConnectionOutput) ToVirtualHubConnectionOutput() VirtualHubConnectionOutput {
@@ -242,6 +321,75 @@ func (o VirtualHubConnectionOutput) ToVirtualHubConnectionOutputWithContext(ctx 
 	return o
 }
 
+func (o VirtualHubConnectionOutput) ToVirtualHubConnectionPtrOutput() VirtualHubConnectionPtrOutput {
+	return o.ToVirtualHubConnectionPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualHubConnectionOutput) ToVirtualHubConnectionPtrOutputWithContext(ctx context.Context) VirtualHubConnectionPtrOutput {
+	return o.ApplyT(func(v VirtualHubConnection) *VirtualHubConnection {
+		return &v
+	}).(VirtualHubConnectionPtrOutput)
+}
+
+type VirtualHubConnectionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualHubConnectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualHubConnection)(nil))
+}
+
+func (o VirtualHubConnectionPtrOutput) ToVirtualHubConnectionPtrOutput() VirtualHubConnectionPtrOutput {
+	return o
+}
+
+func (o VirtualHubConnectionPtrOutput) ToVirtualHubConnectionPtrOutputWithContext(ctx context.Context) VirtualHubConnectionPtrOutput {
+	return o
+}
+
+type VirtualHubConnectionArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualHubConnectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualHubConnection)(nil))
+}
+
+func (o VirtualHubConnectionArrayOutput) ToVirtualHubConnectionArrayOutput() VirtualHubConnectionArrayOutput {
+	return o
+}
+
+func (o VirtualHubConnectionArrayOutput) ToVirtualHubConnectionArrayOutputWithContext(ctx context.Context) VirtualHubConnectionArrayOutput {
+	return o
+}
+
+func (o VirtualHubConnectionArrayOutput) Index(i pulumi.IntInput) VirtualHubConnectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualHubConnection {
+		return vs[0].([]VirtualHubConnection)[vs[1].(int)]
+	}).(VirtualHubConnectionOutput)
+}
+
+type VirtualHubConnectionMapOutput struct{ *pulumi.OutputState }
+
+func (VirtualHubConnectionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VirtualHubConnection)(nil))
+}
+
+func (o VirtualHubConnectionMapOutput) ToVirtualHubConnectionMapOutput() VirtualHubConnectionMapOutput {
+	return o
+}
+
+func (o VirtualHubConnectionMapOutput) ToVirtualHubConnectionMapOutputWithContext(ctx context.Context) VirtualHubConnectionMapOutput {
+	return o
+}
+
+func (o VirtualHubConnectionMapOutput) MapIndex(k pulumi.StringInput) VirtualHubConnectionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualHubConnection {
+		return vs[0].(map[string]VirtualHubConnection)[vs[1].(string)]
+	}).(VirtualHubConnectionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualHubConnectionOutput{})
+	pulumi.RegisterOutputType(VirtualHubConnectionPtrOutput{})
+	pulumi.RegisterOutputType(VirtualHubConnectionArrayOutput{})
+	pulumi.RegisterOutputType(VirtualHubConnectionMapOutput{})
 }

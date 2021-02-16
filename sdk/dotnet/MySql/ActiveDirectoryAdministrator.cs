@@ -58,6 +58,7 @@ namespace Pulumi.Azure.MySql
     ///  $ pulumi import azure:mysql/activeDirectoryAdministrator:ActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver/administrators/activeDirectory
     /// ```
     /// </summary>
+    [AzureResourceType("azure:mysql/activeDirectoryAdministrator:ActiveDirectoryAdministrator")]
     public partial class ActiveDirectoryAdministrator : Pulumi.CustomResource
     {
         /// <summary>

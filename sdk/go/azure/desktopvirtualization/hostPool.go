@@ -302,16 +302,95 @@ type HostPoolInput interface {
 	ToHostPoolOutputWithContext(ctx context.Context) HostPoolOutput
 }
 
-func (HostPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostPool)(nil)).Elem()
+func (*HostPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostPool)(nil))
 }
 
-func (i HostPool) ToHostPoolOutput() HostPoolOutput {
+func (i *HostPool) ToHostPoolOutput() HostPoolOutput {
 	return i.ToHostPoolOutputWithContext(context.Background())
 }
 
-func (i HostPool) ToHostPoolOutputWithContext(ctx context.Context) HostPoolOutput {
+func (i *HostPool) ToHostPoolOutputWithContext(ctx context.Context) HostPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HostPoolOutput)
+}
+
+func (i *HostPool) ToHostPoolPtrOutput() HostPoolPtrOutput {
+	return i.ToHostPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *HostPool) ToHostPoolPtrOutputWithContext(ctx context.Context) HostPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostPoolPtrOutput)
+}
+
+type HostPoolPtrInput interface {
+	pulumi.Input
+
+	ToHostPoolPtrOutput() HostPoolPtrOutput
+	ToHostPoolPtrOutputWithContext(ctx context.Context) HostPoolPtrOutput
+}
+
+type hostPoolPtrType HostPoolArgs
+
+func (*hostPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostPool)(nil))
+}
+
+func (i *hostPoolPtrType) ToHostPoolPtrOutput() HostPoolPtrOutput {
+	return i.ToHostPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *hostPoolPtrType) ToHostPoolPtrOutputWithContext(ctx context.Context) HostPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostPoolPtrOutput)
+}
+
+// HostPoolArrayInput is an input type that accepts HostPoolArray and HostPoolArrayOutput values.
+// You can construct a concrete instance of `HostPoolArrayInput` via:
+//
+//          HostPoolArray{ HostPoolArgs{...} }
+type HostPoolArrayInput interface {
+	pulumi.Input
+
+	ToHostPoolArrayOutput() HostPoolArrayOutput
+	ToHostPoolArrayOutputWithContext(context.Context) HostPoolArrayOutput
+}
+
+type HostPoolArray []HostPoolInput
+
+func (HostPoolArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*HostPool)(nil))
+}
+
+func (i HostPoolArray) ToHostPoolArrayOutput() HostPoolArrayOutput {
+	return i.ToHostPoolArrayOutputWithContext(context.Background())
+}
+
+func (i HostPoolArray) ToHostPoolArrayOutputWithContext(ctx context.Context) HostPoolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostPoolArrayOutput)
+}
+
+// HostPoolMapInput is an input type that accepts HostPoolMap and HostPoolMapOutput values.
+// You can construct a concrete instance of `HostPoolMapInput` via:
+//
+//          HostPoolMap{ "key": HostPoolArgs{...} }
+type HostPoolMapInput interface {
+	pulumi.Input
+
+	ToHostPoolMapOutput() HostPoolMapOutput
+	ToHostPoolMapOutputWithContext(context.Context) HostPoolMapOutput
+}
+
+type HostPoolMap map[string]HostPoolInput
+
+func (HostPoolMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*HostPool)(nil))
+}
+
+func (i HostPoolMap) ToHostPoolMapOutput() HostPoolMapOutput {
+	return i.ToHostPoolMapOutputWithContext(context.Background())
+}
+
+func (i HostPoolMap) ToHostPoolMapOutputWithContext(ctx context.Context) HostPoolMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostPoolMapOutput)
 }
 
 type HostPoolOutput struct {
@@ -319,7 +398,7 @@ type HostPoolOutput struct {
 }
 
 func (HostPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostPoolOutput)(nil)).Elem()
+	return reflect.TypeOf((*HostPool)(nil))
 }
 
 func (o HostPoolOutput) ToHostPoolOutput() HostPoolOutput {
@@ -330,6 +409,75 @@ func (o HostPoolOutput) ToHostPoolOutputWithContext(ctx context.Context) HostPoo
 	return o
 }
 
+func (o HostPoolOutput) ToHostPoolPtrOutput() HostPoolPtrOutput {
+	return o.ToHostPoolPtrOutputWithContext(context.Background())
+}
+
+func (o HostPoolOutput) ToHostPoolPtrOutputWithContext(ctx context.Context) HostPoolPtrOutput {
+	return o.ApplyT(func(v HostPool) *HostPool {
+		return &v
+	}).(HostPoolPtrOutput)
+}
+
+type HostPoolPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (HostPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostPool)(nil))
+}
+
+func (o HostPoolPtrOutput) ToHostPoolPtrOutput() HostPoolPtrOutput {
+	return o
+}
+
+func (o HostPoolPtrOutput) ToHostPoolPtrOutputWithContext(ctx context.Context) HostPoolPtrOutput {
+	return o
+}
+
+type HostPoolArrayOutput struct{ *pulumi.OutputState }
+
+func (HostPoolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HostPool)(nil))
+}
+
+func (o HostPoolArrayOutput) ToHostPoolArrayOutput() HostPoolArrayOutput {
+	return o
+}
+
+func (o HostPoolArrayOutput) ToHostPoolArrayOutputWithContext(ctx context.Context) HostPoolArrayOutput {
+	return o
+}
+
+func (o HostPoolArrayOutput) Index(i pulumi.IntInput) HostPoolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HostPool {
+		return vs[0].([]HostPool)[vs[1].(int)]
+	}).(HostPoolOutput)
+}
+
+type HostPoolMapOutput struct{ *pulumi.OutputState }
+
+func (HostPoolMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]HostPool)(nil))
+}
+
+func (o HostPoolMapOutput) ToHostPoolMapOutput() HostPoolMapOutput {
+	return o
+}
+
+func (o HostPoolMapOutput) ToHostPoolMapOutputWithContext(ctx context.Context) HostPoolMapOutput {
+	return o
+}
+
+func (o HostPoolMapOutput) MapIndex(k pulumi.StringInput) HostPoolOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) HostPool {
+		return vs[0].(map[string]HostPool)[vs[1].(string)]
+	}).(HostPoolOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HostPoolOutput{})
+	pulumi.RegisterOutputType(HostPoolPtrOutput{})
+	pulumi.RegisterOutputType(HostPoolArrayOutput{})
+	pulumi.RegisterOutputType(HostPoolMapOutput{})
 }

@@ -140,7 +140,8 @@ export class Workspace extends pulumi.CustomResource {
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkspaceArgs | WorkspaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
             inputs["aadAdmin"] = state ? state.aadAdmin : undefined;
             inputs["connectivityEndpoints"] = state ? state.connectivityEndpoints : undefined;
@@ -157,16 +158,16 @@ export class Workspace extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sqlAdministratorLogin === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sqlAdministratorLogin === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sqlAdministratorLogin'");
             }
-            if ((!args || args.sqlAdministratorLoginPassword === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sqlAdministratorLoginPassword === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sqlAdministratorLoginPassword'");
             }
-            if ((!args || args.storageDataLakeGen2FilesystemId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageDataLakeGen2FilesystemId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageDataLakeGen2FilesystemId'");
             }
             inputs["aadAdmin"] = args ? args.aadAdmin : undefined;
@@ -183,12 +184,8 @@ export class Workspace extends pulumi.CustomResource {
             inputs["connectivityEndpoints"] = undefined /*out*/;
             inputs["identities"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Workspace.__pulumiType, name, inputs, opts);
     }

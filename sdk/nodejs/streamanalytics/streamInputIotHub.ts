@@ -127,7 +127,8 @@ export class StreamInputIotHub extends pulumi.CustomResource {
     constructor(name: string, args: StreamInputIotHubArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StreamInputIotHubArgs | StreamInputIotHubState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as StreamInputIotHubState | undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["eventhubConsumerGroupName"] = state ? state.eventhubConsumerGroupName : undefined;
@@ -140,28 +141,28 @@ export class StreamInputIotHub extends pulumi.CustomResource {
             inputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
         } else {
             const args = argsOrState as StreamInputIotHubArgs | undefined;
-            if ((!args || args.endpoint === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.endpoint === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpoint'");
             }
-            if ((!args || args.eventhubConsumerGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.eventhubConsumerGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventhubConsumerGroupName'");
             }
-            if ((!args || args.iothubNamespace === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.iothubNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iothubNamespace'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serialization === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serialization === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serialization'");
             }
-            if ((!args || args.sharedAccessPolicyKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sharedAccessPolicyKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sharedAccessPolicyKey'");
             }
-            if ((!args || args.sharedAccessPolicyName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sharedAccessPolicyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sharedAccessPolicyName'");
             }
-            if ((!args || args.streamAnalyticsJobName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.streamAnalyticsJobName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
             inputs["endpoint"] = args ? args.endpoint : undefined;
@@ -174,12 +175,8 @@ export class StreamInputIotHub extends pulumi.CustomResource {
             inputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
             inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(StreamInputIotHub.__pulumiType, name, inputs, opts);
     }

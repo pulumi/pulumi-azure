@@ -158,7 +158,8 @@ export class Group extends pulumi.CustomResource {
     constructor(name: string, args: GroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GroupState | undefined;
             inputs["containers"] = state ? state.containers : undefined;
             inputs["diagnostics"] = state ? state.diagnostics : undefined;
@@ -178,13 +179,13 @@ export class Group extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            if ((!args || args.containers === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.containers === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'containers'");
             }
-            if ((!args || args.osType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.osType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'osType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["containers"] = args ? args.containers : undefined;
@@ -204,12 +205,8 @@ export class Group extends pulumi.CustomResource {
             inputs["fqdn"] = undefined /*out*/;
             inputs["ipAddress"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Group.__pulumiType, name, inputs, opts);
     }

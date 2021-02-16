@@ -60,6 +60,7 @@ namespace Pulumi.Azure.DataFactory
     ///  $ pulumi import azure:datafactory/datasetHttp:DatasetHttp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:datafactory/datasetHttp:DatasetHttp")]
     public partial class DatasetHttp : Pulumi.CustomResource
     {
         /// <summary>

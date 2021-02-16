@@ -314,7 +314,8 @@ export class Account extends pulumi.CustomResource {
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AccountState | undefined;
             inputs["accessTier"] = state ? state.accessTier : undefined;
             inputs["accountKind"] = state ? state.accountKind : undefined;
@@ -369,13 +370,13 @@ export class Account extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
-            if ((!args || args.accountReplicationType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.accountReplicationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountReplicationType'");
             }
-            if ((!args || args.accountTier === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.accountTier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountTier'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accessTier"] = args ? args.accessTier : undefined;
@@ -430,12 +431,8 @@ export class Account extends pulumi.CustomResource {
             inputs["secondaryWebEndpoint"] = undefined /*out*/;
             inputs["secondaryWebHost"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Account.__pulumiType, name, inputs, opts);
     }

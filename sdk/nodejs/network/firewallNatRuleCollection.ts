@@ -131,7 +131,8 @@ export class FirewallNatRuleCollection extends pulumi.CustomResource {
     constructor(name: string, args: FirewallNatRuleCollectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FirewallNatRuleCollectionArgs | FirewallNatRuleCollectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FirewallNatRuleCollectionState | undefined;
             inputs["action"] = state ? state.action : undefined;
             inputs["azureFirewallName"] = state ? state.azureFirewallName : undefined;
@@ -141,19 +142,19 @@ export class FirewallNatRuleCollection extends pulumi.CustomResource {
             inputs["rules"] = state ? state.rules : undefined;
         } else {
             const args = argsOrState as FirewallNatRuleCollectionArgs | undefined;
-            if ((!args || args.action === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.action === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.azureFirewallName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.azureFirewallName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'azureFirewallName'");
             }
-            if ((!args || args.priority === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.rules === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.rules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
             inputs["action"] = args ? args.action : undefined;
@@ -163,12 +164,8 @@ export class FirewallNatRuleCollection extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["rules"] = args ? args.rules : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(FirewallNatRuleCollection.__pulumiType, name, inputs, opts);
     }

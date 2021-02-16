@@ -61,6 +61,7 @@ namespace Pulumi.Azure.Storage
     ///  $ pulumi import azure:storage/dataLakeGen2Path:DataLakeGen2Path example https://account1.dfs.core.windows.net/fileSystem1/path
     /// ```
     /// </summary>
+    [AzureResourceType("azure:storage/dataLakeGen2Path:DataLakeGen2Path")]
     public partial class DataLakeGen2Path : Pulumi.CustomResource
     {
         /// <summary>

@@ -50,6 +50,7 @@ namespace Pulumi.Azure.DataFactory
     ///  $ pulumi import azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql")]
     public partial class LinkedServicePostgresql : Pulumi.CustomResource
     {
         /// <summary>

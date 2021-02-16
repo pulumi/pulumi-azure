@@ -117,6 +117,7 @@ namespace Pulumi.Azure.PrivateDns
     ///  $ pulumi import azure:privatedns/linkService:LinkService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/privateLinkServices/service1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:privatedns/linkService:LinkService")]
     public partial class LinkService : Pulumi.CustomResource
     {
         /// <summary>

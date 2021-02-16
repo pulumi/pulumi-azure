@@ -50,7 +50,8 @@ export class Provider extends pulumi.CustomResource {
     constructor(name: string, args: ProviderArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProviderArgs | ProviderState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProviderState | undefined;
             inputs["attestationUri"] = state ? state.attestationUri : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -61,7 +62,7 @@ export class Provider extends pulumi.CustomResource {
             inputs["trustModel"] = state ? state.trustModel : undefined;
         } else {
             const args = argsOrState as ProviderArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -72,12 +73,8 @@ export class Provider extends pulumi.CustomResource {
             inputs["attestationUri"] = undefined /*out*/;
             inputs["trustModel"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Provider.__pulumiType, name, inputs, opts);
     }

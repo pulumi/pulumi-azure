@@ -81,6 +81,7 @@ namespace Pulumi.Azure.Storage
     ///  $ pulumi import azure:storage/syncCloudEndpoint:SyncCloudEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageSync/storageSyncServices/sync1/syncGroups/syncgroup1/cloudEndpoints/cloudEndpoint1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:storage/syncCloudEndpoint:SyncCloudEndpoint")]
     public partial class SyncCloudEndpoint : Pulumi.CustomResource
     {
         /// <summary>

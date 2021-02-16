@@ -178,16 +178,95 @@ type SubnetNetworkSecurityGroupAssociationInput interface {
 	ToSubnetNetworkSecurityGroupAssociationOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationOutput
 }
 
-func (SubnetNetworkSecurityGroupAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetNetworkSecurityGroupAssociation)(nil)).Elem()
+func (*SubnetNetworkSecurityGroupAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetNetworkSecurityGroupAssociation)(nil))
 }
 
-func (i SubnetNetworkSecurityGroupAssociation) ToSubnetNetworkSecurityGroupAssociationOutput() SubnetNetworkSecurityGroupAssociationOutput {
+func (i *SubnetNetworkSecurityGroupAssociation) ToSubnetNetworkSecurityGroupAssociationOutput() SubnetNetworkSecurityGroupAssociationOutput {
 	return i.ToSubnetNetworkSecurityGroupAssociationOutputWithContext(context.Background())
 }
 
-func (i SubnetNetworkSecurityGroupAssociation) ToSubnetNetworkSecurityGroupAssociationOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationOutput {
+func (i *SubnetNetworkSecurityGroupAssociation) ToSubnetNetworkSecurityGroupAssociationOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetNetworkSecurityGroupAssociationOutput)
+}
+
+func (i *SubnetNetworkSecurityGroupAssociation) ToSubnetNetworkSecurityGroupAssociationPtrOutput() SubnetNetworkSecurityGroupAssociationPtrOutput {
+	return i.ToSubnetNetworkSecurityGroupAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *SubnetNetworkSecurityGroupAssociation) ToSubnetNetworkSecurityGroupAssociationPtrOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetNetworkSecurityGroupAssociationPtrOutput)
+}
+
+type SubnetNetworkSecurityGroupAssociationPtrInput interface {
+	pulumi.Input
+
+	ToSubnetNetworkSecurityGroupAssociationPtrOutput() SubnetNetworkSecurityGroupAssociationPtrOutput
+	ToSubnetNetworkSecurityGroupAssociationPtrOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationPtrOutput
+}
+
+type subnetNetworkSecurityGroupAssociationPtrType SubnetNetworkSecurityGroupAssociationArgs
+
+func (*subnetNetworkSecurityGroupAssociationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetNetworkSecurityGroupAssociation)(nil))
+}
+
+func (i *subnetNetworkSecurityGroupAssociationPtrType) ToSubnetNetworkSecurityGroupAssociationPtrOutput() SubnetNetworkSecurityGroupAssociationPtrOutput {
+	return i.ToSubnetNetworkSecurityGroupAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *subnetNetworkSecurityGroupAssociationPtrType) ToSubnetNetworkSecurityGroupAssociationPtrOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetNetworkSecurityGroupAssociationPtrOutput)
+}
+
+// SubnetNetworkSecurityGroupAssociationArrayInput is an input type that accepts SubnetNetworkSecurityGroupAssociationArray and SubnetNetworkSecurityGroupAssociationArrayOutput values.
+// You can construct a concrete instance of `SubnetNetworkSecurityGroupAssociationArrayInput` via:
+//
+//          SubnetNetworkSecurityGroupAssociationArray{ SubnetNetworkSecurityGroupAssociationArgs{...} }
+type SubnetNetworkSecurityGroupAssociationArrayInput interface {
+	pulumi.Input
+
+	ToSubnetNetworkSecurityGroupAssociationArrayOutput() SubnetNetworkSecurityGroupAssociationArrayOutput
+	ToSubnetNetworkSecurityGroupAssociationArrayOutputWithContext(context.Context) SubnetNetworkSecurityGroupAssociationArrayOutput
+}
+
+type SubnetNetworkSecurityGroupAssociationArray []SubnetNetworkSecurityGroupAssociationInput
+
+func (SubnetNetworkSecurityGroupAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SubnetNetworkSecurityGroupAssociation)(nil))
+}
+
+func (i SubnetNetworkSecurityGroupAssociationArray) ToSubnetNetworkSecurityGroupAssociationArrayOutput() SubnetNetworkSecurityGroupAssociationArrayOutput {
+	return i.ToSubnetNetworkSecurityGroupAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i SubnetNetworkSecurityGroupAssociationArray) ToSubnetNetworkSecurityGroupAssociationArrayOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetNetworkSecurityGroupAssociationArrayOutput)
+}
+
+// SubnetNetworkSecurityGroupAssociationMapInput is an input type that accepts SubnetNetworkSecurityGroupAssociationMap and SubnetNetworkSecurityGroupAssociationMapOutput values.
+// You can construct a concrete instance of `SubnetNetworkSecurityGroupAssociationMapInput` via:
+//
+//          SubnetNetworkSecurityGroupAssociationMap{ "key": SubnetNetworkSecurityGroupAssociationArgs{...} }
+type SubnetNetworkSecurityGroupAssociationMapInput interface {
+	pulumi.Input
+
+	ToSubnetNetworkSecurityGroupAssociationMapOutput() SubnetNetworkSecurityGroupAssociationMapOutput
+	ToSubnetNetworkSecurityGroupAssociationMapOutputWithContext(context.Context) SubnetNetworkSecurityGroupAssociationMapOutput
+}
+
+type SubnetNetworkSecurityGroupAssociationMap map[string]SubnetNetworkSecurityGroupAssociationInput
+
+func (SubnetNetworkSecurityGroupAssociationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SubnetNetworkSecurityGroupAssociation)(nil))
+}
+
+func (i SubnetNetworkSecurityGroupAssociationMap) ToSubnetNetworkSecurityGroupAssociationMapOutput() SubnetNetworkSecurityGroupAssociationMapOutput {
+	return i.ToSubnetNetworkSecurityGroupAssociationMapOutputWithContext(context.Background())
+}
+
+func (i SubnetNetworkSecurityGroupAssociationMap) ToSubnetNetworkSecurityGroupAssociationMapOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetNetworkSecurityGroupAssociationMapOutput)
 }
 
 type SubnetNetworkSecurityGroupAssociationOutput struct {
@@ -195,7 +274,7 @@ type SubnetNetworkSecurityGroupAssociationOutput struct {
 }
 
 func (SubnetNetworkSecurityGroupAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetNetworkSecurityGroupAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*SubnetNetworkSecurityGroupAssociation)(nil))
 }
 
 func (o SubnetNetworkSecurityGroupAssociationOutput) ToSubnetNetworkSecurityGroupAssociationOutput() SubnetNetworkSecurityGroupAssociationOutput {
@@ -206,6 +285,75 @@ func (o SubnetNetworkSecurityGroupAssociationOutput) ToSubnetNetworkSecurityGrou
 	return o
 }
 
+func (o SubnetNetworkSecurityGroupAssociationOutput) ToSubnetNetworkSecurityGroupAssociationPtrOutput() SubnetNetworkSecurityGroupAssociationPtrOutput {
+	return o.ToSubnetNetworkSecurityGroupAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o SubnetNetworkSecurityGroupAssociationOutput) ToSubnetNetworkSecurityGroupAssociationPtrOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationPtrOutput {
+	return o.ApplyT(func(v SubnetNetworkSecurityGroupAssociation) *SubnetNetworkSecurityGroupAssociation {
+		return &v
+	}).(SubnetNetworkSecurityGroupAssociationPtrOutput)
+}
+
+type SubnetNetworkSecurityGroupAssociationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SubnetNetworkSecurityGroupAssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetNetworkSecurityGroupAssociation)(nil))
+}
+
+func (o SubnetNetworkSecurityGroupAssociationPtrOutput) ToSubnetNetworkSecurityGroupAssociationPtrOutput() SubnetNetworkSecurityGroupAssociationPtrOutput {
+	return o
+}
+
+func (o SubnetNetworkSecurityGroupAssociationPtrOutput) ToSubnetNetworkSecurityGroupAssociationPtrOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationPtrOutput {
+	return o
+}
+
+type SubnetNetworkSecurityGroupAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (SubnetNetworkSecurityGroupAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubnetNetworkSecurityGroupAssociation)(nil))
+}
+
+func (o SubnetNetworkSecurityGroupAssociationArrayOutput) ToSubnetNetworkSecurityGroupAssociationArrayOutput() SubnetNetworkSecurityGroupAssociationArrayOutput {
+	return o
+}
+
+func (o SubnetNetworkSecurityGroupAssociationArrayOutput) ToSubnetNetworkSecurityGroupAssociationArrayOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationArrayOutput {
+	return o
+}
+
+func (o SubnetNetworkSecurityGroupAssociationArrayOutput) Index(i pulumi.IntInput) SubnetNetworkSecurityGroupAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubnetNetworkSecurityGroupAssociation {
+		return vs[0].([]SubnetNetworkSecurityGroupAssociation)[vs[1].(int)]
+	}).(SubnetNetworkSecurityGroupAssociationOutput)
+}
+
+type SubnetNetworkSecurityGroupAssociationMapOutput struct{ *pulumi.OutputState }
+
+func (SubnetNetworkSecurityGroupAssociationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SubnetNetworkSecurityGroupAssociation)(nil))
+}
+
+func (o SubnetNetworkSecurityGroupAssociationMapOutput) ToSubnetNetworkSecurityGroupAssociationMapOutput() SubnetNetworkSecurityGroupAssociationMapOutput {
+	return o
+}
+
+func (o SubnetNetworkSecurityGroupAssociationMapOutput) ToSubnetNetworkSecurityGroupAssociationMapOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationMapOutput {
+	return o
+}
+
+func (o SubnetNetworkSecurityGroupAssociationMapOutput) MapIndex(k pulumi.StringInput) SubnetNetworkSecurityGroupAssociationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SubnetNetworkSecurityGroupAssociation {
+		return vs[0].(map[string]SubnetNetworkSecurityGroupAssociation)[vs[1].(string)]
+	}).(SubnetNetworkSecurityGroupAssociationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SubnetNetworkSecurityGroupAssociationOutput{})
+	pulumi.RegisterOutputType(SubnetNetworkSecurityGroupAssociationPtrOutput{})
+	pulumi.RegisterOutputType(SubnetNetworkSecurityGroupAssociationArrayOutput{})
+	pulumi.RegisterOutputType(SubnetNetworkSecurityGroupAssociationMapOutput{})
 }

@@ -20,6 +20,7 @@ namespace Pulumi.Azure.Iot
     ///  $ pulumi import azure:iot/iotHubCertificate:IotHubCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/provisioningServices/example/certificates/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:iot/iotHubCertificate:IotHubCertificate")]
     public partial class IotHubCertificate : Pulumi.CustomResource
     {
         /// <summary>

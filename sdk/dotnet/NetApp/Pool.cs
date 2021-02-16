@@ -52,6 +52,7 @@ namespace Pulumi.Azure.NetApp
     ///  $ pulumi import azure:netapp/pool:Pool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:netapp/pool:Pool")]
     public partial class Pool : Pulumi.CustomResource
     {
         /// <summary>

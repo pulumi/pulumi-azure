@@ -169,7 +169,8 @@ export class EventSubscription extends pulumi.CustomResource {
     constructor(name: string, args: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventSubscriptionArgs | EventSubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EventSubscriptionState | undefined;
             inputs["advancedFilter"] = state ? state.advancedFilter : undefined;
             inputs["azureFunctionEndpoint"] = state ? state.azureFunctionEndpoint : undefined;
@@ -193,7 +194,7 @@ export class EventSubscription extends pulumi.CustomResource {
             inputs["webhookEndpoint"] = state ? state.webhookEndpoint : undefined;
         } else {
             const args = argsOrState as EventSubscriptionArgs | undefined;
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["advancedFilter"] = args ? args.advancedFilter : undefined;
@@ -217,15 +218,11 @@ export class EventSubscription extends pulumi.CustomResource {
             inputs["topicName"] = args ? args.topicName : undefined;
             inputs["webhookEndpoint"] = args ? args.webhookEndpoint : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure:eventhub/eventSubscription:EventSubscription" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventSubscription.__pulumiType, name, inputs, opts);
     }
 }

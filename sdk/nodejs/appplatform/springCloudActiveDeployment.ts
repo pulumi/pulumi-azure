@@ -97,27 +97,24 @@ export class SpringCloudActiveDeployment extends pulumi.CustomResource {
     constructor(name: string, args: SpringCloudActiveDeploymentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SpringCloudActiveDeploymentArgs | SpringCloudActiveDeploymentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SpringCloudActiveDeploymentState | undefined;
             inputs["deploymentName"] = state ? state.deploymentName : undefined;
             inputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
         } else {
             const args = argsOrState as SpringCloudActiveDeploymentArgs | undefined;
-            if ((!args || args.deploymentName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.deploymentName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deploymentName'");
             }
-            if ((!args || args.springCloudAppId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.springCloudAppId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'springCloudAppId'");
             }
             inputs["deploymentName"] = args ? args.deploymentName : undefined;
             inputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SpringCloudActiveDeployment.__pulumiType, name, inputs, opts);
     }

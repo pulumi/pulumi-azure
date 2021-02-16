@@ -176,16 +176,95 @@ type ProductPolicyInput interface {
 	ToProductPolicyOutputWithContext(ctx context.Context) ProductPolicyOutput
 }
 
-func (ProductPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductPolicy)(nil)).Elem()
+func (*ProductPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductPolicy)(nil))
 }
 
-func (i ProductPolicy) ToProductPolicyOutput() ProductPolicyOutput {
+func (i *ProductPolicy) ToProductPolicyOutput() ProductPolicyOutput {
 	return i.ToProductPolicyOutputWithContext(context.Background())
 }
 
-func (i ProductPolicy) ToProductPolicyOutputWithContext(ctx context.Context) ProductPolicyOutput {
+func (i *ProductPolicy) ToProductPolicyOutputWithContext(ctx context.Context) ProductPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProductPolicyOutput)
+}
+
+func (i *ProductPolicy) ToProductPolicyPtrOutput() ProductPolicyPtrOutput {
+	return i.ToProductPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *ProductPolicy) ToProductPolicyPtrOutputWithContext(ctx context.Context) ProductPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductPolicyPtrOutput)
+}
+
+type ProductPolicyPtrInput interface {
+	pulumi.Input
+
+	ToProductPolicyPtrOutput() ProductPolicyPtrOutput
+	ToProductPolicyPtrOutputWithContext(ctx context.Context) ProductPolicyPtrOutput
+}
+
+type productPolicyPtrType ProductPolicyArgs
+
+func (*productPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProductPolicy)(nil))
+}
+
+func (i *productPolicyPtrType) ToProductPolicyPtrOutput() ProductPolicyPtrOutput {
+	return i.ToProductPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *productPolicyPtrType) ToProductPolicyPtrOutputWithContext(ctx context.Context) ProductPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductPolicyPtrOutput)
+}
+
+// ProductPolicyArrayInput is an input type that accepts ProductPolicyArray and ProductPolicyArrayOutput values.
+// You can construct a concrete instance of `ProductPolicyArrayInput` via:
+//
+//          ProductPolicyArray{ ProductPolicyArgs{...} }
+type ProductPolicyArrayInput interface {
+	pulumi.Input
+
+	ToProductPolicyArrayOutput() ProductPolicyArrayOutput
+	ToProductPolicyArrayOutputWithContext(context.Context) ProductPolicyArrayOutput
+}
+
+type ProductPolicyArray []ProductPolicyInput
+
+func (ProductPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ProductPolicy)(nil))
+}
+
+func (i ProductPolicyArray) ToProductPolicyArrayOutput() ProductPolicyArrayOutput {
+	return i.ToProductPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i ProductPolicyArray) ToProductPolicyArrayOutputWithContext(ctx context.Context) ProductPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductPolicyArrayOutput)
+}
+
+// ProductPolicyMapInput is an input type that accepts ProductPolicyMap and ProductPolicyMapOutput values.
+// You can construct a concrete instance of `ProductPolicyMapInput` via:
+//
+//          ProductPolicyMap{ "key": ProductPolicyArgs{...} }
+type ProductPolicyMapInput interface {
+	pulumi.Input
+
+	ToProductPolicyMapOutput() ProductPolicyMapOutput
+	ToProductPolicyMapOutputWithContext(context.Context) ProductPolicyMapOutput
+}
+
+type ProductPolicyMap map[string]ProductPolicyInput
+
+func (ProductPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ProductPolicy)(nil))
+}
+
+func (i ProductPolicyMap) ToProductPolicyMapOutput() ProductPolicyMapOutput {
+	return i.ToProductPolicyMapOutputWithContext(context.Background())
+}
+
+func (i ProductPolicyMap) ToProductPolicyMapOutputWithContext(ctx context.Context) ProductPolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductPolicyMapOutput)
 }
 
 type ProductPolicyOutput struct {
@@ -193,7 +272,7 @@ type ProductPolicyOutput struct {
 }
 
 func (ProductPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProductPolicy)(nil))
 }
 
 func (o ProductPolicyOutput) ToProductPolicyOutput() ProductPolicyOutput {
@@ -204,6 +283,75 @@ func (o ProductPolicyOutput) ToProductPolicyOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ProductPolicyOutput) ToProductPolicyPtrOutput() ProductPolicyPtrOutput {
+	return o.ToProductPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ProductPolicyOutput) ToProductPolicyPtrOutputWithContext(ctx context.Context) ProductPolicyPtrOutput {
+	return o.ApplyT(func(v ProductPolicy) *ProductPolicy {
+		return &v
+	}).(ProductPolicyPtrOutput)
+}
+
+type ProductPolicyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProductPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProductPolicy)(nil))
+}
+
+func (o ProductPolicyPtrOutput) ToProductPolicyPtrOutput() ProductPolicyPtrOutput {
+	return o
+}
+
+func (o ProductPolicyPtrOutput) ToProductPolicyPtrOutputWithContext(ctx context.Context) ProductPolicyPtrOutput {
+	return o
+}
+
+type ProductPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (ProductPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProductPolicy)(nil))
+}
+
+func (o ProductPolicyArrayOutput) ToProductPolicyArrayOutput() ProductPolicyArrayOutput {
+	return o
+}
+
+func (o ProductPolicyArrayOutput) ToProductPolicyArrayOutputWithContext(ctx context.Context) ProductPolicyArrayOutput {
+	return o
+}
+
+func (o ProductPolicyArrayOutput) Index(i pulumi.IntInput) ProductPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProductPolicy {
+		return vs[0].([]ProductPolicy)[vs[1].(int)]
+	}).(ProductPolicyOutput)
+}
+
+type ProductPolicyMapOutput struct{ *pulumi.OutputState }
+
+func (ProductPolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ProductPolicy)(nil))
+}
+
+func (o ProductPolicyMapOutput) ToProductPolicyMapOutput() ProductPolicyMapOutput {
+	return o
+}
+
+func (o ProductPolicyMapOutput) ToProductPolicyMapOutputWithContext(ctx context.Context) ProductPolicyMapOutput {
+	return o
+}
+
+func (o ProductPolicyMapOutput) MapIndex(k pulumi.StringInput) ProductPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProductPolicy {
+		return vs[0].(map[string]ProductPolicy)[vs[1].(string)]
+	}).(ProductPolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProductPolicyOutput{})
+	pulumi.RegisterOutputType(ProductPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ProductPolicyArrayOutput{})
+	pulumi.RegisterOutputType(ProductPolicyMapOutput{})
 }

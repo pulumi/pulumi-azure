@@ -43,6 +43,7 @@ namespace Pulumi.Azure.PrivateDns
     ///  $ pulumi import azure:privatedns/zone:Zone zone1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/zone1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:privatedns/zone:Zone")]
     public partial class Zone : Pulumi.CustomResource
     {
         /// <summary>

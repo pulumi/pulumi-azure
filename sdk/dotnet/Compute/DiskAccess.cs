@@ -40,6 +40,7 @@ namespace Pulumi.Azure.Compute
     ///  $ pulumi import azure:compute/diskAccess:DiskAccess example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Compute/diskAccesses/diskAccess1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:compute/diskAccess:DiskAccess")]
     public partial class DiskAccess : Pulumi.CustomResource
     {
         /// <summary>

@@ -355,16 +355,95 @@ type ExtensionInput interface {
 	ToExtensionOutputWithContext(ctx context.Context) ExtensionOutput
 }
 
-func (Extension) ElementType() reflect.Type {
-	return reflect.TypeOf((*Extension)(nil)).Elem()
+func (*Extension) ElementType() reflect.Type {
+	return reflect.TypeOf((*Extension)(nil))
 }
 
-func (i Extension) ToExtensionOutput() ExtensionOutput {
+func (i *Extension) ToExtensionOutput() ExtensionOutput {
 	return i.ToExtensionOutputWithContext(context.Background())
 }
 
-func (i Extension) ToExtensionOutputWithContext(ctx context.Context) ExtensionOutput {
+func (i *Extension) ToExtensionOutputWithContext(ctx context.Context) ExtensionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionOutput)
+}
+
+func (i *Extension) ToExtensionPtrOutput() ExtensionPtrOutput {
+	return i.ToExtensionPtrOutputWithContext(context.Background())
+}
+
+func (i *Extension) ToExtensionPtrOutputWithContext(ctx context.Context) ExtensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionPtrOutput)
+}
+
+type ExtensionPtrInput interface {
+	pulumi.Input
+
+	ToExtensionPtrOutput() ExtensionPtrOutput
+	ToExtensionPtrOutputWithContext(ctx context.Context) ExtensionPtrOutput
+}
+
+type extensionPtrType ExtensionArgs
+
+func (*extensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Extension)(nil))
+}
+
+func (i *extensionPtrType) ToExtensionPtrOutput() ExtensionPtrOutput {
+	return i.ToExtensionPtrOutputWithContext(context.Background())
+}
+
+func (i *extensionPtrType) ToExtensionPtrOutputWithContext(ctx context.Context) ExtensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionPtrOutput)
+}
+
+// ExtensionArrayInput is an input type that accepts ExtensionArray and ExtensionArrayOutput values.
+// You can construct a concrete instance of `ExtensionArrayInput` via:
+//
+//          ExtensionArray{ ExtensionArgs{...} }
+type ExtensionArrayInput interface {
+	pulumi.Input
+
+	ToExtensionArrayOutput() ExtensionArrayOutput
+	ToExtensionArrayOutputWithContext(context.Context) ExtensionArrayOutput
+}
+
+type ExtensionArray []ExtensionInput
+
+func (ExtensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Extension)(nil))
+}
+
+func (i ExtensionArray) ToExtensionArrayOutput() ExtensionArrayOutput {
+	return i.ToExtensionArrayOutputWithContext(context.Background())
+}
+
+func (i ExtensionArray) ToExtensionArrayOutputWithContext(ctx context.Context) ExtensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionArrayOutput)
+}
+
+// ExtensionMapInput is an input type that accepts ExtensionMap and ExtensionMapOutput values.
+// You can construct a concrete instance of `ExtensionMapInput` via:
+//
+//          ExtensionMap{ "key": ExtensionArgs{...} }
+type ExtensionMapInput interface {
+	pulumi.Input
+
+	ToExtensionMapOutput() ExtensionMapOutput
+	ToExtensionMapOutputWithContext(context.Context) ExtensionMapOutput
+}
+
+type ExtensionMap map[string]ExtensionInput
+
+func (ExtensionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Extension)(nil))
+}
+
+func (i ExtensionMap) ToExtensionMapOutput() ExtensionMapOutput {
+	return i.ToExtensionMapOutputWithContext(context.Background())
+}
+
+func (i ExtensionMap) ToExtensionMapOutputWithContext(ctx context.Context) ExtensionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionMapOutput)
 }
 
 type ExtensionOutput struct {
@@ -372,7 +451,7 @@ type ExtensionOutput struct {
 }
 
 func (ExtensionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExtensionOutput)(nil)).Elem()
+	return reflect.TypeOf((*Extension)(nil))
 }
 
 func (o ExtensionOutput) ToExtensionOutput() ExtensionOutput {
@@ -383,6 +462,75 @@ func (o ExtensionOutput) ToExtensionOutputWithContext(ctx context.Context) Exten
 	return o
 }
 
+func (o ExtensionOutput) ToExtensionPtrOutput() ExtensionPtrOutput {
+	return o.ToExtensionPtrOutputWithContext(context.Background())
+}
+
+func (o ExtensionOutput) ToExtensionPtrOutputWithContext(ctx context.Context) ExtensionPtrOutput {
+	return o.ApplyT(func(v Extension) *Extension {
+		return &v
+	}).(ExtensionPtrOutput)
+}
+
+type ExtensionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ExtensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Extension)(nil))
+}
+
+func (o ExtensionPtrOutput) ToExtensionPtrOutput() ExtensionPtrOutput {
+	return o
+}
+
+func (o ExtensionPtrOutput) ToExtensionPtrOutputWithContext(ctx context.Context) ExtensionPtrOutput {
+	return o
+}
+
+type ExtensionArrayOutput struct{ *pulumi.OutputState }
+
+func (ExtensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Extension)(nil))
+}
+
+func (o ExtensionArrayOutput) ToExtensionArrayOutput() ExtensionArrayOutput {
+	return o
+}
+
+func (o ExtensionArrayOutput) ToExtensionArrayOutputWithContext(ctx context.Context) ExtensionArrayOutput {
+	return o
+}
+
+func (o ExtensionArrayOutput) Index(i pulumi.IntInput) ExtensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Extension {
+		return vs[0].([]Extension)[vs[1].(int)]
+	}).(ExtensionOutput)
+}
+
+type ExtensionMapOutput struct{ *pulumi.OutputState }
+
+func (ExtensionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Extension)(nil))
+}
+
+func (o ExtensionMapOutput) ToExtensionMapOutput() ExtensionMapOutput {
+	return o
+}
+
+func (o ExtensionMapOutput) ToExtensionMapOutputWithContext(ctx context.Context) ExtensionMapOutput {
+	return o
+}
+
+func (o ExtensionMapOutput) MapIndex(k pulumi.StringInput) ExtensionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Extension {
+		return vs[0].(map[string]Extension)[vs[1].(string)]
+	}).(ExtensionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExtensionOutput{})
+	pulumi.RegisterOutputType(ExtensionPtrOutput{})
+	pulumi.RegisterOutputType(ExtensionArrayOutput{})
+	pulumi.RegisterOutputType(ExtensionMapOutput{})
 }

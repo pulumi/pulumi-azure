@@ -48,6 +48,7 @@ namespace Pulumi.Azure.EventGrid
     ///  $ pulumi import azure:eventgrid/domain:Domain domain1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/domains/domain1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:eventgrid/domain:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>

@@ -18,6 +18,7 @@ namespace Pulumi.Azure.ServiceFabric
     ///  $ pulumi import azure:servicefabric/meshSecret:MeshSecret secret1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceFabricMesh/secrets/secret1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:servicefabric/meshSecret:MeshSecret")]
     public partial class MeshSecret : Pulumi.CustomResource
     {
         /// <summary>

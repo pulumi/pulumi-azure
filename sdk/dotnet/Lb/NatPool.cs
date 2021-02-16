@@ -72,6 +72,7 @@ namespace Pulumi.Azure.Lb
     ///  $ pulumi import azure:lb/natPool:NatPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/inboundNatPools/pool1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:lb/natPool:NatPool")]
     public partial class NatPool : Pulumi.CustomResource
     {
         /// <summary>

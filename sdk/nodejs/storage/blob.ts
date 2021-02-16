@@ -137,7 +137,8 @@ export class Blob extends pulumi.CustomResource {
     constructor(name: string, args: BlobArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BlobArgs | BlobState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BlobState | undefined;
             inputs["accessTier"] = state ? state.accessTier : undefined;
             inputs["contentMd5"] = state ? state.contentMd5 : undefined;
@@ -155,13 +156,13 @@ export class Blob extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as BlobArgs | undefined;
-            if ((!args || args.storageAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            if ((!args || args.storageContainerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageContainerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageContainerName'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["accessTier"] = args ? args.accessTier : undefined;
@@ -179,12 +180,8 @@ export class Blob extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["url"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Blob.__pulumiType, name, inputs, opts);
     }

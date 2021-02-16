@@ -205,16 +205,95 @@ type MxRecordInput interface {
 	ToMxRecordOutputWithContext(ctx context.Context) MxRecordOutput
 }
 
-func (MxRecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*MxRecord)(nil)).Elem()
+func (*MxRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*MxRecord)(nil))
 }
 
-func (i MxRecord) ToMxRecordOutput() MxRecordOutput {
+func (i *MxRecord) ToMxRecordOutput() MxRecordOutput {
 	return i.ToMxRecordOutputWithContext(context.Background())
 }
 
-func (i MxRecord) ToMxRecordOutputWithContext(ctx context.Context) MxRecordOutput {
+func (i *MxRecord) ToMxRecordOutputWithContext(ctx context.Context) MxRecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MxRecordOutput)
+}
+
+func (i *MxRecord) ToMxRecordPtrOutput() MxRecordPtrOutput {
+	return i.ToMxRecordPtrOutputWithContext(context.Background())
+}
+
+func (i *MxRecord) ToMxRecordPtrOutputWithContext(ctx context.Context) MxRecordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MxRecordPtrOutput)
+}
+
+type MxRecordPtrInput interface {
+	pulumi.Input
+
+	ToMxRecordPtrOutput() MxRecordPtrOutput
+	ToMxRecordPtrOutputWithContext(ctx context.Context) MxRecordPtrOutput
+}
+
+type mxRecordPtrType MxRecordArgs
+
+func (*mxRecordPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MxRecord)(nil))
+}
+
+func (i *mxRecordPtrType) ToMxRecordPtrOutput() MxRecordPtrOutput {
+	return i.ToMxRecordPtrOutputWithContext(context.Background())
+}
+
+func (i *mxRecordPtrType) ToMxRecordPtrOutputWithContext(ctx context.Context) MxRecordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MxRecordPtrOutput)
+}
+
+// MxRecordArrayInput is an input type that accepts MxRecordArray and MxRecordArrayOutput values.
+// You can construct a concrete instance of `MxRecordArrayInput` via:
+//
+//          MxRecordArray{ MxRecordArgs{...} }
+type MxRecordArrayInput interface {
+	pulumi.Input
+
+	ToMxRecordArrayOutput() MxRecordArrayOutput
+	ToMxRecordArrayOutputWithContext(context.Context) MxRecordArrayOutput
+}
+
+type MxRecordArray []MxRecordInput
+
+func (MxRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*MxRecord)(nil))
+}
+
+func (i MxRecordArray) ToMxRecordArrayOutput() MxRecordArrayOutput {
+	return i.ToMxRecordArrayOutputWithContext(context.Background())
+}
+
+func (i MxRecordArray) ToMxRecordArrayOutputWithContext(ctx context.Context) MxRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MxRecordArrayOutput)
+}
+
+// MxRecordMapInput is an input type that accepts MxRecordMap and MxRecordMapOutput values.
+// You can construct a concrete instance of `MxRecordMapInput` via:
+//
+//          MxRecordMap{ "key": MxRecordArgs{...} }
+type MxRecordMapInput interface {
+	pulumi.Input
+
+	ToMxRecordMapOutput() MxRecordMapOutput
+	ToMxRecordMapOutputWithContext(context.Context) MxRecordMapOutput
+}
+
+type MxRecordMap map[string]MxRecordInput
+
+func (MxRecordMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*MxRecord)(nil))
+}
+
+func (i MxRecordMap) ToMxRecordMapOutput() MxRecordMapOutput {
+	return i.ToMxRecordMapOutputWithContext(context.Background())
+}
+
+func (i MxRecordMap) ToMxRecordMapOutputWithContext(ctx context.Context) MxRecordMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MxRecordMapOutput)
 }
 
 type MxRecordOutput struct {
@@ -222,7 +301,7 @@ type MxRecordOutput struct {
 }
 
 func (MxRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MxRecordOutput)(nil)).Elem()
+	return reflect.TypeOf((*MxRecord)(nil))
 }
 
 func (o MxRecordOutput) ToMxRecordOutput() MxRecordOutput {
@@ -233,6 +312,75 @@ func (o MxRecordOutput) ToMxRecordOutputWithContext(ctx context.Context) MxRecor
 	return o
 }
 
+func (o MxRecordOutput) ToMxRecordPtrOutput() MxRecordPtrOutput {
+	return o.ToMxRecordPtrOutputWithContext(context.Background())
+}
+
+func (o MxRecordOutput) ToMxRecordPtrOutputWithContext(ctx context.Context) MxRecordPtrOutput {
+	return o.ApplyT(func(v MxRecord) *MxRecord {
+		return &v
+	}).(MxRecordPtrOutput)
+}
+
+type MxRecordPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (MxRecordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MxRecord)(nil))
+}
+
+func (o MxRecordPtrOutput) ToMxRecordPtrOutput() MxRecordPtrOutput {
+	return o
+}
+
+func (o MxRecordPtrOutput) ToMxRecordPtrOutputWithContext(ctx context.Context) MxRecordPtrOutput {
+	return o
+}
+
+type MxRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (MxRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MxRecord)(nil))
+}
+
+func (o MxRecordArrayOutput) ToMxRecordArrayOutput() MxRecordArrayOutput {
+	return o
+}
+
+func (o MxRecordArrayOutput) ToMxRecordArrayOutputWithContext(ctx context.Context) MxRecordArrayOutput {
+	return o
+}
+
+func (o MxRecordArrayOutput) Index(i pulumi.IntInput) MxRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MxRecord {
+		return vs[0].([]MxRecord)[vs[1].(int)]
+	}).(MxRecordOutput)
+}
+
+type MxRecordMapOutput struct{ *pulumi.OutputState }
+
+func (MxRecordMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]MxRecord)(nil))
+}
+
+func (o MxRecordMapOutput) ToMxRecordMapOutput() MxRecordMapOutput {
+	return o
+}
+
+func (o MxRecordMapOutput) ToMxRecordMapOutputWithContext(ctx context.Context) MxRecordMapOutput {
+	return o
+}
+
+func (o MxRecordMapOutput) MapIndex(k pulumi.StringInput) MxRecordOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MxRecord {
+		return vs[0].(map[string]MxRecord)[vs[1].(string)]
+	}).(MxRecordOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MxRecordOutput{})
+	pulumi.RegisterOutputType(MxRecordPtrOutput{})
+	pulumi.RegisterOutputType(MxRecordArrayOutput{})
+	pulumi.RegisterOutputType(MxRecordMapOutput{})
 }

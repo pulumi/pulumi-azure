@@ -169,7 +169,8 @@ export class SubscriptionRule extends pulumi.CustomResource {
     constructor(name: string, args: SubscriptionRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SubscriptionRuleArgs | SubscriptionRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SubscriptionRuleState | undefined;
             inputs["action"] = state ? state.action : undefined;
             inputs["correlationFilter"] = state ? state.correlationFilter : undefined;
@@ -182,19 +183,19 @@ export class SubscriptionRule extends pulumi.CustomResource {
             inputs["topicName"] = state ? state.topicName : undefined;
         } else {
             const args = argsOrState as SubscriptionRuleArgs | undefined;
-            if ((!args || args.filterType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.filterType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'filterType'");
             }
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subscriptionName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subscriptionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionName'");
             }
-            if ((!args || args.topicName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.topicName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicName'");
             }
             inputs["action"] = args ? args.action : undefined;
@@ -207,15 +208,11 @@ export class SubscriptionRule extends pulumi.CustomResource {
             inputs["subscriptionName"] = args ? args.subscriptionName : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure:eventhub/subscriptionRule:SubscriptionRule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SubscriptionRule.__pulumiType, name, inputs, opts);
     }
 }

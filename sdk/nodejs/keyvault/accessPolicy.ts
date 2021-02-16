@@ -132,7 +132,8 @@ export class AccessPolicy extends pulumi.CustomResource {
     constructor(name: string, args: AccessPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccessPolicyArgs | AccessPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AccessPolicyState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["certificatePermissions"] = state ? state.certificatePermissions : undefined;
@@ -144,13 +145,13 @@ export class AccessPolicy extends pulumi.CustomResource {
             inputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as AccessPolicyArgs | undefined;
-            if ((!args || args.keyVaultId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.keyVaultId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            if ((!args || args.objectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.objectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'objectId'");
             }
-            if ((!args || args.tenantId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tenantId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
             inputs["applicationId"] = args ? args.applicationId : undefined;
@@ -162,12 +163,8 @@ export class AccessPolicy extends pulumi.CustomResource {
             inputs["storagePermissions"] = args ? args.storagePermissions : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AccessPolicy.__pulumiType, name, inputs, opts);
     }

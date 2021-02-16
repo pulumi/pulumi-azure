@@ -119,6 +119,7 @@ namespace Pulumi.Azure.FrontDoor
     ///  $ pulumi import azure:frontdoor/frontdoor:Frontdoor example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mygroup1/providers/Microsoft.Network/frontDoors/frontdoor1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:frontdoor/frontdoor:Frontdoor")]
     public partial class Frontdoor : Pulumi.CustomResource
     {
         /// <summary>

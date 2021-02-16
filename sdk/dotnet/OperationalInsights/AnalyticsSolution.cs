@@ -67,6 +67,7 @@ namespace Pulumi.Azure.OperationalInsights
     ///  $ pulumi import azure:operationalinsights/analyticsSolution:AnalyticsSolution solution1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationsManagement/solutions/solution1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:operationalinsights/analyticsSolution:AnalyticsSolution")]
     public partial class AnalyticsSolution : Pulumi.CustomResource
     {
         /// <summary>

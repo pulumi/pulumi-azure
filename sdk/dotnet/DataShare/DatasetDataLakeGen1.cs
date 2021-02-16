@@ -89,6 +89,7 @@ namespace Pulumi.Azure.DataShare
     ///  $ pulumi import azure:datashare/datasetDataLakeGen1:DatasetDataLakeGen1 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1/dataSets/dataSet1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:datashare/datasetDataLakeGen1:DatasetDataLakeGen1")]
     public partial class DatasetDataLakeGen1 : Pulumi.CustomResource
     {
         /// <summary>

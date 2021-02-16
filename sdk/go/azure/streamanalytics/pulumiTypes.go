@@ -10,227 +10,227 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-type FunctionJavaScriptUDFInput struct {
+type FunctionJavaScriptUDFInputType struct {
 	// The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
 	Type string `pulumi:"type"`
 }
 
-// FunctionJavaScriptUDFInputInput is an input type that accepts FunctionJavaScriptUDFInputArgs and FunctionJavaScriptUDFInputOutput values.
-// You can construct a concrete instance of `FunctionJavaScriptUDFInputInput` via:
+// FunctionJavaScriptUDFInputTypeInput is an input type that accepts FunctionJavaScriptUDFInputTypeArgs and FunctionJavaScriptUDFInputTypeOutput values.
+// You can construct a concrete instance of `FunctionJavaScriptUDFInputTypeInput` via:
 //
-//          FunctionJavaScriptUDFInputArgs{...}
-type FunctionJavaScriptUDFInputInput interface {
+//          FunctionJavaScriptUDFInputTypeArgs{...}
+type FunctionJavaScriptUDFInputTypeInput interface {
 	pulumi.Input
 
-	ToFunctionJavaScriptUDFInputOutput() FunctionJavaScriptUDFInputOutput
-	ToFunctionJavaScriptUDFInputOutputWithContext(context.Context) FunctionJavaScriptUDFInputOutput
+	ToFunctionJavaScriptUDFInputTypeOutput() FunctionJavaScriptUDFInputTypeOutput
+	ToFunctionJavaScriptUDFInputTypeOutputWithContext(context.Context) FunctionJavaScriptUDFInputTypeOutput
 }
 
-type FunctionJavaScriptUDFInputArgs struct {
+type FunctionJavaScriptUDFInputTypeArgs struct {
 	// The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (FunctionJavaScriptUDFInputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionJavaScriptUDFInput)(nil)).Elem()
+func (FunctionJavaScriptUDFInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionJavaScriptUDFInputType)(nil)).Elem()
 }
 
-func (i FunctionJavaScriptUDFInputArgs) ToFunctionJavaScriptUDFInputOutput() FunctionJavaScriptUDFInputOutput {
-	return i.ToFunctionJavaScriptUDFInputOutputWithContext(context.Background())
+func (i FunctionJavaScriptUDFInputTypeArgs) ToFunctionJavaScriptUDFInputTypeOutput() FunctionJavaScriptUDFInputTypeOutput {
+	return i.ToFunctionJavaScriptUDFInputTypeOutputWithContext(context.Background())
 }
 
-func (i FunctionJavaScriptUDFInputArgs) ToFunctionJavaScriptUDFInputOutputWithContext(ctx context.Context) FunctionJavaScriptUDFInputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFInputOutput)
+func (i FunctionJavaScriptUDFInputTypeArgs) ToFunctionJavaScriptUDFInputTypeOutputWithContext(ctx context.Context) FunctionJavaScriptUDFInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFInputTypeOutput)
 }
 
-// FunctionJavaScriptUDFInputArrayInput is an input type that accepts FunctionJavaScriptUDFInputArray and FunctionJavaScriptUDFInputArrayOutput values.
-// You can construct a concrete instance of `FunctionJavaScriptUDFInputArrayInput` via:
+// FunctionJavaScriptUDFInputTypeArrayInput is an input type that accepts FunctionJavaScriptUDFInputTypeArray and FunctionJavaScriptUDFInputTypeArrayOutput values.
+// You can construct a concrete instance of `FunctionJavaScriptUDFInputTypeArrayInput` via:
 //
-//          FunctionJavaScriptUDFInputArray{ FunctionJavaScriptUDFInputArgs{...} }
-type FunctionJavaScriptUDFInputArrayInput interface {
+//          FunctionJavaScriptUDFInputTypeArray{ FunctionJavaScriptUDFInputTypeArgs{...} }
+type FunctionJavaScriptUDFInputTypeArrayInput interface {
 	pulumi.Input
 
-	ToFunctionJavaScriptUDFInputArrayOutput() FunctionJavaScriptUDFInputArrayOutput
-	ToFunctionJavaScriptUDFInputArrayOutputWithContext(context.Context) FunctionJavaScriptUDFInputArrayOutput
+	ToFunctionJavaScriptUDFInputTypeArrayOutput() FunctionJavaScriptUDFInputTypeArrayOutput
+	ToFunctionJavaScriptUDFInputTypeArrayOutputWithContext(context.Context) FunctionJavaScriptUDFInputTypeArrayOutput
 }
 
-type FunctionJavaScriptUDFInputArray []FunctionJavaScriptUDFInputInput
+type FunctionJavaScriptUDFInputTypeArray []FunctionJavaScriptUDFInputTypeInput
 
-func (FunctionJavaScriptUDFInputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FunctionJavaScriptUDFInput)(nil)).Elem()
+func (FunctionJavaScriptUDFInputTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionJavaScriptUDFInputType)(nil)).Elem()
 }
 
-func (i FunctionJavaScriptUDFInputArray) ToFunctionJavaScriptUDFInputArrayOutput() FunctionJavaScriptUDFInputArrayOutput {
-	return i.ToFunctionJavaScriptUDFInputArrayOutputWithContext(context.Background())
+func (i FunctionJavaScriptUDFInputTypeArray) ToFunctionJavaScriptUDFInputTypeArrayOutput() FunctionJavaScriptUDFInputTypeArrayOutput {
+	return i.ToFunctionJavaScriptUDFInputTypeArrayOutputWithContext(context.Background())
 }
 
-func (i FunctionJavaScriptUDFInputArray) ToFunctionJavaScriptUDFInputArrayOutputWithContext(ctx context.Context) FunctionJavaScriptUDFInputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFInputArrayOutput)
+func (i FunctionJavaScriptUDFInputTypeArray) ToFunctionJavaScriptUDFInputTypeArrayOutputWithContext(ctx context.Context) FunctionJavaScriptUDFInputTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFInputTypeArrayOutput)
 }
 
-type FunctionJavaScriptUDFInputOutput struct{ *pulumi.OutputState }
+type FunctionJavaScriptUDFInputTypeOutput struct{ *pulumi.OutputState }
 
-func (FunctionJavaScriptUDFInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionJavaScriptUDFInput)(nil)).Elem()
+func (FunctionJavaScriptUDFInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionJavaScriptUDFInputType)(nil)).Elem()
 }
 
-func (o FunctionJavaScriptUDFInputOutput) ToFunctionJavaScriptUDFInputOutput() FunctionJavaScriptUDFInputOutput {
+func (o FunctionJavaScriptUDFInputTypeOutput) ToFunctionJavaScriptUDFInputTypeOutput() FunctionJavaScriptUDFInputTypeOutput {
 	return o
 }
 
-func (o FunctionJavaScriptUDFInputOutput) ToFunctionJavaScriptUDFInputOutputWithContext(ctx context.Context) FunctionJavaScriptUDFInputOutput {
+func (o FunctionJavaScriptUDFInputTypeOutput) ToFunctionJavaScriptUDFInputTypeOutputWithContext(ctx context.Context) FunctionJavaScriptUDFInputTypeOutput {
 	return o
 }
 
 // The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
-func (o FunctionJavaScriptUDFInputOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FunctionJavaScriptUDFInput) string { return v.Type }).(pulumi.StringOutput)
+func (o FunctionJavaScriptUDFInputTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionJavaScriptUDFInputType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type FunctionJavaScriptUDFInputArrayOutput struct{ *pulumi.OutputState }
+type FunctionJavaScriptUDFInputTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (FunctionJavaScriptUDFInputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FunctionJavaScriptUDFInput)(nil)).Elem()
+func (FunctionJavaScriptUDFInputTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionJavaScriptUDFInputType)(nil)).Elem()
 }
 
-func (o FunctionJavaScriptUDFInputArrayOutput) ToFunctionJavaScriptUDFInputArrayOutput() FunctionJavaScriptUDFInputArrayOutput {
+func (o FunctionJavaScriptUDFInputTypeArrayOutput) ToFunctionJavaScriptUDFInputTypeArrayOutput() FunctionJavaScriptUDFInputTypeArrayOutput {
 	return o
 }
 
-func (o FunctionJavaScriptUDFInputArrayOutput) ToFunctionJavaScriptUDFInputArrayOutputWithContext(ctx context.Context) FunctionJavaScriptUDFInputArrayOutput {
+func (o FunctionJavaScriptUDFInputTypeArrayOutput) ToFunctionJavaScriptUDFInputTypeArrayOutputWithContext(ctx context.Context) FunctionJavaScriptUDFInputTypeArrayOutput {
 	return o
 }
 
-func (o FunctionJavaScriptUDFInputArrayOutput) Index(i pulumi.IntInput) FunctionJavaScriptUDFInputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionJavaScriptUDFInput {
-		return vs[0].([]FunctionJavaScriptUDFInput)[vs[1].(int)]
-	}).(FunctionJavaScriptUDFInputOutput)
+func (o FunctionJavaScriptUDFInputTypeArrayOutput) Index(i pulumi.IntInput) FunctionJavaScriptUDFInputTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionJavaScriptUDFInputType {
+		return vs[0].([]FunctionJavaScriptUDFInputType)[vs[1].(int)]
+	}).(FunctionJavaScriptUDFInputTypeOutput)
 }
 
-type FunctionJavaScriptUDFOutput struct {
+type FunctionJavaScriptUDFOutputType struct {
 	// The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
 	Type string `pulumi:"type"`
 }
 
-// FunctionJavaScriptUDFOutputInput is an input type that accepts FunctionJavaScriptUDFOutputArgs and FunctionJavaScriptUDFOutputOutput values.
-// You can construct a concrete instance of `FunctionJavaScriptUDFOutputInput` via:
+// FunctionJavaScriptUDFOutputTypeInput is an input type that accepts FunctionJavaScriptUDFOutputTypeArgs and FunctionJavaScriptUDFOutputTypeOutput values.
+// You can construct a concrete instance of `FunctionJavaScriptUDFOutputTypeInput` via:
 //
-//          FunctionJavaScriptUDFOutputArgs{...}
-type FunctionJavaScriptUDFOutputInput interface {
+//          FunctionJavaScriptUDFOutputTypeArgs{...}
+type FunctionJavaScriptUDFOutputTypeInput interface {
 	pulumi.Input
 
-	ToFunctionJavaScriptUDFOutputOutput() FunctionJavaScriptUDFOutputOutput
-	ToFunctionJavaScriptUDFOutputOutputWithContext(context.Context) FunctionJavaScriptUDFOutputOutput
+	ToFunctionJavaScriptUDFOutputTypeOutput() FunctionJavaScriptUDFOutputTypeOutput
+	ToFunctionJavaScriptUDFOutputTypeOutputWithContext(context.Context) FunctionJavaScriptUDFOutputTypeOutput
 }
 
-type FunctionJavaScriptUDFOutputArgs struct {
+type FunctionJavaScriptUDFOutputTypeArgs struct {
 	// The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (FunctionJavaScriptUDFOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionJavaScriptUDFOutput)(nil)).Elem()
+func (FunctionJavaScriptUDFOutputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionJavaScriptUDFOutputType)(nil)).Elem()
 }
 
-func (i FunctionJavaScriptUDFOutputArgs) ToFunctionJavaScriptUDFOutputOutput() FunctionJavaScriptUDFOutputOutput {
-	return i.ToFunctionJavaScriptUDFOutputOutputWithContext(context.Background())
+func (i FunctionJavaScriptUDFOutputTypeArgs) ToFunctionJavaScriptUDFOutputTypeOutput() FunctionJavaScriptUDFOutputTypeOutput {
+	return i.ToFunctionJavaScriptUDFOutputTypeOutputWithContext(context.Background())
 }
 
-func (i FunctionJavaScriptUDFOutputArgs) ToFunctionJavaScriptUDFOutputOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFOutputOutput)
+func (i FunctionJavaScriptUDFOutputTypeArgs) ToFunctionJavaScriptUDFOutputTypeOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFOutputTypeOutput)
 }
 
-func (i FunctionJavaScriptUDFOutputArgs) ToFunctionJavaScriptUDFOutputPtrOutput() FunctionJavaScriptUDFOutputPtrOutput {
-	return i.ToFunctionJavaScriptUDFOutputPtrOutputWithContext(context.Background())
+func (i FunctionJavaScriptUDFOutputTypeArgs) ToFunctionJavaScriptUDFOutputTypePtrOutput() FunctionJavaScriptUDFOutputTypePtrOutput {
+	return i.ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(context.Background())
 }
 
-func (i FunctionJavaScriptUDFOutputArgs) ToFunctionJavaScriptUDFOutputPtrOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFOutputOutput).ToFunctionJavaScriptUDFOutputPtrOutputWithContext(ctx)
+func (i FunctionJavaScriptUDFOutputTypeArgs) ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFOutputTypeOutput).ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(ctx)
 }
 
-// FunctionJavaScriptUDFOutputPtrInput is an input type that accepts FunctionJavaScriptUDFOutputArgs, FunctionJavaScriptUDFOutputPtr and FunctionJavaScriptUDFOutputPtrOutput values.
-// You can construct a concrete instance of `FunctionJavaScriptUDFOutputPtrInput` via:
+// FunctionJavaScriptUDFOutputTypePtrInput is an input type that accepts FunctionJavaScriptUDFOutputTypeArgs, FunctionJavaScriptUDFOutputTypePtr and FunctionJavaScriptUDFOutputTypePtrOutput values.
+// You can construct a concrete instance of `FunctionJavaScriptUDFOutputTypePtrInput` via:
 //
-//          FunctionJavaScriptUDFOutputArgs{...}
+//          FunctionJavaScriptUDFOutputTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type FunctionJavaScriptUDFOutputPtrInput interface {
+type FunctionJavaScriptUDFOutputTypePtrInput interface {
 	pulumi.Input
 
-	ToFunctionJavaScriptUDFOutputPtrOutput() FunctionJavaScriptUDFOutputPtrOutput
-	ToFunctionJavaScriptUDFOutputPtrOutputWithContext(context.Context) FunctionJavaScriptUDFOutputPtrOutput
+	ToFunctionJavaScriptUDFOutputTypePtrOutput() FunctionJavaScriptUDFOutputTypePtrOutput
+	ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(context.Context) FunctionJavaScriptUDFOutputTypePtrOutput
 }
 
-type functionJavaScriptUDFOutputPtrType FunctionJavaScriptUDFOutputArgs
+type functionJavaScriptUDFOutputTypePtrType FunctionJavaScriptUDFOutputTypeArgs
 
-func FunctionJavaScriptUDFOutputPtr(v *FunctionJavaScriptUDFOutputArgs) FunctionJavaScriptUDFOutputPtrInput {
-	return (*functionJavaScriptUDFOutputPtrType)(v)
+func FunctionJavaScriptUDFOutputTypePtr(v *FunctionJavaScriptUDFOutputTypeArgs) FunctionJavaScriptUDFOutputTypePtrInput {
+	return (*functionJavaScriptUDFOutputTypePtrType)(v)
 }
 
-func (*functionJavaScriptUDFOutputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionJavaScriptUDFOutput)(nil)).Elem()
+func (*functionJavaScriptUDFOutputTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionJavaScriptUDFOutputType)(nil)).Elem()
 }
 
-func (i *functionJavaScriptUDFOutputPtrType) ToFunctionJavaScriptUDFOutputPtrOutput() FunctionJavaScriptUDFOutputPtrOutput {
-	return i.ToFunctionJavaScriptUDFOutputPtrOutputWithContext(context.Background())
+func (i *functionJavaScriptUDFOutputTypePtrType) ToFunctionJavaScriptUDFOutputTypePtrOutput() FunctionJavaScriptUDFOutputTypePtrOutput {
+	return i.ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(context.Background())
 }
 
-func (i *functionJavaScriptUDFOutputPtrType) ToFunctionJavaScriptUDFOutputPtrOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFOutputPtrOutput)
+func (i *functionJavaScriptUDFOutputTypePtrType) ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFOutputTypePtrOutput)
 }
 
-type FunctionJavaScriptUDFOutputOutput struct{ *pulumi.OutputState }
+type FunctionJavaScriptUDFOutputTypeOutput struct{ *pulumi.OutputState }
 
-func (FunctionJavaScriptUDFOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionJavaScriptUDFOutput)(nil)).Elem()
+func (FunctionJavaScriptUDFOutputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionJavaScriptUDFOutputType)(nil)).Elem()
 }
 
-func (o FunctionJavaScriptUDFOutputOutput) ToFunctionJavaScriptUDFOutputOutput() FunctionJavaScriptUDFOutputOutput {
+func (o FunctionJavaScriptUDFOutputTypeOutput) ToFunctionJavaScriptUDFOutputTypeOutput() FunctionJavaScriptUDFOutputTypeOutput {
 	return o
 }
 
-func (o FunctionJavaScriptUDFOutputOutput) ToFunctionJavaScriptUDFOutputOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputOutput {
+func (o FunctionJavaScriptUDFOutputTypeOutput) ToFunctionJavaScriptUDFOutputTypeOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputTypeOutput {
 	return o
 }
 
-func (o FunctionJavaScriptUDFOutputOutput) ToFunctionJavaScriptUDFOutputPtrOutput() FunctionJavaScriptUDFOutputPtrOutput {
-	return o.ToFunctionJavaScriptUDFOutputPtrOutputWithContext(context.Background())
+func (o FunctionJavaScriptUDFOutputTypeOutput) ToFunctionJavaScriptUDFOutputTypePtrOutput() FunctionJavaScriptUDFOutputTypePtrOutput {
+	return o.ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(context.Background())
 }
 
-func (o FunctionJavaScriptUDFOutputOutput) ToFunctionJavaScriptUDFOutputPtrOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputPtrOutput {
-	return o.ApplyT(func(v FunctionJavaScriptUDFOutput) *FunctionJavaScriptUDFOutput {
+func (o FunctionJavaScriptUDFOutputTypeOutput) ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputTypePtrOutput {
+	return o.ApplyT(func(v FunctionJavaScriptUDFOutputType) *FunctionJavaScriptUDFOutputType {
 		return &v
-	}).(FunctionJavaScriptUDFOutputPtrOutput)
+	}).(FunctionJavaScriptUDFOutputTypePtrOutput)
 }
 
 // The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
-func (o FunctionJavaScriptUDFOutputOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FunctionJavaScriptUDFOutput) string { return v.Type }).(pulumi.StringOutput)
+func (o FunctionJavaScriptUDFOutputTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionJavaScriptUDFOutputType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type FunctionJavaScriptUDFOutputPtrOutput struct{ *pulumi.OutputState }
+type FunctionJavaScriptUDFOutputTypePtrOutput struct{ *pulumi.OutputState }
 
-func (FunctionJavaScriptUDFOutputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionJavaScriptUDFOutput)(nil)).Elem()
+func (FunctionJavaScriptUDFOutputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionJavaScriptUDFOutputType)(nil)).Elem()
 }
 
-func (o FunctionJavaScriptUDFOutputPtrOutput) ToFunctionJavaScriptUDFOutputPtrOutput() FunctionJavaScriptUDFOutputPtrOutput {
+func (o FunctionJavaScriptUDFOutputTypePtrOutput) ToFunctionJavaScriptUDFOutputTypePtrOutput() FunctionJavaScriptUDFOutputTypePtrOutput {
 	return o
 }
 
-func (o FunctionJavaScriptUDFOutputPtrOutput) ToFunctionJavaScriptUDFOutputPtrOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputPtrOutput {
+func (o FunctionJavaScriptUDFOutputTypePtrOutput) ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputTypePtrOutput {
 	return o
 }
 
-func (o FunctionJavaScriptUDFOutputPtrOutput) Elem() FunctionJavaScriptUDFOutputOutput {
-	return o.ApplyT(func(v *FunctionJavaScriptUDFOutput) FunctionJavaScriptUDFOutput { return *v }).(FunctionJavaScriptUDFOutputOutput)
+func (o FunctionJavaScriptUDFOutputTypePtrOutput) Elem() FunctionJavaScriptUDFOutputTypeOutput {
+	return o.ApplyT(func(v *FunctionJavaScriptUDFOutputType) FunctionJavaScriptUDFOutputType { return *v }).(FunctionJavaScriptUDFOutputTypeOutput)
 }
 
 // The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
-func (o FunctionJavaScriptUDFOutputPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FunctionJavaScriptUDFOutput) *string {
+func (o FunctionJavaScriptUDFOutputTypePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionJavaScriptUDFOutputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -1667,10 +1667,10 @@ func (o StreamInputIotHubSerializationPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(FunctionJavaScriptUDFInputOutput{})
-	pulumi.RegisterOutputType(FunctionJavaScriptUDFInputArrayOutput{})
-	pulumi.RegisterOutputType(FunctionJavaScriptUDFOutputOutput{})
-	pulumi.RegisterOutputType(FunctionJavaScriptUDFOutputPtrOutput{})
+	pulumi.RegisterOutputType(FunctionJavaScriptUDFInputTypeOutput{})
+	pulumi.RegisterOutputType(FunctionJavaScriptUDFInputTypeArrayOutput{})
+	pulumi.RegisterOutputType(FunctionJavaScriptUDFOutputTypeOutput{})
+	pulumi.RegisterOutputType(FunctionJavaScriptUDFOutputTypePtrOutput{})
 	pulumi.RegisterOutputType(OutputBlobSerializationOutput{})
 	pulumi.RegisterOutputType(OutputBlobSerializationPtrOutput{})
 	pulumi.RegisterOutputType(OutputEventHubSerializationOutput{})

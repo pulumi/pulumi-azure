@@ -94,7 +94,8 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
     constructor(name: string, args: UserAssignedIdentityArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserAssignedIdentityArgs | UserAssignedIdentityState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as UserAssignedIdentityState | undefined;
             inputs["clientId"] = state ? state.clientId : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -104,7 +105,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as UserAssignedIdentityArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -114,15 +115,11 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
             inputs["clientId"] = undefined /*out*/;
             inputs["principalId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure:msi/userAssignedIdentity:UserAssignedIdentity" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(UserAssignedIdentity.__pulumiType, name, inputs, opts);
     }
 }

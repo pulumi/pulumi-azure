@@ -95,7 +95,8 @@ export class ConsumerGroup extends pulumi.CustomResource {
     constructor(name: string, args: ConsumerGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConsumerGroupArgs | ConsumerGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ConsumerGroupState | undefined;
             inputs["eventhubEndpointName"] = state ? state.eventhubEndpointName : undefined;
             inputs["iothubName"] = state ? state.iothubName : undefined;
@@ -103,13 +104,13 @@ export class ConsumerGroup extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ConsumerGroupArgs | undefined;
-            if ((!args || args.eventhubEndpointName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.eventhubEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventhubEndpointName'");
             }
-            if ((!args || args.iothubName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.iothubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iothubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["eventhubEndpointName"] = args ? args.eventhubEndpointName : undefined;
@@ -117,12 +118,8 @@ export class ConsumerGroup extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ConsumerGroup.__pulumiType, name, inputs, opts);
     }

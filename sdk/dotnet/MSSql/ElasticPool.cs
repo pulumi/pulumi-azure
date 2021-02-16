@@ -67,6 +67,7 @@ namespace Pulumi.Azure.MSSql
     ///  $ pulumi import azure:mssql/elasticPool:ElasticPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/elasticPools/myelasticpoolname
     /// ```
     /// </summary>
+    [AzureResourceType("azure:mssql/elasticPool:ElasticPool")]
     public partial class ElasticPool : Pulumi.CustomResource
     {
         /// <summary>

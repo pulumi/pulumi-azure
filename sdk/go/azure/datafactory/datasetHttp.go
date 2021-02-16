@@ -271,16 +271,95 @@ type DatasetHttpInput interface {
 	ToDatasetHttpOutputWithContext(ctx context.Context) DatasetHttpOutput
 }
 
-func (DatasetHttp) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetHttp)(nil)).Elem()
+func (*DatasetHttp) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetHttp)(nil))
 }
 
-func (i DatasetHttp) ToDatasetHttpOutput() DatasetHttpOutput {
+func (i *DatasetHttp) ToDatasetHttpOutput() DatasetHttpOutput {
 	return i.ToDatasetHttpOutputWithContext(context.Background())
 }
 
-func (i DatasetHttp) ToDatasetHttpOutputWithContext(ctx context.Context) DatasetHttpOutput {
+func (i *DatasetHttp) ToDatasetHttpOutputWithContext(ctx context.Context) DatasetHttpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetHttpOutput)
+}
+
+func (i *DatasetHttp) ToDatasetHttpPtrOutput() DatasetHttpPtrOutput {
+	return i.ToDatasetHttpPtrOutputWithContext(context.Background())
+}
+
+func (i *DatasetHttp) ToDatasetHttpPtrOutputWithContext(ctx context.Context) DatasetHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetHttpPtrOutput)
+}
+
+type DatasetHttpPtrInput interface {
+	pulumi.Input
+
+	ToDatasetHttpPtrOutput() DatasetHttpPtrOutput
+	ToDatasetHttpPtrOutputWithContext(ctx context.Context) DatasetHttpPtrOutput
+}
+
+type datasetHttpPtrType DatasetHttpArgs
+
+func (*datasetHttpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetHttp)(nil))
+}
+
+func (i *datasetHttpPtrType) ToDatasetHttpPtrOutput() DatasetHttpPtrOutput {
+	return i.ToDatasetHttpPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetHttpPtrType) ToDatasetHttpPtrOutputWithContext(ctx context.Context) DatasetHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetHttpPtrOutput)
+}
+
+// DatasetHttpArrayInput is an input type that accepts DatasetHttpArray and DatasetHttpArrayOutput values.
+// You can construct a concrete instance of `DatasetHttpArrayInput` via:
+//
+//          DatasetHttpArray{ DatasetHttpArgs{...} }
+type DatasetHttpArrayInput interface {
+	pulumi.Input
+
+	ToDatasetHttpArrayOutput() DatasetHttpArrayOutput
+	ToDatasetHttpArrayOutputWithContext(context.Context) DatasetHttpArrayOutput
+}
+
+type DatasetHttpArray []DatasetHttpInput
+
+func (DatasetHttpArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DatasetHttp)(nil))
+}
+
+func (i DatasetHttpArray) ToDatasetHttpArrayOutput() DatasetHttpArrayOutput {
+	return i.ToDatasetHttpArrayOutputWithContext(context.Background())
+}
+
+func (i DatasetHttpArray) ToDatasetHttpArrayOutputWithContext(ctx context.Context) DatasetHttpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetHttpArrayOutput)
+}
+
+// DatasetHttpMapInput is an input type that accepts DatasetHttpMap and DatasetHttpMapOutput values.
+// You can construct a concrete instance of `DatasetHttpMapInput` via:
+//
+//          DatasetHttpMap{ "key": DatasetHttpArgs{...} }
+type DatasetHttpMapInput interface {
+	pulumi.Input
+
+	ToDatasetHttpMapOutput() DatasetHttpMapOutput
+	ToDatasetHttpMapOutputWithContext(context.Context) DatasetHttpMapOutput
+}
+
+type DatasetHttpMap map[string]DatasetHttpInput
+
+func (DatasetHttpMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DatasetHttp)(nil))
+}
+
+func (i DatasetHttpMap) ToDatasetHttpMapOutput() DatasetHttpMapOutput {
+	return i.ToDatasetHttpMapOutputWithContext(context.Background())
+}
+
+func (i DatasetHttpMap) ToDatasetHttpMapOutputWithContext(ctx context.Context) DatasetHttpMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetHttpMapOutput)
 }
 
 type DatasetHttpOutput struct {
@@ -288,7 +367,7 @@ type DatasetHttpOutput struct {
 }
 
 func (DatasetHttpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetHttpOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatasetHttp)(nil))
 }
 
 func (o DatasetHttpOutput) ToDatasetHttpOutput() DatasetHttpOutput {
@@ -299,6 +378,75 @@ func (o DatasetHttpOutput) ToDatasetHttpOutputWithContext(ctx context.Context) D
 	return o
 }
 
+func (o DatasetHttpOutput) ToDatasetHttpPtrOutput() DatasetHttpPtrOutput {
+	return o.ToDatasetHttpPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetHttpOutput) ToDatasetHttpPtrOutputWithContext(ctx context.Context) DatasetHttpPtrOutput {
+	return o.ApplyT(func(v DatasetHttp) *DatasetHttp {
+		return &v
+	}).(DatasetHttpPtrOutput)
+}
+
+type DatasetHttpPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatasetHttpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetHttp)(nil))
+}
+
+func (o DatasetHttpPtrOutput) ToDatasetHttpPtrOutput() DatasetHttpPtrOutput {
+	return o
+}
+
+func (o DatasetHttpPtrOutput) ToDatasetHttpPtrOutputWithContext(ctx context.Context) DatasetHttpPtrOutput {
+	return o
+}
+
+type DatasetHttpArrayOutput struct{ *pulumi.OutputState }
+
+func (DatasetHttpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetHttp)(nil))
+}
+
+func (o DatasetHttpArrayOutput) ToDatasetHttpArrayOutput() DatasetHttpArrayOutput {
+	return o
+}
+
+func (o DatasetHttpArrayOutput) ToDatasetHttpArrayOutputWithContext(ctx context.Context) DatasetHttpArrayOutput {
+	return o
+}
+
+func (o DatasetHttpArrayOutput) Index(i pulumi.IntInput) DatasetHttpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetHttp {
+		return vs[0].([]DatasetHttp)[vs[1].(int)]
+	}).(DatasetHttpOutput)
+}
+
+type DatasetHttpMapOutput struct{ *pulumi.OutputState }
+
+func (DatasetHttpMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DatasetHttp)(nil))
+}
+
+func (o DatasetHttpMapOutput) ToDatasetHttpMapOutput() DatasetHttpMapOutput {
+	return o
+}
+
+func (o DatasetHttpMapOutput) ToDatasetHttpMapOutputWithContext(ctx context.Context) DatasetHttpMapOutput {
+	return o
+}
+
+func (o DatasetHttpMapOutput) MapIndex(k pulumi.StringInput) DatasetHttpOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatasetHttp {
+		return vs[0].(map[string]DatasetHttp)[vs[1].(string)]
+	}).(DatasetHttpOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatasetHttpOutput{})
+	pulumi.RegisterOutputType(DatasetHttpPtrOutput{})
+	pulumi.RegisterOutputType(DatasetHttpArrayOutput{})
+	pulumi.RegisterOutputType(DatasetHttpMapOutput{})
 }

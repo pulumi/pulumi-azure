@@ -93,6 +93,7 @@ namespace Pulumi.Azure.Iot
     ///  $ pulumi import azure:iot/fallbackRoute:FallbackRoute route1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/FallbackRoute/default
     /// ```
     /// </summary>
+    [AzureResourceType("azure:iot/fallbackRoute:FallbackRoute")]
     public partial class FallbackRoute : Pulumi.CustomResource
     {
         /// <summary>

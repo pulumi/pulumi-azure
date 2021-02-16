@@ -265,7 +265,8 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     constructor(name: string, args: LinuxVirtualMachineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LinuxVirtualMachineArgs | LinuxVirtualMachineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LinuxVirtualMachineState | undefined;
             inputs["additionalCapabilities"] = state ? state.additionalCapabilities : undefined;
             inputs["adminPassword"] = state ? state.adminPassword : undefined;
@@ -306,19 +307,19 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["zone"] = state ? state.zone : undefined;
         } else {
             const args = argsOrState as LinuxVirtualMachineArgs | undefined;
-            if ((!args || args.adminUsername === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.adminUsername === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'adminUsername'");
             }
-            if ((!args || args.networkInterfaceIds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.networkInterfaceIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceIds'");
             }
-            if ((!args || args.osDisk === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.osDisk === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'osDisk'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.size === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.size === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'size'");
             }
             inputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
@@ -359,12 +360,8 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["publicIpAddresses"] = undefined /*out*/;
             inputs["virtualMachineId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LinuxVirtualMachine.__pulumiType, name, inputs, opts);
     }

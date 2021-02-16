@@ -204,16 +204,95 @@ type LabInput interface {
 	ToLabOutputWithContext(ctx context.Context) LabOutput
 }
 
-func (Lab) ElementType() reflect.Type {
-	return reflect.TypeOf((*Lab)(nil)).Elem()
+func (*Lab) ElementType() reflect.Type {
+	return reflect.TypeOf((*Lab)(nil))
 }
 
-func (i Lab) ToLabOutput() LabOutput {
+func (i *Lab) ToLabOutput() LabOutput {
 	return i.ToLabOutputWithContext(context.Background())
 }
 
-func (i Lab) ToLabOutputWithContext(ctx context.Context) LabOutput {
+func (i *Lab) ToLabOutputWithContext(ctx context.Context) LabOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LabOutput)
+}
+
+func (i *Lab) ToLabPtrOutput() LabPtrOutput {
+	return i.ToLabPtrOutputWithContext(context.Background())
+}
+
+func (i *Lab) ToLabPtrOutputWithContext(ctx context.Context) LabPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabPtrOutput)
+}
+
+type LabPtrInput interface {
+	pulumi.Input
+
+	ToLabPtrOutput() LabPtrOutput
+	ToLabPtrOutputWithContext(ctx context.Context) LabPtrOutput
+}
+
+type labPtrType LabArgs
+
+func (*labPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Lab)(nil))
+}
+
+func (i *labPtrType) ToLabPtrOutput() LabPtrOutput {
+	return i.ToLabPtrOutputWithContext(context.Background())
+}
+
+func (i *labPtrType) ToLabPtrOutputWithContext(ctx context.Context) LabPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabPtrOutput)
+}
+
+// LabArrayInput is an input type that accepts LabArray and LabArrayOutput values.
+// You can construct a concrete instance of `LabArrayInput` via:
+//
+//          LabArray{ LabArgs{...} }
+type LabArrayInput interface {
+	pulumi.Input
+
+	ToLabArrayOutput() LabArrayOutput
+	ToLabArrayOutputWithContext(context.Context) LabArrayOutput
+}
+
+type LabArray []LabInput
+
+func (LabArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Lab)(nil))
+}
+
+func (i LabArray) ToLabArrayOutput() LabArrayOutput {
+	return i.ToLabArrayOutputWithContext(context.Background())
+}
+
+func (i LabArray) ToLabArrayOutputWithContext(ctx context.Context) LabArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabArrayOutput)
+}
+
+// LabMapInput is an input type that accepts LabMap and LabMapOutput values.
+// You can construct a concrete instance of `LabMapInput` via:
+//
+//          LabMap{ "key": LabArgs{...} }
+type LabMapInput interface {
+	pulumi.Input
+
+	ToLabMapOutput() LabMapOutput
+	ToLabMapOutputWithContext(context.Context) LabMapOutput
+}
+
+type LabMap map[string]LabInput
+
+func (LabMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Lab)(nil))
+}
+
+func (i LabMap) ToLabMapOutput() LabMapOutput {
+	return i.ToLabMapOutputWithContext(context.Background())
+}
+
+func (i LabMap) ToLabMapOutputWithContext(ctx context.Context) LabMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabMapOutput)
 }
 
 type LabOutput struct {
@@ -221,7 +300,7 @@ type LabOutput struct {
 }
 
 func (LabOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabOutput)(nil)).Elem()
+	return reflect.TypeOf((*Lab)(nil))
 }
 
 func (o LabOutput) ToLabOutput() LabOutput {
@@ -232,6 +311,75 @@ func (o LabOutput) ToLabOutputWithContext(ctx context.Context) LabOutput {
 	return o
 }
 
+func (o LabOutput) ToLabPtrOutput() LabPtrOutput {
+	return o.ToLabPtrOutputWithContext(context.Background())
+}
+
+func (o LabOutput) ToLabPtrOutputWithContext(ctx context.Context) LabPtrOutput {
+	return o.ApplyT(func(v Lab) *Lab {
+		return &v
+	}).(LabPtrOutput)
+}
+
+type LabPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LabPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Lab)(nil))
+}
+
+func (o LabPtrOutput) ToLabPtrOutput() LabPtrOutput {
+	return o
+}
+
+func (o LabPtrOutput) ToLabPtrOutputWithContext(ctx context.Context) LabPtrOutput {
+	return o
+}
+
+type LabArrayOutput struct{ *pulumi.OutputState }
+
+func (LabArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Lab)(nil))
+}
+
+func (o LabArrayOutput) ToLabArrayOutput() LabArrayOutput {
+	return o
+}
+
+func (o LabArrayOutput) ToLabArrayOutputWithContext(ctx context.Context) LabArrayOutput {
+	return o
+}
+
+func (o LabArrayOutput) Index(i pulumi.IntInput) LabOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Lab {
+		return vs[0].([]Lab)[vs[1].(int)]
+	}).(LabOutput)
+}
+
+type LabMapOutput struct{ *pulumi.OutputState }
+
+func (LabMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Lab)(nil))
+}
+
+func (o LabMapOutput) ToLabMapOutput() LabMapOutput {
+	return o
+}
+
+func (o LabMapOutput) ToLabMapOutputWithContext(ctx context.Context) LabMapOutput {
+	return o
+}
+
+func (o LabMapOutput) MapIndex(k pulumi.StringInput) LabOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Lab {
+		return vs[0].(map[string]Lab)[vs[1].(string)]
+	}).(LabOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LabOutput{})
+	pulumi.RegisterOutputType(LabPtrOutput{})
+	pulumi.RegisterOutputType(LabArrayOutput{})
+	pulumi.RegisterOutputType(LabMapOutput{})
 }

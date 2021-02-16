@@ -208,16 +208,95 @@ type TxtRecordInput interface {
 	ToTxtRecordOutputWithContext(ctx context.Context) TxtRecordOutput
 }
 
-func (TxtRecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*TxtRecord)(nil)).Elem()
+func (*TxtRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*TxtRecord)(nil))
 }
 
-func (i TxtRecord) ToTxtRecordOutput() TxtRecordOutput {
+func (i *TxtRecord) ToTxtRecordOutput() TxtRecordOutput {
 	return i.ToTxtRecordOutputWithContext(context.Background())
 }
 
-func (i TxtRecord) ToTxtRecordOutputWithContext(ctx context.Context) TxtRecordOutput {
+func (i *TxtRecord) ToTxtRecordOutputWithContext(ctx context.Context) TxtRecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordOutput)
+}
+
+func (i *TxtRecord) ToTxtRecordPtrOutput() TxtRecordPtrOutput {
+	return i.ToTxtRecordPtrOutputWithContext(context.Background())
+}
+
+func (i *TxtRecord) ToTxtRecordPtrOutputWithContext(ctx context.Context) TxtRecordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordPtrOutput)
+}
+
+type TxtRecordPtrInput interface {
+	pulumi.Input
+
+	ToTxtRecordPtrOutput() TxtRecordPtrOutput
+	ToTxtRecordPtrOutputWithContext(ctx context.Context) TxtRecordPtrOutput
+}
+
+type txtRecordPtrType TxtRecordArgs
+
+func (*txtRecordPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TxtRecord)(nil))
+}
+
+func (i *txtRecordPtrType) ToTxtRecordPtrOutput() TxtRecordPtrOutput {
+	return i.ToTxtRecordPtrOutputWithContext(context.Background())
+}
+
+func (i *txtRecordPtrType) ToTxtRecordPtrOutputWithContext(ctx context.Context) TxtRecordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordPtrOutput)
+}
+
+// TxtRecordArrayInput is an input type that accepts TxtRecordArray and TxtRecordArrayOutput values.
+// You can construct a concrete instance of `TxtRecordArrayInput` via:
+//
+//          TxtRecordArray{ TxtRecordArgs{...} }
+type TxtRecordArrayInput interface {
+	pulumi.Input
+
+	ToTxtRecordArrayOutput() TxtRecordArrayOutput
+	ToTxtRecordArrayOutputWithContext(context.Context) TxtRecordArrayOutput
+}
+
+type TxtRecordArray []TxtRecordInput
+
+func (TxtRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*TxtRecord)(nil))
+}
+
+func (i TxtRecordArray) ToTxtRecordArrayOutput() TxtRecordArrayOutput {
+	return i.ToTxtRecordArrayOutputWithContext(context.Background())
+}
+
+func (i TxtRecordArray) ToTxtRecordArrayOutputWithContext(ctx context.Context) TxtRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordArrayOutput)
+}
+
+// TxtRecordMapInput is an input type that accepts TxtRecordMap and TxtRecordMapOutput values.
+// You can construct a concrete instance of `TxtRecordMapInput` via:
+//
+//          TxtRecordMap{ "key": TxtRecordArgs{...} }
+type TxtRecordMapInput interface {
+	pulumi.Input
+
+	ToTxtRecordMapOutput() TxtRecordMapOutput
+	ToTxtRecordMapOutputWithContext(context.Context) TxtRecordMapOutput
+}
+
+type TxtRecordMap map[string]TxtRecordInput
+
+func (TxtRecordMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*TxtRecord)(nil))
+}
+
+func (i TxtRecordMap) ToTxtRecordMapOutput() TxtRecordMapOutput {
+	return i.ToTxtRecordMapOutputWithContext(context.Background())
+}
+
+func (i TxtRecordMap) ToTxtRecordMapOutputWithContext(ctx context.Context) TxtRecordMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordMapOutput)
 }
 
 type TxtRecordOutput struct {
@@ -225,7 +304,7 @@ type TxtRecordOutput struct {
 }
 
 func (TxtRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TxtRecordOutput)(nil)).Elem()
+	return reflect.TypeOf((*TxtRecord)(nil))
 }
 
 func (o TxtRecordOutput) ToTxtRecordOutput() TxtRecordOutput {
@@ -236,6 +315,75 @@ func (o TxtRecordOutput) ToTxtRecordOutputWithContext(ctx context.Context) TxtRe
 	return o
 }
 
+func (o TxtRecordOutput) ToTxtRecordPtrOutput() TxtRecordPtrOutput {
+	return o.ToTxtRecordPtrOutputWithContext(context.Background())
+}
+
+func (o TxtRecordOutput) ToTxtRecordPtrOutputWithContext(ctx context.Context) TxtRecordPtrOutput {
+	return o.ApplyT(func(v TxtRecord) *TxtRecord {
+		return &v
+	}).(TxtRecordPtrOutput)
+}
+
+type TxtRecordPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TxtRecordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TxtRecord)(nil))
+}
+
+func (o TxtRecordPtrOutput) ToTxtRecordPtrOutput() TxtRecordPtrOutput {
+	return o
+}
+
+func (o TxtRecordPtrOutput) ToTxtRecordPtrOutputWithContext(ctx context.Context) TxtRecordPtrOutput {
+	return o
+}
+
+type TxtRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (TxtRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TxtRecord)(nil))
+}
+
+func (o TxtRecordArrayOutput) ToTxtRecordArrayOutput() TxtRecordArrayOutput {
+	return o
+}
+
+func (o TxtRecordArrayOutput) ToTxtRecordArrayOutputWithContext(ctx context.Context) TxtRecordArrayOutput {
+	return o
+}
+
+func (o TxtRecordArrayOutput) Index(i pulumi.IntInput) TxtRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TxtRecord {
+		return vs[0].([]TxtRecord)[vs[1].(int)]
+	}).(TxtRecordOutput)
+}
+
+type TxtRecordMapOutput struct{ *pulumi.OutputState }
+
+func (TxtRecordMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TxtRecord)(nil))
+}
+
+func (o TxtRecordMapOutput) ToTxtRecordMapOutput() TxtRecordMapOutput {
+	return o
+}
+
+func (o TxtRecordMapOutput) ToTxtRecordMapOutputWithContext(ctx context.Context) TxtRecordMapOutput {
+	return o
+}
+
+func (o TxtRecordMapOutput) MapIndex(k pulumi.StringInput) TxtRecordOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TxtRecord {
+		return vs[0].(map[string]TxtRecord)[vs[1].(string)]
+	}).(TxtRecordOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TxtRecordOutput{})
+	pulumi.RegisterOutputType(TxtRecordPtrOutput{})
+	pulumi.RegisterOutputType(TxtRecordArrayOutput{})
+	pulumi.RegisterOutputType(TxtRecordMapOutput{})
 }

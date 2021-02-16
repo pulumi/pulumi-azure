@@ -195,16 +195,95 @@ type ResourceGroupTemplateDeploymentInput interface {
 	ToResourceGroupTemplateDeploymentOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentOutput
 }
 
-func (ResourceGroupTemplateDeployment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceGroupTemplateDeployment)(nil)).Elem()
+func (*ResourceGroupTemplateDeployment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupTemplateDeployment)(nil))
 }
 
-func (i ResourceGroupTemplateDeployment) ToResourceGroupTemplateDeploymentOutput() ResourceGroupTemplateDeploymentOutput {
+func (i *ResourceGroupTemplateDeployment) ToResourceGroupTemplateDeploymentOutput() ResourceGroupTemplateDeploymentOutput {
 	return i.ToResourceGroupTemplateDeploymentOutputWithContext(context.Background())
 }
 
-func (i ResourceGroupTemplateDeployment) ToResourceGroupTemplateDeploymentOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentOutput {
+func (i *ResourceGroupTemplateDeployment) ToResourceGroupTemplateDeploymentOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupTemplateDeploymentOutput)
+}
+
+func (i *ResourceGroupTemplateDeployment) ToResourceGroupTemplateDeploymentPtrOutput() ResourceGroupTemplateDeploymentPtrOutput {
+	return i.ToResourceGroupTemplateDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (i *ResourceGroupTemplateDeployment) ToResourceGroupTemplateDeploymentPtrOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupTemplateDeploymentPtrOutput)
+}
+
+type ResourceGroupTemplateDeploymentPtrInput interface {
+	pulumi.Input
+
+	ToResourceGroupTemplateDeploymentPtrOutput() ResourceGroupTemplateDeploymentPtrOutput
+	ToResourceGroupTemplateDeploymentPtrOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentPtrOutput
+}
+
+type resourceGroupTemplateDeploymentPtrType ResourceGroupTemplateDeploymentArgs
+
+func (*resourceGroupTemplateDeploymentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceGroupTemplateDeployment)(nil))
+}
+
+func (i *resourceGroupTemplateDeploymentPtrType) ToResourceGroupTemplateDeploymentPtrOutput() ResourceGroupTemplateDeploymentPtrOutput {
+	return i.ToResourceGroupTemplateDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceGroupTemplateDeploymentPtrType) ToResourceGroupTemplateDeploymentPtrOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupTemplateDeploymentPtrOutput)
+}
+
+// ResourceGroupTemplateDeploymentArrayInput is an input type that accepts ResourceGroupTemplateDeploymentArray and ResourceGroupTemplateDeploymentArrayOutput values.
+// You can construct a concrete instance of `ResourceGroupTemplateDeploymentArrayInput` via:
+//
+//          ResourceGroupTemplateDeploymentArray{ ResourceGroupTemplateDeploymentArgs{...} }
+type ResourceGroupTemplateDeploymentArrayInput interface {
+	pulumi.Input
+
+	ToResourceGroupTemplateDeploymentArrayOutput() ResourceGroupTemplateDeploymentArrayOutput
+	ToResourceGroupTemplateDeploymentArrayOutputWithContext(context.Context) ResourceGroupTemplateDeploymentArrayOutput
+}
+
+type ResourceGroupTemplateDeploymentArray []ResourceGroupTemplateDeploymentInput
+
+func (ResourceGroupTemplateDeploymentArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ResourceGroupTemplateDeployment)(nil))
+}
+
+func (i ResourceGroupTemplateDeploymentArray) ToResourceGroupTemplateDeploymentArrayOutput() ResourceGroupTemplateDeploymentArrayOutput {
+	return i.ToResourceGroupTemplateDeploymentArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupTemplateDeploymentArray) ToResourceGroupTemplateDeploymentArrayOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupTemplateDeploymentArrayOutput)
+}
+
+// ResourceGroupTemplateDeploymentMapInput is an input type that accepts ResourceGroupTemplateDeploymentMap and ResourceGroupTemplateDeploymentMapOutput values.
+// You can construct a concrete instance of `ResourceGroupTemplateDeploymentMapInput` via:
+//
+//          ResourceGroupTemplateDeploymentMap{ "key": ResourceGroupTemplateDeploymentArgs{...} }
+type ResourceGroupTemplateDeploymentMapInput interface {
+	pulumi.Input
+
+	ToResourceGroupTemplateDeploymentMapOutput() ResourceGroupTemplateDeploymentMapOutput
+	ToResourceGroupTemplateDeploymentMapOutputWithContext(context.Context) ResourceGroupTemplateDeploymentMapOutput
+}
+
+type ResourceGroupTemplateDeploymentMap map[string]ResourceGroupTemplateDeploymentInput
+
+func (ResourceGroupTemplateDeploymentMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ResourceGroupTemplateDeployment)(nil))
+}
+
+func (i ResourceGroupTemplateDeploymentMap) ToResourceGroupTemplateDeploymentMapOutput() ResourceGroupTemplateDeploymentMapOutput {
+	return i.ToResourceGroupTemplateDeploymentMapOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupTemplateDeploymentMap) ToResourceGroupTemplateDeploymentMapOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupTemplateDeploymentMapOutput)
 }
 
 type ResourceGroupTemplateDeploymentOutput struct {
@@ -212,7 +291,7 @@ type ResourceGroupTemplateDeploymentOutput struct {
 }
 
 func (ResourceGroupTemplateDeploymentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceGroupTemplateDeploymentOutput)(nil)).Elem()
+	return reflect.TypeOf((*ResourceGroupTemplateDeployment)(nil))
 }
 
 func (o ResourceGroupTemplateDeploymentOutput) ToResourceGroupTemplateDeploymentOutput() ResourceGroupTemplateDeploymentOutput {
@@ -223,6 +302,75 @@ func (o ResourceGroupTemplateDeploymentOutput) ToResourceGroupTemplateDeployment
 	return o
 }
 
+func (o ResourceGroupTemplateDeploymentOutput) ToResourceGroupTemplateDeploymentPtrOutput() ResourceGroupTemplateDeploymentPtrOutput {
+	return o.ToResourceGroupTemplateDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceGroupTemplateDeploymentOutput) ToResourceGroupTemplateDeploymentPtrOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentPtrOutput {
+	return o.ApplyT(func(v ResourceGroupTemplateDeployment) *ResourceGroupTemplateDeployment {
+		return &v
+	}).(ResourceGroupTemplateDeploymentPtrOutput)
+}
+
+type ResourceGroupTemplateDeploymentPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResourceGroupTemplateDeploymentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceGroupTemplateDeployment)(nil))
+}
+
+func (o ResourceGroupTemplateDeploymentPtrOutput) ToResourceGroupTemplateDeploymentPtrOutput() ResourceGroupTemplateDeploymentPtrOutput {
+	return o
+}
+
+func (o ResourceGroupTemplateDeploymentPtrOutput) ToResourceGroupTemplateDeploymentPtrOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentPtrOutput {
+	return o
+}
+
+type ResourceGroupTemplateDeploymentArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupTemplateDeploymentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceGroupTemplateDeployment)(nil))
+}
+
+func (o ResourceGroupTemplateDeploymentArrayOutput) ToResourceGroupTemplateDeploymentArrayOutput() ResourceGroupTemplateDeploymentArrayOutput {
+	return o
+}
+
+func (o ResourceGroupTemplateDeploymentArrayOutput) ToResourceGroupTemplateDeploymentArrayOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentArrayOutput {
+	return o
+}
+
+func (o ResourceGroupTemplateDeploymentArrayOutput) Index(i pulumi.IntInput) ResourceGroupTemplateDeploymentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceGroupTemplateDeployment {
+		return vs[0].([]ResourceGroupTemplateDeployment)[vs[1].(int)]
+	}).(ResourceGroupTemplateDeploymentOutput)
+}
+
+type ResourceGroupTemplateDeploymentMapOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupTemplateDeploymentMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ResourceGroupTemplateDeployment)(nil))
+}
+
+func (o ResourceGroupTemplateDeploymentMapOutput) ToResourceGroupTemplateDeploymentMapOutput() ResourceGroupTemplateDeploymentMapOutput {
+	return o
+}
+
+func (o ResourceGroupTemplateDeploymentMapOutput) ToResourceGroupTemplateDeploymentMapOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentMapOutput {
+	return o
+}
+
+func (o ResourceGroupTemplateDeploymentMapOutput) MapIndex(k pulumi.StringInput) ResourceGroupTemplateDeploymentOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResourceGroupTemplateDeployment {
+		return vs[0].(map[string]ResourceGroupTemplateDeployment)[vs[1].(string)]
+	}).(ResourceGroupTemplateDeploymentOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ResourceGroupTemplateDeploymentOutput{})
+	pulumi.RegisterOutputType(ResourceGroupTemplateDeploymentPtrOutput{})
+	pulumi.RegisterOutputType(ResourceGroupTemplateDeploymentArrayOutput{})
+	pulumi.RegisterOutputType(ResourceGroupTemplateDeploymentMapOutput{})
 }

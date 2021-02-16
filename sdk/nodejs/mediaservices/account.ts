@@ -114,7 +114,8 @@ export class Account extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Account is deprecated: azure.mediaservices.Account has been deprecated in favor of azure.media.ServiceAccount")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AccountState | undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -125,10 +126,10 @@ export class Account extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccounts === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccounts === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccounts'");
             }
             inputs["identity"] = args ? args.identity : undefined;
@@ -139,12 +140,8 @@ export class Account extends pulumi.CustomResource {
             inputs["storageAuthenticationType"] = args ? args.storageAuthenticationType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Account.__pulumiType, name, inputs, opts);
     }

@@ -63,6 +63,7 @@ namespace Pulumi.Azure.LogAnalytics
     ///  $ pulumi import azure:loganalytics/dataExportRule:DataExportRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/dataExports/dataExport1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:loganalytics/dataExportRule:DataExportRule")]
     public partial class DataExportRule : Pulumi.CustomResource
     {
         /// <summary>

@@ -184,16 +184,95 @@ type ChannelTeamsInput interface {
 	ToChannelTeamsOutputWithContext(ctx context.Context) ChannelTeamsOutput
 }
 
-func (ChannelTeams) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelTeams)(nil)).Elem()
+func (*ChannelTeams) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTeams)(nil))
 }
 
-func (i ChannelTeams) ToChannelTeamsOutput() ChannelTeamsOutput {
+func (i *ChannelTeams) ToChannelTeamsOutput() ChannelTeamsOutput {
 	return i.ToChannelTeamsOutputWithContext(context.Background())
 }
 
-func (i ChannelTeams) ToChannelTeamsOutputWithContext(ctx context.Context) ChannelTeamsOutput {
+func (i *ChannelTeams) ToChannelTeamsOutputWithContext(ctx context.Context) ChannelTeamsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTeamsOutput)
+}
+
+func (i *ChannelTeams) ToChannelTeamsPtrOutput() ChannelTeamsPtrOutput {
+	return i.ToChannelTeamsPtrOutputWithContext(context.Background())
+}
+
+func (i *ChannelTeams) ToChannelTeamsPtrOutputWithContext(ctx context.Context) ChannelTeamsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTeamsPtrOutput)
+}
+
+type ChannelTeamsPtrInput interface {
+	pulumi.Input
+
+	ToChannelTeamsPtrOutput() ChannelTeamsPtrOutput
+	ToChannelTeamsPtrOutputWithContext(ctx context.Context) ChannelTeamsPtrOutput
+}
+
+type channelTeamsPtrType ChannelTeamsArgs
+
+func (*channelTeamsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelTeams)(nil))
+}
+
+func (i *channelTeamsPtrType) ToChannelTeamsPtrOutput() ChannelTeamsPtrOutput {
+	return i.ToChannelTeamsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelTeamsPtrType) ToChannelTeamsPtrOutputWithContext(ctx context.Context) ChannelTeamsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTeamsPtrOutput)
+}
+
+// ChannelTeamsArrayInput is an input type that accepts ChannelTeamsArray and ChannelTeamsArrayOutput values.
+// You can construct a concrete instance of `ChannelTeamsArrayInput` via:
+//
+//          ChannelTeamsArray{ ChannelTeamsArgs{...} }
+type ChannelTeamsArrayInput interface {
+	pulumi.Input
+
+	ToChannelTeamsArrayOutput() ChannelTeamsArrayOutput
+	ToChannelTeamsArrayOutputWithContext(context.Context) ChannelTeamsArrayOutput
+}
+
+type ChannelTeamsArray []ChannelTeamsInput
+
+func (ChannelTeamsArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ChannelTeams)(nil))
+}
+
+func (i ChannelTeamsArray) ToChannelTeamsArrayOutput() ChannelTeamsArrayOutput {
+	return i.ToChannelTeamsArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelTeamsArray) ToChannelTeamsArrayOutputWithContext(ctx context.Context) ChannelTeamsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTeamsArrayOutput)
+}
+
+// ChannelTeamsMapInput is an input type that accepts ChannelTeamsMap and ChannelTeamsMapOutput values.
+// You can construct a concrete instance of `ChannelTeamsMapInput` via:
+//
+//          ChannelTeamsMap{ "key": ChannelTeamsArgs{...} }
+type ChannelTeamsMapInput interface {
+	pulumi.Input
+
+	ToChannelTeamsMapOutput() ChannelTeamsMapOutput
+	ToChannelTeamsMapOutputWithContext(context.Context) ChannelTeamsMapOutput
+}
+
+type ChannelTeamsMap map[string]ChannelTeamsInput
+
+func (ChannelTeamsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ChannelTeams)(nil))
+}
+
+func (i ChannelTeamsMap) ToChannelTeamsMapOutput() ChannelTeamsMapOutput {
+	return i.ToChannelTeamsMapOutputWithContext(context.Background())
+}
+
+func (i ChannelTeamsMap) ToChannelTeamsMapOutputWithContext(ctx context.Context) ChannelTeamsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTeamsMapOutput)
 }
 
 type ChannelTeamsOutput struct {
@@ -201,7 +280,7 @@ type ChannelTeamsOutput struct {
 }
 
 func (ChannelTeamsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelTeamsOutput)(nil)).Elem()
+	return reflect.TypeOf((*ChannelTeams)(nil))
 }
 
 func (o ChannelTeamsOutput) ToChannelTeamsOutput() ChannelTeamsOutput {
@@ -212,6 +291,75 @@ func (o ChannelTeamsOutput) ToChannelTeamsOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ChannelTeamsOutput) ToChannelTeamsPtrOutput() ChannelTeamsPtrOutput {
+	return o.ToChannelTeamsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelTeamsOutput) ToChannelTeamsPtrOutputWithContext(ctx context.Context) ChannelTeamsPtrOutput {
+	return o.ApplyT(func(v ChannelTeams) *ChannelTeams {
+		return &v
+	}).(ChannelTeamsPtrOutput)
+}
+
+type ChannelTeamsPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ChannelTeamsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelTeams)(nil))
+}
+
+func (o ChannelTeamsPtrOutput) ToChannelTeamsPtrOutput() ChannelTeamsPtrOutput {
+	return o
+}
+
+func (o ChannelTeamsPtrOutput) ToChannelTeamsPtrOutputWithContext(ctx context.Context) ChannelTeamsPtrOutput {
+	return o
+}
+
+type ChannelTeamsArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelTeamsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelTeams)(nil))
+}
+
+func (o ChannelTeamsArrayOutput) ToChannelTeamsArrayOutput() ChannelTeamsArrayOutput {
+	return o
+}
+
+func (o ChannelTeamsArrayOutput) ToChannelTeamsArrayOutputWithContext(ctx context.Context) ChannelTeamsArrayOutput {
+	return o
+}
+
+func (o ChannelTeamsArrayOutput) Index(i pulumi.IntInput) ChannelTeamsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelTeams {
+		return vs[0].([]ChannelTeams)[vs[1].(int)]
+	}).(ChannelTeamsOutput)
+}
+
+type ChannelTeamsMapOutput struct{ *pulumi.OutputState }
+
+func (ChannelTeamsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ChannelTeams)(nil))
+}
+
+func (o ChannelTeamsMapOutput) ToChannelTeamsMapOutput() ChannelTeamsMapOutput {
+	return o
+}
+
+func (o ChannelTeamsMapOutput) ToChannelTeamsMapOutputWithContext(ctx context.Context) ChannelTeamsMapOutput {
+	return o
+}
+
+func (o ChannelTeamsMapOutput) MapIndex(k pulumi.StringInput) ChannelTeamsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ChannelTeams {
+		return vs[0].(map[string]ChannelTeams)[vs[1].(string)]
+	}).(ChannelTeamsOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ChannelTeamsOutput{})
+	pulumi.RegisterOutputType(ChannelTeamsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelTeamsArrayOutput{})
+	pulumi.RegisterOutputType(ChannelTeamsMapOutput{})
 }

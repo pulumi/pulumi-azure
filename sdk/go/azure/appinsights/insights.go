@@ -249,16 +249,95 @@ type InsightsInput interface {
 	ToInsightsOutputWithContext(ctx context.Context) InsightsOutput
 }
 
-func (Insights) ElementType() reflect.Type {
-	return reflect.TypeOf((*Insights)(nil)).Elem()
+func (*Insights) ElementType() reflect.Type {
+	return reflect.TypeOf((*Insights)(nil))
 }
 
-func (i Insights) ToInsightsOutput() InsightsOutput {
+func (i *Insights) ToInsightsOutput() InsightsOutput {
 	return i.ToInsightsOutputWithContext(context.Background())
 }
 
-func (i Insights) ToInsightsOutputWithContext(ctx context.Context) InsightsOutput {
+func (i *Insights) ToInsightsOutputWithContext(ctx context.Context) InsightsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InsightsOutput)
+}
+
+func (i *Insights) ToInsightsPtrOutput() InsightsPtrOutput {
+	return i.ToInsightsPtrOutputWithContext(context.Background())
+}
+
+func (i *Insights) ToInsightsPtrOutputWithContext(ctx context.Context) InsightsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightsPtrOutput)
+}
+
+type InsightsPtrInput interface {
+	pulumi.Input
+
+	ToInsightsPtrOutput() InsightsPtrOutput
+	ToInsightsPtrOutputWithContext(ctx context.Context) InsightsPtrOutput
+}
+
+type insightsPtrType InsightsArgs
+
+func (*insightsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Insights)(nil))
+}
+
+func (i *insightsPtrType) ToInsightsPtrOutput() InsightsPtrOutput {
+	return i.ToInsightsPtrOutputWithContext(context.Background())
+}
+
+func (i *insightsPtrType) ToInsightsPtrOutputWithContext(ctx context.Context) InsightsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightsPtrOutput)
+}
+
+// InsightsArrayInput is an input type that accepts InsightsArray and InsightsArrayOutput values.
+// You can construct a concrete instance of `InsightsArrayInput` via:
+//
+//          InsightsArray{ InsightsArgs{...} }
+type InsightsArrayInput interface {
+	pulumi.Input
+
+	ToInsightsArrayOutput() InsightsArrayOutput
+	ToInsightsArrayOutputWithContext(context.Context) InsightsArrayOutput
+}
+
+type InsightsArray []InsightsInput
+
+func (InsightsArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Insights)(nil))
+}
+
+func (i InsightsArray) ToInsightsArrayOutput() InsightsArrayOutput {
+	return i.ToInsightsArrayOutputWithContext(context.Background())
+}
+
+func (i InsightsArray) ToInsightsArrayOutputWithContext(ctx context.Context) InsightsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightsArrayOutput)
+}
+
+// InsightsMapInput is an input type that accepts InsightsMap and InsightsMapOutput values.
+// You can construct a concrete instance of `InsightsMapInput` via:
+//
+//          InsightsMap{ "key": InsightsArgs{...} }
+type InsightsMapInput interface {
+	pulumi.Input
+
+	ToInsightsMapOutput() InsightsMapOutput
+	ToInsightsMapOutputWithContext(context.Context) InsightsMapOutput
+}
+
+type InsightsMap map[string]InsightsInput
+
+func (InsightsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Insights)(nil))
+}
+
+func (i InsightsMap) ToInsightsMapOutput() InsightsMapOutput {
+	return i.ToInsightsMapOutputWithContext(context.Background())
+}
+
+func (i InsightsMap) ToInsightsMapOutputWithContext(ctx context.Context) InsightsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightsMapOutput)
 }
 
 type InsightsOutput struct {
@@ -266,7 +345,7 @@ type InsightsOutput struct {
 }
 
 func (InsightsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InsightsOutput)(nil)).Elem()
+	return reflect.TypeOf((*Insights)(nil))
 }
 
 func (o InsightsOutput) ToInsightsOutput() InsightsOutput {
@@ -277,6 +356,75 @@ func (o InsightsOutput) ToInsightsOutputWithContext(ctx context.Context) Insight
 	return o
 }
 
+func (o InsightsOutput) ToInsightsPtrOutput() InsightsPtrOutput {
+	return o.ToInsightsPtrOutputWithContext(context.Background())
+}
+
+func (o InsightsOutput) ToInsightsPtrOutputWithContext(ctx context.Context) InsightsPtrOutput {
+	return o.ApplyT(func(v Insights) *Insights {
+		return &v
+	}).(InsightsPtrOutput)
+}
+
+type InsightsPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (InsightsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Insights)(nil))
+}
+
+func (o InsightsPtrOutput) ToInsightsPtrOutput() InsightsPtrOutput {
+	return o
+}
+
+func (o InsightsPtrOutput) ToInsightsPtrOutputWithContext(ctx context.Context) InsightsPtrOutput {
+	return o
+}
+
+type InsightsArrayOutput struct{ *pulumi.OutputState }
+
+func (InsightsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Insights)(nil))
+}
+
+func (o InsightsArrayOutput) ToInsightsArrayOutput() InsightsArrayOutput {
+	return o
+}
+
+func (o InsightsArrayOutput) ToInsightsArrayOutputWithContext(ctx context.Context) InsightsArrayOutput {
+	return o
+}
+
+func (o InsightsArrayOutput) Index(i pulumi.IntInput) InsightsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Insights {
+		return vs[0].([]Insights)[vs[1].(int)]
+	}).(InsightsOutput)
+}
+
+type InsightsMapOutput struct{ *pulumi.OutputState }
+
+func (InsightsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Insights)(nil))
+}
+
+func (o InsightsMapOutput) ToInsightsMapOutput() InsightsMapOutput {
+	return o
+}
+
+func (o InsightsMapOutput) ToInsightsMapOutputWithContext(ctx context.Context) InsightsMapOutput {
+	return o
+}
+
+func (o InsightsMapOutput) MapIndex(k pulumi.StringInput) InsightsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Insights {
+		return vs[0].(map[string]Insights)[vs[1].(string)]
+	}).(InsightsOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(InsightsOutput{})
+	pulumi.RegisterOutputType(InsightsPtrOutput{})
+	pulumi.RegisterOutputType(InsightsArrayOutput{})
+	pulumi.RegisterOutputType(InsightsMapOutput{})
 }

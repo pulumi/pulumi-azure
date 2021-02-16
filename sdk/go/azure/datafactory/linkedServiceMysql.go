@@ -224,16 +224,95 @@ type LinkedServiceMysqlInput interface {
 	ToLinkedServiceMysqlOutputWithContext(ctx context.Context) LinkedServiceMysqlOutput
 }
 
-func (LinkedServiceMysql) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceMysql)(nil)).Elem()
+func (*LinkedServiceMysql) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceMysql)(nil))
 }
 
-func (i LinkedServiceMysql) ToLinkedServiceMysqlOutput() LinkedServiceMysqlOutput {
+func (i *LinkedServiceMysql) ToLinkedServiceMysqlOutput() LinkedServiceMysqlOutput {
 	return i.ToLinkedServiceMysqlOutputWithContext(context.Background())
 }
 
-func (i LinkedServiceMysql) ToLinkedServiceMysqlOutputWithContext(ctx context.Context) LinkedServiceMysqlOutput {
+func (i *LinkedServiceMysql) ToLinkedServiceMysqlOutputWithContext(ctx context.Context) LinkedServiceMysqlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceMysqlOutput)
+}
+
+func (i *LinkedServiceMysql) ToLinkedServiceMysqlPtrOutput() LinkedServiceMysqlPtrOutput {
+	return i.ToLinkedServiceMysqlPtrOutputWithContext(context.Background())
+}
+
+func (i *LinkedServiceMysql) ToLinkedServiceMysqlPtrOutputWithContext(ctx context.Context) LinkedServiceMysqlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceMysqlPtrOutput)
+}
+
+type LinkedServiceMysqlPtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceMysqlPtrOutput() LinkedServiceMysqlPtrOutput
+	ToLinkedServiceMysqlPtrOutputWithContext(ctx context.Context) LinkedServiceMysqlPtrOutput
+}
+
+type linkedServiceMysqlPtrType LinkedServiceMysqlArgs
+
+func (*linkedServiceMysqlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceMysql)(nil))
+}
+
+func (i *linkedServiceMysqlPtrType) ToLinkedServiceMysqlPtrOutput() LinkedServiceMysqlPtrOutput {
+	return i.ToLinkedServiceMysqlPtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceMysqlPtrType) ToLinkedServiceMysqlPtrOutputWithContext(ctx context.Context) LinkedServiceMysqlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceMysqlPtrOutput)
+}
+
+// LinkedServiceMysqlArrayInput is an input type that accepts LinkedServiceMysqlArray and LinkedServiceMysqlArrayOutput values.
+// You can construct a concrete instance of `LinkedServiceMysqlArrayInput` via:
+//
+//          LinkedServiceMysqlArray{ LinkedServiceMysqlArgs{...} }
+type LinkedServiceMysqlArrayInput interface {
+	pulumi.Input
+
+	ToLinkedServiceMysqlArrayOutput() LinkedServiceMysqlArrayOutput
+	ToLinkedServiceMysqlArrayOutputWithContext(context.Context) LinkedServiceMysqlArrayOutput
+}
+
+type LinkedServiceMysqlArray []LinkedServiceMysqlInput
+
+func (LinkedServiceMysqlArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LinkedServiceMysql)(nil))
+}
+
+func (i LinkedServiceMysqlArray) ToLinkedServiceMysqlArrayOutput() LinkedServiceMysqlArrayOutput {
+	return i.ToLinkedServiceMysqlArrayOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceMysqlArray) ToLinkedServiceMysqlArrayOutputWithContext(ctx context.Context) LinkedServiceMysqlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceMysqlArrayOutput)
+}
+
+// LinkedServiceMysqlMapInput is an input type that accepts LinkedServiceMysqlMap and LinkedServiceMysqlMapOutput values.
+// You can construct a concrete instance of `LinkedServiceMysqlMapInput` via:
+//
+//          LinkedServiceMysqlMap{ "key": LinkedServiceMysqlArgs{...} }
+type LinkedServiceMysqlMapInput interface {
+	pulumi.Input
+
+	ToLinkedServiceMysqlMapOutput() LinkedServiceMysqlMapOutput
+	ToLinkedServiceMysqlMapOutputWithContext(context.Context) LinkedServiceMysqlMapOutput
+}
+
+type LinkedServiceMysqlMap map[string]LinkedServiceMysqlInput
+
+func (LinkedServiceMysqlMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LinkedServiceMysql)(nil))
+}
+
+func (i LinkedServiceMysqlMap) ToLinkedServiceMysqlMapOutput() LinkedServiceMysqlMapOutput {
+	return i.ToLinkedServiceMysqlMapOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceMysqlMap) ToLinkedServiceMysqlMapOutputWithContext(ctx context.Context) LinkedServiceMysqlMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceMysqlMapOutput)
 }
 
 type LinkedServiceMysqlOutput struct {
@@ -241,7 +320,7 @@ type LinkedServiceMysqlOutput struct {
 }
 
 func (LinkedServiceMysqlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceMysqlOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinkedServiceMysql)(nil))
 }
 
 func (o LinkedServiceMysqlOutput) ToLinkedServiceMysqlOutput() LinkedServiceMysqlOutput {
@@ -252,6 +331,75 @@ func (o LinkedServiceMysqlOutput) ToLinkedServiceMysqlOutputWithContext(ctx cont
 	return o
 }
 
+func (o LinkedServiceMysqlOutput) ToLinkedServiceMysqlPtrOutput() LinkedServiceMysqlPtrOutput {
+	return o.ToLinkedServiceMysqlPtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceMysqlOutput) ToLinkedServiceMysqlPtrOutputWithContext(ctx context.Context) LinkedServiceMysqlPtrOutput {
+	return o.ApplyT(func(v LinkedServiceMysql) *LinkedServiceMysql {
+		return &v
+	}).(LinkedServiceMysqlPtrOutput)
+}
+
+type LinkedServiceMysqlPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkedServiceMysqlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceMysql)(nil))
+}
+
+func (o LinkedServiceMysqlPtrOutput) ToLinkedServiceMysqlPtrOutput() LinkedServiceMysqlPtrOutput {
+	return o
+}
+
+func (o LinkedServiceMysqlPtrOutput) ToLinkedServiceMysqlPtrOutputWithContext(ctx context.Context) LinkedServiceMysqlPtrOutput {
+	return o
+}
+
+type LinkedServiceMysqlArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceMysqlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkedServiceMysql)(nil))
+}
+
+func (o LinkedServiceMysqlArrayOutput) ToLinkedServiceMysqlArrayOutput() LinkedServiceMysqlArrayOutput {
+	return o
+}
+
+func (o LinkedServiceMysqlArrayOutput) ToLinkedServiceMysqlArrayOutputWithContext(ctx context.Context) LinkedServiceMysqlArrayOutput {
+	return o
+}
+
+func (o LinkedServiceMysqlArrayOutput) Index(i pulumi.IntInput) LinkedServiceMysqlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedServiceMysql {
+		return vs[0].([]LinkedServiceMysql)[vs[1].(int)]
+	}).(LinkedServiceMysqlOutput)
+}
+
+type LinkedServiceMysqlMapOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceMysqlMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LinkedServiceMysql)(nil))
+}
+
+func (o LinkedServiceMysqlMapOutput) ToLinkedServiceMysqlMapOutput() LinkedServiceMysqlMapOutput {
+	return o
+}
+
+func (o LinkedServiceMysqlMapOutput) ToLinkedServiceMysqlMapOutputWithContext(ctx context.Context) LinkedServiceMysqlMapOutput {
+	return o
+}
+
+func (o LinkedServiceMysqlMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceMysqlOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkedServiceMysql {
+		return vs[0].(map[string]LinkedServiceMysql)[vs[1].(string)]
+	}).(LinkedServiceMysqlOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LinkedServiceMysqlOutput{})
+	pulumi.RegisterOutputType(LinkedServiceMysqlPtrOutput{})
+	pulumi.RegisterOutputType(LinkedServiceMysqlArrayOutput{})
+	pulumi.RegisterOutputType(LinkedServiceMysqlMapOutput{})
 }

@@ -52,6 +52,7 @@ namespace Pulumi.Azure.Lighthouse
     ///  $ pulumi import azure:lighthouse/definition:Definition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
+    [AzureResourceType("azure:lighthouse/definition:Definition")]
     public partial class Definition : Pulumi.CustomResource
     {
         /// <summary>

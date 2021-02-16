@@ -176,7 +176,8 @@ export class NetworkPacketCapture extends pulumi.CustomResource {
     constructor(name: string, args: NetworkPacketCaptureArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkPacketCaptureArgs | NetworkPacketCaptureState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NetworkPacketCaptureState | undefined;
             inputs["filters"] = state ? state.filters : undefined;
             inputs["maximumBytesPerPacket"] = state ? state.maximumBytesPerPacket : undefined;
@@ -189,16 +190,16 @@ export class NetworkPacketCapture extends pulumi.CustomResource {
             inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
         } else {
             const args = argsOrState as NetworkPacketCaptureArgs | undefined;
-            if ((!args || args.networkWatcherName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.networkWatcherName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageLocation === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageLocation'");
             }
-            if ((!args || args.targetResourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
             inputs["filters"] = args ? args.filters : undefined;
@@ -211,12 +212,8 @@ export class NetworkPacketCapture extends pulumi.CustomResource {
             inputs["storageLocation"] = args ? args.storageLocation : undefined;
             inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NetworkPacketCapture.__pulumiType, name, inputs, opts);
     }

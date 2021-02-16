@@ -66,6 +66,7 @@ namespace Pulumi.Azure.DevTest
     ///  $ pulumi import azure:devtest/schedule:Schedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DevTestLab/labs/myDevTestLab/schedules/labvmautostart
     /// ```
     /// </summary>
+    [AzureResourceType("azure:devtest/schedule:Schedule")]
     public partial class Schedule : Pulumi.CustomResource
     {
         [Output("dailyRecurrence")]

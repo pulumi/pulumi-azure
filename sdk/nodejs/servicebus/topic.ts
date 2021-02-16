@@ -146,7 +146,8 @@ export class Topic extends pulumi.CustomResource {
     constructor(name: string, args: TopicArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TopicArgs | TopicState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TopicState | undefined;
             inputs["autoDeleteOnIdle"] = state ? state.autoDeleteOnIdle : undefined;
             inputs["defaultMessageTtl"] = state ? state.defaultMessageTtl : undefined;
@@ -163,10 +164,10 @@ export class Topic extends pulumi.CustomResource {
             inputs["supportOrdering"] = state ? state.supportOrdering : undefined;
         } else {
             const args = argsOrState as TopicArgs | undefined;
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
@@ -183,15 +184,11 @@ export class Topic extends pulumi.CustomResource {
             inputs["status"] = args ? args.status : undefined;
             inputs["supportOrdering"] = args ? args.supportOrdering : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure:eventhub/topic:Topic" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Topic.__pulumiType, name, inputs, opts);
     }
 }

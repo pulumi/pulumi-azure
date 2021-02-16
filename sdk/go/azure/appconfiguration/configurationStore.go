@@ -205,16 +205,95 @@ type ConfigurationStoreInput interface {
 	ToConfigurationStoreOutputWithContext(ctx context.Context) ConfigurationStoreOutput
 }
 
-func (ConfigurationStore) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationStore)(nil)).Elem()
+func (*ConfigurationStore) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationStore)(nil))
 }
 
-func (i ConfigurationStore) ToConfigurationStoreOutput() ConfigurationStoreOutput {
+func (i *ConfigurationStore) ToConfigurationStoreOutput() ConfigurationStoreOutput {
 	return i.ToConfigurationStoreOutputWithContext(context.Background())
 }
 
-func (i ConfigurationStore) ToConfigurationStoreOutputWithContext(ctx context.Context) ConfigurationStoreOutput {
+func (i *ConfigurationStore) ToConfigurationStoreOutputWithContext(ctx context.Context) ConfigurationStoreOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreOutput)
+}
+
+func (i *ConfigurationStore) ToConfigurationStorePtrOutput() ConfigurationStorePtrOutput {
+	return i.ToConfigurationStorePtrOutputWithContext(context.Background())
+}
+
+func (i *ConfigurationStore) ToConfigurationStorePtrOutputWithContext(ctx context.Context) ConfigurationStorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStorePtrOutput)
+}
+
+type ConfigurationStorePtrInput interface {
+	pulumi.Input
+
+	ToConfigurationStorePtrOutput() ConfigurationStorePtrOutput
+	ToConfigurationStorePtrOutputWithContext(ctx context.Context) ConfigurationStorePtrOutput
+}
+
+type configurationStorePtrType ConfigurationStoreArgs
+
+func (*configurationStorePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationStore)(nil))
+}
+
+func (i *configurationStorePtrType) ToConfigurationStorePtrOutput() ConfigurationStorePtrOutput {
+	return i.ToConfigurationStorePtrOutputWithContext(context.Background())
+}
+
+func (i *configurationStorePtrType) ToConfigurationStorePtrOutputWithContext(ctx context.Context) ConfigurationStorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStorePtrOutput)
+}
+
+// ConfigurationStoreArrayInput is an input type that accepts ConfigurationStoreArray and ConfigurationStoreArrayOutput values.
+// You can construct a concrete instance of `ConfigurationStoreArrayInput` via:
+//
+//          ConfigurationStoreArray{ ConfigurationStoreArgs{...} }
+type ConfigurationStoreArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationStoreArrayOutput() ConfigurationStoreArrayOutput
+	ToConfigurationStoreArrayOutputWithContext(context.Context) ConfigurationStoreArrayOutput
+}
+
+type ConfigurationStoreArray []ConfigurationStoreInput
+
+func (ConfigurationStoreArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ConfigurationStore)(nil))
+}
+
+func (i ConfigurationStoreArray) ToConfigurationStoreArrayOutput() ConfigurationStoreArrayOutput {
+	return i.ToConfigurationStoreArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationStoreArray) ToConfigurationStoreArrayOutputWithContext(ctx context.Context) ConfigurationStoreArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreArrayOutput)
+}
+
+// ConfigurationStoreMapInput is an input type that accepts ConfigurationStoreMap and ConfigurationStoreMapOutput values.
+// You can construct a concrete instance of `ConfigurationStoreMapInput` via:
+//
+//          ConfigurationStoreMap{ "key": ConfigurationStoreArgs{...} }
+type ConfigurationStoreMapInput interface {
+	pulumi.Input
+
+	ToConfigurationStoreMapOutput() ConfigurationStoreMapOutput
+	ToConfigurationStoreMapOutputWithContext(context.Context) ConfigurationStoreMapOutput
+}
+
+type ConfigurationStoreMap map[string]ConfigurationStoreInput
+
+func (ConfigurationStoreMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ConfigurationStore)(nil))
+}
+
+func (i ConfigurationStoreMap) ToConfigurationStoreMapOutput() ConfigurationStoreMapOutput {
+	return i.ToConfigurationStoreMapOutputWithContext(context.Background())
+}
+
+func (i ConfigurationStoreMap) ToConfigurationStoreMapOutputWithContext(ctx context.Context) ConfigurationStoreMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreMapOutput)
 }
 
 type ConfigurationStoreOutput struct {
@@ -222,7 +301,7 @@ type ConfigurationStoreOutput struct {
 }
 
 func (ConfigurationStoreOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationStoreOutput)(nil)).Elem()
+	return reflect.TypeOf((*ConfigurationStore)(nil))
 }
 
 func (o ConfigurationStoreOutput) ToConfigurationStoreOutput() ConfigurationStoreOutput {
@@ -233,6 +312,75 @@ func (o ConfigurationStoreOutput) ToConfigurationStoreOutputWithContext(ctx cont
 	return o
 }
 
+func (o ConfigurationStoreOutput) ToConfigurationStorePtrOutput() ConfigurationStorePtrOutput {
+	return o.ToConfigurationStorePtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationStoreOutput) ToConfigurationStorePtrOutputWithContext(ctx context.Context) ConfigurationStorePtrOutput {
+	return o.ApplyT(func(v ConfigurationStore) *ConfigurationStore {
+		return &v
+	}).(ConfigurationStorePtrOutput)
+}
+
+type ConfigurationStorePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConfigurationStorePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationStore)(nil))
+}
+
+func (o ConfigurationStorePtrOutput) ToConfigurationStorePtrOutput() ConfigurationStorePtrOutput {
+	return o
+}
+
+func (o ConfigurationStorePtrOutput) ToConfigurationStorePtrOutputWithContext(ctx context.Context) ConfigurationStorePtrOutput {
+	return o
+}
+
+type ConfigurationStoreArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationStoreArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationStore)(nil))
+}
+
+func (o ConfigurationStoreArrayOutput) ToConfigurationStoreArrayOutput() ConfigurationStoreArrayOutput {
+	return o
+}
+
+func (o ConfigurationStoreArrayOutput) ToConfigurationStoreArrayOutputWithContext(ctx context.Context) ConfigurationStoreArrayOutput {
+	return o
+}
+
+func (o ConfigurationStoreArrayOutput) Index(i pulumi.IntInput) ConfigurationStoreOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationStore {
+		return vs[0].([]ConfigurationStore)[vs[1].(int)]
+	}).(ConfigurationStoreOutput)
+}
+
+type ConfigurationStoreMapOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationStoreMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConfigurationStore)(nil))
+}
+
+func (o ConfigurationStoreMapOutput) ToConfigurationStoreMapOutput() ConfigurationStoreMapOutput {
+	return o
+}
+
+func (o ConfigurationStoreMapOutput) ToConfigurationStoreMapOutputWithContext(ctx context.Context) ConfigurationStoreMapOutput {
+	return o
+}
+
+func (o ConfigurationStoreMapOutput) MapIndex(k pulumi.StringInput) ConfigurationStoreOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConfigurationStore {
+		return vs[0].(map[string]ConfigurationStore)[vs[1].(string)]
+	}).(ConfigurationStoreOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConfigurationStoreOutput{})
+	pulumi.RegisterOutputType(ConfigurationStorePtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationStoreArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationStoreMapOutput{})
 }

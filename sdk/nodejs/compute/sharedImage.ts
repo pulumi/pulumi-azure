@@ -140,7 +140,8 @@ export class SharedImage extends pulumi.CustomResource {
     constructor(name: string, args: SharedImageArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SharedImageArgs | SharedImageState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SharedImageState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["eula"] = state ? state.eula : undefined;
@@ -158,16 +159,16 @@ export class SharedImage extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SharedImageArgs | undefined;
-            if ((!args || args.galleryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.galleryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if ((!args || args.identifier === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.identifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identifier'");
             }
-            if ((!args || args.osType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.osType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'osType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -185,12 +186,8 @@ export class SharedImage extends pulumi.CustomResource {
             inputs["specialized"] = args ? args.specialized : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SharedImage.__pulumiType, name, inputs, opts);
     }

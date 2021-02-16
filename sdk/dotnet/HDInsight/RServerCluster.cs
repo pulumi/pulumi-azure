@@ -104,6 +104,7 @@ namespace Pulumi.Azure.HDInsight
     ///  $ pulumi import azure:hdinsight/rServerCluster:RServerCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:hdinsight/rServerCluster:RServerCluster")]
     public partial class RServerCluster : Pulumi.CustomResource
     {
         /// <summary>

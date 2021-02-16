@@ -218,16 +218,95 @@ type IntegrationRuntimeManagedInput interface {
 	ToIntegrationRuntimeManagedOutputWithContext(ctx context.Context) IntegrationRuntimeManagedOutput
 }
 
-func (IntegrationRuntimeManaged) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeManaged)(nil)).Elem()
+func (*IntegrationRuntimeManaged) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeManaged)(nil))
 }
 
-func (i IntegrationRuntimeManaged) ToIntegrationRuntimeManagedOutput() IntegrationRuntimeManagedOutput {
+func (i *IntegrationRuntimeManaged) ToIntegrationRuntimeManagedOutput() IntegrationRuntimeManagedOutput {
 	return i.ToIntegrationRuntimeManagedOutputWithContext(context.Background())
 }
 
-func (i IntegrationRuntimeManaged) ToIntegrationRuntimeManagedOutputWithContext(ctx context.Context) IntegrationRuntimeManagedOutput {
+func (i *IntegrationRuntimeManaged) ToIntegrationRuntimeManagedOutputWithContext(ctx context.Context) IntegrationRuntimeManagedOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeManagedOutput)
+}
+
+func (i *IntegrationRuntimeManaged) ToIntegrationRuntimeManagedPtrOutput() IntegrationRuntimeManagedPtrOutput {
+	return i.ToIntegrationRuntimeManagedPtrOutputWithContext(context.Background())
+}
+
+func (i *IntegrationRuntimeManaged) ToIntegrationRuntimeManagedPtrOutputWithContext(ctx context.Context) IntegrationRuntimeManagedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeManagedPtrOutput)
+}
+
+type IntegrationRuntimeManagedPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeManagedPtrOutput() IntegrationRuntimeManagedPtrOutput
+	ToIntegrationRuntimeManagedPtrOutputWithContext(ctx context.Context) IntegrationRuntimeManagedPtrOutput
+}
+
+type integrationRuntimeManagedPtrType IntegrationRuntimeManagedArgs
+
+func (*integrationRuntimeManagedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeManaged)(nil))
+}
+
+func (i *integrationRuntimeManagedPtrType) ToIntegrationRuntimeManagedPtrOutput() IntegrationRuntimeManagedPtrOutput {
+	return i.ToIntegrationRuntimeManagedPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationRuntimeManagedPtrType) ToIntegrationRuntimeManagedPtrOutputWithContext(ctx context.Context) IntegrationRuntimeManagedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeManagedPtrOutput)
+}
+
+// IntegrationRuntimeManagedArrayInput is an input type that accepts IntegrationRuntimeManagedArray and IntegrationRuntimeManagedArrayOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeManagedArrayInput` via:
+//
+//          IntegrationRuntimeManagedArray{ IntegrationRuntimeManagedArgs{...} }
+type IntegrationRuntimeManagedArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeManagedArrayOutput() IntegrationRuntimeManagedArrayOutput
+	ToIntegrationRuntimeManagedArrayOutputWithContext(context.Context) IntegrationRuntimeManagedArrayOutput
+}
+
+type IntegrationRuntimeManagedArray []IntegrationRuntimeManagedInput
+
+func (IntegrationRuntimeManagedArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*IntegrationRuntimeManaged)(nil))
+}
+
+func (i IntegrationRuntimeManagedArray) ToIntegrationRuntimeManagedArrayOutput() IntegrationRuntimeManagedArrayOutput {
+	return i.ToIntegrationRuntimeManagedArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeManagedArray) ToIntegrationRuntimeManagedArrayOutputWithContext(ctx context.Context) IntegrationRuntimeManagedArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeManagedArrayOutput)
+}
+
+// IntegrationRuntimeManagedMapInput is an input type that accepts IntegrationRuntimeManagedMap and IntegrationRuntimeManagedMapOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeManagedMapInput` via:
+//
+//          IntegrationRuntimeManagedMap{ "key": IntegrationRuntimeManagedArgs{...} }
+type IntegrationRuntimeManagedMapInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeManagedMapOutput() IntegrationRuntimeManagedMapOutput
+	ToIntegrationRuntimeManagedMapOutputWithContext(context.Context) IntegrationRuntimeManagedMapOutput
+}
+
+type IntegrationRuntimeManagedMap map[string]IntegrationRuntimeManagedInput
+
+func (IntegrationRuntimeManagedMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*IntegrationRuntimeManaged)(nil))
+}
+
+func (i IntegrationRuntimeManagedMap) ToIntegrationRuntimeManagedMapOutput() IntegrationRuntimeManagedMapOutput {
+	return i.ToIntegrationRuntimeManagedMapOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeManagedMap) ToIntegrationRuntimeManagedMapOutputWithContext(ctx context.Context) IntegrationRuntimeManagedMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeManagedMapOutput)
 }
 
 type IntegrationRuntimeManagedOutput struct {
@@ -235,7 +314,7 @@ type IntegrationRuntimeManagedOutput struct {
 }
 
 func (IntegrationRuntimeManagedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeManagedOutput)(nil)).Elem()
+	return reflect.TypeOf((*IntegrationRuntimeManaged)(nil))
 }
 
 func (o IntegrationRuntimeManagedOutput) ToIntegrationRuntimeManagedOutput() IntegrationRuntimeManagedOutput {
@@ -246,6 +325,75 @@ func (o IntegrationRuntimeManagedOutput) ToIntegrationRuntimeManagedOutputWithCo
 	return o
 }
 
+func (o IntegrationRuntimeManagedOutput) ToIntegrationRuntimeManagedPtrOutput() IntegrationRuntimeManagedPtrOutput {
+	return o.ToIntegrationRuntimeManagedPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeManagedOutput) ToIntegrationRuntimeManagedPtrOutputWithContext(ctx context.Context) IntegrationRuntimeManagedPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeManaged) *IntegrationRuntimeManaged {
+		return &v
+	}).(IntegrationRuntimeManagedPtrOutput)
+}
+
+type IntegrationRuntimeManagedPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationRuntimeManagedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeManaged)(nil))
+}
+
+func (o IntegrationRuntimeManagedPtrOutput) ToIntegrationRuntimeManagedPtrOutput() IntegrationRuntimeManagedPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeManagedPtrOutput) ToIntegrationRuntimeManagedPtrOutputWithContext(ctx context.Context) IntegrationRuntimeManagedPtrOutput {
+	return o
+}
+
+type IntegrationRuntimeManagedArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeManagedArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationRuntimeManaged)(nil))
+}
+
+func (o IntegrationRuntimeManagedArrayOutput) ToIntegrationRuntimeManagedArrayOutput() IntegrationRuntimeManagedArrayOutput {
+	return o
+}
+
+func (o IntegrationRuntimeManagedArrayOutput) ToIntegrationRuntimeManagedArrayOutputWithContext(ctx context.Context) IntegrationRuntimeManagedArrayOutput {
+	return o
+}
+
+func (o IntegrationRuntimeManagedArrayOutput) Index(i pulumi.IntInput) IntegrationRuntimeManagedOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationRuntimeManaged {
+		return vs[0].([]IntegrationRuntimeManaged)[vs[1].(int)]
+	}).(IntegrationRuntimeManagedOutput)
+}
+
+type IntegrationRuntimeManagedMapOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeManagedMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IntegrationRuntimeManaged)(nil))
+}
+
+func (o IntegrationRuntimeManagedMapOutput) ToIntegrationRuntimeManagedMapOutput() IntegrationRuntimeManagedMapOutput {
+	return o
+}
+
+func (o IntegrationRuntimeManagedMapOutput) ToIntegrationRuntimeManagedMapOutputWithContext(ctx context.Context) IntegrationRuntimeManagedMapOutput {
+	return o
+}
+
+func (o IntegrationRuntimeManagedMapOutput) MapIndex(k pulumi.StringInput) IntegrationRuntimeManagedOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IntegrationRuntimeManaged {
+		return vs[0].(map[string]IntegrationRuntimeManaged)[vs[1].(string)]
+	}).(IntegrationRuntimeManagedOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeManagedOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeManagedPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeManagedArrayOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeManagedMapOutput{})
 }

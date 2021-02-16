@@ -63,6 +63,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     ///  $ pulumi import azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation association1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/myapplicationgroup"
     /// ```
     /// </summary>
+    [AzureResourceType("azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation")]
     public partial class WorkspaceApplicationGroupAssociation : Pulumi.CustomResource
     {
         /// <summary>

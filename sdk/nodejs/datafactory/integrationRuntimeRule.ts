@@ -104,7 +104,8 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
     constructor(name: string, args: IntegrationRuntimeRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationRuntimeRuleArgs | IntegrationRuntimeRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IntegrationRuntimeRuleState | undefined;
             inputs["computeType"] = state ? state.computeType : undefined;
             inputs["coreCount"] = state ? state.coreCount : undefined;
@@ -116,10 +117,10 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
             inputs["timeToLiveMin"] = state ? state.timeToLiveMin : undefined;
         } else {
             const args = argsOrState as IntegrationRuntimeRuleArgs | undefined;
-            if ((!args || args.dataFactoryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["computeType"] = args ? args.computeType : undefined;
@@ -131,12 +132,8 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["timeToLiveMin"] = args ? args.timeToLiveMin : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IntegrationRuntimeRule.__pulumiType, name, inputs, opts);
     }

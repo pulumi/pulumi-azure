@@ -60,6 +60,7 @@ namespace Pulumi.Azure.MediaServices
     /// ```
     /// </summary>
     [Obsolete(@"azure.mediaservices.Account has been deprecated in favor of azure.media.ServiceAccount")]
+    [AzureResourceType("azure:mediaservices/account:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

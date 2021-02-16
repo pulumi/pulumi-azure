@@ -64,7 +64,8 @@ export class ZipBlob extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ZipBlobArgs | ZipBlobState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ZipBlob is deprecated: ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ZipBlobState | undefined;
             inputs["accessTier"] = state ? state.accessTier : undefined;
             inputs["content"] = state ? state.content : undefined;
@@ -82,13 +83,13 @@ export class ZipBlob extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ZipBlobArgs | undefined;
-            if ((!args || args.storageAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            if ((!args || args.storageContainerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageContainerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageContainerName'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["accessTier"] = args ? args.accessTier : undefined;
@@ -106,12 +107,8 @@ export class ZipBlob extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["url"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ZipBlob.__pulumiType, name, inputs, opts);
     }

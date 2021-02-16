@@ -46,6 +46,7 @@ namespace Pulumi.Azure.CosmosDB
     ///  $ pulumi import azure:cosmosdb/gremlinDatabase:GremlinDatabase db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/gremlinDatabases/db1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:cosmosdb/gremlinDatabase:GremlinDatabase")]
     public partial class GremlinDatabase : Pulumi.CustomResource
     {
         /// <summary>

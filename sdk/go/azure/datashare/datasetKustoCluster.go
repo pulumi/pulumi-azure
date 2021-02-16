@@ -129,16 +129,95 @@ type DatasetKustoClusterInput interface {
 	ToDatasetKustoClusterOutputWithContext(ctx context.Context) DatasetKustoClusterOutput
 }
 
-func (DatasetKustoCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetKustoCluster)(nil)).Elem()
+func (*DatasetKustoCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetKustoCluster)(nil))
 }
 
-func (i DatasetKustoCluster) ToDatasetKustoClusterOutput() DatasetKustoClusterOutput {
+func (i *DatasetKustoCluster) ToDatasetKustoClusterOutput() DatasetKustoClusterOutput {
 	return i.ToDatasetKustoClusterOutputWithContext(context.Background())
 }
 
-func (i DatasetKustoCluster) ToDatasetKustoClusterOutputWithContext(ctx context.Context) DatasetKustoClusterOutput {
+func (i *DatasetKustoCluster) ToDatasetKustoClusterOutputWithContext(ctx context.Context) DatasetKustoClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetKustoClusterOutput)
+}
+
+func (i *DatasetKustoCluster) ToDatasetKustoClusterPtrOutput() DatasetKustoClusterPtrOutput {
+	return i.ToDatasetKustoClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *DatasetKustoCluster) ToDatasetKustoClusterPtrOutputWithContext(ctx context.Context) DatasetKustoClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetKustoClusterPtrOutput)
+}
+
+type DatasetKustoClusterPtrInput interface {
+	pulumi.Input
+
+	ToDatasetKustoClusterPtrOutput() DatasetKustoClusterPtrOutput
+	ToDatasetKustoClusterPtrOutputWithContext(ctx context.Context) DatasetKustoClusterPtrOutput
+}
+
+type datasetKustoClusterPtrType DatasetKustoClusterArgs
+
+func (*datasetKustoClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetKustoCluster)(nil))
+}
+
+func (i *datasetKustoClusterPtrType) ToDatasetKustoClusterPtrOutput() DatasetKustoClusterPtrOutput {
+	return i.ToDatasetKustoClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetKustoClusterPtrType) ToDatasetKustoClusterPtrOutputWithContext(ctx context.Context) DatasetKustoClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetKustoClusterPtrOutput)
+}
+
+// DatasetKustoClusterArrayInput is an input type that accepts DatasetKustoClusterArray and DatasetKustoClusterArrayOutput values.
+// You can construct a concrete instance of `DatasetKustoClusterArrayInput` via:
+//
+//          DatasetKustoClusterArray{ DatasetKustoClusterArgs{...} }
+type DatasetKustoClusterArrayInput interface {
+	pulumi.Input
+
+	ToDatasetKustoClusterArrayOutput() DatasetKustoClusterArrayOutput
+	ToDatasetKustoClusterArrayOutputWithContext(context.Context) DatasetKustoClusterArrayOutput
+}
+
+type DatasetKustoClusterArray []DatasetKustoClusterInput
+
+func (DatasetKustoClusterArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DatasetKustoCluster)(nil))
+}
+
+func (i DatasetKustoClusterArray) ToDatasetKustoClusterArrayOutput() DatasetKustoClusterArrayOutput {
+	return i.ToDatasetKustoClusterArrayOutputWithContext(context.Background())
+}
+
+func (i DatasetKustoClusterArray) ToDatasetKustoClusterArrayOutputWithContext(ctx context.Context) DatasetKustoClusterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetKustoClusterArrayOutput)
+}
+
+// DatasetKustoClusterMapInput is an input type that accepts DatasetKustoClusterMap and DatasetKustoClusterMapOutput values.
+// You can construct a concrete instance of `DatasetKustoClusterMapInput` via:
+//
+//          DatasetKustoClusterMap{ "key": DatasetKustoClusterArgs{...} }
+type DatasetKustoClusterMapInput interface {
+	pulumi.Input
+
+	ToDatasetKustoClusterMapOutput() DatasetKustoClusterMapOutput
+	ToDatasetKustoClusterMapOutputWithContext(context.Context) DatasetKustoClusterMapOutput
+}
+
+type DatasetKustoClusterMap map[string]DatasetKustoClusterInput
+
+func (DatasetKustoClusterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DatasetKustoCluster)(nil))
+}
+
+func (i DatasetKustoClusterMap) ToDatasetKustoClusterMapOutput() DatasetKustoClusterMapOutput {
+	return i.ToDatasetKustoClusterMapOutputWithContext(context.Background())
+}
+
+func (i DatasetKustoClusterMap) ToDatasetKustoClusterMapOutputWithContext(ctx context.Context) DatasetKustoClusterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetKustoClusterMapOutput)
 }
 
 type DatasetKustoClusterOutput struct {
@@ -146,7 +225,7 @@ type DatasetKustoClusterOutput struct {
 }
 
 func (DatasetKustoClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetKustoClusterOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatasetKustoCluster)(nil))
 }
 
 func (o DatasetKustoClusterOutput) ToDatasetKustoClusterOutput() DatasetKustoClusterOutput {
@@ -157,6 +236,75 @@ func (o DatasetKustoClusterOutput) ToDatasetKustoClusterOutputWithContext(ctx co
 	return o
 }
 
+func (o DatasetKustoClusterOutput) ToDatasetKustoClusterPtrOutput() DatasetKustoClusterPtrOutput {
+	return o.ToDatasetKustoClusterPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetKustoClusterOutput) ToDatasetKustoClusterPtrOutputWithContext(ctx context.Context) DatasetKustoClusterPtrOutput {
+	return o.ApplyT(func(v DatasetKustoCluster) *DatasetKustoCluster {
+		return &v
+	}).(DatasetKustoClusterPtrOutput)
+}
+
+type DatasetKustoClusterPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatasetKustoClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetKustoCluster)(nil))
+}
+
+func (o DatasetKustoClusterPtrOutput) ToDatasetKustoClusterPtrOutput() DatasetKustoClusterPtrOutput {
+	return o
+}
+
+func (o DatasetKustoClusterPtrOutput) ToDatasetKustoClusterPtrOutputWithContext(ctx context.Context) DatasetKustoClusterPtrOutput {
+	return o
+}
+
+type DatasetKustoClusterArrayOutput struct{ *pulumi.OutputState }
+
+func (DatasetKustoClusterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetKustoCluster)(nil))
+}
+
+func (o DatasetKustoClusterArrayOutput) ToDatasetKustoClusterArrayOutput() DatasetKustoClusterArrayOutput {
+	return o
+}
+
+func (o DatasetKustoClusterArrayOutput) ToDatasetKustoClusterArrayOutputWithContext(ctx context.Context) DatasetKustoClusterArrayOutput {
+	return o
+}
+
+func (o DatasetKustoClusterArrayOutput) Index(i pulumi.IntInput) DatasetKustoClusterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetKustoCluster {
+		return vs[0].([]DatasetKustoCluster)[vs[1].(int)]
+	}).(DatasetKustoClusterOutput)
+}
+
+type DatasetKustoClusterMapOutput struct{ *pulumi.OutputState }
+
+func (DatasetKustoClusterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DatasetKustoCluster)(nil))
+}
+
+func (o DatasetKustoClusterMapOutput) ToDatasetKustoClusterMapOutput() DatasetKustoClusterMapOutput {
+	return o
+}
+
+func (o DatasetKustoClusterMapOutput) ToDatasetKustoClusterMapOutputWithContext(ctx context.Context) DatasetKustoClusterMapOutput {
+	return o
+}
+
+func (o DatasetKustoClusterMapOutput) MapIndex(k pulumi.StringInput) DatasetKustoClusterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatasetKustoCluster {
+		return vs[0].(map[string]DatasetKustoCluster)[vs[1].(string)]
+	}).(DatasetKustoClusterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatasetKustoClusterOutput{})
+	pulumi.RegisterOutputType(DatasetKustoClusterPtrOutput{})
+	pulumi.RegisterOutputType(DatasetKustoClusterArrayOutput{})
+	pulumi.RegisterOutputType(DatasetKustoClusterMapOutput{})
 }

@@ -95,7 +95,8 @@ export class Definition extends pulumi.CustomResource {
     constructor(name: string, args: DefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DefinitionArgs | DefinitionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DefinitionState | undefined;
             inputs["authorizations"] = state ? state.authorizations : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -105,13 +106,13 @@ export class Definition extends pulumi.CustomResource {
             inputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as DefinitionArgs | undefined;
-            if ((!args || args.authorizations === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authorizations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorizations'");
             }
-            if ((!args || args.managingTenantId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.managingTenantId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managingTenantId'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["authorizations"] = args ? args.authorizations : undefined;
@@ -121,12 +122,8 @@ export class Definition extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["scope"] = args ? args.scope : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Definition.__pulumiType, name, inputs, opts);
     }

@@ -49,6 +49,7 @@ namespace Pulumi.Azure.Maintenance
     ///  $ pulumi import azure:maintenance/configuration:Configuration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.maintenance/maintenanceconfigurations/example-mc
     /// ```
     /// </summary>
+    [AzureResourceType("azure:maintenance/configuration:Configuration")]
     public partial class Configuration : Pulumi.CustomResource
     {
         /// <summary>

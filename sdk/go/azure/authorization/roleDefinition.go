@@ -199,16 +199,95 @@ type RoleDefinitionInput interface {
 	ToRoleDefinitionOutputWithContext(ctx context.Context) RoleDefinitionOutput
 }
 
-func (RoleDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleDefinition)(nil)).Elem()
+func (*RoleDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleDefinition)(nil))
 }
 
-func (i RoleDefinition) ToRoleDefinitionOutput() RoleDefinitionOutput {
+func (i *RoleDefinition) ToRoleDefinitionOutput() RoleDefinitionOutput {
 	return i.ToRoleDefinitionOutputWithContext(context.Background())
 }
 
-func (i RoleDefinition) ToRoleDefinitionOutputWithContext(ctx context.Context) RoleDefinitionOutput {
+func (i *RoleDefinition) ToRoleDefinitionOutputWithContext(ctx context.Context) RoleDefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionOutput)
+}
+
+func (i *RoleDefinition) ToRoleDefinitionPtrOutput() RoleDefinitionPtrOutput {
+	return i.ToRoleDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *RoleDefinition) ToRoleDefinitionPtrOutputWithContext(ctx context.Context) RoleDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionPtrOutput)
+}
+
+type RoleDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToRoleDefinitionPtrOutput() RoleDefinitionPtrOutput
+	ToRoleDefinitionPtrOutputWithContext(ctx context.Context) RoleDefinitionPtrOutput
+}
+
+type roleDefinitionPtrType RoleDefinitionArgs
+
+func (*roleDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleDefinition)(nil))
+}
+
+func (i *roleDefinitionPtrType) ToRoleDefinitionPtrOutput() RoleDefinitionPtrOutput {
+	return i.ToRoleDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *roleDefinitionPtrType) ToRoleDefinitionPtrOutputWithContext(ctx context.Context) RoleDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionPtrOutput)
+}
+
+// RoleDefinitionArrayInput is an input type that accepts RoleDefinitionArray and RoleDefinitionArrayOutput values.
+// You can construct a concrete instance of `RoleDefinitionArrayInput` via:
+//
+//          RoleDefinitionArray{ RoleDefinitionArgs{...} }
+type RoleDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToRoleDefinitionArrayOutput() RoleDefinitionArrayOutput
+	ToRoleDefinitionArrayOutputWithContext(context.Context) RoleDefinitionArrayOutput
+}
+
+type RoleDefinitionArray []RoleDefinitionInput
+
+func (RoleDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RoleDefinition)(nil))
+}
+
+func (i RoleDefinitionArray) ToRoleDefinitionArrayOutput() RoleDefinitionArrayOutput {
+	return i.ToRoleDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i RoleDefinitionArray) ToRoleDefinitionArrayOutputWithContext(ctx context.Context) RoleDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionArrayOutput)
+}
+
+// RoleDefinitionMapInput is an input type that accepts RoleDefinitionMap and RoleDefinitionMapOutput values.
+// You can construct a concrete instance of `RoleDefinitionMapInput` via:
+//
+//          RoleDefinitionMap{ "key": RoleDefinitionArgs{...} }
+type RoleDefinitionMapInput interface {
+	pulumi.Input
+
+	ToRoleDefinitionMapOutput() RoleDefinitionMapOutput
+	ToRoleDefinitionMapOutputWithContext(context.Context) RoleDefinitionMapOutput
+}
+
+type RoleDefinitionMap map[string]RoleDefinitionInput
+
+func (RoleDefinitionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RoleDefinition)(nil))
+}
+
+func (i RoleDefinitionMap) ToRoleDefinitionMapOutput() RoleDefinitionMapOutput {
+	return i.ToRoleDefinitionMapOutputWithContext(context.Background())
+}
+
+func (i RoleDefinitionMap) ToRoleDefinitionMapOutputWithContext(ctx context.Context) RoleDefinitionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionMapOutput)
 }
 
 type RoleDefinitionOutput struct {
@@ -216,7 +295,7 @@ type RoleDefinitionOutput struct {
 }
 
 func (RoleDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleDefinitionOutput)(nil)).Elem()
+	return reflect.TypeOf((*RoleDefinition)(nil))
 }
 
 func (o RoleDefinitionOutput) ToRoleDefinitionOutput() RoleDefinitionOutput {
@@ -227,6 +306,75 @@ func (o RoleDefinitionOutput) ToRoleDefinitionOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o RoleDefinitionOutput) ToRoleDefinitionPtrOutput() RoleDefinitionPtrOutput {
+	return o.ToRoleDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o RoleDefinitionOutput) ToRoleDefinitionPtrOutputWithContext(ctx context.Context) RoleDefinitionPtrOutput {
+	return o.ApplyT(func(v RoleDefinition) *RoleDefinition {
+		return &v
+	}).(RoleDefinitionPtrOutput)
+}
+
+type RoleDefinitionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RoleDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleDefinition)(nil))
+}
+
+func (o RoleDefinitionPtrOutput) ToRoleDefinitionPtrOutput() RoleDefinitionPtrOutput {
+	return o
+}
+
+func (o RoleDefinitionPtrOutput) ToRoleDefinitionPtrOutputWithContext(ctx context.Context) RoleDefinitionPtrOutput {
+	return o
+}
+
+type RoleDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (RoleDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoleDefinition)(nil))
+}
+
+func (o RoleDefinitionArrayOutput) ToRoleDefinitionArrayOutput() RoleDefinitionArrayOutput {
+	return o
+}
+
+func (o RoleDefinitionArrayOutput) ToRoleDefinitionArrayOutputWithContext(ctx context.Context) RoleDefinitionArrayOutput {
+	return o
+}
+
+func (o RoleDefinitionArrayOutput) Index(i pulumi.IntInput) RoleDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoleDefinition {
+		return vs[0].([]RoleDefinition)[vs[1].(int)]
+	}).(RoleDefinitionOutput)
+}
+
+type RoleDefinitionMapOutput struct{ *pulumi.OutputState }
+
+func (RoleDefinitionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RoleDefinition)(nil))
+}
+
+func (o RoleDefinitionMapOutput) ToRoleDefinitionMapOutput() RoleDefinitionMapOutput {
+	return o
+}
+
+func (o RoleDefinitionMapOutput) ToRoleDefinitionMapOutputWithContext(ctx context.Context) RoleDefinitionMapOutput {
+	return o
+}
+
+func (o RoleDefinitionMapOutput) MapIndex(k pulumi.StringInput) RoleDefinitionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RoleDefinition {
+		return vs[0].(map[string]RoleDefinition)[vs[1].(string)]
+	}).(RoleDefinitionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RoleDefinitionOutput{})
+	pulumi.RegisterOutputType(RoleDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(RoleDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(RoleDefinitionMapOutput{})
 }

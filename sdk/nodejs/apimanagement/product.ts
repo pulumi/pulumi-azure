@@ -119,7 +119,8 @@ export class Product extends pulumi.CustomResource {
     constructor(name: string, args: ProductArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProductArgs | ProductState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProductState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["approvalRequired"] = state ? state.approvalRequired : undefined;
@@ -133,22 +134,22 @@ export class Product extends pulumi.CustomResource {
             inputs["terms"] = state ? state.terms : undefined;
         } else {
             const args = argsOrState as ProductArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.productId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.productId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
-            if ((!args || args.published === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.published === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'published'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subscriptionRequired === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subscriptionRequired === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionRequired'");
             }
             inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
@@ -162,12 +163,8 @@ export class Product extends pulumi.CustomResource {
             inputs["subscriptionsLimit"] = args ? args.subscriptionsLimit : undefined;
             inputs["terms"] = args ? args.terms : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Product.__pulumiType, name, inputs, opts);
     }

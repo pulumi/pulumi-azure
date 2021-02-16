@@ -78,6 +78,7 @@ namespace Pulumi.Azure.ContainerService
     ///  $ pulumi import azure:containerservice/group:Group containerGroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ContainerInstance/containerGroups/myContainerGroup1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:containerservice/group:Group")]
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>

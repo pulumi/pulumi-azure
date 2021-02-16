@@ -78,24 +78,21 @@ export class SubscriptionPricing extends pulumi.CustomResource {
     constructor(name: string, args: SubscriptionPricingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SubscriptionPricingArgs | SubscriptionPricingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SubscriptionPricingState | undefined;
             inputs["resourceType"] = state ? state.resourceType : undefined;
             inputs["tier"] = state ? state.tier : undefined;
         } else {
             const args = argsOrState as SubscriptionPricingArgs | undefined;
-            if ((!args || args.tier === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tier'");
             }
             inputs["resourceType"] = args ? args.resourceType : undefined;
             inputs["tier"] = args ? args.tier : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SubscriptionPricing.__pulumiType, name, inputs, opts);
     }

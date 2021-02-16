@@ -132,7 +132,8 @@ export class SqlServer extends pulumi.CustomResource {
     constructor(name: string, args: SqlServerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SqlServerArgs | SqlServerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SqlServerState | undefined;
             inputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
@@ -147,16 +148,16 @@ export class SqlServer extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as SqlServerArgs | undefined;
-            if ((!args || args.administratorLogin === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.administratorLogin === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'administratorLogin'");
             }
-            if ((!args || args.administratorLoginPassword === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.administratorLoginPassword === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'administratorLoginPassword'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.version === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
             inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
@@ -171,12 +172,8 @@ export class SqlServer extends pulumi.CustomResource {
             inputs["version"] = args ? args.version : undefined;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SqlServer.__pulumiType, name, inputs, opts);
     }

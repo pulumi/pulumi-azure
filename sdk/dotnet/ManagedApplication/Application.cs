@@ -80,6 +80,7 @@ namespace Pulumi.Azure.ManagedApplication
     ///  $ pulumi import azure:managedapplication/application:Application example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Solutions/applications/app1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:managedapplication/application:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>

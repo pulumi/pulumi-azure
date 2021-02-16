@@ -104,7 +104,8 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
     constructor(name: string, args: ExpressRouteCircuitAuthorizationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExpressRouteCircuitAuthorizationArgs | ExpressRouteCircuitAuthorizationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ExpressRouteCircuitAuthorizationState | undefined;
             inputs["authorizationKey"] = state ? state.authorizationKey : undefined;
             inputs["authorizationUseStatus"] = state ? state.authorizationUseStatus : undefined;
@@ -113,10 +114,10 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ExpressRouteCircuitAuthorizationArgs | undefined;
-            if ((!args || args.expressRouteCircuitName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.expressRouteCircuitName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'expressRouteCircuitName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["expressRouteCircuitName"] = args ? args.expressRouteCircuitName : undefined;
@@ -125,12 +126,8 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
             inputs["authorizationKey"] = undefined /*out*/;
             inputs["authorizationUseStatus"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ExpressRouteCircuitAuthorization.__pulumiType, name, inputs, opts);
     }

@@ -61,6 +61,7 @@ namespace Pulumi.Azure.DataShare
     ///  $ pulumi import azure:datashare/share:Share example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:datashare/share:Share")]
     public partial class Share : Pulumi.CustomResource
     {
         /// <summary>

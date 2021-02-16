@@ -123,7 +123,8 @@ export class OutputMssql extends pulumi.CustomResource {
     constructor(name: string, args: OutputMssqlArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OutputMssqlArgs | OutputMssqlState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as OutputMssqlState | undefined;
             inputs["database"] = state ? state.database : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -135,25 +136,25 @@ export class OutputMssql extends pulumi.CustomResource {
             inputs["user"] = state ? state.user : undefined;
         } else {
             const args = argsOrState as OutputMssqlArgs | undefined;
-            if ((!args || args.database === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.database === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.password === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.password === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.server === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.server === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'server'");
             }
-            if ((!args || args.streamAnalyticsJobName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.streamAnalyticsJobName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
-            if ((!args || args.table === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.table === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'table'");
             }
-            if ((!args || args.user === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.user === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
             inputs["database"] = args ? args.database : undefined;
@@ -165,12 +166,8 @@ export class OutputMssql extends pulumi.CustomResource {
             inputs["table"] = args ? args.table : undefined;
             inputs["user"] = args ? args.user : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(OutputMssql.__pulumiType, name, inputs, opts);
     }

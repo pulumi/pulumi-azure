@@ -225,16 +225,95 @@ type LogProfileInput interface {
 	ToLogProfileOutputWithContext(ctx context.Context) LogProfileOutput
 }
 
-func (LogProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogProfile)(nil)).Elem()
+func (*LogProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogProfile)(nil))
 }
 
-func (i LogProfile) ToLogProfileOutput() LogProfileOutput {
+func (i *LogProfile) ToLogProfileOutput() LogProfileOutput {
 	return i.ToLogProfileOutputWithContext(context.Background())
 }
 
-func (i LogProfile) ToLogProfileOutputWithContext(ctx context.Context) LogProfileOutput {
+func (i *LogProfile) ToLogProfileOutputWithContext(ctx context.Context) LogProfileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogProfileOutput)
+}
+
+func (i *LogProfile) ToLogProfilePtrOutput() LogProfilePtrOutput {
+	return i.ToLogProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *LogProfile) ToLogProfilePtrOutputWithContext(ctx context.Context) LogProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogProfilePtrOutput)
+}
+
+type LogProfilePtrInput interface {
+	pulumi.Input
+
+	ToLogProfilePtrOutput() LogProfilePtrOutput
+	ToLogProfilePtrOutputWithContext(ctx context.Context) LogProfilePtrOutput
+}
+
+type logProfilePtrType LogProfileArgs
+
+func (*logProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogProfile)(nil))
+}
+
+func (i *logProfilePtrType) ToLogProfilePtrOutput() LogProfilePtrOutput {
+	return i.ToLogProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *logProfilePtrType) ToLogProfilePtrOutputWithContext(ctx context.Context) LogProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogProfilePtrOutput)
+}
+
+// LogProfileArrayInput is an input type that accepts LogProfileArray and LogProfileArrayOutput values.
+// You can construct a concrete instance of `LogProfileArrayInput` via:
+//
+//          LogProfileArray{ LogProfileArgs{...} }
+type LogProfileArrayInput interface {
+	pulumi.Input
+
+	ToLogProfileArrayOutput() LogProfileArrayOutput
+	ToLogProfileArrayOutputWithContext(context.Context) LogProfileArrayOutput
+}
+
+type LogProfileArray []LogProfileInput
+
+func (LogProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LogProfile)(nil))
+}
+
+func (i LogProfileArray) ToLogProfileArrayOutput() LogProfileArrayOutput {
+	return i.ToLogProfileArrayOutputWithContext(context.Background())
+}
+
+func (i LogProfileArray) ToLogProfileArrayOutputWithContext(ctx context.Context) LogProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogProfileArrayOutput)
+}
+
+// LogProfileMapInput is an input type that accepts LogProfileMap and LogProfileMapOutput values.
+// You can construct a concrete instance of `LogProfileMapInput` via:
+//
+//          LogProfileMap{ "key": LogProfileArgs{...} }
+type LogProfileMapInput interface {
+	pulumi.Input
+
+	ToLogProfileMapOutput() LogProfileMapOutput
+	ToLogProfileMapOutputWithContext(context.Context) LogProfileMapOutput
+}
+
+type LogProfileMap map[string]LogProfileInput
+
+func (LogProfileMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LogProfile)(nil))
+}
+
+func (i LogProfileMap) ToLogProfileMapOutput() LogProfileMapOutput {
+	return i.ToLogProfileMapOutputWithContext(context.Background())
+}
+
+func (i LogProfileMap) ToLogProfileMapOutputWithContext(ctx context.Context) LogProfileMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogProfileMapOutput)
 }
 
 type LogProfileOutput struct {
@@ -242,7 +321,7 @@ type LogProfileOutput struct {
 }
 
 func (LogProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogProfileOutput)(nil)).Elem()
+	return reflect.TypeOf((*LogProfile)(nil))
 }
 
 func (o LogProfileOutput) ToLogProfileOutput() LogProfileOutput {
@@ -253,6 +332,75 @@ func (o LogProfileOutput) ToLogProfileOutputWithContext(ctx context.Context) Log
 	return o
 }
 
+func (o LogProfileOutput) ToLogProfilePtrOutput() LogProfilePtrOutput {
+	return o.ToLogProfilePtrOutputWithContext(context.Background())
+}
+
+func (o LogProfileOutput) ToLogProfilePtrOutputWithContext(ctx context.Context) LogProfilePtrOutput {
+	return o.ApplyT(func(v LogProfile) *LogProfile {
+		return &v
+	}).(LogProfilePtrOutput)
+}
+
+type LogProfilePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogProfile)(nil))
+}
+
+func (o LogProfilePtrOutput) ToLogProfilePtrOutput() LogProfilePtrOutput {
+	return o
+}
+
+func (o LogProfilePtrOutput) ToLogProfilePtrOutputWithContext(ctx context.Context) LogProfilePtrOutput {
+	return o
+}
+
+type LogProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (LogProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogProfile)(nil))
+}
+
+func (o LogProfileArrayOutput) ToLogProfileArrayOutput() LogProfileArrayOutput {
+	return o
+}
+
+func (o LogProfileArrayOutput) ToLogProfileArrayOutputWithContext(ctx context.Context) LogProfileArrayOutput {
+	return o
+}
+
+func (o LogProfileArrayOutput) Index(i pulumi.IntInput) LogProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogProfile {
+		return vs[0].([]LogProfile)[vs[1].(int)]
+	}).(LogProfileOutput)
+}
+
+type LogProfileMapOutput struct{ *pulumi.OutputState }
+
+func (LogProfileMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LogProfile)(nil))
+}
+
+func (o LogProfileMapOutput) ToLogProfileMapOutput() LogProfileMapOutput {
+	return o
+}
+
+func (o LogProfileMapOutput) ToLogProfileMapOutputWithContext(ctx context.Context) LogProfileMapOutput {
+	return o
+}
+
+func (o LogProfileMapOutput) MapIndex(k pulumi.StringInput) LogProfileOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogProfile {
+		return vs[0].(map[string]LogProfile)[vs[1].(string)]
+	}).(LogProfileOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LogProfileOutput{})
+	pulumi.RegisterOutputType(LogProfilePtrOutput{})
+	pulumi.RegisterOutputType(LogProfileArrayOutput{})
+	pulumi.RegisterOutputType(LogProfileMapOutput{})
 }

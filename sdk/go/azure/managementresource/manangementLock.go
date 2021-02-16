@@ -233,16 +233,95 @@ type ManangementLockInput interface {
 	ToManangementLockOutputWithContext(ctx context.Context) ManangementLockOutput
 }
 
-func (ManangementLock) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManangementLock)(nil)).Elem()
+func (*ManangementLock) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManangementLock)(nil))
 }
 
-func (i ManangementLock) ToManangementLockOutput() ManangementLockOutput {
+func (i *ManangementLock) ToManangementLockOutput() ManangementLockOutput {
 	return i.ToManangementLockOutputWithContext(context.Background())
 }
 
-func (i ManangementLock) ToManangementLockOutputWithContext(ctx context.Context) ManangementLockOutput {
+func (i *ManangementLock) ToManangementLockOutputWithContext(ctx context.Context) ManangementLockOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManangementLockOutput)
+}
+
+func (i *ManangementLock) ToManangementLockPtrOutput() ManangementLockPtrOutput {
+	return i.ToManangementLockPtrOutputWithContext(context.Background())
+}
+
+func (i *ManangementLock) ToManangementLockPtrOutputWithContext(ctx context.Context) ManangementLockPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManangementLockPtrOutput)
+}
+
+type ManangementLockPtrInput interface {
+	pulumi.Input
+
+	ToManangementLockPtrOutput() ManangementLockPtrOutput
+	ToManangementLockPtrOutputWithContext(ctx context.Context) ManangementLockPtrOutput
+}
+
+type manangementLockPtrType ManangementLockArgs
+
+func (*manangementLockPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManangementLock)(nil))
+}
+
+func (i *manangementLockPtrType) ToManangementLockPtrOutput() ManangementLockPtrOutput {
+	return i.ToManangementLockPtrOutputWithContext(context.Background())
+}
+
+func (i *manangementLockPtrType) ToManangementLockPtrOutputWithContext(ctx context.Context) ManangementLockPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManangementLockPtrOutput)
+}
+
+// ManangementLockArrayInput is an input type that accepts ManangementLockArray and ManangementLockArrayOutput values.
+// You can construct a concrete instance of `ManangementLockArrayInput` via:
+//
+//          ManangementLockArray{ ManangementLockArgs{...} }
+type ManangementLockArrayInput interface {
+	pulumi.Input
+
+	ToManangementLockArrayOutput() ManangementLockArrayOutput
+	ToManangementLockArrayOutputWithContext(context.Context) ManangementLockArrayOutput
+}
+
+type ManangementLockArray []ManangementLockInput
+
+func (ManangementLockArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ManangementLock)(nil))
+}
+
+func (i ManangementLockArray) ToManangementLockArrayOutput() ManangementLockArrayOutput {
+	return i.ToManangementLockArrayOutputWithContext(context.Background())
+}
+
+func (i ManangementLockArray) ToManangementLockArrayOutputWithContext(ctx context.Context) ManangementLockArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManangementLockArrayOutput)
+}
+
+// ManangementLockMapInput is an input type that accepts ManangementLockMap and ManangementLockMapOutput values.
+// You can construct a concrete instance of `ManangementLockMapInput` via:
+//
+//          ManangementLockMap{ "key": ManangementLockArgs{...} }
+type ManangementLockMapInput interface {
+	pulumi.Input
+
+	ToManangementLockMapOutput() ManangementLockMapOutput
+	ToManangementLockMapOutputWithContext(context.Context) ManangementLockMapOutput
+}
+
+type ManangementLockMap map[string]ManangementLockInput
+
+func (ManangementLockMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ManangementLock)(nil))
+}
+
+func (i ManangementLockMap) ToManangementLockMapOutput() ManangementLockMapOutput {
+	return i.ToManangementLockMapOutputWithContext(context.Background())
+}
+
+func (i ManangementLockMap) ToManangementLockMapOutputWithContext(ctx context.Context) ManangementLockMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManangementLockMapOutput)
 }
 
 type ManangementLockOutput struct {
@@ -250,7 +329,7 @@ type ManangementLockOutput struct {
 }
 
 func (ManangementLockOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManangementLockOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManangementLock)(nil))
 }
 
 func (o ManangementLockOutput) ToManangementLockOutput() ManangementLockOutput {
@@ -261,6 +340,75 @@ func (o ManangementLockOutput) ToManangementLockOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ManangementLockOutput) ToManangementLockPtrOutput() ManangementLockPtrOutput {
+	return o.ToManangementLockPtrOutputWithContext(context.Background())
+}
+
+func (o ManangementLockOutput) ToManangementLockPtrOutputWithContext(ctx context.Context) ManangementLockPtrOutput {
+	return o.ApplyT(func(v ManangementLock) *ManangementLock {
+		return &v
+	}).(ManangementLockPtrOutput)
+}
+
+type ManangementLockPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManangementLockPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManangementLock)(nil))
+}
+
+func (o ManangementLockPtrOutput) ToManangementLockPtrOutput() ManangementLockPtrOutput {
+	return o
+}
+
+func (o ManangementLockPtrOutput) ToManangementLockPtrOutputWithContext(ctx context.Context) ManangementLockPtrOutput {
+	return o
+}
+
+type ManangementLockArrayOutput struct{ *pulumi.OutputState }
+
+func (ManangementLockArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManangementLock)(nil))
+}
+
+func (o ManangementLockArrayOutput) ToManangementLockArrayOutput() ManangementLockArrayOutput {
+	return o
+}
+
+func (o ManangementLockArrayOutput) ToManangementLockArrayOutputWithContext(ctx context.Context) ManangementLockArrayOutput {
+	return o
+}
+
+func (o ManangementLockArrayOutput) Index(i pulumi.IntInput) ManangementLockOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManangementLock {
+		return vs[0].([]ManangementLock)[vs[1].(int)]
+	}).(ManangementLockOutput)
+}
+
+type ManangementLockMapOutput struct{ *pulumi.OutputState }
+
+func (ManangementLockMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManangementLock)(nil))
+}
+
+func (o ManangementLockMapOutput) ToManangementLockMapOutput() ManangementLockMapOutput {
+	return o
+}
+
+func (o ManangementLockMapOutput) ToManangementLockMapOutputWithContext(ctx context.Context) ManangementLockMapOutput {
+	return o
+}
+
+func (o ManangementLockMapOutput) MapIndex(k pulumi.StringInput) ManangementLockOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManangementLock {
+		return vs[0].(map[string]ManangementLock)[vs[1].(string)]
+	}).(ManangementLockOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManangementLockOutput{})
+	pulumi.RegisterOutputType(ManangementLockPtrOutput{})
+	pulumi.RegisterOutputType(ManangementLockArrayOutput{})
+	pulumi.RegisterOutputType(ManangementLockMapOutput{})
 }

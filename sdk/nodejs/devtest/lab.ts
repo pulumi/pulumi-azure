@@ -114,7 +114,8 @@ export class Lab extends pulumi.CustomResource {
     constructor(name: string, args: LabArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LabArgs | LabState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LabState | undefined;
             inputs["artifactsStorageAccountId"] = state ? state.artifactsStorageAccountId : undefined;
             inputs["defaultPremiumStorageAccountId"] = state ? state.defaultPremiumStorageAccountId : undefined;
@@ -129,7 +130,7 @@ export class Lab extends pulumi.CustomResource {
             inputs["uniqueIdentifier"] = state ? state.uniqueIdentifier : undefined;
         } else {
             const args = argsOrState as LabArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -144,12 +145,8 @@ export class Lab extends pulumi.CustomResource {
             inputs["premiumDataDiskStorageAccountId"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Lab.__pulumiType, name, inputs, opts);
     }

@@ -113,7 +113,8 @@ export class StorageInsights extends pulumi.CustomResource {
     constructor(name: string, args: StorageInsightsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StorageInsightsArgs | StorageInsightsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as StorageInsightsState | undefined;
             inputs["blobContainerNames"] = state ? state.blobContainerNames : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -125,16 +126,16 @@ export class StorageInsights extends pulumi.CustomResource {
             inputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as StorageInsightsArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            if ((!args || args.storageAccountKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountKey'");
             }
-            if ((!args || args.workspaceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
             inputs["blobContainerNames"] = args ? args.blobContainerNames : undefined;
@@ -146,12 +147,8 @@ export class StorageInsights extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(StorageInsights.__pulumiType, name, inputs, opts);
     }

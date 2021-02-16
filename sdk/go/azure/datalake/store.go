@@ -213,16 +213,95 @@ type StoreInput interface {
 	ToStoreOutputWithContext(ctx context.Context) StoreOutput
 }
 
-func (Store) ElementType() reflect.Type {
-	return reflect.TypeOf((*Store)(nil)).Elem()
+func (*Store) ElementType() reflect.Type {
+	return reflect.TypeOf((*Store)(nil))
 }
 
-func (i Store) ToStoreOutput() StoreOutput {
+func (i *Store) ToStoreOutput() StoreOutput {
 	return i.ToStoreOutputWithContext(context.Background())
 }
 
-func (i Store) ToStoreOutputWithContext(ctx context.Context) StoreOutput {
+func (i *Store) ToStoreOutputWithContext(ctx context.Context) StoreOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StoreOutput)
+}
+
+func (i *Store) ToStorePtrOutput() StorePtrOutput {
+	return i.ToStorePtrOutputWithContext(context.Background())
+}
+
+func (i *Store) ToStorePtrOutputWithContext(ctx context.Context) StorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorePtrOutput)
+}
+
+type StorePtrInput interface {
+	pulumi.Input
+
+	ToStorePtrOutput() StorePtrOutput
+	ToStorePtrOutputWithContext(ctx context.Context) StorePtrOutput
+}
+
+type storePtrType StoreArgs
+
+func (*storePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Store)(nil))
+}
+
+func (i *storePtrType) ToStorePtrOutput() StorePtrOutput {
+	return i.ToStorePtrOutputWithContext(context.Background())
+}
+
+func (i *storePtrType) ToStorePtrOutputWithContext(ctx context.Context) StorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorePtrOutput)
+}
+
+// StoreArrayInput is an input type that accepts StoreArray and StoreArrayOutput values.
+// You can construct a concrete instance of `StoreArrayInput` via:
+//
+//          StoreArray{ StoreArgs{...} }
+type StoreArrayInput interface {
+	pulumi.Input
+
+	ToStoreArrayOutput() StoreArrayOutput
+	ToStoreArrayOutputWithContext(context.Context) StoreArrayOutput
+}
+
+type StoreArray []StoreInput
+
+func (StoreArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Store)(nil))
+}
+
+func (i StoreArray) ToStoreArrayOutput() StoreArrayOutput {
+	return i.ToStoreArrayOutputWithContext(context.Background())
+}
+
+func (i StoreArray) ToStoreArrayOutputWithContext(ctx context.Context) StoreArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StoreArrayOutput)
+}
+
+// StoreMapInput is an input type that accepts StoreMap and StoreMapOutput values.
+// You can construct a concrete instance of `StoreMapInput` via:
+//
+//          StoreMap{ "key": StoreArgs{...} }
+type StoreMapInput interface {
+	pulumi.Input
+
+	ToStoreMapOutput() StoreMapOutput
+	ToStoreMapOutputWithContext(context.Context) StoreMapOutput
+}
+
+type StoreMap map[string]StoreInput
+
+func (StoreMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Store)(nil))
+}
+
+func (i StoreMap) ToStoreMapOutput() StoreMapOutput {
+	return i.ToStoreMapOutputWithContext(context.Background())
+}
+
+func (i StoreMap) ToStoreMapOutputWithContext(ctx context.Context) StoreMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StoreMapOutput)
 }
 
 type StoreOutput struct {
@@ -230,7 +309,7 @@ type StoreOutput struct {
 }
 
 func (StoreOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StoreOutput)(nil)).Elem()
+	return reflect.TypeOf((*Store)(nil))
 }
 
 func (o StoreOutput) ToStoreOutput() StoreOutput {
@@ -241,6 +320,75 @@ func (o StoreOutput) ToStoreOutputWithContext(ctx context.Context) StoreOutput {
 	return o
 }
 
+func (o StoreOutput) ToStorePtrOutput() StorePtrOutput {
+	return o.ToStorePtrOutputWithContext(context.Background())
+}
+
+func (o StoreOutput) ToStorePtrOutputWithContext(ctx context.Context) StorePtrOutput {
+	return o.ApplyT(func(v Store) *Store {
+		return &v
+	}).(StorePtrOutput)
+}
+
+type StorePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (StorePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Store)(nil))
+}
+
+func (o StorePtrOutput) ToStorePtrOutput() StorePtrOutput {
+	return o
+}
+
+func (o StorePtrOutput) ToStorePtrOutputWithContext(ctx context.Context) StorePtrOutput {
+	return o
+}
+
+type StoreArrayOutput struct{ *pulumi.OutputState }
+
+func (StoreArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Store)(nil))
+}
+
+func (o StoreArrayOutput) ToStoreArrayOutput() StoreArrayOutput {
+	return o
+}
+
+func (o StoreArrayOutput) ToStoreArrayOutputWithContext(ctx context.Context) StoreArrayOutput {
+	return o
+}
+
+func (o StoreArrayOutput) Index(i pulumi.IntInput) StoreOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Store {
+		return vs[0].([]Store)[vs[1].(int)]
+	}).(StoreOutput)
+}
+
+type StoreMapOutput struct{ *pulumi.OutputState }
+
+func (StoreMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Store)(nil))
+}
+
+func (o StoreMapOutput) ToStoreMapOutput() StoreMapOutput {
+	return o
+}
+
+func (o StoreMapOutput) ToStoreMapOutputWithContext(ctx context.Context) StoreMapOutput {
+	return o
+}
+
+func (o StoreMapOutput) MapIndex(k pulumi.StringInput) StoreOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Store {
+		return vs[0].(map[string]Store)[vs[1].(string)]
+	}).(StoreOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StoreOutput{})
+	pulumi.RegisterOutputType(StorePtrOutput{})
+	pulumi.RegisterOutputType(StoreArrayOutput{})
+	pulumi.RegisterOutputType(StoreMapOutput{})
 }

@@ -101,7 +101,8 @@ export class ManagementGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ManagementGroupArgs | ManagementGroupState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ManagementGroup is deprecated: azure.managementgroups.ManagementGroup has been deprecated in favor of azure.management.Group")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ManagementGroupState | undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["groupId"] = state ? state.groupId : undefined;
@@ -116,12 +117,8 @@ export class ManagementGroup extends pulumi.CustomResource {
             inputs["parentManagementGroupId"] = args ? args.parentManagementGroupId : undefined;
             inputs["subscriptionIds"] = args ? args.subscriptionIds : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ManagementGroup.__pulumiType, name, inputs, opts);
     }

@@ -141,7 +141,8 @@ export class PolicySetDefinition extends pulumi.CustomResource {
     constructor(name: string, args: PolicySetDefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicySetDefinitionArgs | PolicySetDefinitionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PolicySetDefinitionState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
@@ -156,10 +157,10 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             inputs["policyType"] = state ? state.policyType : undefined;
         } else {
             const args = argsOrState as PolicySetDefinitionArgs | undefined;
-            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.policyType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policyType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyType'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -174,12 +175,8 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             inputs["policyDefinitions"] = args ? args.policyDefinitions : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PolicySetDefinition.__pulumiType, name, inputs, opts);
     }

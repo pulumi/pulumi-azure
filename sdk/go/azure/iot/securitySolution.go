@@ -266,16 +266,95 @@ type SecuritySolutionInput interface {
 	ToSecuritySolutionOutputWithContext(ctx context.Context) SecuritySolutionOutput
 }
 
-func (SecuritySolution) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecuritySolution)(nil)).Elem()
+func (*SecuritySolution) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecuritySolution)(nil))
 }
 
-func (i SecuritySolution) ToSecuritySolutionOutput() SecuritySolutionOutput {
+func (i *SecuritySolution) ToSecuritySolutionOutput() SecuritySolutionOutput {
 	return i.ToSecuritySolutionOutputWithContext(context.Background())
 }
 
-func (i SecuritySolution) ToSecuritySolutionOutputWithContext(ctx context.Context) SecuritySolutionOutput {
+func (i *SecuritySolution) ToSecuritySolutionOutputWithContext(ctx context.Context) SecuritySolutionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionOutput)
+}
+
+func (i *SecuritySolution) ToSecuritySolutionPtrOutput() SecuritySolutionPtrOutput {
+	return i.ToSecuritySolutionPtrOutputWithContext(context.Background())
+}
+
+func (i *SecuritySolution) ToSecuritySolutionPtrOutputWithContext(ctx context.Context) SecuritySolutionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionPtrOutput)
+}
+
+type SecuritySolutionPtrInput interface {
+	pulumi.Input
+
+	ToSecuritySolutionPtrOutput() SecuritySolutionPtrOutput
+	ToSecuritySolutionPtrOutputWithContext(ctx context.Context) SecuritySolutionPtrOutput
+}
+
+type securitySolutionPtrType SecuritySolutionArgs
+
+func (*securitySolutionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecuritySolution)(nil))
+}
+
+func (i *securitySolutionPtrType) ToSecuritySolutionPtrOutput() SecuritySolutionPtrOutput {
+	return i.ToSecuritySolutionPtrOutputWithContext(context.Background())
+}
+
+func (i *securitySolutionPtrType) ToSecuritySolutionPtrOutputWithContext(ctx context.Context) SecuritySolutionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionPtrOutput)
+}
+
+// SecuritySolutionArrayInput is an input type that accepts SecuritySolutionArray and SecuritySolutionArrayOutput values.
+// You can construct a concrete instance of `SecuritySolutionArrayInput` via:
+//
+//          SecuritySolutionArray{ SecuritySolutionArgs{...} }
+type SecuritySolutionArrayInput interface {
+	pulumi.Input
+
+	ToSecuritySolutionArrayOutput() SecuritySolutionArrayOutput
+	ToSecuritySolutionArrayOutputWithContext(context.Context) SecuritySolutionArrayOutput
+}
+
+type SecuritySolutionArray []SecuritySolutionInput
+
+func (SecuritySolutionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SecuritySolution)(nil))
+}
+
+func (i SecuritySolutionArray) ToSecuritySolutionArrayOutput() SecuritySolutionArrayOutput {
+	return i.ToSecuritySolutionArrayOutputWithContext(context.Background())
+}
+
+func (i SecuritySolutionArray) ToSecuritySolutionArrayOutputWithContext(ctx context.Context) SecuritySolutionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionArrayOutput)
+}
+
+// SecuritySolutionMapInput is an input type that accepts SecuritySolutionMap and SecuritySolutionMapOutput values.
+// You can construct a concrete instance of `SecuritySolutionMapInput` via:
+//
+//          SecuritySolutionMap{ "key": SecuritySolutionArgs{...} }
+type SecuritySolutionMapInput interface {
+	pulumi.Input
+
+	ToSecuritySolutionMapOutput() SecuritySolutionMapOutput
+	ToSecuritySolutionMapOutputWithContext(context.Context) SecuritySolutionMapOutput
+}
+
+type SecuritySolutionMap map[string]SecuritySolutionInput
+
+func (SecuritySolutionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SecuritySolution)(nil))
+}
+
+func (i SecuritySolutionMap) ToSecuritySolutionMapOutput() SecuritySolutionMapOutput {
+	return i.ToSecuritySolutionMapOutputWithContext(context.Background())
+}
+
+func (i SecuritySolutionMap) ToSecuritySolutionMapOutputWithContext(ctx context.Context) SecuritySolutionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionMapOutput)
 }
 
 type SecuritySolutionOutput struct {
@@ -283,7 +362,7 @@ type SecuritySolutionOutput struct {
 }
 
 func (SecuritySolutionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecuritySolutionOutput)(nil)).Elem()
+	return reflect.TypeOf((*SecuritySolution)(nil))
 }
 
 func (o SecuritySolutionOutput) ToSecuritySolutionOutput() SecuritySolutionOutput {
@@ -294,6 +373,75 @@ func (o SecuritySolutionOutput) ToSecuritySolutionOutputWithContext(ctx context.
 	return o
 }
 
+func (o SecuritySolutionOutput) ToSecuritySolutionPtrOutput() SecuritySolutionPtrOutput {
+	return o.ToSecuritySolutionPtrOutputWithContext(context.Background())
+}
+
+func (o SecuritySolutionOutput) ToSecuritySolutionPtrOutputWithContext(ctx context.Context) SecuritySolutionPtrOutput {
+	return o.ApplyT(func(v SecuritySolution) *SecuritySolution {
+		return &v
+	}).(SecuritySolutionPtrOutput)
+}
+
+type SecuritySolutionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SecuritySolutionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecuritySolution)(nil))
+}
+
+func (o SecuritySolutionPtrOutput) ToSecuritySolutionPtrOutput() SecuritySolutionPtrOutput {
+	return o
+}
+
+func (o SecuritySolutionPtrOutput) ToSecuritySolutionPtrOutputWithContext(ctx context.Context) SecuritySolutionPtrOutput {
+	return o
+}
+
+type SecuritySolutionArrayOutput struct{ *pulumi.OutputState }
+
+func (SecuritySolutionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecuritySolution)(nil))
+}
+
+func (o SecuritySolutionArrayOutput) ToSecuritySolutionArrayOutput() SecuritySolutionArrayOutput {
+	return o
+}
+
+func (o SecuritySolutionArrayOutput) ToSecuritySolutionArrayOutputWithContext(ctx context.Context) SecuritySolutionArrayOutput {
+	return o
+}
+
+func (o SecuritySolutionArrayOutput) Index(i pulumi.IntInput) SecuritySolutionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecuritySolution {
+		return vs[0].([]SecuritySolution)[vs[1].(int)]
+	}).(SecuritySolutionOutput)
+}
+
+type SecuritySolutionMapOutput struct{ *pulumi.OutputState }
+
+func (SecuritySolutionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SecuritySolution)(nil))
+}
+
+func (o SecuritySolutionMapOutput) ToSecuritySolutionMapOutput() SecuritySolutionMapOutput {
+	return o
+}
+
+func (o SecuritySolutionMapOutput) ToSecuritySolutionMapOutputWithContext(ctx context.Context) SecuritySolutionMapOutput {
+	return o
+}
+
+func (o SecuritySolutionMapOutput) MapIndex(k pulumi.StringInput) SecuritySolutionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SecuritySolution {
+		return vs[0].(map[string]SecuritySolution)[vs[1].(string)]
+	}).(SecuritySolutionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SecuritySolutionOutput{})
+	pulumi.RegisterOutputType(SecuritySolutionPtrOutput{})
+	pulumi.RegisterOutputType(SecuritySolutionArrayOutput{})
+	pulumi.RegisterOutputType(SecuritySolutionMapOutput{})
 }

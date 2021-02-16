@@ -56,6 +56,7 @@ namespace Pulumi.Azure.AppService
     /// }
     /// ```
     /// </summary>
+    [AzureResourceType("azure:appservice/activeSlot:ActiveSlot")]
     public partial class ActiveSlot : Pulumi.CustomResource
     {
         /// <summary>

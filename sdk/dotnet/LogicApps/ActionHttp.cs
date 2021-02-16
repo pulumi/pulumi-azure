@@ -50,6 +50,7 @@ namespace Pulumi.Azure.LogicApps
     ///  $ pulumi import azure:logicapps/actionHttp:ActionHttp webhook1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/actions/webhook1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:logicapps/actionHttp:ActionHttp")]
     public partial class ActionHttp : Pulumi.CustomResource
     {
         /// <summary>

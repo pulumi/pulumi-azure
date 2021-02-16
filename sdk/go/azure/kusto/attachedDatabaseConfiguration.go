@@ -169,16 +169,95 @@ type AttachedDatabaseConfigurationInput interface {
 	ToAttachedDatabaseConfigurationOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationOutput
 }
 
-func (AttachedDatabaseConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttachedDatabaseConfiguration)(nil)).Elem()
+func (*AttachedDatabaseConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*AttachedDatabaseConfiguration)(nil))
 }
 
-func (i AttachedDatabaseConfiguration) ToAttachedDatabaseConfigurationOutput() AttachedDatabaseConfigurationOutput {
+func (i *AttachedDatabaseConfiguration) ToAttachedDatabaseConfigurationOutput() AttachedDatabaseConfigurationOutput {
 	return i.ToAttachedDatabaseConfigurationOutputWithContext(context.Background())
 }
 
-func (i AttachedDatabaseConfiguration) ToAttachedDatabaseConfigurationOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationOutput {
+func (i *AttachedDatabaseConfiguration) ToAttachedDatabaseConfigurationOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AttachedDatabaseConfigurationOutput)
+}
+
+func (i *AttachedDatabaseConfiguration) ToAttachedDatabaseConfigurationPtrOutput() AttachedDatabaseConfigurationPtrOutput {
+	return i.ToAttachedDatabaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *AttachedDatabaseConfiguration) ToAttachedDatabaseConfigurationPtrOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AttachedDatabaseConfigurationPtrOutput)
+}
+
+type AttachedDatabaseConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAttachedDatabaseConfigurationPtrOutput() AttachedDatabaseConfigurationPtrOutput
+	ToAttachedDatabaseConfigurationPtrOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationPtrOutput
+}
+
+type attachedDatabaseConfigurationPtrType AttachedDatabaseConfigurationArgs
+
+func (*attachedDatabaseConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AttachedDatabaseConfiguration)(nil))
+}
+
+func (i *attachedDatabaseConfigurationPtrType) ToAttachedDatabaseConfigurationPtrOutput() AttachedDatabaseConfigurationPtrOutput {
+	return i.ToAttachedDatabaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *attachedDatabaseConfigurationPtrType) ToAttachedDatabaseConfigurationPtrOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AttachedDatabaseConfigurationPtrOutput)
+}
+
+// AttachedDatabaseConfigurationArrayInput is an input type that accepts AttachedDatabaseConfigurationArray and AttachedDatabaseConfigurationArrayOutput values.
+// You can construct a concrete instance of `AttachedDatabaseConfigurationArrayInput` via:
+//
+//          AttachedDatabaseConfigurationArray{ AttachedDatabaseConfigurationArgs{...} }
+type AttachedDatabaseConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToAttachedDatabaseConfigurationArrayOutput() AttachedDatabaseConfigurationArrayOutput
+	ToAttachedDatabaseConfigurationArrayOutputWithContext(context.Context) AttachedDatabaseConfigurationArrayOutput
+}
+
+type AttachedDatabaseConfigurationArray []AttachedDatabaseConfigurationInput
+
+func (AttachedDatabaseConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AttachedDatabaseConfiguration)(nil))
+}
+
+func (i AttachedDatabaseConfigurationArray) ToAttachedDatabaseConfigurationArrayOutput() AttachedDatabaseConfigurationArrayOutput {
+	return i.ToAttachedDatabaseConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i AttachedDatabaseConfigurationArray) ToAttachedDatabaseConfigurationArrayOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AttachedDatabaseConfigurationArrayOutput)
+}
+
+// AttachedDatabaseConfigurationMapInput is an input type that accepts AttachedDatabaseConfigurationMap and AttachedDatabaseConfigurationMapOutput values.
+// You can construct a concrete instance of `AttachedDatabaseConfigurationMapInput` via:
+//
+//          AttachedDatabaseConfigurationMap{ "key": AttachedDatabaseConfigurationArgs{...} }
+type AttachedDatabaseConfigurationMapInput interface {
+	pulumi.Input
+
+	ToAttachedDatabaseConfigurationMapOutput() AttachedDatabaseConfigurationMapOutput
+	ToAttachedDatabaseConfigurationMapOutputWithContext(context.Context) AttachedDatabaseConfigurationMapOutput
+}
+
+type AttachedDatabaseConfigurationMap map[string]AttachedDatabaseConfigurationInput
+
+func (AttachedDatabaseConfigurationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AttachedDatabaseConfiguration)(nil))
+}
+
+func (i AttachedDatabaseConfigurationMap) ToAttachedDatabaseConfigurationMapOutput() AttachedDatabaseConfigurationMapOutput {
+	return i.ToAttachedDatabaseConfigurationMapOutputWithContext(context.Background())
+}
+
+func (i AttachedDatabaseConfigurationMap) ToAttachedDatabaseConfigurationMapOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AttachedDatabaseConfigurationMapOutput)
 }
 
 type AttachedDatabaseConfigurationOutput struct {
@@ -186,7 +265,7 @@ type AttachedDatabaseConfigurationOutput struct {
 }
 
 func (AttachedDatabaseConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttachedDatabaseConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*AttachedDatabaseConfiguration)(nil))
 }
 
 func (o AttachedDatabaseConfigurationOutput) ToAttachedDatabaseConfigurationOutput() AttachedDatabaseConfigurationOutput {
@@ -197,6 +276,75 @@ func (o AttachedDatabaseConfigurationOutput) ToAttachedDatabaseConfigurationOutp
 	return o
 }
 
+func (o AttachedDatabaseConfigurationOutput) ToAttachedDatabaseConfigurationPtrOutput() AttachedDatabaseConfigurationPtrOutput {
+	return o.ToAttachedDatabaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AttachedDatabaseConfigurationOutput) ToAttachedDatabaseConfigurationPtrOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationPtrOutput {
+	return o.ApplyT(func(v AttachedDatabaseConfiguration) *AttachedDatabaseConfiguration {
+		return &v
+	}).(AttachedDatabaseConfigurationPtrOutput)
+}
+
+type AttachedDatabaseConfigurationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AttachedDatabaseConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AttachedDatabaseConfiguration)(nil))
+}
+
+func (o AttachedDatabaseConfigurationPtrOutput) ToAttachedDatabaseConfigurationPtrOutput() AttachedDatabaseConfigurationPtrOutput {
+	return o
+}
+
+func (o AttachedDatabaseConfigurationPtrOutput) ToAttachedDatabaseConfigurationPtrOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationPtrOutput {
+	return o
+}
+
+type AttachedDatabaseConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (AttachedDatabaseConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AttachedDatabaseConfiguration)(nil))
+}
+
+func (o AttachedDatabaseConfigurationArrayOutput) ToAttachedDatabaseConfigurationArrayOutput() AttachedDatabaseConfigurationArrayOutput {
+	return o
+}
+
+func (o AttachedDatabaseConfigurationArrayOutput) ToAttachedDatabaseConfigurationArrayOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationArrayOutput {
+	return o
+}
+
+func (o AttachedDatabaseConfigurationArrayOutput) Index(i pulumi.IntInput) AttachedDatabaseConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AttachedDatabaseConfiguration {
+		return vs[0].([]AttachedDatabaseConfiguration)[vs[1].(int)]
+	}).(AttachedDatabaseConfigurationOutput)
+}
+
+type AttachedDatabaseConfigurationMapOutput struct{ *pulumi.OutputState }
+
+func (AttachedDatabaseConfigurationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AttachedDatabaseConfiguration)(nil))
+}
+
+func (o AttachedDatabaseConfigurationMapOutput) ToAttachedDatabaseConfigurationMapOutput() AttachedDatabaseConfigurationMapOutput {
+	return o
+}
+
+func (o AttachedDatabaseConfigurationMapOutput) ToAttachedDatabaseConfigurationMapOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationMapOutput {
+	return o
+}
+
+func (o AttachedDatabaseConfigurationMapOutput) MapIndex(k pulumi.StringInput) AttachedDatabaseConfigurationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AttachedDatabaseConfiguration {
+		return vs[0].(map[string]AttachedDatabaseConfiguration)[vs[1].(string)]
+	}).(AttachedDatabaseConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AttachedDatabaseConfigurationOutput{})
+	pulumi.RegisterOutputType(AttachedDatabaseConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AttachedDatabaseConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(AttachedDatabaseConfigurationMapOutput{})
 }

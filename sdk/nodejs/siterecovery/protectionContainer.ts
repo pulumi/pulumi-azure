@@ -95,7 +95,8 @@ export class ProtectionContainer extends pulumi.CustomResource {
     constructor(name: string, args: ProtectionContainerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProtectionContainerArgs | ProtectionContainerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProtectionContainerState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["recoveryFabricName"] = state ? state.recoveryFabricName : undefined;
@@ -103,13 +104,13 @@ export class ProtectionContainer extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ProtectionContainerArgs | undefined;
-            if ((!args || args.recoveryFabricName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.recoveryFabricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recoveryFabricName'");
             }
-            if ((!args || args.recoveryVaultName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.recoveryVaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -117,12 +118,8 @@ export class ProtectionContainer extends pulumi.CustomResource {
             inputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ProtectionContainer.__pulumiType, name, inputs, opts);
     }

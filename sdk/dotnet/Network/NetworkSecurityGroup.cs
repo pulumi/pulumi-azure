@@ -67,6 +67,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/networkSecurityGroup:NetworkSecurityGroup group1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkSecurityGroups/mySecurityGroup
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/networkSecurityGroup:NetworkSecurityGroup")]
     public partial class NetworkSecurityGroup : Pulumi.CustomResource
     {
         /// <summary>

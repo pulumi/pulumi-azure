@@ -107,7 +107,8 @@ export class Definition extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DefinitionArgs | DefinitionState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Definition is deprecated: azure.role.Definition has been deprecated in favor of azure.authorization.RoleDefinition")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DefinitionState | undefined;
             inputs["assignableScopes"] = state ? state.assignableScopes : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -118,10 +119,10 @@ export class Definition extends pulumi.CustomResource {
             inputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as DefinitionArgs | undefined;
-            if ((!args || args.permissions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.permissions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permissions'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["assignableScopes"] = args ? args.assignableScopes : undefined;
@@ -132,12 +133,8 @@ export class Definition extends pulumi.CustomResource {
             inputs["scope"] = args ? args.scope : undefined;
             inputs["roleDefinitionResourceId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Definition.__pulumiType, name, inputs, opts);
     }

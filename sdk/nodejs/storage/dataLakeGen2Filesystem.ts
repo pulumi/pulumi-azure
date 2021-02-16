@@ -96,7 +96,8 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
     constructor(name: string, args: DataLakeGen2FilesystemArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataLakeGen2FilesystemArgs | DataLakeGen2FilesystemState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DataLakeGen2FilesystemState | undefined;
             inputs["aces"] = state ? state.aces : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -104,7 +105,7 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
             const args = argsOrState as DataLakeGen2FilesystemArgs | undefined;
-            if ((!args || args.storageAccountId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
             inputs["aces"] = args ? args.aces : undefined;
@@ -112,12 +113,8 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
             inputs["properties"] = args ? args.properties : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DataLakeGen2Filesystem.__pulumiType, name, inputs, opts);
     }

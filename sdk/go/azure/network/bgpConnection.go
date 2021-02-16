@@ -208,16 +208,95 @@ type BgpConnectionInput interface {
 	ToBgpConnectionOutputWithContext(ctx context.Context) BgpConnectionOutput
 }
 
-func (BgpConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*BgpConnection)(nil)).Elem()
+func (*BgpConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*BgpConnection)(nil))
 }
 
-func (i BgpConnection) ToBgpConnectionOutput() BgpConnectionOutput {
+func (i *BgpConnection) ToBgpConnectionOutput() BgpConnectionOutput {
 	return i.ToBgpConnectionOutputWithContext(context.Background())
 }
 
-func (i BgpConnection) ToBgpConnectionOutputWithContext(ctx context.Context) BgpConnectionOutput {
+func (i *BgpConnection) ToBgpConnectionOutputWithContext(ctx context.Context) BgpConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BgpConnectionOutput)
+}
+
+func (i *BgpConnection) ToBgpConnectionPtrOutput() BgpConnectionPtrOutput {
+	return i.ToBgpConnectionPtrOutputWithContext(context.Background())
+}
+
+func (i *BgpConnection) ToBgpConnectionPtrOutputWithContext(ctx context.Context) BgpConnectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BgpConnectionPtrOutput)
+}
+
+type BgpConnectionPtrInput interface {
+	pulumi.Input
+
+	ToBgpConnectionPtrOutput() BgpConnectionPtrOutput
+	ToBgpConnectionPtrOutputWithContext(ctx context.Context) BgpConnectionPtrOutput
+}
+
+type bgpConnectionPtrType BgpConnectionArgs
+
+func (*bgpConnectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BgpConnection)(nil))
+}
+
+func (i *bgpConnectionPtrType) ToBgpConnectionPtrOutput() BgpConnectionPtrOutput {
+	return i.ToBgpConnectionPtrOutputWithContext(context.Background())
+}
+
+func (i *bgpConnectionPtrType) ToBgpConnectionPtrOutputWithContext(ctx context.Context) BgpConnectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BgpConnectionPtrOutput)
+}
+
+// BgpConnectionArrayInput is an input type that accepts BgpConnectionArray and BgpConnectionArrayOutput values.
+// You can construct a concrete instance of `BgpConnectionArrayInput` via:
+//
+//          BgpConnectionArray{ BgpConnectionArgs{...} }
+type BgpConnectionArrayInput interface {
+	pulumi.Input
+
+	ToBgpConnectionArrayOutput() BgpConnectionArrayOutput
+	ToBgpConnectionArrayOutputWithContext(context.Context) BgpConnectionArrayOutput
+}
+
+type BgpConnectionArray []BgpConnectionInput
+
+func (BgpConnectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*BgpConnection)(nil))
+}
+
+func (i BgpConnectionArray) ToBgpConnectionArrayOutput() BgpConnectionArrayOutput {
+	return i.ToBgpConnectionArrayOutputWithContext(context.Background())
+}
+
+func (i BgpConnectionArray) ToBgpConnectionArrayOutputWithContext(ctx context.Context) BgpConnectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BgpConnectionArrayOutput)
+}
+
+// BgpConnectionMapInput is an input type that accepts BgpConnectionMap and BgpConnectionMapOutput values.
+// You can construct a concrete instance of `BgpConnectionMapInput` via:
+//
+//          BgpConnectionMap{ "key": BgpConnectionArgs{...} }
+type BgpConnectionMapInput interface {
+	pulumi.Input
+
+	ToBgpConnectionMapOutput() BgpConnectionMapOutput
+	ToBgpConnectionMapOutputWithContext(context.Context) BgpConnectionMapOutput
+}
+
+type BgpConnectionMap map[string]BgpConnectionInput
+
+func (BgpConnectionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*BgpConnection)(nil))
+}
+
+func (i BgpConnectionMap) ToBgpConnectionMapOutput() BgpConnectionMapOutput {
+	return i.ToBgpConnectionMapOutputWithContext(context.Background())
+}
+
+func (i BgpConnectionMap) ToBgpConnectionMapOutputWithContext(ctx context.Context) BgpConnectionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BgpConnectionMapOutput)
 }
 
 type BgpConnectionOutput struct {
@@ -225,7 +304,7 @@ type BgpConnectionOutput struct {
 }
 
 func (BgpConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BgpConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*BgpConnection)(nil))
 }
 
 func (o BgpConnectionOutput) ToBgpConnectionOutput() BgpConnectionOutput {
@@ -236,6 +315,75 @@ func (o BgpConnectionOutput) ToBgpConnectionOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o BgpConnectionOutput) ToBgpConnectionPtrOutput() BgpConnectionPtrOutput {
+	return o.ToBgpConnectionPtrOutputWithContext(context.Background())
+}
+
+func (o BgpConnectionOutput) ToBgpConnectionPtrOutputWithContext(ctx context.Context) BgpConnectionPtrOutput {
+	return o.ApplyT(func(v BgpConnection) *BgpConnection {
+		return &v
+	}).(BgpConnectionPtrOutput)
+}
+
+type BgpConnectionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BgpConnectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BgpConnection)(nil))
+}
+
+func (o BgpConnectionPtrOutput) ToBgpConnectionPtrOutput() BgpConnectionPtrOutput {
+	return o
+}
+
+func (o BgpConnectionPtrOutput) ToBgpConnectionPtrOutputWithContext(ctx context.Context) BgpConnectionPtrOutput {
+	return o
+}
+
+type BgpConnectionArrayOutput struct{ *pulumi.OutputState }
+
+func (BgpConnectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BgpConnection)(nil))
+}
+
+func (o BgpConnectionArrayOutput) ToBgpConnectionArrayOutput() BgpConnectionArrayOutput {
+	return o
+}
+
+func (o BgpConnectionArrayOutput) ToBgpConnectionArrayOutputWithContext(ctx context.Context) BgpConnectionArrayOutput {
+	return o
+}
+
+func (o BgpConnectionArrayOutput) Index(i pulumi.IntInput) BgpConnectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BgpConnection {
+		return vs[0].([]BgpConnection)[vs[1].(int)]
+	}).(BgpConnectionOutput)
+}
+
+type BgpConnectionMapOutput struct{ *pulumi.OutputState }
+
+func (BgpConnectionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BgpConnection)(nil))
+}
+
+func (o BgpConnectionMapOutput) ToBgpConnectionMapOutput() BgpConnectionMapOutput {
+	return o
+}
+
+func (o BgpConnectionMapOutput) ToBgpConnectionMapOutputWithContext(ctx context.Context) BgpConnectionMapOutput {
+	return o
+}
+
+func (o BgpConnectionMapOutput) MapIndex(k pulumi.StringInput) BgpConnectionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BgpConnection {
+		return vs[0].(map[string]BgpConnection)[vs[1].(string)]
+	}).(BgpConnectionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BgpConnectionOutput{})
+	pulumi.RegisterOutputType(BgpConnectionPtrOutput{})
+	pulumi.RegisterOutputType(BgpConnectionArrayOutput{})
+	pulumi.RegisterOutputType(BgpConnectionMapOutput{})
 }

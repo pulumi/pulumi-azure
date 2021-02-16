@@ -189,16 +189,95 @@ type TriggerRecurrenceInput interface {
 	ToTriggerRecurrenceOutputWithContext(ctx context.Context) TriggerRecurrenceOutput
 }
 
-func (TriggerRecurrence) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerRecurrence)(nil)).Elem()
+func (*TriggerRecurrence) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerRecurrence)(nil))
 }
 
-func (i TriggerRecurrence) ToTriggerRecurrenceOutput() TriggerRecurrenceOutput {
+func (i *TriggerRecurrence) ToTriggerRecurrenceOutput() TriggerRecurrenceOutput {
 	return i.ToTriggerRecurrenceOutputWithContext(context.Background())
 }
 
-func (i TriggerRecurrence) ToTriggerRecurrenceOutputWithContext(ctx context.Context) TriggerRecurrenceOutput {
+func (i *TriggerRecurrence) ToTriggerRecurrenceOutputWithContext(ctx context.Context) TriggerRecurrenceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerRecurrenceOutput)
+}
+
+func (i *TriggerRecurrence) ToTriggerRecurrencePtrOutput() TriggerRecurrencePtrOutput {
+	return i.ToTriggerRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i *TriggerRecurrence) ToTriggerRecurrencePtrOutputWithContext(ctx context.Context) TriggerRecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerRecurrencePtrOutput)
+}
+
+type TriggerRecurrencePtrInput interface {
+	pulumi.Input
+
+	ToTriggerRecurrencePtrOutput() TriggerRecurrencePtrOutput
+	ToTriggerRecurrencePtrOutputWithContext(ctx context.Context) TriggerRecurrencePtrOutput
+}
+
+type triggerRecurrencePtrType TriggerRecurrenceArgs
+
+func (*triggerRecurrencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerRecurrence)(nil))
+}
+
+func (i *triggerRecurrencePtrType) ToTriggerRecurrencePtrOutput() TriggerRecurrencePtrOutput {
+	return i.ToTriggerRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i *triggerRecurrencePtrType) ToTriggerRecurrencePtrOutputWithContext(ctx context.Context) TriggerRecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerRecurrencePtrOutput)
+}
+
+// TriggerRecurrenceArrayInput is an input type that accepts TriggerRecurrenceArray and TriggerRecurrenceArrayOutput values.
+// You can construct a concrete instance of `TriggerRecurrenceArrayInput` via:
+//
+//          TriggerRecurrenceArray{ TriggerRecurrenceArgs{...} }
+type TriggerRecurrenceArrayInput interface {
+	pulumi.Input
+
+	ToTriggerRecurrenceArrayOutput() TriggerRecurrenceArrayOutput
+	ToTriggerRecurrenceArrayOutputWithContext(context.Context) TriggerRecurrenceArrayOutput
+}
+
+type TriggerRecurrenceArray []TriggerRecurrenceInput
+
+func (TriggerRecurrenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*TriggerRecurrence)(nil))
+}
+
+func (i TriggerRecurrenceArray) ToTriggerRecurrenceArrayOutput() TriggerRecurrenceArrayOutput {
+	return i.ToTriggerRecurrenceArrayOutputWithContext(context.Background())
+}
+
+func (i TriggerRecurrenceArray) ToTriggerRecurrenceArrayOutputWithContext(ctx context.Context) TriggerRecurrenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerRecurrenceArrayOutput)
+}
+
+// TriggerRecurrenceMapInput is an input type that accepts TriggerRecurrenceMap and TriggerRecurrenceMapOutput values.
+// You can construct a concrete instance of `TriggerRecurrenceMapInput` via:
+//
+//          TriggerRecurrenceMap{ "key": TriggerRecurrenceArgs{...} }
+type TriggerRecurrenceMapInput interface {
+	pulumi.Input
+
+	ToTriggerRecurrenceMapOutput() TriggerRecurrenceMapOutput
+	ToTriggerRecurrenceMapOutputWithContext(context.Context) TriggerRecurrenceMapOutput
+}
+
+type TriggerRecurrenceMap map[string]TriggerRecurrenceInput
+
+func (TriggerRecurrenceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*TriggerRecurrence)(nil))
+}
+
+func (i TriggerRecurrenceMap) ToTriggerRecurrenceMapOutput() TriggerRecurrenceMapOutput {
+	return i.ToTriggerRecurrenceMapOutputWithContext(context.Background())
+}
+
+func (i TriggerRecurrenceMap) ToTriggerRecurrenceMapOutputWithContext(ctx context.Context) TriggerRecurrenceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerRecurrenceMapOutput)
 }
 
 type TriggerRecurrenceOutput struct {
@@ -206,7 +285,7 @@ type TriggerRecurrenceOutput struct {
 }
 
 func (TriggerRecurrenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerRecurrenceOutput)(nil)).Elem()
+	return reflect.TypeOf((*TriggerRecurrence)(nil))
 }
 
 func (o TriggerRecurrenceOutput) ToTriggerRecurrenceOutput() TriggerRecurrenceOutput {
@@ -217,6 +296,75 @@ func (o TriggerRecurrenceOutput) ToTriggerRecurrenceOutputWithContext(ctx contex
 	return o
 }
 
+func (o TriggerRecurrenceOutput) ToTriggerRecurrencePtrOutput() TriggerRecurrencePtrOutput {
+	return o.ToTriggerRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (o TriggerRecurrenceOutput) ToTriggerRecurrencePtrOutputWithContext(ctx context.Context) TriggerRecurrencePtrOutput {
+	return o.ApplyT(func(v TriggerRecurrence) *TriggerRecurrence {
+		return &v
+	}).(TriggerRecurrencePtrOutput)
+}
+
+type TriggerRecurrencePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TriggerRecurrencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerRecurrence)(nil))
+}
+
+func (o TriggerRecurrencePtrOutput) ToTriggerRecurrencePtrOutput() TriggerRecurrencePtrOutput {
+	return o
+}
+
+func (o TriggerRecurrencePtrOutput) ToTriggerRecurrencePtrOutputWithContext(ctx context.Context) TriggerRecurrencePtrOutput {
+	return o
+}
+
+type TriggerRecurrenceArrayOutput struct{ *pulumi.OutputState }
+
+func (TriggerRecurrenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TriggerRecurrence)(nil))
+}
+
+func (o TriggerRecurrenceArrayOutput) ToTriggerRecurrenceArrayOutput() TriggerRecurrenceArrayOutput {
+	return o
+}
+
+func (o TriggerRecurrenceArrayOutput) ToTriggerRecurrenceArrayOutputWithContext(ctx context.Context) TriggerRecurrenceArrayOutput {
+	return o
+}
+
+func (o TriggerRecurrenceArrayOutput) Index(i pulumi.IntInput) TriggerRecurrenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TriggerRecurrence {
+		return vs[0].([]TriggerRecurrence)[vs[1].(int)]
+	}).(TriggerRecurrenceOutput)
+}
+
+type TriggerRecurrenceMapOutput struct{ *pulumi.OutputState }
+
+func (TriggerRecurrenceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TriggerRecurrence)(nil))
+}
+
+func (o TriggerRecurrenceMapOutput) ToTriggerRecurrenceMapOutput() TriggerRecurrenceMapOutput {
+	return o
+}
+
+func (o TriggerRecurrenceMapOutput) ToTriggerRecurrenceMapOutputWithContext(ctx context.Context) TriggerRecurrenceMapOutput {
+	return o
+}
+
+func (o TriggerRecurrenceMapOutput) MapIndex(k pulumi.StringInput) TriggerRecurrenceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TriggerRecurrence {
+		return vs[0].(map[string]TriggerRecurrence)[vs[1].(string)]
+	}).(TriggerRecurrenceOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TriggerRecurrenceOutput{})
+	pulumi.RegisterOutputType(TriggerRecurrencePtrOutput{})
+	pulumi.RegisterOutputType(TriggerRecurrenceArrayOutput{})
+	pulumi.RegisterOutputType(TriggerRecurrenceMapOutput{})
 }

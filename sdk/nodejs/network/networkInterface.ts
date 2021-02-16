@@ -143,7 +143,8 @@ export class NetworkInterface extends pulumi.CustomResource {
     constructor(name: string, args: NetworkInterfaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkInterfaceArgs | NetworkInterfaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NetworkInterfaceState | undefined;
             inputs["appliedDnsServers"] = state ? state.appliedDnsServers : undefined;
             inputs["dnsServers"] = state ? state.dnsServers : undefined;
@@ -162,10 +163,10 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
         } else {
             const args = argsOrState as NetworkInterfaceArgs | undefined;
-            if ((!args || args.ipConfigurations === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ipConfigurations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipConfigurations'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dnsServers"] = args ? args.dnsServers : undefined;
@@ -184,12 +185,8 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["privateIpAddresses"] = undefined /*out*/;
             inputs["virtualMachineId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NetworkInterface.__pulumiType, name, inputs, opts);
     }

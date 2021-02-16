@@ -200,16 +200,95 @@ type PtrRecordInput interface {
 	ToPtrRecordOutputWithContext(ctx context.Context) PtrRecordOutput
 }
 
-func (PtrRecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*PtrRecord)(nil)).Elem()
+func (*PtrRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*PtrRecord)(nil))
 }
 
-func (i PtrRecord) ToPtrRecordOutput() PtrRecordOutput {
+func (i *PtrRecord) ToPtrRecordOutput() PtrRecordOutput {
 	return i.ToPtrRecordOutputWithContext(context.Background())
 }
 
-func (i PtrRecord) ToPtrRecordOutputWithContext(ctx context.Context) PtrRecordOutput {
+func (i *PtrRecord) ToPtrRecordOutputWithContext(ctx context.Context) PtrRecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PtrRecordOutput)
+}
+
+func (i *PtrRecord) ToPtrRecordPtrOutput() PtrRecordPtrOutput {
+	return i.ToPtrRecordPtrOutputWithContext(context.Background())
+}
+
+func (i *PtrRecord) ToPtrRecordPtrOutputWithContext(ctx context.Context) PtrRecordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PtrRecordPtrOutput)
+}
+
+type PtrRecordPtrInput interface {
+	pulumi.Input
+
+	ToPtrRecordPtrOutput() PtrRecordPtrOutput
+	ToPtrRecordPtrOutputWithContext(ctx context.Context) PtrRecordPtrOutput
+}
+
+type ptrRecordPtrType PtrRecordArgs
+
+func (*ptrRecordPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PtrRecord)(nil))
+}
+
+func (i *ptrRecordPtrType) ToPtrRecordPtrOutput() PtrRecordPtrOutput {
+	return i.ToPtrRecordPtrOutputWithContext(context.Background())
+}
+
+func (i *ptrRecordPtrType) ToPtrRecordPtrOutputWithContext(ctx context.Context) PtrRecordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PtrRecordPtrOutput)
+}
+
+// PtrRecordArrayInput is an input type that accepts PtrRecordArray and PtrRecordArrayOutput values.
+// You can construct a concrete instance of `PtrRecordArrayInput` via:
+//
+//          PtrRecordArray{ PtrRecordArgs{...} }
+type PtrRecordArrayInput interface {
+	pulumi.Input
+
+	ToPtrRecordArrayOutput() PtrRecordArrayOutput
+	ToPtrRecordArrayOutputWithContext(context.Context) PtrRecordArrayOutput
+}
+
+type PtrRecordArray []PtrRecordInput
+
+func (PtrRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PtrRecord)(nil))
+}
+
+func (i PtrRecordArray) ToPtrRecordArrayOutput() PtrRecordArrayOutput {
+	return i.ToPtrRecordArrayOutputWithContext(context.Background())
+}
+
+func (i PtrRecordArray) ToPtrRecordArrayOutputWithContext(ctx context.Context) PtrRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PtrRecordArrayOutput)
+}
+
+// PtrRecordMapInput is an input type that accepts PtrRecordMap and PtrRecordMapOutput values.
+// You can construct a concrete instance of `PtrRecordMapInput` via:
+//
+//          PtrRecordMap{ "key": PtrRecordArgs{...} }
+type PtrRecordMapInput interface {
+	pulumi.Input
+
+	ToPtrRecordMapOutput() PtrRecordMapOutput
+	ToPtrRecordMapOutputWithContext(context.Context) PtrRecordMapOutput
+}
+
+type PtrRecordMap map[string]PtrRecordInput
+
+func (PtrRecordMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PtrRecord)(nil))
+}
+
+func (i PtrRecordMap) ToPtrRecordMapOutput() PtrRecordMapOutput {
+	return i.ToPtrRecordMapOutputWithContext(context.Background())
+}
+
+func (i PtrRecordMap) ToPtrRecordMapOutputWithContext(ctx context.Context) PtrRecordMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PtrRecordMapOutput)
 }
 
 type PtrRecordOutput struct {
@@ -217,7 +296,7 @@ type PtrRecordOutput struct {
 }
 
 func (PtrRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PtrRecordOutput)(nil)).Elem()
+	return reflect.TypeOf((*PtrRecord)(nil))
 }
 
 func (o PtrRecordOutput) ToPtrRecordOutput() PtrRecordOutput {
@@ -228,6 +307,75 @@ func (o PtrRecordOutput) ToPtrRecordOutputWithContext(ctx context.Context) PtrRe
 	return o
 }
 
+func (o PtrRecordOutput) ToPtrRecordPtrOutput() PtrRecordPtrOutput {
+	return o.ToPtrRecordPtrOutputWithContext(context.Background())
+}
+
+func (o PtrRecordOutput) ToPtrRecordPtrOutputWithContext(ctx context.Context) PtrRecordPtrOutput {
+	return o.ApplyT(func(v PtrRecord) *PtrRecord {
+		return &v
+	}).(PtrRecordPtrOutput)
+}
+
+type PtrRecordPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PtrRecordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PtrRecord)(nil))
+}
+
+func (o PtrRecordPtrOutput) ToPtrRecordPtrOutput() PtrRecordPtrOutput {
+	return o
+}
+
+func (o PtrRecordPtrOutput) ToPtrRecordPtrOutputWithContext(ctx context.Context) PtrRecordPtrOutput {
+	return o
+}
+
+type PtrRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (PtrRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PtrRecord)(nil))
+}
+
+func (o PtrRecordArrayOutput) ToPtrRecordArrayOutput() PtrRecordArrayOutput {
+	return o
+}
+
+func (o PtrRecordArrayOutput) ToPtrRecordArrayOutputWithContext(ctx context.Context) PtrRecordArrayOutput {
+	return o
+}
+
+func (o PtrRecordArrayOutput) Index(i pulumi.IntInput) PtrRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PtrRecord {
+		return vs[0].([]PtrRecord)[vs[1].(int)]
+	}).(PtrRecordOutput)
+}
+
+type PtrRecordMapOutput struct{ *pulumi.OutputState }
+
+func (PtrRecordMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PtrRecord)(nil))
+}
+
+func (o PtrRecordMapOutput) ToPtrRecordMapOutput() PtrRecordMapOutput {
+	return o
+}
+
+func (o PtrRecordMapOutput) ToPtrRecordMapOutputWithContext(ctx context.Context) PtrRecordMapOutput {
+	return o
+}
+
+func (o PtrRecordMapOutput) MapIndex(k pulumi.StringInput) PtrRecordOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PtrRecord {
+		return vs[0].(map[string]PtrRecord)[vs[1].(string)]
+	}).(PtrRecordOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PtrRecordOutput{})
+	pulumi.RegisterOutputType(PtrRecordPtrOutput{})
+	pulumi.RegisterOutputType(PtrRecordArrayOutput{})
+	pulumi.RegisterOutputType(PtrRecordMapOutput{})
 }

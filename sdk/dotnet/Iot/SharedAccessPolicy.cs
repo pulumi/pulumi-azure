@@ -56,6 +56,7 @@ namespace Pulumi.Azure.Iot
     ///  $ pulumi import azure:iot/sharedAccessPolicy:SharedAccessPolicy shared_access_policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/IotHubKeys/shared_access_policy1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:iot/sharedAccessPolicy:SharedAccessPolicy")]
     public partial class SharedAccessPolicy : Pulumi.CustomResource
     {
         /// <summary>

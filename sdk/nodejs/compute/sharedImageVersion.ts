@@ -124,7 +124,8 @@ export class SharedImageVersion extends pulumi.CustomResource {
     constructor(name: string, args: SharedImageVersionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SharedImageVersionArgs | SharedImageVersionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SharedImageVersionState | undefined;
             inputs["excludeFromLatest"] = state ? state.excludeFromLatest : undefined;
             inputs["galleryName"] = state ? state.galleryName : undefined;
@@ -138,16 +139,16 @@ export class SharedImageVersion extends pulumi.CustomResource {
             inputs["targetRegions"] = state ? state.targetRegions : undefined;
         } else {
             const args = argsOrState as SharedImageVersionArgs | undefined;
-            if ((!args || args.galleryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.galleryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if ((!args || args.imageName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.imageName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'imageName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetRegions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetRegions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetRegions'");
             }
             inputs["excludeFromLatest"] = args ? args.excludeFromLatest : undefined;
@@ -161,12 +162,8 @@ export class SharedImageVersion extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetRegions"] = args ? args.targetRegions : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SharedImageVersion.__pulumiType, name, inputs, opts);
     }

@@ -110,7 +110,8 @@ export class Asset extends pulumi.CustomResource {
     constructor(name: string, args: AssetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AssetArgs | AssetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AssetState | undefined;
             inputs["alternateId"] = state ? state.alternateId : undefined;
             inputs["container"] = state ? state.container : undefined;
@@ -121,10 +122,10 @@ export class Asset extends pulumi.CustomResource {
             inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
         } else {
             const args = argsOrState as AssetArgs | undefined;
-            if ((!args || args.mediaServicesAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.mediaServicesAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'mediaServicesAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["alternateId"] = args ? args.alternateId : undefined;
@@ -135,12 +136,8 @@ export class Asset extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Asset.__pulumiType, name, inputs, opts);
     }

@@ -158,16 +158,95 @@ type DomainTopicInput interface {
 	ToDomainTopicOutputWithContext(ctx context.Context) DomainTopicOutput
 }
 
-func (DomainTopic) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainTopic)(nil)).Elem()
+func (*DomainTopic) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTopic)(nil))
 }
 
-func (i DomainTopic) ToDomainTopicOutput() DomainTopicOutput {
+func (i *DomainTopic) ToDomainTopicOutput() DomainTopicOutput {
 	return i.ToDomainTopicOutputWithContext(context.Background())
 }
 
-func (i DomainTopic) ToDomainTopicOutputWithContext(ctx context.Context) DomainTopicOutput {
+func (i *DomainTopic) ToDomainTopicOutputWithContext(ctx context.Context) DomainTopicOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainTopicOutput)
+}
+
+func (i *DomainTopic) ToDomainTopicPtrOutput() DomainTopicPtrOutput {
+	return i.ToDomainTopicPtrOutputWithContext(context.Background())
+}
+
+func (i *DomainTopic) ToDomainTopicPtrOutputWithContext(ctx context.Context) DomainTopicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTopicPtrOutput)
+}
+
+type DomainTopicPtrInput interface {
+	pulumi.Input
+
+	ToDomainTopicPtrOutput() DomainTopicPtrOutput
+	ToDomainTopicPtrOutputWithContext(ctx context.Context) DomainTopicPtrOutput
+}
+
+type domainTopicPtrType DomainTopicArgs
+
+func (*domainTopicPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainTopic)(nil))
+}
+
+func (i *domainTopicPtrType) ToDomainTopicPtrOutput() DomainTopicPtrOutput {
+	return i.ToDomainTopicPtrOutputWithContext(context.Background())
+}
+
+func (i *domainTopicPtrType) ToDomainTopicPtrOutputWithContext(ctx context.Context) DomainTopicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTopicPtrOutput)
+}
+
+// DomainTopicArrayInput is an input type that accepts DomainTopicArray and DomainTopicArrayOutput values.
+// You can construct a concrete instance of `DomainTopicArrayInput` via:
+//
+//          DomainTopicArray{ DomainTopicArgs{...} }
+type DomainTopicArrayInput interface {
+	pulumi.Input
+
+	ToDomainTopicArrayOutput() DomainTopicArrayOutput
+	ToDomainTopicArrayOutputWithContext(context.Context) DomainTopicArrayOutput
+}
+
+type DomainTopicArray []DomainTopicInput
+
+func (DomainTopicArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DomainTopic)(nil))
+}
+
+func (i DomainTopicArray) ToDomainTopicArrayOutput() DomainTopicArrayOutput {
+	return i.ToDomainTopicArrayOutputWithContext(context.Background())
+}
+
+func (i DomainTopicArray) ToDomainTopicArrayOutputWithContext(ctx context.Context) DomainTopicArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTopicArrayOutput)
+}
+
+// DomainTopicMapInput is an input type that accepts DomainTopicMap and DomainTopicMapOutput values.
+// You can construct a concrete instance of `DomainTopicMapInput` via:
+//
+//          DomainTopicMap{ "key": DomainTopicArgs{...} }
+type DomainTopicMapInput interface {
+	pulumi.Input
+
+	ToDomainTopicMapOutput() DomainTopicMapOutput
+	ToDomainTopicMapOutputWithContext(context.Context) DomainTopicMapOutput
+}
+
+type DomainTopicMap map[string]DomainTopicInput
+
+func (DomainTopicMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DomainTopic)(nil))
+}
+
+func (i DomainTopicMap) ToDomainTopicMapOutput() DomainTopicMapOutput {
+	return i.ToDomainTopicMapOutputWithContext(context.Background())
+}
+
+func (i DomainTopicMap) ToDomainTopicMapOutputWithContext(ctx context.Context) DomainTopicMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTopicMapOutput)
 }
 
 type DomainTopicOutput struct {
@@ -175,7 +254,7 @@ type DomainTopicOutput struct {
 }
 
 func (DomainTopicOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainTopicOutput)(nil)).Elem()
+	return reflect.TypeOf((*DomainTopic)(nil))
 }
 
 func (o DomainTopicOutput) ToDomainTopicOutput() DomainTopicOutput {
@@ -186,6 +265,75 @@ func (o DomainTopicOutput) ToDomainTopicOutputWithContext(ctx context.Context) D
 	return o
 }
 
+func (o DomainTopicOutput) ToDomainTopicPtrOutput() DomainTopicPtrOutput {
+	return o.ToDomainTopicPtrOutputWithContext(context.Background())
+}
+
+func (o DomainTopicOutput) ToDomainTopicPtrOutputWithContext(ctx context.Context) DomainTopicPtrOutput {
+	return o.ApplyT(func(v DomainTopic) *DomainTopic {
+		return &v
+	}).(DomainTopicPtrOutput)
+}
+
+type DomainTopicPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DomainTopicPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainTopic)(nil))
+}
+
+func (o DomainTopicPtrOutput) ToDomainTopicPtrOutput() DomainTopicPtrOutput {
+	return o
+}
+
+func (o DomainTopicPtrOutput) ToDomainTopicPtrOutputWithContext(ctx context.Context) DomainTopicPtrOutput {
+	return o
+}
+
+type DomainTopicArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainTopicArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainTopic)(nil))
+}
+
+func (o DomainTopicArrayOutput) ToDomainTopicArrayOutput() DomainTopicArrayOutput {
+	return o
+}
+
+func (o DomainTopicArrayOutput) ToDomainTopicArrayOutputWithContext(ctx context.Context) DomainTopicArrayOutput {
+	return o
+}
+
+func (o DomainTopicArrayOutput) Index(i pulumi.IntInput) DomainTopicOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainTopic {
+		return vs[0].([]DomainTopic)[vs[1].(int)]
+	}).(DomainTopicOutput)
+}
+
+type DomainTopicMapOutput struct{ *pulumi.OutputState }
+
+func (DomainTopicMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DomainTopic)(nil))
+}
+
+func (o DomainTopicMapOutput) ToDomainTopicMapOutput() DomainTopicMapOutput {
+	return o
+}
+
+func (o DomainTopicMapOutput) ToDomainTopicMapOutputWithContext(ctx context.Context) DomainTopicMapOutput {
+	return o
+}
+
+func (o DomainTopicMapOutput) MapIndex(k pulumi.StringInput) DomainTopicOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DomainTopic {
+		return vs[0].(map[string]DomainTopic)[vs[1].(string)]
+	}).(DomainTopicOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DomainTopicOutput{})
+	pulumi.RegisterOutputType(DomainTopicPtrOutput{})
+	pulumi.RegisterOutputType(DomainTopicArrayOutput{})
+	pulumi.RegisterOutputType(DomainTopicMapOutput{})
 }

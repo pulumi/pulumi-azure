@@ -130,16 +130,95 @@ type IotHubCertificateInput interface {
 	ToIotHubCertificateOutputWithContext(ctx context.Context) IotHubCertificateOutput
 }
 
-func (IotHubCertificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubCertificate)(nil)).Elem()
+func (*IotHubCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubCertificate)(nil))
 }
 
-func (i IotHubCertificate) ToIotHubCertificateOutput() IotHubCertificateOutput {
+func (i *IotHubCertificate) ToIotHubCertificateOutput() IotHubCertificateOutput {
 	return i.ToIotHubCertificateOutputWithContext(context.Background())
 }
 
-func (i IotHubCertificate) ToIotHubCertificateOutputWithContext(ctx context.Context) IotHubCertificateOutput {
+func (i *IotHubCertificate) ToIotHubCertificateOutputWithContext(ctx context.Context) IotHubCertificateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubCertificateOutput)
+}
+
+func (i *IotHubCertificate) ToIotHubCertificatePtrOutput() IotHubCertificatePtrOutput {
+	return i.ToIotHubCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *IotHubCertificate) ToIotHubCertificatePtrOutputWithContext(ctx context.Context) IotHubCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubCertificatePtrOutput)
+}
+
+type IotHubCertificatePtrInput interface {
+	pulumi.Input
+
+	ToIotHubCertificatePtrOutput() IotHubCertificatePtrOutput
+	ToIotHubCertificatePtrOutputWithContext(ctx context.Context) IotHubCertificatePtrOutput
+}
+
+type iotHubCertificatePtrType IotHubCertificateArgs
+
+func (*iotHubCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IotHubCertificate)(nil))
+}
+
+func (i *iotHubCertificatePtrType) ToIotHubCertificatePtrOutput() IotHubCertificatePtrOutput {
+	return i.ToIotHubCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *iotHubCertificatePtrType) ToIotHubCertificatePtrOutputWithContext(ctx context.Context) IotHubCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubCertificatePtrOutput)
+}
+
+// IotHubCertificateArrayInput is an input type that accepts IotHubCertificateArray and IotHubCertificateArrayOutput values.
+// You can construct a concrete instance of `IotHubCertificateArrayInput` via:
+//
+//          IotHubCertificateArray{ IotHubCertificateArgs{...} }
+type IotHubCertificateArrayInput interface {
+	pulumi.Input
+
+	ToIotHubCertificateArrayOutput() IotHubCertificateArrayOutput
+	ToIotHubCertificateArrayOutputWithContext(context.Context) IotHubCertificateArrayOutput
+}
+
+type IotHubCertificateArray []IotHubCertificateInput
+
+func (IotHubCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*IotHubCertificate)(nil))
+}
+
+func (i IotHubCertificateArray) ToIotHubCertificateArrayOutput() IotHubCertificateArrayOutput {
+	return i.ToIotHubCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i IotHubCertificateArray) ToIotHubCertificateArrayOutputWithContext(ctx context.Context) IotHubCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubCertificateArrayOutput)
+}
+
+// IotHubCertificateMapInput is an input type that accepts IotHubCertificateMap and IotHubCertificateMapOutput values.
+// You can construct a concrete instance of `IotHubCertificateMapInput` via:
+//
+//          IotHubCertificateMap{ "key": IotHubCertificateArgs{...} }
+type IotHubCertificateMapInput interface {
+	pulumi.Input
+
+	ToIotHubCertificateMapOutput() IotHubCertificateMapOutput
+	ToIotHubCertificateMapOutputWithContext(context.Context) IotHubCertificateMapOutput
+}
+
+type IotHubCertificateMap map[string]IotHubCertificateInput
+
+func (IotHubCertificateMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*IotHubCertificate)(nil))
+}
+
+func (i IotHubCertificateMap) ToIotHubCertificateMapOutput() IotHubCertificateMapOutput {
+	return i.ToIotHubCertificateMapOutputWithContext(context.Background())
+}
+
+func (i IotHubCertificateMap) ToIotHubCertificateMapOutputWithContext(ctx context.Context) IotHubCertificateMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubCertificateMapOutput)
 }
 
 type IotHubCertificateOutput struct {
@@ -147,7 +226,7 @@ type IotHubCertificateOutput struct {
 }
 
 func (IotHubCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubCertificateOutput)(nil)).Elem()
+	return reflect.TypeOf((*IotHubCertificate)(nil))
 }
 
 func (o IotHubCertificateOutput) ToIotHubCertificateOutput() IotHubCertificateOutput {
@@ -158,6 +237,75 @@ func (o IotHubCertificateOutput) ToIotHubCertificateOutputWithContext(ctx contex
 	return o
 }
 
+func (o IotHubCertificateOutput) ToIotHubCertificatePtrOutput() IotHubCertificatePtrOutput {
+	return o.ToIotHubCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o IotHubCertificateOutput) ToIotHubCertificatePtrOutputWithContext(ctx context.Context) IotHubCertificatePtrOutput {
+	return o.ApplyT(func(v IotHubCertificate) *IotHubCertificate {
+		return &v
+	}).(IotHubCertificatePtrOutput)
+}
+
+type IotHubCertificatePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (IotHubCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IotHubCertificate)(nil))
+}
+
+func (o IotHubCertificatePtrOutput) ToIotHubCertificatePtrOutput() IotHubCertificatePtrOutput {
+	return o
+}
+
+func (o IotHubCertificatePtrOutput) ToIotHubCertificatePtrOutputWithContext(ctx context.Context) IotHubCertificatePtrOutput {
+	return o
+}
+
+type IotHubCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (IotHubCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IotHubCertificate)(nil))
+}
+
+func (o IotHubCertificateArrayOutput) ToIotHubCertificateArrayOutput() IotHubCertificateArrayOutput {
+	return o
+}
+
+func (o IotHubCertificateArrayOutput) ToIotHubCertificateArrayOutputWithContext(ctx context.Context) IotHubCertificateArrayOutput {
+	return o
+}
+
+func (o IotHubCertificateArrayOutput) Index(i pulumi.IntInput) IotHubCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IotHubCertificate {
+		return vs[0].([]IotHubCertificate)[vs[1].(int)]
+	}).(IotHubCertificateOutput)
+}
+
+type IotHubCertificateMapOutput struct{ *pulumi.OutputState }
+
+func (IotHubCertificateMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IotHubCertificate)(nil))
+}
+
+func (o IotHubCertificateMapOutput) ToIotHubCertificateMapOutput() IotHubCertificateMapOutput {
+	return o
+}
+
+func (o IotHubCertificateMapOutput) ToIotHubCertificateMapOutputWithContext(ctx context.Context) IotHubCertificateMapOutput {
+	return o
+}
+
+func (o IotHubCertificateMapOutput) MapIndex(k pulumi.StringInput) IotHubCertificateOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IotHubCertificate {
+		return vs[0].(map[string]IotHubCertificate)[vs[1].(string)]
+	}).(IotHubCertificateOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IotHubCertificateOutput{})
+	pulumi.RegisterOutputType(IotHubCertificatePtrOutput{})
+	pulumi.RegisterOutputType(IotHubCertificateArrayOutput{})
+	pulumi.RegisterOutputType(IotHubCertificateMapOutput{})
 }

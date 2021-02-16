@@ -71,7 +71,8 @@ export class ChannelDirectLine extends pulumi.CustomResource {
     constructor(name: string, args: ChannelDirectLineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ChannelDirectLineArgs | ChannelDirectLineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ChannelDirectLineState | undefined;
             inputs["botName"] = state ? state.botName : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -79,13 +80,13 @@ export class ChannelDirectLine extends pulumi.CustomResource {
             inputs["sites"] = state ? state.sites : undefined;
         } else {
             const args = argsOrState as ChannelDirectLineArgs | undefined;
-            if ((!args || args.botName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.botName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'botName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sites === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sites === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sites'");
             }
             inputs["botName"] = args ? args.botName : undefined;
@@ -93,12 +94,8 @@ export class ChannelDirectLine extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sites"] = args ? args.sites : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ChannelDirectLine.__pulumiType, name, inputs, opts);
     }

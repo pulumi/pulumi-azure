@@ -107,7 +107,8 @@ export class EventHub extends pulumi.CustomResource {
     constructor(name: string, args: EventHubArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventHubArgs | EventHubState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EventHubState | undefined;
             inputs["captureDescription"] = state ? state.captureDescription : undefined;
             inputs["messageRetention"] = state ? state.messageRetention : undefined;
@@ -118,16 +119,16 @@ export class EventHub extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as EventHubArgs | undefined;
-            if ((!args || args.messageRetention === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.messageRetention === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'messageRetention'");
             }
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.partitionCount === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.partitionCount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'partitionCount'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["captureDescription"] = args ? args.captureDescription : undefined;
@@ -138,12 +139,8 @@ export class EventHub extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["partitionIds"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EventHub.__pulumiType, name, inputs, opts);
     }

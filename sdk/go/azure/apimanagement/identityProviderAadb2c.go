@@ -218,16 +218,95 @@ type IdentityProviderAadb2cInput interface {
 	ToIdentityProviderAadb2cOutputWithContext(ctx context.Context) IdentityProviderAadb2cOutput
 }
 
-func (IdentityProviderAadb2c) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProviderAadb2c)(nil)).Elem()
+func (*IdentityProviderAadb2c) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProviderAadb2c)(nil))
 }
 
-func (i IdentityProviderAadb2c) ToIdentityProviderAadb2cOutput() IdentityProviderAadb2cOutput {
+func (i *IdentityProviderAadb2c) ToIdentityProviderAadb2cOutput() IdentityProviderAadb2cOutput {
 	return i.ToIdentityProviderAadb2cOutputWithContext(context.Background())
 }
 
-func (i IdentityProviderAadb2c) ToIdentityProviderAadb2cOutputWithContext(ctx context.Context) IdentityProviderAadb2cOutput {
+func (i *IdentityProviderAadb2c) ToIdentityProviderAadb2cOutputWithContext(ctx context.Context) IdentityProviderAadb2cOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderAadb2cOutput)
+}
+
+func (i *IdentityProviderAadb2c) ToIdentityProviderAadb2cPtrOutput() IdentityProviderAadb2cPtrOutput {
+	return i.ToIdentityProviderAadb2cPtrOutputWithContext(context.Background())
+}
+
+func (i *IdentityProviderAadb2c) ToIdentityProviderAadb2cPtrOutputWithContext(ctx context.Context) IdentityProviderAadb2cPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderAadb2cPtrOutput)
+}
+
+type IdentityProviderAadb2cPtrInput interface {
+	pulumi.Input
+
+	ToIdentityProviderAadb2cPtrOutput() IdentityProviderAadb2cPtrOutput
+	ToIdentityProviderAadb2cPtrOutputWithContext(ctx context.Context) IdentityProviderAadb2cPtrOutput
+}
+
+type identityProviderAadb2cPtrType IdentityProviderAadb2cArgs
+
+func (*identityProviderAadb2cPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityProviderAadb2c)(nil))
+}
+
+func (i *identityProviderAadb2cPtrType) ToIdentityProviderAadb2cPtrOutput() IdentityProviderAadb2cPtrOutput {
+	return i.ToIdentityProviderAadb2cPtrOutputWithContext(context.Background())
+}
+
+func (i *identityProviderAadb2cPtrType) ToIdentityProviderAadb2cPtrOutputWithContext(ctx context.Context) IdentityProviderAadb2cPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderAadb2cPtrOutput)
+}
+
+// IdentityProviderAadb2cArrayInput is an input type that accepts IdentityProviderAadb2cArray and IdentityProviderAadb2cArrayOutput values.
+// You can construct a concrete instance of `IdentityProviderAadb2cArrayInput` via:
+//
+//          IdentityProviderAadb2cArray{ IdentityProviderAadb2cArgs{...} }
+type IdentityProviderAadb2cArrayInput interface {
+	pulumi.Input
+
+	ToIdentityProviderAadb2cArrayOutput() IdentityProviderAadb2cArrayOutput
+	ToIdentityProviderAadb2cArrayOutputWithContext(context.Context) IdentityProviderAadb2cArrayOutput
+}
+
+type IdentityProviderAadb2cArray []IdentityProviderAadb2cInput
+
+func (IdentityProviderAadb2cArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*IdentityProviderAadb2c)(nil))
+}
+
+func (i IdentityProviderAadb2cArray) ToIdentityProviderAadb2cArrayOutput() IdentityProviderAadb2cArrayOutput {
+	return i.ToIdentityProviderAadb2cArrayOutputWithContext(context.Background())
+}
+
+func (i IdentityProviderAadb2cArray) ToIdentityProviderAadb2cArrayOutputWithContext(ctx context.Context) IdentityProviderAadb2cArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderAadb2cArrayOutput)
+}
+
+// IdentityProviderAadb2cMapInput is an input type that accepts IdentityProviderAadb2cMap and IdentityProviderAadb2cMapOutput values.
+// You can construct a concrete instance of `IdentityProviderAadb2cMapInput` via:
+//
+//          IdentityProviderAadb2cMap{ "key": IdentityProviderAadb2cArgs{...} }
+type IdentityProviderAadb2cMapInput interface {
+	pulumi.Input
+
+	ToIdentityProviderAadb2cMapOutput() IdentityProviderAadb2cMapOutput
+	ToIdentityProviderAadb2cMapOutputWithContext(context.Context) IdentityProviderAadb2cMapOutput
+}
+
+type IdentityProviderAadb2cMap map[string]IdentityProviderAadb2cInput
+
+func (IdentityProviderAadb2cMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*IdentityProviderAadb2c)(nil))
+}
+
+func (i IdentityProviderAadb2cMap) ToIdentityProviderAadb2cMapOutput() IdentityProviderAadb2cMapOutput {
+	return i.ToIdentityProviderAadb2cMapOutputWithContext(context.Background())
+}
+
+func (i IdentityProviderAadb2cMap) ToIdentityProviderAadb2cMapOutputWithContext(ctx context.Context) IdentityProviderAadb2cMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderAadb2cMapOutput)
 }
 
 type IdentityProviderAadb2cOutput struct {
@@ -235,7 +314,7 @@ type IdentityProviderAadb2cOutput struct {
 }
 
 func (IdentityProviderAadb2cOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProviderAadb2cOutput)(nil)).Elem()
+	return reflect.TypeOf((*IdentityProviderAadb2c)(nil))
 }
 
 func (o IdentityProviderAadb2cOutput) ToIdentityProviderAadb2cOutput() IdentityProviderAadb2cOutput {
@@ -246,6 +325,75 @@ func (o IdentityProviderAadb2cOutput) ToIdentityProviderAadb2cOutputWithContext(
 	return o
 }
 
+func (o IdentityProviderAadb2cOutput) ToIdentityProviderAadb2cPtrOutput() IdentityProviderAadb2cPtrOutput {
+	return o.ToIdentityProviderAadb2cPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityProviderAadb2cOutput) ToIdentityProviderAadb2cPtrOutputWithContext(ctx context.Context) IdentityProviderAadb2cPtrOutput {
+	return o.ApplyT(func(v IdentityProviderAadb2c) *IdentityProviderAadb2c {
+		return &v
+	}).(IdentityProviderAadb2cPtrOutput)
+}
+
+type IdentityProviderAadb2cPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (IdentityProviderAadb2cPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityProviderAadb2c)(nil))
+}
+
+func (o IdentityProviderAadb2cPtrOutput) ToIdentityProviderAadb2cPtrOutput() IdentityProviderAadb2cPtrOutput {
+	return o
+}
+
+func (o IdentityProviderAadb2cPtrOutput) ToIdentityProviderAadb2cPtrOutputWithContext(ctx context.Context) IdentityProviderAadb2cPtrOutput {
+	return o
+}
+
+type IdentityProviderAadb2cArrayOutput struct{ *pulumi.OutputState }
+
+func (IdentityProviderAadb2cArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentityProviderAadb2c)(nil))
+}
+
+func (o IdentityProviderAadb2cArrayOutput) ToIdentityProviderAadb2cArrayOutput() IdentityProviderAadb2cArrayOutput {
+	return o
+}
+
+func (o IdentityProviderAadb2cArrayOutput) ToIdentityProviderAadb2cArrayOutputWithContext(ctx context.Context) IdentityProviderAadb2cArrayOutput {
+	return o
+}
+
+func (o IdentityProviderAadb2cArrayOutput) Index(i pulumi.IntInput) IdentityProviderAadb2cOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentityProviderAadb2c {
+		return vs[0].([]IdentityProviderAadb2c)[vs[1].(int)]
+	}).(IdentityProviderAadb2cOutput)
+}
+
+type IdentityProviderAadb2cMapOutput struct{ *pulumi.OutputState }
+
+func (IdentityProviderAadb2cMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityProviderAadb2c)(nil))
+}
+
+func (o IdentityProviderAadb2cMapOutput) ToIdentityProviderAadb2cMapOutput() IdentityProviderAadb2cMapOutput {
+	return o
+}
+
+func (o IdentityProviderAadb2cMapOutput) ToIdentityProviderAadb2cMapOutputWithContext(ctx context.Context) IdentityProviderAadb2cMapOutput {
+	return o
+}
+
+func (o IdentityProviderAadb2cMapOutput) MapIndex(k pulumi.StringInput) IdentityProviderAadb2cOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityProviderAadb2c {
+		return vs[0].(map[string]IdentityProviderAadb2c)[vs[1].(string)]
+	}).(IdentityProviderAadb2cOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IdentityProviderAadb2cOutput{})
+	pulumi.RegisterOutputType(IdentityProviderAadb2cPtrOutput{})
+	pulumi.RegisterOutputType(IdentityProviderAadb2cArrayOutput{})
+	pulumi.RegisterOutputType(IdentityProviderAadb2cMapOutput{})
 }

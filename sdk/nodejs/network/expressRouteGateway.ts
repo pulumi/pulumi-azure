@@ -106,7 +106,8 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
     constructor(name: string, args: ExpressRouteGatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExpressRouteGatewayArgs | ExpressRouteGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ExpressRouteGatewayState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -116,13 +117,13 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
             inputs["virtualHubId"] = state ? state.virtualHubId : undefined;
         } else {
             const args = argsOrState as ExpressRouteGatewayArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scaleUnits === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scaleUnits === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scaleUnits'");
             }
-            if ((!args || args.virtualHubId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualHubId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -132,12 +133,8 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualHubId"] = args ? args.virtualHubId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ExpressRouteGateway.__pulumiType, name, inputs, opts);
     }

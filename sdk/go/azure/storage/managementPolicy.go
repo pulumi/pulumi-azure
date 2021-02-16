@@ -191,16 +191,95 @@ type ManagementPolicyInput interface {
 	ToManagementPolicyOutputWithContext(ctx context.Context) ManagementPolicyOutput
 }
 
-func (ManagementPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementPolicy)(nil)).Elem()
+func (*ManagementPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementPolicy)(nil))
 }
 
-func (i ManagementPolicy) ToManagementPolicyOutput() ManagementPolicyOutput {
+func (i *ManagementPolicy) ToManagementPolicyOutput() ManagementPolicyOutput {
 	return i.ToManagementPolicyOutputWithContext(context.Background())
 }
 
-func (i ManagementPolicy) ToManagementPolicyOutputWithContext(ctx context.Context) ManagementPolicyOutput {
+func (i *ManagementPolicy) ToManagementPolicyOutputWithContext(ctx context.Context) ManagementPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyOutput)
+}
+
+func (i *ManagementPolicy) ToManagementPolicyPtrOutput() ManagementPolicyPtrOutput {
+	return i.ToManagementPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *ManagementPolicy) ToManagementPolicyPtrOutputWithContext(ctx context.Context) ManagementPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyPtrOutput)
+}
+
+type ManagementPolicyPtrInput interface {
+	pulumi.Input
+
+	ToManagementPolicyPtrOutput() ManagementPolicyPtrOutput
+	ToManagementPolicyPtrOutputWithContext(ctx context.Context) ManagementPolicyPtrOutput
+}
+
+type managementPolicyPtrType ManagementPolicyArgs
+
+func (*managementPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementPolicy)(nil))
+}
+
+func (i *managementPolicyPtrType) ToManagementPolicyPtrOutput() ManagementPolicyPtrOutput {
+	return i.ToManagementPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *managementPolicyPtrType) ToManagementPolicyPtrOutputWithContext(ctx context.Context) ManagementPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyPtrOutput)
+}
+
+// ManagementPolicyArrayInput is an input type that accepts ManagementPolicyArray and ManagementPolicyArrayOutput values.
+// You can construct a concrete instance of `ManagementPolicyArrayInput` via:
+//
+//          ManagementPolicyArray{ ManagementPolicyArgs{...} }
+type ManagementPolicyArrayInput interface {
+	pulumi.Input
+
+	ToManagementPolicyArrayOutput() ManagementPolicyArrayOutput
+	ToManagementPolicyArrayOutputWithContext(context.Context) ManagementPolicyArrayOutput
+}
+
+type ManagementPolicyArray []ManagementPolicyInput
+
+func (ManagementPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ManagementPolicy)(nil))
+}
+
+func (i ManagementPolicyArray) ToManagementPolicyArrayOutput() ManagementPolicyArrayOutput {
+	return i.ToManagementPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i ManagementPolicyArray) ToManagementPolicyArrayOutputWithContext(ctx context.Context) ManagementPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyArrayOutput)
+}
+
+// ManagementPolicyMapInput is an input type that accepts ManagementPolicyMap and ManagementPolicyMapOutput values.
+// You can construct a concrete instance of `ManagementPolicyMapInput` via:
+//
+//          ManagementPolicyMap{ "key": ManagementPolicyArgs{...} }
+type ManagementPolicyMapInput interface {
+	pulumi.Input
+
+	ToManagementPolicyMapOutput() ManagementPolicyMapOutput
+	ToManagementPolicyMapOutputWithContext(context.Context) ManagementPolicyMapOutput
+}
+
+type ManagementPolicyMap map[string]ManagementPolicyInput
+
+func (ManagementPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ManagementPolicy)(nil))
+}
+
+func (i ManagementPolicyMap) ToManagementPolicyMapOutput() ManagementPolicyMapOutput {
+	return i.ToManagementPolicyMapOutputWithContext(context.Background())
+}
+
+func (i ManagementPolicyMap) ToManagementPolicyMapOutputWithContext(ctx context.Context) ManagementPolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyMapOutput)
 }
 
 type ManagementPolicyOutput struct {
@@ -208,7 +287,7 @@ type ManagementPolicyOutput struct {
 }
 
 func (ManagementPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagementPolicy)(nil))
 }
 
 func (o ManagementPolicyOutput) ToManagementPolicyOutput() ManagementPolicyOutput {
@@ -219,6 +298,75 @@ func (o ManagementPolicyOutput) ToManagementPolicyOutputWithContext(ctx context.
 	return o
 }
 
+func (o ManagementPolicyOutput) ToManagementPolicyPtrOutput() ManagementPolicyPtrOutput {
+	return o.ToManagementPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ManagementPolicyOutput) ToManagementPolicyPtrOutputWithContext(ctx context.Context) ManagementPolicyPtrOutput {
+	return o.ApplyT(func(v ManagementPolicy) *ManagementPolicy {
+		return &v
+	}).(ManagementPolicyPtrOutput)
+}
+
+type ManagementPolicyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagementPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementPolicy)(nil))
+}
+
+func (o ManagementPolicyPtrOutput) ToManagementPolicyPtrOutput() ManagementPolicyPtrOutput {
+	return o
+}
+
+func (o ManagementPolicyPtrOutput) ToManagementPolicyPtrOutputWithContext(ctx context.Context) ManagementPolicyPtrOutput {
+	return o
+}
+
+type ManagementPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagementPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagementPolicy)(nil))
+}
+
+func (o ManagementPolicyArrayOutput) ToManagementPolicyArrayOutput() ManagementPolicyArrayOutput {
+	return o
+}
+
+func (o ManagementPolicyArrayOutput) ToManagementPolicyArrayOutputWithContext(ctx context.Context) ManagementPolicyArrayOutput {
+	return o
+}
+
+func (o ManagementPolicyArrayOutput) Index(i pulumi.IntInput) ManagementPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagementPolicy {
+		return vs[0].([]ManagementPolicy)[vs[1].(int)]
+	}).(ManagementPolicyOutput)
+}
+
+type ManagementPolicyMapOutput struct{ *pulumi.OutputState }
+
+func (ManagementPolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagementPolicy)(nil))
+}
+
+func (o ManagementPolicyMapOutput) ToManagementPolicyMapOutput() ManagementPolicyMapOutput {
+	return o
+}
+
+func (o ManagementPolicyMapOutput) ToManagementPolicyMapOutputWithContext(ctx context.Context) ManagementPolicyMapOutput {
+	return o
+}
+
+func (o ManagementPolicyMapOutput) MapIndex(k pulumi.StringInput) ManagementPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagementPolicy {
+		return vs[0].(map[string]ManagementPolicy)[vs[1].(string)]
+	}).(ManagementPolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagementPolicyOutput{})
+	pulumi.RegisterOutputType(ManagementPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ManagementPolicyArrayOutput{})
+	pulumi.RegisterOutputType(ManagementPolicyMapOutput{})
 }

@@ -61,6 +61,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/routeTable:RouteTable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/routeTables/mytable1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/routeTable:RouteTable")]
     public partial class RouteTable : Pulumi.CustomResource
     {
         /// <summary>

@@ -671,16 +671,95 @@ type VirtualNetworkGatewayConnectionInput interface {
 	ToVirtualNetworkGatewayConnectionOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionOutput
 }
 
-func (VirtualNetworkGatewayConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkGatewayConnection)(nil)).Elem()
+func (*VirtualNetworkGatewayConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayConnection)(nil))
 }
 
-func (i VirtualNetworkGatewayConnection) ToVirtualNetworkGatewayConnectionOutput() VirtualNetworkGatewayConnectionOutput {
+func (i *VirtualNetworkGatewayConnection) ToVirtualNetworkGatewayConnectionOutput() VirtualNetworkGatewayConnectionOutput {
 	return i.ToVirtualNetworkGatewayConnectionOutputWithContext(context.Background())
 }
 
-func (i VirtualNetworkGatewayConnection) ToVirtualNetworkGatewayConnectionOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionOutput {
+func (i *VirtualNetworkGatewayConnection) ToVirtualNetworkGatewayConnectionOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayConnectionOutput)
+}
+
+func (i *VirtualNetworkGatewayConnection) ToVirtualNetworkGatewayConnectionPtrOutput() VirtualNetworkGatewayConnectionPtrOutput {
+	return i.ToVirtualNetworkGatewayConnectionPtrOutputWithContext(context.Background())
+}
+
+func (i *VirtualNetworkGatewayConnection) ToVirtualNetworkGatewayConnectionPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayConnectionPtrOutput)
+}
+
+type VirtualNetworkGatewayConnectionPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayConnectionPtrOutput() VirtualNetworkGatewayConnectionPtrOutput
+	ToVirtualNetworkGatewayConnectionPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionPtrOutput
+}
+
+type virtualNetworkGatewayConnectionPtrType VirtualNetworkGatewayConnectionArgs
+
+func (*virtualNetworkGatewayConnectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkGatewayConnection)(nil))
+}
+
+func (i *virtualNetworkGatewayConnectionPtrType) ToVirtualNetworkGatewayConnectionPtrOutput() VirtualNetworkGatewayConnectionPtrOutput {
+	return i.ToVirtualNetworkGatewayConnectionPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNetworkGatewayConnectionPtrType) ToVirtualNetworkGatewayConnectionPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayConnectionPtrOutput)
+}
+
+// VirtualNetworkGatewayConnectionArrayInput is an input type that accepts VirtualNetworkGatewayConnectionArray and VirtualNetworkGatewayConnectionArrayOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayConnectionArrayInput` via:
+//
+//          VirtualNetworkGatewayConnectionArray{ VirtualNetworkGatewayConnectionArgs{...} }
+type VirtualNetworkGatewayConnectionArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayConnectionArrayOutput() VirtualNetworkGatewayConnectionArrayOutput
+	ToVirtualNetworkGatewayConnectionArrayOutputWithContext(context.Context) VirtualNetworkGatewayConnectionArrayOutput
+}
+
+type VirtualNetworkGatewayConnectionArray []VirtualNetworkGatewayConnectionInput
+
+func (VirtualNetworkGatewayConnectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VirtualNetworkGatewayConnection)(nil))
+}
+
+func (i VirtualNetworkGatewayConnectionArray) ToVirtualNetworkGatewayConnectionArrayOutput() VirtualNetworkGatewayConnectionArrayOutput {
+	return i.ToVirtualNetworkGatewayConnectionArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayConnectionArray) ToVirtualNetworkGatewayConnectionArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayConnectionArrayOutput)
+}
+
+// VirtualNetworkGatewayConnectionMapInput is an input type that accepts VirtualNetworkGatewayConnectionMap and VirtualNetworkGatewayConnectionMapOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayConnectionMapInput` via:
+//
+//          VirtualNetworkGatewayConnectionMap{ "key": VirtualNetworkGatewayConnectionArgs{...} }
+type VirtualNetworkGatewayConnectionMapInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayConnectionMapOutput() VirtualNetworkGatewayConnectionMapOutput
+	ToVirtualNetworkGatewayConnectionMapOutputWithContext(context.Context) VirtualNetworkGatewayConnectionMapOutput
+}
+
+type VirtualNetworkGatewayConnectionMap map[string]VirtualNetworkGatewayConnectionInput
+
+func (VirtualNetworkGatewayConnectionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VirtualNetworkGatewayConnection)(nil))
+}
+
+func (i VirtualNetworkGatewayConnectionMap) ToVirtualNetworkGatewayConnectionMapOutput() VirtualNetworkGatewayConnectionMapOutput {
+	return i.ToVirtualNetworkGatewayConnectionMapOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayConnectionMap) ToVirtualNetworkGatewayConnectionMapOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayConnectionMapOutput)
 }
 
 type VirtualNetworkGatewayConnectionOutput struct {
@@ -688,7 +767,7 @@ type VirtualNetworkGatewayConnectionOutput struct {
 }
 
 func (VirtualNetworkGatewayConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkGatewayConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualNetworkGatewayConnection)(nil))
 }
 
 func (o VirtualNetworkGatewayConnectionOutput) ToVirtualNetworkGatewayConnectionOutput() VirtualNetworkGatewayConnectionOutput {
@@ -699,6 +778,75 @@ func (o VirtualNetworkGatewayConnectionOutput) ToVirtualNetworkGatewayConnection
 	return o
 }
 
+func (o VirtualNetworkGatewayConnectionOutput) ToVirtualNetworkGatewayConnectionPtrOutput() VirtualNetworkGatewayConnectionPtrOutput {
+	return o.ToVirtualNetworkGatewayConnectionPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNetworkGatewayConnectionOutput) ToVirtualNetworkGatewayConnectionPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayConnection) *VirtualNetworkGatewayConnection {
+		return &v
+	}).(VirtualNetworkGatewayConnectionPtrOutput)
+}
+
+type VirtualNetworkGatewayConnectionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualNetworkGatewayConnectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkGatewayConnection)(nil))
+}
+
+func (o VirtualNetworkGatewayConnectionPtrOutput) ToVirtualNetworkGatewayConnectionPtrOutput() VirtualNetworkGatewayConnectionPtrOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayConnectionPtrOutput) ToVirtualNetworkGatewayConnectionPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionPtrOutput {
+	return o
+}
+
+type VirtualNetworkGatewayConnectionArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayConnectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkGatewayConnection)(nil))
+}
+
+func (o VirtualNetworkGatewayConnectionArrayOutput) ToVirtualNetworkGatewayConnectionArrayOutput() VirtualNetworkGatewayConnectionArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayConnectionArrayOutput) ToVirtualNetworkGatewayConnectionArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayConnectionArrayOutput) Index(i pulumi.IntInput) VirtualNetworkGatewayConnectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkGatewayConnection {
+		return vs[0].([]VirtualNetworkGatewayConnection)[vs[1].(int)]
+	}).(VirtualNetworkGatewayConnectionOutput)
+}
+
+type VirtualNetworkGatewayConnectionMapOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayConnectionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VirtualNetworkGatewayConnection)(nil))
+}
+
+func (o VirtualNetworkGatewayConnectionMapOutput) ToVirtualNetworkGatewayConnectionMapOutput() VirtualNetworkGatewayConnectionMapOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayConnectionMapOutput) ToVirtualNetworkGatewayConnectionMapOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionMapOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayConnectionMapOutput) MapIndex(k pulumi.StringInput) VirtualNetworkGatewayConnectionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualNetworkGatewayConnection {
+		return vs[0].(map[string]VirtualNetworkGatewayConnection)[vs[1].(string)]
+	}).(VirtualNetworkGatewayConnectionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionArrayOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionMapOutput{})
 }

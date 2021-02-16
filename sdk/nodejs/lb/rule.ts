@@ -143,7 +143,8 @@ export class Rule extends pulumi.CustomResource {
     constructor(name: string, args: RuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RuleArgs | RuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RuleState | undefined;
             inputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
             inputs["backendPort"] = state ? state.backendPort : undefined;
@@ -162,22 +163,22 @@ export class Rule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as RuleArgs | undefined;
-            if ((!args || args.backendPort === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.backendPort === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backendPort'");
             }
-            if ((!args || args.frontendIpConfigurationName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.frontendIpConfigurationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frontendIpConfigurationName'");
             }
-            if ((!args || args.frontendPort === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.frontendPort === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frontendPort'");
             }
-            if ((!args || args.loadbalancerId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loadbalancerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadbalancerId'");
             }
-            if ((!args || args.protocol === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["backendAddressPoolId"] = args ? args.backendAddressPoolId : undefined;
@@ -196,12 +197,8 @@ export class Rule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["frontendIpConfigurationId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Rule.__pulumiType, name, inputs, opts);
     }

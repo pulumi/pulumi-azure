@@ -48,6 +48,7 @@ namespace Pulumi.Azure.Storage
     ///  $ pulumi import azure:storage/sync:Sync example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageSync/storageSyncServices/sync1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:storage/sync:Sync")]
     public partial class Sync : Pulumi.CustomResource
     {
         /// <summary>

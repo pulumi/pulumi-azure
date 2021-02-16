@@ -262,16 +262,95 @@ type DatasetAzureBlobInput interface {
 	ToDatasetAzureBlobOutputWithContext(ctx context.Context) DatasetAzureBlobOutput
 }
 
-func (DatasetAzureBlob) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetAzureBlob)(nil)).Elem()
+func (*DatasetAzureBlob) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetAzureBlob)(nil))
 }
 
-func (i DatasetAzureBlob) ToDatasetAzureBlobOutput() DatasetAzureBlobOutput {
+func (i *DatasetAzureBlob) ToDatasetAzureBlobOutput() DatasetAzureBlobOutput {
 	return i.ToDatasetAzureBlobOutputWithContext(context.Background())
 }
 
-func (i DatasetAzureBlob) ToDatasetAzureBlobOutputWithContext(ctx context.Context) DatasetAzureBlobOutput {
+func (i *DatasetAzureBlob) ToDatasetAzureBlobOutputWithContext(ctx context.Context) DatasetAzureBlobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetAzureBlobOutput)
+}
+
+func (i *DatasetAzureBlob) ToDatasetAzureBlobPtrOutput() DatasetAzureBlobPtrOutput {
+	return i.ToDatasetAzureBlobPtrOutputWithContext(context.Background())
+}
+
+func (i *DatasetAzureBlob) ToDatasetAzureBlobPtrOutputWithContext(ctx context.Context) DatasetAzureBlobPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetAzureBlobPtrOutput)
+}
+
+type DatasetAzureBlobPtrInput interface {
+	pulumi.Input
+
+	ToDatasetAzureBlobPtrOutput() DatasetAzureBlobPtrOutput
+	ToDatasetAzureBlobPtrOutputWithContext(ctx context.Context) DatasetAzureBlobPtrOutput
+}
+
+type datasetAzureBlobPtrType DatasetAzureBlobArgs
+
+func (*datasetAzureBlobPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetAzureBlob)(nil))
+}
+
+func (i *datasetAzureBlobPtrType) ToDatasetAzureBlobPtrOutput() DatasetAzureBlobPtrOutput {
+	return i.ToDatasetAzureBlobPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetAzureBlobPtrType) ToDatasetAzureBlobPtrOutputWithContext(ctx context.Context) DatasetAzureBlobPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetAzureBlobPtrOutput)
+}
+
+// DatasetAzureBlobArrayInput is an input type that accepts DatasetAzureBlobArray and DatasetAzureBlobArrayOutput values.
+// You can construct a concrete instance of `DatasetAzureBlobArrayInput` via:
+//
+//          DatasetAzureBlobArray{ DatasetAzureBlobArgs{...} }
+type DatasetAzureBlobArrayInput interface {
+	pulumi.Input
+
+	ToDatasetAzureBlobArrayOutput() DatasetAzureBlobArrayOutput
+	ToDatasetAzureBlobArrayOutputWithContext(context.Context) DatasetAzureBlobArrayOutput
+}
+
+type DatasetAzureBlobArray []DatasetAzureBlobInput
+
+func (DatasetAzureBlobArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DatasetAzureBlob)(nil))
+}
+
+func (i DatasetAzureBlobArray) ToDatasetAzureBlobArrayOutput() DatasetAzureBlobArrayOutput {
+	return i.ToDatasetAzureBlobArrayOutputWithContext(context.Background())
+}
+
+func (i DatasetAzureBlobArray) ToDatasetAzureBlobArrayOutputWithContext(ctx context.Context) DatasetAzureBlobArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetAzureBlobArrayOutput)
+}
+
+// DatasetAzureBlobMapInput is an input type that accepts DatasetAzureBlobMap and DatasetAzureBlobMapOutput values.
+// You can construct a concrete instance of `DatasetAzureBlobMapInput` via:
+//
+//          DatasetAzureBlobMap{ "key": DatasetAzureBlobArgs{...} }
+type DatasetAzureBlobMapInput interface {
+	pulumi.Input
+
+	ToDatasetAzureBlobMapOutput() DatasetAzureBlobMapOutput
+	ToDatasetAzureBlobMapOutputWithContext(context.Context) DatasetAzureBlobMapOutput
+}
+
+type DatasetAzureBlobMap map[string]DatasetAzureBlobInput
+
+func (DatasetAzureBlobMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DatasetAzureBlob)(nil))
+}
+
+func (i DatasetAzureBlobMap) ToDatasetAzureBlobMapOutput() DatasetAzureBlobMapOutput {
+	return i.ToDatasetAzureBlobMapOutputWithContext(context.Background())
+}
+
+func (i DatasetAzureBlobMap) ToDatasetAzureBlobMapOutputWithContext(ctx context.Context) DatasetAzureBlobMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetAzureBlobMapOutput)
 }
 
 type DatasetAzureBlobOutput struct {
@@ -279,7 +358,7 @@ type DatasetAzureBlobOutput struct {
 }
 
 func (DatasetAzureBlobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetAzureBlobOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatasetAzureBlob)(nil))
 }
 
 func (o DatasetAzureBlobOutput) ToDatasetAzureBlobOutput() DatasetAzureBlobOutput {
@@ -290,6 +369,75 @@ func (o DatasetAzureBlobOutput) ToDatasetAzureBlobOutputWithContext(ctx context.
 	return o
 }
 
+func (o DatasetAzureBlobOutput) ToDatasetAzureBlobPtrOutput() DatasetAzureBlobPtrOutput {
+	return o.ToDatasetAzureBlobPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetAzureBlobOutput) ToDatasetAzureBlobPtrOutputWithContext(ctx context.Context) DatasetAzureBlobPtrOutput {
+	return o.ApplyT(func(v DatasetAzureBlob) *DatasetAzureBlob {
+		return &v
+	}).(DatasetAzureBlobPtrOutput)
+}
+
+type DatasetAzureBlobPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatasetAzureBlobPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetAzureBlob)(nil))
+}
+
+func (o DatasetAzureBlobPtrOutput) ToDatasetAzureBlobPtrOutput() DatasetAzureBlobPtrOutput {
+	return o
+}
+
+func (o DatasetAzureBlobPtrOutput) ToDatasetAzureBlobPtrOutputWithContext(ctx context.Context) DatasetAzureBlobPtrOutput {
+	return o
+}
+
+type DatasetAzureBlobArrayOutput struct{ *pulumi.OutputState }
+
+func (DatasetAzureBlobArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetAzureBlob)(nil))
+}
+
+func (o DatasetAzureBlobArrayOutput) ToDatasetAzureBlobArrayOutput() DatasetAzureBlobArrayOutput {
+	return o
+}
+
+func (o DatasetAzureBlobArrayOutput) ToDatasetAzureBlobArrayOutputWithContext(ctx context.Context) DatasetAzureBlobArrayOutput {
+	return o
+}
+
+func (o DatasetAzureBlobArrayOutput) Index(i pulumi.IntInput) DatasetAzureBlobOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetAzureBlob {
+		return vs[0].([]DatasetAzureBlob)[vs[1].(int)]
+	}).(DatasetAzureBlobOutput)
+}
+
+type DatasetAzureBlobMapOutput struct{ *pulumi.OutputState }
+
+func (DatasetAzureBlobMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DatasetAzureBlob)(nil))
+}
+
+func (o DatasetAzureBlobMapOutput) ToDatasetAzureBlobMapOutput() DatasetAzureBlobMapOutput {
+	return o
+}
+
+func (o DatasetAzureBlobMapOutput) ToDatasetAzureBlobMapOutputWithContext(ctx context.Context) DatasetAzureBlobMapOutput {
+	return o
+}
+
+func (o DatasetAzureBlobMapOutput) MapIndex(k pulumi.StringInput) DatasetAzureBlobOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatasetAzureBlob {
+		return vs[0].(map[string]DatasetAzureBlob)[vs[1].(string)]
+	}).(DatasetAzureBlobOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatasetAzureBlobOutput{})
+	pulumi.RegisterOutputType(DatasetAzureBlobPtrOutput{})
+	pulumi.RegisterOutputType(DatasetAzureBlobArrayOutput{})
+	pulumi.RegisterOutputType(DatasetAzureBlobMapOutput{})
 }

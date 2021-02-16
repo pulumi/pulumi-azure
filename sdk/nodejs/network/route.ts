@@ -101,7 +101,8 @@ export class Route extends pulumi.CustomResource {
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RouteState | undefined;
             inputs["addressPrefix"] = state ? state.addressPrefix : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -111,16 +112,16 @@ export class Route extends pulumi.CustomResource {
             inputs["routeTableName"] = state ? state.routeTableName : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
-            if ((!args || args.addressPrefix === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.addressPrefix === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'addressPrefix'");
             }
-            if ((!args || args.nextHopType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.nextHopType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nextHopType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.routeTableName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.routeTableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeTableName'");
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
@@ -130,12 +131,8 @@ export class Route extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routeTableName"] = args ? args.routeTableName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Route.__pulumiType, name, inputs, opts);
     }

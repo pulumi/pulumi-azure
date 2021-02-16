@@ -225,16 +225,95 @@ type SharedAccessPolicyInput interface {
 	ToSharedAccessPolicyOutputWithContext(ctx context.Context) SharedAccessPolicyOutput
 }
 
-func (SharedAccessPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedAccessPolicy)(nil)).Elem()
+func (*SharedAccessPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedAccessPolicy)(nil))
 }
 
-func (i SharedAccessPolicy) ToSharedAccessPolicyOutput() SharedAccessPolicyOutput {
+func (i *SharedAccessPolicy) ToSharedAccessPolicyOutput() SharedAccessPolicyOutput {
 	return i.ToSharedAccessPolicyOutputWithContext(context.Background())
 }
 
-func (i SharedAccessPolicy) ToSharedAccessPolicyOutputWithContext(ctx context.Context) SharedAccessPolicyOutput {
+func (i *SharedAccessPolicy) ToSharedAccessPolicyOutputWithContext(ctx context.Context) SharedAccessPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessPolicyOutput)
+}
+
+func (i *SharedAccessPolicy) ToSharedAccessPolicyPtrOutput() SharedAccessPolicyPtrOutput {
+	return i.ToSharedAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *SharedAccessPolicy) ToSharedAccessPolicyPtrOutputWithContext(ctx context.Context) SharedAccessPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessPolicyPtrOutput)
+}
+
+type SharedAccessPolicyPtrInput interface {
+	pulumi.Input
+
+	ToSharedAccessPolicyPtrOutput() SharedAccessPolicyPtrOutput
+	ToSharedAccessPolicyPtrOutputWithContext(ctx context.Context) SharedAccessPolicyPtrOutput
+}
+
+type sharedAccessPolicyPtrType SharedAccessPolicyArgs
+
+func (*sharedAccessPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedAccessPolicy)(nil))
+}
+
+func (i *sharedAccessPolicyPtrType) ToSharedAccessPolicyPtrOutput() SharedAccessPolicyPtrOutput {
+	return i.ToSharedAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *sharedAccessPolicyPtrType) ToSharedAccessPolicyPtrOutputWithContext(ctx context.Context) SharedAccessPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessPolicyPtrOutput)
+}
+
+// SharedAccessPolicyArrayInput is an input type that accepts SharedAccessPolicyArray and SharedAccessPolicyArrayOutput values.
+// You can construct a concrete instance of `SharedAccessPolicyArrayInput` via:
+//
+//          SharedAccessPolicyArray{ SharedAccessPolicyArgs{...} }
+type SharedAccessPolicyArrayInput interface {
+	pulumi.Input
+
+	ToSharedAccessPolicyArrayOutput() SharedAccessPolicyArrayOutput
+	ToSharedAccessPolicyArrayOutputWithContext(context.Context) SharedAccessPolicyArrayOutput
+}
+
+type SharedAccessPolicyArray []SharedAccessPolicyInput
+
+func (SharedAccessPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SharedAccessPolicy)(nil))
+}
+
+func (i SharedAccessPolicyArray) ToSharedAccessPolicyArrayOutput() SharedAccessPolicyArrayOutput {
+	return i.ToSharedAccessPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i SharedAccessPolicyArray) ToSharedAccessPolicyArrayOutputWithContext(ctx context.Context) SharedAccessPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessPolicyArrayOutput)
+}
+
+// SharedAccessPolicyMapInput is an input type that accepts SharedAccessPolicyMap and SharedAccessPolicyMapOutput values.
+// You can construct a concrete instance of `SharedAccessPolicyMapInput` via:
+//
+//          SharedAccessPolicyMap{ "key": SharedAccessPolicyArgs{...} }
+type SharedAccessPolicyMapInput interface {
+	pulumi.Input
+
+	ToSharedAccessPolicyMapOutput() SharedAccessPolicyMapOutput
+	ToSharedAccessPolicyMapOutputWithContext(context.Context) SharedAccessPolicyMapOutput
+}
+
+type SharedAccessPolicyMap map[string]SharedAccessPolicyInput
+
+func (SharedAccessPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SharedAccessPolicy)(nil))
+}
+
+func (i SharedAccessPolicyMap) ToSharedAccessPolicyMapOutput() SharedAccessPolicyMapOutput {
+	return i.ToSharedAccessPolicyMapOutputWithContext(context.Background())
+}
+
+func (i SharedAccessPolicyMap) ToSharedAccessPolicyMapOutputWithContext(ctx context.Context) SharedAccessPolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessPolicyMapOutput)
 }
 
 type SharedAccessPolicyOutput struct {
@@ -242,7 +321,7 @@ type SharedAccessPolicyOutput struct {
 }
 
 func (SharedAccessPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedAccessPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*SharedAccessPolicy)(nil))
 }
 
 func (o SharedAccessPolicyOutput) ToSharedAccessPolicyOutput() SharedAccessPolicyOutput {
@@ -253,6 +332,75 @@ func (o SharedAccessPolicyOutput) ToSharedAccessPolicyOutputWithContext(ctx cont
 	return o
 }
 
+func (o SharedAccessPolicyOutput) ToSharedAccessPolicyPtrOutput() SharedAccessPolicyPtrOutput {
+	return o.ToSharedAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o SharedAccessPolicyOutput) ToSharedAccessPolicyPtrOutputWithContext(ctx context.Context) SharedAccessPolicyPtrOutput {
+	return o.ApplyT(func(v SharedAccessPolicy) *SharedAccessPolicy {
+		return &v
+	}).(SharedAccessPolicyPtrOutput)
+}
+
+type SharedAccessPolicyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SharedAccessPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedAccessPolicy)(nil))
+}
+
+func (o SharedAccessPolicyPtrOutput) ToSharedAccessPolicyPtrOutput() SharedAccessPolicyPtrOutput {
+	return o
+}
+
+func (o SharedAccessPolicyPtrOutput) ToSharedAccessPolicyPtrOutputWithContext(ctx context.Context) SharedAccessPolicyPtrOutput {
+	return o
+}
+
+type SharedAccessPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (SharedAccessPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedAccessPolicy)(nil))
+}
+
+func (o SharedAccessPolicyArrayOutput) ToSharedAccessPolicyArrayOutput() SharedAccessPolicyArrayOutput {
+	return o
+}
+
+func (o SharedAccessPolicyArrayOutput) ToSharedAccessPolicyArrayOutputWithContext(ctx context.Context) SharedAccessPolicyArrayOutput {
+	return o
+}
+
+func (o SharedAccessPolicyArrayOutput) Index(i pulumi.IntInput) SharedAccessPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedAccessPolicy {
+		return vs[0].([]SharedAccessPolicy)[vs[1].(int)]
+	}).(SharedAccessPolicyOutput)
+}
+
+type SharedAccessPolicyMapOutput struct{ *pulumi.OutputState }
+
+func (SharedAccessPolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SharedAccessPolicy)(nil))
+}
+
+func (o SharedAccessPolicyMapOutput) ToSharedAccessPolicyMapOutput() SharedAccessPolicyMapOutput {
+	return o
+}
+
+func (o SharedAccessPolicyMapOutput) ToSharedAccessPolicyMapOutputWithContext(ctx context.Context) SharedAccessPolicyMapOutput {
+	return o
+}
+
+func (o SharedAccessPolicyMapOutput) MapIndex(k pulumi.StringInput) SharedAccessPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SharedAccessPolicy {
+		return vs[0].(map[string]SharedAccessPolicy)[vs[1].(string)]
+	}).(SharedAccessPolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SharedAccessPolicyOutput{})
+	pulumi.RegisterOutputType(SharedAccessPolicyPtrOutput{})
+	pulumi.RegisterOutputType(SharedAccessPolicyArrayOutput{})
+	pulumi.RegisterOutputType(SharedAccessPolicyMapOutput{})
 }

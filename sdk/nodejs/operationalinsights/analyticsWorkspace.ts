@@ -118,7 +118,8 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
     constructor(name: string, args: AnalyticsWorkspaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AnalyticsWorkspaceArgs | AnalyticsWorkspaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AnalyticsWorkspaceState | undefined;
             inputs["dailyQuotaGb"] = state ? state.dailyQuotaGb : undefined;
             inputs["internetIngestionEnabled"] = state ? state.internetIngestionEnabled : undefined;
@@ -135,7 +136,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             inputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as AnalyticsWorkspaceArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dailyQuotaGb"] = args ? args.dailyQuotaGb : undefined;
@@ -152,12 +153,8 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             inputs["secondarySharedKey"] = undefined /*out*/;
             inputs["workspaceId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AnalyticsWorkspace.__pulumiType, name, inputs, opts);
     }

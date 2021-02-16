@@ -100,7 +100,8 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
     constructor(name: string, args: ActiveDirectoryAdministratorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ActiveDirectoryAdministratorArgs | ActiveDirectoryAdministratorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ActiveDirectoryAdministratorState | undefined;
             inputs["login"] = state ? state.login : undefined;
             inputs["objectId"] = state ? state.objectId : undefined;
@@ -109,19 +110,19 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
             inputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as ActiveDirectoryAdministratorArgs | undefined;
-            if ((!args || args.login === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.login === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'login'");
             }
-            if ((!args || args.objectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.objectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'objectId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.tenantId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tenantId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
             inputs["login"] = args ? args.login : undefined;
@@ -130,12 +131,8 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ActiveDirectoryAdministrator.__pulumiType, name, inputs, opts);
     }

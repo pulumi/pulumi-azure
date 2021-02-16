@@ -58,6 +58,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/vpnSite:VpnSite example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/vpnSites/site1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/vpnSite:VpnSite")]
     public partial class VpnSite : Pulumi.CustomResource
     {
         /// <summary>

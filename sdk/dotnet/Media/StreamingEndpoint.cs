@@ -142,6 +142,7 @@ namespace Pulumi.Azure.Media
     ///  $ pulumi import azure:media/streamingEndpoint:StreamingEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/mediaservices/service1/streamingendpoints/endpoint1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:media/streamingEndpoint:StreamingEndpoint")]
     public partial class StreamingEndpoint : Pulumi.CustomResource
     {
         /// <summary>

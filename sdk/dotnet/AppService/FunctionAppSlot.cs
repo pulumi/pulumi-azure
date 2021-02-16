@@ -74,6 +74,7 @@ namespace Pulumi.Azure.AppService
     ///  $ pulumi import azure:appservice/functionAppSlot:FunctionAppSlot functionapp1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/functionapp1/slots/staging
     /// ```
     /// </summary>
+    [AzureResourceType("azure:appservice/functionAppSlot:FunctionAppSlot")]
     public partial class FunctionAppSlot : Pulumi.CustomResource
     {
         /// <summary>

@@ -183,16 +183,95 @@ type NetworkPacketCaptureInput interface {
 	ToNetworkPacketCaptureOutputWithContext(ctx context.Context) NetworkPacketCaptureOutput
 }
 
-func (NetworkPacketCapture) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkPacketCapture)(nil)).Elem()
+func (*NetworkPacketCapture) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkPacketCapture)(nil))
 }
 
-func (i NetworkPacketCapture) ToNetworkPacketCaptureOutput() NetworkPacketCaptureOutput {
+func (i *NetworkPacketCapture) ToNetworkPacketCaptureOutput() NetworkPacketCaptureOutput {
 	return i.ToNetworkPacketCaptureOutputWithContext(context.Background())
 }
 
-func (i NetworkPacketCapture) ToNetworkPacketCaptureOutputWithContext(ctx context.Context) NetworkPacketCaptureOutput {
+func (i *NetworkPacketCapture) ToNetworkPacketCaptureOutputWithContext(ctx context.Context) NetworkPacketCaptureOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCaptureOutput)
+}
+
+func (i *NetworkPacketCapture) ToNetworkPacketCapturePtrOutput() NetworkPacketCapturePtrOutput {
+	return i.ToNetworkPacketCapturePtrOutputWithContext(context.Background())
+}
+
+func (i *NetworkPacketCapture) ToNetworkPacketCapturePtrOutputWithContext(ctx context.Context) NetworkPacketCapturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCapturePtrOutput)
+}
+
+type NetworkPacketCapturePtrInput interface {
+	pulumi.Input
+
+	ToNetworkPacketCapturePtrOutput() NetworkPacketCapturePtrOutput
+	ToNetworkPacketCapturePtrOutputWithContext(ctx context.Context) NetworkPacketCapturePtrOutput
+}
+
+type networkPacketCapturePtrType NetworkPacketCaptureArgs
+
+func (*networkPacketCapturePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkPacketCapture)(nil))
+}
+
+func (i *networkPacketCapturePtrType) ToNetworkPacketCapturePtrOutput() NetworkPacketCapturePtrOutput {
+	return i.ToNetworkPacketCapturePtrOutputWithContext(context.Background())
+}
+
+func (i *networkPacketCapturePtrType) ToNetworkPacketCapturePtrOutputWithContext(ctx context.Context) NetworkPacketCapturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCapturePtrOutput)
+}
+
+// NetworkPacketCaptureArrayInput is an input type that accepts NetworkPacketCaptureArray and NetworkPacketCaptureArrayOutput values.
+// You can construct a concrete instance of `NetworkPacketCaptureArrayInput` via:
+//
+//          NetworkPacketCaptureArray{ NetworkPacketCaptureArgs{...} }
+type NetworkPacketCaptureArrayInput interface {
+	pulumi.Input
+
+	ToNetworkPacketCaptureArrayOutput() NetworkPacketCaptureArrayOutput
+	ToNetworkPacketCaptureArrayOutputWithContext(context.Context) NetworkPacketCaptureArrayOutput
+}
+
+type NetworkPacketCaptureArray []NetworkPacketCaptureInput
+
+func (NetworkPacketCaptureArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*NetworkPacketCapture)(nil))
+}
+
+func (i NetworkPacketCaptureArray) ToNetworkPacketCaptureArrayOutput() NetworkPacketCaptureArrayOutput {
+	return i.ToNetworkPacketCaptureArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkPacketCaptureArray) ToNetworkPacketCaptureArrayOutputWithContext(ctx context.Context) NetworkPacketCaptureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCaptureArrayOutput)
+}
+
+// NetworkPacketCaptureMapInput is an input type that accepts NetworkPacketCaptureMap and NetworkPacketCaptureMapOutput values.
+// You can construct a concrete instance of `NetworkPacketCaptureMapInput` via:
+//
+//          NetworkPacketCaptureMap{ "key": NetworkPacketCaptureArgs{...} }
+type NetworkPacketCaptureMapInput interface {
+	pulumi.Input
+
+	ToNetworkPacketCaptureMapOutput() NetworkPacketCaptureMapOutput
+	ToNetworkPacketCaptureMapOutputWithContext(context.Context) NetworkPacketCaptureMapOutput
+}
+
+type NetworkPacketCaptureMap map[string]NetworkPacketCaptureInput
+
+func (NetworkPacketCaptureMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*NetworkPacketCapture)(nil))
+}
+
+func (i NetworkPacketCaptureMap) ToNetworkPacketCaptureMapOutput() NetworkPacketCaptureMapOutput {
+	return i.ToNetworkPacketCaptureMapOutputWithContext(context.Background())
+}
+
+func (i NetworkPacketCaptureMap) ToNetworkPacketCaptureMapOutputWithContext(ctx context.Context) NetworkPacketCaptureMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCaptureMapOutput)
 }
 
 type NetworkPacketCaptureOutput struct {
@@ -200,7 +279,7 @@ type NetworkPacketCaptureOutput struct {
 }
 
 func (NetworkPacketCaptureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkPacketCaptureOutput)(nil)).Elem()
+	return reflect.TypeOf((*NetworkPacketCapture)(nil))
 }
 
 func (o NetworkPacketCaptureOutput) ToNetworkPacketCaptureOutput() NetworkPacketCaptureOutput {
@@ -211,6 +290,75 @@ func (o NetworkPacketCaptureOutput) ToNetworkPacketCaptureOutputWithContext(ctx 
 	return o
 }
 
+func (o NetworkPacketCaptureOutput) ToNetworkPacketCapturePtrOutput() NetworkPacketCapturePtrOutput {
+	return o.ToNetworkPacketCapturePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkPacketCaptureOutput) ToNetworkPacketCapturePtrOutputWithContext(ctx context.Context) NetworkPacketCapturePtrOutput {
+	return o.ApplyT(func(v NetworkPacketCapture) *NetworkPacketCapture {
+		return &v
+	}).(NetworkPacketCapturePtrOutput)
+}
+
+type NetworkPacketCapturePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkPacketCapturePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkPacketCapture)(nil))
+}
+
+func (o NetworkPacketCapturePtrOutput) ToNetworkPacketCapturePtrOutput() NetworkPacketCapturePtrOutput {
+	return o
+}
+
+func (o NetworkPacketCapturePtrOutput) ToNetworkPacketCapturePtrOutputWithContext(ctx context.Context) NetworkPacketCapturePtrOutput {
+	return o
+}
+
+type NetworkPacketCaptureArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkPacketCaptureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkPacketCapture)(nil))
+}
+
+func (o NetworkPacketCaptureArrayOutput) ToNetworkPacketCaptureArrayOutput() NetworkPacketCaptureArrayOutput {
+	return o
+}
+
+func (o NetworkPacketCaptureArrayOutput) ToNetworkPacketCaptureArrayOutputWithContext(ctx context.Context) NetworkPacketCaptureArrayOutput {
+	return o
+}
+
+func (o NetworkPacketCaptureArrayOutput) Index(i pulumi.IntInput) NetworkPacketCaptureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkPacketCapture {
+		return vs[0].([]NetworkPacketCapture)[vs[1].(int)]
+	}).(NetworkPacketCaptureOutput)
+}
+
+type NetworkPacketCaptureMapOutput struct{ *pulumi.OutputState }
+
+func (NetworkPacketCaptureMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NetworkPacketCapture)(nil))
+}
+
+func (o NetworkPacketCaptureMapOutput) ToNetworkPacketCaptureMapOutput() NetworkPacketCaptureMapOutput {
+	return o
+}
+
+func (o NetworkPacketCaptureMapOutput) ToNetworkPacketCaptureMapOutputWithContext(ctx context.Context) NetworkPacketCaptureMapOutput {
+	return o
+}
+
+func (o NetworkPacketCaptureMapOutput) MapIndex(k pulumi.StringInput) NetworkPacketCaptureOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NetworkPacketCapture {
+		return vs[0].(map[string]NetworkPacketCapture)[vs[1].(string)]
+	}).(NetworkPacketCaptureOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NetworkPacketCaptureOutput{})
+	pulumi.RegisterOutputType(NetworkPacketCapturePtrOutput{})
+	pulumi.RegisterOutputType(NetworkPacketCaptureArrayOutput{})
+	pulumi.RegisterOutputType(NetworkPacketCaptureMapOutput{})
 }

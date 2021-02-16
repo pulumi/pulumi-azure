@@ -156,16 +156,95 @@ type TableEntityInput interface {
 	ToTableEntityOutputWithContext(ctx context.Context) TableEntityOutput
 }
 
-func (TableEntity) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableEntity)(nil)).Elem()
+func (*TableEntity) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableEntity)(nil))
 }
 
-func (i TableEntity) ToTableEntityOutput() TableEntityOutput {
+func (i *TableEntity) ToTableEntityOutput() TableEntityOutput {
 	return i.ToTableEntityOutputWithContext(context.Background())
 }
 
-func (i TableEntity) ToTableEntityOutputWithContext(ctx context.Context) TableEntityOutput {
+func (i *TableEntity) ToTableEntityOutputWithContext(ctx context.Context) TableEntityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableEntityOutput)
+}
+
+func (i *TableEntity) ToTableEntityPtrOutput() TableEntityPtrOutput {
+	return i.ToTableEntityPtrOutputWithContext(context.Background())
+}
+
+func (i *TableEntity) ToTableEntityPtrOutputWithContext(ctx context.Context) TableEntityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableEntityPtrOutput)
+}
+
+type TableEntityPtrInput interface {
+	pulumi.Input
+
+	ToTableEntityPtrOutput() TableEntityPtrOutput
+	ToTableEntityPtrOutputWithContext(ctx context.Context) TableEntityPtrOutput
+}
+
+type tableEntityPtrType TableEntityArgs
+
+func (*tableEntityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableEntity)(nil))
+}
+
+func (i *tableEntityPtrType) ToTableEntityPtrOutput() TableEntityPtrOutput {
+	return i.ToTableEntityPtrOutputWithContext(context.Background())
+}
+
+func (i *tableEntityPtrType) ToTableEntityPtrOutputWithContext(ctx context.Context) TableEntityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableEntityPtrOutput)
+}
+
+// TableEntityArrayInput is an input type that accepts TableEntityArray and TableEntityArrayOutput values.
+// You can construct a concrete instance of `TableEntityArrayInput` via:
+//
+//          TableEntityArray{ TableEntityArgs{...} }
+type TableEntityArrayInput interface {
+	pulumi.Input
+
+	ToTableEntityArrayOutput() TableEntityArrayOutput
+	ToTableEntityArrayOutputWithContext(context.Context) TableEntityArrayOutput
+}
+
+type TableEntityArray []TableEntityInput
+
+func (TableEntityArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*TableEntity)(nil))
+}
+
+func (i TableEntityArray) ToTableEntityArrayOutput() TableEntityArrayOutput {
+	return i.ToTableEntityArrayOutputWithContext(context.Background())
+}
+
+func (i TableEntityArray) ToTableEntityArrayOutputWithContext(ctx context.Context) TableEntityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableEntityArrayOutput)
+}
+
+// TableEntityMapInput is an input type that accepts TableEntityMap and TableEntityMapOutput values.
+// You can construct a concrete instance of `TableEntityMapInput` via:
+//
+//          TableEntityMap{ "key": TableEntityArgs{...} }
+type TableEntityMapInput interface {
+	pulumi.Input
+
+	ToTableEntityMapOutput() TableEntityMapOutput
+	ToTableEntityMapOutputWithContext(context.Context) TableEntityMapOutput
+}
+
+type TableEntityMap map[string]TableEntityInput
+
+func (TableEntityMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*TableEntity)(nil))
+}
+
+func (i TableEntityMap) ToTableEntityMapOutput() TableEntityMapOutput {
+	return i.ToTableEntityMapOutputWithContext(context.Background())
+}
+
+func (i TableEntityMap) ToTableEntityMapOutputWithContext(ctx context.Context) TableEntityMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableEntityMapOutput)
 }
 
 type TableEntityOutput struct {
@@ -173,7 +252,7 @@ type TableEntityOutput struct {
 }
 
 func (TableEntityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableEntityOutput)(nil)).Elem()
+	return reflect.TypeOf((*TableEntity)(nil))
 }
 
 func (o TableEntityOutput) ToTableEntityOutput() TableEntityOutput {
@@ -184,6 +263,75 @@ func (o TableEntityOutput) ToTableEntityOutputWithContext(ctx context.Context) T
 	return o
 }
 
+func (o TableEntityOutput) ToTableEntityPtrOutput() TableEntityPtrOutput {
+	return o.ToTableEntityPtrOutputWithContext(context.Background())
+}
+
+func (o TableEntityOutput) ToTableEntityPtrOutputWithContext(ctx context.Context) TableEntityPtrOutput {
+	return o.ApplyT(func(v TableEntity) *TableEntity {
+		return &v
+	}).(TableEntityPtrOutput)
+}
+
+type TableEntityPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TableEntityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableEntity)(nil))
+}
+
+func (o TableEntityPtrOutput) ToTableEntityPtrOutput() TableEntityPtrOutput {
+	return o
+}
+
+func (o TableEntityPtrOutput) ToTableEntityPtrOutputWithContext(ctx context.Context) TableEntityPtrOutput {
+	return o
+}
+
+type TableEntityArrayOutput struct{ *pulumi.OutputState }
+
+func (TableEntityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableEntity)(nil))
+}
+
+func (o TableEntityArrayOutput) ToTableEntityArrayOutput() TableEntityArrayOutput {
+	return o
+}
+
+func (o TableEntityArrayOutput) ToTableEntityArrayOutputWithContext(ctx context.Context) TableEntityArrayOutput {
+	return o
+}
+
+func (o TableEntityArrayOutput) Index(i pulumi.IntInput) TableEntityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableEntity {
+		return vs[0].([]TableEntity)[vs[1].(int)]
+	}).(TableEntityOutput)
+}
+
+type TableEntityMapOutput struct{ *pulumi.OutputState }
+
+func (TableEntityMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TableEntity)(nil))
+}
+
+func (o TableEntityMapOutput) ToTableEntityMapOutput() TableEntityMapOutput {
+	return o
+}
+
+func (o TableEntityMapOutput) ToTableEntityMapOutputWithContext(ctx context.Context) TableEntityMapOutput {
+	return o
+}
+
+func (o TableEntityMapOutput) MapIndex(k pulumi.StringInput) TableEntityOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TableEntity {
+		return vs[0].(map[string]TableEntity)[vs[1].(string)]
+	}).(TableEntityOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TableEntityOutput{})
+	pulumi.RegisterOutputType(TableEntityPtrOutput{})
+	pulumi.RegisterOutputType(TableEntityArrayOutput{})
+	pulumi.RegisterOutputType(TableEntityMapOutput{})
 }

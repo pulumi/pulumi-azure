@@ -59,6 +59,7 @@ namespace Pulumi.Azure.Iot
     ///  $ pulumi import azure:iot/timeSeriesInsightsReferenceDataSet:TimeSeriesInsightsReferenceDataSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/example/referenceDataSets/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:iot/timeSeriesInsightsReferenceDataSet:TimeSeriesInsightsReferenceDataSet")]
     public partial class TimeSeriesInsightsReferenceDataSet : Pulumi.CustomResource
     {
         /// <summary>

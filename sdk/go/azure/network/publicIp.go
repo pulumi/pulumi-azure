@@ -264,16 +264,95 @@ type PublicIpInput interface {
 	ToPublicIpOutputWithContext(ctx context.Context) PublicIpOutput
 }
 
-func (PublicIp) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicIp)(nil)).Elem()
+func (*PublicIp) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicIp)(nil))
 }
 
-func (i PublicIp) ToPublicIpOutput() PublicIpOutput {
+func (i *PublicIp) ToPublicIpOutput() PublicIpOutput {
 	return i.ToPublicIpOutputWithContext(context.Background())
 }
 
-func (i PublicIp) ToPublicIpOutputWithContext(ctx context.Context) PublicIpOutput {
+func (i *PublicIp) ToPublicIpOutputWithContext(ctx context.Context) PublicIpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIpOutput)
+}
+
+func (i *PublicIp) ToPublicIpPtrOutput() PublicIpPtrOutput {
+	return i.ToPublicIpPtrOutputWithContext(context.Background())
+}
+
+func (i *PublicIp) ToPublicIpPtrOutputWithContext(ctx context.Context) PublicIpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicIpPtrOutput)
+}
+
+type PublicIpPtrInput interface {
+	pulumi.Input
+
+	ToPublicIpPtrOutput() PublicIpPtrOutput
+	ToPublicIpPtrOutputWithContext(ctx context.Context) PublicIpPtrOutput
+}
+
+type publicIpPtrType PublicIpArgs
+
+func (*publicIpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicIp)(nil))
+}
+
+func (i *publicIpPtrType) ToPublicIpPtrOutput() PublicIpPtrOutput {
+	return i.ToPublicIpPtrOutputWithContext(context.Background())
+}
+
+func (i *publicIpPtrType) ToPublicIpPtrOutputWithContext(ctx context.Context) PublicIpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicIpPtrOutput)
+}
+
+// PublicIpArrayInput is an input type that accepts PublicIpArray and PublicIpArrayOutput values.
+// You can construct a concrete instance of `PublicIpArrayInput` via:
+//
+//          PublicIpArray{ PublicIpArgs{...} }
+type PublicIpArrayInput interface {
+	pulumi.Input
+
+	ToPublicIpArrayOutput() PublicIpArrayOutput
+	ToPublicIpArrayOutputWithContext(context.Context) PublicIpArrayOutput
+}
+
+type PublicIpArray []PublicIpInput
+
+func (PublicIpArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PublicIp)(nil))
+}
+
+func (i PublicIpArray) ToPublicIpArrayOutput() PublicIpArrayOutput {
+	return i.ToPublicIpArrayOutputWithContext(context.Background())
+}
+
+func (i PublicIpArray) ToPublicIpArrayOutputWithContext(ctx context.Context) PublicIpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicIpArrayOutput)
+}
+
+// PublicIpMapInput is an input type that accepts PublicIpMap and PublicIpMapOutput values.
+// You can construct a concrete instance of `PublicIpMapInput` via:
+//
+//          PublicIpMap{ "key": PublicIpArgs{...} }
+type PublicIpMapInput interface {
+	pulumi.Input
+
+	ToPublicIpMapOutput() PublicIpMapOutput
+	ToPublicIpMapOutputWithContext(context.Context) PublicIpMapOutput
+}
+
+type PublicIpMap map[string]PublicIpInput
+
+func (PublicIpMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PublicIp)(nil))
+}
+
+func (i PublicIpMap) ToPublicIpMapOutput() PublicIpMapOutput {
+	return i.ToPublicIpMapOutputWithContext(context.Background())
+}
+
+func (i PublicIpMap) ToPublicIpMapOutputWithContext(ctx context.Context) PublicIpMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicIpMapOutput)
 }
 
 type PublicIpOutput struct {
@@ -281,7 +360,7 @@ type PublicIpOutput struct {
 }
 
 func (PublicIpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicIpOutput)(nil)).Elem()
+	return reflect.TypeOf((*PublicIp)(nil))
 }
 
 func (o PublicIpOutput) ToPublicIpOutput() PublicIpOutput {
@@ -292,6 +371,75 @@ func (o PublicIpOutput) ToPublicIpOutputWithContext(ctx context.Context) PublicI
 	return o
 }
 
+func (o PublicIpOutput) ToPublicIpPtrOutput() PublicIpPtrOutput {
+	return o.ToPublicIpPtrOutputWithContext(context.Background())
+}
+
+func (o PublicIpOutput) ToPublicIpPtrOutputWithContext(ctx context.Context) PublicIpPtrOutput {
+	return o.ApplyT(func(v PublicIp) *PublicIp {
+		return &v
+	}).(PublicIpPtrOutput)
+}
+
+type PublicIpPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PublicIpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicIp)(nil))
+}
+
+func (o PublicIpPtrOutput) ToPublicIpPtrOutput() PublicIpPtrOutput {
+	return o
+}
+
+func (o PublicIpPtrOutput) ToPublicIpPtrOutputWithContext(ctx context.Context) PublicIpPtrOutput {
+	return o
+}
+
+type PublicIpArrayOutput struct{ *pulumi.OutputState }
+
+func (PublicIpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PublicIp)(nil))
+}
+
+func (o PublicIpArrayOutput) ToPublicIpArrayOutput() PublicIpArrayOutput {
+	return o
+}
+
+func (o PublicIpArrayOutput) ToPublicIpArrayOutputWithContext(ctx context.Context) PublicIpArrayOutput {
+	return o
+}
+
+func (o PublicIpArrayOutput) Index(i pulumi.IntInput) PublicIpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PublicIp {
+		return vs[0].([]PublicIp)[vs[1].(int)]
+	}).(PublicIpOutput)
+}
+
+type PublicIpMapOutput struct{ *pulumi.OutputState }
+
+func (PublicIpMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PublicIp)(nil))
+}
+
+func (o PublicIpMapOutput) ToPublicIpMapOutput() PublicIpMapOutput {
+	return o
+}
+
+func (o PublicIpMapOutput) ToPublicIpMapOutputWithContext(ctx context.Context) PublicIpMapOutput {
+	return o
+}
+
+func (o PublicIpMapOutput) MapIndex(k pulumi.StringInput) PublicIpOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PublicIp {
+		return vs[0].(map[string]PublicIp)[vs[1].(string)]
+	}).(PublicIpOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PublicIpOutput{})
+	pulumi.RegisterOutputType(PublicIpPtrOutput{})
+	pulumi.RegisterOutputType(PublicIpArrayOutput{})
+	pulumi.RegisterOutputType(PublicIpMapOutput{})
 }

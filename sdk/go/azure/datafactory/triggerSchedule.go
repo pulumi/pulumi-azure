@@ -238,16 +238,95 @@ type TriggerScheduleInput interface {
 	ToTriggerScheduleOutputWithContext(ctx context.Context) TriggerScheduleOutput
 }
 
-func (TriggerSchedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerSchedule)(nil)).Elem()
+func (*TriggerSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerSchedule)(nil))
 }
 
-func (i TriggerSchedule) ToTriggerScheduleOutput() TriggerScheduleOutput {
+func (i *TriggerSchedule) ToTriggerScheduleOutput() TriggerScheduleOutput {
 	return i.ToTriggerScheduleOutputWithContext(context.Background())
 }
 
-func (i TriggerSchedule) ToTriggerScheduleOutputWithContext(ctx context.Context) TriggerScheduleOutput {
+func (i *TriggerSchedule) ToTriggerScheduleOutputWithContext(ctx context.Context) TriggerScheduleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerScheduleOutput)
+}
+
+func (i *TriggerSchedule) ToTriggerSchedulePtrOutput() TriggerSchedulePtrOutput {
+	return i.ToTriggerSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *TriggerSchedule) ToTriggerSchedulePtrOutputWithContext(ctx context.Context) TriggerSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerSchedulePtrOutput)
+}
+
+type TriggerSchedulePtrInput interface {
+	pulumi.Input
+
+	ToTriggerSchedulePtrOutput() TriggerSchedulePtrOutput
+	ToTriggerSchedulePtrOutputWithContext(ctx context.Context) TriggerSchedulePtrOutput
+}
+
+type triggerSchedulePtrType TriggerScheduleArgs
+
+func (*triggerSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerSchedule)(nil))
+}
+
+func (i *triggerSchedulePtrType) ToTriggerSchedulePtrOutput() TriggerSchedulePtrOutput {
+	return i.ToTriggerSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *triggerSchedulePtrType) ToTriggerSchedulePtrOutputWithContext(ctx context.Context) TriggerSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerSchedulePtrOutput)
+}
+
+// TriggerScheduleArrayInput is an input type that accepts TriggerScheduleArray and TriggerScheduleArrayOutput values.
+// You can construct a concrete instance of `TriggerScheduleArrayInput` via:
+//
+//          TriggerScheduleArray{ TriggerScheduleArgs{...} }
+type TriggerScheduleArrayInput interface {
+	pulumi.Input
+
+	ToTriggerScheduleArrayOutput() TriggerScheduleArrayOutput
+	ToTriggerScheduleArrayOutputWithContext(context.Context) TriggerScheduleArrayOutput
+}
+
+type TriggerScheduleArray []TriggerScheduleInput
+
+func (TriggerScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*TriggerSchedule)(nil))
+}
+
+func (i TriggerScheduleArray) ToTriggerScheduleArrayOutput() TriggerScheduleArrayOutput {
+	return i.ToTriggerScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i TriggerScheduleArray) ToTriggerScheduleArrayOutputWithContext(ctx context.Context) TriggerScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerScheduleArrayOutput)
+}
+
+// TriggerScheduleMapInput is an input type that accepts TriggerScheduleMap and TriggerScheduleMapOutput values.
+// You can construct a concrete instance of `TriggerScheduleMapInput` via:
+//
+//          TriggerScheduleMap{ "key": TriggerScheduleArgs{...} }
+type TriggerScheduleMapInput interface {
+	pulumi.Input
+
+	ToTriggerScheduleMapOutput() TriggerScheduleMapOutput
+	ToTriggerScheduleMapOutputWithContext(context.Context) TriggerScheduleMapOutput
+}
+
+type TriggerScheduleMap map[string]TriggerScheduleInput
+
+func (TriggerScheduleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*TriggerSchedule)(nil))
+}
+
+func (i TriggerScheduleMap) ToTriggerScheduleMapOutput() TriggerScheduleMapOutput {
+	return i.ToTriggerScheduleMapOutputWithContext(context.Background())
+}
+
+func (i TriggerScheduleMap) ToTriggerScheduleMapOutputWithContext(ctx context.Context) TriggerScheduleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerScheduleMapOutput)
 }
 
 type TriggerScheduleOutput struct {
@@ -255,7 +334,7 @@ type TriggerScheduleOutput struct {
 }
 
 func (TriggerScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerScheduleOutput)(nil)).Elem()
+	return reflect.TypeOf((*TriggerSchedule)(nil))
 }
 
 func (o TriggerScheduleOutput) ToTriggerScheduleOutput() TriggerScheduleOutput {
@@ -266,6 +345,75 @@ func (o TriggerScheduleOutput) ToTriggerScheduleOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o TriggerScheduleOutput) ToTriggerSchedulePtrOutput() TriggerSchedulePtrOutput {
+	return o.ToTriggerSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o TriggerScheduleOutput) ToTriggerSchedulePtrOutputWithContext(ctx context.Context) TriggerSchedulePtrOutput {
+	return o.ApplyT(func(v TriggerSchedule) *TriggerSchedule {
+		return &v
+	}).(TriggerSchedulePtrOutput)
+}
+
+type TriggerSchedulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TriggerSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerSchedule)(nil))
+}
+
+func (o TriggerSchedulePtrOutput) ToTriggerSchedulePtrOutput() TriggerSchedulePtrOutput {
+	return o
+}
+
+func (o TriggerSchedulePtrOutput) ToTriggerSchedulePtrOutputWithContext(ctx context.Context) TriggerSchedulePtrOutput {
+	return o
+}
+
+type TriggerScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (TriggerScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TriggerSchedule)(nil))
+}
+
+func (o TriggerScheduleArrayOutput) ToTriggerScheduleArrayOutput() TriggerScheduleArrayOutput {
+	return o
+}
+
+func (o TriggerScheduleArrayOutput) ToTriggerScheduleArrayOutputWithContext(ctx context.Context) TriggerScheduleArrayOutput {
+	return o
+}
+
+func (o TriggerScheduleArrayOutput) Index(i pulumi.IntInput) TriggerScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TriggerSchedule {
+		return vs[0].([]TriggerSchedule)[vs[1].(int)]
+	}).(TriggerScheduleOutput)
+}
+
+type TriggerScheduleMapOutput struct{ *pulumi.OutputState }
+
+func (TriggerScheduleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TriggerSchedule)(nil))
+}
+
+func (o TriggerScheduleMapOutput) ToTriggerScheduleMapOutput() TriggerScheduleMapOutput {
+	return o
+}
+
+func (o TriggerScheduleMapOutput) ToTriggerScheduleMapOutputWithContext(ctx context.Context) TriggerScheduleMapOutput {
+	return o
+}
+
+func (o TriggerScheduleMapOutput) MapIndex(k pulumi.StringInput) TriggerScheduleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TriggerSchedule {
+		return vs[0].(map[string]TriggerSchedule)[vs[1].(string)]
+	}).(TriggerScheduleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TriggerScheduleOutput{})
+	pulumi.RegisterOutputType(TriggerSchedulePtrOutput{})
+	pulumi.RegisterOutputType(TriggerScheduleArrayOutput{})
+	pulumi.RegisterOutputType(TriggerScheduleMapOutput{})
 }

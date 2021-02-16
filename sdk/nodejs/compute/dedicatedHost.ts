@@ -106,7 +106,8 @@ export class DedicatedHost extends pulumi.CustomResource {
     constructor(name: string, args: DedicatedHostArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DedicatedHostArgs | DedicatedHostState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DedicatedHostState | undefined;
             inputs["autoReplaceOnFailure"] = state ? state.autoReplaceOnFailure : undefined;
             inputs["dedicatedHostGroupId"] = state ? state.dedicatedHostGroupId : undefined;
@@ -118,13 +119,13 @@ export class DedicatedHost extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DedicatedHostArgs | undefined;
-            if ((!args || args.dedicatedHostGroupId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dedicatedHostGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dedicatedHostGroupId'");
             }
-            if ((!args || args.platformFaultDomain === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.platformFaultDomain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'platformFaultDomain'");
             }
-            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
             inputs["autoReplaceOnFailure"] = args ? args.autoReplaceOnFailure : undefined;
@@ -136,12 +137,8 @@ export class DedicatedHost extends pulumi.CustomResource {
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DedicatedHost.__pulumiType, name, inputs, opts);
     }

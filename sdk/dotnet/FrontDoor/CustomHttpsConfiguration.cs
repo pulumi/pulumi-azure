@@ -141,6 +141,7 @@ namespace Pulumi.Azure.FrontDoor
     ///  $ pulumi import azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration example_custom_https_1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/frontDoors/frontdoor1/frontendEndpoints/endpoint1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration")]
     public partial class CustomHttpsConfiguration : Pulumi.CustomResource
     {
         /// <summary>

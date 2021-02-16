@@ -101,7 +101,8 @@ export class EndpointEventGrid extends pulumi.CustomResource {
     constructor(name: string, args: EndpointEventGridArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointEventGridArgs | EndpointEventGridState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EndpointEventGridState | undefined;
             inputs["deadLetterStorageSecret"] = state ? state.deadLetterStorageSecret : undefined;
             inputs["digitalTwinsId"] = state ? state.digitalTwinsId : undefined;
@@ -111,16 +112,16 @@ export class EndpointEventGrid extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as EndpointEventGridArgs | undefined;
-            if ((!args || args.digitalTwinsId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.digitalTwinsId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'digitalTwinsId'");
             }
-            if ((!args || args.eventgridTopicEndpoint === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.eventgridTopicEndpoint === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventgridTopicEndpoint'");
             }
-            if ((!args || args.eventgridTopicPrimaryAccessKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.eventgridTopicPrimaryAccessKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventgridTopicPrimaryAccessKey'");
             }
-            if ((!args || args.eventgridTopicSecondaryAccessKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.eventgridTopicSecondaryAccessKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventgridTopicSecondaryAccessKey'");
             }
             inputs["deadLetterStorageSecret"] = args ? args.deadLetterStorageSecret : undefined;
@@ -130,12 +131,8 @@ export class EndpointEventGrid extends pulumi.CustomResource {
             inputs["eventgridTopicSecondaryAccessKey"] = args ? args.eventgridTopicSecondaryAccessKey : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EndpointEventGrid.__pulumiType, name, inputs, opts);
     }

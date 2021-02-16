@@ -236,16 +236,95 @@ type SqlPoolInput interface {
 	ToSqlPoolOutputWithContext(ctx context.Context) SqlPoolOutput
 }
 
-func (SqlPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPool)(nil)).Elem()
+func (*SqlPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPool)(nil))
 }
 
-func (i SqlPool) ToSqlPoolOutput() SqlPoolOutput {
+func (i *SqlPool) ToSqlPoolOutput() SqlPoolOutput {
 	return i.ToSqlPoolOutputWithContext(context.Background())
 }
 
-func (i SqlPool) ToSqlPoolOutputWithContext(ctx context.Context) SqlPoolOutput {
+func (i *SqlPool) ToSqlPoolOutputWithContext(ctx context.Context) SqlPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolOutput)
+}
+
+func (i *SqlPool) ToSqlPoolPtrOutput() SqlPoolPtrOutput {
+	return i.ToSqlPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *SqlPool) ToSqlPoolPtrOutputWithContext(ctx context.Context) SqlPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolPtrOutput)
+}
+
+type SqlPoolPtrInput interface {
+	pulumi.Input
+
+	ToSqlPoolPtrOutput() SqlPoolPtrOutput
+	ToSqlPoolPtrOutputWithContext(ctx context.Context) SqlPoolPtrOutput
+}
+
+type sqlPoolPtrType SqlPoolArgs
+
+func (*sqlPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlPool)(nil))
+}
+
+func (i *sqlPoolPtrType) ToSqlPoolPtrOutput() SqlPoolPtrOutput {
+	return i.ToSqlPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *sqlPoolPtrType) ToSqlPoolPtrOutputWithContext(ctx context.Context) SqlPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolPtrOutput)
+}
+
+// SqlPoolArrayInput is an input type that accepts SqlPoolArray and SqlPoolArrayOutput values.
+// You can construct a concrete instance of `SqlPoolArrayInput` via:
+//
+//          SqlPoolArray{ SqlPoolArgs{...} }
+type SqlPoolArrayInput interface {
+	pulumi.Input
+
+	ToSqlPoolArrayOutput() SqlPoolArrayOutput
+	ToSqlPoolArrayOutputWithContext(context.Context) SqlPoolArrayOutput
+}
+
+type SqlPoolArray []SqlPoolInput
+
+func (SqlPoolArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SqlPool)(nil))
+}
+
+func (i SqlPoolArray) ToSqlPoolArrayOutput() SqlPoolArrayOutput {
+	return i.ToSqlPoolArrayOutputWithContext(context.Background())
+}
+
+func (i SqlPoolArray) ToSqlPoolArrayOutputWithContext(ctx context.Context) SqlPoolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolArrayOutput)
+}
+
+// SqlPoolMapInput is an input type that accepts SqlPoolMap and SqlPoolMapOutput values.
+// You can construct a concrete instance of `SqlPoolMapInput` via:
+//
+//          SqlPoolMap{ "key": SqlPoolArgs{...} }
+type SqlPoolMapInput interface {
+	pulumi.Input
+
+	ToSqlPoolMapOutput() SqlPoolMapOutput
+	ToSqlPoolMapOutputWithContext(context.Context) SqlPoolMapOutput
+}
+
+type SqlPoolMap map[string]SqlPoolInput
+
+func (SqlPoolMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SqlPool)(nil))
+}
+
+func (i SqlPoolMap) ToSqlPoolMapOutput() SqlPoolMapOutput {
+	return i.ToSqlPoolMapOutputWithContext(context.Background())
+}
+
+func (i SqlPoolMap) ToSqlPoolMapOutputWithContext(ctx context.Context) SqlPoolMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolMapOutput)
 }
 
 type SqlPoolOutput struct {
@@ -253,7 +332,7 @@ type SqlPoolOutput struct {
 }
 
 func (SqlPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolOutput)(nil)).Elem()
+	return reflect.TypeOf((*SqlPool)(nil))
 }
 
 func (o SqlPoolOutput) ToSqlPoolOutput() SqlPoolOutput {
@@ -264,6 +343,75 @@ func (o SqlPoolOutput) ToSqlPoolOutputWithContext(ctx context.Context) SqlPoolOu
 	return o
 }
 
+func (o SqlPoolOutput) ToSqlPoolPtrOutput() SqlPoolPtrOutput {
+	return o.ToSqlPoolPtrOutputWithContext(context.Background())
+}
+
+func (o SqlPoolOutput) ToSqlPoolPtrOutputWithContext(ctx context.Context) SqlPoolPtrOutput {
+	return o.ApplyT(func(v SqlPool) *SqlPool {
+		return &v
+	}).(SqlPoolPtrOutput)
+}
+
+type SqlPoolPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlPool)(nil))
+}
+
+func (o SqlPoolPtrOutput) ToSqlPoolPtrOutput() SqlPoolPtrOutput {
+	return o
+}
+
+func (o SqlPoolPtrOutput) ToSqlPoolPtrOutputWithContext(ctx context.Context) SqlPoolPtrOutput {
+	return o
+}
+
+type SqlPoolArrayOutput struct{ *pulumi.OutputState }
+
+func (SqlPoolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlPool)(nil))
+}
+
+func (o SqlPoolArrayOutput) ToSqlPoolArrayOutput() SqlPoolArrayOutput {
+	return o
+}
+
+func (o SqlPoolArrayOutput) ToSqlPoolArrayOutputWithContext(ctx context.Context) SqlPoolArrayOutput {
+	return o
+}
+
+func (o SqlPoolArrayOutput) Index(i pulumi.IntInput) SqlPoolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlPool {
+		return vs[0].([]SqlPool)[vs[1].(int)]
+	}).(SqlPoolOutput)
+}
+
+type SqlPoolMapOutput struct{ *pulumi.OutputState }
+
+func (SqlPoolMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SqlPool)(nil))
+}
+
+func (o SqlPoolMapOutput) ToSqlPoolMapOutput() SqlPoolMapOutput {
+	return o
+}
+
+func (o SqlPoolMapOutput) ToSqlPoolMapOutputWithContext(ctx context.Context) SqlPoolMapOutput {
+	return o
+}
+
+func (o SqlPoolMapOutput) MapIndex(k pulumi.StringInput) SqlPoolOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SqlPool {
+		return vs[0].(map[string]SqlPool)[vs[1].(string)]
+	}).(SqlPoolOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlPoolOutput{})
+	pulumi.RegisterOutputType(SqlPoolPtrOutput{})
+	pulumi.RegisterOutputType(SqlPoolArrayOutput{})
+	pulumi.RegisterOutputType(SqlPoolMapOutput{})
 }

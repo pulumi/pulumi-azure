@@ -112,7 +112,8 @@ export class VpnGateway extends pulumi.CustomResource {
     constructor(name: string, args: VpnGatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpnGatewayArgs | VpnGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VpnGatewayState | undefined;
             inputs["bgpSettings"] = state ? state.bgpSettings : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -123,10 +124,10 @@ export class VpnGateway extends pulumi.CustomResource {
             inputs["virtualHubId"] = state ? state.virtualHubId : undefined;
         } else {
             const args = argsOrState as VpnGatewayArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualHubId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualHubId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
             inputs["bgpSettings"] = args ? args.bgpSettings : undefined;
@@ -137,12 +138,8 @@ export class VpnGateway extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualHubId"] = args ? args.virtualHubId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VpnGateway.__pulumiType, name, inputs, opts);
     }

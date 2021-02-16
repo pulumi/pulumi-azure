@@ -89,6 +89,7 @@ namespace Pulumi.Azure.SiteRecovery
     ///  $ pulumi import azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping mymapping /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name
     /// ```
     /// </summary>
+    [AzureResourceType("azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping")]
     public partial class ProtectionContainerMapping : Pulumi.CustomResource
     {
         /// <summary>

@@ -185,16 +185,95 @@ type NetworkSecurityGroupInput interface {
 	ToNetworkSecurityGroupOutputWithContext(ctx context.Context) NetworkSecurityGroupOutput
 }
 
-func (NetworkSecurityGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkSecurityGroup)(nil)).Elem()
+func (*NetworkSecurityGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSecurityGroup)(nil))
 }
 
-func (i NetworkSecurityGroup) ToNetworkSecurityGroupOutput() NetworkSecurityGroupOutput {
+func (i *NetworkSecurityGroup) ToNetworkSecurityGroupOutput() NetworkSecurityGroupOutput {
 	return i.ToNetworkSecurityGroupOutputWithContext(context.Background())
 }
 
-func (i NetworkSecurityGroup) ToNetworkSecurityGroupOutputWithContext(ctx context.Context) NetworkSecurityGroupOutput {
+func (i *NetworkSecurityGroup) ToNetworkSecurityGroupOutputWithContext(ctx context.Context) NetworkSecurityGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityGroupOutput)
+}
+
+func (i *NetworkSecurityGroup) ToNetworkSecurityGroupPtrOutput() NetworkSecurityGroupPtrOutput {
+	return i.ToNetworkSecurityGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *NetworkSecurityGroup) ToNetworkSecurityGroupPtrOutputWithContext(ctx context.Context) NetworkSecurityGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityGroupPtrOutput)
+}
+
+type NetworkSecurityGroupPtrInput interface {
+	pulumi.Input
+
+	ToNetworkSecurityGroupPtrOutput() NetworkSecurityGroupPtrOutput
+	ToNetworkSecurityGroupPtrOutputWithContext(ctx context.Context) NetworkSecurityGroupPtrOutput
+}
+
+type networkSecurityGroupPtrType NetworkSecurityGroupArgs
+
+func (*networkSecurityGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkSecurityGroup)(nil))
+}
+
+func (i *networkSecurityGroupPtrType) ToNetworkSecurityGroupPtrOutput() NetworkSecurityGroupPtrOutput {
+	return i.ToNetworkSecurityGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *networkSecurityGroupPtrType) ToNetworkSecurityGroupPtrOutputWithContext(ctx context.Context) NetworkSecurityGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityGroupPtrOutput)
+}
+
+// NetworkSecurityGroupArrayInput is an input type that accepts NetworkSecurityGroupArray and NetworkSecurityGroupArrayOutput values.
+// You can construct a concrete instance of `NetworkSecurityGroupArrayInput` via:
+//
+//          NetworkSecurityGroupArray{ NetworkSecurityGroupArgs{...} }
+type NetworkSecurityGroupArrayInput interface {
+	pulumi.Input
+
+	ToNetworkSecurityGroupArrayOutput() NetworkSecurityGroupArrayOutput
+	ToNetworkSecurityGroupArrayOutputWithContext(context.Context) NetworkSecurityGroupArrayOutput
+}
+
+type NetworkSecurityGroupArray []NetworkSecurityGroupInput
+
+func (NetworkSecurityGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*NetworkSecurityGroup)(nil))
+}
+
+func (i NetworkSecurityGroupArray) ToNetworkSecurityGroupArrayOutput() NetworkSecurityGroupArrayOutput {
+	return i.ToNetworkSecurityGroupArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkSecurityGroupArray) ToNetworkSecurityGroupArrayOutputWithContext(ctx context.Context) NetworkSecurityGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityGroupArrayOutput)
+}
+
+// NetworkSecurityGroupMapInput is an input type that accepts NetworkSecurityGroupMap and NetworkSecurityGroupMapOutput values.
+// You can construct a concrete instance of `NetworkSecurityGroupMapInput` via:
+//
+//          NetworkSecurityGroupMap{ "key": NetworkSecurityGroupArgs{...} }
+type NetworkSecurityGroupMapInput interface {
+	pulumi.Input
+
+	ToNetworkSecurityGroupMapOutput() NetworkSecurityGroupMapOutput
+	ToNetworkSecurityGroupMapOutputWithContext(context.Context) NetworkSecurityGroupMapOutput
+}
+
+type NetworkSecurityGroupMap map[string]NetworkSecurityGroupInput
+
+func (NetworkSecurityGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*NetworkSecurityGroup)(nil))
+}
+
+func (i NetworkSecurityGroupMap) ToNetworkSecurityGroupMapOutput() NetworkSecurityGroupMapOutput {
+	return i.ToNetworkSecurityGroupMapOutputWithContext(context.Background())
+}
+
+func (i NetworkSecurityGroupMap) ToNetworkSecurityGroupMapOutputWithContext(ctx context.Context) NetworkSecurityGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityGroupMapOutput)
 }
 
 type NetworkSecurityGroupOutput struct {
@@ -202,7 +281,7 @@ type NetworkSecurityGroupOutput struct {
 }
 
 func (NetworkSecurityGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkSecurityGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*NetworkSecurityGroup)(nil))
 }
 
 func (o NetworkSecurityGroupOutput) ToNetworkSecurityGroupOutput() NetworkSecurityGroupOutput {
@@ -213,6 +292,75 @@ func (o NetworkSecurityGroupOutput) ToNetworkSecurityGroupOutputWithContext(ctx 
 	return o
 }
 
+func (o NetworkSecurityGroupOutput) ToNetworkSecurityGroupPtrOutput() NetworkSecurityGroupPtrOutput {
+	return o.ToNetworkSecurityGroupPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkSecurityGroupOutput) ToNetworkSecurityGroupPtrOutputWithContext(ctx context.Context) NetworkSecurityGroupPtrOutput {
+	return o.ApplyT(func(v NetworkSecurityGroup) *NetworkSecurityGroup {
+		return &v
+	}).(NetworkSecurityGroupPtrOutput)
+}
+
+type NetworkSecurityGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (NetworkSecurityGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkSecurityGroup)(nil))
+}
+
+func (o NetworkSecurityGroupPtrOutput) ToNetworkSecurityGroupPtrOutput() NetworkSecurityGroupPtrOutput {
+	return o
+}
+
+func (o NetworkSecurityGroupPtrOutput) ToNetworkSecurityGroupPtrOutputWithContext(ctx context.Context) NetworkSecurityGroupPtrOutput {
+	return o
+}
+
+type NetworkSecurityGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkSecurityGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkSecurityGroup)(nil))
+}
+
+func (o NetworkSecurityGroupArrayOutput) ToNetworkSecurityGroupArrayOutput() NetworkSecurityGroupArrayOutput {
+	return o
+}
+
+func (o NetworkSecurityGroupArrayOutput) ToNetworkSecurityGroupArrayOutputWithContext(ctx context.Context) NetworkSecurityGroupArrayOutput {
+	return o
+}
+
+func (o NetworkSecurityGroupArrayOutput) Index(i pulumi.IntInput) NetworkSecurityGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkSecurityGroup {
+		return vs[0].([]NetworkSecurityGroup)[vs[1].(int)]
+	}).(NetworkSecurityGroupOutput)
+}
+
+type NetworkSecurityGroupMapOutput struct{ *pulumi.OutputState }
+
+func (NetworkSecurityGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NetworkSecurityGroup)(nil))
+}
+
+func (o NetworkSecurityGroupMapOutput) ToNetworkSecurityGroupMapOutput() NetworkSecurityGroupMapOutput {
+	return o
+}
+
+func (o NetworkSecurityGroupMapOutput) ToNetworkSecurityGroupMapOutputWithContext(ctx context.Context) NetworkSecurityGroupMapOutput {
+	return o
+}
+
+func (o NetworkSecurityGroupMapOutput) MapIndex(k pulumi.StringInput) NetworkSecurityGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NetworkSecurityGroup {
+		return vs[0].(map[string]NetworkSecurityGroup)[vs[1].(string)]
+	}).(NetworkSecurityGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NetworkSecurityGroupOutput{})
+	pulumi.RegisterOutputType(NetworkSecurityGroupPtrOutput{})
+	pulumi.RegisterOutputType(NetworkSecurityGroupArrayOutput{})
+	pulumi.RegisterOutputType(NetworkSecurityGroupMapOutput{})
 }

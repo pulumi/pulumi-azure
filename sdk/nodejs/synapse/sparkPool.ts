@@ -143,7 +143,8 @@ export class SparkPool extends pulumi.CustomResource {
     constructor(name: string, args: SparkPoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SparkPoolArgs | SparkPoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SparkPoolState | undefined;
             inputs["autoPause"] = state ? state.autoPause : undefined;
             inputs["autoScale"] = state ? state.autoScale : undefined;
@@ -159,13 +160,13 @@ export class SparkPool extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SparkPoolArgs | undefined;
-            if ((!args || args.nodeSize === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.nodeSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nodeSize'");
             }
-            if ((!args || args.nodeSizeFamily === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.nodeSizeFamily === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nodeSizeFamily'");
             }
-            if ((!args || args.synapseWorkspaceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
             inputs["autoPause"] = args ? args.autoPause : undefined;
@@ -181,12 +182,8 @@ export class SparkPool extends pulumi.CustomResource {
             inputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SparkPool.__pulumiType, name, inputs, opts);
     }

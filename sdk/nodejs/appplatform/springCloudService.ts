@@ -124,7 +124,8 @@ export class SpringCloudService extends pulumi.CustomResource {
     constructor(name: string, args: SpringCloudServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SpringCloudServiceArgs | SpringCloudServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SpringCloudServiceState | undefined;
             inputs["configServerGitSetting"] = state ? state.configServerGitSetting : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -137,7 +138,7 @@ export class SpringCloudService extends pulumi.CustomResource {
             inputs["trace"] = state ? state.trace : undefined;
         } else {
             const args = argsOrState as SpringCloudServiceArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["configServerGitSetting"] = args ? args.configServerGitSetting : undefined;
@@ -150,12 +151,8 @@ export class SpringCloudService extends pulumi.CustomResource {
             inputs["trace"] = args ? args.trace : undefined;
             inputs["outboundPublicIpAddresses"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SpringCloudService.__pulumiType, name, inputs, opts);
     }

@@ -86,6 +86,7 @@ namespace Pulumi.Azure.Backup
     /// 
     ///  -&gt; **NOTE** The ID requires quoting as there are semicolons. This user unfriendly ID can be found in the Deployments of the used resourcegroup, look for an Deployment which starts with `ConfigureAFSProtection-`, click then `Go to resource`.
     /// </summary>
+    [AzureResourceType("azure:backup/protectedFileShare:ProtectedFileShare")]
     public partial class ProtectedFileShare : Pulumi.CustomResource
     {
         /// <summary>

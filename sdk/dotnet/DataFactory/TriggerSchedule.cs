@@ -57,6 +57,7 @@ namespace Pulumi.Azure.DataFactory
     ///  $ pulumi import azure:datafactory/triggerSchedule:TriggerSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:datafactory/triggerSchedule:TriggerSchedule")]
     public partial class TriggerSchedule : Pulumi.CustomResource
     {
         /// <summary>

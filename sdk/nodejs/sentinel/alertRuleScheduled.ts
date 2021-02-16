@@ -147,7 +147,8 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
     constructor(name: string, args: AlertRuleScheduledArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertRuleScheduledArgs | AlertRuleScheduledState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AlertRuleScheduledState | undefined;
             inputs["alertRuleTemplateGuid"] = state ? state.alertRuleTemplateGuid : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -168,16 +169,16 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
             inputs["triggerThreshold"] = state ? state.triggerThreshold : undefined;
         } else {
             const args = argsOrState as AlertRuleScheduledArgs | undefined;
-            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            if ((!args || args.query === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.query === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            if ((!args || args.severity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.severity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
             inputs["alertRuleTemplateGuid"] = args ? args.alertRuleTemplateGuid : undefined;
@@ -198,12 +199,8 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
             inputs["triggerOperator"] = args ? args.triggerOperator : undefined;
             inputs["triggerThreshold"] = args ? args.triggerThreshold : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AlertRuleScheduled.__pulumiType, name, inputs, opts);
     }

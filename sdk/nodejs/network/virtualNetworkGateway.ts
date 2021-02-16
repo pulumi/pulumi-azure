@@ -209,7 +209,8 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
     constructor(name: string, args: VirtualNetworkGatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualNetworkGatewayArgs | VirtualNetworkGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VirtualNetworkGatewayState | undefined;
             inputs["activeActive"] = state ? state.activeActive : undefined;
             inputs["bgpSettings"] = state ? state.bgpSettings : undefined;
@@ -229,16 +230,16 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["vpnType"] = state ? state.vpnType : undefined;
         } else {
             const args = argsOrState as VirtualNetworkGatewayArgs | undefined;
-            if ((!args || args.ipConfigurations === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ipConfigurations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipConfigurations'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["activeActive"] = args ? args.activeActive : undefined;
@@ -258,12 +259,8 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["vpnClientConfiguration"] = args ? args.vpnClientConfiguration : undefined;
             inputs["vpnType"] = args ? args.vpnType : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VirtualNetworkGateway.__pulumiType, name, inputs, opts);
     }

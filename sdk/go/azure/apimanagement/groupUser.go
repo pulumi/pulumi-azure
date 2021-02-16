@@ -167,16 +167,95 @@ type GroupUserInput interface {
 	ToGroupUserOutputWithContext(ctx context.Context) GroupUserOutput
 }
 
-func (GroupUser) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupUser)(nil)).Elem()
+func (*GroupUser) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupUser)(nil))
 }
 
-func (i GroupUser) ToGroupUserOutput() GroupUserOutput {
+func (i *GroupUser) ToGroupUserOutput() GroupUserOutput {
 	return i.ToGroupUserOutputWithContext(context.Background())
 }
 
-func (i GroupUser) ToGroupUserOutputWithContext(ctx context.Context) GroupUserOutput {
+func (i *GroupUser) ToGroupUserOutputWithContext(ctx context.Context) GroupUserOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupUserOutput)
+}
+
+func (i *GroupUser) ToGroupUserPtrOutput() GroupUserPtrOutput {
+	return i.ToGroupUserPtrOutputWithContext(context.Background())
+}
+
+func (i *GroupUser) ToGroupUserPtrOutputWithContext(ctx context.Context) GroupUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupUserPtrOutput)
+}
+
+type GroupUserPtrInput interface {
+	pulumi.Input
+
+	ToGroupUserPtrOutput() GroupUserPtrOutput
+	ToGroupUserPtrOutputWithContext(ctx context.Context) GroupUserPtrOutput
+}
+
+type groupUserPtrType GroupUserArgs
+
+func (*groupUserPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupUser)(nil))
+}
+
+func (i *groupUserPtrType) ToGroupUserPtrOutput() GroupUserPtrOutput {
+	return i.ToGroupUserPtrOutputWithContext(context.Background())
+}
+
+func (i *groupUserPtrType) ToGroupUserPtrOutputWithContext(ctx context.Context) GroupUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupUserPtrOutput)
+}
+
+// GroupUserArrayInput is an input type that accepts GroupUserArray and GroupUserArrayOutput values.
+// You can construct a concrete instance of `GroupUserArrayInput` via:
+//
+//          GroupUserArray{ GroupUserArgs{...} }
+type GroupUserArrayInput interface {
+	pulumi.Input
+
+	ToGroupUserArrayOutput() GroupUserArrayOutput
+	ToGroupUserArrayOutputWithContext(context.Context) GroupUserArrayOutput
+}
+
+type GroupUserArray []GroupUserInput
+
+func (GroupUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*GroupUser)(nil))
+}
+
+func (i GroupUserArray) ToGroupUserArrayOutput() GroupUserArrayOutput {
+	return i.ToGroupUserArrayOutputWithContext(context.Background())
+}
+
+func (i GroupUserArray) ToGroupUserArrayOutputWithContext(ctx context.Context) GroupUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupUserArrayOutput)
+}
+
+// GroupUserMapInput is an input type that accepts GroupUserMap and GroupUserMapOutput values.
+// You can construct a concrete instance of `GroupUserMapInput` via:
+//
+//          GroupUserMap{ "key": GroupUserArgs{...} }
+type GroupUserMapInput interface {
+	pulumi.Input
+
+	ToGroupUserMapOutput() GroupUserMapOutput
+	ToGroupUserMapOutputWithContext(context.Context) GroupUserMapOutput
+}
+
+type GroupUserMap map[string]GroupUserInput
+
+func (GroupUserMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*GroupUser)(nil))
+}
+
+func (i GroupUserMap) ToGroupUserMapOutput() GroupUserMapOutput {
+	return i.ToGroupUserMapOutputWithContext(context.Background())
+}
+
+func (i GroupUserMap) ToGroupUserMapOutputWithContext(ctx context.Context) GroupUserMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupUserMapOutput)
 }
 
 type GroupUserOutput struct {
@@ -184,7 +263,7 @@ type GroupUserOutput struct {
 }
 
 func (GroupUserOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupUserOutput)(nil)).Elem()
+	return reflect.TypeOf((*GroupUser)(nil))
 }
 
 func (o GroupUserOutput) ToGroupUserOutput() GroupUserOutput {
@@ -195,6 +274,75 @@ func (o GroupUserOutput) ToGroupUserOutputWithContext(ctx context.Context) Group
 	return o
 }
 
+func (o GroupUserOutput) ToGroupUserPtrOutput() GroupUserPtrOutput {
+	return o.ToGroupUserPtrOutputWithContext(context.Background())
+}
+
+func (o GroupUserOutput) ToGroupUserPtrOutputWithContext(ctx context.Context) GroupUserPtrOutput {
+	return o.ApplyT(func(v GroupUser) *GroupUser {
+		return &v
+	}).(GroupUserPtrOutput)
+}
+
+type GroupUserPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (GroupUserPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupUser)(nil))
+}
+
+func (o GroupUserPtrOutput) ToGroupUserPtrOutput() GroupUserPtrOutput {
+	return o
+}
+
+func (o GroupUserPtrOutput) ToGroupUserPtrOutputWithContext(ctx context.Context) GroupUserPtrOutput {
+	return o
+}
+
+type GroupUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupUser)(nil))
+}
+
+func (o GroupUserArrayOutput) ToGroupUserArrayOutput() GroupUserArrayOutput {
+	return o
+}
+
+func (o GroupUserArrayOutput) ToGroupUserArrayOutputWithContext(ctx context.Context) GroupUserArrayOutput {
+	return o
+}
+
+func (o GroupUserArrayOutput) Index(i pulumi.IntInput) GroupUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupUser {
+		return vs[0].([]GroupUser)[vs[1].(int)]
+	}).(GroupUserOutput)
+}
+
+type GroupUserMapOutput struct{ *pulumi.OutputState }
+
+func (GroupUserMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GroupUser)(nil))
+}
+
+func (o GroupUserMapOutput) ToGroupUserMapOutput() GroupUserMapOutput {
+	return o
+}
+
+func (o GroupUserMapOutput) ToGroupUserMapOutputWithContext(ctx context.Context) GroupUserMapOutput {
+	return o
+}
+
+func (o GroupUserMapOutput) MapIndex(k pulumi.StringInput) GroupUserOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GroupUser {
+		return vs[0].(map[string]GroupUser)[vs[1].(string)]
+	}).(GroupUserOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GroupUserOutput{})
+	pulumi.RegisterOutputType(GroupUserPtrOutput{})
+	pulumi.RegisterOutputType(GroupUserArrayOutput{})
+	pulumi.RegisterOutputType(GroupUserMapOutput{})
 }

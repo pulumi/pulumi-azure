@@ -185,16 +185,95 @@ type PacketCaptureInput interface {
 	ToPacketCaptureOutputWithContext(ctx context.Context) PacketCaptureOutput
 }
 
-func (PacketCapture) ElementType() reflect.Type {
-	return reflect.TypeOf((*PacketCapture)(nil)).Elem()
+func (*PacketCapture) ElementType() reflect.Type {
+	return reflect.TypeOf((*PacketCapture)(nil))
 }
 
-func (i PacketCapture) ToPacketCaptureOutput() PacketCaptureOutput {
+func (i *PacketCapture) ToPacketCaptureOutput() PacketCaptureOutput {
 	return i.ToPacketCaptureOutputWithContext(context.Background())
 }
 
-func (i PacketCapture) ToPacketCaptureOutputWithContext(ctx context.Context) PacketCaptureOutput {
+func (i *PacketCapture) ToPacketCaptureOutputWithContext(ctx context.Context) PacketCaptureOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PacketCaptureOutput)
+}
+
+func (i *PacketCapture) ToPacketCapturePtrOutput() PacketCapturePtrOutput {
+	return i.ToPacketCapturePtrOutputWithContext(context.Background())
+}
+
+func (i *PacketCapture) ToPacketCapturePtrOutputWithContext(ctx context.Context) PacketCapturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PacketCapturePtrOutput)
+}
+
+type PacketCapturePtrInput interface {
+	pulumi.Input
+
+	ToPacketCapturePtrOutput() PacketCapturePtrOutput
+	ToPacketCapturePtrOutputWithContext(ctx context.Context) PacketCapturePtrOutput
+}
+
+type packetCapturePtrType PacketCaptureArgs
+
+func (*packetCapturePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PacketCapture)(nil))
+}
+
+func (i *packetCapturePtrType) ToPacketCapturePtrOutput() PacketCapturePtrOutput {
+	return i.ToPacketCapturePtrOutputWithContext(context.Background())
+}
+
+func (i *packetCapturePtrType) ToPacketCapturePtrOutputWithContext(ctx context.Context) PacketCapturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PacketCapturePtrOutput)
+}
+
+// PacketCaptureArrayInput is an input type that accepts PacketCaptureArray and PacketCaptureArrayOutput values.
+// You can construct a concrete instance of `PacketCaptureArrayInput` via:
+//
+//          PacketCaptureArray{ PacketCaptureArgs{...} }
+type PacketCaptureArrayInput interface {
+	pulumi.Input
+
+	ToPacketCaptureArrayOutput() PacketCaptureArrayOutput
+	ToPacketCaptureArrayOutputWithContext(context.Context) PacketCaptureArrayOutput
+}
+
+type PacketCaptureArray []PacketCaptureInput
+
+func (PacketCaptureArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PacketCapture)(nil))
+}
+
+func (i PacketCaptureArray) ToPacketCaptureArrayOutput() PacketCaptureArrayOutput {
+	return i.ToPacketCaptureArrayOutputWithContext(context.Background())
+}
+
+func (i PacketCaptureArray) ToPacketCaptureArrayOutputWithContext(ctx context.Context) PacketCaptureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PacketCaptureArrayOutput)
+}
+
+// PacketCaptureMapInput is an input type that accepts PacketCaptureMap and PacketCaptureMapOutput values.
+// You can construct a concrete instance of `PacketCaptureMapInput` via:
+//
+//          PacketCaptureMap{ "key": PacketCaptureArgs{...} }
+type PacketCaptureMapInput interface {
+	pulumi.Input
+
+	ToPacketCaptureMapOutput() PacketCaptureMapOutput
+	ToPacketCaptureMapOutputWithContext(context.Context) PacketCaptureMapOutput
+}
+
+type PacketCaptureMap map[string]PacketCaptureInput
+
+func (PacketCaptureMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PacketCapture)(nil))
+}
+
+func (i PacketCaptureMap) ToPacketCaptureMapOutput() PacketCaptureMapOutput {
+	return i.ToPacketCaptureMapOutputWithContext(context.Background())
+}
+
+func (i PacketCaptureMap) ToPacketCaptureMapOutputWithContext(ctx context.Context) PacketCaptureMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PacketCaptureMapOutput)
 }
 
 type PacketCaptureOutput struct {
@@ -202,7 +281,7 @@ type PacketCaptureOutput struct {
 }
 
 func (PacketCaptureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PacketCaptureOutput)(nil)).Elem()
+	return reflect.TypeOf((*PacketCapture)(nil))
 }
 
 func (o PacketCaptureOutput) ToPacketCaptureOutput() PacketCaptureOutput {
@@ -213,6 +292,75 @@ func (o PacketCaptureOutput) ToPacketCaptureOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o PacketCaptureOutput) ToPacketCapturePtrOutput() PacketCapturePtrOutput {
+	return o.ToPacketCapturePtrOutputWithContext(context.Background())
+}
+
+func (o PacketCaptureOutput) ToPacketCapturePtrOutputWithContext(ctx context.Context) PacketCapturePtrOutput {
+	return o.ApplyT(func(v PacketCapture) *PacketCapture {
+		return &v
+	}).(PacketCapturePtrOutput)
+}
+
+type PacketCapturePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PacketCapturePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PacketCapture)(nil))
+}
+
+func (o PacketCapturePtrOutput) ToPacketCapturePtrOutput() PacketCapturePtrOutput {
+	return o
+}
+
+func (o PacketCapturePtrOutput) ToPacketCapturePtrOutputWithContext(ctx context.Context) PacketCapturePtrOutput {
+	return o
+}
+
+type PacketCaptureArrayOutput struct{ *pulumi.OutputState }
+
+func (PacketCaptureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PacketCapture)(nil))
+}
+
+func (o PacketCaptureArrayOutput) ToPacketCaptureArrayOutput() PacketCaptureArrayOutput {
+	return o
+}
+
+func (o PacketCaptureArrayOutput) ToPacketCaptureArrayOutputWithContext(ctx context.Context) PacketCaptureArrayOutput {
+	return o
+}
+
+func (o PacketCaptureArrayOutput) Index(i pulumi.IntInput) PacketCaptureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PacketCapture {
+		return vs[0].([]PacketCapture)[vs[1].(int)]
+	}).(PacketCaptureOutput)
+}
+
+type PacketCaptureMapOutput struct{ *pulumi.OutputState }
+
+func (PacketCaptureMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PacketCapture)(nil))
+}
+
+func (o PacketCaptureMapOutput) ToPacketCaptureMapOutput() PacketCaptureMapOutput {
+	return o
+}
+
+func (o PacketCaptureMapOutput) ToPacketCaptureMapOutputWithContext(ctx context.Context) PacketCaptureMapOutput {
+	return o
+}
+
+func (o PacketCaptureMapOutput) MapIndex(k pulumi.StringInput) PacketCaptureOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PacketCapture {
+		return vs[0].(map[string]PacketCapture)[vs[1].(string)]
+	}).(PacketCaptureOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PacketCaptureOutput{})
+	pulumi.RegisterOutputType(PacketCapturePtrOutput{})
+	pulumi.RegisterOutputType(PacketCaptureArrayOutput{})
+	pulumi.RegisterOutputType(PacketCaptureMapOutput{})
 }

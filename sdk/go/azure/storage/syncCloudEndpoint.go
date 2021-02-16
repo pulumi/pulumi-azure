@@ -212,16 +212,95 @@ type SyncCloudEndpointInput interface {
 	ToSyncCloudEndpointOutputWithContext(ctx context.Context) SyncCloudEndpointOutput
 }
 
-func (SyncCloudEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncCloudEndpoint)(nil)).Elem()
+func (*SyncCloudEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncCloudEndpoint)(nil))
 }
 
-func (i SyncCloudEndpoint) ToSyncCloudEndpointOutput() SyncCloudEndpointOutput {
+func (i *SyncCloudEndpoint) ToSyncCloudEndpointOutput() SyncCloudEndpointOutput {
 	return i.ToSyncCloudEndpointOutputWithContext(context.Background())
 }
 
-func (i SyncCloudEndpoint) ToSyncCloudEndpointOutputWithContext(ctx context.Context) SyncCloudEndpointOutput {
+func (i *SyncCloudEndpoint) ToSyncCloudEndpointOutputWithContext(ctx context.Context) SyncCloudEndpointOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyncCloudEndpointOutput)
+}
+
+func (i *SyncCloudEndpoint) ToSyncCloudEndpointPtrOutput() SyncCloudEndpointPtrOutput {
+	return i.ToSyncCloudEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *SyncCloudEndpoint) ToSyncCloudEndpointPtrOutputWithContext(ctx context.Context) SyncCloudEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncCloudEndpointPtrOutput)
+}
+
+type SyncCloudEndpointPtrInput interface {
+	pulumi.Input
+
+	ToSyncCloudEndpointPtrOutput() SyncCloudEndpointPtrOutput
+	ToSyncCloudEndpointPtrOutputWithContext(ctx context.Context) SyncCloudEndpointPtrOutput
+}
+
+type syncCloudEndpointPtrType SyncCloudEndpointArgs
+
+func (*syncCloudEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyncCloudEndpoint)(nil))
+}
+
+func (i *syncCloudEndpointPtrType) ToSyncCloudEndpointPtrOutput() SyncCloudEndpointPtrOutput {
+	return i.ToSyncCloudEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *syncCloudEndpointPtrType) ToSyncCloudEndpointPtrOutputWithContext(ctx context.Context) SyncCloudEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncCloudEndpointPtrOutput)
+}
+
+// SyncCloudEndpointArrayInput is an input type that accepts SyncCloudEndpointArray and SyncCloudEndpointArrayOutput values.
+// You can construct a concrete instance of `SyncCloudEndpointArrayInput` via:
+//
+//          SyncCloudEndpointArray{ SyncCloudEndpointArgs{...} }
+type SyncCloudEndpointArrayInput interface {
+	pulumi.Input
+
+	ToSyncCloudEndpointArrayOutput() SyncCloudEndpointArrayOutput
+	ToSyncCloudEndpointArrayOutputWithContext(context.Context) SyncCloudEndpointArrayOutput
+}
+
+type SyncCloudEndpointArray []SyncCloudEndpointInput
+
+func (SyncCloudEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SyncCloudEndpoint)(nil))
+}
+
+func (i SyncCloudEndpointArray) ToSyncCloudEndpointArrayOutput() SyncCloudEndpointArrayOutput {
+	return i.ToSyncCloudEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i SyncCloudEndpointArray) ToSyncCloudEndpointArrayOutputWithContext(ctx context.Context) SyncCloudEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncCloudEndpointArrayOutput)
+}
+
+// SyncCloudEndpointMapInput is an input type that accepts SyncCloudEndpointMap and SyncCloudEndpointMapOutput values.
+// You can construct a concrete instance of `SyncCloudEndpointMapInput` via:
+//
+//          SyncCloudEndpointMap{ "key": SyncCloudEndpointArgs{...} }
+type SyncCloudEndpointMapInput interface {
+	pulumi.Input
+
+	ToSyncCloudEndpointMapOutput() SyncCloudEndpointMapOutput
+	ToSyncCloudEndpointMapOutputWithContext(context.Context) SyncCloudEndpointMapOutput
+}
+
+type SyncCloudEndpointMap map[string]SyncCloudEndpointInput
+
+func (SyncCloudEndpointMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SyncCloudEndpoint)(nil))
+}
+
+func (i SyncCloudEndpointMap) ToSyncCloudEndpointMapOutput() SyncCloudEndpointMapOutput {
+	return i.ToSyncCloudEndpointMapOutputWithContext(context.Background())
+}
+
+func (i SyncCloudEndpointMap) ToSyncCloudEndpointMapOutputWithContext(ctx context.Context) SyncCloudEndpointMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncCloudEndpointMapOutput)
 }
 
 type SyncCloudEndpointOutput struct {
@@ -229,7 +308,7 @@ type SyncCloudEndpointOutput struct {
 }
 
 func (SyncCloudEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncCloudEndpointOutput)(nil)).Elem()
+	return reflect.TypeOf((*SyncCloudEndpoint)(nil))
 }
 
 func (o SyncCloudEndpointOutput) ToSyncCloudEndpointOutput() SyncCloudEndpointOutput {
@@ -240,6 +319,75 @@ func (o SyncCloudEndpointOutput) ToSyncCloudEndpointOutputWithContext(ctx contex
 	return o
 }
 
+func (o SyncCloudEndpointOutput) ToSyncCloudEndpointPtrOutput() SyncCloudEndpointPtrOutput {
+	return o.ToSyncCloudEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o SyncCloudEndpointOutput) ToSyncCloudEndpointPtrOutputWithContext(ctx context.Context) SyncCloudEndpointPtrOutput {
+	return o.ApplyT(func(v SyncCloudEndpoint) *SyncCloudEndpoint {
+		return &v
+	}).(SyncCloudEndpointPtrOutput)
+}
+
+type SyncCloudEndpointPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SyncCloudEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyncCloudEndpoint)(nil))
+}
+
+func (o SyncCloudEndpointPtrOutput) ToSyncCloudEndpointPtrOutput() SyncCloudEndpointPtrOutput {
+	return o
+}
+
+func (o SyncCloudEndpointPtrOutput) ToSyncCloudEndpointPtrOutputWithContext(ctx context.Context) SyncCloudEndpointPtrOutput {
+	return o
+}
+
+type SyncCloudEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (SyncCloudEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyncCloudEndpoint)(nil))
+}
+
+func (o SyncCloudEndpointArrayOutput) ToSyncCloudEndpointArrayOutput() SyncCloudEndpointArrayOutput {
+	return o
+}
+
+func (o SyncCloudEndpointArrayOutput) ToSyncCloudEndpointArrayOutputWithContext(ctx context.Context) SyncCloudEndpointArrayOutput {
+	return o
+}
+
+func (o SyncCloudEndpointArrayOutput) Index(i pulumi.IntInput) SyncCloudEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyncCloudEndpoint {
+		return vs[0].([]SyncCloudEndpoint)[vs[1].(int)]
+	}).(SyncCloudEndpointOutput)
+}
+
+type SyncCloudEndpointMapOutput struct{ *pulumi.OutputState }
+
+func (SyncCloudEndpointMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SyncCloudEndpoint)(nil))
+}
+
+func (o SyncCloudEndpointMapOutput) ToSyncCloudEndpointMapOutput() SyncCloudEndpointMapOutput {
+	return o
+}
+
+func (o SyncCloudEndpointMapOutput) ToSyncCloudEndpointMapOutputWithContext(ctx context.Context) SyncCloudEndpointMapOutput {
+	return o
+}
+
+func (o SyncCloudEndpointMapOutput) MapIndex(k pulumi.StringInput) SyncCloudEndpointOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SyncCloudEndpoint {
+		return vs[0].(map[string]SyncCloudEndpoint)[vs[1].(string)]
+	}).(SyncCloudEndpointOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SyncCloudEndpointOutput{})
+	pulumi.RegisterOutputType(SyncCloudEndpointPtrOutput{})
+	pulumi.RegisterOutputType(SyncCloudEndpointArrayOutput{})
+	pulumi.RegisterOutputType(SyncCloudEndpointMapOutput{})
 }

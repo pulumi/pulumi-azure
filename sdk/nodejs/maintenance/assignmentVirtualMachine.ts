@@ -126,29 +126,26 @@ export class AssignmentVirtualMachine extends pulumi.CustomResource {
     constructor(name: string, args: AssignmentVirtualMachineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AssignmentVirtualMachineArgs | AssignmentVirtualMachineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AssignmentVirtualMachineState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["maintenanceConfigurationId"] = state ? state.maintenanceConfigurationId : undefined;
             inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
         } else {
             const args = argsOrState as AssignmentVirtualMachineArgs | undefined;
-            if ((!args || args.maintenanceConfigurationId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.maintenanceConfigurationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maintenanceConfigurationId'");
             }
-            if ((!args || args.virtualMachineId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualMachineId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
             inputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AssignmentVirtualMachine.__pulumiType, name, inputs, opts);
     }

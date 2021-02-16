@@ -20,6 +20,7 @@ namespace Pulumi.Azure.Automation
     ///  $ pulumi import azure:automation/connectionClassicCertificate:ConnectionClassicCertificate conn1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:automation/connectionClassicCertificate:ConnectionClassicCertificate")]
     public partial class ConnectionClassicCertificate : Pulumi.CustomResource
     {
         /// <summary>

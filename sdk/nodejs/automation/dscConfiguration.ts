@@ -109,7 +109,8 @@ export class DscConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: DscConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DscConfigurationArgs | DscConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DscConfigurationState | undefined;
             inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
             inputs["contentEmbedded"] = state ? state.contentEmbedded : undefined;
@@ -122,13 +123,13 @@ export class DscConfiguration extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DscConfigurationArgs | undefined;
-            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.contentEmbedded === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.contentEmbedded === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contentEmbedded'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
@@ -141,12 +142,8 @@ export class DscConfiguration extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["state"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DscConfiguration.__pulumiType, name, inputs, opts);
     }

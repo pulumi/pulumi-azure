@@ -214,16 +214,95 @@ type LinkedServiceCosmosDbInput interface {
 	ToLinkedServiceCosmosDbOutputWithContext(ctx context.Context) LinkedServiceCosmosDbOutput
 }
 
-func (LinkedServiceCosmosDb) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceCosmosDb)(nil)).Elem()
+func (*LinkedServiceCosmosDb) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceCosmosDb)(nil))
 }
 
-func (i LinkedServiceCosmosDb) ToLinkedServiceCosmosDbOutput() LinkedServiceCosmosDbOutput {
+func (i *LinkedServiceCosmosDb) ToLinkedServiceCosmosDbOutput() LinkedServiceCosmosDbOutput {
 	return i.ToLinkedServiceCosmosDbOutputWithContext(context.Background())
 }
 
-func (i LinkedServiceCosmosDb) ToLinkedServiceCosmosDbOutputWithContext(ctx context.Context) LinkedServiceCosmosDbOutput {
+func (i *LinkedServiceCosmosDb) ToLinkedServiceCosmosDbOutputWithContext(ctx context.Context) LinkedServiceCosmosDbOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceCosmosDbOutput)
+}
+
+func (i *LinkedServiceCosmosDb) ToLinkedServiceCosmosDbPtrOutput() LinkedServiceCosmosDbPtrOutput {
+	return i.ToLinkedServiceCosmosDbPtrOutputWithContext(context.Background())
+}
+
+func (i *LinkedServiceCosmosDb) ToLinkedServiceCosmosDbPtrOutputWithContext(ctx context.Context) LinkedServiceCosmosDbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceCosmosDbPtrOutput)
+}
+
+type LinkedServiceCosmosDbPtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceCosmosDbPtrOutput() LinkedServiceCosmosDbPtrOutput
+	ToLinkedServiceCosmosDbPtrOutputWithContext(ctx context.Context) LinkedServiceCosmosDbPtrOutput
+}
+
+type linkedServiceCosmosDbPtrType LinkedServiceCosmosDbArgs
+
+func (*linkedServiceCosmosDbPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceCosmosDb)(nil))
+}
+
+func (i *linkedServiceCosmosDbPtrType) ToLinkedServiceCosmosDbPtrOutput() LinkedServiceCosmosDbPtrOutput {
+	return i.ToLinkedServiceCosmosDbPtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceCosmosDbPtrType) ToLinkedServiceCosmosDbPtrOutputWithContext(ctx context.Context) LinkedServiceCosmosDbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceCosmosDbPtrOutput)
+}
+
+// LinkedServiceCosmosDbArrayInput is an input type that accepts LinkedServiceCosmosDbArray and LinkedServiceCosmosDbArrayOutput values.
+// You can construct a concrete instance of `LinkedServiceCosmosDbArrayInput` via:
+//
+//          LinkedServiceCosmosDbArray{ LinkedServiceCosmosDbArgs{...} }
+type LinkedServiceCosmosDbArrayInput interface {
+	pulumi.Input
+
+	ToLinkedServiceCosmosDbArrayOutput() LinkedServiceCosmosDbArrayOutput
+	ToLinkedServiceCosmosDbArrayOutputWithContext(context.Context) LinkedServiceCosmosDbArrayOutput
+}
+
+type LinkedServiceCosmosDbArray []LinkedServiceCosmosDbInput
+
+func (LinkedServiceCosmosDbArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LinkedServiceCosmosDb)(nil))
+}
+
+func (i LinkedServiceCosmosDbArray) ToLinkedServiceCosmosDbArrayOutput() LinkedServiceCosmosDbArrayOutput {
+	return i.ToLinkedServiceCosmosDbArrayOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceCosmosDbArray) ToLinkedServiceCosmosDbArrayOutputWithContext(ctx context.Context) LinkedServiceCosmosDbArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceCosmosDbArrayOutput)
+}
+
+// LinkedServiceCosmosDbMapInput is an input type that accepts LinkedServiceCosmosDbMap and LinkedServiceCosmosDbMapOutput values.
+// You can construct a concrete instance of `LinkedServiceCosmosDbMapInput` via:
+//
+//          LinkedServiceCosmosDbMap{ "key": LinkedServiceCosmosDbArgs{...} }
+type LinkedServiceCosmosDbMapInput interface {
+	pulumi.Input
+
+	ToLinkedServiceCosmosDbMapOutput() LinkedServiceCosmosDbMapOutput
+	ToLinkedServiceCosmosDbMapOutputWithContext(context.Context) LinkedServiceCosmosDbMapOutput
+}
+
+type LinkedServiceCosmosDbMap map[string]LinkedServiceCosmosDbInput
+
+func (LinkedServiceCosmosDbMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LinkedServiceCosmosDb)(nil))
+}
+
+func (i LinkedServiceCosmosDbMap) ToLinkedServiceCosmosDbMapOutput() LinkedServiceCosmosDbMapOutput {
+	return i.ToLinkedServiceCosmosDbMapOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceCosmosDbMap) ToLinkedServiceCosmosDbMapOutputWithContext(ctx context.Context) LinkedServiceCosmosDbMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceCosmosDbMapOutput)
 }
 
 type LinkedServiceCosmosDbOutput struct {
@@ -231,7 +310,7 @@ type LinkedServiceCosmosDbOutput struct {
 }
 
 func (LinkedServiceCosmosDbOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceCosmosDbOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinkedServiceCosmosDb)(nil))
 }
 
 func (o LinkedServiceCosmosDbOutput) ToLinkedServiceCosmosDbOutput() LinkedServiceCosmosDbOutput {
@@ -242,6 +321,75 @@ func (o LinkedServiceCosmosDbOutput) ToLinkedServiceCosmosDbOutputWithContext(ct
 	return o
 }
 
+func (o LinkedServiceCosmosDbOutput) ToLinkedServiceCosmosDbPtrOutput() LinkedServiceCosmosDbPtrOutput {
+	return o.ToLinkedServiceCosmosDbPtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceCosmosDbOutput) ToLinkedServiceCosmosDbPtrOutputWithContext(ctx context.Context) LinkedServiceCosmosDbPtrOutput {
+	return o.ApplyT(func(v LinkedServiceCosmosDb) *LinkedServiceCosmosDb {
+		return &v
+	}).(LinkedServiceCosmosDbPtrOutput)
+}
+
+type LinkedServiceCosmosDbPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkedServiceCosmosDbPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceCosmosDb)(nil))
+}
+
+func (o LinkedServiceCosmosDbPtrOutput) ToLinkedServiceCosmosDbPtrOutput() LinkedServiceCosmosDbPtrOutput {
+	return o
+}
+
+func (o LinkedServiceCosmosDbPtrOutput) ToLinkedServiceCosmosDbPtrOutputWithContext(ctx context.Context) LinkedServiceCosmosDbPtrOutput {
+	return o
+}
+
+type LinkedServiceCosmosDbArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceCosmosDbArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkedServiceCosmosDb)(nil))
+}
+
+func (o LinkedServiceCosmosDbArrayOutput) ToLinkedServiceCosmosDbArrayOutput() LinkedServiceCosmosDbArrayOutput {
+	return o
+}
+
+func (o LinkedServiceCosmosDbArrayOutput) ToLinkedServiceCosmosDbArrayOutputWithContext(ctx context.Context) LinkedServiceCosmosDbArrayOutput {
+	return o
+}
+
+func (o LinkedServiceCosmosDbArrayOutput) Index(i pulumi.IntInput) LinkedServiceCosmosDbOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedServiceCosmosDb {
+		return vs[0].([]LinkedServiceCosmosDb)[vs[1].(int)]
+	}).(LinkedServiceCosmosDbOutput)
+}
+
+type LinkedServiceCosmosDbMapOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceCosmosDbMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LinkedServiceCosmosDb)(nil))
+}
+
+func (o LinkedServiceCosmosDbMapOutput) ToLinkedServiceCosmosDbMapOutput() LinkedServiceCosmosDbMapOutput {
+	return o
+}
+
+func (o LinkedServiceCosmosDbMapOutput) ToLinkedServiceCosmosDbMapOutputWithContext(ctx context.Context) LinkedServiceCosmosDbMapOutput {
+	return o
+}
+
+func (o LinkedServiceCosmosDbMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceCosmosDbOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkedServiceCosmosDb {
+		return vs[0].(map[string]LinkedServiceCosmosDb)[vs[1].(string)]
+	}).(LinkedServiceCosmosDbOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LinkedServiceCosmosDbOutput{})
+	pulumi.RegisterOutputType(LinkedServiceCosmosDbPtrOutput{})
+	pulumi.RegisterOutputType(LinkedServiceCosmosDbArrayOutput{})
+	pulumi.RegisterOutputType(LinkedServiceCosmosDbMapOutput{})
 }

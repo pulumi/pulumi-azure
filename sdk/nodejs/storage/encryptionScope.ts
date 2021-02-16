@@ -94,7 +94,8 @@ export class EncryptionScope extends pulumi.CustomResource {
     constructor(name: string, args: EncryptionScopeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EncryptionScopeArgs | EncryptionScopeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EncryptionScopeState | undefined;
             inputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -102,10 +103,10 @@ export class EncryptionScope extends pulumi.CustomResource {
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
             const args = argsOrState as EncryptionScopeArgs | undefined;
-            if ((!args || args.source === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            if ((!args || args.storageAccountId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
             inputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
@@ -113,12 +114,8 @@ export class EncryptionScope extends pulumi.CustomResource {
             inputs["source"] = args ? args.source : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EncryptionScope.__pulumiType, name, inputs, opts);
     }

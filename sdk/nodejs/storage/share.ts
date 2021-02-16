@@ -113,7 +113,8 @@ export class Share extends pulumi.CustomResource {
     constructor(name: string, args: ShareArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ShareArgs | ShareState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ShareState | undefined;
             inputs["acls"] = state ? state.acls : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
@@ -124,7 +125,7 @@ export class Share extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ShareArgs | undefined;
-            if ((!args || args.storageAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
             inputs["acls"] = args ? args.acls : undefined;
@@ -135,12 +136,8 @@ export class Share extends pulumi.CustomResource {
             inputs["resourceManagerId"] = undefined /*out*/;
             inputs["url"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Share.__pulumiType, name, inputs, opts);
     }

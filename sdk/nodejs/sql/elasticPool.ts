@@ -128,7 +128,8 @@ export class ElasticPool extends pulumi.CustomResource {
     constructor(name: string, args: ElasticPoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ElasticPoolArgs | ElasticPoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ElasticPoolState | undefined;
             inputs["creationDate"] = state ? state.creationDate : undefined;
             inputs["dbDtuMax"] = state ? state.dbDtuMax : undefined;
@@ -143,16 +144,16 @@ export class ElasticPool extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ElasticPoolArgs | undefined;
-            if ((!args || args.dtu === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dtu === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dtu'");
             }
-            if ((!args || args.edition === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.edition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'edition'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["dbDtuMax"] = args ? args.dbDtuMax : undefined;
@@ -167,12 +168,8 @@ export class ElasticPool extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["creationDate"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ElasticPool.__pulumiType, name, inputs, opts);
     }

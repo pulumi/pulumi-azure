@@ -82,6 +82,7 @@ namespace Pulumi.Azure.Sql
     ///  $ pulumi import azure:sql/failoverGroup:FailoverGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/failovergroups/group1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:sql/failoverGroup:FailoverGroup")]
     public partial class FailoverGroup : Pulumi.CustomResource
     {
         /// <summary>

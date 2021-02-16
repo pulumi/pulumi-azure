@@ -10,6 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage
 {
     [Obsolete(@"ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.")]
+    [AzureResourceType("azure:storage/zipBlob:ZipBlob")]
     public partial class ZipBlob : Pulumi.CustomResource
     {
         [Output("accessTier")]

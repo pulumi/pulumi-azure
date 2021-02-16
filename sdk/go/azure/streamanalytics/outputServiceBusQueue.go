@@ -244,16 +244,95 @@ type OutputServiceBusQueueInput interface {
 	ToOutputServiceBusQueueOutputWithContext(ctx context.Context) OutputServiceBusQueueOutput
 }
 
-func (OutputServiceBusQueue) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputServiceBusQueue)(nil)).Elem()
+func (*OutputServiceBusQueue) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputServiceBusQueue)(nil))
 }
 
-func (i OutputServiceBusQueue) ToOutputServiceBusQueueOutput() OutputServiceBusQueueOutput {
+func (i *OutputServiceBusQueue) ToOutputServiceBusQueueOutput() OutputServiceBusQueueOutput {
 	return i.ToOutputServiceBusQueueOutputWithContext(context.Background())
 }
 
-func (i OutputServiceBusQueue) ToOutputServiceBusQueueOutputWithContext(ctx context.Context) OutputServiceBusQueueOutput {
+func (i *OutputServiceBusQueue) ToOutputServiceBusQueueOutputWithContext(ctx context.Context) OutputServiceBusQueueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputServiceBusQueueOutput)
+}
+
+func (i *OutputServiceBusQueue) ToOutputServiceBusQueuePtrOutput() OutputServiceBusQueuePtrOutput {
+	return i.ToOutputServiceBusQueuePtrOutputWithContext(context.Background())
+}
+
+func (i *OutputServiceBusQueue) ToOutputServiceBusQueuePtrOutputWithContext(ctx context.Context) OutputServiceBusQueuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputServiceBusQueuePtrOutput)
+}
+
+type OutputServiceBusQueuePtrInput interface {
+	pulumi.Input
+
+	ToOutputServiceBusQueuePtrOutput() OutputServiceBusQueuePtrOutput
+	ToOutputServiceBusQueuePtrOutputWithContext(ctx context.Context) OutputServiceBusQueuePtrOutput
+}
+
+type outputServiceBusQueuePtrType OutputServiceBusQueueArgs
+
+func (*outputServiceBusQueuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutputServiceBusQueue)(nil))
+}
+
+func (i *outputServiceBusQueuePtrType) ToOutputServiceBusQueuePtrOutput() OutputServiceBusQueuePtrOutput {
+	return i.ToOutputServiceBusQueuePtrOutputWithContext(context.Background())
+}
+
+func (i *outputServiceBusQueuePtrType) ToOutputServiceBusQueuePtrOutputWithContext(ctx context.Context) OutputServiceBusQueuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputServiceBusQueuePtrOutput)
+}
+
+// OutputServiceBusQueueArrayInput is an input type that accepts OutputServiceBusQueueArray and OutputServiceBusQueueArrayOutput values.
+// You can construct a concrete instance of `OutputServiceBusQueueArrayInput` via:
+//
+//          OutputServiceBusQueueArray{ OutputServiceBusQueueArgs{...} }
+type OutputServiceBusQueueArrayInput interface {
+	pulumi.Input
+
+	ToOutputServiceBusQueueArrayOutput() OutputServiceBusQueueArrayOutput
+	ToOutputServiceBusQueueArrayOutputWithContext(context.Context) OutputServiceBusQueueArrayOutput
+}
+
+type OutputServiceBusQueueArray []OutputServiceBusQueueInput
+
+func (OutputServiceBusQueueArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*OutputServiceBusQueue)(nil))
+}
+
+func (i OutputServiceBusQueueArray) ToOutputServiceBusQueueArrayOutput() OutputServiceBusQueueArrayOutput {
+	return i.ToOutputServiceBusQueueArrayOutputWithContext(context.Background())
+}
+
+func (i OutputServiceBusQueueArray) ToOutputServiceBusQueueArrayOutputWithContext(ctx context.Context) OutputServiceBusQueueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputServiceBusQueueArrayOutput)
+}
+
+// OutputServiceBusQueueMapInput is an input type that accepts OutputServiceBusQueueMap and OutputServiceBusQueueMapOutput values.
+// You can construct a concrete instance of `OutputServiceBusQueueMapInput` via:
+//
+//          OutputServiceBusQueueMap{ "key": OutputServiceBusQueueArgs{...} }
+type OutputServiceBusQueueMapInput interface {
+	pulumi.Input
+
+	ToOutputServiceBusQueueMapOutput() OutputServiceBusQueueMapOutput
+	ToOutputServiceBusQueueMapOutputWithContext(context.Context) OutputServiceBusQueueMapOutput
+}
+
+type OutputServiceBusQueueMap map[string]OutputServiceBusQueueInput
+
+func (OutputServiceBusQueueMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*OutputServiceBusQueue)(nil))
+}
+
+func (i OutputServiceBusQueueMap) ToOutputServiceBusQueueMapOutput() OutputServiceBusQueueMapOutput {
+	return i.ToOutputServiceBusQueueMapOutputWithContext(context.Background())
+}
+
+func (i OutputServiceBusQueueMap) ToOutputServiceBusQueueMapOutputWithContext(ctx context.Context) OutputServiceBusQueueMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputServiceBusQueueMapOutput)
 }
 
 type OutputServiceBusQueueOutput struct {
@@ -261,7 +340,7 @@ type OutputServiceBusQueueOutput struct {
 }
 
 func (OutputServiceBusQueueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputServiceBusQueueOutput)(nil)).Elem()
+	return reflect.TypeOf((*OutputServiceBusQueue)(nil))
 }
 
 func (o OutputServiceBusQueueOutput) ToOutputServiceBusQueueOutput() OutputServiceBusQueueOutput {
@@ -272,6 +351,75 @@ func (o OutputServiceBusQueueOutput) ToOutputServiceBusQueueOutputWithContext(ct
 	return o
 }
 
+func (o OutputServiceBusQueueOutput) ToOutputServiceBusQueuePtrOutput() OutputServiceBusQueuePtrOutput {
+	return o.ToOutputServiceBusQueuePtrOutputWithContext(context.Background())
+}
+
+func (o OutputServiceBusQueueOutput) ToOutputServiceBusQueuePtrOutputWithContext(ctx context.Context) OutputServiceBusQueuePtrOutput {
+	return o.ApplyT(func(v OutputServiceBusQueue) *OutputServiceBusQueue {
+		return &v
+	}).(OutputServiceBusQueuePtrOutput)
+}
+
+type OutputServiceBusQueuePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (OutputServiceBusQueuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutputServiceBusQueue)(nil))
+}
+
+func (o OutputServiceBusQueuePtrOutput) ToOutputServiceBusQueuePtrOutput() OutputServiceBusQueuePtrOutput {
+	return o
+}
+
+func (o OutputServiceBusQueuePtrOutput) ToOutputServiceBusQueuePtrOutputWithContext(ctx context.Context) OutputServiceBusQueuePtrOutput {
+	return o
+}
+
+type OutputServiceBusQueueArrayOutput struct{ *pulumi.OutputState }
+
+func (OutputServiceBusQueueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OutputServiceBusQueue)(nil))
+}
+
+func (o OutputServiceBusQueueArrayOutput) ToOutputServiceBusQueueArrayOutput() OutputServiceBusQueueArrayOutput {
+	return o
+}
+
+func (o OutputServiceBusQueueArrayOutput) ToOutputServiceBusQueueArrayOutputWithContext(ctx context.Context) OutputServiceBusQueueArrayOutput {
+	return o
+}
+
+func (o OutputServiceBusQueueArrayOutput) Index(i pulumi.IntInput) OutputServiceBusQueueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OutputServiceBusQueue {
+		return vs[0].([]OutputServiceBusQueue)[vs[1].(int)]
+	}).(OutputServiceBusQueueOutput)
+}
+
+type OutputServiceBusQueueMapOutput struct{ *pulumi.OutputState }
+
+func (OutputServiceBusQueueMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]OutputServiceBusQueue)(nil))
+}
+
+func (o OutputServiceBusQueueMapOutput) ToOutputServiceBusQueueMapOutput() OutputServiceBusQueueMapOutput {
+	return o
+}
+
+func (o OutputServiceBusQueueMapOutput) ToOutputServiceBusQueueMapOutputWithContext(ctx context.Context) OutputServiceBusQueueMapOutput {
+	return o
+}
+
+func (o OutputServiceBusQueueMapOutput) MapIndex(k pulumi.StringInput) OutputServiceBusQueueOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OutputServiceBusQueue {
+		return vs[0].(map[string]OutputServiceBusQueue)[vs[1].(string)]
+	}).(OutputServiceBusQueueOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OutputServiceBusQueueOutput{})
+	pulumi.RegisterOutputType(OutputServiceBusQueuePtrOutput{})
+	pulumi.RegisterOutputType(OutputServiceBusQueueArrayOutput{})
+	pulumi.RegisterOutputType(OutputServiceBusQueueMapOutput{})
 }

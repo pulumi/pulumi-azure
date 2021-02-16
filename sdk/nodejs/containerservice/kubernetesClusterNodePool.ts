@@ -185,7 +185,8 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
     constructor(name: string, args: KubernetesClusterNodePoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: KubernetesClusterNodePoolArgs | KubernetesClusterNodePoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as KubernetesClusterNodePoolState | undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             inputs["enableAutoScaling"] = state ? state.enableAutoScaling : undefined;
@@ -213,10 +214,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["vnetSubnetId"] = state ? state.vnetSubnetId : undefined;
         } else {
             const args = argsOrState as KubernetesClusterNodePoolArgs | undefined;
-            if ((!args || args.kubernetesClusterId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.kubernetesClusterId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kubernetesClusterId'");
             }
-            if ((!args || args.vmSize === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vmSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmSize'");
             }
             inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
@@ -244,12 +245,8 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["vmSize"] = args ? args.vmSize : undefined;
             inputs["vnetSubnetId"] = args ? args.vnetSubnetId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(KubernetesClusterNodePool.__pulumiType, name, inputs, opts);
     }

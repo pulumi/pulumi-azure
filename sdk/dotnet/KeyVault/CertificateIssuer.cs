@@ -55,6 +55,7 @@ namespace Pulumi.Azure.KeyVault
     ///  $ pulumi import azure:keyvault/certificateIssuer:CertificateIssuer example "https://key-vault-name.vault.azure.net/certificates/issuers/example"
     /// ```
     /// </summary>
+    [AzureResourceType("azure:keyvault/certificateIssuer:CertificateIssuer")]
     public partial class CertificateIssuer : Pulumi.CustomResource
     {
         /// <summary>

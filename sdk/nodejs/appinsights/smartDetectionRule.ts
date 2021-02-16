@@ -85,7 +85,8 @@ export class SmartDetectionRule extends pulumi.CustomResource {
     constructor(name: string, args: SmartDetectionRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SmartDetectionRuleArgs | SmartDetectionRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SmartDetectionRuleState | undefined;
             inputs["additionalEmailRecipients"] = state ? state.additionalEmailRecipients : undefined;
             inputs["applicationInsightsId"] = state ? state.applicationInsightsId : undefined;
@@ -94,7 +95,7 @@ export class SmartDetectionRule extends pulumi.CustomResource {
             inputs["sendEmailsToSubscriptionOwners"] = state ? state.sendEmailsToSubscriptionOwners : undefined;
         } else {
             const args = argsOrState as SmartDetectionRuleArgs | undefined;
-            if ((!args || args.applicationInsightsId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.applicationInsightsId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationInsightsId'");
             }
             inputs["additionalEmailRecipients"] = args ? args.additionalEmailRecipients : undefined;
@@ -103,12 +104,8 @@ export class SmartDetectionRule extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["sendEmailsToSubscriptionOwners"] = args ? args.sendEmailsToSubscriptionOwners : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SmartDetectionRule.__pulumiType, name, inputs, opts);
     }

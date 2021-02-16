@@ -329,16 +329,95 @@ type HadoopClusterInput interface {
 	ToHadoopClusterOutputWithContext(ctx context.Context) HadoopClusterOutput
 }
 
-func (HadoopCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*HadoopCluster)(nil)).Elem()
+func (*HadoopCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopCluster)(nil))
 }
 
-func (i HadoopCluster) ToHadoopClusterOutput() HadoopClusterOutput {
+func (i *HadoopCluster) ToHadoopClusterOutput() HadoopClusterOutput {
 	return i.ToHadoopClusterOutputWithContext(context.Background())
 }
 
-func (i HadoopCluster) ToHadoopClusterOutputWithContext(ctx context.Context) HadoopClusterOutput {
+func (i *HadoopCluster) ToHadoopClusterOutputWithContext(ctx context.Context) HadoopClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterOutput)
+}
+
+func (i *HadoopCluster) ToHadoopClusterPtrOutput() HadoopClusterPtrOutput {
+	return i.ToHadoopClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *HadoopCluster) ToHadoopClusterPtrOutputWithContext(ctx context.Context) HadoopClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterPtrOutput)
+}
+
+type HadoopClusterPtrInput interface {
+	pulumi.Input
+
+	ToHadoopClusterPtrOutput() HadoopClusterPtrOutput
+	ToHadoopClusterPtrOutputWithContext(ctx context.Context) HadoopClusterPtrOutput
+}
+
+type hadoopClusterPtrType HadoopClusterArgs
+
+func (*hadoopClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopCluster)(nil))
+}
+
+func (i *hadoopClusterPtrType) ToHadoopClusterPtrOutput() HadoopClusterPtrOutput {
+	return i.ToHadoopClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *hadoopClusterPtrType) ToHadoopClusterPtrOutputWithContext(ctx context.Context) HadoopClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterPtrOutput)
+}
+
+// HadoopClusterArrayInput is an input type that accepts HadoopClusterArray and HadoopClusterArrayOutput values.
+// You can construct a concrete instance of `HadoopClusterArrayInput` via:
+//
+//          HadoopClusterArray{ HadoopClusterArgs{...} }
+type HadoopClusterArrayInput interface {
+	pulumi.Input
+
+	ToHadoopClusterArrayOutput() HadoopClusterArrayOutput
+	ToHadoopClusterArrayOutputWithContext(context.Context) HadoopClusterArrayOutput
+}
+
+type HadoopClusterArray []HadoopClusterInput
+
+func (HadoopClusterArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*HadoopCluster)(nil))
+}
+
+func (i HadoopClusterArray) ToHadoopClusterArrayOutput() HadoopClusterArrayOutput {
+	return i.ToHadoopClusterArrayOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterArray) ToHadoopClusterArrayOutputWithContext(ctx context.Context) HadoopClusterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterArrayOutput)
+}
+
+// HadoopClusterMapInput is an input type that accepts HadoopClusterMap and HadoopClusterMapOutput values.
+// You can construct a concrete instance of `HadoopClusterMapInput` via:
+//
+//          HadoopClusterMap{ "key": HadoopClusterArgs{...} }
+type HadoopClusterMapInput interface {
+	pulumi.Input
+
+	ToHadoopClusterMapOutput() HadoopClusterMapOutput
+	ToHadoopClusterMapOutputWithContext(context.Context) HadoopClusterMapOutput
+}
+
+type HadoopClusterMap map[string]HadoopClusterInput
+
+func (HadoopClusterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*HadoopCluster)(nil))
+}
+
+func (i HadoopClusterMap) ToHadoopClusterMapOutput() HadoopClusterMapOutput {
+	return i.ToHadoopClusterMapOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterMap) ToHadoopClusterMapOutputWithContext(ctx context.Context) HadoopClusterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMapOutput)
 }
 
 type HadoopClusterOutput struct {
@@ -346,7 +425,7 @@ type HadoopClusterOutput struct {
 }
 
 func (HadoopClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HadoopClusterOutput)(nil)).Elem()
+	return reflect.TypeOf((*HadoopCluster)(nil))
 }
 
 func (o HadoopClusterOutput) ToHadoopClusterOutput() HadoopClusterOutput {
@@ -357,6 +436,75 @@ func (o HadoopClusterOutput) ToHadoopClusterOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o HadoopClusterOutput) ToHadoopClusterPtrOutput() HadoopClusterPtrOutput {
+	return o.ToHadoopClusterPtrOutputWithContext(context.Background())
+}
+
+func (o HadoopClusterOutput) ToHadoopClusterPtrOutputWithContext(ctx context.Context) HadoopClusterPtrOutput {
+	return o.ApplyT(func(v HadoopCluster) *HadoopCluster {
+		return &v
+	}).(HadoopClusterPtrOutput)
+}
+
+type HadoopClusterPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (HadoopClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopCluster)(nil))
+}
+
+func (o HadoopClusterPtrOutput) ToHadoopClusterPtrOutput() HadoopClusterPtrOutput {
+	return o
+}
+
+func (o HadoopClusterPtrOutput) ToHadoopClusterPtrOutputWithContext(ctx context.Context) HadoopClusterPtrOutput {
+	return o
+}
+
+type HadoopClusterArrayOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HadoopCluster)(nil))
+}
+
+func (o HadoopClusterArrayOutput) ToHadoopClusterArrayOutput() HadoopClusterArrayOutput {
+	return o
+}
+
+func (o HadoopClusterArrayOutput) ToHadoopClusterArrayOutputWithContext(ctx context.Context) HadoopClusterArrayOutput {
+	return o
+}
+
+func (o HadoopClusterArrayOutput) Index(i pulumi.IntInput) HadoopClusterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HadoopCluster {
+		return vs[0].([]HadoopCluster)[vs[1].(int)]
+	}).(HadoopClusterOutput)
+}
+
+type HadoopClusterMapOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]HadoopCluster)(nil))
+}
+
+func (o HadoopClusterMapOutput) ToHadoopClusterMapOutput() HadoopClusterMapOutput {
+	return o
+}
+
+func (o HadoopClusterMapOutput) ToHadoopClusterMapOutputWithContext(ctx context.Context) HadoopClusterMapOutput {
+	return o
+}
+
+func (o HadoopClusterMapOutput) MapIndex(k pulumi.StringInput) HadoopClusterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) HadoopCluster {
+		return vs[0].(map[string]HadoopCluster)[vs[1].(string)]
+	}).(HadoopClusterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HadoopClusterOutput{})
+	pulumi.RegisterOutputType(HadoopClusterPtrOutput{})
+	pulumi.RegisterOutputType(HadoopClusterArrayOutput{})
+	pulumi.RegisterOutputType(HadoopClusterMapOutput{})
 }

@@ -54,6 +54,7 @@ namespace Pulumi.Azure.ApiManagement
     ///  $ pulumi import azure:apimanagement/property:Property example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/namedValues/example-apimp
     /// ```
     /// </summary>
+    [AzureResourceType("azure:apimanagement/property:Property")]
     public partial class Property : Pulumi.CustomResource
     {
         /// <summary>

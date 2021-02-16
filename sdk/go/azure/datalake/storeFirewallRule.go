@@ -183,16 +183,95 @@ type StoreFirewallRuleInput interface {
 	ToStoreFirewallRuleOutputWithContext(ctx context.Context) StoreFirewallRuleOutput
 }
 
-func (StoreFirewallRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*StoreFirewallRule)(nil)).Elem()
+func (*StoreFirewallRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*StoreFirewallRule)(nil))
 }
 
-func (i StoreFirewallRule) ToStoreFirewallRuleOutput() StoreFirewallRuleOutput {
+func (i *StoreFirewallRule) ToStoreFirewallRuleOutput() StoreFirewallRuleOutput {
 	return i.ToStoreFirewallRuleOutputWithContext(context.Background())
 }
 
-func (i StoreFirewallRule) ToStoreFirewallRuleOutputWithContext(ctx context.Context) StoreFirewallRuleOutput {
+func (i *StoreFirewallRule) ToStoreFirewallRuleOutputWithContext(ctx context.Context) StoreFirewallRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StoreFirewallRuleOutput)
+}
+
+func (i *StoreFirewallRule) ToStoreFirewallRulePtrOutput() StoreFirewallRulePtrOutput {
+	return i.ToStoreFirewallRulePtrOutputWithContext(context.Background())
+}
+
+func (i *StoreFirewallRule) ToStoreFirewallRulePtrOutputWithContext(ctx context.Context) StoreFirewallRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StoreFirewallRulePtrOutput)
+}
+
+type StoreFirewallRulePtrInput interface {
+	pulumi.Input
+
+	ToStoreFirewallRulePtrOutput() StoreFirewallRulePtrOutput
+	ToStoreFirewallRulePtrOutputWithContext(ctx context.Context) StoreFirewallRulePtrOutput
+}
+
+type storeFirewallRulePtrType StoreFirewallRuleArgs
+
+func (*storeFirewallRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StoreFirewallRule)(nil))
+}
+
+func (i *storeFirewallRulePtrType) ToStoreFirewallRulePtrOutput() StoreFirewallRulePtrOutput {
+	return i.ToStoreFirewallRulePtrOutputWithContext(context.Background())
+}
+
+func (i *storeFirewallRulePtrType) ToStoreFirewallRulePtrOutputWithContext(ctx context.Context) StoreFirewallRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StoreFirewallRulePtrOutput)
+}
+
+// StoreFirewallRuleArrayInput is an input type that accepts StoreFirewallRuleArray and StoreFirewallRuleArrayOutput values.
+// You can construct a concrete instance of `StoreFirewallRuleArrayInput` via:
+//
+//          StoreFirewallRuleArray{ StoreFirewallRuleArgs{...} }
+type StoreFirewallRuleArrayInput interface {
+	pulumi.Input
+
+	ToStoreFirewallRuleArrayOutput() StoreFirewallRuleArrayOutput
+	ToStoreFirewallRuleArrayOutputWithContext(context.Context) StoreFirewallRuleArrayOutput
+}
+
+type StoreFirewallRuleArray []StoreFirewallRuleInput
+
+func (StoreFirewallRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*StoreFirewallRule)(nil))
+}
+
+func (i StoreFirewallRuleArray) ToStoreFirewallRuleArrayOutput() StoreFirewallRuleArrayOutput {
+	return i.ToStoreFirewallRuleArrayOutputWithContext(context.Background())
+}
+
+func (i StoreFirewallRuleArray) ToStoreFirewallRuleArrayOutputWithContext(ctx context.Context) StoreFirewallRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StoreFirewallRuleArrayOutput)
+}
+
+// StoreFirewallRuleMapInput is an input type that accepts StoreFirewallRuleMap and StoreFirewallRuleMapOutput values.
+// You can construct a concrete instance of `StoreFirewallRuleMapInput` via:
+//
+//          StoreFirewallRuleMap{ "key": StoreFirewallRuleArgs{...} }
+type StoreFirewallRuleMapInput interface {
+	pulumi.Input
+
+	ToStoreFirewallRuleMapOutput() StoreFirewallRuleMapOutput
+	ToStoreFirewallRuleMapOutputWithContext(context.Context) StoreFirewallRuleMapOutput
+}
+
+type StoreFirewallRuleMap map[string]StoreFirewallRuleInput
+
+func (StoreFirewallRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*StoreFirewallRule)(nil))
+}
+
+func (i StoreFirewallRuleMap) ToStoreFirewallRuleMapOutput() StoreFirewallRuleMapOutput {
+	return i.ToStoreFirewallRuleMapOutputWithContext(context.Background())
+}
+
+func (i StoreFirewallRuleMap) ToStoreFirewallRuleMapOutputWithContext(ctx context.Context) StoreFirewallRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StoreFirewallRuleMapOutput)
 }
 
 type StoreFirewallRuleOutput struct {
@@ -200,7 +279,7 @@ type StoreFirewallRuleOutput struct {
 }
 
 func (StoreFirewallRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StoreFirewallRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*StoreFirewallRule)(nil))
 }
 
 func (o StoreFirewallRuleOutput) ToStoreFirewallRuleOutput() StoreFirewallRuleOutput {
@@ -211,6 +290,75 @@ func (o StoreFirewallRuleOutput) ToStoreFirewallRuleOutputWithContext(ctx contex
 	return o
 }
 
+func (o StoreFirewallRuleOutput) ToStoreFirewallRulePtrOutput() StoreFirewallRulePtrOutput {
+	return o.ToStoreFirewallRulePtrOutputWithContext(context.Background())
+}
+
+func (o StoreFirewallRuleOutput) ToStoreFirewallRulePtrOutputWithContext(ctx context.Context) StoreFirewallRulePtrOutput {
+	return o.ApplyT(func(v StoreFirewallRule) *StoreFirewallRule {
+		return &v
+	}).(StoreFirewallRulePtrOutput)
+}
+
+type StoreFirewallRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (StoreFirewallRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StoreFirewallRule)(nil))
+}
+
+func (o StoreFirewallRulePtrOutput) ToStoreFirewallRulePtrOutput() StoreFirewallRulePtrOutput {
+	return o
+}
+
+func (o StoreFirewallRulePtrOutput) ToStoreFirewallRulePtrOutputWithContext(ctx context.Context) StoreFirewallRulePtrOutput {
+	return o
+}
+
+type StoreFirewallRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (StoreFirewallRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StoreFirewallRule)(nil))
+}
+
+func (o StoreFirewallRuleArrayOutput) ToStoreFirewallRuleArrayOutput() StoreFirewallRuleArrayOutput {
+	return o
+}
+
+func (o StoreFirewallRuleArrayOutput) ToStoreFirewallRuleArrayOutputWithContext(ctx context.Context) StoreFirewallRuleArrayOutput {
+	return o
+}
+
+func (o StoreFirewallRuleArrayOutput) Index(i pulumi.IntInput) StoreFirewallRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StoreFirewallRule {
+		return vs[0].([]StoreFirewallRule)[vs[1].(int)]
+	}).(StoreFirewallRuleOutput)
+}
+
+type StoreFirewallRuleMapOutput struct{ *pulumi.OutputState }
+
+func (StoreFirewallRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]StoreFirewallRule)(nil))
+}
+
+func (o StoreFirewallRuleMapOutput) ToStoreFirewallRuleMapOutput() StoreFirewallRuleMapOutput {
+	return o
+}
+
+func (o StoreFirewallRuleMapOutput) ToStoreFirewallRuleMapOutputWithContext(ctx context.Context) StoreFirewallRuleMapOutput {
+	return o
+}
+
+func (o StoreFirewallRuleMapOutput) MapIndex(k pulumi.StringInput) StoreFirewallRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StoreFirewallRule {
+		return vs[0].(map[string]StoreFirewallRule)[vs[1].(string)]
+	}).(StoreFirewallRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StoreFirewallRuleOutput{})
+	pulumi.RegisterOutputType(StoreFirewallRulePtrOutput{})
+	pulumi.RegisterOutputType(StoreFirewallRuleArrayOutput{})
+	pulumi.RegisterOutputType(StoreFirewallRuleMapOutput{})
 }

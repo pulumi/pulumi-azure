@@ -94,7 +94,8 @@ export class DataSourceWindowsEvent extends pulumi.CustomResource {
     constructor(name: string, args: DataSourceWindowsEventArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataSourceWindowsEventArgs | DataSourceWindowsEventState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DataSourceWindowsEventState | undefined;
             inputs["eventLogName"] = state ? state.eventLogName : undefined;
             inputs["eventTypes"] = state ? state.eventTypes : undefined;
@@ -103,16 +104,16 @@ export class DataSourceWindowsEvent extends pulumi.CustomResource {
             inputs["workspaceName"] = state ? state.workspaceName : undefined;
         } else {
             const args = argsOrState as DataSourceWindowsEventArgs | undefined;
-            if ((!args || args.eventLogName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.eventLogName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventLogName'");
             }
-            if ((!args || args.eventTypes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.eventTypes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventTypes'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["eventLogName"] = args ? args.eventLogName : undefined;
@@ -121,12 +122,8 @@ export class DataSourceWindowsEvent extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DataSourceWindowsEvent.__pulumiType, name, inputs, opts);
     }

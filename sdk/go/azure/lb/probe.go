@@ -229,16 +229,95 @@ type ProbeInput interface {
 	ToProbeOutputWithContext(ctx context.Context) ProbeOutput
 }
 
-func (Probe) ElementType() reflect.Type {
-	return reflect.TypeOf((*Probe)(nil)).Elem()
+func (*Probe) ElementType() reflect.Type {
+	return reflect.TypeOf((*Probe)(nil))
 }
 
-func (i Probe) ToProbeOutput() ProbeOutput {
+func (i *Probe) ToProbeOutput() ProbeOutput {
 	return i.ToProbeOutputWithContext(context.Background())
 }
 
-func (i Probe) ToProbeOutputWithContext(ctx context.Context) ProbeOutput {
+func (i *Probe) ToProbeOutputWithContext(ctx context.Context) ProbeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProbeOutput)
+}
+
+func (i *Probe) ToProbePtrOutput() ProbePtrOutput {
+	return i.ToProbePtrOutputWithContext(context.Background())
+}
+
+func (i *Probe) ToProbePtrOutputWithContext(ctx context.Context) ProbePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProbePtrOutput)
+}
+
+type ProbePtrInput interface {
+	pulumi.Input
+
+	ToProbePtrOutput() ProbePtrOutput
+	ToProbePtrOutputWithContext(ctx context.Context) ProbePtrOutput
+}
+
+type probePtrType ProbeArgs
+
+func (*probePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Probe)(nil))
+}
+
+func (i *probePtrType) ToProbePtrOutput() ProbePtrOutput {
+	return i.ToProbePtrOutputWithContext(context.Background())
+}
+
+func (i *probePtrType) ToProbePtrOutputWithContext(ctx context.Context) ProbePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProbePtrOutput)
+}
+
+// ProbeArrayInput is an input type that accepts ProbeArray and ProbeArrayOutput values.
+// You can construct a concrete instance of `ProbeArrayInput` via:
+//
+//          ProbeArray{ ProbeArgs{...} }
+type ProbeArrayInput interface {
+	pulumi.Input
+
+	ToProbeArrayOutput() ProbeArrayOutput
+	ToProbeArrayOutputWithContext(context.Context) ProbeArrayOutput
+}
+
+type ProbeArray []ProbeInput
+
+func (ProbeArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Probe)(nil))
+}
+
+func (i ProbeArray) ToProbeArrayOutput() ProbeArrayOutput {
+	return i.ToProbeArrayOutputWithContext(context.Background())
+}
+
+func (i ProbeArray) ToProbeArrayOutputWithContext(ctx context.Context) ProbeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProbeArrayOutput)
+}
+
+// ProbeMapInput is an input type that accepts ProbeMap and ProbeMapOutput values.
+// You can construct a concrete instance of `ProbeMapInput` via:
+//
+//          ProbeMap{ "key": ProbeArgs{...} }
+type ProbeMapInput interface {
+	pulumi.Input
+
+	ToProbeMapOutput() ProbeMapOutput
+	ToProbeMapOutputWithContext(context.Context) ProbeMapOutput
+}
+
+type ProbeMap map[string]ProbeInput
+
+func (ProbeMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Probe)(nil))
+}
+
+func (i ProbeMap) ToProbeMapOutput() ProbeMapOutput {
+	return i.ToProbeMapOutputWithContext(context.Background())
+}
+
+func (i ProbeMap) ToProbeMapOutputWithContext(ctx context.Context) ProbeMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProbeMapOutput)
 }
 
 type ProbeOutput struct {
@@ -246,7 +325,7 @@ type ProbeOutput struct {
 }
 
 func (ProbeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProbeOutput)(nil)).Elem()
+	return reflect.TypeOf((*Probe)(nil))
 }
 
 func (o ProbeOutput) ToProbeOutput() ProbeOutput {
@@ -257,6 +336,75 @@ func (o ProbeOutput) ToProbeOutputWithContext(ctx context.Context) ProbeOutput {
 	return o
 }
 
+func (o ProbeOutput) ToProbePtrOutput() ProbePtrOutput {
+	return o.ToProbePtrOutputWithContext(context.Background())
+}
+
+func (o ProbeOutput) ToProbePtrOutputWithContext(ctx context.Context) ProbePtrOutput {
+	return o.ApplyT(func(v Probe) *Probe {
+		return &v
+	}).(ProbePtrOutput)
+}
+
+type ProbePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProbePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Probe)(nil))
+}
+
+func (o ProbePtrOutput) ToProbePtrOutput() ProbePtrOutput {
+	return o
+}
+
+func (o ProbePtrOutput) ToProbePtrOutputWithContext(ctx context.Context) ProbePtrOutput {
+	return o
+}
+
+type ProbeArrayOutput struct{ *pulumi.OutputState }
+
+func (ProbeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Probe)(nil))
+}
+
+func (o ProbeArrayOutput) ToProbeArrayOutput() ProbeArrayOutput {
+	return o
+}
+
+func (o ProbeArrayOutput) ToProbeArrayOutputWithContext(ctx context.Context) ProbeArrayOutput {
+	return o
+}
+
+func (o ProbeArrayOutput) Index(i pulumi.IntInput) ProbeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Probe {
+		return vs[0].([]Probe)[vs[1].(int)]
+	}).(ProbeOutput)
+}
+
+type ProbeMapOutput struct{ *pulumi.OutputState }
+
+func (ProbeMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Probe)(nil))
+}
+
+func (o ProbeMapOutput) ToProbeMapOutput() ProbeMapOutput {
+	return o
+}
+
+func (o ProbeMapOutput) ToProbeMapOutputWithContext(ctx context.Context) ProbeMapOutput {
+	return o
+}
+
+func (o ProbeMapOutput) MapIndex(k pulumi.StringInput) ProbeOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Probe {
+		return vs[0].(map[string]Probe)[vs[1].(string)]
+	}).(ProbeOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProbeOutput{})
+	pulumi.RegisterOutputType(ProbePtrOutput{})
+	pulumi.RegisterOutputType(ProbeArrayOutput{})
+	pulumi.RegisterOutputType(ProbeMapOutput{})
 }

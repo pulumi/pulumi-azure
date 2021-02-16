@@ -204,16 +204,95 @@ type CertificateIssuerInput interface {
 	ToCertificateIssuerOutputWithContext(ctx context.Context) CertificateIssuerOutput
 }
 
-func (CertificateIssuer) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateIssuer)(nil)).Elem()
+func (*CertificateIssuer) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateIssuer)(nil))
 }
 
-func (i CertificateIssuer) ToCertificateIssuerOutput() CertificateIssuerOutput {
+func (i *CertificateIssuer) ToCertificateIssuerOutput() CertificateIssuerOutput {
 	return i.ToCertificateIssuerOutputWithContext(context.Background())
 }
 
-func (i CertificateIssuer) ToCertificateIssuerOutputWithContext(ctx context.Context) CertificateIssuerOutput {
+func (i *CertificateIssuer) ToCertificateIssuerOutputWithContext(ctx context.Context) CertificateIssuerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateIssuerOutput)
+}
+
+func (i *CertificateIssuer) ToCertificateIssuerPtrOutput() CertificateIssuerPtrOutput {
+	return i.ToCertificateIssuerPtrOutputWithContext(context.Background())
+}
+
+func (i *CertificateIssuer) ToCertificateIssuerPtrOutputWithContext(ctx context.Context) CertificateIssuerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateIssuerPtrOutput)
+}
+
+type CertificateIssuerPtrInput interface {
+	pulumi.Input
+
+	ToCertificateIssuerPtrOutput() CertificateIssuerPtrOutput
+	ToCertificateIssuerPtrOutputWithContext(ctx context.Context) CertificateIssuerPtrOutput
+}
+
+type certificateIssuerPtrType CertificateIssuerArgs
+
+func (*certificateIssuerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateIssuer)(nil))
+}
+
+func (i *certificateIssuerPtrType) ToCertificateIssuerPtrOutput() CertificateIssuerPtrOutput {
+	return i.ToCertificateIssuerPtrOutputWithContext(context.Background())
+}
+
+func (i *certificateIssuerPtrType) ToCertificateIssuerPtrOutputWithContext(ctx context.Context) CertificateIssuerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateIssuerPtrOutput)
+}
+
+// CertificateIssuerArrayInput is an input type that accepts CertificateIssuerArray and CertificateIssuerArrayOutput values.
+// You can construct a concrete instance of `CertificateIssuerArrayInput` via:
+//
+//          CertificateIssuerArray{ CertificateIssuerArgs{...} }
+type CertificateIssuerArrayInput interface {
+	pulumi.Input
+
+	ToCertificateIssuerArrayOutput() CertificateIssuerArrayOutput
+	ToCertificateIssuerArrayOutputWithContext(context.Context) CertificateIssuerArrayOutput
+}
+
+type CertificateIssuerArray []CertificateIssuerInput
+
+func (CertificateIssuerArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*CertificateIssuer)(nil))
+}
+
+func (i CertificateIssuerArray) ToCertificateIssuerArrayOutput() CertificateIssuerArrayOutput {
+	return i.ToCertificateIssuerArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateIssuerArray) ToCertificateIssuerArrayOutputWithContext(ctx context.Context) CertificateIssuerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateIssuerArrayOutput)
+}
+
+// CertificateIssuerMapInput is an input type that accepts CertificateIssuerMap and CertificateIssuerMapOutput values.
+// You can construct a concrete instance of `CertificateIssuerMapInput` via:
+//
+//          CertificateIssuerMap{ "key": CertificateIssuerArgs{...} }
+type CertificateIssuerMapInput interface {
+	pulumi.Input
+
+	ToCertificateIssuerMapOutput() CertificateIssuerMapOutput
+	ToCertificateIssuerMapOutputWithContext(context.Context) CertificateIssuerMapOutput
+}
+
+type CertificateIssuerMap map[string]CertificateIssuerInput
+
+func (CertificateIssuerMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*CertificateIssuer)(nil))
+}
+
+func (i CertificateIssuerMap) ToCertificateIssuerMapOutput() CertificateIssuerMapOutput {
+	return i.ToCertificateIssuerMapOutputWithContext(context.Background())
+}
+
+func (i CertificateIssuerMap) ToCertificateIssuerMapOutputWithContext(ctx context.Context) CertificateIssuerMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateIssuerMapOutput)
 }
 
 type CertificateIssuerOutput struct {
@@ -221,7 +300,7 @@ type CertificateIssuerOutput struct {
 }
 
 func (CertificateIssuerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateIssuerOutput)(nil)).Elem()
+	return reflect.TypeOf((*CertificateIssuer)(nil))
 }
 
 func (o CertificateIssuerOutput) ToCertificateIssuerOutput() CertificateIssuerOutput {
@@ -232,6 +311,75 @@ func (o CertificateIssuerOutput) ToCertificateIssuerOutputWithContext(ctx contex
 	return o
 }
 
+func (o CertificateIssuerOutput) ToCertificateIssuerPtrOutput() CertificateIssuerPtrOutput {
+	return o.ToCertificateIssuerPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateIssuerOutput) ToCertificateIssuerPtrOutputWithContext(ctx context.Context) CertificateIssuerPtrOutput {
+	return o.ApplyT(func(v CertificateIssuer) *CertificateIssuer {
+		return &v
+	}).(CertificateIssuerPtrOutput)
+}
+
+type CertificateIssuerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CertificateIssuerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateIssuer)(nil))
+}
+
+func (o CertificateIssuerPtrOutput) ToCertificateIssuerPtrOutput() CertificateIssuerPtrOutput {
+	return o
+}
+
+func (o CertificateIssuerPtrOutput) ToCertificateIssuerPtrOutputWithContext(ctx context.Context) CertificateIssuerPtrOutput {
+	return o
+}
+
+type CertificateIssuerArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateIssuerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateIssuer)(nil))
+}
+
+func (o CertificateIssuerArrayOutput) ToCertificateIssuerArrayOutput() CertificateIssuerArrayOutput {
+	return o
+}
+
+func (o CertificateIssuerArrayOutput) ToCertificateIssuerArrayOutputWithContext(ctx context.Context) CertificateIssuerArrayOutput {
+	return o
+}
+
+func (o CertificateIssuerArrayOutput) Index(i pulumi.IntInput) CertificateIssuerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateIssuer {
+		return vs[0].([]CertificateIssuer)[vs[1].(int)]
+	}).(CertificateIssuerOutput)
+}
+
+type CertificateIssuerMapOutput struct{ *pulumi.OutputState }
+
+func (CertificateIssuerMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CertificateIssuer)(nil))
+}
+
+func (o CertificateIssuerMapOutput) ToCertificateIssuerMapOutput() CertificateIssuerMapOutput {
+	return o
+}
+
+func (o CertificateIssuerMapOutput) ToCertificateIssuerMapOutputWithContext(ctx context.Context) CertificateIssuerMapOutput {
+	return o
+}
+
+func (o CertificateIssuerMapOutput) MapIndex(k pulumi.StringInput) CertificateIssuerOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CertificateIssuer {
+		return vs[0].(map[string]CertificateIssuer)[vs[1].(string)]
+	}).(CertificateIssuerOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CertificateIssuerOutput{})
+	pulumi.RegisterOutputType(CertificateIssuerPtrOutput{})
+	pulumi.RegisterOutputType(CertificateIssuerArrayOutput{})
+	pulumi.RegisterOutputType(CertificateIssuerMapOutput{})
 }

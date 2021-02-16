@@ -329,16 +329,95 @@ type HBaseClusterInput interface {
 	ToHBaseClusterOutputWithContext(ctx context.Context) HBaseClusterOutput
 }
 
-func (HBaseCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*HBaseCluster)(nil)).Elem()
+func (*HBaseCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseCluster)(nil))
 }
 
-func (i HBaseCluster) ToHBaseClusterOutput() HBaseClusterOutput {
+func (i *HBaseCluster) ToHBaseClusterOutput() HBaseClusterOutput {
 	return i.ToHBaseClusterOutputWithContext(context.Background())
 }
 
-func (i HBaseCluster) ToHBaseClusterOutputWithContext(ctx context.Context) HBaseClusterOutput {
+func (i *HBaseCluster) ToHBaseClusterOutputWithContext(ctx context.Context) HBaseClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterOutput)
+}
+
+func (i *HBaseCluster) ToHBaseClusterPtrOutput() HBaseClusterPtrOutput {
+	return i.ToHBaseClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *HBaseCluster) ToHBaseClusterPtrOutputWithContext(ctx context.Context) HBaseClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterPtrOutput)
+}
+
+type HBaseClusterPtrInput interface {
+	pulumi.Input
+
+	ToHBaseClusterPtrOutput() HBaseClusterPtrOutput
+	ToHBaseClusterPtrOutputWithContext(ctx context.Context) HBaseClusterPtrOutput
+}
+
+type hbaseClusterPtrType HBaseClusterArgs
+
+func (*hbaseClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HBaseCluster)(nil))
+}
+
+func (i *hbaseClusterPtrType) ToHBaseClusterPtrOutput() HBaseClusterPtrOutput {
+	return i.ToHBaseClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *hbaseClusterPtrType) ToHBaseClusterPtrOutputWithContext(ctx context.Context) HBaseClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterPtrOutput)
+}
+
+// HBaseClusterArrayInput is an input type that accepts HBaseClusterArray and HBaseClusterArrayOutput values.
+// You can construct a concrete instance of `HBaseClusterArrayInput` via:
+//
+//          HBaseClusterArray{ HBaseClusterArgs{...} }
+type HBaseClusterArrayInput interface {
+	pulumi.Input
+
+	ToHBaseClusterArrayOutput() HBaseClusterArrayOutput
+	ToHBaseClusterArrayOutputWithContext(context.Context) HBaseClusterArrayOutput
+}
+
+type HBaseClusterArray []HBaseClusterInput
+
+func (HBaseClusterArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*HBaseCluster)(nil))
+}
+
+func (i HBaseClusterArray) ToHBaseClusterArrayOutput() HBaseClusterArrayOutput {
+	return i.ToHBaseClusterArrayOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterArray) ToHBaseClusterArrayOutputWithContext(ctx context.Context) HBaseClusterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterArrayOutput)
+}
+
+// HBaseClusterMapInput is an input type that accepts HBaseClusterMap and HBaseClusterMapOutput values.
+// You can construct a concrete instance of `HBaseClusterMapInput` via:
+//
+//          HBaseClusterMap{ "key": HBaseClusterArgs{...} }
+type HBaseClusterMapInput interface {
+	pulumi.Input
+
+	ToHBaseClusterMapOutput() HBaseClusterMapOutput
+	ToHBaseClusterMapOutputWithContext(context.Context) HBaseClusterMapOutput
+}
+
+type HBaseClusterMap map[string]HBaseClusterInput
+
+func (HBaseClusterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*HBaseCluster)(nil))
+}
+
+func (i HBaseClusterMap) ToHBaseClusterMapOutput() HBaseClusterMapOutput {
+	return i.ToHBaseClusterMapOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterMap) ToHBaseClusterMapOutputWithContext(ctx context.Context) HBaseClusterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterMapOutput)
 }
 
 type HBaseClusterOutput struct {
@@ -346,7 +425,7 @@ type HBaseClusterOutput struct {
 }
 
 func (HBaseClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HBaseClusterOutput)(nil)).Elem()
+	return reflect.TypeOf((*HBaseCluster)(nil))
 }
 
 func (o HBaseClusterOutput) ToHBaseClusterOutput() HBaseClusterOutput {
@@ -357,6 +436,75 @@ func (o HBaseClusterOutput) ToHBaseClusterOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o HBaseClusterOutput) ToHBaseClusterPtrOutput() HBaseClusterPtrOutput {
+	return o.ToHBaseClusterPtrOutputWithContext(context.Background())
+}
+
+func (o HBaseClusterOutput) ToHBaseClusterPtrOutputWithContext(ctx context.Context) HBaseClusterPtrOutput {
+	return o.ApplyT(func(v HBaseCluster) *HBaseCluster {
+		return &v
+	}).(HBaseClusterPtrOutput)
+}
+
+type HBaseClusterPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (HBaseClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HBaseCluster)(nil))
+}
+
+func (o HBaseClusterPtrOutput) ToHBaseClusterPtrOutput() HBaseClusterPtrOutput {
+	return o
+}
+
+func (o HBaseClusterPtrOutput) ToHBaseClusterPtrOutputWithContext(ctx context.Context) HBaseClusterPtrOutput {
+	return o
+}
+
+type HBaseClusterArrayOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HBaseCluster)(nil))
+}
+
+func (o HBaseClusterArrayOutput) ToHBaseClusterArrayOutput() HBaseClusterArrayOutput {
+	return o
+}
+
+func (o HBaseClusterArrayOutput) ToHBaseClusterArrayOutputWithContext(ctx context.Context) HBaseClusterArrayOutput {
+	return o
+}
+
+func (o HBaseClusterArrayOutput) Index(i pulumi.IntInput) HBaseClusterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HBaseCluster {
+		return vs[0].([]HBaseCluster)[vs[1].(int)]
+	}).(HBaseClusterOutput)
+}
+
+type HBaseClusterMapOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]HBaseCluster)(nil))
+}
+
+func (o HBaseClusterMapOutput) ToHBaseClusterMapOutput() HBaseClusterMapOutput {
+	return o
+}
+
+func (o HBaseClusterMapOutput) ToHBaseClusterMapOutputWithContext(ctx context.Context) HBaseClusterMapOutput {
+	return o
+}
+
+func (o HBaseClusterMapOutput) MapIndex(k pulumi.StringInput) HBaseClusterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) HBaseCluster {
+		return vs[0].(map[string]HBaseCluster)[vs[1].(string)]
+	}).(HBaseClusterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HBaseClusterOutput{})
+	pulumi.RegisterOutputType(HBaseClusterPtrOutput{})
+	pulumi.RegisterOutputType(HBaseClusterArrayOutput{})
+	pulumi.RegisterOutputType(HBaseClusterMapOutput{})
 }

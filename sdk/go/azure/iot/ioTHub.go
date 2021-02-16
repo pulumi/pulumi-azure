@@ -418,16 +418,95 @@ type IoTHubInput interface {
 	ToIoTHubOutputWithContext(ctx context.Context) IoTHubOutput
 }
 
-func (IoTHub) ElementType() reflect.Type {
-	return reflect.TypeOf((*IoTHub)(nil)).Elem()
+func (*IoTHub) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTHub)(nil))
 }
 
-func (i IoTHub) ToIoTHubOutput() IoTHubOutput {
+func (i *IoTHub) ToIoTHubOutput() IoTHubOutput {
 	return i.ToIoTHubOutputWithContext(context.Background())
 }
 
-func (i IoTHub) ToIoTHubOutputWithContext(ctx context.Context) IoTHubOutput {
+func (i *IoTHub) ToIoTHubOutputWithContext(ctx context.Context) IoTHubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubOutput)
+}
+
+func (i *IoTHub) ToIoTHubPtrOutput() IoTHubPtrOutput {
+	return i.ToIoTHubPtrOutputWithContext(context.Background())
+}
+
+func (i *IoTHub) ToIoTHubPtrOutputWithContext(ctx context.Context) IoTHubPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTHubPtrOutput)
+}
+
+type IoTHubPtrInput interface {
+	pulumi.Input
+
+	ToIoTHubPtrOutput() IoTHubPtrOutput
+	ToIoTHubPtrOutputWithContext(ctx context.Context) IoTHubPtrOutput
+}
+
+type ioTHubPtrType IoTHubArgs
+
+func (*ioTHubPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IoTHub)(nil))
+}
+
+func (i *ioTHubPtrType) ToIoTHubPtrOutput() IoTHubPtrOutput {
+	return i.ToIoTHubPtrOutputWithContext(context.Background())
+}
+
+func (i *ioTHubPtrType) ToIoTHubPtrOutputWithContext(ctx context.Context) IoTHubPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTHubPtrOutput)
+}
+
+// IoTHubArrayInput is an input type that accepts IoTHubArray and IoTHubArrayOutput values.
+// You can construct a concrete instance of `IoTHubArrayInput` via:
+//
+//          IoTHubArray{ IoTHubArgs{...} }
+type IoTHubArrayInput interface {
+	pulumi.Input
+
+	ToIoTHubArrayOutput() IoTHubArrayOutput
+	ToIoTHubArrayOutputWithContext(context.Context) IoTHubArrayOutput
+}
+
+type IoTHubArray []IoTHubInput
+
+func (IoTHubArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*IoTHub)(nil))
+}
+
+func (i IoTHubArray) ToIoTHubArrayOutput() IoTHubArrayOutput {
+	return i.ToIoTHubArrayOutputWithContext(context.Background())
+}
+
+func (i IoTHubArray) ToIoTHubArrayOutputWithContext(ctx context.Context) IoTHubArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTHubArrayOutput)
+}
+
+// IoTHubMapInput is an input type that accepts IoTHubMap and IoTHubMapOutput values.
+// You can construct a concrete instance of `IoTHubMapInput` via:
+//
+//          IoTHubMap{ "key": IoTHubArgs{...} }
+type IoTHubMapInput interface {
+	pulumi.Input
+
+	ToIoTHubMapOutput() IoTHubMapOutput
+	ToIoTHubMapOutputWithContext(context.Context) IoTHubMapOutput
+}
+
+type IoTHubMap map[string]IoTHubInput
+
+func (IoTHubMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*IoTHub)(nil))
+}
+
+func (i IoTHubMap) ToIoTHubMapOutput() IoTHubMapOutput {
+	return i.ToIoTHubMapOutputWithContext(context.Background())
+}
+
+func (i IoTHubMap) ToIoTHubMapOutputWithContext(ctx context.Context) IoTHubMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTHubMapOutput)
 }
 
 type IoTHubOutput struct {
@@ -435,7 +514,7 @@ type IoTHubOutput struct {
 }
 
 func (IoTHubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IoTHubOutput)(nil)).Elem()
+	return reflect.TypeOf((*IoTHub)(nil))
 }
 
 func (o IoTHubOutput) ToIoTHubOutput() IoTHubOutput {
@@ -446,6 +525,75 @@ func (o IoTHubOutput) ToIoTHubOutputWithContext(ctx context.Context) IoTHubOutpu
 	return o
 }
 
+func (o IoTHubOutput) ToIoTHubPtrOutput() IoTHubPtrOutput {
+	return o.ToIoTHubPtrOutputWithContext(context.Background())
+}
+
+func (o IoTHubOutput) ToIoTHubPtrOutputWithContext(ctx context.Context) IoTHubPtrOutput {
+	return o.ApplyT(func(v IoTHub) *IoTHub {
+		return &v
+	}).(IoTHubPtrOutput)
+}
+
+type IoTHubPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (IoTHubPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IoTHub)(nil))
+}
+
+func (o IoTHubPtrOutput) ToIoTHubPtrOutput() IoTHubPtrOutput {
+	return o
+}
+
+func (o IoTHubPtrOutput) ToIoTHubPtrOutputWithContext(ctx context.Context) IoTHubPtrOutput {
+	return o
+}
+
+type IoTHubArrayOutput struct{ *pulumi.OutputState }
+
+func (IoTHubArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IoTHub)(nil))
+}
+
+func (o IoTHubArrayOutput) ToIoTHubArrayOutput() IoTHubArrayOutput {
+	return o
+}
+
+func (o IoTHubArrayOutput) ToIoTHubArrayOutputWithContext(ctx context.Context) IoTHubArrayOutput {
+	return o
+}
+
+func (o IoTHubArrayOutput) Index(i pulumi.IntInput) IoTHubOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IoTHub {
+		return vs[0].([]IoTHub)[vs[1].(int)]
+	}).(IoTHubOutput)
+}
+
+type IoTHubMapOutput struct{ *pulumi.OutputState }
+
+func (IoTHubMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IoTHub)(nil))
+}
+
+func (o IoTHubMapOutput) ToIoTHubMapOutput() IoTHubMapOutput {
+	return o
+}
+
+func (o IoTHubMapOutput) ToIoTHubMapOutputWithContext(ctx context.Context) IoTHubMapOutput {
+	return o
+}
+
+func (o IoTHubMapOutput) MapIndex(k pulumi.StringInput) IoTHubOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IoTHub {
+		return vs[0].(map[string]IoTHub)[vs[1].(string)]
+	}).(IoTHubOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IoTHubOutput{})
+	pulumi.RegisterOutputType(IoTHubPtrOutput{})
+	pulumi.RegisterOutputType(IoTHubArrayOutput{})
+	pulumi.RegisterOutputType(IoTHubMapOutput{})
 }

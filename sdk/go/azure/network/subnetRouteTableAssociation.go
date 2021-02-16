@@ -173,16 +173,95 @@ type SubnetRouteTableAssociationInput interface {
 	ToSubnetRouteTableAssociationOutputWithContext(ctx context.Context) SubnetRouteTableAssociationOutput
 }
 
-func (SubnetRouteTableAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetRouteTableAssociation)(nil)).Elem()
+func (*SubnetRouteTableAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetRouteTableAssociation)(nil))
 }
 
-func (i SubnetRouteTableAssociation) ToSubnetRouteTableAssociationOutput() SubnetRouteTableAssociationOutput {
+func (i *SubnetRouteTableAssociation) ToSubnetRouteTableAssociationOutput() SubnetRouteTableAssociationOutput {
 	return i.ToSubnetRouteTableAssociationOutputWithContext(context.Background())
 }
 
-func (i SubnetRouteTableAssociation) ToSubnetRouteTableAssociationOutputWithContext(ctx context.Context) SubnetRouteTableAssociationOutput {
+func (i *SubnetRouteTableAssociation) ToSubnetRouteTableAssociationOutputWithContext(ctx context.Context) SubnetRouteTableAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetRouteTableAssociationOutput)
+}
+
+func (i *SubnetRouteTableAssociation) ToSubnetRouteTableAssociationPtrOutput() SubnetRouteTableAssociationPtrOutput {
+	return i.ToSubnetRouteTableAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *SubnetRouteTableAssociation) ToSubnetRouteTableAssociationPtrOutputWithContext(ctx context.Context) SubnetRouteTableAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetRouteTableAssociationPtrOutput)
+}
+
+type SubnetRouteTableAssociationPtrInput interface {
+	pulumi.Input
+
+	ToSubnetRouteTableAssociationPtrOutput() SubnetRouteTableAssociationPtrOutput
+	ToSubnetRouteTableAssociationPtrOutputWithContext(ctx context.Context) SubnetRouteTableAssociationPtrOutput
+}
+
+type subnetRouteTableAssociationPtrType SubnetRouteTableAssociationArgs
+
+func (*subnetRouteTableAssociationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetRouteTableAssociation)(nil))
+}
+
+func (i *subnetRouteTableAssociationPtrType) ToSubnetRouteTableAssociationPtrOutput() SubnetRouteTableAssociationPtrOutput {
+	return i.ToSubnetRouteTableAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *subnetRouteTableAssociationPtrType) ToSubnetRouteTableAssociationPtrOutputWithContext(ctx context.Context) SubnetRouteTableAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetRouteTableAssociationPtrOutput)
+}
+
+// SubnetRouteTableAssociationArrayInput is an input type that accepts SubnetRouteTableAssociationArray and SubnetRouteTableAssociationArrayOutput values.
+// You can construct a concrete instance of `SubnetRouteTableAssociationArrayInput` via:
+//
+//          SubnetRouteTableAssociationArray{ SubnetRouteTableAssociationArgs{...} }
+type SubnetRouteTableAssociationArrayInput interface {
+	pulumi.Input
+
+	ToSubnetRouteTableAssociationArrayOutput() SubnetRouteTableAssociationArrayOutput
+	ToSubnetRouteTableAssociationArrayOutputWithContext(context.Context) SubnetRouteTableAssociationArrayOutput
+}
+
+type SubnetRouteTableAssociationArray []SubnetRouteTableAssociationInput
+
+func (SubnetRouteTableAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SubnetRouteTableAssociation)(nil))
+}
+
+func (i SubnetRouteTableAssociationArray) ToSubnetRouteTableAssociationArrayOutput() SubnetRouteTableAssociationArrayOutput {
+	return i.ToSubnetRouteTableAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i SubnetRouteTableAssociationArray) ToSubnetRouteTableAssociationArrayOutputWithContext(ctx context.Context) SubnetRouteTableAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetRouteTableAssociationArrayOutput)
+}
+
+// SubnetRouteTableAssociationMapInput is an input type that accepts SubnetRouteTableAssociationMap and SubnetRouteTableAssociationMapOutput values.
+// You can construct a concrete instance of `SubnetRouteTableAssociationMapInput` via:
+//
+//          SubnetRouteTableAssociationMap{ "key": SubnetRouteTableAssociationArgs{...} }
+type SubnetRouteTableAssociationMapInput interface {
+	pulumi.Input
+
+	ToSubnetRouteTableAssociationMapOutput() SubnetRouteTableAssociationMapOutput
+	ToSubnetRouteTableAssociationMapOutputWithContext(context.Context) SubnetRouteTableAssociationMapOutput
+}
+
+type SubnetRouteTableAssociationMap map[string]SubnetRouteTableAssociationInput
+
+func (SubnetRouteTableAssociationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SubnetRouteTableAssociation)(nil))
+}
+
+func (i SubnetRouteTableAssociationMap) ToSubnetRouteTableAssociationMapOutput() SubnetRouteTableAssociationMapOutput {
+	return i.ToSubnetRouteTableAssociationMapOutputWithContext(context.Background())
+}
+
+func (i SubnetRouteTableAssociationMap) ToSubnetRouteTableAssociationMapOutputWithContext(ctx context.Context) SubnetRouteTableAssociationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetRouteTableAssociationMapOutput)
 }
 
 type SubnetRouteTableAssociationOutput struct {
@@ -190,7 +269,7 @@ type SubnetRouteTableAssociationOutput struct {
 }
 
 func (SubnetRouteTableAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetRouteTableAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*SubnetRouteTableAssociation)(nil))
 }
 
 func (o SubnetRouteTableAssociationOutput) ToSubnetRouteTableAssociationOutput() SubnetRouteTableAssociationOutput {
@@ -201,6 +280,75 @@ func (o SubnetRouteTableAssociationOutput) ToSubnetRouteTableAssociationOutputWi
 	return o
 }
 
+func (o SubnetRouteTableAssociationOutput) ToSubnetRouteTableAssociationPtrOutput() SubnetRouteTableAssociationPtrOutput {
+	return o.ToSubnetRouteTableAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o SubnetRouteTableAssociationOutput) ToSubnetRouteTableAssociationPtrOutputWithContext(ctx context.Context) SubnetRouteTableAssociationPtrOutput {
+	return o.ApplyT(func(v SubnetRouteTableAssociation) *SubnetRouteTableAssociation {
+		return &v
+	}).(SubnetRouteTableAssociationPtrOutput)
+}
+
+type SubnetRouteTableAssociationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SubnetRouteTableAssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetRouteTableAssociation)(nil))
+}
+
+func (o SubnetRouteTableAssociationPtrOutput) ToSubnetRouteTableAssociationPtrOutput() SubnetRouteTableAssociationPtrOutput {
+	return o
+}
+
+func (o SubnetRouteTableAssociationPtrOutput) ToSubnetRouteTableAssociationPtrOutputWithContext(ctx context.Context) SubnetRouteTableAssociationPtrOutput {
+	return o
+}
+
+type SubnetRouteTableAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (SubnetRouteTableAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubnetRouteTableAssociation)(nil))
+}
+
+func (o SubnetRouteTableAssociationArrayOutput) ToSubnetRouteTableAssociationArrayOutput() SubnetRouteTableAssociationArrayOutput {
+	return o
+}
+
+func (o SubnetRouteTableAssociationArrayOutput) ToSubnetRouteTableAssociationArrayOutputWithContext(ctx context.Context) SubnetRouteTableAssociationArrayOutput {
+	return o
+}
+
+func (o SubnetRouteTableAssociationArrayOutput) Index(i pulumi.IntInput) SubnetRouteTableAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubnetRouteTableAssociation {
+		return vs[0].([]SubnetRouteTableAssociation)[vs[1].(int)]
+	}).(SubnetRouteTableAssociationOutput)
+}
+
+type SubnetRouteTableAssociationMapOutput struct{ *pulumi.OutputState }
+
+func (SubnetRouteTableAssociationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SubnetRouteTableAssociation)(nil))
+}
+
+func (o SubnetRouteTableAssociationMapOutput) ToSubnetRouteTableAssociationMapOutput() SubnetRouteTableAssociationMapOutput {
+	return o
+}
+
+func (o SubnetRouteTableAssociationMapOutput) ToSubnetRouteTableAssociationMapOutputWithContext(ctx context.Context) SubnetRouteTableAssociationMapOutput {
+	return o
+}
+
+func (o SubnetRouteTableAssociationMapOutput) MapIndex(k pulumi.StringInput) SubnetRouteTableAssociationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SubnetRouteTableAssociation {
+		return vs[0].(map[string]SubnetRouteTableAssociation)[vs[1].(string)]
+	}).(SubnetRouteTableAssociationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SubnetRouteTableAssociationOutput{})
+	pulumi.RegisterOutputType(SubnetRouteTableAssociationPtrOutput{})
+	pulumi.RegisterOutputType(SubnetRouteTableAssociationArrayOutput{})
+	pulumi.RegisterOutputType(SubnetRouteTableAssociationMapOutput{})
 }

@@ -76,24 +76,21 @@ export class SyncGroup extends pulumi.CustomResource {
     constructor(name: string, args: SyncGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SyncGroupArgs | SyncGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SyncGroupState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["storageSyncId"] = state ? state.storageSyncId : undefined;
         } else {
             const args = argsOrState as SyncGroupArgs | undefined;
-            if ((!args || args.storageSyncId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageSyncId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageSyncId'");
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["storageSyncId"] = args ? args.storageSyncId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SyncGroup.__pulumiType, name, inputs, opts);
     }

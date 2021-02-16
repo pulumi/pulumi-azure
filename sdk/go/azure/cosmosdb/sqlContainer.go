@@ -252,16 +252,95 @@ type SqlContainerInput interface {
 	ToSqlContainerOutputWithContext(ctx context.Context) SqlContainerOutput
 }
 
-func (SqlContainer) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlContainer)(nil)).Elem()
+func (*SqlContainer) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainer)(nil))
 }
 
-func (i SqlContainer) ToSqlContainerOutput() SqlContainerOutput {
+func (i *SqlContainer) ToSqlContainerOutput() SqlContainerOutput {
 	return i.ToSqlContainerOutputWithContext(context.Background())
 }
 
-func (i SqlContainer) ToSqlContainerOutputWithContext(ctx context.Context) SqlContainerOutput {
+func (i *SqlContainer) ToSqlContainerOutputWithContext(ctx context.Context) SqlContainerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerOutput)
+}
+
+func (i *SqlContainer) ToSqlContainerPtrOutput() SqlContainerPtrOutput {
+	return i.ToSqlContainerPtrOutputWithContext(context.Background())
+}
+
+func (i *SqlContainer) ToSqlContainerPtrOutputWithContext(ctx context.Context) SqlContainerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerPtrOutput)
+}
+
+type SqlContainerPtrInput interface {
+	pulumi.Input
+
+	ToSqlContainerPtrOutput() SqlContainerPtrOutput
+	ToSqlContainerPtrOutputWithContext(ctx context.Context) SqlContainerPtrOutput
+}
+
+type sqlContainerPtrType SqlContainerArgs
+
+func (*sqlContainerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlContainer)(nil))
+}
+
+func (i *sqlContainerPtrType) ToSqlContainerPtrOutput() SqlContainerPtrOutput {
+	return i.ToSqlContainerPtrOutputWithContext(context.Background())
+}
+
+func (i *sqlContainerPtrType) ToSqlContainerPtrOutputWithContext(ctx context.Context) SqlContainerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerPtrOutput)
+}
+
+// SqlContainerArrayInput is an input type that accepts SqlContainerArray and SqlContainerArrayOutput values.
+// You can construct a concrete instance of `SqlContainerArrayInput` via:
+//
+//          SqlContainerArray{ SqlContainerArgs{...} }
+type SqlContainerArrayInput interface {
+	pulumi.Input
+
+	ToSqlContainerArrayOutput() SqlContainerArrayOutput
+	ToSqlContainerArrayOutputWithContext(context.Context) SqlContainerArrayOutput
+}
+
+type SqlContainerArray []SqlContainerInput
+
+func (SqlContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SqlContainer)(nil))
+}
+
+func (i SqlContainerArray) ToSqlContainerArrayOutput() SqlContainerArrayOutput {
+	return i.ToSqlContainerArrayOutputWithContext(context.Background())
+}
+
+func (i SqlContainerArray) ToSqlContainerArrayOutputWithContext(ctx context.Context) SqlContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerArrayOutput)
+}
+
+// SqlContainerMapInput is an input type that accepts SqlContainerMap and SqlContainerMapOutput values.
+// You can construct a concrete instance of `SqlContainerMapInput` via:
+//
+//          SqlContainerMap{ "key": SqlContainerArgs{...} }
+type SqlContainerMapInput interface {
+	pulumi.Input
+
+	ToSqlContainerMapOutput() SqlContainerMapOutput
+	ToSqlContainerMapOutputWithContext(context.Context) SqlContainerMapOutput
+}
+
+type SqlContainerMap map[string]SqlContainerInput
+
+func (SqlContainerMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SqlContainer)(nil))
+}
+
+func (i SqlContainerMap) ToSqlContainerMapOutput() SqlContainerMapOutput {
+	return i.ToSqlContainerMapOutputWithContext(context.Background())
+}
+
+func (i SqlContainerMap) ToSqlContainerMapOutputWithContext(ctx context.Context) SqlContainerMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerMapOutput)
 }
 
 type SqlContainerOutput struct {
@@ -269,7 +348,7 @@ type SqlContainerOutput struct {
 }
 
 func (SqlContainerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlContainerOutput)(nil)).Elem()
+	return reflect.TypeOf((*SqlContainer)(nil))
 }
 
 func (o SqlContainerOutput) ToSqlContainerOutput() SqlContainerOutput {
@@ -280,6 +359,75 @@ func (o SqlContainerOutput) ToSqlContainerOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o SqlContainerOutput) ToSqlContainerPtrOutput() SqlContainerPtrOutput {
+	return o.ToSqlContainerPtrOutputWithContext(context.Background())
+}
+
+func (o SqlContainerOutput) ToSqlContainerPtrOutputWithContext(ctx context.Context) SqlContainerPtrOutput {
+	return o.ApplyT(func(v SqlContainer) *SqlContainer {
+		return &v
+	}).(SqlContainerPtrOutput)
+}
+
+type SqlContainerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlContainerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlContainer)(nil))
+}
+
+func (o SqlContainerPtrOutput) ToSqlContainerPtrOutput() SqlContainerPtrOutput {
+	return o
+}
+
+func (o SqlContainerPtrOutput) ToSqlContainerPtrOutputWithContext(ctx context.Context) SqlContainerPtrOutput {
+	return o
+}
+
+type SqlContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlContainer)(nil))
+}
+
+func (o SqlContainerArrayOutput) ToSqlContainerArrayOutput() SqlContainerArrayOutput {
+	return o
+}
+
+func (o SqlContainerArrayOutput) ToSqlContainerArrayOutputWithContext(ctx context.Context) SqlContainerArrayOutput {
+	return o
+}
+
+func (o SqlContainerArrayOutput) Index(i pulumi.IntInput) SqlContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlContainer {
+		return vs[0].([]SqlContainer)[vs[1].(int)]
+	}).(SqlContainerOutput)
+}
+
+type SqlContainerMapOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SqlContainer)(nil))
+}
+
+func (o SqlContainerMapOutput) ToSqlContainerMapOutput() SqlContainerMapOutput {
+	return o
+}
+
+func (o SqlContainerMapOutput) ToSqlContainerMapOutputWithContext(ctx context.Context) SqlContainerMapOutput {
+	return o
+}
+
+func (o SqlContainerMapOutput) MapIndex(k pulumi.StringInput) SqlContainerOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SqlContainer {
+		return vs[0].(map[string]SqlContainer)[vs[1].(string)]
+	}).(SqlContainerOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlContainerOutput{})
+	pulumi.RegisterOutputType(SqlContainerPtrOutput{})
+	pulumi.RegisterOutputType(SqlContainerArrayOutput{})
+	pulumi.RegisterOutputType(SqlContainerMapOutput{})
 }

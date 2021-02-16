@@ -271,16 +271,95 @@ type LinkedServiceDataLakeStorageGen2Input interface {
 	ToLinkedServiceDataLakeStorageGen2OutputWithContext(ctx context.Context) LinkedServiceDataLakeStorageGen2Output
 }
 
-func (LinkedServiceDataLakeStorageGen2) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceDataLakeStorageGen2)(nil)).Elem()
+func (*LinkedServiceDataLakeStorageGen2) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceDataLakeStorageGen2)(nil))
 }
 
-func (i LinkedServiceDataLakeStorageGen2) ToLinkedServiceDataLakeStorageGen2Output() LinkedServiceDataLakeStorageGen2Output {
+func (i *LinkedServiceDataLakeStorageGen2) ToLinkedServiceDataLakeStorageGen2Output() LinkedServiceDataLakeStorageGen2Output {
 	return i.ToLinkedServiceDataLakeStorageGen2OutputWithContext(context.Background())
 }
 
-func (i LinkedServiceDataLakeStorageGen2) ToLinkedServiceDataLakeStorageGen2OutputWithContext(ctx context.Context) LinkedServiceDataLakeStorageGen2Output {
+func (i *LinkedServiceDataLakeStorageGen2) ToLinkedServiceDataLakeStorageGen2OutputWithContext(ctx context.Context) LinkedServiceDataLakeStorageGen2Output {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceDataLakeStorageGen2Output)
+}
+
+func (i *LinkedServiceDataLakeStorageGen2) ToLinkedServiceDataLakeStorageGen2PtrOutput() LinkedServiceDataLakeStorageGen2PtrOutput {
+	return i.ToLinkedServiceDataLakeStorageGen2PtrOutputWithContext(context.Background())
+}
+
+func (i *LinkedServiceDataLakeStorageGen2) ToLinkedServiceDataLakeStorageGen2PtrOutputWithContext(ctx context.Context) LinkedServiceDataLakeStorageGen2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceDataLakeStorageGen2PtrOutput)
+}
+
+type LinkedServiceDataLakeStorageGen2PtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceDataLakeStorageGen2PtrOutput() LinkedServiceDataLakeStorageGen2PtrOutput
+	ToLinkedServiceDataLakeStorageGen2PtrOutputWithContext(ctx context.Context) LinkedServiceDataLakeStorageGen2PtrOutput
+}
+
+type linkedServiceDataLakeStorageGen2PtrType LinkedServiceDataLakeStorageGen2Args
+
+func (*linkedServiceDataLakeStorageGen2PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceDataLakeStorageGen2)(nil))
+}
+
+func (i *linkedServiceDataLakeStorageGen2PtrType) ToLinkedServiceDataLakeStorageGen2PtrOutput() LinkedServiceDataLakeStorageGen2PtrOutput {
+	return i.ToLinkedServiceDataLakeStorageGen2PtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceDataLakeStorageGen2PtrType) ToLinkedServiceDataLakeStorageGen2PtrOutputWithContext(ctx context.Context) LinkedServiceDataLakeStorageGen2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceDataLakeStorageGen2PtrOutput)
+}
+
+// LinkedServiceDataLakeStorageGen2ArrayInput is an input type that accepts LinkedServiceDataLakeStorageGen2Array and LinkedServiceDataLakeStorageGen2ArrayOutput values.
+// You can construct a concrete instance of `LinkedServiceDataLakeStorageGen2ArrayInput` via:
+//
+//          LinkedServiceDataLakeStorageGen2Array{ LinkedServiceDataLakeStorageGen2Args{...} }
+type LinkedServiceDataLakeStorageGen2ArrayInput interface {
+	pulumi.Input
+
+	ToLinkedServiceDataLakeStorageGen2ArrayOutput() LinkedServiceDataLakeStorageGen2ArrayOutput
+	ToLinkedServiceDataLakeStorageGen2ArrayOutputWithContext(context.Context) LinkedServiceDataLakeStorageGen2ArrayOutput
+}
+
+type LinkedServiceDataLakeStorageGen2Array []LinkedServiceDataLakeStorageGen2Input
+
+func (LinkedServiceDataLakeStorageGen2Array) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LinkedServiceDataLakeStorageGen2)(nil))
+}
+
+func (i LinkedServiceDataLakeStorageGen2Array) ToLinkedServiceDataLakeStorageGen2ArrayOutput() LinkedServiceDataLakeStorageGen2ArrayOutput {
+	return i.ToLinkedServiceDataLakeStorageGen2ArrayOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceDataLakeStorageGen2Array) ToLinkedServiceDataLakeStorageGen2ArrayOutputWithContext(ctx context.Context) LinkedServiceDataLakeStorageGen2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceDataLakeStorageGen2ArrayOutput)
+}
+
+// LinkedServiceDataLakeStorageGen2MapInput is an input type that accepts LinkedServiceDataLakeStorageGen2Map and LinkedServiceDataLakeStorageGen2MapOutput values.
+// You can construct a concrete instance of `LinkedServiceDataLakeStorageGen2MapInput` via:
+//
+//          LinkedServiceDataLakeStorageGen2Map{ "key": LinkedServiceDataLakeStorageGen2Args{...} }
+type LinkedServiceDataLakeStorageGen2MapInput interface {
+	pulumi.Input
+
+	ToLinkedServiceDataLakeStorageGen2MapOutput() LinkedServiceDataLakeStorageGen2MapOutput
+	ToLinkedServiceDataLakeStorageGen2MapOutputWithContext(context.Context) LinkedServiceDataLakeStorageGen2MapOutput
+}
+
+type LinkedServiceDataLakeStorageGen2Map map[string]LinkedServiceDataLakeStorageGen2Input
+
+func (LinkedServiceDataLakeStorageGen2Map) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LinkedServiceDataLakeStorageGen2)(nil))
+}
+
+func (i LinkedServiceDataLakeStorageGen2Map) ToLinkedServiceDataLakeStorageGen2MapOutput() LinkedServiceDataLakeStorageGen2MapOutput {
+	return i.ToLinkedServiceDataLakeStorageGen2MapOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceDataLakeStorageGen2Map) ToLinkedServiceDataLakeStorageGen2MapOutputWithContext(ctx context.Context) LinkedServiceDataLakeStorageGen2MapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceDataLakeStorageGen2MapOutput)
 }
 
 type LinkedServiceDataLakeStorageGen2Output struct {
@@ -288,7 +367,7 @@ type LinkedServiceDataLakeStorageGen2Output struct {
 }
 
 func (LinkedServiceDataLakeStorageGen2Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceDataLakeStorageGen2Output)(nil)).Elem()
+	return reflect.TypeOf((*LinkedServiceDataLakeStorageGen2)(nil))
 }
 
 func (o LinkedServiceDataLakeStorageGen2Output) ToLinkedServiceDataLakeStorageGen2Output() LinkedServiceDataLakeStorageGen2Output {
@@ -299,6 +378,75 @@ func (o LinkedServiceDataLakeStorageGen2Output) ToLinkedServiceDataLakeStorageGe
 	return o
 }
 
+func (o LinkedServiceDataLakeStorageGen2Output) ToLinkedServiceDataLakeStorageGen2PtrOutput() LinkedServiceDataLakeStorageGen2PtrOutput {
+	return o.ToLinkedServiceDataLakeStorageGen2PtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceDataLakeStorageGen2Output) ToLinkedServiceDataLakeStorageGen2PtrOutputWithContext(ctx context.Context) LinkedServiceDataLakeStorageGen2PtrOutput {
+	return o.ApplyT(func(v LinkedServiceDataLakeStorageGen2) *LinkedServiceDataLakeStorageGen2 {
+		return &v
+	}).(LinkedServiceDataLakeStorageGen2PtrOutput)
+}
+
+type LinkedServiceDataLakeStorageGen2PtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkedServiceDataLakeStorageGen2PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceDataLakeStorageGen2)(nil))
+}
+
+func (o LinkedServiceDataLakeStorageGen2PtrOutput) ToLinkedServiceDataLakeStorageGen2PtrOutput() LinkedServiceDataLakeStorageGen2PtrOutput {
+	return o
+}
+
+func (o LinkedServiceDataLakeStorageGen2PtrOutput) ToLinkedServiceDataLakeStorageGen2PtrOutputWithContext(ctx context.Context) LinkedServiceDataLakeStorageGen2PtrOutput {
+	return o
+}
+
+type LinkedServiceDataLakeStorageGen2ArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceDataLakeStorageGen2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkedServiceDataLakeStorageGen2)(nil))
+}
+
+func (o LinkedServiceDataLakeStorageGen2ArrayOutput) ToLinkedServiceDataLakeStorageGen2ArrayOutput() LinkedServiceDataLakeStorageGen2ArrayOutput {
+	return o
+}
+
+func (o LinkedServiceDataLakeStorageGen2ArrayOutput) ToLinkedServiceDataLakeStorageGen2ArrayOutputWithContext(ctx context.Context) LinkedServiceDataLakeStorageGen2ArrayOutput {
+	return o
+}
+
+func (o LinkedServiceDataLakeStorageGen2ArrayOutput) Index(i pulumi.IntInput) LinkedServiceDataLakeStorageGen2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedServiceDataLakeStorageGen2 {
+		return vs[0].([]LinkedServiceDataLakeStorageGen2)[vs[1].(int)]
+	}).(LinkedServiceDataLakeStorageGen2Output)
+}
+
+type LinkedServiceDataLakeStorageGen2MapOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceDataLakeStorageGen2MapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LinkedServiceDataLakeStorageGen2)(nil))
+}
+
+func (o LinkedServiceDataLakeStorageGen2MapOutput) ToLinkedServiceDataLakeStorageGen2MapOutput() LinkedServiceDataLakeStorageGen2MapOutput {
+	return o
+}
+
+func (o LinkedServiceDataLakeStorageGen2MapOutput) ToLinkedServiceDataLakeStorageGen2MapOutputWithContext(ctx context.Context) LinkedServiceDataLakeStorageGen2MapOutput {
+	return o
+}
+
+func (o LinkedServiceDataLakeStorageGen2MapOutput) MapIndex(k pulumi.StringInput) LinkedServiceDataLakeStorageGen2Output {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkedServiceDataLakeStorageGen2 {
+		return vs[0].(map[string]LinkedServiceDataLakeStorageGen2)[vs[1].(string)]
+	}).(LinkedServiceDataLakeStorageGen2Output)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LinkedServiceDataLakeStorageGen2Output{})
+	pulumi.RegisterOutputType(LinkedServiceDataLakeStorageGen2PtrOutput{})
+	pulumi.RegisterOutputType(LinkedServiceDataLakeStorageGen2ArrayOutput{})
+	pulumi.RegisterOutputType(LinkedServiceDataLakeStorageGen2MapOutput{})
 }

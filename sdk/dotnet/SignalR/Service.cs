@@ -67,6 +67,7 @@ namespace Pulumi.Azure.SignalR
     ///  $ pulumi import azure:signalr/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/terraform-signalr/providers/Microsoft.SignalRService/SignalR/tfex-signalr
     /// ```
     /// </summary>
+    [AzureResourceType("azure:signalr/service:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>

@@ -70,7 +70,8 @@ export class IotHubCertificate extends pulumi.CustomResource {
     constructor(name: string, args: IotHubCertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IotHubCertificateArgs | IotHubCertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IotHubCertificateState | undefined;
             inputs["certificateContent"] = state ? state.certificateContent : undefined;
             inputs["iotDpsName"] = state ? state.iotDpsName : undefined;
@@ -78,13 +79,13 @@ export class IotHubCertificate extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as IotHubCertificateArgs | undefined;
-            if ((!args || args.certificateContent === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.certificateContent === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificateContent'");
             }
-            if ((!args || args.iotDpsName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.iotDpsName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iotDpsName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["certificateContent"] = args ? args.certificateContent : undefined;
@@ -92,12 +93,8 @@ export class IotHubCertificate extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IotHubCertificate.__pulumiType, name, inputs, opts);
     }

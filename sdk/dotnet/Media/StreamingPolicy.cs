@@ -95,6 +95,7 @@ namespace Pulumi.Azure.Media
     ///  $ pulumi import azure:media/streamingPolicy:StreamingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/account1/streamingpolicies/policy1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:media/streamingPolicy:StreamingPolicy")]
     public partial class StreamingPolicy : Pulumi.CustomResource
     {
         /// <summary>

@@ -237,16 +237,95 @@ type ChannelsRegistrationInput interface {
 	ToChannelsRegistrationOutputWithContext(ctx context.Context) ChannelsRegistrationOutput
 }
 
-func (ChannelsRegistration) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelsRegistration)(nil)).Elem()
+func (*ChannelsRegistration) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelsRegistration)(nil))
 }
 
-func (i ChannelsRegistration) ToChannelsRegistrationOutput() ChannelsRegistrationOutput {
+func (i *ChannelsRegistration) ToChannelsRegistrationOutput() ChannelsRegistrationOutput {
 	return i.ToChannelsRegistrationOutputWithContext(context.Background())
 }
 
-func (i ChannelsRegistration) ToChannelsRegistrationOutputWithContext(ctx context.Context) ChannelsRegistrationOutput {
+func (i *ChannelsRegistration) ToChannelsRegistrationOutputWithContext(ctx context.Context) ChannelsRegistrationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelsRegistrationOutput)
+}
+
+func (i *ChannelsRegistration) ToChannelsRegistrationPtrOutput() ChannelsRegistrationPtrOutput {
+	return i.ToChannelsRegistrationPtrOutputWithContext(context.Background())
+}
+
+func (i *ChannelsRegistration) ToChannelsRegistrationPtrOutputWithContext(ctx context.Context) ChannelsRegistrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelsRegistrationPtrOutput)
+}
+
+type ChannelsRegistrationPtrInput interface {
+	pulumi.Input
+
+	ToChannelsRegistrationPtrOutput() ChannelsRegistrationPtrOutput
+	ToChannelsRegistrationPtrOutputWithContext(ctx context.Context) ChannelsRegistrationPtrOutput
+}
+
+type channelsRegistrationPtrType ChannelsRegistrationArgs
+
+func (*channelsRegistrationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelsRegistration)(nil))
+}
+
+func (i *channelsRegistrationPtrType) ToChannelsRegistrationPtrOutput() ChannelsRegistrationPtrOutput {
+	return i.ToChannelsRegistrationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelsRegistrationPtrType) ToChannelsRegistrationPtrOutputWithContext(ctx context.Context) ChannelsRegistrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelsRegistrationPtrOutput)
+}
+
+// ChannelsRegistrationArrayInput is an input type that accepts ChannelsRegistrationArray and ChannelsRegistrationArrayOutput values.
+// You can construct a concrete instance of `ChannelsRegistrationArrayInput` via:
+//
+//          ChannelsRegistrationArray{ ChannelsRegistrationArgs{...} }
+type ChannelsRegistrationArrayInput interface {
+	pulumi.Input
+
+	ToChannelsRegistrationArrayOutput() ChannelsRegistrationArrayOutput
+	ToChannelsRegistrationArrayOutputWithContext(context.Context) ChannelsRegistrationArrayOutput
+}
+
+type ChannelsRegistrationArray []ChannelsRegistrationInput
+
+func (ChannelsRegistrationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ChannelsRegistration)(nil))
+}
+
+func (i ChannelsRegistrationArray) ToChannelsRegistrationArrayOutput() ChannelsRegistrationArrayOutput {
+	return i.ToChannelsRegistrationArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelsRegistrationArray) ToChannelsRegistrationArrayOutputWithContext(ctx context.Context) ChannelsRegistrationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelsRegistrationArrayOutput)
+}
+
+// ChannelsRegistrationMapInput is an input type that accepts ChannelsRegistrationMap and ChannelsRegistrationMapOutput values.
+// You can construct a concrete instance of `ChannelsRegistrationMapInput` via:
+//
+//          ChannelsRegistrationMap{ "key": ChannelsRegistrationArgs{...} }
+type ChannelsRegistrationMapInput interface {
+	pulumi.Input
+
+	ToChannelsRegistrationMapOutput() ChannelsRegistrationMapOutput
+	ToChannelsRegistrationMapOutputWithContext(context.Context) ChannelsRegistrationMapOutput
+}
+
+type ChannelsRegistrationMap map[string]ChannelsRegistrationInput
+
+func (ChannelsRegistrationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ChannelsRegistration)(nil))
+}
+
+func (i ChannelsRegistrationMap) ToChannelsRegistrationMapOutput() ChannelsRegistrationMapOutput {
+	return i.ToChannelsRegistrationMapOutputWithContext(context.Background())
+}
+
+func (i ChannelsRegistrationMap) ToChannelsRegistrationMapOutputWithContext(ctx context.Context) ChannelsRegistrationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelsRegistrationMapOutput)
 }
 
 type ChannelsRegistrationOutput struct {
@@ -254,7 +333,7 @@ type ChannelsRegistrationOutput struct {
 }
 
 func (ChannelsRegistrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelsRegistrationOutput)(nil)).Elem()
+	return reflect.TypeOf((*ChannelsRegistration)(nil))
 }
 
 func (o ChannelsRegistrationOutput) ToChannelsRegistrationOutput() ChannelsRegistrationOutput {
@@ -265,6 +344,75 @@ func (o ChannelsRegistrationOutput) ToChannelsRegistrationOutputWithContext(ctx 
 	return o
 }
 
+func (o ChannelsRegistrationOutput) ToChannelsRegistrationPtrOutput() ChannelsRegistrationPtrOutput {
+	return o.ToChannelsRegistrationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelsRegistrationOutput) ToChannelsRegistrationPtrOutputWithContext(ctx context.Context) ChannelsRegistrationPtrOutput {
+	return o.ApplyT(func(v ChannelsRegistration) *ChannelsRegistration {
+		return &v
+	}).(ChannelsRegistrationPtrOutput)
+}
+
+type ChannelsRegistrationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ChannelsRegistrationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelsRegistration)(nil))
+}
+
+func (o ChannelsRegistrationPtrOutput) ToChannelsRegistrationPtrOutput() ChannelsRegistrationPtrOutput {
+	return o
+}
+
+func (o ChannelsRegistrationPtrOutput) ToChannelsRegistrationPtrOutputWithContext(ctx context.Context) ChannelsRegistrationPtrOutput {
+	return o
+}
+
+type ChannelsRegistrationArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelsRegistrationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelsRegistration)(nil))
+}
+
+func (o ChannelsRegistrationArrayOutput) ToChannelsRegistrationArrayOutput() ChannelsRegistrationArrayOutput {
+	return o
+}
+
+func (o ChannelsRegistrationArrayOutput) ToChannelsRegistrationArrayOutputWithContext(ctx context.Context) ChannelsRegistrationArrayOutput {
+	return o
+}
+
+func (o ChannelsRegistrationArrayOutput) Index(i pulumi.IntInput) ChannelsRegistrationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelsRegistration {
+		return vs[0].([]ChannelsRegistration)[vs[1].(int)]
+	}).(ChannelsRegistrationOutput)
+}
+
+type ChannelsRegistrationMapOutput struct{ *pulumi.OutputState }
+
+func (ChannelsRegistrationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ChannelsRegistration)(nil))
+}
+
+func (o ChannelsRegistrationMapOutput) ToChannelsRegistrationMapOutput() ChannelsRegistrationMapOutput {
+	return o
+}
+
+func (o ChannelsRegistrationMapOutput) ToChannelsRegistrationMapOutputWithContext(ctx context.Context) ChannelsRegistrationMapOutput {
+	return o
+}
+
+func (o ChannelsRegistrationMapOutput) MapIndex(k pulumi.StringInput) ChannelsRegistrationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ChannelsRegistration {
+		return vs[0].(map[string]ChannelsRegistration)[vs[1].(string)]
+	}).(ChannelsRegistrationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ChannelsRegistrationOutput{})
+	pulumi.RegisterOutputType(ChannelsRegistrationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelsRegistrationArrayOutput{})
+	pulumi.RegisterOutputType(ChannelsRegistrationMapOutput{})
 }

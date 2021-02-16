@@ -301,7 +301,8 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     constructor(name: string, args: VirtualNetworkGatewayConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualNetworkGatewayConnectionArgs | VirtualNetworkGatewayConnectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VirtualNetworkGatewayConnectionState | undefined;
             inputs["authorizationKey"] = state ? state.authorizationKey : undefined;
             inputs["connectionProtocol"] = state ? state.connectionProtocol : undefined;
@@ -325,13 +326,13 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             inputs["virtualNetworkGatewayId"] = state ? state.virtualNetworkGatewayId : undefined;
         } else {
             const args = argsOrState as VirtualNetworkGatewayConnectionArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.virtualNetworkGatewayId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualNetworkGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkGatewayId'");
             }
             inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
@@ -355,12 +356,8 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             inputs["usePolicyBasedTrafficSelectors"] = args ? args.usePolicyBasedTrafficSelectors : undefined;
             inputs["virtualNetworkGatewayId"] = args ? args.virtualNetworkGatewayId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VirtualNetworkGatewayConnection.__pulumiType, name, inputs, opts);
     }

@@ -96,7 +96,8 @@ export class SharedImageGallery extends pulumi.CustomResource {
     constructor(name: string, args: SharedImageGalleryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SharedImageGalleryArgs | SharedImageGalleryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SharedImageGalleryState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -106,7 +107,7 @@ export class SharedImageGallery extends pulumi.CustomResource {
             inputs["uniqueName"] = state ? state.uniqueName : undefined;
         } else {
             const args = argsOrState as SharedImageGalleryArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -116,12 +117,8 @@ export class SharedImageGallery extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["uniqueName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SharedImageGallery.__pulumiType, name, inputs, opts);
     }

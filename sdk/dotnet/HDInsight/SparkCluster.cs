@@ -99,6 +99,7 @@ namespace Pulumi.Azure.HDInsight
     ///  $ pulumi import azure:hdinsight/sparkCluster:SparkCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:hdinsight/sparkCluster:SparkCluster")]
     public partial class SparkCluster : Pulumi.CustomResource
     {
         /// <summary>

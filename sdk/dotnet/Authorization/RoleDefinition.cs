@@ -56,6 +56,7 @@ namespace Pulumi.Azure.Authorization
     ///  $ pulumi import azure:authorization/roleDefinition:RoleDefinition example "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|/subscriptions/00000000-0000-0000-0000-000000000000"
     /// ```
     /// </summary>
+    [AzureResourceType("azure:authorization/roleDefinition:RoleDefinition")]
     public partial class RoleDefinition : Pulumi.CustomResource
     {
         /// <summary>

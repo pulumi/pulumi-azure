@@ -406,16 +406,95 @@ type KubernetesClusterInput interface {
 	ToKubernetesClusterOutputWithContext(ctx context.Context) KubernetesClusterOutput
 }
 
-func (KubernetesCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesCluster)(nil)).Elem()
+func (*KubernetesCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesCluster)(nil))
 }
 
-func (i KubernetesCluster) ToKubernetesClusterOutput() KubernetesClusterOutput {
+func (i *KubernetesCluster) ToKubernetesClusterOutput() KubernetesClusterOutput {
 	return i.ToKubernetesClusterOutputWithContext(context.Background())
 }
 
-func (i KubernetesCluster) ToKubernetesClusterOutputWithContext(ctx context.Context) KubernetesClusterOutput {
+func (i *KubernetesCluster) ToKubernetesClusterOutputWithContext(ctx context.Context) KubernetesClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterOutput)
+}
+
+func (i *KubernetesCluster) ToKubernetesClusterPtrOutput() KubernetesClusterPtrOutput {
+	return i.ToKubernetesClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *KubernetesCluster) ToKubernetesClusterPtrOutputWithContext(ctx context.Context) KubernetesClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterPtrOutput)
+}
+
+type KubernetesClusterPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterPtrOutput() KubernetesClusterPtrOutput
+	ToKubernetesClusterPtrOutputWithContext(ctx context.Context) KubernetesClusterPtrOutput
+}
+
+type kubernetesClusterPtrType KubernetesClusterArgs
+
+func (*kubernetesClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesCluster)(nil))
+}
+
+func (i *kubernetesClusterPtrType) ToKubernetesClusterPtrOutput() KubernetesClusterPtrOutput {
+	return i.ToKubernetesClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterPtrType) ToKubernetesClusterPtrOutputWithContext(ctx context.Context) KubernetesClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterPtrOutput)
+}
+
+// KubernetesClusterArrayInput is an input type that accepts KubernetesClusterArray and KubernetesClusterArrayOutput values.
+// You can construct a concrete instance of `KubernetesClusterArrayInput` via:
+//
+//          KubernetesClusterArray{ KubernetesClusterArgs{...} }
+type KubernetesClusterArrayInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterArrayOutput() KubernetesClusterArrayOutput
+	ToKubernetesClusterArrayOutputWithContext(context.Context) KubernetesClusterArrayOutput
+}
+
+type KubernetesClusterArray []KubernetesClusterInput
+
+func (KubernetesClusterArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*KubernetesCluster)(nil))
+}
+
+func (i KubernetesClusterArray) ToKubernetesClusterArrayOutput() KubernetesClusterArrayOutput {
+	return i.ToKubernetesClusterArrayOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterArray) ToKubernetesClusterArrayOutputWithContext(ctx context.Context) KubernetesClusterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterArrayOutput)
+}
+
+// KubernetesClusterMapInput is an input type that accepts KubernetesClusterMap and KubernetesClusterMapOutput values.
+// You can construct a concrete instance of `KubernetesClusterMapInput` via:
+//
+//          KubernetesClusterMap{ "key": KubernetesClusterArgs{...} }
+type KubernetesClusterMapInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterMapOutput() KubernetesClusterMapOutput
+	ToKubernetesClusterMapOutputWithContext(context.Context) KubernetesClusterMapOutput
+}
+
+type KubernetesClusterMap map[string]KubernetesClusterInput
+
+func (KubernetesClusterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*KubernetesCluster)(nil))
+}
+
+func (i KubernetesClusterMap) ToKubernetesClusterMapOutput() KubernetesClusterMapOutput {
+	return i.ToKubernetesClusterMapOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterMap) ToKubernetesClusterMapOutputWithContext(ctx context.Context) KubernetesClusterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMapOutput)
 }
 
 type KubernetesClusterOutput struct {
@@ -423,7 +502,7 @@ type KubernetesClusterOutput struct {
 }
 
 func (KubernetesClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterOutput)(nil)).Elem()
+	return reflect.TypeOf((*KubernetesCluster)(nil))
 }
 
 func (o KubernetesClusterOutput) ToKubernetesClusterOutput() KubernetesClusterOutput {
@@ -434,6 +513,75 @@ func (o KubernetesClusterOutput) ToKubernetesClusterOutputWithContext(ctx contex
 	return o
 }
 
+func (o KubernetesClusterOutput) ToKubernetesClusterPtrOutput() KubernetesClusterPtrOutput {
+	return o.ToKubernetesClusterPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterOutput) ToKubernetesClusterPtrOutputWithContext(ctx context.Context) KubernetesClusterPtrOutput {
+	return o.ApplyT(func(v KubernetesCluster) *KubernetesCluster {
+		return &v
+	}).(KubernetesClusterPtrOutput)
+}
+
+type KubernetesClusterPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (KubernetesClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesCluster)(nil))
+}
+
+func (o KubernetesClusterPtrOutput) ToKubernetesClusterPtrOutput() KubernetesClusterPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterPtrOutput) ToKubernetesClusterPtrOutputWithContext(ctx context.Context) KubernetesClusterPtrOutput {
+	return o
+}
+
+type KubernetesClusterArrayOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesCluster)(nil))
+}
+
+func (o KubernetesClusterArrayOutput) ToKubernetesClusterArrayOutput() KubernetesClusterArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterArrayOutput) ToKubernetesClusterArrayOutputWithContext(ctx context.Context) KubernetesClusterArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterArrayOutput) Index(i pulumi.IntInput) KubernetesClusterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesCluster {
+		return vs[0].([]KubernetesCluster)[vs[1].(int)]
+	}).(KubernetesClusterOutput)
+}
+
+type KubernetesClusterMapOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]KubernetesCluster)(nil))
+}
+
+func (o KubernetesClusterMapOutput) ToKubernetesClusterMapOutput() KubernetesClusterMapOutput {
+	return o
+}
+
+func (o KubernetesClusterMapOutput) ToKubernetesClusterMapOutputWithContext(ctx context.Context) KubernetesClusterMapOutput {
+	return o
+}
+
+func (o KubernetesClusterMapOutput) MapIndex(k pulumi.StringInput) KubernetesClusterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) KubernetesCluster {
+		return vs[0].(map[string]KubernetesCluster)[vs[1].(string)]
+	}).(KubernetesClusterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(KubernetesClusterOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterArrayOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterMapOutput{})
 }

@@ -22,6 +22,7 @@ namespace Pulumi.Azure.Bot
     ///  $ pulumi import azure:bot/channelEmail:ChannelEmail example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/channels/EmailChannel
     /// ```
     /// </summary>
+    [AzureResourceType("azure:bot/channelEmail:ChannelEmail")]
     public partial class ChannelEmail : Pulumi.CustomResource
     {
         /// <summary>

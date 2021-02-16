@@ -55,6 +55,7 @@ namespace Pulumi.Azure.SiteRecovery
     ///  $ pulumi import azure:siterecovery/fabric:Fabric myfabric /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name
     /// ```
     /// </summary>
+    [AzureResourceType("azure:siterecovery/fabric:Fabric")]
     public partial class Fabric : Pulumi.CustomResource
     {
         /// <summary>

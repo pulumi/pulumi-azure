@@ -168,16 +168,95 @@ type SyncInput interface {
 	ToSyncOutputWithContext(ctx context.Context) SyncOutput
 }
 
-func (Sync) ElementType() reflect.Type {
-	return reflect.TypeOf((*Sync)(nil)).Elem()
+func (*Sync) ElementType() reflect.Type {
+	return reflect.TypeOf((*Sync)(nil))
 }
 
-func (i Sync) ToSyncOutput() SyncOutput {
+func (i *Sync) ToSyncOutput() SyncOutput {
 	return i.ToSyncOutputWithContext(context.Background())
 }
 
-func (i Sync) ToSyncOutputWithContext(ctx context.Context) SyncOutput {
+func (i *Sync) ToSyncOutputWithContext(ctx context.Context) SyncOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyncOutput)
+}
+
+func (i *Sync) ToSyncPtrOutput() SyncPtrOutput {
+	return i.ToSyncPtrOutputWithContext(context.Background())
+}
+
+func (i *Sync) ToSyncPtrOutputWithContext(ctx context.Context) SyncPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncPtrOutput)
+}
+
+type SyncPtrInput interface {
+	pulumi.Input
+
+	ToSyncPtrOutput() SyncPtrOutput
+	ToSyncPtrOutputWithContext(ctx context.Context) SyncPtrOutput
+}
+
+type syncPtrType SyncArgs
+
+func (*syncPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Sync)(nil))
+}
+
+func (i *syncPtrType) ToSyncPtrOutput() SyncPtrOutput {
+	return i.ToSyncPtrOutputWithContext(context.Background())
+}
+
+func (i *syncPtrType) ToSyncPtrOutputWithContext(ctx context.Context) SyncPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncPtrOutput)
+}
+
+// SyncArrayInput is an input type that accepts SyncArray and SyncArrayOutput values.
+// You can construct a concrete instance of `SyncArrayInput` via:
+//
+//          SyncArray{ SyncArgs{...} }
+type SyncArrayInput interface {
+	pulumi.Input
+
+	ToSyncArrayOutput() SyncArrayOutput
+	ToSyncArrayOutputWithContext(context.Context) SyncArrayOutput
+}
+
+type SyncArray []SyncInput
+
+func (SyncArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Sync)(nil))
+}
+
+func (i SyncArray) ToSyncArrayOutput() SyncArrayOutput {
+	return i.ToSyncArrayOutputWithContext(context.Background())
+}
+
+func (i SyncArray) ToSyncArrayOutputWithContext(ctx context.Context) SyncArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncArrayOutput)
+}
+
+// SyncMapInput is an input type that accepts SyncMap and SyncMapOutput values.
+// You can construct a concrete instance of `SyncMapInput` via:
+//
+//          SyncMap{ "key": SyncArgs{...} }
+type SyncMapInput interface {
+	pulumi.Input
+
+	ToSyncMapOutput() SyncMapOutput
+	ToSyncMapOutputWithContext(context.Context) SyncMapOutput
+}
+
+type SyncMap map[string]SyncInput
+
+func (SyncMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Sync)(nil))
+}
+
+func (i SyncMap) ToSyncMapOutput() SyncMapOutput {
+	return i.ToSyncMapOutputWithContext(context.Background())
+}
+
+func (i SyncMap) ToSyncMapOutputWithContext(ctx context.Context) SyncMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncMapOutput)
 }
 
 type SyncOutput struct {
@@ -185,7 +264,7 @@ type SyncOutput struct {
 }
 
 func (SyncOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncOutput)(nil)).Elem()
+	return reflect.TypeOf((*Sync)(nil))
 }
 
 func (o SyncOutput) ToSyncOutput() SyncOutput {
@@ -196,6 +275,75 @@ func (o SyncOutput) ToSyncOutputWithContext(ctx context.Context) SyncOutput {
 	return o
 }
 
+func (o SyncOutput) ToSyncPtrOutput() SyncPtrOutput {
+	return o.ToSyncPtrOutputWithContext(context.Background())
+}
+
+func (o SyncOutput) ToSyncPtrOutputWithContext(ctx context.Context) SyncPtrOutput {
+	return o.ApplyT(func(v Sync) *Sync {
+		return &v
+	}).(SyncPtrOutput)
+}
+
+type SyncPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SyncPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Sync)(nil))
+}
+
+func (o SyncPtrOutput) ToSyncPtrOutput() SyncPtrOutput {
+	return o
+}
+
+func (o SyncPtrOutput) ToSyncPtrOutputWithContext(ctx context.Context) SyncPtrOutput {
+	return o
+}
+
+type SyncArrayOutput struct{ *pulumi.OutputState }
+
+func (SyncArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Sync)(nil))
+}
+
+func (o SyncArrayOutput) ToSyncArrayOutput() SyncArrayOutput {
+	return o
+}
+
+func (o SyncArrayOutput) ToSyncArrayOutputWithContext(ctx context.Context) SyncArrayOutput {
+	return o
+}
+
+func (o SyncArrayOutput) Index(i pulumi.IntInput) SyncOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Sync {
+		return vs[0].([]Sync)[vs[1].(int)]
+	}).(SyncOutput)
+}
+
+type SyncMapOutput struct{ *pulumi.OutputState }
+
+func (SyncMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Sync)(nil))
+}
+
+func (o SyncMapOutput) ToSyncMapOutput() SyncMapOutput {
+	return o
+}
+
+func (o SyncMapOutput) ToSyncMapOutputWithContext(ctx context.Context) SyncMapOutput {
+	return o
+}
+
+func (o SyncMapOutput) MapIndex(k pulumi.StringInput) SyncOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Sync {
+		return vs[0].(map[string]Sync)[vs[1].(string)]
+	}).(SyncOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SyncOutput{})
+	pulumi.RegisterOutputType(SyncPtrOutput{})
+	pulumi.RegisterOutputType(SyncArrayOutput{})
+	pulumi.RegisterOutputType(SyncMapOutput{})
 }

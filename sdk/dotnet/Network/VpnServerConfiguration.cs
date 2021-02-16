@@ -76,6 +76,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/vpnServerConfiguration:VpnServerConfiguration config1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/vpnServerConfigurations/config1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/vpnServerConfiguration:VpnServerConfiguration")]
     public partial class VpnServerConfiguration : Pulumi.CustomResource
     {
         /// <summary>

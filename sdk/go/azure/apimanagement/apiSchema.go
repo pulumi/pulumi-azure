@@ -159,16 +159,95 @@ type ApiSchemaInput interface {
 	ToApiSchemaOutputWithContext(ctx context.Context) ApiSchemaOutput
 }
 
-func (ApiSchema) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiSchema)(nil)).Elem()
+func (*ApiSchema) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiSchema)(nil))
 }
 
-func (i ApiSchema) ToApiSchemaOutput() ApiSchemaOutput {
+func (i *ApiSchema) ToApiSchemaOutput() ApiSchemaOutput {
 	return i.ToApiSchemaOutputWithContext(context.Background())
 }
 
-func (i ApiSchema) ToApiSchemaOutputWithContext(ctx context.Context) ApiSchemaOutput {
+func (i *ApiSchema) ToApiSchemaOutputWithContext(ctx context.Context) ApiSchemaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiSchemaOutput)
+}
+
+func (i *ApiSchema) ToApiSchemaPtrOutput() ApiSchemaPtrOutput {
+	return i.ToApiSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *ApiSchema) ToApiSchemaPtrOutputWithContext(ctx context.Context) ApiSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiSchemaPtrOutput)
+}
+
+type ApiSchemaPtrInput interface {
+	pulumi.Input
+
+	ToApiSchemaPtrOutput() ApiSchemaPtrOutput
+	ToApiSchemaPtrOutputWithContext(ctx context.Context) ApiSchemaPtrOutput
+}
+
+type apiSchemaPtrType ApiSchemaArgs
+
+func (*apiSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiSchema)(nil))
+}
+
+func (i *apiSchemaPtrType) ToApiSchemaPtrOutput() ApiSchemaPtrOutput {
+	return i.ToApiSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *apiSchemaPtrType) ToApiSchemaPtrOutputWithContext(ctx context.Context) ApiSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiSchemaPtrOutput)
+}
+
+// ApiSchemaArrayInput is an input type that accepts ApiSchemaArray and ApiSchemaArrayOutput values.
+// You can construct a concrete instance of `ApiSchemaArrayInput` via:
+//
+//          ApiSchemaArray{ ApiSchemaArgs{...} }
+type ApiSchemaArrayInput interface {
+	pulumi.Input
+
+	ToApiSchemaArrayOutput() ApiSchemaArrayOutput
+	ToApiSchemaArrayOutputWithContext(context.Context) ApiSchemaArrayOutput
+}
+
+type ApiSchemaArray []ApiSchemaInput
+
+func (ApiSchemaArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ApiSchema)(nil))
+}
+
+func (i ApiSchemaArray) ToApiSchemaArrayOutput() ApiSchemaArrayOutput {
+	return i.ToApiSchemaArrayOutputWithContext(context.Background())
+}
+
+func (i ApiSchemaArray) ToApiSchemaArrayOutputWithContext(ctx context.Context) ApiSchemaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiSchemaArrayOutput)
+}
+
+// ApiSchemaMapInput is an input type that accepts ApiSchemaMap and ApiSchemaMapOutput values.
+// You can construct a concrete instance of `ApiSchemaMapInput` via:
+//
+//          ApiSchemaMap{ "key": ApiSchemaArgs{...} }
+type ApiSchemaMapInput interface {
+	pulumi.Input
+
+	ToApiSchemaMapOutput() ApiSchemaMapOutput
+	ToApiSchemaMapOutputWithContext(context.Context) ApiSchemaMapOutput
+}
+
+type ApiSchemaMap map[string]ApiSchemaInput
+
+func (ApiSchemaMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ApiSchema)(nil))
+}
+
+func (i ApiSchemaMap) ToApiSchemaMapOutput() ApiSchemaMapOutput {
+	return i.ToApiSchemaMapOutputWithContext(context.Background())
+}
+
+func (i ApiSchemaMap) ToApiSchemaMapOutputWithContext(ctx context.Context) ApiSchemaMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiSchemaMapOutput)
 }
 
 type ApiSchemaOutput struct {
@@ -176,7 +255,7 @@ type ApiSchemaOutput struct {
 }
 
 func (ApiSchemaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiSchemaOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApiSchema)(nil))
 }
 
 func (o ApiSchemaOutput) ToApiSchemaOutput() ApiSchemaOutput {
@@ -187,6 +266,75 @@ func (o ApiSchemaOutput) ToApiSchemaOutputWithContext(ctx context.Context) ApiSc
 	return o
 }
 
+func (o ApiSchemaOutput) ToApiSchemaPtrOutput() ApiSchemaPtrOutput {
+	return o.ToApiSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o ApiSchemaOutput) ToApiSchemaPtrOutputWithContext(ctx context.Context) ApiSchemaPtrOutput {
+	return o.ApplyT(func(v ApiSchema) *ApiSchema {
+		return &v
+	}).(ApiSchemaPtrOutput)
+}
+
+type ApiSchemaPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiSchema)(nil))
+}
+
+func (o ApiSchemaPtrOutput) ToApiSchemaPtrOutput() ApiSchemaPtrOutput {
+	return o
+}
+
+func (o ApiSchemaPtrOutput) ToApiSchemaPtrOutputWithContext(ctx context.Context) ApiSchemaPtrOutput {
+	return o
+}
+
+type ApiSchemaArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiSchemaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiSchema)(nil))
+}
+
+func (o ApiSchemaArrayOutput) ToApiSchemaArrayOutput() ApiSchemaArrayOutput {
+	return o
+}
+
+func (o ApiSchemaArrayOutput) ToApiSchemaArrayOutputWithContext(ctx context.Context) ApiSchemaArrayOutput {
+	return o
+}
+
+func (o ApiSchemaArrayOutput) Index(i pulumi.IntInput) ApiSchemaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiSchema {
+		return vs[0].([]ApiSchema)[vs[1].(int)]
+	}).(ApiSchemaOutput)
+}
+
+type ApiSchemaMapOutput struct{ *pulumi.OutputState }
+
+func (ApiSchemaMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApiSchema)(nil))
+}
+
+func (o ApiSchemaMapOutput) ToApiSchemaMapOutput() ApiSchemaMapOutput {
+	return o
+}
+
+func (o ApiSchemaMapOutput) ToApiSchemaMapOutputWithContext(ctx context.Context) ApiSchemaMapOutput {
+	return o
+}
+
+func (o ApiSchemaMapOutput) MapIndex(k pulumi.StringInput) ApiSchemaOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApiSchema {
+		return vs[0].(map[string]ApiSchema)[vs[1].(string)]
+	}).(ApiSchemaOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiSchemaOutput{})
+	pulumi.RegisterOutputType(ApiSchemaPtrOutput{})
+	pulumi.RegisterOutputType(ApiSchemaArrayOutput{})
+	pulumi.RegisterOutputType(ApiSchemaMapOutput{})
 }

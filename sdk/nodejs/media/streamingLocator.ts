@@ -133,7 +133,8 @@ export class StreamingLocator extends pulumi.CustomResource {
     constructor(name: string, args: StreamingLocatorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StreamingLocatorArgs | StreamingLocatorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as StreamingLocatorState | undefined;
             inputs["alternativeMediaId"] = state ? state.alternativeMediaId : undefined;
             inputs["assetName"] = state ? state.assetName : undefined;
@@ -148,16 +149,16 @@ export class StreamingLocator extends pulumi.CustomResource {
             inputs["streamingPolicyName"] = state ? state.streamingPolicyName : undefined;
         } else {
             const args = argsOrState as StreamingLocatorArgs | undefined;
-            if ((!args || args.assetName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.assetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'assetName'");
             }
-            if ((!args || args.mediaServicesAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.mediaServicesAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'mediaServicesAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.streamingPolicyName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.streamingPolicyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamingPolicyName'");
             }
             inputs["alternativeMediaId"] = args ? args.alternativeMediaId : undefined;
@@ -172,12 +173,8 @@ export class StreamingLocator extends pulumi.CustomResource {
             inputs["streamingLocatorId"] = args ? args.streamingLocatorId : undefined;
             inputs["streamingPolicyName"] = args ? args.streamingPolicyName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(StreamingLocator.__pulumiType, name, inputs, opts);
     }

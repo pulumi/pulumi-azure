@@ -226,16 +226,95 @@ type StorageInsightsInput interface {
 	ToStorageInsightsOutputWithContext(ctx context.Context) StorageInsightsOutput
 }
 
-func (StorageInsights) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageInsights)(nil)).Elem()
+func (*StorageInsights) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageInsights)(nil))
 }
 
-func (i StorageInsights) ToStorageInsightsOutput() StorageInsightsOutput {
+func (i *StorageInsights) ToStorageInsightsOutput() StorageInsightsOutput {
 	return i.ToStorageInsightsOutputWithContext(context.Background())
 }
 
-func (i StorageInsights) ToStorageInsightsOutputWithContext(ctx context.Context) StorageInsightsOutput {
+func (i *StorageInsights) ToStorageInsightsOutputWithContext(ctx context.Context) StorageInsightsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightsOutput)
+}
+
+func (i *StorageInsights) ToStorageInsightsPtrOutput() StorageInsightsPtrOutput {
+	return i.ToStorageInsightsPtrOutputWithContext(context.Background())
+}
+
+func (i *StorageInsights) ToStorageInsightsPtrOutputWithContext(ctx context.Context) StorageInsightsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightsPtrOutput)
+}
+
+type StorageInsightsPtrInput interface {
+	pulumi.Input
+
+	ToStorageInsightsPtrOutput() StorageInsightsPtrOutput
+	ToStorageInsightsPtrOutputWithContext(ctx context.Context) StorageInsightsPtrOutput
+}
+
+type storageInsightsPtrType StorageInsightsArgs
+
+func (*storageInsightsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageInsights)(nil))
+}
+
+func (i *storageInsightsPtrType) ToStorageInsightsPtrOutput() StorageInsightsPtrOutput {
+	return i.ToStorageInsightsPtrOutputWithContext(context.Background())
+}
+
+func (i *storageInsightsPtrType) ToStorageInsightsPtrOutputWithContext(ctx context.Context) StorageInsightsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightsPtrOutput)
+}
+
+// StorageInsightsArrayInput is an input type that accepts StorageInsightsArray and StorageInsightsArrayOutput values.
+// You can construct a concrete instance of `StorageInsightsArrayInput` via:
+//
+//          StorageInsightsArray{ StorageInsightsArgs{...} }
+type StorageInsightsArrayInput interface {
+	pulumi.Input
+
+	ToStorageInsightsArrayOutput() StorageInsightsArrayOutput
+	ToStorageInsightsArrayOutputWithContext(context.Context) StorageInsightsArrayOutput
+}
+
+type StorageInsightsArray []StorageInsightsInput
+
+func (StorageInsightsArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*StorageInsights)(nil))
+}
+
+func (i StorageInsightsArray) ToStorageInsightsArrayOutput() StorageInsightsArrayOutput {
+	return i.ToStorageInsightsArrayOutputWithContext(context.Background())
+}
+
+func (i StorageInsightsArray) ToStorageInsightsArrayOutputWithContext(ctx context.Context) StorageInsightsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightsArrayOutput)
+}
+
+// StorageInsightsMapInput is an input type that accepts StorageInsightsMap and StorageInsightsMapOutput values.
+// You can construct a concrete instance of `StorageInsightsMapInput` via:
+//
+//          StorageInsightsMap{ "key": StorageInsightsArgs{...} }
+type StorageInsightsMapInput interface {
+	pulumi.Input
+
+	ToStorageInsightsMapOutput() StorageInsightsMapOutput
+	ToStorageInsightsMapOutputWithContext(context.Context) StorageInsightsMapOutput
+}
+
+type StorageInsightsMap map[string]StorageInsightsInput
+
+func (StorageInsightsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*StorageInsights)(nil))
+}
+
+func (i StorageInsightsMap) ToStorageInsightsMapOutput() StorageInsightsMapOutput {
+	return i.ToStorageInsightsMapOutputWithContext(context.Background())
+}
+
+func (i StorageInsightsMap) ToStorageInsightsMapOutputWithContext(ctx context.Context) StorageInsightsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightsMapOutput)
 }
 
 type StorageInsightsOutput struct {
@@ -243,7 +322,7 @@ type StorageInsightsOutput struct {
 }
 
 func (StorageInsightsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageInsightsOutput)(nil)).Elem()
+	return reflect.TypeOf((*StorageInsights)(nil))
 }
 
 func (o StorageInsightsOutput) ToStorageInsightsOutput() StorageInsightsOutput {
@@ -254,6 +333,75 @@ func (o StorageInsightsOutput) ToStorageInsightsOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o StorageInsightsOutput) ToStorageInsightsPtrOutput() StorageInsightsPtrOutput {
+	return o.ToStorageInsightsPtrOutputWithContext(context.Background())
+}
+
+func (o StorageInsightsOutput) ToStorageInsightsPtrOutputWithContext(ctx context.Context) StorageInsightsPtrOutput {
+	return o.ApplyT(func(v StorageInsights) *StorageInsights {
+		return &v
+	}).(StorageInsightsPtrOutput)
+}
+
+type StorageInsightsPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (StorageInsightsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageInsights)(nil))
+}
+
+func (o StorageInsightsPtrOutput) ToStorageInsightsPtrOutput() StorageInsightsPtrOutput {
+	return o
+}
+
+func (o StorageInsightsPtrOutput) ToStorageInsightsPtrOutputWithContext(ctx context.Context) StorageInsightsPtrOutput {
+	return o
+}
+
+type StorageInsightsArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageInsightsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageInsights)(nil))
+}
+
+func (o StorageInsightsArrayOutput) ToStorageInsightsArrayOutput() StorageInsightsArrayOutput {
+	return o
+}
+
+func (o StorageInsightsArrayOutput) ToStorageInsightsArrayOutputWithContext(ctx context.Context) StorageInsightsArrayOutput {
+	return o
+}
+
+func (o StorageInsightsArrayOutput) Index(i pulumi.IntInput) StorageInsightsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageInsights {
+		return vs[0].([]StorageInsights)[vs[1].(int)]
+	}).(StorageInsightsOutput)
+}
+
+type StorageInsightsMapOutput struct{ *pulumi.OutputState }
+
+func (StorageInsightsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]StorageInsights)(nil))
+}
+
+func (o StorageInsightsMapOutput) ToStorageInsightsMapOutput() StorageInsightsMapOutput {
+	return o
+}
+
+func (o StorageInsightsMapOutput) ToStorageInsightsMapOutputWithContext(ctx context.Context) StorageInsightsMapOutput {
+	return o
+}
+
+func (o StorageInsightsMapOutput) MapIndex(k pulumi.StringInput) StorageInsightsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StorageInsights {
+		return vs[0].(map[string]StorageInsights)[vs[1].(string)]
+	}).(StorageInsightsOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StorageInsightsOutput{})
+	pulumi.RegisterOutputType(StorageInsightsPtrOutput{})
+	pulumi.RegisterOutputType(StorageInsightsArrayOutput{})
+	pulumi.RegisterOutputType(StorageInsightsMapOutput{})
 }

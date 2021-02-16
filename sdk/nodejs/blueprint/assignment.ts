@@ -175,7 +175,8 @@ export class Assignment extends pulumi.CustomResource {
     constructor(name: string, args: AssignmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AssignmentArgs | AssignmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AssignmentState | undefined;
             inputs["blueprintName"] = state ? state.blueprintName : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -192,10 +193,10 @@ export class Assignment extends pulumi.CustomResource {
             inputs["versionId"] = state ? state.versionId : undefined;
         } else {
             const args = argsOrState as AssignmentArgs | undefined;
-            if ((!args || args.targetSubscriptionId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetSubscriptionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetSubscriptionId'");
             }
-            if ((!args || args.versionId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.versionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'versionId'");
             }
             inputs["identity"] = args ? args.identity : undefined;
@@ -212,12 +213,8 @@ export class Assignment extends pulumi.CustomResource {
             inputs["displayName"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Assignment.__pulumiType, name, inputs, opts);
     }

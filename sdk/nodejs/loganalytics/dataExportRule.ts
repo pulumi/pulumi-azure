@@ -109,7 +109,8 @@ export class DataExportRule extends pulumi.CustomResource {
     constructor(name: string, args: DataExportRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataExportRuleArgs | DataExportRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DataExportRuleState | undefined;
             inputs["destinationResourceId"] = state ? state.destinationResourceId : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -120,16 +121,16 @@ export class DataExportRule extends pulumi.CustomResource {
             inputs["workspaceResourceId"] = state ? state.workspaceResourceId : undefined;
         } else {
             const args = argsOrState as DataExportRuleArgs | undefined;
-            if ((!args || args.destinationResourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.destinationResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationResourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.tableNames === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tableNames === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableNames'");
             }
-            if ((!args || args.workspaceResourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceResourceId'");
             }
             inputs["destinationResourceId"] = args ? args.destinationResourceId : undefined;
@@ -140,12 +141,8 @@ export class DataExportRule extends pulumi.CustomResource {
             inputs["workspaceResourceId"] = args ? args.workspaceResourceId : undefined;
             inputs["exportRuleId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DataExportRule.__pulumiType, name, inputs, opts);
     }

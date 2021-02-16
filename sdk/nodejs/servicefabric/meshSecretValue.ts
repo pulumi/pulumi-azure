@@ -72,7 +72,8 @@ export class MeshSecretValue extends pulumi.CustomResource {
     constructor(name: string, args: MeshSecretValueArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MeshSecretValueArgs | MeshSecretValueState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MeshSecretValueState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -81,10 +82,10 @@ export class MeshSecretValue extends pulumi.CustomResource {
             inputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as MeshSecretValueArgs | undefined;
-            if ((!args || args.serviceFabricMeshSecretId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceFabricMeshSecretId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceFabricMeshSecretId'");
             }
-            if ((!args || args.value === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -93,12 +94,8 @@ export class MeshSecretValue extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["value"] = args ? args.value : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(MeshSecretValue.__pulumiType, name, inputs, opts);
     }

@@ -110,7 +110,8 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventHubConsumerGroupArgs | EventHubConsumerGroupState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("EventHubConsumerGroup is deprecated: azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EventHubConsumerGroupState | undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -119,13 +120,13 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
             inputs["userMetadata"] = state ? state.userMetadata : undefined;
         } else {
             const args = argsOrState as EventHubConsumerGroupArgs | undefined;
-            if ((!args || args.eventhubName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.eventhubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventhubName'");
             }
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["eventhubName"] = args ? args.eventhubName : undefined;
@@ -134,12 +135,8 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["userMetadata"] = args ? args.userMetadata : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EventHubConsumerGroup.__pulumiType, name, inputs, opts);
     }

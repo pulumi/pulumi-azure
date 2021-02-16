@@ -22,6 +22,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/packetCapture:PacketCapture capture1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/packetCaptures/capture1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/packetCapture:PacketCapture")]
     public partial class PacketCapture : Pulumi.CustomResource
     {
         /// <summary>

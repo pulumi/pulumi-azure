@@ -59,6 +59,7 @@ namespace Pulumi.Azure.Iot
     ///  $ pulumi import azure:iot/securitySolution:SecuritySolution example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Security/IoTSecuritySolutions/solution1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:iot/securitySolution:SecuritySolution")]
     public partial class SecuritySolution : Pulumi.CustomResource
     {
         /// <summary>
