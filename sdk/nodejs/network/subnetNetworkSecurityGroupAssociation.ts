@@ -100,27 +100,24 @@ export class SubnetNetworkSecurityGroupAssociation extends pulumi.CustomResource
     constructor(name: string, args: SubnetNetworkSecurityGroupAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SubnetNetworkSecurityGroupAssociationArgs | SubnetNetworkSecurityGroupAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SubnetNetworkSecurityGroupAssociationState | undefined;
             inputs["networkSecurityGroupId"] = state ? state.networkSecurityGroupId : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as SubnetNetworkSecurityGroupAssociationArgs | undefined;
-            if ((!args || args.networkSecurityGroupId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.networkSecurityGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkSecurityGroupId'");
             }
-            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
             inputs["networkSecurityGroupId"] = args ? args.networkSecurityGroupId : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SubnetNetworkSecurityGroupAssociation.__pulumiType, name, inputs, opts);
     }

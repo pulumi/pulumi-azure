@@ -256,16 +256,95 @@ type ApiOperationInput interface {
 	ToApiOperationOutputWithContext(ctx context.Context) ApiOperationOutput
 }
 
-func (ApiOperation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiOperation)(nil)).Elem()
+func (*ApiOperation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOperation)(nil))
 }
 
-func (i ApiOperation) ToApiOperationOutput() ApiOperationOutput {
+func (i *ApiOperation) ToApiOperationOutput() ApiOperationOutput {
 	return i.ToApiOperationOutputWithContext(context.Background())
 }
 
-func (i ApiOperation) ToApiOperationOutputWithContext(ctx context.Context) ApiOperationOutput {
+func (i *ApiOperation) ToApiOperationOutputWithContext(ctx context.Context) ApiOperationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationOutput)
+}
+
+func (i *ApiOperation) ToApiOperationPtrOutput() ApiOperationPtrOutput {
+	return i.ToApiOperationPtrOutputWithContext(context.Background())
+}
+
+func (i *ApiOperation) ToApiOperationPtrOutputWithContext(ctx context.Context) ApiOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationPtrOutput)
+}
+
+type ApiOperationPtrInput interface {
+	pulumi.Input
+
+	ToApiOperationPtrOutput() ApiOperationPtrOutput
+	ToApiOperationPtrOutputWithContext(ctx context.Context) ApiOperationPtrOutput
+}
+
+type apiOperationPtrType ApiOperationArgs
+
+func (*apiOperationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiOperation)(nil))
+}
+
+func (i *apiOperationPtrType) ToApiOperationPtrOutput() ApiOperationPtrOutput {
+	return i.ToApiOperationPtrOutputWithContext(context.Background())
+}
+
+func (i *apiOperationPtrType) ToApiOperationPtrOutputWithContext(ctx context.Context) ApiOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationPtrOutput)
+}
+
+// ApiOperationArrayInput is an input type that accepts ApiOperationArray and ApiOperationArrayOutput values.
+// You can construct a concrete instance of `ApiOperationArrayInput` via:
+//
+//          ApiOperationArray{ ApiOperationArgs{...} }
+type ApiOperationArrayInput interface {
+	pulumi.Input
+
+	ToApiOperationArrayOutput() ApiOperationArrayOutput
+	ToApiOperationArrayOutputWithContext(context.Context) ApiOperationArrayOutput
+}
+
+type ApiOperationArray []ApiOperationInput
+
+func (ApiOperationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ApiOperation)(nil))
+}
+
+func (i ApiOperationArray) ToApiOperationArrayOutput() ApiOperationArrayOutput {
+	return i.ToApiOperationArrayOutputWithContext(context.Background())
+}
+
+func (i ApiOperationArray) ToApiOperationArrayOutputWithContext(ctx context.Context) ApiOperationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationArrayOutput)
+}
+
+// ApiOperationMapInput is an input type that accepts ApiOperationMap and ApiOperationMapOutput values.
+// You can construct a concrete instance of `ApiOperationMapInput` via:
+//
+//          ApiOperationMap{ "key": ApiOperationArgs{...} }
+type ApiOperationMapInput interface {
+	pulumi.Input
+
+	ToApiOperationMapOutput() ApiOperationMapOutput
+	ToApiOperationMapOutputWithContext(context.Context) ApiOperationMapOutput
+}
+
+type ApiOperationMap map[string]ApiOperationInput
+
+func (ApiOperationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ApiOperation)(nil))
+}
+
+func (i ApiOperationMap) ToApiOperationMapOutput() ApiOperationMapOutput {
+	return i.ToApiOperationMapOutputWithContext(context.Background())
+}
+
+func (i ApiOperationMap) ToApiOperationMapOutputWithContext(ctx context.Context) ApiOperationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationMapOutput)
 }
 
 type ApiOperationOutput struct {
@@ -273,7 +352,7 @@ type ApiOperationOutput struct {
 }
 
 func (ApiOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiOperationOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApiOperation)(nil))
 }
 
 func (o ApiOperationOutput) ToApiOperationOutput() ApiOperationOutput {
@@ -284,6 +363,75 @@ func (o ApiOperationOutput) ToApiOperationOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ApiOperationOutput) ToApiOperationPtrOutput() ApiOperationPtrOutput {
+	return o.ToApiOperationPtrOutputWithContext(context.Background())
+}
+
+func (o ApiOperationOutput) ToApiOperationPtrOutputWithContext(ctx context.Context) ApiOperationPtrOutput {
+	return o.ApplyT(func(v ApiOperation) *ApiOperation {
+		return &v
+	}).(ApiOperationPtrOutput)
+}
+
+type ApiOperationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiOperationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiOperation)(nil))
+}
+
+func (o ApiOperationPtrOutput) ToApiOperationPtrOutput() ApiOperationPtrOutput {
+	return o
+}
+
+func (o ApiOperationPtrOutput) ToApiOperationPtrOutputWithContext(ctx context.Context) ApiOperationPtrOutput {
+	return o
+}
+
+type ApiOperationArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiOperationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiOperation)(nil))
+}
+
+func (o ApiOperationArrayOutput) ToApiOperationArrayOutput() ApiOperationArrayOutput {
+	return o
+}
+
+func (o ApiOperationArrayOutput) ToApiOperationArrayOutputWithContext(ctx context.Context) ApiOperationArrayOutput {
+	return o
+}
+
+func (o ApiOperationArrayOutput) Index(i pulumi.IntInput) ApiOperationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperation {
+		return vs[0].([]ApiOperation)[vs[1].(int)]
+	}).(ApiOperationOutput)
+}
+
+type ApiOperationMapOutput struct{ *pulumi.OutputState }
+
+func (ApiOperationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApiOperation)(nil))
+}
+
+func (o ApiOperationMapOutput) ToApiOperationMapOutput() ApiOperationMapOutput {
+	return o
+}
+
+func (o ApiOperationMapOutput) ToApiOperationMapOutputWithContext(ctx context.Context) ApiOperationMapOutput {
+	return o
+}
+
+func (o ApiOperationMapOutput) MapIndex(k pulumi.StringInput) ApiOperationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApiOperation {
+		return vs[0].(map[string]ApiOperation)[vs[1].(string)]
+	}).(ApiOperationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiOperationOutput{})
+	pulumi.RegisterOutputType(ApiOperationPtrOutput{})
+	pulumi.RegisterOutputType(ApiOperationArrayOutput{})
+	pulumi.RegisterOutputType(ApiOperationMapOutput{})
 }

@@ -56,6 +56,7 @@ namespace Pulumi.Azure.PrivateDns
     ///  $ pulumi import azure:privatedns/txtRecord:TxtRecord test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/TXT/test
     /// ```
     /// </summary>
+    [AzureResourceType("azure:privatedns/txtRecord:TxtRecord")]
     public partial class TxtRecord : Pulumi.CustomResource
     {
         /// <summary>

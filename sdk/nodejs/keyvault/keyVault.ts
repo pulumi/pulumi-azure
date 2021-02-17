@@ -121,7 +121,8 @@ export class KeyVault extends pulumi.CustomResource {
     constructor(name: string, args: KeyVaultArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: KeyVaultArgs | KeyVaultState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as KeyVaultState | undefined;
             inputs["accessPolicies"] = state ? state.accessPolicies : undefined;
             inputs["contacts"] = state ? state.contacts : undefined;
@@ -142,13 +143,13 @@ export class KeyVault extends pulumi.CustomResource {
             inputs["vaultUri"] = state ? state.vaultUri : undefined;
         } else {
             const args = argsOrState as KeyVaultArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if ((!args || args.tenantId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tenantId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
             inputs["accessPolicies"] = args ? args.accessPolicies : undefined;
@@ -169,12 +170,8 @@ export class KeyVault extends pulumi.CustomResource {
             inputs["tenantId"] = args ? args.tenantId : undefined;
             inputs["vaultUri"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(KeyVault.__pulumiType, name, inputs, opts);
     }

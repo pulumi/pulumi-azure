@@ -108,7 +108,8 @@ export class ReplicatedVM extends pulumi.CustomResource {
     constructor(name: string, args: ReplicatedVMArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReplicatedVMArgs | ReplicatedVMState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ReplicatedVMState | undefined;
             inputs["managedDisks"] = state ? state.managedDisks : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -126,31 +127,31 @@ export class ReplicatedVM extends pulumi.CustomResource {
             inputs["targetResourceGroupId"] = state ? state.targetResourceGroupId : undefined;
         } else {
             const args = argsOrState as ReplicatedVMArgs | undefined;
-            if ((!args || args.recoveryReplicationPolicyId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.recoveryReplicationPolicyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recoveryReplicationPolicyId'");
             }
-            if ((!args || args.recoveryVaultName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.recoveryVaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceRecoveryFabricName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceRecoveryFabricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceRecoveryFabricName'");
             }
-            if ((!args || args.sourceRecoveryProtectionContainerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceRecoveryProtectionContainerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceRecoveryProtectionContainerName'");
             }
-            if ((!args || args.sourceVmId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceVmId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceVmId'");
             }
-            if ((!args || args.targetRecoveryFabricId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetRecoveryFabricId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetRecoveryFabricId'");
             }
-            if ((!args || args.targetRecoveryProtectionContainerId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetRecoveryProtectionContainerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetRecoveryProtectionContainerId'");
             }
-            if ((!args || args.targetResourceGroupId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetResourceGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceGroupId'");
             }
             inputs["managedDisks"] = args ? args.managedDisks : undefined;
@@ -168,12 +169,8 @@ export class ReplicatedVM extends pulumi.CustomResource {
             inputs["targetRecoveryProtectionContainerId"] = args ? args.targetRecoveryProtectionContainerId : undefined;
             inputs["targetResourceGroupId"] = args ? args.targetResourceGroupId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ReplicatedVM.__pulumiType, name, inputs, opts);
     }

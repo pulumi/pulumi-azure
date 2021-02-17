@@ -222,16 +222,95 @@ type NamespaceAuthorizationRuleInput interface {
 	ToNamespaceAuthorizationRuleOutputWithContext(ctx context.Context) NamespaceAuthorizationRuleOutput
 }
 
-func (NamespaceAuthorizationRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceAuthorizationRule)(nil)).Elem()
+func (*NamespaceAuthorizationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceAuthorizationRule)(nil))
 }
 
-func (i NamespaceAuthorizationRule) ToNamespaceAuthorizationRuleOutput() NamespaceAuthorizationRuleOutput {
+func (i *NamespaceAuthorizationRule) ToNamespaceAuthorizationRuleOutput() NamespaceAuthorizationRuleOutput {
 	return i.ToNamespaceAuthorizationRuleOutputWithContext(context.Background())
 }
 
-func (i NamespaceAuthorizationRule) ToNamespaceAuthorizationRuleOutputWithContext(ctx context.Context) NamespaceAuthorizationRuleOutput {
+func (i *NamespaceAuthorizationRule) ToNamespaceAuthorizationRuleOutputWithContext(ctx context.Context) NamespaceAuthorizationRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceAuthorizationRuleOutput)
+}
+
+func (i *NamespaceAuthorizationRule) ToNamespaceAuthorizationRulePtrOutput() NamespaceAuthorizationRulePtrOutput {
+	return i.ToNamespaceAuthorizationRulePtrOutputWithContext(context.Background())
+}
+
+func (i *NamespaceAuthorizationRule) ToNamespaceAuthorizationRulePtrOutputWithContext(ctx context.Context) NamespaceAuthorizationRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceAuthorizationRulePtrOutput)
+}
+
+type NamespaceAuthorizationRulePtrInput interface {
+	pulumi.Input
+
+	ToNamespaceAuthorizationRulePtrOutput() NamespaceAuthorizationRulePtrOutput
+	ToNamespaceAuthorizationRulePtrOutputWithContext(ctx context.Context) NamespaceAuthorizationRulePtrOutput
+}
+
+type namespaceAuthorizationRulePtrType NamespaceAuthorizationRuleArgs
+
+func (*namespaceAuthorizationRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NamespaceAuthorizationRule)(nil))
+}
+
+func (i *namespaceAuthorizationRulePtrType) ToNamespaceAuthorizationRulePtrOutput() NamespaceAuthorizationRulePtrOutput {
+	return i.ToNamespaceAuthorizationRulePtrOutputWithContext(context.Background())
+}
+
+func (i *namespaceAuthorizationRulePtrType) ToNamespaceAuthorizationRulePtrOutputWithContext(ctx context.Context) NamespaceAuthorizationRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceAuthorizationRulePtrOutput)
+}
+
+// NamespaceAuthorizationRuleArrayInput is an input type that accepts NamespaceAuthorizationRuleArray and NamespaceAuthorizationRuleArrayOutput values.
+// You can construct a concrete instance of `NamespaceAuthorizationRuleArrayInput` via:
+//
+//          NamespaceAuthorizationRuleArray{ NamespaceAuthorizationRuleArgs{...} }
+type NamespaceAuthorizationRuleArrayInput interface {
+	pulumi.Input
+
+	ToNamespaceAuthorizationRuleArrayOutput() NamespaceAuthorizationRuleArrayOutput
+	ToNamespaceAuthorizationRuleArrayOutputWithContext(context.Context) NamespaceAuthorizationRuleArrayOutput
+}
+
+type NamespaceAuthorizationRuleArray []NamespaceAuthorizationRuleInput
+
+func (NamespaceAuthorizationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*NamespaceAuthorizationRule)(nil))
+}
+
+func (i NamespaceAuthorizationRuleArray) ToNamespaceAuthorizationRuleArrayOutput() NamespaceAuthorizationRuleArrayOutput {
+	return i.ToNamespaceAuthorizationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i NamespaceAuthorizationRuleArray) ToNamespaceAuthorizationRuleArrayOutputWithContext(ctx context.Context) NamespaceAuthorizationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceAuthorizationRuleArrayOutput)
+}
+
+// NamespaceAuthorizationRuleMapInput is an input type that accepts NamespaceAuthorizationRuleMap and NamespaceAuthorizationRuleMapOutput values.
+// You can construct a concrete instance of `NamespaceAuthorizationRuleMapInput` via:
+//
+//          NamespaceAuthorizationRuleMap{ "key": NamespaceAuthorizationRuleArgs{...} }
+type NamespaceAuthorizationRuleMapInput interface {
+	pulumi.Input
+
+	ToNamespaceAuthorizationRuleMapOutput() NamespaceAuthorizationRuleMapOutput
+	ToNamespaceAuthorizationRuleMapOutputWithContext(context.Context) NamespaceAuthorizationRuleMapOutput
+}
+
+type NamespaceAuthorizationRuleMap map[string]NamespaceAuthorizationRuleInput
+
+func (NamespaceAuthorizationRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*NamespaceAuthorizationRule)(nil))
+}
+
+func (i NamespaceAuthorizationRuleMap) ToNamespaceAuthorizationRuleMapOutput() NamespaceAuthorizationRuleMapOutput {
+	return i.ToNamespaceAuthorizationRuleMapOutputWithContext(context.Background())
+}
+
+func (i NamespaceAuthorizationRuleMap) ToNamespaceAuthorizationRuleMapOutputWithContext(ctx context.Context) NamespaceAuthorizationRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceAuthorizationRuleMapOutput)
 }
 
 type NamespaceAuthorizationRuleOutput struct {
@@ -239,7 +318,7 @@ type NamespaceAuthorizationRuleOutput struct {
 }
 
 func (NamespaceAuthorizationRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceAuthorizationRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*NamespaceAuthorizationRule)(nil))
 }
 
 func (o NamespaceAuthorizationRuleOutput) ToNamespaceAuthorizationRuleOutput() NamespaceAuthorizationRuleOutput {
@@ -250,6 +329,75 @@ func (o NamespaceAuthorizationRuleOutput) ToNamespaceAuthorizationRuleOutputWith
 	return o
 }
 
+func (o NamespaceAuthorizationRuleOutput) ToNamespaceAuthorizationRulePtrOutput() NamespaceAuthorizationRulePtrOutput {
+	return o.ToNamespaceAuthorizationRulePtrOutputWithContext(context.Background())
+}
+
+func (o NamespaceAuthorizationRuleOutput) ToNamespaceAuthorizationRulePtrOutputWithContext(ctx context.Context) NamespaceAuthorizationRulePtrOutput {
+	return o.ApplyT(func(v NamespaceAuthorizationRule) *NamespaceAuthorizationRule {
+		return &v
+	}).(NamespaceAuthorizationRulePtrOutput)
+}
+
+type NamespaceAuthorizationRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (NamespaceAuthorizationRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NamespaceAuthorizationRule)(nil))
+}
+
+func (o NamespaceAuthorizationRulePtrOutput) ToNamespaceAuthorizationRulePtrOutput() NamespaceAuthorizationRulePtrOutput {
+	return o
+}
+
+func (o NamespaceAuthorizationRulePtrOutput) ToNamespaceAuthorizationRulePtrOutputWithContext(ctx context.Context) NamespaceAuthorizationRulePtrOutput {
+	return o
+}
+
+type NamespaceAuthorizationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (NamespaceAuthorizationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceAuthorizationRule)(nil))
+}
+
+func (o NamespaceAuthorizationRuleArrayOutput) ToNamespaceAuthorizationRuleArrayOutput() NamespaceAuthorizationRuleArrayOutput {
+	return o
+}
+
+func (o NamespaceAuthorizationRuleArrayOutput) ToNamespaceAuthorizationRuleArrayOutputWithContext(ctx context.Context) NamespaceAuthorizationRuleArrayOutput {
+	return o
+}
+
+func (o NamespaceAuthorizationRuleArrayOutput) Index(i pulumi.IntInput) NamespaceAuthorizationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NamespaceAuthorizationRule {
+		return vs[0].([]NamespaceAuthorizationRule)[vs[1].(int)]
+	}).(NamespaceAuthorizationRuleOutput)
+}
+
+type NamespaceAuthorizationRuleMapOutput struct{ *pulumi.OutputState }
+
+func (NamespaceAuthorizationRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NamespaceAuthorizationRule)(nil))
+}
+
+func (o NamespaceAuthorizationRuleMapOutput) ToNamespaceAuthorizationRuleMapOutput() NamespaceAuthorizationRuleMapOutput {
+	return o
+}
+
+func (o NamespaceAuthorizationRuleMapOutput) ToNamespaceAuthorizationRuleMapOutputWithContext(ctx context.Context) NamespaceAuthorizationRuleMapOutput {
+	return o
+}
+
+func (o NamespaceAuthorizationRuleMapOutput) MapIndex(k pulumi.StringInput) NamespaceAuthorizationRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NamespaceAuthorizationRule {
+		return vs[0].(map[string]NamespaceAuthorizationRule)[vs[1].(string)]
+	}).(NamespaceAuthorizationRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NamespaceAuthorizationRuleOutput{})
+	pulumi.RegisterOutputType(NamespaceAuthorizationRulePtrOutput{})
+	pulumi.RegisterOutputType(NamespaceAuthorizationRuleArrayOutput{})
+	pulumi.RegisterOutputType(NamespaceAuthorizationRuleMapOutput{})
 }

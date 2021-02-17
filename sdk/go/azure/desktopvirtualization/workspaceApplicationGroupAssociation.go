@@ -163,16 +163,95 @@ type WorkspaceApplicationGroupAssociationInput interface {
 	ToWorkspaceApplicationGroupAssociationOutputWithContext(ctx context.Context) WorkspaceApplicationGroupAssociationOutput
 }
 
-func (WorkspaceApplicationGroupAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceApplicationGroupAssociation)(nil)).Elem()
+func (*WorkspaceApplicationGroupAssociation) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceApplicationGroupAssociation)(nil))
 }
 
-func (i WorkspaceApplicationGroupAssociation) ToWorkspaceApplicationGroupAssociationOutput() WorkspaceApplicationGroupAssociationOutput {
+func (i *WorkspaceApplicationGroupAssociation) ToWorkspaceApplicationGroupAssociationOutput() WorkspaceApplicationGroupAssociationOutput {
 	return i.ToWorkspaceApplicationGroupAssociationOutputWithContext(context.Background())
 }
 
-func (i WorkspaceApplicationGroupAssociation) ToWorkspaceApplicationGroupAssociationOutputWithContext(ctx context.Context) WorkspaceApplicationGroupAssociationOutput {
+func (i *WorkspaceApplicationGroupAssociation) ToWorkspaceApplicationGroupAssociationOutputWithContext(ctx context.Context) WorkspaceApplicationGroupAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceApplicationGroupAssociationOutput)
+}
+
+func (i *WorkspaceApplicationGroupAssociation) ToWorkspaceApplicationGroupAssociationPtrOutput() WorkspaceApplicationGroupAssociationPtrOutput {
+	return i.ToWorkspaceApplicationGroupAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *WorkspaceApplicationGroupAssociation) ToWorkspaceApplicationGroupAssociationPtrOutputWithContext(ctx context.Context) WorkspaceApplicationGroupAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceApplicationGroupAssociationPtrOutput)
+}
+
+type WorkspaceApplicationGroupAssociationPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceApplicationGroupAssociationPtrOutput() WorkspaceApplicationGroupAssociationPtrOutput
+	ToWorkspaceApplicationGroupAssociationPtrOutputWithContext(ctx context.Context) WorkspaceApplicationGroupAssociationPtrOutput
+}
+
+type workspaceApplicationGroupAssociationPtrType WorkspaceApplicationGroupAssociationArgs
+
+func (*workspaceApplicationGroupAssociationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceApplicationGroupAssociation)(nil))
+}
+
+func (i *workspaceApplicationGroupAssociationPtrType) ToWorkspaceApplicationGroupAssociationPtrOutput() WorkspaceApplicationGroupAssociationPtrOutput {
+	return i.ToWorkspaceApplicationGroupAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceApplicationGroupAssociationPtrType) ToWorkspaceApplicationGroupAssociationPtrOutputWithContext(ctx context.Context) WorkspaceApplicationGroupAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceApplicationGroupAssociationPtrOutput)
+}
+
+// WorkspaceApplicationGroupAssociationArrayInput is an input type that accepts WorkspaceApplicationGroupAssociationArray and WorkspaceApplicationGroupAssociationArrayOutput values.
+// You can construct a concrete instance of `WorkspaceApplicationGroupAssociationArrayInput` via:
+//
+//          WorkspaceApplicationGroupAssociationArray{ WorkspaceApplicationGroupAssociationArgs{...} }
+type WorkspaceApplicationGroupAssociationArrayInput interface {
+	pulumi.Input
+
+	ToWorkspaceApplicationGroupAssociationArrayOutput() WorkspaceApplicationGroupAssociationArrayOutput
+	ToWorkspaceApplicationGroupAssociationArrayOutputWithContext(context.Context) WorkspaceApplicationGroupAssociationArrayOutput
+}
+
+type WorkspaceApplicationGroupAssociationArray []WorkspaceApplicationGroupAssociationInput
+
+func (WorkspaceApplicationGroupAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*WorkspaceApplicationGroupAssociation)(nil))
+}
+
+func (i WorkspaceApplicationGroupAssociationArray) ToWorkspaceApplicationGroupAssociationArrayOutput() WorkspaceApplicationGroupAssociationArrayOutput {
+	return i.ToWorkspaceApplicationGroupAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i WorkspaceApplicationGroupAssociationArray) ToWorkspaceApplicationGroupAssociationArrayOutputWithContext(ctx context.Context) WorkspaceApplicationGroupAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceApplicationGroupAssociationArrayOutput)
+}
+
+// WorkspaceApplicationGroupAssociationMapInput is an input type that accepts WorkspaceApplicationGroupAssociationMap and WorkspaceApplicationGroupAssociationMapOutput values.
+// You can construct a concrete instance of `WorkspaceApplicationGroupAssociationMapInput` via:
+//
+//          WorkspaceApplicationGroupAssociationMap{ "key": WorkspaceApplicationGroupAssociationArgs{...} }
+type WorkspaceApplicationGroupAssociationMapInput interface {
+	pulumi.Input
+
+	ToWorkspaceApplicationGroupAssociationMapOutput() WorkspaceApplicationGroupAssociationMapOutput
+	ToWorkspaceApplicationGroupAssociationMapOutputWithContext(context.Context) WorkspaceApplicationGroupAssociationMapOutput
+}
+
+type WorkspaceApplicationGroupAssociationMap map[string]WorkspaceApplicationGroupAssociationInput
+
+func (WorkspaceApplicationGroupAssociationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*WorkspaceApplicationGroupAssociation)(nil))
+}
+
+func (i WorkspaceApplicationGroupAssociationMap) ToWorkspaceApplicationGroupAssociationMapOutput() WorkspaceApplicationGroupAssociationMapOutput {
+	return i.ToWorkspaceApplicationGroupAssociationMapOutputWithContext(context.Background())
+}
+
+func (i WorkspaceApplicationGroupAssociationMap) ToWorkspaceApplicationGroupAssociationMapOutputWithContext(ctx context.Context) WorkspaceApplicationGroupAssociationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceApplicationGroupAssociationMapOutput)
 }
 
 type WorkspaceApplicationGroupAssociationOutput struct {
@@ -180,7 +259,7 @@ type WorkspaceApplicationGroupAssociationOutput struct {
 }
 
 func (WorkspaceApplicationGroupAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceApplicationGroupAssociationOutput)(nil)).Elem()
+	return reflect.TypeOf((*WorkspaceApplicationGroupAssociation)(nil))
 }
 
 func (o WorkspaceApplicationGroupAssociationOutput) ToWorkspaceApplicationGroupAssociationOutput() WorkspaceApplicationGroupAssociationOutput {
@@ -191,6 +270,75 @@ func (o WorkspaceApplicationGroupAssociationOutput) ToWorkspaceApplicationGroupA
 	return o
 }
 
+func (o WorkspaceApplicationGroupAssociationOutput) ToWorkspaceApplicationGroupAssociationPtrOutput() WorkspaceApplicationGroupAssociationPtrOutput {
+	return o.ToWorkspaceApplicationGroupAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceApplicationGroupAssociationOutput) ToWorkspaceApplicationGroupAssociationPtrOutputWithContext(ctx context.Context) WorkspaceApplicationGroupAssociationPtrOutput {
+	return o.ApplyT(func(v WorkspaceApplicationGroupAssociation) *WorkspaceApplicationGroupAssociation {
+		return &v
+	}).(WorkspaceApplicationGroupAssociationPtrOutput)
+}
+
+type WorkspaceApplicationGroupAssociationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkspaceApplicationGroupAssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceApplicationGroupAssociation)(nil))
+}
+
+func (o WorkspaceApplicationGroupAssociationPtrOutput) ToWorkspaceApplicationGroupAssociationPtrOutput() WorkspaceApplicationGroupAssociationPtrOutput {
+	return o
+}
+
+func (o WorkspaceApplicationGroupAssociationPtrOutput) ToWorkspaceApplicationGroupAssociationPtrOutputWithContext(ctx context.Context) WorkspaceApplicationGroupAssociationPtrOutput {
+	return o
+}
+
+type WorkspaceApplicationGroupAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceApplicationGroupAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceApplicationGroupAssociation)(nil))
+}
+
+func (o WorkspaceApplicationGroupAssociationArrayOutput) ToWorkspaceApplicationGroupAssociationArrayOutput() WorkspaceApplicationGroupAssociationArrayOutput {
+	return o
+}
+
+func (o WorkspaceApplicationGroupAssociationArrayOutput) ToWorkspaceApplicationGroupAssociationArrayOutputWithContext(ctx context.Context) WorkspaceApplicationGroupAssociationArrayOutput {
+	return o
+}
+
+func (o WorkspaceApplicationGroupAssociationArrayOutput) Index(i pulumi.IntInput) WorkspaceApplicationGroupAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceApplicationGroupAssociation {
+		return vs[0].([]WorkspaceApplicationGroupAssociation)[vs[1].(int)]
+	}).(WorkspaceApplicationGroupAssociationOutput)
+}
+
+type WorkspaceApplicationGroupAssociationMapOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceApplicationGroupAssociationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WorkspaceApplicationGroupAssociation)(nil))
+}
+
+func (o WorkspaceApplicationGroupAssociationMapOutput) ToWorkspaceApplicationGroupAssociationMapOutput() WorkspaceApplicationGroupAssociationMapOutput {
+	return o
+}
+
+func (o WorkspaceApplicationGroupAssociationMapOutput) ToWorkspaceApplicationGroupAssociationMapOutputWithContext(ctx context.Context) WorkspaceApplicationGroupAssociationMapOutput {
+	return o
+}
+
+func (o WorkspaceApplicationGroupAssociationMapOutput) MapIndex(k pulumi.StringInput) WorkspaceApplicationGroupAssociationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkspaceApplicationGroupAssociation {
+		return vs[0].(map[string]WorkspaceApplicationGroupAssociation)[vs[1].(string)]
+	}).(WorkspaceApplicationGroupAssociationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkspaceApplicationGroupAssociationOutput{})
+	pulumi.RegisterOutputType(WorkspaceApplicationGroupAssociationPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceApplicationGroupAssociationArrayOutput{})
+	pulumi.RegisterOutputType(WorkspaceApplicationGroupAssociationMapOutput{})
 }

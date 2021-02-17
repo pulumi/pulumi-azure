@@ -121,7 +121,8 @@ export class SharedAccessPolicy extends pulumi.CustomResource {
     constructor(name: string, args: SharedAccessPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SharedAccessPolicyArgs | SharedAccessPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SharedAccessPolicyState | undefined;
             inputs["deviceConnect"] = state ? state.deviceConnect : undefined;
             inputs["iothubName"] = state ? state.iothubName : undefined;
@@ -136,10 +137,10 @@ export class SharedAccessPolicy extends pulumi.CustomResource {
             inputs["serviceConnect"] = state ? state.serviceConnect : undefined;
         } else {
             const args = argsOrState as SharedAccessPolicyArgs | undefined;
-            if ((!args || args.iothubName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.iothubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iothubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["deviceConnect"] = args ? args.deviceConnect : undefined;
@@ -154,12 +155,8 @@ export class SharedAccessPolicy extends pulumi.CustomResource {
             inputs["secondaryConnectionString"] = undefined /*out*/;
             inputs["secondaryKey"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SharedAccessPolicy.__pulumiType, name, inputs, opts);
     }

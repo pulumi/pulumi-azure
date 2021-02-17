@@ -62,6 +62,7 @@ namespace Pulumi.Azure.Backup
     /// 
     ///  Note the ID requires quoting as there are semicolons
     /// </summary>
+    [AzureResourceType("azure:backup/containerStorageAccount:ContainerStorageAccount")]
     public partial class ContainerStorageAccount : Pulumi.CustomResource
     {
         /// <summary>

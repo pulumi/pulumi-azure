@@ -58,6 +58,7 @@ namespace Pulumi.Azure.DataFactory
     ///  $ pulumi import azure:datafactory/linkedServiceKeyVault:LinkedServiceKeyVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:datafactory/linkedServiceKeyVault:LinkedServiceKeyVault")]
     public partial class LinkedServiceKeyVault : Pulumi.CustomResource
     {
         /// <summary>

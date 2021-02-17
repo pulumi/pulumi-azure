@@ -121,7 +121,8 @@ export class LinkedServer extends pulumi.CustomResource {
     constructor(name: string, args: LinkedServerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LinkedServerArgs | LinkedServerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LinkedServerState | undefined;
             inputs["linkedRedisCacheId"] = state ? state.linkedRedisCacheId : undefined;
             inputs["linkedRedisCacheLocation"] = state ? state.linkedRedisCacheLocation : undefined;
@@ -131,19 +132,19 @@ export class LinkedServer extends pulumi.CustomResource {
             inputs["targetRedisCacheName"] = state ? state.targetRedisCacheName : undefined;
         } else {
             const args = argsOrState as LinkedServerArgs | undefined;
-            if ((!args || args.linkedRedisCacheId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.linkedRedisCacheId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'linkedRedisCacheId'");
             }
-            if ((!args || args.linkedRedisCacheLocation === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.linkedRedisCacheLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'linkedRedisCacheLocation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverRole === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverRole'");
             }
-            if ((!args || args.targetRedisCacheName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetRedisCacheName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetRedisCacheName'");
             }
             inputs["linkedRedisCacheId"] = args ? args.linkedRedisCacheId : undefined;
@@ -153,12 +154,8 @@ export class LinkedServer extends pulumi.CustomResource {
             inputs["targetRedisCacheName"] = args ? args.targetRedisCacheName : undefined;
             inputs["name"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LinkedServer.__pulumiType, name, inputs, opts);
     }

@@ -247,16 +247,95 @@ type DatasetSqlServerTableInput interface {
 	ToDatasetSqlServerTableOutputWithContext(ctx context.Context) DatasetSqlServerTableOutput
 }
 
-func (DatasetSqlServerTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetSqlServerTable)(nil)).Elem()
+func (*DatasetSqlServerTable) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetSqlServerTable)(nil))
 }
 
-func (i DatasetSqlServerTable) ToDatasetSqlServerTableOutput() DatasetSqlServerTableOutput {
+func (i *DatasetSqlServerTable) ToDatasetSqlServerTableOutput() DatasetSqlServerTableOutput {
 	return i.ToDatasetSqlServerTableOutputWithContext(context.Background())
 }
 
-func (i DatasetSqlServerTable) ToDatasetSqlServerTableOutputWithContext(ctx context.Context) DatasetSqlServerTableOutput {
+func (i *DatasetSqlServerTable) ToDatasetSqlServerTableOutputWithContext(ctx context.Context) DatasetSqlServerTableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetSqlServerTableOutput)
+}
+
+func (i *DatasetSqlServerTable) ToDatasetSqlServerTablePtrOutput() DatasetSqlServerTablePtrOutput {
+	return i.ToDatasetSqlServerTablePtrOutputWithContext(context.Background())
+}
+
+func (i *DatasetSqlServerTable) ToDatasetSqlServerTablePtrOutputWithContext(ctx context.Context) DatasetSqlServerTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetSqlServerTablePtrOutput)
+}
+
+type DatasetSqlServerTablePtrInput interface {
+	pulumi.Input
+
+	ToDatasetSqlServerTablePtrOutput() DatasetSqlServerTablePtrOutput
+	ToDatasetSqlServerTablePtrOutputWithContext(ctx context.Context) DatasetSqlServerTablePtrOutput
+}
+
+type datasetSqlServerTablePtrType DatasetSqlServerTableArgs
+
+func (*datasetSqlServerTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetSqlServerTable)(nil))
+}
+
+func (i *datasetSqlServerTablePtrType) ToDatasetSqlServerTablePtrOutput() DatasetSqlServerTablePtrOutput {
+	return i.ToDatasetSqlServerTablePtrOutputWithContext(context.Background())
+}
+
+func (i *datasetSqlServerTablePtrType) ToDatasetSqlServerTablePtrOutputWithContext(ctx context.Context) DatasetSqlServerTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetSqlServerTablePtrOutput)
+}
+
+// DatasetSqlServerTableArrayInput is an input type that accepts DatasetSqlServerTableArray and DatasetSqlServerTableArrayOutput values.
+// You can construct a concrete instance of `DatasetSqlServerTableArrayInput` via:
+//
+//          DatasetSqlServerTableArray{ DatasetSqlServerTableArgs{...} }
+type DatasetSqlServerTableArrayInput interface {
+	pulumi.Input
+
+	ToDatasetSqlServerTableArrayOutput() DatasetSqlServerTableArrayOutput
+	ToDatasetSqlServerTableArrayOutputWithContext(context.Context) DatasetSqlServerTableArrayOutput
+}
+
+type DatasetSqlServerTableArray []DatasetSqlServerTableInput
+
+func (DatasetSqlServerTableArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DatasetSqlServerTable)(nil))
+}
+
+func (i DatasetSqlServerTableArray) ToDatasetSqlServerTableArrayOutput() DatasetSqlServerTableArrayOutput {
+	return i.ToDatasetSqlServerTableArrayOutputWithContext(context.Background())
+}
+
+func (i DatasetSqlServerTableArray) ToDatasetSqlServerTableArrayOutputWithContext(ctx context.Context) DatasetSqlServerTableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetSqlServerTableArrayOutput)
+}
+
+// DatasetSqlServerTableMapInput is an input type that accepts DatasetSqlServerTableMap and DatasetSqlServerTableMapOutput values.
+// You can construct a concrete instance of `DatasetSqlServerTableMapInput` via:
+//
+//          DatasetSqlServerTableMap{ "key": DatasetSqlServerTableArgs{...} }
+type DatasetSqlServerTableMapInput interface {
+	pulumi.Input
+
+	ToDatasetSqlServerTableMapOutput() DatasetSqlServerTableMapOutput
+	ToDatasetSqlServerTableMapOutputWithContext(context.Context) DatasetSqlServerTableMapOutput
+}
+
+type DatasetSqlServerTableMap map[string]DatasetSqlServerTableInput
+
+func (DatasetSqlServerTableMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DatasetSqlServerTable)(nil))
+}
+
+func (i DatasetSqlServerTableMap) ToDatasetSqlServerTableMapOutput() DatasetSqlServerTableMapOutput {
+	return i.ToDatasetSqlServerTableMapOutputWithContext(context.Background())
+}
+
+func (i DatasetSqlServerTableMap) ToDatasetSqlServerTableMapOutputWithContext(ctx context.Context) DatasetSqlServerTableMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetSqlServerTableMapOutput)
 }
 
 type DatasetSqlServerTableOutput struct {
@@ -264,7 +343,7 @@ type DatasetSqlServerTableOutput struct {
 }
 
 func (DatasetSqlServerTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetSqlServerTableOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatasetSqlServerTable)(nil))
 }
 
 func (o DatasetSqlServerTableOutput) ToDatasetSqlServerTableOutput() DatasetSqlServerTableOutput {
@@ -275,6 +354,75 @@ func (o DatasetSqlServerTableOutput) ToDatasetSqlServerTableOutputWithContext(ct
 	return o
 }
 
+func (o DatasetSqlServerTableOutput) ToDatasetSqlServerTablePtrOutput() DatasetSqlServerTablePtrOutput {
+	return o.ToDatasetSqlServerTablePtrOutputWithContext(context.Background())
+}
+
+func (o DatasetSqlServerTableOutput) ToDatasetSqlServerTablePtrOutputWithContext(ctx context.Context) DatasetSqlServerTablePtrOutput {
+	return o.ApplyT(func(v DatasetSqlServerTable) *DatasetSqlServerTable {
+		return &v
+	}).(DatasetSqlServerTablePtrOutput)
+}
+
+type DatasetSqlServerTablePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatasetSqlServerTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetSqlServerTable)(nil))
+}
+
+func (o DatasetSqlServerTablePtrOutput) ToDatasetSqlServerTablePtrOutput() DatasetSqlServerTablePtrOutput {
+	return o
+}
+
+func (o DatasetSqlServerTablePtrOutput) ToDatasetSqlServerTablePtrOutputWithContext(ctx context.Context) DatasetSqlServerTablePtrOutput {
+	return o
+}
+
+type DatasetSqlServerTableArrayOutput struct{ *pulumi.OutputState }
+
+func (DatasetSqlServerTableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetSqlServerTable)(nil))
+}
+
+func (o DatasetSqlServerTableArrayOutput) ToDatasetSqlServerTableArrayOutput() DatasetSqlServerTableArrayOutput {
+	return o
+}
+
+func (o DatasetSqlServerTableArrayOutput) ToDatasetSqlServerTableArrayOutputWithContext(ctx context.Context) DatasetSqlServerTableArrayOutput {
+	return o
+}
+
+func (o DatasetSqlServerTableArrayOutput) Index(i pulumi.IntInput) DatasetSqlServerTableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetSqlServerTable {
+		return vs[0].([]DatasetSqlServerTable)[vs[1].(int)]
+	}).(DatasetSqlServerTableOutput)
+}
+
+type DatasetSqlServerTableMapOutput struct{ *pulumi.OutputState }
+
+func (DatasetSqlServerTableMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DatasetSqlServerTable)(nil))
+}
+
+func (o DatasetSqlServerTableMapOutput) ToDatasetSqlServerTableMapOutput() DatasetSqlServerTableMapOutput {
+	return o
+}
+
+func (o DatasetSqlServerTableMapOutput) ToDatasetSqlServerTableMapOutputWithContext(ctx context.Context) DatasetSqlServerTableMapOutput {
+	return o
+}
+
+func (o DatasetSqlServerTableMapOutput) MapIndex(k pulumi.StringInput) DatasetSqlServerTableOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatasetSqlServerTable {
+		return vs[0].(map[string]DatasetSqlServerTable)[vs[1].(string)]
+	}).(DatasetSqlServerTableOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatasetSqlServerTableOutput{})
+	pulumi.RegisterOutputType(DatasetSqlServerTablePtrOutput{})
+	pulumi.RegisterOutputType(DatasetSqlServerTableArrayOutput{})
+	pulumi.RegisterOutputType(DatasetSqlServerTableMapOutput{})
 }

@@ -176,7 +176,8 @@ export class TrafficManagerEndpoint extends pulumi.CustomResource {
     constructor(name: string, args: TrafficManagerEndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TrafficManagerEndpointArgs | TrafficManagerEndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TrafficManagerEndpointState | undefined;
             inputs["customHeaders"] = state ? state.customHeaders : undefined;
             inputs["endpointLocation"] = state ? state.endpointLocation : undefined;
@@ -195,13 +196,13 @@ export class TrafficManagerEndpoint extends pulumi.CustomResource {
             inputs["weight"] = state ? state.weight : undefined;
         } else {
             const args = argsOrState as TrafficManagerEndpointArgs | undefined;
-            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.profileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["customHeaders"] = args ? args.customHeaders : undefined;
@@ -220,15 +221,11 @@ export class TrafficManagerEndpoint extends pulumi.CustomResource {
             inputs["weight"] = args ? args.weight : undefined;
             inputs["endpointMonitorStatus"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure:trafficmanager/endpoint:Endpoint" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TrafficManagerEndpoint.__pulumiType, name, inputs, opts);
     }
 }

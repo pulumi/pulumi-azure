@@ -84,32 +84,29 @@ export class ActiveSlot extends pulumi.CustomResource {
     constructor(name: string, args: ActiveSlotArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ActiveSlotArgs | ActiveSlotState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ActiveSlotState | undefined;
             inputs["appServiceName"] = state ? state.appServiceName : undefined;
             inputs["appServiceSlotName"] = state ? state.appServiceSlotName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ActiveSlotArgs | undefined;
-            if ((!args || args.appServiceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.appServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appServiceName'");
             }
-            if ((!args || args.appServiceSlotName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.appServiceSlotName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appServiceSlotName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["appServiceName"] = args ? args.appServiceName : undefined;
             inputs["appServiceSlotName"] = args ? args.appServiceSlotName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ActiveSlot.__pulumiType, name, inputs, opts);
     }

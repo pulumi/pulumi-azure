@@ -119,7 +119,8 @@ export class ActionRuleSuppression extends pulumi.CustomResource {
     constructor(name: string, args: ActionRuleSuppressionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ActionRuleSuppressionArgs | ActionRuleSuppressionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ActionRuleSuppressionState | undefined;
             inputs["condition"] = state ? state.condition : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -131,10 +132,10 @@ export class ActionRuleSuppression extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ActionRuleSuppressionArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.suppression === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.suppression === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'suppression'");
             }
             inputs["condition"] = args ? args.condition : undefined;
@@ -146,12 +147,8 @@ export class ActionRuleSuppression extends pulumi.CustomResource {
             inputs["suppression"] = args ? args.suppression : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ActionRuleSuppression.__pulumiType, name, inputs, opts);
     }

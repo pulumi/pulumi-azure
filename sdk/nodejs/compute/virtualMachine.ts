@@ -219,7 +219,8 @@ export class VirtualMachine extends pulumi.CustomResource {
     constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualMachineArgs | VirtualMachineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VirtualMachineState | undefined;
             inputs["additionalCapabilities"] = state ? state.additionalCapabilities : undefined;
             inputs["availabilitySetId"] = state ? state.availabilitySetId : undefined;
@@ -247,16 +248,16 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as VirtualMachineArgs | undefined;
-            if ((!args || args.networkInterfaceIds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.networkInterfaceIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceIds'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageOsDisk === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageOsDisk === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageOsDisk'");
             }
-            if ((!args || args.vmSize === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vmSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmSize'");
             }
             inputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
@@ -284,12 +285,8 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["vmSize"] = args ? args.vmSize : undefined;
             inputs["zones"] = args ? args.zones : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VirtualMachine.__pulumiType, name, inputs, opts);
     }

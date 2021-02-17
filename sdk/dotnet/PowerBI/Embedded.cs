@@ -49,6 +49,7 @@ namespace Pulumi.Azure.PowerBI
     ///  $ pulumi import azure:powerbi/embedded:Embedded example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.PowerBIDedicated/capacities/capacity1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:powerbi/embedded:Embedded")]
     public partial class Embedded : Pulumi.CustomResource
     {
         /// <summary>

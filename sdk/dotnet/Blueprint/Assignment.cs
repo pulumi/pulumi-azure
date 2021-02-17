@@ -120,6 +120,7 @@ namespace Pulumi.Azure.Blueprint
     ///  $ pulumi import azure:blueprint/assignment:Assignment example "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprintAssignments/assignSimpleBlueprint"
     /// ```
     /// </summary>
+    [AzureResourceType("azure:blueprint/assignment:Assignment")]
     public partial class Assignment : Pulumi.CustomResource
     {
         /// <summary>

@@ -44,6 +44,7 @@ namespace Pulumi.Azure.SecurityCenter
     ///  $ pulumi import azure:securitycenter/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/securityContacts/default1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:securitycenter/contact:Contact")]
     public partial class Contact : Pulumi.CustomResource
     {
         /// <summary>

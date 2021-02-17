@@ -128,7 +128,8 @@ export class ApplicationGroup extends pulumi.CustomResource {
     constructor(name: string, args: ApplicationGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationGroupArgs | ApplicationGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ApplicationGroupState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["friendlyName"] = state ? state.friendlyName : undefined;
@@ -140,13 +141,13 @@ export class ApplicationGroup extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ApplicationGroupArgs | undefined;
-            if ((!args || args.hostPoolId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.hostPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostPoolId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -158,12 +159,8 @@ export class ApplicationGroup extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ApplicationGroup.__pulumiType, name, inputs, opts);
     }

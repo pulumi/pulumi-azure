@@ -62,6 +62,7 @@ namespace Pulumi.Azure.CosmosDB
     ///  $ pulumi import azure:cosmosdb/sqlStoredProcedure:SqlStoredProcedure db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/db1/containers/c1/storedProcedures/sp1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:cosmosdb/sqlStoredProcedure:SqlStoredProcedure")]
     public partial class SqlStoredProcedure : Pulumi.CustomResource
     {
         /// <summary>

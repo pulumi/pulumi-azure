@@ -103,7 +103,8 @@ export class Hub extends pulumi.CustomResource {
     constructor(name: string, args: HubArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HubArgs | HubState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as HubState | undefined;
             inputs["apnsCredential"] = state ? state.apnsCredential : undefined;
             inputs["gcmCredential"] = state ? state.gcmCredential : undefined;
@@ -114,10 +115,10 @@ export class Hub extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as HubArgs | undefined;
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["apnsCredential"] = args ? args.apnsCredential : undefined;
@@ -128,12 +129,8 @@ export class Hub extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Hub.__pulumiType, name, inputs, opts);
     }

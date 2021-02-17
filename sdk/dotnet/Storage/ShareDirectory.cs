@@ -56,6 +56,7 @@ namespace Pulumi.Azure.Storage
     ///  $ pulumi import azure:storage/shareDirectory:ShareDirectory net/share1/directory1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:storage/shareDirectory:ShareDirectory")]
     public partial class ShareDirectory : Pulumi.CustomResource
     {
         /// <summary>

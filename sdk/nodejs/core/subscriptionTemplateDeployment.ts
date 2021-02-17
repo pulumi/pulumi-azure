@@ -109,7 +109,8 @@ export class SubscriptionTemplateDeployment extends pulumi.CustomResource {
     constructor(name: string, args: SubscriptionTemplateDeploymentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SubscriptionTemplateDeploymentArgs | SubscriptionTemplateDeploymentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SubscriptionTemplateDeploymentState | undefined;
             inputs["debugLevel"] = state ? state.debugLevel : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -120,7 +121,7 @@ export class SubscriptionTemplateDeployment extends pulumi.CustomResource {
             inputs["templateContent"] = state ? state.templateContent : undefined;
         } else {
             const args = argsOrState as SubscriptionTemplateDeploymentArgs | undefined;
-            if ((!args || args.templateContent === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.templateContent === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateContent'");
             }
             inputs["debugLevel"] = args ? args.debugLevel : undefined;
@@ -131,12 +132,8 @@ export class SubscriptionTemplateDeployment extends pulumi.CustomResource {
             inputs["templateContent"] = args ? args.templateContent : undefined;
             inputs["outputContent"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SubscriptionTemplateDeployment.__pulumiType, name, inputs, opts);
     }

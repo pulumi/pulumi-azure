@@ -58,6 +58,7 @@ namespace Pulumi.Azure.NetApp
     ///  $ pulumi import azure:netapp/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:netapp/account:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

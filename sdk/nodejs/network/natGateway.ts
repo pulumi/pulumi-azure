@@ -127,7 +127,8 @@ export class NatGateway extends pulumi.CustomResource {
     constructor(name: string, args: NatGatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NatGatewayArgs | NatGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NatGatewayState | undefined;
             inputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -141,7 +142,7 @@ export class NatGateway extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as NatGatewayArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
@@ -155,12 +156,8 @@ export class NatGateway extends pulumi.CustomResource {
             inputs["zones"] = args ? args.zones : undefined;
             inputs["resourceGuid"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NatGateway.__pulumiType, name, inputs, opts);
     }

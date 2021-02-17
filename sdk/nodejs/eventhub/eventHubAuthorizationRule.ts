@@ -144,7 +144,8 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventHubAuthorizationRuleArgs | EventHubAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("EventHubAuthorizationRule is deprecated: azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EventHubAuthorizationRuleState | undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
             inputs["listen"] = state ? state.listen : undefined;
@@ -161,13 +162,13 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
             inputs["send"] = state ? state.send : undefined;
         } else {
             const args = argsOrState as EventHubAuthorizationRuleArgs | undefined;
-            if ((!args || args.eventhubName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.eventhubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventhubName'");
             }
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["eventhubName"] = args ? args.eventhubName : undefined;
@@ -184,12 +185,8 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
             inputs["secondaryConnectionStringAlias"] = undefined /*out*/;
             inputs["secondaryKey"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EventHubAuthorizationRule.__pulumiType, name, inputs, opts);
     }

@@ -585,16 +585,95 @@ type WindowsVirtualMachineInput interface {
 	ToWindowsVirtualMachineOutputWithContext(ctx context.Context) WindowsVirtualMachineOutput
 }
 
-func (WindowsVirtualMachine) ElementType() reflect.Type {
-	return reflect.TypeOf((*WindowsVirtualMachine)(nil)).Elem()
+func (*WindowsVirtualMachine) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachine)(nil))
 }
 
-func (i WindowsVirtualMachine) ToWindowsVirtualMachineOutput() WindowsVirtualMachineOutput {
+func (i *WindowsVirtualMachine) ToWindowsVirtualMachineOutput() WindowsVirtualMachineOutput {
 	return i.ToWindowsVirtualMachineOutputWithContext(context.Background())
 }
 
-func (i WindowsVirtualMachine) ToWindowsVirtualMachineOutputWithContext(ctx context.Context) WindowsVirtualMachineOutput {
+func (i *WindowsVirtualMachine) ToWindowsVirtualMachineOutputWithContext(ctx context.Context) WindowsVirtualMachineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineOutput)
+}
+
+func (i *WindowsVirtualMachine) ToWindowsVirtualMachinePtrOutput() WindowsVirtualMachinePtrOutput {
+	return i.ToWindowsVirtualMachinePtrOutputWithContext(context.Background())
+}
+
+func (i *WindowsVirtualMachine) ToWindowsVirtualMachinePtrOutputWithContext(ctx context.Context) WindowsVirtualMachinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachinePtrOutput)
+}
+
+type WindowsVirtualMachinePtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachinePtrOutput() WindowsVirtualMachinePtrOutput
+	ToWindowsVirtualMachinePtrOutputWithContext(ctx context.Context) WindowsVirtualMachinePtrOutput
+}
+
+type windowsVirtualMachinePtrType WindowsVirtualMachineArgs
+
+func (*windowsVirtualMachinePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachine)(nil))
+}
+
+func (i *windowsVirtualMachinePtrType) ToWindowsVirtualMachinePtrOutput() WindowsVirtualMachinePtrOutput {
+	return i.ToWindowsVirtualMachinePtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachinePtrType) ToWindowsVirtualMachinePtrOutputWithContext(ctx context.Context) WindowsVirtualMachinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachinePtrOutput)
+}
+
+// WindowsVirtualMachineArrayInput is an input type that accepts WindowsVirtualMachineArray and WindowsVirtualMachineArrayOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineArrayInput` via:
+//
+//          WindowsVirtualMachineArray{ WindowsVirtualMachineArgs{...} }
+type WindowsVirtualMachineArrayInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineArrayOutput() WindowsVirtualMachineArrayOutput
+	ToWindowsVirtualMachineArrayOutputWithContext(context.Context) WindowsVirtualMachineArrayOutput
+}
+
+type WindowsVirtualMachineArray []WindowsVirtualMachineInput
+
+func (WindowsVirtualMachineArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*WindowsVirtualMachine)(nil))
+}
+
+func (i WindowsVirtualMachineArray) ToWindowsVirtualMachineArrayOutput() WindowsVirtualMachineArrayOutput {
+	return i.ToWindowsVirtualMachineArrayOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineArray) ToWindowsVirtualMachineArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineArrayOutput)
+}
+
+// WindowsVirtualMachineMapInput is an input type that accepts WindowsVirtualMachineMap and WindowsVirtualMachineMapOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineMapInput` via:
+//
+//          WindowsVirtualMachineMap{ "key": WindowsVirtualMachineArgs{...} }
+type WindowsVirtualMachineMapInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineMapOutput() WindowsVirtualMachineMapOutput
+	ToWindowsVirtualMachineMapOutputWithContext(context.Context) WindowsVirtualMachineMapOutput
+}
+
+type WindowsVirtualMachineMap map[string]WindowsVirtualMachineInput
+
+func (WindowsVirtualMachineMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*WindowsVirtualMachine)(nil))
+}
+
+func (i WindowsVirtualMachineMap) ToWindowsVirtualMachineMapOutput() WindowsVirtualMachineMapOutput {
+	return i.ToWindowsVirtualMachineMapOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineMap) ToWindowsVirtualMachineMapOutputWithContext(ctx context.Context) WindowsVirtualMachineMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineMapOutput)
 }
 
 type WindowsVirtualMachineOutput struct {
@@ -602,7 +681,7 @@ type WindowsVirtualMachineOutput struct {
 }
 
 func (WindowsVirtualMachineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WindowsVirtualMachineOutput)(nil)).Elem()
+	return reflect.TypeOf((*WindowsVirtualMachine)(nil))
 }
 
 func (o WindowsVirtualMachineOutput) ToWindowsVirtualMachineOutput() WindowsVirtualMachineOutput {
@@ -613,6 +692,75 @@ func (o WindowsVirtualMachineOutput) ToWindowsVirtualMachineOutputWithContext(ct
 	return o
 }
 
+func (o WindowsVirtualMachineOutput) ToWindowsVirtualMachinePtrOutput() WindowsVirtualMachinePtrOutput {
+	return o.ToWindowsVirtualMachinePtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineOutput) ToWindowsVirtualMachinePtrOutputWithContext(ctx context.Context) WindowsVirtualMachinePtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachine) *WindowsVirtualMachine {
+		return &v
+	}).(WindowsVirtualMachinePtrOutput)
+}
+
+type WindowsVirtualMachinePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (WindowsVirtualMachinePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachine)(nil))
+}
+
+func (o WindowsVirtualMachinePtrOutput) ToWindowsVirtualMachinePtrOutput() WindowsVirtualMachinePtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachinePtrOutput) ToWindowsVirtualMachinePtrOutputWithContext(ctx context.Context) WindowsVirtualMachinePtrOutput {
+	return o
+}
+
+type WindowsVirtualMachineArrayOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachine)(nil))
+}
+
+func (o WindowsVirtualMachineArrayOutput) ToWindowsVirtualMachineArrayOutput() WindowsVirtualMachineArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineArrayOutput) ToWindowsVirtualMachineArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachine {
+		return vs[0].([]WindowsVirtualMachine)[vs[1].(int)]
+	}).(WindowsVirtualMachineOutput)
+}
+
+type WindowsVirtualMachineMapOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WindowsVirtualMachine)(nil))
+}
+
+func (o WindowsVirtualMachineMapOutput) ToWindowsVirtualMachineMapOutput() WindowsVirtualMachineMapOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineMapOutput) ToWindowsVirtualMachineMapOutputWithContext(ctx context.Context) WindowsVirtualMachineMapOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineMapOutput) MapIndex(k pulumi.StringInput) WindowsVirtualMachineOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WindowsVirtualMachine {
+		return vs[0].(map[string]WindowsVirtualMachine)[vs[1].(string)]
+	}).(WindowsVirtualMachineOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WindowsVirtualMachineOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachinePtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineArrayOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineMapOutput{})
 }

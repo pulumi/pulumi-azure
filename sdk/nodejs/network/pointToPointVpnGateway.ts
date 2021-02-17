@@ -106,7 +106,8 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
     constructor(name: string, args: PointToPointVpnGatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PointToPointVpnGatewayArgs | PointToPointVpnGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PointToPointVpnGatewayState | undefined;
             inputs["connectionConfiguration"] = state ? state.connectionConfiguration : undefined;
             inputs["dnsServers"] = state ? state.dnsServers : undefined;
@@ -119,19 +120,19 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
             inputs["vpnServerConfigurationId"] = state ? state.vpnServerConfigurationId : undefined;
         } else {
             const args = argsOrState as PointToPointVpnGatewayArgs | undefined;
-            if ((!args || args.connectionConfiguration === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.connectionConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionConfiguration'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scaleUnit === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scaleUnit === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scaleUnit'");
             }
-            if ((!args || args.virtualHubId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualHubId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
-            if ((!args || args.vpnServerConfigurationId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vpnServerConfigurationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpnServerConfigurationId'");
             }
             inputs["connectionConfiguration"] = args ? args.connectionConfiguration : undefined;
@@ -144,12 +145,8 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
             inputs["virtualHubId"] = args ? args.virtualHubId : undefined;
             inputs["vpnServerConfigurationId"] = args ? args.vpnServerConfigurationId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PointToPointVpnGateway.__pulumiType, name, inputs, opts);
     }

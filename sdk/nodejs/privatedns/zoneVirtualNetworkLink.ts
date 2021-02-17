@@ -93,7 +93,8 @@ export class ZoneVirtualNetworkLink extends pulumi.CustomResource {
     constructor(name: string, args: ZoneVirtualNetworkLinkArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ZoneVirtualNetworkLinkArgs | ZoneVirtualNetworkLinkState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ZoneVirtualNetworkLinkState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["privateDnsZoneName"] = state ? state.privateDnsZoneName : undefined;
@@ -103,13 +104,13 @@ export class ZoneVirtualNetworkLink extends pulumi.CustomResource {
             inputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
         } else {
             const args = argsOrState as ZoneVirtualNetworkLinkArgs | undefined;
-            if ((!args || args.privateDnsZoneName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.privateDnsZoneName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateDnsZoneName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetworkId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkId'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -119,12 +120,8 @@ export class ZoneVirtualNetworkLink extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ZoneVirtualNetworkLink.__pulumiType, name, inputs, opts);
     }

@@ -56,6 +56,7 @@ namespace Pulumi.Azure.Iot
     ///  $ pulumi import azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy shared_access_policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/provisioningServices/dps1/keys/shared_access_policy1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy")]
     public partial class DpsSharedAccessPolicy : Pulumi.CustomResource
     {
         /// <summary>

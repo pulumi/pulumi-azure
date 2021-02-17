@@ -79,6 +79,7 @@ namespace Pulumi.Azure.Synapse
     ///  $ pulumi import azure:synapse/roleAssignment:RoleAssignment example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1|000000000000"
     /// ```
     /// </summary>
+    [AzureResourceType("azure:synapse/roleAssignment:RoleAssignment")]
     public partial class RoleAssignment : Pulumi.CustomResource
     {
         /// <summary>

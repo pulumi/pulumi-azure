@@ -124,7 +124,8 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: AttachedDatabaseConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AttachedDatabaseConfigurationArgs | AttachedDatabaseConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AttachedDatabaseConfigurationState | undefined;
             inputs["attachedDatabaseNames"] = state ? state.attachedDatabaseNames : undefined;
             inputs["clusterName"] = state ? state.clusterName : undefined;
@@ -136,16 +137,16 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as AttachedDatabaseConfigurationArgs | undefined;
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.clusterResourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clusterResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterResourceId'");
             }
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
@@ -157,12 +158,8 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["attachedDatabaseNames"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AttachedDatabaseConfiguration.__pulumiType, name, inputs, opts);
     }

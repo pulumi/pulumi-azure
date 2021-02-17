@@ -86,6 +86,7 @@ namespace Pulumi.Azure.PostgreSql
     ///  $ pulumi import azure:postgresql/virtualNetworkRule:VirtualNetworkRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/myserver/virtualNetworkRules/vnetrulename
     /// ```
     /// </summary>
+    [AzureResourceType("azure:postgresql/virtualNetworkRule:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>

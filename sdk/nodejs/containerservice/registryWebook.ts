@@ -124,7 +124,8 @@ export class RegistryWebook extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RegistryWebookArgs | RegistryWebookState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("RegistryWebook is deprecated: azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RegistryWebookState | undefined;
             inputs["actions"] = state ? state.actions : undefined;
             inputs["customHeaders"] = state ? state.customHeaders : undefined;
@@ -138,16 +139,16 @@ export class RegistryWebook extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RegistryWebookArgs | undefined;
-            if ((!args || args.actions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.actions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.registryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceUri === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceUri'");
             }
             inputs["actions"] = args ? args.actions : undefined;
@@ -161,12 +162,8 @@ export class RegistryWebook extends pulumi.CustomResource {
             inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RegistryWebook.__pulumiType, name, inputs, opts);
     }

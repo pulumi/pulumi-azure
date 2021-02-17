@@ -196,16 +196,95 @@ type AAAARecordInput interface {
 	ToAAAARecordOutputWithContext(ctx context.Context) AAAARecordOutput
 }
 
-func (AAAARecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*AAAARecord)(nil)).Elem()
+func (*AAAARecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*AAAARecord)(nil))
 }
 
-func (i AAAARecord) ToAAAARecordOutput() AAAARecordOutput {
+func (i *AAAARecord) ToAAAARecordOutput() AAAARecordOutput {
 	return i.ToAAAARecordOutputWithContext(context.Background())
 }
 
-func (i AAAARecord) ToAAAARecordOutputWithContext(ctx context.Context) AAAARecordOutput {
+func (i *AAAARecord) ToAAAARecordOutputWithContext(ctx context.Context) AAAARecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AAAARecordOutput)
+}
+
+func (i *AAAARecord) ToAAAARecordPtrOutput() AAAARecordPtrOutput {
+	return i.ToAAAARecordPtrOutputWithContext(context.Background())
+}
+
+func (i *AAAARecord) ToAAAARecordPtrOutputWithContext(ctx context.Context) AAAARecordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AAAARecordPtrOutput)
+}
+
+type AAAARecordPtrInput interface {
+	pulumi.Input
+
+	ToAAAARecordPtrOutput() AAAARecordPtrOutput
+	ToAAAARecordPtrOutputWithContext(ctx context.Context) AAAARecordPtrOutput
+}
+
+type aaaarecordPtrType AAAARecordArgs
+
+func (*aaaarecordPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AAAARecord)(nil))
+}
+
+func (i *aaaarecordPtrType) ToAAAARecordPtrOutput() AAAARecordPtrOutput {
+	return i.ToAAAARecordPtrOutputWithContext(context.Background())
+}
+
+func (i *aaaarecordPtrType) ToAAAARecordPtrOutputWithContext(ctx context.Context) AAAARecordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AAAARecordPtrOutput)
+}
+
+// AAAARecordArrayInput is an input type that accepts AAAARecordArray and AAAARecordArrayOutput values.
+// You can construct a concrete instance of `AAAARecordArrayInput` via:
+//
+//          AAAARecordArray{ AAAARecordArgs{...} }
+type AAAARecordArrayInput interface {
+	pulumi.Input
+
+	ToAAAARecordArrayOutput() AAAARecordArrayOutput
+	ToAAAARecordArrayOutputWithContext(context.Context) AAAARecordArrayOutput
+}
+
+type AAAARecordArray []AAAARecordInput
+
+func (AAAARecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AAAARecord)(nil))
+}
+
+func (i AAAARecordArray) ToAAAARecordArrayOutput() AAAARecordArrayOutput {
+	return i.ToAAAARecordArrayOutputWithContext(context.Background())
+}
+
+func (i AAAARecordArray) ToAAAARecordArrayOutputWithContext(ctx context.Context) AAAARecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AAAARecordArrayOutput)
+}
+
+// AAAARecordMapInput is an input type that accepts AAAARecordMap and AAAARecordMapOutput values.
+// You can construct a concrete instance of `AAAARecordMapInput` via:
+//
+//          AAAARecordMap{ "key": AAAARecordArgs{...} }
+type AAAARecordMapInput interface {
+	pulumi.Input
+
+	ToAAAARecordMapOutput() AAAARecordMapOutput
+	ToAAAARecordMapOutputWithContext(context.Context) AAAARecordMapOutput
+}
+
+type AAAARecordMap map[string]AAAARecordInput
+
+func (AAAARecordMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AAAARecord)(nil))
+}
+
+func (i AAAARecordMap) ToAAAARecordMapOutput() AAAARecordMapOutput {
+	return i.ToAAAARecordMapOutputWithContext(context.Background())
+}
+
+func (i AAAARecordMap) ToAAAARecordMapOutputWithContext(ctx context.Context) AAAARecordMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AAAARecordMapOutput)
 }
 
 type AAAARecordOutput struct {
@@ -213,7 +292,7 @@ type AAAARecordOutput struct {
 }
 
 func (AAAARecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AAAARecordOutput)(nil)).Elem()
+	return reflect.TypeOf((*AAAARecord)(nil))
 }
 
 func (o AAAARecordOutput) ToAAAARecordOutput() AAAARecordOutput {
@@ -224,6 +303,75 @@ func (o AAAARecordOutput) ToAAAARecordOutputWithContext(ctx context.Context) AAA
 	return o
 }
 
+func (o AAAARecordOutput) ToAAAARecordPtrOutput() AAAARecordPtrOutput {
+	return o.ToAAAARecordPtrOutputWithContext(context.Background())
+}
+
+func (o AAAARecordOutput) ToAAAARecordPtrOutputWithContext(ctx context.Context) AAAARecordPtrOutput {
+	return o.ApplyT(func(v AAAARecord) *AAAARecord {
+		return &v
+	}).(AAAARecordPtrOutput)
+}
+
+type AAAARecordPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AAAARecordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AAAARecord)(nil))
+}
+
+func (o AAAARecordPtrOutput) ToAAAARecordPtrOutput() AAAARecordPtrOutput {
+	return o
+}
+
+func (o AAAARecordPtrOutput) ToAAAARecordPtrOutputWithContext(ctx context.Context) AAAARecordPtrOutput {
+	return o
+}
+
+type AAAARecordArrayOutput struct{ *pulumi.OutputState }
+
+func (AAAARecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AAAARecord)(nil))
+}
+
+func (o AAAARecordArrayOutput) ToAAAARecordArrayOutput() AAAARecordArrayOutput {
+	return o
+}
+
+func (o AAAARecordArrayOutput) ToAAAARecordArrayOutputWithContext(ctx context.Context) AAAARecordArrayOutput {
+	return o
+}
+
+func (o AAAARecordArrayOutput) Index(i pulumi.IntInput) AAAARecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AAAARecord {
+		return vs[0].([]AAAARecord)[vs[1].(int)]
+	}).(AAAARecordOutput)
+}
+
+type AAAARecordMapOutput struct{ *pulumi.OutputState }
+
+func (AAAARecordMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AAAARecord)(nil))
+}
+
+func (o AAAARecordMapOutput) ToAAAARecordMapOutput() AAAARecordMapOutput {
+	return o
+}
+
+func (o AAAARecordMapOutput) ToAAAARecordMapOutputWithContext(ctx context.Context) AAAARecordMapOutput {
+	return o
+}
+
+func (o AAAARecordMapOutput) MapIndex(k pulumi.StringInput) AAAARecordOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AAAARecord {
+		return vs[0].(map[string]AAAARecord)[vs[1].(string)]
+	}).(AAAARecordOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AAAARecordOutput{})
+	pulumi.RegisterOutputType(AAAARecordPtrOutput{})
+	pulumi.RegisterOutputType(AAAARecordArrayOutput{})
+	pulumi.RegisterOutputType(AAAARecordMapOutput{})
 }

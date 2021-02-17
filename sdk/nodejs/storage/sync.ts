@@ -90,7 +90,8 @@ export class Sync extends pulumi.CustomResource {
     constructor(name: string, args: SyncArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SyncArgs | SyncState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SyncState | undefined;
             inputs["incomingTrafficPolicy"] = state ? state.incomingTrafficPolicy : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -99,7 +100,7 @@ export class Sync extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SyncArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["incomingTrafficPolicy"] = args ? args.incomingTrafficPolicy : undefined;
@@ -108,12 +109,8 @@ export class Sync extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Sync.__pulumiType, name, inputs, opts);
     }

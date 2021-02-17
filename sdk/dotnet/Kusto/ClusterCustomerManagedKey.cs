@@ -20,6 +20,7 @@ namespace Pulumi.Azure.Kusto
     ///  $ pulumi import azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey")]
     public partial class ClusterCustomerManagedKey : Pulumi.CustomResource
     {
         /// <summary>

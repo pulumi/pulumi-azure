@@ -69,6 +69,7 @@ namespace Pulumi.Azure.StreamAnalytics
     ///  $ pulumi import azure:streamanalytics/streamInputIotHub:StreamInputIotHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/inputs/input1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:streamanalytics/streamInputIotHub:StreamInputIotHub")]
     public partial class StreamInputIotHub : Pulumi.CustomResource
     {
         /// <summary>

@@ -122,7 +122,8 @@ export class NatPool extends pulumi.CustomResource {
     constructor(name: string, args: NatPoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NatPoolArgs | NatPoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NatPoolState | undefined;
             inputs["backendPort"] = state ? state.backendPort : undefined;
             inputs["frontendIpConfigurationId"] = state ? state.frontendIpConfigurationId : undefined;
@@ -135,25 +136,25 @@ export class NatPool extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as NatPoolArgs | undefined;
-            if ((!args || args.backendPort === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.backendPort === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backendPort'");
             }
-            if ((!args || args.frontendIpConfigurationName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.frontendIpConfigurationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frontendIpConfigurationName'");
             }
-            if ((!args || args.frontendPortEnd === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.frontendPortEnd === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frontendPortEnd'");
             }
-            if ((!args || args.frontendPortStart === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.frontendPortStart === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frontendPortStart'");
             }
-            if ((!args || args.loadbalancerId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loadbalancerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadbalancerId'");
             }
-            if ((!args || args.protocol === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["backendPort"] = args ? args.backendPort : undefined;
@@ -166,12 +167,8 @@ export class NatPool extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["frontendIpConfigurationId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NatPool.__pulumiType, name, inputs, opts);
     }

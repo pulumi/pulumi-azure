@@ -96,7 +96,8 @@ export class TriggerRecurrence extends pulumi.CustomResource {
     constructor(name: string, args: TriggerRecurrenceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TriggerRecurrenceArgs | TriggerRecurrenceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TriggerRecurrenceState | undefined;
             inputs["frequency"] = state ? state.frequency : undefined;
             inputs["interval"] = state ? state.interval : undefined;
@@ -106,13 +107,13 @@ export class TriggerRecurrence extends pulumi.CustomResource {
             inputs["timeZone"] = state ? state.timeZone : undefined;
         } else {
             const args = argsOrState as TriggerRecurrenceArgs | undefined;
-            if ((!args || args.frequency === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.frequency === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.interval === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.interval === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'interval'");
             }
-            if ((!args || args.logicAppId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.logicAppId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logicAppId'");
             }
             inputs["frequency"] = args ? args.frequency : undefined;
@@ -122,12 +123,8 @@ export class TriggerRecurrence extends pulumi.CustomResource {
             inputs["startTime"] = args ? args.startTime : undefined;
             inputs["timeZone"] = args ? args.timeZone : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TriggerRecurrence.__pulumiType, name, inputs, opts);
     }

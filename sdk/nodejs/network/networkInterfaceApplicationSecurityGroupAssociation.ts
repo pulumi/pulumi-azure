@@ -98,27 +98,24 @@ export class NetworkInterfaceApplicationSecurityGroupAssociation extends pulumi.
     constructor(name: string, args: NetworkInterfaceApplicationSecurityGroupAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkInterfaceApplicationSecurityGroupAssociationArgs | NetworkInterfaceApplicationSecurityGroupAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NetworkInterfaceApplicationSecurityGroupAssociationState | undefined;
             inputs["applicationSecurityGroupId"] = state ? state.applicationSecurityGroupId : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
         } else {
             const args = argsOrState as NetworkInterfaceApplicationSecurityGroupAssociationArgs | undefined;
-            if ((!args || args.applicationSecurityGroupId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.applicationSecurityGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationSecurityGroupId'");
             }
-            if ((!args || args.networkInterfaceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
             inputs["applicationSecurityGroupId"] = args ? args.applicationSecurityGroupId : undefined;
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NetworkInterfaceApplicationSecurityGroupAssociation.__pulumiType, name, inputs, opts);
     }

@@ -103,7 +103,8 @@ export class PublicIpPrefix extends pulumi.CustomResource {
     constructor(name: string, args: PublicIpPrefixArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PublicIpPrefixArgs | PublicIpPrefixState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PublicIpPrefixState | undefined;
             inputs["ipPrefix"] = state ? state.ipPrefix : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -115,7 +116,7 @@ export class PublicIpPrefix extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as PublicIpPrefixArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -127,12 +128,8 @@ export class PublicIpPrefix extends pulumi.CustomResource {
             inputs["zones"] = args ? args.zones : undefined;
             inputs["ipPrefix"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PublicIpPrefix.__pulumiType, name, inputs, opts);
     }

@@ -113,7 +113,8 @@ export class ShareFile extends pulumi.CustomResource {
     constructor(name: string, args: ShareFileArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ShareFileArgs | ShareFileState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ShareFileState | undefined;
             inputs["contentDisposition"] = state ? state.contentDisposition : undefined;
             inputs["contentEncoding"] = state ? state.contentEncoding : undefined;
@@ -126,7 +127,7 @@ export class ShareFile extends pulumi.CustomResource {
             inputs["storageShareId"] = state ? state.storageShareId : undefined;
         } else {
             const args = argsOrState as ShareFileArgs | undefined;
-            if ((!args || args.storageShareId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageShareId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageShareId'");
             }
             inputs["contentDisposition"] = args ? args.contentDisposition : undefined;
@@ -139,12 +140,8 @@ export class ShareFile extends pulumi.CustomResource {
             inputs["source"] = args ? args.source : undefined;
             inputs["storageShareId"] = args ? args.storageShareId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ShareFile.__pulumiType, name, inputs, opts);
     }

@@ -226,16 +226,95 @@ type ClusterPrincipalAssignmentInput interface {
 	ToClusterPrincipalAssignmentOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentOutput
 }
 
-func (ClusterPrincipalAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterPrincipalAssignment)(nil)).Elem()
+func (*ClusterPrincipalAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPrincipalAssignment)(nil))
 }
 
-func (i ClusterPrincipalAssignment) ToClusterPrincipalAssignmentOutput() ClusterPrincipalAssignmentOutput {
+func (i *ClusterPrincipalAssignment) ToClusterPrincipalAssignmentOutput() ClusterPrincipalAssignmentOutput {
 	return i.ToClusterPrincipalAssignmentOutputWithContext(context.Background())
 }
 
-func (i ClusterPrincipalAssignment) ToClusterPrincipalAssignmentOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentOutput {
+func (i *ClusterPrincipalAssignment) ToClusterPrincipalAssignmentOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterPrincipalAssignmentOutput)
+}
+
+func (i *ClusterPrincipalAssignment) ToClusterPrincipalAssignmentPtrOutput() ClusterPrincipalAssignmentPtrOutput {
+	return i.ToClusterPrincipalAssignmentPtrOutputWithContext(context.Background())
+}
+
+func (i *ClusterPrincipalAssignment) ToClusterPrincipalAssignmentPtrOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPrincipalAssignmentPtrOutput)
+}
+
+type ClusterPrincipalAssignmentPtrInput interface {
+	pulumi.Input
+
+	ToClusterPrincipalAssignmentPtrOutput() ClusterPrincipalAssignmentPtrOutput
+	ToClusterPrincipalAssignmentPtrOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentPtrOutput
+}
+
+type clusterPrincipalAssignmentPtrType ClusterPrincipalAssignmentArgs
+
+func (*clusterPrincipalAssignmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterPrincipalAssignment)(nil))
+}
+
+func (i *clusterPrincipalAssignmentPtrType) ToClusterPrincipalAssignmentPtrOutput() ClusterPrincipalAssignmentPtrOutput {
+	return i.ToClusterPrincipalAssignmentPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterPrincipalAssignmentPtrType) ToClusterPrincipalAssignmentPtrOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPrincipalAssignmentPtrOutput)
+}
+
+// ClusterPrincipalAssignmentArrayInput is an input type that accepts ClusterPrincipalAssignmentArray and ClusterPrincipalAssignmentArrayOutput values.
+// You can construct a concrete instance of `ClusterPrincipalAssignmentArrayInput` via:
+//
+//          ClusterPrincipalAssignmentArray{ ClusterPrincipalAssignmentArgs{...} }
+type ClusterPrincipalAssignmentArrayInput interface {
+	pulumi.Input
+
+	ToClusterPrincipalAssignmentArrayOutput() ClusterPrincipalAssignmentArrayOutput
+	ToClusterPrincipalAssignmentArrayOutputWithContext(context.Context) ClusterPrincipalAssignmentArrayOutput
+}
+
+type ClusterPrincipalAssignmentArray []ClusterPrincipalAssignmentInput
+
+func (ClusterPrincipalAssignmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ClusterPrincipalAssignment)(nil))
+}
+
+func (i ClusterPrincipalAssignmentArray) ToClusterPrincipalAssignmentArrayOutput() ClusterPrincipalAssignmentArrayOutput {
+	return i.ToClusterPrincipalAssignmentArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterPrincipalAssignmentArray) ToClusterPrincipalAssignmentArrayOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPrincipalAssignmentArrayOutput)
+}
+
+// ClusterPrincipalAssignmentMapInput is an input type that accepts ClusterPrincipalAssignmentMap and ClusterPrincipalAssignmentMapOutput values.
+// You can construct a concrete instance of `ClusterPrincipalAssignmentMapInput` via:
+//
+//          ClusterPrincipalAssignmentMap{ "key": ClusterPrincipalAssignmentArgs{...} }
+type ClusterPrincipalAssignmentMapInput interface {
+	pulumi.Input
+
+	ToClusterPrincipalAssignmentMapOutput() ClusterPrincipalAssignmentMapOutput
+	ToClusterPrincipalAssignmentMapOutputWithContext(context.Context) ClusterPrincipalAssignmentMapOutput
+}
+
+type ClusterPrincipalAssignmentMap map[string]ClusterPrincipalAssignmentInput
+
+func (ClusterPrincipalAssignmentMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ClusterPrincipalAssignment)(nil))
+}
+
+func (i ClusterPrincipalAssignmentMap) ToClusterPrincipalAssignmentMapOutput() ClusterPrincipalAssignmentMapOutput {
+	return i.ToClusterPrincipalAssignmentMapOutputWithContext(context.Background())
+}
+
+func (i ClusterPrincipalAssignmentMap) ToClusterPrincipalAssignmentMapOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPrincipalAssignmentMapOutput)
 }
 
 type ClusterPrincipalAssignmentOutput struct {
@@ -243,7 +322,7 @@ type ClusterPrincipalAssignmentOutput struct {
 }
 
 func (ClusterPrincipalAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterPrincipalAssignmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*ClusterPrincipalAssignment)(nil))
 }
 
 func (o ClusterPrincipalAssignmentOutput) ToClusterPrincipalAssignmentOutput() ClusterPrincipalAssignmentOutput {
@@ -254,6 +333,75 @@ func (o ClusterPrincipalAssignmentOutput) ToClusterPrincipalAssignmentOutputWith
 	return o
 }
 
+func (o ClusterPrincipalAssignmentOutput) ToClusterPrincipalAssignmentPtrOutput() ClusterPrincipalAssignmentPtrOutput {
+	return o.ToClusterPrincipalAssignmentPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPrincipalAssignmentOutput) ToClusterPrincipalAssignmentPtrOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentPtrOutput {
+	return o.ApplyT(func(v ClusterPrincipalAssignment) *ClusterPrincipalAssignment {
+		return &v
+	}).(ClusterPrincipalAssignmentPtrOutput)
+}
+
+type ClusterPrincipalAssignmentPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ClusterPrincipalAssignmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterPrincipalAssignment)(nil))
+}
+
+func (o ClusterPrincipalAssignmentPtrOutput) ToClusterPrincipalAssignmentPtrOutput() ClusterPrincipalAssignmentPtrOutput {
+	return o
+}
+
+func (o ClusterPrincipalAssignmentPtrOutput) ToClusterPrincipalAssignmentPtrOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentPtrOutput {
+	return o
+}
+
+type ClusterPrincipalAssignmentArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterPrincipalAssignmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterPrincipalAssignment)(nil))
+}
+
+func (o ClusterPrincipalAssignmentArrayOutput) ToClusterPrincipalAssignmentArrayOutput() ClusterPrincipalAssignmentArrayOutput {
+	return o
+}
+
+func (o ClusterPrincipalAssignmentArrayOutput) ToClusterPrincipalAssignmentArrayOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentArrayOutput {
+	return o
+}
+
+func (o ClusterPrincipalAssignmentArrayOutput) Index(i pulumi.IntInput) ClusterPrincipalAssignmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterPrincipalAssignment {
+		return vs[0].([]ClusterPrincipalAssignment)[vs[1].(int)]
+	}).(ClusterPrincipalAssignmentOutput)
+}
+
+type ClusterPrincipalAssignmentMapOutput struct{ *pulumi.OutputState }
+
+func (ClusterPrincipalAssignmentMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ClusterPrincipalAssignment)(nil))
+}
+
+func (o ClusterPrincipalAssignmentMapOutput) ToClusterPrincipalAssignmentMapOutput() ClusterPrincipalAssignmentMapOutput {
+	return o
+}
+
+func (o ClusterPrincipalAssignmentMapOutput) ToClusterPrincipalAssignmentMapOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentMapOutput {
+	return o
+}
+
+func (o ClusterPrincipalAssignmentMapOutput) MapIndex(k pulumi.StringInput) ClusterPrincipalAssignmentOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ClusterPrincipalAssignment {
+		return vs[0].(map[string]ClusterPrincipalAssignment)[vs[1].(string)]
+	}).(ClusterPrincipalAssignmentOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterPrincipalAssignmentOutput{})
+	pulumi.RegisterOutputType(ClusterPrincipalAssignmentPtrOutput{})
+	pulumi.RegisterOutputType(ClusterPrincipalAssignmentArrayOutput{})
+	pulumi.RegisterOutputType(ClusterPrincipalAssignmentMapOutput{})
 }

@@ -222,16 +222,95 @@ type VpnSiteInput interface {
 	ToVpnSiteOutputWithContext(ctx context.Context) VpnSiteOutput
 }
 
-func (VpnSite) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnSite)(nil)).Elem()
+func (*VpnSite) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnSite)(nil))
 }
 
-func (i VpnSite) ToVpnSiteOutput() VpnSiteOutput {
+func (i *VpnSite) ToVpnSiteOutput() VpnSiteOutput {
 	return i.ToVpnSiteOutputWithContext(context.Background())
 }
 
-func (i VpnSite) ToVpnSiteOutputWithContext(ctx context.Context) VpnSiteOutput {
+func (i *VpnSite) ToVpnSiteOutputWithContext(ctx context.Context) VpnSiteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnSiteOutput)
+}
+
+func (i *VpnSite) ToVpnSitePtrOutput() VpnSitePtrOutput {
+	return i.ToVpnSitePtrOutputWithContext(context.Background())
+}
+
+func (i *VpnSite) ToVpnSitePtrOutputWithContext(ctx context.Context) VpnSitePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnSitePtrOutput)
+}
+
+type VpnSitePtrInput interface {
+	pulumi.Input
+
+	ToVpnSitePtrOutput() VpnSitePtrOutput
+	ToVpnSitePtrOutputWithContext(ctx context.Context) VpnSitePtrOutput
+}
+
+type vpnSitePtrType VpnSiteArgs
+
+func (*vpnSitePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnSite)(nil))
+}
+
+func (i *vpnSitePtrType) ToVpnSitePtrOutput() VpnSitePtrOutput {
+	return i.ToVpnSitePtrOutputWithContext(context.Background())
+}
+
+func (i *vpnSitePtrType) ToVpnSitePtrOutputWithContext(ctx context.Context) VpnSitePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnSitePtrOutput)
+}
+
+// VpnSiteArrayInput is an input type that accepts VpnSiteArray and VpnSiteArrayOutput values.
+// You can construct a concrete instance of `VpnSiteArrayInput` via:
+//
+//          VpnSiteArray{ VpnSiteArgs{...} }
+type VpnSiteArrayInput interface {
+	pulumi.Input
+
+	ToVpnSiteArrayOutput() VpnSiteArrayOutput
+	ToVpnSiteArrayOutputWithContext(context.Context) VpnSiteArrayOutput
+}
+
+type VpnSiteArray []VpnSiteInput
+
+func (VpnSiteArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VpnSite)(nil))
+}
+
+func (i VpnSiteArray) ToVpnSiteArrayOutput() VpnSiteArrayOutput {
+	return i.ToVpnSiteArrayOutputWithContext(context.Background())
+}
+
+func (i VpnSiteArray) ToVpnSiteArrayOutputWithContext(ctx context.Context) VpnSiteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnSiteArrayOutput)
+}
+
+// VpnSiteMapInput is an input type that accepts VpnSiteMap and VpnSiteMapOutput values.
+// You can construct a concrete instance of `VpnSiteMapInput` via:
+//
+//          VpnSiteMap{ "key": VpnSiteArgs{...} }
+type VpnSiteMapInput interface {
+	pulumi.Input
+
+	ToVpnSiteMapOutput() VpnSiteMapOutput
+	ToVpnSiteMapOutputWithContext(context.Context) VpnSiteMapOutput
+}
+
+type VpnSiteMap map[string]VpnSiteInput
+
+func (VpnSiteMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VpnSite)(nil))
+}
+
+func (i VpnSiteMap) ToVpnSiteMapOutput() VpnSiteMapOutput {
+	return i.ToVpnSiteMapOutputWithContext(context.Background())
+}
+
+func (i VpnSiteMap) ToVpnSiteMapOutputWithContext(ctx context.Context) VpnSiteMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnSiteMapOutput)
 }
 
 type VpnSiteOutput struct {
@@ -239,7 +318,7 @@ type VpnSiteOutput struct {
 }
 
 func (VpnSiteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnSiteOutput)(nil)).Elem()
+	return reflect.TypeOf((*VpnSite)(nil))
 }
 
 func (o VpnSiteOutput) ToVpnSiteOutput() VpnSiteOutput {
@@ -250,6 +329,75 @@ func (o VpnSiteOutput) ToVpnSiteOutputWithContext(ctx context.Context) VpnSiteOu
 	return o
 }
 
+func (o VpnSiteOutput) ToVpnSitePtrOutput() VpnSitePtrOutput {
+	return o.ToVpnSitePtrOutputWithContext(context.Background())
+}
+
+func (o VpnSiteOutput) ToVpnSitePtrOutputWithContext(ctx context.Context) VpnSitePtrOutput {
+	return o.ApplyT(func(v VpnSite) *VpnSite {
+		return &v
+	}).(VpnSitePtrOutput)
+}
+
+type VpnSitePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpnSitePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnSite)(nil))
+}
+
+func (o VpnSitePtrOutput) ToVpnSitePtrOutput() VpnSitePtrOutput {
+	return o
+}
+
+func (o VpnSitePtrOutput) ToVpnSitePtrOutputWithContext(ctx context.Context) VpnSitePtrOutput {
+	return o
+}
+
+type VpnSiteArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnSiteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnSite)(nil))
+}
+
+func (o VpnSiteArrayOutput) ToVpnSiteArrayOutput() VpnSiteArrayOutput {
+	return o
+}
+
+func (o VpnSiteArrayOutput) ToVpnSiteArrayOutputWithContext(ctx context.Context) VpnSiteArrayOutput {
+	return o
+}
+
+func (o VpnSiteArrayOutput) Index(i pulumi.IntInput) VpnSiteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnSite {
+		return vs[0].([]VpnSite)[vs[1].(int)]
+	}).(VpnSiteOutput)
+}
+
+type VpnSiteMapOutput struct{ *pulumi.OutputState }
+
+func (VpnSiteMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VpnSite)(nil))
+}
+
+func (o VpnSiteMapOutput) ToVpnSiteMapOutput() VpnSiteMapOutput {
+	return o
+}
+
+func (o VpnSiteMapOutput) ToVpnSiteMapOutputWithContext(ctx context.Context) VpnSiteMapOutput {
+	return o
+}
+
+func (o VpnSiteMapOutput) MapIndex(k pulumi.StringInput) VpnSiteOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpnSite {
+		return vs[0].(map[string]VpnSite)[vs[1].(string)]
+	}).(VpnSiteOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VpnSiteOutput{})
+	pulumi.RegisterOutputType(VpnSitePtrOutput{})
+	pulumi.RegisterOutputType(VpnSiteArrayOutput{})
+	pulumi.RegisterOutputType(VpnSiteMapOutput{})
 }

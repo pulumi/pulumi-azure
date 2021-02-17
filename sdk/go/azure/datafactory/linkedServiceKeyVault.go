@@ -238,16 +238,95 @@ type LinkedServiceKeyVaultInput interface {
 	ToLinkedServiceKeyVaultOutputWithContext(ctx context.Context) LinkedServiceKeyVaultOutput
 }
 
-func (LinkedServiceKeyVault) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceKeyVault)(nil)).Elem()
+func (*LinkedServiceKeyVault) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceKeyVault)(nil))
 }
 
-func (i LinkedServiceKeyVault) ToLinkedServiceKeyVaultOutput() LinkedServiceKeyVaultOutput {
+func (i *LinkedServiceKeyVault) ToLinkedServiceKeyVaultOutput() LinkedServiceKeyVaultOutput {
 	return i.ToLinkedServiceKeyVaultOutputWithContext(context.Background())
 }
 
-func (i LinkedServiceKeyVault) ToLinkedServiceKeyVaultOutputWithContext(ctx context.Context) LinkedServiceKeyVaultOutput {
+func (i *LinkedServiceKeyVault) ToLinkedServiceKeyVaultOutputWithContext(ctx context.Context) LinkedServiceKeyVaultOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceKeyVaultOutput)
+}
+
+func (i *LinkedServiceKeyVault) ToLinkedServiceKeyVaultPtrOutput() LinkedServiceKeyVaultPtrOutput {
+	return i.ToLinkedServiceKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i *LinkedServiceKeyVault) ToLinkedServiceKeyVaultPtrOutputWithContext(ctx context.Context) LinkedServiceKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceKeyVaultPtrOutput)
+}
+
+type LinkedServiceKeyVaultPtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceKeyVaultPtrOutput() LinkedServiceKeyVaultPtrOutput
+	ToLinkedServiceKeyVaultPtrOutputWithContext(ctx context.Context) LinkedServiceKeyVaultPtrOutput
+}
+
+type linkedServiceKeyVaultPtrType LinkedServiceKeyVaultArgs
+
+func (*linkedServiceKeyVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceKeyVault)(nil))
+}
+
+func (i *linkedServiceKeyVaultPtrType) ToLinkedServiceKeyVaultPtrOutput() LinkedServiceKeyVaultPtrOutput {
+	return i.ToLinkedServiceKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceKeyVaultPtrType) ToLinkedServiceKeyVaultPtrOutputWithContext(ctx context.Context) LinkedServiceKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceKeyVaultPtrOutput)
+}
+
+// LinkedServiceKeyVaultArrayInput is an input type that accepts LinkedServiceKeyVaultArray and LinkedServiceKeyVaultArrayOutput values.
+// You can construct a concrete instance of `LinkedServiceKeyVaultArrayInput` via:
+//
+//          LinkedServiceKeyVaultArray{ LinkedServiceKeyVaultArgs{...} }
+type LinkedServiceKeyVaultArrayInput interface {
+	pulumi.Input
+
+	ToLinkedServiceKeyVaultArrayOutput() LinkedServiceKeyVaultArrayOutput
+	ToLinkedServiceKeyVaultArrayOutputWithContext(context.Context) LinkedServiceKeyVaultArrayOutput
+}
+
+type LinkedServiceKeyVaultArray []LinkedServiceKeyVaultInput
+
+func (LinkedServiceKeyVaultArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LinkedServiceKeyVault)(nil))
+}
+
+func (i LinkedServiceKeyVaultArray) ToLinkedServiceKeyVaultArrayOutput() LinkedServiceKeyVaultArrayOutput {
+	return i.ToLinkedServiceKeyVaultArrayOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceKeyVaultArray) ToLinkedServiceKeyVaultArrayOutputWithContext(ctx context.Context) LinkedServiceKeyVaultArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceKeyVaultArrayOutput)
+}
+
+// LinkedServiceKeyVaultMapInput is an input type that accepts LinkedServiceKeyVaultMap and LinkedServiceKeyVaultMapOutput values.
+// You can construct a concrete instance of `LinkedServiceKeyVaultMapInput` via:
+//
+//          LinkedServiceKeyVaultMap{ "key": LinkedServiceKeyVaultArgs{...} }
+type LinkedServiceKeyVaultMapInput interface {
+	pulumi.Input
+
+	ToLinkedServiceKeyVaultMapOutput() LinkedServiceKeyVaultMapOutput
+	ToLinkedServiceKeyVaultMapOutputWithContext(context.Context) LinkedServiceKeyVaultMapOutput
+}
+
+type LinkedServiceKeyVaultMap map[string]LinkedServiceKeyVaultInput
+
+func (LinkedServiceKeyVaultMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LinkedServiceKeyVault)(nil))
+}
+
+func (i LinkedServiceKeyVaultMap) ToLinkedServiceKeyVaultMapOutput() LinkedServiceKeyVaultMapOutput {
+	return i.ToLinkedServiceKeyVaultMapOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceKeyVaultMap) ToLinkedServiceKeyVaultMapOutputWithContext(ctx context.Context) LinkedServiceKeyVaultMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceKeyVaultMapOutput)
 }
 
 type LinkedServiceKeyVaultOutput struct {
@@ -255,7 +334,7 @@ type LinkedServiceKeyVaultOutput struct {
 }
 
 func (LinkedServiceKeyVaultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceKeyVaultOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinkedServiceKeyVault)(nil))
 }
 
 func (o LinkedServiceKeyVaultOutput) ToLinkedServiceKeyVaultOutput() LinkedServiceKeyVaultOutput {
@@ -266,6 +345,75 @@ func (o LinkedServiceKeyVaultOutput) ToLinkedServiceKeyVaultOutputWithContext(ct
 	return o
 }
 
+func (o LinkedServiceKeyVaultOutput) ToLinkedServiceKeyVaultPtrOutput() LinkedServiceKeyVaultPtrOutput {
+	return o.ToLinkedServiceKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceKeyVaultOutput) ToLinkedServiceKeyVaultPtrOutputWithContext(ctx context.Context) LinkedServiceKeyVaultPtrOutput {
+	return o.ApplyT(func(v LinkedServiceKeyVault) *LinkedServiceKeyVault {
+		return &v
+	}).(LinkedServiceKeyVaultPtrOutput)
+}
+
+type LinkedServiceKeyVaultPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkedServiceKeyVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceKeyVault)(nil))
+}
+
+func (o LinkedServiceKeyVaultPtrOutput) ToLinkedServiceKeyVaultPtrOutput() LinkedServiceKeyVaultPtrOutput {
+	return o
+}
+
+func (o LinkedServiceKeyVaultPtrOutput) ToLinkedServiceKeyVaultPtrOutputWithContext(ctx context.Context) LinkedServiceKeyVaultPtrOutput {
+	return o
+}
+
+type LinkedServiceKeyVaultArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceKeyVaultArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkedServiceKeyVault)(nil))
+}
+
+func (o LinkedServiceKeyVaultArrayOutput) ToLinkedServiceKeyVaultArrayOutput() LinkedServiceKeyVaultArrayOutput {
+	return o
+}
+
+func (o LinkedServiceKeyVaultArrayOutput) ToLinkedServiceKeyVaultArrayOutputWithContext(ctx context.Context) LinkedServiceKeyVaultArrayOutput {
+	return o
+}
+
+func (o LinkedServiceKeyVaultArrayOutput) Index(i pulumi.IntInput) LinkedServiceKeyVaultOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedServiceKeyVault {
+		return vs[0].([]LinkedServiceKeyVault)[vs[1].(int)]
+	}).(LinkedServiceKeyVaultOutput)
+}
+
+type LinkedServiceKeyVaultMapOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceKeyVaultMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LinkedServiceKeyVault)(nil))
+}
+
+func (o LinkedServiceKeyVaultMapOutput) ToLinkedServiceKeyVaultMapOutput() LinkedServiceKeyVaultMapOutput {
+	return o
+}
+
+func (o LinkedServiceKeyVaultMapOutput) ToLinkedServiceKeyVaultMapOutputWithContext(ctx context.Context) LinkedServiceKeyVaultMapOutput {
+	return o
+}
+
+func (o LinkedServiceKeyVaultMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceKeyVaultOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkedServiceKeyVault {
+		return vs[0].(map[string]LinkedServiceKeyVault)[vs[1].(string)]
+	}).(LinkedServiceKeyVaultOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LinkedServiceKeyVaultOutput{})
+	pulumi.RegisterOutputType(LinkedServiceKeyVaultPtrOutput{})
+	pulumi.RegisterOutputType(LinkedServiceKeyVaultArrayOutput{})
+	pulumi.RegisterOutputType(LinkedServiceKeyVaultMapOutput{})
 }

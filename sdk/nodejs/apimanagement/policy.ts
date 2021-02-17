@@ -92,26 +92,23 @@ export class Policy extends pulumi.CustomResource {
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
             inputs["apiManagementId"] = state ? state.apiManagementId : undefined;
             inputs["xmlContent"] = state ? state.xmlContent : undefined;
             inputs["xmlLink"] = state ? state.xmlLink : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            if ((!args || args.apiManagementId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiManagementId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementId'");
             }
             inputs["apiManagementId"] = args ? args.apiManagementId : undefined;
             inputs["xmlContent"] = args ? args.xmlContent : undefined;
             inputs["xmlLink"] = args ? args.xmlLink : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Policy.__pulumiType, name, inputs, opts);
     }

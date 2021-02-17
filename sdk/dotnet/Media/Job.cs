@@ -108,6 +108,7 @@ namespace Pulumi.Azure.Media
     ///  $ pulumi import azure:media/job:Job example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Media/mediaservices/account1/transforms/transform1/jobs/job1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:media/job:Job")]
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>

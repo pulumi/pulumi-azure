@@ -157,16 +157,95 @@ type TriggerCustomInput interface {
 	ToTriggerCustomOutputWithContext(ctx context.Context) TriggerCustomOutput
 }
 
-func (TriggerCustom) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerCustom)(nil)).Elem()
+func (*TriggerCustom) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerCustom)(nil))
 }
 
-func (i TriggerCustom) ToTriggerCustomOutput() TriggerCustomOutput {
+func (i *TriggerCustom) ToTriggerCustomOutput() TriggerCustomOutput {
 	return i.ToTriggerCustomOutputWithContext(context.Background())
 }
 
-func (i TriggerCustom) ToTriggerCustomOutputWithContext(ctx context.Context) TriggerCustomOutput {
+func (i *TriggerCustom) ToTriggerCustomOutputWithContext(ctx context.Context) TriggerCustomOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerCustomOutput)
+}
+
+func (i *TriggerCustom) ToTriggerCustomPtrOutput() TriggerCustomPtrOutput {
+	return i.ToTriggerCustomPtrOutputWithContext(context.Background())
+}
+
+func (i *TriggerCustom) ToTriggerCustomPtrOutputWithContext(ctx context.Context) TriggerCustomPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerCustomPtrOutput)
+}
+
+type TriggerCustomPtrInput interface {
+	pulumi.Input
+
+	ToTriggerCustomPtrOutput() TriggerCustomPtrOutput
+	ToTriggerCustomPtrOutputWithContext(ctx context.Context) TriggerCustomPtrOutput
+}
+
+type triggerCustomPtrType TriggerCustomArgs
+
+func (*triggerCustomPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerCustom)(nil))
+}
+
+func (i *triggerCustomPtrType) ToTriggerCustomPtrOutput() TriggerCustomPtrOutput {
+	return i.ToTriggerCustomPtrOutputWithContext(context.Background())
+}
+
+func (i *triggerCustomPtrType) ToTriggerCustomPtrOutputWithContext(ctx context.Context) TriggerCustomPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerCustomPtrOutput)
+}
+
+// TriggerCustomArrayInput is an input type that accepts TriggerCustomArray and TriggerCustomArrayOutput values.
+// You can construct a concrete instance of `TriggerCustomArrayInput` via:
+//
+//          TriggerCustomArray{ TriggerCustomArgs{...} }
+type TriggerCustomArrayInput interface {
+	pulumi.Input
+
+	ToTriggerCustomArrayOutput() TriggerCustomArrayOutput
+	ToTriggerCustomArrayOutputWithContext(context.Context) TriggerCustomArrayOutput
+}
+
+type TriggerCustomArray []TriggerCustomInput
+
+func (TriggerCustomArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*TriggerCustom)(nil))
+}
+
+func (i TriggerCustomArray) ToTriggerCustomArrayOutput() TriggerCustomArrayOutput {
+	return i.ToTriggerCustomArrayOutputWithContext(context.Background())
+}
+
+func (i TriggerCustomArray) ToTriggerCustomArrayOutputWithContext(ctx context.Context) TriggerCustomArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerCustomArrayOutput)
+}
+
+// TriggerCustomMapInput is an input type that accepts TriggerCustomMap and TriggerCustomMapOutput values.
+// You can construct a concrete instance of `TriggerCustomMapInput` via:
+//
+//          TriggerCustomMap{ "key": TriggerCustomArgs{...} }
+type TriggerCustomMapInput interface {
+	pulumi.Input
+
+	ToTriggerCustomMapOutput() TriggerCustomMapOutput
+	ToTriggerCustomMapOutputWithContext(context.Context) TriggerCustomMapOutput
+}
+
+type TriggerCustomMap map[string]TriggerCustomInput
+
+func (TriggerCustomMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*TriggerCustom)(nil))
+}
+
+func (i TriggerCustomMap) ToTriggerCustomMapOutput() TriggerCustomMapOutput {
+	return i.ToTriggerCustomMapOutputWithContext(context.Background())
+}
+
+func (i TriggerCustomMap) ToTriggerCustomMapOutputWithContext(ctx context.Context) TriggerCustomMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerCustomMapOutput)
 }
 
 type TriggerCustomOutput struct {
@@ -174,7 +253,7 @@ type TriggerCustomOutput struct {
 }
 
 func (TriggerCustomOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerCustomOutput)(nil)).Elem()
+	return reflect.TypeOf((*TriggerCustom)(nil))
 }
 
 func (o TriggerCustomOutput) ToTriggerCustomOutput() TriggerCustomOutput {
@@ -185,6 +264,75 @@ func (o TriggerCustomOutput) ToTriggerCustomOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o TriggerCustomOutput) ToTriggerCustomPtrOutput() TriggerCustomPtrOutput {
+	return o.ToTriggerCustomPtrOutputWithContext(context.Background())
+}
+
+func (o TriggerCustomOutput) ToTriggerCustomPtrOutputWithContext(ctx context.Context) TriggerCustomPtrOutput {
+	return o.ApplyT(func(v TriggerCustom) *TriggerCustom {
+		return &v
+	}).(TriggerCustomPtrOutput)
+}
+
+type TriggerCustomPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TriggerCustomPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerCustom)(nil))
+}
+
+func (o TriggerCustomPtrOutput) ToTriggerCustomPtrOutput() TriggerCustomPtrOutput {
+	return o
+}
+
+func (o TriggerCustomPtrOutput) ToTriggerCustomPtrOutputWithContext(ctx context.Context) TriggerCustomPtrOutput {
+	return o
+}
+
+type TriggerCustomArrayOutput struct{ *pulumi.OutputState }
+
+func (TriggerCustomArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TriggerCustom)(nil))
+}
+
+func (o TriggerCustomArrayOutput) ToTriggerCustomArrayOutput() TriggerCustomArrayOutput {
+	return o
+}
+
+func (o TriggerCustomArrayOutput) ToTriggerCustomArrayOutputWithContext(ctx context.Context) TriggerCustomArrayOutput {
+	return o
+}
+
+func (o TriggerCustomArrayOutput) Index(i pulumi.IntInput) TriggerCustomOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TriggerCustom {
+		return vs[0].([]TriggerCustom)[vs[1].(int)]
+	}).(TriggerCustomOutput)
+}
+
+type TriggerCustomMapOutput struct{ *pulumi.OutputState }
+
+func (TriggerCustomMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TriggerCustom)(nil))
+}
+
+func (o TriggerCustomMapOutput) ToTriggerCustomMapOutput() TriggerCustomMapOutput {
+	return o
+}
+
+func (o TriggerCustomMapOutput) ToTriggerCustomMapOutputWithContext(ctx context.Context) TriggerCustomMapOutput {
+	return o
+}
+
+func (o TriggerCustomMapOutput) MapIndex(k pulumi.StringInput) TriggerCustomOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TriggerCustom {
+		return vs[0].(map[string]TriggerCustom)[vs[1].(string)]
+	}).(TriggerCustomOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TriggerCustomOutput{})
+	pulumi.RegisterOutputType(TriggerCustomPtrOutput{})
+	pulumi.RegisterOutputType(TriggerCustomArrayOutput{})
+	pulumi.RegisterOutputType(TriggerCustomMapOutput{})
 }

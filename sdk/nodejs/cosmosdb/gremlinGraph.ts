@@ -137,7 +137,8 @@ export class GremlinGraph extends pulumi.CustomResource {
     constructor(name: string, args: GremlinGraphArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GremlinGraphArgs | GremlinGraphState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GremlinGraphState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
@@ -152,19 +153,19 @@ export class GremlinGraph extends pulumi.CustomResource {
             inputs["uniqueKeys"] = state ? state.uniqueKeys : undefined;
         } else {
             const args = argsOrState as GremlinGraphArgs | undefined;
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.conflictResolutionPolicies === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.conflictResolutionPolicies === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'conflictResolutionPolicies'");
             }
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.indexPolicies === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.indexPolicies === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'indexPolicies'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -179,12 +180,8 @@ export class GremlinGraph extends pulumi.CustomResource {
             inputs["throughput"] = args ? args.throughput : undefined;
             inputs["uniqueKeys"] = args ? args.uniqueKeys : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(GremlinGraph.__pulumiType, name, inputs, opts);
     }

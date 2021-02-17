@@ -101,7 +101,8 @@ export class ActionHttp extends pulumi.CustomResource {
     constructor(name: string, args: ActionHttpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ActionHttpArgs | ActionHttpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ActionHttpState | undefined;
             inputs["body"] = state ? state.body : undefined;
             inputs["headers"] = state ? state.headers : undefined;
@@ -112,13 +113,13 @@ export class ActionHttp extends pulumi.CustomResource {
             inputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as ActionHttpArgs | undefined;
-            if ((!args || args.logicAppId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.logicAppId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logicAppId'");
             }
-            if ((!args || args.method === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.method === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'method'");
             }
-            if ((!args || args.uri === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.uri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'uri'");
             }
             inputs["body"] = args ? args.body : undefined;
@@ -129,12 +130,8 @@ export class ActionHttp extends pulumi.CustomResource {
             inputs["runAfters"] = args ? args.runAfters : undefined;
             inputs["uri"] = args ? args.uri : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ActionHttp.__pulumiType, name, inputs, opts);
     }

@@ -109,7 +109,8 @@ export class DataLakeGen2Path extends pulumi.CustomResource {
     constructor(name: string, args: DataLakeGen2PathArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataLakeGen2PathArgs | DataLakeGen2PathState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DataLakeGen2PathState | undefined;
             inputs["aces"] = state ? state.aces : undefined;
             inputs["filesystemName"] = state ? state.filesystemName : undefined;
@@ -120,16 +121,16 @@ export class DataLakeGen2Path extends pulumi.CustomResource {
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
             const args = argsOrState as DataLakeGen2PathArgs | undefined;
-            if ((!args || args.filesystemName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.filesystemName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'filesystemName'");
             }
-            if ((!args || args.path === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.path === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'path'");
             }
-            if ((!args || args.resource === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            if ((!args || args.storageAccountId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
             inputs["aces"] = args ? args.aces : undefined;
@@ -140,12 +141,8 @@ export class DataLakeGen2Path extends pulumi.CustomResource {
             inputs["resource"] = args ? args.resource : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DataLakeGen2Path.__pulumiType, name, inputs, opts);
     }

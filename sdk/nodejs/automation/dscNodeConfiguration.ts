@@ -121,7 +121,8 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: DscNodeConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DscNodeConfigurationArgs | DscNodeConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DscNodeConfigurationState | undefined;
             inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
             inputs["configurationName"] = state ? state.configurationName : undefined;
@@ -130,13 +131,13 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as DscNodeConfigurationArgs | undefined;
-            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.contentEmbedded === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.contentEmbedded === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contentEmbedded'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
@@ -145,12 +146,8 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["configurationName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DscNodeConfiguration.__pulumiType, name, inputs, opts);
     }

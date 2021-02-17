@@ -314,7 +314,8 @@ export class AutoscaleSetting extends pulumi.CustomResource {
     constructor(name: string, args: AutoscaleSettingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AutoscaleSettingArgs | AutoscaleSettingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AutoscaleSettingState | undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -326,13 +327,13 @@ export class AutoscaleSetting extends pulumi.CustomResource {
             inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
         } else {
             const args = argsOrState as AutoscaleSettingArgs | undefined;
-            if ((!args || args.profiles === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.profiles === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profiles'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetResourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
             inputs["enabled"] = args ? args.enabled : undefined;
@@ -344,12 +345,8 @@ export class AutoscaleSetting extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AutoscaleSetting.__pulumiType, name, inputs, opts);
     }

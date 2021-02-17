@@ -70,7 +70,8 @@ export class CustomerManagedKey extends pulumi.CustomResource {
     constructor(name: string, args: CustomerManagedKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CustomerManagedKeyArgs | CustomerManagedKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CustomerManagedKeyState | undefined;
             inputs["keyName"] = state ? state.keyName : undefined;
             inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
@@ -78,13 +79,13 @@ export class CustomerManagedKey extends pulumi.CustomResource {
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
             const args = argsOrState as CustomerManagedKeyArgs | undefined;
-            if ((!args || args.keyName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.keyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyName'");
             }
-            if ((!args || args.keyVaultId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.keyVaultId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            if ((!args || args.storageAccountId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
             inputs["keyName"] = args ? args.keyName : undefined;
@@ -92,12 +93,8 @@ export class CustomerManagedKey extends pulumi.CustomResource {
             inputs["keyVersion"] = args ? args.keyVersion : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CustomerManagedKey.__pulumiType, name, inputs, opts);
     }

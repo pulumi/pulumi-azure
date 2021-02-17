@@ -59,6 +59,7 @@ namespace Pulumi.Azure.Kusto
     ///  $ pulumi import azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/PrincipalAssignments/assignment1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment")]
     public partial class ClusterPrincipalAssignment : Pulumi.CustomResource
     {
         /// <summary>

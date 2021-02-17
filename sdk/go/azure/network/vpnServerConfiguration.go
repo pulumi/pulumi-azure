@@ -259,16 +259,95 @@ type VpnServerConfigurationInput interface {
 	ToVpnServerConfigurationOutputWithContext(ctx context.Context) VpnServerConfigurationOutput
 }
 
-func (VpnServerConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnServerConfiguration)(nil)).Elem()
+func (*VpnServerConfiguration) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnServerConfiguration)(nil))
 }
 
-func (i VpnServerConfiguration) ToVpnServerConfigurationOutput() VpnServerConfigurationOutput {
+func (i *VpnServerConfiguration) ToVpnServerConfigurationOutput() VpnServerConfigurationOutput {
 	return i.ToVpnServerConfigurationOutputWithContext(context.Background())
 }
 
-func (i VpnServerConfiguration) ToVpnServerConfigurationOutputWithContext(ctx context.Context) VpnServerConfigurationOutput {
+func (i *VpnServerConfiguration) ToVpnServerConfigurationOutputWithContext(ctx context.Context) VpnServerConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationOutput)
+}
+
+func (i *VpnServerConfiguration) ToVpnServerConfigurationPtrOutput() VpnServerConfigurationPtrOutput {
+	return i.ToVpnServerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *VpnServerConfiguration) ToVpnServerConfigurationPtrOutputWithContext(ctx context.Context) VpnServerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationPtrOutput)
+}
+
+type VpnServerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToVpnServerConfigurationPtrOutput() VpnServerConfigurationPtrOutput
+	ToVpnServerConfigurationPtrOutputWithContext(ctx context.Context) VpnServerConfigurationPtrOutput
+}
+
+type vpnServerConfigurationPtrType VpnServerConfigurationArgs
+
+func (*vpnServerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnServerConfiguration)(nil))
+}
+
+func (i *vpnServerConfigurationPtrType) ToVpnServerConfigurationPtrOutput() VpnServerConfigurationPtrOutput {
+	return i.ToVpnServerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *vpnServerConfigurationPtrType) ToVpnServerConfigurationPtrOutputWithContext(ctx context.Context) VpnServerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationPtrOutput)
+}
+
+// VpnServerConfigurationArrayInput is an input type that accepts VpnServerConfigurationArray and VpnServerConfigurationArrayOutput values.
+// You can construct a concrete instance of `VpnServerConfigurationArrayInput` via:
+//
+//          VpnServerConfigurationArray{ VpnServerConfigurationArgs{...} }
+type VpnServerConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToVpnServerConfigurationArrayOutput() VpnServerConfigurationArrayOutput
+	ToVpnServerConfigurationArrayOutputWithContext(context.Context) VpnServerConfigurationArrayOutput
+}
+
+type VpnServerConfigurationArray []VpnServerConfigurationInput
+
+func (VpnServerConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VpnServerConfiguration)(nil))
+}
+
+func (i VpnServerConfigurationArray) ToVpnServerConfigurationArrayOutput() VpnServerConfigurationArrayOutput {
+	return i.ToVpnServerConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i VpnServerConfigurationArray) ToVpnServerConfigurationArrayOutputWithContext(ctx context.Context) VpnServerConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationArrayOutput)
+}
+
+// VpnServerConfigurationMapInput is an input type that accepts VpnServerConfigurationMap and VpnServerConfigurationMapOutput values.
+// You can construct a concrete instance of `VpnServerConfigurationMapInput` via:
+//
+//          VpnServerConfigurationMap{ "key": VpnServerConfigurationArgs{...} }
+type VpnServerConfigurationMapInput interface {
+	pulumi.Input
+
+	ToVpnServerConfigurationMapOutput() VpnServerConfigurationMapOutput
+	ToVpnServerConfigurationMapOutputWithContext(context.Context) VpnServerConfigurationMapOutput
+}
+
+type VpnServerConfigurationMap map[string]VpnServerConfigurationInput
+
+func (VpnServerConfigurationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VpnServerConfiguration)(nil))
+}
+
+func (i VpnServerConfigurationMap) ToVpnServerConfigurationMapOutput() VpnServerConfigurationMapOutput {
+	return i.ToVpnServerConfigurationMapOutputWithContext(context.Background())
+}
+
+func (i VpnServerConfigurationMap) ToVpnServerConfigurationMapOutputWithContext(ctx context.Context) VpnServerConfigurationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationMapOutput)
 }
 
 type VpnServerConfigurationOutput struct {
@@ -276,7 +355,7 @@ type VpnServerConfigurationOutput struct {
 }
 
 func (VpnServerConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnServerConfigurationOutput)(nil)).Elem()
+	return reflect.TypeOf((*VpnServerConfiguration)(nil))
 }
 
 func (o VpnServerConfigurationOutput) ToVpnServerConfigurationOutput() VpnServerConfigurationOutput {
@@ -287,6 +366,75 @@ func (o VpnServerConfigurationOutput) ToVpnServerConfigurationOutputWithContext(
 	return o
 }
 
+func (o VpnServerConfigurationOutput) ToVpnServerConfigurationPtrOutput() VpnServerConfigurationPtrOutput {
+	return o.ToVpnServerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o VpnServerConfigurationOutput) ToVpnServerConfigurationPtrOutputWithContext(ctx context.Context) VpnServerConfigurationPtrOutput {
+	return o.ApplyT(func(v VpnServerConfiguration) *VpnServerConfiguration {
+		return &v
+	}).(VpnServerConfigurationPtrOutput)
+}
+
+type VpnServerConfigurationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpnServerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnServerConfiguration)(nil))
+}
+
+func (o VpnServerConfigurationPtrOutput) ToVpnServerConfigurationPtrOutput() VpnServerConfigurationPtrOutput {
+	return o
+}
+
+func (o VpnServerConfigurationPtrOutput) ToVpnServerConfigurationPtrOutputWithContext(ctx context.Context) VpnServerConfigurationPtrOutput {
+	return o
+}
+
+type VpnServerConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnServerConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnServerConfiguration)(nil))
+}
+
+func (o VpnServerConfigurationArrayOutput) ToVpnServerConfigurationArrayOutput() VpnServerConfigurationArrayOutput {
+	return o
+}
+
+func (o VpnServerConfigurationArrayOutput) ToVpnServerConfigurationArrayOutputWithContext(ctx context.Context) VpnServerConfigurationArrayOutput {
+	return o
+}
+
+func (o VpnServerConfigurationArrayOutput) Index(i pulumi.IntInput) VpnServerConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnServerConfiguration {
+		return vs[0].([]VpnServerConfiguration)[vs[1].(int)]
+	}).(VpnServerConfigurationOutput)
+}
+
+type VpnServerConfigurationMapOutput struct{ *pulumi.OutputState }
+
+func (VpnServerConfigurationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VpnServerConfiguration)(nil))
+}
+
+func (o VpnServerConfigurationMapOutput) ToVpnServerConfigurationMapOutput() VpnServerConfigurationMapOutput {
+	return o
+}
+
+func (o VpnServerConfigurationMapOutput) ToVpnServerConfigurationMapOutputWithContext(ctx context.Context) VpnServerConfigurationMapOutput {
+	return o
+}
+
+func (o VpnServerConfigurationMapOutput) MapIndex(k pulumi.StringInput) VpnServerConfigurationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpnServerConfiguration {
+		return vs[0].(map[string]VpnServerConfiguration)[vs[1].(string)]
+	}).(VpnServerConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VpnServerConfigurationOutput{})
+	pulumi.RegisterOutputType(VpnServerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(VpnServerConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(VpnServerConfigurationMapOutput{})
 }

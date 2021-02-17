@@ -243,16 +243,95 @@ type SharedImageVersionInput interface {
 	ToSharedImageVersionOutputWithContext(ctx context.Context) SharedImageVersionOutput
 }
 
-func (SharedImageVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedImageVersion)(nil)).Elem()
+func (*SharedImageVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImageVersion)(nil))
 }
 
-func (i SharedImageVersion) ToSharedImageVersionOutput() SharedImageVersionOutput {
+func (i *SharedImageVersion) ToSharedImageVersionOutput() SharedImageVersionOutput {
 	return i.ToSharedImageVersionOutputWithContext(context.Background())
 }
 
-func (i SharedImageVersion) ToSharedImageVersionOutputWithContext(ctx context.Context) SharedImageVersionOutput {
+func (i *SharedImageVersion) ToSharedImageVersionOutputWithContext(ctx context.Context) SharedImageVersionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionOutput)
+}
+
+func (i *SharedImageVersion) ToSharedImageVersionPtrOutput() SharedImageVersionPtrOutput {
+	return i.ToSharedImageVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *SharedImageVersion) ToSharedImageVersionPtrOutputWithContext(ctx context.Context) SharedImageVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionPtrOutput)
+}
+
+type SharedImageVersionPtrInput interface {
+	pulumi.Input
+
+	ToSharedImageVersionPtrOutput() SharedImageVersionPtrOutput
+	ToSharedImageVersionPtrOutputWithContext(ctx context.Context) SharedImageVersionPtrOutput
+}
+
+type sharedImageVersionPtrType SharedImageVersionArgs
+
+func (*sharedImageVersionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedImageVersion)(nil))
+}
+
+func (i *sharedImageVersionPtrType) ToSharedImageVersionPtrOutput() SharedImageVersionPtrOutput {
+	return i.ToSharedImageVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *sharedImageVersionPtrType) ToSharedImageVersionPtrOutputWithContext(ctx context.Context) SharedImageVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionPtrOutput)
+}
+
+// SharedImageVersionArrayInput is an input type that accepts SharedImageVersionArray and SharedImageVersionArrayOutput values.
+// You can construct a concrete instance of `SharedImageVersionArrayInput` via:
+//
+//          SharedImageVersionArray{ SharedImageVersionArgs{...} }
+type SharedImageVersionArrayInput interface {
+	pulumi.Input
+
+	ToSharedImageVersionArrayOutput() SharedImageVersionArrayOutput
+	ToSharedImageVersionArrayOutputWithContext(context.Context) SharedImageVersionArrayOutput
+}
+
+type SharedImageVersionArray []SharedImageVersionInput
+
+func (SharedImageVersionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SharedImageVersion)(nil))
+}
+
+func (i SharedImageVersionArray) ToSharedImageVersionArrayOutput() SharedImageVersionArrayOutput {
+	return i.ToSharedImageVersionArrayOutputWithContext(context.Background())
+}
+
+func (i SharedImageVersionArray) ToSharedImageVersionArrayOutputWithContext(ctx context.Context) SharedImageVersionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionArrayOutput)
+}
+
+// SharedImageVersionMapInput is an input type that accepts SharedImageVersionMap and SharedImageVersionMapOutput values.
+// You can construct a concrete instance of `SharedImageVersionMapInput` via:
+//
+//          SharedImageVersionMap{ "key": SharedImageVersionArgs{...} }
+type SharedImageVersionMapInput interface {
+	pulumi.Input
+
+	ToSharedImageVersionMapOutput() SharedImageVersionMapOutput
+	ToSharedImageVersionMapOutputWithContext(context.Context) SharedImageVersionMapOutput
+}
+
+type SharedImageVersionMap map[string]SharedImageVersionInput
+
+func (SharedImageVersionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SharedImageVersion)(nil))
+}
+
+func (i SharedImageVersionMap) ToSharedImageVersionMapOutput() SharedImageVersionMapOutput {
+	return i.ToSharedImageVersionMapOutputWithContext(context.Background())
+}
+
+func (i SharedImageVersionMap) ToSharedImageVersionMapOutputWithContext(ctx context.Context) SharedImageVersionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionMapOutput)
 }
 
 type SharedImageVersionOutput struct {
@@ -260,7 +339,7 @@ type SharedImageVersionOutput struct {
 }
 
 func (SharedImageVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedImageVersionOutput)(nil)).Elem()
+	return reflect.TypeOf((*SharedImageVersion)(nil))
 }
 
 func (o SharedImageVersionOutput) ToSharedImageVersionOutput() SharedImageVersionOutput {
@@ -271,6 +350,75 @@ func (o SharedImageVersionOutput) ToSharedImageVersionOutputWithContext(ctx cont
 	return o
 }
 
+func (o SharedImageVersionOutput) ToSharedImageVersionPtrOutput() SharedImageVersionPtrOutput {
+	return o.ToSharedImageVersionPtrOutputWithContext(context.Background())
+}
+
+func (o SharedImageVersionOutput) ToSharedImageVersionPtrOutputWithContext(ctx context.Context) SharedImageVersionPtrOutput {
+	return o.ApplyT(func(v SharedImageVersion) *SharedImageVersion {
+		return &v
+	}).(SharedImageVersionPtrOutput)
+}
+
+type SharedImageVersionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SharedImageVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedImageVersion)(nil))
+}
+
+func (o SharedImageVersionPtrOutput) ToSharedImageVersionPtrOutput() SharedImageVersionPtrOutput {
+	return o
+}
+
+func (o SharedImageVersionPtrOutput) ToSharedImageVersionPtrOutputWithContext(ctx context.Context) SharedImageVersionPtrOutput {
+	return o
+}
+
+type SharedImageVersionArrayOutput struct{ *pulumi.OutputState }
+
+func (SharedImageVersionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedImageVersion)(nil))
+}
+
+func (o SharedImageVersionArrayOutput) ToSharedImageVersionArrayOutput() SharedImageVersionArrayOutput {
+	return o
+}
+
+func (o SharedImageVersionArrayOutput) ToSharedImageVersionArrayOutputWithContext(ctx context.Context) SharedImageVersionArrayOutput {
+	return o
+}
+
+func (o SharedImageVersionArrayOutput) Index(i pulumi.IntInput) SharedImageVersionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedImageVersion {
+		return vs[0].([]SharedImageVersion)[vs[1].(int)]
+	}).(SharedImageVersionOutput)
+}
+
+type SharedImageVersionMapOutput struct{ *pulumi.OutputState }
+
+func (SharedImageVersionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SharedImageVersion)(nil))
+}
+
+func (o SharedImageVersionMapOutput) ToSharedImageVersionMapOutput() SharedImageVersionMapOutput {
+	return o
+}
+
+func (o SharedImageVersionMapOutput) ToSharedImageVersionMapOutputWithContext(ctx context.Context) SharedImageVersionMapOutput {
+	return o
+}
+
+func (o SharedImageVersionMapOutput) MapIndex(k pulumi.StringInput) SharedImageVersionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SharedImageVersion {
+		return vs[0].(map[string]SharedImageVersion)[vs[1].(string)]
+	}).(SharedImageVersionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SharedImageVersionOutput{})
+	pulumi.RegisterOutputType(SharedImageVersionPtrOutput{})
+	pulumi.RegisterOutputType(SharedImageVersionArrayOutput{})
+	pulumi.RegisterOutputType(SharedImageVersionMapOutput{})
 }

@@ -161,7 +161,8 @@ export class Transform extends pulumi.CustomResource {
     constructor(name: string, args: TransformArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TransformArgs | TransformState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TransformState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["mediaServicesAccountName"] = state ? state.mediaServicesAccountName : undefined;
@@ -170,10 +171,10 @@ export class Transform extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as TransformArgs | undefined;
-            if ((!args || args.mediaServicesAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.mediaServicesAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'mediaServicesAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -182,12 +183,8 @@ export class Transform extends pulumi.CustomResource {
             inputs["outputs"] = args ? args.outputs : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Transform.__pulumiType, name, inputs, opts);
     }

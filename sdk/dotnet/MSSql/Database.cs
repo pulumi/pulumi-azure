@@ -77,6 +77,7 @@ namespace Pulumi.Azure.MSSql
     ///  $ pulumi import azure:mssql/database:Database example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/databases/example1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:mssql/database:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>

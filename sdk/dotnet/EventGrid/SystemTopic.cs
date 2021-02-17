@@ -57,6 +57,7 @@ namespace Pulumi.Azure.EventGrid
     ///  $ pulumi import azure:eventgrid/systemTopic:SystemTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/systemTopic1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:eventgrid/systemTopic:SystemTopic")]
     public partial class SystemTopic : Pulumi.CustomResource
     {
         /// <summary>

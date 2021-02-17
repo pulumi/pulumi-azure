@@ -145,7 +145,8 @@ export class Job extends pulumi.CustomResource {
     constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: JobArgs | JobState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as JobState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["inputAsset"] = state ? state.inputAsset : undefined;
@@ -157,19 +158,19 @@ export class Job extends pulumi.CustomResource {
             inputs["transformName"] = state ? state.transformName : undefined;
         } else {
             const args = argsOrState as JobArgs | undefined;
-            if ((!args || args.inputAsset === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.inputAsset === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'inputAsset'");
             }
-            if ((!args || args.mediaServicesAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.mediaServicesAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'mediaServicesAccountName'");
             }
-            if ((!args || args.outputAssets === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.outputAssets === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'outputAssets'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.transformName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.transformName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transformName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -181,12 +182,8 @@ export class Job extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["transformName"] = args ? args.transformName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Job.__pulumiType, name, inputs, opts);
     }

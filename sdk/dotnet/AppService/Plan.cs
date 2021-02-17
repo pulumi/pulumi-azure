@@ -139,6 +139,7 @@ namespace Pulumi.Azure.AppService
     ///  $ pulumi import azure:appservice/plan:Plan instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/serverfarms/instance1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:appservice/plan:Plan")]
     public partial class Plan : Pulumi.CustomResource
     {
         /// <summary>

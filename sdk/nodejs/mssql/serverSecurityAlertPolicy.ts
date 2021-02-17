@@ -126,7 +126,8 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
     constructor(name: string, args: ServerSecurityAlertPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerSecurityAlertPolicyArgs | ServerSecurityAlertPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServerSecurityAlertPolicyState | undefined;
             inputs["disabledAlerts"] = state ? state.disabledAlerts : undefined;
             inputs["emailAccountAdmins"] = state ? state.emailAccountAdmins : undefined;
@@ -139,13 +140,13 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
             inputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
         } else {
             const args = argsOrState as ServerSecurityAlertPolicyArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.state === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
             inputs["disabledAlerts"] = args ? args.disabledAlerts : undefined;
@@ -158,12 +159,8 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
             inputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
             inputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ServerSecurityAlertPolicy.__pulumiType, name, inputs, opts);
     }

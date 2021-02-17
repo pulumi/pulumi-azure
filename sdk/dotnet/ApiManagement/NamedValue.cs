@@ -54,6 +54,7 @@ namespace Pulumi.Azure.ApiManagement
     ///  $ pulumi import azure:apimanagement/namedValue:NamedValue example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/namedValues/example-apimp
     /// ```
     /// </summary>
+    [AzureResourceType("azure:apimanagement/namedValue:NamedValue")]
     public partial class NamedValue : Pulumi.CustomResource
     {
         /// <summary>

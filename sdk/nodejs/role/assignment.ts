@@ -179,7 +179,8 @@ export class Assignment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AssignmentArgs | AssignmentState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Assignment is deprecated: azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AssignmentState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["principalId"] = state ? state.principalId : undefined;
@@ -190,10 +191,10 @@ export class Assignment extends pulumi.CustomResource {
             inputs["skipServicePrincipalAadCheck"] = state ? state.skipServicePrincipalAadCheck : undefined;
         } else {
             const args = argsOrState as AssignmentArgs | undefined;
-            if ((!args || args.principalId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.principalId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -204,12 +205,8 @@ export class Assignment extends pulumi.CustomResource {
             inputs["skipServicePrincipalAadCheck"] = args ? args.skipServicePrincipalAadCheck : undefined;
             inputs["principalType"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Assignment.__pulumiType, name, inputs, opts);
     }

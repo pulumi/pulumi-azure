@@ -166,16 +166,95 @@ type RouteFilterInput interface {
 	ToRouteFilterOutputWithContext(ctx context.Context) RouteFilterOutput
 }
 
-func (RouteFilter) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteFilter)(nil)).Elem()
+func (*RouteFilter) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteFilter)(nil))
 }
 
-func (i RouteFilter) ToRouteFilterOutput() RouteFilterOutput {
+func (i *RouteFilter) ToRouteFilterOutput() RouteFilterOutput {
 	return i.ToRouteFilterOutputWithContext(context.Background())
 }
 
-func (i RouteFilter) ToRouteFilterOutputWithContext(ctx context.Context) RouteFilterOutput {
+func (i *RouteFilter) ToRouteFilterOutputWithContext(ctx context.Context) RouteFilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteFilterOutput)
+}
+
+func (i *RouteFilter) ToRouteFilterPtrOutput() RouteFilterPtrOutput {
+	return i.ToRouteFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *RouteFilter) ToRouteFilterPtrOutputWithContext(ctx context.Context) RouteFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteFilterPtrOutput)
+}
+
+type RouteFilterPtrInput interface {
+	pulumi.Input
+
+	ToRouteFilterPtrOutput() RouteFilterPtrOutput
+	ToRouteFilterPtrOutputWithContext(ctx context.Context) RouteFilterPtrOutput
+}
+
+type routeFilterPtrType RouteFilterArgs
+
+func (*routeFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteFilter)(nil))
+}
+
+func (i *routeFilterPtrType) ToRouteFilterPtrOutput() RouteFilterPtrOutput {
+	return i.ToRouteFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *routeFilterPtrType) ToRouteFilterPtrOutputWithContext(ctx context.Context) RouteFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteFilterPtrOutput)
+}
+
+// RouteFilterArrayInput is an input type that accepts RouteFilterArray and RouteFilterArrayOutput values.
+// You can construct a concrete instance of `RouteFilterArrayInput` via:
+//
+//          RouteFilterArray{ RouteFilterArgs{...} }
+type RouteFilterArrayInput interface {
+	pulumi.Input
+
+	ToRouteFilterArrayOutput() RouteFilterArrayOutput
+	ToRouteFilterArrayOutputWithContext(context.Context) RouteFilterArrayOutput
+}
+
+type RouteFilterArray []RouteFilterInput
+
+func (RouteFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RouteFilter)(nil))
+}
+
+func (i RouteFilterArray) ToRouteFilterArrayOutput() RouteFilterArrayOutput {
+	return i.ToRouteFilterArrayOutputWithContext(context.Background())
+}
+
+func (i RouteFilterArray) ToRouteFilterArrayOutputWithContext(ctx context.Context) RouteFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteFilterArrayOutput)
+}
+
+// RouteFilterMapInput is an input type that accepts RouteFilterMap and RouteFilterMapOutput values.
+// You can construct a concrete instance of `RouteFilterMapInput` via:
+//
+//          RouteFilterMap{ "key": RouteFilterArgs{...} }
+type RouteFilterMapInput interface {
+	pulumi.Input
+
+	ToRouteFilterMapOutput() RouteFilterMapOutput
+	ToRouteFilterMapOutputWithContext(context.Context) RouteFilterMapOutput
+}
+
+type RouteFilterMap map[string]RouteFilterInput
+
+func (RouteFilterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RouteFilter)(nil))
+}
+
+func (i RouteFilterMap) ToRouteFilterMapOutput() RouteFilterMapOutput {
+	return i.ToRouteFilterMapOutputWithContext(context.Background())
+}
+
+func (i RouteFilterMap) ToRouteFilterMapOutputWithContext(ctx context.Context) RouteFilterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteFilterMapOutput)
 }
 
 type RouteFilterOutput struct {
@@ -183,7 +262,7 @@ type RouteFilterOutput struct {
 }
 
 func (RouteFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteFilterOutput)(nil)).Elem()
+	return reflect.TypeOf((*RouteFilter)(nil))
 }
 
 func (o RouteFilterOutput) ToRouteFilterOutput() RouteFilterOutput {
@@ -194,6 +273,75 @@ func (o RouteFilterOutput) ToRouteFilterOutputWithContext(ctx context.Context) R
 	return o
 }
 
+func (o RouteFilterOutput) ToRouteFilterPtrOutput() RouteFilterPtrOutput {
+	return o.ToRouteFilterPtrOutputWithContext(context.Background())
+}
+
+func (o RouteFilterOutput) ToRouteFilterPtrOutputWithContext(ctx context.Context) RouteFilterPtrOutput {
+	return o.ApplyT(func(v RouteFilter) *RouteFilter {
+		return &v
+	}).(RouteFilterPtrOutput)
+}
+
+type RouteFilterPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RouteFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteFilter)(nil))
+}
+
+func (o RouteFilterPtrOutput) ToRouteFilterPtrOutput() RouteFilterPtrOutput {
+	return o
+}
+
+func (o RouteFilterPtrOutput) ToRouteFilterPtrOutputWithContext(ctx context.Context) RouteFilterPtrOutput {
+	return o
+}
+
+type RouteFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (RouteFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteFilter)(nil))
+}
+
+func (o RouteFilterArrayOutput) ToRouteFilterArrayOutput() RouteFilterArrayOutput {
+	return o
+}
+
+func (o RouteFilterArrayOutput) ToRouteFilterArrayOutputWithContext(ctx context.Context) RouteFilterArrayOutput {
+	return o
+}
+
+func (o RouteFilterArrayOutput) Index(i pulumi.IntInput) RouteFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteFilter {
+		return vs[0].([]RouteFilter)[vs[1].(int)]
+	}).(RouteFilterOutput)
+}
+
+type RouteFilterMapOutput struct{ *pulumi.OutputState }
+
+func (RouteFilterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RouteFilter)(nil))
+}
+
+func (o RouteFilterMapOutput) ToRouteFilterMapOutput() RouteFilterMapOutput {
+	return o
+}
+
+func (o RouteFilterMapOutput) ToRouteFilterMapOutputWithContext(ctx context.Context) RouteFilterMapOutput {
+	return o
+}
+
+func (o RouteFilterMapOutput) MapIndex(k pulumi.StringInput) RouteFilterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RouteFilter {
+		return vs[0].(map[string]RouteFilter)[vs[1].(string)]
+	}).(RouteFilterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RouteFilterOutput{})
+	pulumi.RegisterOutputType(RouteFilterPtrOutput{})
+	pulumi.RegisterOutputType(RouteFilterArrayOutput{})
+	pulumi.RegisterOutputType(RouteFilterMapOutput{})
 }

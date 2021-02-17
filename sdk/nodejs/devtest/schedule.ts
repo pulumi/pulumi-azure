@@ -122,7 +122,8 @@ export class Schedule extends pulumi.CustomResource {
     constructor(name: string, args: ScheduleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScheduleArgs | ScheduleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ScheduleState | undefined;
             inputs["dailyRecurrence"] = state ? state.dailyRecurrence : undefined;
             inputs["hourlyRecurrence"] = state ? state.hourlyRecurrence : undefined;
@@ -138,19 +139,19 @@ export class Schedule extends pulumi.CustomResource {
             inputs["weeklyRecurrence"] = state ? state.weeklyRecurrence : undefined;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
-            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.notificationSettings === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.notificationSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'notificationSettings'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.taskType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.taskType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'taskType'");
             }
-            if ((!args || args.timeZoneId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.timeZoneId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeZoneId'");
             }
             inputs["dailyRecurrence"] = args ? args.dailyRecurrence : undefined;
@@ -166,12 +167,8 @@ export class Schedule extends pulumi.CustomResource {
             inputs["timeZoneId"] = args ? args.timeZoneId : undefined;
             inputs["weeklyRecurrence"] = args ? args.weeklyRecurrence : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Schedule.__pulumiType, name, inputs, opts);
     }

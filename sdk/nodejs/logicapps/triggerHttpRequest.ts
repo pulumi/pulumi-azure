@@ -99,7 +99,8 @@ export class TriggerHttpRequest extends pulumi.CustomResource {
     constructor(name: string, args: TriggerHttpRequestArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TriggerHttpRequestArgs | TriggerHttpRequestState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TriggerHttpRequestState | undefined;
             inputs["logicAppId"] = state ? state.logicAppId : undefined;
             inputs["method"] = state ? state.method : undefined;
@@ -108,10 +109,10 @@ export class TriggerHttpRequest extends pulumi.CustomResource {
             inputs["schema"] = state ? state.schema : undefined;
         } else {
             const args = argsOrState as TriggerHttpRequestArgs | undefined;
-            if ((!args || args.logicAppId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.logicAppId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logicAppId'");
             }
-            if ((!args || args.schema === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.schema === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
             inputs["logicAppId"] = args ? args.logicAppId : undefined;
@@ -120,12 +121,8 @@ export class TriggerHttpRequest extends pulumi.CustomResource {
             inputs["relativePath"] = args ? args.relativePath : undefined;
             inputs["schema"] = args ? args.schema : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TriggerHttpRequest.__pulumiType, name, inputs, opts);
     }

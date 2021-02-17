@@ -155,7 +155,8 @@ export class LinkService extends pulumi.CustomResource {
     constructor(name: string, args: LinkServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LinkServiceArgs | LinkServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LinkServiceState | undefined;
             inputs["alias"] = state ? state.alias : undefined;
             inputs["autoApprovalSubscriptionIds"] = state ? state.autoApprovalSubscriptionIds : undefined;
@@ -169,13 +170,13 @@ export class LinkService extends pulumi.CustomResource {
             inputs["visibilitySubscriptionIds"] = state ? state.visibilitySubscriptionIds : undefined;
         } else {
             const args = argsOrState as LinkServiceArgs | undefined;
-            if ((!args || args.loadBalancerFrontendIpConfigurationIds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loadBalancerFrontendIpConfigurationIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerFrontendIpConfigurationIds'");
             }
-            if ((!args || args.natIpConfigurations === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.natIpConfigurations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'natIpConfigurations'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoApprovalSubscriptionIds"] = args ? args.autoApprovalSubscriptionIds : undefined;
@@ -189,12 +190,8 @@ export class LinkService extends pulumi.CustomResource {
             inputs["visibilitySubscriptionIds"] = args ? args.visibilitySubscriptionIds : undefined;
             inputs["alias"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LinkService.__pulumiType, name, inputs, opts);
     }

@@ -95,7 +95,8 @@ export class Group extends pulumi.CustomResource {
     constructor(name: string, args?: GroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GroupState | undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["groupId"] = state ? state.groupId : undefined;
@@ -110,15 +111,11 @@ export class Group extends pulumi.CustomResource {
             inputs["parentManagementGroupId"] = args ? args.parentManagementGroupId : undefined;
             inputs["subscriptionIds"] = args ? args.subscriptionIds : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure:managementgroups/managementGroup:ManagementGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Group.__pulumiType, name, inputs, opts);
     }
 }

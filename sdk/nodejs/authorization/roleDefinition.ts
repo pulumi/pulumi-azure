@@ -101,7 +101,8 @@ export class RoleDefinition extends pulumi.CustomResource {
     constructor(name: string, args: RoleDefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RoleDefinitionArgs | RoleDefinitionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RoleDefinitionState | undefined;
             inputs["assignableScopes"] = state ? state.assignableScopes : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -112,10 +113,10 @@ export class RoleDefinition extends pulumi.CustomResource {
             inputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as RoleDefinitionArgs | undefined;
-            if ((!args || args.permissions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.permissions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permissions'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["assignableScopes"] = args ? args.assignableScopes : undefined;
@@ -126,15 +127,11 @@ export class RoleDefinition extends pulumi.CustomResource {
             inputs["scope"] = args ? args.scope : undefined;
             inputs["roleDefinitionResourceId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure:role/definition:Definition" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoleDefinition.__pulumiType, name, inputs, opts);
     }
 }

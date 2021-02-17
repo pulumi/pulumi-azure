@@ -109,7 +109,8 @@ export class EndpointServicebus extends pulumi.CustomResource {
     constructor(name: string, args: EndpointServicebusArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointServicebusArgs | EndpointServicebusState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EndpointServicebusState | undefined;
             inputs["deadLetterStorageSecret"] = state ? state.deadLetterStorageSecret : undefined;
             inputs["digitalTwinsId"] = state ? state.digitalTwinsId : undefined;
@@ -118,13 +119,13 @@ export class EndpointServicebus extends pulumi.CustomResource {
             inputs["servicebusSecondaryConnectionString"] = state ? state.servicebusSecondaryConnectionString : undefined;
         } else {
             const args = argsOrState as EndpointServicebusArgs | undefined;
-            if ((!args || args.digitalTwinsId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.digitalTwinsId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'digitalTwinsId'");
             }
-            if ((!args || args.servicebusPrimaryConnectionString === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.servicebusPrimaryConnectionString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'servicebusPrimaryConnectionString'");
             }
-            if ((!args || args.servicebusSecondaryConnectionString === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.servicebusSecondaryConnectionString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'servicebusSecondaryConnectionString'");
             }
             inputs["deadLetterStorageSecret"] = args ? args.deadLetterStorageSecret : undefined;
@@ -133,12 +134,8 @@ export class EndpointServicebus extends pulumi.CustomResource {
             inputs["servicebusPrimaryConnectionString"] = args ? args.servicebusPrimaryConnectionString : undefined;
             inputs["servicebusSecondaryConnectionString"] = args ? args.servicebusSecondaryConnectionString : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EndpointServicebus.__pulumiType, name, inputs, opts);
     }

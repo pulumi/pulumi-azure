@@ -110,7 +110,8 @@ export class FirewallRule extends pulumi.CustomResource {
     constructor(name: string, args: FirewallRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FirewallRuleArgs | FirewallRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FirewallRuleState | undefined;
             inputs["endIp"] = state ? state.endIp : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -119,16 +120,16 @@ export class FirewallRule extends pulumi.CustomResource {
             inputs["startIp"] = state ? state.startIp : undefined;
         } else {
             const args = argsOrState as FirewallRuleArgs | undefined;
-            if ((!args || args.endIp === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.endIp === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endIp'");
             }
-            if ((!args || args.redisCacheName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.redisCacheName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'redisCacheName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.startIp === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.startIp === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startIp'");
             }
             inputs["endIp"] = args ? args.endIp : undefined;
@@ -137,12 +138,8 @@ export class FirewallRule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["startIp"] = args ? args.startIp : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(FirewallRule.__pulumiType, name, inputs, opts);
     }

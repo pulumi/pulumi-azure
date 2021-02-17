@@ -51,6 +51,7 @@ namespace Pulumi.Azure.DataFactory
     ///  $ pulumi import azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationruntimes/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis")]
     public partial class IntegrationRuntimeSsis : Pulumi.CustomResource
     {
         /// <summary>

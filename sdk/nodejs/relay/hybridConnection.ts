@@ -97,7 +97,8 @@ export class HybridConnection extends pulumi.CustomResource {
     constructor(name: string, args: HybridConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HybridConnectionArgs | HybridConnectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as HybridConnectionState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["relayNamespaceName"] = state ? state.relayNamespaceName : undefined;
@@ -106,10 +107,10 @@ export class HybridConnection extends pulumi.CustomResource {
             inputs["userMetadata"] = state ? state.userMetadata : undefined;
         } else {
             const args = argsOrState as HybridConnectionArgs | undefined;
-            if ((!args || args.relayNamespaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.relayNamespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'relayNamespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -118,12 +119,8 @@ export class HybridConnection extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["userMetadata"] = args ? args.userMetadata : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(HybridConnection.__pulumiType, name, inputs, opts);
     }

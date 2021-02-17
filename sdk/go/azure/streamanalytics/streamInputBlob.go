@@ -273,16 +273,95 @@ type StreamInputBlobInput interface {
 	ToStreamInputBlobOutputWithContext(ctx context.Context) StreamInputBlobOutput
 }
 
-func (StreamInputBlob) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamInputBlob)(nil)).Elem()
+func (*StreamInputBlob) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamInputBlob)(nil))
 }
 
-func (i StreamInputBlob) ToStreamInputBlobOutput() StreamInputBlobOutput {
+func (i *StreamInputBlob) ToStreamInputBlobOutput() StreamInputBlobOutput {
 	return i.ToStreamInputBlobOutputWithContext(context.Background())
 }
 
-func (i StreamInputBlob) ToStreamInputBlobOutputWithContext(ctx context.Context) StreamInputBlobOutput {
+func (i *StreamInputBlob) ToStreamInputBlobOutputWithContext(ctx context.Context) StreamInputBlobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputBlobOutput)
+}
+
+func (i *StreamInputBlob) ToStreamInputBlobPtrOutput() StreamInputBlobPtrOutput {
+	return i.ToStreamInputBlobPtrOutputWithContext(context.Background())
+}
+
+func (i *StreamInputBlob) ToStreamInputBlobPtrOutputWithContext(ctx context.Context) StreamInputBlobPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamInputBlobPtrOutput)
+}
+
+type StreamInputBlobPtrInput interface {
+	pulumi.Input
+
+	ToStreamInputBlobPtrOutput() StreamInputBlobPtrOutput
+	ToStreamInputBlobPtrOutputWithContext(ctx context.Context) StreamInputBlobPtrOutput
+}
+
+type streamInputBlobPtrType StreamInputBlobArgs
+
+func (*streamInputBlobPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamInputBlob)(nil))
+}
+
+func (i *streamInputBlobPtrType) ToStreamInputBlobPtrOutput() StreamInputBlobPtrOutput {
+	return i.ToStreamInputBlobPtrOutputWithContext(context.Background())
+}
+
+func (i *streamInputBlobPtrType) ToStreamInputBlobPtrOutputWithContext(ctx context.Context) StreamInputBlobPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamInputBlobPtrOutput)
+}
+
+// StreamInputBlobArrayInput is an input type that accepts StreamInputBlobArray and StreamInputBlobArrayOutput values.
+// You can construct a concrete instance of `StreamInputBlobArrayInput` via:
+//
+//          StreamInputBlobArray{ StreamInputBlobArgs{...} }
+type StreamInputBlobArrayInput interface {
+	pulumi.Input
+
+	ToStreamInputBlobArrayOutput() StreamInputBlobArrayOutput
+	ToStreamInputBlobArrayOutputWithContext(context.Context) StreamInputBlobArrayOutput
+}
+
+type StreamInputBlobArray []StreamInputBlobInput
+
+func (StreamInputBlobArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*StreamInputBlob)(nil))
+}
+
+func (i StreamInputBlobArray) ToStreamInputBlobArrayOutput() StreamInputBlobArrayOutput {
+	return i.ToStreamInputBlobArrayOutputWithContext(context.Background())
+}
+
+func (i StreamInputBlobArray) ToStreamInputBlobArrayOutputWithContext(ctx context.Context) StreamInputBlobArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamInputBlobArrayOutput)
+}
+
+// StreamInputBlobMapInput is an input type that accepts StreamInputBlobMap and StreamInputBlobMapOutput values.
+// You can construct a concrete instance of `StreamInputBlobMapInput` via:
+//
+//          StreamInputBlobMap{ "key": StreamInputBlobArgs{...} }
+type StreamInputBlobMapInput interface {
+	pulumi.Input
+
+	ToStreamInputBlobMapOutput() StreamInputBlobMapOutput
+	ToStreamInputBlobMapOutputWithContext(context.Context) StreamInputBlobMapOutput
+}
+
+type StreamInputBlobMap map[string]StreamInputBlobInput
+
+func (StreamInputBlobMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*StreamInputBlob)(nil))
+}
+
+func (i StreamInputBlobMap) ToStreamInputBlobMapOutput() StreamInputBlobMapOutput {
+	return i.ToStreamInputBlobMapOutputWithContext(context.Background())
+}
+
+func (i StreamInputBlobMap) ToStreamInputBlobMapOutputWithContext(ctx context.Context) StreamInputBlobMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamInputBlobMapOutput)
 }
 
 type StreamInputBlobOutput struct {
@@ -290,7 +369,7 @@ type StreamInputBlobOutput struct {
 }
 
 func (StreamInputBlobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamInputBlobOutput)(nil)).Elem()
+	return reflect.TypeOf((*StreamInputBlob)(nil))
 }
 
 func (o StreamInputBlobOutput) ToStreamInputBlobOutput() StreamInputBlobOutput {
@@ -301,6 +380,75 @@ func (o StreamInputBlobOutput) ToStreamInputBlobOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o StreamInputBlobOutput) ToStreamInputBlobPtrOutput() StreamInputBlobPtrOutput {
+	return o.ToStreamInputBlobPtrOutputWithContext(context.Background())
+}
+
+func (o StreamInputBlobOutput) ToStreamInputBlobPtrOutputWithContext(ctx context.Context) StreamInputBlobPtrOutput {
+	return o.ApplyT(func(v StreamInputBlob) *StreamInputBlob {
+		return &v
+	}).(StreamInputBlobPtrOutput)
+}
+
+type StreamInputBlobPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (StreamInputBlobPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamInputBlob)(nil))
+}
+
+func (o StreamInputBlobPtrOutput) ToStreamInputBlobPtrOutput() StreamInputBlobPtrOutput {
+	return o
+}
+
+func (o StreamInputBlobPtrOutput) ToStreamInputBlobPtrOutputWithContext(ctx context.Context) StreamInputBlobPtrOutput {
+	return o
+}
+
+type StreamInputBlobArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamInputBlobArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamInputBlob)(nil))
+}
+
+func (o StreamInputBlobArrayOutput) ToStreamInputBlobArrayOutput() StreamInputBlobArrayOutput {
+	return o
+}
+
+func (o StreamInputBlobArrayOutput) ToStreamInputBlobArrayOutputWithContext(ctx context.Context) StreamInputBlobArrayOutput {
+	return o
+}
+
+func (o StreamInputBlobArrayOutput) Index(i pulumi.IntInput) StreamInputBlobOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamInputBlob {
+		return vs[0].([]StreamInputBlob)[vs[1].(int)]
+	}).(StreamInputBlobOutput)
+}
+
+type StreamInputBlobMapOutput struct{ *pulumi.OutputState }
+
+func (StreamInputBlobMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]StreamInputBlob)(nil))
+}
+
+func (o StreamInputBlobMapOutput) ToStreamInputBlobMapOutput() StreamInputBlobMapOutput {
+	return o
+}
+
+func (o StreamInputBlobMapOutput) ToStreamInputBlobMapOutputWithContext(ctx context.Context) StreamInputBlobMapOutput {
+	return o
+}
+
+func (o StreamInputBlobMapOutput) MapIndex(k pulumi.StringInput) StreamInputBlobOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StreamInputBlob {
+		return vs[0].(map[string]StreamInputBlob)[vs[1].(string)]
+	}).(StreamInputBlobOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StreamInputBlobOutput{})
+	pulumi.RegisterOutputType(StreamInputBlobPtrOutput{})
+	pulumi.RegisterOutputType(StreamInputBlobArrayOutput{})
+	pulumi.RegisterOutputType(StreamInputBlobMapOutput{})
 }

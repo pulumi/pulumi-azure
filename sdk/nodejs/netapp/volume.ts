@@ -158,7 +158,8 @@ export class Volume extends pulumi.CustomResource {
     constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VolumeArgs | VolumeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VolumeState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["exportPolicyRules"] = state ? state.exportPolicyRules : undefined;
@@ -175,25 +176,25 @@ export class Volume extends pulumi.CustomResource {
             inputs["volumePath"] = state ? state.volumePath : undefined;
         } else {
             const args = argsOrState as VolumeArgs | undefined;
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.poolName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.poolName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'poolName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceLevel === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceLevel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceLevel'");
             }
-            if ((!args || args.storageQuotaInGb === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageQuotaInGb === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageQuotaInGb'");
             }
-            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if ((!args || args.volumePath === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.volumePath === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'volumePath'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -210,12 +211,8 @@ export class Volume extends pulumi.CustomResource {
             inputs["volumePath"] = args ? args.volumePath : undefined;
             inputs["mountIpAddresses"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Volume.__pulumiType, name, inputs, opts);
     }

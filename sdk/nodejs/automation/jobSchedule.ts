@@ -99,7 +99,8 @@ export class JobSchedule extends pulumi.CustomResource {
     constructor(name: string, args: JobScheduleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: JobScheduleArgs | JobScheduleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as JobScheduleState | undefined;
             inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
             inputs["jobScheduleId"] = state ? state.jobScheduleId : undefined;
@@ -110,16 +111,16 @@ export class JobSchedule extends pulumi.CustomResource {
             inputs["scheduleName"] = state ? state.scheduleName : undefined;
         } else {
             const args = argsOrState as JobScheduleArgs | undefined;
-            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.runbookName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.runbookName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'runbookName'");
             }
-            if ((!args || args.scheduleName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scheduleName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scheduleName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
@@ -130,12 +131,8 @@ export class JobSchedule extends pulumi.CustomResource {
             inputs["runbookName"] = args ? args.runbookName : undefined;
             inputs["scheduleName"] = args ? args.scheduleName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(JobSchedule.__pulumiType, name, inputs, opts);
     }

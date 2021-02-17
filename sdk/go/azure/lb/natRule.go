@@ -266,16 +266,95 @@ type NatRuleInput interface {
 	ToNatRuleOutputWithContext(ctx context.Context) NatRuleOutput
 }
 
-func (NatRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*NatRule)(nil)).Elem()
+func (*NatRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatRule)(nil))
 }
 
-func (i NatRule) ToNatRuleOutput() NatRuleOutput {
+func (i *NatRule) ToNatRuleOutput() NatRuleOutput {
 	return i.ToNatRuleOutputWithContext(context.Background())
 }
 
-func (i NatRule) ToNatRuleOutputWithContext(ctx context.Context) NatRuleOutput {
+func (i *NatRule) ToNatRuleOutputWithContext(ctx context.Context) NatRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NatRuleOutput)
+}
+
+func (i *NatRule) ToNatRulePtrOutput() NatRulePtrOutput {
+	return i.ToNatRulePtrOutputWithContext(context.Background())
+}
+
+func (i *NatRule) ToNatRulePtrOutputWithContext(ctx context.Context) NatRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatRulePtrOutput)
+}
+
+type NatRulePtrInput interface {
+	pulumi.Input
+
+	ToNatRulePtrOutput() NatRulePtrOutput
+	ToNatRulePtrOutputWithContext(ctx context.Context) NatRulePtrOutput
+}
+
+type natRulePtrType NatRuleArgs
+
+func (*natRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NatRule)(nil))
+}
+
+func (i *natRulePtrType) ToNatRulePtrOutput() NatRulePtrOutput {
+	return i.ToNatRulePtrOutputWithContext(context.Background())
+}
+
+func (i *natRulePtrType) ToNatRulePtrOutputWithContext(ctx context.Context) NatRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatRulePtrOutput)
+}
+
+// NatRuleArrayInput is an input type that accepts NatRuleArray and NatRuleArrayOutput values.
+// You can construct a concrete instance of `NatRuleArrayInput` via:
+//
+//          NatRuleArray{ NatRuleArgs{...} }
+type NatRuleArrayInput interface {
+	pulumi.Input
+
+	ToNatRuleArrayOutput() NatRuleArrayOutput
+	ToNatRuleArrayOutputWithContext(context.Context) NatRuleArrayOutput
+}
+
+type NatRuleArray []NatRuleInput
+
+func (NatRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*NatRule)(nil))
+}
+
+func (i NatRuleArray) ToNatRuleArrayOutput() NatRuleArrayOutput {
+	return i.ToNatRuleArrayOutputWithContext(context.Background())
+}
+
+func (i NatRuleArray) ToNatRuleArrayOutputWithContext(ctx context.Context) NatRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatRuleArrayOutput)
+}
+
+// NatRuleMapInput is an input type that accepts NatRuleMap and NatRuleMapOutput values.
+// You can construct a concrete instance of `NatRuleMapInput` via:
+//
+//          NatRuleMap{ "key": NatRuleArgs{...} }
+type NatRuleMapInput interface {
+	pulumi.Input
+
+	ToNatRuleMapOutput() NatRuleMapOutput
+	ToNatRuleMapOutputWithContext(context.Context) NatRuleMapOutput
+}
+
+type NatRuleMap map[string]NatRuleInput
+
+func (NatRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*NatRule)(nil))
+}
+
+func (i NatRuleMap) ToNatRuleMapOutput() NatRuleMapOutput {
+	return i.ToNatRuleMapOutputWithContext(context.Background())
+}
+
+func (i NatRuleMap) ToNatRuleMapOutputWithContext(ctx context.Context) NatRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatRuleMapOutput)
 }
 
 type NatRuleOutput struct {
@@ -283,7 +362,7 @@ type NatRuleOutput struct {
 }
 
 func (NatRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NatRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*NatRule)(nil))
 }
 
 func (o NatRuleOutput) ToNatRuleOutput() NatRuleOutput {
@@ -294,6 +373,75 @@ func (o NatRuleOutput) ToNatRuleOutputWithContext(ctx context.Context) NatRuleOu
 	return o
 }
 
+func (o NatRuleOutput) ToNatRulePtrOutput() NatRulePtrOutput {
+	return o.ToNatRulePtrOutputWithContext(context.Background())
+}
+
+func (o NatRuleOutput) ToNatRulePtrOutputWithContext(ctx context.Context) NatRulePtrOutput {
+	return o.ApplyT(func(v NatRule) *NatRule {
+		return &v
+	}).(NatRulePtrOutput)
+}
+
+type NatRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (NatRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NatRule)(nil))
+}
+
+func (o NatRulePtrOutput) ToNatRulePtrOutput() NatRulePtrOutput {
+	return o
+}
+
+func (o NatRulePtrOutput) ToNatRulePtrOutputWithContext(ctx context.Context) NatRulePtrOutput {
+	return o
+}
+
+type NatRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (NatRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NatRule)(nil))
+}
+
+func (o NatRuleArrayOutput) ToNatRuleArrayOutput() NatRuleArrayOutput {
+	return o
+}
+
+func (o NatRuleArrayOutput) ToNatRuleArrayOutputWithContext(ctx context.Context) NatRuleArrayOutput {
+	return o
+}
+
+func (o NatRuleArrayOutput) Index(i pulumi.IntInput) NatRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NatRule {
+		return vs[0].([]NatRule)[vs[1].(int)]
+	}).(NatRuleOutput)
+}
+
+type NatRuleMapOutput struct{ *pulumi.OutputState }
+
+func (NatRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NatRule)(nil))
+}
+
+func (o NatRuleMapOutput) ToNatRuleMapOutput() NatRuleMapOutput {
+	return o
+}
+
+func (o NatRuleMapOutput) ToNatRuleMapOutputWithContext(ctx context.Context) NatRuleMapOutput {
+	return o
+}
+
+func (o NatRuleMapOutput) MapIndex(k pulumi.StringInput) NatRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NatRule {
+		return vs[0].(map[string]NatRule)[vs[1].(string)]
+	}).(NatRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NatRuleOutput{})
+	pulumi.RegisterOutputType(NatRulePtrOutput{})
+	pulumi.RegisterOutputType(NatRuleArrayOutput{})
+	pulumi.RegisterOutputType(NatRuleMapOutput{})
 }

@@ -166,16 +166,95 @@ type ConnectionClassicCertificateInput interface {
 	ToConnectionClassicCertificateOutputWithContext(ctx context.Context) ConnectionClassicCertificateOutput
 }
 
-func (ConnectionClassicCertificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionClassicCertificate)(nil)).Elem()
+func (*ConnectionClassicCertificate) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionClassicCertificate)(nil))
 }
 
-func (i ConnectionClassicCertificate) ToConnectionClassicCertificateOutput() ConnectionClassicCertificateOutput {
+func (i *ConnectionClassicCertificate) ToConnectionClassicCertificateOutput() ConnectionClassicCertificateOutput {
 	return i.ToConnectionClassicCertificateOutputWithContext(context.Background())
 }
 
-func (i ConnectionClassicCertificate) ToConnectionClassicCertificateOutputWithContext(ctx context.Context) ConnectionClassicCertificateOutput {
+func (i *ConnectionClassicCertificate) ToConnectionClassicCertificateOutputWithContext(ctx context.Context) ConnectionClassicCertificateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionClassicCertificateOutput)
+}
+
+func (i *ConnectionClassicCertificate) ToConnectionClassicCertificatePtrOutput() ConnectionClassicCertificatePtrOutput {
+	return i.ToConnectionClassicCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *ConnectionClassicCertificate) ToConnectionClassicCertificatePtrOutputWithContext(ctx context.Context) ConnectionClassicCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionClassicCertificatePtrOutput)
+}
+
+type ConnectionClassicCertificatePtrInput interface {
+	pulumi.Input
+
+	ToConnectionClassicCertificatePtrOutput() ConnectionClassicCertificatePtrOutput
+	ToConnectionClassicCertificatePtrOutputWithContext(ctx context.Context) ConnectionClassicCertificatePtrOutput
+}
+
+type connectionClassicCertificatePtrType ConnectionClassicCertificateArgs
+
+func (*connectionClassicCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionClassicCertificate)(nil))
+}
+
+func (i *connectionClassicCertificatePtrType) ToConnectionClassicCertificatePtrOutput() ConnectionClassicCertificatePtrOutput {
+	return i.ToConnectionClassicCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *connectionClassicCertificatePtrType) ToConnectionClassicCertificatePtrOutputWithContext(ctx context.Context) ConnectionClassicCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionClassicCertificatePtrOutput)
+}
+
+// ConnectionClassicCertificateArrayInput is an input type that accepts ConnectionClassicCertificateArray and ConnectionClassicCertificateArrayOutput values.
+// You can construct a concrete instance of `ConnectionClassicCertificateArrayInput` via:
+//
+//          ConnectionClassicCertificateArray{ ConnectionClassicCertificateArgs{...} }
+type ConnectionClassicCertificateArrayInput interface {
+	pulumi.Input
+
+	ToConnectionClassicCertificateArrayOutput() ConnectionClassicCertificateArrayOutput
+	ToConnectionClassicCertificateArrayOutputWithContext(context.Context) ConnectionClassicCertificateArrayOutput
+}
+
+type ConnectionClassicCertificateArray []ConnectionClassicCertificateInput
+
+func (ConnectionClassicCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ConnectionClassicCertificate)(nil))
+}
+
+func (i ConnectionClassicCertificateArray) ToConnectionClassicCertificateArrayOutput() ConnectionClassicCertificateArrayOutput {
+	return i.ToConnectionClassicCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectionClassicCertificateArray) ToConnectionClassicCertificateArrayOutputWithContext(ctx context.Context) ConnectionClassicCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionClassicCertificateArrayOutput)
+}
+
+// ConnectionClassicCertificateMapInput is an input type that accepts ConnectionClassicCertificateMap and ConnectionClassicCertificateMapOutput values.
+// You can construct a concrete instance of `ConnectionClassicCertificateMapInput` via:
+//
+//          ConnectionClassicCertificateMap{ "key": ConnectionClassicCertificateArgs{...} }
+type ConnectionClassicCertificateMapInput interface {
+	pulumi.Input
+
+	ToConnectionClassicCertificateMapOutput() ConnectionClassicCertificateMapOutput
+	ToConnectionClassicCertificateMapOutputWithContext(context.Context) ConnectionClassicCertificateMapOutput
+}
+
+type ConnectionClassicCertificateMap map[string]ConnectionClassicCertificateInput
+
+func (ConnectionClassicCertificateMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ConnectionClassicCertificate)(nil))
+}
+
+func (i ConnectionClassicCertificateMap) ToConnectionClassicCertificateMapOutput() ConnectionClassicCertificateMapOutput {
+	return i.ToConnectionClassicCertificateMapOutputWithContext(context.Background())
+}
+
+func (i ConnectionClassicCertificateMap) ToConnectionClassicCertificateMapOutputWithContext(ctx context.Context) ConnectionClassicCertificateMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionClassicCertificateMapOutput)
 }
 
 type ConnectionClassicCertificateOutput struct {
@@ -183,7 +262,7 @@ type ConnectionClassicCertificateOutput struct {
 }
 
 func (ConnectionClassicCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionClassicCertificateOutput)(nil)).Elem()
+	return reflect.TypeOf((*ConnectionClassicCertificate)(nil))
 }
 
 func (o ConnectionClassicCertificateOutput) ToConnectionClassicCertificateOutput() ConnectionClassicCertificateOutput {
@@ -194,6 +273,75 @@ func (o ConnectionClassicCertificateOutput) ToConnectionClassicCertificateOutput
 	return o
 }
 
+func (o ConnectionClassicCertificateOutput) ToConnectionClassicCertificatePtrOutput() ConnectionClassicCertificatePtrOutput {
+	return o.ToConnectionClassicCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionClassicCertificateOutput) ToConnectionClassicCertificatePtrOutputWithContext(ctx context.Context) ConnectionClassicCertificatePtrOutput {
+	return o.ApplyT(func(v ConnectionClassicCertificate) *ConnectionClassicCertificate {
+		return &v
+	}).(ConnectionClassicCertificatePtrOutput)
+}
+
+type ConnectionClassicCertificatePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ConnectionClassicCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionClassicCertificate)(nil))
+}
+
+func (o ConnectionClassicCertificatePtrOutput) ToConnectionClassicCertificatePtrOutput() ConnectionClassicCertificatePtrOutput {
+	return o
+}
+
+func (o ConnectionClassicCertificatePtrOutput) ToConnectionClassicCertificatePtrOutputWithContext(ctx context.Context) ConnectionClassicCertificatePtrOutput {
+	return o
+}
+
+type ConnectionClassicCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectionClassicCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionClassicCertificate)(nil))
+}
+
+func (o ConnectionClassicCertificateArrayOutput) ToConnectionClassicCertificateArrayOutput() ConnectionClassicCertificateArrayOutput {
+	return o
+}
+
+func (o ConnectionClassicCertificateArrayOutput) ToConnectionClassicCertificateArrayOutputWithContext(ctx context.Context) ConnectionClassicCertificateArrayOutput {
+	return o
+}
+
+func (o ConnectionClassicCertificateArrayOutput) Index(i pulumi.IntInput) ConnectionClassicCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectionClassicCertificate {
+		return vs[0].([]ConnectionClassicCertificate)[vs[1].(int)]
+	}).(ConnectionClassicCertificateOutput)
+}
+
+type ConnectionClassicCertificateMapOutput struct{ *pulumi.OutputState }
+
+func (ConnectionClassicCertificateMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConnectionClassicCertificate)(nil))
+}
+
+func (o ConnectionClassicCertificateMapOutput) ToConnectionClassicCertificateMapOutput() ConnectionClassicCertificateMapOutput {
+	return o
+}
+
+func (o ConnectionClassicCertificateMapOutput) ToConnectionClassicCertificateMapOutputWithContext(ctx context.Context) ConnectionClassicCertificateMapOutput {
+	return o
+}
+
+func (o ConnectionClassicCertificateMapOutput) MapIndex(k pulumi.StringInput) ConnectionClassicCertificateOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConnectionClassicCertificate {
+		return vs[0].(map[string]ConnectionClassicCertificate)[vs[1].(string)]
+	}).(ConnectionClassicCertificateOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConnectionClassicCertificateOutput{})
+	pulumi.RegisterOutputType(ConnectionClassicCertificatePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionClassicCertificateArrayOutput{})
+	pulumi.RegisterOutputType(ConnectionClassicCertificateMapOutput{})
 }

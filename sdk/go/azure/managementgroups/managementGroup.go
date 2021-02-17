@@ -183,16 +183,95 @@ type ManagementGroupInput interface {
 	ToManagementGroupOutputWithContext(ctx context.Context) ManagementGroupOutput
 }
 
-func (ManagementGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementGroup)(nil)).Elem()
+func (*ManagementGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementGroup)(nil))
 }
 
-func (i ManagementGroup) ToManagementGroupOutput() ManagementGroupOutput {
+func (i *ManagementGroup) ToManagementGroupOutput() ManagementGroupOutput {
 	return i.ToManagementGroupOutputWithContext(context.Background())
 }
 
-func (i ManagementGroup) ToManagementGroupOutputWithContext(ctx context.Context) ManagementGroupOutput {
+func (i *ManagementGroup) ToManagementGroupOutputWithContext(ctx context.Context) ManagementGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupOutput)
+}
+
+func (i *ManagementGroup) ToManagementGroupPtrOutput() ManagementGroupPtrOutput {
+	return i.ToManagementGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *ManagementGroup) ToManagementGroupPtrOutputWithContext(ctx context.Context) ManagementGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupPtrOutput)
+}
+
+type ManagementGroupPtrInput interface {
+	pulumi.Input
+
+	ToManagementGroupPtrOutput() ManagementGroupPtrOutput
+	ToManagementGroupPtrOutputWithContext(ctx context.Context) ManagementGroupPtrOutput
+}
+
+type managementGroupPtrType ManagementGroupArgs
+
+func (*managementGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementGroup)(nil))
+}
+
+func (i *managementGroupPtrType) ToManagementGroupPtrOutput() ManagementGroupPtrOutput {
+	return i.ToManagementGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *managementGroupPtrType) ToManagementGroupPtrOutputWithContext(ctx context.Context) ManagementGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupPtrOutput)
+}
+
+// ManagementGroupArrayInput is an input type that accepts ManagementGroupArray and ManagementGroupArrayOutput values.
+// You can construct a concrete instance of `ManagementGroupArrayInput` via:
+//
+//          ManagementGroupArray{ ManagementGroupArgs{...} }
+type ManagementGroupArrayInput interface {
+	pulumi.Input
+
+	ToManagementGroupArrayOutput() ManagementGroupArrayOutput
+	ToManagementGroupArrayOutputWithContext(context.Context) ManagementGroupArrayOutput
+}
+
+type ManagementGroupArray []ManagementGroupInput
+
+func (ManagementGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ManagementGroup)(nil))
+}
+
+func (i ManagementGroupArray) ToManagementGroupArrayOutput() ManagementGroupArrayOutput {
+	return i.ToManagementGroupArrayOutputWithContext(context.Background())
+}
+
+func (i ManagementGroupArray) ToManagementGroupArrayOutputWithContext(ctx context.Context) ManagementGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupArrayOutput)
+}
+
+// ManagementGroupMapInput is an input type that accepts ManagementGroupMap and ManagementGroupMapOutput values.
+// You can construct a concrete instance of `ManagementGroupMapInput` via:
+//
+//          ManagementGroupMap{ "key": ManagementGroupArgs{...} }
+type ManagementGroupMapInput interface {
+	pulumi.Input
+
+	ToManagementGroupMapOutput() ManagementGroupMapOutput
+	ToManagementGroupMapOutputWithContext(context.Context) ManagementGroupMapOutput
+}
+
+type ManagementGroupMap map[string]ManagementGroupInput
+
+func (ManagementGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ManagementGroup)(nil))
+}
+
+func (i ManagementGroupMap) ToManagementGroupMapOutput() ManagementGroupMapOutput {
+	return i.ToManagementGroupMapOutputWithContext(context.Background())
+}
+
+func (i ManagementGroupMap) ToManagementGroupMapOutputWithContext(ctx context.Context) ManagementGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupMapOutput)
 }
 
 type ManagementGroupOutput struct {
@@ -200,7 +279,7 @@ type ManagementGroupOutput struct {
 }
 
 func (ManagementGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagementGroup)(nil))
 }
 
 func (o ManagementGroupOutput) ToManagementGroupOutput() ManagementGroupOutput {
@@ -211,6 +290,75 @@ func (o ManagementGroupOutput) ToManagementGroupOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ManagementGroupOutput) ToManagementGroupPtrOutput() ManagementGroupPtrOutput {
+	return o.ToManagementGroupPtrOutputWithContext(context.Background())
+}
+
+func (o ManagementGroupOutput) ToManagementGroupPtrOutputWithContext(ctx context.Context) ManagementGroupPtrOutput {
+	return o.ApplyT(func(v ManagementGroup) *ManagementGroup {
+		return &v
+	}).(ManagementGroupPtrOutput)
+}
+
+type ManagementGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagementGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementGroup)(nil))
+}
+
+func (o ManagementGroupPtrOutput) ToManagementGroupPtrOutput() ManagementGroupPtrOutput {
+	return o
+}
+
+func (o ManagementGroupPtrOutput) ToManagementGroupPtrOutputWithContext(ctx context.Context) ManagementGroupPtrOutput {
+	return o
+}
+
+type ManagementGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagementGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagementGroup)(nil))
+}
+
+func (o ManagementGroupArrayOutput) ToManagementGroupArrayOutput() ManagementGroupArrayOutput {
+	return o
+}
+
+func (o ManagementGroupArrayOutput) ToManagementGroupArrayOutputWithContext(ctx context.Context) ManagementGroupArrayOutput {
+	return o
+}
+
+func (o ManagementGroupArrayOutput) Index(i pulumi.IntInput) ManagementGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagementGroup {
+		return vs[0].([]ManagementGroup)[vs[1].(int)]
+	}).(ManagementGroupOutput)
+}
+
+type ManagementGroupMapOutput struct{ *pulumi.OutputState }
+
+func (ManagementGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagementGroup)(nil))
+}
+
+func (o ManagementGroupMapOutput) ToManagementGroupMapOutput() ManagementGroupMapOutput {
+	return o
+}
+
+func (o ManagementGroupMapOutput) ToManagementGroupMapOutputWithContext(ctx context.Context) ManagementGroupMapOutput {
+	return o
+}
+
+func (o ManagementGroupMapOutput) MapIndex(k pulumi.StringInput) ManagementGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagementGroup {
+		return vs[0].(map[string]ManagementGroup)[vs[1].(string)]
+	}).(ManagementGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagementGroupOutput{})
+	pulumi.RegisterOutputType(ManagementGroupPtrOutput{})
+	pulumi.RegisterOutputType(ManagementGroupArrayOutput{})
+	pulumi.RegisterOutputType(ManagementGroupMapOutput{})
 }

@@ -89,6 +89,7 @@ namespace Pulumi.Azure.Kusto
     ///  $ pulumi import azure:kusto/eventhubDataConnection:EventhubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/DataConnections/eventHubConnection1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:kusto/eventhubDataConnection:EventhubDataConnection")]
     public partial class EventhubDataConnection : Pulumi.CustomResource
     {
         /// <summary>

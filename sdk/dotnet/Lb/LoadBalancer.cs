@@ -58,6 +58,7 @@ namespace Pulumi.Azure.Lb
     ///  $ pulumi import azure:lb/loadBalancer:LoadBalancer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:lb/loadBalancer:LoadBalancer")]
     public partial class LoadBalancer : Pulumi.CustomResource
     {
         /// <summary>

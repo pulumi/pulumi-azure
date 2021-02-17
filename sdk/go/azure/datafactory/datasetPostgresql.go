@@ -247,16 +247,95 @@ type DatasetPostgresqlInput interface {
 	ToDatasetPostgresqlOutputWithContext(ctx context.Context) DatasetPostgresqlOutput
 }
 
-func (DatasetPostgresql) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetPostgresql)(nil)).Elem()
+func (*DatasetPostgresql) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetPostgresql)(nil))
 }
 
-func (i DatasetPostgresql) ToDatasetPostgresqlOutput() DatasetPostgresqlOutput {
+func (i *DatasetPostgresql) ToDatasetPostgresqlOutput() DatasetPostgresqlOutput {
 	return i.ToDatasetPostgresqlOutputWithContext(context.Background())
 }
 
-func (i DatasetPostgresql) ToDatasetPostgresqlOutputWithContext(ctx context.Context) DatasetPostgresqlOutput {
+func (i *DatasetPostgresql) ToDatasetPostgresqlOutputWithContext(ctx context.Context) DatasetPostgresqlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetPostgresqlOutput)
+}
+
+func (i *DatasetPostgresql) ToDatasetPostgresqlPtrOutput() DatasetPostgresqlPtrOutput {
+	return i.ToDatasetPostgresqlPtrOutputWithContext(context.Background())
+}
+
+func (i *DatasetPostgresql) ToDatasetPostgresqlPtrOutputWithContext(ctx context.Context) DatasetPostgresqlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetPostgresqlPtrOutput)
+}
+
+type DatasetPostgresqlPtrInput interface {
+	pulumi.Input
+
+	ToDatasetPostgresqlPtrOutput() DatasetPostgresqlPtrOutput
+	ToDatasetPostgresqlPtrOutputWithContext(ctx context.Context) DatasetPostgresqlPtrOutput
+}
+
+type datasetPostgresqlPtrType DatasetPostgresqlArgs
+
+func (*datasetPostgresqlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetPostgresql)(nil))
+}
+
+func (i *datasetPostgresqlPtrType) ToDatasetPostgresqlPtrOutput() DatasetPostgresqlPtrOutput {
+	return i.ToDatasetPostgresqlPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetPostgresqlPtrType) ToDatasetPostgresqlPtrOutputWithContext(ctx context.Context) DatasetPostgresqlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetPostgresqlPtrOutput)
+}
+
+// DatasetPostgresqlArrayInput is an input type that accepts DatasetPostgresqlArray and DatasetPostgresqlArrayOutput values.
+// You can construct a concrete instance of `DatasetPostgresqlArrayInput` via:
+//
+//          DatasetPostgresqlArray{ DatasetPostgresqlArgs{...} }
+type DatasetPostgresqlArrayInput interface {
+	pulumi.Input
+
+	ToDatasetPostgresqlArrayOutput() DatasetPostgresqlArrayOutput
+	ToDatasetPostgresqlArrayOutputWithContext(context.Context) DatasetPostgresqlArrayOutput
+}
+
+type DatasetPostgresqlArray []DatasetPostgresqlInput
+
+func (DatasetPostgresqlArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DatasetPostgresql)(nil))
+}
+
+func (i DatasetPostgresqlArray) ToDatasetPostgresqlArrayOutput() DatasetPostgresqlArrayOutput {
+	return i.ToDatasetPostgresqlArrayOutputWithContext(context.Background())
+}
+
+func (i DatasetPostgresqlArray) ToDatasetPostgresqlArrayOutputWithContext(ctx context.Context) DatasetPostgresqlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetPostgresqlArrayOutput)
+}
+
+// DatasetPostgresqlMapInput is an input type that accepts DatasetPostgresqlMap and DatasetPostgresqlMapOutput values.
+// You can construct a concrete instance of `DatasetPostgresqlMapInput` via:
+//
+//          DatasetPostgresqlMap{ "key": DatasetPostgresqlArgs{...} }
+type DatasetPostgresqlMapInput interface {
+	pulumi.Input
+
+	ToDatasetPostgresqlMapOutput() DatasetPostgresqlMapOutput
+	ToDatasetPostgresqlMapOutputWithContext(context.Context) DatasetPostgresqlMapOutput
+}
+
+type DatasetPostgresqlMap map[string]DatasetPostgresqlInput
+
+func (DatasetPostgresqlMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DatasetPostgresql)(nil))
+}
+
+func (i DatasetPostgresqlMap) ToDatasetPostgresqlMapOutput() DatasetPostgresqlMapOutput {
+	return i.ToDatasetPostgresqlMapOutputWithContext(context.Background())
+}
+
+func (i DatasetPostgresqlMap) ToDatasetPostgresqlMapOutputWithContext(ctx context.Context) DatasetPostgresqlMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetPostgresqlMapOutput)
 }
 
 type DatasetPostgresqlOutput struct {
@@ -264,7 +343,7 @@ type DatasetPostgresqlOutput struct {
 }
 
 func (DatasetPostgresqlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetPostgresqlOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatasetPostgresql)(nil))
 }
 
 func (o DatasetPostgresqlOutput) ToDatasetPostgresqlOutput() DatasetPostgresqlOutput {
@@ -275,6 +354,75 @@ func (o DatasetPostgresqlOutput) ToDatasetPostgresqlOutputWithContext(ctx contex
 	return o
 }
 
+func (o DatasetPostgresqlOutput) ToDatasetPostgresqlPtrOutput() DatasetPostgresqlPtrOutput {
+	return o.ToDatasetPostgresqlPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetPostgresqlOutput) ToDatasetPostgresqlPtrOutputWithContext(ctx context.Context) DatasetPostgresqlPtrOutput {
+	return o.ApplyT(func(v DatasetPostgresql) *DatasetPostgresql {
+		return &v
+	}).(DatasetPostgresqlPtrOutput)
+}
+
+type DatasetPostgresqlPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatasetPostgresqlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetPostgresql)(nil))
+}
+
+func (o DatasetPostgresqlPtrOutput) ToDatasetPostgresqlPtrOutput() DatasetPostgresqlPtrOutput {
+	return o
+}
+
+func (o DatasetPostgresqlPtrOutput) ToDatasetPostgresqlPtrOutputWithContext(ctx context.Context) DatasetPostgresqlPtrOutput {
+	return o
+}
+
+type DatasetPostgresqlArrayOutput struct{ *pulumi.OutputState }
+
+func (DatasetPostgresqlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetPostgresql)(nil))
+}
+
+func (o DatasetPostgresqlArrayOutput) ToDatasetPostgresqlArrayOutput() DatasetPostgresqlArrayOutput {
+	return o
+}
+
+func (o DatasetPostgresqlArrayOutput) ToDatasetPostgresqlArrayOutputWithContext(ctx context.Context) DatasetPostgresqlArrayOutput {
+	return o
+}
+
+func (o DatasetPostgresqlArrayOutput) Index(i pulumi.IntInput) DatasetPostgresqlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetPostgresql {
+		return vs[0].([]DatasetPostgresql)[vs[1].(int)]
+	}).(DatasetPostgresqlOutput)
+}
+
+type DatasetPostgresqlMapOutput struct{ *pulumi.OutputState }
+
+func (DatasetPostgresqlMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DatasetPostgresql)(nil))
+}
+
+func (o DatasetPostgresqlMapOutput) ToDatasetPostgresqlMapOutput() DatasetPostgresqlMapOutput {
+	return o
+}
+
+func (o DatasetPostgresqlMapOutput) ToDatasetPostgresqlMapOutputWithContext(ctx context.Context) DatasetPostgresqlMapOutput {
+	return o
+}
+
+func (o DatasetPostgresqlMapOutput) MapIndex(k pulumi.StringInput) DatasetPostgresqlOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatasetPostgresql {
+		return vs[0].(map[string]DatasetPostgresql)[vs[1].(string)]
+	}).(DatasetPostgresqlOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatasetPostgresqlOutput{})
+	pulumi.RegisterOutputType(DatasetPostgresqlPtrOutput{})
+	pulumi.RegisterOutputType(DatasetPostgresqlArrayOutput{})
+	pulumi.RegisterOutputType(DatasetPostgresqlMapOutput{})
 }

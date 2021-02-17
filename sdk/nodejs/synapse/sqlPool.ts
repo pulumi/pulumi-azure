@@ -120,7 +120,8 @@ export class SqlPool extends pulumi.CustomResource {
     constructor(name: string, args: SqlPoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SqlPoolArgs | SqlPoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SqlPoolState | undefined;
             inputs["collation"] = state ? state.collation : undefined;
             inputs["createMode"] = state ? state.createMode : undefined;
@@ -133,10 +134,10 @@ export class SqlPool extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SqlPoolArgs | undefined;
-            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if ((!args || args.synapseWorkspaceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
             inputs["collation"] = args ? args.collation : undefined;
@@ -149,12 +150,8 @@ export class SqlPool extends pulumi.CustomResource {
             inputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SqlPool.__pulumiType, name, inputs, opts);
     }

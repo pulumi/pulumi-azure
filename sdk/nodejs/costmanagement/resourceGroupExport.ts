@@ -117,7 +117,8 @@ export class ResourceGroupExport extends pulumi.CustomResource {
     constructor(name: string, args: ResourceGroupExportArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceGroupExportArgs | ResourceGroupExportState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ResourceGroupExportState | undefined;
             inputs["active"] = state ? state.active : undefined;
             inputs["deliveryInfo"] = state ? state.deliveryInfo : undefined;
@@ -129,22 +130,22 @@ export class ResourceGroupExport extends pulumi.CustomResource {
             inputs["resourceGroupId"] = state ? state.resourceGroupId : undefined;
         } else {
             const args = argsOrState as ResourceGroupExportArgs | undefined;
-            if ((!args || args.deliveryInfo === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.deliveryInfo === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deliveryInfo'");
             }
-            if ((!args || args.query === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.query === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            if ((!args || args.recurrencePeriodEnd === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.recurrencePeriodEnd === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recurrencePeriodEnd'");
             }
-            if ((!args || args.recurrencePeriodStart === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.recurrencePeriodStart === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recurrencePeriodStart'");
             }
-            if ((!args || args.recurrenceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.recurrenceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recurrenceType'");
             }
-            if ((!args || args.resourceGroupId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupId'");
             }
             inputs["active"] = args ? args.active : undefined;
@@ -156,12 +157,8 @@ export class ResourceGroupExport extends pulumi.CustomResource {
             inputs["recurrenceType"] = args ? args.recurrenceType : undefined;
             inputs["resourceGroupId"] = args ? args.resourceGroupId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ResourceGroupExport.__pulumiType, name, inputs, opts);
     }

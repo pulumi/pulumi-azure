@@ -197,7 +197,8 @@ export class Cache extends pulumi.CustomResource {
     constructor(name: string, args: CacheArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CacheArgs | CacheState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CacheState | undefined;
             inputs["capacity"] = state ? state.capacity : undefined;
             inputs["enableNonSslPort"] = state ? state.enableNonSslPort : undefined;
@@ -224,16 +225,16 @@ export class Cache extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as CacheArgs | undefined;
-            if ((!args || args.capacity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.capacity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'capacity'");
             }
-            if ((!args || args.family === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.family === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'family'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
             inputs["capacity"] = args ? args.capacity : undefined;
@@ -260,12 +261,8 @@ export class Cache extends pulumi.CustomResource {
             inputs["secondaryConnectionString"] = undefined /*out*/;
             inputs["sslPort"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Cache.__pulumiType, name, inputs, opts);
     }

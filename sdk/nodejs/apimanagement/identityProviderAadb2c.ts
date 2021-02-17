@@ -136,7 +136,8 @@ export class IdentityProviderAadb2c extends pulumi.CustomResource {
     constructor(name: string, args: IdentityProviderAadb2cArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IdentityProviderAadb2cArgs | IdentityProviderAadb2cState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IdentityProviderAadb2cState | undefined;
             inputs["allowedTenant"] = state ? state.allowedTenant : undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
@@ -151,31 +152,31 @@ export class IdentityProviderAadb2c extends pulumi.CustomResource {
             inputs["signupPolicy"] = state ? state.signupPolicy : undefined;
         } else {
             const args = argsOrState as IdentityProviderAadb2cArgs | undefined;
-            if ((!args || args.allowedTenant === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.allowedTenant === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'allowedTenant'");
             }
-            if ((!args || args.apiManagementName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.authority === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authority'");
             }
-            if ((!args || args.clientId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.clientSecret === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientSecret === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.signinPolicy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.signinPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'signinPolicy'");
             }
-            if ((!args || args.signinTenant === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.signinTenant === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'signinTenant'");
             }
-            if ((!args || args.signupPolicy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.signupPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'signupPolicy'");
             }
             inputs["allowedTenant"] = args ? args.allowedTenant : undefined;
@@ -190,12 +191,8 @@ export class IdentityProviderAadb2c extends pulumi.CustomResource {
             inputs["signinTenant"] = args ? args.signinTenant : undefined;
             inputs["signupPolicy"] = args ? args.signupPolicy : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IdentityProviderAadb2c.__pulumiType, name, inputs, opts);
     }

@@ -158,16 +158,95 @@ type ContactInput interface {
 	ToContactOutputWithContext(ctx context.Context) ContactOutput
 }
 
-func (Contact) ElementType() reflect.Type {
-	return reflect.TypeOf((*Contact)(nil)).Elem()
+func (*Contact) ElementType() reflect.Type {
+	return reflect.TypeOf((*Contact)(nil))
 }
 
-func (i Contact) ToContactOutput() ContactOutput {
+func (i *Contact) ToContactOutput() ContactOutput {
 	return i.ToContactOutputWithContext(context.Background())
 }
 
-func (i Contact) ToContactOutputWithContext(ctx context.Context) ContactOutput {
+func (i *Contact) ToContactOutputWithContext(ctx context.Context) ContactOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContactOutput)
+}
+
+func (i *Contact) ToContactPtrOutput() ContactPtrOutput {
+	return i.ToContactPtrOutputWithContext(context.Background())
+}
+
+func (i *Contact) ToContactPtrOutputWithContext(ctx context.Context) ContactPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactPtrOutput)
+}
+
+type ContactPtrInput interface {
+	pulumi.Input
+
+	ToContactPtrOutput() ContactPtrOutput
+	ToContactPtrOutputWithContext(ctx context.Context) ContactPtrOutput
+}
+
+type contactPtrType ContactArgs
+
+func (*contactPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Contact)(nil))
+}
+
+func (i *contactPtrType) ToContactPtrOutput() ContactPtrOutput {
+	return i.ToContactPtrOutputWithContext(context.Background())
+}
+
+func (i *contactPtrType) ToContactPtrOutputWithContext(ctx context.Context) ContactPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactPtrOutput)
+}
+
+// ContactArrayInput is an input type that accepts ContactArray and ContactArrayOutput values.
+// You can construct a concrete instance of `ContactArrayInput` via:
+//
+//          ContactArray{ ContactArgs{...} }
+type ContactArrayInput interface {
+	pulumi.Input
+
+	ToContactArrayOutput() ContactArrayOutput
+	ToContactArrayOutputWithContext(context.Context) ContactArrayOutput
+}
+
+type ContactArray []ContactInput
+
+func (ContactArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Contact)(nil))
+}
+
+func (i ContactArray) ToContactArrayOutput() ContactArrayOutput {
+	return i.ToContactArrayOutputWithContext(context.Background())
+}
+
+func (i ContactArray) ToContactArrayOutputWithContext(ctx context.Context) ContactArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactArrayOutput)
+}
+
+// ContactMapInput is an input type that accepts ContactMap and ContactMapOutput values.
+// You can construct a concrete instance of `ContactMapInput` via:
+//
+//          ContactMap{ "key": ContactArgs{...} }
+type ContactMapInput interface {
+	pulumi.Input
+
+	ToContactMapOutput() ContactMapOutput
+	ToContactMapOutputWithContext(context.Context) ContactMapOutput
+}
+
+type ContactMap map[string]ContactInput
+
+func (ContactMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Contact)(nil))
+}
+
+func (i ContactMap) ToContactMapOutput() ContactMapOutput {
+	return i.ToContactMapOutputWithContext(context.Background())
+}
+
+func (i ContactMap) ToContactMapOutputWithContext(ctx context.Context) ContactMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactMapOutput)
 }
 
 type ContactOutput struct {
@@ -175,7 +254,7 @@ type ContactOutput struct {
 }
 
 func (ContactOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContactOutput)(nil)).Elem()
+	return reflect.TypeOf((*Contact)(nil))
 }
 
 func (o ContactOutput) ToContactOutput() ContactOutput {
@@ -186,6 +265,75 @@ func (o ContactOutput) ToContactOutputWithContext(ctx context.Context) ContactOu
 	return o
 }
 
+func (o ContactOutput) ToContactPtrOutput() ContactPtrOutput {
+	return o.ToContactPtrOutputWithContext(context.Background())
+}
+
+func (o ContactOutput) ToContactPtrOutputWithContext(ctx context.Context) ContactPtrOutput {
+	return o.ApplyT(func(v Contact) *Contact {
+		return &v
+	}).(ContactPtrOutput)
+}
+
+type ContactPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ContactPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Contact)(nil))
+}
+
+func (o ContactPtrOutput) ToContactPtrOutput() ContactPtrOutput {
+	return o
+}
+
+func (o ContactPtrOutput) ToContactPtrOutputWithContext(ctx context.Context) ContactPtrOutput {
+	return o
+}
+
+type ContactArrayOutput struct{ *pulumi.OutputState }
+
+func (ContactArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Contact)(nil))
+}
+
+func (o ContactArrayOutput) ToContactArrayOutput() ContactArrayOutput {
+	return o
+}
+
+func (o ContactArrayOutput) ToContactArrayOutputWithContext(ctx context.Context) ContactArrayOutput {
+	return o
+}
+
+func (o ContactArrayOutput) Index(i pulumi.IntInput) ContactOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Contact {
+		return vs[0].([]Contact)[vs[1].(int)]
+	}).(ContactOutput)
+}
+
+type ContactMapOutput struct{ *pulumi.OutputState }
+
+func (ContactMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Contact)(nil))
+}
+
+func (o ContactMapOutput) ToContactMapOutput() ContactMapOutput {
+	return o
+}
+
+func (o ContactMapOutput) ToContactMapOutputWithContext(ctx context.Context) ContactMapOutput {
+	return o
+}
+
+func (o ContactMapOutput) MapIndex(k pulumi.StringInput) ContactOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Contact {
+		return vs[0].(map[string]Contact)[vs[1].(string)]
+	}).(ContactOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ContactOutput{})
+	pulumi.RegisterOutputType(ContactPtrOutput{})
+	pulumi.RegisterOutputType(ContactArrayOutput{})
+	pulumi.RegisterOutputType(ContactMapOutput{})
 }

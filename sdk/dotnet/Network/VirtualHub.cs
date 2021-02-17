@@ -51,6 +51,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/virtualHub:VirtualHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/hub1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/virtualHub:VirtualHub")]
     public partial class VirtualHub : Pulumi.CustomResource
     {
         /// <summary>

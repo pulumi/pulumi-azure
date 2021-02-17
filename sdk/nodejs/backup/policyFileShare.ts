@@ -107,7 +107,8 @@ export class PolicyFileShare extends pulumi.CustomResource {
     constructor(name: string, args: PolicyFileShareArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicyFileShareArgs | PolicyFileShareState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PolicyFileShareState | undefined;
             inputs["backup"] = state ? state.backup : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -117,16 +118,16 @@ export class PolicyFileShare extends pulumi.CustomResource {
             inputs["timezone"] = state ? state.timezone : undefined;
         } else {
             const args = argsOrState as PolicyFileShareArgs | undefined;
-            if ((!args || args.backup === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.backup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backup'");
             }
-            if ((!args || args.recoveryVaultName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.recoveryVaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.retentionDaily === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.retentionDaily === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'retentionDaily'");
             }
             inputs["backup"] = args ? args.backup : undefined;
@@ -136,12 +137,8 @@ export class PolicyFileShare extends pulumi.CustomResource {
             inputs["retentionDaily"] = args ? args.retentionDaily : undefined;
             inputs["timezone"] = args ? args.timezone : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PolicyFileShare.__pulumiType, name, inputs, opts);
     }

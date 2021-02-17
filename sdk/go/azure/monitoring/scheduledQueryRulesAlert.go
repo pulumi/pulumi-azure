@@ -247,16 +247,95 @@ type ScheduledQueryRulesAlertInput interface {
 	ToScheduledQueryRulesAlertOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertOutput
 }
 
-func (ScheduledQueryRulesAlert) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledQueryRulesAlert)(nil)).Elem()
+func (*ScheduledQueryRulesAlert) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesAlert)(nil))
 }
 
-func (i ScheduledQueryRulesAlert) ToScheduledQueryRulesAlertOutput() ScheduledQueryRulesAlertOutput {
+func (i *ScheduledQueryRulesAlert) ToScheduledQueryRulesAlertOutput() ScheduledQueryRulesAlertOutput {
 	return i.ToScheduledQueryRulesAlertOutputWithContext(context.Background())
 }
 
-func (i ScheduledQueryRulesAlert) ToScheduledQueryRulesAlertOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertOutput {
+func (i *ScheduledQueryRulesAlert) ToScheduledQueryRulesAlertOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertOutput)
+}
+
+func (i *ScheduledQueryRulesAlert) ToScheduledQueryRulesAlertPtrOutput() ScheduledQueryRulesAlertPtrOutput {
+	return i.ToScheduledQueryRulesAlertPtrOutputWithContext(context.Background())
+}
+
+func (i *ScheduledQueryRulesAlert) ToScheduledQueryRulesAlertPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertPtrOutput)
+}
+
+type ScheduledQueryRulesAlertPtrInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesAlertPtrOutput() ScheduledQueryRulesAlertPtrOutput
+	ToScheduledQueryRulesAlertPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertPtrOutput
+}
+
+type scheduledQueryRulesAlertPtrType ScheduledQueryRulesAlertArgs
+
+func (*scheduledQueryRulesAlertPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryRulesAlert)(nil))
+}
+
+func (i *scheduledQueryRulesAlertPtrType) ToScheduledQueryRulesAlertPtrOutput() ScheduledQueryRulesAlertPtrOutput {
+	return i.ToScheduledQueryRulesAlertPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledQueryRulesAlertPtrType) ToScheduledQueryRulesAlertPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertPtrOutput)
+}
+
+// ScheduledQueryRulesAlertArrayInput is an input type that accepts ScheduledQueryRulesAlertArray and ScheduledQueryRulesAlertArrayOutput values.
+// You can construct a concrete instance of `ScheduledQueryRulesAlertArrayInput` via:
+//
+//          ScheduledQueryRulesAlertArray{ ScheduledQueryRulesAlertArgs{...} }
+type ScheduledQueryRulesAlertArrayInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesAlertArrayOutput() ScheduledQueryRulesAlertArrayOutput
+	ToScheduledQueryRulesAlertArrayOutputWithContext(context.Context) ScheduledQueryRulesAlertArrayOutput
+}
+
+type ScheduledQueryRulesAlertArray []ScheduledQueryRulesAlertInput
+
+func (ScheduledQueryRulesAlertArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ScheduledQueryRulesAlert)(nil))
+}
+
+func (i ScheduledQueryRulesAlertArray) ToScheduledQueryRulesAlertArrayOutput() ScheduledQueryRulesAlertArrayOutput {
+	return i.ToScheduledQueryRulesAlertArrayOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRulesAlertArray) ToScheduledQueryRulesAlertArrayOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertArrayOutput)
+}
+
+// ScheduledQueryRulesAlertMapInput is an input type that accepts ScheduledQueryRulesAlertMap and ScheduledQueryRulesAlertMapOutput values.
+// You can construct a concrete instance of `ScheduledQueryRulesAlertMapInput` via:
+//
+//          ScheduledQueryRulesAlertMap{ "key": ScheduledQueryRulesAlertArgs{...} }
+type ScheduledQueryRulesAlertMapInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesAlertMapOutput() ScheduledQueryRulesAlertMapOutput
+	ToScheduledQueryRulesAlertMapOutputWithContext(context.Context) ScheduledQueryRulesAlertMapOutput
+}
+
+type ScheduledQueryRulesAlertMap map[string]ScheduledQueryRulesAlertInput
+
+func (ScheduledQueryRulesAlertMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ScheduledQueryRulesAlert)(nil))
+}
+
+func (i ScheduledQueryRulesAlertMap) ToScheduledQueryRulesAlertMapOutput() ScheduledQueryRulesAlertMapOutput {
+	return i.ToScheduledQueryRulesAlertMapOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRulesAlertMap) ToScheduledQueryRulesAlertMapOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertMapOutput)
 }
 
 type ScheduledQueryRulesAlertOutput struct {
@@ -264,7 +343,7 @@ type ScheduledQueryRulesAlertOutput struct {
 }
 
 func (ScheduledQueryRulesAlertOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledQueryRulesAlertOutput)(nil)).Elem()
+	return reflect.TypeOf((*ScheduledQueryRulesAlert)(nil))
 }
 
 func (o ScheduledQueryRulesAlertOutput) ToScheduledQueryRulesAlertOutput() ScheduledQueryRulesAlertOutput {
@@ -275,6 +354,75 @@ func (o ScheduledQueryRulesAlertOutput) ToScheduledQueryRulesAlertOutputWithCont
 	return o
 }
 
+func (o ScheduledQueryRulesAlertOutput) ToScheduledQueryRulesAlertPtrOutput() ScheduledQueryRulesAlertPtrOutput {
+	return o.ToScheduledQueryRulesAlertPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryRulesAlertOutput) ToScheduledQueryRulesAlertPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlert) *ScheduledQueryRulesAlert {
+		return &v
+	}).(ScheduledQueryRulesAlertPtrOutput)
+}
+
+type ScheduledQueryRulesAlertPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScheduledQueryRulesAlertPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryRulesAlert)(nil))
+}
+
+func (o ScheduledQueryRulesAlertPtrOutput) ToScheduledQueryRulesAlertPtrOutput() ScheduledQueryRulesAlertPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertPtrOutput) ToScheduledQueryRulesAlertPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertPtrOutput {
+	return o
+}
+
+type ScheduledQueryRulesAlertArrayOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRulesAlertArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledQueryRulesAlert)(nil))
+}
+
+func (o ScheduledQueryRulesAlertArrayOutput) ToScheduledQueryRulesAlertArrayOutput() ScheduledQueryRulesAlertArrayOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertArrayOutput) ToScheduledQueryRulesAlertArrayOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertArrayOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertArrayOutput) Index(i pulumi.IntInput) ScheduledQueryRulesAlertOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduledQueryRulesAlert {
+		return vs[0].([]ScheduledQueryRulesAlert)[vs[1].(int)]
+	}).(ScheduledQueryRulesAlertOutput)
+}
+
+type ScheduledQueryRulesAlertMapOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRulesAlertMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ScheduledQueryRulesAlert)(nil))
+}
+
+func (o ScheduledQueryRulesAlertMapOutput) ToScheduledQueryRulesAlertMapOutput() ScheduledQueryRulesAlertMapOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertMapOutput) ToScheduledQueryRulesAlertMapOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertMapOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertMapOutput) MapIndex(k pulumi.StringInput) ScheduledQueryRulesAlertOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ScheduledQueryRulesAlert {
+		return vs[0].(map[string]ScheduledQueryRulesAlert)[vs[1].(string)]
+	}).(ScheduledQueryRulesAlertOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ScheduledQueryRulesAlertOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesAlertPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesAlertArrayOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesAlertMapOutput{})
 }

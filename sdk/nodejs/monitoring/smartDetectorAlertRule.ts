@@ -123,7 +123,8 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
     constructor(name: string, args: SmartDetectorAlertRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SmartDetectorAlertRuleArgs | SmartDetectorAlertRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SmartDetectorAlertRuleState | undefined;
             inputs["actionGroup"] = state ? state.actionGroup : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -137,22 +138,22 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
             inputs["throttlingDuration"] = state ? state.throttlingDuration : undefined;
         } else {
             const args = argsOrState as SmartDetectorAlertRuleArgs | undefined;
-            if ((!args || args.actionGroup === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.actionGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'actionGroup'");
             }
-            if ((!args || args.detectorType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.detectorType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'detectorType'");
             }
-            if ((!args || args.frequency === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.frequency === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopeResourceIds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scopeResourceIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopeResourceIds'");
             }
-            if ((!args || args.severity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.severity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
             inputs["actionGroup"] = args ? args.actionGroup : undefined;
@@ -166,12 +167,8 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
             inputs["severity"] = args ? args.severity : undefined;
             inputs["throttlingDuration"] = args ? args.throttlingDuration : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SmartDetectorAlertRule.__pulumiType, name, inputs, opts);
     }

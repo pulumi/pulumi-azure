@@ -504,16 +504,95 @@ type ApplicationGatewayInput interface {
 	ToApplicationGatewayOutputWithContext(ctx context.Context) ApplicationGatewayOutput
 }
 
-func (ApplicationGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGateway)(nil)).Elem()
+func (*ApplicationGateway) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGateway)(nil))
 }
 
-func (i ApplicationGateway) ToApplicationGatewayOutput() ApplicationGatewayOutput {
+func (i *ApplicationGateway) ToApplicationGatewayOutput() ApplicationGatewayOutput {
 	return i.ToApplicationGatewayOutputWithContext(context.Background())
 }
 
-func (i ApplicationGateway) ToApplicationGatewayOutputWithContext(ctx context.Context) ApplicationGatewayOutput {
+func (i *ApplicationGateway) ToApplicationGatewayOutputWithContext(ctx context.Context) ApplicationGatewayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayOutput)
+}
+
+func (i *ApplicationGateway) ToApplicationGatewayPtrOutput() ApplicationGatewayPtrOutput {
+	return i.ToApplicationGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *ApplicationGateway) ToApplicationGatewayPtrOutputWithContext(ctx context.Context) ApplicationGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayPtrOutput)
+}
+
+type ApplicationGatewayPtrInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayPtrOutput() ApplicationGatewayPtrOutput
+	ToApplicationGatewayPtrOutputWithContext(ctx context.Context) ApplicationGatewayPtrOutput
+}
+
+type applicationGatewayPtrType ApplicationGatewayArgs
+
+func (*applicationGatewayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGateway)(nil))
+}
+
+func (i *applicationGatewayPtrType) ToApplicationGatewayPtrOutput() ApplicationGatewayPtrOutput {
+	return i.ToApplicationGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationGatewayPtrType) ToApplicationGatewayPtrOutputWithContext(ctx context.Context) ApplicationGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayPtrOutput)
+}
+
+// ApplicationGatewayArrayInput is an input type that accepts ApplicationGatewayArray and ApplicationGatewayArrayOutput values.
+// You can construct a concrete instance of `ApplicationGatewayArrayInput` via:
+//
+//          ApplicationGatewayArray{ ApplicationGatewayArgs{...} }
+type ApplicationGatewayArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayArrayOutput() ApplicationGatewayArrayOutput
+	ToApplicationGatewayArrayOutputWithContext(context.Context) ApplicationGatewayArrayOutput
+}
+
+type ApplicationGatewayArray []ApplicationGatewayInput
+
+func (ApplicationGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ApplicationGateway)(nil))
+}
+
+func (i ApplicationGatewayArray) ToApplicationGatewayArrayOutput() ApplicationGatewayArrayOutput {
+	return i.ToApplicationGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayArray) ToApplicationGatewayArrayOutputWithContext(ctx context.Context) ApplicationGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayArrayOutput)
+}
+
+// ApplicationGatewayMapInput is an input type that accepts ApplicationGatewayMap and ApplicationGatewayMapOutput values.
+// You can construct a concrete instance of `ApplicationGatewayMapInput` via:
+//
+//          ApplicationGatewayMap{ "key": ApplicationGatewayArgs{...} }
+type ApplicationGatewayMapInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayMapOutput() ApplicationGatewayMapOutput
+	ToApplicationGatewayMapOutputWithContext(context.Context) ApplicationGatewayMapOutput
+}
+
+type ApplicationGatewayMap map[string]ApplicationGatewayInput
+
+func (ApplicationGatewayMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ApplicationGateway)(nil))
+}
+
+func (i ApplicationGatewayMap) ToApplicationGatewayMapOutput() ApplicationGatewayMapOutput {
+	return i.ToApplicationGatewayMapOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayMap) ToApplicationGatewayMapOutputWithContext(ctx context.Context) ApplicationGatewayMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayMapOutput)
 }
 
 type ApplicationGatewayOutput struct {
@@ -521,7 +600,7 @@ type ApplicationGatewayOutput struct {
 }
 
 func (ApplicationGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGatewayOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApplicationGateway)(nil))
 }
 
 func (o ApplicationGatewayOutput) ToApplicationGatewayOutput() ApplicationGatewayOutput {
@@ -532,6 +611,75 @@ func (o ApplicationGatewayOutput) ToApplicationGatewayOutputWithContext(ctx cont
 	return o
 }
 
+func (o ApplicationGatewayOutput) ToApplicationGatewayPtrOutput() ApplicationGatewayPtrOutput {
+	return o.ToApplicationGatewayPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationGatewayOutput) ToApplicationGatewayPtrOutputWithContext(ctx context.Context) ApplicationGatewayPtrOutput {
+	return o.ApplyT(func(v ApplicationGateway) *ApplicationGateway {
+		return &v
+	}).(ApplicationGatewayPtrOutput)
+}
+
+type ApplicationGatewayPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGateway)(nil))
+}
+
+func (o ApplicationGatewayPtrOutput) ToApplicationGatewayPtrOutput() ApplicationGatewayPtrOutput {
+	return o
+}
+
+func (o ApplicationGatewayPtrOutput) ToApplicationGatewayPtrOutputWithContext(ctx context.Context) ApplicationGatewayPtrOutput {
+	return o
+}
+
+type ApplicationGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGateway)(nil))
+}
+
+func (o ApplicationGatewayArrayOutput) ToApplicationGatewayArrayOutput() ApplicationGatewayArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayArrayOutput) ToApplicationGatewayArrayOutputWithContext(ctx context.Context) ApplicationGatewayArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationGateway {
+		return vs[0].([]ApplicationGateway)[vs[1].(int)]
+	}).(ApplicationGatewayOutput)
+}
+
+type ApplicationGatewayMapOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApplicationGateway)(nil))
+}
+
+func (o ApplicationGatewayMapOutput) ToApplicationGatewayMapOutput() ApplicationGatewayMapOutput {
+	return o
+}
+
+func (o ApplicationGatewayMapOutput) ToApplicationGatewayMapOutputWithContext(ctx context.Context) ApplicationGatewayMapOutput {
+	return o
+}
+
+func (o ApplicationGatewayMapOutput) MapIndex(k pulumi.StringInput) ApplicationGatewayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApplicationGateway {
+		return vs[0].(map[string]ApplicationGateway)[vs[1].(string)]
+	}).(ApplicationGatewayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationGatewayOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayMapOutput{})
 }

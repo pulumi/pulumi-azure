@@ -147,16 +147,95 @@ type IntVariableInput interface {
 	ToIntVariableOutputWithContext(ctx context.Context) IntVariableOutput
 }
 
-func (IntVariable) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntVariable)(nil)).Elem()
+func (*IntVariable) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntVariable)(nil))
 }
 
-func (i IntVariable) ToIntVariableOutput() IntVariableOutput {
+func (i *IntVariable) ToIntVariableOutput() IntVariableOutput {
 	return i.ToIntVariableOutputWithContext(context.Background())
 }
 
-func (i IntVariable) ToIntVariableOutputWithContext(ctx context.Context) IntVariableOutput {
+func (i *IntVariable) ToIntVariableOutputWithContext(ctx context.Context) IntVariableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntVariableOutput)
+}
+
+func (i *IntVariable) ToIntVariablePtrOutput() IntVariablePtrOutput {
+	return i.ToIntVariablePtrOutputWithContext(context.Background())
+}
+
+func (i *IntVariable) ToIntVariablePtrOutputWithContext(ctx context.Context) IntVariablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntVariablePtrOutput)
+}
+
+type IntVariablePtrInput interface {
+	pulumi.Input
+
+	ToIntVariablePtrOutput() IntVariablePtrOutput
+	ToIntVariablePtrOutputWithContext(ctx context.Context) IntVariablePtrOutput
+}
+
+type intVariablePtrType IntVariableArgs
+
+func (*intVariablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntVariable)(nil))
+}
+
+func (i *intVariablePtrType) ToIntVariablePtrOutput() IntVariablePtrOutput {
+	return i.ToIntVariablePtrOutputWithContext(context.Background())
+}
+
+func (i *intVariablePtrType) ToIntVariablePtrOutputWithContext(ctx context.Context) IntVariablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntVariablePtrOutput)
+}
+
+// IntVariableArrayInput is an input type that accepts IntVariableArray and IntVariableArrayOutput values.
+// You can construct a concrete instance of `IntVariableArrayInput` via:
+//
+//          IntVariableArray{ IntVariableArgs{...} }
+type IntVariableArrayInput interface {
+	pulumi.Input
+
+	ToIntVariableArrayOutput() IntVariableArrayOutput
+	ToIntVariableArrayOutputWithContext(context.Context) IntVariableArrayOutput
+}
+
+type IntVariableArray []IntVariableInput
+
+func (IntVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*IntVariable)(nil))
+}
+
+func (i IntVariableArray) ToIntVariableArrayOutput() IntVariableArrayOutput {
+	return i.ToIntVariableArrayOutputWithContext(context.Background())
+}
+
+func (i IntVariableArray) ToIntVariableArrayOutputWithContext(ctx context.Context) IntVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntVariableArrayOutput)
+}
+
+// IntVariableMapInput is an input type that accepts IntVariableMap and IntVariableMapOutput values.
+// You can construct a concrete instance of `IntVariableMapInput` via:
+//
+//          IntVariableMap{ "key": IntVariableArgs{...} }
+type IntVariableMapInput interface {
+	pulumi.Input
+
+	ToIntVariableMapOutput() IntVariableMapOutput
+	ToIntVariableMapOutputWithContext(context.Context) IntVariableMapOutput
+}
+
+type IntVariableMap map[string]IntVariableInput
+
+func (IntVariableMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*IntVariable)(nil))
+}
+
+func (i IntVariableMap) ToIntVariableMapOutput() IntVariableMapOutput {
+	return i.ToIntVariableMapOutputWithContext(context.Background())
+}
+
+func (i IntVariableMap) ToIntVariableMapOutputWithContext(ctx context.Context) IntVariableMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntVariableMapOutput)
 }
 
 type IntVariableOutput struct {
@@ -164,7 +243,7 @@ type IntVariableOutput struct {
 }
 
 func (IntVariableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntVariableOutput)(nil)).Elem()
+	return reflect.TypeOf((*IntVariable)(nil))
 }
 
 func (o IntVariableOutput) ToIntVariableOutput() IntVariableOutput {
@@ -175,6 +254,75 @@ func (o IntVariableOutput) ToIntVariableOutputWithContext(ctx context.Context) I
 	return o
 }
 
+func (o IntVariableOutput) ToIntVariablePtrOutput() IntVariablePtrOutput {
+	return o.ToIntVariablePtrOutputWithContext(context.Background())
+}
+
+func (o IntVariableOutput) ToIntVariablePtrOutputWithContext(ctx context.Context) IntVariablePtrOutput {
+	return o.ApplyT(func(v IntVariable) *IntVariable {
+		return &v
+	}).(IntVariablePtrOutput)
+}
+
+type IntVariablePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntVariablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntVariable)(nil))
+}
+
+func (o IntVariablePtrOutput) ToIntVariablePtrOutput() IntVariablePtrOutput {
+	return o
+}
+
+func (o IntVariablePtrOutput) ToIntVariablePtrOutputWithContext(ctx context.Context) IntVariablePtrOutput {
+	return o
+}
+
+type IntVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (IntVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntVariable)(nil))
+}
+
+func (o IntVariableArrayOutput) ToIntVariableArrayOutput() IntVariableArrayOutput {
+	return o
+}
+
+func (o IntVariableArrayOutput) ToIntVariableArrayOutputWithContext(ctx context.Context) IntVariableArrayOutput {
+	return o
+}
+
+func (o IntVariableArrayOutput) Index(i pulumi.IntInput) IntVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntVariable {
+		return vs[0].([]IntVariable)[vs[1].(int)]
+	}).(IntVariableOutput)
+}
+
+type IntVariableMapOutput struct{ *pulumi.OutputState }
+
+func (IntVariableMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IntVariable)(nil))
+}
+
+func (o IntVariableMapOutput) ToIntVariableMapOutput() IntVariableMapOutput {
+	return o
+}
+
+func (o IntVariableMapOutput) ToIntVariableMapOutputWithContext(ctx context.Context) IntVariableMapOutput {
+	return o
+}
+
+func (o IntVariableMapOutput) MapIndex(k pulumi.StringInput) IntVariableOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IntVariable {
+		return vs[0].(map[string]IntVariable)[vs[1].(string)]
+	}).(IntVariableOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IntVariableOutput{})
+	pulumi.RegisterOutputType(IntVariablePtrOutput{})
+	pulumi.RegisterOutputType(IntVariableArrayOutput{})
+	pulumi.RegisterOutputType(IntVariableMapOutput{})
 }

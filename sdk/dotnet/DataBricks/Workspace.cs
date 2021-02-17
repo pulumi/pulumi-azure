@@ -49,6 +49,7 @@ namespace Pulumi.Azure.DataBricks
     ///  $ pulumi import azure:databricks/workspace:Workspace workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/workspaces/workspace1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:databricks/workspace:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>

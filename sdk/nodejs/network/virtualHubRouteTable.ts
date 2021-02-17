@@ -123,7 +123,8 @@ export class VirtualHubRouteTable extends pulumi.CustomResource {
     constructor(name: string, args: VirtualHubRouteTableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualHubRouteTableArgs | VirtualHubRouteTableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VirtualHubRouteTableState | undefined;
             inputs["labels"] = state ? state.labels : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -131,7 +132,7 @@ export class VirtualHubRouteTable extends pulumi.CustomResource {
             inputs["virtualHubId"] = state ? state.virtualHubId : undefined;
         } else {
             const args = argsOrState as VirtualHubRouteTableArgs | undefined;
-            if ((!args || args.virtualHubId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualHubId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
             inputs["labels"] = args ? args.labels : undefined;
@@ -139,12 +140,8 @@ export class VirtualHubRouteTable extends pulumi.CustomResource {
             inputs["routes"] = args ? args.routes : undefined;
             inputs["virtualHubId"] = args ? args.virtualHubId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VirtualHubRouteTable.__pulumiType, name, inputs, opts);
     }

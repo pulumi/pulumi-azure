@@ -69,6 +69,7 @@ namespace Pulumi.Azure.Hpc
     ///  $ pulumi import azure:hpc/cache:Cache example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.StorageCache/caches/cacheName
     /// ```
     /// </summary>
+    [AzureResourceType("azure:hpc/cache:Cache")]
     public partial class Cache : Pulumi.CustomResource
     {
         /// <summary>

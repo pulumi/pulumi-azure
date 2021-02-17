@@ -245,16 +245,95 @@ type ProductInput interface {
 	ToProductOutputWithContext(ctx context.Context) ProductOutput
 }
 
-func (Product) ElementType() reflect.Type {
-	return reflect.TypeOf((*Product)(nil)).Elem()
+func (*Product) ElementType() reflect.Type {
+	return reflect.TypeOf((*Product)(nil))
 }
 
-func (i Product) ToProductOutput() ProductOutput {
+func (i *Product) ToProductOutput() ProductOutput {
 	return i.ToProductOutputWithContext(context.Background())
 }
 
-func (i Product) ToProductOutputWithContext(ctx context.Context) ProductOutput {
+func (i *Product) ToProductOutputWithContext(ctx context.Context) ProductOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProductOutput)
+}
+
+func (i *Product) ToProductPtrOutput() ProductPtrOutput {
+	return i.ToProductPtrOutputWithContext(context.Background())
+}
+
+func (i *Product) ToProductPtrOutputWithContext(ctx context.Context) ProductPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductPtrOutput)
+}
+
+type ProductPtrInput interface {
+	pulumi.Input
+
+	ToProductPtrOutput() ProductPtrOutput
+	ToProductPtrOutputWithContext(ctx context.Context) ProductPtrOutput
+}
+
+type productPtrType ProductArgs
+
+func (*productPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Product)(nil))
+}
+
+func (i *productPtrType) ToProductPtrOutput() ProductPtrOutput {
+	return i.ToProductPtrOutputWithContext(context.Background())
+}
+
+func (i *productPtrType) ToProductPtrOutputWithContext(ctx context.Context) ProductPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductPtrOutput)
+}
+
+// ProductArrayInput is an input type that accepts ProductArray and ProductArrayOutput values.
+// You can construct a concrete instance of `ProductArrayInput` via:
+//
+//          ProductArray{ ProductArgs{...} }
+type ProductArrayInput interface {
+	pulumi.Input
+
+	ToProductArrayOutput() ProductArrayOutput
+	ToProductArrayOutputWithContext(context.Context) ProductArrayOutput
+}
+
+type ProductArray []ProductInput
+
+func (ProductArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Product)(nil))
+}
+
+func (i ProductArray) ToProductArrayOutput() ProductArrayOutput {
+	return i.ToProductArrayOutputWithContext(context.Background())
+}
+
+func (i ProductArray) ToProductArrayOutputWithContext(ctx context.Context) ProductArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductArrayOutput)
+}
+
+// ProductMapInput is an input type that accepts ProductMap and ProductMapOutput values.
+// You can construct a concrete instance of `ProductMapInput` via:
+//
+//          ProductMap{ "key": ProductArgs{...} }
+type ProductMapInput interface {
+	pulumi.Input
+
+	ToProductMapOutput() ProductMapOutput
+	ToProductMapOutputWithContext(context.Context) ProductMapOutput
+}
+
+type ProductMap map[string]ProductInput
+
+func (ProductMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Product)(nil))
+}
+
+func (i ProductMap) ToProductMapOutput() ProductMapOutput {
+	return i.ToProductMapOutputWithContext(context.Background())
+}
+
+func (i ProductMap) ToProductMapOutputWithContext(ctx context.Context) ProductMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductMapOutput)
 }
 
 type ProductOutput struct {
@@ -262,7 +341,7 @@ type ProductOutput struct {
 }
 
 func (ProductOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductOutput)(nil)).Elem()
+	return reflect.TypeOf((*Product)(nil))
 }
 
 func (o ProductOutput) ToProductOutput() ProductOutput {
@@ -273,6 +352,75 @@ func (o ProductOutput) ToProductOutputWithContext(ctx context.Context) ProductOu
 	return o
 }
 
+func (o ProductOutput) ToProductPtrOutput() ProductPtrOutput {
+	return o.ToProductPtrOutputWithContext(context.Background())
+}
+
+func (o ProductOutput) ToProductPtrOutputWithContext(ctx context.Context) ProductPtrOutput {
+	return o.ApplyT(func(v Product) *Product {
+		return &v
+	}).(ProductPtrOutput)
+}
+
+type ProductPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProductPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Product)(nil))
+}
+
+func (o ProductPtrOutput) ToProductPtrOutput() ProductPtrOutput {
+	return o
+}
+
+func (o ProductPtrOutput) ToProductPtrOutputWithContext(ctx context.Context) ProductPtrOutput {
+	return o
+}
+
+type ProductArrayOutput struct{ *pulumi.OutputState }
+
+func (ProductArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Product)(nil))
+}
+
+func (o ProductArrayOutput) ToProductArrayOutput() ProductArrayOutput {
+	return o
+}
+
+func (o ProductArrayOutput) ToProductArrayOutputWithContext(ctx context.Context) ProductArrayOutput {
+	return o
+}
+
+func (o ProductArrayOutput) Index(i pulumi.IntInput) ProductOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Product {
+		return vs[0].([]Product)[vs[1].(int)]
+	}).(ProductOutput)
+}
+
+type ProductMapOutput struct{ *pulumi.OutputState }
+
+func (ProductMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Product)(nil))
+}
+
+func (o ProductMapOutput) ToProductMapOutput() ProductMapOutput {
+	return o
+}
+
+func (o ProductMapOutput) ToProductMapOutputWithContext(ctx context.Context) ProductMapOutput {
+	return o
+}
+
+func (o ProductMapOutput) MapIndex(k pulumi.StringInput) ProductOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Product {
+		return vs[0].(map[string]Product)[vs[1].(string)]
+	}).(ProductOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProductOutput{})
+	pulumi.RegisterOutputType(ProductPtrOutput{})
+	pulumi.RegisterOutputType(ProductArrayOutput{})
+	pulumi.RegisterOutputType(ProductMapOutput{})
 }

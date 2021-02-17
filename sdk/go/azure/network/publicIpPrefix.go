@@ -195,16 +195,95 @@ type PublicIpPrefixInput interface {
 	ToPublicIpPrefixOutputWithContext(ctx context.Context) PublicIpPrefixOutput
 }
 
-func (PublicIpPrefix) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicIpPrefix)(nil)).Elem()
+func (*PublicIpPrefix) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicIpPrefix)(nil))
 }
 
-func (i PublicIpPrefix) ToPublicIpPrefixOutput() PublicIpPrefixOutput {
+func (i *PublicIpPrefix) ToPublicIpPrefixOutput() PublicIpPrefixOutput {
 	return i.ToPublicIpPrefixOutputWithContext(context.Background())
 }
 
-func (i PublicIpPrefix) ToPublicIpPrefixOutputWithContext(ctx context.Context) PublicIpPrefixOutput {
+func (i *PublicIpPrefix) ToPublicIpPrefixOutputWithContext(ctx context.Context) PublicIpPrefixOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIpPrefixOutput)
+}
+
+func (i *PublicIpPrefix) ToPublicIpPrefixPtrOutput() PublicIpPrefixPtrOutput {
+	return i.ToPublicIpPrefixPtrOutputWithContext(context.Background())
+}
+
+func (i *PublicIpPrefix) ToPublicIpPrefixPtrOutputWithContext(ctx context.Context) PublicIpPrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicIpPrefixPtrOutput)
+}
+
+type PublicIpPrefixPtrInput interface {
+	pulumi.Input
+
+	ToPublicIpPrefixPtrOutput() PublicIpPrefixPtrOutput
+	ToPublicIpPrefixPtrOutputWithContext(ctx context.Context) PublicIpPrefixPtrOutput
+}
+
+type publicIpPrefixPtrType PublicIpPrefixArgs
+
+func (*publicIpPrefixPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicIpPrefix)(nil))
+}
+
+func (i *publicIpPrefixPtrType) ToPublicIpPrefixPtrOutput() PublicIpPrefixPtrOutput {
+	return i.ToPublicIpPrefixPtrOutputWithContext(context.Background())
+}
+
+func (i *publicIpPrefixPtrType) ToPublicIpPrefixPtrOutputWithContext(ctx context.Context) PublicIpPrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicIpPrefixPtrOutput)
+}
+
+// PublicIpPrefixArrayInput is an input type that accepts PublicIpPrefixArray and PublicIpPrefixArrayOutput values.
+// You can construct a concrete instance of `PublicIpPrefixArrayInput` via:
+//
+//          PublicIpPrefixArray{ PublicIpPrefixArgs{...} }
+type PublicIpPrefixArrayInput interface {
+	pulumi.Input
+
+	ToPublicIpPrefixArrayOutput() PublicIpPrefixArrayOutput
+	ToPublicIpPrefixArrayOutputWithContext(context.Context) PublicIpPrefixArrayOutput
+}
+
+type PublicIpPrefixArray []PublicIpPrefixInput
+
+func (PublicIpPrefixArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PublicIpPrefix)(nil))
+}
+
+func (i PublicIpPrefixArray) ToPublicIpPrefixArrayOutput() PublicIpPrefixArrayOutput {
+	return i.ToPublicIpPrefixArrayOutputWithContext(context.Background())
+}
+
+func (i PublicIpPrefixArray) ToPublicIpPrefixArrayOutputWithContext(ctx context.Context) PublicIpPrefixArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicIpPrefixArrayOutput)
+}
+
+// PublicIpPrefixMapInput is an input type that accepts PublicIpPrefixMap and PublicIpPrefixMapOutput values.
+// You can construct a concrete instance of `PublicIpPrefixMapInput` via:
+//
+//          PublicIpPrefixMap{ "key": PublicIpPrefixArgs{...} }
+type PublicIpPrefixMapInput interface {
+	pulumi.Input
+
+	ToPublicIpPrefixMapOutput() PublicIpPrefixMapOutput
+	ToPublicIpPrefixMapOutputWithContext(context.Context) PublicIpPrefixMapOutput
+}
+
+type PublicIpPrefixMap map[string]PublicIpPrefixInput
+
+func (PublicIpPrefixMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PublicIpPrefix)(nil))
+}
+
+func (i PublicIpPrefixMap) ToPublicIpPrefixMapOutput() PublicIpPrefixMapOutput {
+	return i.ToPublicIpPrefixMapOutputWithContext(context.Background())
+}
+
+func (i PublicIpPrefixMap) ToPublicIpPrefixMapOutputWithContext(ctx context.Context) PublicIpPrefixMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicIpPrefixMapOutput)
 }
 
 type PublicIpPrefixOutput struct {
@@ -212,7 +291,7 @@ type PublicIpPrefixOutput struct {
 }
 
 func (PublicIpPrefixOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicIpPrefixOutput)(nil)).Elem()
+	return reflect.TypeOf((*PublicIpPrefix)(nil))
 }
 
 func (o PublicIpPrefixOutput) ToPublicIpPrefixOutput() PublicIpPrefixOutput {
@@ -223,6 +302,75 @@ func (o PublicIpPrefixOutput) ToPublicIpPrefixOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o PublicIpPrefixOutput) ToPublicIpPrefixPtrOutput() PublicIpPrefixPtrOutput {
+	return o.ToPublicIpPrefixPtrOutputWithContext(context.Background())
+}
+
+func (o PublicIpPrefixOutput) ToPublicIpPrefixPtrOutputWithContext(ctx context.Context) PublicIpPrefixPtrOutput {
+	return o.ApplyT(func(v PublicIpPrefix) *PublicIpPrefix {
+		return &v
+	}).(PublicIpPrefixPtrOutput)
+}
+
+type PublicIpPrefixPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PublicIpPrefixPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicIpPrefix)(nil))
+}
+
+func (o PublicIpPrefixPtrOutput) ToPublicIpPrefixPtrOutput() PublicIpPrefixPtrOutput {
+	return o
+}
+
+func (o PublicIpPrefixPtrOutput) ToPublicIpPrefixPtrOutputWithContext(ctx context.Context) PublicIpPrefixPtrOutput {
+	return o
+}
+
+type PublicIpPrefixArrayOutput struct{ *pulumi.OutputState }
+
+func (PublicIpPrefixArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PublicIpPrefix)(nil))
+}
+
+func (o PublicIpPrefixArrayOutput) ToPublicIpPrefixArrayOutput() PublicIpPrefixArrayOutput {
+	return o
+}
+
+func (o PublicIpPrefixArrayOutput) ToPublicIpPrefixArrayOutputWithContext(ctx context.Context) PublicIpPrefixArrayOutput {
+	return o
+}
+
+func (o PublicIpPrefixArrayOutput) Index(i pulumi.IntInput) PublicIpPrefixOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PublicIpPrefix {
+		return vs[0].([]PublicIpPrefix)[vs[1].(int)]
+	}).(PublicIpPrefixOutput)
+}
+
+type PublicIpPrefixMapOutput struct{ *pulumi.OutputState }
+
+func (PublicIpPrefixMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PublicIpPrefix)(nil))
+}
+
+func (o PublicIpPrefixMapOutput) ToPublicIpPrefixMapOutput() PublicIpPrefixMapOutput {
+	return o
+}
+
+func (o PublicIpPrefixMapOutput) ToPublicIpPrefixMapOutputWithContext(ctx context.Context) PublicIpPrefixMapOutput {
+	return o
+}
+
+func (o PublicIpPrefixMapOutput) MapIndex(k pulumi.StringInput) PublicIpPrefixOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PublicIpPrefix {
+		return vs[0].(map[string]PublicIpPrefix)[vs[1].(string)]
+	}).(PublicIpPrefixOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PublicIpPrefixOutput{})
+	pulumi.RegisterOutputType(PublicIpPrefixPtrOutput{})
+	pulumi.RegisterOutputType(PublicIpPrefixArrayOutput{})
+	pulumi.RegisterOutputType(PublicIpPrefixMapOutput{})
 }

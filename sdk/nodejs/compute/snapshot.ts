@@ -114,7 +114,8 @@ export class Snapshot extends pulumi.CustomResource {
     constructor(name: string, args: SnapshotArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnapshotArgs | SnapshotState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SnapshotState | undefined;
             inputs["createOption"] = state ? state.createOption : undefined;
             inputs["diskSizeGb"] = state ? state.diskSizeGb : undefined;
@@ -128,10 +129,10 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SnapshotArgs | undefined;
-            if ((!args || args.createOption === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.createOption === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'createOption'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["createOption"] = args ? args.createOption : undefined;
@@ -145,12 +146,8 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Snapshot.__pulumiType, name, inputs, opts);
     }

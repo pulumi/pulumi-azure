@@ -193,7 +193,8 @@ export class Service extends pulumi.CustomResource {
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
             inputs["additionalLocations"] = state ? state.additionalLocations : undefined;
             inputs["certificates"] = state ? state.certificates : undefined;
@@ -224,16 +225,16 @@ export class Service extends pulumi.CustomResource {
             inputs["virtualNetworkType"] = state ? state.virtualNetworkType : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
-            if ((!args || args.publisherEmail === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.publisherEmail === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'publisherEmail'");
             }
-            if ((!args || args.publisherName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.publisherName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'publisherName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
             inputs["additionalLocations"] = args ? args.additionalLocations : undefined;
@@ -264,12 +265,8 @@ export class Service extends pulumi.CustomResource {
             inputs["publicIpAddresses"] = undefined /*out*/;
             inputs["scmUrl"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Service.__pulumiType, name, inputs, opts);
     }

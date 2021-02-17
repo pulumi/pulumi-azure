@@ -194,7 +194,8 @@ export class FunctionAppSlot extends pulumi.CustomResource {
     constructor(name: string, args: FunctionAppSlotArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FunctionAppSlotArgs | FunctionAppSlotState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FunctionAppSlotState | undefined;
             inputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
             inputs["appSettings"] = state ? state.appSettings : undefined;
@@ -223,19 +224,19 @@ export class FunctionAppSlot extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as FunctionAppSlotArgs | undefined;
-            if ((!args || args.appServicePlanId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.appServicePlanId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appServicePlanId'");
             }
-            if ((!args || args.functionAppName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.functionAppName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionAppName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountAccessKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountAccessKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountAccessKey'");
             }
-            if ((!args || args.storageAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
             inputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
@@ -264,12 +265,8 @@ export class FunctionAppSlot extends pulumi.CustomResource {
             inputs["possibleOutboundIpAddresses"] = undefined /*out*/;
             inputs["siteCredentials"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(FunctionAppSlot.__pulumiType, name, inputs, opts);
     }

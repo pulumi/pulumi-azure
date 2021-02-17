@@ -50,6 +50,7 @@ namespace Pulumi.Azure.DataLake
     ///  $ pulumi import azure:datalake/analyticsAccount:AnalyticsAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DataLakeAnalytics/accounts/mydatalakeaccount
     /// ```
     /// </summary>
+    [AzureResourceType("azure:datalake/analyticsAccount:AnalyticsAccount")]
     public partial class AnalyticsAccount : Pulumi.CustomResource
     {
         /// <summary>

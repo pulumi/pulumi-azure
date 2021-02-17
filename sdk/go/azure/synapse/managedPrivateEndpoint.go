@@ -211,16 +211,95 @@ type ManagedPrivateEndpointInput interface {
 	ToManagedPrivateEndpointOutputWithContext(ctx context.Context) ManagedPrivateEndpointOutput
 }
 
-func (ManagedPrivateEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedPrivateEndpoint)(nil)).Elem()
+func (*ManagedPrivateEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedPrivateEndpoint)(nil))
 }
 
-func (i ManagedPrivateEndpoint) ToManagedPrivateEndpointOutput() ManagedPrivateEndpointOutput {
+func (i *ManagedPrivateEndpoint) ToManagedPrivateEndpointOutput() ManagedPrivateEndpointOutput {
 	return i.ToManagedPrivateEndpointOutputWithContext(context.Background())
 }
 
-func (i ManagedPrivateEndpoint) ToManagedPrivateEndpointOutputWithContext(ctx context.Context) ManagedPrivateEndpointOutput {
+func (i *ManagedPrivateEndpoint) ToManagedPrivateEndpointOutputWithContext(ctx context.Context) ManagedPrivateEndpointOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrivateEndpointOutput)
+}
+
+func (i *ManagedPrivateEndpoint) ToManagedPrivateEndpointPtrOutput() ManagedPrivateEndpointPtrOutput {
+	return i.ToManagedPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *ManagedPrivateEndpoint) ToManagedPrivateEndpointPtrOutputWithContext(ctx context.Context) ManagedPrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrivateEndpointPtrOutput)
+}
+
+type ManagedPrivateEndpointPtrInput interface {
+	pulumi.Input
+
+	ToManagedPrivateEndpointPtrOutput() ManagedPrivateEndpointPtrOutput
+	ToManagedPrivateEndpointPtrOutputWithContext(ctx context.Context) ManagedPrivateEndpointPtrOutput
+}
+
+type managedPrivateEndpointPtrType ManagedPrivateEndpointArgs
+
+func (*managedPrivateEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedPrivateEndpoint)(nil))
+}
+
+func (i *managedPrivateEndpointPtrType) ToManagedPrivateEndpointPtrOutput() ManagedPrivateEndpointPtrOutput {
+	return i.ToManagedPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *managedPrivateEndpointPtrType) ToManagedPrivateEndpointPtrOutputWithContext(ctx context.Context) ManagedPrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrivateEndpointPtrOutput)
+}
+
+// ManagedPrivateEndpointArrayInput is an input type that accepts ManagedPrivateEndpointArray and ManagedPrivateEndpointArrayOutput values.
+// You can construct a concrete instance of `ManagedPrivateEndpointArrayInput` via:
+//
+//          ManagedPrivateEndpointArray{ ManagedPrivateEndpointArgs{...} }
+type ManagedPrivateEndpointArrayInput interface {
+	pulumi.Input
+
+	ToManagedPrivateEndpointArrayOutput() ManagedPrivateEndpointArrayOutput
+	ToManagedPrivateEndpointArrayOutputWithContext(context.Context) ManagedPrivateEndpointArrayOutput
+}
+
+type ManagedPrivateEndpointArray []ManagedPrivateEndpointInput
+
+func (ManagedPrivateEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ManagedPrivateEndpoint)(nil))
+}
+
+func (i ManagedPrivateEndpointArray) ToManagedPrivateEndpointArrayOutput() ManagedPrivateEndpointArrayOutput {
+	return i.ToManagedPrivateEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedPrivateEndpointArray) ToManagedPrivateEndpointArrayOutputWithContext(ctx context.Context) ManagedPrivateEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrivateEndpointArrayOutput)
+}
+
+// ManagedPrivateEndpointMapInput is an input type that accepts ManagedPrivateEndpointMap and ManagedPrivateEndpointMapOutput values.
+// You can construct a concrete instance of `ManagedPrivateEndpointMapInput` via:
+//
+//          ManagedPrivateEndpointMap{ "key": ManagedPrivateEndpointArgs{...} }
+type ManagedPrivateEndpointMapInput interface {
+	pulumi.Input
+
+	ToManagedPrivateEndpointMapOutput() ManagedPrivateEndpointMapOutput
+	ToManagedPrivateEndpointMapOutputWithContext(context.Context) ManagedPrivateEndpointMapOutput
+}
+
+type ManagedPrivateEndpointMap map[string]ManagedPrivateEndpointInput
+
+func (ManagedPrivateEndpointMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ManagedPrivateEndpoint)(nil))
+}
+
+func (i ManagedPrivateEndpointMap) ToManagedPrivateEndpointMapOutput() ManagedPrivateEndpointMapOutput {
+	return i.ToManagedPrivateEndpointMapOutputWithContext(context.Background())
+}
+
+func (i ManagedPrivateEndpointMap) ToManagedPrivateEndpointMapOutputWithContext(ctx context.Context) ManagedPrivateEndpointMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrivateEndpointMapOutput)
 }
 
 type ManagedPrivateEndpointOutput struct {
@@ -228,7 +307,7 @@ type ManagedPrivateEndpointOutput struct {
 }
 
 func (ManagedPrivateEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedPrivateEndpointOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagedPrivateEndpoint)(nil))
 }
 
 func (o ManagedPrivateEndpointOutput) ToManagedPrivateEndpointOutput() ManagedPrivateEndpointOutput {
@@ -239,6 +318,75 @@ func (o ManagedPrivateEndpointOutput) ToManagedPrivateEndpointOutputWithContext(
 	return o
 }
 
+func (o ManagedPrivateEndpointOutput) ToManagedPrivateEndpointPtrOutput() ManagedPrivateEndpointPtrOutput {
+	return o.ToManagedPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedPrivateEndpointOutput) ToManagedPrivateEndpointPtrOutputWithContext(ctx context.Context) ManagedPrivateEndpointPtrOutput {
+	return o.ApplyT(func(v ManagedPrivateEndpoint) *ManagedPrivateEndpoint {
+		return &v
+	}).(ManagedPrivateEndpointPtrOutput)
+}
+
+type ManagedPrivateEndpointPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagedPrivateEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedPrivateEndpoint)(nil))
+}
+
+func (o ManagedPrivateEndpointPtrOutput) ToManagedPrivateEndpointPtrOutput() ManagedPrivateEndpointPtrOutput {
+	return o
+}
+
+func (o ManagedPrivateEndpointPtrOutput) ToManagedPrivateEndpointPtrOutputWithContext(ctx context.Context) ManagedPrivateEndpointPtrOutput {
+	return o
+}
+
+type ManagedPrivateEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedPrivateEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedPrivateEndpoint)(nil))
+}
+
+func (o ManagedPrivateEndpointArrayOutput) ToManagedPrivateEndpointArrayOutput() ManagedPrivateEndpointArrayOutput {
+	return o
+}
+
+func (o ManagedPrivateEndpointArrayOutput) ToManagedPrivateEndpointArrayOutputWithContext(ctx context.Context) ManagedPrivateEndpointArrayOutput {
+	return o
+}
+
+func (o ManagedPrivateEndpointArrayOutput) Index(i pulumi.IntInput) ManagedPrivateEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedPrivateEndpoint {
+		return vs[0].([]ManagedPrivateEndpoint)[vs[1].(int)]
+	}).(ManagedPrivateEndpointOutput)
+}
+
+type ManagedPrivateEndpointMapOutput struct{ *pulumi.OutputState }
+
+func (ManagedPrivateEndpointMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedPrivateEndpoint)(nil))
+}
+
+func (o ManagedPrivateEndpointMapOutput) ToManagedPrivateEndpointMapOutput() ManagedPrivateEndpointMapOutput {
+	return o
+}
+
+func (o ManagedPrivateEndpointMapOutput) ToManagedPrivateEndpointMapOutputWithContext(ctx context.Context) ManagedPrivateEndpointMapOutput {
+	return o
+}
+
+func (o ManagedPrivateEndpointMapOutput) MapIndex(k pulumi.StringInput) ManagedPrivateEndpointOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedPrivateEndpoint {
+		return vs[0].(map[string]ManagedPrivateEndpoint)[vs[1].(string)]
+	}).(ManagedPrivateEndpointOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedPrivateEndpointOutput{})
+	pulumi.RegisterOutputType(ManagedPrivateEndpointPtrOutput{})
+	pulumi.RegisterOutputType(ManagedPrivateEndpointArrayOutput{})
+	pulumi.RegisterOutputType(ManagedPrivateEndpointMapOutput{})
 }

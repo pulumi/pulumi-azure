@@ -296,16 +296,95 @@ type ExpressRouteCircuitPeeringInput interface {
 	ToExpressRouteCircuitPeeringOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringOutput
 }
 
-func (ExpressRouteCircuitPeering) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCircuitPeering)(nil)).Elem()
+func (*ExpressRouteCircuitPeering) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteCircuitPeering)(nil))
 }
 
-func (i ExpressRouteCircuitPeering) ToExpressRouteCircuitPeeringOutput() ExpressRouteCircuitPeeringOutput {
+func (i *ExpressRouteCircuitPeering) ToExpressRouteCircuitPeeringOutput() ExpressRouteCircuitPeeringOutput {
 	return i.ToExpressRouteCircuitPeeringOutputWithContext(context.Background())
 }
 
-func (i ExpressRouteCircuitPeering) ToExpressRouteCircuitPeeringOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringOutput {
+func (i *ExpressRouteCircuitPeering) ToExpressRouteCircuitPeeringOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringOutput)
+}
+
+func (i *ExpressRouteCircuitPeering) ToExpressRouteCircuitPeeringPtrOutput() ExpressRouteCircuitPeeringPtrOutput {
+	return i.ToExpressRouteCircuitPeeringPtrOutputWithContext(context.Background())
+}
+
+func (i *ExpressRouteCircuitPeering) ToExpressRouteCircuitPeeringPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringPtrOutput)
+}
+
+type ExpressRouteCircuitPeeringPtrInput interface {
+	pulumi.Input
+
+	ToExpressRouteCircuitPeeringPtrOutput() ExpressRouteCircuitPeeringPtrOutput
+	ToExpressRouteCircuitPeeringPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringPtrOutput
+}
+
+type expressRouteCircuitPeeringPtrType ExpressRouteCircuitPeeringArgs
+
+func (*expressRouteCircuitPeeringPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressRouteCircuitPeering)(nil))
+}
+
+func (i *expressRouteCircuitPeeringPtrType) ToExpressRouteCircuitPeeringPtrOutput() ExpressRouteCircuitPeeringPtrOutput {
+	return i.ToExpressRouteCircuitPeeringPtrOutputWithContext(context.Background())
+}
+
+func (i *expressRouteCircuitPeeringPtrType) ToExpressRouteCircuitPeeringPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringPtrOutput)
+}
+
+// ExpressRouteCircuitPeeringArrayInput is an input type that accepts ExpressRouteCircuitPeeringArray and ExpressRouteCircuitPeeringArrayOutput values.
+// You can construct a concrete instance of `ExpressRouteCircuitPeeringArrayInput` via:
+//
+//          ExpressRouteCircuitPeeringArray{ ExpressRouteCircuitPeeringArgs{...} }
+type ExpressRouteCircuitPeeringArrayInput interface {
+	pulumi.Input
+
+	ToExpressRouteCircuitPeeringArrayOutput() ExpressRouteCircuitPeeringArrayOutput
+	ToExpressRouteCircuitPeeringArrayOutputWithContext(context.Context) ExpressRouteCircuitPeeringArrayOutput
+}
+
+type ExpressRouteCircuitPeeringArray []ExpressRouteCircuitPeeringInput
+
+func (ExpressRouteCircuitPeeringArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ExpressRouteCircuitPeering)(nil))
+}
+
+func (i ExpressRouteCircuitPeeringArray) ToExpressRouteCircuitPeeringArrayOutput() ExpressRouteCircuitPeeringArrayOutput {
+	return i.ToExpressRouteCircuitPeeringArrayOutputWithContext(context.Background())
+}
+
+func (i ExpressRouteCircuitPeeringArray) ToExpressRouteCircuitPeeringArrayOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringArrayOutput)
+}
+
+// ExpressRouteCircuitPeeringMapInput is an input type that accepts ExpressRouteCircuitPeeringMap and ExpressRouteCircuitPeeringMapOutput values.
+// You can construct a concrete instance of `ExpressRouteCircuitPeeringMapInput` via:
+//
+//          ExpressRouteCircuitPeeringMap{ "key": ExpressRouteCircuitPeeringArgs{...} }
+type ExpressRouteCircuitPeeringMapInput interface {
+	pulumi.Input
+
+	ToExpressRouteCircuitPeeringMapOutput() ExpressRouteCircuitPeeringMapOutput
+	ToExpressRouteCircuitPeeringMapOutputWithContext(context.Context) ExpressRouteCircuitPeeringMapOutput
+}
+
+type ExpressRouteCircuitPeeringMap map[string]ExpressRouteCircuitPeeringInput
+
+func (ExpressRouteCircuitPeeringMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ExpressRouteCircuitPeering)(nil))
+}
+
+func (i ExpressRouteCircuitPeeringMap) ToExpressRouteCircuitPeeringMapOutput() ExpressRouteCircuitPeeringMapOutput {
+	return i.ToExpressRouteCircuitPeeringMapOutputWithContext(context.Background())
+}
+
+func (i ExpressRouteCircuitPeeringMap) ToExpressRouteCircuitPeeringMapOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringMapOutput)
 }
 
 type ExpressRouteCircuitPeeringOutput struct {
@@ -313,7 +392,7 @@ type ExpressRouteCircuitPeeringOutput struct {
 }
 
 func (ExpressRouteCircuitPeeringOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCircuitPeeringOutput)(nil)).Elem()
+	return reflect.TypeOf((*ExpressRouteCircuitPeering)(nil))
 }
 
 func (o ExpressRouteCircuitPeeringOutput) ToExpressRouteCircuitPeeringOutput() ExpressRouteCircuitPeeringOutput {
@@ -324,6 +403,75 @@ func (o ExpressRouteCircuitPeeringOutput) ToExpressRouteCircuitPeeringOutputWith
 	return o
 }
 
+func (o ExpressRouteCircuitPeeringOutput) ToExpressRouteCircuitPeeringPtrOutput() ExpressRouteCircuitPeeringPtrOutput {
+	return o.ToExpressRouteCircuitPeeringPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressRouteCircuitPeeringOutput) ToExpressRouteCircuitPeeringPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringPtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitPeering) *ExpressRouteCircuitPeering {
+		return &v
+	}).(ExpressRouteCircuitPeeringPtrOutput)
+}
+
+type ExpressRouteCircuitPeeringPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ExpressRouteCircuitPeeringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressRouteCircuitPeering)(nil))
+}
+
+func (o ExpressRouteCircuitPeeringPtrOutput) ToExpressRouteCircuitPeeringPtrOutput() ExpressRouteCircuitPeeringPtrOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitPeeringPtrOutput) ToExpressRouteCircuitPeeringPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringPtrOutput {
+	return o
+}
+
+type ExpressRouteCircuitPeeringArrayOutput struct{ *pulumi.OutputState }
+
+func (ExpressRouteCircuitPeeringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressRouteCircuitPeering)(nil))
+}
+
+func (o ExpressRouteCircuitPeeringArrayOutput) ToExpressRouteCircuitPeeringArrayOutput() ExpressRouteCircuitPeeringArrayOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitPeeringArrayOutput) ToExpressRouteCircuitPeeringArrayOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringArrayOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitPeeringArrayOutput) Index(i pulumi.IntInput) ExpressRouteCircuitPeeringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressRouteCircuitPeering {
+		return vs[0].([]ExpressRouteCircuitPeering)[vs[1].(int)]
+	}).(ExpressRouteCircuitPeeringOutput)
+}
+
+type ExpressRouteCircuitPeeringMapOutput struct{ *pulumi.OutputState }
+
+func (ExpressRouteCircuitPeeringMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ExpressRouteCircuitPeering)(nil))
+}
+
+func (o ExpressRouteCircuitPeeringMapOutput) ToExpressRouteCircuitPeeringMapOutput() ExpressRouteCircuitPeeringMapOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitPeeringMapOutput) ToExpressRouteCircuitPeeringMapOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringMapOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitPeeringMapOutput) MapIndex(k pulumi.StringInput) ExpressRouteCircuitPeeringOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ExpressRouteCircuitPeering {
+		return vs[0].(map[string]ExpressRouteCircuitPeering)[vs[1].(string)]
+	}).(ExpressRouteCircuitPeeringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExpressRouteCircuitPeeringOutput{})
+	pulumi.RegisterOutputType(ExpressRouteCircuitPeeringPtrOutput{})
+	pulumi.RegisterOutputType(ExpressRouteCircuitPeeringArrayOutput{})
+	pulumi.RegisterOutputType(ExpressRouteCircuitPeeringMapOutput{})
 }

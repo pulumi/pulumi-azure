@@ -96,6 +96,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/virtualNetwork:VirtualNetwork exampleNetwork /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/virtualNetwork:VirtualNetwork")]
     public partial class VirtualNetwork : Pulumi.CustomResource
     {
         /// <summary>

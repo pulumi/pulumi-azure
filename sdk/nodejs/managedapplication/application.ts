@@ -132,7 +132,8 @@ export class Application extends pulumi.CustomResource {
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
             inputs["applicationDefinitionId"] = state ? state.applicationDefinitionId : undefined;
             inputs["kind"] = state ? state.kind : undefined;
@@ -146,13 +147,13 @@ export class Application extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
-            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.managedResourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.managedResourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managedResourceGroupName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationDefinitionId"] = args ? args.applicationDefinitionId : undefined;
@@ -166,12 +167,8 @@ export class Application extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["outputs"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Application.__pulumiType, name, inputs, opts);
     }

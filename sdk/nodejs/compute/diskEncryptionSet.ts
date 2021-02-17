@@ -81,7 +81,8 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
     constructor(name: string, args: DiskEncryptionSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DiskEncryptionSetArgs | DiskEncryptionSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DiskEncryptionSetState | undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
@@ -91,13 +92,13 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DiskEncryptionSetArgs | undefined;
-            if ((!args || args.identity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.identity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.keyVaultKeyId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.keyVaultKeyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultKeyId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["identity"] = args ? args.identity : undefined;
@@ -107,12 +108,8 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DiskEncryptionSet.__pulumiType, name, inputs, opts);
     }

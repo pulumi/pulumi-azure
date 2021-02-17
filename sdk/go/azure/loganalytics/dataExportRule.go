@@ -214,16 +214,95 @@ type DataExportRuleInput interface {
 	ToDataExportRuleOutputWithContext(ctx context.Context) DataExportRuleOutput
 }
 
-func (DataExportRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataExportRule)(nil)).Elem()
+func (*DataExportRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataExportRule)(nil))
 }
 
-func (i DataExportRule) ToDataExportRuleOutput() DataExportRuleOutput {
+func (i *DataExportRule) ToDataExportRuleOutput() DataExportRuleOutput {
 	return i.ToDataExportRuleOutputWithContext(context.Background())
 }
 
-func (i DataExportRule) ToDataExportRuleOutputWithContext(ctx context.Context) DataExportRuleOutput {
+func (i *DataExportRule) ToDataExportRuleOutputWithContext(ctx context.Context) DataExportRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataExportRuleOutput)
+}
+
+func (i *DataExportRule) ToDataExportRulePtrOutput() DataExportRulePtrOutput {
+	return i.ToDataExportRulePtrOutputWithContext(context.Background())
+}
+
+func (i *DataExportRule) ToDataExportRulePtrOutputWithContext(ctx context.Context) DataExportRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataExportRulePtrOutput)
+}
+
+type DataExportRulePtrInput interface {
+	pulumi.Input
+
+	ToDataExportRulePtrOutput() DataExportRulePtrOutput
+	ToDataExportRulePtrOutputWithContext(ctx context.Context) DataExportRulePtrOutput
+}
+
+type dataExportRulePtrType DataExportRuleArgs
+
+func (*dataExportRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataExportRule)(nil))
+}
+
+func (i *dataExportRulePtrType) ToDataExportRulePtrOutput() DataExportRulePtrOutput {
+	return i.ToDataExportRulePtrOutputWithContext(context.Background())
+}
+
+func (i *dataExportRulePtrType) ToDataExportRulePtrOutputWithContext(ctx context.Context) DataExportRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataExportRulePtrOutput)
+}
+
+// DataExportRuleArrayInput is an input type that accepts DataExportRuleArray and DataExportRuleArrayOutput values.
+// You can construct a concrete instance of `DataExportRuleArrayInput` via:
+//
+//          DataExportRuleArray{ DataExportRuleArgs{...} }
+type DataExportRuleArrayInput interface {
+	pulumi.Input
+
+	ToDataExportRuleArrayOutput() DataExportRuleArrayOutput
+	ToDataExportRuleArrayOutputWithContext(context.Context) DataExportRuleArrayOutput
+}
+
+type DataExportRuleArray []DataExportRuleInput
+
+func (DataExportRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DataExportRule)(nil))
+}
+
+func (i DataExportRuleArray) ToDataExportRuleArrayOutput() DataExportRuleArrayOutput {
+	return i.ToDataExportRuleArrayOutputWithContext(context.Background())
+}
+
+func (i DataExportRuleArray) ToDataExportRuleArrayOutputWithContext(ctx context.Context) DataExportRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataExportRuleArrayOutput)
+}
+
+// DataExportRuleMapInput is an input type that accepts DataExportRuleMap and DataExportRuleMapOutput values.
+// You can construct a concrete instance of `DataExportRuleMapInput` via:
+//
+//          DataExportRuleMap{ "key": DataExportRuleArgs{...} }
+type DataExportRuleMapInput interface {
+	pulumi.Input
+
+	ToDataExportRuleMapOutput() DataExportRuleMapOutput
+	ToDataExportRuleMapOutputWithContext(context.Context) DataExportRuleMapOutput
+}
+
+type DataExportRuleMap map[string]DataExportRuleInput
+
+func (DataExportRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DataExportRule)(nil))
+}
+
+func (i DataExportRuleMap) ToDataExportRuleMapOutput() DataExportRuleMapOutput {
+	return i.ToDataExportRuleMapOutputWithContext(context.Background())
+}
+
+func (i DataExportRuleMap) ToDataExportRuleMapOutputWithContext(ctx context.Context) DataExportRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataExportRuleMapOutput)
 }
 
 type DataExportRuleOutput struct {
@@ -231,7 +310,7 @@ type DataExportRuleOutput struct {
 }
 
 func (DataExportRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataExportRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*DataExportRule)(nil))
 }
 
 func (o DataExportRuleOutput) ToDataExportRuleOutput() DataExportRuleOutput {
@@ -242,6 +321,75 @@ func (o DataExportRuleOutput) ToDataExportRuleOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o DataExportRuleOutput) ToDataExportRulePtrOutput() DataExportRulePtrOutput {
+	return o.ToDataExportRulePtrOutputWithContext(context.Background())
+}
+
+func (o DataExportRuleOutput) ToDataExportRulePtrOutputWithContext(ctx context.Context) DataExportRulePtrOutput {
+	return o.ApplyT(func(v DataExportRule) *DataExportRule {
+		return &v
+	}).(DataExportRulePtrOutput)
+}
+
+type DataExportRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataExportRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataExportRule)(nil))
+}
+
+func (o DataExportRulePtrOutput) ToDataExportRulePtrOutput() DataExportRulePtrOutput {
+	return o
+}
+
+func (o DataExportRulePtrOutput) ToDataExportRulePtrOutputWithContext(ctx context.Context) DataExportRulePtrOutput {
+	return o
+}
+
+type DataExportRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (DataExportRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataExportRule)(nil))
+}
+
+func (o DataExportRuleArrayOutput) ToDataExportRuleArrayOutput() DataExportRuleArrayOutput {
+	return o
+}
+
+func (o DataExportRuleArrayOutput) ToDataExportRuleArrayOutputWithContext(ctx context.Context) DataExportRuleArrayOutput {
+	return o
+}
+
+func (o DataExportRuleArrayOutput) Index(i pulumi.IntInput) DataExportRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataExportRule {
+		return vs[0].([]DataExportRule)[vs[1].(int)]
+	}).(DataExportRuleOutput)
+}
+
+type DataExportRuleMapOutput struct{ *pulumi.OutputState }
+
+func (DataExportRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DataExportRule)(nil))
+}
+
+func (o DataExportRuleMapOutput) ToDataExportRuleMapOutput() DataExportRuleMapOutput {
+	return o
+}
+
+func (o DataExportRuleMapOutput) ToDataExportRuleMapOutputWithContext(ctx context.Context) DataExportRuleMapOutput {
+	return o
+}
+
+func (o DataExportRuleMapOutput) MapIndex(k pulumi.StringInput) DataExportRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataExportRule {
+		return vs[0].(map[string]DataExportRule)[vs[1].(string)]
+	}).(DataExportRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataExportRuleOutput{})
+	pulumi.RegisterOutputType(DataExportRulePtrOutput{})
+	pulumi.RegisterOutputType(DataExportRuleArrayOutput{})
+	pulumi.RegisterOutputType(DataExportRuleMapOutput{})
 }

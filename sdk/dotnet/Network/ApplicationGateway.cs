@@ -154,6 +154,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/applicationGateway:ApplicationGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/applicationGateways/myGateway1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/applicationGateway:ApplicationGateway")]
     public partial class ApplicationGateway : Pulumi.CustomResource
     {
         /// <summary>

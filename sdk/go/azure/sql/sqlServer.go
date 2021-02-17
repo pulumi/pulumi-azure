@@ -262,16 +262,95 @@ type SqlServerInput interface {
 	ToSqlServerOutputWithContext(ctx context.Context) SqlServerOutput
 }
 
-func (SqlServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServer)(nil)).Elem()
+func (*SqlServer) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlServer)(nil))
 }
 
-func (i SqlServer) ToSqlServerOutput() SqlServerOutput {
+func (i *SqlServer) ToSqlServerOutput() SqlServerOutput {
 	return i.ToSqlServerOutputWithContext(context.Background())
 }
 
-func (i SqlServer) ToSqlServerOutputWithContext(ctx context.Context) SqlServerOutput {
+func (i *SqlServer) ToSqlServerOutputWithContext(ctx context.Context) SqlServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerOutput)
+}
+
+func (i *SqlServer) ToSqlServerPtrOutput() SqlServerPtrOutput {
+	return i.ToSqlServerPtrOutputWithContext(context.Background())
+}
+
+func (i *SqlServer) ToSqlServerPtrOutputWithContext(ctx context.Context) SqlServerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlServerPtrOutput)
+}
+
+type SqlServerPtrInput interface {
+	pulumi.Input
+
+	ToSqlServerPtrOutput() SqlServerPtrOutput
+	ToSqlServerPtrOutputWithContext(ctx context.Context) SqlServerPtrOutput
+}
+
+type sqlServerPtrType SqlServerArgs
+
+func (*sqlServerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlServer)(nil))
+}
+
+func (i *sqlServerPtrType) ToSqlServerPtrOutput() SqlServerPtrOutput {
+	return i.ToSqlServerPtrOutputWithContext(context.Background())
+}
+
+func (i *sqlServerPtrType) ToSqlServerPtrOutputWithContext(ctx context.Context) SqlServerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlServerPtrOutput)
+}
+
+// SqlServerArrayInput is an input type that accepts SqlServerArray and SqlServerArrayOutput values.
+// You can construct a concrete instance of `SqlServerArrayInput` via:
+//
+//          SqlServerArray{ SqlServerArgs{...} }
+type SqlServerArrayInput interface {
+	pulumi.Input
+
+	ToSqlServerArrayOutput() SqlServerArrayOutput
+	ToSqlServerArrayOutputWithContext(context.Context) SqlServerArrayOutput
+}
+
+type SqlServerArray []SqlServerInput
+
+func (SqlServerArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SqlServer)(nil))
+}
+
+func (i SqlServerArray) ToSqlServerArrayOutput() SqlServerArrayOutput {
+	return i.ToSqlServerArrayOutputWithContext(context.Background())
+}
+
+func (i SqlServerArray) ToSqlServerArrayOutputWithContext(ctx context.Context) SqlServerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlServerArrayOutput)
+}
+
+// SqlServerMapInput is an input type that accepts SqlServerMap and SqlServerMapOutput values.
+// You can construct a concrete instance of `SqlServerMapInput` via:
+//
+//          SqlServerMap{ "key": SqlServerArgs{...} }
+type SqlServerMapInput interface {
+	pulumi.Input
+
+	ToSqlServerMapOutput() SqlServerMapOutput
+	ToSqlServerMapOutputWithContext(context.Context) SqlServerMapOutput
+}
+
+type SqlServerMap map[string]SqlServerInput
+
+func (SqlServerMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SqlServer)(nil))
+}
+
+func (i SqlServerMap) ToSqlServerMapOutput() SqlServerMapOutput {
+	return i.ToSqlServerMapOutputWithContext(context.Background())
+}
+
+func (i SqlServerMap) ToSqlServerMapOutputWithContext(ctx context.Context) SqlServerMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlServerMapOutput)
 }
 
 type SqlServerOutput struct {
@@ -279,7 +358,7 @@ type SqlServerOutput struct {
 }
 
 func (SqlServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServerOutput)(nil)).Elem()
+	return reflect.TypeOf((*SqlServer)(nil))
 }
 
 func (o SqlServerOutput) ToSqlServerOutput() SqlServerOutput {
@@ -290,6 +369,75 @@ func (o SqlServerOutput) ToSqlServerOutputWithContext(ctx context.Context) SqlSe
 	return o
 }
 
+func (o SqlServerOutput) ToSqlServerPtrOutput() SqlServerPtrOutput {
+	return o.ToSqlServerPtrOutputWithContext(context.Background())
+}
+
+func (o SqlServerOutput) ToSqlServerPtrOutputWithContext(ctx context.Context) SqlServerPtrOutput {
+	return o.ApplyT(func(v SqlServer) *SqlServer {
+		return &v
+	}).(SqlServerPtrOutput)
+}
+
+type SqlServerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlServerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlServer)(nil))
+}
+
+func (o SqlServerPtrOutput) ToSqlServerPtrOutput() SqlServerPtrOutput {
+	return o
+}
+
+func (o SqlServerPtrOutput) ToSqlServerPtrOutputWithContext(ctx context.Context) SqlServerPtrOutput {
+	return o
+}
+
+type SqlServerArrayOutput struct{ *pulumi.OutputState }
+
+func (SqlServerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlServer)(nil))
+}
+
+func (o SqlServerArrayOutput) ToSqlServerArrayOutput() SqlServerArrayOutput {
+	return o
+}
+
+func (o SqlServerArrayOutput) ToSqlServerArrayOutputWithContext(ctx context.Context) SqlServerArrayOutput {
+	return o
+}
+
+func (o SqlServerArrayOutput) Index(i pulumi.IntInput) SqlServerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlServer {
+		return vs[0].([]SqlServer)[vs[1].(int)]
+	}).(SqlServerOutput)
+}
+
+type SqlServerMapOutput struct{ *pulumi.OutputState }
+
+func (SqlServerMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SqlServer)(nil))
+}
+
+func (o SqlServerMapOutput) ToSqlServerMapOutput() SqlServerMapOutput {
+	return o
+}
+
+func (o SqlServerMapOutput) ToSqlServerMapOutputWithContext(ctx context.Context) SqlServerMapOutput {
+	return o
+}
+
+func (o SqlServerMapOutput) MapIndex(k pulumi.StringInput) SqlServerOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SqlServer {
+		return vs[0].(map[string]SqlServer)[vs[1].(string)]
+	}).(SqlServerOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlServerOutput{})
+	pulumi.RegisterOutputType(SqlServerPtrOutput{})
+	pulumi.RegisterOutputType(SqlServerArrayOutput{})
+	pulumi.RegisterOutputType(SqlServerMapOutput{})
 }

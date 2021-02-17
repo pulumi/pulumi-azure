@@ -86,27 +86,24 @@ export class NatGatewayPublicIpAssociation extends pulumi.CustomResource {
     constructor(name: string, args: NatGatewayPublicIpAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NatGatewayPublicIpAssociationArgs | NatGatewayPublicIpAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NatGatewayPublicIpAssociationState | undefined;
             inputs["natGatewayId"] = state ? state.natGatewayId : undefined;
             inputs["publicIpAddressId"] = state ? state.publicIpAddressId : undefined;
         } else {
             const args = argsOrState as NatGatewayPublicIpAssociationArgs | undefined;
-            if ((!args || args.natGatewayId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.natGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'natGatewayId'");
             }
-            if ((!args || args.publicIpAddressId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.publicIpAddressId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'publicIpAddressId'");
             }
             inputs["natGatewayId"] = args ? args.natGatewayId : undefined;
             inputs["publicIpAddressId"] = args ? args.publicIpAddressId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NatGatewayPublicIpAssociation.__pulumiType, name, inputs, opts);
     }

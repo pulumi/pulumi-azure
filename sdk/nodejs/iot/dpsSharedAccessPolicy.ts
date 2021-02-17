@@ -125,7 +125,8 @@ export class DpsSharedAccessPolicy extends pulumi.CustomResource {
     constructor(name: string, args: DpsSharedAccessPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DpsSharedAccessPolicyArgs | DpsSharedAccessPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DpsSharedAccessPolicyState | undefined;
             inputs["enrollmentRead"] = state ? state.enrollmentRead : undefined;
             inputs["enrollmentWrite"] = state ? state.enrollmentWrite : undefined;
@@ -141,10 +142,10 @@ export class DpsSharedAccessPolicy extends pulumi.CustomResource {
             inputs["serviceConfig"] = state ? state.serviceConfig : undefined;
         } else {
             const args = argsOrState as DpsSharedAccessPolicyArgs | undefined;
-            if ((!args || args.iothubDpsName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.iothubDpsName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iothubDpsName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["enrollmentRead"] = args ? args.enrollmentRead : undefined;
@@ -160,12 +161,8 @@ export class DpsSharedAccessPolicy extends pulumi.CustomResource {
             inputs["secondaryConnectionString"] = undefined /*out*/;
             inputs["secondaryKey"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DpsSharedAccessPolicy.__pulumiType, name, inputs, opts);
     }

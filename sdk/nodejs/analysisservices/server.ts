@@ -122,7 +122,8 @@ export class Server extends pulumi.CustomResource {
     constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerArgs | ServerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServerState | undefined;
             inputs["adminUsers"] = state ? state.adminUsers : undefined;
             inputs["backupBlobContainerUri"] = state ? state.backupBlobContainerUri : undefined;
@@ -137,10 +138,10 @@ export class Server extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ServerArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["adminUsers"] = args ? args.adminUsers : undefined;
@@ -155,12 +156,8 @@ export class Server extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["serverFullName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Server.__pulumiType, name, inputs, opts);
     }

@@ -64,6 +64,7 @@ namespace Pulumi.Azure.Maintenance
     ///  $ pulumi import azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resGroup1/providers/microsoft.compute/hostGroups/group1/hosts/host1/providers/Microsoft.Maintenance/configurationAssignments/assign1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost")]
     public partial class AssignmentDedicatedHost : Pulumi.CustomResource
     {
         /// <summary>

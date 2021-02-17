@@ -196,16 +196,95 @@ type EventHubConsumerGroupInput interface {
 	ToEventHubConsumerGroupOutputWithContext(ctx context.Context) EventHubConsumerGroupOutput
 }
 
-func (EventHubConsumerGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHubConsumerGroup)(nil)).Elem()
+func (*EventHubConsumerGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubConsumerGroup)(nil))
 }
 
-func (i EventHubConsumerGroup) ToEventHubConsumerGroupOutput() EventHubConsumerGroupOutput {
+func (i *EventHubConsumerGroup) ToEventHubConsumerGroupOutput() EventHubConsumerGroupOutput {
 	return i.ToEventHubConsumerGroupOutputWithContext(context.Background())
 }
 
-func (i EventHubConsumerGroup) ToEventHubConsumerGroupOutputWithContext(ctx context.Context) EventHubConsumerGroupOutput {
+func (i *EventHubConsumerGroup) ToEventHubConsumerGroupOutputWithContext(ctx context.Context) EventHubConsumerGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubConsumerGroupOutput)
+}
+
+func (i *EventHubConsumerGroup) ToEventHubConsumerGroupPtrOutput() EventHubConsumerGroupPtrOutput {
+	return i.ToEventHubConsumerGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *EventHubConsumerGroup) ToEventHubConsumerGroupPtrOutputWithContext(ctx context.Context) EventHubConsumerGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubConsumerGroupPtrOutput)
+}
+
+type EventHubConsumerGroupPtrInput interface {
+	pulumi.Input
+
+	ToEventHubConsumerGroupPtrOutput() EventHubConsumerGroupPtrOutput
+	ToEventHubConsumerGroupPtrOutputWithContext(ctx context.Context) EventHubConsumerGroupPtrOutput
+}
+
+type eventHubConsumerGroupPtrType EventHubConsumerGroupArgs
+
+func (*eventHubConsumerGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventHubConsumerGroup)(nil))
+}
+
+func (i *eventHubConsumerGroupPtrType) ToEventHubConsumerGroupPtrOutput() EventHubConsumerGroupPtrOutput {
+	return i.ToEventHubConsumerGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *eventHubConsumerGroupPtrType) ToEventHubConsumerGroupPtrOutputWithContext(ctx context.Context) EventHubConsumerGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubConsumerGroupPtrOutput)
+}
+
+// EventHubConsumerGroupArrayInput is an input type that accepts EventHubConsumerGroupArray and EventHubConsumerGroupArrayOutput values.
+// You can construct a concrete instance of `EventHubConsumerGroupArrayInput` via:
+//
+//          EventHubConsumerGroupArray{ EventHubConsumerGroupArgs{...} }
+type EventHubConsumerGroupArrayInput interface {
+	pulumi.Input
+
+	ToEventHubConsumerGroupArrayOutput() EventHubConsumerGroupArrayOutput
+	ToEventHubConsumerGroupArrayOutputWithContext(context.Context) EventHubConsumerGroupArrayOutput
+}
+
+type EventHubConsumerGroupArray []EventHubConsumerGroupInput
+
+func (EventHubConsumerGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EventHubConsumerGroup)(nil))
+}
+
+func (i EventHubConsumerGroupArray) ToEventHubConsumerGroupArrayOutput() EventHubConsumerGroupArrayOutput {
+	return i.ToEventHubConsumerGroupArrayOutputWithContext(context.Background())
+}
+
+func (i EventHubConsumerGroupArray) ToEventHubConsumerGroupArrayOutputWithContext(ctx context.Context) EventHubConsumerGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubConsumerGroupArrayOutput)
+}
+
+// EventHubConsumerGroupMapInput is an input type that accepts EventHubConsumerGroupMap and EventHubConsumerGroupMapOutput values.
+// You can construct a concrete instance of `EventHubConsumerGroupMapInput` via:
+//
+//          EventHubConsumerGroupMap{ "key": EventHubConsumerGroupArgs{...} }
+type EventHubConsumerGroupMapInput interface {
+	pulumi.Input
+
+	ToEventHubConsumerGroupMapOutput() EventHubConsumerGroupMapOutput
+	ToEventHubConsumerGroupMapOutputWithContext(context.Context) EventHubConsumerGroupMapOutput
+}
+
+type EventHubConsumerGroupMap map[string]EventHubConsumerGroupInput
+
+func (EventHubConsumerGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EventHubConsumerGroup)(nil))
+}
+
+func (i EventHubConsumerGroupMap) ToEventHubConsumerGroupMapOutput() EventHubConsumerGroupMapOutput {
+	return i.ToEventHubConsumerGroupMapOutputWithContext(context.Background())
+}
+
+func (i EventHubConsumerGroupMap) ToEventHubConsumerGroupMapOutputWithContext(ctx context.Context) EventHubConsumerGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubConsumerGroupMapOutput)
 }
 
 type EventHubConsumerGroupOutput struct {
@@ -213,7 +292,7 @@ type EventHubConsumerGroupOutput struct {
 }
 
 func (EventHubConsumerGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHubConsumerGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*EventHubConsumerGroup)(nil))
 }
 
 func (o EventHubConsumerGroupOutput) ToEventHubConsumerGroupOutput() EventHubConsumerGroupOutput {
@@ -224,6 +303,75 @@ func (o EventHubConsumerGroupOutput) ToEventHubConsumerGroupOutputWithContext(ct
 	return o
 }
 
+func (o EventHubConsumerGroupOutput) ToEventHubConsumerGroupPtrOutput() EventHubConsumerGroupPtrOutput {
+	return o.ToEventHubConsumerGroupPtrOutputWithContext(context.Background())
+}
+
+func (o EventHubConsumerGroupOutput) ToEventHubConsumerGroupPtrOutputWithContext(ctx context.Context) EventHubConsumerGroupPtrOutput {
+	return o.ApplyT(func(v EventHubConsumerGroup) *EventHubConsumerGroup {
+		return &v
+	}).(EventHubConsumerGroupPtrOutput)
+}
+
+type EventHubConsumerGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventHubConsumerGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventHubConsumerGroup)(nil))
+}
+
+func (o EventHubConsumerGroupPtrOutput) ToEventHubConsumerGroupPtrOutput() EventHubConsumerGroupPtrOutput {
+	return o
+}
+
+func (o EventHubConsumerGroupPtrOutput) ToEventHubConsumerGroupPtrOutputWithContext(ctx context.Context) EventHubConsumerGroupPtrOutput {
+	return o
+}
+
+type EventHubConsumerGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (EventHubConsumerGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventHubConsumerGroup)(nil))
+}
+
+func (o EventHubConsumerGroupArrayOutput) ToEventHubConsumerGroupArrayOutput() EventHubConsumerGroupArrayOutput {
+	return o
+}
+
+func (o EventHubConsumerGroupArrayOutput) ToEventHubConsumerGroupArrayOutputWithContext(ctx context.Context) EventHubConsumerGroupArrayOutput {
+	return o
+}
+
+func (o EventHubConsumerGroupArrayOutput) Index(i pulumi.IntInput) EventHubConsumerGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventHubConsumerGroup {
+		return vs[0].([]EventHubConsumerGroup)[vs[1].(int)]
+	}).(EventHubConsumerGroupOutput)
+}
+
+type EventHubConsumerGroupMapOutput struct{ *pulumi.OutputState }
+
+func (EventHubConsumerGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EventHubConsumerGroup)(nil))
+}
+
+func (o EventHubConsumerGroupMapOutput) ToEventHubConsumerGroupMapOutput() EventHubConsumerGroupMapOutput {
+	return o
+}
+
+func (o EventHubConsumerGroupMapOutput) ToEventHubConsumerGroupMapOutputWithContext(ctx context.Context) EventHubConsumerGroupMapOutput {
+	return o
+}
+
+func (o EventHubConsumerGroupMapOutput) MapIndex(k pulumi.StringInput) EventHubConsumerGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventHubConsumerGroup {
+		return vs[0].(map[string]EventHubConsumerGroup)[vs[1].(string)]
+	}).(EventHubConsumerGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventHubConsumerGroupOutput{})
+	pulumi.RegisterOutputType(EventHubConsumerGroupPtrOutput{})
+	pulumi.RegisterOutputType(EventHubConsumerGroupArrayOutput{})
+	pulumi.RegisterOutputType(EventHubConsumerGroupMapOutput{})
 }

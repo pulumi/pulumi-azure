@@ -177,16 +177,95 @@ type TriggerHttpRequestInput interface {
 	ToTriggerHttpRequestOutputWithContext(ctx context.Context) TriggerHttpRequestOutput
 }
 
-func (TriggerHttpRequest) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerHttpRequest)(nil)).Elem()
+func (*TriggerHttpRequest) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerHttpRequest)(nil))
 }
 
-func (i TriggerHttpRequest) ToTriggerHttpRequestOutput() TriggerHttpRequestOutput {
+func (i *TriggerHttpRequest) ToTriggerHttpRequestOutput() TriggerHttpRequestOutput {
 	return i.ToTriggerHttpRequestOutputWithContext(context.Background())
 }
 
-func (i TriggerHttpRequest) ToTriggerHttpRequestOutputWithContext(ctx context.Context) TriggerHttpRequestOutput {
+func (i *TriggerHttpRequest) ToTriggerHttpRequestOutputWithContext(ctx context.Context) TriggerHttpRequestOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerHttpRequestOutput)
+}
+
+func (i *TriggerHttpRequest) ToTriggerHttpRequestPtrOutput() TriggerHttpRequestPtrOutput {
+	return i.ToTriggerHttpRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *TriggerHttpRequest) ToTriggerHttpRequestPtrOutputWithContext(ctx context.Context) TriggerHttpRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerHttpRequestPtrOutput)
+}
+
+type TriggerHttpRequestPtrInput interface {
+	pulumi.Input
+
+	ToTriggerHttpRequestPtrOutput() TriggerHttpRequestPtrOutput
+	ToTriggerHttpRequestPtrOutputWithContext(ctx context.Context) TriggerHttpRequestPtrOutput
+}
+
+type triggerHttpRequestPtrType TriggerHttpRequestArgs
+
+func (*triggerHttpRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerHttpRequest)(nil))
+}
+
+func (i *triggerHttpRequestPtrType) ToTriggerHttpRequestPtrOutput() TriggerHttpRequestPtrOutput {
+	return i.ToTriggerHttpRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *triggerHttpRequestPtrType) ToTriggerHttpRequestPtrOutputWithContext(ctx context.Context) TriggerHttpRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerHttpRequestPtrOutput)
+}
+
+// TriggerHttpRequestArrayInput is an input type that accepts TriggerHttpRequestArray and TriggerHttpRequestArrayOutput values.
+// You can construct a concrete instance of `TriggerHttpRequestArrayInput` via:
+//
+//          TriggerHttpRequestArray{ TriggerHttpRequestArgs{...} }
+type TriggerHttpRequestArrayInput interface {
+	pulumi.Input
+
+	ToTriggerHttpRequestArrayOutput() TriggerHttpRequestArrayOutput
+	ToTriggerHttpRequestArrayOutputWithContext(context.Context) TriggerHttpRequestArrayOutput
+}
+
+type TriggerHttpRequestArray []TriggerHttpRequestInput
+
+func (TriggerHttpRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*TriggerHttpRequest)(nil))
+}
+
+func (i TriggerHttpRequestArray) ToTriggerHttpRequestArrayOutput() TriggerHttpRequestArrayOutput {
+	return i.ToTriggerHttpRequestArrayOutputWithContext(context.Background())
+}
+
+func (i TriggerHttpRequestArray) ToTriggerHttpRequestArrayOutputWithContext(ctx context.Context) TriggerHttpRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerHttpRequestArrayOutput)
+}
+
+// TriggerHttpRequestMapInput is an input type that accepts TriggerHttpRequestMap and TriggerHttpRequestMapOutput values.
+// You can construct a concrete instance of `TriggerHttpRequestMapInput` via:
+//
+//          TriggerHttpRequestMap{ "key": TriggerHttpRequestArgs{...} }
+type TriggerHttpRequestMapInput interface {
+	pulumi.Input
+
+	ToTriggerHttpRequestMapOutput() TriggerHttpRequestMapOutput
+	ToTriggerHttpRequestMapOutputWithContext(context.Context) TriggerHttpRequestMapOutput
+}
+
+type TriggerHttpRequestMap map[string]TriggerHttpRequestInput
+
+func (TriggerHttpRequestMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*TriggerHttpRequest)(nil))
+}
+
+func (i TriggerHttpRequestMap) ToTriggerHttpRequestMapOutput() TriggerHttpRequestMapOutput {
+	return i.ToTriggerHttpRequestMapOutputWithContext(context.Background())
+}
+
+func (i TriggerHttpRequestMap) ToTriggerHttpRequestMapOutputWithContext(ctx context.Context) TriggerHttpRequestMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerHttpRequestMapOutput)
 }
 
 type TriggerHttpRequestOutput struct {
@@ -194,7 +273,7 @@ type TriggerHttpRequestOutput struct {
 }
 
 func (TriggerHttpRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerHttpRequestOutput)(nil)).Elem()
+	return reflect.TypeOf((*TriggerHttpRequest)(nil))
 }
 
 func (o TriggerHttpRequestOutput) ToTriggerHttpRequestOutput() TriggerHttpRequestOutput {
@@ -205,6 +284,75 @@ func (o TriggerHttpRequestOutput) ToTriggerHttpRequestOutputWithContext(ctx cont
 	return o
 }
 
+func (o TriggerHttpRequestOutput) ToTriggerHttpRequestPtrOutput() TriggerHttpRequestPtrOutput {
+	return o.ToTriggerHttpRequestPtrOutputWithContext(context.Background())
+}
+
+func (o TriggerHttpRequestOutput) ToTriggerHttpRequestPtrOutputWithContext(ctx context.Context) TriggerHttpRequestPtrOutput {
+	return o.ApplyT(func(v TriggerHttpRequest) *TriggerHttpRequest {
+		return &v
+	}).(TriggerHttpRequestPtrOutput)
+}
+
+type TriggerHttpRequestPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TriggerHttpRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerHttpRequest)(nil))
+}
+
+func (o TriggerHttpRequestPtrOutput) ToTriggerHttpRequestPtrOutput() TriggerHttpRequestPtrOutput {
+	return o
+}
+
+func (o TriggerHttpRequestPtrOutput) ToTriggerHttpRequestPtrOutputWithContext(ctx context.Context) TriggerHttpRequestPtrOutput {
+	return o
+}
+
+type TriggerHttpRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (TriggerHttpRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TriggerHttpRequest)(nil))
+}
+
+func (o TriggerHttpRequestArrayOutput) ToTriggerHttpRequestArrayOutput() TriggerHttpRequestArrayOutput {
+	return o
+}
+
+func (o TriggerHttpRequestArrayOutput) ToTriggerHttpRequestArrayOutputWithContext(ctx context.Context) TriggerHttpRequestArrayOutput {
+	return o
+}
+
+func (o TriggerHttpRequestArrayOutput) Index(i pulumi.IntInput) TriggerHttpRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TriggerHttpRequest {
+		return vs[0].([]TriggerHttpRequest)[vs[1].(int)]
+	}).(TriggerHttpRequestOutput)
+}
+
+type TriggerHttpRequestMapOutput struct{ *pulumi.OutputState }
+
+func (TriggerHttpRequestMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TriggerHttpRequest)(nil))
+}
+
+func (o TriggerHttpRequestMapOutput) ToTriggerHttpRequestMapOutput() TriggerHttpRequestMapOutput {
+	return o
+}
+
+func (o TriggerHttpRequestMapOutput) ToTriggerHttpRequestMapOutputWithContext(ctx context.Context) TriggerHttpRequestMapOutput {
+	return o
+}
+
+func (o TriggerHttpRequestMapOutput) MapIndex(k pulumi.StringInput) TriggerHttpRequestOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TriggerHttpRequest {
+		return vs[0].(map[string]TriggerHttpRequest)[vs[1].(string)]
+	}).(TriggerHttpRequestOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TriggerHttpRequestOutput{})
+	pulumi.RegisterOutputType(TriggerHttpRequestPtrOutput{})
+	pulumi.RegisterOutputType(TriggerHttpRequestArrayOutput{})
+	pulumi.RegisterOutputType(TriggerHttpRequestMapOutput{})
 }

@@ -350,16 +350,95 @@ type ActionGroupInput interface {
 	ToActionGroupOutputWithContext(ctx context.Context) ActionGroupOutput
 }
 
-func (ActionGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionGroup)(nil)).Elem()
+func (*ActionGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionGroup)(nil))
 }
 
-func (i ActionGroup) ToActionGroupOutput() ActionGroupOutput {
+func (i *ActionGroup) ToActionGroupOutput() ActionGroupOutput {
 	return i.ToActionGroupOutputWithContext(context.Background())
 }
 
-func (i ActionGroup) ToActionGroupOutputWithContext(ctx context.Context) ActionGroupOutput {
+func (i *ActionGroup) ToActionGroupOutputWithContext(ctx context.Context) ActionGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupOutput)
+}
+
+func (i *ActionGroup) ToActionGroupPtrOutput() ActionGroupPtrOutput {
+	return i.ToActionGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *ActionGroup) ToActionGroupPtrOutputWithContext(ctx context.Context) ActionGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupPtrOutput)
+}
+
+type ActionGroupPtrInput interface {
+	pulumi.Input
+
+	ToActionGroupPtrOutput() ActionGroupPtrOutput
+	ToActionGroupPtrOutputWithContext(ctx context.Context) ActionGroupPtrOutput
+}
+
+type actionGroupPtrType ActionGroupArgs
+
+func (*actionGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionGroup)(nil))
+}
+
+func (i *actionGroupPtrType) ToActionGroupPtrOutput() ActionGroupPtrOutput {
+	return i.ToActionGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *actionGroupPtrType) ToActionGroupPtrOutputWithContext(ctx context.Context) ActionGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupPtrOutput)
+}
+
+// ActionGroupArrayInput is an input type that accepts ActionGroupArray and ActionGroupArrayOutput values.
+// You can construct a concrete instance of `ActionGroupArrayInput` via:
+//
+//          ActionGroupArray{ ActionGroupArgs{...} }
+type ActionGroupArrayInput interface {
+	pulumi.Input
+
+	ToActionGroupArrayOutput() ActionGroupArrayOutput
+	ToActionGroupArrayOutputWithContext(context.Context) ActionGroupArrayOutput
+}
+
+type ActionGroupArray []ActionGroupInput
+
+func (ActionGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ActionGroup)(nil))
+}
+
+func (i ActionGroupArray) ToActionGroupArrayOutput() ActionGroupArrayOutput {
+	return i.ToActionGroupArrayOutputWithContext(context.Background())
+}
+
+func (i ActionGroupArray) ToActionGroupArrayOutputWithContext(ctx context.Context) ActionGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupArrayOutput)
+}
+
+// ActionGroupMapInput is an input type that accepts ActionGroupMap and ActionGroupMapOutput values.
+// You can construct a concrete instance of `ActionGroupMapInput` via:
+//
+//          ActionGroupMap{ "key": ActionGroupArgs{...} }
+type ActionGroupMapInput interface {
+	pulumi.Input
+
+	ToActionGroupMapOutput() ActionGroupMapOutput
+	ToActionGroupMapOutputWithContext(context.Context) ActionGroupMapOutput
+}
+
+type ActionGroupMap map[string]ActionGroupInput
+
+func (ActionGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ActionGroup)(nil))
+}
+
+func (i ActionGroupMap) ToActionGroupMapOutput() ActionGroupMapOutput {
+	return i.ToActionGroupMapOutputWithContext(context.Background())
+}
+
+func (i ActionGroupMap) ToActionGroupMapOutputWithContext(ctx context.Context) ActionGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupMapOutput)
 }
 
 type ActionGroupOutput struct {
@@ -367,7 +446,7 @@ type ActionGroupOutput struct {
 }
 
 func (ActionGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*ActionGroup)(nil))
 }
 
 func (o ActionGroupOutput) ToActionGroupOutput() ActionGroupOutput {
@@ -378,6 +457,75 @@ func (o ActionGroupOutput) ToActionGroupOutputWithContext(ctx context.Context) A
 	return o
 }
 
+func (o ActionGroupOutput) ToActionGroupPtrOutput() ActionGroupPtrOutput {
+	return o.ToActionGroupPtrOutputWithContext(context.Background())
+}
+
+func (o ActionGroupOutput) ToActionGroupPtrOutputWithContext(ctx context.Context) ActionGroupPtrOutput {
+	return o.ApplyT(func(v ActionGroup) *ActionGroup {
+		return &v
+	}).(ActionGroupPtrOutput)
+}
+
+type ActionGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ActionGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionGroup)(nil))
+}
+
+func (o ActionGroupPtrOutput) ToActionGroupPtrOutput() ActionGroupPtrOutput {
+	return o
+}
+
+func (o ActionGroupPtrOutput) ToActionGroupPtrOutputWithContext(ctx context.Context) ActionGroupPtrOutput {
+	return o
+}
+
+type ActionGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (ActionGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionGroup)(nil))
+}
+
+func (o ActionGroupArrayOutput) ToActionGroupArrayOutput() ActionGroupArrayOutput {
+	return o
+}
+
+func (o ActionGroupArrayOutput) ToActionGroupArrayOutputWithContext(ctx context.Context) ActionGroupArrayOutput {
+	return o
+}
+
+func (o ActionGroupArrayOutput) Index(i pulumi.IntInput) ActionGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionGroup {
+		return vs[0].([]ActionGroup)[vs[1].(int)]
+	}).(ActionGroupOutput)
+}
+
+type ActionGroupMapOutput struct{ *pulumi.OutputState }
+
+func (ActionGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ActionGroup)(nil))
+}
+
+func (o ActionGroupMapOutput) ToActionGroupMapOutput() ActionGroupMapOutput {
+	return o
+}
+
+func (o ActionGroupMapOutput) ToActionGroupMapOutputWithContext(ctx context.Context) ActionGroupMapOutput {
+	return o
+}
+
+func (o ActionGroupMapOutput) MapIndex(k pulumi.StringInput) ActionGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ActionGroup {
+		return vs[0].(map[string]ActionGroup)[vs[1].(string)]
+	}).(ActionGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ActionGroupOutput{})
+	pulumi.RegisterOutputType(ActionGroupPtrOutput{})
+	pulumi.RegisterOutputType(ActionGroupArrayOutput{})
+	pulumi.RegisterOutputType(ActionGroupMapOutput{})
 }

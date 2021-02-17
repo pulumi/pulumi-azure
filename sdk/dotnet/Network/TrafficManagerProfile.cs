@@ -71,6 +71,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/trafficManagerProfile:TrafficManagerProfile exampleProfile /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/trafficManagerProfiles/mytrafficmanagerprofile1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/trafficManagerProfile:TrafficManagerProfile")]
     public partial class TrafficManagerProfile : Pulumi.CustomResource
     {
         /// <summary>

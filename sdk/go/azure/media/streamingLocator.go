@@ -267,16 +267,95 @@ type StreamingLocatorInput interface {
 	ToStreamingLocatorOutputWithContext(ctx context.Context) StreamingLocatorOutput
 }
 
-func (StreamingLocator) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingLocator)(nil)).Elem()
+func (*StreamingLocator) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingLocator)(nil))
 }
 
-func (i StreamingLocator) ToStreamingLocatorOutput() StreamingLocatorOutput {
+func (i *StreamingLocator) ToStreamingLocatorOutput() StreamingLocatorOutput {
 	return i.ToStreamingLocatorOutputWithContext(context.Background())
 }
 
-func (i StreamingLocator) ToStreamingLocatorOutputWithContext(ctx context.Context) StreamingLocatorOutput {
+func (i *StreamingLocator) ToStreamingLocatorOutputWithContext(ctx context.Context) StreamingLocatorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorOutput)
+}
+
+func (i *StreamingLocator) ToStreamingLocatorPtrOutput() StreamingLocatorPtrOutput {
+	return i.ToStreamingLocatorPtrOutputWithContext(context.Background())
+}
+
+func (i *StreamingLocator) ToStreamingLocatorPtrOutputWithContext(ctx context.Context) StreamingLocatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorPtrOutput)
+}
+
+type StreamingLocatorPtrInput interface {
+	pulumi.Input
+
+	ToStreamingLocatorPtrOutput() StreamingLocatorPtrOutput
+	ToStreamingLocatorPtrOutputWithContext(ctx context.Context) StreamingLocatorPtrOutput
+}
+
+type streamingLocatorPtrType StreamingLocatorArgs
+
+func (*streamingLocatorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingLocator)(nil))
+}
+
+func (i *streamingLocatorPtrType) ToStreamingLocatorPtrOutput() StreamingLocatorPtrOutput {
+	return i.ToStreamingLocatorPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingLocatorPtrType) ToStreamingLocatorPtrOutputWithContext(ctx context.Context) StreamingLocatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorPtrOutput)
+}
+
+// StreamingLocatorArrayInput is an input type that accepts StreamingLocatorArray and StreamingLocatorArrayOutput values.
+// You can construct a concrete instance of `StreamingLocatorArrayInput` via:
+//
+//          StreamingLocatorArray{ StreamingLocatorArgs{...} }
+type StreamingLocatorArrayInput interface {
+	pulumi.Input
+
+	ToStreamingLocatorArrayOutput() StreamingLocatorArrayOutput
+	ToStreamingLocatorArrayOutputWithContext(context.Context) StreamingLocatorArrayOutput
+}
+
+type StreamingLocatorArray []StreamingLocatorInput
+
+func (StreamingLocatorArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*StreamingLocator)(nil))
+}
+
+func (i StreamingLocatorArray) ToStreamingLocatorArrayOutput() StreamingLocatorArrayOutput {
+	return i.ToStreamingLocatorArrayOutputWithContext(context.Background())
+}
+
+func (i StreamingLocatorArray) ToStreamingLocatorArrayOutputWithContext(ctx context.Context) StreamingLocatorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorArrayOutput)
+}
+
+// StreamingLocatorMapInput is an input type that accepts StreamingLocatorMap and StreamingLocatorMapOutput values.
+// You can construct a concrete instance of `StreamingLocatorMapInput` via:
+//
+//          StreamingLocatorMap{ "key": StreamingLocatorArgs{...} }
+type StreamingLocatorMapInput interface {
+	pulumi.Input
+
+	ToStreamingLocatorMapOutput() StreamingLocatorMapOutput
+	ToStreamingLocatorMapOutputWithContext(context.Context) StreamingLocatorMapOutput
+}
+
+type StreamingLocatorMap map[string]StreamingLocatorInput
+
+func (StreamingLocatorMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*StreamingLocator)(nil))
+}
+
+func (i StreamingLocatorMap) ToStreamingLocatorMapOutput() StreamingLocatorMapOutput {
+	return i.ToStreamingLocatorMapOutputWithContext(context.Background())
+}
+
+func (i StreamingLocatorMap) ToStreamingLocatorMapOutputWithContext(ctx context.Context) StreamingLocatorMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorMapOutput)
 }
 
 type StreamingLocatorOutput struct {
@@ -284,7 +363,7 @@ type StreamingLocatorOutput struct {
 }
 
 func (StreamingLocatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingLocatorOutput)(nil)).Elem()
+	return reflect.TypeOf((*StreamingLocator)(nil))
 }
 
 func (o StreamingLocatorOutput) ToStreamingLocatorOutput() StreamingLocatorOutput {
@@ -295,6 +374,75 @@ func (o StreamingLocatorOutput) ToStreamingLocatorOutputWithContext(ctx context.
 	return o
 }
 
+func (o StreamingLocatorOutput) ToStreamingLocatorPtrOutput() StreamingLocatorPtrOutput {
+	return o.ToStreamingLocatorPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingLocatorOutput) ToStreamingLocatorPtrOutputWithContext(ctx context.Context) StreamingLocatorPtrOutput {
+	return o.ApplyT(func(v StreamingLocator) *StreamingLocator {
+		return &v
+	}).(StreamingLocatorPtrOutput)
+}
+
+type StreamingLocatorPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (StreamingLocatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingLocator)(nil))
+}
+
+func (o StreamingLocatorPtrOutput) ToStreamingLocatorPtrOutput() StreamingLocatorPtrOutput {
+	return o
+}
+
+func (o StreamingLocatorPtrOutput) ToStreamingLocatorPtrOutputWithContext(ctx context.Context) StreamingLocatorPtrOutput {
+	return o
+}
+
+type StreamingLocatorArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamingLocatorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingLocator)(nil))
+}
+
+func (o StreamingLocatorArrayOutput) ToStreamingLocatorArrayOutput() StreamingLocatorArrayOutput {
+	return o
+}
+
+func (o StreamingLocatorArrayOutput) ToStreamingLocatorArrayOutputWithContext(ctx context.Context) StreamingLocatorArrayOutput {
+	return o
+}
+
+func (o StreamingLocatorArrayOutput) Index(i pulumi.IntInput) StreamingLocatorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamingLocator {
+		return vs[0].([]StreamingLocator)[vs[1].(int)]
+	}).(StreamingLocatorOutput)
+}
+
+type StreamingLocatorMapOutput struct{ *pulumi.OutputState }
+
+func (StreamingLocatorMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]StreamingLocator)(nil))
+}
+
+func (o StreamingLocatorMapOutput) ToStreamingLocatorMapOutput() StreamingLocatorMapOutput {
+	return o
+}
+
+func (o StreamingLocatorMapOutput) ToStreamingLocatorMapOutputWithContext(ctx context.Context) StreamingLocatorMapOutput {
+	return o
+}
+
+func (o StreamingLocatorMapOutput) MapIndex(k pulumi.StringInput) StreamingLocatorOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StreamingLocator {
+		return vs[0].(map[string]StreamingLocator)[vs[1].(string)]
+	}).(StreamingLocatorOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StreamingLocatorOutput{})
+	pulumi.RegisterOutputType(StreamingLocatorPtrOutput{})
+	pulumi.RegisterOutputType(StreamingLocatorArrayOutput{})
+	pulumi.RegisterOutputType(StreamingLocatorMapOutput{})
 }

@@ -655,16 +655,95 @@ type WindowsVirtualMachineScaleSetInput interface {
 	ToWindowsVirtualMachineScaleSetOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOutput
 }
 
-func (WindowsVirtualMachineScaleSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*WindowsVirtualMachineScaleSet)(nil)).Elem()
+func (*WindowsVirtualMachineScaleSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSet)(nil))
 }
 
-func (i WindowsVirtualMachineScaleSet) ToWindowsVirtualMachineScaleSetOutput() WindowsVirtualMachineScaleSetOutput {
+func (i *WindowsVirtualMachineScaleSet) ToWindowsVirtualMachineScaleSetOutput() WindowsVirtualMachineScaleSetOutput {
 	return i.ToWindowsVirtualMachineScaleSetOutputWithContext(context.Background())
 }
 
-func (i WindowsVirtualMachineScaleSet) ToWindowsVirtualMachineScaleSetOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOutput {
+func (i *WindowsVirtualMachineScaleSet) ToWindowsVirtualMachineScaleSetOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetOutput)
+}
+
+func (i *WindowsVirtualMachineScaleSet) ToWindowsVirtualMachineScaleSetPtrOutput() WindowsVirtualMachineScaleSetPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetPtrOutputWithContext(context.Background())
+}
+
+func (i *WindowsVirtualMachineScaleSet) ToWindowsVirtualMachineScaleSetPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetPtrOutput() WindowsVirtualMachineScaleSetPtrOutput
+	ToWindowsVirtualMachineScaleSetPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetPtrOutput
+}
+
+type windowsVirtualMachineScaleSetPtrType WindowsVirtualMachineScaleSetArgs
+
+func (*windowsVirtualMachineScaleSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSet)(nil))
+}
+
+func (i *windowsVirtualMachineScaleSetPtrType) ToWindowsVirtualMachineScaleSetPtrOutput() WindowsVirtualMachineScaleSetPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineScaleSetPtrType) ToWindowsVirtualMachineScaleSetPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetPtrOutput)
+}
+
+// WindowsVirtualMachineScaleSetArrayInput is an input type that accepts WindowsVirtualMachineScaleSetArray and WindowsVirtualMachineScaleSetArrayOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineScaleSetArrayInput` via:
+//
+//          WindowsVirtualMachineScaleSetArray{ WindowsVirtualMachineScaleSetArgs{...} }
+type WindowsVirtualMachineScaleSetArrayInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetArrayOutput() WindowsVirtualMachineScaleSetArrayOutput
+	ToWindowsVirtualMachineScaleSetArrayOutputWithContext(context.Context) WindowsVirtualMachineScaleSetArrayOutput
+}
+
+type WindowsVirtualMachineScaleSetArray []WindowsVirtualMachineScaleSetInput
+
+func (WindowsVirtualMachineScaleSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*WindowsVirtualMachineScaleSet)(nil))
+}
+
+func (i WindowsVirtualMachineScaleSetArray) ToWindowsVirtualMachineScaleSetArrayOutput() WindowsVirtualMachineScaleSetArrayOutput {
+	return i.ToWindowsVirtualMachineScaleSetArrayOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetArray) ToWindowsVirtualMachineScaleSetArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetArrayOutput)
+}
+
+// WindowsVirtualMachineScaleSetMapInput is an input type that accepts WindowsVirtualMachineScaleSetMap and WindowsVirtualMachineScaleSetMapOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineScaleSetMapInput` via:
+//
+//          WindowsVirtualMachineScaleSetMap{ "key": WindowsVirtualMachineScaleSetArgs{...} }
+type WindowsVirtualMachineScaleSetMapInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetMapOutput() WindowsVirtualMachineScaleSetMapOutput
+	ToWindowsVirtualMachineScaleSetMapOutputWithContext(context.Context) WindowsVirtualMachineScaleSetMapOutput
+}
+
+type WindowsVirtualMachineScaleSetMap map[string]WindowsVirtualMachineScaleSetInput
+
+func (WindowsVirtualMachineScaleSetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*WindowsVirtualMachineScaleSet)(nil))
+}
+
+func (i WindowsVirtualMachineScaleSetMap) ToWindowsVirtualMachineScaleSetMapOutput() WindowsVirtualMachineScaleSetMapOutput {
+	return i.ToWindowsVirtualMachineScaleSetMapOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetMap) ToWindowsVirtualMachineScaleSetMapOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetMapOutput)
 }
 
 type WindowsVirtualMachineScaleSetOutput struct {
@@ -672,7 +751,7 @@ type WindowsVirtualMachineScaleSetOutput struct {
 }
 
 func (WindowsVirtualMachineScaleSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WindowsVirtualMachineScaleSetOutput)(nil)).Elem()
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSet)(nil))
 }
 
 func (o WindowsVirtualMachineScaleSetOutput) ToWindowsVirtualMachineScaleSetOutput() WindowsVirtualMachineScaleSetOutput {
@@ -683,6 +762,75 @@ func (o WindowsVirtualMachineScaleSetOutput) ToWindowsVirtualMachineScaleSetOutp
 	return o
 }
 
+func (o WindowsVirtualMachineScaleSetOutput) ToWindowsVirtualMachineScaleSetPtrOutput() WindowsVirtualMachineScaleSetPtrOutput {
+	return o.ToWindowsVirtualMachineScaleSetPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineScaleSetOutput) ToWindowsVirtualMachineScaleSetPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSet) *WindowsVirtualMachineScaleSet {
+		return &v
+	}).(WindowsVirtualMachineScaleSetPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (WindowsVirtualMachineScaleSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSet)(nil))
+}
+
+func (o WindowsVirtualMachineScaleSetPtrOutput) ToWindowsVirtualMachineScaleSetPtrOutput() WindowsVirtualMachineScaleSetPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetPtrOutput) ToWindowsVirtualMachineScaleSetPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetPtrOutput {
+	return o
+}
+
+type WindowsVirtualMachineScaleSetArrayOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSet)(nil))
+}
+
+func (o WindowsVirtualMachineScaleSetArrayOutput) ToWindowsVirtualMachineScaleSetArrayOutput() WindowsVirtualMachineScaleSetArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetArrayOutput) ToWindowsVirtualMachineScaleSetArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSet {
+		return vs[0].([]WindowsVirtualMachineScaleSet)[vs[1].(int)]
+	}).(WindowsVirtualMachineScaleSetOutput)
+}
+
+type WindowsVirtualMachineScaleSetMapOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WindowsVirtualMachineScaleSet)(nil))
+}
+
+func (o WindowsVirtualMachineScaleSetMapOutput) ToWindowsVirtualMachineScaleSetMapOutput() WindowsVirtualMachineScaleSetMapOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetMapOutput) ToWindowsVirtualMachineScaleSetMapOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetMapOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetMapOutput) MapIndex(k pulumi.StringInput) WindowsVirtualMachineScaleSetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSet {
+		return vs[0].(map[string]WindowsVirtualMachineScaleSet)[vs[1].(string)]
+	}).(WindowsVirtualMachineScaleSetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetPtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetArrayOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetMapOutput{})
 }

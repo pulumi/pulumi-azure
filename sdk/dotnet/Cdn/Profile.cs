@@ -50,6 +50,7 @@ namespace Pulumi.Azure.Cdn
     ///  $ pulumi import azure:cdn/profile:Profile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/myprofile1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:cdn/profile:Profile")]
     public partial class Profile : Pulumi.CustomResource
     {
         /// <summary>

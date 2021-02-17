@@ -103,6 +103,7 @@ namespace Pulumi.Azure.Compute
     ///  $ pulumi import azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/Microsoft.Compute/virtualMachineScaleSets/scaleset1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet")]
     public partial class WindowsVirtualMachineScaleSet : Pulumi.CustomResource
     {
         /// <summary>

@@ -150,7 +150,8 @@ export class Remediation extends pulumi.CustomResource {
     constructor(name: string, args: RemediationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RemediationArgs | RemediationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RemediationState | undefined;
             inputs["locationFilters"] = state ? state.locationFilters : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -160,10 +161,10 @@ export class Remediation extends pulumi.CustomResource {
             inputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as RemediationArgs | undefined;
-            if ((!args || args.policyAssignmentId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policyAssignmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyAssignmentId'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["locationFilters"] = args ? args.locationFilters : undefined;
@@ -173,12 +174,8 @@ export class Remediation extends pulumi.CustomResource {
             inputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
             inputs["scope"] = args ? args.scope : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Remediation.__pulumiType, name, inputs, opts);
     }

@@ -192,7 +192,8 @@ export class ActionGroup extends pulumi.CustomResource {
     constructor(name: string, args: ActionGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ActionGroupArgs | ActionGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ActionGroupState | undefined;
             inputs["armRoleReceivers"] = state ? state.armRoleReceivers : undefined;
             inputs["automationRunbookReceivers"] = state ? state.automationRunbookReceivers : undefined;
@@ -211,10 +212,10 @@ export class ActionGroup extends pulumi.CustomResource {
             inputs["webhookReceivers"] = state ? state.webhookReceivers : undefined;
         } else {
             const args = argsOrState as ActionGroupArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shortName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.shortName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shortName'");
             }
             inputs["armRoleReceivers"] = args ? args.armRoleReceivers : undefined;
@@ -233,12 +234,8 @@ export class ActionGroup extends pulumi.CustomResource {
             inputs["voiceReceivers"] = args ? args.voiceReceivers : undefined;
             inputs["webhookReceivers"] = args ? args.webhookReceivers : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ActionGroup.__pulumiType, name, inputs, opts);
     }

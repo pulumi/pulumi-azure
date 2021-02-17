@@ -101,6 +101,7 @@ namespace Pulumi.Azure.AppService
     ///  $ pulumi import azure:appservice/slotVirtualNetworkSwiftConnection:SlotVirtualNetworkSwiftConnection myassociation /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/slots/stageing/config/virtualNetwork
     /// ```
     /// </summary>
+    [AzureResourceType("azure:appservice/slotVirtualNetworkSwiftConnection:SlotVirtualNetworkSwiftConnection")]
     public partial class SlotVirtualNetworkSwiftConnection : Pulumi.CustomResource
     {
         /// <summary>

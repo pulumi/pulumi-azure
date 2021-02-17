@@ -106,6 +106,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/virtualHubRouteTable:VirtualHubRouteTable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/routeTable1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/virtualHubRouteTable:VirtualHubRouteTable")]
     public partial class VirtualHubRouteTable : Pulumi.CustomResource
     {
         /// <summary>

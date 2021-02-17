@@ -297,7 +297,8 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
     constructor(name: string, args: WindowsVirtualMachineScaleSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WindowsVirtualMachineScaleSetArgs | WindowsVirtualMachineScaleSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as WindowsVirtualMachineScaleSetState | undefined;
             inputs["additionalCapabilities"] = state ? state.additionalCapabilities : undefined;
             inputs["additionalUnattendContents"] = state ? state.additionalUnattendContents : undefined;
@@ -348,25 +349,25 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as WindowsVirtualMachineScaleSetArgs | undefined;
-            if ((!args || args.adminPassword === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.adminPassword === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'adminPassword'");
             }
-            if ((!args || args.adminUsername === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.adminUsername === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'adminUsername'");
             }
-            if ((!args || args.instances === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.instances === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instances'");
             }
-            if ((!args || args.networkInterfaces === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.networkInterfaces === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaces'");
             }
-            if ((!args || args.osDisk === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.osDisk === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'osDisk'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
@@ -417,12 +418,8 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["zones"] = args ? args.zones : undefined;
             inputs["uniqueId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(WindowsVirtualMachineScaleSet.__pulumiType, name, inputs, opts);
     }

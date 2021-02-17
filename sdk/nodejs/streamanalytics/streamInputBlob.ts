@@ -134,7 +134,8 @@ export class StreamInputBlob extends pulumi.CustomResource {
     constructor(name: string, args: StreamInputBlobArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StreamInputBlobArgs | StreamInputBlobState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as StreamInputBlobState | undefined;
             inputs["dateFormat"] = state ? state.dateFormat : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -148,31 +149,31 @@ export class StreamInputBlob extends pulumi.CustomResource {
             inputs["timeFormat"] = state ? state.timeFormat : undefined;
         } else {
             const args = argsOrState as StreamInputBlobArgs | undefined;
-            if ((!args || args.dateFormat === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dateFormat === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dateFormat'");
             }
-            if ((!args || args.pathPattern === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.pathPattern === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pathPattern'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serialization === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serialization === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serialization'");
             }
-            if ((!args || args.storageAccountKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountKey'");
             }
-            if ((!args || args.storageAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            if ((!args || args.storageContainerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageContainerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageContainerName'");
             }
-            if ((!args || args.streamAnalyticsJobName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.streamAnalyticsJobName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
-            if ((!args || args.timeFormat === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.timeFormat === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeFormat'");
             }
             inputs["dateFormat"] = args ? args.dateFormat : undefined;
@@ -186,12 +187,8 @@ export class StreamInputBlob extends pulumi.CustomResource {
             inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
             inputs["timeFormat"] = args ? args.timeFormat : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(StreamInputBlob.__pulumiType, name, inputs, opts);
     }

@@ -97,29 +97,26 @@ export class ActionCustom extends pulumi.CustomResource {
     constructor(name: string, args: ActionCustomArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ActionCustomArgs | ActionCustomState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ActionCustomState | undefined;
             inputs["body"] = state ? state.body : undefined;
             inputs["logicAppId"] = state ? state.logicAppId : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ActionCustomArgs | undefined;
-            if ((!args || args.body === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.body === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'body'");
             }
-            if ((!args || args.logicAppId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.logicAppId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logicAppId'");
             }
             inputs["body"] = args ? args.body : undefined;
             inputs["logicAppId"] = args ? args.logicAppId : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ActionCustom.__pulumiType, name, inputs, opts);
     }

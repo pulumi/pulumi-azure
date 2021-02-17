@@ -135,7 +135,8 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
     constructor(name: string, args: NetworkWatcherFlowLogArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkWatcherFlowLogArgs | NetworkWatcherFlowLogState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NetworkWatcherFlowLogState | undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["networkSecurityGroupId"] = state ? state.networkSecurityGroupId : undefined;
@@ -147,22 +148,22 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as NetworkWatcherFlowLogArgs | undefined;
-            if ((!args || args.enabled === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.enabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.networkSecurityGroupId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.networkSecurityGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkSecurityGroupId'");
             }
-            if ((!args || args.networkWatcherName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.networkWatcherName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.retentionPolicy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.retentionPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'retentionPolicy'");
             }
-            if ((!args || args.storageAccountId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
             inputs["enabled"] = args ? args.enabled : undefined;
@@ -174,12 +175,8 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
             inputs["trafficAnalytics"] = args ? args.trafficAnalytics : undefined;
             inputs["version"] = args ? args.version : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NetworkWatcherFlowLog.__pulumiType, name, inputs, opts);
     }

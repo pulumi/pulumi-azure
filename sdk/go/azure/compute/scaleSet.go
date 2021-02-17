@@ -408,16 +408,95 @@ type ScaleSetInput interface {
 	ToScaleSetOutputWithContext(ctx context.Context) ScaleSetOutput
 }
 
-func (ScaleSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleSet)(nil)).Elem()
+func (*ScaleSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScaleSet)(nil))
 }
 
-func (i ScaleSet) ToScaleSetOutput() ScaleSetOutput {
+func (i *ScaleSet) ToScaleSetOutput() ScaleSetOutput {
 	return i.ToScaleSetOutputWithContext(context.Background())
 }
 
-func (i ScaleSet) ToScaleSetOutputWithContext(ctx context.Context) ScaleSetOutput {
+func (i *ScaleSet) ToScaleSetOutputWithContext(ctx context.Context) ScaleSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOutput)
+}
+
+func (i *ScaleSet) ToScaleSetPtrOutput() ScaleSetPtrOutput {
+	return i.ToScaleSetPtrOutputWithContext(context.Background())
+}
+
+func (i *ScaleSet) ToScaleSetPtrOutputWithContext(ctx context.Context) ScaleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetPtrOutput)
+}
+
+type ScaleSetPtrInput interface {
+	pulumi.Input
+
+	ToScaleSetPtrOutput() ScaleSetPtrOutput
+	ToScaleSetPtrOutputWithContext(ctx context.Context) ScaleSetPtrOutput
+}
+
+type scaleSetPtrType ScaleSetArgs
+
+func (*scaleSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScaleSet)(nil))
+}
+
+func (i *scaleSetPtrType) ToScaleSetPtrOutput() ScaleSetPtrOutput {
+	return i.ToScaleSetPtrOutputWithContext(context.Background())
+}
+
+func (i *scaleSetPtrType) ToScaleSetPtrOutputWithContext(ctx context.Context) ScaleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetPtrOutput)
+}
+
+// ScaleSetArrayInput is an input type that accepts ScaleSetArray and ScaleSetArrayOutput values.
+// You can construct a concrete instance of `ScaleSetArrayInput` via:
+//
+//          ScaleSetArray{ ScaleSetArgs{...} }
+type ScaleSetArrayInput interface {
+	pulumi.Input
+
+	ToScaleSetArrayOutput() ScaleSetArrayOutput
+	ToScaleSetArrayOutputWithContext(context.Context) ScaleSetArrayOutput
+}
+
+type ScaleSetArray []ScaleSetInput
+
+func (ScaleSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ScaleSet)(nil))
+}
+
+func (i ScaleSetArray) ToScaleSetArrayOutput() ScaleSetArrayOutput {
+	return i.ToScaleSetArrayOutputWithContext(context.Background())
+}
+
+func (i ScaleSetArray) ToScaleSetArrayOutputWithContext(ctx context.Context) ScaleSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetArrayOutput)
+}
+
+// ScaleSetMapInput is an input type that accepts ScaleSetMap and ScaleSetMapOutput values.
+// You can construct a concrete instance of `ScaleSetMapInput` via:
+//
+//          ScaleSetMap{ "key": ScaleSetArgs{...} }
+type ScaleSetMapInput interface {
+	pulumi.Input
+
+	ToScaleSetMapOutput() ScaleSetMapOutput
+	ToScaleSetMapOutputWithContext(context.Context) ScaleSetMapOutput
+}
+
+type ScaleSetMap map[string]ScaleSetInput
+
+func (ScaleSetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ScaleSet)(nil))
+}
+
+func (i ScaleSetMap) ToScaleSetMapOutput() ScaleSetMapOutput {
+	return i.ToScaleSetMapOutputWithContext(context.Background())
+}
+
+func (i ScaleSetMap) ToScaleSetMapOutputWithContext(ctx context.Context) ScaleSetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetMapOutput)
 }
 
 type ScaleSetOutput struct {
@@ -425,7 +504,7 @@ type ScaleSetOutput struct {
 }
 
 func (ScaleSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleSetOutput)(nil)).Elem()
+	return reflect.TypeOf((*ScaleSet)(nil))
 }
 
 func (o ScaleSetOutput) ToScaleSetOutput() ScaleSetOutput {
@@ -436,6 +515,75 @@ func (o ScaleSetOutput) ToScaleSetOutputWithContext(ctx context.Context) ScaleSe
 	return o
 }
 
+func (o ScaleSetOutput) ToScaleSetPtrOutput() ScaleSetPtrOutput {
+	return o.ToScaleSetPtrOutputWithContext(context.Background())
+}
+
+func (o ScaleSetOutput) ToScaleSetPtrOutputWithContext(ctx context.Context) ScaleSetPtrOutput {
+	return o.ApplyT(func(v ScaleSet) *ScaleSet {
+		return &v
+	}).(ScaleSetPtrOutput)
+}
+
+type ScaleSetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScaleSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScaleSet)(nil))
+}
+
+func (o ScaleSetPtrOutput) ToScaleSetPtrOutput() ScaleSetPtrOutput {
+	return o
+}
+
+func (o ScaleSetPtrOutput) ToScaleSetPtrOutputWithContext(ctx context.Context) ScaleSetPtrOutput {
+	return o
+}
+
+type ScaleSetArrayOutput struct{ *pulumi.OutputState }
+
+func (ScaleSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScaleSet)(nil))
+}
+
+func (o ScaleSetArrayOutput) ToScaleSetArrayOutput() ScaleSetArrayOutput {
+	return o
+}
+
+func (o ScaleSetArrayOutput) ToScaleSetArrayOutputWithContext(ctx context.Context) ScaleSetArrayOutput {
+	return o
+}
+
+func (o ScaleSetArrayOutput) Index(i pulumi.IntInput) ScaleSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleSet {
+		return vs[0].([]ScaleSet)[vs[1].(int)]
+	}).(ScaleSetOutput)
+}
+
+type ScaleSetMapOutput struct{ *pulumi.OutputState }
+
+func (ScaleSetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ScaleSet)(nil))
+}
+
+func (o ScaleSetMapOutput) ToScaleSetMapOutput() ScaleSetMapOutput {
+	return o
+}
+
+func (o ScaleSetMapOutput) ToScaleSetMapOutputWithContext(ctx context.Context) ScaleSetMapOutput {
+	return o
+}
+
+func (o ScaleSetMapOutput) MapIndex(k pulumi.StringInput) ScaleSetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ScaleSet {
+		return vs[0].(map[string]ScaleSet)[vs[1].(string)]
+	}).(ScaleSetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ScaleSetOutput{})
+	pulumi.RegisterOutputType(ScaleSetPtrOutput{})
+	pulumi.RegisterOutputType(ScaleSetArrayOutput{})
+	pulumi.RegisterOutputType(ScaleSetMapOutput{})
 }

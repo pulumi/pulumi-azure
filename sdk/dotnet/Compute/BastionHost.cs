@@ -77,6 +77,7 @@ namespace Pulumi.Azure.Compute
     ///  $ pulumi import azure:compute/bastionHost:BastionHost example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/bastionHosts/instance1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:compute/bastionHost:BastionHost")]
     public partial class BastionHost : Pulumi.CustomResource
     {
         /// <summary>

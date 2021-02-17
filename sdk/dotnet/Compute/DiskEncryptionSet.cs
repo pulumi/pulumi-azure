@@ -22,6 +22,7 @@ namespace Pulumi.Azure.Compute
     ///  $ pulumi import azure:compute/diskEncryptionSet:DiskEncryptionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/diskEncryptionSets/encryptionSet1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:compute/diskEncryptionSet:DiskEncryptionSet")]
     public partial class DiskEncryptionSet : Pulumi.CustomResource
     {
         /// <summary>

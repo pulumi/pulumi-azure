@@ -198,16 +198,95 @@ type HubInput interface {
 	ToHubOutputWithContext(ctx context.Context) HubOutput
 }
 
-func (Hub) ElementType() reflect.Type {
-	return reflect.TypeOf((*Hub)(nil)).Elem()
+func (*Hub) ElementType() reflect.Type {
+	return reflect.TypeOf((*Hub)(nil))
 }
 
-func (i Hub) ToHubOutput() HubOutput {
+func (i *Hub) ToHubOutput() HubOutput {
 	return i.ToHubOutputWithContext(context.Background())
 }
 
-func (i Hub) ToHubOutputWithContext(ctx context.Context) HubOutput {
+func (i *Hub) ToHubOutputWithContext(ctx context.Context) HubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HubOutput)
+}
+
+func (i *Hub) ToHubPtrOutput() HubPtrOutput {
+	return i.ToHubPtrOutputWithContext(context.Background())
+}
+
+func (i *Hub) ToHubPtrOutputWithContext(ctx context.Context) HubPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubPtrOutput)
+}
+
+type HubPtrInput interface {
+	pulumi.Input
+
+	ToHubPtrOutput() HubPtrOutput
+	ToHubPtrOutputWithContext(ctx context.Context) HubPtrOutput
+}
+
+type hubPtrType HubArgs
+
+func (*hubPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Hub)(nil))
+}
+
+func (i *hubPtrType) ToHubPtrOutput() HubPtrOutput {
+	return i.ToHubPtrOutputWithContext(context.Background())
+}
+
+func (i *hubPtrType) ToHubPtrOutputWithContext(ctx context.Context) HubPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubPtrOutput)
+}
+
+// HubArrayInput is an input type that accepts HubArray and HubArrayOutput values.
+// You can construct a concrete instance of `HubArrayInput` via:
+//
+//          HubArray{ HubArgs{...} }
+type HubArrayInput interface {
+	pulumi.Input
+
+	ToHubArrayOutput() HubArrayOutput
+	ToHubArrayOutputWithContext(context.Context) HubArrayOutput
+}
+
+type HubArray []HubInput
+
+func (HubArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Hub)(nil))
+}
+
+func (i HubArray) ToHubArrayOutput() HubArrayOutput {
+	return i.ToHubArrayOutputWithContext(context.Background())
+}
+
+func (i HubArray) ToHubArrayOutputWithContext(ctx context.Context) HubArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubArrayOutput)
+}
+
+// HubMapInput is an input type that accepts HubMap and HubMapOutput values.
+// You can construct a concrete instance of `HubMapInput` via:
+//
+//          HubMap{ "key": HubArgs{...} }
+type HubMapInput interface {
+	pulumi.Input
+
+	ToHubMapOutput() HubMapOutput
+	ToHubMapOutputWithContext(context.Context) HubMapOutput
+}
+
+type HubMap map[string]HubInput
+
+func (HubMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Hub)(nil))
+}
+
+func (i HubMap) ToHubMapOutput() HubMapOutput {
+	return i.ToHubMapOutputWithContext(context.Background())
+}
+
+func (i HubMap) ToHubMapOutputWithContext(ctx context.Context) HubMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubMapOutput)
 }
 
 type HubOutput struct {
@@ -215,7 +294,7 @@ type HubOutput struct {
 }
 
 func (HubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubOutput)(nil)).Elem()
+	return reflect.TypeOf((*Hub)(nil))
 }
 
 func (o HubOutput) ToHubOutput() HubOutput {
@@ -226,6 +305,75 @@ func (o HubOutput) ToHubOutputWithContext(ctx context.Context) HubOutput {
 	return o
 }
 
+func (o HubOutput) ToHubPtrOutput() HubPtrOutput {
+	return o.ToHubPtrOutputWithContext(context.Background())
+}
+
+func (o HubOutput) ToHubPtrOutputWithContext(ctx context.Context) HubPtrOutput {
+	return o.ApplyT(func(v Hub) *Hub {
+		return &v
+	}).(HubPtrOutput)
+}
+
+type HubPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (HubPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Hub)(nil))
+}
+
+func (o HubPtrOutput) ToHubPtrOutput() HubPtrOutput {
+	return o
+}
+
+func (o HubPtrOutput) ToHubPtrOutputWithContext(ctx context.Context) HubPtrOutput {
+	return o
+}
+
+type HubArrayOutput struct{ *pulumi.OutputState }
+
+func (HubArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Hub)(nil))
+}
+
+func (o HubArrayOutput) ToHubArrayOutput() HubArrayOutput {
+	return o
+}
+
+func (o HubArrayOutput) ToHubArrayOutputWithContext(ctx context.Context) HubArrayOutput {
+	return o
+}
+
+func (o HubArrayOutput) Index(i pulumi.IntInput) HubOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Hub {
+		return vs[0].([]Hub)[vs[1].(int)]
+	}).(HubOutput)
+}
+
+type HubMapOutput struct{ *pulumi.OutputState }
+
+func (HubMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Hub)(nil))
+}
+
+func (o HubMapOutput) ToHubMapOutput() HubMapOutput {
+	return o
+}
+
+func (o HubMapOutput) ToHubMapOutputWithContext(ctx context.Context) HubMapOutput {
+	return o
+}
+
+func (o HubMapOutput) MapIndex(k pulumi.StringInput) HubOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Hub {
+		return vs[0].(map[string]Hub)[vs[1].(string)]
+	}).(HubOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HubOutput{})
+	pulumi.RegisterOutputType(HubPtrOutput{})
+	pulumi.RegisterOutputType(HubArrayOutput{})
+	pulumi.RegisterOutputType(HubMapOutput{})
 }

@@ -22,6 +22,7 @@ namespace Pulumi.Azure.DataFactory
     ///  $ pulumi import azure:datafactory/linkedServiceCosmosDb:LinkedServiceCosmosDb example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:datafactory/linkedServiceCosmosDb:LinkedServiceCosmosDb")]
     public partial class LinkedServiceCosmosDb : Pulumi.CustomResource
     {
         /// <summary>

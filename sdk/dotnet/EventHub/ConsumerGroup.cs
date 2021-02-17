@@ -64,6 +64,7 @@ namespace Pulumi.Azure.EventHub
     ///  $ pulumi import azure:eventhub/consumerGroup:ConsumerGroup consumerGroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/eventhubs/eventhub1/consumergroups/consumerGroup1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:eventhub/consumerGroup:ConsumerGroup")]
     public partial class ConsumerGroup : Pulumi.CustomResource
     {
         /// <summary>

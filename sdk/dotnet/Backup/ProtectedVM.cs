@@ -64,6 +64,7 @@ namespace Pulumi.Azure.Backup
     /// 
     ///  Note the ID requires quoting as there are semicolons
     /// </summary>
+    [AzureResourceType("azure:backup/protectedVM:ProtectedVM")]
     public partial class ProtectedVM : Pulumi.CustomResource
     {
         /// <summary>

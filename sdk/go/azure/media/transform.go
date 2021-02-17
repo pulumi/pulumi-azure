@@ -172,7 +172,7 @@ type Transform struct {
 	// The name which should be used for this Transform. Changing this forces a new Transform to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `output` blocks as defined below. At least one `output` must be defined.
-	Outputs TransformOutputArrayOutput `pulumi:"outputs"`
+	Outputs TransformOutputTypeArrayOutput `pulumi:"outputs"`
 	// The name of the Resource Group where the Transform should exist. Changing this forces a new Transform to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
@@ -219,7 +219,7 @@ type transformState struct {
 	// The name which should be used for this Transform. Changing this forces a new Transform to be created.
 	Name *string `pulumi:"name"`
 	// One or more `output` blocks as defined below. At least one `output` must be defined.
-	Outputs []TransformOutput `pulumi:"outputs"`
+	Outputs []TransformOutputType `pulumi:"outputs"`
 	// The name of the Resource Group where the Transform should exist. Changing this forces a new Transform to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
@@ -232,7 +232,7 @@ type TransformState struct {
 	// The name which should be used for this Transform. Changing this forces a new Transform to be created.
 	Name pulumi.StringPtrInput
 	// One or more `output` blocks as defined below. At least one `output` must be defined.
-	Outputs TransformOutputArrayInput
+	Outputs TransformOutputTypeArrayInput
 	// The name of the Resource Group where the Transform should exist. Changing this forces a new Transform to be created.
 	ResourceGroupName pulumi.StringPtrInput
 }
@@ -249,7 +249,7 @@ type transformArgs struct {
 	// The name which should be used for this Transform. Changing this forces a new Transform to be created.
 	Name *string `pulumi:"name"`
 	// One or more `output` blocks as defined below. At least one `output` must be defined.
-	Outputs []TransformOutput `pulumi:"outputs"`
+	Outputs []TransformOutputType `pulumi:"outputs"`
 	// The name of the Resource Group where the Transform should exist. Changing this forces a new Transform to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -263,7 +263,7 @@ type TransformArgs struct {
 	// The name which should be used for this Transform. Changing this forces a new Transform to be created.
 	Name pulumi.StringPtrInput
 	// One or more `output` blocks as defined below. At least one `output` must be defined.
-	Outputs TransformOutputArrayInput
+	Outputs TransformOutputTypeArrayInput
 	// The name of the Resource Group where the Transform should exist. Changing this forces a new Transform to be created.
 	ResourceGroupName pulumi.StringInput
 }
@@ -279,16 +279,95 @@ type TransformInput interface {
 	ToTransformOutputWithContext(ctx context.Context) TransformOutput
 }
 
-func (Transform) ElementType() reflect.Type {
-	return reflect.TypeOf((*Transform)(nil)).Elem()
+func (*Transform) ElementType() reflect.Type {
+	return reflect.TypeOf((*Transform)(nil))
 }
 
-func (i Transform) ToTransformOutput() TransformOutput {
+func (i *Transform) ToTransformOutput() TransformOutput {
 	return i.ToTransformOutputWithContext(context.Background())
 }
 
-func (i Transform) ToTransformOutputWithContext(ctx context.Context) TransformOutput {
+func (i *Transform) ToTransformOutputWithContext(ctx context.Context) TransformOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutput)
+}
+
+func (i *Transform) ToTransformPtrOutput() TransformPtrOutput {
+	return i.ToTransformPtrOutputWithContext(context.Background())
+}
+
+func (i *Transform) ToTransformPtrOutputWithContext(ctx context.Context) TransformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformPtrOutput)
+}
+
+type TransformPtrInput interface {
+	pulumi.Input
+
+	ToTransformPtrOutput() TransformPtrOutput
+	ToTransformPtrOutputWithContext(ctx context.Context) TransformPtrOutput
+}
+
+type transformPtrType TransformArgs
+
+func (*transformPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Transform)(nil))
+}
+
+func (i *transformPtrType) ToTransformPtrOutput() TransformPtrOutput {
+	return i.ToTransformPtrOutputWithContext(context.Background())
+}
+
+func (i *transformPtrType) ToTransformPtrOutputWithContext(ctx context.Context) TransformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformPtrOutput)
+}
+
+// TransformArrayInput is an input type that accepts TransformArray and TransformArrayOutput values.
+// You can construct a concrete instance of `TransformArrayInput` via:
+//
+//          TransformArray{ TransformArgs{...} }
+type TransformArrayInput interface {
+	pulumi.Input
+
+	ToTransformArrayOutput() TransformArrayOutput
+	ToTransformArrayOutputWithContext(context.Context) TransformArrayOutput
+}
+
+type TransformArray []TransformInput
+
+func (TransformArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Transform)(nil))
+}
+
+func (i TransformArray) ToTransformArrayOutput() TransformArrayOutput {
+	return i.ToTransformArrayOutputWithContext(context.Background())
+}
+
+func (i TransformArray) ToTransformArrayOutputWithContext(ctx context.Context) TransformArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformArrayOutput)
+}
+
+// TransformMapInput is an input type that accepts TransformMap and TransformMapOutput values.
+// You can construct a concrete instance of `TransformMapInput` via:
+//
+//          TransformMap{ "key": TransformArgs{...} }
+type TransformMapInput interface {
+	pulumi.Input
+
+	ToTransformMapOutput() TransformMapOutput
+	ToTransformMapOutputWithContext(context.Context) TransformMapOutput
+}
+
+type TransformMap map[string]TransformInput
+
+func (TransformMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Transform)(nil))
+}
+
+func (i TransformMap) ToTransformMapOutput() TransformMapOutput {
+	return i.ToTransformMapOutputWithContext(context.Background())
+}
+
+func (i TransformMap) ToTransformMapOutputWithContext(ctx context.Context) TransformMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformMapOutput)
 }
 
 type TransformOutput struct {
@@ -296,7 +375,7 @@ type TransformOutput struct {
 }
 
 func (TransformOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransformOutput)(nil)).Elem()
+	return reflect.TypeOf((*Transform)(nil))
 }
 
 func (o TransformOutput) ToTransformOutput() TransformOutput {
@@ -307,6 +386,75 @@ func (o TransformOutput) ToTransformOutputWithContext(ctx context.Context) Trans
 	return o
 }
 
+func (o TransformOutput) ToTransformPtrOutput() TransformPtrOutput {
+	return o.ToTransformPtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutput) ToTransformPtrOutputWithContext(ctx context.Context) TransformPtrOutput {
+	return o.ApplyT(func(v Transform) *Transform {
+		return &v
+	}).(TransformPtrOutput)
+}
+
+type TransformPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TransformPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Transform)(nil))
+}
+
+func (o TransformPtrOutput) ToTransformPtrOutput() TransformPtrOutput {
+	return o
+}
+
+func (o TransformPtrOutput) ToTransformPtrOutputWithContext(ctx context.Context) TransformPtrOutput {
+	return o
+}
+
+type TransformArrayOutput struct{ *pulumi.OutputState }
+
+func (TransformArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Transform)(nil))
+}
+
+func (o TransformArrayOutput) ToTransformArrayOutput() TransformArrayOutput {
+	return o
+}
+
+func (o TransformArrayOutput) ToTransformArrayOutputWithContext(ctx context.Context) TransformArrayOutput {
+	return o
+}
+
+func (o TransformArrayOutput) Index(i pulumi.IntInput) TransformOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Transform {
+		return vs[0].([]Transform)[vs[1].(int)]
+	}).(TransformOutput)
+}
+
+type TransformMapOutput struct{ *pulumi.OutputState }
+
+func (TransformMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Transform)(nil))
+}
+
+func (o TransformMapOutput) ToTransformMapOutput() TransformMapOutput {
+	return o
+}
+
+func (o TransformMapOutput) ToTransformMapOutputWithContext(ctx context.Context) TransformMapOutput {
+	return o
+}
+
+func (o TransformMapOutput) MapIndex(k pulumi.StringInput) TransformOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Transform {
+		return vs[0].(map[string]Transform)[vs[1].(string)]
+	}).(TransformOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TransformOutput{})
+	pulumi.RegisterOutputType(TransformPtrOutput{})
+	pulumi.RegisterOutputType(TransformArrayOutput{})
+	pulumi.RegisterOutputType(TransformMapOutput{})
 }

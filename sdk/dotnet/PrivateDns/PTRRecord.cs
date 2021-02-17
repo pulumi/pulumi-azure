@@ -53,6 +53,7 @@ namespace Pulumi.Azure.PrivateDns
     ///  $ pulumi import azure:privatedns/pTRRecord:PTRRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/2.0.192.in-addr.arpa/PTR/15
     /// ```
     /// </summary>
+    [AzureResourceType("azure:privatedns/pTRRecord:PTRRecord")]
     public partial class PTRRecord : Pulumi.CustomResource
     {
         /// <summary>

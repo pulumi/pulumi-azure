@@ -329,16 +329,95 @@ type InteractiveQueryClusterInput interface {
 	ToInteractiveQueryClusterOutputWithContext(ctx context.Context) InteractiveQueryClusterOutput
 }
 
-func (InteractiveQueryCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*InteractiveQueryCluster)(nil)).Elem()
+func (*InteractiveQueryCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryCluster)(nil))
 }
 
-func (i InteractiveQueryCluster) ToInteractiveQueryClusterOutput() InteractiveQueryClusterOutput {
+func (i *InteractiveQueryCluster) ToInteractiveQueryClusterOutput() InteractiveQueryClusterOutput {
 	return i.ToInteractiveQueryClusterOutputWithContext(context.Background())
 }
 
-func (i InteractiveQueryCluster) ToInteractiveQueryClusterOutputWithContext(ctx context.Context) InteractiveQueryClusterOutput {
+func (i *InteractiveQueryCluster) ToInteractiveQueryClusterOutputWithContext(ctx context.Context) InteractiveQueryClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterOutput)
+}
+
+func (i *InteractiveQueryCluster) ToInteractiveQueryClusterPtrOutput() InteractiveQueryClusterPtrOutput {
+	return i.ToInteractiveQueryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *InteractiveQueryCluster) ToInteractiveQueryClusterPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterPtrOutput)
+}
+
+type InteractiveQueryClusterPtrInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterPtrOutput() InteractiveQueryClusterPtrOutput
+	ToInteractiveQueryClusterPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterPtrOutput
+}
+
+type interactiveQueryClusterPtrType InteractiveQueryClusterArgs
+
+func (*interactiveQueryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InteractiveQueryCluster)(nil))
+}
+
+func (i *interactiveQueryClusterPtrType) ToInteractiveQueryClusterPtrOutput() InteractiveQueryClusterPtrOutput {
+	return i.ToInteractiveQueryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *interactiveQueryClusterPtrType) ToInteractiveQueryClusterPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterPtrOutput)
+}
+
+// InteractiveQueryClusterArrayInput is an input type that accepts InteractiveQueryClusterArray and InteractiveQueryClusterArrayOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterArrayInput` via:
+//
+//          InteractiveQueryClusterArray{ InteractiveQueryClusterArgs{...} }
+type InteractiveQueryClusterArrayInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterArrayOutput() InteractiveQueryClusterArrayOutput
+	ToInteractiveQueryClusterArrayOutputWithContext(context.Context) InteractiveQueryClusterArrayOutput
+}
+
+type InteractiveQueryClusterArray []InteractiveQueryClusterInput
+
+func (InteractiveQueryClusterArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*InteractiveQueryCluster)(nil))
+}
+
+func (i InteractiveQueryClusterArray) ToInteractiveQueryClusterArrayOutput() InteractiveQueryClusterArrayOutput {
+	return i.ToInteractiveQueryClusterArrayOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterArray) ToInteractiveQueryClusterArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterArrayOutput)
+}
+
+// InteractiveQueryClusterMapInput is an input type that accepts InteractiveQueryClusterMap and InteractiveQueryClusterMapOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterMapInput` via:
+//
+//          InteractiveQueryClusterMap{ "key": InteractiveQueryClusterArgs{...} }
+type InteractiveQueryClusterMapInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterMapOutput() InteractiveQueryClusterMapOutput
+	ToInteractiveQueryClusterMapOutputWithContext(context.Context) InteractiveQueryClusterMapOutput
+}
+
+type InteractiveQueryClusterMap map[string]InteractiveQueryClusterInput
+
+func (InteractiveQueryClusterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*InteractiveQueryCluster)(nil))
+}
+
+func (i InteractiveQueryClusterMap) ToInteractiveQueryClusterMapOutput() InteractiveQueryClusterMapOutput {
+	return i.ToInteractiveQueryClusterMapOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterMap) ToInteractiveQueryClusterMapOutputWithContext(ctx context.Context) InteractiveQueryClusterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterMapOutput)
 }
 
 type InteractiveQueryClusterOutput struct {
@@ -346,7 +425,7 @@ type InteractiveQueryClusterOutput struct {
 }
 
 func (InteractiveQueryClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InteractiveQueryClusterOutput)(nil)).Elem()
+	return reflect.TypeOf((*InteractiveQueryCluster)(nil))
 }
 
 func (o InteractiveQueryClusterOutput) ToInteractiveQueryClusterOutput() InteractiveQueryClusterOutput {
@@ -357,6 +436,75 @@ func (o InteractiveQueryClusterOutput) ToInteractiveQueryClusterOutputWithContex
 	return o
 }
 
+func (o InteractiveQueryClusterOutput) ToInteractiveQueryClusterPtrOutput() InteractiveQueryClusterPtrOutput {
+	return o.ToInteractiveQueryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o InteractiveQueryClusterOutput) ToInteractiveQueryClusterPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryCluster) *InteractiveQueryCluster {
+		return &v
+	}).(InteractiveQueryClusterPtrOutput)
+}
+
+type InteractiveQueryClusterPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (InteractiveQueryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InteractiveQueryCluster)(nil))
+}
+
+func (o InteractiveQueryClusterPtrOutput) ToInteractiveQueryClusterPtrOutput() InteractiveQueryClusterPtrOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterPtrOutput) ToInteractiveQueryClusterPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterPtrOutput {
+	return o
+}
+
+type InteractiveQueryClusterArrayOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InteractiveQueryCluster)(nil))
+}
+
+func (o InteractiveQueryClusterArrayOutput) ToInteractiveQueryClusterArrayOutput() InteractiveQueryClusterArrayOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterArrayOutput) ToInteractiveQueryClusterArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterArrayOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterArrayOutput) Index(i pulumi.IntInput) InteractiveQueryClusterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InteractiveQueryCluster {
+		return vs[0].([]InteractiveQueryCluster)[vs[1].(int)]
+	}).(InteractiveQueryClusterOutput)
+}
+
+type InteractiveQueryClusterMapOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]InteractiveQueryCluster)(nil))
+}
+
+func (o InteractiveQueryClusterMapOutput) ToInteractiveQueryClusterMapOutput() InteractiveQueryClusterMapOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterMapOutput) ToInteractiveQueryClusterMapOutputWithContext(ctx context.Context) InteractiveQueryClusterMapOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterMapOutput) MapIndex(k pulumi.StringInput) InteractiveQueryClusterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) InteractiveQueryCluster {
+		return vs[0].(map[string]InteractiveQueryCluster)[vs[1].(string)]
+	}).(InteractiveQueryClusterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(InteractiveQueryClusterOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterPtrOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterArrayOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterMapOutput{})
 }

@@ -106,7 +106,8 @@ export class DatabaseExtendedAuditingPolicy extends pulumi.CustomResource {
     constructor(name: string, args: DatabaseExtendedAuditingPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DatabaseExtendedAuditingPolicyArgs | DatabaseExtendedAuditingPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DatabaseExtendedAuditingPolicyState | undefined;
             inputs["databaseId"] = state ? state.databaseId : undefined;
             inputs["retentionInDays"] = state ? state.retentionInDays : undefined;
@@ -115,10 +116,10 @@ export class DatabaseExtendedAuditingPolicy extends pulumi.CustomResource {
             inputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
         } else {
             const args = argsOrState as DatabaseExtendedAuditingPolicyArgs | undefined;
-            if ((!args || args.databaseId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.databaseId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseId'");
             }
-            if ((!args || args.storageEndpoint === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageEndpoint === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageEndpoint'");
             }
             inputs["databaseId"] = args ? args.databaseId : undefined;
@@ -127,12 +128,8 @@ export class DatabaseExtendedAuditingPolicy extends pulumi.CustomResource {
             inputs["storageAccountAccessKeyIsSecondary"] = args ? args.storageAccountAccessKeyIsSecondary : undefined;
             inputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DatabaseExtendedAuditingPolicy.__pulumiType, name, inputs, opts);
     }

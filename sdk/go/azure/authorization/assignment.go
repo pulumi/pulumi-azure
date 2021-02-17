@@ -357,16 +357,95 @@ type AssignmentInput interface {
 	ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput
 }
 
-func (Assignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*Assignment)(nil)).Elem()
+func (*Assignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*Assignment)(nil))
 }
 
-func (i Assignment) ToAssignmentOutput() AssignmentOutput {
+func (i *Assignment) ToAssignmentOutput() AssignmentOutput {
 	return i.ToAssignmentOutputWithContext(context.Background())
 }
 
-func (i Assignment) ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput {
+func (i *Assignment) ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentOutput)
+}
+
+func (i *Assignment) ToAssignmentPtrOutput() AssignmentPtrOutput {
+	return i.ToAssignmentPtrOutputWithContext(context.Background())
+}
+
+func (i *Assignment) ToAssignmentPtrOutputWithContext(ctx context.Context) AssignmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentPtrOutput)
+}
+
+type AssignmentPtrInput interface {
+	pulumi.Input
+
+	ToAssignmentPtrOutput() AssignmentPtrOutput
+	ToAssignmentPtrOutputWithContext(ctx context.Context) AssignmentPtrOutput
+}
+
+type assignmentPtrType AssignmentArgs
+
+func (*assignmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Assignment)(nil))
+}
+
+func (i *assignmentPtrType) ToAssignmentPtrOutput() AssignmentPtrOutput {
+	return i.ToAssignmentPtrOutputWithContext(context.Background())
+}
+
+func (i *assignmentPtrType) ToAssignmentPtrOutputWithContext(ctx context.Context) AssignmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentPtrOutput)
+}
+
+// AssignmentArrayInput is an input type that accepts AssignmentArray and AssignmentArrayOutput values.
+// You can construct a concrete instance of `AssignmentArrayInput` via:
+//
+//          AssignmentArray{ AssignmentArgs{...} }
+type AssignmentArrayInput interface {
+	pulumi.Input
+
+	ToAssignmentArrayOutput() AssignmentArrayOutput
+	ToAssignmentArrayOutputWithContext(context.Context) AssignmentArrayOutput
+}
+
+type AssignmentArray []AssignmentInput
+
+func (AssignmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Assignment)(nil))
+}
+
+func (i AssignmentArray) ToAssignmentArrayOutput() AssignmentArrayOutput {
+	return i.ToAssignmentArrayOutputWithContext(context.Background())
+}
+
+func (i AssignmentArray) ToAssignmentArrayOutputWithContext(ctx context.Context) AssignmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentArrayOutput)
+}
+
+// AssignmentMapInput is an input type that accepts AssignmentMap and AssignmentMapOutput values.
+// You can construct a concrete instance of `AssignmentMapInput` via:
+//
+//          AssignmentMap{ "key": AssignmentArgs{...} }
+type AssignmentMapInput interface {
+	pulumi.Input
+
+	ToAssignmentMapOutput() AssignmentMapOutput
+	ToAssignmentMapOutputWithContext(context.Context) AssignmentMapOutput
+}
+
+type AssignmentMap map[string]AssignmentInput
+
+func (AssignmentMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Assignment)(nil))
+}
+
+func (i AssignmentMap) ToAssignmentMapOutput() AssignmentMapOutput {
+	return i.ToAssignmentMapOutputWithContext(context.Background())
+}
+
+func (i AssignmentMap) ToAssignmentMapOutputWithContext(ctx context.Context) AssignmentMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentMapOutput)
 }
 
 type AssignmentOutput struct {
@@ -374,7 +453,7 @@ type AssignmentOutput struct {
 }
 
 func (AssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssignmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*Assignment)(nil))
 }
 
 func (o AssignmentOutput) ToAssignmentOutput() AssignmentOutput {
@@ -385,6 +464,75 @@ func (o AssignmentOutput) ToAssignmentOutputWithContext(ctx context.Context) Ass
 	return o
 }
 
+func (o AssignmentOutput) ToAssignmentPtrOutput() AssignmentPtrOutput {
+	return o.ToAssignmentPtrOutputWithContext(context.Background())
+}
+
+func (o AssignmentOutput) ToAssignmentPtrOutputWithContext(ctx context.Context) AssignmentPtrOutput {
+	return o.ApplyT(func(v Assignment) *Assignment {
+		return &v
+	}).(AssignmentPtrOutput)
+}
+
+type AssignmentPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssignmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Assignment)(nil))
+}
+
+func (o AssignmentPtrOutput) ToAssignmentPtrOutput() AssignmentPtrOutput {
+	return o
+}
+
+func (o AssignmentPtrOutput) ToAssignmentPtrOutputWithContext(ctx context.Context) AssignmentPtrOutput {
+	return o
+}
+
+type AssignmentArrayOutput struct{ *pulumi.OutputState }
+
+func (AssignmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Assignment)(nil))
+}
+
+func (o AssignmentArrayOutput) ToAssignmentArrayOutput() AssignmentArrayOutput {
+	return o
+}
+
+func (o AssignmentArrayOutput) ToAssignmentArrayOutputWithContext(ctx context.Context) AssignmentArrayOutput {
+	return o
+}
+
+func (o AssignmentArrayOutput) Index(i pulumi.IntInput) AssignmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Assignment {
+		return vs[0].([]Assignment)[vs[1].(int)]
+	}).(AssignmentOutput)
+}
+
+type AssignmentMapOutput struct{ *pulumi.OutputState }
+
+func (AssignmentMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Assignment)(nil))
+}
+
+func (o AssignmentMapOutput) ToAssignmentMapOutput() AssignmentMapOutput {
+	return o
+}
+
+func (o AssignmentMapOutput) ToAssignmentMapOutputWithContext(ctx context.Context) AssignmentMapOutput {
+	return o
+}
+
+func (o AssignmentMapOutput) MapIndex(k pulumi.StringInput) AssignmentOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Assignment {
+		return vs[0].(map[string]Assignment)[vs[1].(string)]
+	}).(AssignmentOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AssignmentOutput{})
+	pulumi.RegisterOutputType(AssignmentPtrOutput{})
+	pulumi.RegisterOutputType(AssignmentArrayOutput{})
+	pulumi.RegisterOutputType(AssignmentMapOutput{})
 }

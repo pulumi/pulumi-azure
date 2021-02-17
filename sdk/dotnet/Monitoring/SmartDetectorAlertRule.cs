@@ -68,6 +68,7 @@ namespace Pulumi.Azure.Monitoring
     ///  $ pulumi import azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AlertsManagement/smartdetectoralertrules/rule1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule")]
     public partial class SmartDetectorAlertRule : Pulumi.CustomResource
     {
         /// <summary>

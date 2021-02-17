@@ -116,7 +116,8 @@ export class Probe extends pulumi.CustomResource {
     constructor(name: string, args: ProbeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProbeArgs | ProbeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProbeState | undefined;
             inputs["intervalInSeconds"] = state ? state.intervalInSeconds : undefined;
             inputs["loadBalancerRules"] = state ? state.loadBalancerRules : undefined;
@@ -129,13 +130,13 @@ export class Probe extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ProbeArgs | undefined;
-            if ((!args || args.loadbalancerId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loadbalancerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadbalancerId'");
             }
-            if ((!args || args.port === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.port === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'port'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["intervalInSeconds"] = args ? args.intervalInSeconds : undefined;
@@ -148,12 +149,8 @@ export class Probe extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["loadBalancerRules"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Probe.__pulumiType, name, inputs, opts);
     }

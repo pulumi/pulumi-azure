@@ -45,6 +45,7 @@ namespace Pulumi.Azure.Compute
     ///  $ pulumi import azure:compute/dedicatedHostGroup:DedicatedHostGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Compute/hostGroups/group1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:compute/dedicatedHostGroup:DedicatedHostGroup")]
     public partial class DedicatedHostGroup : Pulumi.CustomResource
     {
         /// <summary>

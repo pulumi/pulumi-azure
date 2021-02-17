@@ -360,16 +360,95 @@ type DatasetDelimitedTextInput interface {
 	ToDatasetDelimitedTextOutputWithContext(ctx context.Context) DatasetDelimitedTextOutput
 }
 
-func (DatasetDelimitedText) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetDelimitedText)(nil)).Elem()
+func (*DatasetDelimitedText) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetDelimitedText)(nil))
 }
 
-func (i DatasetDelimitedText) ToDatasetDelimitedTextOutput() DatasetDelimitedTextOutput {
+func (i *DatasetDelimitedText) ToDatasetDelimitedTextOutput() DatasetDelimitedTextOutput {
 	return i.ToDatasetDelimitedTextOutputWithContext(context.Background())
 }
 
-func (i DatasetDelimitedText) ToDatasetDelimitedTextOutputWithContext(ctx context.Context) DatasetDelimitedTextOutput {
+func (i *DatasetDelimitedText) ToDatasetDelimitedTextOutputWithContext(ctx context.Context) DatasetDelimitedTextOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetDelimitedTextOutput)
+}
+
+func (i *DatasetDelimitedText) ToDatasetDelimitedTextPtrOutput() DatasetDelimitedTextPtrOutput {
+	return i.ToDatasetDelimitedTextPtrOutputWithContext(context.Background())
+}
+
+func (i *DatasetDelimitedText) ToDatasetDelimitedTextPtrOutputWithContext(ctx context.Context) DatasetDelimitedTextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDelimitedTextPtrOutput)
+}
+
+type DatasetDelimitedTextPtrInput interface {
+	pulumi.Input
+
+	ToDatasetDelimitedTextPtrOutput() DatasetDelimitedTextPtrOutput
+	ToDatasetDelimitedTextPtrOutputWithContext(ctx context.Context) DatasetDelimitedTextPtrOutput
+}
+
+type datasetDelimitedTextPtrType DatasetDelimitedTextArgs
+
+func (*datasetDelimitedTextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetDelimitedText)(nil))
+}
+
+func (i *datasetDelimitedTextPtrType) ToDatasetDelimitedTextPtrOutput() DatasetDelimitedTextPtrOutput {
+	return i.ToDatasetDelimitedTextPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetDelimitedTextPtrType) ToDatasetDelimitedTextPtrOutputWithContext(ctx context.Context) DatasetDelimitedTextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDelimitedTextPtrOutput)
+}
+
+// DatasetDelimitedTextArrayInput is an input type that accepts DatasetDelimitedTextArray and DatasetDelimitedTextArrayOutput values.
+// You can construct a concrete instance of `DatasetDelimitedTextArrayInput` via:
+//
+//          DatasetDelimitedTextArray{ DatasetDelimitedTextArgs{...} }
+type DatasetDelimitedTextArrayInput interface {
+	pulumi.Input
+
+	ToDatasetDelimitedTextArrayOutput() DatasetDelimitedTextArrayOutput
+	ToDatasetDelimitedTextArrayOutputWithContext(context.Context) DatasetDelimitedTextArrayOutput
+}
+
+type DatasetDelimitedTextArray []DatasetDelimitedTextInput
+
+func (DatasetDelimitedTextArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DatasetDelimitedText)(nil))
+}
+
+func (i DatasetDelimitedTextArray) ToDatasetDelimitedTextArrayOutput() DatasetDelimitedTextArrayOutput {
+	return i.ToDatasetDelimitedTextArrayOutputWithContext(context.Background())
+}
+
+func (i DatasetDelimitedTextArray) ToDatasetDelimitedTextArrayOutputWithContext(ctx context.Context) DatasetDelimitedTextArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDelimitedTextArrayOutput)
+}
+
+// DatasetDelimitedTextMapInput is an input type that accepts DatasetDelimitedTextMap and DatasetDelimitedTextMapOutput values.
+// You can construct a concrete instance of `DatasetDelimitedTextMapInput` via:
+//
+//          DatasetDelimitedTextMap{ "key": DatasetDelimitedTextArgs{...} }
+type DatasetDelimitedTextMapInput interface {
+	pulumi.Input
+
+	ToDatasetDelimitedTextMapOutput() DatasetDelimitedTextMapOutput
+	ToDatasetDelimitedTextMapOutputWithContext(context.Context) DatasetDelimitedTextMapOutput
+}
+
+type DatasetDelimitedTextMap map[string]DatasetDelimitedTextInput
+
+func (DatasetDelimitedTextMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DatasetDelimitedText)(nil))
+}
+
+func (i DatasetDelimitedTextMap) ToDatasetDelimitedTextMapOutput() DatasetDelimitedTextMapOutput {
+	return i.ToDatasetDelimitedTextMapOutputWithContext(context.Background())
+}
+
+func (i DatasetDelimitedTextMap) ToDatasetDelimitedTextMapOutputWithContext(ctx context.Context) DatasetDelimitedTextMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDelimitedTextMapOutput)
 }
 
 type DatasetDelimitedTextOutput struct {
@@ -377,7 +456,7 @@ type DatasetDelimitedTextOutput struct {
 }
 
 func (DatasetDelimitedTextOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetDelimitedTextOutput)(nil)).Elem()
+	return reflect.TypeOf((*DatasetDelimitedText)(nil))
 }
 
 func (o DatasetDelimitedTextOutput) ToDatasetDelimitedTextOutput() DatasetDelimitedTextOutput {
@@ -388,6 +467,75 @@ func (o DatasetDelimitedTextOutput) ToDatasetDelimitedTextOutputWithContext(ctx 
 	return o
 }
 
+func (o DatasetDelimitedTextOutput) ToDatasetDelimitedTextPtrOutput() DatasetDelimitedTextPtrOutput {
+	return o.ToDatasetDelimitedTextPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetDelimitedTextOutput) ToDatasetDelimitedTextPtrOutputWithContext(ctx context.Context) DatasetDelimitedTextPtrOutput {
+	return o.ApplyT(func(v DatasetDelimitedText) *DatasetDelimitedText {
+		return &v
+	}).(DatasetDelimitedTextPtrOutput)
+}
+
+type DatasetDelimitedTextPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DatasetDelimitedTextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetDelimitedText)(nil))
+}
+
+func (o DatasetDelimitedTextPtrOutput) ToDatasetDelimitedTextPtrOutput() DatasetDelimitedTextPtrOutput {
+	return o
+}
+
+func (o DatasetDelimitedTextPtrOutput) ToDatasetDelimitedTextPtrOutputWithContext(ctx context.Context) DatasetDelimitedTextPtrOutput {
+	return o
+}
+
+type DatasetDelimitedTextArrayOutput struct{ *pulumi.OutputState }
+
+func (DatasetDelimitedTextArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetDelimitedText)(nil))
+}
+
+func (o DatasetDelimitedTextArrayOutput) ToDatasetDelimitedTextArrayOutput() DatasetDelimitedTextArrayOutput {
+	return o
+}
+
+func (o DatasetDelimitedTextArrayOutput) ToDatasetDelimitedTextArrayOutputWithContext(ctx context.Context) DatasetDelimitedTextArrayOutput {
+	return o
+}
+
+func (o DatasetDelimitedTextArrayOutput) Index(i pulumi.IntInput) DatasetDelimitedTextOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetDelimitedText {
+		return vs[0].([]DatasetDelimitedText)[vs[1].(int)]
+	}).(DatasetDelimitedTextOutput)
+}
+
+type DatasetDelimitedTextMapOutput struct{ *pulumi.OutputState }
+
+func (DatasetDelimitedTextMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DatasetDelimitedText)(nil))
+}
+
+func (o DatasetDelimitedTextMapOutput) ToDatasetDelimitedTextMapOutput() DatasetDelimitedTextMapOutput {
+	return o
+}
+
+func (o DatasetDelimitedTextMapOutput) ToDatasetDelimitedTextMapOutputWithContext(ctx context.Context) DatasetDelimitedTextMapOutput {
+	return o
+}
+
+func (o DatasetDelimitedTextMapOutput) MapIndex(k pulumi.StringInput) DatasetDelimitedTextOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatasetDelimitedText {
+		return vs[0].(map[string]DatasetDelimitedText)[vs[1].(string)]
+	}).(DatasetDelimitedTextOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatasetDelimitedTextOutput{})
+	pulumi.RegisterOutputType(DatasetDelimitedTextPtrOutput{})
+	pulumi.RegisterOutputType(DatasetDelimitedTextArrayOutput{})
+	pulumi.RegisterOutputType(DatasetDelimitedTextMapOutput{})
 }

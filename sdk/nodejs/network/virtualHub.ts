@@ -106,7 +106,8 @@ export class VirtualHub extends pulumi.CustomResource {
     constructor(name: string, args: VirtualHubArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualHubArgs | VirtualHubState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VirtualHubState | undefined;
             inputs["addressPrefix"] = state ? state.addressPrefix : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -118,7 +119,7 @@ export class VirtualHub extends pulumi.CustomResource {
             inputs["virtualWanId"] = state ? state.virtualWanId : undefined;
         } else {
             const args = argsOrState as VirtualHubArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
@@ -130,12 +131,8 @@ export class VirtualHub extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualWanId"] = args ? args.virtualWanId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VirtualHub.__pulumiType, name, inputs, opts);
     }

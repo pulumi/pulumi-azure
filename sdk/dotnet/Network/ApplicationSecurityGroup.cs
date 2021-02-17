@@ -48,6 +48,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/applicationSecurityGroup:ApplicationSecurityGroup securitygroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/applicationSecurityGroups/securitygroup1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/applicationSecurityGroup:ApplicationSecurityGroup")]
     public partial class ApplicationSecurityGroup : Pulumi.CustomResource
     {
         /// <summary>

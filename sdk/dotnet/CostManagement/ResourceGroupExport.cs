@@ -64,6 +64,7 @@ namespace Pulumi.Azure.CostManagement
     ///  $ pulumi import azure:costmanagement/resourceGroupExport:ResourceGroupExport example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.CostManagement/exports/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:costmanagement/resourceGroupExport:ResourceGroupExport")]
     public partial class ResourceGroupExport : Pulumi.CustomResource
     {
         /// <summary>

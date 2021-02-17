@@ -120,7 +120,8 @@ export class ProtectedFileShare extends pulumi.CustomResource {
     constructor(name: string, args: ProtectedFileShareArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProtectedFileShareArgs | ProtectedFileShareState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProtectedFileShareState | undefined;
             inputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
             inputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
@@ -129,19 +130,19 @@ export class ProtectedFileShare extends pulumi.CustomResource {
             inputs["sourceStorageAccountId"] = state ? state.sourceStorageAccountId : undefined;
         } else {
             const args = argsOrState as ProtectedFileShareArgs | undefined;
-            if ((!args || args.backupPolicyId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.backupPolicyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backupPolicyId'");
             }
-            if ((!args || args.recoveryVaultName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.recoveryVaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceFileShareName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceFileShareName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceFileShareName'");
             }
-            if ((!args || args.sourceStorageAccountId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceStorageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceStorageAccountId'");
             }
             inputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
@@ -150,12 +151,8 @@ export class ProtectedFileShare extends pulumi.CustomResource {
             inputs["sourceFileShareName"] = args ? args.sourceFileShareName : undefined;
             inputs["sourceStorageAccountId"] = args ? args.sourceStorageAccountId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ProtectedFileShare.__pulumiType, name, inputs, opts);
     }

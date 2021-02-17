@@ -148,7 +148,8 @@ export class Subscription extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SubscriptionArgs | SubscriptionState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Subscription is deprecated: azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SubscriptionState | undefined;
             inputs["autoDeleteOnIdle"] = state ? state.autoDeleteOnIdle : undefined;
             inputs["deadLetteringOnFilterEvaluationError"] = state ? state.deadLetteringOnFilterEvaluationError : undefined;
@@ -167,16 +168,16 @@ export class Subscription extends pulumi.CustomResource {
             inputs["topicName"] = state ? state.topicName : undefined;
         } else {
             const args = argsOrState as SubscriptionArgs | undefined;
-            if ((!args || args.maxDeliveryCount === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.maxDeliveryCount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maxDeliveryCount'");
             }
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.topicName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.topicName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicName'");
             }
             inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
@@ -195,12 +196,8 @@ export class Subscription extends pulumi.CustomResource {
             inputs["status"] = args ? args.status : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Subscription.__pulumiType, name, inputs, opts);
     }

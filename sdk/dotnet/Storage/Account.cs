@@ -114,6 +114,7 @@ namespace Pulumi.Azure.Storage
     ///  $ pulumi import azure:storage/account:Account storageAcc1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
     /// ```
     /// </summary>
+    [AzureResourceType("azure:storage/account:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

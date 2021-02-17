@@ -129,7 +129,8 @@ export class Schedule extends pulumi.CustomResource {
     constructor(name: string, args: ScheduleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScheduleArgs | ScheduleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ScheduleState | undefined;
             inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -145,13 +146,13 @@ export class Schedule extends pulumi.CustomResource {
             inputs["weekDays"] = state ? state.weekDays : undefined;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
-            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.frequency === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.frequency === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
@@ -167,12 +168,8 @@ export class Schedule extends pulumi.CustomResource {
             inputs["timezone"] = args ? args.timezone : undefined;
             inputs["weekDays"] = args ? args.weekDays : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Schedule.__pulumiType, name, inputs, opts);
     }

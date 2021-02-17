@@ -239,7 +239,8 @@ export class IoTHub extends pulumi.CustomResource {
     constructor(name: string, args: IoTHubArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IoTHubArgs | IoTHubState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IoTHubState | undefined;
             inputs["endpoints"] = state ? state.endpoints : undefined;
             inputs["enrichments"] = state ? state.enrichments : undefined;
@@ -265,10 +266,10 @@ export class IoTHub extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as IoTHubArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["endpoints"] = args ? args.endpoints : undefined;
@@ -294,12 +295,8 @@ export class IoTHub extends pulumi.CustomResource {
             inputs["sharedAccessPolicies"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IoTHub.__pulumiType, name, inputs, opts);
     }

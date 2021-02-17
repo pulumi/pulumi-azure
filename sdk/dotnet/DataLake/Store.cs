@@ -46,6 +46,7 @@ namespace Pulumi.Azure.DataLake
     ///  $ pulumi import azure:datalake/store:Store example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DataLakeStore/accounts/mydatalakeaccount
     /// ```
     /// </summary>
+    [AzureResourceType("azure:datalake/store:Store")]
     public partial class Store : Pulumi.CustomResource
     {
         /// <summary>

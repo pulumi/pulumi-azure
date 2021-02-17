@@ -86,6 +86,7 @@ namespace Pulumi.Azure.Iot
     ///  $ pulumi import azure:iot/securityDeviceGroup:SecurityDeviceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Devices/iotHubs/hub1/providers/Microsoft.Security/deviceSecurityGroups/group1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:iot/securityDeviceGroup:SecurityDeviceGroup")]
     public partial class SecurityDeviceGroup : Pulumi.CustomResource
     {
         /// <summary>

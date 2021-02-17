@@ -254,16 +254,95 @@ type KeyVaultInput interface {
 	ToKeyVaultOutputWithContext(ctx context.Context) KeyVaultOutput
 }
 
-func (KeyVault) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVault)(nil)).Elem()
+func (*KeyVault) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVault)(nil))
 }
 
-func (i KeyVault) ToKeyVaultOutput() KeyVaultOutput {
+func (i *KeyVault) ToKeyVaultOutput() KeyVaultOutput {
 	return i.ToKeyVaultOutputWithContext(context.Background())
 }
 
-func (i KeyVault) ToKeyVaultOutputWithContext(ctx context.Context) KeyVaultOutput {
+func (i *KeyVault) ToKeyVaultOutputWithContext(ctx context.Context) KeyVaultOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultOutput)
+}
+
+func (i *KeyVault) ToKeyVaultPtrOutput() KeyVaultPtrOutput {
+	return i.ToKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i *KeyVault) ToKeyVaultPtrOutputWithContext(ctx context.Context) KeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPtrOutput)
+}
+
+type KeyVaultPtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultPtrOutput() KeyVaultPtrOutput
+	ToKeyVaultPtrOutputWithContext(ctx context.Context) KeyVaultPtrOutput
+}
+
+type keyVaultPtrType KeyVaultArgs
+
+func (*keyVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVault)(nil))
+}
+
+func (i *keyVaultPtrType) ToKeyVaultPtrOutput() KeyVaultPtrOutput {
+	return i.ToKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultPtrType) ToKeyVaultPtrOutputWithContext(ctx context.Context) KeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPtrOutput)
+}
+
+// KeyVaultArrayInput is an input type that accepts KeyVaultArray and KeyVaultArrayOutput values.
+// You can construct a concrete instance of `KeyVaultArrayInput` via:
+//
+//          KeyVaultArray{ KeyVaultArgs{...} }
+type KeyVaultArrayInput interface {
+	pulumi.Input
+
+	ToKeyVaultArrayOutput() KeyVaultArrayOutput
+	ToKeyVaultArrayOutputWithContext(context.Context) KeyVaultArrayOutput
+}
+
+type KeyVaultArray []KeyVaultInput
+
+func (KeyVaultArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*KeyVault)(nil))
+}
+
+func (i KeyVaultArray) ToKeyVaultArrayOutput() KeyVaultArrayOutput {
+	return i.ToKeyVaultArrayOutputWithContext(context.Background())
+}
+
+func (i KeyVaultArray) ToKeyVaultArrayOutputWithContext(ctx context.Context) KeyVaultArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultArrayOutput)
+}
+
+// KeyVaultMapInput is an input type that accepts KeyVaultMap and KeyVaultMapOutput values.
+// You can construct a concrete instance of `KeyVaultMapInput` via:
+//
+//          KeyVaultMap{ "key": KeyVaultArgs{...} }
+type KeyVaultMapInput interface {
+	pulumi.Input
+
+	ToKeyVaultMapOutput() KeyVaultMapOutput
+	ToKeyVaultMapOutputWithContext(context.Context) KeyVaultMapOutput
+}
+
+type KeyVaultMap map[string]KeyVaultInput
+
+func (KeyVaultMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*KeyVault)(nil))
+}
+
+func (i KeyVaultMap) ToKeyVaultMapOutput() KeyVaultMapOutput {
+	return i.ToKeyVaultMapOutputWithContext(context.Background())
+}
+
+func (i KeyVaultMap) ToKeyVaultMapOutputWithContext(ctx context.Context) KeyVaultMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultMapOutput)
 }
 
 type KeyVaultOutput struct {
@@ -271,7 +350,7 @@ type KeyVaultOutput struct {
 }
 
 func (KeyVaultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultOutput)(nil)).Elem()
+	return reflect.TypeOf((*KeyVault)(nil))
 }
 
 func (o KeyVaultOutput) ToKeyVaultOutput() KeyVaultOutput {
@@ -282,6 +361,75 @@ func (o KeyVaultOutput) ToKeyVaultOutputWithContext(ctx context.Context) KeyVaul
 	return o
 }
 
+func (o KeyVaultOutput) ToKeyVaultPtrOutput() KeyVaultPtrOutput {
+	return o.ToKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultOutput) ToKeyVaultPtrOutputWithContext(ctx context.Context) KeyVaultPtrOutput {
+	return o.ApplyT(func(v KeyVault) *KeyVault {
+		return &v
+	}).(KeyVaultPtrOutput)
+}
+
+type KeyVaultPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (KeyVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVault)(nil))
+}
+
+func (o KeyVaultPtrOutput) ToKeyVaultPtrOutput() KeyVaultPtrOutput {
+	return o
+}
+
+func (o KeyVaultPtrOutput) ToKeyVaultPtrOutputWithContext(ctx context.Context) KeyVaultPtrOutput {
+	return o
+}
+
+type KeyVaultArrayOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyVault)(nil))
+}
+
+func (o KeyVaultArrayOutput) ToKeyVaultArrayOutput() KeyVaultArrayOutput {
+	return o
+}
+
+func (o KeyVaultArrayOutput) ToKeyVaultArrayOutputWithContext(ctx context.Context) KeyVaultArrayOutput {
+	return o
+}
+
+func (o KeyVaultArrayOutput) Index(i pulumi.IntInput) KeyVaultOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyVault {
+		return vs[0].([]KeyVault)[vs[1].(int)]
+	}).(KeyVaultOutput)
+}
+
+type KeyVaultMapOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]KeyVault)(nil))
+}
+
+func (o KeyVaultMapOutput) ToKeyVaultMapOutput() KeyVaultMapOutput {
+	return o
+}
+
+func (o KeyVaultMapOutput) ToKeyVaultMapOutputWithContext(ctx context.Context) KeyVaultMapOutput {
+	return o
+}
+
+func (o KeyVaultMapOutput) MapIndex(k pulumi.StringInput) KeyVaultOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) KeyVault {
+		return vs[0].(map[string]KeyVault)[vs[1].(string)]
+	}).(KeyVaultOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(KeyVaultOutput{})
+	pulumi.RegisterOutputType(KeyVaultPtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultArrayOutput{})
+	pulumi.RegisterOutputType(KeyVaultMapOutput{})
 }

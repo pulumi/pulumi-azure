@@ -102,6 +102,7 @@ namespace Pulumi.Azure.Hpc
     ///  $ pulumi import azure:hpc/cacheBlobTarget:CacheBlobTarget example azurerm_hpc_cache_blob_target.example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:hpc/cacheBlobTarget:CacheBlobTarget")]
     public partial class CacheBlobTarget : Pulumi.CustomResource
     {
         /// <summary>

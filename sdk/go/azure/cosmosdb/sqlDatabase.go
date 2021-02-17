@@ -164,16 +164,95 @@ type SqlDatabaseInput interface {
 	ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDatabaseOutput
 }
 
-func (SqlDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDatabase)(nil)).Elem()
+func (*SqlDatabase) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDatabase)(nil))
 }
 
-func (i SqlDatabase) ToSqlDatabaseOutput() SqlDatabaseOutput {
+func (i *SqlDatabase) ToSqlDatabaseOutput() SqlDatabaseOutput {
 	return i.ToSqlDatabaseOutputWithContext(context.Background())
 }
 
-func (i SqlDatabase) ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDatabaseOutput {
+func (i *SqlDatabase) ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseOutput)
+}
+
+func (i *SqlDatabase) ToSqlDatabasePtrOutput() SqlDatabasePtrOutput {
+	return i.ToSqlDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i *SqlDatabase) ToSqlDatabasePtrOutputWithContext(ctx context.Context) SqlDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabasePtrOutput)
+}
+
+type SqlDatabasePtrInput interface {
+	pulumi.Input
+
+	ToSqlDatabasePtrOutput() SqlDatabasePtrOutput
+	ToSqlDatabasePtrOutputWithContext(ctx context.Context) SqlDatabasePtrOutput
+}
+
+type sqlDatabasePtrType SqlDatabaseArgs
+
+func (*sqlDatabasePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlDatabase)(nil))
+}
+
+func (i *sqlDatabasePtrType) ToSqlDatabasePtrOutput() SqlDatabasePtrOutput {
+	return i.ToSqlDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i *sqlDatabasePtrType) ToSqlDatabasePtrOutputWithContext(ctx context.Context) SqlDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabasePtrOutput)
+}
+
+// SqlDatabaseArrayInput is an input type that accepts SqlDatabaseArray and SqlDatabaseArrayOutput values.
+// You can construct a concrete instance of `SqlDatabaseArrayInput` via:
+//
+//          SqlDatabaseArray{ SqlDatabaseArgs{...} }
+type SqlDatabaseArrayInput interface {
+	pulumi.Input
+
+	ToSqlDatabaseArrayOutput() SqlDatabaseArrayOutput
+	ToSqlDatabaseArrayOutputWithContext(context.Context) SqlDatabaseArrayOutput
+}
+
+type SqlDatabaseArray []SqlDatabaseInput
+
+func (SqlDatabaseArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SqlDatabase)(nil))
+}
+
+func (i SqlDatabaseArray) ToSqlDatabaseArrayOutput() SqlDatabaseArrayOutput {
+	return i.ToSqlDatabaseArrayOutputWithContext(context.Background())
+}
+
+func (i SqlDatabaseArray) ToSqlDatabaseArrayOutputWithContext(ctx context.Context) SqlDatabaseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseArrayOutput)
+}
+
+// SqlDatabaseMapInput is an input type that accepts SqlDatabaseMap and SqlDatabaseMapOutput values.
+// You can construct a concrete instance of `SqlDatabaseMapInput` via:
+//
+//          SqlDatabaseMap{ "key": SqlDatabaseArgs{...} }
+type SqlDatabaseMapInput interface {
+	pulumi.Input
+
+	ToSqlDatabaseMapOutput() SqlDatabaseMapOutput
+	ToSqlDatabaseMapOutputWithContext(context.Context) SqlDatabaseMapOutput
+}
+
+type SqlDatabaseMap map[string]SqlDatabaseInput
+
+func (SqlDatabaseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SqlDatabase)(nil))
+}
+
+func (i SqlDatabaseMap) ToSqlDatabaseMapOutput() SqlDatabaseMapOutput {
+	return i.ToSqlDatabaseMapOutputWithContext(context.Background())
+}
+
+func (i SqlDatabaseMap) ToSqlDatabaseMapOutputWithContext(ctx context.Context) SqlDatabaseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseMapOutput)
 }
 
 type SqlDatabaseOutput struct {
@@ -181,7 +260,7 @@ type SqlDatabaseOutput struct {
 }
 
 func (SqlDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDatabaseOutput)(nil)).Elem()
+	return reflect.TypeOf((*SqlDatabase)(nil))
 }
 
 func (o SqlDatabaseOutput) ToSqlDatabaseOutput() SqlDatabaseOutput {
@@ -192,6 +271,75 @@ func (o SqlDatabaseOutput) ToSqlDatabaseOutputWithContext(ctx context.Context) S
 	return o
 }
 
+func (o SqlDatabaseOutput) ToSqlDatabasePtrOutput() SqlDatabasePtrOutput {
+	return o.ToSqlDatabasePtrOutputWithContext(context.Background())
+}
+
+func (o SqlDatabaseOutput) ToSqlDatabasePtrOutputWithContext(ctx context.Context) SqlDatabasePtrOutput {
+	return o.ApplyT(func(v SqlDatabase) *SqlDatabase {
+		return &v
+	}).(SqlDatabasePtrOutput)
+}
+
+type SqlDatabasePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SqlDatabasePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlDatabase)(nil))
+}
+
+func (o SqlDatabasePtrOutput) ToSqlDatabasePtrOutput() SqlDatabasePtrOutput {
+	return o
+}
+
+func (o SqlDatabasePtrOutput) ToSqlDatabasePtrOutputWithContext(ctx context.Context) SqlDatabasePtrOutput {
+	return o
+}
+
+type SqlDatabaseArrayOutput struct{ *pulumi.OutputState }
+
+func (SqlDatabaseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlDatabase)(nil))
+}
+
+func (o SqlDatabaseArrayOutput) ToSqlDatabaseArrayOutput() SqlDatabaseArrayOutput {
+	return o
+}
+
+func (o SqlDatabaseArrayOutput) ToSqlDatabaseArrayOutputWithContext(ctx context.Context) SqlDatabaseArrayOutput {
+	return o
+}
+
+func (o SqlDatabaseArrayOutput) Index(i pulumi.IntInput) SqlDatabaseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlDatabase {
+		return vs[0].([]SqlDatabase)[vs[1].(int)]
+	}).(SqlDatabaseOutput)
+}
+
+type SqlDatabaseMapOutput struct{ *pulumi.OutputState }
+
+func (SqlDatabaseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SqlDatabase)(nil))
+}
+
+func (o SqlDatabaseMapOutput) ToSqlDatabaseMapOutput() SqlDatabaseMapOutput {
+	return o
+}
+
+func (o SqlDatabaseMapOutput) ToSqlDatabaseMapOutputWithContext(ctx context.Context) SqlDatabaseMapOutput {
+	return o
+}
+
+func (o SqlDatabaseMapOutput) MapIndex(k pulumi.StringInput) SqlDatabaseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SqlDatabase {
+		return vs[0].(map[string]SqlDatabase)[vs[1].(string)]
+	}).(SqlDatabaseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlDatabaseOutput{})
+	pulumi.RegisterOutputType(SqlDatabasePtrOutput{})
+	pulumi.RegisterOutputType(SqlDatabaseArrayOutput{})
+	pulumi.RegisterOutputType(SqlDatabaseMapOutput{})
 }

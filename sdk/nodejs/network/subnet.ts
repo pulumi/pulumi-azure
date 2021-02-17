@@ -130,7 +130,8 @@ export class Subnet extends pulumi.CustomResource {
     constructor(name: string, args: SubnetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SubnetArgs | SubnetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SubnetState | undefined;
             inputs["addressPrefix"] = state ? state.addressPrefix : undefined;
             inputs["addressPrefixes"] = state ? state.addressPrefixes : undefined;
@@ -144,10 +145,10 @@ export class Subnet extends pulumi.CustomResource {
             inputs["virtualNetworkName"] = state ? state.virtualNetworkName : undefined;
         } else {
             const args = argsOrState as SubnetArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetworkName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualNetworkName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
@@ -161,12 +162,8 @@ export class Subnet extends pulumi.CustomResource {
             inputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Subnet.__pulumiType, name, inputs, opts);
     }

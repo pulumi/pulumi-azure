@@ -243,16 +243,95 @@ type OutputMssqlInput interface {
 	ToOutputMssqlOutputWithContext(ctx context.Context) OutputMssqlOutput
 }
 
-func (OutputMssql) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputMssql)(nil)).Elem()
+func (*OutputMssql) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputMssql)(nil))
 }
 
-func (i OutputMssql) ToOutputMssqlOutput() OutputMssqlOutput {
+func (i *OutputMssql) ToOutputMssqlOutput() OutputMssqlOutput {
 	return i.ToOutputMssqlOutputWithContext(context.Background())
 }
 
-func (i OutputMssql) ToOutputMssqlOutputWithContext(ctx context.Context) OutputMssqlOutput {
+func (i *OutputMssql) ToOutputMssqlOutputWithContext(ctx context.Context) OutputMssqlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputMssqlOutput)
+}
+
+func (i *OutputMssql) ToOutputMssqlPtrOutput() OutputMssqlPtrOutput {
+	return i.ToOutputMssqlPtrOutputWithContext(context.Background())
+}
+
+func (i *OutputMssql) ToOutputMssqlPtrOutputWithContext(ctx context.Context) OutputMssqlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputMssqlPtrOutput)
+}
+
+type OutputMssqlPtrInput interface {
+	pulumi.Input
+
+	ToOutputMssqlPtrOutput() OutputMssqlPtrOutput
+	ToOutputMssqlPtrOutputWithContext(ctx context.Context) OutputMssqlPtrOutput
+}
+
+type outputMssqlPtrType OutputMssqlArgs
+
+func (*outputMssqlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutputMssql)(nil))
+}
+
+func (i *outputMssqlPtrType) ToOutputMssqlPtrOutput() OutputMssqlPtrOutput {
+	return i.ToOutputMssqlPtrOutputWithContext(context.Background())
+}
+
+func (i *outputMssqlPtrType) ToOutputMssqlPtrOutputWithContext(ctx context.Context) OutputMssqlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputMssqlPtrOutput)
+}
+
+// OutputMssqlArrayInput is an input type that accepts OutputMssqlArray and OutputMssqlArrayOutput values.
+// You can construct a concrete instance of `OutputMssqlArrayInput` via:
+//
+//          OutputMssqlArray{ OutputMssqlArgs{...} }
+type OutputMssqlArrayInput interface {
+	pulumi.Input
+
+	ToOutputMssqlArrayOutput() OutputMssqlArrayOutput
+	ToOutputMssqlArrayOutputWithContext(context.Context) OutputMssqlArrayOutput
+}
+
+type OutputMssqlArray []OutputMssqlInput
+
+func (OutputMssqlArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*OutputMssql)(nil))
+}
+
+func (i OutputMssqlArray) ToOutputMssqlArrayOutput() OutputMssqlArrayOutput {
+	return i.ToOutputMssqlArrayOutputWithContext(context.Background())
+}
+
+func (i OutputMssqlArray) ToOutputMssqlArrayOutputWithContext(ctx context.Context) OutputMssqlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputMssqlArrayOutput)
+}
+
+// OutputMssqlMapInput is an input type that accepts OutputMssqlMap and OutputMssqlMapOutput values.
+// You can construct a concrete instance of `OutputMssqlMapInput` via:
+//
+//          OutputMssqlMap{ "key": OutputMssqlArgs{...} }
+type OutputMssqlMapInput interface {
+	pulumi.Input
+
+	ToOutputMssqlMapOutput() OutputMssqlMapOutput
+	ToOutputMssqlMapOutputWithContext(context.Context) OutputMssqlMapOutput
+}
+
+type OutputMssqlMap map[string]OutputMssqlInput
+
+func (OutputMssqlMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*OutputMssql)(nil))
+}
+
+func (i OutputMssqlMap) ToOutputMssqlMapOutput() OutputMssqlMapOutput {
+	return i.ToOutputMssqlMapOutputWithContext(context.Background())
+}
+
+func (i OutputMssqlMap) ToOutputMssqlMapOutputWithContext(ctx context.Context) OutputMssqlMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputMssqlMapOutput)
 }
 
 type OutputMssqlOutput struct {
@@ -260,7 +339,7 @@ type OutputMssqlOutput struct {
 }
 
 func (OutputMssqlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputMssqlOutput)(nil)).Elem()
+	return reflect.TypeOf((*OutputMssql)(nil))
 }
 
 func (o OutputMssqlOutput) ToOutputMssqlOutput() OutputMssqlOutput {
@@ -271,6 +350,75 @@ func (o OutputMssqlOutput) ToOutputMssqlOutputWithContext(ctx context.Context) O
 	return o
 }
 
+func (o OutputMssqlOutput) ToOutputMssqlPtrOutput() OutputMssqlPtrOutput {
+	return o.ToOutputMssqlPtrOutputWithContext(context.Background())
+}
+
+func (o OutputMssqlOutput) ToOutputMssqlPtrOutputWithContext(ctx context.Context) OutputMssqlPtrOutput {
+	return o.ApplyT(func(v OutputMssql) *OutputMssql {
+		return &v
+	}).(OutputMssqlPtrOutput)
+}
+
+type OutputMssqlPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (OutputMssqlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutputMssql)(nil))
+}
+
+func (o OutputMssqlPtrOutput) ToOutputMssqlPtrOutput() OutputMssqlPtrOutput {
+	return o
+}
+
+func (o OutputMssqlPtrOutput) ToOutputMssqlPtrOutputWithContext(ctx context.Context) OutputMssqlPtrOutput {
+	return o
+}
+
+type OutputMssqlArrayOutput struct{ *pulumi.OutputState }
+
+func (OutputMssqlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OutputMssql)(nil))
+}
+
+func (o OutputMssqlArrayOutput) ToOutputMssqlArrayOutput() OutputMssqlArrayOutput {
+	return o
+}
+
+func (o OutputMssqlArrayOutput) ToOutputMssqlArrayOutputWithContext(ctx context.Context) OutputMssqlArrayOutput {
+	return o
+}
+
+func (o OutputMssqlArrayOutput) Index(i pulumi.IntInput) OutputMssqlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OutputMssql {
+		return vs[0].([]OutputMssql)[vs[1].(int)]
+	}).(OutputMssqlOutput)
+}
+
+type OutputMssqlMapOutput struct{ *pulumi.OutputState }
+
+func (OutputMssqlMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]OutputMssql)(nil))
+}
+
+func (o OutputMssqlMapOutput) ToOutputMssqlMapOutput() OutputMssqlMapOutput {
+	return o
+}
+
+func (o OutputMssqlMapOutput) ToOutputMssqlMapOutputWithContext(ctx context.Context) OutputMssqlMapOutput {
+	return o
+}
+
+func (o OutputMssqlMapOutput) MapIndex(k pulumi.StringInput) OutputMssqlOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OutputMssql {
+		return vs[0].(map[string]OutputMssql)[vs[1].(string)]
+	}).(OutputMssqlOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OutputMssqlOutput{})
+	pulumi.RegisterOutputType(OutputMssqlPtrOutput{})
+	pulumi.RegisterOutputType(OutputMssqlArrayOutput{})
+	pulumi.RegisterOutputType(OutputMssqlMapOutput{})
 }

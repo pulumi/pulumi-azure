@@ -57,6 +57,7 @@ namespace Pulumi.Azure.ServiceBus
     ///  $ pulumi import azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/AuthorizationRules/rule1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule")]
     public partial class NamespaceAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>

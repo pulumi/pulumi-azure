@@ -90,6 +90,7 @@ namespace Pulumi.Azure.Iot
     ///  $ pulumi import azure:iot/route:Route route1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Routes/route1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:iot/route:Route")]
     public partial class Route : Pulumi.CustomResource
     {
         /// <summary>

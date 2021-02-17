@@ -42,6 +42,7 @@ namespace Pulumi.Azure.AppInsights
     /// }
     /// ```
     /// </summary>
+    [AzureResourceType("azure:appinsights/smartDetectionRule:SmartDetectionRule")]
     public partial class SmartDetectionRule : Pulumi.CustomResource
     {
         /// <summary>

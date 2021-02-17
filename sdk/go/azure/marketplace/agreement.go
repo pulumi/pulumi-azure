@@ -151,16 +151,95 @@ type AgreementInput interface {
 	ToAgreementOutputWithContext(ctx context.Context) AgreementOutput
 }
 
-func (Agreement) ElementType() reflect.Type {
-	return reflect.TypeOf((*Agreement)(nil)).Elem()
+func (*Agreement) ElementType() reflect.Type {
+	return reflect.TypeOf((*Agreement)(nil))
 }
 
-func (i Agreement) ToAgreementOutput() AgreementOutput {
+func (i *Agreement) ToAgreementOutput() AgreementOutput {
 	return i.ToAgreementOutputWithContext(context.Background())
 }
 
-func (i Agreement) ToAgreementOutputWithContext(ctx context.Context) AgreementOutput {
+func (i *Agreement) ToAgreementOutputWithContext(ctx context.Context) AgreementOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AgreementOutput)
+}
+
+func (i *Agreement) ToAgreementPtrOutput() AgreementPtrOutput {
+	return i.ToAgreementPtrOutputWithContext(context.Background())
+}
+
+func (i *Agreement) ToAgreementPtrOutputWithContext(ctx context.Context) AgreementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgreementPtrOutput)
+}
+
+type AgreementPtrInput interface {
+	pulumi.Input
+
+	ToAgreementPtrOutput() AgreementPtrOutput
+	ToAgreementPtrOutputWithContext(ctx context.Context) AgreementPtrOutput
+}
+
+type agreementPtrType AgreementArgs
+
+func (*agreementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Agreement)(nil))
+}
+
+func (i *agreementPtrType) ToAgreementPtrOutput() AgreementPtrOutput {
+	return i.ToAgreementPtrOutputWithContext(context.Background())
+}
+
+func (i *agreementPtrType) ToAgreementPtrOutputWithContext(ctx context.Context) AgreementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgreementPtrOutput)
+}
+
+// AgreementArrayInput is an input type that accepts AgreementArray and AgreementArrayOutput values.
+// You can construct a concrete instance of `AgreementArrayInput` via:
+//
+//          AgreementArray{ AgreementArgs{...} }
+type AgreementArrayInput interface {
+	pulumi.Input
+
+	ToAgreementArrayOutput() AgreementArrayOutput
+	ToAgreementArrayOutputWithContext(context.Context) AgreementArrayOutput
+}
+
+type AgreementArray []AgreementInput
+
+func (AgreementArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Agreement)(nil))
+}
+
+func (i AgreementArray) ToAgreementArrayOutput() AgreementArrayOutput {
+	return i.ToAgreementArrayOutputWithContext(context.Background())
+}
+
+func (i AgreementArray) ToAgreementArrayOutputWithContext(ctx context.Context) AgreementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgreementArrayOutput)
+}
+
+// AgreementMapInput is an input type that accepts AgreementMap and AgreementMapOutput values.
+// You can construct a concrete instance of `AgreementMapInput` via:
+//
+//          AgreementMap{ "key": AgreementArgs{...} }
+type AgreementMapInput interface {
+	pulumi.Input
+
+	ToAgreementMapOutput() AgreementMapOutput
+	ToAgreementMapOutputWithContext(context.Context) AgreementMapOutput
+}
+
+type AgreementMap map[string]AgreementInput
+
+func (AgreementMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Agreement)(nil))
+}
+
+func (i AgreementMap) ToAgreementMapOutput() AgreementMapOutput {
+	return i.ToAgreementMapOutputWithContext(context.Background())
+}
+
+func (i AgreementMap) ToAgreementMapOutputWithContext(ctx context.Context) AgreementMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgreementMapOutput)
 }
 
 type AgreementOutput struct {
@@ -168,7 +247,7 @@ type AgreementOutput struct {
 }
 
 func (AgreementOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgreementOutput)(nil)).Elem()
+	return reflect.TypeOf((*Agreement)(nil))
 }
 
 func (o AgreementOutput) ToAgreementOutput() AgreementOutput {
@@ -179,6 +258,75 @@ func (o AgreementOutput) ToAgreementOutputWithContext(ctx context.Context) Agree
 	return o
 }
 
+func (o AgreementOutput) ToAgreementPtrOutput() AgreementPtrOutput {
+	return o.ToAgreementPtrOutputWithContext(context.Background())
+}
+
+func (o AgreementOutput) ToAgreementPtrOutputWithContext(ctx context.Context) AgreementPtrOutput {
+	return o.ApplyT(func(v Agreement) *Agreement {
+		return &v
+	}).(AgreementPtrOutput)
+}
+
+type AgreementPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AgreementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Agreement)(nil))
+}
+
+func (o AgreementPtrOutput) ToAgreementPtrOutput() AgreementPtrOutput {
+	return o
+}
+
+func (o AgreementPtrOutput) ToAgreementPtrOutputWithContext(ctx context.Context) AgreementPtrOutput {
+	return o
+}
+
+type AgreementArrayOutput struct{ *pulumi.OutputState }
+
+func (AgreementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Agreement)(nil))
+}
+
+func (o AgreementArrayOutput) ToAgreementArrayOutput() AgreementArrayOutput {
+	return o
+}
+
+func (o AgreementArrayOutput) ToAgreementArrayOutputWithContext(ctx context.Context) AgreementArrayOutput {
+	return o
+}
+
+func (o AgreementArrayOutput) Index(i pulumi.IntInput) AgreementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Agreement {
+		return vs[0].([]Agreement)[vs[1].(int)]
+	}).(AgreementOutput)
+}
+
+type AgreementMapOutput struct{ *pulumi.OutputState }
+
+func (AgreementMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Agreement)(nil))
+}
+
+func (o AgreementMapOutput) ToAgreementMapOutput() AgreementMapOutput {
+	return o
+}
+
+func (o AgreementMapOutput) ToAgreementMapOutputWithContext(ctx context.Context) AgreementMapOutput {
+	return o
+}
+
+func (o AgreementMapOutput) MapIndex(k pulumi.StringInput) AgreementOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Agreement {
+		return vs[0].(map[string]Agreement)[vs[1].(string)]
+	}).(AgreementOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AgreementOutput{})
+	pulumi.RegisterOutputType(AgreementPtrOutput{})
+	pulumi.RegisterOutputType(AgreementArrayOutput{})
+	pulumi.RegisterOutputType(AgreementMapOutput{})
 }

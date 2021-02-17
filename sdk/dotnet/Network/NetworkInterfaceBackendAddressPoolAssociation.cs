@@ -101,6 +101,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/networkInterfaceBackendAddressPoolAssociation:NetworkInterfaceBackendAddressPoolAssociation association1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.network/networkInterfaces/nic1/ipConfigurations/example|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/backendAddressPools/pool1"
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/networkInterfaceBackendAddressPoolAssociation:NetworkInterfaceBackendAddressPoolAssociation")]
     public partial class NetworkInterfaceBackendAddressPoolAssociation : Pulumi.CustomResource
     {
         /// <summary>

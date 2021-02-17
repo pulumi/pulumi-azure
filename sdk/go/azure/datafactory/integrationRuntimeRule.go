@@ -206,16 +206,95 @@ type IntegrationRuntimeRuleInput interface {
 	ToIntegrationRuntimeRuleOutputWithContext(ctx context.Context) IntegrationRuntimeRuleOutput
 }
 
-func (IntegrationRuntimeRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeRule)(nil)).Elem()
+func (*IntegrationRuntimeRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeRule)(nil))
 }
 
-func (i IntegrationRuntimeRule) ToIntegrationRuntimeRuleOutput() IntegrationRuntimeRuleOutput {
+func (i *IntegrationRuntimeRule) ToIntegrationRuntimeRuleOutput() IntegrationRuntimeRuleOutput {
 	return i.ToIntegrationRuntimeRuleOutputWithContext(context.Background())
 }
 
-func (i IntegrationRuntimeRule) ToIntegrationRuntimeRuleOutputWithContext(ctx context.Context) IntegrationRuntimeRuleOutput {
+func (i *IntegrationRuntimeRule) ToIntegrationRuntimeRuleOutputWithContext(ctx context.Context) IntegrationRuntimeRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeRuleOutput)
+}
+
+func (i *IntegrationRuntimeRule) ToIntegrationRuntimeRulePtrOutput() IntegrationRuntimeRulePtrOutput {
+	return i.ToIntegrationRuntimeRulePtrOutputWithContext(context.Background())
+}
+
+func (i *IntegrationRuntimeRule) ToIntegrationRuntimeRulePtrOutputWithContext(ctx context.Context) IntegrationRuntimeRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeRulePtrOutput)
+}
+
+type IntegrationRuntimeRulePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeRulePtrOutput() IntegrationRuntimeRulePtrOutput
+	ToIntegrationRuntimeRulePtrOutputWithContext(ctx context.Context) IntegrationRuntimeRulePtrOutput
+}
+
+type integrationRuntimeRulePtrType IntegrationRuntimeRuleArgs
+
+func (*integrationRuntimeRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeRule)(nil))
+}
+
+func (i *integrationRuntimeRulePtrType) ToIntegrationRuntimeRulePtrOutput() IntegrationRuntimeRulePtrOutput {
+	return i.ToIntegrationRuntimeRulePtrOutputWithContext(context.Background())
+}
+
+func (i *integrationRuntimeRulePtrType) ToIntegrationRuntimeRulePtrOutputWithContext(ctx context.Context) IntegrationRuntimeRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeRulePtrOutput)
+}
+
+// IntegrationRuntimeRuleArrayInput is an input type that accepts IntegrationRuntimeRuleArray and IntegrationRuntimeRuleArrayOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeRuleArrayInput` via:
+//
+//          IntegrationRuntimeRuleArray{ IntegrationRuntimeRuleArgs{...} }
+type IntegrationRuntimeRuleArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeRuleArrayOutput() IntegrationRuntimeRuleArrayOutput
+	ToIntegrationRuntimeRuleArrayOutputWithContext(context.Context) IntegrationRuntimeRuleArrayOutput
+}
+
+type IntegrationRuntimeRuleArray []IntegrationRuntimeRuleInput
+
+func (IntegrationRuntimeRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*IntegrationRuntimeRule)(nil))
+}
+
+func (i IntegrationRuntimeRuleArray) ToIntegrationRuntimeRuleArrayOutput() IntegrationRuntimeRuleArrayOutput {
+	return i.ToIntegrationRuntimeRuleArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeRuleArray) ToIntegrationRuntimeRuleArrayOutputWithContext(ctx context.Context) IntegrationRuntimeRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeRuleArrayOutput)
+}
+
+// IntegrationRuntimeRuleMapInput is an input type that accepts IntegrationRuntimeRuleMap and IntegrationRuntimeRuleMapOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeRuleMapInput` via:
+//
+//          IntegrationRuntimeRuleMap{ "key": IntegrationRuntimeRuleArgs{...} }
+type IntegrationRuntimeRuleMapInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeRuleMapOutput() IntegrationRuntimeRuleMapOutput
+	ToIntegrationRuntimeRuleMapOutputWithContext(context.Context) IntegrationRuntimeRuleMapOutput
+}
+
+type IntegrationRuntimeRuleMap map[string]IntegrationRuntimeRuleInput
+
+func (IntegrationRuntimeRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*IntegrationRuntimeRule)(nil))
+}
+
+func (i IntegrationRuntimeRuleMap) ToIntegrationRuntimeRuleMapOutput() IntegrationRuntimeRuleMapOutput {
+	return i.ToIntegrationRuntimeRuleMapOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeRuleMap) ToIntegrationRuntimeRuleMapOutputWithContext(ctx context.Context) IntegrationRuntimeRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeRuleMapOutput)
 }
 
 type IntegrationRuntimeRuleOutput struct {
@@ -223,7 +302,7 @@ type IntegrationRuntimeRuleOutput struct {
 }
 
 func (IntegrationRuntimeRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*IntegrationRuntimeRule)(nil))
 }
 
 func (o IntegrationRuntimeRuleOutput) ToIntegrationRuntimeRuleOutput() IntegrationRuntimeRuleOutput {
@@ -234,6 +313,75 @@ func (o IntegrationRuntimeRuleOutput) ToIntegrationRuntimeRuleOutputWithContext(
 	return o
 }
 
+func (o IntegrationRuntimeRuleOutput) ToIntegrationRuntimeRulePtrOutput() IntegrationRuntimeRulePtrOutput {
+	return o.ToIntegrationRuntimeRulePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeRuleOutput) ToIntegrationRuntimeRulePtrOutputWithContext(ctx context.Context) IntegrationRuntimeRulePtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeRule) *IntegrationRuntimeRule {
+		return &v
+	}).(IntegrationRuntimeRulePtrOutput)
+}
+
+type IntegrationRuntimeRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationRuntimeRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeRule)(nil))
+}
+
+func (o IntegrationRuntimeRulePtrOutput) ToIntegrationRuntimeRulePtrOutput() IntegrationRuntimeRulePtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeRulePtrOutput) ToIntegrationRuntimeRulePtrOutputWithContext(ctx context.Context) IntegrationRuntimeRulePtrOutput {
+	return o
+}
+
+type IntegrationRuntimeRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationRuntimeRule)(nil))
+}
+
+func (o IntegrationRuntimeRuleArrayOutput) ToIntegrationRuntimeRuleArrayOutput() IntegrationRuntimeRuleArrayOutput {
+	return o
+}
+
+func (o IntegrationRuntimeRuleArrayOutput) ToIntegrationRuntimeRuleArrayOutputWithContext(ctx context.Context) IntegrationRuntimeRuleArrayOutput {
+	return o
+}
+
+func (o IntegrationRuntimeRuleArrayOutput) Index(i pulumi.IntInput) IntegrationRuntimeRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationRuntimeRule {
+		return vs[0].([]IntegrationRuntimeRule)[vs[1].(int)]
+	}).(IntegrationRuntimeRuleOutput)
+}
+
+type IntegrationRuntimeRuleMapOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IntegrationRuntimeRule)(nil))
+}
+
+func (o IntegrationRuntimeRuleMapOutput) ToIntegrationRuntimeRuleMapOutput() IntegrationRuntimeRuleMapOutput {
+	return o
+}
+
+func (o IntegrationRuntimeRuleMapOutput) ToIntegrationRuntimeRuleMapOutputWithContext(ctx context.Context) IntegrationRuntimeRuleMapOutput {
+	return o
+}
+
+func (o IntegrationRuntimeRuleMapOutput) MapIndex(k pulumi.StringInput) IntegrationRuntimeRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IntegrationRuntimeRule {
+		return vs[0].(map[string]IntegrationRuntimeRule)[vs[1].(string)]
+	}).(IntegrationRuntimeRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeRuleOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeRulePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeRuleArrayOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeRuleMapOutput{})
 }

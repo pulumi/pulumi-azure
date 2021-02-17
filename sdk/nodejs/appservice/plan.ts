@@ -173,7 +173,8 @@ export class Plan extends pulumi.CustomResource {
     constructor(name: string, args: PlanArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PlanArgs | PlanState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PlanState | undefined;
             inputs["appServiceEnvironmentId"] = state ? state.appServiceEnvironmentId : undefined;
             inputs["isXenon"] = state ? state.isXenon : undefined;
@@ -189,10 +190,10 @@ export class Plan extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as PlanArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["appServiceEnvironmentId"] = args ? args.appServiceEnvironmentId : undefined;
@@ -208,12 +209,8 @@ export class Plan extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["maximumNumberOfWorkers"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Plan.__pulumiType, name, inputs, opts);
     }

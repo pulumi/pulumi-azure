@@ -112,7 +112,8 @@ export class IotHubDps extends pulumi.CustomResource {
     constructor(name: string, args: IotHubDpsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IotHubDpsArgs | IotHubDpsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IotHubDpsState | undefined;
             inputs["allocationPolicy"] = state ? state.allocationPolicy : undefined;
             inputs["deviceProvisioningHostName"] = state ? state.deviceProvisioningHostName : undefined;
@@ -126,10 +127,10 @@ export class IotHubDps extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as IotHubDpsArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["linkedHubs"] = args ? args.linkedHubs : undefined;
@@ -143,12 +144,8 @@ export class IotHubDps extends pulumi.CustomResource {
             inputs["idScope"] = undefined /*out*/;
             inputs["serviceOperationsHostName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IotHubDps.__pulumiType, name, inputs, opts);
     }

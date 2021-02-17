@@ -130,16 +130,95 @@ type ModuleInput interface {
 	ToModuleOutputWithContext(ctx context.Context) ModuleOutput
 }
 
-func (Module) ElementType() reflect.Type {
-	return reflect.TypeOf((*Module)(nil)).Elem()
+func (*Module) ElementType() reflect.Type {
+	return reflect.TypeOf((*Module)(nil))
 }
 
-func (i Module) ToModuleOutput() ModuleOutput {
+func (i *Module) ToModuleOutput() ModuleOutput {
 	return i.ToModuleOutputWithContext(context.Background())
 }
 
-func (i Module) ToModuleOutputWithContext(ctx context.Context) ModuleOutput {
+func (i *Module) ToModuleOutputWithContext(ctx context.Context) ModuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleOutput)
+}
+
+func (i *Module) ToModulePtrOutput() ModulePtrOutput {
+	return i.ToModulePtrOutputWithContext(context.Background())
+}
+
+func (i *Module) ToModulePtrOutputWithContext(ctx context.Context) ModulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModulePtrOutput)
+}
+
+type ModulePtrInput interface {
+	pulumi.Input
+
+	ToModulePtrOutput() ModulePtrOutput
+	ToModulePtrOutputWithContext(ctx context.Context) ModulePtrOutput
+}
+
+type modulePtrType ModuleArgs
+
+func (*modulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Module)(nil))
+}
+
+func (i *modulePtrType) ToModulePtrOutput() ModulePtrOutput {
+	return i.ToModulePtrOutputWithContext(context.Background())
+}
+
+func (i *modulePtrType) ToModulePtrOutputWithContext(ctx context.Context) ModulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModulePtrOutput)
+}
+
+// ModuleArrayInput is an input type that accepts ModuleArray and ModuleArrayOutput values.
+// You can construct a concrete instance of `ModuleArrayInput` via:
+//
+//          ModuleArray{ ModuleArgs{...} }
+type ModuleArrayInput interface {
+	pulumi.Input
+
+	ToModuleArrayOutput() ModuleArrayOutput
+	ToModuleArrayOutputWithContext(context.Context) ModuleArrayOutput
+}
+
+type ModuleArray []ModuleInput
+
+func (ModuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Module)(nil))
+}
+
+func (i ModuleArray) ToModuleArrayOutput() ModuleArrayOutput {
+	return i.ToModuleArrayOutputWithContext(context.Background())
+}
+
+func (i ModuleArray) ToModuleArrayOutputWithContext(ctx context.Context) ModuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleArrayOutput)
+}
+
+// ModuleMapInput is an input type that accepts ModuleMap and ModuleMapOutput values.
+// You can construct a concrete instance of `ModuleMapInput` via:
+//
+//          ModuleMap{ "key": ModuleArgs{...} }
+type ModuleMapInput interface {
+	pulumi.Input
+
+	ToModuleMapOutput() ModuleMapOutput
+	ToModuleMapOutputWithContext(context.Context) ModuleMapOutput
+}
+
+type ModuleMap map[string]ModuleInput
+
+func (ModuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Module)(nil))
+}
+
+func (i ModuleMap) ToModuleMapOutput() ModuleMapOutput {
+	return i.ToModuleMapOutputWithContext(context.Background())
+}
+
+func (i ModuleMap) ToModuleMapOutputWithContext(ctx context.Context) ModuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleMapOutput)
 }
 
 type ModuleOutput struct {
@@ -147,7 +226,7 @@ type ModuleOutput struct {
 }
 
 func (ModuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*Module)(nil))
 }
 
 func (o ModuleOutput) ToModuleOutput() ModuleOutput {
@@ -158,6 +237,75 @@ func (o ModuleOutput) ToModuleOutputWithContext(ctx context.Context) ModuleOutpu
 	return o
 }
 
+func (o ModuleOutput) ToModulePtrOutput() ModulePtrOutput {
+	return o.ToModulePtrOutputWithContext(context.Background())
+}
+
+func (o ModuleOutput) ToModulePtrOutputWithContext(ctx context.Context) ModulePtrOutput {
+	return o.ApplyT(func(v Module) *Module {
+		return &v
+	}).(ModulePtrOutput)
+}
+
+type ModulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ModulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Module)(nil))
+}
+
+func (o ModulePtrOutput) ToModulePtrOutput() ModulePtrOutput {
+	return o
+}
+
+func (o ModulePtrOutput) ToModulePtrOutputWithContext(ctx context.Context) ModulePtrOutput {
+	return o
+}
+
+type ModuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ModuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Module)(nil))
+}
+
+func (o ModuleArrayOutput) ToModuleArrayOutput() ModuleArrayOutput {
+	return o
+}
+
+func (o ModuleArrayOutput) ToModuleArrayOutputWithContext(ctx context.Context) ModuleArrayOutput {
+	return o
+}
+
+func (o ModuleArrayOutput) Index(i pulumi.IntInput) ModuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Module {
+		return vs[0].([]Module)[vs[1].(int)]
+	}).(ModuleOutput)
+}
+
+type ModuleMapOutput struct{ *pulumi.OutputState }
+
+func (ModuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Module)(nil))
+}
+
+func (o ModuleMapOutput) ToModuleMapOutput() ModuleMapOutput {
+	return o
+}
+
+func (o ModuleMapOutput) ToModuleMapOutputWithContext(ctx context.Context) ModuleMapOutput {
+	return o
+}
+
+func (o ModuleMapOutput) MapIndex(k pulumi.StringInput) ModuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Module {
+		return vs[0].(map[string]Module)[vs[1].(string)]
+	}).(ModuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ModuleOutput{})
+	pulumi.RegisterOutputType(ModulePtrOutput{})
+	pulumi.RegisterOutputType(ModuleArrayOutput{})
+	pulumi.RegisterOutputType(ModuleMapOutput{})
 }

@@ -79,6 +79,7 @@ namespace Pulumi.Azure.Lb
     ///  $ pulumi import azure:lb/outboundRule:OutboundRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/outboundRules/rule1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:lb/outboundRule:OutboundRule")]
     public partial class OutboundRule : Pulumi.CustomResource
     {
         /// <summary>

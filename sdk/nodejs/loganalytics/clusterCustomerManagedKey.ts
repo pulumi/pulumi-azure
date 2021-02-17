@@ -62,27 +62,24 @@ export class ClusterCustomerManagedKey extends pulumi.CustomResource {
     constructor(name: string, args: ClusterCustomerManagedKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterCustomerManagedKeyArgs | ClusterCustomerManagedKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ClusterCustomerManagedKeyState | undefined;
             inputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
             inputs["logAnalyticsClusterId"] = state ? state.logAnalyticsClusterId : undefined;
         } else {
             const args = argsOrState as ClusterCustomerManagedKeyArgs | undefined;
-            if ((!args || args.keyVaultKeyId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.keyVaultKeyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultKeyId'");
             }
-            if ((!args || args.logAnalyticsClusterId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.logAnalyticsClusterId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsClusterId'");
             }
             inputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
             inputs["logAnalyticsClusterId"] = args ? args.logAnalyticsClusterId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ClusterCustomerManagedKey.__pulumiType, name, inputs, opts);
     }

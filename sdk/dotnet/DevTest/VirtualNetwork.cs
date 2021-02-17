@@ -58,6 +58,7 @@ namespace Pulumi.Azure.DevTest
     ///  $ pulumi import azure:devtest/virtualNetwork:VirtualNetwork network1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualnetworks/network1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:devtest/virtualNetwork:VirtualNetwork")]
     public partial class VirtualNetwork : Pulumi.CustomResource
     {
         /// <summary>

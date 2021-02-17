@@ -20,6 +20,7 @@ namespace Pulumi.Azure.Monitoring
     ///  $ pulumi import azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/scheduledQueryRules/myrulename
     /// ```
     /// </summary>
+    [AzureResourceType("azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog")]
     public partial class ScheduledQueryRulesLog : Pulumi.CustomResource
     {
         [Output("authorizedResourceIds")]

@@ -100,7 +100,8 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
     constructor(name: string, args: IntegrationRuntimeSelfHostedArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationRuntimeSelfHostedArgs | IntegrationRuntimeSelfHostedState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IntegrationRuntimeSelfHostedState | undefined;
             inputs["authKey1"] = state ? state.authKey1 : undefined;
             inputs["authKey2"] = state ? state.authKey2 : undefined;
@@ -111,10 +112,10 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as IntegrationRuntimeSelfHostedArgs | undefined;
-            if ((!args || args.dataFactoryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
@@ -125,12 +126,8 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
             inputs["authKey1"] = undefined /*out*/;
             inputs["authKey2"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IntegrationRuntimeSelfHosted.__pulumiType, name, inputs, opts);
     }

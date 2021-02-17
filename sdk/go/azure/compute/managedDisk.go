@@ -348,16 +348,95 @@ type ManagedDiskInput interface {
 	ToManagedDiskOutputWithContext(ctx context.Context) ManagedDiskOutput
 }
 
-func (ManagedDisk) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedDisk)(nil)).Elem()
+func (*ManagedDisk) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDisk)(nil))
 }
 
-func (i ManagedDisk) ToManagedDiskOutput() ManagedDiskOutput {
+func (i *ManagedDisk) ToManagedDiskOutput() ManagedDiskOutput {
 	return i.ToManagedDiskOutputWithContext(context.Background())
 }
 
-func (i ManagedDisk) ToManagedDiskOutputWithContext(ctx context.Context) ManagedDiskOutput {
+func (i *ManagedDisk) ToManagedDiskOutputWithContext(ctx context.Context) ManagedDiskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskOutput)
+}
+
+func (i *ManagedDisk) ToManagedDiskPtrOutput() ManagedDiskPtrOutput {
+	return i.ToManagedDiskPtrOutputWithContext(context.Background())
+}
+
+func (i *ManagedDisk) ToManagedDiskPtrOutputWithContext(ctx context.Context) ManagedDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskPtrOutput)
+}
+
+type ManagedDiskPtrInput interface {
+	pulumi.Input
+
+	ToManagedDiskPtrOutput() ManagedDiskPtrOutput
+	ToManagedDiskPtrOutputWithContext(ctx context.Context) ManagedDiskPtrOutput
+}
+
+type managedDiskPtrType ManagedDiskArgs
+
+func (*managedDiskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDisk)(nil))
+}
+
+func (i *managedDiskPtrType) ToManagedDiskPtrOutput() ManagedDiskPtrOutput {
+	return i.ToManagedDiskPtrOutputWithContext(context.Background())
+}
+
+func (i *managedDiskPtrType) ToManagedDiskPtrOutputWithContext(ctx context.Context) ManagedDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskPtrOutput)
+}
+
+// ManagedDiskArrayInput is an input type that accepts ManagedDiskArray and ManagedDiskArrayOutput values.
+// You can construct a concrete instance of `ManagedDiskArrayInput` via:
+//
+//          ManagedDiskArray{ ManagedDiskArgs{...} }
+type ManagedDiskArrayInput interface {
+	pulumi.Input
+
+	ToManagedDiskArrayOutput() ManagedDiskArrayOutput
+	ToManagedDiskArrayOutputWithContext(context.Context) ManagedDiskArrayOutput
+}
+
+type ManagedDiskArray []ManagedDiskInput
+
+func (ManagedDiskArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ManagedDisk)(nil))
+}
+
+func (i ManagedDiskArray) ToManagedDiskArrayOutput() ManagedDiskArrayOutput {
+	return i.ToManagedDiskArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedDiskArray) ToManagedDiskArrayOutputWithContext(ctx context.Context) ManagedDiskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskArrayOutput)
+}
+
+// ManagedDiskMapInput is an input type that accepts ManagedDiskMap and ManagedDiskMapOutput values.
+// You can construct a concrete instance of `ManagedDiskMapInput` via:
+//
+//          ManagedDiskMap{ "key": ManagedDiskArgs{...} }
+type ManagedDiskMapInput interface {
+	pulumi.Input
+
+	ToManagedDiskMapOutput() ManagedDiskMapOutput
+	ToManagedDiskMapOutputWithContext(context.Context) ManagedDiskMapOutput
+}
+
+type ManagedDiskMap map[string]ManagedDiskInput
+
+func (ManagedDiskMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ManagedDisk)(nil))
+}
+
+func (i ManagedDiskMap) ToManagedDiskMapOutput() ManagedDiskMapOutput {
+	return i.ToManagedDiskMapOutputWithContext(context.Background())
+}
+
+func (i ManagedDiskMap) ToManagedDiskMapOutputWithContext(ctx context.Context) ManagedDiskMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskMapOutput)
 }
 
 type ManagedDiskOutput struct {
@@ -365,7 +444,7 @@ type ManagedDiskOutput struct {
 }
 
 func (ManagedDiskOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedDiskOutput)(nil)).Elem()
+	return reflect.TypeOf((*ManagedDisk)(nil))
 }
 
 func (o ManagedDiskOutput) ToManagedDiskOutput() ManagedDiskOutput {
@@ -376,6 +455,75 @@ func (o ManagedDiskOutput) ToManagedDiskOutputWithContext(ctx context.Context) M
 	return o
 }
 
+func (o ManagedDiskOutput) ToManagedDiskPtrOutput() ManagedDiskPtrOutput {
+	return o.ToManagedDiskPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedDiskOutput) ToManagedDiskPtrOutputWithContext(ctx context.Context) ManagedDiskPtrOutput {
+	return o.ApplyT(func(v ManagedDisk) *ManagedDisk {
+		return &v
+	}).(ManagedDiskPtrOutput)
+}
+
+type ManagedDiskPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ManagedDiskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDisk)(nil))
+}
+
+func (o ManagedDiskPtrOutput) ToManagedDiskPtrOutput() ManagedDiskPtrOutput {
+	return o
+}
+
+func (o ManagedDiskPtrOutput) ToManagedDiskPtrOutputWithContext(ctx context.Context) ManagedDiskPtrOutput {
+	return o
+}
+
+type ManagedDiskArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedDiskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDisk)(nil))
+}
+
+func (o ManagedDiskArrayOutput) ToManagedDiskArrayOutput() ManagedDiskArrayOutput {
+	return o
+}
+
+func (o ManagedDiskArrayOutput) ToManagedDiskArrayOutputWithContext(ctx context.Context) ManagedDiskArrayOutput {
+	return o
+}
+
+func (o ManagedDiskArrayOutput) Index(i pulumi.IntInput) ManagedDiskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedDisk {
+		return vs[0].([]ManagedDisk)[vs[1].(int)]
+	}).(ManagedDiskOutput)
+}
+
+type ManagedDiskMapOutput struct{ *pulumi.OutputState }
+
+func (ManagedDiskMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedDisk)(nil))
+}
+
+func (o ManagedDiskMapOutput) ToManagedDiskMapOutput() ManagedDiskMapOutput {
+	return o
+}
+
+func (o ManagedDiskMapOutput) ToManagedDiskMapOutputWithContext(ctx context.Context) ManagedDiskMapOutput {
+	return o
+}
+
+func (o ManagedDiskMapOutput) MapIndex(k pulumi.StringInput) ManagedDiskOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedDisk {
+		return vs[0].(map[string]ManagedDisk)[vs[1].(string)]
+	}).(ManagedDiskOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedDiskOutput{})
+	pulumi.RegisterOutputType(ManagedDiskPtrOutput{})
+	pulumi.RegisterOutputType(ManagedDiskArrayOutput{})
+	pulumi.RegisterOutputType(ManagedDiskMapOutput{})
 }

@@ -121,7 +121,8 @@ export class AccountNetworkRules extends pulumi.CustomResource {
     constructor(name: string, args: AccountNetworkRulesArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountNetworkRulesArgs | AccountNetworkRulesState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AccountNetworkRulesState | undefined;
             inputs["bypasses"] = state ? state.bypasses : undefined;
             inputs["defaultAction"] = state ? state.defaultAction : undefined;
@@ -131,13 +132,13 @@ export class AccountNetworkRules extends pulumi.CustomResource {
             inputs["virtualNetworkSubnetIds"] = state ? state.virtualNetworkSubnetIds : undefined;
         } else {
             const args = argsOrState as AccountNetworkRulesArgs | undefined;
-            if ((!args || args.defaultAction === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.defaultAction === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultAction'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
             inputs["bypasses"] = args ? args.bypasses : undefined;
@@ -147,12 +148,8 @@ export class AccountNetworkRules extends pulumi.CustomResource {
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             inputs["virtualNetworkSubnetIds"] = args ? args.virtualNetworkSubnetIds : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AccountNetworkRules.__pulumiType, name, inputs, opts);
     }

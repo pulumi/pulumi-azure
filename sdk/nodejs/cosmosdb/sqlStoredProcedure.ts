@@ -108,7 +108,8 @@ export class SqlStoredProcedure extends pulumi.CustomResource {
     constructor(name: string, args: SqlStoredProcedureArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SqlStoredProcedureArgs | SqlStoredProcedureState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SqlStoredProcedureState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["body"] = state ? state.body : undefined;
@@ -118,19 +119,19 @@ export class SqlStoredProcedure extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as SqlStoredProcedureArgs | undefined;
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.body === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.body === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'body'");
             }
-            if ((!args || args.containerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.containerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -140,12 +141,8 @@ export class SqlStoredProcedure extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SqlStoredProcedure.__pulumiType, name, inputs, opts);
     }

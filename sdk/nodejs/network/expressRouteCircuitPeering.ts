@@ -155,7 +155,8 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
     constructor(name: string, args: ExpressRouteCircuitPeeringArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExpressRouteCircuitPeeringArgs | ExpressRouteCircuitPeeringState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ExpressRouteCircuitPeeringState | undefined;
             inputs["azureAsn"] = state ? state.azureAsn : undefined;
             inputs["expressRouteCircuitName"] = state ? state.expressRouteCircuitName : undefined;
@@ -173,22 +174,22 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             inputs["vlanId"] = state ? state.vlanId : undefined;
         } else {
             const args = argsOrState as ExpressRouteCircuitPeeringArgs | undefined;
-            if ((!args || args.expressRouteCircuitName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.expressRouteCircuitName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'expressRouteCircuitName'");
             }
-            if ((!args || args.peeringType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.peeringType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'peeringType'");
             }
-            if ((!args || args.primaryPeerAddressPrefix === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.primaryPeerAddressPrefix === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'primaryPeerAddressPrefix'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.secondaryPeerAddressPrefix === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.secondaryPeerAddressPrefix === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secondaryPeerAddressPrefix'");
             }
-            if ((!args || args.vlanId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vlanId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vlanId'");
             }
             inputs["expressRouteCircuitName"] = args ? args.expressRouteCircuitName : undefined;
@@ -206,12 +207,8 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             inputs["primaryAzurePort"] = undefined /*out*/;
             inputs["secondaryAzurePort"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ExpressRouteCircuitPeering.__pulumiType, name, inputs, opts);
     }

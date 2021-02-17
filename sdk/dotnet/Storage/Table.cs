@@ -50,6 +50,7 @@ namespace Pulumi.Azure.Storage
     ///  $ pulumi import azure:storage/table:Table table1 "https://example.table.core.windows.net/Tables('replace-with-table-name')"
     /// ```
     /// </summary>
+    [AzureResourceType("azure:storage/table:Table")]
     public partial class Table : Pulumi.CustomResource
     {
         /// <summary>

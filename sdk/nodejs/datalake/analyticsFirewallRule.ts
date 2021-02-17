@@ -98,7 +98,8 @@ export class AnalyticsFirewallRule extends pulumi.CustomResource {
     constructor(name: string, args: AnalyticsFirewallRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AnalyticsFirewallRuleArgs | AnalyticsFirewallRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AnalyticsFirewallRuleState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["endIpAddress"] = state ? state.endIpAddress : undefined;
@@ -107,16 +108,16 @@ export class AnalyticsFirewallRule extends pulumi.CustomResource {
             inputs["startIpAddress"] = state ? state.startIpAddress : undefined;
         } else {
             const args = argsOrState as AnalyticsFirewallRuleArgs | undefined;
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.endIpAddress === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.endIpAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endIpAddress'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.startIpAddress === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.startIpAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startIpAddress'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -125,12 +126,8 @@ export class AnalyticsFirewallRule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["startIpAddress"] = args ? args.startIpAddress : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AnalyticsFirewallRule.__pulumiType, name, inputs, opts);
     }

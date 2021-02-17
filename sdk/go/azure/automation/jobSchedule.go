@@ -190,16 +190,95 @@ type JobScheduleInput interface {
 	ToJobScheduleOutputWithContext(ctx context.Context) JobScheduleOutput
 }
 
-func (JobSchedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobSchedule)(nil)).Elem()
+func (*JobSchedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobSchedule)(nil))
 }
 
-func (i JobSchedule) ToJobScheduleOutput() JobScheduleOutput {
+func (i *JobSchedule) ToJobScheduleOutput() JobScheduleOutput {
 	return i.ToJobScheduleOutputWithContext(context.Background())
 }
 
-func (i JobSchedule) ToJobScheduleOutputWithContext(ctx context.Context) JobScheduleOutput {
+func (i *JobSchedule) ToJobScheduleOutputWithContext(ctx context.Context) JobScheduleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleOutput)
+}
+
+func (i *JobSchedule) ToJobSchedulePtrOutput() JobSchedulePtrOutput {
+	return i.ToJobSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *JobSchedule) ToJobSchedulePtrOutputWithContext(ctx context.Context) JobSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobSchedulePtrOutput)
+}
+
+type JobSchedulePtrInput interface {
+	pulumi.Input
+
+	ToJobSchedulePtrOutput() JobSchedulePtrOutput
+	ToJobSchedulePtrOutputWithContext(ctx context.Context) JobSchedulePtrOutput
+}
+
+type jobSchedulePtrType JobScheduleArgs
+
+func (*jobSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobSchedule)(nil))
+}
+
+func (i *jobSchedulePtrType) ToJobSchedulePtrOutput() JobSchedulePtrOutput {
+	return i.ToJobSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *jobSchedulePtrType) ToJobSchedulePtrOutputWithContext(ctx context.Context) JobSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobSchedulePtrOutput)
+}
+
+// JobScheduleArrayInput is an input type that accepts JobScheduleArray and JobScheduleArrayOutput values.
+// You can construct a concrete instance of `JobScheduleArrayInput` via:
+//
+//          JobScheduleArray{ JobScheduleArgs{...} }
+type JobScheduleArrayInput interface {
+	pulumi.Input
+
+	ToJobScheduleArrayOutput() JobScheduleArrayOutput
+	ToJobScheduleArrayOutputWithContext(context.Context) JobScheduleArrayOutput
+}
+
+type JobScheduleArray []JobScheduleInput
+
+func (JobScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*JobSchedule)(nil))
+}
+
+func (i JobScheduleArray) ToJobScheduleArrayOutput() JobScheduleArrayOutput {
+	return i.ToJobScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i JobScheduleArray) ToJobScheduleArrayOutputWithContext(ctx context.Context) JobScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleArrayOutput)
+}
+
+// JobScheduleMapInput is an input type that accepts JobScheduleMap and JobScheduleMapOutput values.
+// You can construct a concrete instance of `JobScheduleMapInput` via:
+//
+//          JobScheduleMap{ "key": JobScheduleArgs{...} }
+type JobScheduleMapInput interface {
+	pulumi.Input
+
+	ToJobScheduleMapOutput() JobScheduleMapOutput
+	ToJobScheduleMapOutputWithContext(context.Context) JobScheduleMapOutput
+}
+
+type JobScheduleMap map[string]JobScheduleInput
+
+func (JobScheduleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*JobSchedule)(nil))
+}
+
+func (i JobScheduleMap) ToJobScheduleMapOutput() JobScheduleMapOutput {
+	return i.ToJobScheduleMapOutputWithContext(context.Background())
+}
+
+func (i JobScheduleMap) ToJobScheduleMapOutputWithContext(ctx context.Context) JobScheduleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleMapOutput)
 }
 
 type JobScheduleOutput struct {
@@ -207,7 +286,7 @@ type JobScheduleOutput struct {
 }
 
 func (JobScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobScheduleOutput)(nil)).Elem()
+	return reflect.TypeOf((*JobSchedule)(nil))
 }
 
 func (o JobScheduleOutput) ToJobScheduleOutput() JobScheduleOutput {
@@ -218,6 +297,75 @@ func (o JobScheduleOutput) ToJobScheduleOutputWithContext(ctx context.Context) J
 	return o
 }
 
+func (o JobScheduleOutput) ToJobSchedulePtrOutput() JobSchedulePtrOutput {
+	return o.ToJobSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o JobScheduleOutput) ToJobSchedulePtrOutputWithContext(ctx context.Context) JobSchedulePtrOutput {
+	return o.ApplyT(func(v JobSchedule) *JobSchedule {
+		return &v
+	}).(JobSchedulePtrOutput)
+}
+
+type JobSchedulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (JobSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobSchedule)(nil))
+}
+
+func (o JobSchedulePtrOutput) ToJobSchedulePtrOutput() JobSchedulePtrOutput {
+	return o
+}
+
+func (o JobSchedulePtrOutput) ToJobSchedulePtrOutputWithContext(ctx context.Context) JobSchedulePtrOutput {
+	return o
+}
+
+type JobScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (JobScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobSchedule)(nil))
+}
+
+func (o JobScheduleArrayOutput) ToJobScheduleArrayOutput() JobScheduleArrayOutput {
+	return o
+}
+
+func (o JobScheduleArrayOutput) ToJobScheduleArrayOutputWithContext(ctx context.Context) JobScheduleArrayOutput {
+	return o
+}
+
+func (o JobScheduleArrayOutput) Index(i pulumi.IntInput) JobScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobSchedule {
+		return vs[0].([]JobSchedule)[vs[1].(int)]
+	}).(JobScheduleOutput)
+}
+
+type JobScheduleMapOutput struct{ *pulumi.OutputState }
+
+func (JobScheduleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]JobSchedule)(nil))
+}
+
+func (o JobScheduleMapOutput) ToJobScheduleMapOutput() JobScheduleMapOutput {
+	return o
+}
+
+func (o JobScheduleMapOutput) ToJobScheduleMapOutputWithContext(ctx context.Context) JobScheduleMapOutput {
+	return o
+}
+
+func (o JobScheduleMapOutput) MapIndex(k pulumi.StringInput) JobScheduleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) JobSchedule {
+		return vs[0].(map[string]JobSchedule)[vs[1].(string)]
+	}).(JobScheduleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(JobScheduleOutput{})
+	pulumi.RegisterOutputType(JobSchedulePtrOutput{})
+	pulumi.RegisterOutputType(JobScheduleArrayOutput{})
+	pulumi.RegisterOutputType(JobScheduleMapOutput{})
 }

@@ -116,7 +116,8 @@ export class Pool extends pulumi.CustomResource {
     constructor(name: string, args: PoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PoolArgs | PoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PoolState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["autoScale"] = state ? state.autoScale : undefined;
@@ -136,19 +137,19 @@ export class Pool extends pulumi.CustomResource {
             inputs["vmSize"] = state ? state.vmSize : undefined;
         } else {
             const args = argsOrState as PoolArgs | undefined;
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.nodeAgentSkuId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.nodeAgentSkuId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nodeAgentSkuId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageImageReference === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageImageReference === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageImageReference'");
             }
-            if ((!args || args.vmSize === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vmSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmSize'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -168,12 +169,8 @@ export class Pool extends pulumi.CustomResource {
             inputs["storageImageReference"] = args ? args.storageImageReference : undefined;
             inputs["vmSize"] = args ? args.vmSize : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Pool.__pulumiType, name, inputs, opts);
     }

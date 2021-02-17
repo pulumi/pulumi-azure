@@ -258,16 +258,95 @@ type RunBookInput interface {
 	ToRunBookOutputWithContext(ctx context.Context) RunBookOutput
 }
 
-func (RunBook) ElementType() reflect.Type {
-	return reflect.TypeOf((*RunBook)(nil)).Elem()
+func (*RunBook) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunBook)(nil))
 }
 
-func (i RunBook) ToRunBookOutput() RunBookOutput {
+func (i *RunBook) ToRunBookOutput() RunBookOutput {
 	return i.ToRunBookOutputWithContext(context.Background())
 }
 
-func (i RunBook) ToRunBookOutputWithContext(ctx context.Context) RunBookOutput {
+func (i *RunBook) ToRunBookOutputWithContext(ctx context.Context) RunBookOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RunBookOutput)
+}
+
+func (i *RunBook) ToRunBookPtrOutput() RunBookPtrOutput {
+	return i.ToRunBookPtrOutputWithContext(context.Background())
+}
+
+func (i *RunBook) ToRunBookPtrOutputWithContext(ctx context.Context) RunBookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunBookPtrOutput)
+}
+
+type RunBookPtrInput interface {
+	pulumi.Input
+
+	ToRunBookPtrOutput() RunBookPtrOutput
+	ToRunBookPtrOutputWithContext(ctx context.Context) RunBookPtrOutput
+}
+
+type runBookPtrType RunBookArgs
+
+func (*runBookPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RunBook)(nil))
+}
+
+func (i *runBookPtrType) ToRunBookPtrOutput() RunBookPtrOutput {
+	return i.ToRunBookPtrOutputWithContext(context.Background())
+}
+
+func (i *runBookPtrType) ToRunBookPtrOutputWithContext(ctx context.Context) RunBookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunBookPtrOutput)
+}
+
+// RunBookArrayInput is an input type that accepts RunBookArray and RunBookArrayOutput values.
+// You can construct a concrete instance of `RunBookArrayInput` via:
+//
+//          RunBookArray{ RunBookArgs{...} }
+type RunBookArrayInput interface {
+	pulumi.Input
+
+	ToRunBookArrayOutput() RunBookArrayOutput
+	ToRunBookArrayOutputWithContext(context.Context) RunBookArrayOutput
+}
+
+type RunBookArray []RunBookInput
+
+func (RunBookArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RunBook)(nil))
+}
+
+func (i RunBookArray) ToRunBookArrayOutput() RunBookArrayOutput {
+	return i.ToRunBookArrayOutputWithContext(context.Background())
+}
+
+func (i RunBookArray) ToRunBookArrayOutputWithContext(ctx context.Context) RunBookArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunBookArrayOutput)
+}
+
+// RunBookMapInput is an input type that accepts RunBookMap and RunBookMapOutput values.
+// You can construct a concrete instance of `RunBookMapInput` via:
+//
+//          RunBookMap{ "key": RunBookArgs{...} }
+type RunBookMapInput interface {
+	pulumi.Input
+
+	ToRunBookMapOutput() RunBookMapOutput
+	ToRunBookMapOutputWithContext(context.Context) RunBookMapOutput
+}
+
+type RunBookMap map[string]RunBookInput
+
+func (RunBookMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RunBook)(nil))
+}
+
+func (i RunBookMap) ToRunBookMapOutput() RunBookMapOutput {
+	return i.ToRunBookMapOutputWithContext(context.Background())
+}
+
+func (i RunBookMap) ToRunBookMapOutputWithContext(ctx context.Context) RunBookMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunBookMapOutput)
 }
 
 type RunBookOutput struct {
@@ -275,7 +354,7 @@ type RunBookOutput struct {
 }
 
 func (RunBookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RunBookOutput)(nil)).Elem()
+	return reflect.TypeOf((*RunBook)(nil))
 }
 
 func (o RunBookOutput) ToRunBookOutput() RunBookOutput {
@@ -286,6 +365,75 @@ func (o RunBookOutput) ToRunBookOutputWithContext(ctx context.Context) RunBookOu
 	return o
 }
 
+func (o RunBookOutput) ToRunBookPtrOutput() RunBookPtrOutput {
+	return o.ToRunBookPtrOutputWithContext(context.Background())
+}
+
+func (o RunBookOutput) ToRunBookPtrOutputWithContext(ctx context.Context) RunBookPtrOutput {
+	return o.ApplyT(func(v RunBook) *RunBook {
+		return &v
+	}).(RunBookPtrOutput)
+}
+
+type RunBookPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RunBookPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RunBook)(nil))
+}
+
+func (o RunBookPtrOutput) ToRunBookPtrOutput() RunBookPtrOutput {
+	return o
+}
+
+func (o RunBookPtrOutput) ToRunBookPtrOutputWithContext(ctx context.Context) RunBookPtrOutput {
+	return o
+}
+
+type RunBookArrayOutput struct{ *pulumi.OutputState }
+
+func (RunBookArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RunBook)(nil))
+}
+
+func (o RunBookArrayOutput) ToRunBookArrayOutput() RunBookArrayOutput {
+	return o
+}
+
+func (o RunBookArrayOutput) ToRunBookArrayOutputWithContext(ctx context.Context) RunBookArrayOutput {
+	return o
+}
+
+func (o RunBookArrayOutput) Index(i pulumi.IntInput) RunBookOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RunBook {
+		return vs[0].([]RunBook)[vs[1].(int)]
+	}).(RunBookOutput)
+}
+
+type RunBookMapOutput struct{ *pulumi.OutputState }
+
+func (RunBookMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RunBook)(nil))
+}
+
+func (o RunBookMapOutput) ToRunBookMapOutput() RunBookMapOutput {
+	return o
+}
+
+func (o RunBookMapOutput) ToRunBookMapOutputWithContext(ctx context.Context) RunBookMapOutput {
+	return o
+}
+
+func (o RunBookMapOutput) MapIndex(k pulumi.StringInput) RunBookOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RunBook {
+		return vs[0].(map[string]RunBook)[vs[1].(string)]
+	}).(RunBookOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RunBookOutput{})
+	pulumi.RegisterOutputType(RunBookPtrOutput{})
+	pulumi.RegisterOutputType(RunBookArrayOutput{})
+	pulumi.RegisterOutputType(RunBookMapOutput{})
 }

@@ -82,7 +82,8 @@ export class ScheduledQueryRulesLog extends pulumi.CustomResource {
     constructor(name: string, args: ScheduledQueryRulesLogArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScheduledQueryRulesLogArgs | ScheduledQueryRulesLogState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ScheduledQueryRulesLogState | undefined;
             inputs["authorizedResourceIds"] = state ? state.authorizedResourceIds : undefined;
             inputs["criteria"] = state ? state.criteria : undefined;
@@ -95,13 +96,13 @@ export class ScheduledQueryRulesLog extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ScheduledQueryRulesLogArgs | undefined;
-            if ((!args || args.criteria === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.criteria === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'criteria'");
             }
-            if ((!args || args.dataSourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataSourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataSourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["authorizedResourceIds"] = args ? args.authorizedResourceIds : undefined;
@@ -114,12 +115,8 @@ export class ScheduledQueryRulesLog extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ScheduledQueryRulesLog.__pulumiType, name, inputs, opts);
     }

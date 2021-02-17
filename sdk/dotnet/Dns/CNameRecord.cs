@@ -86,6 +86,7 @@ namespace Pulumi.Azure.Dns
     ///  $ pulumi import azure:dns/cNameRecord:CNameRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/CNAME/myrecord1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:dns/cNameRecord:CNameRecord")]
     public partial class CNameRecord : Pulumi.CustomResource
     {
         /// <summary>

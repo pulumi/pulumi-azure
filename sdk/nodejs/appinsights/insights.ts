@@ -124,7 +124,8 @@ export class Insights extends pulumi.CustomResource {
     constructor(name: string, args: InsightsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InsightsArgs | InsightsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as InsightsState | undefined;
             inputs["appId"] = state ? state.appId : undefined;
             inputs["applicationType"] = state ? state.applicationType : undefined;
@@ -141,10 +142,10 @@ export class Insights extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as InsightsArgs | undefined;
-            if ((!args || args.applicationType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.applicationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationType"] = args ? args.applicationType : undefined;
@@ -161,12 +162,8 @@ export class Insights extends pulumi.CustomResource {
             inputs["connectionString"] = undefined /*out*/;
             inputs["instrumentationKey"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Insights.__pulumiType, name, inputs, opts);
     }

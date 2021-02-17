@@ -236,16 +236,95 @@ type VirtualMachineScaleSetExtensionInput interface {
 	ToVirtualMachineScaleSetExtensionOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionOutput
 }
 
-func (VirtualMachineScaleSetExtension) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetExtension)(nil)).Elem()
+func (*VirtualMachineScaleSetExtension) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSetExtension)(nil))
 }
 
-func (i VirtualMachineScaleSetExtension) ToVirtualMachineScaleSetExtensionOutput() VirtualMachineScaleSetExtensionOutput {
+func (i *VirtualMachineScaleSetExtension) ToVirtualMachineScaleSetExtensionOutput() VirtualMachineScaleSetExtensionOutput {
 	return i.ToVirtualMachineScaleSetExtensionOutputWithContext(context.Background())
 }
 
-func (i VirtualMachineScaleSetExtension) ToVirtualMachineScaleSetExtensionOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionOutput {
+func (i *VirtualMachineScaleSetExtension) ToVirtualMachineScaleSetExtensionOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionOutput)
+}
+
+func (i *VirtualMachineScaleSetExtension) ToVirtualMachineScaleSetExtensionPtrOutput() VirtualMachineScaleSetExtensionPtrOutput {
+	return i.ToVirtualMachineScaleSetExtensionPtrOutputWithContext(context.Background())
+}
+
+func (i *VirtualMachineScaleSetExtension) ToVirtualMachineScaleSetExtensionPtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionPtrOutput)
+}
+
+type VirtualMachineScaleSetExtensionPtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineScaleSetExtensionPtrOutput() VirtualMachineScaleSetExtensionPtrOutput
+	ToVirtualMachineScaleSetExtensionPtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionPtrOutput
+}
+
+type virtualMachineScaleSetExtensionPtrType VirtualMachineScaleSetExtensionArgs
+
+func (*virtualMachineScaleSetExtensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineScaleSetExtension)(nil))
+}
+
+func (i *virtualMachineScaleSetExtensionPtrType) ToVirtualMachineScaleSetExtensionPtrOutput() VirtualMachineScaleSetExtensionPtrOutput {
+	return i.ToVirtualMachineScaleSetExtensionPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineScaleSetExtensionPtrType) ToVirtualMachineScaleSetExtensionPtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionPtrOutput)
+}
+
+// VirtualMachineScaleSetExtensionArrayInput is an input type that accepts VirtualMachineScaleSetExtensionArray and VirtualMachineScaleSetExtensionArrayOutput values.
+// You can construct a concrete instance of `VirtualMachineScaleSetExtensionArrayInput` via:
+//
+//          VirtualMachineScaleSetExtensionArray{ VirtualMachineScaleSetExtensionArgs{...} }
+type VirtualMachineScaleSetExtensionArrayInput interface {
+	pulumi.Input
+
+	ToVirtualMachineScaleSetExtensionArrayOutput() VirtualMachineScaleSetExtensionArrayOutput
+	ToVirtualMachineScaleSetExtensionArrayOutputWithContext(context.Context) VirtualMachineScaleSetExtensionArrayOutput
+}
+
+type VirtualMachineScaleSetExtensionArray []VirtualMachineScaleSetExtensionInput
+
+func (VirtualMachineScaleSetExtensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VirtualMachineScaleSetExtension)(nil))
+}
+
+func (i VirtualMachineScaleSetExtensionArray) ToVirtualMachineScaleSetExtensionArrayOutput() VirtualMachineScaleSetExtensionArrayOutput {
+	return i.ToVirtualMachineScaleSetExtensionArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineScaleSetExtensionArray) ToVirtualMachineScaleSetExtensionArrayOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionArrayOutput)
+}
+
+// VirtualMachineScaleSetExtensionMapInput is an input type that accepts VirtualMachineScaleSetExtensionMap and VirtualMachineScaleSetExtensionMapOutput values.
+// You can construct a concrete instance of `VirtualMachineScaleSetExtensionMapInput` via:
+//
+//          VirtualMachineScaleSetExtensionMap{ "key": VirtualMachineScaleSetExtensionArgs{...} }
+type VirtualMachineScaleSetExtensionMapInput interface {
+	pulumi.Input
+
+	ToVirtualMachineScaleSetExtensionMapOutput() VirtualMachineScaleSetExtensionMapOutput
+	ToVirtualMachineScaleSetExtensionMapOutputWithContext(context.Context) VirtualMachineScaleSetExtensionMapOutput
+}
+
+type VirtualMachineScaleSetExtensionMap map[string]VirtualMachineScaleSetExtensionInput
+
+func (VirtualMachineScaleSetExtensionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VirtualMachineScaleSetExtension)(nil))
+}
+
+func (i VirtualMachineScaleSetExtensionMap) ToVirtualMachineScaleSetExtensionMapOutput() VirtualMachineScaleSetExtensionMapOutput {
+	return i.ToVirtualMachineScaleSetExtensionMapOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineScaleSetExtensionMap) ToVirtualMachineScaleSetExtensionMapOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionMapOutput)
 }
 
 type VirtualMachineScaleSetExtensionOutput struct {
@@ -253,7 +332,7 @@ type VirtualMachineScaleSetExtensionOutput struct {
 }
 
 func (VirtualMachineScaleSetExtensionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetExtensionOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualMachineScaleSetExtension)(nil))
 }
 
 func (o VirtualMachineScaleSetExtensionOutput) ToVirtualMachineScaleSetExtensionOutput() VirtualMachineScaleSetExtensionOutput {
@@ -264,6 +343,75 @@ func (o VirtualMachineScaleSetExtensionOutput) ToVirtualMachineScaleSetExtension
 	return o
 }
 
+func (o VirtualMachineScaleSetExtensionOutput) ToVirtualMachineScaleSetExtensionPtrOutput() VirtualMachineScaleSetExtensionPtrOutput {
+	return o.ToVirtualMachineScaleSetExtensionPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineScaleSetExtensionOutput) ToVirtualMachineScaleSetExtensionPtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtension) *VirtualMachineScaleSetExtension {
+		return &v
+	}).(VirtualMachineScaleSetExtensionPtrOutput)
+}
+
+type VirtualMachineScaleSetExtensionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualMachineScaleSetExtensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineScaleSetExtension)(nil))
+}
+
+func (o VirtualMachineScaleSetExtensionPtrOutput) ToVirtualMachineScaleSetExtensionPtrOutput() VirtualMachineScaleSetExtensionPtrOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetExtensionPtrOutput) ToVirtualMachineScaleSetExtensionPtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionPtrOutput {
+	return o
+}
+
+type VirtualMachineScaleSetExtensionArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineScaleSetExtensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualMachineScaleSetExtension)(nil))
+}
+
+func (o VirtualMachineScaleSetExtensionArrayOutput) ToVirtualMachineScaleSetExtensionArrayOutput() VirtualMachineScaleSetExtensionArrayOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetExtensionArrayOutput) ToVirtualMachineScaleSetExtensionArrayOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionArrayOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetExtensionArrayOutput) Index(i pulumi.IntInput) VirtualMachineScaleSetExtensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachineScaleSetExtension {
+		return vs[0].([]VirtualMachineScaleSetExtension)[vs[1].(int)]
+	}).(VirtualMachineScaleSetExtensionOutput)
+}
+
+type VirtualMachineScaleSetExtensionMapOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineScaleSetExtensionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VirtualMachineScaleSetExtension)(nil))
+}
+
+func (o VirtualMachineScaleSetExtensionMapOutput) ToVirtualMachineScaleSetExtensionMapOutput() VirtualMachineScaleSetExtensionMapOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetExtensionMapOutput) ToVirtualMachineScaleSetExtensionMapOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionMapOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetExtensionMapOutput) MapIndex(k pulumi.StringInput) VirtualMachineScaleSetExtensionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualMachineScaleSetExtension {
+		return vs[0].(map[string]VirtualMachineScaleSetExtension)[vs[1].(string)]
+	}).(VirtualMachineScaleSetExtensionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualMachineScaleSetExtensionOutput{})
+	pulumi.RegisterOutputType(VirtualMachineScaleSetExtensionPtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineScaleSetExtensionArrayOutput{})
+	pulumi.RegisterOutputType(VirtualMachineScaleSetExtensionMapOutput{})
 }

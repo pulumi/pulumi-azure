@@ -250,16 +250,95 @@ type CacheBlobTargetInput interface {
 	ToCacheBlobTargetOutputWithContext(ctx context.Context) CacheBlobTargetOutput
 }
 
-func (CacheBlobTarget) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheBlobTarget)(nil)).Elem()
+func (*CacheBlobTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheBlobTarget)(nil))
 }
 
-func (i CacheBlobTarget) ToCacheBlobTargetOutput() CacheBlobTargetOutput {
+func (i *CacheBlobTarget) ToCacheBlobTargetOutput() CacheBlobTargetOutput {
 	return i.ToCacheBlobTargetOutputWithContext(context.Background())
 }
 
-func (i CacheBlobTarget) ToCacheBlobTargetOutputWithContext(ctx context.Context) CacheBlobTargetOutput {
+func (i *CacheBlobTarget) ToCacheBlobTargetOutputWithContext(ctx context.Context) CacheBlobTargetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CacheBlobTargetOutput)
+}
+
+func (i *CacheBlobTarget) ToCacheBlobTargetPtrOutput() CacheBlobTargetPtrOutput {
+	return i.ToCacheBlobTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *CacheBlobTarget) ToCacheBlobTargetPtrOutputWithContext(ctx context.Context) CacheBlobTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheBlobTargetPtrOutput)
+}
+
+type CacheBlobTargetPtrInput interface {
+	pulumi.Input
+
+	ToCacheBlobTargetPtrOutput() CacheBlobTargetPtrOutput
+	ToCacheBlobTargetPtrOutputWithContext(ctx context.Context) CacheBlobTargetPtrOutput
+}
+
+type cacheBlobTargetPtrType CacheBlobTargetArgs
+
+func (*cacheBlobTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheBlobTarget)(nil))
+}
+
+func (i *cacheBlobTargetPtrType) ToCacheBlobTargetPtrOutput() CacheBlobTargetPtrOutput {
+	return i.ToCacheBlobTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheBlobTargetPtrType) ToCacheBlobTargetPtrOutputWithContext(ctx context.Context) CacheBlobTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheBlobTargetPtrOutput)
+}
+
+// CacheBlobTargetArrayInput is an input type that accepts CacheBlobTargetArray and CacheBlobTargetArrayOutput values.
+// You can construct a concrete instance of `CacheBlobTargetArrayInput` via:
+//
+//          CacheBlobTargetArray{ CacheBlobTargetArgs{...} }
+type CacheBlobTargetArrayInput interface {
+	pulumi.Input
+
+	ToCacheBlobTargetArrayOutput() CacheBlobTargetArrayOutput
+	ToCacheBlobTargetArrayOutputWithContext(context.Context) CacheBlobTargetArrayOutput
+}
+
+type CacheBlobTargetArray []CacheBlobTargetInput
+
+func (CacheBlobTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*CacheBlobTarget)(nil))
+}
+
+func (i CacheBlobTargetArray) ToCacheBlobTargetArrayOutput() CacheBlobTargetArrayOutput {
+	return i.ToCacheBlobTargetArrayOutputWithContext(context.Background())
+}
+
+func (i CacheBlobTargetArray) ToCacheBlobTargetArrayOutputWithContext(ctx context.Context) CacheBlobTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheBlobTargetArrayOutput)
+}
+
+// CacheBlobTargetMapInput is an input type that accepts CacheBlobTargetMap and CacheBlobTargetMapOutput values.
+// You can construct a concrete instance of `CacheBlobTargetMapInput` via:
+//
+//          CacheBlobTargetMap{ "key": CacheBlobTargetArgs{...} }
+type CacheBlobTargetMapInput interface {
+	pulumi.Input
+
+	ToCacheBlobTargetMapOutput() CacheBlobTargetMapOutput
+	ToCacheBlobTargetMapOutputWithContext(context.Context) CacheBlobTargetMapOutput
+}
+
+type CacheBlobTargetMap map[string]CacheBlobTargetInput
+
+func (CacheBlobTargetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*CacheBlobTarget)(nil))
+}
+
+func (i CacheBlobTargetMap) ToCacheBlobTargetMapOutput() CacheBlobTargetMapOutput {
+	return i.ToCacheBlobTargetMapOutputWithContext(context.Background())
+}
+
+func (i CacheBlobTargetMap) ToCacheBlobTargetMapOutputWithContext(ctx context.Context) CacheBlobTargetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheBlobTargetMapOutput)
 }
 
 type CacheBlobTargetOutput struct {
@@ -267,7 +346,7 @@ type CacheBlobTargetOutput struct {
 }
 
 func (CacheBlobTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheBlobTargetOutput)(nil)).Elem()
+	return reflect.TypeOf((*CacheBlobTarget)(nil))
 }
 
 func (o CacheBlobTargetOutput) ToCacheBlobTargetOutput() CacheBlobTargetOutput {
@@ -278,6 +357,75 @@ func (o CacheBlobTargetOutput) ToCacheBlobTargetOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o CacheBlobTargetOutput) ToCacheBlobTargetPtrOutput() CacheBlobTargetPtrOutput {
+	return o.ToCacheBlobTargetPtrOutputWithContext(context.Background())
+}
+
+func (o CacheBlobTargetOutput) ToCacheBlobTargetPtrOutputWithContext(ctx context.Context) CacheBlobTargetPtrOutput {
+	return o.ApplyT(func(v CacheBlobTarget) *CacheBlobTarget {
+		return &v
+	}).(CacheBlobTargetPtrOutput)
+}
+
+type CacheBlobTargetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CacheBlobTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheBlobTarget)(nil))
+}
+
+func (o CacheBlobTargetPtrOutput) ToCacheBlobTargetPtrOutput() CacheBlobTargetPtrOutput {
+	return o
+}
+
+func (o CacheBlobTargetPtrOutput) ToCacheBlobTargetPtrOutputWithContext(ctx context.Context) CacheBlobTargetPtrOutput {
+	return o
+}
+
+type CacheBlobTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CacheBlobTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CacheBlobTarget)(nil))
+}
+
+func (o CacheBlobTargetArrayOutput) ToCacheBlobTargetArrayOutput() CacheBlobTargetArrayOutput {
+	return o
+}
+
+func (o CacheBlobTargetArrayOutput) ToCacheBlobTargetArrayOutputWithContext(ctx context.Context) CacheBlobTargetArrayOutput {
+	return o
+}
+
+func (o CacheBlobTargetArrayOutput) Index(i pulumi.IntInput) CacheBlobTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CacheBlobTarget {
+		return vs[0].([]CacheBlobTarget)[vs[1].(int)]
+	}).(CacheBlobTargetOutput)
+}
+
+type CacheBlobTargetMapOutput struct{ *pulumi.OutputState }
+
+func (CacheBlobTargetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CacheBlobTarget)(nil))
+}
+
+func (o CacheBlobTargetMapOutput) ToCacheBlobTargetMapOutput() CacheBlobTargetMapOutput {
+	return o
+}
+
+func (o CacheBlobTargetMapOutput) ToCacheBlobTargetMapOutputWithContext(ctx context.Context) CacheBlobTargetMapOutput {
+	return o
+}
+
+func (o CacheBlobTargetMapOutput) MapIndex(k pulumi.StringInput) CacheBlobTargetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CacheBlobTarget {
+		return vs[0].(map[string]CacheBlobTarget)[vs[1].(string)]
+	}).(CacheBlobTargetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CacheBlobTargetOutput{})
+	pulumi.RegisterOutputType(CacheBlobTargetPtrOutput{})
+	pulumi.RegisterOutputType(CacheBlobTargetArrayOutput{})
+	pulumi.RegisterOutputType(CacheBlobTargetMapOutput{})
 }

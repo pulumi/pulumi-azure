@@ -181,16 +181,95 @@ type ApiOperationPolicyInput interface {
 	ToApiOperationPolicyOutputWithContext(ctx context.Context) ApiOperationPolicyOutput
 }
 
-func (ApiOperationPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiOperationPolicy)(nil)).Elem()
+func (*ApiOperationPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOperationPolicy)(nil))
 }
 
-func (i ApiOperationPolicy) ToApiOperationPolicyOutput() ApiOperationPolicyOutput {
+func (i *ApiOperationPolicy) ToApiOperationPolicyOutput() ApiOperationPolicyOutput {
 	return i.ToApiOperationPolicyOutputWithContext(context.Background())
 }
 
-func (i ApiOperationPolicy) ToApiOperationPolicyOutputWithContext(ctx context.Context) ApiOperationPolicyOutput {
+func (i *ApiOperationPolicy) ToApiOperationPolicyOutputWithContext(ctx context.Context) ApiOperationPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationPolicyOutput)
+}
+
+func (i *ApiOperationPolicy) ToApiOperationPolicyPtrOutput() ApiOperationPolicyPtrOutput {
+	return i.ToApiOperationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *ApiOperationPolicy) ToApiOperationPolicyPtrOutputWithContext(ctx context.Context) ApiOperationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationPolicyPtrOutput)
+}
+
+type ApiOperationPolicyPtrInput interface {
+	pulumi.Input
+
+	ToApiOperationPolicyPtrOutput() ApiOperationPolicyPtrOutput
+	ToApiOperationPolicyPtrOutputWithContext(ctx context.Context) ApiOperationPolicyPtrOutput
+}
+
+type apiOperationPolicyPtrType ApiOperationPolicyArgs
+
+func (*apiOperationPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiOperationPolicy)(nil))
+}
+
+func (i *apiOperationPolicyPtrType) ToApiOperationPolicyPtrOutput() ApiOperationPolicyPtrOutput {
+	return i.ToApiOperationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *apiOperationPolicyPtrType) ToApiOperationPolicyPtrOutputWithContext(ctx context.Context) ApiOperationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationPolicyPtrOutput)
+}
+
+// ApiOperationPolicyArrayInput is an input type that accepts ApiOperationPolicyArray and ApiOperationPolicyArrayOutput values.
+// You can construct a concrete instance of `ApiOperationPolicyArrayInput` via:
+//
+//          ApiOperationPolicyArray{ ApiOperationPolicyArgs{...} }
+type ApiOperationPolicyArrayInput interface {
+	pulumi.Input
+
+	ToApiOperationPolicyArrayOutput() ApiOperationPolicyArrayOutput
+	ToApiOperationPolicyArrayOutputWithContext(context.Context) ApiOperationPolicyArrayOutput
+}
+
+type ApiOperationPolicyArray []ApiOperationPolicyInput
+
+func (ApiOperationPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ApiOperationPolicy)(nil))
+}
+
+func (i ApiOperationPolicyArray) ToApiOperationPolicyArrayOutput() ApiOperationPolicyArrayOutput {
+	return i.ToApiOperationPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i ApiOperationPolicyArray) ToApiOperationPolicyArrayOutputWithContext(ctx context.Context) ApiOperationPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationPolicyArrayOutput)
+}
+
+// ApiOperationPolicyMapInput is an input type that accepts ApiOperationPolicyMap and ApiOperationPolicyMapOutput values.
+// You can construct a concrete instance of `ApiOperationPolicyMapInput` via:
+//
+//          ApiOperationPolicyMap{ "key": ApiOperationPolicyArgs{...} }
+type ApiOperationPolicyMapInput interface {
+	pulumi.Input
+
+	ToApiOperationPolicyMapOutput() ApiOperationPolicyMapOutput
+	ToApiOperationPolicyMapOutputWithContext(context.Context) ApiOperationPolicyMapOutput
+}
+
+type ApiOperationPolicyMap map[string]ApiOperationPolicyInput
+
+func (ApiOperationPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ApiOperationPolicy)(nil))
+}
+
+func (i ApiOperationPolicyMap) ToApiOperationPolicyMapOutput() ApiOperationPolicyMapOutput {
+	return i.ToApiOperationPolicyMapOutputWithContext(context.Background())
+}
+
+func (i ApiOperationPolicyMap) ToApiOperationPolicyMapOutputWithContext(ctx context.Context) ApiOperationPolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationPolicyMapOutput)
 }
 
 type ApiOperationPolicyOutput struct {
@@ -198,7 +277,7 @@ type ApiOperationPolicyOutput struct {
 }
 
 func (ApiOperationPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiOperationPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApiOperationPolicy)(nil))
 }
 
 func (o ApiOperationPolicyOutput) ToApiOperationPolicyOutput() ApiOperationPolicyOutput {
@@ -209,6 +288,75 @@ func (o ApiOperationPolicyOutput) ToApiOperationPolicyOutputWithContext(ctx cont
 	return o
 }
 
+func (o ApiOperationPolicyOutput) ToApiOperationPolicyPtrOutput() ApiOperationPolicyPtrOutput {
+	return o.ToApiOperationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ApiOperationPolicyOutput) ToApiOperationPolicyPtrOutputWithContext(ctx context.Context) ApiOperationPolicyPtrOutput {
+	return o.ApplyT(func(v ApiOperationPolicy) *ApiOperationPolicy {
+		return &v
+	}).(ApiOperationPolicyPtrOutput)
+}
+
+type ApiOperationPolicyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiOperationPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiOperationPolicy)(nil))
+}
+
+func (o ApiOperationPolicyPtrOutput) ToApiOperationPolicyPtrOutput() ApiOperationPolicyPtrOutput {
+	return o
+}
+
+func (o ApiOperationPolicyPtrOutput) ToApiOperationPolicyPtrOutputWithContext(ctx context.Context) ApiOperationPolicyPtrOutput {
+	return o
+}
+
+type ApiOperationPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiOperationPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiOperationPolicy)(nil))
+}
+
+func (o ApiOperationPolicyArrayOutput) ToApiOperationPolicyArrayOutput() ApiOperationPolicyArrayOutput {
+	return o
+}
+
+func (o ApiOperationPolicyArrayOutput) ToApiOperationPolicyArrayOutputWithContext(ctx context.Context) ApiOperationPolicyArrayOutput {
+	return o
+}
+
+func (o ApiOperationPolicyArrayOutput) Index(i pulumi.IntInput) ApiOperationPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperationPolicy {
+		return vs[0].([]ApiOperationPolicy)[vs[1].(int)]
+	}).(ApiOperationPolicyOutput)
+}
+
+type ApiOperationPolicyMapOutput struct{ *pulumi.OutputState }
+
+func (ApiOperationPolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApiOperationPolicy)(nil))
+}
+
+func (o ApiOperationPolicyMapOutput) ToApiOperationPolicyMapOutput() ApiOperationPolicyMapOutput {
+	return o
+}
+
+func (o ApiOperationPolicyMapOutput) ToApiOperationPolicyMapOutputWithContext(ctx context.Context) ApiOperationPolicyMapOutput {
+	return o
+}
+
+func (o ApiOperationPolicyMapOutput) MapIndex(k pulumi.StringInput) ApiOperationPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApiOperationPolicy {
+		return vs[0].(map[string]ApiOperationPolicy)[vs[1].(string)]
+	}).(ApiOperationPolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiOperationPolicyOutput{})
+	pulumi.RegisterOutputType(ApiOperationPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ApiOperationPolicyArrayOutput{})
+	pulumi.RegisterOutputType(ApiOperationPolicyMapOutput{})
 }

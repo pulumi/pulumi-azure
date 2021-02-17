@@ -205,16 +205,95 @@ type VirtualWanInput interface {
 	ToVirtualWanOutputWithContext(ctx context.Context) VirtualWanOutput
 }
 
-func (VirtualWan) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualWan)(nil)).Elem()
+func (*VirtualWan) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualWan)(nil))
 }
 
-func (i VirtualWan) ToVirtualWanOutput() VirtualWanOutput {
+func (i *VirtualWan) ToVirtualWanOutput() VirtualWanOutput {
 	return i.ToVirtualWanOutputWithContext(context.Background())
 }
 
-func (i VirtualWan) ToVirtualWanOutputWithContext(ctx context.Context) VirtualWanOutput {
+func (i *VirtualWan) ToVirtualWanOutputWithContext(ctx context.Context) VirtualWanOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualWanOutput)
+}
+
+func (i *VirtualWan) ToVirtualWanPtrOutput() VirtualWanPtrOutput {
+	return i.ToVirtualWanPtrOutputWithContext(context.Background())
+}
+
+func (i *VirtualWan) ToVirtualWanPtrOutputWithContext(ctx context.Context) VirtualWanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualWanPtrOutput)
+}
+
+type VirtualWanPtrInput interface {
+	pulumi.Input
+
+	ToVirtualWanPtrOutput() VirtualWanPtrOutput
+	ToVirtualWanPtrOutputWithContext(ctx context.Context) VirtualWanPtrOutput
+}
+
+type virtualWanPtrType VirtualWanArgs
+
+func (*virtualWanPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualWan)(nil))
+}
+
+func (i *virtualWanPtrType) ToVirtualWanPtrOutput() VirtualWanPtrOutput {
+	return i.ToVirtualWanPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualWanPtrType) ToVirtualWanPtrOutputWithContext(ctx context.Context) VirtualWanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualWanPtrOutput)
+}
+
+// VirtualWanArrayInput is an input type that accepts VirtualWanArray and VirtualWanArrayOutput values.
+// You can construct a concrete instance of `VirtualWanArrayInput` via:
+//
+//          VirtualWanArray{ VirtualWanArgs{...} }
+type VirtualWanArrayInput interface {
+	pulumi.Input
+
+	ToVirtualWanArrayOutput() VirtualWanArrayOutput
+	ToVirtualWanArrayOutputWithContext(context.Context) VirtualWanArrayOutput
+}
+
+type VirtualWanArray []VirtualWanInput
+
+func (VirtualWanArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VirtualWan)(nil))
+}
+
+func (i VirtualWanArray) ToVirtualWanArrayOutput() VirtualWanArrayOutput {
+	return i.ToVirtualWanArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualWanArray) ToVirtualWanArrayOutputWithContext(ctx context.Context) VirtualWanArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualWanArrayOutput)
+}
+
+// VirtualWanMapInput is an input type that accepts VirtualWanMap and VirtualWanMapOutput values.
+// You can construct a concrete instance of `VirtualWanMapInput` via:
+//
+//          VirtualWanMap{ "key": VirtualWanArgs{...} }
+type VirtualWanMapInput interface {
+	pulumi.Input
+
+	ToVirtualWanMapOutput() VirtualWanMapOutput
+	ToVirtualWanMapOutputWithContext(context.Context) VirtualWanMapOutput
+}
+
+type VirtualWanMap map[string]VirtualWanInput
+
+func (VirtualWanMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VirtualWan)(nil))
+}
+
+func (i VirtualWanMap) ToVirtualWanMapOutput() VirtualWanMapOutput {
+	return i.ToVirtualWanMapOutputWithContext(context.Background())
+}
+
+func (i VirtualWanMap) ToVirtualWanMapOutputWithContext(ctx context.Context) VirtualWanMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualWanMapOutput)
 }
 
 type VirtualWanOutput struct {
@@ -222,7 +301,7 @@ type VirtualWanOutput struct {
 }
 
 func (VirtualWanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualWanOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualWan)(nil))
 }
 
 func (o VirtualWanOutput) ToVirtualWanOutput() VirtualWanOutput {
@@ -233,6 +312,75 @@ func (o VirtualWanOutput) ToVirtualWanOutputWithContext(ctx context.Context) Vir
 	return o
 }
 
+func (o VirtualWanOutput) ToVirtualWanPtrOutput() VirtualWanPtrOutput {
+	return o.ToVirtualWanPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualWanOutput) ToVirtualWanPtrOutputWithContext(ctx context.Context) VirtualWanPtrOutput {
+	return o.ApplyT(func(v VirtualWan) *VirtualWan {
+		return &v
+	}).(VirtualWanPtrOutput)
+}
+
+type VirtualWanPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualWanPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualWan)(nil))
+}
+
+func (o VirtualWanPtrOutput) ToVirtualWanPtrOutput() VirtualWanPtrOutput {
+	return o
+}
+
+func (o VirtualWanPtrOutput) ToVirtualWanPtrOutputWithContext(ctx context.Context) VirtualWanPtrOutput {
+	return o
+}
+
+type VirtualWanArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualWanArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualWan)(nil))
+}
+
+func (o VirtualWanArrayOutput) ToVirtualWanArrayOutput() VirtualWanArrayOutput {
+	return o
+}
+
+func (o VirtualWanArrayOutput) ToVirtualWanArrayOutputWithContext(ctx context.Context) VirtualWanArrayOutput {
+	return o
+}
+
+func (o VirtualWanArrayOutput) Index(i pulumi.IntInput) VirtualWanOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualWan {
+		return vs[0].([]VirtualWan)[vs[1].(int)]
+	}).(VirtualWanOutput)
+}
+
+type VirtualWanMapOutput struct{ *pulumi.OutputState }
+
+func (VirtualWanMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VirtualWan)(nil))
+}
+
+func (o VirtualWanMapOutput) ToVirtualWanMapOutput() VirtualWanMapOutput {
+	return o
+}
+
+func (o VirtualWanMapOutput) ToVirtualWanMapOutputWithContext(ctx context.Context) VirtualWanMapOutput {
+	return o
+}
+
+func (o VirtualWanMapOutput) MapIndex(k pulumi.StringInput) VirtualWanOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualWan {
+		return vs[0].(map[string]VirtualWan)[vs[1].(string)]
+	}).(VirtualWanOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualWanOutput{})
+	pulumi.RegisterOutputType(VirtualWanPtrOutput{})
+	pulumi.RegisterOutputType(VirtualWanArrayOutput{})
+	pulumi.RegisterOutputType(VirtualWanMapOutput{})
 }

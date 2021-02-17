@@ -80,29 +80,26 @@ export class SourceCodeToken extends pulumi.CustomResource {
     constructor(name: string, args: SourceCodeTokenArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SourceCodeTokenArgs | SourceCodeTokenState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SourceCodeTokenState | undefined;
             inputs["token"] = state ? state.token : undefined;
             inputs["tokenSecret"] = state ? state.tokenSecret : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as SourceCodeTokenArgs | undefined;
-            if ((!args || args.token === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.token === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'token'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["token"] = args ? args.token : undefined;
             inputs["tokenSecret"] = args ? args.tokenSecret : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SourceCodeToken.__pulumiType, name, inputs, opts);
     }

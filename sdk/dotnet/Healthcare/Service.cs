@@ -77,6 +77,7 @@ namespace Pulumi.Azure.Healthcare
     ///  $ pulumi import azure:healthcare/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource_group/providers/Microsoft.HealthcareApis/services/service_name
     /// ```
     /// </summary>
+    [AzureResourceType("azure:healthcare/service:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         [Output("accessPolicyObjectIds")]

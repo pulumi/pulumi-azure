@@ -107,7 +107,8 @@ export class VirtualNetwork extends pulumi.CustomResource {
     constructor(name: string, args: VirtualNetworkArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualNetworkArgs | VirtualNetworkState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VirtualNetworkState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["labName"] = state ? state.labName : undefined;
@@ -118,10 +119,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["uniqueIdentifier"] = state ? state.uniqueIdentifier : undefined;
         } else {
             const args = argsOrState as VirtualNetworkArgs | undefined;
-            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -132,12 +133,8 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["uniqueIdentifier"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VirtualNetwork.__pulumiType, name, inputs, opts);
     }

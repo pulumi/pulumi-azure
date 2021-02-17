@@ -115,7 +115,8 @@ export class BastionHost extends pulumi.CustomResource {
     constructor(name: string, args: BastionHostArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BastionHostArgs | BastionHostState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BastionHostState | undefined;
             inputs["dnsName"] = state ? state.dnsName : undefined;
             inputs["ipConfiguration"] = state ? state.ipConfiguration : undefined;
@@ -125,7 +126,7 @@ export class BastionHost extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as BastionHostArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["ipConfiguration"] = args ? args.ipConfiguration : undefined;
@@ -135,12 +136,8 @@ export class BastionHost extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["dnsName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BastionHost.__pulumiType, name, inputs, opts);
     }

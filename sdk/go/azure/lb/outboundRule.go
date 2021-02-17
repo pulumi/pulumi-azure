@@ -252,16 +252,95 @@ type OutboundRuleInput interface {
 	ToOutboundRuleOutputWithContext(ctx context.Context) OutboundRuleOutput
 }
 
-func (OutboundRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutboundRule)(nil)).Elem()
+func (*OutboundRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundRule)(nil))
 }
 
-func (i OutboundRule) ToOutboundRuleOutput() OutboundRuleOutput {
+func (i *OutboundRule) ToOutboundRuleOutput() OutboundRuleOutput {
 	return i.ToOutboundRuleOutputWithContext(context.Background())
 }
 
-func (i OutboundRule) ToOutboundRuleOutputWithContext(ctx context.Context) OutboundRuleOutput {
+func (i *OutboundRule) ToOutboundRuleOutputWithContext(ctx context.Context) OutboundRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundRuleOutput)
+}
+
+func (i *OutboundRule) ToOutboundRulePtrOutput() OutboundRulePtrOutput {
+	return i.ToOutboundRulePtrOutputWithContext(context.Background())
+}
+
+func (i *OutboundRule) ToOutboundRulePtrOutputWithContext(ctx context.Context) OutboundRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundRulePtrOutput)
+}
+
+type OutboundRulePtrInput interface {
+	pulumi.Input
+
+	ToOutboundRulePtrOutput() OutboundRulePtrOutput
+	ToOutboundRulePtrOutputWithContext(ctx context.Context) OutboundRulePtrOutput
+}
+
+type outboundRulePtrType OutboundRuleArgs
+
+func (*outboundRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutboundRule)(nil))
+}
+
+func (i *outboundRulePtrType) ToOutboundRulePtrOutput() OutboundRulePtrOutput {
+	return i.ToOutboundRulePtrOutputWithContext(context.Background())
+}
+
+func (i *outboundRulePtrType) ToOutboundRulePtrOutputWithContext(ctx context.Context) OutboundRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundRulePtrOutput)
+}
+
+// OutboundRuleArrayInput is an input type that accepts OutboundRuleArray and OutboundRuleArrayOutput values.
+// You can construct a concrete instance of `OutboundRuleArrayInput` via:
+//
+//          OutboundRuleArray{ OutboundRuleArgs{...} }
+type OutboundRuleArrayInput interface {
+	pulumi.Input
+
+	ToOutboundRuleArrayOutput() OutboundRuleArrayOutput
+	ToOutboundRuleArrayOutputWithContext(context.Context) OutboundRuleArrayOutput
+}
+
+type OutboundRuleArray []OutboundRuleInput
+
+func (OutboundRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*OutboundRule)(nil))
+}
+
+func (i OutboundRuleArray) ToOutboundRuleArrayOutput() OutboundRuleArrayOutput {
+	return i.ToOutboundRuleArrayOutputWithContext(context.Background())
+}
+
+func (i OutboundRuleArray) ToOutboundRuleArrayOutputWithContext(ctx context.Context) OutboundRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundRuleArrayOutput)
+}
+
+// OutboundRuleMapInput is an input type that accepts OutboundRuleMap and OutboundRuleMapOutput values.
+// You can construct a concrete instance of `OutboundRuleMapInput` via:
+//
+//          OutboundRuleMap{ "key": OutboundRuleArgs{...} }
+type OutboundRuleMapInput interface {
+	pulumi.Input
+
+	ToOutboundRuleMapOutput() OutboundRuleMapOutput
+	ToOutboundRuleMapOutputWithContext(context.Context) OutboundRuleMapOutput
+}
+
+type OutboundRuleMap map[string]OutboundRuleInput
+
+func (OutboundRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*OutboundRule)(nil))
+}
+
+func (i OutboundRuleMap) ToOutboundRuleMapOutput() OutboundRuleMapOutput {
+	return i.ToOutboundRuleMapOutputWithContext(context.Background())
+}
+
+func (i OutboundRuleMap) ToOutboundRuleMapOutputWithContext(ctx context.Context) OutboundRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundRuleMapOutput)
 }
 
 type OutboundRuleOutput struct {
@@ -269,7 +348,7 @@ type OutboundRuleOutput struct {
 }
 
 func (OutboundRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutboundRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*OutboundRule)(nil))
 }
 
 func (o OutboundRuleOutput) ToOutboundRuleOutput() OutboundRuleOutput {
@@ -280,6 +359,75 @@ func (o OutboundRuleOutput) ToOutboundRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o OutboundRuleOutput) ToOutboundRulePtrOutput() OutboundRulePtrOutput {
+	return o.ToOutboundRulePtrOutputWithContext(context.Background())
+}
+
+func (o OutboundRuleOutput) ToOutboundRulePtrOutputWithContext(ctx context.Context) OutboundRulePtrOutput {
+	return o.ApplyT(func(v OutboundRule) *OutboundRule {
+		return &v
+	}).(OutboundRulePtrOutput)
+}
+
+type OutboundRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (OutboundRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutboundRule)(nil))
+}
+
+func (o OutboundRulePtrOutput) ToOutboundRulePtrOutput() OutboundRulePtrOutput {
+	return o
+}
+
+func (o OutboundRulePtrOutput) ToOutboundRulePtrOutputWithContext(ctx context.Context) OutboundRulePtrOutput {
+	return o
+}
+
+type OutboundRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (OutboundRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OutboundRule)(nil))
+}
+
+func (o OutboundRuleArrayOutput) ToOutboundRuleArrayOutput() OutboundRuleArrayOutput {
+	return o
+}
+
+func (o OutboundRuleArrayOutput) ToOutboundRuleArrayOutputWithContext(ctx context.Context) OutboundRuleArrayOutput {
+	return o
+}
+
+func (o OutboundRuleArrayOutput) Index(i pulumi.IntInput) OutboundRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OutboundRule {
+		return vs[0].([]OutboundRule)[vs[1].(int)]
+	}).(OutboundRuleOutput)
+}
+
+type OutboundRuleMapOutput struct{ *pulumi.OutputState }
+
+func (OutboundRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]OutboundRule)(nil))
+}
+
+func (o OutboundRuleMapOutput) ToOutboundRuleMapOutput() OutboundRuleMapOutput {
+	return o
+}
+
+func (o OutboundRuleMapOutput) ToOutboundRuleMapOutputWithContext(ctx context.Context) OutboundRuleMapOutput {
+	return o
+}
+
+func (o OutboundRuleMapOutput) MapIndex(k pulumi.StringInput) OutboundRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OutboundRule {
+		return vs[0].(map[string]OutboundRule)[vs[1].(string)]
+	}).(OutboundRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OutboundRuleOutput{})
+	pulumi.RegisterOutputType(OutboundRulePtrOutput{})
+	pulumi.RegisterOutputType(OutboundRuleArrayOutput{})
+	pulumi.RegisterOutputType(OutboundRuleMapOutput{})
 }

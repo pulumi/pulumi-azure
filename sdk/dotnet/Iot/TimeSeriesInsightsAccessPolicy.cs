@@ -55,6 +55,7 @@ namespace Pulumi.Azure.Iot
     ///  $ pulumi import azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/environment1/accessPolicies/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy")]
     public partial class TimeSeriesInsightsAccessPolicy : Pulumi.CustomResource
     {
         /// <summary>

@@ -105,7 +105,8 @@ export class WebTest extends pulumi.CustomResource {
     constructor(name: string, args: WebTestArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebTestArgs | WebTestState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as WebTestState | undefined;
             inputs["applicationInsightsId"] = state ? state.applicationInsightsId : undefined;
             inputs["configuration"] = state ? state.configuration : undefined;
@@ -123,19 +124,19 @@ export class WebTest extends pulumi.CustomResource {
             inputs["timeout"] = state ? state.timeout : undefined;
         } else {
             const args = argsOrState as WebTestArgs | undefined;
-            if ((!args || args.applicationInsightsId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.applicationInsightsId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationInsightsId'");
             }
-            if ((!args || args.configuration === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.configuration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.geoLocations === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.geoLocations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'geoLocations'");
             }
-            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;
@@ -153,12 +154,8 @@ export class WebTest extends pulumi.CustomResource {
             inputs["timeout"] = args ? args.timeout : undefined;
             inputs["syntheticMonitorId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(WebTest.__pulumiType, name, inputs, opts);
     }

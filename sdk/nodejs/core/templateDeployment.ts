@@ -160,7 +160,8 @@ export class TemplateDeployment extends pulumi.CustomResource {
     constructor(name: string, args: TemplateDeploymentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TemplateDeploymentArgs | TemplateDeploymentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TemplateDeploymentState | undefined;
             inputs["deploymentMode"] = state ? state.deploymentMode : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -171,10 +172,10 @@ export class TemplateDeployment extends pulumi.CustomResource {
             inputs["templateBody"] = state ? state.templateBody : undefined;
         } else {
             const args = argsOrState as TemplateDeploymentArgs | undefined;
-            if ((!args || args.deploymentMode === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.deploymentMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deploymentMode'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["deploymentMode"] = args ? args.deploymentMode : undefined;
@@ -185,12 +186,8 @@ export class TemplateDeployment extends pulumi.CustomResource {
             inputs["templateBody"] = args ? args.templateBody : undefined;
             inputs["outputs"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TemplateDeployment.__pulumiType, name, inputs, opts);
     }

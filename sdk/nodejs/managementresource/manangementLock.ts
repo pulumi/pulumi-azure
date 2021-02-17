@@ -124,7 +124,8 @@ export class ManangementLock extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ManangementLockArgs | ManangementLockState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ManangementLock is deprecated: azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ManangementLockState | undefined;
             inputs["lockLevel"] = state ? state.lockLevel : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -132,10 +133,10 @@ export class ManangementLock extends pulumi.CustomResource {
             inputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as ManangementLockArgs | undefined;
-            if ((!args || args.lockLevel === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.lockLevel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lockLevel'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["lockLevel"] = args ? args.lockLevel : undefined;
@@ -143,12 +144,8 @@ export class ManangementLock extends pulumi.CustomResource {
             inputs["notes"] = args ? args.notes : undefined;
             inputs["scope"] = args ? args.scope : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ManangementLock.__pulumiType, name, inputs, opts);
     }

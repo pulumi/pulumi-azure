@@ -274,16 +274,95 @@ type OutputBlobInput interface {
 	ToOutputBlobOutputWithContext(ctx context.Context) OutputBlobOutput
 }
 
-func (OutputBlob) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputBlob)(nil)).Elem()
+func (*OutputBlob) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputBlob)(nil))
 }
 
-func (i OutputBlob) ToOutputBlobOutput() OutputBlobOutput {
+func (i *OutputBlob) ToOutputBlobOutput() OutputBlobOutput {
 	return i.ToOutputBlobOutputWithContext(context.Background())
 }
 
-func (i OutputBlob) ToOutputBlobOutputWithContext(ctx context.Context) OutputBlobOutput {
+func (i *OutputBlob) ToOutputBlobOutputWithContext(ctx context.Context) OutputBlobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputBlobOutput)
+}
+
+func (i *OutputBlob) ToOutputBlobPtrOutput() OutputBlobPtrOutput {
+	return i.ToOutputBlobPtrOutputWithContext(context.Background())
+}
+
+func (i *OutputBlob) ToOutputBlobPtrOutputWithContext(ctx context.Context) OutputBlobPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputBlobPtrOutput)
+}
+
+type OutputBlobPtrInput interface {
+	pulumi.Input
+
+	ToOutputBlobPtrOutput() OutputBlobPtrOutput
+	ToOutputBlobPtrOutputWithContext(ctx context.Context) OutputBlobPtrOutput
+}
+
+type outputBlobPtrType OutputBlobArgs
+
+func (*outputBlobPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutputBlob)(nil))
+}
+
+func (i *outputBlobPtrType) ToOutputBlobPtrOutput() OutputBlobPtrOutput {
+	return i.ToOutputBlobPtrOutputWithContext(context.Background())
+}
+
+func (i *outputBlobPtrType) ToOutputBlobPtrOutputWithContext(ctx context.Context) OutputBlobPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputBlobPtrOutput)
+}
+
+// OutputBlobArrayInput is an input type that accepts OutputBlobArray and OutputBlobArrayOutput values.
+// You can construct a concrete instance of `OutputBlobArrayInput` via:
+//
+//          OutputBlobArray{ OutputBlobArgs{...} }
+type OutputBlobArrayInput interface {
+	pulumi.Input
+
+	ToOutputBlobArrayOutput() OutputBlobArrayOutput
+	ToOutputBlobArrayOutputWithContext(context.Context) OutputBlobArrayOutput
+}
+
+type OutputBlobArray []OutputBlobInput
+
+func (OutputBlobArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*OutputBlob)(nil))
+}
+
+func (i OutputBlobArray) ToOutputBlobArrayOutput() OutputBlobArrayOutput {
+	return i.ToOutputBlobArrayOutputWithContext(context.Background())
+}
+
+func (i OutputBlobArray) ToOutputBlobArrayOutputWithContext(ctx context.Context) OutputBlobArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputBlobArrayOutput)
+}
+
+// OutputBlobMapInput is an input type that accepts OutputBlobMap and OutputBlobMapOutput values.
+// You can construct a concrete instance of `OutputBlobMapInput` via:
+//
+//          OutputBlobMap{ "key": OutputBlobArgs{...} }
+type OutputBlobMapInput interface {
+	pulumi.Input
+
+	ToOutputBlobMapOutput() OutputBlobMapOutput
+	ToOutputBlobMapOutputWithContext(context.Context) OutputBlobMapOutput
+}
+
+type OutputBlobMap map[string]OutputBlobInput
+
+func (OutputBlobMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*OutputBlob)(nil))
+}
+
+func (i OutputBlobMap) ToOutputBlobMapOutput() OutputBlobMapOutput {
+	return i.ToOutputBlobMapOutputWithContext(context.Background())
+}
+
+func (i OutputBlobMap) ToOutputBlobMapOutputWithContext(ctx context.Context) OutputBlobMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputBlobMapOutput)
 }
 
 type OutputBlobOutput struct {
@@ -291,7 +370,7 @@ type OutputBlobOutput struct {
 }
 
 func (OutputBlobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputBlobOutput)(nil)).Elem()
+	return reflect.TypeOf((*OutputBlob)(nil))
 }
 
 func (o OutputBlobOutput) ToOutputBlobOutput() OutputBlobOutput {
@@ -302,6 +381,75 @@ func (o OutputBlobOutput) ToOutputBlobOutputWithContext(ctx context.Context) Out
 	return o
 }
 
+func (o OutputBlobOutput) ToOutputBlobPtrOutput() OutputBlobPtrOutput {
+	return o.ToOutputBlobPtrOutputWithContext(context.Background())
+}
+
+func (o OutputBlobOutput) ToOutputBlobPtrOutputWithContext(ctx context.Context) OutputBlobPtrOutput {
+	return o.ApplyT(func(v OutputBlob) *OutputBlob {
+		return &v
+	}).(OutputBlobPtrOutput)
+}
+
+type OutputBlobPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (OutputBlobPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutputBlob)(nil))
+}
+
+func (o OutputBlobPtrOutput) ToOutputBlobPtrOutput() OutputBlobPtrOutput {
+	return o
+}
+
+func (o OutputBlobPtrOutput) ToOutputBlobPtrOutputWithContext(ctx context.Context) OutputBlobPtrOutput {
+	return o
+}
+
+type OutputBlobArrayOutput struct{ *pulumi.OutputState }
+
+func (OutputBlobArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OutputBlob)(nil))
+}
+
+func (o OutputBlobArrayOutput) ToOutputBlobArrayOutput() OutputBlobArrayOutput {
+	return o
+}
+
+func (o OutputBlobArrayOutput) ToOutputBlobArrayOutputWithContext(ctx context.Context) OutputBlobArrayOutput {
+	return o
+}
+
+func (o OutputBlobArrayOutput) Index(i pulumi.IntInput) OutputBlobOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OutputBlob {
+		return vs[0].([]OutputBlob)[vs[1].(int)]
+	}).(OutputBlobOutput)
+}
+
+type OutputBlobMapOutput struct{ *pulumi.OutputState }
+
+func (OutputBlobMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]OutputBlob)(nil))
+}
+
+func (o OutputBlobMapOutput) ToOutputBlobMapOutput() OutputBlobMapOutput {
+	return o
+}
+
+func (o OutputBlobMapOutput) ToOutputBlobMapOutputWithContext(ctx context.Context) OutputBlobMapOutput {
+	return o
+}
+
+func (o OutputBlobMapOutput) MapIndex(k pulumi.StringInput) OutputBlobOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OutputBlob {
+		return vs[0].(map[string]OutputBlob)[vs[1].(string)]
+	}).(OutputBlobOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OutputBlobOutput{})
+	pulumi.RegisterOutputType(OutputBlobPtrOutput{})
+	pulumi.RegisterOutputType(OutputBlobArrayOutput{})
+	pulumi.RegisterOutputType(OutputBlobMapOutput{})
 }

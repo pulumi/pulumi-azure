@@ -54,6 +54,7 @@ namespace Pulumi.Azure.Compute
     ///  $ pulumi import azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleSet1/extensions/extension1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension")]
     public partial class VirtualMachineScaleSetExtension : Pulumi.CustomResource
     {
         /// <summary>

@@ -142,16 +142,95 @@ type MeshSecretInput interface {
 	ToMeshSecretOutputWithContext(ctx context.Context) MeshSecretOutput
 }
 
-func (MeshSecret) ElementType() reflect.Type {
-	return reflect.TypeOf((*MeshSecret)(nil)).Elem()
+func (*MeshSecret) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshSecret)(nil))
 }
 
-func (i MeshSecret) ToMeshSecretOutput() MeshSecretOutput {
+func (i *MeshSecret) ToMeshSecretOutput() MeshSecretOutput {
 	return i.ToMeshSecretOutputWithContext(context.Background())
 }
 
-func (i MeshSecret) ToMeshSecretOutputWithContext(ctx context.Context) MeshSecretOutput {
+func (i *MeshSecret) ToMeshSecretOutputWithContext(ctx context.Context) MeshSecretOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MeshSecretOutput)
+}
+
+func (i *MeshSecret) ToMeshSecretPtrOutput() MeshSecretPtrOutput {
+	return i.ToMeshSecretPtrOutputWithContext(context.Background())
+}
+
+func (i *MeshSecret) ToMeshSecretPtrOutputWithContext(ctx context.Context) MeshSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshSecretPtrOutput)
+}
+
+type MeshSecretPtrInput interface {
+	pulumi.Input
+
+	ToMeshSecretPtrOutput() MeshSecretPtrOutput
+	ToMeshSecretPtrOutputWithContext(ctx context.Context) MeshSecretPtrOutput
+}
+
+type meshSecretPtrType MeshSecretArgs
+
+func (*meshSecretPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MeshSecret)(nil))
+}
+
+func (i *meshSecretPtrType) ToMeshSecretPtrOutput() MeshSecretPtrOutput {
+	return i.ToMeshSecretPtrOutputWithContext(context.Background())
+}
+
+func (i *meshSecretPtrType) ToMeshSecretPtrOutputWithContext(ctx context.Context) MeshSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshSecretPtrOutput)
+}
+
+// MeshSecretArrayInput is an input type that accepts MeshSecretArray and MeshSecretArrayOutput values.
+// You can construct a concrete instance of `MeshSecretArrayInput` via:
+//
+//          MeshSecretArray{ MeshSecretArgs{...} }
+type MeshSecretArrayInput interface {
+	pulumi.Input
+
+	ToMeshSecretArrayOutput() MeshSecretArrayOutput
+	ToMeshSecretArrayOutputWithContext(context.Context) MeshSecretArrayOutput
+}
+
+type MeshSecretArray []MeshSecretInput
+
+func (MeshSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*MeshSecret)(nil))
+}
+
+func (i MeshSecretArray) ToMeshSecretArrayOutput() MeshSecretArrayOutput {
+	return i.ToMeshSecretArrayOutputWithContext(context.Background())
+}
+
+func (i MeshSecretArray) ToMeshSecretArrayOutputWithContext(ctx context.Context) MeshSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshSecretArrayOutput)
+}
+
+// MeshSecretMapInput is an input type that accepts MeshSecretMap and MeshSecretMapOutput values.
+// You can construct a concrete instance of `MeshSecretMapInput` via:
+//
+//          MeshSecretMap{ "key": MeshSecretArgs{...} }
+type MeshSecretMapInput interface {
+	pulumi.Input
+
+	ToMeshSecretMapOutput() MeshSecretMapOutput
+	ToMeshSecretMapOutputWithContext(context.Context) MeshSecretMapOutput
+}
+
+type MeshSecretMap map[string]MeshSecretInput
+
+func (MeshSecretMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*MeshSecret)(nil))
+}
+
+func (i MeshSecretMap) ToMeshSecretMapOutput() MeshSecretMapOutput {
+	return i.ToMeshSecretMapOutputWithContext(context.Background())
+}
+
+func (i MeshSecretMap) ToMeshSecretMapOutputWithContext(ctx context.Context) MeshSecretMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshSecretMapOutput)
 }
 
 type MeshSecretOutput struct {
@@ -159,7 +238,7 @@ type MeshSecretOutput struct {
 }
 
 func (MeshSecretOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MeshSecretOutput)(nil)).Elem()
+	return reflect.TypeOf((*MeshSecret)(nil))
 }
 
 func (o MeshSecretOutput) ToMeshSecretOutput() MeshSecretOutput {
@@ -170,6 +249,75 @@ func (o MeshSecretOutput) ToMeshSecretOutputWithContext(ctx context.Context) Mes
 	return o
 }
 
+func (o MeshSecretOutput) ToMeshSecretPtrOutput() MeshSecretPtrOutput {
+	return o.ToMeshSecretPtrOutputWithContext(context.Background())
+}
+
+func (o MeshSecretOutput) ToMeshSecretPtrOutputWithContext(ctx context.Context) MeshSecretPtrOutput {
+	return o.ApplyT(func(v MeshSecret) *MeshSecret {
+		return &v
+	}).(MeshSecretPtrOutput)
+}
+
+type MeshSecretPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (MeshSecretPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MeshSecret)(nil))
+}
+
+func (o MeshSecretPtrOutput) ToMeshSecretPtrOutput() MeshSecretPtrOutput {
+	return o
+}
+
+func (o MeshSecretPtrOutput) ToMeshSecretPtrOutputWithContext(ctx context.Context) MeshSecretPtrOutput {
+	return o
+}
+
+type MeshSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (MeshSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MeshSecret)(nil))
+}
+
+func (o MeshSecretArrayOutput) ToMeshSecretArrayOutput() MeshSecretArrayOutput {
+	return o
+}
+
+func (o MeshSecretArrayOutput) ToMeshSecretArrayOutputWithContext(ctx context.Context) MeshSecretArrayOutput {
+	return o
+}
+
+func (o MeshSecretArrayOutput) Index(i pulumi.IntInput) MeshSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MeshSecret {
+		return vs[0].([]MeshSecret)[vs[1].(int)]
+	}).(MeshSecretOutput)
+}
+
+type MeshSecretMapOutput struct{ *pulumi.OutputState }
+
+func (MeshSecretMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]MeshSecret)(nil))
+}
+
+func (o MeshSecretMapOutput) ToMeshSecretMapOutput() MeshSecretMapOutput {
+	return o
+}
+
+func (o MeshSecretMapOutput) ToMeshSecretMapOutputWithContext(ctx context.Context) MeshSecretMapOutput {
+	return o
+}
+
+func (o MeshSecretMapOutput) MapIndex(k pulumi.StringInput) MeshSecretOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MeshSecret {
+		return vs[0].(map[string]MeshSecret)[vs[1].(string)]
+	}).(MeshSecretOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MeshSecretOutput{})
+	pulumi.RegisterOutputType(MeshSecretPtrOutput{})
+	pulumi.RegisterOutputType(MeshSecretArrayOutput{})
+	pulumi.RegisterOutputType(MeshSecretMapOutput{})
 }

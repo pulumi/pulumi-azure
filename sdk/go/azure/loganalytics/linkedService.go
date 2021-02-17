@@ -254,16 +254,95 @@ type LinkedServiceInput interface {
 	ToLinkedServiceOutputWithContext(ctx context.Context) LinkedServiceOutput
 }
 
-func (LinkedService) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedService)(nil)).Elem()
+func (*LinkedService) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedService)(nil))
 }
 
-func (i LinkedService) ToLinkedServiceOutput() LinkedServiceOutput {
+func (i *LinkedService) ToLinkedServiceOutput() LinkedServiceOutput {
 	return i.ToLinkedServiceOutputWithContext(context.Background())
 }
 
-func (i LinkedService) ToLinkedServiceOutputWithContext(ctx context.Context) LinkedServiceOutput {
+func (i *LinkedService) ToLinkedServiceOutputWithContext(ctx context.Context) LinkedServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOutput)
+}
+
+func (i *LinkedService) ToLinkedServicePtrOutput() LinkedServicePtrOutput {
+	return i.ToLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i *LinkedService) ToLinkedServicePtrOutputWithContext(ctx context.Context) LinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServicePtrOutput)
+}
+
+type LinkedServicePtrInput interface {
+	pulumi.Input
+
+	ToLinkedServicePtrOutput() LinkedServicePtrOutput
+	ToLinkedServicePtrOutputWithContext(ctx context.Context) LinkedServicePtrOutput
+}
+
+type linkedServicePtrType LinkedServiceArgs
+
+func (*linkedServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedService)(nil))
+}
+
+func (i *linkedServicePtrType) ToLinkedServicePtrOutput() LinkedServicePtrOutput {
+	return i.ToLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServicePtrType) ToLinkedServicePtrOutputWithContext(ctx context.Context) LinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServicePtrOutput)
+}
+
+// LinkedServiceArrayInput is an input type that accepts LinkedServiceArray and LinkedServiceArrayOutput values.
+// You can construct a concrete instance of `LinkedServiceArrayInput` via:
+//
+//          LinkedServiceArray{ LinkedServiceArgs{...} }
+type LinkedServiceArrayInput interface {
+	pulumi.Input
+
+	ToLinkedServiceArrayOutput() LinkedServiceArrayOutput
+	ToLinkedServiceArrayOutputWithContext(context.Context) LinkedServiceArrayOutput
+}
+
+type LinkedServiceArray []LinkedServiceInput
+
+func (LinkedServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LinkedService)(nil))
+}
+
+func (i LinkedServiceArray) ToLinkedServiceArrayOutput() LinkedServiceArrayOutput {
+	return i.ToLinkedServiceArrayOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceArray) ToLinkedServiceArrayOutputWithContext(ctx context.Context) LinkedServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceArrayOutput)
+}
+
+// LinkedServiceMapInput is an input type that accepts LinkedServiceMap and LinkedServiceMapOutput values.
+// You can construct a concrete instance of `LinkedServiceMapInput` via:
+//
+//          LinkedServiceMap{ "key": LinkedServiceArgs{...} }
+type LinkedServiceMapInput interface {
+	pulumi.Input
+
+	ToLinkedServiceMapOutput() LinkedServiceMapOutput
+	ToLinkedServiceMapOutputWithContext(context.Context) LinkedServiceMapOutput
+}
+
+type LinkedServiceMap map[string]LinkedServiceInput
+
+func (LinkedServiceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LinkedService)(nil))
+}
+
+func (i LinkedServiceMap) ToLinkedServiceMapOutput() LinkedServiceMapOutput {
+	return i.ToLinkedServiceMapOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceMap) ToLinkedServiceMapOutputWithContext(ctx context.Context) LinkedServiceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceMapOutput)
 }
 
 type LinkedServiceOutput struct {
@@ -271,7 +350,7 @@ type LinkedServiceOutput struct {
 }
 
 func (LinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinkedService)(nil))
 }
 
 func (o LinkedServiceOutput) ToLinkedServiceOutput() LinkedServiceOutput {
@@ -282,6 +361,75 @@ func (o LinkedServiceOutput) ToLinkedServiceOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o LinkedServiceOutput) ToLinkedServicePtrOutput() LinkedServicePtrOutput {
+	return o.ToLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceOutput) ToLinkedServicePtrOutputWithContext(ctx context.Context) LinkedServicePtrOutput {
+	return o.ApplyT(func(v LinkedService) *LinkedService {
+		return &v
+	}).(LinkedServicePtrOutput)
+}
+
+type LinkedServicePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkedServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedService)(nil))
+}
+
+func (o LinkedServicePtrOutput) ToLinkedServicePtrOutput() LinkedServicePtrOutput {
+	return o
+}
+
+func (o LinkedServicePtrOutput) ToLinkedServicePtrOutputWithContext(ctx context.Context) LinkedServicePtrOutput {
+	return o
+}
+
+type LinkedServiceArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkedService)(nil))
+}
+
+func (o LinkedServiceArrayOutput) ToLinkedServiceArrayOutput() LinkedServiceArrayOutput {
+	return o
+}
+
+func (o LinkedServiceArrayOutput) ToLinkedServiceArrayOutputWithContext(ctx context.Context) LinkedServiceArrayOutput {
+	return o
+}
+
+func (o LinkedServiceArrayOutput) Index(i pulumi.IntInput) LinkedServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedService {
+		return vs[0].([]LinkedService)[vs[1].(int)]
+	}).(LinkedServiceOutput)
+}
+
+type LinkedServiceMapOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LinkedService)(nil))
+}
+
+func (o LinkedServiceMapOutput) ToLinkedServiceMapOutput() LinkedServiceMapOutput {
+	return o
+}
+
+func (o LinkedServiceMapOutput) ToLinkedServiceMapOutputWithContext(ctx context.Context) LinkedServiceMapOutput {
+	return o
+}
+
+func (o LinkedServiceMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkedService {
+		return vs[0].(map[string]LinkedService)[vs[1].(string)]
+	}).(LinkedServiceOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LinkedServiceOutput{})
+	pulumi.RegisterOutputType(LinkedServicePtrOutput{})
+	pulumi.RegisterOutputType(LinkedServiceArrayOutput{})
+	pulumi.RegisterOutputType(LinkedServiceMapOutput{})
 }

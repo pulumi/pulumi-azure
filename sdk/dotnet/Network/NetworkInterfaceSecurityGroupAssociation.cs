@@ -81,6 +81,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/networkInterfaceSecurityGroupAssociation:NetworkInterfaceSecurityGroupAssociation association1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.network/networkInterfaces/example|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/networkSecurityGroups/group1"
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/networkInterfaceSecurityGroupAssociation:NetworkInterfaceSecurityGroupAssociation")]
     public partial class NetworkInterfaceSecurityGroupAssociation : Pulumi.CustomResource
     {
         /// <summary>

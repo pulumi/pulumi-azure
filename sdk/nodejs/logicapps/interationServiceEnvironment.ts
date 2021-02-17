@@ -153,7 +153,8 @@ export class InterationServiceEnvironment extends pulumi.CustomResource {
     constructor(name: string, args: InterationServiceEnvironmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InterationServiceEnvironmentArgs | InterationServiceEnvironmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as InterationServiceEnvironmentState | undefined;
             inputs["accessEndpointType"] = state ? state.accessEndpointType : undefined;
             inputs["connectorEndpointIpAddresses"] = state ? state.connectorEndpointIpAddresses : undefined;
@@ -168,13 +169,13 @@ export class InterationServiceEnvironment extends pulumi.CustomResource {
             inputs["workflowOutboundIpAddresses"] = state ? state.workflowOutboundIpAddresses : undefined;
         } else {
             const args = argsOrState as InterationServiceEnvironmentArgs | undefined;
-            if ((!args || args.accessEndpointType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.accessEndpointType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accessEndpointType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetworkSubnetIds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualNetworkSubnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkSubnetIds'");
             }
             inputs["accessEndpointType"] = args ? args.accessEndpointType : undefined;
@@ -189,12 +190,8 @@ export class InterationServiceEnvironment extends pulumi.CustomResource {
             inputs["workflowEndpointIpAddresses"] = undefined /*out*/;
             inputs["workflowOutboundIpAddresses"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(InterationServiceEnvironment.__pulumiType, name, inputs, opts);
     }

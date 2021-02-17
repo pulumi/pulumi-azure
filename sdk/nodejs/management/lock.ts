@@ -118,7 +118,8 @@ export class Lock extends pulumi.CustomResource {
     constructor(name: string, args: LockArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LockArgs | LockState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LockState | undefined;
             inputs["lockLevel"] = state ? state.lockLevel : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -126,10 +127,10 @@ export class Lock extends pulumi.CustomResource {
             inputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as LockArgs | undefined;
-            if ((!args || args.lockLevel === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.lockLevel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lockLevel'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["lockLevel"] = args ? args.lockLevel : undefined;
@@ -137,15 +138,11 @@ export class Lock extends pulumi.CustomResource {
             inputs["notes"] = args ? args.notes : undefined;
             inputs["scope"] = args ? args.scope : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure:managementresource/manangementLock:ManangementLock" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Lock.__pulumiType, name, inputs, opts);
     }
 }

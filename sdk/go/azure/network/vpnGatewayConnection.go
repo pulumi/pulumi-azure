@@ -150,16 +150,95 @@ type VpnGatewayConnectionInput interface {
 	ToVpnGatewayConnectionOutputWithContext(ctx context.Context) VpnGatewayConnectionOutput
 }
 
-func (VpnGatewayConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnGatewayConnection)(nil)).Elem()
+func (*VpnGatewayConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayConnection)(nil))
 }
 
-func (i VpnGatewayConnection) ToVpnGatewayConnectionOutput() VpnGatewayConnectionOutput {
+func (i *VpnGatewayConnection) ToVpnGatewayConnectionOutput() VpnGatewayConnectionOutput {
 	return i.ToVpnGatewayConnectionOutputWithContext(context.Background())
 }
 
-func (i VpnGatewayConnection) ToVpnGatewayConnectionOutputWithContext(ctx context.Context) VpnGatewayConnectionOutput {
+func (i *VpnGatewayConnection) ToVpnGatewayConnectionOutputWithContext(ctx context.Context) VpnGatewayConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionOutput)
+}
+
+func (i *VpnGatewayConnection) ToVpnGatewayConnectionPtrOutput() VpnGatewayConnectionPtrOutput {
+	return i.ToVpnGatewayConnectionPtrOutputWithContext(context.Background())
+}
+
+func (i *VpnGatewayConnection) ToVpnGatewayConnectionPtrOutputWithContext(ctx context.Context) VpnGatewayConnectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionPtrOutput)
+}
+
+type VpnGatewayConnectionPtrInput interface {
+	pulumi.Input
+
+	ToVpnGatewayConnectionPtrOutput() VpnGatewayConnectionPtrOutput
+	ToVpnGatewayConnectionPtrOutputWithContext(ctx context.Context) VpnGatewayConnectionPtrOutput
+}
+
+type vpnGatewayConnectionPtrType VpnGatewayConnectionArgs
+
+func (*vpnGatewayConnectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnGatewayConnection)(nil))
+}
+
+func (i *vpnGatewayConnectionPtrType) ToVpnGatewayConnectionPtrOutput() VpnGatewayConnectionPtrOutput {
+	return i.ToVpnGatewayConnectionPtrOutputWithContext(context.Background())
+}
+
+func (i *vpnGatewayConnectionPtrType) ToVpnGatewayConnectionPtrOutputWithContext(ctx context.Context) VpnGatewayConnectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionPtrOutput)
+}
+
+// VpnGatewayConnectionArrayInput is an input type that accepts VpnGatewayConnectionArray and VpnGatewayConnectionArrayOutput values.
+// You can construct a concrete instance of `VpnGatewayConnectionArrayInput` via:
+//
+//          VpnGatewayConnectionArray{ VpnGatewayConnectionArgs{...} }
+type VpnGatewayConnectionArrayInput interface {
+	pulumi.Input
+
+	ToVpnGatewayConnectionArrayOutput() VpnGatewayConnectionArrayOutput
+	ToVpnGatewayConnectionArrayOutputWithContext(context.Context) VpnGatewayConnectionArrayOutput
+}
+
+type VpnGatewayConnectionArray []VpnGatewayConnectionInput
+
+func (VpnGatewayConnectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VpnGatewayConnection)(nil))
+}
+
+func (i VpnGatewayConnectionArray) ToVpnGatewayConnectionArrayOutput() VpnGatewayConnectionArrayOutput {
+	return i.ToVpnGatewayConnectionArrayOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayConnectionArray) ToVpnGatewayConnectionArrayOutputWithContext(ctx context.Context) VpnGatewayConnectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionArrayOutput)
+}
+
+// VpnGatewayConnectionMapInput is an input type that accepts VpnGatewayConnectionMap and VpnGatewayConnectionMapOutput values.
+// You can construct a concrete instance of `VpnGatewayConnectionMapInput` via:
+//
+//          VpnGatewayConnectionMap{ "key": VpnGatewayConnectionArgs{...} }
+type VpnGatewayConnectionMapInput interface {
+	pulumi.Input
+
+	ToVpnGatewayConnectionMapOutput() VpnGatewayConnectionMapOutput
+	ToVpnGatewayConnectionMapOutputWithContext(context.Context) VpnGatewayConnectionMapOutput
+}
+
+type VpnGatewayConnectionMap map[string]VpnGatewayConnectionInput
+
+func (VpnGatewayConnectionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VpnGatewayConnection)(nil))
+}
+
+func (i VpnGatewayConnectionMap) ToVpnGatewayConnectionMapOutput() VpnGatewayConnectionMapOutput {
+	return i.ToVpnGatewayConnectionMapOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayConnectionMap) ToVpnGatewayConnectionMapOutputWithContext(ctx context.Context) VpnGatewayConnectionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionMapOutput)
 }
 
 type VpnGatewayConnectionOutput struct {
@@ -167,7 +246,7 @@ type VpnGatewayConnectionOutput struct {
 }
 
 func (VpnGatewayConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnGatewayConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*VpnGatewayConnection)(nil))
 }
 
 func (o VpnGatewayConnectionOutput) ToVpnGatewayConnectionOutput() VpnGatewayConnectionOutput {
@@ -178,6 +257,75 @@ func (o VpnGatewayConnectionOutput) ToVpnGatewayConnectionOutputWithContext(ctx 
 	return o
 }
 
+func (o VpnGatewayConnectionOutput) ToVpnGatewayConnectionPtrOutput() VpnGatewayConnectionPtrOutput {
+	return o.ToVpnGatewayConnectionPtrOutputWithContext(context.Background())
+}
+
+func (o VpnGatewayConnectionOutput) ToVpnGatewayConnectionPtrOutputWithContext(ctx context.Context) VpnGatewayConnectionPtrOutput {
+	return o.ApplyT(func(v VpnGatewayConnection) *VpnGatewayConnection {
+		return &v
+	}).(VpnGatewayConnectionPtrOutput)
+}
+
+type VpnGatewayConnectionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VpnGatewayConnectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnGatewayConnection)(nil))
+}
+
+func (o VpnGatewayConnectionPtrOutput) ToVpnGatewayConnectionPtrOutput() VpnGatewayConnectionPtrOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionPtrOutput) ToVpnGatewayConnectionPtrOutputWithContext(ctx context.Context) VpnGatewayConnectionPtrOutput {
+	return o
+}
+
+type VpnGatewayConnectionArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayConnectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnGatewayConnection)(nil))
+}
+
+func (o VpnGatewayConnectionArrayOutput) ToVpnGatewayConnectionArrayOutput() VpnGatewayConnectionArrayOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionArrayOutput) ToVpnGatewayConnectionArrayOutputWithContext(ctx context.Context) VpnGatewayConnectionArrayOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionArrayOutput) Index(i pulumi.IntInput) VpnGatewayConnectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnGatewayConnection {
+		return vs[0].([]VpnGatewayConnection)[vs[1].(int)]
+	}).(VpnGatewayConnectionOutput)
+}
+
+type VpnGatewayConnectionMapOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayConnectionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VpnGatewayConnection)(nil))
+}
+
+func (o VpnGatewayConnectionMapOutput) ToVpnGatewayConnectionMapOutput() VpnGatewayConnectionMapOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionMapOutput) ToVpnGatewayConnectionMapOutputWithContext(ctx context.Context) VpnGatewayConnectionMapOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionMapOutput) MapIndex(k pulumi.StringInput) VpnGatewayConnectionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpnGatewayConnection {
+		return vs[0].(map[string]VpnGatewayConnection)[vs[1].(string)]
+	}).(VpnGatewayConnectionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VpnGatewayConnectionOutput{})
+	pulumi.RegisterOutputType(VpnGatewayConnectionPtrOutput{})
+	pulumi.RegisterOutputType(VpnGatewayConnectionArrayOutput{})
+	pulumi.RegisterOutputType(VpnGatewayConnectionMapOutput{})
 }

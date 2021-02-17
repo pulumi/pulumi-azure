@@ -134,7 +134,8 @@ export class DatasetBlobStorage extends pulumi.CustomResource {
     constructor(name: string, args: DatasetBlobStorageArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DatasetBlobStorageArgs | DatasetBlobStorageState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DatasetBlobStorageState | undefined;
             inputs["containerName"] = state ? state.containerName : undefined;
             inputs["dataShareId"] = state ? state.dataShareId : undefined;
@@ -145,13 +146,13 @@ export class DatasetBlobStorage extends pulumi.CustomResource {
             inputs["storageAccount"] = state ? state.storageAccount : undefined;
         } else {
             const args = argsOrState as DatasetBlobStorageArgs | undefined;
-            if ((!args || args.containerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.containerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if ((!args || args.dataShareId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataShareId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataShareId'");
             }
-            if ((!args || args.storageAccount === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccount'");
             }
             inputs["containerName"] = args ? args.containerName : undefined;
@@ -162,12 +163,8 @@ export class DatasetBlobStorage extends pulumi.CustomResource {
             inputs["storageAccount"] = args ? args.storageAccount : undefined;
             inputs["displayName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DatasetBlobStorage.__pulumiType, name, inputs, opts);
     }

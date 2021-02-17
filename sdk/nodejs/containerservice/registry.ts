@@ -130,7 +130,8 @@ export class Registry extends pulumi.CustomResource {
     constructor(name: string, args: RegistryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RegistryArgs | RegistryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RegistryState | undefined;
             inputs["adminEnabled"] = state ? state.adminEnabled : undefined;
             inputs["adminPassword"] = state ? state.adminPassword : undefined;
@@ -148,7 +149,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["trustPolicy"] = state ? state.trustPolicy : undefined;
         } else {
             const args = argsOrState as RegistryArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["adminEnabled"] = args ? args.adminEnabled : undefined;
@@ -166,12 +167,8 @@ export class Registry extends pulumi.CustomResource {
             inputs["adminUsername"] = undefined /*out*/;
             inputs["loginServer"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Registry.__pulumiType, name, inputs, opts);
     }

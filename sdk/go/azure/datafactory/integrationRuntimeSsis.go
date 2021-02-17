@@ -260,16 +260,95 @@ type IntegrationRuntimeSsisInput interface {
 	ToIntegrationRuntimeSsisOutputWithContext(ctx context.Context) IntegrationRuntimeSsisOutput
 }
 
-func (IntegrationRuntimeSsis) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeSsis)(nil)).Elem()
+func (*IntegrationRuntimeSsis) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsis)(nil))
 }
 
-func (i IntegrationRuntimeSsis) ToIntegrationRuntimeSsisOutput() IntegrationRuntimeSsisOutput {
+func (i *IntegrationRuntimeSsis) ToIntegrationRuntimeSsisOutput() IntegrationRuntimeSsisOutput {
 	return i.ToIntegrationRuntimeSsisOutputWithContext(context.Background())
 }
 
-func (i IntegrationRuntimeSsis) ToIntegrationRuntimeSsisOutputWithContext(ctx context.Context) IntegrationRuntimeSsisOutput {
+func (i *IntegrationRuntimeSsis) ToIntegrationRuntimeSsisOutputWithContext(ctx context.Context) IntegrationRuntimeSsisOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisOutput)
+}
+
+func (i *IntegrationRuntimeSsis) ToIntegrationRuntimeSsisPtrOutput() IntegrationRuntimeSsisPtrOutput {
+	return i.ToIntegrationRuntimeSsisPtrOutputWithContext(context.Background())
+}
+
+func (i *IntegrationRuntimeSsis) ToIntegrationRuntimeSsisPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisPtrOutput)
+}
+
+type IntegrationRuntimeSsisPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisPtrOutput() IntegrationRuntimeSsisPtrOutput
+	ToIntegrationRuntimeSsisPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPtrOutput
+}
+
+type integrationRuntimeSsisPtrType IntegrationRuntimeSsisArgs
+
+func (*integrationRuntimeSsisPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsis)(nil))
+}
+
+func (i *integrationRuntimeSsisPtrType) ToIntegrationRuntimeSsisPtrOutput() IntegrationRuntimeSsisPtrOutput {
+	return i.ToIntegrationRuntimeSsisPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationRuntimeSsisPtrType) ToIntegrationRuntimeSsisPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisPtrOutput)
+}
+
+// IntegrationRuntimeSsisArrayInput is an input type that accepts IntegrationRuntimeSsisArray and IntegrationRuntimeSsisArrayOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisArrayInput` via:
+//
+//          IntegrationRuntimeSsisArray{ IntegrationRuntimeSsisArgs{...} }
+type IntegrationRuntimeSsisArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisArrayOutput() IntegrationRuntimeSsisArrayOutput
+	ToIntegrationRuntimeSsisArrayOutputWithContext(context.Context) IntegrationRuntimeSsisArrayOutput
+}
+
+type IntegrationRuntimeSsisArray []IntegrationRuntimeSsisInput
+
+func (IntegrationRuntimeSsisArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*IntegrationRuntimeSsis)(nil))
+}
+
+func (i IntegrationRuntimeSsisArray) ToIntegrationRuntimeSsisArrayOutput() IntegrationRuntimeSsisArrayOutput {
+	return i.ToIntegrationRuntimeSsisArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisArray) ToIntegrationRuntimeSsisArrayOutputWithContext(ctx context.Context) IntegrationRuntimeSsisArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisArrayOutput)
+}
+
+// IntegrationRuntimeSsisMapInput is an input type that accepts IntegrationRuntimeSsisMap and IntegrationRuntimeSsisMapOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisMapInput` via:
+//
+//          IntegrationRuntimeSsisMap{ "key": IntegrationRuntimeSsisArgs{...} }
+type IntegrationRuntimeSsisMapInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisMapOutput() IntegrationRuntimeSsisMapOutput
+	ToIntegrationRuntimeSsisMapOutputWithContext(context.Context) IntegrationRuntimeSsisMapOutput
+}
+
+type IntegrationRuntimeSsisMap map[string]IntegrationRuntimeSsisInput
+
+func (IntegrationRuntimeSsisMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*IntegrationRuntimeSsis)(nil))
+}
+
+func (i IntegrationRuntimeSsisMap) ToIntegrationRuntimeSsisMapOutput() IntegrationRuntimeSsisMapOutput {
+	return i.ToIntegrationRuntimeSsisMapOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisMap) ToIntegrationRuntimeSsisMapOutputWithContext(ctx context.Context) IntegrationRuntimeSsisMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisMapOutput)
 }
 
 type IntegrationRuntimeSsisOutput struct {
@@ -277,7 +356,7 @@ type IntegrationRuntimeSsisOutput struct {
 }
 
 func (IntegrationRuntimeSsisOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeSsisOutput)(nil)).Elem()
+	return reflect.TypeOf((*IntegrationRuntimeSsis)(nil))
 }
 
 func (o IntegrationRuntimeSsisOutput) ToIntegrationRuntimeSsisOutput() IntegrationRuntimeSsisOutput {
@@ -288,6 +367,75 @@ func (o IntegrationRuntimeSsisOutput) ToIntegrationRuntimeSsisOutputWithContext(
 	return o
 }
 
+func (o IntegrationRuntimeSsisOutput) ToIntegrationRuntimeSsisPtrOutput() IntegrationRuntimeSsisPtrOutput {
+	return o.ToIntegrationRuntimeSsisPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeSsisOutput) ToIntegrationRuntimeSsisPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsis) *IntegrationRuntimeSsis {
+		return &v
+	}).(IntegrationRuntimeSsisPtrOutput)
+}
+
+type IntegrationRuntimeSsisPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationRuntimeSsisPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsis)(nil))
+}
+
+func (o IntegrationRuntimeSsisPtrOutput) ToIntegrationRuntimeSsisPtrOutput() IntegrationRuntimeSsisPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisPtrOutput) ToIntegrationRuntimeSsisPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPtrOutput {
+	return o
+}
+
+type IntegrationRuntimeSsisArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationRuntimeSsis)(nil))
+}
+
+func (o IntegrationRuntimeSsisArrayOutput) ToIntegrationRuntimeSsisArrayOutput() IntegrationRuntimeSsisArrayOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisArrayOutput) ToIntegrationRuntimeSsisArrayOutputWithContext(ctx context.Context) IntegrationRuntimeSsisArrayOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisArrayOutput) Index(i pulumi.IntInput) IntegrationRuntimeSsisOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationRuntimeSsis {
+		return vs[0].([]IntegrationRuntimeSsis)[vs[1].(int)]
+	}).(IntegrationRuntimeSsisOutput)
+}
+
+type IntegrationRuntimeSsisMapOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IntegrationRuntimeSsis)(nil))
+}
+
+func (o IntegrationRuntimeSsisMapOutput) ToIntegrationRuntimeSsisMapOutput() IntegrationRuntimeSsisMapOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisMapOutput) ToIntegrationRuntimeSsisMapOutputWithContext(ctx context.Context) IntegrationRuntimeSsisMapOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisMapOutput) MapIndex(k pulumi.StringInput) IntegrationRuntimeSsisOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IntegrationRuntimeSsis {
+		return vs[0].(map[string]IntegrationRuntimeSsis)[vs[1].(string)]
+	}).(IntegrationRuntimeSsisOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisArrayOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisMapOutput{})
 }

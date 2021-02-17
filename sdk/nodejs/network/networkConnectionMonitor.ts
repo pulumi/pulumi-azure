@@ -220,7 +220,8 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
     constructor(name: string, args: NetworkConnectionMonitorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkConnectionMonitorArgs | NetworkConnectionMonitorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NetworkConnectionMonitorState | undefined;
             inputs["autoStart"] = state ? state.autoStart : undefined;
             inputs["destination"] = state ? state.destination : undefined;
@@ -237,16 +238,16 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
             inputs["testGroups"] = state ? state.testGroups : undefined;
         } else {
             const args = argsOrState as NetworkConnectionMonitorArgs | undefined;
-            if ((!args || args.endpoints === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.endpoints === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpoints'");
             }
-            if ((!args || args.networkWatcherId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.networkWatcherId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkWatcherId'");
             }
-            if ((!args || args.testConfigurations === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.testConfigurations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'testConfigurations'");
             }
-            if ((!args || args.testGroups === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.testGroups === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'testGroups'");
             }
             inputs["autoStart"] = args ? args.autoStart : undefined;
@@ -263,12 +264,8 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
             inputs["testConfigurations"] = args ? args.testConfigurations : undefined;
             inputs["testGroups"] = args ? args.testGroups : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NetworkConnectionMonitor.__pulumiType, name, inputs, opts);
     }

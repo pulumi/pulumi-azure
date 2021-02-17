@@ -117,16 +117,95 @@ type AssignmentVirtualMachineInput interface {
 	ToAssignmentVirtualMachineOutputWithContext(ctx context.Context) AssignmentVirtualMachineOutput
 }
 
-func (AssignmentVirtualMachine) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssignmentVirtualMachine)(nil)).Elem()
+func (*AssignmentVirtualMachine) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentVirtualMachine)(nil))
 }
 
-func (i AssignmentVirtualMachine) ToAssignmentVirtualMachineOutput() AssignmentVirtualMachineOutput {
+func (i *AssignmentVirtualMachine) ToAssignmentVirtualMachineOutput() AssignmentVirtualMachineOutput {
 	return i.ToAssignmentVirtualMachineOutputWithContext(context.Background())
 }
 
-func (i AssignmentVirtualMachine) ToAssignmentVirtualMachineOutputWithContext(ctx context.Context) AssignmentVirtualMachineOutput {
+func (i *AssignmentVirtualMachine) ToAssignmentVirtualMachineOutputWithContext(ctx context.Context) AssignmentVirtualMachineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentVirtualMachineOutput)
+}
+
+func (i *AssignmentVirtualMachine) ToAssignmentVirtualMachinePtrOutput() AssignmentVirtualMachinePtrOutput {
+	return i.ToAssignmentVirtualMachinePtrOutputWithContext(context.Background())
+}
+
+func (i *AssignmentVirtualMachine) ToAssignmentVirtualMachinePtrOutputWithContext(ctx context.Context) AssignmentVirtualMachinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentVirtualMachinePtrOutput)
+}
+
+type AssignmentVirtualMachinePtrInput interface {
+	pulumi.Input
+
+	ToAssignmentVirtualMachinePtrOutput() AssignmentVirtualMachinePtrOutput
+	ToAssignmentVirtualMachinePtrOutputWithContext(ctx context.Context) AssignmentVirtualMachinePtrOutput
+}
+
+type assignmentVirtualMachinePtrType AssignmentVirtualMachineArgs
+
+func (*assignmentVirtualMachinePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssignmentVirtualMachine)(nil))
+}
+
+func (i *assignmentVirtualMachinePtrType) ToAssignmentVirtualMachinePtrOutput() AssignmentVirtualMachinePtrOutput {
+	return i.ToAssignmentVirtualMachinePtrOutputWithContext(context.Background())
+}
+
+func (i *assignmentVirtualMachinePtrType) ToAssignmentVirtualMachinePtrOutputWithContext(ctx context.Context) AssignmentVirtualMachinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentVirtualMachinePtrOutput)
+}
+
+// AssignmentVirtualMachineArrayInput is an input type that accepts AssignmentVirtualMachineArray and AssignmentVirtualMachineArrayOutput values.
+// You can construct a concrete instance of `AssignmentVirtualMachineArrayInput` via:
+//
+//          AssignmentVirtualMachineArray{ AssignmentVirtualMachineArgs{...} }
+type AssignmentVirtualMachineArrayInput interface {
+	pulumi.Input
+
+	ToAssignmentVirtualMachineArrayOutput() AssignmentVirtualMachineArrayOutput
+	ToAssignmentVirtualMachineArrayOutputWithContext(context.Context) AssignmentVirtualMachineArrayOutput
+}
+
+type AssignmentVirtualMachineArray []AssignmentVirtualMachineInput
+
+func (AssignmentVirtualMachineArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AssignmentVirtualMachine)(nil))
+}
+
+func (i AssignmentVirtualMachineArray) ToAssignmentVirtualMachineArrayOutput() AssignmentVirtualMachineArrayOutput {
+	return i.ToAssignmentVirtualMachineArrayOutputWithContext(context.Background())
+}
+
+func (i AssignmentVirtualMachineArray) ToAssignmentVirtualMachineArrayOutputWithContext(ctx context.Context) AssignmentVirtualMachineArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentVirtualMachineArrayOutput)
+}
+
+// AssignmentVirtualMachineMapInput is an input type that accepts AssignmentVirtualMachineMap and AssignmentVirtualMachineMapOutput values.
+// You can construct a concrete instance of `AssignmentVirtualMachineMapInput` via:
+//
+//          AssignmentVirtualMachineMap{ "key": AssignmentVirtualMachineArgs{...} }
+type AssignmentVirtualMachineMapInput interface {
+	pulumi.Input
+
+	ToAssignmentVirtualMachineMapOutput() AssignmentVirtualMachineMapOutput
+	ToAssignmentVirtualMachineMapOutputWithContext(context.Context) AssignmentVirtualMachineMapOutput
+}
+
+type AssignmentVirtualMachineMap map[string]AssignmentVirtualMachineInput
+
+func (AssignmentVirtualMachineMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AssignmentVirtualMachine)(nil))
+}
+
+func (i AssignmentVirtualMachineMap) ToAssignmentVirtualMachineMapOutput() AssignmentVirtualMachineMapOutput {
+	return i.ToAssignmentVirtualMachineMapOutputWithContext(context.Background())
+}
+
+func (i AssignmentVirtualMachineMap) ToAssignmentVirtualMachineMapOutputWithContext(ctx context.Context) AssignmentVirtualMachineMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentVirtualMachineMapOutput)
 }
 
 type AssignmentVirtualMachineOutput struct {
@@ -134,7 +213,7 @@ type AssignmentVirtualMachineOutput struct {
 }
 
 func (AssignmentVirtualMachineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssignmentVirtualMachineOutput)(nil)).Elem()
+	return reflect.TypeOf((*AssignmentVirtualMachine)(nil))
 }
 
 func (o AssignmentVirtualMachineOutput) ToAssignmentVirtualMachineOutput() AssignmentVirtualMachineOutput {
@@ -145,6 +224,75 @@ func (o AssignmentVirtualMachineOutput) ToAssignmentVirtualMachineOutputWithCont
 	return o
 }
 
+func (o AssignmentVirtualMachineOutput) ToAssignmentVirtualMachinePtrOutput() AssignmentVirtualMachinePtrOutput {
+	return o.ToAssignmentVirtualMachinePtrOutputWithContext(context.Background())
+}
+
+func (o AssignmentVirtualMachineOutput) ToAssignmentVirtualMachinePtrOutputWithContext(ctx context.Context) AssignmentVirtualMachinePtrOutput {
+	return o.ApplyT(func(v AssignmentVirtualMachine) *AssignmentVirtualMachine {
+		return &v
+	}).(AssignmentVirtualMachinePtrOutput)
+}
+
+type AssignmentVirtualMachinePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssignmentVirtualMachinePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssignmentVirtualMachine)(nil))
+}
+
+func (o AssignmentVirtualMachinePtrOutput) ToAssignmentVirtualMachinePtrOutput() AssignmentVirtualMachinePtrOutput {
+	return o
+}
+
+func (o AssignmentVirtualMachinePtrOutput) ToAssignmentVirtualMachinePtrOutputWithContext(ctx context.Context) AssignmentVirtualMachinePtrOutput {
+	return o
+}
+
+type AssignmentVirtualMachineArrayOutput struct{ *pulumi.OutputState }
+
+func (AssignmentVirtualMachineArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssignmentVirtualMachine)(nil))
+}
+
+func (o AssignmentVirtualMachineArrayOutput) ToAssignmentVirtualMachineArrayOutput() AssignmentVirtualMachineArrayOutput {
+	return o
+}
+
+func (o AssignmentVirtualMachineArrayOutput) ToAssignmentVirtualMachineArrayOutputWithContext(ctx context.Context) AssignmentVirtualMachineArrayOutput {
+	return o
+}
+
+func (o AssignmentVirtualMachineArrayOutput) Index(i pulumi.IntInput) AssignmentVirtualMachineOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssignmentVirtualMachine {
+		return vs[0].([]AssignmentVirtualMachine)[vs[1].(int)]
+	}).(AssignmentVirtualMachineOutput)
+}
+
+type AssignmentVirtualMachineMapOutput struct{ *pulumi.OutputState }
+
+func (AssignmentVirtualMachineMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AssignmentVirtualMachine)(nil))
+}
+
+func (o AssignmentVirtualMachineMapOutput) ToAssignmentVirtualMachineMapOutput() AssignmentVirtualMachineMapOutput {
+	return o
+}
+
+func (o AssignmentVirtualMachineMapOutput) ToAssignmentVirtualMachineMapOutputWithContext(ctx context.Context) AssignmentVirtualMachineMapOutput {
+	return o
+}
+
+func (o AssignmentVirtualMachineMapOutput) MapIndex(k pulumi.StringInput) AssignmentVirtualMachineOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AssignmentVirtualMachine {
+		return vs[0].(map[string]AssignmentVirtualMachine)[vs[1].(string)]
+	}).(AssignmentVirtualMachineOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AssignmentVirtualMachineOutput{})
+	pulumi.RegisterOutputType(AssignmentVirtualMachinePtrOutput{})
+	pulumi.RegisterOutputType(AssignmentVirtualMachineArrayOutput{})
+	pulumi.RegisterOutputType(AssignmentVirtualMachineMapOutput{})
 }

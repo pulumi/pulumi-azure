@@ -186,16 +186,95 @@ type AnalyticsAccountInput interface {
 	ToAnalyticsAccountOutputWithContext(ctx context.Context) AnalyticsAccountOutput
 }
 
-func (AnalyticsAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsAccount)(nil)).Elem()
+func (*AnalyticsAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsAccount)(nil))
 }
 
-func (i AnalyticsAccount) ToAnalyticsAccountOutput() AnalyticsAccountOutput {
+func (i *AnalyticsAccount) ToAnalyticsAccountOutput() AnalyticsAccountOutput {
 	return i.ToAnalyticsAccountOutputWithContext(context.Background())
 }
 
-func (i AnalyticsAccount) ToAnalyticsAccountOutputWithContext(ctx context.Context) AnalyticsAccountOutput {
+func (i *AnalyticsAccount) ToAnalyticsAccountOutputWithContext(ctx context.Context) AnalyticsAccountOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsAccountOutput)
+}
+
+func (i *AnalyticsAccount) ToAnalyticsAccountPtrOutput() AnalyticsAccountPtrOutput {
+	return i.ToAnalyticsAccountPtrOutputWithContext(context.Background())
+}
+
+func (i *AnalyticsAccount) ToAnalyticsAccountPtrOutputWithContext(ctx context.Context) AnalyticsAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsAccountPtrOutput)
+}
+
+type AnalyticsAccountPtrInput interface {
+	pulumi.Input
+
+	ToAnalyticsAccountPtrOutput() AnalyticsAccountPtrOutput
+	ToAnalyticsAccountPtrOutputWithContext(ctx context.Context) AnalyticsAccountPtrOutput
+}
+
+type analyticsAccountPtrType AnalyticsAccountArgs
+
+func (*analyticsAccountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyticsAccount)(nil))
+}
+
+func (i *analyticsAccountPtrType) ToAnalyticsAccountPtrOutput() AnalyticsAccountPtrOutput {
+	return i.ToAnalyticsAccountPtrOutputWithContext(context.Background())
+}
+
+func (i *analyticsAccountPtrType) ToAnalyticsAccountPtrOutputWithContext(ctx context.Context) AnalyticsAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsAccountPtrOutput)
+}
+
+// AnalyticsAccountArrayInput is an input type that accepts AnalyticsAccountArray and AnalyticsAccountArrayOutput values.
+// You can construct a concrete instance of `AnalyticsAccountArrayInput` via:
+//
+//          AnalyticsAccountArray{ AnalyticsAccountArgs{...} }
+type AnalyticsAccountArrayInput interface {
+	pulumi.Input
+
+	ToAnalyticsAccountArrayOutput() AnalyticsAccountArrayOutput
+	ToAnalyticsAccountArrayOutputWithContext(context.Context) AnalyticsAccountArrayOutput
+}
+
+type AnalyticsAccountArray []AnalyticsAccountInput
+
+func (AnalyticsAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AnalyticsAccount)(nil))
+}
+
+func (i AnalyticsAccountArray) ToAnalyticsAccountArrayOutput() AnalyticsAccountArrayOutput {
+	return i.ToAnalyticsAccountArrayOutputWithContext(context.Background())
+}
+
+func (i AnalyticsAccountArray) ToAnalyticsAccountArrayOutputWithContext(ctx context.Context) AnalyticsAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsAccountArrayOutput)
+}
+
+// AnalyticsAccountMapInput is an input type that accepts AnalyticsAccountMap and AnalyticsAccountMapOutput values.
+// You can construct a concrete instance of `AnalyticsAccountMapInput` via:
+//
+//          AnalyticsAccountMap{ "key": AnalyticsAccountArgs{...} }
+type AnalyticsAccountMapInput interface {
+	pulumi.Input
+
+	ToAnalyticsAccountMapOutput() AnalyticsAccountMapOutput
+	ToAnalyticsAccountMapOutputWithContext(context.Context) AnalyticsAccountMapOutput
+}
+
+type AnalyticsAccountMap map[string]AnalyticsAccountInput
+
+func (AnalyticsAccountMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AnalyticsAccount)(nil))
+}
+
+func (i AnalyticsAccountMap) ToAnalyticsAccountMapOutput() AnalyticsAccountMapOutput {
+	return i.ToAnalyticsAccountMapOutputWithContext(context.Background())
+}
+
+func (i AnalyticsAccountMap) ToAnalyticsAccountMapOutputWithContext(ctx context.Context) AnalyticsAccountMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsAccountMapOutput)
 }
 
 type AnalyticsAccountOutput struct {
@@ -203,7 +282,7 @@ type AnalyticsAccountOutput struct {
 }
 
 func (AnalyticsAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsAccountOutput)(nil)).Elem()
+	return reflect.TypeOf((*AnalyticsAccount)(nil))
 }
 
 func (o AnalyticsAccountOutput) ToAnalyticsAccountOutput() AnalyticsAccountOutput {
@@ -214,6 +293,75 @@ func (o AnalyticsAccountOutput) ToAnalyticsAccountOutputWithContext(ctx context.
 	return o
 }
 
+func (o AnalyticsAccountOutput) ToAnalyticsAccountPtrOutput() AnalyticsAccountPtrOutput {
+	return o.ToAnalyticsAccountPtrOutputWithContext(context.Background())
+}
+
+func (o AnalyticsAccountOutput) ToAnalyticsAccountPtrOutputWithContext(ctx context.Context) AnalyticsAccountPtrOutput {
+	return o.ApplyT(func(v AnalyticsAccount) *AnalyticsAccount {
+		return &v
+	}).(AnalyticsAccountPtrOutput)
+}
+
+type AnalyticsAccountPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AnalyticsAccountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyticsAccount)(nil))
+}
+
+func (o AnalyticsAccountPtrOutput) ToAnalyticsAccountPtrOutput() AnalyticsAccountPtrOutput {
+	return o
+}
+
+func (o AnalyticsAccountPtrOutput) ToAnalyticsAccountPtrOutputWithContext(ctx context.Context) AnalyticsAccountPtrOutput {
+	return o
+}
+
+type AnalyticsAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalyticsAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalyticsAccount)(nil))
+}
+
+func (o AnalyticsAccountArrayOutput) ToAnalyticsAccountArrayOutput() AnalyticsAccountArrayOutput {
+	return o
+}
+
+func (o AnalyticsAccountArrayOutput) ToAnalyticsAccountArrayOutputWithContext(ctx context.Context) AnalyticsAccountArrayOutput {
+	return o
+}
+
+func (o AnalyticsAccountArrayOutput) Index(i pulumi.IntInput) AnalyticsAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalyticsAccount {
+		return vs[0].([]AnalyticsAccount)[vs[1].(int)]
+	}).(AnalyticsAccountOutput)
+}
+
+type AnalyticsAccountMapOutput struct{ *pulumi.OutputState }
+
+func (AnalyticsAccountMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AnalyticsAccount)(nil))
+}
+
+func (o AnalyticsAccountMapOutput) ToAnalyticsAccountMapOutput() AnalyticsAccountMapOutput {
+	return o
+}
+
+func (o AnalyticsAccountMapOutput) ToAnalyticsAccountMapOutputWithContext(ctx context.Context) AnalyticsAccountMapOutput {
+	return o
+}
+
+func (o AnalyticsAccountMapOutput) MapIndex(k pulumi.StringInput) AnalyticsAccountOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AnalyticsAccount {
+		return vs[0].(map[string]AnalyticsAccount)[vs[1].(string)]
+	}).(AnalyticsAccountOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AnalyticsAccountOutput{})
+	pulumi.RegisterOutputType(AnalyticsAccountPtrOutput{})
+	pulumi.RegisterOutputType(AnalyticsAccountArrayOutput{})
+	pulumi.RegisterOutputType(AnalyticsAccountMapOutput{})
 }

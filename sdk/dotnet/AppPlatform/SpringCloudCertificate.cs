@@ -147,6 +147,7 @@ namespace Pulumi.Azure.AppPlatform
     ///  $ pulumi import azure:appplatform/springCloudCertificate:SpringCloudCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/Spring/spring1/certificates/cert1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:appplatform/springCloudCertificate:SpringCloudCertificate")]
     public partial class SpringCloudCertificate : Pulumi.CustomResource
     {
         /// <summary>

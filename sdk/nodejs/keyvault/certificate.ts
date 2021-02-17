@@ -208,7 +208,8 @@ export class Certificate extends pulumi.CustomResource {
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
             inputs["certificateAttributes"] = state ? state.certificateAttributes : undefined;
@@ -223,10 +224,10 @@ export class Certificate extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if ((!args || args.certificatePolicy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.certificatePolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificatePolicy'");
             }
-            if ((!args || args.keyVaultId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.keyVaultId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
             inputs["certificate"] = args ? args.certificate : undefined;
@@ -241,15 +242,11 @@ export class Certificate extends pulumi.CustomResource {
             inputs["thumbprint"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure:keyvault/certifiate:Certifiate" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Certificate.__pulumiType, name, inputs, opts);
     }
 }

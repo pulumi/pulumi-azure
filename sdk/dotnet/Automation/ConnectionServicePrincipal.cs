@@ -20,6 +20,7 @@ namespace Pulumi.Azure.Automation
     ///  $ pulumi import azure:automation/connectionServicePrincipal:ConnectionServicePrincipal conn1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:automation/connectionServicePrincipal:ConnectionServicePrincipal")]
     public partial class ConnectionServicePrincipal : Pulumi.CustomResource
     {
         /// <summary>

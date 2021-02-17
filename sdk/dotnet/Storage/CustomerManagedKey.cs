@@ -20,6 +20,7 @@ namespace Pulumi.Azure.Storage
     ///  $ pulumi import azure:storage/customerManagedKey:CustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
     /// ```
     /// </summary>
+    [AzureResourceType("azure:storage/customerManagedKey:CustomerManagedKey")]
     public partial class CustomerManagedKey : Pulumi.CustomResource
     {
         /// <summary>

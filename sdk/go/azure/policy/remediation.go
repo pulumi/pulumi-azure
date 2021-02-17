@@ -221,16 +221,95 @@ type RemediationInput interface {
 	ToRemediationOutputWithContext(ctx context.Context) RemediationOutput
 }
 
-func (Remediation) ElementType() reflect.Type {
-	return reflect.TypeOf((*Remediation)(nil)).Elem()
+func (*Remediation) ElementType() reflect.Type {
+	return reflect.TypeOf((*Remediation)(nil))
 }
 
-func (i Remediation) ToRemediationOutput() RemediationOutput {
+func (i *Remediation) ToRemediationOutput() RemediationOutput {
 	return i.ToRemediationOutputWithContext(context.Background())
 }
 
-func (i Remediation) ToRemediationOutputWithContext(ctx context.Context) RemediationOutput {
+func (i *Remediation) ToRemediationOutputWithContext(ctx context.Context) RemediationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationOutput)
+}
+
+func (i *Remediation) ToRemediationPtrOutput() RemediationPtrOutput {
+	return i.ToRemediationPtrOutputWithContext(context.Background())
+}
+
+func (i *Remediation) ToRemediationPtrOutputWithContext(ctx context.Context) RemediationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationPtrOutput)
+}
+
+type RemediationPtrInput interface {
+	pulumi.Input
+
+	ToRemediationPtrOutput() RemediationPtrOutput
+	ToRemediationPtrOutputWithContext(ctx context.Context) RemediationPtrOutput
+}
+
+type remediationPtrType RemediationArgs
+
+func (*remediationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Remediation)(nil))
+}
+
+func (i *remediationPtrType) ToRemediationPtrOutput() RemediationPtrOutput {
+	return i.ToRemediationPtrOutputWithContext(context.Background())
+}
+
+func (i *remediationPtrType) ToRemediationPtrOutputWithContext(ctx context.Context) RemediationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationPtrOutput)
+}
+
+// RemediationArrayInput is an input type that accepts RemediationArray and RemediationArrayOutput values.
+// You can construct a concrete instance of `RemediationArrayInput` via:
+//
+//          RemediationArray{ RemediationArgs{...} }
+type RemediationArrayInput interface {
+	pulumi.Input
+
+	ToRemediationArrayOutput() RemediationArrayOutput
+	ToRemediationArrayOutputWithContext(context.Context) RemediationArrayOutput
+}
+
+type RemediationArray []RemediationInput
+
+func (RemediationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Remediation)(nil))
+}
+
+func (i RemediationArray) ToRemediationArrayOutput() RemediationArrayOutput {
+	return i.ToRemediationArrayOutputWithContext(context.Background())
+}
+
+func (i RemediationArray) ToRemediationArrayOutputWithContext(ctx context.Context) RemediationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationArrayOutput)
+}
+
+// RemediationMapInput is an input type that accepts RemediationMap and RemediationMapOutput values.
+// You can construct a concrete instance of `RemediationMapInput` via:
+//
+//          RemediationMap{ "key": RemediationArgs{...} }
+type RemediationMapInput interface {
+	pulumi.Input
+
+	ToRemediationMapOutput() RemediationMapOutput
+	ToRemediationMapOutputWithContext(context.Context) RemediationMapOutput
+}
+
+type RemediationMap map[string]RemediationInput
+
+func (RemediationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Remediation)(nil))
+}
+
+func (i RemediationMap) ToRemediationMapOutput() RemediationMapOutput {
+	return i.ToRemediationMapOutputWithContext(context.Background())
+}
+
+func (i RemediationMap) ToRemediationMapOutputWithContext(ctx context.Context) RemediationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationMapOutput)
 }
 
 type RemediationOutput struct {
@@ -238,7 +317,7 @@ type RemediationOutput struct {
 }
 
 func (RemediationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationOutput)(nil)).Elem()
+	return reflect.TypeOf((*Remediation)(nil))
 }
 
 func (o RemediationOutput) ToRemediationOutput() RemediationOutput {
@@ -249,6 +328,75 @@ func (o RemediationOutput) ToRemediationOutputWithContext(ctx context.Context) R
 	return o
 }
 
+func (o RemediationOutput) ToRemediationPtrOutput() RemediationPtrOutput {
+	return o.ToRemediationPtrOutputWithContext(context.Background())
+}
+
+func (o RemediationOutput) ToRemediationPtrOutputWithContext(ctx context.Context) RemediationPtrOutput {
+	return o.ApplyT(func(v Remediation) *Remediation {
+		return &v
+	}).(RemediationPtrOutput)
+}
+
+type RemediationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RemediationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Remediation)(nil))
+}
+
+func (o RemediationPtrOutput) ToRemediationPtrOutput() RemediationPtrOutput {
+	return o
+}
+
+func (o RemediationPtrOutput) ToRemediationPtrOutputWithContext(ctx context.Context) RemediationPtrOutput {
+	return o
+}
+
+type RemediationArrayOutput struct{ *pulumi.OutputState }
+
+func (RemediationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Remediation)(nil))
+}
+
+func (o RemediationArrayOutput) ToRemediationArrayOutput() RemediationArrayOutput {
+	return o
+}
+
+func (o RemediationArrayOutput) ToRemediationArrayOutputWithContext(ctx context.Context) RemediationArrayOutput {
+	return o
+}
+
+func (o RemediationArrayOutput) Index(i pulumi.IntInput) RemediationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Remediation {
+		return vs[0].([]Remediation)[vs[1].(int)]
+	}).(RemediationOutput)
+}
+
+type RemediationMapOutput struct{ *pulumi.OutputState }
+
+func (RemediationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Remediation)(nil))
+}
+
+func (o RemediationMapOutput) ToRemediationMapOutput() RemediationMapOutput {
+	return o
+}
+
+func (o RemediationMapOutput) ToRemediationMapOutputWithContext(ctx context.Context) RemediationMapOutput {
+	return o
+}
+
+func (o RemediationMapOutput) MapIndex(k pulumi.StringInput) RemediationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Remediation {
+		return vs[0].(map[string]Remediation)[vs[1].(string)]
+	}).(RemediationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RemediationOutput{})
+	pulumi.RegisterOutputType(RemediationPtrOutput{})
+	pulumi.RegisterOutputType(RemediationArrayOutput{})
+	pulumi.RegisterOutputType(RemediationMapOutput{})
 }

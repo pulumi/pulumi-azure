@@ -229,16 +229,95 @@ type FallbackRouteInput interface {
 	ToFallbackRouteOutputWithContext(ctx context.Context) FallbackRouteOutput
 }
 
-func (FallbackRoute) ElementType() reflect.Type {
-	return reflect.TypeOf((*FallbackRoute)(nil)).Elem()
+func (*FallbackRoute) ElementType() reflect.Type {
+	return reflect.TypeOf((*FallbackRoute)(nil))
 }
 
-func (i FallbackRoute) ToFallbackRouteOutput() FallbackRouteOutput {
+func (i *FallbackRoute) ToFallbackRouteOutput() FallbackRouteOutput {
 	return i.ToFallbackRouteOutputWithContext(context.Background())
 }
 
-func (i FallbackRoute) ToFallbackRouteOutputWithContext(ctx context.Context) FallbackRouteOutput {
+func (i *FallbackRoute) ToFallbackRouteOutputWithContext(ctx context.Context) FallbackRouteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FallbackRouteOutput)
+}
+
+func (i *FallbackRoute) ToFallbackRoutePtrOutput() FallbackRoutePtrOutput {
+	return i.ToFallbackRoutePtrOutputWithContext(context.Background())
+}
+
+func (i *FallbackRoute) ToFallbackRoutePtrOutputWithContext(ctx context.Context) FallbackRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FallbackRoutePtrOutput)
+}
+
+type FallbackRoutePtrInput interface {
+	pulumi.Input
+
+	ToFallbackRoutePtrOutput() FallbackRoutePtrOutput
+	ToFallbackRoutePtrOutputWithContext(ctx context.Context) FallbackRoutePtrOutput
+}
+
+type fallbackRoutePtrType FallbackRouteArgs
+
+func (*fallbackRoutePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FallbackRoute)(nil))
+}
+
+func (i *fallbackRoutePtrType) ToFallbackRoutePtrOutput() FallbackRoutePtrOutput {
+	return i.ToFallbackRoutePtrOutputWithContext(context.Background())
+}
+
+func (i *fallbackRoutePtrType) ToFallbackRoutePtrOutputWithContext(ctx context.Context) FallbackRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FallbackRoutePtrOutput)
+}
+
+// FallbackRouteArrayInput is an input type that accepts FallbackRouteArray and FallbackRouteArrayOutput values.
+// You can construct a concrete instance of `FallbackRouteArrayInput` via:
+//
+//          FallbackRouteArray{ FallbackRouteArgs{...} }
+type FallbackRouteArrayInput interface {
+	pulumi.Input
+
+	ToFallbackRouteArrayOutput() FallbackRouteArrayOutput
+	ToFallbackRouteArrayOutputWithContext(context.Context) FallbackRouteArrayOutput
+}
+
+type FallbackRouteArray []FallbackRouteInput
+
+func (FallbackRouteArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*FallbackRoute)(nil))
+}
+
+func (i FallbackRouteArray) ToFallbackRouteArrayOutput() FallbackRouteArrayOutput {
+	return i.ToFallbackRouteArrayOutputWithContext(context.Background())
+}
+
+func (i FallbackRouteArray) ToFallbackRouteArrayOutputWithContext(ctx context.Context) FallbackRouteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FallbackRouteArrayOutput)
+}
+
+// FallbackRouteMapInput is an input type that accepts FallbackRouteMap and FallbackRouteMapOutput values.
+// You can construct a concrete instance of `FallbackRouteMapInput` via:
+//
+//          FallbackRouteMap{ "key": FallbackRouteArgs{...} }
+type FallbackRouteMapInput interface {
+	pulumi.Input
+
+	ToFallbackRouteMapOutput() FallbackRouteMapOutput
+	ToFallbackRouteMapOutputWithContext(context.Context) FallbackRouteMapOutput
+}
+
+type FallbackRouteMap map[string]FallbackRouteInput
+
+func (FallbackRouteMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*FallbackRoute)(nil))
+}
+
+func (i FallbackRouteMap) ToFallbackRouteMapOutput() FallbackRouteMapOutput {
+	return i.ToFallbackRouteMapOutputWithContext(context.Background())
+}
+
+func (i FallbackRouteMap) ToFallbackRouteMapOutputWithContext(ctx context.Context) FallbackRouteMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FallbackRouteMapOutput)
 }
 
 type FallbackRouteOutput struct {
@@ -246,7 +325,7 @@ type FallbackRouteOutput struct {
 }
 
 func (FallbackRouteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FallbackRouteOutput)(nil)).Elem()
+	return reflect.TypeOf((*FallbackRoute)(nil))
 }
 
 func (o FallbackRouteOutput) ToFallbackRouteOutput() FallbackRouteOutput {
@@ -257,6 +336,75 @@ func (o FallbackRouteOutput) ToFallbackRouteOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o FallbackRouteOutput) ToFallbackRoutePtrOutput() FallbackRoutePtrOutput {
+	return o.ToFallbackRoutePtrOutputWithContext(context.Background())
+}
+
+func (o FallbackRouteOutput) ToFallbackRoutePtrOutputWithContext(ctx context.Context) FallbackRoutePtrOutput {
+	return o.ApplyT(func(v FallbackRoute) *FallbackRoute {
+		return &v
+	}).(FallbackRoutePtrOutput)
+}
+
+type FallbackRoutePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (FallbackRoutePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FallbackRoute)(nil))
+}
+
+func (o FallbackRoutePtrOutput) ToFallbackRoutePtrOutput() FallbackRoutePtrOutput {
+	return o
+}
+
+func (o FallbackRoutePtrOutput) ToFallbackRoutePtrOutputWithContext(ctx context.Context) FallbackRoutePtrOutput {
+	return o
+}
+
+type FallbackRouteArrayOutput struct{ *pulumi.OutputState }
+
+func (FallbackRouteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FallbackRoute)(nil))
+}
+
+func (o FallbackRouteArrayOutput) ToFallbackRouteArrayOutput() FallbackRouteArrayOutput {
+	return o
+}
+
+func (o FallbackRouteArrayOutput) ToFallbackRouteArrayOutputWithContext(ctx context.Context) FallbackRouteArrayOutput {
+	return o
+}
+
+func (o FallbackRouteArrayOutput) Index(i pulumi.IntInput) FallbackRouteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FallbackRoute {
+		return vs[0].([]FallbackRoute)[vs[1].(int)]
+	}).(FallbackRouteOutput)
+}
+
+type FallbackRouteMapOutput struct{ *pulumi.OutputState }
+
+func (FallbackRouteMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]FallbackRoute)(nil))
+}
+
+func (o FallbackRouteMapOutput) ToFallbackRouteMapOutput() FallbackRouteMapOutput {
+	return o
+}
+
+func (o FallbackRouteMapOutput) ToFallbackRouteMapOutputWithContext(ctx context.Context) FallbackRouteMapOutput {
+	return o
+}
+
+func (o FallbackRouteMapOutput) MapIndex(k pulumi.StringInput) FallbackRouteOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FallbackRoute {
+		return vs[0].(map[string]FallbackRoute)[vs[1].(string)]
+	}).(FallbackRouteOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FallbackRouteOutput{})
+	pulumi.RegisterOutputType(FallbackRoutePtrOutput{})
+	pulumi.RegisterOutputType(FallbackRouteArrayOutput{})
+	pulumi.RegisterOutputType(FallbackRouteMapOutput{})
 }

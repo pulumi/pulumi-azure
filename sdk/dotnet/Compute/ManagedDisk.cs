@@ -95,6 +95,7 @@ namespace Pulumi.Azure.Compute
     ///  $ pulumi import azure:compute/managedDisk:ManagedDisk example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.compute/disks/manageddisk1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:compute/managedDisk:ManagedDisk")]
     public partial class ManagedDisk : Pulumi.CustomResource
     {
         /// <summary>

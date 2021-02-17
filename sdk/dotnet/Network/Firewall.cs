@@ -78,6 +78,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/firewall:Firewall example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/azureFirewalls/testfirewall
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/firewall:Firewall")]
     public partial class Firewall : Pulumi.CustomResource
     {
         /// <summary>

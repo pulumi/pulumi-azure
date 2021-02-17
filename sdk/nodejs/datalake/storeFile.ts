@@ -87,32 +87,29 @@ export class StoreFile extends pulumi.CustomResource {
     constructor(name: string, args: StoreFileArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StoreFileArgs | StoreFileState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as StoreFileState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["localFilePath"] = state ? state.localFilePath : undefined;
             inputs["remoteFilePath"] = state ? state.remoteFilePath : undefined;
         } else {
             const args = argsOrState as StoreFileArgs | undefined;
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.localFilePath === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.localFilePath === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'localFilePath'");
             }
-            if ((!args || args.remoteFilePath === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.remoteFilePath === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'remoteFilePath'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["localFilePath"] = args ? args.localFilePath : undefined;
             inputs["remoteFilePath"] = args ? args.remoteFilePath : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(StoreFile.__pulumiType, name, inputs, opts);
     }

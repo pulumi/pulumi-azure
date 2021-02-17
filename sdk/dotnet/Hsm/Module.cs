@@ -143,6 +143,7 @@ namespace Pulumi.Azure.Hsm
     ///  $ pulumi import azure:hsm/module:Module example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/hsm1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:hsm/module:Module")]
     public partial class Module : Pulumi.CustomResource
     {
         /// <summary>

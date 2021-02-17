@@ -541,16 +541,95 @@ type LinuxVirtualMachineScaleSetInput interface {
 	ToLinuxVirtualMachineScaleSetOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOutput
 }
 
-func (LinuxVirtualMachineScaleSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinuxVirtualMachineScaleSet)(nil)).Elem()
+func (*LinuxVirtualMachineScaleSet) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSet)(nil))
 }
 
-func (i LinuxVirtualMachineScaleSet) ToLinuxVirtualMachineScaleSetOutput() LinuxVirtualMachineScaleSetOutput {
+func (i *LinuxVirtualMachineScaleSet) ToLinuxVirtualMachineScaleSetOutput() LinuxVirtualMachineScaleSetOutput {
 	return i.ToLinuxVirtualMachineScaleSetOutputWithContext(context.Background())
 }
 
-func (i LinuxVirtualMachineScaleSet) ToLinuxVirtualMachineScaleSetOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOutput {
+func (i *LinuxVirtualMachineScaleSet) ToLinuxVirtualMachineScaleSetOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetOutput)
+}
+
+func (i *LinuxVirtualMachineScaleSet) ToLinuxVirtualMachineScaleSetPtrOutput() LinuxVirtualMachineScaleSetPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetPtrOutputWithContext(context.Background())
+}
+
+func (i *LinuxVirtualMachineScaleSet) ToLinuxVirtualMachineScaleSetPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetPtrOutput() LinuxVirtualMachineScaleSetPtrOutput
+	ToLinuxVirtualMachineScaleSetPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetPtrOutput
+}
+
+type linuxVirtualMachineScaleSetPtrType LinuxVirtualMachineScaleSetArgs
+
+func (*linuxVirtualMachineScaleSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSet)(nil))
+}
+
+func (i *linuxVirtualMachineScaleSetPtrType) ToLinuxVirtualMachineScaleSetPtrOutput() LinuxVirtualMachineScaleSetPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineScaleSetPtrType) ToLinuxVirtualMachineScaleSetPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetPtrOutput)
+}
+
+// LinuxVirtualMachineScaleSetArrayInput is an input type that accepts LinuxVirtualMachineScaleSetArray and LinuxVirtualMachineScaleSetArrayOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineScaleSetArrayInput` via:
+//
+//          LinuxVirtualMachineScaleSetArray{ LinuxVirtualMachineScaleSetArgs{...} }
+type LinuxVirtualMachineScaleSetArrayInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetArrayOutput() LinuxVirtualMachineScaleSetArrayOutput
+	ToLinuxVirtualMachineScaleSetArrayOutputWithContext(context.Context) LinuxVirtualMachineScaleSetArrayOutput
+}
+
+type LinuxVirtualMachineScaleSetArray []LinuxVirtualMachineScaleSetInput
+
+func (LinuxVirtualMachineScaleSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LinuxVirtualMachineScaleSet)(nil))
+}
+
+func (i LinuxVirtualMachineScaleSetArray) ToLinuxVirtualMachineScaleSetArrayOutput() LinuxVirtualMachineScaleSetArrayOutput {
+	return i.ToLinuxVirtualMachineScaleSetArrayOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetArray) ToLinuxVirtualMachineScaleSetArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetArrayOutput)
+}
+
+// LinuxVirtualMachineScaleSetMapInput is an input type that accepts LinuxVirtualMachineScaleSetMap and LinuxVirtualMachineScaleSetMapOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineScaleSetMapInput` via:
+//
+//          LinuxVirtualMachineScaleSetMap{ "key": LinuxVirtualMachineScaleSetArgs{...} }
+type LinuxVirtualMachineScaleSetMapInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetMapOutput() LinuxVirtualMachineScaleSetMapOutput
+	ToLinuxVirtualMachineScaleSetMapOutputWithContext(context.Context) LinuxVirtualMachineScaleSetMapOutput
+}
+
+type LinuxVirtualMachineScaleSetMap map[string]LinuxVirtualMachineScaleSetInput
+
+func (LinuxVirtualMachineScaleSetMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LinuxVirtualMachineScaleSet)(nil))
+}
+
+func (i LinuxVirtualMachineScaleSetMap) ToLinuxVirtualMachineScaleSetMapOutput() LinuxVirtualMachineScaleSetMapOutput {
+	return i.ToLinuxVirtualMachineScaleSetMapOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetMap) ToLinuxVirtualMachineScaleSetMapOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetMapOutput)
 }
 
 type LinuxVirtualMachineScaleSetOutput struct {
@@ -558,7 +637,7 @@ type LinuxVirtualMachineScaleSetOutput struct {
 }
 
 func (LinuxVirtualMachineScaleSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinuxVirtualMachineScaleSetOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSet)(nil))
 }
 
 func (o LinuxVirtualMachineScaleSetOutput) ToLinuxVirtualMachineScaleSetOutput() LinuxVirtualMachineScaleSetOutput {
@@ -569,6 +648,75 @@ func (o LinuxVirtualMachineScaleSetOutput) ToLinuxVirtualMachineScaleSetOutputWi
 	return o
 }
 
+func (o LinuxVirtualMachineScaleSetOutput) ToLinuxVirtualMachineScaleSetPtrOutput() LinuxVirtualMachineScaleSetPtrOutput {
+	return o.ToLinuxVirtualMachineScaleSetPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineScaleSetOutput) ToLinuxVirtualMachineScaleSetPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSet) *LinuxVirtualMachineScaleSet {
+		return &v
+	}).(LinuxVirtualMachineScaleSetPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinuxVirtualMachineScaleSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSet)(nil))
+}
+
+func (o LinuxVirtualMachineScaleSetPtrOutput) ToLinuxVirtualMachineScaleSetPtrOutput() LinuxVirtualMachineScaleSetPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetPtrOutput) ToLinuxVirtualMachineScaleSetPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetPtrOutput {
+	return o
+}
+
+type LinuxVirtualMachineScaleSetArrayOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSet)(nil))
+}
+
+func (o LinuxVirtualMachineScaleSetArrayOutput) ToLinuxVirtualMachineScaleSetArrayOutput() LinuxVirtualMachineScaleSetArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetArrayOutput) ToLinuxVirtualMachineScaleSetArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineScaleSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSet {
+		return vs[0].([]LinuxVirtualMachineScaleSet)[vs[1].(int)]
+	}).(LinuxVirtualMachineScaleSetOutput)
+}
+
+type LinuxVirtualMachineScaleSetMapOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LinuxVirtualMachineScaleSet)(nil))
+}
+
+func (o LinuxVirtualMachineScaleSetMapOutput) ToLinuxVirtualMachineScaleSetMapOutput() LinuxVirtualMachineScaleSetMapOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetMapOutput) ToLinuxVirtualMachineScaleSetMapOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetMapOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetMapOutput) MapIndex(k pulumi.StringInput) LinuxVirtualMachineScaleSetOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSet {
+		return vs[0].(map[string]LinuxVirtualMachineScaleSet)[vs[1].(string)]
+	}).(LinuxVirtualMachineScaleSetOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetPtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetArrayOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetMapOutput{})
 }

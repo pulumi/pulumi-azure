@@ -20,6 +20,7 @@ namespace Pulumi.Azure.Kusto
     ///  $ pulumi import azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/AttachedDatabaseConfigurations/configuration1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration")]
     public partial class AttachedDatabaseConfiguration : Pulumi.CustomResource
     {
         /// <summary>

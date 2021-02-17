@@ -175,16 +175,95 @@ type AssignmentDedicatedHostInput interface {
 	ToAssignmentDedicatedHostOutputWithContext(ctx context.Context) AssignmentDedicatedHostOutput
 }
 
-func (AssignmentDedicatedHost) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssignmentDedicatedHost)(nil)).Elem()
+func (*AssignmentDedicatedHost) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentDedicatedHost)(nil))
 }
 
-func (i AssignmentDedicatedHost) ToAssignmentDedicatedHostOutput() AssignmentDedicatedHostOutput {
+func (i *AssignmentDedicatedHost) ToAssignmentDedicatedHostOutput() AssignmentDedicatedHostOutput {
 	return i.ToAssignmentDedicatedHostOutputWithContext(context.Background())
 }
 
-func (i AssignmentDedicatedHost) ToAssignmentDedicatedHostOutputWithContext(ctx context.Context) AssignmentDedicatedHostOutput {
+func (i *AssignmentDedicatedHost) ToAssignmentDedicatedHostOutputWithContext(ctx context.Context) AssignmentDedicatedHostOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentDedicatedHostOutput)
+}
+
+func (i *AssignmentDedicatedHost) ToAssignmentDedicatedHostPtrOutput() AssignmentDedicatedHostPtrOutput {
+	return i.ToAssignmentDedicatedHostPtrOutputWithContext(context.Background())
+}
+
+func (i *AssignmentDedicatedHost) ToAssignmentDedicatedHostPtrOutputWithContext(ctx context.Context) AssignmentDedicatedHostPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentDedicatedHostPtrOutput)
+}
+
+type AssignmentDedicatedHostPtrInput interface {
+	pulumi.Input
+
+	ToAssignmentDedicatedHostPtrOutput() AssignmentDedicatedHostPtrOutput
+	ToAssignmentDedicatedHostPtrOutputWithContext(ctx context.Context) AssignmentDedicatedHostPtrOutput
+}
+
+type assignmentDedicatedHostPtrType AssignmentDedicatedHostArgs
+
+func (*assignmentDedicatedHostPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssignmentDedicatedHost)(nil))
+}
+
+func (i *assignmentDedicatedHostPtrType) ToAssignmentDedicatedHostPtrOutput() AssignmentDedicatedHostPtrOutput {
+	return i.ToAssignmentDedicatedHostPtrOutputWithContext(context.Background())
+}
+
+func (i *assignmentDedicatedHostPtrType) ToAssignmentDedicatedHostPtrOutputWithContext(ctx context.Context) AssignmentDedicatedHostPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentDedicatedHostPtrOutput)
+}
+
+// AssignmentDedicatedHostArrayInput is an input type that accepts AssignmentDedicatedHostArray and AssignmentDedicatedHostArrayOutput values.
+// You can construct a concrete instance of `AssignmentDedicatedHostArrayInput` via:
+//
+//          AssignmentDedicatedHostArray{ AssignmentDedicatedHostArgs{...} }
+type AssignmentDedicatedHostArrayInput interface {
+	pulumi.Input
+
+	ToAssignmentDedicatedHostArrayOutput() AssignmentDedicatedHostArrayOutput
+	ToAssignmentDedicatedHostArrayOutputWithContext(context.Context) AssignmentDedicatedHostArrayOutput
+}
+
+type AssignmentDedicatedHostArray []AssignmentDedicatedHostInput
+
+func (AssignmentDedicatedHostArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AssignmentDedicatedHost)(nil))
+}
+
+func (i AssignmentDedicatedHostArray) ToAssignmentDedicatedHostArrayOutput() AssignmentDedicatedHostArrayOutput {
+	return i.ToAssignmentDedicatedHostArrayOutputWithContext(context.Background())
+}
+
+func (i AssignmentDedicatedHostArray) ToAssignmentDedicatedHostArrayOutputWithContext(ctx context.Context) AssignmentDedicatedHostArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentDedicatedHostArrayOutput)
+}
+
+// AssignmentDedicatedHostMapInput is an input type that accepts AssignmentDedicatedHostMap and AssignmentDedicatedHostMapOutput values.
+// You can construct a concrete instance of `AssignmentDedicatedHostMapInput` via:
+//
+//          AssignmentDedicatedHostMap{ "key": AssignmentDedicatedHostArgs{...} }
+type AssignmentDedicatedHostMapInput interface {
+	pulumi.Input
+
+	ToAssignmentDedicatedHostMapOutput() AssignmentDedicatedHostMapOutput
+	ToAssignmentDedicatedHostMapOutputWithContext(context.Context) AssignmentDedicatedHostMapOutput
+}
+
+type AssignmentDedicatedHostMap map[string]AssignmentDedicatedHostInput
+
+func (AssignmentDedicatedHostMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AssignmentDedicatedHost)(nil))
+}
+
+func (i AssignmentDedicatedHostMap) ToAssignmentDedicatedHostMapOutput() AssignmentDedicatedHostMapOutput {
+	return i.ToAssignmentDedicatedHostMapOutputWithContext(context.Background())
+}
+
+func (i AssignmentDedicatedHostMap) ToAssignmentDedicatedHostMapOutputWithContext(ctx context.Context) AssignmentDedicatedHostMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentDedicatedHostMapOutput)
 }
 
 type AssignmentDedicatedHostOutput struct {
@@ -192,7 +271,7 @@ type AssignmentDedicatedHostOutput struct {
 }
 
 func (AssignmentDedicatedHostOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssignmentDedicatedHostOutput)(nil)).Elem()
+	return reflect.TypeOf((*AssignmentDedicatedHost)(nil))
 }
 
 func (o AssignmentDedicatedHostOutput) ToAssignmentDedicatedHostOutput() AssignmentDedicatedHostOutput {
@@ -203,6 +282,75 @@ func (o AssignmentDedicatedHostOutput) ToAssignmentDedicatedHostOutputWithContex
 	return o
 }
 
+func (o AssignmentDedicatedHostOutput) ToAssignmentDedicatedHostPtrOutput() AssignmentDedicatedHostPtrOutput {
+	return o.ToAssignmentDedicatedHostPtrOutputWithContext(context.Background())
+}
+
+func (o AssignmentDedicatedHostOutput) ToAssignmentDedicatedHostPtrOutputWithContext(ctx context.Context) AssignmentDedicatedHostPtrOutput {
+	return o.ApplyT(func(v AssignmentDedicatedHost) *AssignmentDedicatedHost {
+		return &v
+	}).(AssignmentDedicatedHostPtrOutput)
+}
+
+type AssignmentDedicatedHostPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AssignmentDedicatedHostPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssignmentDedicatedHost)(nil))
+}
+
+func (o AssignmentDedicatedHostPtrOutput) ToAssignmentDedicatedHostPtrOutput() AssignmentDedicatedHostPtrOutput {
+	return o
+}
+
+func (o AssignmentDedicatedHostPtrOutput) ToAssignmentDedicatedHostPtrOutputWithContext(ctx context.Context) AssignmentDedicatedHostPtrOutput {
+	return o
+}
+
+type AssignmentDedicatedHostArrayOutput struct{ *pulumi.OutputState }
+
+func (AssignmentDedicatedHostArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssignmentDedicatedHost)(nil))
+}
+
+func (o AssignmentDedicatedHostArrayOutput) ToAssignmentDedicatedHostArrayOutput() AssignmentDedicatedHostArrayOutput {
+	return o
+}
+
+func (o AssignmentDedicatedHostArrayOutput) ToAssignmentDedicatedHostArrayOutputWithContext(ctx context.Context) AssignmentDedicatedHostArrayOutput {
+	return o
+}
+
+func (o AssignmentDedicatedHostArrayOutput) Index(i pulumi.IntInput) AssignmentDedicatedHostOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssignmentDedicatedHost {
+		return vs[0].([]AssignmentDedicatedHost)[vs[1].(int)]
+	}).(AssignmentDedicatedHostOutput)
+}
+
+type AssignmentDedicatedHostMapOutput struct{ *pulumi.OutputState }
+
+func (AssignmentDedicatedHostMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AssignmentDedicatedHost)(nil))
+}
+
+func (o AssignmentDedicatedHostMapOutput) ToAssignmentDedicatedHostMapOutput() AssignmentDedicatedHostMapOutput {
+	return o
+}
+
+func (o AssignmentDedicatedHostMapOutput) ToAssignmentDedicatedHostMapOutputWithContext(ctx context.Context) AssignmentDedicatedHostMapOutput {
+	return o
+}
+
+func (o AssignmentDedicatedHostMapOutput) MapIndex(k pulumi.StringInput) AssignmentDedicatedHostOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AssignmentDedicatedHost {
+		return vs[0].(map[string]AssignmentDedicatedHost)[vs[1].(string)]
+	}).(AssignmentDedicatedHostOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AssignmentDedicatedHostOutput{})
+	pulumi.RegisterOutputType(AssignmentDedicatedHostPtrOutput{})
+	pulumi.RegisterOutputType(AssignmentDedicatedHostArrayOutput{})
+	pulumi.RegisterOutputType(AssignmentDedicatedHostMapOutput{})
 }

@@ -100,6 +100,7 @@ namespace Pulumi.Azure.ManagementResource
     /// ```
     /// </summary>
     [Obsolete(@"azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock")]
+    [AzureResourceType("azure:managementresource/manangementLock:ManangementLock")]
     public partial class ManangementLock : Pulumi.CustomResource
     {
         /// <summary>

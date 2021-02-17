@@ -139,7 +139,8 @@ export class Snapshot extends pulumi.CustomResource {
     constructor(name: string, args: SnapshotArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnapshotArgs | SnapshotState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SnapshotState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -150,16 +151,16 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["volumeName"] = state ? state.volumeName : undefined;
         } else {
             const args = argsOrState as SnapshotArgs | undefined;
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.poolName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.poolName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'poolName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.volumeName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.volumeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'volumeName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -170,12 +171,8 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["volumeName"] = args ? args.volumeName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Snapshot.__pulumiType, name, inputs, opts);
     }

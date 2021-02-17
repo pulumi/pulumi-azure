@@ -106,7 +106,8 @@ export class CertificateIssuer extends pulumi.CustomResource {
     constructor(name: string, args: CertificateIssuerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CertificateIssuerArgs | CertificateIssuerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CertificateIssuerState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["admins"] = state ? state.admins : undefined;
@@ -117,10 +118,10 @@ export class CertificateIssuer extends pulumi.CustomResource {
             inputs["providerName"] = state ? state.providerName : undefined;
         } else {
             const args = argsOrState as CertificateIssuerArgs | undefined;
-            if ((!args || args.keyVaultId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.keyVaultId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            if ((!args || args.providerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.providerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerName'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;
@@ -131,12 +132,8 @@ export class CertificateIssuer extends pulumi.CustomResource {
             inputs["password"] = args ? args.password : undefined;
             inputs["providerName"] = args ? args.providerName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CertificateIssuer.__pulumiType, name, inputs, opts);
     }

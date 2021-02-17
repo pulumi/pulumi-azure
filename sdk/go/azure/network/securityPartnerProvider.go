@@ -209,16 +209,95 @@ type SecurityPartnerProviderInput interface {
 	ToSecurityPartnerProviderOutputWithContext(ctx context.Context) SecurityPartnerProviderOutput
 }
 
-func (SecurityPartnerProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityPartnerProvider)(nil)).Elem()
+func (*SecurityPartnerProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityPartnerProvider)(nil))
 }
 
-func (i SecurityPartnerProvider) ToSecurityPartnerProviderOutput() SecurityPartnerProviderOutput {
+func (i *SecurityPartnerProvider) ToSecurityPartnerProviderOutput() SecurityPartnerProviderOutput {
 	return i.ToSecurityPartnerProviderOutputWithContext(context.Background())
 }
 
-func (i SecurityPartnerProvider) ToSecurityPartnerProviderOutputWithContext(ctx context.Context) SecurityPartnerProviderOutput {
+func (i *SecurityPartnerProvider) ToSecurityPartnerProviderOutputWithContext(ctx context.Context) SecurityPartnerProviderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityPartnerProviderOutput)
+}
+
+func (i *SecurityPartnerProvider) ToSecurityPartnerProviderPtrOutput() SecurityPartnerProviderPtrOutput {
+	return i.ToSecurityPartnerProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *SecurityPartnerProvider) ToSecurityPartnerProviderPtrOutputWithContext(ctx context.Context) SecurityPartnerProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityPartnerProviderPtrOutput)
+}
+
+type SecurityPartnerProviderPtrInput interface {
+	pulumi.Input
+
+	ToSecurityPartnerProviderPtrOutput() SecurityPartnerProviderPtrOutput
+	ToSecurityPartnerProviderPtrOutputWithContext(ctx context.Context) SecurityPartnerProviderPtrOutput
+}
+
+type securityPartnerProviderPtrType SecurityPartnerProviderArgs
+
+func (*securityPartnerProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityPartnerProvider)(nil))
+}
+
+func (i *securityPartnerProviderPtrType) ToSecurityPartnerProviderPtrOutput() SecurityPartnerProviderPtrOutput {
+	return i.ToSecurityPartnerProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *securityPartnerProviderPtrType) ToSecurityPartnerProviderPtrOutputWithContext(ctx context.Context) SecurityPartnerProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityPartnerProviderPtrOutput)
+}
+
+// SecurityPartnerProviderArrayInput is an input type that accepts SecurityPartnerProviderArray and SecurityPartnerProviderArrayOutput values.
+// You can construct a concrete instance of `SecurityPartnerProviderArrayInput` via:
+//
+//          SecurityPartnerProviderArray{ SecurityPartnerProviderArgs{...} }
+type SecurityPartnerProviderArrayInput interface {
+	pulumi.Input
+
+	ToSecurityPartnerProviderArrayOutput() SecurityPartnerProviderArrayOutput
+	ToSecurityPartnerProviderArrayOutputWithContext(context.Context) SecurityPartnerProviderArrayOutput
+}
+
+type SecurityPartnerProviderArray []SecurityPartnerProviderInput
+
+func (SecurityPartnerProviderArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SecurityPartnerProvider)(nil))
+}
+
+func (i SecurityPartnerProviderArray) ToSecurityPartnerProviderArrayOutput() SecurityPartnerProviderArrayOutput {
+	return i.ToSecurityPartnerProviderArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityPartnerProviderArray) ToSecurityPartnerProviderArrayOutputWithContext(ctx context.Context) SecurityPartnerProviderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityPartnerProviderArrayOutput)
+}
+
+// SecurityPartnerProviderMapInput is an input type that accepts SecurityPartnerProviderMap and SecurityPartnerProviderMapOutput values.
+// You can construct a concrete instance of `SecurityPartnerProviderMapInput` via:
+//
+//          SecurityPartnerProviderMap{ "key": SecurityPartnerProviderArgs{...} }
+type SecurityPartnerProviderMapInput interface {
+	pulumi.Input
+
+	ToSecurityPartnerProviderMapOutput() SecurityPartnerProviderMapOutput
+	ToSecurityPartnerProviderMapOutputWithContext(context.Context) SecurityPartnerProviderMapOutput
+}
+
+type SecurityPartnerProviderMap map[string]SecurityPartnerProviderInput
+
+func (SecurityPartnerProviderMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SecurityPartnerProvider)(nil))
+}
+
+func (i SecurityPartnerProviderMap) ToSecurityPartnerProviderMapOutput() SecurityPartnerProviderMapOutput {
+	return i.ToSecurityPartnerProviderMapOutputWithContext(context.Background())
+}
+
+func (i SecurityPartnerProviderMap) ToSecurityPartnerProviderMapOutputWithContext(ctx context.Context) SecurityPartnerProviderMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityPartnerProviderMapOutput)
 }
 
 type SecurityPartnerProviderOutput struct {
@@ -226,7 +305,7 @@ type SecurityPartnerProviderOutput struct {
 }
 
 func (SecurityPartnerProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityPartnerProviderOutput)(nil)).Elem()
+	return reflect.TypeOf((*SecurityPartnerProvider)(nil))
 }
 
 func (o SecurityPartnerProviderOutput) ToSecurityPartnerProviderOutput() SecurityPartnerProviderOutput {
@@ -237,6 +316,75 @@ func (o SecurityPartnerProviderOutput) ToSecurityPartnerProviderOutputWithContex
 	return o
 }
 
+func (o SecurityPartnerProviderOutput) ToSecurityPartnerProviderPtrOutput() SecurityPartnerProviderPtrOutput {
+	return o.ToSecurityPartnerProviderPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityPartnerProviderOutput) ToSecurityPartnerProviderPtrOutputWithContext(ctx context.Context) SecurityPartnerProviderPtrOutput {
+	return o.ApplyT(func(v SecurityPartnerProvider) *SecurityPartnerProvider {
+		return &v
+	}).(SecurityPartnerProviderPtrOutput)
+}
+
+type SecurityPartnerProviderPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SecurityPartnerProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityPartnerProvider)(nil))
+}
+
+func (o SecurityPartnerProviderPtrOutput) ToSecurityPartnerProviderPtrOutput() SecurityPartnerProviderPtrOutput {
+	return o
+}
+
+func (o SecurityPartnerProviderPtrOutput) ToSecurityPartnerProviderPtrOutputWithContext(ctx context.Context) SecurityPartnerProviderPtrOutput {
+	return o
+}
+
+type SecurityPartnerProviderArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityPartnerProviderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityPartnerProvider)(nil))
+}
+
+func (o SecurityPartnerProviderArrayOutput) ToSecurityPartnerProviderArrayOutput() SecurityPartnerProviderArrayOutput {
+	return o
+}
+
+func (o SecurityPartnerProviderArrayOutput) ToSecurityPartnerProviderArrayOutputWithContext(ctx context.Context) SecurityPartnerProviderArrayOutput {
+	return o
+}
+
+func (o SecurityPartnerProviderArrayOutput) Index(i pulumi.IntInput) SecurityPartnerProviderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityPartnerProvider {
+		return vs[0].([]SecurityPartnerProvider)[vs[1].(int)]
+	}).(SecurityPartnerProviderOutput)
+}
+
+type SecurityPartnerProviderMapOutput struct{ *pulumi.OutputState }
+
+func (SecurityPartnerProviderMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SecurityPartnerProvider)(nil))
+}
+
+func (o SecurityPartnerProviderMapOutput) ToSecurityPartnerProviderMapOutput() SecurityPartnerProviderMapOutput {
+	return o
+}
+
+func (o SecurityPartnerProviderMapOutput) ToSecurityPartnerProviderMapOutputWithContext(ctx context.Context) SecurityPartnerProviderMapOutput {
+	return o
+}
+
+func (o SecurityPartnerProviderMapOutput) MapIndex(k pulumi.StringInput) SecurityPartnerProviderOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SecurityPartnerProvider {
+		return vs[0].(map[string]SecurityPartnerProvider)[vs[1].(string)]
+	}).(SecurityPartnerProviderOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SecurityPartnerProviderOutput{})
+	pulumi.RegisterOutputType(SecurityPartnerProviderPtrOutput{})
+	pulumi.RegisterOutputType(SecurityPartnerProviderArrayOutput{})
+	pulumi.RegisterOutputType(SecurityPartnerProviderMapOutput{})
 }

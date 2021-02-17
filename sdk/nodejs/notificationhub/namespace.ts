@@ -101,7 +101,8 @@ export class Namespace extends pulumi.CustomResource {
     constructor(name: string, args: NamespaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NamespaceArgs | NamespaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NamespaceState | undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -113,13 +114,13 @@ export class Namespace extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as NamespaceArgs | undefined;
-            if ((!args || args.namespaceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.namespaceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
             inputs["enabled"] = args ? args.enabled : undefined;
@@ -131,12 +132,8 @@ export class Namespace extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["servicebusEndpoint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Namespace.__pulumiType, name, inputs, opts);
     }

@@ -66,6 +66,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/vpnGateway:VpnGateway gateway1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/vpnGateways/gateway1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/vpnGateway:VpnGateway")]
     public partial class VpnGateway : Pulumi.CustomResource
     {
         /// <summary>

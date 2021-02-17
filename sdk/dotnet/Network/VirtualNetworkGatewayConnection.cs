@@ -230,6 +230,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection exampleConnection /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.Network/connections/myConnection1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection")]
     public partial class VirtualNetworkGatewayConnection : Pulumi.CustomResource
     {
         /// <summary>

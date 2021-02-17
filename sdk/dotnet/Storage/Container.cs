@@ -55,6 +55,7 @@ namespace Pulumi.Azure.Storage
     ///  $ pulumi import azure:storage/container:Container container1 https://example.blob.core.windows.net/container
     /// ```
     /// </summary>
+    [AzureResourceType("azure:storage/container:Container")]
     public partial class Container : Pulumi.CustomResource
     {
         /// <summary>

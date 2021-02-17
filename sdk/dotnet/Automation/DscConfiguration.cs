@@ -20,6 +20,7 @@ namespace Pulumi.Azure.Automation
     ///  $ pulumi import azure:automation/dscConfiguration:DscConfiguration configuration1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/configurations/configuration1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:automation/dscConfiguration:DscConfiguration")]
     public partial class DscConfiguration : Pulumi.CustomResource
     {
         /// <summary>

@@ -115,6 +115,7 @@ namespace Pulumi.Azure.Compute
     ///  $ pulumi import azure:compute/linuxVirtualMachine:LinuxVirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:compute/linuxVirtualMachine:LinuxVirtualMachine")]
     public partial class LinuxVirtualMachine : Pulumi.CustomResource
     {
         /// <summary>

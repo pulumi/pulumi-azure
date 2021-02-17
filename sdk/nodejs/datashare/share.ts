@@ -106,7 +106,8 @@ export class Share extends pulumi.CustomResource {
     constructor(name: string, args: ShareArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ShareArgs | ShareState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ShareState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -116,10 +117,10 @@ export class Share extends pulumi.CustomResource {
             inputs["terms"] = state ? state.terms : undefined;
         } else {
             const args = argsOrState as ShareArgs | undefined;
-            if ((!args || args.accountId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.accountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;
@@ -129,12 +130,8 @@ export class Share extends pulumi.CustomResource {
             inputs["snapshotSchedule"] = args ? args.snapshotSchedule : undefined;
             inputs["terms"] = args ? args.terms : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Share.__pulumiType, name, inputs, opts);
     }

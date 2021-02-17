@@ -100,7 +100,8 @@ export class FirewallRule extends pulumi.CustomResource {
     constructor(name: string, args: FirewallRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FirewallRuleArgs | FirewallRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as FirewallRuleState | undefined;
             inputs["endIpAddress"] = state ? state.endIpAddress : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -108,13 +109,13 @@ export class FirewallRule extends pulumi.CustomResource {
             inputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
         } else {
             const args = argsOrState as FirewallRuleArgs | undefined;
-            if ((!args || args.endIpAddress === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.endIpAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endIpAddress'");
             }
-            if ((!args || args.startIpAddress === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.startIpAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startIpAddress'");
             }
-            if ((!args || args.synapseWorkspaceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
             inputs["endIpAddress"] = args ? args.endIpAddress : undefined;
@@ -122,12 +123,8 @@ export class FirewallRule extends pulumi.CustomResource {
             inputs["startIpAddress"] = args ? args.startIpAddress : undefined;
             inputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(FirewallRule.__pulumiType, name, inputs, opts);
     }

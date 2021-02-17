@@ -76,6 +76,7 @@ namespace Pulumi.Azure.Monitoring
     ///  $ pulumi import azure:monitoring/logProfile:LogProfile example /subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.insights/logprofiles/test
     /// ```
     /// </summary>
+    [AzureResourceType("azure:monitoring/logProfile:LogProfile")]
     public partial class LogProfile : Pulumi.CustomResource
     {
         /// <summary>

@@ -162,7 +162,8 @@ export class MetricAlert extends pulumi.CustomResource {
     constructor(name: string, args: MetricAlertArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MetricAlertArgs | MetricAlertState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MetricAlertState | undefined;
             inputs["actions"] = state ? state.actions : undefined;
             inputs["applicationInsightsWebTestLocationAvailabilityCriteria"] = state ? state.applicationInsightsWebTestLocationAvailabilityCriteria : undefined;
@@ -182,10 +183,10 @@ export class MetricAlert extends pulumi.CustomResource {
             inputs["windowSize"] = state ? state.windowSize : undefined;
         } else {
             const args = argsOrState as MetricAlertArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scopes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
             inputs["actions"] = args ? args.actions : undefined;
@@ -205,12 +206,8 @@ export class MetricAlert extends pulumi.CustomResource {
             inputs["targetResourceType"] = args ? args.targetResourceType : undefined;
             inputs["windowSize"] = args ? args.windowSize : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(MetricAlert.__pulumiType, name, inputs, opts);
     }

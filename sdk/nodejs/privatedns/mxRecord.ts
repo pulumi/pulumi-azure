@@ -108,7 +108,8 @@ export class MxRecord extends pulumi.CustomResource {
     constructor(name: string, args: MxRecordArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MxRecordArgs | MxRecordState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MxRecordState | undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -119,16 +120,16 @@ export class MxRecord extends pulumi.CustomResource {
             inputs["zoneName"] = state ? state.zoneName : undefined;
         } else {
             const args = argsOrState as MxRecordArgs | undefined;
-            if ((!args || args.records === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.records === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'records'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ttl === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ttl === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ttl'");
             }
-            if ((!args || args.zoneName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.zoneName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'zoneName'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -139,12 +140,8 @@ export class MxRecord extends pulumi.CustomResource {
             inputs["zoneName"] = args ? args.zoneName : undefined;
             inputs["fqdn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(MxRecord.__pulumiType, name, inputs, opts);
     }

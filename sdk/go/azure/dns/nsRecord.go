@@ -204,16 +204,95 @@ type NsRecordInput interface {
 	ToNsRecordOutputWithContext(ctx context.Context) NsRecordOutput
 }
 
-func (NsRecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*NsRecord)(nil)).Elem()
+func (*NsRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*NsRecord)(nil))
 }
 
-func (i NsRecord) ToNsRecordOutput() NsRecordOutput {
+func (i *NsRecord) ToNsRecordOutput() NsRecordOutput {
 	return i.ToNsRecordOutputWithContext(context.Background())
 }
 
-func (i NsRecord) ToNsRecordOutputWithContext(ctx context.Context) NsRecordOutput {
+func (i *NsRecord) ToNsRecordOutputWithContext(ctx context.Context) NsRecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NsRecordOutput)
+}
+
+func (i *NsRecord) ToNsRecordPtrOutput() NsRecordPtrOutput {
+	return i.ToNsRecordPtrOutputWithContext(context.Background())
+}
+
+func (i *NsRecord) ToNsRecordPtrOutputWithContext(ctx context.Context) NsRecordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NsRecordPtrOutput)
+}
+
+type NsRecordPtrInput interface {
+	pulumi.Input
+
+	ToNsRecordPtrOutput() NsRecordPtrOutput
+	ToNsRecordPtrOutputWithContext(ctx context.Context) NsRecordPtrOutput
+}
+
+type nsRecordPtrType NsRecordArgs
+
+func (*nsRecordPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NsRecord)(nil))
+}
+
+func (i *nsRecordPtrType) ToNsRecordPtrOutput() NsRecordPtrOutput {
+	return i.ToNsRecordPtrOutputWithContext(context.Background())
+}
+
+func (i *nsRecordPtrType) ToNsRecordPtrOutputWithContext(ctx context.Context) NsRecordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NsRecordPtrOutput)
+}
+
+// NsRecordArrayInput is an input type that accepts NsRecordArray and NsRecordArrayOutput values.
+// You can construct a concrete instance of `NsRecordArrayInput` via:
+//
+//          NsRecordArray{ NsRecordArgs{...} }
+type NsRecordArrayInput interface {
+	pulumi.Input
+
+	ToNsRecordArrayOutput() NsRecordArrayOutput
+	ToNsRecordArrayOutputWithContext(context.Context) NsRecordArrayOutput
+}
+
+type NsRecordArray []NsRecordInput
+
+func (NsRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*NsRecord)(nil))
+}
+
+func (i NsRecordArray) ToNsRecordArrayOutput() NsRecordArrayOutput {
+	return i.ToNsRecordArrayOutputWithContext(context.Background())
+}
+
+func (i NsRecordArray) ToNsRecordArrayOutputWithContext(ctx context.Context) NsRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NsRecordArrayOutput)
+}
+
+// NsRecordMapInput is an input type that accepts NsRecordMap and NsRecordMapOutput values.
+// You can construct a concrete instance of `NsRecordMapInput` via:
+//
+//          NsRecordMap{ "key": NsRecordArgs{...} }
+type NsRecordMapInput interface {
+	pulumi.Input
+
+	ToNsRecordMapOutput() NsRecordMapOutput
+	ToNsRecordMapOutputWithContext(context.Context) NsRecordMapOutput
+}
+
+type NsRecordMap map[string]NsRecordInput
+
+func (NsRecordMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*NsRecord)(nil))
+}
+
+func (i NsRecordMap) ToNsRecordMapOutput() NsRecordMapOutput {
+	return i.ToNsRecordMapOutputWithContext(context.Background())
+}
+
+func (i NsRecordMap) ToNsRecordMapOutputWithContext(ctx context.Context) NsRecordMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NsRecordMapOutput)
 }
 
 type NsRecordOutput struct {
@@ -221,7 +300,7 @@ type NsRecordOutput struct {
 }
 
 func (NsRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NsRecordOutput)(nil)).Elem()
+	return reflect.TypeOf((*NsRecord)(nil))
 }
 
 func (o NsRecordOutput) ToNsRecordOutput() NsRecordOutput {
@@ -232,6 +311,75 @@ func (o NsRecordOutput) ToNsRecordOutputWithContext(ctx context.Context) NsRecor
 	return o
 }
 
+func (o NsRecordOutput) ToNsRecordPtrOutput() NsRecordPtrOutput {
+	return o.ToNsRecordPtrOutputWithContext(context.Background())
+}
+
+func (o NsRecordOutput) ToNsRecordPtrOutputWithContext(ctx context.Context) NsRecordPtrOutput {
+	return o.ApplyT(func(v NsRecord) *NsRecord {
+		return &v
+	}).(NsRecordPtrOutput)
+}
+
+type NsRecordPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (NsRecordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NsRecord)(nil))
+}
+
+func (o NsRecordPtrOutput) ToNsRecordPtrOutput() NsRecordPtrOutput {
+	return o
+}
+
+func (o NsRecordPtrOutput) ToNsRecordPtrOutputWithContext(ctx context.Context) NsRecordPtrOutput {
+	return o
+}
+
+type NsRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (NsRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NsRecord)(nil))
+}
+
+func (o NsRecordArrayOutput) ToNsRecordArrayOutput() NsRecordArrayOutput {
+	return o
+}
+
+func (o NsRecordArrayOutput) ToNsRecordArrayOutputWithContext(ctx context.Context) NsRecordArrayOutput {
+	return o
+}
+
+func (o NsRecordArrayOutput) Index(i pulumi.IntInput) NsRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NsRecord {
+		return vs[0].([]NsRecord)[vs[1].(int)]
+	}).(NsRecordOutput)
+}
+
+type NsRecordMapOutput struct{ *pulumi.OutputState }
+
+func (NsRecordMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NsRecord)(nil))
+}
+
+func (o NsRecordMapOutput) ToNsRecordMapOutput() NsRecordMapOutput {
+	return o
+}
+
+func (o NsRecordMapOutput) ToNsRecordMapOutputWithContext(ctx context.Context) NsRecordMapOutput {
+	return o
+}
+
+func (o NsRecordMapOutput) MapIndex(k pulumi.StringInput) NsRecordOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NsRecord {
+		return vs[0].(map[string]NsRecord)[vs[1].(string)]
+	}).(NsRecordOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NsRecordOutput{})
+	pulumi.RegisterOutputType(NsRecordPtrOutput{})
+	pulumi.RegisterOutputType(NsRecordArrayOutput{})
+	pulumi.RegisterOutputType(NsRecordMapOutput{})
 }

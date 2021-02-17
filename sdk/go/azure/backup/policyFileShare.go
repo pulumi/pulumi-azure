@@ -203,16 +203,95 @@ type PolicyFileShareInput interface {
 	ToPolicyFileShareOutputWithContext(ctx context.Context) PolicyFileShareOutput
 }
 
-func (PolicyFileShare) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyFileShare)(nil)).Elem()
+func (*PolicyFileShare) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyFileShare)(nil))
 }
 
-func (i PolicyFileShare) ToPolicyFileShareOutput() PolicyFileShareOutput {
+func (i *PolicyFileShare) ToPolicyFileShareOutput() PolicyFileShareOutput {
 	return i.ToPolicyFileShareOutputWithContext(context.Background())
 }
 
-func (i PolicyFileShare) ToPolicyFileShareOutputWithContext(ctx context.Context) PolicyFileShareOutput {
+func (i *PolicyFileShare) ToPolicyFileShareOutputWithContext(ctx context.Context) PolicyFileShareOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareOutput)
+}
+
+func (i *PolicyFileShare) ToPolicyFileSharePtrOutput() PolicyFileSharePtrOutput {
+	return i.ToPolicyFileSharePtrOutputWithContext(context.Background())
+}
+
+func (i *PolicyFileShare) ToPolicyFileSharePtrOutputWithContext(ctx context.Context) PolicyFileSharePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileSharePtrOutput)
+}
+
+type PolicyFileSharePtrInput interface {
+	pulumi.Input
+
+	ToPolicyFileSharePtrOutput() PolicyFileSharePtrOutput
+	ToPolicyFileSharePtrOutputWithContext(ctx context.Context) PolicyFileSharePtrOutput
+}
+
+type policyFileSharePtrType PolicyFileShareArgs
+
+func (*policyFileSharePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyFileShare)(nil))
+}
+
+func (i *policyFileSharePtrType) ToPolicyFileSharePtrOutput() PolicyFileSharePtrOutput {
+	return i.ToPolicyFileSharePtrOutputWithContext(context.Background())
+}
+
+func (i *policyFileSharePtrType) ToPolicyFileSharePtrOutputWithContext(ctx context.Context) PolicyFileSharePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileSharePtrOutput)
+}
+
+// PolicyFileShareArrayInput is an input type that accepts PolicyFileShareArray and PolicyFileShareArrayOutput values.
+// You can construct a concrete instance of `PolicyFileShareArrayInput` via:
+//
+//          PolicyFileShareArray{ PolicyFileShareArgs{...} }
+type PolicyFileShareArrayInput interface {
+	pulumi.Input
+
+	ToPolicyFileShareArrayOutput() PolicyFileShareArrayOutput
+	ToPolicyFileShareArrayOutputWithContext(context.Context) PolicyFileShareArrayOutput
+}
+
+type PolicyFileShareArray []PolicyFileShareInput
+
+func (PolicyFileShareArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PolicyFileShare)(nil))
+}
+
+func (i PolicyFileShareArray) ToPolicyFileShareArrayOutput() PolicyFileShareArrayOutput {
+	return i.ToPolicyFileShareArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyFileShareArray) ToPolicyFileShareArrayOutputWithContext(ctx context.Context) PolicyFileShareArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareArrayOutput)
+}
+
+// PolicyFileShareMapInput is an input type that accepts PolicyFileShareMap and PolicyFileShareMapOutput values.
+// You can construct a concrete instance of `PolicyFileShareMapInput` via:
+//
+//          PolicyFileShareMap{ "key": PolicyFileShareArgs{...} }
+type PolicyFileShareMapInput interface {
+	pulumi.Input
+
+	ToPolicyFileShareMapOutput() PolicyFileShareMapOutput
+	ToPolicyFileShareMapOutputWithContext(context.Context) PolicyFileShareMapOutput
+}
+
+type PolicyFileShareMap map[string]PolicyFileShareInput
+
+func (PolicyFileShareMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PolicyFileShare)(nil))
+}
+
+func (i PolicyFileShareMap) ToPolicyFileShareMapOutput() PolicyFileShareMapOutput {
+	return i.ToPolicyFileShareMapOutputWithContext(context.Background())
+}
+
+func (i PolicyFileShareMap) ToPolicyFileShareMapOutputWithContext(ctx context.Context) PolicyFileShareMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareMapOutput)
 }
 
 type PolicyFileShareOutput struct {
@@ -220,7 +299,7 @@ type PolicyFileShareOutput struct {
 }
 
 func (PolicyFileShareOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyFileShareOutput)(nil)).Elem()
+	return reflect.TypeOf((*PolicyFileShare)(nil))
 }
 
 func (o PolicyFileShareOutput) ToPolicyFileShareOutput() PolicyFileShareOutput {
@@ -231,6 +310,75 @@ func (o PolicyFileShareOutput) ToPolicyFileShareOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o PolicyFileShareOutput) ToPolicyFileSharePtrOutput() PolicyFileSharePtrOutput {
+	return o.ToPolicyFileSharePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyFileShareOutput) ToPolicyFileSharePtrOutputWithContext(ctx context.Context) PolicyFileSharePtrOutput {
+	return o.ApplyT(func(v PolicyFileShare) *PolicyFileShare {
+		return &v
+	}).(PolicyFileSharePtrOutput)
+}
+
+type PolicyFileSharePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PolicyFileSharePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyFileShare)(nil))
+}
+
+func (o PolicyFileSharePtrOutput) ToPolicyFileSharePtrOutput() PolicyFileSharePtrOutput {
+	return o
+}
+
+func (o PolicyFileSharePtrOutput) ToPolicyFileSharePtrOutputWithContext(ctx context.Context) PolicyFileSharePtrOutput {
+	return o
+}
+
+type PolicyFileShareArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyFileShareArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyFileShare)(nil))
+}
+
+func (o PolicyFileShareArrayOutput) ToPolicyFileShareArrayOutput() PolicyFileShareArrayOutput {
+	return o
+}
+
+func (o PolicyFileShareArrayOutput) ToPolicyFileShareArrayOutputWithContext(ctx context.Context) PolicyFileShareArrayOutput {
+	return o
+}
+
+func (o PolicyFileShareArrayOutput) Index(i pulumi.IntInput) PolicyFileShareOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyFileShare {
+		return vs[0].([]PolicyFileShare)[vs[1].(int)]
+	}).(PolicyFileShareOutput)
+}
+
+type PolicyFileShareMapOutput struct{ *pulumi.OutputState }
+
+func (PolicyFileShareMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PolicyFileShare)(nil))
+}
+
+func (o PolicyFileShareMapOutput) ToPolicyFileShareMapOutput() PolicyFileShareMapOutput {
+	return o
+}
+
+func (o PolicyFileShareMapOutput) ToPolicyFileShareMapOutputWithContext(ctx context.Context) PolicyFileShareMapOutput {
+	return o
+}
+
+func (o PolicyFileShareMapOutput) MapIndex(k pulumi.StringInput) PolicyFileShareOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PolicyFileShare {
+		return vs[0].(map[string]PolicyFileShare)[vs[1].(string)]
+	}).(PolicyFileShareOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PolicyFileShareOutput{})
+	pulumi.RegisterOutputType(PolicyFileSharePtrOutput{})
+	pulumi.RegisterOutputType(PolicyFileShareArrayOutput{})
+	pulumi.RegisterOutputType(PolicyFileShareMapOutput{})
 }

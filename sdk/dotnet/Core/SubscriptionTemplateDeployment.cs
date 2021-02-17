@@ -56,6 +56,7 @@ namespace Pulumi.Azure.Core
     ///  $ pulumi import azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deployments/template1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment")]
     public partial class SubscriptionTemplateDeployment : Pulumi.CustomResource
     {
         /// <summary>

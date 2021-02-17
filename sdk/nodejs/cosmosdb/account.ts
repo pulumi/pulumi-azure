@@ -222,7 +222,8 @@ export class Account extends pulumi.CustomResource {
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AccountState | undefined;
             inputs["analyticalStorageEnabled"] = state ? state.analyticalStorageEnabled : undefined;
             inputs["capabilities"] = state ? state.capabilities : undefined;
@@ -256,16 +257,16 @@ export class Account extends pulumi.CustomResource {
             inputs["writeEndpoints"] = state ? state.writeEndpoints : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
-            if ((!args || args.consistencyPolicy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.consistencyPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'consistencyPolicy'");
             }
-            if ((!args || args.geoLocations === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.geoLocations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'geoLocations'");
             }
-            if ((!args || args.offerType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.offerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'offerType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["analyticalStorageEnabled"] = args ? args.analyticalStorageEnabled : undefined;
@@ -299,12 +300,8 @@ export class Account extends pulumi.CustomResource {
             inputs["secondaryReadonlyMasterKey"] = undefined /*out*/;
             inputs["writeEndpoints"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Account.__pulumiType, name, inputs, opts);
     }

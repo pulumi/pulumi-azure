@@ -182,7 +182,8 @@ export class Diagnostic extends pulumi.CustomResource {
     constructor(name: string, args: DiagnosticArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DiagnosticArgs | DiagnosticState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DiagnosticState | undefined;
             inputs["alwaysLogErrors"] = state ? state.alwaysLogErrors : undefined;
             inputs["apiManagementLoggerId"] = state ? state.apiManagementLoggerId : undefined;
@@ -200,16 +201,16 @@ export class Diagnostic extends pulumi.CustomResource {
             inputs["verbosity"] = state ? state.verbosity : undefined;
         } else {
             const args = argsOrState as DiagnosticArgs | undefined;
-            if ((!args || args.apiManagementLoggerId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiManagementLoggerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementLoggerId'");
             }
-            if ((!args || args.apiManagementName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.identifier === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.identifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identifier'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["alwaysLogErrors"] = args ? args.alwaysLogErrors : undefined;
@@ -227,12 +228,8 @@ export class Diagnostic extends pulumi.CustomResource {
             inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
             inputs["verbosity"] = args ? args.verbosity : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Diagnostic.__pulumiType, name, inputs, opts);
     }

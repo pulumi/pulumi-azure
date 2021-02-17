@@ -53,6 +53,7 @@ namespace Pulumi.Azure.Compute
     ///  $ pulumi import azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/Microsoft.Compute/virtualMachineScaleSets/scaleset1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet")]
     public partial class OrchestratedVirtualMachineScaleSet : Pulumi.CustomResource
     {
         /// <summary>

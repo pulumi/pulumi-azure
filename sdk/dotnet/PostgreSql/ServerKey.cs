@@ -20,6 +20,7 @@ namespace Pulumi.Azure.PostgreSql
     ///  $ pulumi import azure:postgresql/serverKey:ServerKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/servers/server1/keys/keyvaultname_key-name_keyversion
     /// ```
     /// </summary>
+    [AzureResourceType("azure:postgresql/serverKey:ServerKey")]
     public partial class ServerKey : Pulumi.CustomResource
     {
         /// <summary>

@@ -107,16 +107,95 @@ type ServerKeyInput interface {
 	ToServerKeyOutputWithContext(ctx context.Context) ServerKeyOutput
 }
 
-func (ServerKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerKey)(nil)).Elem()
+func (*ServerKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerKey)(nil))
 }
 
-func (i ServerKey) ToServerKeyOutput() ServerKeyOutput {
+func (i *ServerKey) ToServerKeyOutput() ServerKeyOutput {
 	return i.ToServerKeyOutputWithContext(context.Background())
 }
 
-func (i ServerKey) ToServerKeyOutputWithContext(ctx context.Context) ServerKeyOutput {
+func (i *ServerKey) ToServerKeyOutputWithContext(ctx context.Context) ServerKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerKeyOutput)
+}
+
+func (i *ServerKey) ToServerKeyPtrOutput() ServerKeyPtrOutput {
+	return i.ToServerKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *ServerKey) ToServerKeyPtrOutputWithContext(ctx context.Context) ServerKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerKeyPtrOutput)
+}
+
+type ServerKeyPtrInput interface {
+	pulumi.Input
+
+	ToServerKeyPtrOutput() ServerKeyPtrOutput
+	ToServerKeyPtrOutputWithContext(ctx context.Context) ServerKeyPtrOutput
+}
+
+type serverKeyPtrType ServerKeyArgs
+
+func (*serverKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerKey)(nil))
+}
+
+func (i *serverKeyPtrType) ToServerKeyPtrOutput() ServerKeyPtrOutput {
+	return i.ToServerKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *serverKeyPtrType) ToServerKeyPtrOutputWithContext(ctx context.Context) ServerKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerKeyPtrOutput)
+}
+
+// ServerKeyArrayInput is an input type that accepts ServerKeyArray and ServerKeyArrayOutput values.
+// You can construct a concrete instance of `ServerKeyArrayInput` via:
+//
+//          ServerKeyArray{ ServerKeyArgs{...} }
+type ServerKeyArrayInput interface {
+	pulumi.Input
+
+	ToServerKeyArrayOutput() ServerKeyArrayOutput
+	ToServerKeyArrayOutputWithContext(context.Context) ServerKeyArrayOutput
+}
+
+type ServerKeyArray []ServerKeyInput
+
+func (ServerKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ServerKey)(nil))
+}
+
+func (i ServerKeyArray) ToServerKeyArrayOutput() ServerKeyArrayOutput {
+	return i.ToServerKeyArrayOutputWithContext(context.Background())
+}
+
+func (i ServerKeyArray) ToServerKeyArrayOutputWithContext(ctx context.Context) ServerKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerKeyArrayOutput)
+}
+
+// ServerKeyMapInput is an input type that accepts ServerKeyMap and ServerKeyMapOutput values.
+// You can construct a concrete instance of `ServerKeyMapInput` via:
+//
+//          ServerKeyMap{ "key": ServerKeyArgs{...} }
+type ServerKeyMapInput interface {
+	pulumi.Input
+
+	ToServerKeyMapOutput() ServerKeyMapOutput
+	ToServerKeyMapOutputWithContext(context.Context) ServerKeyMapOutput
+}
+
+type ServerKeyMap map[string]ServerKeyInput
+
+func (ServerKeyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ServerKey)(nil))
+}
+
+func (i ServerKeyMap) ToServerKeyMapOutput() ServerKeyMapOutput {
+	return i.ToServerKeyMapOutputWithContext(context.Background())
+}
+
+func (i ServerKeyMap) ToServerKeyMapOutputWithContext(ctx context.Context) ServerKeyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerKeyMapOutput)
 }
 
 type ServerKeyOutput struct {
@@ -124,7 +203,7 @@ type ServerKeyOutput struct {
 }
 
 func (ServerKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerKeyOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServerKey)(nil))
 }
 
 func (o ServerKeyOutput) ToServerKeyOutput() ServerKeyOutput {
@@ -135,6 +214,75 @@ func (o ServerKeyOutput) ToServerKeyOutputWithContext(ctx context.Context) Serve
 	return o
 }
 
+func (o ServerKeyOutput) ToServerKeyPtrOutput() ServerKeyPtrOutput {
+	return o.ToServerKeyPtrOutputWithContext(context.Background())
+}
+
+func (o ServerKeyOutput) ToServerKeyPtrOutputWithContext(ctx context.Context) ServerKeyPtrOutput {
+	return o.ApplyT(func(v ServerKey) *ServerKey {
+		return &v
+	}).(ServerKeyPtrOutput)
+}
+
+type ServerKeyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServerKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerKey)(nil))
+}
+
+func (o ServerKeyPtrOutput) ToServerKeyPtrOutput() ServerKeyPtrOutput {
+	return o
+}
+
+func (o ServerKeyPtrOutput) ToServerKeyPtrOutputWithContext(ctx context.Context) ServerKeyPtrOutput {
+	return o
+}
+
+type ServerKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerKey)(nil))
+}
+
+func (o ServerKeyArrayOutput) ToServerKeyArrayOutput() ServerKeyArrayOutput {
+	return o
+}
+
+func (o ServerKeyArrayOutput) ToServerKeyArrayOutputWithContext(ctx context.Context) ServerKeyArrayOutput {
+	return o
+}
+
+func (o ServerKeyArrayOutput) Index(i pulumi.IntInput) ServerKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerKey {
+		return vs[0].([]ServerKey)[vs[1].(int)]
+	}).(ServerKeyOutput)
+}
+
+type ServerKeyMapOutput struct{ *pulumi.OutputState }
+
+func (ServerKeyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServerKey)(nil))
+}
+
+func (o ServerKeyMapOutput) ToServerKeyMapOutput() ServerKeyMapOutput {
+	return o
+}
+
+func (o ServerKeyMapOutput) ToServerKeyMapOutputWithContext(ctx context.Context) ServerKeyMapOutput {
+	return o
+}
+
+func (o ServerKeyMapOutput) MapIndex(k pulumi.StringInput) ServerKeyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServerKey {
+		return vs[0].(map[string]ServerKey)[vs[1].(string)]
+	}).(ServerKeyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerKeyOutput{})
+	pulumi.RegisterOutputType(ServerKeyPtrOutput{})
+	pulumi.RegisterOutputType(ServerKeyArrayOutput{})
+	pulumi.RegisterOutputType(ServerKeyMapOutput{})
 }

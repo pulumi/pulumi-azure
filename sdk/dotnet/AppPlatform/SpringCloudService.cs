@@ -69,6 +69,7 @@ namespace Pulumi.Azure.AppPlatform
     ///  $ pulumi import azure:appplatform/springCloudService:SpringCloudService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AppPlatform/Spring/spring1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:appplatform/springCloudService:SpringCloudService")]
     public partial class SpringCloudService : Pulumi.CustomResource
     {
         /// <summary>

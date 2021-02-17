@@ -108,7 +108,8 @@ export class SecurityDeviceGroup extends pulumi.CustomResource {
     constructor(name: string, args: SecurityDeviceGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecurityDeviceGroupArgs | SecurityDeviceGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SecurityDeviceGroupState | undefined;
             inputs["allowRule"] = state ? state.allowRule : undefined;
             inputs["iothubId"] = state ? state.iothubId : undefined;
@@ -116,7 +117,7 @@ export class SecurityDeviceGroup extends pulumi.CustomResource {
             inputs["rangeRules"] = state ? state.rangeRules : undefined;
         } else {
             const args = argsOrState as SecurityDeviceGroupArgs | undefined;
-            if ((!args || args.iothubId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.iothubId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iothubId'");
             }
             inputs["allowRule"] = args ? args.allowRule : undefined;
@@ -124,12 +125,8 @@ export class SecurityDeviceGroup extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["rangeRules"] = args ? args.rangeRules : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SecurityDeviceGroup.__pulumiType, name, inputs, opts);
     }

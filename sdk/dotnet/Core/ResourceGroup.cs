@@ -39,6 +39,7 @@ namespace Pulumi.Azure.Core
     ///  $ pulumi import azure:core/resourceGroup:ResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:core/resourceGroup:ResourceGroup")]
     public partial class ResourceGroup : Pulumi.CustomResource
     {
         /// <summary>

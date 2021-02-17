@@ -185,7 +185,8 @@ export class Extension extends pulumi.CustomResource {
     constructor(name: string, args: ExtensionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExtensionArgs | ExtensionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ExtensionState | undefined;
             inputs["autoUpgradeMinorVersion"] = state ? state.autoUpgradeMinorVersion : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -198,16 +199,16 @@ export class Extension extends pulumi.CustomResource {
             inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
         } else {
             const args = argsOrState as ExtensionArgs | undefined;
-            if ((!args || args.publisher === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.publisher === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'publisher'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.typeHandlerVersion === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.typeHandlerVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'typeHandlerVersion'");
             }
-            if ((!args || args.virtualMachineId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualMachineId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
             inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
@@ -220,12 +221,8 @@ export class Extension extends pulumi.CustomResource {
             inputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
             inputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Extension.__pulumiType, name, inputs, opts);
     }

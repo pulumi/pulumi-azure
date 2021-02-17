@@ -58,6 +58,7 @@ namespace Pulumi.Azure.Storage
     ///  $ pulumi import azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem queue1 https://account1.dfs.core.windows.net/fileSystem1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem")]
     public partial class DataLakeGen2Filesystem : Pulumi.CustomResource
     {
         /// <summary>

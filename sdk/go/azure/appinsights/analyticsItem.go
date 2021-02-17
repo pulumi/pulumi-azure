@@ -214,16 +214,95 @@ type AnalyticsItemInput interface {
 	ToAnalyticsItemOutputWithContext(ctx context.Context) AnalyticsItemOutput
 }
 
-func (AnalyticsItem) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsItem)(nil)).Elem()
+func (*AnalyticsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsItem)(nil))
 }
 
-func (i AnalyticsItem) ToAnalyticsItemOutput() AnalyticsItemOutput {
+func (i *AnalyticsItem) ToAnalyticsItemOutput() AnalyticsItemOutput {
 	return i.ToAnalyticsItemOutputWithContext(context.Background())
 }
 
-func (i AnalyticsItem) ToAnalyticsItemOutputWithContext(ctx context.Context) AnalyticsItemOutput {
+func (i *AnalyticsItem) ToAnalyticsItemOutputWithContext(ctx context.Context) AnalyticsItemOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsItemOutput)
+}
+
+func (i *AnalyticsItem) ToAnalyticsItemPtrOutput() AnalyticsItemPtrOutput {
+	return i.ToAnalyticsItemPtrOutputWithContext(context.Background())
+}
+
+func (i *AnalyticsItem) ToAnalyticsItemPtrOutputWithContext(ctx context.Context) AnalyticsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsItemPtrOutput)
+}
+
+type AnalyticsItemPtrInput interface {
+	pulumi.Input
+
+	ToAnalyticsItemPtrOutput() AnalyticsItemPtrOutput
+	ToAnalyticsItemPtrOutputWithContext(ctx context.Context) AnalyticsItemPtrOutput
+}
+
+type analyticsItemPtrType AnalyticsItemArgs
+
+func (*analyticsItemPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyticsItem)(nil))
+}
+
+func (i *analyticsItemPtrType) ToAnalyticsItemPtrOutput() AnalyticsItemPtrOutput {
+	return i.ToAnalyticsItemPtrOutputWithContext(context.Background())
+}
+
+func (i *analyticsItemPtrType) ToAnalyticsItemPtrOutputWithContext(ctx context.Context) AnalyticsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsItemPtrOutput)
+}
+
+// AnalyticsItemArrayInput is an input type that accepts AnalyticsItemArray and AnalyticsItemArrayOutput values.
+// You can construct a concrete instance of `AnalyticsItemArrayInput` via:
+//
+//          AnalyticsItemArray{ AnalyticsItemArgs{...} }
+type AnalyticsItemArrayInput interface {
+	pulumi.Input
+
+	ToAnalyticsItemArrayOutput() AnalyticsItemArrayOutput
+	ToAnalyticsItemArrayOutputWithContext(context.Context) AnalyticsItemArrayOutput
+}
+
+type AnalyticsItemArray []AnalyticsItemInput
+
+func (AnalyticsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AnalyticsItem)(nil))
+}
+
+func (i AnalyticsItemArray) ToAnalyticsItemArrayOutput() AnalyticsItemArrayOutput {
+	return i.ToAnalyticsItemArrayOutputWithContext(context.Background())
+}
+
+func (i AnalyticsItemArray) ToAnalyticsItemArrayOutputWithContext(ctx context.Context) AnalyticsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsItemArrayOutput)
+}
+
+// AnalyticsItemMapInput is an input type that accepts AnalyticsItemMap and AnalyticsItemMapOutput values.
+// You can construct a concrete instance of `AnalyticsItemMapInput` via:
+//
+//          AnalyticsItemMap{ "key": AnalyticsItemArgs{...} }
+type AnalyticsItemMapInput interface {
+	pulumi.Input
+
+	ToAnalyticsItemMapOutput() AnalyticsItemMapOutput
+	ToAnalyticsItemMapOutputWithContext(context.Context) AnalyticsItemMapOutput
+}
+
+type AnalyticsItemMap map[string]AnalyticsItemInput
+
+func (AnalyticsItemMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AnalyticsItem)(nil))
+}
+
+func (i AnalyticsItemMap) ToAnalyticsItemMapOutput() AnalyticsItemMapOutput {
+	return i.ToAnalyticsItemMapOutputWithContext(context.Background())
+}
+
+func (i AnalyticsItemMap) ToAnalyticsItemMapOutputWithContext(ctx context.Context) AnalyticsItemMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsItemMapOutput)
 }
 
 type AnalyticsItemOutput struct {
@@ -231,7 +310,7 @@ type AnalyticsItemOutput struct {
 }
 
 func (AnalyticsItemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsItemOutput)(nil)).Elem()
+	return reflect.TypeOf((*AnalyticsItem)(nil))
 }
 
 func (o AnalyticsItemOutput) ToAnalyticsItemOutput() AnalyticsItemOutput {
@@ -242,6 +321,75 @@ func (o AnalyticsItemOutput) ToAnalyticsItemOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o AnalyticsItemOutput) ToAnalyticsItemPtrOutput() AnalyticsItemPtrOutput {
+	return o.ToAnalyticsItemPtrOutputWithContext(context.Background())
+}
+
+func (o AnalyticsItemOutput) ToAnalyticsItemPtrOutputWithContext(ctx context.Context) AnalyticsItemPtrOutput {
+	return o.ApplyT(func(v AnalyticsItem) *AnalyticsItem {
+		return &v
+	}).(AnalyticsItemPtrOutput)
+}
+
+type AnalyticsItemPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AnalyticsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyticsItem)(nil))
+}
+
+func (o AnalyticsItemPtrOutput) ToAnalyticsItemPtrOutput() AnalyticsItemPtrOutput {
+	return o
+}
+
+func (o AnalyticsItemPtrOutput) ToAnalyticsItemPtrOutputWithContext(ctx context.Context) AnalyticsItemPtrOutput {
+	return o
+}
+
+type AnalyticsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalyticsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalyticsItem)(nil))
+}
+
+func (o AnalyticsItemArrayOutput) ToAnalyticsItemArrayOutput() AnalyticsItemArrayOutput {
+	return o
+}
+
+func (o AnalyticsItemArrayOutput) ToAnalyticsItemArrayOutputWithContext(ctx context.Context) AnalyticsItemArrayOutput {
+	return o
+}
+
+func (o AnalyticsItemArrayOutput) Index(i pulumi.IntInput) AnalyticsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalyticsItem {
+		return vs[0].([]AnalyticsItem)[vs[1].(int)]
+	}).(AnalyticsItemOutput)
+}
+
+type AnalyticsItemMapOutput struct{ *pulumi.OutputState }
+
+func (AnalyticsItemMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AnalyticsItem)(nil))
+}
+
+func (o AnalyticsItemMapOutput) ToAnalyticsItemMapOutput() AnalyticsItemMapOutput {
+	return o
+}
+
+func (o AnalyticsItemMapOutput) ToAnalyticsItemMapOutputWithContext(ctx context.Context) AnalyticsItemMapOutput {
+	return o
+}
+
+func (o AnalyticsItemMapOutput) MapIndex(k pulumi.StringInput) AnalyticsItemOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AnalyticsItem {
+		return vs[0].(map[string]AnalyticsItem)[vs[1].(string)]
+	}).(AnalyticsItemOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AnalyticsItemOutput{})
+	pulumi.RegisterOutputType(AnalyticsItemPtrOutput{})
+	pulumi.RegisterOutputType(AnalyticsItemArrayOutput{})
+	pulumi.RegisterOutputType(AnalyticsItemMapOutput{})
 }

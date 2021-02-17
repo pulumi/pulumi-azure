@@ -136,7 +136,8 @@ export class StreamInputEventHub extends pulumi.CustomResource {
     constructor(name: string, args: StreamInputEventHubArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StreamInputEventHubArgs | StreamInputEventHubState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as StreamInputEventHubState | undefined;
             inputs["eventhubConsumerGroupName"] = state ? state.eventhubConsumerGroupName : undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
@@ -149,28 +150,28 @@ export class StreamInputEventHub extends pulumi.CustomResource {
             inputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
         } else {
             const args = argsOrState as StreamInputEventHubArgs | undefined;
-            if ((!args || args.eventhubConsumerGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.eventhubConsumerGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventhubConsumerGroupName'");
             }
-            if ((!args || args.eventhubName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.eventhubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventhubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serialization === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serialization === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serialization'");
             }
-            if ((!args || args.servicebusNamespace === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.servicebusNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'servicebusNamespace'");
             }
-            if ((!args || args.sharedAccessPolicyKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sharedAccessPolicyKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sharedAccessPolicyKey'");
             }
-            if ((!args || args.sharedAccessPolicyName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sharedAccessPolicyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sharedAccessPolicyName'");
             }
-            if ((!args || args.streamAnalyticsJobName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.streamAnalyticsJobName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
             inputs["eventhubConsumerGroupName"] = args ? args.eventhubConsumerGroupName : undefined;
@@ -183,12 +184,8 @@ export class StreamInputEventHub extends pulumi.CustomResource {
             inputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
             inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(StreamInputEventHub.__pulumiType, name, inputs, opts);
     }

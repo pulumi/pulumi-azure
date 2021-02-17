@@ -258,16 +258,95 @@ type StreamInputIotHubInput interface {
 	ToStreamInputIotHubOutputWithContext(ctx context.Context) StreamInputIotHubOutput
 }
 
-func (StreamInputIotHub) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamInputIotHub)(nil)).Elem()
+func (*StreamInputIotHub) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamInputIotHub)(nil))
 }
 
-func (i StreamInputIotHub) ToStreamInputIotHubOutput() StreamInputIotHubOutput {
+func (i *StreamInputIotHub) ToStreamInputIotHubOutput() StreamInputIotHubOutput {
 	return i.ToStreamInputIotHubOutputWithContext(context.Background())
 }
 
-func (i StreamInputIotHub) ToStreamInputIotHubOutputWithContext(ctx context.Context) StreamInputIotHubOutput {
+func (i *StreamInputIotHub) ToStreamInputIotHubOutputWithContext(ctx context.Context) StreamInputIotHubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputIotHubOutput)
+}
+
+func (i *StreamInputIotHub) ToStreamInputIotHubPtrOutput() StreamInputIotHubPtrOutput {
+	return i.ToStreamInputIotHubPtrOutputWithContext(context.Background())
+}
+
+func (i *StreamInputIotHub) ToStreamInputIotHubPtrOutputWithContext(ctx context.Context) StreamInputIotHubPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamInputIotHubPtrOutput)
+}
+
+type StreamInputIotHubPtrInput interface {
+	pulumi.Input
+
+	ToStreamInputIotHubPtrOutput() StreamInputIotHubPtrOutput
+	ToStreamInputIotHubPtrOutputWithContext(ctx context.Context) StreamInputIotHubPtrOutput
+}
+
+type streamInputIotHubPtrType StreamInputIotHubArgs
+
+func (*streamInputIotHubPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamInputIotHub)(nil))
+}
+
+func (i *streamInputIotHubPtrType) ToStreamInputIotHubPtrOutput() StreamInputIotHubPtrOutput {
+	return i.ToStreamInputIotHubPtrOutputWithContext(context.Background())
+}
+
+func (i *streamInputIotHubPtrType) ToStreamInputIotHubPtrOutputWithContext(ctx context.Context) StreamInputIotHubPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamInputIotHubPtrOutput)
+}
+
+// StreamInputIotHubArrayInput is an input type that accepts StreamInputIotHubArray and StreamInputIotHubArrayOutput values.
+// You can construct a concrete instance of `StreamInputIotHubArrayInput` via:
+//
+//          StreamInputIotHubArray{ StreamInputIotHubArgs{...} }
+type StreamInputIotHubArrayInput interface {
+	pulumi.Input
+
+	ToStreamInputIotHubArrayOutput() StreamInputIotHubArrayOutput
+	ToStreamInputIotHubArrayOutputWithContext(context.Context) StreamInputIotHubArrayOutput
+}
+
+type StreamInputIotHubArray []StreamInputIotHubInput
+
+func (StreamInputIotHubArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*StreamInputIotHub)(nil))
+}
+
+func (i StreamInputIotHubArray) ToStreamInputIotHubArrayOutput() StreamInputIotHubArrayOutput {
+	return i.ToStreamInputIotHubArrayOutputWithContext(context.Background())
+}
+
+func (i StreamInputIotHubArray) ToStreamInputIotHubArrayOutputWithContext(ctx context.Context) StreamInputIotHubArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamInputIotHubArrayOutput)
+}
+
+// StreamInputIotHubMapInput is an input type that accepts StreamInputIotHubMap and StreamInputIotHubMapOutput values.
+// You can construct a concrete instance of `StreamInputIotHubMapInput` via:
+//
+//          StreamInputIotHubMap{ "key": StreamInputIotHubArgs{...} }
+type StreamInputIotHubMapInput interface {
+	pulumi.Input
+
+	ToStreamInputIotHubMapOutput() StreamInputIotHubMapOutput
+	ToStreamInputIotHubMapOutputWithContext(context.Context) StreamInputIotHubMapOutput
+}
+
+type StreamInputIotHubMap map[string]StreamInputIotHubInput
+
+func (StreamInputIotHubMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*StreamInputIotHub)(nil))
+}
+
+func (i StreamInputIotHubMap) ToStreamInputIotHubMapOutput() StreamInputIotHubMapOutput {
+	return i.ToStreamInputIotHubMapOutputWithContext(context.Background())
+}
+
+func (i StreamInputIotHubMap) ToStreamInputIotHubMapOutputWithContext(ctx context.Context) StreamInputIotHubMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamInputIotHubMapOutput)
 }
 
 type StreamInputIotHubOutput struct {
@@ -275,7 +354,7 @@ type StreamInputIotHubOutput struct {
 }
 
 func (StreamInputIotHubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamInputIotHubOutput)(nil)).Elem()
+	return reflect.TypeOf((*StreamInputIotHub)(nil))
 }
 
 func (o StreamInputIotHubOutput) ToStreamInputIotHubOutput() StreamInputIotHubOutput {
@@ -286,6 +365,75 @@ func (o StreamInputIotHubOutput) ToStreamInputIotHubOutputWithContext(ctx contex
 	return o
 }
 
+func (o StreamInputIotHubOutput) ToStreamInputIotHubPtrOutput() StreamInputIotHubPtrOutput {
+	return o.ToStreamInputIotHubPtrOutputWithContext(context.Background())
+}
+
+func (o StreamInputIotHubOutput) ToStreamInputIotHubPtrOutputWithContext(ctx context.Context) StreamInputIotHubPtrOutput {
+	return o.ApplyT(func(v StreamInputIotHub) *StreamInputIotHub {
+		return &v
+	}).(StreamInputIotHubPtrOutput)
+}
+
+type StreamInputIotHubPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (StreamInputIotHubPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamInputIotHub)(nil))
+}
+
+func (o StreamInputIotHubPtrOutput) ToStreamInputIotHubPtrOutput() StreamInputIotHubPtrOutput {
+	return o
+}
+
+func (o StreamInputIotHubPtrOutput) ToStreamInputIotHubPtrOutputWithContext(ctx context.Context) StreamInputIotHubPtrOutput {
+	return o
+}
+
+type StreamInputIotHubArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamInputIotHubArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamInputIotHub)(nil))
+}
+
+func (o StreamInputIotHubArrayOutput) ToStreamInputIotHubArrayOutput() StreamInputIotHubArrayOutput {
+	return o
+}
+
+func (o StreamInputIotHubArrayOutput) ToStreamInputIotHubArrayOutputWithContext(ctx context.Context) StreamInputIotHubArrayOutput {
+	return o
+}
+
+func (o StreamInputIotHubArrayOutput) Index(i pulumi.IntInput) StreamInputIotHubOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamInputIotHub {
+		return vs[0].([]StreamInputIotHub)[vs[1].(int)]
+	}).(StreamInputIotHubOutput)
+}
+
+type StreamInputIotHubMapOutput struct{ *pulumi.OutputState }
+
+func (StreamInputIotHubMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]StreamInputIotHub)(nil))
+}
+
+func (o StreamInputIotHubMapOutput) ToStreamInputIotHubMapOutput() StreamInputIotHubMapOutput {
+	return o
+}
+
+func (o StreamInputIotHubMapOutput) ToStreamInputIotHubMapOutputWithContext(ctx context.Context) StreamInputIotHubMapOutput {
+	return o
+}
+
+func (o StreamInputIotHubMapOutput) MapIndex(k pulumi.StringInput) StreamInputIotHubOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StreamInputIotHub {
+		return vs[0].(map[string]StreamInputIotHub)[vs[1].(string)]
+	}).(StreamInputIotHubOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StreamInputIotHubOutput{})
+	pulumi.RegisterOutputType(StreamInputIotHubPtrOutput{})
+	pulumi.RegisterOutputType(StreamInputIotHubArrayOutput{})
+	pulumi.RegisterOutputType(StreamInputIotHubMapOutput{})
 }

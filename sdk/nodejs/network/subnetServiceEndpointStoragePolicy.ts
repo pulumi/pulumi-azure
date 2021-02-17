@@ -102,7 +102,8 @@ export class SubnetServiceEndpointStoragePolicy extends pulumi.CustomResource {
     constructor(name: string, args: SubnetServiceEndpointStoragePolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SubnetServiceEndpointStoragePolicyArgs | SubnetServiceEndpointStoragePolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SubnetServiceEndpointStoragePolicyState | undefined;
             inputs["definition"] = state ? state.definition : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -111,7 +112,7 @@ export class SubnetServiceEndpointStoragePolicy extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SubnetServiceEndpointStoragePolicyArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["definition"] = args ? args.definition : undefined;
@@ -120,12 +121,8 @@ export class SubnetServiceEndpointStoragePolicy extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SubnetServiceEndpointStoragePolicy.__pulumiType, name, inputs, opts);
     }

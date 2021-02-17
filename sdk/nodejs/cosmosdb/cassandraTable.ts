@@ -119,7 +119,8 @@ export class CassandraTable extends pulumi.CustomResource {
     constructor(name: string, args: CassandraTableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CassandraTableArgs | CassandraTableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CassandraTableState | undefined;
             inputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
             inputs["cassandraKeyspaceId"] = state ? state.cassandraKeyspaceId : undefined;
@@ -129,10 +130,10 @@ export class CassandraTable extends pulumi.CustomResource {
             inputs["throughput"] = state ? state.throughput : undefined;
         } else {
             const args = argsOrState as CassandraTableArgs | undefined;
-            if ((!args || args.cassandraKeyspaceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.cassandraKeyspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cassandraKeyspaceId'");
             }
-            if ((!args || args.schema === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.schema === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
             inputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
@@ -142,12 +143,8 @@ export class CassandraTable extends pulumi.CustomResource {
             inputs["schema"] = args ? args.schema : undefined;
             inputs["throughput"] = args ? args.throughput : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CassandraTable.__pulumiType, name, inputs, opts);
     }

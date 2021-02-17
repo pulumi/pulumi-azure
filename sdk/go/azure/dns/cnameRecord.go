@@ -247,16 +247,95 @@ type CNameRecordInput interface {
 	ToCNameRecordOutputWithContext(ctx context.Context) CNameRecordOutput
 }
 
-func (CNameRecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*CNameRecord)(nil)).Elem()
+func (*CNameRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((*CNameRecord)(nil))
 }
 
-func (i CNameRecord) ToCNameRecordOutput() CNameRecordOutput {
+func (i *CNameRecord) ToCNameRecordOutput() CNameRecordOutput {
 	return i.ToCNameRecordOutputWithContext(context.Background())
 }
 
-func (i CNameRecord) ToCNameRecordOutputWithContext(ctx context.Context) CNameRecordOutput {
+func (i *CNameRecord) ToCNameRecordOutputWithContext(ctx context.Context) CNameRecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CNameRecordOutput)
+}
+
+func (i *CNameRecord) ToCNameRecordPtrOutput() CNameRecordPtrOutput {
+	return i.ToCNameRecordPtrOutputWithContext(context.Background())
+}
+
+func (i *CNameRecord) ToCNameRecordPtrOutputWithContext(ctx context.Context) CNameRecordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CNameRecordPtrOutput)
+}
+
+type CNameRecordPtrInput interface {
+	pulumi.Input
+
+	ToCNameRecordPtrOutput() CNameRecordPtrOutput
+	ToCNameRecordPtrOutputWithContext(ctx context.Context) CNameRecordPtrOutput
+}
+
+type cnameRecordPtrType CNameRecordArgs
+
+func (*cnameRecordPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CNameRecord)(nil))
+}
+
+func (i *cnameRecordPtrType) ToCNameRecordPtrOutput() CNameRecordPtrOutput {
+	return i.ToCNameRecordPtrOutputWithContext(context.Background())
+}
+
+func (i *cnameRecordPtrType) ToCNameRecordPtrOutputWithContext(ctx context.Context) CNameRecordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CNameRecordPtrOutput)
+}
+
+// CNameRecordArrayInput is an input type that accepts CNameRecordArray and CNameRecordArrayOutput values.
+// You can construct a concrete instance of `CNameRecordArrayInput` via:
+//
+//          CNameRecordArray{ CNameRecordArgs{...} }
+type CNameRecordArrayInput interface {
+	pulumi.Input
+
+	ToCNameRecordArrayOutput() CNameRecordArrayOutput
+	ToCNameRecordArrayOutputWithContext(context.Context) CNameRecordArrayOutput
+}
+
+type CNameRecordArray []CNameRecordInput
+
+func (CNameRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*CNameRecord)(nil))
+}
+
+func (i CNameRecordArray) ToCNameRecordArrayOutput() CNameRecordArrayOutput {
+	return i.ToCNameRecordArrayOutputWithContext(context.Background())
+}
+
+func (i CNameRecordArray) ToCNameRecordArrayOutputWithContext(ctx context.Context) CNameRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CNameRecordArrayOutput)
+}
+
+// CNameRecordMapInput is an input type that accepts CNameRecordMap and CNameRecordMapOutput values.
+// You can construct a concrete instance of `CNameRecordMapInput` via:
+//
+//          CNameRecordMap{ "key": CNameRecordArgs{...} }
+type CNameRecordMapInput interface {
+	pulumi.Input
+
+	ToCNameRecordMapOutput() CNameRecordMapOutput
+	ToCNameRecordMapOutputWithContext(context.Context) CNameRecordMapOutput
+}
+
+type CNameRecordMap map[string]CNameRecordInput
+
+func (CNameRecordMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*CNameRecord)(nil))
+}
+
+func (i CNameRecordMap) ToCNameRecordMapOutput() CNameRecordMapOutput {
+	return i.ToCNameRecordMapOutputWithContext(context.Background())
+}
+
+func (i CNameRecordMap) ToCNameRecordMapOutputWithContext(ctx context.Context) CNameRecordMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CNameRecordMapOutput)
 }
 
 type CNameRecordOutput struct {
@@ -264,7 +343,7 @@ type CNameRecordOutput struct {
 }
 
 func (CNameRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CNameRecordOutput)(nil)).Elem()
+	return reflect.TypeOf((*CNameRecord)(nil))
 }
 
 func (o CNameRecordOutput) ToCNameRecordOutput() CNameRecordOutput {
@@ -275,6 +354,75 @@ func (o CNameRecordOutput) ToCNameRecordOutputWithContext(ctx context.Context) C
 	return o
 }
 
+func (o CNameRecordOutput) ToCNameRecordPtrOutput() CNameRecordPtrOutput {
+	return o.ToCNameRecordPtrOutputWithContext(context.Background())
+}
+
+func (o CNameRecordOutput) ToCNameRecordPtrOutputWithContext(ctx context.Context) CNameRecordPtrOutput {
+	return o.ApplyT(func(v CNameRecord) *CNameRecord {
+		return &v
+	}).(CNameRecordPtrOutput)
+}
+
+type CNameRecordPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CNameRecordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CNameRecord)(nil))
+}
+
+func (o CNameRecordPtrOutput) ToCNameRecordPtrOutput() CNameRecordPtrOutput {
+	return o
+}
+
+func (o CNameRecordPtrOutput) ToCNameRecordPtrOutputWithContext(ctx context.Context) CNameRecordPtrOutput {
+	return o
+}
+
+type CNameRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (CNameRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CNameRecord)(nil))
+}
+
+func (o CNameRecordArrayOutput) ToCNameRecordArrayOutput() CNameRecordArrayOutput {
+	return o
+}
+
+func (o CNameRecordArrayOutput) ToCNameRecordArrayOutputWithContext(ctx context.Context) CNameRecordArrayOutput {
+	return o
+}
+
+func (o CNameRecordArrayOutput) Index(i pulumi.IntInput) CNameRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CNameRecord {
+		return vs[0].([]CNameRecord)[vs[1].(int)]
+	}).(CNameRecordOutput)
+}
+
+type CNameRecordMapOutput struct{ *pulumi.OutputState }
+
+func (CNameRecordMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CNameRecord)(nil))
+}
+
+func (o CNameRecordMapOutput) ToCNameRecordMapOutput() CNameRecordMapOutput {
+	return o
+}
+
+func (o CNameRecordMapOutput) ToCNameRecordMapOutputWithContext(ctx context.Context) CNameRecordMapOutput {
+	return o
+}
+
+func (o CNameRecordMapOutput) MapIndex(k pulumi.StringInput) CNameRecordOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CNameRecord {
+		return vs[0].(map[string]CNameRecord)[vs[1].(string)]
+	}).(CNameRecordOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CNameRecordOutput{})
+	pulumi.RegisterOutputType(CNameRecordPtrOutput{})
+	pulumi.RegisterOutputType(CNameRecordArrayOutput{})
+	pulumi.RegisterOutputType(CNameRecordMapOutput{})
 }

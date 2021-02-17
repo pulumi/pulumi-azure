@@ -78,7 +78,8 @@ export class CertificateBinding extends pulumi.CustomResource {
     constructor(name: string, args: CertificateBindingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CertificateBindingArgs | CertificateBindingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CertificateBindingState | undefined;
             inputs["appServiceName"] = state ? state.appServiceName : undefined;
             inputs["certificateId"] = state ? state.certificateId : undefined;
@@ -88,13 +89,13 @@ export class CertificateBinding extends pulumi.CustomResource {
             inputs["thumbprint"] = state ? state.thumbprint : undefined;
         } else {
             const args = argsOrState as CertificateBindingArgs | undefined;
-            if ((!args || args.certificateId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.certificateId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificateId'");
             }
-            if ((!args || args.hostnameBindingId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.hostnameBindingId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostnameBindingId'");
             }
-            if ((!args || args.sslState === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sslState === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sslState'");
             }
             inputs["certificateId"] = args ? args.certificateId : undefined;
@@ -104,12 +105,8 @@ export class CertificateBinding extends pulumi.CustomResource {
             inputs["hostname"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CertificateBinding.__pulumiType, name, inputs, opts);
     }

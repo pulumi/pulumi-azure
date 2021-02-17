@@ -85,6 +85,7 @@ namespace Pulumi.Azure.Dns
     ///  $ pulumi import azure:dns/aaaaRecord:AaaaRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/AAAA/myrecord1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:dns/aaaaRecord:AaaaRecord")]
     public partial class AaaaRecord : Pulumi.CustomResource
     {
         /// <summary>

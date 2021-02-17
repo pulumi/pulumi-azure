@@ -18,6 +18,7 @@ namespace Pulumi.Azure.Core
     ///  $ pulumi import azure:core/resourceProviderRegistration:ResourceProviderRegistration example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.PolicyInsights
     /// ```
     /// </summary>
+    [AzureResourceType("azure:core/resourceProviderRegistration:ResourceProviderRegistration")]
     public partial class ResourceProviderRegistration : Pulumi.CustomResource
     {
         /// <summary>

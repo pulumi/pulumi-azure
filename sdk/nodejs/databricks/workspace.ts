@@ -112,7 +112,8 @@ export class Workspace extends pulumi.CustomResource {
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkspaceArgs | WorkspaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
             inputs["customParameters"] = state ? state.customParameters : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -126,10 +127,10 @@ export class Workspace extends pulumi.CustomResource {
             inputs["workspaceUrl"] = state ? state.workspaceUrl : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["customParameters"] = args ? args.customParameters : undefined;
@@ -143,12 +144,8 @@ export class Workspace extends pulumi.CustomResource {
             inputs["workspaceId"] = undefined /*out*/;
             inputs["workspaceUrl"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Workspace.__pulumiType, name, inputs, opts);
     }

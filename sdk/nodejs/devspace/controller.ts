@@ -88,7 +88,8 @@ export class Controller extends pulumi.CustomResource {
     constructor(name: string, args: ControllerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ControllerArgs | ControllerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ControllerState | undefined;
             inputs["dataPlaneFqdn"] = state ? state.dataPlaneFqdn : undefined;
             inputs["hostSuffix"] = state ? state.hostSuffix : undefined;
@@ -101,16 +102,16 @@ export class Controller extends pulumi.CustomResource {
             inputs["targetContainerHostResourceId"] = state ? state.targetContainerHostResourceId : undefined;
         } else {
             const args = argsOrState as ControllerArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if ((!args || args.targetContainerHostCredentialsBase64 === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetContainerHostCredentialsBase64 === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetContainerHostCredentialsBase64'");
             }
-            if ((!args || args.targetContainerHostResourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetContainerHostResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetContainerHostResourceId'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -123,12 +124,8 @@ export class Controller extends pulumi.CustomResource {
             inputs["dataPlaneFqdn"] = undefined /*out*/;
             inputs["hostSuffix"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Controller.__pulumiType, name, inputs, opts);
     }

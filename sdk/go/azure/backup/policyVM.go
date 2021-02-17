@@ -280,16 +280,95 @@ type PolicyVMInput interface {
 	ToPolicyVMOutputWithContext(ctx context.Context) PolicyVMOutput
 }
 
-func (PolicyVM) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyVM)(nil)).Elem()
+func (*PolicyVM) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVM)(nil))
 }
 
-func (i PolicyVM) ToPolicyVMOutput() PolicyVMOutput {
+func (i *PolicyVM) ToPolicyVMOutput() PolicyVMOutput {
 	return i.ToPolicyVMOutputWithContext(context.Background())
 }
 
-func (i PolicyVM) ToPolicyVMOutputWithContext(ctx context.Context) PolicyVMOutput {
+func (i *PolicyVM) ToPolicyVMOutputWithContext(ctx context.Context) PolicyVMOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMOutput)
+}
+
+func (i *PolicyVM) ToPolicyVMPtrOutput() PolicyVMPtrOutput {
+	return i.ToPolicyVMPtrOutputWithContext(context.Background())
+}
+
+func (i *PolicyVM) ToPolicyVMPtrOutputWithContext(ctx context.Context) PolicyVMPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMPtrOutput)
+}
+
+type PolicyVMPtrInput interface {
+	pulumi.Input
+
+	ToPolicyVMPtrOutput() PolicyVMPtrOutput
+	ToPolicyVMPtrOutputWithContext(ctx context.Context) PolicyVMPtrOutput
+}
+
+type policyVMPtrType PolicyVMArgs
+
+func (*policyVMPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyVM)(nil))
+}
+
+func (i *policyVMPtrType) ToPolicyVMPtrOutput() PolicyVMPtrOutput {
+	return i.ToPolicyVMPtrOutputWithContext(context.Background())
+}
+
+func (i *policyVMPtrType) ToPolicyVMPtrOutputWithContext(ctx context.Context) PolicyVMPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMPtrOutput)
+}
+
+// PolicyVMArrayInput is an input type that accepts PolicyVMArray and PolicyVMArrayOutput values.
+// You can construct a concrete instance of `PolicyVMArrayInput` via:
+//
+//          PolicyVMArray{ PolicyVMArgs{...} }
+type PolicyVMArrayInput interface {
+	pulumi.Input
+
+	ToPolicyVMArrayOutput() PolicyVMArrayOutput
+	ToPolicyVMArrayOutputWithContext(context.Context) PolicyVMArrayOutput
+}
+
+type PolicyVMArray []PolicyVMInput
+
+func (PolicyVMArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PolicyVM)(nil))
+}
+
+func (i PolicyVMArray) ToPolicyVMArrayOutput() PolicyVMArrayOutput {
+	return i.ToPolicyVMArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyVMArray) ToPolicyVMArrayOutputWithContext(ctx context.Context) PolicyVMArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMArrayOutput)
+}
+
+// PolicyVMMapInput is an input type that accepts PolicyVMMap and PolicyVMMapOutput values.
+// You can construct a concrete instance of `PolicyVMMapInput` via:
+//
+//          PolicyVMMap{ "key": PolicyVMArgs{...} }
+type PolicyVMMapInput interface {
+	pulumi.Input
+
+	ToPolicyVMMapOutput() PolicyVMMapOutput
+	ToPolicyVMMapOutputWithContext(context.Context) PolicyVMMapOutput
+}
+
+type PolicyVMMap map[string]PolicyVMInput
+
+func (PolicyVMMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PolicyVM)(nil))
+}
+
+func (i PolicyVMMap) ToPolicyVMMapOutput() PolicyVMMapOutput {
+	return i.ToPolicyVMMapOutputWithContext(context.Background())
+}
+
+func (i PolicyVMMap) ToPolicyVMMapOutputWithContext(ctx context.Context) PolicyVMMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMMapOutput)
 }
 
 type PolicyVMOutput struct {
@@ -297,7 +376,7 @@ type PolicyVMOutput struct {
 }
 
 func (PolicyVMOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyVMOutput)(nil)).Elem()
+	return reflect.TypeOf((*PolicyVM)(nil))
 }
 
 func (o PolicyVMOutput) ToPolicyVMOutput() PolicyVMOutput {
@@ -308,6 +387,75 @@ func (o PolicyVMOutput) ToPolicyVMOutputWithContext(ctx context.Context) PolicyV
 	return o
 }
 
+func (o PolicyVMOutput) ToPolicyVMPtrOutput() PolicyVMPtrOutput {
+	return o.ToPolicyVMPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyVMOutput) ToPolicyVMPtrOutputWithContext(ctx context.Context) PolicyVMPtrOutput {
+	return o.ApplyT(func(v PolicyVM) *PolicyVM {
+		return &v
+	}).(PolicyVMPtrOutput)
+}
+
+type PolicyVMPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PolicyVMPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyVM)(nil))
+}
+
+func (o PolicyVMPtrOutput) ToPolicyVMPtrOutput() PolicyVMPtrOutput {
+	return o
+}
+
+func (o PolicyVMPtrOutput) ToPolicyVMPtrOutputWithContext(ctx context.Context) PolicyVMPtrOutput {
+	return o
+}
+
+type PolicyVMArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyVM)(nil))
+}
+
+func (o PolicyVMArrayOutput) ToPolicyVMArrayOutput() PolicyVMArrayOutput {
+	return o
+}
+
+func (o PolicyVMArrayOutput) ToPolicyVMArrayOutputWithContext(ctx context.Context) PolicyVMArrayOutput {
+	return o
+}
+
+func (o PolicyVMArrayOutput) Index(i pulumi.IntInput) PolicyVMOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyVM {
+		return vs[0].([]PolicyVM)[vs[1].(int)]
+	}).(PolicyVMOutput)
+}
+
+type PolicyVMMapOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PolicyVM)(nil))
+}
+
+func (o PolicyVMMapOutput) ToPolicyVMMapOutput() PolicyVMMapOutput {
+	return o
+}
+
+func (o PolicyVMMapOutput) ToPolicyVMMapOutputWithContext(ctx context.Context) PolicyVMMapOutput {
+	return o
+}
+
+func (o PolicyVMMapOutput) MapIndex(k pulumi.StringInput) PolicyVMOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PolicyVM {
+		return vs[0].(map[string]PolicyVM)[vs[1].(string)]
+	}).(PolicyVMOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PolicyVMOutput{})
+	pulumi.RegisterOutputType(PolicyVMPtrOutput{})
+	pulumi.RegisterOutputType(PolicyVMArrayOutput{})
+	pulumi.RegisterOutputType(PolicyVMMapOutput{})
 }

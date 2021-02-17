@@ -142,7 +142,8 @@ export class Automation extends pulumi.CustomResource {
     constructor(name: string, args: AutomationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AutomationArgs | AutomationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AutomationState | undefined;
             inputs["actions"] = state ? state.actions : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -155,16 +156,16 @@ export class Automation extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AutomationArgs | undefined;
-            if ((!args || args.actions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.actions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scopes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            if ((!args || args.sources === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sources === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sources'");
             }
             inputs["actions"] = args ? args.actions : undefined;
@@ -177,12 +178,8 @@ export class Automation extends pulumi.CustomResource {
             inputs["sources"] = args ? args.sources : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Automation.__pulumiType, name, inputs, opts);
     }

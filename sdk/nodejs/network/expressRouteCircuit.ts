@@ -122,7 +122,8 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
     constructor(name: string, args: ExpressRouteCircuitArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExpressRouteCircuitArgs | ExpressRouteCircuitState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ExpressRouteCircuitState | undefined;
             inputs["allowClassicOperations"] = state ? state.allowClassicOperations : undefined;
             inputs["bandwidthInMbps"] = state ? state.bandwidthInMbps : undefined;
@@ -137,19 +138,19 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ExpressRouteCircuitArgs | undefined;
-            if ((!args || args.bandwidthInMbps === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.bandwidthInMbps === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bandwidthInMbps'");
             }
-            if ((!args || args.peeringLocation === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.peeringLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'peeringLocation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceProviderName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceProviderName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceProviderName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["allowClassicOperations"] = args ? args.allowClassicOperations : undefined;
@@ -164,12 +165,8 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             inputs["serviceKey"] = undefined /*out*/;
             inputs["serviceProviderProvisioningState"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ExpressRouteCircuit.__pulumiType, name, inputs, opts);
     }

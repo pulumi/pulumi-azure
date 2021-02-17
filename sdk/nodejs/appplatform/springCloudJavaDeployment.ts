@@ -118,7 +118,8 @@ export class SpringCloudJavaDeployment extends pulumi.CustomResource {
     constructor(name: string, args: SpringCloudJavaDeploymentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SpringCloudJavaDeploymentArgs | SpringCloudJavaDeploymentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SpringCloudJavaDeploymentState | undefined;
             inputs["cpu"] = state ? state.cpu : undefined;
             inputs["environmentVariables"] = state ? state.environmentVariables : undefined;
@@ -130,7 +131,7 @@ export class SpringCloudJavaDeployment extends pulumi.CustomResource {
             inputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
         } else {
             const args = argsOrState as SpringCloudJavaDeploymentArgs | undefined;
-            if ((!args || args.springCloudAppId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.springCloudAppId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'springCloudAppId'");
             }
             inputs["cpu"] = args ? args.cpu : undefined;
@@ -142,12 +143,8 @@ export class SpringCloudJavaDeployment extends pulumi.CustomResource {
             inputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
             inputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SpringCloudJavaDeployment.__pulumiType, name, inputs, opts);
     }

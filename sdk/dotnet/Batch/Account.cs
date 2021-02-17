@@ -57,6 +57,7 @@ namespace Pulumi.Azure.Batch
     ///  $ pulumi import azure:batch/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Batch/batchAccounts/account1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:batch/account:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>

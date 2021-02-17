@@ -198,16 +198,95 @@ type ProtectedVMInput interface {
 	ToProtectedVMOutputWithContext(ctx context.Context) ProtectedVMOutput
 }
 
-func (ProtectedVM) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedVM)(nil)).Elem()
+func (*ProtectedVM) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectedVM)(nil))
 }
 
-func (i ProtectedVM) ToProtectedVMOutput() ProtectedVMOutput {
+func (i *ProtectedVM) ToProtectedVMOutput() ProtectedVMOutput {
 	return i.ToProtectedVMOutputWithContext(context.Background())
 }
 
-func (i ProtectedVM) ToProtectedVMOutputWithContext(ctx context.Context) ProtectedVMOutput {
+func (i *ProtectedVM) ToProtectedVMOutputWithContext(ctx context.Context) ProtectedVMOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectedVMOutput)
+}
+
+func (i *ProtectedVM) ToProtectedVMPtrOutput() ProtectedVMPtrOutput {
+	return i.ToProtectedVMPtrOutputWithContext(context.Background())
+}
+
+func (i *ProtectedVM) ToProtectedVMPtrOutputWithContext(ctx context.Context) ProtectedVMPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectedVMPtrOutput)
+}
+
+type ProtectedVMPtrInput interface {
+	pulumi.Input
+
+	ToProtectedVMPtrOutput() ProtectedVMPtrOutput
+	ToProtectedVMPtrOutputWithContext(ctx context.Context) ProtectedVMPtrOutput
+}
+
+type protectedVMPtrType ProtectedVMArgs
+
+func (*protectedVMPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectedVM)(nil))
+}
+
+func (i *protectedVMPtrType) ToProtectedVMPtrOutput() ProtectedVMPtrOutput {
+	return i.ToProtectedVMPtrOutputWithContext(context.Background())
+}
+
+func (i *protectedVMPtrType) ToProtectedVMPtrOutputWithContext(ctx context.Context) ProtectedVMPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectedVMPtrOutput)
+}
+
+// ProtectedVMArrayInput is an input type that accepts ProtectedVMArray and ProtectedVMArrayOutput values.
+// You can construct a concrete instance of `ProtectedVMArrayInput` via:
+//
+//          ProtectedVMArray{ ProtectedVMArgs{...} }
+type ProtectedVMArrayInput interface {
+	pulumi.Input
+
+	ToProtectedVMArrayOutput() ProtectedVMArrayOutput
+	ToProtectedVMArrayOutputWithContext(context.Context) ProtectedVMArrayOutput
+}
+
+type ProtectedVMArray []ProtectedVMInput
+
+func (ProtectedVMArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ProtectedVM)(nil))
+}
+
+func (i ProtectedVMArray) ToProtectedVMArrayOutput() ProtectedVMArrayOutput {
+	return i.ToProtectedVMArrayOutputWithContext(context.Background())
+}
+
+func (i ProtectedVMArray) ToProtectedVMArrayOutputWithContext(ctx context.Context) ProtectedVMArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectedVMArrayOutput)
+}
+
+// ProtectedVMMapInput is an input type that accepts ProtectedVMMap and ProtectedVMMapOutput values.
+// You can construct a concrete instance of `ProtectedVMMapInput` via:
+//
+//          ProtectedVMMap{ "key": ProtectedVMArgs{...} }
+type ProtectedVMMapInput interface {
+	pulumi.Input
+
+	ToProtectedVMMapOutput() ProtectedVMMapOutput
+	ToProtectedVMMapOutputWithContext(context.Context) ProtectedVMMapOutput
+}
+
+type ProtectedVMMap map[string]ProtectedVMInput
+
+func (ProtectedVMMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ProtectedVM)(nil))
+}
+
+func (i ProtectedVMMap) ToProtectedVMMapOutput() ProtectedVMMapOutput {
+	return i.ToProtectedVMMapOutputWithContext(context.Background())
+}
+
+func (i ProtectedVMMap) ToProtectedVMMapOutputWithContext(ctx context.Context) ProtectedVMMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectedVMMapOutput)
 }
 
 type ProtectedVMOutput struct {
@@ -215,7 +294,7 @@ type ProtectedVMOutput struct {
 }
 
 func (ProtectedVMOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedVMOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProtectedVM)(nil))
 }
 
 func (o ProtectedVMOutput) ToProtectedVMOutput() ProtectedVMOutput {
@@ -226,6 +305,75 @@ func (o ProtectedVMOutput) ToProtectedVMOutputWithContext(ctx context.Context) P
 	return o
 }
 
+func (o ProtectedVMOutput) ToProtectedVMPtrOutput() ProtectedVMPtrOutput {
+	return o.ToProtectedVMPtrOutputWithContext(context.Background())
+}
+
+func (o ProtectedVMOutput) ToProtectedVMPtrOutputWithContext(ctx context.Context) ProtectedVMPtrOutput {
+	return o.ApplyT(func(v ProtectedVM) *ProtectedVM {
+		return &v
+	}).(ProtectedVMPtrOutput)
+}
+
+type ProtectedVMPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProtectedVMPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectedVM)(nil))
+}
+
+func (o ProtectedVMPtrOutput) ToProtectedVMPtrOutput() ProtectedVMPtrOutput {
+	return o
+}
+
+func (o ProtectedVMPtrOutput) ToProtectedVMPtrOutputWithContext(ctx context.Context) ProtectedVMPtrOutput {
+	return o
+}
+
+type ProtectedVMArrayOutput struct{ *pulumi.OutputState }
+
+func (ProtectedVMArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProtectedVM)(nil))
+}
+
+func (o ProtectedVMArrayOutput) ToProtectedVMArrayOutput() ProtectedVMArrayOutput {
+	return o
+}
+
+func (o ProtectedVMArrayOutput) ToProtectedVMArrayOutputWithContext(ctx context.Context) ProtectedVMArrayOutput {
+	return o
+}
+
+func (o ProtectedVMArrayOutput) Index(i pulumi.IntInput) ProtectedVMOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProtectedVM {
+		return vs[0].([]ProtectedVM)[vs[1].(int)]
+	}).(ProtectedVMOutput)
+}
+
+type ProtectedVMMapOutput struct{ *pulumi.OutputState }
+
+func (ProtectedVMMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ProtectedVM)(nil))
+}
+
+func (o ProtectedVMMapOutput) ToProtectedVMMapOutput() ProtectedVMMapOutput {
+	return o
+}
+
+func (o ProtectedVMMapOutput) ToProtectedVMMapOutputWithContext(ctx context.Context) ProtectedVMMapOutput {
+	return o
+}
+
+func (o ProtectedVMMapOutput) MapIndex(k pulumi.StringInput) ProtectedVMOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProtectedVM {
+		return vs[0].(map[string]ProtectedVM)[vs[1].(string)]
+	}).(ProtectedVMOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProtectedVMOutput{})
+	pulumi.RegisterOutputType(ProtectedVMPtrOutput{})
+	pulumi.RegisterOutputType(ProtectedVMArrayOutput{})
+	pulumi.RegisterOutputType(ProtectedVMMapOutput{})
 }

@@ -353,6 +353,7 @@ namespace Pulumi.Azure.Monitoring
     ///  $ pulumi import azure:monitoring/autoscaleSetting:AutoscaleSetting example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/microsoft.insights/autoscalesettings/setting1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:monitoring/autoscaleSetting:AutoscaleSetting")]
     public partial class AutoscaleSetting : Pulumi.CustomResource
     {
         /// <summary>

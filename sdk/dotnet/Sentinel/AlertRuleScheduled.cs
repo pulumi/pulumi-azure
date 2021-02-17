@@ -56,6 +56,7 @@ namespace Pulumi.Azure.Sentinel
     ///  $ pulumi import azure:sentinel/alertRuleScheduled:AlertRuleScheduled example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/alertRules/rule1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:sentinel/alertRuleScheduled:AlertRuleScheduled")]
     public partial class AlertRuleScheduled : Pulumi.CustomResource
     {
         /// <summary>

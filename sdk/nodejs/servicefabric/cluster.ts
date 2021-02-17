@@ -164,7 +164,8 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
             inputs["addOnFeatures"] = state ? state.addOnFeatures : undefined;
             inputs["azureActiveDirectory"] = state ? state.azureActiveDirectory : undefined;
@@ -189,22 +190,22 @@ export class Cluster extends pulumi.CustomResource {
             inputs["vmImage"] = state ? state.vmImage : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if ((!args || args.managementEndpoint === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.managementEndpoint === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managementEndpoint'");
             }
-            if ((!args || args.nodeTypes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.nodeTypes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nodeTypes'");
             }
-            if ((!args || args.reliabilityLevel === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.reliabilityLevel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'reliabilityLevel'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.upgradeMode === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.upgradeMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'upgradeMode'");
             }
-            if ((!args || args.vmImage === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vmImage === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmImage'");
             }
             inputs["addOnFeatures"] = args ? args.addOnFeatures : undefined;
@@ -229,12 +230,8 @@ export class Cluster extends pulumi.CustomResource {
             inputs["vmImage"] = args ? args.vmImage : undefined;
             inputs["clusterEndpoint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Cluster.__pulumiType, name, inputs, opts);
     }

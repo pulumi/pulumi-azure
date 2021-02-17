@@ -47,6 +47,7 @@ namespace Pulumi.Azure.Bot
     ///  $ pulumi import azure:bot/channelsRegistration:ChannelsRegistration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:bot/channelsRegistration:ChannelsRegistration")]
     public partial class ChannelsRegistration : Pulumi.CustomResource
     {
         /// <summary>

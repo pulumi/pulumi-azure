@@ -175,16 +175,95 @@ type ContainerStorageAccountInput interface {
 	ToContainerStorageAccountOutputWithContext(ctx context.Context) ContainerStorageAccountOutput
 }
 
-func (ContainerStorageAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerStorageAccount)(nil)).Elem()
+func (*ContainerStorageAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerStorageAccount)(nil))
 }
 
-func (i ContainerStorageAccount) ToContainerStorageAccountOutput() ContainerStorageAccountOutput {
+func (i *ContainerStorageAccount) ToContainerStorageAccountOutput() ContainerStorageAccountOutput {
 	return i.ToContainerStorageAccountOutputWithContext(context.Background())
 }
 
-func (i ContainerStorageAccount) ToContainerStorageAccountOutputWithContext(ctx context.Context) ContainerStorageAccountOutput {
+func (i *ContainerStorageAccount) ToContainerStorageAccountOutputWithContext(ctx context.Context) ContainerStorageAccountOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerStorageAccountOutput)
+}
+
+func (i *ContainerStorageAccount) ToContainerStorageAccountPtrOutput() ContainerStorageAccountPtrOutput {
+	return i.ToContainerStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (i *ContainerStorageAccount) ToContainerStorageAccountPtrOutputWithContext(ctx context.Context) ContainerStorageAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerStorageAccountPtrOutput)
+}
+
+type ContainerStorageAccountPtrInput interface {
+	pulumi.Input
+
+	ToContainerStorageAccountPtrOutput() ContainerStorageAccountPtrOutput
+	ToContainerStorageAccountPtrOutputWithContext(ctx context.Context) ContainerStorageAccountPtrOutput
+}
+
+type containerStorageAccountPtrType ContainerStorageAccountArgs
+
+func (*containerStorageAccountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerStorageAccount)(nil))
+}
+
+func (i *containerStorageAccountPtrType) ToContainerStorageAccountPtrOutput() ContainerStorageAccountPtrOutput {
+	return i.ToContainerStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (i *containerStorageAccountPtrType) ToContainerStorageAccountPtrOutputWithContext(ctx context.Context) ContainerStorageAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerStorageAccountPtrOutput)
+}
+
+// ContainerStorageAccountArrayInput is an input type that accepts ContainerStorageAccountArray and ContainerStorageAccountArrayOutput values.
+// You can construct a concrete instance of `ContainerStorageAccountArrayInput` via:
+//
+//          ContainerStorageAccountArray{ ContainerStorageAccountArgs{...} }
+type ContainerStorageAccountArrayInput interface {
+	pulumi.Input
+
+	ToContainerStorageAccountArrayOutput() ContainerStorageAccountArrayOutput
+	ToContainerStorageAccountArrayOutputWithContext(context.Context) ContainerStorageAccountArrayOutput
+}
+
+type ContainerStorageAccountArray []ContainerStorageAccountInput
+
+func (ContainerStorageAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ContainerStorageAccount)(nil))
+}
+
+func (i ContainerStorageAccountArray) ToContainerStorageAccountArrayOutput() ContainerStorageAccountArrayOutput {
+	return i.ToContainerStorageAccountArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerStorageAccountArray) ToContainerStorageAccountArrayOutputWithContext(ctx context.Context) ContainerStorageAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerStorageAccountArrayOutput)
+}
+
+// ContainerStorageAccountMapInput is an input type that accepts ContainerStorageAccountMap and ContainerStorageAccountMapOutput values.
+// You can construct a concrete instance of `ContainerStorageAccountMapInput` via:
+//
+//          ContainerStorageAccountMap{ "key": ContainerStorageAccountArgs{...} }
+type ContainerStorageAccountMapInput interface {
+	pulumi.Input
+
+	ToContainerStorageAccountMapOutput() ContainerStorageAccountMapOutput
+	ToContainerStorageAccountMapOutputWithContext(context.Context) ContainerStorageAccountMapOutput
+}
+
+type ContainerStorageAccountMap map[string]ContainerStorageAccountInput
+
+func (ContainerStorageAccountMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ContainerStorageAccount)(nil))
+}
+
+func (i ContainerStorageAccountMap) ToContainerStorageAccountMapOutput() ContainerStorageAccountMapOutput {
+	return i.ToContainerStorageAccountMapOutputWithContext(context.Background())
+}
+
+func (i ContainerStorageAccountMap) ToContainerStorageAccountMapOutputWithContext(ctx context.Context) ContainerStorageAccountMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerStorageAccountMapOutput)
 }
 
 type ContainerStorageAccountOutput struct {
@@ -192,7 +271,7 @@ type ContainerStorageAccountOutput struct {
 }
 
 func (ContainerStorageAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerStorageAccountOutput)(nil)).Elem()
+	return reflect.TypeOf((*ContainerStorageAccount)(nil))
 }
 
 func (o ContainerStorageAccountOutput) ToContainerStorageAccountOutput() ContainerStorageAccountOutput {
@@ -203,6 +282,75 @@ func (o ContainerStorageAccountOutput) ToContainerStorageAccountOutputWithContex
 	return o
 }
 
+func (o ContainerStorageAccountOutput) ToContainerStorageAccountPtrOutput() ContainerStorageAccountPtrOutput {
+	return o.ToContainerStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerStorageAccountOutput) ToContainerStorageAccountPtrOutputWithContext(ctx context.Context) ContainerStorageAccountPtrOutput {
+	return o.ApplyT(func(v ContainerStorageAccount) *ContainerStorageAccount {
+		return &v
+	}).(ContainerStorageAccountPtrOutput)
+}
+
+type ContainerStorageAccountPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ContainerStorageAccountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerStorageAccount)(nil))
+}
+
+func (o ContainerStorageAccountPtrOutput) ToContainerStorageAccountPtrOutput() ContainerStorageAccountPtrOutput {
+	return o
+}
+
+func (o ContainerStorageAccountPtrOutput) ToContainerStorageAccountPtrOutputWithContext(ctx context.Context) ContainerStorageAccountPtrOutput {
+	return o
+}
+
+type ContainerStorageAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerStorageAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerStorageAccount)(nil))
+}
+
+func (o ContainerStorageAccountArrayOutput) ToContainerStorageAccountArrayOutput() ContainerStorageAccountArrayOutput {
+	return o
+}
+
+func (o ContainerStorageAccountArrayOutput) ToContainerStorageAccountArrayOutputWithContext(ctx context.Context) ContainerStorageAccountArrayOutput {
+	return o
+}
+
+func (o ContainerStorageAccountArrayOutput) Index(i pulumi.IntInput) ContainerStorageAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerStorageAccount {
+		return vs[0].([]ContainerStorageAccount)[vs[1].(int)]
+	}).(ContainerStorageAccountOutput)
+}
+
+type ContainerStorageAccountMapOutput struct{ *pulumi.OutputState }
+
+func (ContainerStorageAccountMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ContainerStorageAccount)(nil))
+}
+
+func (o ContainerStorageAccountMapOutput) ToContainerStorageAccountMapOutput() ContainerStorageAccountMapOutput {
+	return o
+}
+
+func (o ContainerStorageAccountMapOutput) ToContainerStorageAccountMapOutputWithContext(ctx context.Context) ContainerStorageAccountMapOutput {
+	return o
+}
+
+func (o ContainerStorageAccountMapOutput) MapIndex(k pulumi.StringInput) ContainerStorageAccountOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ContainerStorageAccount {
+		return vs[0].(map[string]ContainerStorageAccount)[vs[1].(string)]
+	}).(ContainerStorageAccountOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ContainerStorageAccountOutput{})
+	pulumi.RegisterOutputType(ContainerStorageAccountPtrOutput{})
+	pulumi.RegisterOutputType(ContainerStorageAccountArrayOutput{})
+	pulumi.RegisterOutputType(ContainerStorageAccountMapOutput{})
 }

@@ -246,16 +246,95 @@ type OutputEventHubInput interface {
 	ToOutputEventHubOutputWithContext(ctx context.Context) OutputEventHubOutput
 }
 
-func (OutputEventHub) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputEventHub)(nil)).Elem()
+func (*OutputEventHub) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputEventHub)(nil))
 }
 
-func (i OutputEventHub) ToOutputEventHubOutput() OutputEventHubOutput {
+func (i *OutputEventHub) ToOutputEventHubOutput() OutputEventHubOutput {
 	return i.ToOutputEventHubOutputWithContext(context.Background())
 }
 
-func (i OutputEventHub) ToOutputEventHubOutputWithContext(ctx context.Context) OutputEventHubOutput {
+func (i *OutputEventHub) ToOutputEventHubOutputWithContext(ctx context.Context) OutputEventHubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputEventHubOutput)
+}
+
+func (i *OutputEventHub) ToOutputEventHubPtrOutput() OutputEventHubPtrOutput {
+	return i.ToOutputEventHubPtrOutputWithContext(context.Background())
+}
+
+func (i *OutputEventHub) ToOutputEventHubPtrOutputWithContext(ctx context.Context) OutputEventHubPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputEventHubPtrOutput)
+}
+
+type OutputEventHubPtrInput interface {
+	pulumi.Input
+
+	ToOutputEventHubPtrOutput() OutputEventHubPtrOutput
+	ToOutputEventHubPtrOutputWithContext(ctx context.Context) OutputEventHubPtrOutput
+}
+
+type outputEventHubPtrType OutputEventHubArgs
+
+func (*outputEventHubPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutputEventHub)(nil))
+}
+
+func (i *outputEventHubPtrType) ToOutputEventHubPtrOutput() OutputEventHubPtrOutput {
+	return i.ToOutputEventHubPtrOutputWithContext(context.Background())
+}
+
+func (i *outputEventHubPtrType) ToOutputEventHubPtrOutputWithContext(ctx context.Context) OutputEventHubPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputEventHubPtrOutput)
+}
+
+// OutputEventHubArrayInput is an input type that accepts OutputEventHubArray and OutputEventHubArrayOutput values.
+// You can construct a concrete instance of `OutputEventHubArrayInput` via:
+//
+//          OutputEventHubArray{ OutputEventHubArgs{...} }
+type OutputEventHubArrayInput interface {
+	pulumi.Input
+
+	ToOutputEventHubArrayOutput() OutputEventHubArrayOutput
+	ToOutputEventHubArrayOutputWithContext(context.Context) OutputEventHubArrayOutput
+}
+
+type OutputEventHubArray []OutputEventHubInput
+
+func (OutputEventHubArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*OutputEventHub)(nil))
+}
+
+func (i OutputEventHubArray) ToOutputEventHubArrayOutput() OutputEventHubArrayOutput {
+	return i.ToOutputEventHubArrayOutputWithContext(context.Background())
+}
+
+func (i OutputEventHubArray) ToOutputEventHubArrayOutputWithContext(ctx context.Context) OutputEventHubArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputEventHubArrayOutput)
+}
+
+// OutputEventHubMapInput is an input type that accepts OutputEventHubMap and OutputEventHubMapOutput values.
+// You can construct a concrete instance of `OutputEventHubMapInput` via:
+//
+//          OutputEventHubMap{ "key": OutputEventHubArgs{...} }
+type OutputEventHubMapInput interface {
+	pulumi.Input
+
+	ToOutputEventHubMapOutput() OutputEventHubMapOutput
+	ToOutputEventHubMapOutputWithContext(context.Context) OutputEventHubMapOutput
+}
+
+type OutputEventHubMap map[string]OutputEventHubInput
+
+func (OutputEventHubMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*OutputEventHub)(nil))
+}
+
+func (i OutputEventHubMap) ToOutputEventHubMapOutput() OutputEventHubMapOutput {
+	return i.ToOutputEventHubMapOutputWithContext(context.Background())
+}
+
+func (i OutputEventHubMap) ToOutputEventHubMapOutputWithContext(ctx context.Context) OutputEventHubMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputEventHubMapOutput)
 }
 
 type OutputEventHubOutput struct {
@@ -263,7 +342,7 @@ type OutputEventHubOutput struct {
 }
 
 func (OutputEventHubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputEventHubOutput)(nil)).Elem()
+	return reflect.TypeOf((*OutputEventHub)(nil))
 }
 
 func (o OutputEventHubOutput) ToOutputEventHubOutput() OutputEventHubOutput {
@@ -274,6 +353,75 @@ func (o OutputEventHubOutput) ToOutputEventHubOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o OutputEventHubOutput) ToOutputEventHubPtrOutput() OutputEventHubPtrOutput {
+	return o.ToOutputEventHubPtrOutputWithContext(context.Background())
+}
+
+func (o OutputEventHubOutput) ToOutputEventHubPtrOutputWithContext(ctx context.Context) OutputEventHubPtrOutput {
+	return o.ApplyT(func(v OutputEventHub) *OutputEventHub {
+		return &v
+	}).(OutputEventHubPtrOutput)
+}
+
+type OutputEventHubPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (OutputEventHubPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutputEventHub)(nil))
+}
+
+func (o OutputEventHubPtrOutput) ToOutputEventHubPtrOutput() OutputEventHubPtrOutput {
+	return o
+}
+
+func (o OutputEventHubPtrOutput) ToOutputEventHubPtrOutputWithContext(ctx context.Context) OutputEventHubPtrOutput {
+	return o
+}
+
+type OutputEventHubArrayOutput struct{ *pulumi.OutputState }
+
+func (OutputEventHubArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OutputEventHub)(nil))
+}
+
+func (o OutputEventHubArrayOutput) ToOutputEventHubArrayOutput() OutputEventHubArrayOutput {
+	return o
+}
+
+func (o OutputEventHubArrayOutput) ToOutputEventHubArrayOutputWithContext(ctx context.Context) OutputEventHubArrayOutput {
+	return o
+}
+
+func (o OutputEventHubArrayOutput) Index(i pulumi.IntInput) OutputEventHubOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OutputEventHub {
+		return vs[0].([]OutputEventHub)[vs[1].(int)]
+	}).(OutputEventHubOutput)
+}
+
+type OutputEventHubMapOutput struct{ *pulumi.OutputState }
+
+func (OutputEventHubMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]OutputEventHub)(nil))
+}
+
+func (o OutputEventHubMapOutput) ToOutputEventHubMapOutput() OutputEventHubMapOutput {
+	return o
+}
+
+func (o OutputEventHubMapOutput) ToOutputEventHubMapOutputWithContext(ctx context.Context) OutputEventHubMapOutput {
+	return o
+}
+
+func (o OutputEventHubMapOutput) MapIndex(k pulumi.StringInput) OutputEventHubOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OutputEventHub {
+		return vs[0].(map[string]OutputEventHub)[vs[1].(string)]
+	}).(OutputEventHubOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OutputEventHubOutput{})
+	pulumi.RegisterOutputType(OutputEventHubPtrOutput{})
+	pulumi.RegisterOutputType(OutputEventHubArrayOutput{})
+	pulumi.RegisterOutputType(OutputEventHubMapOutput{})
 }

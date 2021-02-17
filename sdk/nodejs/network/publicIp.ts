@@ -129,7 +129,8 @@ export class PublicIp extends pulumi.CustomResource {
     constructor(name: string, args: PublicIpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PublicIpArgs | PublicIpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PublicIpState | undefined;
             inputs["allocationMethod"] = state ? state.allocationMethod : undefined;
             inputs["domainNameLabel"] = state ? state.domainNameLabel : undefined;
@@ -147,10 +148,10 @@ export class PublicIp extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as PublicIpArgs | undefined;
-            if ((!args || args.allocationMethod === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.allocationMethod === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'allocationMethod'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["allocationMethod"] = args ? args.allocationMethod : undefined;
@@ -168,12 +169,8 @@ export class PublicIp extends pulumi.CustomResource {
             inputs["fqdn"] = undefined /*out*/;
             inputs["ipAddress"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PublicIp.__pulumiType, name, inputs, opts);
     }

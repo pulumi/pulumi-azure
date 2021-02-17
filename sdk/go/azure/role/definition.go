@@ -195,16 +195,95 @@ type DefinitionInput interface {
 	ToDefinitionOutputWithContext(ctx context.Context) DefinitionOutput
 }
 
-func (Definition) ElementType() reflect.Type {
-	return reflect.TypeOf((*Definition)(nil)).Elem()
+func (*Definition) ElementType() reflect.Type {
+	return reflect.TypeOf((*Definition)(nil))
 }
 
-func (i Definition) ToDefinitionOutput() DefinitionOutput {
+func (i *Definition) ToDefinitionOutput() DefinitionOutput {
 	return i.ToDefinitionOutputWithContext(context.Background())
 }
 
-func (i Definition) ToDefinitionOutputWithContext(ctx context.Context) DefinitionOutput {
+func (i *Definition) ToDefinitionOutputWithContext(ctx context.Context) DefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionOutput)
+}
+
+func (i *Definition) ToDefinitionPtrOutput() DefinitionPtrOutput {
+	return i.ToDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *Definition) ToDefinitionPtrOutputWithContext(ctx context.Context) DefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefinitionPtrOutput)
+}
+
+type DefinitionPtrInput interface {
+	pulumi.Input
+
+	ToDefinitionPtrOutput() DefinitionPtrOutput
+	ToDefinitionPtrOutputWithContext(ctx context.Context) DefinitionPtrOutput
+}
+
+type definitionPtrType DefinitionArgs
+
+func (*definitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Definition)(nil))
+}
+
+func (i *definitionPtrType) ToDefinitionPtrOutput() DefinitionPtrOutput {
+	return i.ToDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *definitionPtrType) ToDefinitionPtrOutputWithContext(ctx context.Context) DefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefinitionPtrOutput)
+}
+
+// DefinitionArrayInput is an input type that accepts DefinitionArray and DefinitionArrayOutput values.
+// You can construct a concrete instance of `DefinitionArrayInput` via:
+//
+//          DefinitionArray{ DefinitionArgs{...} }
+type DefinitionArrayInput interface {
+	pulumi.Input
+
+	ToDefinitionArrayOutput() DefinitionArrayOutput
+	ToDefinitionArrayOutputWithContext(context.Context) DefinitionArrayOutput
+}
+
+type DefinitionArray []DefinitionInput
+
+func (DefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Definition)(nil))
+}
+
+func (i DefinitionArray) ToDefinitionArrayOutput() DefinitionArrayOutput {
+	return i.ToDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i DefinitionArray) ToDefinitionArrayOutputWithContext(ctx context.Context) DefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefinitionArrayOutput)
+}
+
+// DefinitionMapInput is an input type that accepts DefinitionMap and DefinitionMapOutput values.
+// You can construct a concrete instance of `DefinitionMapInput` via:
+//
+//          DefinitionMap{ "key": DefinitionArgs{...} }
+type DefinitionMapInput interface {
+	pulumi.Input
+
+	ToDefinitionMapOutput() DefinitionMapOutput
+	ToDefinitionMapOutputWithContext(context.Context) DefinitionMapOutput
+}
+
+type DefinitionMap map[string]DefinitionInput
+
+func (DefinitionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Definition)(nil))
+}
+
+func (i DefinitionMap) ToDefinitionMapOutput() DefinitionMapOutput {
+	return i.ToDefinitionMapOutputWithContext(context.Background())
+}
+
+func (i DefinitionMap) ToDefinitionMapOutputWithContext(ctx context.Context) DefinitionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefinitionMapOutput)
 }
 
 type DefinitionOutput struct {
@@ -212,7 +291,7 @@ type DefinitionOutput struct {
 }
 
 func (DefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefinitionOutput)(nil)).Elem()
+	return reflect.TypeOf((*Definition)(nil))
 }
 
 func (o DefinitionOutput) ToDefinitionOutput() DefinitionOutput {
@@ -223,6 +302,75 @@ func (o DefinitionOutput) ToDefinitionOutputWithContext(ctx context.Context) Def
 	return o
 }
 
+func (o DefinitionOutput) ToDefinitionPtrOutput() DefinitionPtrOutput {
+	return o.ToDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o DefinitionOutput) ToDefinitionPtrOutputWithContext(ctx context.Context) DefinitionPtrOutput {
+	return o.ApplyT(func(v Definition) *Definition {
+		return &v
+	}).(DefinitionPtrOutput)
+}
+
+type DefinitionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Definition)(nil))
+}
+
+func (o DefinitionPtrOutput) ToDefinitionPtrOutput() DefinitionPtrOutput {
+	return o
+}
+
+func (o DefinitionPtrOutput) ToDefinitionPtrOutputWithContext(ctx context.Context) DefinitionPtrOutput {
+	return o
+}
+
+type DefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (DefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Definition)(nil))
+}
+
+func (o DefinitionArrayOutput) ToDefinitionArrayOutput() DefinitionArrayOutput {
+	return o
+}
+
+func (o DefinitionArrayOutput) ToDefinitionArrayOutputWithContext(ctx context.Context) DefinitionArrayOutput {
+	return o
+}
+
+func (o DefinitionArrayOutput) Index(i pulumi.IntInput) DefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Definition {
+		return vs[0].([]Definition)[vs[1].(int)]
+	}).(DefinitionOutput)
+}
+
+type DefinitionMapOutput struct{ *pulumi.OutputState }
+
+func (DefinitionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Definition)(nil))
+}
+
+func (o DefinitionMapOutput) ToDefinitionMapOutput() DefinitionMapOutput {
+	return o
+}
+
+func (o DefinitionMapOutput) ToDefinitionMapOutputWithContext(ctx context.Context) DefinitionMapOutput {
+	return o
+}
+
+func (o DefinitionMapOutput) MapIndex(k pulumi.StringInput) DefinitionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Definition {
+		return vs[0].(map[string]Definition)[vs[1].(string)]
+	}).(DefinitionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DefinitionOutput{})
+	pulumi.RegisterOutputType(DefinitionPtrOutput{})
+	pulumi.RegisterOutputType(DefinitionArrayOutput{})
+	pulumi.RegisterOutputType(DefinitionMapOutput{})
 }

@@ -105,7 +105,8 @@ export class IntegrationRuntimeManaged extends pulumi.CustomResource {
     constructor(name: string, args: IntegrationRuntimeManagedArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationRuntimeManagedArgs | IntegrationRuntimeManagedState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IntegrationRuntimeManagedState | undefined;
             inputs["catalogInfo"] = state ? state.catalogInfo : undefined;
             inputs["customSetupScript"] = state ? state.customSetupScript : undefined;
@@ -122,13 +123,13 @@ export class IntegrationRuntimeManaged extends pulumi.CustomResource {
             inputs["vnetIntegration"] = state ? state.vnetIntegration : undefined;
         } else {
             const args = argsOrState as IntegrationRuntimeManagedArgs | undefined;
-            if ((!args || args.dataFactoryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryName'");
             }
-            if ((!args || args.nodeSize === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.nodeSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nodeSize'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["catalogInfo"] = args ? args.catalogInfo : undefined;
@@ -145,12 +146,8 @@ export class IntegrationRuntimeManaged extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["vnetIntegration"] = args ? args.vnetIntegration : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IntegrationRuntimeManaged.__pulumiType, name, inputs, opts);
     }

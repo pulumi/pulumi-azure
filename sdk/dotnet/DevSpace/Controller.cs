@@ -18,6 +18,7 @@ namespace Pulumi.Azure.DevSpace
     ///  $ pulumi import azure:devspace/controller:Controller controller1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevSpaces/controllers/controller1Name
     /// ```
     /// </summary>
+    [AzureResourceType("azure:devspace/controller:Controller")]
     public partial class Controller : Pulumi.CustomResource
     {
         /// <summary>

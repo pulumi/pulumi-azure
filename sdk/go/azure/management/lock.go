@@ -237,16 +237,95 @@ type LockInput interface {
 	ToLockOutputWithContext(ctx context.Context) LockOutput
 }
 
-func (Lock) ElementType() reflect.Type {
-	return reflect.TypeOf((*Lock)(nil)).Elem()
+func (*Lock) ElementType() reflect.Type {
+	return reflect.TypeOf((*Lock)(nil))
 }
 
-func (i Lock) ToLockOutput() LockOutput {
+func (i *Lock) ToLockOutput() LockOutput {
 	return i.ToLockOutputWithContext(context.Background())
 }
 
-func (i Lock) ToLockOutputWithContext(ctx context.Context) LockOutput {
+func (i *Lock) ToLockOutputWithContext(ctx context.Context) LockOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LockOutput)
+}
+
+func (i *Lock) ToLockPtrOutput() LockPtrOutput {
+	return i.ToLockPtrOutputWithContext(context.Background())
+}
+
+func (i *Lock) ToLockPtrOutputWithContext(ctx context.Context) LockPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LockPtrOutput)
+}
+
+type LockPtrInput interface {
+	pulumi.Input
+
+	ToLockPtrOutput() LockPtrOutput
+	ToLockPtrOutputWithContext(ctx context.Context) LockPtrOutput
+}
+
+type lockPtrType LockArgs
+
+func (*lockPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Lock)(nil))
+}
+
+func (i *lockPtrType) ToLockPtrOutput() LockPtrOutput {
+	return i.ToLockPtrOutputWithContext(context.Background())
+}
+
+func (i *lockPtrType) ToLockPtrOutputWithContext(ctx context.Context) LockPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LockPtrOutput)
+}
+
+// LockArrayInput is an input type that accepts LockArray and LockArrayOutput values.
+// You can construct a concrete instance of `LockArrayInput` via:
+//
+//          LockArray{ LockArgs{...} }
+type LockArrayInput interface {
+	pulumi.Input
+
+	ToLockArrayOutput() LockArrayOutput
+	ToLockArrayOutputWithContext(context.Context) LockArrayOutput
+}
+
+type LockArray []LockInput
+
+func (LockArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Lock)(nil))
+}
+
+func (i LockArray) ToLockArrayOutput() LockArrayOutput {
+	return i.ToLockArrayOutputWithContext(context.Background())
+}
+
+func (i LockArray) ToLockArrayOutputWithContext(ctx context.Context) LockArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LockArrayOutput)
+}
+
+// LockMapInput is an input type that accepts LockMap and LockMapOutput values.
+// You can construct a concrete instance of `LockMapInput` via:
+//
+//          LockMap{ "key": LockArgs{...} }
+type LockMapInput interface {
+	pulumi.Input
+
+	ToLockMapOutput() LockMapOutput
+	ToLockMapOutputWithContext(context.Context) LockMapOutput
+}
+
+type LockMap map[string]LockInput
+
+func (LockMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Lock)(nil))
+}
+
+func (i LockMap) ToLockMapOutput() LockMapOutput {
+	return i.ToLockMapOutputWithContext(context.Background())
+}
+
+func (i LockMap) ToLockMapOutputWithContext(ctx context.Context) LockMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LockMapOutput)
 }
 
 type LockOutput struct {
@@ -254,7 +333,7 @@ type LockOutput struct {
 }
 
 func (LockOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LockOutput)(nil)).Elem()
+	return reflect.TypeOf((*Lock)(nil))
 }
 
 func (o LockOutput) ToLockOutput() LockOutput {
@@ -265,6 +344,75 @@ func (o LockOutput) ToLockOutputWithContext(ctx context.Context) LockOutput {
 	return o
 }
 
+func (o LockOutput) ToLockPtrOutput() LockPtrOutput {
+	return o.ToLockPtrOutputWithContext(context.Background())
+}
+
+func (o LockOutput) ToLockPtrOutputWithContext(ctx context.Context) LockPtrOutput {
+	return o.ApplyT(func(v Lock) *Lock {
+		return &v
+	}).(LockPtrOutput)
+}
+
+type LockPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LockPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Lock)(nil))
+}
+
+func (o LockPtrOutput) ToLockPtrOutput() LockPtrOutput {
+	return o
+}
+
+func (o LockPtrOutput) ToLockPtrOutputWithContext(ctx context.Context) LockPtrOutput {
+	return o
+}
+
+type LockArrayOutput struct{ *pulumi.OutputState }
+
+func (LockArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Lock)(nil))
+}
+
+func (o LockArrayOutput) ToLockArrayOutput() LockArrayOutput {
+	return o
+}
+
+func (o LockArrayOutput) ToLockArrayOutputWithContext(ctx context.Context) LockArrayOutput {
+	return o
+}
+
+func (o LockArrayOutput) Index(i pulumi.IntInput) LockOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Lock {
+		return vs[0].([]Lock)[vs[1].(int)]
+	}).(LockOutput)
+}
+
+type LockMapOutput struct{ *pulumi.OutputState }
+
+func (LockMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Lock)(nil))
+}
+
+func (o LockMapOutput) ToLockMapOutput() LockMapOutput {
+	return o
+}
+
+func (o LockMapOutput) ToLockMapOutputWithContext(ctx context.Context) LockMapOutput {
+	return o
+}
+
+func (o LockMapOutput) MapIndex(k pulumi.StringInput) LockOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Lock {
+		return vs[0].(map[string]Lock)[vs[1].(string)]
+	}).(LockOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LockOutput{})
+	pulumi.RegisterOutputType(LockPtrOutput{})
+	pulumi.RegisterOutputType(LockArrayOutput{})
+	pulumi.RegisterOutputType(LockMapOutput{})
 }

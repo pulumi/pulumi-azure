@@ -122,7 +122,8 @@ export class ResourceGroupTemplateDeployment extends pulumi.CustomResource {
     constructor(name: string, args: ResourceGroupTemplateDeploymentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceGroupTemplateDeploymentArgs | ResourceGroupTemplateDeploymentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ResourceGroupTemplateDeploymentState | undefined;
             inputs["debugLevel"] = state ? state.debugLevel : undefined;
             inputs["deploymentMode"] = state ? state.deploymentMode : undefined;
@@ -134,13 +135,13 @@ export class ResourceGroupTemplateDeployment extends pulumi.CustomResource {
             inputs["templateContent"] = state ? state.templateContent : undefined;
         } else {
             const args = argsOrState as ResourceGroupTemplateDeploymentArgs | undefined;
-            if ((!args || args.deploymentMode === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.deploymentMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deploymentMode'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.templateContent === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.templateContent === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateContent'");
             }
             inputs["debugLevel"] = args ? args.debugLevel : undefined;
@@ -152,12 +153,8 @@ export class ResourceGroupTemplateDeployment extends pulumi.CustomResource {
             inputs["templateContent"] = args ? args.templateContent : undefined;
             inputs["outputContent"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ResourceGroupTemplateDeployment.__pulumiType, name, inputs, opts);
     }

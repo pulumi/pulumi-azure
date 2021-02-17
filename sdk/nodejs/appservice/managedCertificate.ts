@@ -96,7 +96,8 @@ export class ManagedCertificate extends pulumi.CustomResource {
     constructor(name: string, args: ManagedCertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedCertificateArgs | ManagedCertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ManagedCertificateState | undefined;
             inputs["canonicalName"] = state ? state.canonicalName : undefined;
             inputs["customHostnameBindingId"] = state ? state.customHostnameBindingId : undefined;
@@ -110,7 +111,7 @@ export class ManagedCertificate extends pulumi.CustomResource {
             inputs["thumbprint"] = state ? state.thumbprint : undefined;
         } else {
             const args = argsOrState as ManagedCertificateArgs | undefined;
-            if ((!args || args.customHostnameBindingId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.customHostnameBindingId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'customHostnameBindingId'");
             }
             inputs["customHostnameBindingId"] = args ? args.customHostnameBindingId : undefined;
@@ -124,12 +125,8 @@ export class ManagedCertificate extends pulumi.CustomResource {
             inputs["subjectName"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ManagedCertificate.__pulumiType, name, inputs, opts);
     }

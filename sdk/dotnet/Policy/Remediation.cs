@@ -108,6 +108,7 @@ namespace Pulumi.Azure.Policy
     ///  $ pulumi import azure:policy/remediation:Remediation example /providers/Microsoft.Management/managementGroups/my-mgmt-group-id/providers/Microsoft.PolicyInsights/remediations/remediation1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:policy/remediation:Remediation")]
     public partial class Remediation : Pulumi.CustomResource
     {
         /// <summary>

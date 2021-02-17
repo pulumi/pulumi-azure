@@ -173,16 +173,95 @@ type ControllerInput interface {
 	ToControllerOutputWithContext(ctx context.Context) ControllerOutput
 }
 
-func (Controller) ElementType() reflect.Type {
-	return reflect.TypeOf((*Controller)(nil)).Elem()
+func (*Controller) ElementType() reflect.Type {
+	return reflect.TypeOf((*Controller)(nil))
 }
 
-func (i Controller) ToControllerOutput() ControllerOutput {
+func (i *Controller) ToControllerOutput() ControllerOutput {
 	return i.ToControllerOutputWithContext(context.Background())
 }
 
-func (i Controller) ToControllerOutputWithContext(ctx context.Context) ControllerOutput {
+func (i *Controller) ToControllerOutputWithContext(ctx context.Context) ControllerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ControllerOutput)
+}
+
+func (i *Controller) ToControllerPtrOutput() ControllerPtrOutput {
+	return i.ToControllerPtrOutputWithContext(context.Background())
+}
+
+func (i *Controller) ToControllerPtrOutputWithContext(ctx context.Context) ControllerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ControllerPtrOutput)
+}
+
+type ControllerPtrInput interface {
+	pulumi.Input
+
+	ToControllerPtrOutput() ControllerPtrOutput
+	ToControllerPtrOutputWithContext(ctx context.Context) ControllerPtrOutput
+}
+
+type controllerPtrType ControllerArgs
+
+func (*controllerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Controller)(nil))
+}
+
+func (i *controllerPtrType) ToControllerPtrOutput() ControllerPtrOutput {
+	return i.ToControllerPtrOutputWithContext(context.Background())
+}
+
+func (i *controllerPtrType) ToControllerPtrOutputWithContext(ctx context.Context) ControllerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ControllerPtrOutput)
+}
+
+// ControllerArrayInput is an input type that accepts ControllerArray and ControllerArrayOutput values.
+// You can construct a concrete instance of `ControllerArrayInput` via:
+//
+//          ControllerArray{ ControllerArgs{...} }
+type ControllerArrayInput interface {
+	pulumi.Input
+
+	ToControllerArrayOutput() ControllerArrayOutput
+	ToControllerArrayOutputWithContext(context.Context) ControllerArrayOutput
+}
+
+type ControllerArray []ControllerInput
+
+func (ControllerArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Controller)(nil))
+}
+
+func (i ControllerArray) ToControllerArrayOutput() ControllerArrayOutput {
+	return i.ToControllerArrayOutputWithContext(context.Background())
+}
+
+func (i ControllerArray) ToControllerArrayOutputWithContext(ctx context.Context) ControllerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ControllerArrayOutput)
+}
+
+// ControllerMapInput is an input type that accepts ControllerMap and ControllerMapOutput values.
+// You can construct a concrete instance of `ControllerMapInput` via:
+//
+//          ControllerMap{ "key": ControllerArgs{...} }
+type ControllerMapInput interface {
+	pulumi.Input
+
+	ToControllerMapOutput() ControllerMapOutput
+	ToControllerMapOutputWithContext(context.Context) ControllerMapOutput
+}
+
+type ControllerMap map[string]ControllerInput
+
+func (ControllerMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Controller)(nil))
+}
+
+func (i ControllerMap) ToControllerMapOutput() ControllerMapOutput {
+	return i.ToControllerMapOutputWithContext(context.Background())
+}
+
+func (i ControllerMap) ToControllerMapOutputWithContext(ctx context.Context) ControllerMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ControllerMapOutput)
 }
 
 type ControllerOutput struct {
@@ -190,7 +269,7 @@ type ControllerOutput struct {
 }
 
 func (ControllerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ControllerOutput)(nil)).Elem()
+	return reflect.TypeOf((*Controller)(nil))
 }
 
 func (o ControllerOutput) ToControllerOutput() ControllerOutput {
@@ -201,6 +280,75 @@ func (o ControllerOutput) ToControllerOutputWithContext(ctx context.Context) Con
 	return o
 }
 
+func (o ControllerOutput) ToControllerPtrOutput() ControllerPtrOutput {
+	return o.ToControllerPtrOutputWithContext(context.Background())
+}
+
+func (o ControllerOutput) ToControllerPtrOutputWithContext(ctx context.Context) ControllerPtrOutput {
+	return o.ApplyT(func(v Controller) *Controller {
+		return &v
+	}).(ControllerPtrOutput)
+}
+
+type ControllerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ControllerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Controller)(nil))
+}
+
+func (o ControllerPtrOutput) ToControllerPtrOutput() ControllerPtrOutput {
+	return o
+}
+
+func (o ControllerPtrOutput) ToControllerPtrOutputWithContext(ctx context.Context) ControllerPtrOutput {
+	return o
+}
+
+type ControllerArrayOutput struct{ *pulumi.OutputState }
+
+func (ControllerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Controller)(nil))
+}
+
+func (o ControllerArrayOutput) ToControllerArrayOutput() ControllerArrayOutput {
+	return o
+}
+
+func (o ControllerArrayOutput) ToControllerArrayOutputWithContext(ctx context.Context) ControllerArrayOutput {
+	return o
+}
+
+func (o ControllerArrayOutput) Index(i pulumi.IntInput) ControllerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Controller {
+		return vs[0].([]Controller)[vs[1].(int)]
+	}).(ControllerOutput)
+}
+
+type ControllerMapOutput struct{ *pulumi.OutputState }
+
+func (ControllerMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Controller)(nil))
+}
+
+func (o ControllerMapOutput) ToControllerMapOutput() ControllerMapOutput {
+	return o
+}
+
+func (o ControllerMapOutput) ToControllerMapOutputWithContext(ctx context.Context) ControllerMapOutput {
+	return o
+}
+
+func (o ControllerMapOutput) MapIndex(k pulumi.StringInput) ControllerOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Controller {
+		return vs[0].(map[string]Controller)[vs[1].(string)]
+	}).(ControllerOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ControllerOutput{})
+	pulumi.RegisterOutputType(ControllerPtrOutput{})
+	pulumi.RegisterOutputType(ControllerArrayOutput{})
+	pulumi.RegisterOutputType(ControllerMapOutput{})
 }

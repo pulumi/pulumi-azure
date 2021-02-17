@@ -45,6 +45,7 @@ namespace Pulumi.Azure.Search
     ///  $ pulumi import azure:search/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Search/searchServices/service1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:search/service:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>

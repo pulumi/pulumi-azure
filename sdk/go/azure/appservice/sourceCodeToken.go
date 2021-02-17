@@ -143,16 +143,95 @@ type SourceCodeTokenInput interface {
 	ToSourceCodeTokenOutputWithContext(ctx context.Context) SourceCodeTokenOutput
 }
 
-func (SourceCodeToken) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceCodeToken)(nil)).Elem()
+func (*SourceCodeToken) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceCodeToken)(nil))
 }
 
-func (i SourceCodeToken) ToSourceCodeTokenOutput() SourceCodeTokenOutput {
+func (i *SourceCodeToken) ToSourceCodeTokenOutput() SourceCodeTokenOutput {
 	return i.ToSourceCodeTokenOutputWithContext(context.Background())
 }
 
-func (i SourceCodeToken) ToSourceCodeTokenOutputWithContext(ctx context.Context) SourceCodeTokenOutput {
+func (i *SourceCodeToken) ToSourceCodeTokenOutputWithContext(ctx context.Context) SourceCodeTokenOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SourceCodeTokenOutput)
+}
+
+func (i *SourceCodeToken) ToSourceCodeTokenPtrOutput() SourceCodeTokenPtrOutput {
+	return i.ToSourceCodeTokenPtrOutputWithContext(context.Background())
+}
+
+func (i *SourceCodeToken) ToSourceCodeTokenPtrOutputWithContext(ctx context.Context) SourceCodeTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceCodeTokenPtrOutput)
+}
+
+type SourceCodeTokenPtrInput interface {
+	pulumi.Input
+
+	ToSourceCodeTokenPtrOutput() SourceCodeTokenPtrOutput
+	ToSourceCodeTokenPtrOutputWithContext(ctx context.Context) SourceCodeTokenPtrOutput
+}
+
+type sourceCodeTokenPtrType SourceCodeTokenArgs
+
+func (*sourceCodeTokenPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceCodeToken)(nil))
+}
+
+func (i *sourceCodeTokenPtrType) ToSourceCodeTokenPtrOutput() SourceCodeTokenPtrOutput {
+	return i.ToSourceCodeTokenPtrOutputWithContext(context.Background())
+}
+
+func (i *sourceCodeTokenPtrType) ToSourceCodeTokenPtrOutputWithContext(ctx context.Context) SourceCodeTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceCodeTokenPtrOutput)
+}
+
+// SourceCodeTokenArrayInput is an input type that accepts SourceCodeTokenArray and SourceCodeTokenArrayOutput values.
+// You can construct a concrete instance of `SourceCodeTokenArrayInput` via:
+//
+//          SourceCodeTokenArray{ SourceCodeTokenArgs{...} }
+type SourceCodeTokenArrayInput interface {
+	pulumi.Input
+
+	ToSourceCodeTokenArrayOutput() SourceCodeTokenArrayOutput
+	ToSourceCodeTokenArrayOutputWithContext(context.Context) SourceCodeTokenArrayOutput
+}
+
+type SourceCodeTokenArray []SourceCodeTokenInput
+
+func (SourceCodeTokenArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SourceCodeToken)(nil))
+}
+
+func (i SourceCodeTokenArray) ToSourceCodeTokenArrayOutput() SourceCodeTokenArrayOutput {
+	return i.ToSourceCodeTokenArrayOutputWithContext(context.Background())
+}
+
+func (i SourceCodeTokenArray) ToSourceCodeTokenArrayOutputWithContext(ctx context.Context) SourceCodeTokenArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceCodeTokenArrayOutput)
+}
+
+// SourceCodeTokenMapInput is an input type that accepts SourceCodeTokenMap and SourceCodeTokenMapOutput values.
+// You can construct a concrete instance of `SourceCodeTokenMapInput` via:
+//
+//          SourceCodeTokenMap{ "key": SourceCodeTokenArgs{...} }
+type SourceCodeTokenMapInput interface {
+	pulumi.Input
+
+	ToSourceCodeTokenMapOutput() SourceCodeTokenMapOutput
+	ToSourceCodeTokenMapOutputWithContext(context.Context) SourceCodeTokenMapOutput
+}
+
+type SourceCodeTokenMap map[string]SourceCodeTokenInput
+
+func (SourceCodeTokenMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SourceCodeToken)(nil))
+}
+
+func (i SourceCodeTokenMap) ToSourceCodeTokenMapOutput() SourceCodeTokenMapOutput {
+	return i.ToSourceCodeTokenMapOutputWithContext(context.Background())
+}
+
+func (i SourceCodeTokenMap) ToSourceCodeTokenMapOutputWithContext(ctx context.Context) SourceCodeTokenMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceCodeTokenMapOutput)
 }
 
 type SourceCodeTokenOutput struct {
@@ -160,7 +239,7 @@ type SourceCodeTokenOutput struct {
 }
 
 func (SourceCodeTokenOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceCodeTokenOutput)(nil)).Elem()
+	return reflect.TypeOf((*SourceCodeToken)(nil))
 }
 
 func (o SourceCodeTokenOutput) ToSourceCodeTokenOutput() SourceCodeTokenOutput {
@@ -171,6 +250,75 @@ func (o SourceCodeTokenOutput) ToSourceCodeTokenOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o SourceCodeTokenOutput) ToSourceCodeTokenPtrOutput() SourceCodeTokenPtrOutput {
+	return o.ToSourceCodeTokenPtrOutputWithContext(context.Background())
+}
+
+func (o SourceCodeTokenOutput) ToSourceCodeTokenPtrOutputWithContext(ctx context.Context) SourceCodeTokenPtrOutput {
+	return o.ApplyT(func(v SourceCodeToken) *SourceCodeToken {
+		return &v
+	}).(SourceCodeTokenPtrOutput)
+}
+
+type SourceCodeTokenPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SourceCodeTokenPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceCodeToken)(nil))
+}
+
+func (o SourceCodeTokenPtrOutput) ToSourceCodeTokenPtrOutput() SourceCodeTokenPtrOutput {
+	return o
+}
+
+func (o SourceCodeTokenPtrOutput) ToSourceCodeTokenPtrOutputWithContext(ctx context.Context) SourceCodeTokenPtrOutput {
+	return o
+}
+
+type SourceCodeTokenArrayOutput struct{ *pulumi.OutputState }
+
+func (SourceCodeTokenArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SourceCodeToken)(nil))
+}
+
+func (o SourceCodeTokenArrayOutput) ToSourceCodeTokenArrayOutput() SourceCodeTokenArrayOutput {
+	return o
+}
+
+func (o SourceCodeTokenArrayOutput) ToSourceCodeTokenArrayOutputWithContext(ctx context.Context) SourceCodeTokenArrayOutput {
+	return o
+}
+
+func (o SourceCodeTokenArrayOutput) Index(i pulumi.IntInput) SourceCodeTokenOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SourceCodeToken {
+		return vs[0].([]SourceCodeToken)[vs[1].(int)]
+	}).(SourceCodeTokenOutput)
+}
+
+type SourceCodeTokenMapOutput struct{ *pulumi.OutputState }
+
+func (SourceCodeTokenMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SourceCodeToken)(nil))
+}
+
+func (o SourceCodeTokenMapOutput) ToSourceCodeTokenMapOutput() SourceCodeTokenMapOutput {
+	return o
+}
+
+func (o SourceCodeTokenMapOutput) ToSourceCodeTokenMapOutputWithContext(ctx context.Context) SourceCodeTokenMapOutput {
+	return o
+}
+
+func (o SourceCodeTokenMapOutput) MapIndex(k pulumi.StringInput) SourceCodeTokenOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SourceCodeToken {
+		return vs[0].(map[string]SourceCodeToken)[vs[1].(string)]
+	}).(SourceCodeTokenOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SourceCodeTokenOutput{})
+	pulumi.RegisterOutputType(SourceCodeTokenPtrOutput{})
+	pulumi.RegisterOutputType(SourceCodeTokenArrayOutput{})
+	pulumi.RegisterOutputType(SourceCodeTokenMapOutput{})
 }

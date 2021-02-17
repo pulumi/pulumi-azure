@@ -480,16 +480,95 @@ type AutoscaleSettingInput interface {
 	ToAutoscaleSettingOutputWithContext(ctx context.Context) AutoscaleSettingOutput
 }
 
-func (AutoscaleSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoscaleSetting)(nil)).Elem()
+func (*AutoscaleSetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoscaleSetting)(nil))
 }
 
-func (i AutoscaleSetting) ToAutoscaleSettingOutput() AutoscaleSettingOutput {
+func (i *AutoscaleSetting) ToAutoscaleSettingOutput() AutoscaleSettingOutput {
 	return i.ToAutoscaleSettingOutputWithContext(context.Background())
 }
 
-func (i AutoscaleSetting) ToAutoscaleSettingOutputWithContext(ctx context.Context) AutoscaleSettingOutput {
+func (i *AutoscaleSetting) ToAutoscaleSettingOutputWithContext(ctx context.Context) AutoscaleSettingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingOutput)
+}
+
+func (i *AutoscaleSetting) ToAutoscaleSettingPtrOutput() AutoscaleSettingPtrOutput {
+	return i.ToAutoscaleSettingPtrOutputWithContext(context.Background())
+}
+
+func (i *AutoscaleSetting) ToAutoscaleSettingPtrOutputWithContext(ctx context.Context) AutoscaleSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingPtrOutput)
+}
+
+type AutoscaleSettingPtrInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingPtrOutput() AutoscaleSettingPtrOutput
+	ToAutoscaleSettingPtrOutputWithContext(ctx context.Context) AutoscaleSettingPtrOutput
+}
+
+type autoscaleSettingPtrType AutoscaleSettingArgs
+
+func (*autoscaleSettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoscaleSetting)(nil))
+}
+
+func (i *autoscaleSettingPtrType) ToAutoscaleSettingPtrOutput() AutoscaleSettingPtrOutput {
+	return i.ToAutoscaleSettingPtrOutputWithContext(context.Background())
+}
+
+func (i *autoscaleSettingPtrType) ToAutoscaleSettingPtrOutputWithContext(ctx context.Context) AutoscaleSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingPtrOutput)
+}
+
+// AutoscaleSettingArrayInput is an input type that accepts AutoscaleSettingArray and AutoscaleSettingArrayOutput values.
+// You can construct a concrete instance of `AutoscaleSettingArrayInput` via:
+//
+//          AutoscaleSettingArray{ AutoscaleSettingArgs{...} }
+type AutoscaleSettingArrayInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingArrayOutput() AutoscaleSettingArrayOutput
+	ToAutoscaleSettingArrayOutputWithContext(context.Context) AutoscaleSettingArrayOutput
+}
+
+type AutoscaleSettingArray []AutoscaleSettingInput
+
+func (AutoscaleSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AutoscaleSetting)(nil))
+}
+
+func (i AutoscaleSettingArray) ToAutoscaleSettingArrayOutput() AutoscaleSettingArrayOutput {
+	return i.ToAutoscaleSettingArrayOutputWithContext(context.Background())
+}
+
+func (i AutoscaleSettingArray) ToAutoscaleSettingArrayOutputWithContext(ctx context.Context) AutoscaleSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingArrayOutput)
+}
+
+// AutoscaleSettingMapInput is an input type that accepts AutoscaleSettingMap and AutoscaleSettingMapOutput values.
+// You can construct a concrete instance of `AutoscaleSettingMapInput` via:
+//
+//          AutoscaleSettingMap{ "key": AutoscaleSettingArgs{...} }
+type AutoscaleSettingMapInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingMapOutput() AutoscaleSettingMapOutput
+	ToAutoscaleSettingMapOutputWithContext(context.Context) AutoscaleSettingMapOutput
+}
+
+type AutoscaleSettingMap map[string]AutoscaleSettingInput
+
+func (AutoscaleSettingMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AutoscaleSetting)(nil))
+}
+
+func (i AutoscaleSettingMap) ToAutoscaleSettingMapOutput() AutoscaleSettingMapOutput {
+	return i.ToAutoscaleSettingMapOutputWithContext(context.Background())
+}
+
+func (i AutoscaleSettingMap) ToAutoscaleSettingMapOutputWithContext(ctx context.Context) AutoscaleSettingMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingMapOutput)
 }
 
 type AutoscaleSettingOutput struct {
@@ -497,7 +576,7 @@ type AutoscaleSettingOutput struct {
 }
 
 func (AutoscaleSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoscaleSettingOutput)(nil)).Elem()
+	return reflect.TypeOf((*AutoscaleSetting)(nil))
 }
 
 func (o AutoscaleSettingOutput) ToAutoscaleSettingOutput() AutoscaleSettingOutput {
@@ -508,6 +587,75 @@ func (o AutoscaleSettingOutput) ToAutoscaleSettingOutputWithContext(ctx context.
 	return o
 }
 
+func (o AutoscaleSettingOutput) ToAutoscaleSettingPtrOutput() AutoscaleSettingPtrOutput {
+	return o.ToAutoscaleSettingPtrOutputWithContext(context.Background())
+}
+
+func (o AutoscaleSettingOutput) ToAutoscaleSettingPtrOutputWithContext(ctx context.Context) AutoscaleSettingPtrOutput {
+	return o.ApplyT(func(v AutoscaleSetting) *AutoscaleSetting {
+		return &v
+	}).(AutoscaleSettingPtrOutput)
+}
+
+type AutoscaleSettingPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AutoscaleSettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoscaleSetting)(nil))
+}
+
+func (o AutoscaleSettingPtrOutput) ToAutoscaleSettingPtrOutput() AutoscaleSettingPtrOutput {
+	return o
+}
+
+func (o AutoscaleSettingPtrOutput) ToAutoscaleSettingPtrOutputWithContext(ctx context.Context) AutoscaleSettingPtrOutput {
+	return o
+}
+
+type AutoscaleSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (AutoscaleSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutoscaleSetting)(nil))
+}
+
+func (o AutoscaleSettingArrayOutput) ToAutoscaleSettingArrayOutput() AutoscaleSettingArrayOutput {
+	return o
+}
+
+func (o AutoscaleSettingArrayOutput) ToAutoscaleSettingArrayOutputWithContext(ctx context.Context) AutoscaleSettingArrayOutput {
+	return o
+}
+
+func (o AutoscaleSettingArrayOutput) Index(i pulumi.IntInput) AutoscaleSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoscaleSetting {
+		return vs[0].([]AutoscaleSetting)[vs[1].(int)]
+	}).(AutoscaleSettingOutput)
+}
+
+type AutoscaleSettingMapOutput struct{ *pulumi.OutputState }
+
+func (AutoscaleSettingMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AutoscaleSetting)(nil))
+}
+
+func (o AutoscaleSettingMapOutput) ToAutoscaleSettingMapOutput() AutoscaleSettingMapOutput {
+	return o
+}
+
+func (o AutoscaleSettingMapOutput) ToAutoscaleSettingMapOutputWithContext(ctx context.Context) AutoscaleSettingMapOutput {
+	return o
+}
+
+func (o AutoscaleSettingMapOutput) MapIndex(k pulumi.StringInput) AutoscaleSettingOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AutoscaleSetting {
+		return vs[0].(map[string]AutoscaleSetting)[vs[1].(string)]
+	}).(AutoscaleSettingOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AutoscaleSettingOutput{})
+	pulumi.RegisterOutputType(AutoscaleSettingPtrOutput{})
+	pulumi.RegisterOutputType(AutoscaleSettingArrayOutput{})
+	pulumi.RegisterOutputType(AutoscaleSettingMapOutput{})
 }

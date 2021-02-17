@@ -46,6 +46,7 @@ namespace Pulumi.Azure.AppService
     ///  $ pulumi import azure:appservice/certificateOrder:CertificateOrder example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.CertificateRegistration/certificateOrders/certificateorder1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:appservice/certificateOrder:CertificateOrder")]
     public partial class CertificateOrder : Pulumi.CustomResource
     {
         /// <summary>

@@ -346,16 +346,95 @@ type KafkaClusterInput interface {
 	ToKafkaClusterOutputWithContext(ctx context.Context) KafkaClusterOutput
 }
 
-func (KafkaCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*KafkaCluster)(nil)).Elem()
+func (*KafkaCluster) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaCluster)(nil))
 }
 
-func (i KafkaCluster) ToKafkaClusterOutput() KafkaClusterOutput {
+func (i *KafkaCluster) ToKafkaClusterOutput() KafkaClusterOutput {
 	return i.ToKafkaClusterOutputWithContext(context.Background())
 }
 
-func (i KafkaCluster) ToKafkaClusterOutputWithContext(ctx context.Context) KafkaClusterOutput {
+func (i *KafkaCluster) ToKafkaClusterOutputWithContext(ctx context.Context) KafkaClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterOutput)
+}
+
+func (i *KafkaCluster) ToKafkaClusterPtrOutput() KafkaClusterPtrOutput {
+	return i.ToKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *KafkaCluster) ToKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterPtrOutput)
+}
+
+type KafkaClusterPtrInput interface {
+	pulumi.Input
+
+	ToKafkaClusterPtrOutput() KafkaClusterPtrOutput
+	ToKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaClusterPtrOutput
+}
+
+type kafkaClusterPtrType KafkaClusterArgs
+
+func (*kafkaClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaCluster)(nil))
+}
+
+func (i *kafkaClusterPtrType) ToKafkaClusterPtrOutput() KafkaClusterPtrOutput {
+	return i.ToKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *kafkaClusterPtrType) ToKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterPtrOutput)
+}
+
+// KafkaClusterArrayInput is an input type that accepts KafkaClusterArray and KafkaClusterArrayOutput values.
+// You can construct a concrete instance of `KafkaClusterArrayInput` via:
+//
+//          KafkaClusterArray{ KafkaClusterArgs{...} }
+type KafkaClusterArrayInput interface {
+	pulumi.Input
+
+	ToKafkaClusterArrayOutput() KafkaClusterArrayOutput
+	ToKafkaClusterArrayOutputWithContext(context.Context) KafkaClusterArrayOutput
+}
+
+type KafkaClusterArray []KafkaClusterInput
+
+func (KafkaClusterArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*KafkaCluster)(nil))
+}
+
+func (i KafkaClusterArray) ToKafkaClusterArrayOutput() KafkaClusterArrayOutput {
+	return i.ToKafkaClusterArrayOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterArray) ToKafkaClusterArrayOutputWithContext(ctx context.Context) KafkaClusterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterArrayOutput)
+}
+
+// KafkaClusterMapInput is an input type that accepts KafkaClusterMap and KafkaClusterMapOutput values.
+// You can construct a concrete instance of `KafkaClusterMapInput` via:
+//
+//          KafkaClusterMap{ "key": KafkaClusterArgs{...} }
+type KafkaClusterMapInput interface {
+	pulumi.Input
+
+	ToKafkaClusterMapOutput() KafkaClusterMapOutput
+	ToKafkaClusterMapOutputWithContext(context.Context) KafkaClusterMapOutput
+}
+
+type KafkaClusterMap map[string]KafkaClusterInput
+
+func (KafkaClusterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*KafkaCluster)(nil))
+}
+
+func (i KafkaClusterMap) ToKafkaClusterMapOutput() KafkaClusterMapOutput {
+	return i.ToKafkaClusterMapOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterMap) ToKafkaClusterMapOutputWithContext(ctx context.Context) KafkaClusterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterMapOutput)
 }
 
 type KafkaClusterOutput struct {
@@ -363,7 +442,7 @@ type KafkaClusterOutput struct {
 }
 
 func (KafkaClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KafkaClusterOutput)(nil)).Elem()
+	return reflect.TypeOf((*KafkaCluster)(nil))
 }
 
 func (o KafkaClusterOutput) ToKafkaClusterOutput() KafkaClusterOutput {
@@ -374,6 +453,75 @@ func (o KafkaClusterOutput) ToKafkaClusterOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o KafkaClusterOutput) ToKafkaClusterPtrOutput() KafkaClusterPtrOutput {
+	return o.ToKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (o KafkaClusterOutput) ToKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaClusterPtrOutput {
+	return o.ApplyT(func(v KafkaCluster) *KafkaCluster {
+		return &v
+	}).(KafkaClusterPtrOutput)
+}
+
+type KafkaClusterPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (KafkaClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaCluster)(nil))
+}
+
+func (o KafkaClusterPtrOutput) ToKafkaClusterPtrOutput() KafkaClusterPtrOutput {
+	return o
+}
+
+func (o KafkaClusterPtrOutput) ToKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaClusterPtrOutput {
+	return o
+}
+
+type KafkaClusterArrayOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KafkaCluster)(nil))
+}
+
+func (o KafkaClusterArrayOutput) ToKafkaClusterArrayOutput() KafkaClusterArrayOutput {
+	return o
+}
+
+func (o KafkaClusterArrayOutput) ToKafkaClusterArrayOutputWithContext(ctx context.Context) KafkaClusterArrayOutput {
+	return o
+}
+
+func (o KafkaClusterArrayOutput) Index(i pulumi.IntInput) KafkaClusterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KafkaCluster {
+		return vs[0].([]KafkaCluster)[vs[1].(int)]
+	}).(KafkaClusterOutput)
+}
+
+type KafkaClusterMapOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]KafkaCluster)(nil))
+}
+
+func (o KafkaClusterMapOutput) ToKafkaClusterMapOutput() KafkaClusterMapOutput {
+	return o
+}
+
+func (o KafkaClusterMapOutput) ToKafkaClusterMapOutputWithContext(ctx context.Context) KafkaClusterMapOutput {
+	return o
+}
+
+func (o KafkaClusterMapOutput) MapIndex(k pulumi.StringInput) KafkaClusterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) KafkaCluster {
+		return vs[0].(map[string]KafkaCluster)[vs[1].(string)]
+	}).(KafkaClusterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(KafkaClusterOutput{})
+	pulumi.RegisterOutputType(KafkaClusterPtrOutput{})
+	pulumi.RegisterOutputType(KafkaClusterArrayOutput{})
+	pulumi.RegisterOutputType(KafkaClusterMapOutput{})
 }

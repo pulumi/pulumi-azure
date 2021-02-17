@@ -125,7 +125,8 @@ export class DiagnosticSetting extends pulumi.CustomResource {
     constructor(name: string, args: DiagnosticSettingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DiagnosticSettingArgs | DiagnosticSettingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DiagnosticSettingState | undefined;
             inputs["eventhubAuthorizationRuleId"] = state ? state.eventhubAuthorizationRuleId : undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
@@ -138,7 +139,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
         } else {
             const args = argsOrState as DiagnosticSettingArgs | undefined;
-            if ((!args || args.targetResourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
             inputs["eventhubAuthorizationRuleId"] = args ? args.eventhubAuthorizationRuleId : undefined;
@@ -151,12 +152,8 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DiagnosticSetting.__pulumiType, name, inputs, opts);
     }

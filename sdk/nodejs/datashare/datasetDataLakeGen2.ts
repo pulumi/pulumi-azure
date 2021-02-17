@@ -127,7 +127,8 @@ export class DatasetDataLakeGen2 extends pulumi.CustomResource {
     constructor(name: string, args: DatasetDataLakeGen2Args, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DatasetDataLakeGen2Args | DatasetDataLakeGen2State, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DatasetDataLakeGen2State | undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["filePath"] = state ? state.filePath : undefined;
@@ -138,13 +139,13 @@ export class DatasetDataLakeGen2 extends pulumi.CustomResource {
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
             const args = argsOrState as DatasetDataLakeGen2Args | undefined;
-            if ((!args || args.fileSystemName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.fileSystemName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fileSystemName'");
             }
-            if ((!args || args.shareId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.shareId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareId'");
             }
-            if ((!args || args.storageAccountId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
             inputs["filePath"] = args ? args.filePath : undefined;
@@ -155,12 +156,8 @@ export class DatasetDataLakeGen2 extends pulumi.CustomResource {
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["displayName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DatasetDataLakeGen2.__pulumiType, name, inputs, opts);
     }

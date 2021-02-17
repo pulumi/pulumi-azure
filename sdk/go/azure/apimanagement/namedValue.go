@@ -206,16 +206,95 @@ type NamedValueInput interface {
 	ToNamedValueOutputWithContext(ctx context.Context) NamedValueOutput
 }
 
-func (NamedValue) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamedValue)(nil)).Elem()
+func (*NamedValue) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamedValue)(nil))
 }
 
-func (i NamedValue) ToNamedValueOutput() NamedValueOutput {
+func (i *NamedValue) ToNamedValueOutput() NamedValueOutput {
 	return i.ToNamedValueOutputWithContext(context.Background())
 }
 
-func (i NamedValue) ToNamedValueOutputWithContext(ctx context.Context) NamedValueOutput {
+func (i *NamedValue) ToNamedValueOutputWithContext(ctx context.Context) NamedValueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NamedValueOutput)
+}
+
+func (i *NamedValue) ToNamedValuePtrOutput() NamedValuePtrOutput {
+	return i.ToNamedValuePtrOutputWithContext(context.Background())
+}
+
+func (i *NamedValue) ToNamedValuePtrOutputWithContext(ctx context.Context) NamedValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamedValuePtrOutput)
+}
+
+type NamedValuePtrInput interface {
+	pulumi.Input
+
+	ToNamedValuePtrOutput() NamedValuePtrOutput
+	ToNamedValuePtrOutputWithContext(ctx context.Context) NamedValuePtrOutput
+}
+
+type namedValuePtrType NamedValueArgs
+
+func (*namedValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NamedValue)(nil))
+}
+
+func (i *namedValuePtrType) ToNamedValuePtrOutput() NamedValuePtrOutput {
+	return i.ToNamedValuePtrOutputWithContext(context.Background())
+}
+
+func (i *namedValuePtrType) ToNamedValuePtrOutputWithContext(ctx context.Context) NamedValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamedValuePtrOutput)
+}
+
+// NamedValueArrayInput is an input type that accepts NamedValueArray and NamedValueArrayOutput values.
+// You can construct a concrete instance of `NamedValueArrayInput` via:
+//
+//          NamedValueArray{ NamedValueArgs{...} }
+type NamedValueArrayInput interface {
+	pulumi.Input
+
+	ToNamedValueArrayOutput() NamedValueArrayOutput
+	ToNamedValueArrayOutputWithContext(context.Context) NamedValueArrayOutput
+}
+
+type NamedValueArray []NamedValueInput
+
+func (NamedValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*NamedValue)(nil))
+}
+
+func (i NamedValueArray) ToNamedValueArrayOutput() NamedValueArrayOutput {
+	return i.ToNamedValueArrayOutputWithContext(context.Background())
+}
+
+func (i NamedValueArray) ToNamedValueArrayOutputWithContext(ctx context.Context) NamedValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamedValueArrayOutput)
+}
+
+// NamedValueMapInput is an input type that accepts NamedValueMap and NamedValueMapOutput values.
+// You can construct a concrete instance of `NamedValueMapInput` via:
+//
+//          NamedValueMap{ "key": NamedValueArgs{...} }
+type NamedValueMapInput interface {
+	pulumi.Input
+
+	ToNamedValueMapOutput() NamedValueMapOutput
+	ToNamedValueMapOutputWithContext(context.Context) NamedValueMapOutput
+}
+
+type NamedValueMap map[string]NamedValueInput
+
+func (NamedValueMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*NamedValue)(nil))
+}
+
+func (i NamedValueMap) ToNamedValueMapOutput() NamedValueMapOutput {
+	return i.ToNamedValueMapOutputWithContext(context.Background())
+}
+
+func (i NamedValueMap) ToNamedValueMapOutputWithContext(ctx context.Context) NamedValueMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamedValueMapOutput)
 }
 
 type NamedValueOutput struct {
@@ -223,7 +302,7 @@ type NamedValueOutput struct {
 }
 
 func (NamedValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamedValueOutput)(nil)).Elem()
+	return reflect.TypeOf((*NamedValue)(nil))
 }
 
 func (o NamedValueOutput) ToNamedValueOutput() NamedValueOutput {
@@ -234,6 +313,75 @@ func (o NamedValueOutput) ToNamedValueOutputWithContext(ctx context.Context) Nam
 	return o
 }
 
+func (o NamedValueOutput) ToNamedValuePtrOutput() NamedValuePtrOutput {
+	return o.ToNamedValuePtrOutputWithContext(context.Background())
+}
+
+func (o NamedValueOutput) ToNamedValuePtrOutputWithContext(ctx context.Context) NamedValuePtrOutput {
+	return o.ApplyT(func(v NamedValue) *NamedValue {
+		return &v
+	}).(NamedValuePtrOutput)
+}
+
+type NamedValuePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (NamedValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NamedValue)(nil))
+}
+
+func (o NamedValuePtrOutput) ToNamedValuePtrOutput() NamedValuePtrOutput {
+	return o
+}
+
+func (o NamedValuePtrOutput) ToNamedValuePtrOutputWithContext(ctx context.Context) NamedValuePtrOutput {
+	return o
+}
+
+type NamedValueArrayOutput struct{ *pulumi.OutputState }
+
+func (NamedValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamedValue)(nil))
+}
+
+func (o NamedValueArrayOutput) ToNamedValueArrayOutput() NamedValueArrayOutput {
+	return o
+}
+
+func (o NamedValueArrayOutput) ToNamedValueArrayOutputWithContext(ctx context.Context) NamedValueArrayOutput {
+	return o
+}
+
+func (o NamedValueArrayOutput) Index(i pulumi.IntInput) NamedValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NamedValue {
+		return vs[0].([]NamedValue)[vs[1].(int)]
+	}).(NamedValueOutput)
+}
+
+type NamedValueMapOutput struct{ *pulumi.OutputState }
+
+func (NamedValueMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NamedValue)(nil))
+}
+
+func (o NamedValueMapOutput) ToNamedValueMapOutput() NamedValueMapOutput {
+	return o
+}
+
+func (o NamedValueMapOutput) ToNamedValueMapOutputWithContext(ctx context.Context) NamedValueMapOutput {
+	return o
+}
+
+func (o NamedValueMapOutput) MapIndex(k pulumi.StringInput) NamedValueOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NamedValue {
+		return vs[0].(map[string]NamedValue)[vs[1].(string)]
+	}).(NamedValueOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NamedValueOutput{})
+	pulumi.RegisterOutputType(NamedValuePtrOutput{})
+	pulumi.RegisterOutputType(NamedValueArrayOutput{})
+	pulumi.RegisterOutputType(NamedValueMapOutput{})
 }

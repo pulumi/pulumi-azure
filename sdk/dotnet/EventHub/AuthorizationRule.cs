@@ -66,6 +66,7 @@ namespace Pulumi.Azure.EventHub
     ///  $ pulumi import azure:eventhub/authorizationRule:AuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/eventhubs/eventhub1/authorizationRules/rule1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:eventhub/authorizationRule:AuthorizationRule")]
     public partial class AuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>

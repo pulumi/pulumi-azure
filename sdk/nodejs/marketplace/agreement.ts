@@ -81,7 +81,8 @@ export class Agreement extends pulumi.CustomResource {
     constructor(name: string, args: AgreementArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AgreementArgs | AgreementState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AgreementState | undefined;
             inputs["licenseTextLink"] = state ? state.licenseTextLink : undefined;
             inputs["offer"] = state ? state.offer : undefined;
@@ -90,13 +91,13 @@ export class Agreement extends pulumi.CustomResource {
             inputs["publisher"] = state ? state.publisher : undefined;
         } else {
             const args = argsOrState as AgreementArgs | undefined;
-            if ((!args || args.offer === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.offer === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'offer'");
             }
-            if ((!args || args.plan === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.plan === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'plan'");
             }
-            if ((!args || args.publisher === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.publisher === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'publisher'");
             }
             inputs["offer"] = args ? args.offer : undefined;
@@ -105,12 +106,8 @@ export class Agreement extends pulumi.CustomResource {
             inputs["licenseTextLink"] = undefined /*out*/;
             inputs["privacyPolicyLink"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Agreement.__pulumiType, name, inputs, opts);
     }

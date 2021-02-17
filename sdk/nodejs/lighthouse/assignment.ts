@@ -78,29 +78,26 @@ export class Assignment extends pulumi.CustomResource {
     constructor(name: string, args: AssignmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AssignmentArgs | AssignmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AssignmentState | undefined;
             inputs["lighthouseDefinitionId"] = state ? state.lighthouseDefinitionId : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as AssignmentArgs | undefined;
-            if ((!args || args.lighthouseDefinitionId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.lighthouseDefinitionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lighthouseDefinitionId'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["lighthouseDefinitionId"] = args ? args.lighthouseDefinitionId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["scope"] = args ? args.scope : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Assignment.__pulumiType, name, inputs, opts);
     }

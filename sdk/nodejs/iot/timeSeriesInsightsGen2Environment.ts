@@ -116,7 +116,8 @@ export class TimeSeriesInsightsGen2Environment extends pulumi.CustomResource {
     constructor(name: string, args: TimeSeriesInsightsGen2EnvironmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TimeSeriesInsightsGen2EnvironmentArgs | TimeSeriesInsightsGen2EnvironmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TimeSeriesInsightsGen2EnvironmentState | undefined;
             inputs["dataAccessFqdn"] = state ? state.dataAccessFqdn : undefined;
             inputs["idProperties"] = state ? state.idProperties : undefined;
@@ -129,16 +130,16 @@ export class TimeSeriesInsightsGen2Environment extends pulumi.CustomResource {
             inputs["warmStoreDataRetentionTime"] = state ? state.warmStoreDataRetentionTime : undefined;
         } else {
             const args = argsOrState as TimeSeriesInsightsGen2EnvironmentArgs | undefined;
-            if ((!args || args.idProperties === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.idProperties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'idProperties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if ((!args || args.storage === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storage === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storage'");
             }
             inputs["idProperties"] = args ? args.idProperties : undefined;
@@ -151,12 +152,8 @@ export class TimeSeriesInsightsGen2Environment extends pulumi.CustomResource {
             inputs["warmStoreDataRetentionTime"] = args ? args.warmStoreDataRetentionTime : undefined;
             inputs["dataAccessFqdn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TimeSeriesInsightsGen2Environment.__pulumiType, name, inputs, opts);
     }

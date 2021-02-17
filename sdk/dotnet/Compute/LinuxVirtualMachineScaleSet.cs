@@ -111,6 +111,7 @@ namespace Pulumi.Azure.Compute
     ///  $ pulumi import azure:compute/linuxVirtualMachineScaleSet:LinuxVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/Microsoft.Compute/virtualMachineScaleSets/scaleset1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:compute/linuxVirtualMachineScaleSet:LinuxVirtualMachineScaleSet")]
     public partial class LinuxVirtualMachineScaleSet : Pulumi.CustomResource
     {
         /// <summary>

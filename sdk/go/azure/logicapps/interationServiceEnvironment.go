@@ -285,16 +285,95 @@ type InterationServiceEnvironmentInput interface {
 	ToInterationServiceEnvironmentOutputWithContext(ctx context.Context) InterationServiceEnvironmentOutput
 }
 
-func (InterationServiceEnvironment) ElementType() reflect.Type {
-	return reflect.TypeOf((*InterationServiceEnvironment)(nil)).Elem()
+func (*InterationServiceEnvironment) ElementType() reflect.Type {
+	return reflect.TypeOf((*InterationServiceEnvironment)(nil))
 }
 
-func (i InterationServiceEnvironment) ToInterationServiceEnvironmentOutput() InterationServiceEnvironmentOutput {
+func (i *InterationServiceEnvironment) ToInterationServiceEnvironmentOutput() InterationServiceEnvironmentOutput {
 	return i.ToInterationServiceEnvironmentOutputWithContext(context.Background())
 }
 
-func (i InterationServiceEnvironment) ToInterationServiceEnvironmentOutputWithContext(ctx context.Context) InterationServiceEnvironmentOutput {
+func (i *InterationServiceEnvironment) ToInterationServiceEnvironmentOutputWithContext(ctx context.Context) InterationServiceEnvironmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InterationServiceEnvironmentOutput)
+}
+
+func (i *InterationServiceEnvironment) ToInterationServiceEnvironmentPtrOutput() InterationServiceEnvironmentPtrOutput {
+	return i.ToInterationServiceEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *InterationServiceEnvironment) ToInterationServiceEnvironmentPtrOutputWithContext(ctx context.Context) InterationServiceEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InterationServiceEnvironmentPtrOutput)
+}
+
+type InterationServiceEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToInterationServiceEnvironmentPtrOutput() InterationServiceEnvironmentPtrOutput
+	ToInterationServiceEnvironmentPtrOutputWithContext(ctx context.Context) InterationServiceEnvironmentPtrOutput
+}
+
+type interationServiceEnvironmentPtrType InterationServiceEnvironmentArgs
+
+func (*interationServiceEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InterationServiceEnvironment)(nil))
+}
+
+func (i *interationServiceEnvironmentPtrType) ToInterationServiceEnvironmentPtrOutput() InterationServiceEnvironmentPtrOutput {
+	return i.ToInterationServiceEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *interationServiceEnvironmentPtrType) ToInterationServiceEnvironmentPtrOutputWithContext(ctx context.Context) InterationServiceEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InterationServiceEnvironmentPtrOutput)
+}
+
+// InterationServiceEnvironmentArrayInput is an input type that accepts InterationServiceEnvironmentArray and InterationServiceEnvironmentArrayOutput values.
+// You can construct a concrete instance of `InterationServiceEnvironmentArrayInput` via:
+//
+//          InterationServiceEnvironmentArray{ InterationServiceEnvironmentArgs{...} }
+type InterationServiceEnvironmentArrayInput interface {
+	pulumi.Input
+
+	ToInterationServiceEnvironmentArrayOutput() InterationServiceEnvironmentArrayOutput
+	ToInterationServiceEnvironmentArrayOutputWithContext(context.Context) InterationServiceEnvironmentArrayOutput
+}
+
+type InterationServiceEnvironmentArray []InterationServiceEnvironmentInput
+
+func (InterationServiceEnvironmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*InterationServiceEnvironment)(nil))
+}
+
+func (i InterationServiceEnvironmentArray) ToInterationServiceEnvironmentArrayOutput() InterationServiceEnvironmentArrayOutput {
+	return i.ToInterationServiceEnvironmentArrayOutputWithContext(context.Background())
+}
+
+func (i InterationServiceEnvironmentArray) ToInterationServiceEnvironmentArrayOutputWithContext(ctx context.Context) InterationServiceEnvironmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InterationServiceEnvironmentArrayOutput)
+}
+
+// InterationServiceEnvironmentMapInput is an input type that accepts InterationServiceEnvironmentMap and InterationServiceEnvironmentMapOutput values.
+// You can construct a concrete instance of `InterationServiceEnvironmentMapInput` via:
+//
+//          InterationServiceEnvironmentMap{ "key": InterationServiceEnvironmentArgs{...} }
+type InterationServiceEnvironmentMapInput interface {
+	pulumi.Input
+
+	ToInterationServiceEnvironmentMapOutput() InterationServiceEnvironmentMapOutput
+	ToInterationServiceEnvironmentMapOutputWithContext(context.Context) InterationServiceEnvironmentMapOutput
+}
+
+type InterationServiceEnvironmentMap map[string]InterationServiceEnvironmentInput
+
+func (InterationServiceEnvironmentMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*InterationServiceEnvironment)(nil))
+}
+
+func (i InterationServiceEnvironmentMap) ToInterationServiceEnvironmentMapOutput() InterationServiceEnvironmentMapOutput {
+	return i.ToInterationServiceEnvironmentMapOutputWithContext(context.Background())
+}
+
+func (i InterationServiceEnvironmentMap) ToInterationServiceEnvironmentMapOutputWithContext(ctx context.Context) InterationServiceEnvironmentMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InterationServiceEnvironmentMapOutput)
 }
 
 type InterationServiceEnvironmentOutput struct {
@@ -302,7 +381,7 @@ type InterationServiceEnvironmentOutput struct {
 }
 
 func (InterationServiceEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InterationServiceEnvironmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*InterationServiceEnvironment)(nil))
 }
 
 func (o InterationServiceEnvironmentOutput) ToInterationServiceEnvironmentOutput() InterationServiceEnvironmentOutput {
@@ -313,6 +392,75 @@ func (o InterationServiceEnvironmentOutput) ToInterationServiceEnvironmentOutput
 	return o
 }
 
+func (o InterationServiceEnvironmentOutput) ToInterationServiceEnvironmentPtrOutput() InterationServiceEnvironmentPtrOutput {
+	return o.ToInterationServiceEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o InterationServiceEnvironmentOutput) ToInterationServiceEnvironmentPtrOutputWithContext(ctx context.Context) InterationServiceEnvironmentPtrOutput {
+	return o.ApplyT(func(v InterationServiceEnvironment) *InterationServiceEnvironment {
+		return &v
+	}).(InterationServiceEnvironmentPtrOutput)
+}
+
+type InterationServiceEnvironmentPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (InterationServiceEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InterationServiceEnvironment)(nil))
+}
+
+func (o InterationServiceEnvironmentPtrOutput) ToInterationServiceEnvironmentPtrOutput() InterationServiceEnvironmentPtrOutput {
+	return o
+}
+
+func (o InterationServiceEnvironmentPtrOutput) ToInterationServiceEnvironmentPtrOutputWithContext(ctx context.Context) InterationServiceEnvironmentPtrOutput {
+	return o
+}
+
+type InterationServiceEnvironmentArrayOutput struct{ *pulumi.OutputState }
+
+func (InterationServiceEnvironmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InterationServiceEnvironment)(nil))
+}
+
+func (o InterationServiceEnvironmentArrayOutput) ToInterationServiceEnvironmentArrayOutput() InterationServiceEnvironmentArrayOutput {
+	return o
+}
+
+func (o InterationServiceEnvironmentArrayOutput) ToInterationServiceEnvironmentArrayOutputWithContext(ctx context.Context) InterationServiceEnvironmentArrayOutput {
+	return o
+}
+
+func (o InterationServiceEnvironmentArrayOutput) Index(i pulumi.IntInput) InterationServiceEnvironmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InterationServiceEnvironment {
+		return vs[0].([]InterationServiceEnvironment)[vs[1].(int)]
+	}).(InterationServiceEnvironmentOutput)
+}
+
+type InterationServiceEnvironmentMapOutput struct{ *pulumi.OutputState }
+
+func (InterationServiceEnvironmentMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]InterationServiceEnvironment)(nil))
+}
+
+func (o InterationServiceEnvironmentMapOutput) ToInterationServiceEnvironmentMapOutput() InterationServiceEnvironmentMapOutput {
+	return o
+}
+
+func (o InterationServiceEnvironmentMapOutput) ToInterationServiceEnvironmentMapOutputWithContext(ctx context.Context) InterationServiceEnvironmentMapOutput {
+	return o
+}
+
+func (o InterationServiceEnvironmentMapOutput) MapIndex(k pulumi.StringInput) InterationServiceEnvironmentOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) InterationServiceEnvironment {
+		return vs[0].(map[string]InterationServiceEnvironment)[vs[1].(string)]
+	}).(InterationServiceEnvironmentOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(InterationServiceEnvironmentOutput{})
+	pulumi.RegisterOutputType(InterationServiceEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(InterationServiceEnvironmentArrayOutput{})
+	pulumi.RegisterOutputType(InterationServiceEnvironmentMapOutput{})
 }

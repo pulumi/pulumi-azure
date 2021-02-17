@@ -123,7 +123,8 @@ export class OutputServicebusTopic extends pulumi.CustomResource {
     constructor(name: string, args: OutputServicebusTopicArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OutputServicebusTopicArgs | OutputServicebusTopicState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as OutputServicebusTopicState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -135,25 +136,25 @@ export class OutputServicebusTopic extends pulumi.CustomResource {
             inputs["topicName"] = state ? state.topicName : undefined;
         } else {
             const args = argsOrState as OutputServicebusTopicArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serialization === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serialization === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serialization'");
             }
-            if ((!args || args.servicebusNamespace === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.servicebusNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'servicebusNamespace'");
             }
-            if ((!args || args.sharedAccessPolicyKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sharedAccessPolicyKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sharedAccessPolicyKey'");
             }
-            if ((!args || args.sharedAccessPolicyName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sharedAccessPolicyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sharedAccessPolicyName'");
             }
-            if ((!args || args.streamAnalyticsJobName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.streamAnalyticsJobName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
-            if ((!args || args.topicName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.topicName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicName'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -165,12 +166,8 @@ export class OutputServicebusTopic extends pulumi.CustomResource {
             inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(OutputServicebusTopic.__pulumiType, name, inputs, opts);
     }

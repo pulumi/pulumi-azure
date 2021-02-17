@@ -108,7 +108,8 @@ export class ServiceAccount extends pulumi.CustomResource {
     constructor(name: string, args: ServiceAccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceAccountArgs | ServiceAccountState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServiceAccountState | undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -119,10 +120,10 @@ export class ServiceAccount extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ServiceAccountArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccounts === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccounts === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccounts'");
             }
             inputs["identity"] = args ? args.identity : undefined;
@@ -133,15 +134,11 @@ export class ServiceAccount extends pulumi.CustomResource {
             inputs["storageAuthenticationType"] = args ? args.storageAuthenticationType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure:mediaservices/account:Account" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceAccount.__pulumiType, name, inputs, opts);
     }
 }

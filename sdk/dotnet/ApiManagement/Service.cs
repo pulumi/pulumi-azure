@@ -61,6 +61,7 @@ namespace Pulumi.Azure.ApiManagement
     ///  $ pulumi import azure:apimanagement/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:apimanagement/service:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>

@@ -74,6 +74,7 @@ namespace Pulumi.Azure.Network
     ///  $ pulumi import azure:network/securityPartnerProvider:SecurityPartnerProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/securityPartnerProviders/securityPartnerProvider1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:network/securityPartnerProvider:SecurityPartnerProvider")]
     public partial class SecurityPartnerProvider : Pulumi.CustomResource
     {
         /// <summary>

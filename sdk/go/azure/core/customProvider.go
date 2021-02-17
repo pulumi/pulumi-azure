@@ -190,16 +190,95 @@ type CustomProviderInput interface {
 	ToCustomProviderOutputWithContext(ctx context.Context) CustomProviderOutput
 }
 
-func (CustomProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomProvider)(nil)).Elem()
+func (*CustomProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomProvider)(nil))
 }
 
-func (i CustomProvider) ToCustomProviderOutput() CustomProviderOutput {
+func (i *CustomProvider) ToCustomProviderOutput() CustomProviderOutput {
 	return i.ToCustomProviderOutputWithContext(context.Background())
 }
 
-func (i CustomProvider) ToCustomProviderOutputWithContext(ctx context.Context) CustomProviderOutput {
+func (i *CustomProvider) ToCustomProviderOutputWithContext(ctx context.Context) CustomProviderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderOutput)
+}
+
+func (i *CustomProvider) ToCustomProviderPtrOutput() CustomProviderPtrOutput {
+	return i.ToCustomProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *CustomProvider) ToCustomProviderPtrOutputWithContext(ctx context.Context) CustomProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderPtrOutput)
+}
+
+type CustomProviderPtrInput interface {
+	pulumi.Input
+
+	ToCustomProviderPtrOutput() CustomProviderPtrOutput
+	ToCustomProviderPtrOutputWithContext(ctx context.Context) CustomProviderPtrOutput
+}
+
+type customProviderPtrType CustomProviderArgs
+
+func (*customProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomProvider)(nil))
+}
+
+func (i *customProviderPtrType) ToCustomProviderPtrOutput() CustomProviderPtrOutput {
+	return i.ToCustomProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *customProviderPtrType) ToCustomProviderPtrOutputWithContext(ctx context.Context) CustomProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderPtrOutput)
+}
+
+// CustomProviderArrayInput is an input type that accepts CustomProviderArray and CustomProviderArrayOutput values.
+// You can construct a concrete instance of `CustomProviderArrayInput` via:
+//
+//          CustomProviderArray{ CustomProviderArgs{...} }
+type CustomProviderArrayInput interface {
+	pulumi.Input
+
+	ToCustomProviderArrayOutput() CustomProviderArrayOutput
+	ToCustomProviderArrayOutputWithContext(context.Context) CustomProviderArrayOutput
+}
+
+type CustomProviderArray []CustomProviderInput
+
+func (CustomProviderArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*CustomProvider)(nil))
+}
+
+func (i CustomProviderArray) ToCustomProviderArrayOutput() CustomProviderArrayOutput {
+	return i.ToCustomProviderArrayOutputWithContext(context.Background())
+}
+
+func (i CustomProviderArray) ToCustomProviderArrayOutputWithContext(ctx context.Context) CustomProviderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderArrayOutput)
+}
+
+// CustomProviderMapInput is an input type that accepts CustomProviderMap and CustomProviderMapOutput values.
+// You can construct a concrete instance of `CustomProviderMapInput` via:
+//
+//          CustomProviderMap{ "key": CustomProviderArgs{...} }
+type CustomProviderMapInput interface {
+	pulumi.Input
+
+	ToCustomProviderMapOutput() CustomProviderMapOutput
+	ToCustomProviderMapOutputWithContext(context.Context) CustomProviderMapOutput
+}
+
+type CustomProviderMap map[string]CustomProviderInput
+
+func (CustomProviderMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*CustomProvider)(nil))
+}
+
+func (i CustomProviderMap) ToCustomProviderMapOutput() CustomProviderMapOutput {
+	return i.ToCustomProviderMapOutputWithContext(context.Background())
+}
+
+func (i CustomProviderMap) ToCustomProviderMapOutputWithContext(ctx context.Context) CustomProviderMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderMapOutput)
 }
 
 type CustomProviderOutput struct {
@@ -207,7 +286,7 @@ type CustomProviderOutput struct {
 }
 
 func (CustomProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomProviderOutput)(nil)).Elem()
+	return reflect.TypeOf((*CustomProvider)(nil))
 }
 
 func (o CustomProviderOutput) ToCustomProviderOutput() CustomProviderOutput {
@@ -218,6 +297,75 @@ func (o CustomProviderOutput) ToCustomProviderOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o CustomProviderOutput) ToCustomProviderPtrOutput() CustomProviderPtrOutput {
+	return o.ToCustomProviderPtrOutputWithContext(context.Background())
+}
+
+func (o CustomProviderOutput) ToCustomProviderPtrOutputWithContext(ctx context.Context) CustomProviderPtrOutput {
+	return o.ApplyT(func(v CustomProvider) *CustomProvider {
+		return &v
+	}).(CustomProviderPtrOutput)
+}
+
+type CustomProviderPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CustomProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomProvider)(nil))
+}
+
+func (o CustomProviderPtrOutput) ToCustomProviderPtrOutput() CustomProviderPtrOutput {
+	return o
+}
+
+func (o CustomProviderPtrOutput) ToCustomProviderPtrOutputWithContext(ctx context.Context) CustomProviderPtrOutput {
+	return o
+}
+
+type CustomProviderArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomProviderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomProvider)(nil))
+}
+
+func (o CustomProviderArrayOutput) ToCustomProviderArrayOutput() CustomProviderArrayOutput {
+	return o
+}
+
+func (o CustomProviderArrayOutput) ToCustomProviderArrayOutputWithContext(ctx context.Context) CustomProviderArrayOutput {
+	return o
+}
+
+func (o CustomProviderArrayOutput) Index(i pulumi.IntInput) CustomProviderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomProvider {
+		return vs[0].([]CustomProvider)[vs[1].(int)]
+	}).(CustomProviderOutput)
+}
+
+type CustomProviderMapOutput struct{ *pulumi.OutputState }
+
+func (CustomProviderMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CustomProvider)(nil))
+}
+
+func (o CustomProviderMapOutput) ToCustomProviderMapOutput() CustomProviderMapOutput {
+	return o
+}
+
+func (o CustomProviderMapOutput) ToCustomProviderMapOutputWithContext(ctx context.Context) CustomProviderMapOutput {
+	return o
+}
+
+func (o CustomProviderMapOutput) MapIndex(k pulumi.StringInput) CustomProviderOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CustomProvider {
+		return vs[0].(map[string]CustomProvider)[vs[1].(string)]
+	}).(CustomProviderOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CustomProviderOutput{})
+	pulumi.RegisterOutputType(CustomProviderPtrOutput{})
+	pulumi.RegisterOutputType(CustomProviderArrayOutput{})
+	pulumi.RegisterOutputType(CustomProviderMapOutput{})
 }

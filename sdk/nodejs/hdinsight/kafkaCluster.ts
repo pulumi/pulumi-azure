@@ -181,7 +181,8 @@ export class KafkaCluster extends pulumi.CustomResource {
     constructor(name: string, args: KafkaClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: KafkaClusterArgs | KafkaClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as KafkaClusterState | undefined;
             inputs["clusterVersion"] = state ? state.clusterVersion : undefined;
             inputs["componentVersion"] = state ? state.componentVersion : undefined;
@@ -203,22 +204,22 @@ export class KafkaCluster extends pulumi.CustomResource {
             inputs["tlsMinVersion"] = state ? state.tlsMinVersion : undefined;
         } else {
             const args = argsOrState as KafkaClusterArgs | undefined;
-            if ((!args || args.clusterVersion === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clusterVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterVersion'");
             }
-            if ((!args || args.componentVersion === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.componentVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'componentVersion'");
             }
-            if ((!args || args.gateway === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.gateway === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gateway'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.roles === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roles === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roles'");
             }
-            if ((!args || args.tier === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tier'");
             }
             inputs["clusterVersion"] = args ? args.clusterVersion : undefined;
@@ -240,12 +241,8 @@ export class KafkaCluster extends pulumi.CustomResource {
             inputs["kafkaRestProxyEndpoint"] = undefined /*out*/;
             inputs["sshEndpoint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(KafkaCluster.__pulumiType, name, inputs, opts);
     }

@@ -107,7 +107,8 @@ export class SystemTopic extends pulumi.CustomResource {
     constructor(name: string, args: SystemTopicArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SystemTopicArgs | SystemTopicState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SystemTopicState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["metricArmResourceId"] = state ? state.metricArmResourceId : undefined;
@@ -118,13 +119,13 @@ export class SystemTopic extends pulumi.CustomResource {
             inputs["topicType"] = state ? state.topicType : undefined;
         } else {
             const args = argsOrState as SystemTopicArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceArmResourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceArmResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceArmResourceId'");
             }
-            if ((!args || args.topicType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.topicType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicType'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -135,15 +136,11 @@ export class SystemTopic extends pulumi.CustomResource {
             inputs["topicType"] = args ? args.topicType : undefined;
             inputs["metricArmResourceId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure:eventgrid/getSystemTopic:getSystemTopic" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SystemTopic.__pulumiType, name, inputs, opts);
     }
 }

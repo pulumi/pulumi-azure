@@ -256,16 +256,95 @@ type HybridConnectionInput interface {
 	ToHybridConnectionOutputWithContext(ctx context.Context) HybridConnectionOutput
 }
 
-func (HybridConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridConnection)(nil)).Elem()
+func (*HybridConnection) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridConnection)(nil))
 }
 
-func (i HybridConnection) ToHybridConnectionOutput() HybridConnectionOutput {
+func (i *HybridConnection) ToHybridConnectionOutput() HybridConnectionOutput {
 	return i.ToHybridConnectionOutputWithContext(context.Background())
 }
 
-func (i HybridConnection) ToHybridConnectionOutputWithContext(ctx context.Context) HybridConnectionOutput {
+func (i *HybridConnection) ToHybridConnectionOutputWithContext(ctx context.Context) HybridConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionOutput)
+}
+
+func (i *HybridConnection) ToHybridConnectionPtrOutput() HybridConnectionPtrOutput {
+	return i.ToHybridConnectionPtrOutputWithContext(context.Background())
+}
+
+func (i *HybridConnection) ToHybridConnectionPtrOutputWithContext(ctx context.Context) HybridConnectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionPtrOutput)
+}
+
+type HybridConnectionPtrInput interface {
+	pulumi.Input
+
+	ToHybridConnectionPtrOutput() HybridConnectionPtrOutput
+	ToHybridConnectionPtrOutputWithContext(ctx context.Context) HybridConnectionPtrOutput
+}
+
+type hybridConnectionPtrType HybridConnectionArgs
+
+func (*hybridConnectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HybridConnection)(nil))
+}
+
+func (i *hybridConnectionPtrType) ToHybridConnectionPtrOutput() HybridConnectionPtrOutput {
+	return i.ToHybridConnectionPtrOutputWithContext(context.Background())
+}
+
+func (i *hybridConnectionPtrType) ToHybridConnectionPtrOutputWithContext(ctx context.Context) HybridConnectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionPtrOutput)
+}
+
+// HybridConnectionArrayInput is an input type that accepts HybridConnectionArray and HybridConnectionArrayOutput values.
+// You can construct a concrete instance of `HybridConnectionArrayInput` via:
+//
+//          HybridConnectionArray{ HybridConnectionArgs{...} }
+type HybridConnectionArrayInput interface {
+	pulumi.Input
+
+	ToHybridConnectionArrayOutput() HybridConnectionArrayOutput
+	ToHybridConnectionArrayOutputWithContext(context.Context) HybridConnectionArrayOutput
+}
+
+type HybridConnectionArray []HybridConnectionInput
+
+func (HybridConnectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*HybridConnection)(nil))
+}
+
+func (i HybridConnectionArray) ToHybridConnectionArrayOutput() HybridConnectionArrayOutput {
+	return i.ToHybridConnectionArrayOutputWithContext(context.Background())
+}
+
+func (i HybridConnectionArray) ToHybridConnectionArrayOutputWithContext(ctx context.Context) HybridConnectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionArrayOutput)
+}
+
+// HybridConnectionMapInput is an input type that accepts HybridConnectionMap and HybridConnectionMapOutput values.
+// You can construct a concrete instance of `HybridConnectionMapInput` via:
+//
+//          HybridConnectionMap{ "key": HybridConnectionArgs{...} }
+type HybridConnectionMapInput interface {
+	pulumi.Input
+
+	ToHybridConnectionMapOutput() HybridConnectionMapOutput
+	ToHybridConnectionMapOutputWithContext(context.Context) HybridConnectionMapOutput
+}
+
+type HybridConnectionMap map[string]HybridConnectionInput
+
+func (HybridConnectionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*HybridConnection)(nil))
+}
+
+func (i HybridConnectionMap) ToHybridConnectionMapOutput() HybridConnectionMapOutput {
+	return i.ToHybridConnectionMapOutputWithContext(context.Background())
+}
+
+func (i HybridConnectionMap) ToHybridConnectionMapOutputWithContext(ctx context.Context) HybridConnectionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionMapOutput)
 }
 
 type HybridConnectionOutput struct {
@@ -273,7 +352,7 @@ type HybridConnectionOutput struct {
 }
 
 func (HybridConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridConnectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*HybridConnection)(nil))
 }
 
 func (o HybridConnectionOutput) ToHybridConnectionOutput() HybridConnectionOutput {
@@ -284,6 +363,75 @@ func (o HybridConnectionOutput) ToHybridConnectionOutputWithContext(ctx context.
 	return o
 }
 
+func (o HybridConnectionOutput) ToHybridConnectionPtrOutput() HybridConnectionPtrOutput {
+	return o.ToHybridConnectionPtrOutputWithContext(context.Background())
+}
+
+func (o HybridConnectionOutput) ToHybridConnectionPtrOutputWithContext(ctx context.Context) HybridConnectionPtrOutput {
+	return o.ApplyT(func(v HybridConnection) *HybridConnection {
+		return &v
+	}).(HybridConnectionPtrOutput)
+}
+
+type HybridConnectionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (HybridConnectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HybridConnection)(nil))
+}
+
+func (o HybridConnectionPtrOutput) ToHybridConnectionPtrOutput() HybridConnectionPtrOutput {
+	return o
+}
+
+func (o HybridConnectionPtrOutput) ToHybridConnectionPtrOutputWithContext(ctx context.Context) HybridConnectionPtrOutput {
+	return o
+}
+
+type HybridConnectionArrayOutput struct{ *pulumi.OutputState }
+
+func (HybridConnectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HybridConnection)(nil))
+}
+
+func (o HybridConnectionArrayOutput) ToHybridConnectionArrayOutput() HybridConnectionArrayOutput {
+	return o
+}
+
+func (o HybridConnectionArrayOutput) ToHybridConnectionArrayOutputWithContext(ctx context.Context) HybridConnectionArrayOutput {
+	return o
+}
+
+func (o HybridConnectionArrayOutput) Index(i pulumi.IntInput) HybridConnectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HybridConnection {
+		return vs[0].([]HybridConnection)[vs[1].(int)]
+	}).(HybridConnectionOutput)
+}
+
+type HybridConnectionMapOutput struct{ *pulumi.OutputState }
+
+func (HybridConnectionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]HybridConnection)(nil))
+}
+
+func (o HybridConnectionMapOutput) ToHybridConnectionMapOutput() HybridConnectionMapOutput {
+	return o
+}
+
+func (o HybridConnectionMapOutput) ToHybridConnectionMapOutputWithContext(ctx context.Context) HybridConnectionMapOutput {
+	return o
+}
+
+func (o HybridConnectionMapOutput) MapIndex(k pulumi.StringInput) HybridConnectionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) HybridConnection {
+		return vs[0].(map[string]HybridConnection)[vs[1].(string)]
+	}).(HybridConnectionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HybridConnectionOutput{})
+	pulumi.RegisterOutputType(HybridConnectionPtrOutput{})
+	pulumi.RegisterOutputType(HybridConnectionArrayOutput{})
+	pulumi.RegisterOutputType(HybridConnectionMapOutput{})
 }

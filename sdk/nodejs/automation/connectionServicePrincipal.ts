@@ -112,7 +112,8 @@ export class ConnectionServicePrincipal extends pulumi.CustomResource {
     constructor(name: string, args: ConnectionServicePrincipalArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConnectionServicePrincipalArgs | ConnectionServicePrincipalState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ConnectionServicePrincipalState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
@@ -124,22 +125,22 @@ export class ConnectionServicePrincipal extends pulumi.CustomResource {
             inputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as ConnectionServicePrincipalArgs | undefined;
-            if ((!args || args.applicationId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.certificateThumbprint === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.certificateThumbprint === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificateThumbprint'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subscriptionId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subscriptionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionId'");
             }
-            if ((!args || args.tenantId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tenantId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
             inputs["applicationId"] = args ? args.applicationId : undefined;
@@ -151,12 +152,8 @@ export class ConnectionServicePrincipal extends pulumi.CustomResource {
             inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ConnectionServicePrincipal.__pulumiType, name, inputs, opts);
     }

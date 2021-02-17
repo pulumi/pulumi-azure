@@ -152,7 +152,8 @@ export class VirtualNetwork extends pulumi.CustomResource {
     constructor(name: string, args: VirtualNetworkArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualNetworkArgs | VirtualNetworkState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VirtualNetworkState | undefined;
             inputs["addressSpaces"] = state ? state.addressSpaces : undefined;
             inputs["bgpCommunity"] = state ? state.bgpCommunity : undefined;
@@ -167,10 +168,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["vmProtectionEnabled"] = state ? state.vmProtectionEnabled : undefined;
         } else {
             const args = argsOrState as VirtualNetworkArgs | undefined;
-            if ((!args || args.addressSpaces === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.addressSpaces === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'addressSpaces'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["addressSpaces"] = args ? args.addressSpaces : undefined;
@@ -185,12 +186,8 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["vmProtectionEnabled"] = args ? args.vmProtectionEnabled : undefined;
             inputs["guid"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VirtualNetwork.__pulumiType, name, inputs, opts);
     }

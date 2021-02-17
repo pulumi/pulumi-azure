@@ -47,6 +47,7 @@ namespace Pulumi.Azure.Bot
     ///  $ pulumi import azure:bot/webApp:WebApp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example
     /// ```
     /// </summary>
+    [AzureResourceType("azure:bot/webApp:WebApp")]
     public partial class WebApp : Pulumi.CustomResource
     {
         /// <summary>

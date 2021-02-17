@@ -117,7 +117,8 @@ export class Policy extends pulumi.CustomResource {
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["evaluatorType"] = state ? state.evaluatorType : undefined;
@@ -130,19 +131,19 @@ export class Policy extends pulumi.CustomResource {
             inputs["threshold"] = state ? state.threshold : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            if ((!args || args.evaluatorType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.evaluatorType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'evaluatorType'");
             }
-            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.policySetName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policySetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policySetName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.threshold === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.threshold === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'threshold'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -155,12 +156,8 @@ export class Policy extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["threshold"] = args ? args.threshold : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Policy.__pulumiType, name, inputs, opts);
     }

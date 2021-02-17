@@ -90,6 +90,7 @@ namespace Pulumi.Azure.CosmosDB
     ///  $ pulumi import azure:cosmosdb/gremlinGraph:GremlinGraph example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/gremlinDatabases/db1/graphs/graphs1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:cosmosdb/gremlinGraph:GremlinGraph")]
     public partial class GremlinGraph : Pulumi.CustomResource
     {
         /// <summary>

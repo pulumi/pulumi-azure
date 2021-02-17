@@ -66,6 +66,7 @@ namespace Pulumi.Azure.Dns
     ///  $ pulumi import azure:dns/mxRecord:MxRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/MX/myrecord1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:dns/mxRecord:MxRecord")]
     public partial class MxRecord : Pulumi.CustomResource
     {
         /// <summary>

@@ -224,16 +224,95 @@ type LinkedServerInput interface {
 	ToLinkedServerOutputWithContext(ctx context.Context) LinkedServerOutput
 }
 
-func (LinkedServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServer)(nil)).Elem()
+func (*LinkedServer) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServer)(nil))
 }
 
-func (i LinkedServer) ToLinkedServerOutput() LinkedServerOutput {
+func (i *LinkedServer) ToLinkedServerOutput() LinkedServerOutput {
 	return i.ToLinkedServerOutputWithContext(context.Background())
 }
 
-func (i LinkedServer) ToLinkedServerOutputWithContext(ctx context.Context) LinkedServerOutput {
+func (i *LinkedServer) ToLinkedServerOutputWithContext(ctx context.Context) LinkedServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServerOutput)
+}
+
+func (i *LinkedServer) ToLinkedServerPtrOutput() LinkedServerPtrOutput {
+	return i.ToLinkedServerPtrOutputWithContext(context.Background())
+}
+
+func (i *LinkedServer) ToLinkedServerPtrOutputWithContext(ctx context.Context) LinkedServerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServerPtrOutput)
+}
+
+type LinkedServerPtrInput interface {
+	pulumi.Input
+
+	ToLinkedServerPtrOutput() LinkedServerPtrOutput
+	ToLinkedServerPtrOutputWithContext(ctx context.Context) LinkedServerPtrOutput
+}
+
+type linkedServerPtrType LinkedServerArgs
+
+func (*linkedServerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServer)(nil))
+}
+
+func (i *linkedServerPtrType) ToLinkedServerPtrOutput() LinkedServerPtrOutput {
+	return i.ToLinkedServerPtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServerPtrType) ToLinkedServerPtrOutputWithContext(ctx context.Context) LinkedServerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServerPtrOutput)
+}
+
+// LinkedServerArrayInput is an input type that accepts LinkedServerArray and LinkedServerArrayOutput values.
+// You can construct a concrete instance of `LinkedServerArrayInput` via:
+//
+//          LinkedServerArray{ LinkedServerArgs{...} }
+type LinkedServerArrayInput interface {
+	pulumi.Input
+
+	ToLinkedServerArrayOutput() LinkedServerArrayOutput
+	ToLinkedServerArrayOutputWithContext(context.Context) LinkedServerArrayOutput
+}
+
+type LinkedServerArray []LinkedServerInput
+
+func (LinkedServerArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LinkedServer)(nil))
+}
+
+func (i LinkedServerArray) ToLinkedServerArrayOutput() LinkedServerArrayOutput {
+	return i.ToLinkedServerArrayOutputWithContext(context.Background())
+}
+
+func (i LinkedServerArray) ToLinkedServerArrayOutputWithContext(ctx context.Context) LinkedServerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServerArrayOutput)
+}
+
+// LinkedServerMapInput is an input type that accepts LinkedServerMap and LinkedServerMapOutput values.
+// You can construct a concrete instance of `LinkedServerMapInput` via:
+//
+//          LinkedServerMap{ "key": LinkedServerArgs{...} }
+type LinkedServerMapInput interface {
+	pulumi.Input
+
+	ToLinkedServerMapOutput() LinkedServerMapOutput
+	ToLinkedServerMapOutputWithContext(context.Context) LinkedServerMapOutput
+}
+
+type LinkedServerMap map[string]LinkedServerInput
+
+func (LinkedServerMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LinkedServer)(nil))
+}
+
+func (i LinkedServerMap) ToLinkedServerMapOutput() LinkedServerMapOutput {
+	return i.ToLinkedServerMapOutputWithContext(context.Background())
+}
+
+func (i LinkedServerMap) ToLinkedServerMapOutputWithContext(ctx context.Context) LinkedServerMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServerMapOutput)
 }
 
 type LinkedServerOutput struct {
@@ -241,7 +320,7 @@ type LinkedServerOutput struct {
 }
 
 func (LinkedServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServerOutput)(nil)).Elem()
+	return reflect.TypeOf((*LinkedServer)(nil))
 }
 
 func (o LinkedServerOutput) ToLinkedServerOutput() LinkedServerOutput {
@@ -252,6 +331,75 @@ func (o LinkedServerOutput) ToLinkedServerOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o LinkedServerOutput) ToLinkedServerPtrOutput() LinkedServerPtrOutput {
+	return o.ToLinkedServerPtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServerOutput) ToLinkedServerPtrOutputWithContext(ctx context.Context) LinkedServerPtrOutput {
+	return o.ApplyT(func(v LinkedServer) *LinkedServer {
+		return &v
+	}).(LinkedServerPtrOutput)
+}
+
+type LinkedServerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LinkedServerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServer)(nil))
+}
+
+func (o LinkedServerPtrOutput) ToLinkedServerPtrOutput() LinkedServerPtrOutput {
+	return o
+}
+
+func (o LinkedServerPtrOutput) ToLinkedServerPtrOutputWithContext(ctx context.Context) LinkedServerPtrOutput {
+	return o
+}
+
+type LinkedServerArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkedServerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkedServer)(nil))
+}
+
+func (o LinkedServerArrayOutput) ToLinkedServerArrayOutput() LinkedServerArrayOutput {
+	return o
+}
+
+func (o LinkedServerArrayOutput) ToLinkedServerArrayOutputWithContext(ctx context.Context) LinkedServerArrayOutput {
+	return o
+}
+
+func (o LinkedServerArrayOutput) Index(i pulumi.IntInput) LinkedServerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedServer {
+		return vs[0].([]LinkedServer)[vs[1].(int)]
+	}).(LinkedServerOutput)
+}
+
+type LinkedServerMapOutput struct{ *pulumi.OutputState }
+
+func (LinkedServerMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LinkedServer)(nil))
+}
+
+func (o LinkedServerMapOutput) ToLinkedServerMapOutput() LinkedServerMapOutput {
+	return o
+}
+
+func (o LinkedServerMapOutput) ToLinkedServerMapOutputWithContext(ctx context.Context) LinkedServerMapOutput {
+	return o
+}
+
+func (o LinkedServerMapOutput) MapIndex(k pulumi.StringInput) LinkedServerOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkedServer {
+		return vs[0].(map[string]LinkedServer)[vs[1].(string)]
+	}).(LinkedServerOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LinkedServerOutput{})
+	pulumi.RegisterOutputType(LinkedServerPtrOutput{})
+	pulumi.RegisterOutputType(LinkedServerArrayOutput{})
+	pulumi.RegisterOutputType(LinkedServerMapOutput{})
 }

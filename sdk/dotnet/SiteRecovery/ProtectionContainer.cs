@@ -61,6 +61,7 @@ namespace Pulumi.Azure.SiteRecovery
     ///  $ pulumi import azure:siterecovery/protectionContainer:ProtectionContainer mycontainer /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name/replicationProtectionContainers/protection-container-name
     /// ```
     /// </summary>
+    [AzureResourceType("azure:siterecovery/protectionContainer:ProtectionContainer")]
     public partial class ProtectionContainer : Pulumi.CustomResource
     {
         /// <summary>

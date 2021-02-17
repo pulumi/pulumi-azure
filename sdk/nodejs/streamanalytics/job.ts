@@ -133,7 +133,8 @@ export class Job extends pulumi.CustomResource {
     constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: JobArgs | JobState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as JobState | undefined;
             inputs["compatibilityLevel"] = state ? state.compatibilityLevel : undefined;
             inputs["dataLocale"] = state ? state.dataLocale : undefined;
@@ -150,13 +151,13 @@ export class Job extends pulumi.CustomResource {
             inputs["transformationQuery"] = state ? state.transformationQuery : undefined;
         } else {
             const args = argsOrState as JobArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.streamingUnits === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.streamingUnits === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamingUnits'");
             }
-            if ((!args || args.transformationQuery === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.transformationQuery === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transformationQuery'");
             }
             inputs["compatibilityLevel"] = args ? args.compatibilityLevel : undefined;
@@ -173,12 +174,8 @@ export class Job extends pulumi.CustomResource {
             inputs["transformationQuery"] = args ? args.transformationQuery : undefined;
             inputs["jobId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Job.__pulumiType, name, inputs, opts);
     }

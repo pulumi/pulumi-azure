@@ -131,7 +131,8 @@ export class VirtualMachine extends pulumi.CustomResource {
     constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualMachineArgs | VirtualMachineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VirtualMachineState | undefined;
             inputs["autoBackup"] = state ? state.autoBackup : undefined;
             inputs["autoPatching"] = state ? state.autoPatching : undefined;
@@ -147,10 +148,10 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
         } else {
             const args = argsOrState as VirtualMachineArgs | undefined;
-            if ((!args || args.sqlLicenseType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sqlLicenseType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sqlLicenseType'");
             }
-            if ((!args || args.virtualMachineId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualMachineId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
             inputs["autoBackup"] = args ? args.autoBackup : undefined;
@@ -166,12 +167,8 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VirtualMachine.__pulumiType, name, inputs, opts);
     }

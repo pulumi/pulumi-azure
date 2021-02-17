@@ -258,16 +258,95 @@ type ElasticPoolInput interface {
 	ToElasticPoolOutputWithContext(ctx context.Context) ElasticPoolOutput
 }
 
-func (ElasticPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*ElasticPool)(nil)).Elem()
+func (*ElasticPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*ElasticPool)(nil))
 }
 
-func (i ElasticPool) ToElasticPoolOutput() ElasticPoolOutput {
+func (i *ElasticPool) ToElasticPoolOutput() ElasticPoolOutput {
 	return i.ToElasticPoolOutputWithContext(context.Background())
 }
 
-func (i ElasticPool) ToElasticPoolOutputWithContext(ctx context.Context) ElasticPoolOutput {
+func (i *ElasticPool) ToElasticPoolOutputWithContext(ctx context.Context) ElasticPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolOutput)
+}
+
+func (i *ElasticPool) ToElasticPoolPtrOutput() ElasticPoolPtrOutput {
+	return i.ToElasticPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *ElasticPool) ToElasticPoolPtrOutputWithContext(ctx context.Context) ElasticPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPtrOutput)
+}
+
+type ElasticPoolPtrInput interface {
+	pulumi.Input
+
+	ToElasticPoolPtrOutput() ElasticPoolPtrOutput
+	ToElasticPoolPtrOutputWithContext(ctx context.Context) ElasticPoolPtrOutput
+}
+
+type elasticPoolPtrType ElasticPoolArgs
+
+func (*elasticPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ElasticPool)(nil))
+}
+
+func (i *elasticPoolPtrType) ToElasticPoolPtrOutput() ElasticPoolPtrOutput {
+	return i.ToElasticPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *elasticPoolPtrType) ToElasticPoolPtrOutputWithContext(ctx context.Context) ElasticPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPtrOutput)
+}
+
+// ElasticPoolArrayInput is an input type that accepts ElasticPoolArray and ElasticPoolArrayOutput values.
+// You can construct a concrete instance of `ElasticPoolArrayInput` via:
+//
+//          ElasticPoolArray{ ElasticPoolArgs{...} }
+type ElasticPoolArrayInput interface {
+	pulumi.Input
+
+	ToElasticPoolArrayOutput() ElasticPoolArrayOutput
+	ToElasticPoolArrayOutputWithContext(context.Context) ElasticPoolArrayOutput
+}
+
+type ElasticPoolArray []ElasticPoolInput
+
+func (ElasticPoolArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ElasticPool)(nil))
+}
+
+func (i ElasticPoolArray) ToElasticPoolArrayOutput() ElasticPoolArrayOutput {
+	return i.ToElasticPoolArrayOutputWithContext(context.Background())
+}
+
+func (i ElasticPoolArray) ToElasticPoolArrayOutputWithContext(ctx context.Context) ElasticPoolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolArrayOutput)
+}
+
+// ElasticPoolMapInput is an input type that accepts ElasticPoolMap and ElasticPoolMapOutput values.
+// You can construct a concrete instance of `ElasticPoolMapInput` via:
+//
+//          ElasticPoolMap{ "key": ElasticPoolArgs{...} }
+type ElasticPoolMapInput interface {
+	pulumi.Input
+
+	ToElasticPoolMapOutput() ElasticPoolMapOutput
+	ToElasticPoolMapOutputWithContext(context.Context) ElasticPoolMapOutput
+}
+
+type ElasticPoolMap map[string]ElasticPoolInput
+
+func (ElasticPoolMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ElasticPool)(nil))
+}
+
+func (i ElasticPoolMap) ToElasticPoolMapOutput() ElasticPoolMapOutput {
+	return i.ToElasticPoolMapOutputWithContext(context.Background())
+}
+
+func (i ElasticPoolMap) ToElasticPoolMapOutputWithContext(ctx context.Context) ElasticPoolMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolMapOutput)
 }
 
 type ElasticPoolOutput struct {
@@ -275,7 +354,7 @@ type ElasticPoolOutput struct {
 }
 
 func (ElasticPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ElasticPoolOutput)(nil)).Elem()
+	return reflect.TypeOf((*ElasticPool)(nil))
 }
 
 func (o ElasticPoolOutput) ToElasticPoolOutput() ElasticPoolOutput {
@@ -286,6 +365,75 @@ func (o ElasticPoolOutput) ToElasticPoolOutputWithContext(ctx context.Context) E
 	return o
 }
 
+func (o ElasticPoolOutput) ToElasticPoolPtrOutput() ElasticPoolPtrOutput {
+	return o.ToElasticPoolPtrOutputWithContext(context.Background())
+}
+
+func (o ElasticPoolOutput) ToElasticPoolPtrOutputWithContext(ctx context.Context) ElasticPoolPtrOutput {
+	return o.ApplyT(func(v ElasticPool) *ElasticPool {
+		return &v
+	}).(ElasticPoolPtrOutput)
+}
+
+type ElasticPoolPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ElasticPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ElasticPool)(nil))
+}
+
+func (o ElasticPoolPtrOutput) ToElasticPoolPtrOutput() ElasticPoolPtrOutput {
+	return o
+}
+
+func (o ElasticPoolPtrOutput) ToElasticPoolPtrOutputWithContext(ctx context.Context) ElasticPoolPtrOutput {
+	return o
+}
+
+type ElasticPoolArrayOutput struct{ *pulumi.OutputState }
+
+func (ElasticPoolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ElasticPool)(nil))
+}
+
+func (o ElasticPoolArrayOutput) ToElasticPoolArrayOutput() ElasticPoolArrayOutput {
+	return o
+}
+
+func (o ElasticPoolArrayOutput) ToElasticPoolArrayOutputWithContext(ctx context.Context) ElasticPoolArrayOutput {
+	return o
+}
+
+func (o ElasticPoolArrayOutput) Index(i pulumi.IntInput) ElasticPoolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ElasticPool {
+		return vs[0].([]ElasticPool)[vs[1].(int)]
+	}).(ElasticPoolOutput)
+}
+
+type ElasticPoolMapOutput struct{ *pulumi.OutputState }
+
+func (ElasticPoolMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ElasticPool)(nil))
+}
+
+func (o ElasticPoolMapOutput) ToElasticPoolMapOutput() ElasticPoolMapOutput {
+	return o
+}
+
+func (o ElasticPoolMapOutput) ToElasticPoolMapOutputWithContext(ctx context.Context) ElasticPoolMapOutput {
+	return o
+}
+
+func (o ElasticPoolMapOutput) MapIndex(k pulumi.StringInput) ElasticPoolOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ElasticPool {
+		return vs[0].(map[string]ElasticPool)[vs[1].(string)]
+	}).(ElasticPoolOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ElasticPoolOutput{})
+	pulumi.RegisterOutputType(ElasticPoolPtrOutput{})
+	pulumi.RegisterOutputType(ElasticPoolArrayOutput{})
+	pulumi.RegisterOutputType(ElasticPoolMapOutput{})
 }

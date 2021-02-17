@@ -42,6 +42,7 @@ namespace Pulumi.Azure.AppService
     ///  $ pulumi import azure:appservice/sourceCodeToken:SourceCodeToken example GitHub
     /// ```
     /// </summary>
+    [AzureResourceType("azure:appservice/sourceCodeToken:SourceCodeToken")]
     public partial class SourceCodeToken : Pulumi.CustomResource
     {
         /// <summary>

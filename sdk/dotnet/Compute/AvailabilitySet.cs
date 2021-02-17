@@ -48,6 +48,7 @@ namespace Pulumi.Azure.Compute
     ///  $ pulumi import azure:compute/availabilitySet:AvailabilitySet group1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/availabilitySets/webAvailSet
     /// ```
     /// </summary>
+    [AzureResourceType("azure:compute/availabilitySet:AvailabilitySet")]
     public partial class AvailabilitySet : Pulumi.CustomResource
     {
         /// <summary>

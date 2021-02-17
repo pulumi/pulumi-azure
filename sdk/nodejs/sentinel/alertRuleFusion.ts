@@ -88,7 +88,8 @@ export class AlertRuleFusion extends pulumi.CustomResource {
     constructor(name: string, args: AlertRuleFusionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertRuleFusionArgs | AlertRuleFusionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AlertRuleFusionState | undefined;
             inputs["alertRuleTemplateGuid"] = state ? state.alertRuleTemplateGuid : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -96,10 +97,10 @@ export class AlertRuleFusion extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as AlertRuleFusionArgs | undefined;
-            if ((!args || args.alertRuleTemplateGuid === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.alertRuleTemplateGuid === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'alertRuleTemplateGuid'");
             }
-            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
             inputs["alertRuleTemplateGuid"] = args ? args.alertRuleTemplateGuid : undefined;
@@ -107,12 +108,8 @@ export class AlertRuleFusion extends pulumi.CustomResource {
             inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AlertRuleFusion.__pulumiType, name, inputs, opts);
     }

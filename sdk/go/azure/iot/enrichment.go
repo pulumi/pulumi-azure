@@ -231,16 +231,95 @@ type EnrichmentInput interface {
 	ToEnrichmentOutputWithContext(ctx context.Context) EnrichmentOutput
 }
 
-func (Enrichment) ElementType() reflect.Type {
-	return reflect.TypeOf((*Enrichment)(nil)).Elem()
+func (*Enrichment) ElementType() reflect.Type {
+	return reflect.TypeOf((*Enrichment)(nil))
 }
 
-func (i Enrichment) ToEnrichmentOutput() EnrichmentOutput {
+func (i *Enrichment) ToEnrichmentOutput() EnrichmentOutput {
 	return i.ToEnrichmentOutputWithContext(context.Background())
 }
 
-func (i Enrichment) ToEnrichmentOutputWithContext(ctx context.Context) EnrichmentOutput {
+func (i *Enrichment) ToEnrichmentOutputWithContext(ctx context.Context) EnrichmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnrichmentOutput)
+}
+
+func (i *Enrichment) ToEnrichmentPtrOutput() EnrichmentPtrOutput {
+	return i.ToEnrichmentPtrOutputWithContext(context.Background())
+}
+
+func (i *Enrichment) ToEnrichmentPtrOutputWithContext(ctx context.Context) EnrichmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnrichmentPtrOutput)
+}
+
+type EnrichmentPtrInput interface {
+	pulumi.Input
+
+	ToEnrichmentPtrOutput() EnrichmentPtrOutput
+	ToEnrichmentPtrOutputWithContext(ctx context.Context) EnrichmentPtrOutput
+}
+
+type enrichmentPtrType EnrichmentArgs
+
+func (*enrichmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Enrichment)(nil))
+}
+
+func (i *enrichmentPtrType) ToEnrichmentPtrOutput() EnrichmentPtrOutput {
+	return i.ToEnrichmentPtrOutputWithContext(context.Background())
+}
+
+func (i *enrichmentPtrType) ToEnrichmentPtrOutputWithContext(ctx context.Context) EnrichmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnrichmentPtrOutput)
+}
+
+// EnrichmentArrayInput is an input type that accepts EnrichmentArray and EnrichmentArrayOutput values.
+// You can construct a concrete instance of `EnrichmentArrayInput` via:
+//
+//          EnrichmentArray{ EnrichmentArgs{...} }
+type EnrichmentArrayInput interface {
+	pulumi.Input
+
+	ToEnrichmentArrayOutput() EnrichmentArrayOutput
+	ToEnrichmentArrayOutputWithContext(context.Context) EnrichmentArrayOutput
+}
+
+type EnrichmentArray []EnrichmentInput
+
+func (EnrichmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Enrichment)(nil))
+}
+
+func (i EnrichmentArray) ToEnrichmentArrayOutput() EnrichmentArrayOutput {
+	return i.ToEnrichmentArrayOutputWithContext(context.Background())
+}
+
+func (i EnrichmentArray) ToEnrichmentArrayOutputWithContext(ctx context.Context) EnrichmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnrichmentArrayOutput)
+}
+
+// EnrichmentMapInput is an input type that accepts EnrichmentMap and EnrichmentMapOutput values.
+// You can construct a concrete instance of `EnrichmentMapInput` via:
+//
+//          EnrichmentMap{ "key": EnrichmentArgs{...} }
+type EnrichmentMapInput interface {
+	pulumi.Input
+
+	ToEnrichmentMapOutput() EnrichmentMapOutput
+	ToEnrichmentMapOutputWithContext(context.Context) EnrichmentMapOutput
+}
+
+type EnrichmentMap map[string]EnrichmentInput
+
+func (EnrichmentMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Enrichment)(nil))
+}
+
+func (i EnrichmentMap) ToEnrichmentMapOutput() EnrichmentMapOutput {
+	return i.ToEnrichmentMapOutputWithContext(context.Background())
+}
+
+func (i EnrichmentMap) ToEnrichmentMapOutputWithContext(ctx context.Context) EnrichmentMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnrichmentMapOutput)
 }
 
 type EnrichmentOutput struct {
@@ -248,7 +327,7 @@ type EnrichmentOutput struct {
 }
 
 func (EnrichmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnrichmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*Enrichment)(nil))
 }
 
 func (o EnrichmentOutput) ToEnrichmentOutput() EnrichmentOutput {
@@ -259,6 +338,75 @@ func (o EnrichmentOutput) ToEnrichmentOutputWithContext(ctx context.Context) Enr
 	return o
 }
 
+func (o EnrichmentOutput) ToEnrichmentPtrOutput() EnrichmentPtrOutput {
+	return o.ToEnrichmentPtrOutputWithContext(context.Background())
+}
+
+func (o EnrichmentOutput) ToEnrichmentPtrOutputWithContext(ctx context.Context) EnrichmentPtrOutput {
+	return o.ApplyT(func(v Enrichment) *Enrichment {
+		return &v
+	}).(EnrichmentPtrOutput)
+}
+
+type EnrichmentPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EnrichmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Enrichment)(nil))
+}
+
+func (o EnrichmentPtrOutput) ToEnrichmentPtrOutput() EnrichmentPtrOutput {
+	return o
+}
+
+func (o EnrichmentPtrOutput) ToEnrichmentPtrOutputWithContext(ctx context.Context) EnrichmentPtrOutput {
+	return o
+}
+
+type EnrichmentArrayOutput struct{ *pulumi.OutputState }
+
+func (EnrichmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Enrichment)(nil))
+}
+
+func (o EnrichmentArrayOutput) ToEnrichmentArrayOutput() EnrichmentArrayOutput {
+	return o
+}
+
+func (o EnrichmentArrayOutput) ToEnrichmentArrayOutputWithContext(ctx context.Context) EnrichmentArrayOutput {
+	return o
+}
+
+func (o EnrichmentArrayOutput) Index(i pulumi.IntInput) EnrichmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Enrichment {
+		return vs[0].([]Enrichment)[vs[1].(int)]
+	}).(EnrichmentOutput)
+}
+
+type EnrichmentMapOutput struct{ *pulumi.OutputState }
+
+func (EnrichmentMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Enrichment)(nil))
+}
+
+func (o EnrichmentMapOutput) ToEnrichmentMapOutput() EnrichmentMapOutput {
+	return o
+}
+
+func (o EnrichmentMapOutput) ToEnrichmentMapOutputWithContext(ctx context.Context) EnrichmentMapOutput {
+	return o
+}
+
+func (o EnrichmentMapOutput) MapIndex(k pulumi.StringInput) EnrichmentOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Enrichment {
+		return vs[0].(map[string]Enrichment)[vs[1].(string)]
+	}).(EnrichmentOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EnrichmentOutput{})
+	pulumi.RegisterOutputType(EnrichmentPtrOutput{})
+	pulumi.RegisterOutputType(EnrichmentArrayOutput{})
+	pulumi.RegisterOutputType(EnrichmentMapOutput{})
 }

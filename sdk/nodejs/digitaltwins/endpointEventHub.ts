@@ -111,7 +111,8 @@ export class EndpointEventHub extends pulumi.CustomResource {
     constructor(name: string, args: EndpointEventHubArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointEventHubArgs | EndpointEventHubState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EndpointEventHubState | undefined;
             inputs["deadLetterStorageSecret"] = state ? state.deadLetterStorageSecret : undefined;
             inputs["digitalTwinsId"] = state ? state.digitalTwinsId : undefined;
@@ -120,13 +121,13 @@ export class EndpointEventHub extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as EndpointEventHubArgs | undefined;
-            if ((!args || args.digitalTwinsId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.digitalTwinsId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'digitalTwinsId'");
             }
-            if ((!args || args.eventhubPrimaryConnectionString === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.eventhubPrimaryConnectionString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventhubPrimaryConnectionString'");
             }
-            if ((!args || args.eventhubSecondaryConnectionString === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.eventhubSecondaryConnectionString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventhubSecondaryConnectionString'");
             }
             inputs["deadLetterStorageSecret"] = args ? args.deadLetterStorageSecret : undefined;
@@ -135,12 +136,8 @@ export class EndpointEventHub extends pulumi.CustomResource {
             inputs["eventhubSecondaryConnectionString"] = args ? args.eventhubSecondaryConnectionString : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EndpointEventHub.__pulumiType, name, inputs, opts);
     }

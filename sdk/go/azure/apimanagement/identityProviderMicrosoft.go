@@ -176,16 +176,95 @@ type IdentityProviderMicrosoftInput interface {
 	ToIdentityProviderMicrosoftOutputWithContext(ctx context.Context) IdentityProviderMicrosoftOutput
 }
 
-func (IdentityProviderMicrosoft) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProviderMicrosoft)(nil)).Elem()
+func (*IdentityProviderMicrosoft) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProviderMicrosoft)(nil))
 }
 
-func (i IdentityProviderMicrosoft) ToIdentityProviderMicrosoftOutput() IdentityProviderMicrosoftOutput {
+func (i *IdentityProviderMicrosoft) ToIdentityProviderMicrosoftOutput() IdentityProviderMicrosoftOutput {
 	return i.ToIdentityProviderMicrosoftOutputWithContext(context.Background())
 }
 
-func (i IdentityProviderMicrosoft) ToIdentityProviderMicrosoftOutputWithContext(ctx context.Context) IdentityProviderMicrosoftOutput {
+func (i *IdentityProviderMicrosoft) ToIdentityProviderMicrosoftOutputWithContext(ctx context.Context) IdentityProviderMicrosoftOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderMicrosoftOutput)
+}
+
+func (i *IdentityProviderMicrosoft) ToIdentityProviderMicrosoftPtrOutput() IdentityProviderMicrosoftPtrOutput {
+	return i.ToIdentityProviderMicrosoftPtrOutputWithContext(context.Background())
+}
+
+func (i *IdentityProviderMicrosoft) ToIdentityProviderMicrosoftPtrOutputWithContext(ctx context.Context) IdentityProviderMicrosoftPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderMicrosoftPtrOutput)
+}
+
+type IdentityProviderMicrosoftPtrInput interface {
+	pulumi.Input
+
+	ToIdentityProviderMicrosoftPtrOutput() IdentityProviderMicrosoftPtrOutput
+	ToIdentityProviderMicrosoftPtrOutputWithContext(ctx context.Context) IdentityProviderMicrosoftPtrOutput
+}
+
+type identityProviderMicrosoftPtrType IdentityProviderMicrosoftArgs
+
+func (*identityProviderMicrosoftPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityProviderMicrosoft)(nil))
+}
+
+func (i *identityProviderMicrosoftPtrType) ToIdentityProviderMicrosoftPtrOutput() IdentityProviderMicrosoftPtrOutput {
+	return i.ToIdentityProviderMicrosoftPtrOutputWithContext(context.Background())
+}
+
+func (i *identityProviderMicrosoftPtrType) ToIdentityProviderMicrosoftPtrOutputWithContext(ctx context.Context) IdentityProviderMicrosoftPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderMicrosoftPtrOutput)
+}
+
+// IdentityProviderMicrosoftArrayInput is an input type that accepts IdentityProviderMicrosoftArray and IdentityProviderMicrosoftArrayOutput values.
+// You can construct a concrete instance of `IdentityProviderMicrosoftArrayInput` via:
+//
+//          IdentityProviderMicrosoftArray{ IdentityProviderMicrosoftArgs{...} }
+type IdentityProviderMicrosoftArrayInput interface {
+	pulumi.Input
+
+	ToIdentityProviderMicrosoftArrayOutput() IdentityProviderMicrosoftArrayOutput
+	ToIdentityProviderMicrosoftArrayOutputWithContext(context.Context) IdentityProviderMicrosoftArrayOutput
+}
+
+type IdentityProviderMicrosoftArray []IdentityProviderMicrosoftInput
+
+func (IdentityProviderMicrosoftArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*IdentityProviderMicrosoft)(nil))
+}
+
+func (i IdentityProviderMicrosoftArray) ToIdentityProviderMicrosoftArrayOutput() IdentityProviderMicrosoftArrayOutput {
+	return i.ToIdentityProviderMicrosoftArrayOutputWithContext(context.Background())
+}
+
+func (i IdentityProviderMicrosoftArray) ToIdentityProviderMicrosoftArrayOutputWithContext(ctx context.Context) IdentityProviderMicrosoftArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderMicrosoftArrayOutput)
+}
+
+// IdentityProviderMicrosoftMapInput is an input type that accepts IdentityProviderMicrosoftMap and IdentityProviderMicrosoftMapOutput values.
+// You can construct a concrete instance of `IdentityProviderMicrosoftMapInput` via:
+//
+//          IdentityProviderMicrosoftMap{ "key": IdentityProviderMicrosoftArgs{...} }
+type IdentityProviderMicrosoftMapInput interface {
+	pulumi.Input
+
+	ToIdentityProviderMicrosoftMapOutput() IdentityProviderMicrosoftMapOutput
+	ToIdentityProviderMicrosoftMapOutputWithContext(context.Context) IdentityProviderMicrosoftMapOutput
+}
+
+type IdentityProviderMicrosoftMap map[string]IdentityProviderMicrosoftInput
+
+func (IdentityProviderMicrosoftMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*IdentityProviderMicrosoft)(nil))
+}
+
+func (i IdentityProviderMicrosoftMap) ToIdentityProviderMicrosoftMapOutput() IdentityProviderMicrosoftMapOutput {
+	return i.ToIdentityProviderMicrosoftMapOutputWithContext(context.Background())
+}
+
+func (i IdentityProviderMicrosoftMap) ToIdentityProviderMicrosoftMapOutputWithContext(ctx context.Context) IdentityProviderMicrosoftMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderMicrosoftMapOutput)
 }
 
 type IdentityProviderMicrosoftOutput struct {
@@ -193,7 +272,7 @@ type IdentityProviderMicrosoftOutput struct {
 }
 
 func (IdentityProviderMicrosoftOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProviderMicrosoftOutput)(nil)).Elem()
+	return reflect.TypeOf((*IdentityProviderMicrosoft)(nil))
 }
 
 func (o IdentityProviderMicrosoftOutput) ToIdentityProviderMicrosoftOutput() IdentityProviderMicrosoftOutput {
@@ -204,6 +283,75 @@ func (o IdentityProviderMicrosoftOutput) ToIdentityProviderMicrosoftOutputWithCo
 	return o
 }
 
+func (o IdentityProviderMicrosoftOutput) ToIdentityProviderMicrosoftPtrOutput() IdentityProviderMicrosoftPtrOutput {
+	return o.ToIdentityProviderMicrosoftPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityProviderMicrosoftOutput) ToIdentityProviderMicrosoftPtrOutputWithContext(ctx context.Context) IdentityProviderMicrosoftPtrOutput {
+	return o.ApplyT(func(v IdentityProviderMicrosoft) *IdentityProviderMicrosoft {
+		return &v
+	}).(IdentityProviderMicrosoftPtrOutput)
+}
+
+type IdentityProviderMicrosoftPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (IdentityProviderMicrosoftPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityProviderMicrosoft)(nil))
+}
+
+func (o IdentityProviderMicrosoftPtrOutput) ToIdentityProviderMicrosoftPtrOutput() IdentityProviderMicrosoftPtrOutput {
+	return o
+}
+
+func (o IdentityProviderMicrosoftPtrOutput) ToIdentityProviderMicrosoftPtrOutputWithContext(ctx context.Context) IdentityProviderMicrosoftPtrOutput {
+	return o
+}
+
+type IdentityProviderMicrosoftArrayOutput struct{ *pulumi.OutputState }
+
+func (IdentityProviderMicrosoftArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentityProviderMicrosoft)(nil))
+}
+
+func (o IdentityProviderMicrosoftArrayOutput) ToIdentityProviderMicrosoftArrayOutput() IdentityProviderMicrosoftArrayOutput {
+	return o
+}
+
+func (o IdentityProviderMicrosoftArrayOutput) ToIdentityProviderMicrosoftArrayOutputWithContext(ctx context.Context) IdentityProviderMicrosoftArrayOutput {
+	return o
+}
+
+func (o IdentityProviderMicrosoftArrayOutput) Index(i pulumi.IntInput) IdentityProviderMicrosoftOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentityProviderMicrosoft {
+		return vs[0].([]IdentityProviderMicrosoft)[vs[1].(int)]
+	}).(IdentityProviderMicrosoftOutput)
+}
+
+type IdentityProviderMicrosoftMapOutput struct{ *pulumi.OutputState }
+
+func (IdentityProviderMicrosoftMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityProviderMicrosoft)(nil))
+}
+
+func (o IdentityProviderMicrosoftMapOutput) ToIdentityProviderMicrosoftMapOutput() IdentityProviderMicrosoftMapOutput {
+	return o
+}
+
+func (o IdentityProviderMicrosoftMapOutput) ToIdentityProviderMicrosoftMapOutputWithContext(ctx context.Context) IdentityProviderMicrosoftMapOutput {
+	return o
+}
+
+func (o IdentityProviderMicrosoftMapOutput) MapIndex(k pulumi.StringInput) IdentityProviderMicrosoftOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityProviderMicrosoft {
+		return vs[0].(map[string]IdentityProviderMicrosoft)[vs[1].(string)]
+	}).(IdentityProviderMicrosoftOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IdentityProviderMicrosoftOutput{})
+	pulumi.RegisterOutputType(IdentityProviderMicrosoftPtrOutput{})
+	pulumi.RegisterOutputType(IdentityProviderMicrosoftArrayOutput{})
+	pulumi.RegisterOutputType(IdentityProviderMicrosoftMapOutput{})
 }

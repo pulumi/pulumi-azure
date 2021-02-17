@@ -150,6 +150,7 @@ namespace Pulumi.Azure.Media
     ///  $ pulumi import azure:media/contentKeyPolicy:ContentKeyPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/account1/contentkeypolicies/policy1
     /// ```
     /// </summary>
+    [AzureResourceType("azure:media/contentKeyPolicy:ContentKeyPolicy")]
     public partial class ContentKeyPolicy : Pulumi.CustomResource
     {
         /// <summary>
