@@ -13,6 +13,12 @@ namespace Pulumi.Azure.Lighthouse.Inputs
     public sealed class DefinitionAuthorizationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
+        /// </summary>
+        [Input("principalDisplayName")]
+        public Input<string>? PrincipalDisplayName { get; set; }
+
+        /// <summary>
         /// Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
         /// </summary>
         [Input("principalId", required: true)]

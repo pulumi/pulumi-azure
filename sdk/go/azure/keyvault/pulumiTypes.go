@@ -3283,15 +3283,15 @@ func (o CertificateIssuerAdminArrayOutput) Index(i pulumi.IntInput) CertificateI
 type KeyVaultAccessPolicy struct {
 	// The object ID of an Application in Azure Active Directory.
 	ApplicationId *string `pulumi:"applicationId"`
-	// List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
+	// List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
 	CertificatePermissions []string `pulumi:"certificatePermissions"`
-	// List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
+	// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
 	KeyPermissions []string `pulumi:"keyPermissions"`
 	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
 	ObjectId string `pulumi:"objectId"`
-	// List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+	// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
 	SecretPermissions []string `pulumi:"secretPermissions"`
-	// List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+	// List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
 	StoragePermissions []string `pulumi:"storagePermissions"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenantId` used above.
 	TenantId string `pulumi:"tenantId"`
@@ -3311,15 +3311,15 @@ type KeyVaultAccessPolicyInput interface {
 type KeyVaultAccessPolicyArgs struct {
 	// The object ID of an Application in Azure Active Directory.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	// List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
+	// List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
 	CertificatePermissions pulumi.StringArrayInput `pulumi:"certificatePermissions"`
-	// List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
+	// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
 	KeyPermissions pulumi.StringArrayInput `pulumi:"keyPermissions"`
 	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
 	ObjectId pulumi.StringInput `pulumi:"objectId"`
-	// List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+	// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
 	SecretPermissions pulumi.StringArrayInput `pulumi:"secretPermissions"`
-	// List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+	// List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
 	StoragePermissions pulumi.StringArrayInput `pulumi:"storagePermissions"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenantId` used above.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
@@ -3381,12 +3381,12 @@ func (o KeyVaultAccessPolicyOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultAccessPolicy) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
+// List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
 func (o KeyVaultAccessPolicyOutput) CertificatePermissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KeyVaultAccessPolicy) []string { return v.CertificatePermissions }).(pulumi.StringArrayOutput)
 }
 
-// List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
+// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
 func (o KeyVaultAccessPolicyOutput) KeyPermissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KeyVaultAccessPolicy) []string { return v.KeyPermissions }).(pulumi.StringArrayOutput)
 }
@@ -3396,12 +3396,12 @@ func (o KeyVaultAccessPolicyOutput) ObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultAccessPolicy) string { return v.ObjectId }).(pulumi.StringOutput)
 }
 
-// List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
 func (o KeyVaultAccessPolicyOutput) SecretPermissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KeyVaultAccessPolicy) []string { return v.SecretPermissions }).(pulumi.StringArrayOutput)
 }
 
-// List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+// List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
 func (o KeyVaultAccessPolicyOutput) StoragePermissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KeyVaultAccessPolicy) []string { return v.StoragePermissions }).(pulumi.StringArrayOutput)
 }

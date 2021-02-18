@@ -85,8 +85,12 @@ type Workspace struct {
 
 	// An `aadAdmin` block as defined below.
 	AadAdmin WorkspaceAadAdminOutput `pulumi:"aadAdmin"`
+	// An `azureDevopsRepo` block as defined below.
+	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrOutput `pulumi:"azureDevopsRepo"`
 	// A list of Connectivity endpoints for this Synapse Workspace.
 	ConnectivityEndpoints pulumi.StringMapOutput `pulumi:"connectivityEndpoints"`
+	// A `githubRepo` block as defined below.
+	GithubRepo WorkspaceGithubRepoPtrOutput `pulumi:"githubRepo"`
 	// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
 	Identities WorkspaceIdentityArrayOutput `pulumi:"identities"`
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
@@ -154,8 +158,12 @@ func GetWorkspace(ctx *pulumi.Context,
 type workspaceState struct {
 	// An `aadAdmin` block as defined below.
 	AadAdmin *WorkspaceAadAdmin `pulumi:"aadAdmin"`
+	// An `azureDevopsRepo` block as defined below.
+	AzureDevopsRepo *WorkspaceAzureDevopsRepo `pulumi:"azureDevopsRepo"`
 	// A list of Connectivity endpoints for this Synapse Workspace.
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
+	// A `githubRepo` block as defined below.
+	GithubRepo *WorkspaceGithubRepo `pulumi:"githubRepo"`
 	// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
 	Identities []WorkspaceIdentity `pulumi:"identities"`
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
@@ -183,8 +191,12 @@ type workspaceState struct {
 type WorkspaceState struct {
 	// An `aadAdmin` block as defined below.
 	AadAdmin WorkspaceAadAdminPtrInput
+	// An `azureDevopsRepo` block as defined below.
+	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrInput
 	// A list of Connectivity endpoints for this Synapse Workspace.
 	ConnectivityEndpoints pulumi.StringMapInput
+	// A `githubRepo` block as defined below.
+	GithubRepo WorkspaceGithubRepoPtrInput
 	// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
 	Identities WorkspaceIdentityArrayInput
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
@@ -216,6 +228,10 @@ func (WorkspaceState) ElementType() reflect.Type {
 type workspaceArgs struct {
 	// An `aadAdmin` block as defined below.
 	AadAdmin *WorkspaceAadAdmin `pulumi:"aadAdmin"`
+	// An `azureDevopsRepo` block as defined below.
+	AzureDevopsRepo *WorkspaceAzureDevopsRepo `pulumi:"azureDevopsRepo"`
+	// A `githubRepo` block as defined below.
+	GithubRepo *WorkspaceGithubRepo `pulumi:"githubRepo"`
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Workspace managed resource group.
@@ -242,6 +258,10 @@ type workspaceArgs struct {
 type WorkspaceArgs struct {
 	// An `aadAdmin` block as defined below.
 	AadAdmin WorkspaceAadAdminPtrInput
+	// An `azureDevopsRepo` block as defined below.
+	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrInput
+	// A `githubRepo` block as defined below.
+	GithubRepo WorkspaceGithubRepoPtrInput
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Workspace managed resource group.

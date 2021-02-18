@@ -179,6 +179,7 @@ class GetResourcesResourceResult(dict):
 class GetSubscriptionsSubscriptionResult(dict):
     def __init__(__self__, *,
                  display_name: str,
+                 id: str,
                  location_placement_id: str,
                  quota_id: str,
                  spending_limit: str,
@@ -188,6 +189,7 @@ class GetSubscriptionsSubscriptionResult(dict):
                  tenant_id: str):
         """
         :param str display_name: The subscription display name.
+        :param str id: The ID of this subscription.
         :param str location_placement_id: The subscription location placement ID.
         :param str quota_id: The subscription quota ID.
         :param str spending_limit: The subscription spending limit.
@@ -197,6 +199,7 @@ class GetSubscriptionsSubscriptionResult(dict):
         :param str tenant_id: The subscription tenant ID.
         """
         pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "location_placement_id", location_placement_id)
         pulumi.set(__self__, "quota_id", quota_id)
         pulumi.set(__self__, "spending_limit", spending_limit)
@@ -212,6 +215,14 @@ class GetSubscriptionsSubscriptionResult(dict):
         The subscription display name.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of this subscription.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="locationPlacementId")

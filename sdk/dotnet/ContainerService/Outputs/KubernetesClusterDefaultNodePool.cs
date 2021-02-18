@@ -80,6 +80,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? Type;
         /// <summary>
+        /// A `upgrade_settings` block as documented below.
+        /// </summary>
+        public readonly Outputs.KubernetesClusterDefaultNodePoolUpgradeSettings? UpgradeSettings;
+        /// <summary>
         /// The size of the Virtual Machine, such as `Standard_DS2_v2`.
         /// </summary>
         public readonly string VmSize;
@@ -126,6 +130,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? type,
 
+            Outputs.KubernetesClusterDefaultNodePoolUpgradeSettings? upgradeSettings,
+
             string vmSize,
 
             string? vnetSubnetId)
@@ -148,6 +154,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             ProximityPlacementGroupId = proximityPlacementGroupId;
             Tags = tags;
             Type = type;
+            UpgradeSettings = upgradeSettings;
             VmSize = vmSize;
             VnetSubnetId = vnetSubnetId;
         }

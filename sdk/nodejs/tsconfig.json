@@ -614,6 +614,7 @@
         "network/firewallNetworkRuleCollection.ts",
         "network/firewallPolicy.ts",
         "network/firewallPolicyRuleCollectionGroup.ts",
+        "network/getApplicationGateway.ts",
         "network/getApplicationSecurityGroup.ts",
         "network/getExpressRouteCircuit.ts",
         "network/getFirewall.ts",

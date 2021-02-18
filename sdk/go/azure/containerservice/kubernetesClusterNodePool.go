@@ -123,6 +123,8 @@ type KubernetesClusterNodePool struct {
 	SpotMaxPrice pulumi.Float64PtrOutput `pulumi:"spotMaxPrice"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A `upgradeSettings` block as documented below.
+	UpgradeSettings KubernetesClusterNodePoolUpgradeSettingsPtrOutput `pulumi:"upgradeSettings"`
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
 	VmSize pulumi.StringOutput `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist.
@@ -208,6 +210,8 @@ type kubernetesClusterNodePoolState struct {
 	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A `upgradeSettings` block as documented below.
+	UpgradeSettings *KubernetesClusterNodePoolUpgradeSettings `pulumi:"upgradeSettings"`
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
 	VmSize *string `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist.
@@ -259,6 +263,8 @@ type KubernetesClusterNodePoolState struct {
 	SpotMaxPrice pulumi.Float64PtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A `upgradeSettings` block as documented below.
+	UpgradeSettings KubernetesClusterNodePoolUpgradeSettingsPtrInput
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
 	VmSize pulumi.StringPtrInput
 	// The ID of the Subnet where this Node Pool should exist.
@@ -314,6 +320,8 @@ type kubernetesClusterNodePoolArgs struct {
 	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A `upgradeSettings` block as documented below.
+	UpgradeSettings *KubernetesClusterNodePoolUpgradeSettings `pulumi:"upgradeSettings"`
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
 	VmSize string `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist.
@@ -366,6 +374,8 @@ type KubernetesClusterNodePoolArgs struct {
 	SpotMaxPrice pulumi.Float64PtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A `upgradeSettings` block as documented below.
+	UpgradeSettings KubernetesClusterNodePoolUpgradeSettingsPtrInput
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
 	VmSize pulumi.StringInput
 	// The ID of the Subnet where this Node Pool should exist.

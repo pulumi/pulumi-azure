@@ -206,6 +206,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// A `upgrade_settings` block as documented below.
+        /// </summary>
+        [Output("upgradeSettings")]
+        public Output<Outputs.KubernetesClusterNodePoolUpgradeSettings?> UpgradeSettings { get; private set; } = null!;
+
+        /// <summary>
         /// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         /// </summary>
         [Output("vmSize")]
@@ -420,6 +426,12 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
+        /// A `upgrade_settings` block as documented below.
+        /// </summary>
+        [Input("upgradeSettings")]
+        public Input<Inputs.KubernetesClusterNodePoolUpgradeSettingsArgs>? UpgradeSettings { get; set; }
+
+        /// <summary>
         /// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("vmSize", required: true)]
@@ -593,6 +605,12 @@ namespace Pulumi.Azure.ContainerService
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A `upgrade_settings` block as documented below.
+        /// </summary>
+        [Input("upgradeSettings")]
+        public Input<Inputs.KubernetesClusterNodePoolUpgradeSettingsGetArgs>? UpgradeSettings { get; set; }
 
         /// <summary>
         /// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.

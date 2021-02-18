@@ -65,6 +65,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// A `upgrade_settings` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterAgentPoolProfileUpgradeSettingResult> UpgradeSettings;
+        /// <summary>
         /// The size of each VM in the Agent Pool (e.g. `Standard_F1`).
         /// </summary>
         public readonly string VmSize;
@@ -105,6 +109,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string type,
 
+            ImmutableArray<Outputs.GetKubernetesClusterAgentPoolProfileUpgradeSettingResult> upgradeSettings,
+
             string vmSize,
 
             string vnetSubnetId)
@@ -124,6 +130,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             OsType = osType;
             Tags = tags;
             Type = type;
+            UpgradeSettings = upgradeSettings;
             VmSize = vmSize;
             VnetSubnetId = vnetSubnetId;
         }

@@ -42,6 +42,9 @@ import (
 // 			ZoneName:          exampleZone.Name,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Ttl:               pulumi.Int(300),
+// 			Records: pulumi.StringArray{
+// 				pulumi.String("2001:db8::1:0:0:1"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -113,7 +116,7 @@ type AaaaRecord struct {
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS AAAA Record.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// List of IPv4 Addresses. Conflicts with `targetResourceId`.
+	// List of IPv6 Addresses. Conflicts with `targetResourceId`.
 	Records pulumi.StringArrayOutput `pulumi:"records"`
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -168,7 +171,7 @@ type aaaaRecordState struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS AAAA Record.
 	Name *string `pulumi:"name"`
-	// List of IPv4 Addresses. Conflicts with `targetResourceId`.
+	// List of IPv6 Addresses. Conflicts with `targetResourceId`.
 	Records []string `pulumi:"records"`
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -186,7 +189,7 @@ type AaaaRecordState struct {
 	Fqdn pulumi.StringPtrInput
 	// The name of the DNS AAAA Record.
 	Name pulumi.StringPtrInput
-	// List of IPv4 Addresses. Conflicts with `targetResourceId`.
+	// List of IPv6 Addresses. Conflicts with `targetResourceId`.
 	Records pulumi.StringArrayInput
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -206,7 +209,7 @@ func (AaaaRecordState) ElementType() reflect.Type {
 type aaaaRecordArgs struct {
 	// The name of the DNS AAAA Record.
 	Name *string `pulumi:"name"`
-	// List of IPv4 Addresses. Conflicts with `targetResourceId`.
+	// List of IPv6 Addresses. Conflicts with `targetResourceId`.
 	Records []string `pulumi:"records"`
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -223,7 +226,7 @@ type aaaaRecordArgs struct {
 type AaaaRecordArgs struct {
 	// The name of the DNS AAAA Record.
 	Name pulumi.StringPtrInput
-	// List of IPv4 Addresses. Conflicts with `targetResourceId`.
+	// List of IPv6 Addresses. Conflicts with `targetResourceId`.
 	Records pulumi.StringArrayInput
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

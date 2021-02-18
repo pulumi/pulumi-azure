@@ -11,6 +11,8 @@ import (
 )
 
 type DefinitionAuthorization struct {
+	// The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
+	PrincipalDisplayName *string `pulumi:"principalDisplayName"`
 	// Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
 	PrincipalId string `pulumi:"principalId"`
 	// The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an `Owner` role.
@@ -29,6 +31,8 @@ type DefinitionAuthorizationInput interface {
 }
 
 type DefinitionAuthorizationArgs struct {
+	// The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
+	PrincipalDisplayName pulumi.StringPtrInput `pulumi:"principalDisplayName"`
 	// Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an `Owner` role.
@@ -84,6 +88,11 @@ func (o DefinitionAuthorizationOutput) ToDefinitionAuthorizationOutput() Definit
 
 func (o DefinitionAuthorizationOutput) ToDefinitionAuthorizationOutputWithContext(ctx context.Context) DefinitionAuthorizationOutput {
 	return o
+}
+
+// The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
+func (o DefinitionAuthorizationOutput) PrincipalDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefinitionAuthorization) *string { return v.PrincipalDisplayName }).(pulumi.StringPtrOutput)
 }
 
 // Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.

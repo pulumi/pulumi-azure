@@ -131,6 +131,7 @@ __all__ = [
     'VpnServerConfigurationRadiusServerServerRootCertificate',
     'VpnSiteLink',
     'VpnSiteLinkBgp',
+    'GetApplicationGatewayIdentityResult',
     'GetExpressRouteCircuitPeeringResult',
     'GetExpressRouteCircuitServiceProviderPropertyResult',
     'GetExpressRouteCircuitSkuResult',
@@ -7416,6 +7417,35 @@ class VpnSiteLinkBgp(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GetApplicationGatewayIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 type: str):
+        """
+        :param Sequence[str] identity_ids: A list of Managed Identity ID's assigned to this Application Gateway.
+        :param str type: The type of Managed Identity assigned to this Application Gateway.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        A list of Managed Identity ID's assigned to this Application Gateway.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of Managed Identity assigned to this Application Gateway.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

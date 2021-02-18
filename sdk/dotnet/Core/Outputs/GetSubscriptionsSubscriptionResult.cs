@@ -18,6 +18,10 @@ namespace Pulumi.Azure.Core.Outputs
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// The ID of this subscription.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The subscription location placement ID.
         /// </summary>
         public readonly string LocationPlacementId;
@@ -50,6 +54,8 @@ namespace Pulumi.Azure.Core.Outputs
         private GetSubscriptionsSubscriptionResult(
             string displayName,
 
+            string id,
+
             string locationPlacementId,
 
             string quotaId,
@@ -65,6 +71,7 @@ namespace Pulumi.Azure.Core.Outputs
             string tenantId)
         {
             DisplayName = displayName;
+            Id = id;
             LocationPlacementId = locationPlacementId;
             QuotaId = quotaId;
             SpendingLimit = spendingLimit;

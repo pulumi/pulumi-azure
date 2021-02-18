@@ -7079,6 +7079,13 @@ export namespace config {
 }
 
 export namespace containerservice {
+    export interface GetClusterNodePoolUpgradeSetting {
+        /**
+         * The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+         */
+        maxSurge: string;
+    }
+
     export interface GetKubernetesClusterAddonProfile {
         /**
          * A `azurePolicy` block.
@@ -7206,6 +7213,10 @@ export namespace containerservice {
          */
         type: string;
         /**
+         * A `upgradeSettings` block as documented below.
+         */
+        upgradeSettings: outputs.containerservice.GetKubernetesClusterAgentPoolProfileUpgradeSetting[];
+        /**
          * The size of each VM in the Agent Pool (e.g. `Standard_F1`).
          */
         vmSize: string;
@@ -7213,6 +7224,13 @@ export namespace containerservice {
          * The ID of the Subnet where the Agents in the Pool are provisioned.
          */
         vnetSubnetId: string;
+    }
+
+    export interface GetKubernetesClusterAgentPoolProfileUpgradeSetting {
+        /**
+         * The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+         */
+        maxSurge: string;
     }
 
     export interface GetKubernetesClusterIdentity {
@@ -7814,6 +7832,14 @@ export namespace containerservice {
          * How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
          */
         scanInterval: string;
+        /**
+         * If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
+         */
+        skipNodesWithLocalStorage?: boolean;
+        /**
+         * If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+         */
+        skipNodesWithSystemPods?: boolean;
     }
 
     export interface KubernetesClusterDefaultNodePool {
@@ -7884,6 +7910,10 @@ export namespace containerservice {
          */
         type?: string;
         /**
+         * A `upgradeSettings` block as documented below.
+         */
+        upgradeSettings?: outputs.containerservice.KubernetesClusterDefaultNodePoolUpgradeSettings;
+        /**
          * The size of the Virtual Machine, such as `Standard_DS2_v2`.
          */
         vmSize: string;
@@ -7891,6 +7921,13 @@ export namespace containerservice {
          * The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
          */
         vnetSubnetId?: string;
+    }
+
+    export interface KubernetesClusterDefaultNodePoolUpgradeSettings {
+        /**
+         * The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+         */
+        maxSurge: string;
     }
 
     export interface KubernetesClusterIdentity {
@@ -8067,6 +8104,13 @@ export namespace containerservice {
          * Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
          */
         outboundPortsAllocated?: number;
+    }
+
+    export interface KubernetesClusterNodePoolUpgradeSettings {
+        /**
+         * The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+         */
+        maxSurge: string;
     }
 
     export interface KubernetesClusterRoleBasedAccessControl {
@@ -8247,6 +8291,10 @@ export namespace core {
          * The subscription display name.
          */
         displayName: string;
+        /**
+         * The ID of this subscription.
+         */
+        id: string;
         /**
          * The subscription location placement ID.
          */
@@ -13978,11 +14026,11 @@ export namespace keyvault {
          */
         applicationId?: string;
         /**
-         * List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
+         * List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
          */
         certificatePermissions?: string[];
         /**
-         * List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
+         * List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
          */
         keyPermissions?: string[];
         /**
@@ -13990,11 +14038,11 @@ export namespace keyvault {
          */
         objectId: string;
         /**
-         * List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+         * List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
          */
         secretPermissions?: string[];
         /**
-         * List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+         * List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
          */
         storagePermissions?: string[];
         /**
@@ -14228,6 +14276,10 @@ export namespace lb {
 
 export namespace lighthouse {
     export interface DefinitionAuthorization {
+        /**
+         * The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
+         */
+        principalDisplayName?: string;
         /**
          * Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
          */
@@ -17901,6 +17953,17 @@ export namespace network {
          * Specifies the ID of the Virtual Hub where the Firewall resides in.
          */
         virtualHubId: string;
+    }
+
+    export interface GetApplicationGatewayIdentity {
+        /**
+         * A list of Managed Identity ID's assigned to this Application Gateway.
+         */
+        identityIds: string[];
+        /**
+         * The type of Managed Identity assigned to this Application Gateway.
+         */
+        type: string;
     }
 
     export interface GetExpressRouteCircuitPeering {
@@ -21930,6 +21993,52 @@ export namespace synapse {
         tenantId: string;
     }
 
+    export interface WorkspaceAzureDevopsRepo {
+        /**
+         * Specifies the Azure DevOps account name.
+         */
+        accountName: string;
+        /**
+         * Specifies the collaboration branch of the repository to get code from.
+         */
+        branchName: string;
+        /**
+         * Specifies the name of the Azure DevOps project.
+         */
+        projectName: string;
+        /**
+         * Specifies the name of the git repository.
+         */
+        repositoryName: string;
+        /**
+         * Specifies the root folder within the repository. Set to `/` for the top level.
+         */
+        rootFolder: string;
+    }
+
+    export interface WorkspaceGithubRepo {
+        /**
+         * Specifies the GitHub account name.
+         */
+        accountName: string;
+        /**
+         * Specifies the collaboration branch of the repository to get code from.
+         */
+        branchName: string;
+        /**
+         * Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+         */
+        gitUrl?: string;
+        /**
+         * Specifies the name of the git repository.
+         */
+        repositoryName: string;
+        /**
+         * Specifies the root folder within the repository. Set to `/` for the top level.
+         */
+        rootFolder: string;
+    }
+
     export interface WorkspaceIdentity {
         /**
          * The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
@@ -22147,6 +22256,9 @@ export namespace waf {
          */
         enabled?: boolean;
         fileUploadLimitInMb?: number;
+        /**
+         * The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `128`. Defaults to `128`.
+         */
         maxRequestBodySizeInKb?: number;
         /**
          * Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.

@@ -84,6 +84,10 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly primarySharedKey!: pulumi.Output<string>;
     /**
+     * The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+     */
+    public readonly reservationCapcityInGbPerDay!: pulumi.Output<number | undefined>;
+    /**
      * The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -96,7 +100,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondarySharedKey!: pulumi.Output<string>;
     /**
-     * Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
+     * Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
@@ -128,6 +132,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["portalUrl"] = state ? state.portalUrl : undefined;
             inputs["primarySharedKey"] = state ? state.primarySharedKey : undefined;
+            inputs["reservationCapcityInGbPerDay"] = state ? state.reservationCapcityInGbPerDay : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["retentionInDays"] = state ? state.retentionInDays : undefined;
             inputs["secondarySharedKey"] = state ? state.secondarySharedKey : undefined;
@@ -144,6 +149,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             inputs["internetQueryEnabled"] = args ? args.internetQueryEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["reservationCapcityInGbPerDay"] = args ? args.reservationCapcityInGbPerDay : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
             inputs["sku"] = args ? args.sku : undefined;
@@ -190,6 +196,10 @@ export interface AnalyticsWorkspaceState {
      */
     readonly primarySharedKey?: pulumi.Input<string>;
     /**
+     * The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+     */
+    readonly reservationCapcityInGbPerDay?: pulumi.Input<number>;
+    /**
      * The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
@@ -202,7 +212,7 @@ export interface AnalyticsWorkspaceState {
      */
     readonly secondarySharedKey?: pulumi.Input<string>;
     /**
-     * Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
+     * Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
      */
     readonly sku?: pulumi.Input<string>;
     /**
@@ -237,6 +247,10 @@ export interface AnalyticsWorkspaceArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+     */
+    readonly reservationCapcityInGbPerDay?: pulumi.Input<number>;
+    /**
      * The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -245,7 +259,7 @@ export interface AnalyticsWorkspaceArgs {
      */
     readonly retentionInDays?: pulumi.Input<number>;
     /**
-     * Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
+     * Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
      */
     readonly sku?: pulumi.Input<string>;
     /**

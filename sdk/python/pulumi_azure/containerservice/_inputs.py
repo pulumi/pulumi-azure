@@ -32,6 +32,7 @@ __all__ = [
     'KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs',
     'KubernetesClusterAutoScalerProfileArgs',
     'KubernetesClusterDefaultNodePoolArgs',
+    'KubernetesClusterDefaultNodePoolUpgradeSettingsArgs',
     'KubernetesClusterIdentityArgs',
     'KubernetesClusterKubeAdminConfigArgs',
     'KubernetesClusterKubeConfigArgs',
@@ -40,6 +41,7 @@ __all__ = [
     'KubernetesClusterLinuxProfileSshKeyArgs',
     'KubernetesClusterNetworkProfileArgs',
     'KubernetesClusterNetworkProfileLoadBalancerProfileArgs',
+    'KubernetesClusterNodePoolUpgradeSettingsArgs',
     'KubernetesClusterRoleBasedAccessControlArgs',
     'KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs',
     'KubernetesClusterServicePrincipalArgs',
@@ -1448,7 +1450,9 @@ class KubernetesClusterAutoScalerProfileArgs:
                  scale_down_unneeded: Optional[pulumi.Input[str]] = None,
                  scale_down_unready: Optional[pulumi.Input[str]] = None,
                  scale_down_utilization_threshold: Optional[pulumi.Input[str]] = None,
-                 scan_interval: Optional[pulumi.Input[str]] = None):
+                 scan_interval: Optional[pulumi.Input[str]] = None,
+                 skip_nodes_with_local_storage: Optional[pulumi.Input[bool]] = None,
+                 skip_nodes_with_system_pods: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] balance_similar_node_groups: Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
         :param pulumi.Input[str] max_graceful_termination_sec: Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
@@ -1460,6 +1464,8 @@ class KubernetesClusterAutoScalerProfileArgs:
         :param pulumi.Input[str] scale_down_unready: How long an unready node should be unneeded before it is eligible for scale down. Defaults to `20m`.
         :param pulumi.Input[str] scale_down_utilization_threshold: Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
         :param pulumi.Input[str] scan_interval: How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
+        :param pulumi.Input[bool] skip_nodes_with_local_storage: If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
+        :param pulumi.Input[bool] skip_nodes_with_system_pods: If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
         """
         if balance_similar_node_groups is not None:
             pulumi.set(__self__, "balance_similar_node_groups", balance_similar_node_groups)
@@ -1481,6 +1487,10 @@ class KubernetesClusterAutoScalerProfileArgs:
             pulumi.set(__self__, "scale_down_utilization_threshold", scale_down_utilization_threshold)
         if scan_interval is not None:
             pulumi.set(__self__, "scan_interval", scan_interval)
+        if skip_nodes_with_local_storage is not None:
+            pulumi.set(__self__, "skip_nodes_with_local_storage", skip_nodes_with_local_storage)
+        if skip_nodes_with_system_pods is not None:
+            pulumi.set(__self__, "skip_nodes_with_system_pods", skip_nodes_with_system_pods)
 
     @property
     @pulumi.getter(name="balanceSimilarNodeGroups")
@@ -1602,6 +1612,30 @@ class KubernetesClusterAutoScalerProfileArgs:
     def scan_interval(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "scan_interval", value)
 
+    @property
+    @pulumi.getter(name="skipNodesWithLocalStorage")
+    def skip_nodes_with_local_storage(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
+        """
+        return pulumi.get(self, "skip_nodes_with_local_storage")
+
+    @skip_nodes_with_local_storage.setter
+    def skip_nodes_with_local_storage(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_nodes_with_local_storage", value)
+
+    @property
+    @pulumi.getter(name="skipNodesWithSystemPods")
+    def skip_nodes_with_system_pods(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+        """
+        return pulumi.get(self, "skip_nodes_with_system_pods")
+
+    @skip_nodes_with_system_pods.setter
+    def skip_nodes_with_system_pods(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_nodes_with_system_pods", value)
+
 
 @pulumi.input_type
 class KubernetesClusterDefaultNodePoolArgs:
@@ -1625,6 +1659,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 upgrade_settings: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArgs']] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
@@ -1644,6 +1679,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Node Pool.
         :param pulumi.Input[str] type: The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+        :param pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vnet_subnet_id: The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
@@ -1682,6 +1718,8 @@ class KubernetesClusterDefaultNodePoolArgs:
             pulumi.set(__self__, "tags", tags)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if upgrade_settings is not None:
+            pulumi.set(__self__, "upgrade_settings", upgrade_settings)
         if vnet_subnet_id is not None:
             pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
 
@@ -1908,6 +1946,18 @@ class KubernetesClusterDefaultNodePoolArgs:
         pulumi.set(self, "type", value)
 
     @property
+    @pulumi.getter(name="upgradeSettings")
+    def upgrade_settings(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArgs']]:
+        """
+        A `upgrade_settings` block as documented below.
+        """
+        return pulumi.get(self, "upgrade_settings")
+
+    @upgrade_settings.setter
+    def upgrade_settings(self, value: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArgs']]):
+        pulumi.set(self, "upgrade_settings", value)
+
+    @property
     @pulumi.getter(name="vnetSubnetId")
     def vnet_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1918,6 +1968,28 @@ class KubernetesClusterDefaultNodePoolArgs:
     @vnet_subnet_id.setter
     def vnet_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vnet_subnet_id", value)
+
+
+@pulumi.input_type
+class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs:
+    def __init__(__self__, *,
+                 max_surge: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        """
+        pulumi.set(__self__, "max_surge", max_surge)
+
+    @property
+    @pulumi.getter(name="maxSurge")
+    def max_surge(self) -> pulumi.Input[str]:
+        """
+        The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        """
+        return pulumi.get(self, "max_surge")
+
+    @max_surge.setter
+    def max_surge(self, value: pulumi.Input[str]):
+        pulumi.set(self, "max_surge", value)
 
 
 @pulumi.input_type
@@ -2577,6 +2649,28 @@ class KubernetesClusterNetworkProfileLoadBalancerProfileArgs:
     @outbound_ports_allocated.setter
     def outbound_ports_allocated(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "outbound_ports_allocated", value)
+
+
+@pulumi.input_type
+class KubernetesClusterNodePoolUpgradeSettingsArgs:
+    def __init__(__self__, *,
+                 max_surge: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        """
+        pulumi.set(__self__, "max_surge", max_surge)
+
+    @property
+    @pulumi.getter(name="maxSurge")
+    def max_surge(self) -> pulumi.Input[str]:
+        """
+        The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        """
+        return pulumi.get(self, "max_surge")
+
+    @max_surge.setter
+    def max_surge(self, value: pulumi.Input[str]):
+        pulumi.set(self, "max_surge", value)
 
 
 @pulumi.input_type

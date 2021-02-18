@@ -18527,6 +18527,112 @@ func (o VpnSiteLinkBgpPtrOutput) PeeringAddress() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetApplicationGatewayIdentity struct {
+	// A list of Managed Identity ID's assigned to this Application Gateway.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The type of Managed Identity assigned to this Application Gateway.
+	Type string `pulumi:"type"`
+}
+
+// GetApplicationGatewayIdentityInput is an input type that accepts GetApplicationGatewayIdentityArgs and GetApplicationGatewayIdentityOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayIdentityInput` via:
+//
+//          GetApplicationGatewayIdentityArgs{...}
+type GetApplicationGatewayIdentityInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayIdentityOutput() GetApplicationGatewayIdentityOutput
+	ToGetApplicationGatewayIdentityOutputWithContext(context.Context) GetApplicationGatewayIdentityOutput
+}
+
+type GetApplicationGatewayIdentityArgs struct {
+	// A list of Managed Identity ID's assigned to this Application Gateway.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The type of Managed Identity assigned to this Application Gateway.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetApplicationGatewayIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayIdentity)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayIdentityArgs) ToGetApplicationGatewayIdentityOutput() GetApplicationGatewayIdentityOutput {
+	return i.ToGetApplicationGatewayIdentityOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayIdentityArgs) ToGetApplicationGatewayIdentityOutputWithContext(ctx context.Context) GetApplicationGatewayIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayIdentityOutput)
+}
+
+// GetApplicationGatewayIdentityArrayInput is an input type that accepts GetApplicationGatewayIdentityArray and GetApplicationGatewayIdentityArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayIdentityArrayInput` via:
+//
+//          GetApplicationGatewayIdentityArray{ GetApplicationGatewayIdentityArgs{...} }
+type GetApplicationGatewayIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayIdentityArrayOutput() GetApplicationGatewayIdentityArrayOutput
+	ToGetApplicationGatewayIdentityArrayOutputWithContext(context.Context) GetApplicationGatewayIdentityArrayOutput
+}
+
+type GetApplicationGatewayIdentityArray []GetApplicationGatewayIdentityInput
+
+func (GetApplicationGatewayIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayIdentity)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayIdentityArray) ToGetApplicationGatewayIdentityArrayOutput() GetApplicationGatewayIdentityArrayOutput {
+	return i.ToGetApplicationGatewayIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayIdentityArray) ToGetApplicationGatewayIdentityArrayOutputWithContext(ctx context.Context) GetApplicationGatewayIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayIdentityArrayOutput)
+}
+
+type GetApplicationGatewayIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayIdentity)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayIdentityOutput) ToGetApplicationGatewayIdentityOutput() GetApplicationGatewayIdentityOutput {
+	return o
+}
+
+func (o GetApplicationGatewayIdentityOutput) ToGetApplicationGatewayIdentityOutputWithContext(ctx context.Context) GetApplicationGatewayIdentityOutput {
+	return o
+}
+
+// A list of Managed Identity ID's assigned to this Application Gateway.
+func (o GetApplicationGatewayIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The type of Managed Identity assigned to this Application Gateway.
+func (o GetApplicationGatewayIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayIdentity)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayIdentityArrayOutput) ToGetApplicationGatewayIdentityArrayOutput() GetApplicationGatewayIdentityArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayIdentityArrayOutput) ToGetApplicationGatewayIdentityArrayOutputWithContext(ctx context.Context) GetApplicationGatewayIdentityArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayIdentityArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayIdentity {
+		return vs[0].([]GetApplicationGatewayIdentity)[vs[1].(int)]
+	}).(GetApplicationGatewayIdentityOutput)
+}
+
 type GetExpressRouteCircuitPeeringType struct {
 	// The Either a 16-bit or a 32-bit ASN for Azure.
 	AzureAsn int `pulumi:"azureAsn"`
@@ -21887,6 +21993,8 @@ func init() {
 	pulumi.RegisterOutputType(VpnSiteLinkArrayOutput{})
 	pulumi.RegisterOutputType(VpnSiteLinkBgpOutput{})
 	pulumi.RegisterOutputType(VpnSiteLinkBgpPtrOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayIdentityOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetExpressRouteCircuitPeeringTypeOutput{})
 	pulumi.RegisterOutputType(GetExpressRouteCircuitPeeringTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetExpressRouteCircuitServiceProviderPropertyOutput{})

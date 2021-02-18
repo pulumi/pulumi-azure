@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 __all__ = ['KubernetesClusterNodePool']
 
@@ -37,6 +39,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 upgrade_settings: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -110,6 +113,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist.
         """
@@ -154,6 +158,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__['proximity_placement_group_id'] = proximity_placement_group_id
             __props__['spot_max_price'] = spot_max_price
             __props__['tags'] = tags
+            __props__['upgrade_settings'] = upgrade_settings
             if vm_size is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_size'")
             __props__['vm_size'] = vm_size
@@ -190,6 +195,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
             spot_max_price: Optional[pulumi.Input[float]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            upgrade_settings: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']]] = None,
             vm_size: Optional[pulumi.Input[str]] = None,
             vnet_subnet_id: Optional[pulumi.Input[str]] = None) -> 'KubernetesClusterNodePool':
         """
@@ -221,6 +227,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist.
         """
@@ -250,6 +257,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         __props__["proximity_placement_group_id"] = proximity_placement_group_id
         __props__["spot_max_price"] = spot_max_price
         __props__["tags"] = tags
+        __props__["upgrade_settings"] = upgrade_settings
         __props__["vm_size"] = vm_size
         __props__["vnet_subnet_id"] = vnet_subnet_id
         return KubernetesClusterNodePool(resource_name, opts=opts, __props__=__props__)
@@ -429,6 +437,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="upgradeSettings")
+    def upgrade_settings(self) -> pulumi.Output[Optional['outputs.KubernetesClusterNodePoolUpgradeSettings']]:
+        """
+        A `upgrade_settings` block as documented below.
+        """
+        return pulumi.get(self, "upgrade_settings")
 
     @property
     @pulumi.getter(name="vmSize")

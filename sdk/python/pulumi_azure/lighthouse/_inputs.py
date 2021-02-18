@@ -16,13 +16,17 @@ __all__ = [
 class DefinitionAuthorizationArgs:
     def __init__(__self__, *,
                  principal_id: pulumi.Input[str],
-                 role_definition_id: pulumi.Input[str]):
+                 role_definition_id: pulumi.Input[str],
+                 principal_display_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] principal_id: Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
         :param pulumi.Input[str] role_definition_id: The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an `Owner` role.
+        :param pulumi.Input[str] principal_display_name: The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "role_definition_id", role_definition_id)
+        if principal_display_name is not None:
+            pulumi.set(__self__, "principal_display_name", principal_display_name)
 
     @property
     @pulumi.getter(name="principalId")
@@ -47,5 +51,17 @@ class DefinitionAuthorizationArgs:
     @role_definition_id.setter
     def role_definition_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_definition_id", value)
+
+    @property
+    @pulumi.getter(name="principalDisplayName")
+    def principal_display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
+        """
+        return pulumi.get(self, "principal_display_name")
+
+    @principal_display_name.setter
+    def principal_display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_display_name", value)
 
 

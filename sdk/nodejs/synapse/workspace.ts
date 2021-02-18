@@ -82,9 +82,17 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly aadAdmin!: pulumi.Output<outputs.synapse.WorkspaceAadAdmin>;
     /**
+     * An `azureDevopsRepo` block as defined below.
+     */
+    public readonly azureDevopsRepo!: pulumi.Output<outputs.synapse.WorkspaceAzureDevopsRepo | undefined>;
+    /**
      * A list of Connectivity endpoints for this Synapse Workspace.
      */
     public /*out*/ readonly connectivityEndpoints!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * A `githubRepo` block as defined below.
+     */
+    public readonly githubRepo!: pulumi.Output<outputs.synapse.WorkspaceGithubRepo | undefined>;
     /**
      * An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
      */
@@ -144,7 +152,9 @@ export class Workspace extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
             inputs["aadAdmin"] = state ? state.aadAdmin : undefined;
+            inputs["azureDevopsRepo"] = state ? state.azureDevopsRepo : undefined;
             inputs["connectivityEndpoints"] = state ? state.connectivityEndpoints : undefined;
+            inputs["githubRepo"] = state ? state.githubRepo : undefined;
             inputs["identities"] = state ? state.identities : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
@@ -171,6 +181,8 @@ export class Workspace extends pulumi.CustomResource {
                 throw new Error("Missing required property 'storageDataLakeGen2FilesystemId'");
             }
             inputs["aadAdmin"] = args ? args.aadAdmin : undefined;
+            inputs["azureDevopsRepo"] = args ? args.azureDevopsRepo : undefined;
+            inputs["githubRepo"] = args ? args.githubRepo : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
             inputs["managedVirtualNetworkEnabled"] = args ? args.managedVirtualNetworkEnabled : undefined;
@@ -200,9 +212,17 @@ export interface WorkspaceState {
      */
     readonly aadAdmin?: pulumi.Input<inputs.synapse.WorkspaceAadAdmin>;
     /**
+     * An `azureDevopsRepo` block as defined below.
+     */
+    readonly azureDevopsRepo?: pulumi.Input<inputs.synapse.WorkspaceAzureDevopsRepo>;
+    /**
      * A list of Connectivity endpoints for this Synapse Workspace.
      */
     readonly connectivityEndpoints?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `githubRepo` block as defined below.
+     */
+    readonly githubRepo?: pulumi.Input<inputs.synapse.WorkspaceGithubRepo>;
     /**
      * An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
      */
@@ -257,6 +277,14 @@ export interface WorkspaceArgs {
      * An `aadAdmin` block as defined below.
      */
     readonly aadAdmin?: pulumi.Input<inputs.synapse.WorkspaceAadAdmin>;
+    /**
+     * An `azureDevopsRepo` block as defined below.
+     */
+    readonly azureDevopsRepo?: pulumi.Input<inputs.synapse.WorkspaceAzureDevopsRepo>;
+    /**
+     * A `githubRepo` block as defined below.
+     */
+    readonly githubRepo?: pulumi.Input<inputs.synapse.WorkspaceGithubRepo>;
     /**
      * Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
      */

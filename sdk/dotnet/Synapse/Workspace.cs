@@ -80,10 +80,22 @@ namespace Pulumi.Azure.Synapse
         public Output<Outputs.WorkspaceAadAdmin> AadAdmin { get; private set; } = null!;
 
         /// <summary>
+        /// An `azure_devops_repo` block as defined below.
+        /// </summary>
+        [Output("azureDevopsRepo")]
+        public Output<Outputs.WorkspaceAzureDevopsRepo?> AzureDevopsRepo { get; private set; } = null!;
+
+        /// <summary>
         /// A list of Connectivity endpoints for this Synapse Workspace.
         /// </summary>
         [Output("connectivityEndpoints")]
         public Output<ImmutableDictionary<string, string>> ConnectivityEndpoints { get; private set; } = null!;
+
+        /// <summary>
+        /// A `github_repo` block as defined below.
+        /// </summary>
+        [Output("githubRepo")]
+        public Output<Outputs.WorkspaceGithubRepo?> GithubRepo { get; private set; } = null!;
 
         /// <summary>
         /// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
@@ -204,6 +216,18 @@ namespace Pulumi.Azure.Synapse
         public Input<Inputs.WorkspaceAadAdminArgs>? AadAdmin { get; set; }
 
         /// <summary>
+        /// An `azure_devops_repo` block as defined below.
+        /// </summary>
+        [Input("azureDevopsRepo")]
+        public Input<Inputs.WorkspaceAzureDevopsRepoArgs>? AzureDevopsRepo { get; set; }
+
+        /// <summary>
+        /// A `github_repo` block as defined below.
+        /// </summary>
+        [Input("githubRepo")]
+        public Input<Inputs.WorkspaceGithubRepoArgs>? GithubRepo { get; set; }
+
+        /// <summary>
         /// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -282,6 +306,12 @@ namespace Pulumi.Azure.Synapse
         [Input("aadAdmin")]
         public Input<Inputs.WorkspaceAadAdminGetArgs>? AadAdmin { get; set; }
 
+        /// <summary>
+        /// An `azure_devops_repo` block as defined below.
+        /// </summary>
+        [Input("azureDevopsRepo")]
+        public Input<Inputs.WorkspaceAzureDevopsRepoGetArgs>? AzureDevopsRepo { get; set; }
+
         [Input("connectivityEndpoints")]
         private InputMap<string>? _connectivityEndpoints;
 
@@ -293,6 +323,12 @@ namespace Pulumi.Azure.Synapse
             get => _connectivityEndpoints ?? (_connectivityEndpoints = new InputMap<string>());
             set => _connectivityEndpoints = value;
         }
+
+        /// <summary>
+        /// A `github_repo` block as defined below.
+        /// </summary>
+        [Input("githubRepo")]
+        public Input<Inputs.WorkspaceGithubRepoGetArgs>? GithubRepo { get; set; }
 
         [Input("identities")]
         private InputList<Inputs.WorkspaceIdentityGetArgs>? _identities;

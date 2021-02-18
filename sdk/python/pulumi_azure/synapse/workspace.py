@@ -18,6 +18,8 @@ class Workspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']]] = None,
+                 azure_devops_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']]] = None,
+                 github_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
@@ -76,6 +78,8 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']] azure_devops_repo: An `azure_devops_repo` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']] github_repo: A `github_repo` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
         :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
@@ -105,6 +109,8 @@ class Workspace(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['aad_admin'] = aad_admin
+            __props__['azure_devops_repo'] = azure_devops_repo
+            __props__['github_repo'] = github_repo
             __props__['location'] = location
             __props__['managed_resource_group_name'] = managed_resource_group_name
             __props__['managed_virtual_network_enabled'] = managed_virtual_network_enabled
@@ -136,7 +142,9 @@ class Workspace(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']]] = None,
+            azure_devops_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']]] = None,
             connectivity_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            github_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']]] = None,
             identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -156,7 +164,9 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']] azure_devops_repo: An `azure_devops_repo` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: A list of Connectivity endpoints for this Synapse Workspace.
+        :param pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']] github_repo: A `github_repo` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]]] identities: An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
@@ -174,7 +184,9 @@ class Workspace(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["aad_admin"] = aad_admin
+        __props__["azure_devops_repo"] = azure_devops_repo
         __props__["connectivity_endpoints"] = connectivity_endpoints
+        __props__["github_repo"] = github_repo
         __props__["identities"] = identities
         __props__["location"] = location
         __props__["managed_resource_group_name"] = managed_resource_group_name
@@ -197,12 +209,28 @@ class Workspace(pulumi.CustomResource):
         return pulumi.get(self, "aad_admin")
 
     @property
+    @pulumi.getter(name="azureDevopsRepo")
+    def azure_devops_repo(self) -> pulumi.Output[Optional['outputs.WorkspaceAzureDevopsRepo']]:
+        """
+        An `azure_devops_repo` block as defined below.
+        """
+        return pulumi.get(self, "azure_devops_repo")
+
+    @property
     @pulumi.getter(name="connectivityEndpoints")
     def connectivity_endpoints(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A list of Connectivity endpoints for this Synapse Workspace.
         """
         return pulumi.get(self, "connectivity_endpoints")
+
+    @property
+    @pulumi.getter(name="githubRepo")
+    def github_repo(self) -> pulumi.Output[Optional['outputs.WorkspaceGithubRepo']]:
+        """
+        A `github_repo` block as defined below.
+        """
+        return pulumi.get(self, "github_repo")
 
     @property
     @pulumi.getter

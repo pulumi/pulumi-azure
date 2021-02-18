@@ -35,6 +35,10 @@ namespace Pulumi.Azure.Dns
     ///             ZoneName = exampleZone.Name,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Ttl = 300,
+    ///             Records = 
+    ///             {
+    ///                 "2001:db8::1:0:0:1",
+    ///             },
     ///         });
     ///     }
     /// 
@@ -101,7 +105,7 @@ namespace Pulumi.Azure.Dns
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of IPv4 Addresses. Conflicts with `target_resource_id`.
+        /// List of IPv6 Addresses. Conflicts with `target_resource_id`.
         /// </summary>
         [Output("records")]
         public Output<ImmutableArray<string>> Records { get; private set; } = null!;
@@ -189,7 +193,7 @@ namespace Pulumi.Azure.Dns
         private InputList<string>? _records;
 
         /// <summary>
-        /// List of IPv4 Addresses. Conflicts with `target_resource_id`.
+        /// List of IPv6 Addresses. Conflicts with `target_resource_id`.
         /// </summary>
         public InputList<string> Records
         {
@@ -253,7 +257,7 @@ namespace Pulumi.Azure.Dns
         private InputList<string>? _records;
 
         /// <summary>
-        /// List of IPv4 Addresses. Conflicts with `target_resource_id`.
+        /// List of IPv6 Addresses. Conflicts with `target_resource_id`.
         /// </summary>
         public InputList<string> Records
         {

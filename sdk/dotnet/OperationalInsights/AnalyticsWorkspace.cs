@@ -86,6 +86,12 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<string> PrimarySharedKey { get; private set; } = null!;
 
         /// <summary>
+        /// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        /// </summary>
+        [Output("reservationCapcityInGbPerDay")]
+        public Output<int?> ReservationCapcityInGbPerDay { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -104,7 +110,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<string> SecondarySharedKey { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
+        /// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
@@ -195,6 +201,12 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        /// </summary>
+        [Input("reservationCapcityInGbPerDay")]
+        public Input<int>? ReservationCapcityInGbPerDay { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -207,7 +219,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<int>? RetentionInDays { get; set; }
 
         /// <summary>
-        /// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
+        /// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -268,6 +280,12 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<string>? PrimarySharedKey { get; set; }
 
         /// <summary>
+        /// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        /// </summary>
+        [Input("reservationCapcityInGbPerDay")]
+        public Input<int>? ReservationCapcityInGbPerDay { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
@@ -286,7 +304,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<string>? SecondarySharedKey { get; set; }
 
         /// <summary>
-        /// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
+        /// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

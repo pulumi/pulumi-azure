@@ -14,6 +14,8 @@ __all__ = [
     'SparkPoolLibraryRequirement',
     'SqlPoolRestore',
     'WorkspaceAadAdmin',
+    'WorkspaceAzureDevopsRepo',
+    'WorkspaceGithubRepo',
     'WorkspaceIdentity',
 ]
 
@@ -172,6 +174,137 @@ class WorkspaceAadAdmin(dict):
         The tenant id of the Azure AD Administrator of this Synapse Workspace.
         """
         return pulumi.get(self, "tenant_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WorkspaceAzureDevopsRepo(dict):
+    def __init__(__self__, *,
+                 account_name: str,
+                 branch_name: str,
+                 project_name: str,
+                 repository_name: str,
+                 root_folder: str):
+        """
+        :param str account_name: Specifies the Azure DevOps account name.
+        :param str branch_name: Specifies the collaboration branch of the repository to get code from.
+        :param str project_name: Specifies the name of the Azure DevOps project.
+        :param str repository_name: Specifies the name of the git repository.
+        :param str root_folder: Specifies the root folder within the repository. Set to `/` for the top level.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "branch_name", branch_name)
+        pulumi.set(__self__, "project_name", project_name)
+        pulumi.set(__self__, "repository_name", repository_name)
+        pulumi.set(__self__, "root_folder", root_folder)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        """
+        Specifies the Azure DevOps account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="branchName")
+    def branch_name(self) -> str:
+        """
+        Specifies the collaboration branch of the repository to get code from.
+        """
+        return pulumi.get(self, "branch_name")
+
+    @property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> str:
+        """
+        Specifies the name of the Azure DevOps project.
+        """
+        return pulumi.get(self, "project_name")
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> str:
+        """
+        Specifies the name of the git repository.
+        """
+        return pulumi.get(self, "repository_name")
+
+    @property
+    @pulumi.getter(name="rootFolder")
+    def root_folder(self) -> str:
+        """
+        Specifies the root folder within the repository. Set to `/` for the top level.
+        """
+        return pulumi.get(self, "root_folder")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WorkspaceGithubRepo(dict):
+    def __init__(__self__, *,
+                 account_name: str,
+                 branch_name: str,
+                 repository_name: str,
+                 root_folder: str,
+                 git_url: Optional[str] = None):
+        """
+        :param str account_name: Specifies the GitHub account name.
+        :param str branch_name: Specifies the collaboration branch of the repository to get code from.
+        :param str repository_name: Specifies the name of the git repository.
+        :param str root_folder: Specifies the root folder within the repository. Set to `/` for the top level.
+        :param str git_url: Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "branch_name", branch_name)
+        pulumi.set(__self__, "repository_name", repository_name)
+        pulumi.set(__self__, "root_folder", root_folder)
+        if git_url is not None:
+            pulumi.set(__self__, "git_url", git_url)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        """
+        Specifies the GitHub account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="branchName")
+    def branch_name(self) -> str:
+        """
+        Specifies the collaboration branch of the repository to get code from.
+        """
+        return pulumi.get(self, "branch_name")
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> str:
+        """
+        Specifies the name of the git repository.
+        """
+        return pulumi.get(self, "repository_name")
+
+    @property
+    @pulumi.getter(name="rootFolder")
+    def root_folder(self) -> str:
+        """
+        Specifies the root folder within the repository. Set to `/` for the top level.
+        """
+        return pulumi.get(self, "root_folder")
+
+    @property
+    @pulumi.getter(name="gitUrl")
+    def git_url(self) -> Optional[str]:
+        """
+        Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+        """
+        return pulumi.get(self, "git_url")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

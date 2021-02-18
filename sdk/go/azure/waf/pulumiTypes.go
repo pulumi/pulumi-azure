@@ -874,9 +874,10 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput) Index(i pu
 
 type PolicyPolicySettings struct {
 	// Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
-	Enabled                *bool `pulumi:"enabled"`
-	FileUploadLimitInMb    *int  `pulumi:"fileUploadLimitInMb"`
-	MaxRequestBodySizeInKb *int  `pulumi:"maxRequestBodySizeInKb"`
+	Enabled             *bool `pulumi:"enabled"`
+	FileUploadLimitInMb *int  `pulumi:"fileUploadLimitInMb"`
+	// The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `128`. Defaults to `128`.
+	MaxRequestBodySizeInKb *int `pulumi:"maxRequestBodySizeInKb"`
 	// Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
 	Mode *string `pulumi:"mode"`
 	// Is Request Body Inspection enabled? Defaults to `true`.
@@ -896,9 +897,10 @@ type PolicyPolicySettingsInput interface {
 
 type PolicyPolicySettingsArgs struct {
 	// Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
-	Enabled                pulumi.BoolPtrInput `pulumi:"enabled"`
-	FileUploadLimitInMb    pulumi.IntPtrInput  `pulumi:"fileUploadLimitInMb"`
-	MaxRequestBodySizeInKb pulumi.IntPtrInput  `pulumi:"maxRequestBodySizeInKb"`
+	Enabled             pulumi.BoolPtrInput `pulumi:"enabled"`
+	FileUploadLimitInMb pulumi.IntPtrInput  `pulumi:"fileUploadLimitInMb"`
+	// The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `128`. Defaults to `128`.
+	MaxRequestBodySizeInKb pulumi.IntPtrInput `pulumi:"maxRequestBodySizeInKb"`
 	// Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// Is Request Body Inspection enabled? Defaults to `true`.
@@ -991,6 +993,7 @@ func (o PolicyPolicySettingsOutput) FileUploadLimitInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettings) *int { return v.FileUploadLimitInMb }).(pulumi.IntPtrOutput)
 }
 
+// The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `128`. Defaults to `128`.
 func (o PolicyPolicySettingsOutput) MaxRequestBodySizeInKb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettings) *int { return v.MaxRequestBodySizeInKb }).(pulumi.IntPtrOutput)
 }
@@ -1042,6 +1045,7 @@ func (o PolicyPolicySettingsPtrOutput) FileUploadLimitInMb() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
+// The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `128`. Defaults to `128`.
 func (o PolicyPolicySettingsPtrOutput) MaxRequestBodySizeInKb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PolicyPolicySettings) *int {
 		if v == nil {

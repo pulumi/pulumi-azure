@@ -22,7 +22,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
         private InputList<string>? _certificatePermissions;
 
         /// <summary>
-        /// List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
+        /// List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
         /// </summary>
         public InputList<string> CertificatePermissions
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
         private InputList<string>? _keyPermissions;
 
         /// <summary>
-        /// List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
+        /// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
         /// </summary>
         public InputList<string> KeyPermissions
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
         private InputList<string>? _secretPermissions;
 
         /// <summary>
-        /// List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+        /// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
         /// </summary>
         public InputList<string> SecretPermissions
         {
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
         private InputList<string>? _storagePermissions;
 
         /// <summary>
-        /// List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+        /// List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
         /// </summary>
         public InputList<string> StoragePermissions
         {
