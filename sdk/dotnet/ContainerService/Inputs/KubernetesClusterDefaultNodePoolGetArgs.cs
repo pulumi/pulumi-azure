@@ -138,6 +138,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? Type { get; set; }
 
         /// <summary>
+        /// A `upgrade_settings` block as documented below.
+        /// </summary>
+        [Input("upgradeSettings")]
+        public Input<Inputs.KubernetesClusterDefaultNodePoolUpgradeSettingsGetArgs>? UpgradeSettings { get; set; }
+
+        /// <summary>
         /// The size of the Virtual Machine, such as `Standard_DS2_v2`.
         /// </summary>
         [Input("vmSize", required: true)]

@@ -1077,10 +1077,10 @@ class KeyVaultAccessPolicy(dict):
         :param str object_id: The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
         :param str application_id: The object ID of an Application in Azure Active Directory.
-        :param Sequence[str] certificate_permissions: List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
-        :param Sequence[str] key_permissions: List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
-        :param Sequence[str] secret_permissions: List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
-        :param Sequence[str] storage_permissions: List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+        :param Sequence[str] certificate_permissions: List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
+        :param Sequence[str] key_permissions: List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
+        :param Sequence[str] secret_permissions: List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
+        :param Sequence[str] storage_permissions: List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
         """
         pulumi.set(__self__, "object_id", object_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -1123,7 +1123,7 @@ class KeyVaultAccessPolicy(dict):
     @pulumi.getter(name="certificatePermissions")
     def certificate_permissions(self) -> Optional[Sequence[str]]:
         """
-        List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
+        List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
         """
         return pulumi.get(self, "certificate_permissions")
 
@@ -1131,7 +1131,7 @@ class KeyVaultAccessPolicy(dict):
     @pulumi.getter(name="keyPermissions")
     def key_permissions(self) -> Optional[Sequence[str]]:
         """
-        List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
+        List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
         """
         return pulumi.get(self, "key_permissions")
 
@@ -1139,7 +1139,7 @@ class KeyVaultAccessPolicy(dict):
     @pulumi.getter(name="secretPermissions")
     def secret_permissions(self) -> Optional[Sequence[str]]:
         """
-        List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+        List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
         """
         return pulumi.get(self, "secret_permissions")
 
@@ -1147,7 +1147,7 @@ class KeyVaultAccessPolicy(dict):
     @pulumi.getter(name="storagePermissions")
     def storage_permissions(self) -> Optional[Sequence[str]]:
         """
-        List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+        List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
         """
         return pulumi.get(self, "storage_permissions")
 

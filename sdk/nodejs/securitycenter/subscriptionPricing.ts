@@ -60,7 +60,7 @@ export class SubscriptionPricing extends pulumi.CustomResource {
     }
 
     /**
-     * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, and `VirtualMachines`.
+     * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm` and `Dns`.
      */
     public readonly resourceType!: pulumi.Output<string | undefined>;
     /**
@@ -103,7 +103,7 @@ export class SubscriptionPricing extends pulumi.CustomResource {
  */
 export interface SubscriptionPricingState {
     /**
-     * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, and `VirtualMachines`.
+     * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm` and `Dns`.
      */
     readonly resourceType?: pulumi.Input<string>;
     /**
@@ -117,7 +117,7 @@ export interface SubscriptionPricingState {
  */
 export interface SubscriptionPricingArgs {
     /**
-     * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, and `VirtualMachines`.
+     * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm` and `Dns`.
      */
     readonly resourceType?: pulumi.Input<string>;
     /**

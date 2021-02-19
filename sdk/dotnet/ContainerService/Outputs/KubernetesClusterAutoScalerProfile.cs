@@ -53,6 +53,14 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
         /// </summary>
         public readonly string? ScanInterval;
+        /// <summary>
+        /// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
+        /// </summary>
+        public readonly bool? SkipNodesWithLocalStorage;
+        /// <summary>
+        /// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+        /// </summary>
+        public readonly bool? SkipNodesWithSystemPods;
 
         [OutputConstructor]
         private KubernetesClusterAutoScalerProfile(
@@ -74,7 +82,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? scaleDownUtilizationThreshold,
 
-            string? scanInterval)
+            string? scanInterval,
+
+            bool? skipNodesWithLocalStorage,
+
+            bool? skipNodesWithSystemPods)
         {
             BalanceSimilarNodeGroups = balanceSimilarNodeGroups;
             MaxGracefulTerminationSec = maxGracefulTerminationSec;
@@ -86,6 +98,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
             ScaleDownUnready = scaleDownUnready;
             ScaleDownUtilizationThreshold = scaleDownUtilizationThreshold;
             ScanInterval = scanInterval;
+            SkipNodesWithLocalStorage = skipNodesWithLocalStorage;
+            SkipNodesWithSystemPods = skipNodesWithSystemPods;
         }
     }
 }

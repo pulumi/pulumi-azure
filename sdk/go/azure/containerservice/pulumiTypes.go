@@ -3378,6 +3378,10 @@ type KubernetesClusterAutoScalerProfile struct {
 	ScaleDownUtilizationThreshold *string `pulumi:"scaleDownUtilizationThreshold"`
 	// How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
 	ScanInterval *string `pulumi:"scanInterval"`
+	// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
+	SkipNodesWithLocalStorage *bool `pulumi:"skipNodesWithLocalStorage"`
+	// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+	SkipNodesWithSystemPods *bool `pulumi:"skipNodesWithSystemPods"`
 }
 
 // KubernetesClusterAutoScalerProfileInput is an input type that accepts KubernetesClusterAutoScalerProfileArgs and KubernetesClusterAutoScalerProfileOutput values.
@@ -3412,6 +3416,10 @@ type KubernetesClusterAutoScalerProfileArgs struct {
 	ScaleDownUtilizationThreshold pulumi.StringPtrInput `pulumi:"scaleDownUtilizationThreshold"`
 	// How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
 	ScanInterval pulumi.StringPtrInput `pulumi:"scanInterval"`
+	// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
+	SkipNodesWithLocalStorage pulumi.BoolPtrInput `pulumi:"skipNodesWithLocalStorage"`
+	// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+	SkipNodesWithSystemPods pulumi.BoolPtrInput `pulumi:"skipNodesWithSystemPods"`
 }
 
 func (KubernetesClusterAutoScalerProfileArgs) ElementType() reflect.Type {
@@ -3541,6 +3549,16 @@ func (o KubernetesClusterAutoScalerProfileOutput) ScanInterval() pulumi.StringPt
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.ScanInterval }).(pulumi.StringPtrOutput)
 }
 
+// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
+func (o KubernetesClusterAutoScalerProfileOutput) SkipNodesWithLocalStorage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *bool { return v.SkipNodesWithLocalStorage }).(pulumi.BoolPtrOutput)
+}
+
+// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+func (o KubernetesClusterAutoScalerProfileOutput) SkipNodesWithSystemPods() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *bool { return v.SkipNodesWithSystemPods }).(pulumi.BoolPtrOutput)
+}
+
 type KubernetesClusterAutoScalerProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAutoScalerProfilePtrOutput) ElementType() reflect.Type {
@@ -3659,6 +3677,26 @@ func (o KubernetesClusterAutoScalerProfilePtrOutput) ScanInterval() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
+func (o KubernetesClusterAutoScalerProfilePtrOutput) SkipNodesWithLocalStorage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SkipNodesWithLocalStorage
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+func (o KubernetesClusterAutoScalerProfilePtrOutput) SkipNodesWithSystemPods() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SkipNodesWithSystemPods
+	}).(pulumi.BoolPtrOutput)
+}
+
 type KubernetesClusterDefaultNodePool struct {
 	// A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
@@ -3694,6 +3732,8 @@ type KubernetesClusterDefaultNodePool struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
 	Type *string `pulumi:"type"`
+	// A `upgradeSettings` block as documented below.
+	UpgradeSettings *KubernetesClusterDefaultNodePoolUpgradeSettings `pulumi:"upgradeSettings"`
 	// The size of the Virtual Machine, such as `Standard_DS2_v2`.
 	VmSize string `pulumi:"vmSize"`
 	// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
@@ -3746,6 +3786,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
+	// A `upgradeSettings` block as documented below.
+	UpgradeSettings KubernetesClusterDefaultNodePoolUpgradeSettingsPtrInput `pulumi:"upgradeSettings"`
 	// The size of the Virtual Machine, such as `Standard_DS2_v2`.
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
 	// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
@@ -3915,6 +3957,13 @@ func (o KubernetesClusterDefaultNodePoolOutput) Tags() pulumi.StringMapOutput {
 // The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
 func (o KubernetesClusterDefaultNodePoolOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// A `upgradeSettings` block as documented below.
+func (o KubernetesClusterDefaultNodePoolOutput) UpgradeSettings() KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePoolUpgradeSettings {
+		return v.UpgradeSettings
+	}).(KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput)
 }
 
 // The size of the Virtual Machine, such as `Standard_DS2_v2`.
@@ -4123,6 +4172,16 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// A `upgradeSettings` block as documented below.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) UpgradeSettings() KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePoolUpgradeSettings {
+		if v == nil {
+			return nil
+		}
+		return v.UpgradeSettings
+	}).(KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput)
+}
+
 // The size of the Virtual Machine, such as `Standard_DS2_v2`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
@@ -4140,6 +4199,139 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) VnetSubnetId() pulumi.StringP
 			return nil
 		}
 		return v.VnetSubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterDefaultNodePoolUpgradeSettings struct {
+	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+	MaxSurge string `pulumi:"maxSurge"`
+}
+
+// KubernetesClusterDefaultNodePoolUpgradeSettingsInput is an input type that accepts KubernetesClusterDefaultNodePoolUpgradeSettingsArgs and KubernetesClusterDefaultNodePoolUpgradeSettingsOutput values.
+// You can construct a concrete instance of `KubernetesClusterDefaultNodePoolUpgradeSettingsInput` via:
+//
+//          KubernetesClusterDefaultNodePoolUpgradeSettingsArgs{...}
+type KubernetesClusterDefaultNodePoolUpgradeSettingsInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterDefaultNodePoolUpgradeSettingsOutput() KubernetesClusterDefaultNodePoolUpgradeSettingsOutput
+	ToKubernetesClusterDefaultNodePoolUpgradeSettingsOutputWithContext(context.Context) KubernetesClusterDefaultNodePoolUpgradeSettingsOutput
+}
+
+type KubernetesClusterDefaultNodePoolUpgradeSettingsArgs struct {
+	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+	MaxSurge pulumi.StringInput `pulumi:"maxSurge"`
+}
+
+func (KubernetesClusterDefaultNodePoolUpgradeSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterDefaultNodePoolUpgradeSettings)(nil)).Elem()
+}
+
+func (i KubernetesClusterDefaultNodePoolUpgradeSettingsArgs) ToKubernetesClusterDefaultNodePoolUpgradeSettingsOutput() KubernetesClusterDefaultNodePoolUpgradeSettingsOutput {
+	return i.ToKubernetesClusterDefaultNodePoolUpgradeSettingsOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterDefaultNodePoolUpgradeSettingsArgs) ToKubernetesClusterDefaultNodePoolUpgradeSettingsOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolUpgradeSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolUpgradeSettingsOutput)
+}
+
+func (i KubernetesClusterDefaultNodePoolUpgradeSettingsArgs) ToKubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput() KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput {
+	return i.ToKubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterDefaultNodePoolUpgradeSettingsArgs) ToKubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolUpgradeSettingsOutput).ToKubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterDefaultNodePoolUpgradeSettingsPtrInput is an input type that accepts KubernetesClusterDefaultNodePoolUpgradeSettingsArgs, KubernetesClusterDefaultNodePoolUpgradeSettingsPtr and KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterDefaultNodePoolUpgradeSettingsPtrInput` via:
+//
+//          KubernetesClusterDefaultNodePoolUpgradeSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type KubernetesClusterDefaultNodePoolUpgradeSettingsPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput() KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput
+	ToKubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutputWithContext(context.Context) KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput
+}
+
+type kubernetesClusterDefaultNodePoolUpgradeSettingsPtrType KubernetesClusterDefaultNodePoolUpgradeSettingsArgs
+
+func KubernetesClusterDefaultNodePoolUpgradeSettingsPtr(v *KubernetesClusterDefaultNodePoolUpgradeSettingsArgs) KubernetesClusterDefaultNodePoolUpgradeSettingsPtrInput {
+	return (*kubernetesClusterDefaultNodePoolUpgradeSettingsPtrType)(v)
+}
+
+func (*kubernetesClusterDefaultNodePoolUpgradeSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterDefaultNodePoolUpgradeSettings)(nil)).Elem()
+}
+
+func (i *kubernetesClusterDefaultNodePoolUpgradeSettingsPtrType) ToKubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput() KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput {
+	return i.ToKubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterDefaultNodePoolUpgradeSettingsPtrType) ToKubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput)
+}
+
+type KubernetesClusterDefaultNodePoolUpgradeSettingsOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterDefaultNodePoolUpgradeSettings)(nil)).Elem()
+}
+
+func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) ToKubernetesClusterDefaultNodePoolUpgradeSettingsOutput() KubernetesClusterDefaultNodePoolUpgradeSettingsOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) ToKubernetesClusterDefaultNodePoolUpgradeSettingsOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolUpgradeSettingsOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) ToKubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput() KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput {
+	return o.ToKubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) ToKubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolUpgradeSettings) *KubernetesClusterDefaultNodePoolUpgradeSettings {
+		return &v
+	}).(KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput)
+}
+
+// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) MaxSurge() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolUpgradeSettings) string { return v.MaxSurge }).(pulumi.StringOutput)
+}
+
+type KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterDefaultNodePoolUpgradeSettings)(nil)).Elem()
+}
+
+func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) ToKubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput() KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) ToKubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) Elem() KubernetesClusterDefaultNodePoolUpgradeSettingsOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolUpgradeSettings) KubernetesClusterDefaultNodePoolUpgradeSettings {
+		return *v
+	}).(KubernetesClusterDefaultNodePoolUpgradeSettingsOutput)
+}
+
+// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) MaxSurge() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolUpgradeSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxSurge
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5543,6 +5735,137 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) OutboundPor
 	}).(pulumi.IntPtrOutput)
 }
 
+type KubernetesClusterNodePoolUpgradeSettings struct {
+	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+	MaxSurge string `pulumi:"maxSurge"`
+}
+
+// KubernetesClusterNodePoolUpgradeSettingsInput is an input type that accepts KubernetesClusterNodePoolUpgradeSettingsArgs and KubernetesClusterNodePoolUpgradeSettingsOutput values.
+// You can construct a concrete instance of `KubernetesClusterNodePoolUpgradeSettingsInput` via:
+//
+//          KubernetesClusterNodePoolUpgradeSettingsArgs{...}
+type KubernetesClusterNodePoolUpgradeSettingsInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNodePoolUpgradeSettingsOutput() KubernetesClusterNodePoolUpgradeSettingsOutput
+	ToKubernetesClusterNodePoolUpgradeSettingsOutputWithContext(context.Context) KubernetesClusterNodePoolUpgradeSettingsOutput
+}
+
+type KubernetesClusterNodePoolUpgradeSettingsArgs struct {
+	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+	MaxSurge pulumi.StringInput `pulumi:"maxSurge"`
+}
+
+func (KubernetesClusterNodePoolUpgradeSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNodePoolUpgradeSettings)(nil)).Elem()
+}
+
+func (i KubernetesClusterNodePoolUpgradeSettingsArgs) ToKubernetesClusterNodePoolUpgradeSettingsOutput() KubernetesClusterNodePoolUpgradeSettingsOutput {
+	return i.ToKubernetesClusterNodePoolUpgradeSettingsOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNodePoolUpgradeSettingsArgs) ToKubernetesClusterNodePoolUpgradeSettingsOutputWithContext(ctx context.Context) KubernetesClusterNodePoolUpgradeSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolUpgradeSettingsOutput)
+}
+
+func (i KubernetesClusterNodePoolUpgradeSettingsArgs) ToKubernetesClusterNodePoolUpgradeSettingsPtrOutput() KubernetesClusterNodePoolUpgradeSettingsPtrOutput {
+	return i.ToKubernetesClusterNodePoolUpgradeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNodePoolUpgradeSettingsArgs) ToKubernetesClusterNodePoolUpgradeSettingsPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolUpgradeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolUpgradeSettingsOutput).ToKubernetesClusterNodePoolUpgradeSettingsPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterNodePoolUpgradeSettingsPtrInput is an input type that accepts KubernetesClusterNodePoolUpgradeSettingsArgs, KubernetesClusterNodePoolUpgradeSettingsPtr and KubernetesClusterNodePoolUpgradeSettingsPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterNodePoolUpgradeSettingsPtrInput` via:
+//
+//          KubernetesClusterNodePoolUpgradeSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type KubernetesClusterNodePoolUpgradeSettingsPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNodePoolUpgradeSettingsPtrOutput() KubernetesClusterNodePoolUpgradeSettingsPtrOutput
+	ToKubernetesClusterNodePoolUpgradeSettingsPtrOutputWithContext(context.Context) KubernetesClusterNodePoolUpgradeSettingsPtrOutput
+}
+
+type kubernetesClusterNodePoolUpgradeSettingsPtrType KubernetesClusterNodePoolUpgradeSettingsArgs
+
+func KubernetesClusterNodePoolUpgradeSettingsPtr(v *KubernetesClusterNodePoolUpgradeSettingsArgs) KubernetesClusterNodePoolUpgradeSettingsPtrInput {
+	return (*kubernetesClusterNodePoolUpgradeSettingsPtrType)(v)
+}
+
+func (*kubernetesClusterNodePoolUpgradeSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterNodePoolUpgradeSettings)(nil)).Elem()
+}
+
+func (i *kubernetesClusterNodePoolUpgradeSettingsPtrType) ToKubernetesClusterNodePoolUpgradeSettingsPtrOutput() KubernetesClusterNodePoolUpgradeSettingsPtrOutput {
+	return i.ToKubernetesClusterNodePoolUpgradeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterNodePoolUpgradeSettingsPtrType) ToKubernetesClusterNodePoolUpgradeSettingsPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolUpgradeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolUpgradeSettingsPtrOutput)
+}
+
+type KubernetesClusterNodePoolUpgradeSettingsOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNodePoolUpgradeSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNodePoolUpgradeSettings)(nil)).Elem()
+}
+
+func (o KubernetesClusterNodePoolUpgradeSettingsOutput) ToKubernetesClusterNodePoolUpgradeSettingsOutput() KubernetesClusterNodePoolUpgradeSettingsOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolUpgradeSettingsOutput) ToKubernetesClusterNodePoolUpgradeSettingsOutputWithContext(ctx context.Context) KubernetesClusterNodePoolUpgradeSettingsOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolUpgradeSettingsOutput) ToKubernetesClusterNodePoolUpgradeSettingsPtrOutput() KubernetesClusterNodePoolUpgradeSettingsPtrOutput {
+	return o.ToKubernetesClusterNodePoolUpgradeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterNodePoolUpgradeSettingsOutput) ToKubernetesClusterNodePoolUpgradeSettingsPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolUpgradeSettingsPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolUpgradeSettings) *KubernetesClusterNodePoolUpgradeSettings {
+		return &v
+	}).(KubernetesClusterNodePoolUpgradeSettingsPtrOutput)
+}
+
+// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+func (o KubernetesClusterNodePoolUpgradeSettingsOutput) MaxSurge() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolUpgradeSettings) string { return v.MaxSurge }).(pulumi.StringOutput)
+}
+
+type KubernetesClusterNodePoolUpgradeSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNodePoolUpgradeSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterNodePoolUpgradeSettings)(nil)).Elem()
+}
+
+func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) ToKubernetesClusterNodePoolUpgradeSettingsPtrOutput() KubernetesClusterNodePoolUpgradeSettingsPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) ToKubernetesClusterNodePoolUpgradeSettingsPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolUpgradeSettingsPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) Elem() KubernetesClusterNodePoolUpgradeSettingsOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolUpgradeSettings) KubernetesClusterNodePoolUpgradeSettings { return *v }).(KubernetesClusterNodePoolUpgradeSettingsOutput)
+}
+
+// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) MaxSurge() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolUpgradeSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxSurge
+	}).(pulumi.StringPtrOutput)
+}
+
 type KubernetesClusterRoleBasedAccessControl struct {
 	// An `azureActiveDirectory` block.
 	AzureActiveDirectory *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory `pulumi:"azureActiveDirectory"`
@@ -6887,6 +7210,103 @@ func (o RegistryTrustPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type GetClusterNodePoolUpgradeSetting struct {
+	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+	MaxSurge string `pulumi:"maxSurge"`
+}
+
+// GetClusterNodePoolUpgradeSettingInput is an input type that accepts GetClusterNodePoolUpgradeSettingArgs and GetClusterNodePoolUpgradeSettingOutput values.
+// You can construct a concrete instance of `GetClusterNodePoolUpgradeSettingInput` via:
+//
+//          GetClusterNodePoolUpgradeSettingArgs{...}
+type GetClusterNodePoolUpgradeSettingInput interface {
+	pulumi.Input
+
+	ToGetClusterNodePoolUpgradeSettingOutput() GetClusterNodePoolUpgradeSettingOutput
+	ToGetClusterNodePoolUpgradeSettingOutputWithContext(context.Context) GetClusterNodePoolUpgradeSettingOutput
+}
+
+type GetClusterNodePoolUpgradeSettingArgs struct {
+	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+	MaxSurge pulumi.StringInput `pulumi:"maxSurge"`
+}
+
+func (GetClusterNodePoolUpgradeSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterNodePoolUpgradeSetting)(nil)).Elem()
+}
+
+func (i GetClusterNodePoolUpgradeSettingArgs) ToGetClusterNodePoolUpgradeSettingOutput() GetClusterNodePoolUpgradeSettingOutput {
+	return i.ToGetClusterNodePoolUpgradeSettingOutputWithContext(context.Background())
+}
+
+func (i GetClusterNodePoolUpgradeSettingArgs) ToGetClusterNodePoolUpgradeSettingOutputWithContext(ctx context.Context) GetClusterNodePoolUpgradeSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterNodePoolUpgradeSettingOutput)
+}
+
+// GetClusterNodePoolUpgradeSettingArrayInput is an input type that accepts GetClusterNodePoolUpgradeSettingArray and GetClusterNodePoolUpgradeSettingArrayOutput values.
+// You can construct a concrete instance of `GetClusterNodePoolUpgradeSettingArrayInput` via:
+//
+//          GetClusterNodePoolUpgradeSettingArray{ GetClusterNodePoolUpgradeSettingArgs{...} }
+type GetClusterNodePoolUpgradeSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterNodePoolUpgradeSettingArrayOutput() GetClusterNodePoolUpgradeSettingArrayOutput
+	ToGetClusterNodePoolUpgradeSettingArrayOutputWithContext(context.Context) GetClusterNodePoolUpgradeSettingArrayOutput
+}
+
+type GetClusterNodePoolUpgradeSettingArray []GetClusterNodePoolUpgradeSettingInput
+
+func (GetClusterNodePoolUpgradeSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterNodePoolUpgradeSetting)(nil)).Elem()
+}
+
+func (i GetClusterNodePoolUpgradeSettingArray) ToGetClusterNodePoolUpgradeSettingArrayOutput() GetClusterNodePoolUpgradeSettingArrayOutput {
+	return i.ToGetClusterNodePoolUpgradeSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterNodePoolUpgradeSettingArray) ToGetClusterNodePoolUpgradeSettingArrayOutputWithContext(ctx context.Context) GetClusterNodePoolUpgradeSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterNodePoolUpgradeSettingArrayOutput)
+}
+
+type GetClusterNodePoolUpgradeSettingOutput struct{ *pulumi.OutputState }
+
+func (GetClusterNodePoolUpgradeSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterNodePoolUpgradeSetting)(nil)).Elem()
+}
+
+func (o GetClusterNodePoolUpgradeSettingOutput) ToGetClusterNodePoolUpgradeSettingOutput() GetClusterNodePoolUpgradeSettingOutput {
+	return o
+}
+
+func (o GetClusterNodePoolUpgradeSettingOutput) ToGetClusterNodePoolUpgradeSettingOutputWithContext(ctx context.Context) GetClusterNodePoolUpgradeSettingOutput {
+	return o
+}
+
+// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+func (o GetClusterNodePoolUpgradeSettingOutput) MaxSurge() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterNodePoolUpgradeSetting) string { return v.MaxSurge }).(pulumi.StringOutput)
+}
+
+type GetClusterNodePoolUpgradeSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterNodePoolUpgradeSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterNodePoolUpgradeSetting)(nil)).Elem()
+}
+
+func (o GetClusterNodePoolUpgradeSettingArrayOutput) ToGetClusterNodePoolUpgradeSettingArrayOutput() GetClusterNodePoolUpgradeSettingArrayOutput {
+	return o
+}
+
+func (o GetClusterNodePoolUpgradeSettingArrayOutput) ToGetClusterNodePoolUpgradeSettingArrayOutputWithContext(ctx context.Context) GetClusterNodePoolUpgradeSettingArrayOutput {
+	return o
+}
+
+func (o GetClusterNodePoolUpgradeSettingArrayOutput) Index(i pulumi.IntInput) GetClusterNodePoolUpgradeSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterNodePoolUpgradeSetting {
+		return vs[0].([]GetClusterNodePoolUpgradeSetting)[vs[1].(int)]
+	}).(GetClusterNodePoolUpgradeSettingOutput)
+}
+
 type GetKubernetesClusterAddonProfile struct {
 	// A `azurePolicy` block.
 	AzurePolicies []GetKubernetesClusterAddonProfileAzurePolicy `pulumi:"azurePolicies"`
@@ -7583,6 +8003,8 @@ type GetKubernetesClusterAgentPoolProfile struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of identity used for the managed cluster.
 	Type string `pulumi:"type"`
+	// A `upgradeSettings` block as documented below.
+	UpgradeSettings []GetKubernetesClusterAgentPoolProfileUpgradeSetting `pulumi:"upgradeSettings"`
 	// The size of each VM in the Agent Pool (e.g. `Standard_F1`).
 	VmSize string `pulumi:"vmSize"`
 	// The ID of the Subnet where the Agents in the Pool are provisioned.
@@ -7628,6 +8050,8 @@ type GetKubernetesClusterAgentPoolProfileArgs struct {
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The type of identity used for the managed cluster.
 	Type pulumi.StringInput `pulumi:"type"`
+	// A `upgradeSettings` block as documented below.
+	UpgradeSettings GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayInput `pulumi:"upgradeSettings"`
 	// The size of each VM in the Agent Pool (e.g. `Standard_F1`).
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
 	// The ID of the Subnet where the Agents in the Pool are provisioned.
@@ -7757,6 +8181,13 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// A `upgradeSettings` block as documented below.
+func (o GetKubernetesClusterAgentPoolProfileOutput) UpgradeSettings() GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) []GetKubernetesClusterAgentPoolProfileUpgradeSetting {
+		return v.UpgradeSettings
+	}).(GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput)
+}
+
 // The size of each VM in the Agent Pool (e.g. `Standard_F1`).
 func (o GetKubernetesClusterAgentPoolProfileOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) string { return v.VmSize }).(pulumi.StringOutput)
@@ -7785,6 +8216,103 @@ func (o GetKubernetesClusterAgentPoolProfileArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAgentPoolProfile {
 		return vs[0].([]GetKubernetesClusterAgentPoolProfile)[vs[1].(int)]
 	}).(GetKubernetesClusterAgentPoolProfileOutput)
+}
+
+type GetKubernetesClusterAgentPoolProfileUpgradeSetting struct {
+	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+	MaxSurge string `pulumi:"maxSurge"`
+}
+
+// GetKubernetesClusterAgentPoolProfileUpgradeSettingInput is an input type that accepts GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs and GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterAgentPoolProfileUpgradeSettingInput` via:
+//
+//          GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs{...}
+type GetKubernetesClusterAgentPoolProfileUpgradeSettingInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterAgentPoolProfileUpgradeSettingOutput() GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput
+	ToGetKubernetesClusterAgentPoolProfileUpgradeSettingOutputWithContext(context.Context) GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput
+}
+
+type GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs struct {
+	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+	MaxSurge pulumi.StringInput `pulumi:"maxSurge"`
+}
+
+func (GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterAgentPoolProfileUpgradeSetting)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs) ToGetKubernetesClusterAgentPoolProfileUpgradeSettingOutput() GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput {
+	return i.ToGetKubernetesClusterAgentPoolProfileUpgradeSettingOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs) ToGetKubernetesClusterAgentPoolProfileUpgradeSettingOutputWithContext(ctx context.Context) GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput)
+}
+
+// GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayInput is an input type that accepts GetKubernetesClusterAgentPoolProfileUpgradeSettingArray and GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayInput` via:
+//
+//          GetKubernetesClusterAgentPoolProfileUpgradeSettingArray{ GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs{...} }
+type GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput() GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput
+	ToGetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutputWithContext(context.Context) GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput
+}
+
+type GetKubernetesClusterAgentPoolProfileUpgradeSettingArray []GetKubernetesClusterAgentPoolProfileUpgradeSettingInput
+
+func (GetKubernetesClusterAgentPoolProfileUpgradeSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterAgentPoolProfileUpgradeSetting)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterAgentPoolProfileUpgradeSettingArray) ToGetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput() GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput {
+	return i.ToGetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterAgentPoolProfileUpgradeSettingArray) ToGetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput)
+}
+
+type GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterAgentPoolProfileUpgradeSetting)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput) ToGetKubernetesClusterAgentPoolProfileUpgradeSettingOutput() GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput) ToGetKubernetesClusterAgentPoolProfileUpgradeSettingOutputWithContext(ctx context.Context) GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput {
+	return o
+}
+
+// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput) MaxSurge() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfileUpgradeSetting) string { return v.MaxSurge }).(pulumi.StringOutput)
+}
+
+type GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterAgentPoolProfileUpgradeSetting)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput) ToGetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput() GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput) ToGetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAgentPoolProfileUpgradeSetting {
+		return vs[0].([]GetKubernetesClusterAgentPoolProfileUpgradeSetting)[vs[1].(int)]
+	}).(GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput)
 }
 
 type GetKubernetesClusterIdentity struct {
@@ -9145,6 +9673,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterAutoScalerProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolUpgradeSettingsOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterIdentityOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterKubeAdminConfigOutput{})
@@ -9161,6 +9691,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfileLoadBalancerProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNodePoolUpgradeSettingsOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNodePoolUpgradeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterRoleBasedAccessControlOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterRoleBasedAccessControlPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput{})
@@ -9179,6 +9711,8 @@ func init() {
 	pulumi.RegisterOutputType(RegistryRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RegistryTrustPolicyOutput{})
 	pulumi.RegisterOutputType(RegistryTrustPolicyPtrOutput{})
+	pulumi.RegisterOutputType(GetClusterNodePoolUpgradeSettingOutput{})
+	pulumi.RegisterOutputType(GetClusterNodePoolUpgradeSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileAzurePolicyOutput{})
@@ -9193,6 +9727,8 @@ func init() {
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAgentPoolProfileOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAgentPoolProfileArrayOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterIdentityOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterKubeAdminConfigOutput{})

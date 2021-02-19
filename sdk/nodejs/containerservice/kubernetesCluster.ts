@@ -86,6 +86,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly autoScalerProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterAutoScalerProfile>;
     /**
+     * The upgrade channel for this Kubernetes Cluster. Possible values are `none`, `patch`, `rapid`, and `stable`. The default value is `none`.
+     */
+    public readonly automaticChannelUpgrade!: pulumi.Output<string | undefined>;
+    /**
      * A `defaultNodePool` block as defined below.
      */
     public readonly defaultNodePool!: pulumi.Output<outputs.containerservice.KubernetesClusterDefaultNodePool>;
@@ -207,6 +211,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["addonProfile"] = state ? state.addonProfile : undefined;
             inputs["apiServerAuthorizedIpRanges"] = state ? state.apiServerAuthorizedIpRanges : undefined;
             inputs["autoScalerProfile"] = state ? state.autoScalerProfile : undefined;
+            inputs["automaticChannelUpgrade"] = state ? state.automaticChannelUpgrade : undefined;
             inputs["defaultNodePool"] = state ? state.defaultNodePool : undefined;
             inputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
             inputs["dnsPrefix"] = state ? state.dnsPrefix : undefined;
@@ -248,6 +253,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["addonProfile"] = args ? args.addonProfile : undefined;
             inputs["apiServerAuthorizedIpRanges"] = args ? args.apiServerAuthorizedIpRanges : undefined;
             inputs["autoScalerProfile"] = args ? args.autoScalerProfile : undefined;
+            inputs["automaticChannelUpgrade"] = args ? args.automaticChannelUpgrade : undefined;
             inputs["defaultNodePool"] = args ? args.defaultNodePool : undefined;
             inputs["diskEncryptionSetId"] = args ? args.diskEncryptionSetId : undefined;
             inputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
@@ -299,6 +305,10 @@ export interface KubernetesClusterState {
      * A `autoScalerProfile` block as defined below.
      */
     readonly autoScalerProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterAutoScalerProfile>;
+    /**
+     * The upgrade channel for this Kubernetes Cluster. Possible values are `none`, `patch`, `rapid`, and `stable`. The default value is `none`.
+     */
+    readonly automaticChannelUpgrade?: pulumi.Input<string>;
     /**
      * A `defaultNodePool` block as defined below.
      */
@@ -422,6 +432,10 @@ export interface KubernetesClusterArgs {
      * A `autoScalerProfile` block as defined below.
      */
     readonly autoScalerProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterAutoScalerProfile>;
+    /**
+     * The upgrade channel for this Kubernetes Cluster. Possible values are `none`, `patch`, `rapid`, and `stable`. The default value is `none`.
+     */
+    readonly automaticChannelUpgrade?: pulumi.Input<string>;
     /**
      * A `defaultNodePool` block as defined below.
      */

@@ -16,13 +16,17 @@ __all__ = [
 class DefinitionAuthorization(dict):
     def __init__(__self__, *,
                  principal_id: str,
-                 role_definition_id: str):
+                 role_definition_id: str,
+                 principal_display_name: Optional[str] = None):
         """
         :param str principal_id: Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
         :param str role_definition_id: The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an `Owner` role.
+        :param str principal_display_name: The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "role_definition_id", role_definition_id)
+        if principal_display_name is not None:
+            pulumi.set(__self__, "principal_display_name", principal_display_name)
 
     @property
     @pulumi.getter(name="principalId")
@@ -39,6 +43,14 @@ class DefinitionAuthorization(dict):
         The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an `Owner` role.
         """
         return pulumi.get(self, "role_definition_id")
+
+    @property
+    @pulumi.getter(name="principalDisplayName")
+    def principal_display_name(self) -> Optional[str]:
+        """
+        The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
+        """
+        return pulumi.get(self, "principal_display_name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

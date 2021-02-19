@@ -19,6 +19,7 @@ export * from "./firewallNatRuleCollection";
 export * from "./firewallNetworkRuleCollection";
 export * from "./firewallPolicy";
 export * from "./firewallPolicyRuleCollectionGroup";
+export * from "./getApplicationGateway";
 export * from "./getApplicationSecurityGroup";
 export * from "./getExpressRouteCircuit";
 export * from "./getFirewall";

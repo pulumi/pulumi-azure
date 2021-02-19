@@ -760,6 +760,420 @@ func (o WorkspaceAadAdminPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkspaceAzureDevopsRepo struct {
+	// Specifies the Azure DevOps account name.
+	AccountName string `pulumi:"accountName"`
+	// Specifies the collaboration branch of the repository to get code from.
+	BranchName string `pulumi:"branchName"`
+	// Specifies the name of the Azure DevOps project.
+	ProjectName string `pulumi:"projectName"`
+	// Specifies the name of the git repository.
+	RepositoryName string `pulumi:"repositoryName"`
+	// Specifies the root folder within the repository. Set to `/` for the top level.
+	RootFolder string `pulumi:"rootFolder"`
+}
+
+// WorkspaceAzureDevopsRepoInput is an input type that accepts WorkspaceAzureDevopsRepoArgs and WorkspaceAzureDevopsRepoOutput values.
+// You can construct a concrete instance of `WorkspaceAzureDevopsRepoInput` via:
+//
+//          WorkspaceAzureDevopsRepoArgs{...}
+type WorkspaceAzureDevopsRepoInput interface {
+	pulumi.Input
+
+	ToWorkspaceAzureDevopsRepoOutput() WorkspaceAzureDevopsRepoOutput
+	ToWorkspaceAzureDevopsRepoOutputWithContext(context.Context) WorkspaceAzureDevopsRepoOutput
+}
+
+type WorkspaceAzureDevopsRepoArgs struct {
+	// Specifies the Azure DevOps account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Specifies the collaboration branch of the repository to get code from.
+	BranchName pulumi.StringInput `pulumi:"branchName"`
+	// Specifies the name of the Azure DevOps project.
+	ProjectName pulumi.StringInput `pulumi:"projectName"`
+	// Specifies the name of the git repository.
+	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+	// Specifies the root folder within the repository. Set to `/` for the top level.
+	RootFolder pulumi.StringInput `pulumi:"rootFolder"`
+}
+
+func (WorkspaceAzureDevopsRepoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceAzureDevopsRepo)(nil)).Elem()
+}
+
+func (i WorkspaceAzureDevopsRepoArgs) ToWorkspaceAzureDevopsRepoOutput() WorkspaceAzureDevopsRepoOutput {
+	return i.ToWorkspaceAzureDevopsRepoOutputWithContext(context.Background())
+}
+
+func (i WorkspaceAzureDevopsRepoArgs) ToWorkspaceAzureDevopsRepoOutputWithContext(ctx context.Context) WorkspaceAzureDevopsRepoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAzureDevopsRepoOutput)
+}
+
+func (i WorkspaceAzureDevopsRepoArgs) ToWorkspaceAzureDevopsRepoPtrOutput() WorkspaceAzureDevopsRepoPtrOutput {
+	return i.ToWorkspaceAzureDevopsRepoPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceAzureDevopsRepoArgs) ToWorkspaceAzureDevopsRepoPtrOutputWithContext(ctx context.Context) WorkspaceAzureDevopsRepoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAzureDevopsRepoOutput).ToWorkspaceAzureDevopsRepoPtrOutputWithContext(ctx)
+}
+
+// WorkspaceAzureDevopsRepoPtrInput is an input type that accepts WorkspaceAzureDevopsRepoArgs, WorkspaceAzureDevopsRepoPtr and WorkspaceAzureDevopsRepoPtrOutput values.
+// You can construct a concrete instance of `WorkspaceAzureDevopsRepoPtrInput` via:
+//
+//          WorkspaceAzureDevopsRepoArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceAzureDevopsRepoPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceAzureDevopsRepoPtrOutput() WorkspaceAzureDevopsRepoPtrOutput
+	ToWorkspaceAzureDevopsRepoPtrOutputWithContext(context.Context) WorkspaceAzureDevopsRepoPtrOutput
+}
+
+type workspaceAzureDevopsRepoPtrType WorkspaceAzureDevopsRepoArgs
+
+func WorkspaceAzureDevopsRepoPtr(v *WorkspaceAzureDevopsRepoArgs) WorkspaceAzureDevopsRepoPtrInput {
+	return (*workspaceAzureDevopsRepoPtrType)(v)
+}
+
+func (*workspaceAzureDevopsRepoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceAzureDevopsRepo)(nil)).Elem()
+}
+
+func (i *workspaceAzureDevopsRepoPtrType) ToWorkspaceAzureDevopsRepoPtrOutput() WorkspaceAzureDevopsRepoPtrOutput {
+	return i.ToWorkspaceAzureDevopsRepoPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceAzureDevopsRepoPtrType) ToWorkspaceAzureDevopsRepoPtrOutputWithContext(ctx context.Context) WorkspaceAzureDevopsRepoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAzureDevopsRepoPtrOutput)
+}
+
+type WorkspaceAzureDevopsRepoOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceAzureDevopsRepoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceAzureDevopsRepo)(nil)).Elem()
+}
+
+func (o WorkspaceAzureDevopsRepoOutput) ToWorkspaceAzureDevopsRepoOutput() WorkspaceAzureDevopsRepoOutput {
+	return o
+}
+
+func (o WorkspaceAzureDevopsRepoOutput) ToWorkspaceAzureDevopsRepoOutputWithContext(ctx context.Context) WorkspaceAzureDevopsRepoOutput {
+	return o
+}
+
+func (o WorkspaceAzureDevopsRepoOutput) ToWorkspaceAzureDevopsRepoPtrOutput() WorkspaceAzureDevopsRepoPtrOutput {
+	return o.ToWorkspaceAzureDevopsRepoPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceAzureDevopsRepoOutput) ToWorkspaceAzureDevopsRepoPtrOutputWithContext(ctx context.Context) WorkspaceAzureDevopsRepoPtrOutput {
+	return o.ApplyT(func(v WorkspaceAzureDevopsRepo) *WorkspaceAzureDevopsRepo {
+		return &v
+	}).(WorkspaceAzureDevopsRepoPtrOutput)
+}
+
+// Specifies the Azure DevOps account name.
+func (o WorkspaceAzureDevopsRepoOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceAzureDevopsRepo) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// Specifies the collaboration branch of the repository to get code from.
+func (o WorkspaceAzureDevopsRepoOutput) BranchName() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceAzureDevopsRepo) string { return v.BranchName }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the Azure DevOps project.
+func (o WorkspaceAzureDevopsRepoOutput) ProjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceAzureDevopsRepo) string { return v.ProjectName }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the git repository.
+func (o WorkspaceAzureDevopsRepoOutput) RepositoryName() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceAzureDevopsRepo) string { return v.RepositoryName }).(pulumi.StringOutput)
+}
+
+// Specifies the root folder within the repository. Set to `/` for the top level.
+func (o WorkspaceAzureDevopsRepoOutput) RootFolder() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceAzureDevopsRepo) string { return v.RootFolder }).(pulumi.StringOutput)
+}
+
+type WorkspaceAzureDevopsRepoPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceAzureDevopsRepoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceAzureDevopsRepo)(nil)).Elem()
+}
+
+func (o WorkspaceAzureDevopsRepoPtrOutput) ToWorkspaceAzureDevopsRepoPtrOutput() WorkspaceAzureDevopsRepoPtrOutput {
+	return o
+}
+
+func (o WorkspaceAzureDevopsRepoPtrOutput) ToWorkspaceAzureDevopsRepoPtrOutputWithContext(ctx context.Context) WorkspaceAzureDevopsRepoPtrOutput {
+	return o
+}
+
+func (o WorkspaceAzureDevopsRepoPtrOutput) Elem() WorkspaceAzureDevopsRepoOutput {
+	return o.ApplyT(func(v *WorkspaceAzureDevopsRepo) WorkspaceAzureDevopsRepo { return *v }).(WorkspaceAzureDevopsRepoOutput)
+}
+
+// Specifies the Azure DevOps account name.
+func (o WorkspaceAzureDevopsRepoPtrOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceAzureDevopsRepo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the collaboration branch of the repository to get code from.
+func (o WorkspaceAzureDevopsRepoPtrOutput) BranchName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceAzureDevopsRepo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BranchName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the Azure DevOps project.
+func (o WorkspaceAzureDevopsRepoPtrOutput) ProjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceAzureDevopsRepo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProjectName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the git repository.
+func (o WorkspaceAzureDevopsRepoPtrOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceAzureDevopsRepo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepositoryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the root folder within the repository. Set to `/` for the top level.
+func (o WorkspaceAzureDevopsRepoPtrOutput) RootFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceAzureDevopsRepo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RootFolder
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceGithubRepo struct {
+	// Specifies the GitHub account name.
+	AccountName string `pulumi:"accountName"`
+	// Specifies the collaboration branch of the repository to get code from.
+	BranchName string `pulumi:"branchName"`
+	// Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+	GitUrl *string `pulumi:"gitUrl"`
+	// Specifies the name of the git repository.
+	RepositoryName string `pulumi:"repositoryName"`
+	// Specifies the root folder within the repository. Set to `/` for the top level.
+	RootFolder string `pulumi:"rootFolder"`
+}
+
+// WorkspaceGithubRepoInput is an input type that accepts WorkspaceGithubRepoArgs and WorkspaceGithubRepoOutput values.
+// You can construct a concrete instance of `WorkspaceGithubRepoInput` via:
+//
+//          WorkspaceGithubRepoArgs{...}
+type WorkspaceGithubRepoInput interface {
+	pulumi.Input
+
+	ToWorkspaceGithubRepoOutput() WorkspaceGithubRepoOutput
+	ToWorkspaceGithubRepoOutputWithContext(context.Context) WorkspaceGithubRepoOutput
+}
+
+type WorkspaceGithubRepoArgs struct {
+	// Specifies the GitHub account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Specifies the collaboration branch of the repository to get code from.
+	BranchName pulumi.StringInput `pulumi:"branchName"`
+	// Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+	GitUrl pulumi.StringPtrInput `pulumi:"gitUrl"`
+	// Specifies the name of the git repository.
+	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+	// Specifies the root folder within the repository. Set to `/` for the top level.
+	RootFolder pulumi.StringInput `pulumi:"rootFolder"`
+}
+
+func (WorkspaceGithubRepoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceGithubRepo)(nil)).Elem()
+}
+
+func (i WorkspaceGithubRepoArgs) ToWorkspaceGithubRepoOutput() WorkspaceGithubRepoOutput {
+	return i.ToWorkspaceGithubRepoOutputWithContext(context.Background())
+}
+
+func (i WorkspaceGithubRepoArgs) ToWorkspaceGithubRepoOutputWithContext(ctx context.Context) WorkspaceGithubRepoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceGithubRepoOutput)
+}
+
+func (i WorkspaceGithubRepoArgs) ToWorkspaceGithubRepoPtrOutput() WorkspaceGithubRepoPtrOutput {
+	return i.ToWorkspaceGithubRepoPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceGithubRepoArgs) ToWorkspaceGithubRepoPtrOutputWithContext(ctx context.Context) WorkspaceGithubRepoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceGithubRepoOutput).ToWorkspaceGithubRepoPtrOutputWithContext(ctx)
+}
+
+// WorkspaceGithubRepoPtrInput is an input type that accepts WorkspaceGithubRepoArgs, WorkspaceGithubRepoPtr and WorkspaceGithubRepoPtrOutput values.
+// You can construct a concrete instance of `WorkspaceGithubRepoPtrInput` via:
+//
+//          WorkspaceGithubRepoArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceGithubRepoPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceGithubRepoPtrOutput() WorkspaceGithubRepoPtrOutput
+	ToWorkspaceGithubRepoPtrOutputWithContext(context.Context) WorkspaceGithubRepoPtrOutput
+}
+
+type workspaceGithubRepoPtrType WorkspaceGithubRepoArgs
+
+func WorkspaceGithubRepoPtr(v *WorkspaceGithubRepoArgs) WorkspaceGithubRepoPtrInput {
+	return (*workspaceGithubRepoPtrType)(v)
+}
+
+func (*workspaceGithubRepoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceGithubRepo)(nil)).Elem()
+}
+
+func (i *workspaceGithubRepoPtrType) ToWorkspaceGithubRepoPtrOutput() WorkspaceGithubRepoPtrOutput {
+	return i.ToWorkspaceGithubRepoPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceGithubRepoPtrType) ToWorkspaceGithubRepoPtrOutputWithContext(ctx context.Context) WorkspaceGithubRepoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceGithubRepoPtrOutput)
+}
+
+type WorkspaceGithubRepoOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceGithubRepoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceGithubRepo)(nil)).Elem()
+}
+
+func (o WorkspaceGithubRepoOutput) ToWorkspaceGithubRepoOutput() WorkspaceGithubRepoOutput {
+	return o
+}
+
+func (o WorkspaceGithubRepoOutput) ToWorkspaceGithubRepoOutputWithContext(ctx context.Context) WorkspaceGithubRepoOutput {
+	return o
+}
+
+func (o WorkspaceGithubRepoOutput) ToWorkspaceGithubRepoPtrOutput() WorkspaceGithubRepoPtrOutput {
+	return o.ToWorkspaceGithubRepoPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceGithubRepoOutput) ToWorkspaceGithubRepoPtrOutputWithContext(ctx context.Context) WorkspaceGithubRepoPtrOutput {
+	return o.ApplyT(func(v WorkspaceGithubRepo) *WorkspaceGithubRepo {
+		return &v
+	}).(WorkspaceGithubRepoPtrOutput)
+}
+
+// Specifies the GitHub account name.
+func (o WorkspaceGithubRepoOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceGithubRepo) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// Specifies the collaboration branch of the repository to get code from.
+func (o WorkspaceGithubRepoOutput) BranchName() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceGithubRepo) string { return v.BranchName }).(pulumi.StringOutput)
+}
+
+// Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+func (o WorkspaceGithubRepoOutput) GitUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceGithubRepo) *string { return v.GitUrl }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the git repository.
+func (o WorkspaceGithubRepoOutput) RepositoryName() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceGithubRepo) string { return v.RepositoryName }).(pulumi.StringOutput)
+}
+
+// Specifies the root folder within the repository. Set to `/` for the top level.
+func (o WorkspaceGithubRepoOutput) RootFolder() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceGithubRepo) string { return v.RootFolder }).(pulumi.StringOutput)
+}
+
+type WorkspaceGithubRepoPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceGithubRepoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceGithubRepo)(nil)).Elem()
+}
+
+func (o WorkspaceGithubRepoPtrOutput) ToWorkspaceGithubRepoPtrOutput() WorkspaceGithubRepoPtrOutput {
+	return o
+}
+
+func (o WorkspaceGithubRepoPtrOutput) ToWorkspaceGithubRepoPtrOutputWithContext(ctx context.Context) WorkspaceGithubRepoPtrOutput {
+	return o
+}
+
+func (o WorkspaceGithubRepoPtrOutput) Elem() WorkspaceGithubRepoOutput {
+	return o.ApplyT(func(v *WorkspaceGithubRepo) WorkspaceGithubRepo { return *v }).(WorkspaceGithubRepoOutput)
+}
+
+// Specifies the GitHub account name.
+func (o WorkspaceGithubRepoPtrOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceGithubRepo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the collaboration branch of the repository to get code from.
+func (o WorkspaceGithubRepoPtrOutput) BranchName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceGithubRepo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BranchName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+func (o WorkspaceGithubRepoPtrOutput) GitUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceGithubRepo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GitUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the git repository.
+func (o WorkspaceGithubRepoPtrOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceGithubRepo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepositoryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the root folder within the repository. Set to `/` for the top level.
+func (o WorkspaceGithubRepoPtrOutput) RootFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceGithubRepo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RootFolder
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkspaceIdentity struct {
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
 	PrincipalId *string `pulumi:"principalId"`
@@ -886,6 +1300,10 @@ func init() {
 	pulumi.RegisterOutputType(SqlPoolRestorePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceAadAdminOutput{})
 	pulumi.RegisterOutputType(WorkspaceAadAdminPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceAzureDevopsRepoOutput{})
+	pulumi.RegisterOutputType(WorkspaceAzureDevopsRepoPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceGithubRepoOutput{})
+	pulumi.RegisterOutputType(WorkspaceGithubRepoPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityArrayOutput{})
 }

@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
  *     authorizations: [{
  *         principalId: "00000000-0000-0000-0000-000000000000",
  *         roleDefinitionId: contributor.then(contributor => contributor.roleDefinitionId),
+ *         principalDisplayName: "Tier 1 Support",
  *     }],
  * });
  * ```

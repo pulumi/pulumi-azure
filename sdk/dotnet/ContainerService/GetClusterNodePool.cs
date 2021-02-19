@@ -160,6 +160,10 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
+        /// A `upgrade_settings` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterNodePoolUpgradeSettingResult> UpgradeSettings;
+        /// <summary>
         /// The size of the Virtual Machines used in the Virtual Machine Scale Set backing this Node Pool.
         /// </summary>
         public readonly string VmSize;
@@ -216,6 +220,8 @@ namespace Pulumi.Azure.ContainerService
 
             ImmutableDictionary<string, string> tags,
 
+            ImmutableArray<Outputs.GetClusterNodePoolUpgradeSettingResult> upgradeSettings,
+
             string vmSize,
 
             string vnetSubnetId)
@@ -243,6 +249,7 @@ namespace Pulumi.Azure.ContainerService
             ResourceGroupName = resourceGroupName;
             SpotMaxPrice = spotMaxPrice;
             Tags = tags;
+            UpgradeSettings = upgradeSettings;
             VmSize = vmSize;
             VnetSubnetId = vnetSubnetId;
         }

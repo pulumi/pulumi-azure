@@ -42,6 +42,7 @@ class Definition(pulumi.CustomResource):
             authorizations=[azure.lighthouse.DefinitionAuthorizationArgs(
                 principal_id="00000000-0000-0000-0000-000000000000",
                 role_definition_id=contributor.role_definition_id,
+                principal_display_name="Tier 1 Support",
             )])
         ```
 

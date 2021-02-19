@@ -33,6 +33,7 @@ __all__ = [
     'KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity',
     'KubernetesClusterAutoScalerProfile',
     'KubernetesClusterDefaultNodePool',
+    'KubernetesClusterDefaultNodePoolUpgradeSettings',
     'KubernetesClusterIdentity',
     'KubernetesClusterKubeAdminConfig',
     'KubernetesClusterKubeConfig',
@@ -41,6 +42,7 @@ __all__ = [
     'KubernetesClusterLinuxProfileSshKey',
     'KubernetesClusterNetworkProfile',
     'KubernetesClusterNetworkProfileLoadBalancerProfile',
+    'KubernetesClusterNodePoolUpgradeSettings',
     'KubernetesClusterRoleBasedAccessControl',
     'KubernetesClusterRoleBasedAccessControlAzureActiveDirectory',
     'KubernetesClusterServicePrincipal',
@@ -50,6 +52,7 @@ __all__ = [
     'RegistryNetworkRuleSetVirtualNetwork',
     'RegistryRetentionPolicy',
     'RegistryTrustPolicy',
+    'GetClusterNodePoolUpgradeSettingResult',
     'GetKubernetesClusterAddonProfileResult',
     'GetKubernetesClusterAddonProfileAzurePolicyResult',
     'GetKubernetesClusterAddonProfileHttpApplicationRoutingResult',
@@ -57,6 +60,7 @@ __all__ = [
     'GetKubernetesClusterAddonProfileOmsAgentResult',
     'GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityResult',
     'GetKubernetesClusterAgentPoolProfileResult',
+    'GetKubernetesClusterAgentPoolProfileUpgradeSettingResult',
     'GetKubernetesClusterIdentityResult',
     'GetKubernetesClusterKubeAdminConfigResult',
     'GetKubernetesClusterKubeConfigResult',
@@ -1214,7 +1218,9 @@ class KubernetesClusterAutoScalerProfile(dict):
                  scale_down_unneeded: Optional[str] = None,
                  scale_down_unready: Optional[str] = None,
                  scale_down_utilization_threshold: Optional[str] = None,
-                 scan_interval: Optional[str] = None):
+                 scan_interval: Optional[str] = None,
+                 skip_nodes_with_local_storage: Optional[bool] = None,
+                 skip_nodes_with_system_pods: Optional[bool] = None):
         """
         :param bool balance_similar_node_groups: Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
         :param str max_graceful_termination_sec: Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
@@ -1226,6 +1232,8 @@ class KubernetesClusterAutoScalerProfile(dict):
         :param str scale_down_unready: How long an unready node should be unneeded before it is eligible for scale down. Defaults to `20m`.
         :param str scale_down_utilization_threshold: Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
         :param str scan_interval: How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
+        :param bool skip_nodes_with_local_storage: If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
+        :param bool skip_nodes_with_system_pods: If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
         """
         if balance_similar_node_groups is not None:
             pulumi.set(__self__, "balance_similar_node_groups", balance_similar_node_groups)
@@ -1247,6 +1255,10 @@ class KubernetesClusterAutoScalerProfile(dict):
             pulumi.set(__self__, "scale_down_utilization_threshold", scale_down_utilization_threshold)
         if scan_interval is not None:
             pulumi.set(__self__, "scan_interval", scan_interval)
+        if skip_nodes_with_local_storage is not None:
+            pulumi.set(__self__, "skip_nodes_with_local_storage", skip_nodes_with_local_storage)
+        if skip_nodes_with_system_pods is not None:
+            pulumi.set(__self__, "skip_nodes_with_system_pods", skip_nodes_with_system_pods)
 
     @property
     @pulumi.getter(name="balanceSimilarNodeGroups")
@@ -1328,6 +1340,22 @@ class KubernetesClusterAutoScalerProfile(dict):
         """
         return pulumi.get(self, "scan_interval")
 
+    @property
+    @pulumi.getter(name="skipNodesWithLocalStorage")
+    def skip_nodes_with_local_storage(self) -> Optional[bool]:
+        """
+        If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
+        """
+        return pulumi.get(self, "skip_nodes_with_local_storage")
+
+    @property
+    @pulumi.getter(name="skipNodesWithSystemPods")
+    def skip_nodes_with_system_pods(self) -> Optional[bool]:
+        """
+        If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+        """
+        return pulumi.get(self, "skip_nodes_with_system_pods")
+
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
@@ -1354,6 +1382,7 @@ class KubernetesClusterDefaultNodePool(dict):
                  proximity_placement_group_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  type: Optional[str] = None,
+                 upgrade_settings: Optional['outputs.KubernetesClusterDefaultNodePoolUpgradeSettings'] = None,
                  vnet_subnet_id: Optional[str] = None):
         """
         :param str name: The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
@@ -1373,6 +1402,7 @@ class KubernetesClusterDefaultNodePool(dict):
         :param str os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
         :param Mapping[str, str] tags: A mapping of tags to assign to the Node Pool.
         :param str type: The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+        :param 'KubernetesClusterDefaultNodePoolUpgradeSettingsArgs' upgrade_settings: A `upgrade_settings` block as documented below.
         :param str vnet_subnet_id: The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
@@ -1411,6 +1441,8 @@ class KubernetesClusterDefaultNodePool(dict):
             pulumi.set(__self__, "tags", tags)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if upgrade_settings is not None:
+            pulumi.set(__self__, "upgrade_settings", upgrade_settings)
         if vnet_subnet_id is not None:
             pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
 
@@ -1561,12 +1593,41 @@ class KubernetesClusterDefaultNodePool(dict):
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="upgradeSettings")
+    def upgrade_settings(self) -> Optional['outputs.KubernetesClusterDefaultNodePoolUpgradeSettings']:
+        """
+        A `upgrade_settings` block as documented below.
+        """
+        return pulumi.get(self, "upgrade_settings")
+
+    @property
     @pulumi.getter(name="vnetSubnetId")
     def vnet_subnet_id(self) -> Optional[str]:
         """
         The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vnet_subnet_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
+    def __init__(__self__, *,
+                 max_surge: str):
+        """
+        :param str max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        """
+        pulumi.set(__self__, "max_surge", max_surge)
+
+    @property
+    @pulumi.getter(name="maxSurge")
+    def max_surge(self) -> str:
+        """
+        The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        """
+        return pulumi.get(self, "max_surge")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2104,6 +2165,27 @@ class KubernetesClusterNetworkProfileLoadBalancerProfile(dict):
 
 
 @pulumi.output_type
+class KubernetesClusterNodePoolUpgradeSettings(dict):
+    def __init__(__self__, *,
+                 max_surge: str):
+        """
+        :param str max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        """
+        pulumi.set(__self__, "max_surge", max_surge)
+
+    @property
+    @pulumi.getter(name="maxSurge")
+    def max_surge(self) -> str:
+        """
+        The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        """
+        return pulumi.get(self, "max_surge")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class KubernetesClusterRoleBasedAccessControl(dict):
     def __init__(__self__, *,
                  enabled: bool,
@@ -2450,6 +2532,24 @@ class RegistryTrustPolicy(dict):
 
 
 @pulumi.output_type
+class GetClusterNodePoolUpgradeSettingResult(dict):
+    def __init__(__self__, *,
+                 max_surge: str):
+        """
+        :param str max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        """
+        pulumi.set(__self__, "max_surge", max_surge)
+
+    @property
+    @pulumi.getter(name="maxSurge")
+    def max_surge(self) -> str:
+        """
+        The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        """
+        return pulumi.get(self, "max_surge")
+
+
+@pulumi.output_type
 class GetKubernetesClusterAddonProfileResult(dict):
     def __init__(__self__, *,
                  azure_policies: Sequence['outputs.GetKubernetesClusterAddonProfileAzurePolicyResult'],
@@ -2663,6 +2763,7 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
                  os_type: str,
                  tags: Mapping[str, str],
                  type: str,
+                 upgrade_settings: Sequence['outputs.GetKubernetesClusterAgentPoolProfileUpgradeSettingResult'],
                  vm_size: str,
                  vnet_subnet_id: str):
         """
@@ -2678,6 +2779,7 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
         :param str os_type: The Operating System used for the Agents.
         :param Mapping[str, str] tags: A mapping of tags to assign to the resource.
         :param str type: The type of identity used for the managed cluster.
+        :param Sequence['GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param str vm_size: The size of each VM in the Agent Pool (e.g. `Standard_F1`).
         :param str vnet_subnet_id: The ID of the Subnet where the Agents in the Pool are provisioned.
         """
@@ -2696,6 +2798,7 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
         pulumi.set(__self__, "os_type", os_type)
         pulumi.set(__self__, "tags", tags)
         pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "upgrade_settings", upgrade_settings)
         pulumi.set(__self__, "vm_size", vm_size)
         pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
 
@@ -2811,6 +2914,14 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="upgradeSettings")
+    def upgrade_settings(self) -> Sequence['outputs.GetKubernetesClusterAgentPoolProfileUpgradeSettingResult']:
+        """
+        A `upgrade_settings` block as documented below.
+        """
+        return pulumi.get(self, "upgrade_settings")
+
+    @property
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> str:
         """
@@ -2825,6 +2936,24 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
         The ID of the Subnet where the Agents in the Pool are provisioned.
         """
         return pulumi.get(self, "vnet_subnet_id")
+
+
+@pulumi.output_type
+class GetKubernetesClusterAgentPoolProfileUpgradeSettingResult(dict):
+    def __init__(__self__, *,
+                 max_surge: str):
+        """
+        :param str max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        """
+        pulumi.set(__self__, "max_surge", max_surge)
+
+    @property
+    @pulumi.getter(name="maxSurge")
+    def max_surge(self) -> str:
+        """
+        The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        """
+        return pulumi.get(self, "max_surge")
 
 
 @pulumi.output_type

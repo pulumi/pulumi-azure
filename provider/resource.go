@@ -1895,6 +1895,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_firewall_policy":             {Tok: azureDataSource(azureNetwork, "getFirewallPolicy")},
 			"azurerm_ip_group":                    {Tok: azureDataSource(azureNetwork, "getIpGroup")},
 			"azurerm_traffic_manager_profile":     {Tok: azureDataSource(azureNetwork, "getTrafficManagerProfile")},
+			"azurerm_application_gateway":         {Tok: azureDataSource(azureNetwork, "getApplicationGateway")},
 			"azurerm_signalr_service":             {Tok: azureDataSource(azureSignalr, "getService")},
 			"azurerm_storage_container":           {Tok: azureDataSource(azureStorage, "getStorageContainer")},
 			"azurerm_storage_sync":                {Tok: azureDataSource(azureStorage, "getSync")},

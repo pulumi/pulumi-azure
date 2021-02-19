@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Lighthouse.Outputs
     public sealed class DefinitionAuthorization
     {
         /// <summary>
+        /// The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
+        /// </summary>
+        public readonly string? PrincipalDisplayName;
+        /// <summary>
         /// Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
         /// </summary>
         public readonly string PrincipalId;
@@ -24,10 +28,13 @@ namespace Pulumi.Azure.Lighthouse.Outputs
 
         [OutputConstructor]
         private DefinitionAuthorization(
+            string? principalDisplayName,
+
             string principalId,
 
             string roleDefinitionId)
         {
+            PrincipalDisplayName = principalDisplayName;
             PrincipalId = principalId;
             RoleDefinitionId = roleDefinitionId;
         }

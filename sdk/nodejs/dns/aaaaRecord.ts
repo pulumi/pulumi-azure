@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *     zoneName: exampleZone.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     ttl: 300,
+ *     records: ["2001:db8::1:0:0:1"],
  * });
  * ```
  * ### Alias Record)
@@ -88,7 +89,7 @@ export class AaaaRecord extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * List of IPv4 Addresses. Conflicts with `targetResourceId`.
+     * List of IPv6 Addresses. Conflicts with `targetResourceId`.
      */
     public readonly records!: pulumi.Output<string[] | undefined>;
     /**
@@ -170,7 +171,7 @@ export interface AaaaRecordState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * List of IPv4 Addresses. Conflicts with `targetResourceId`.
+     * List of IPv6 Addresses. Conflicts with `targetResourceId`.
      */
     readonly records?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -201,7 +202,7 @@ export interface AaaaRecordArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * List of IPv4 Addresses. Conflicts with `targetResourceId`.
+     * List of IPv6 Addresses. Conflicts with `targetResourceId`.
      */
     readonly records?: pulumi.Input<pulumi.Input<string>[]>;
     /**

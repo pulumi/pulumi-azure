@@ -20,6 +20,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 reservation_capcity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
@@ -58,9 +59,10 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] reservation_capcity_in_gb_per_day: The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
-        :param pulumi.Input[str] sku: Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
+        :param pulumi.Input[str] sku: Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
@@ -85,6 +87,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             __props__['internet_query_enabled'] = internet_query_enabled
             __props__['location'] = location
             __props__['name'] = name
+            __props__['reservation_capcity_in_gb_per_day'] = reservation_capcity_in_gb_per_day
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -112,6 +115,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             portal_url: Optional[pulumi.Input[str]] = None,
             primary_shared_key: Optional[pulumi.Input[str]] = None,
+            reservation_capcity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             retention_in_days: Optional[pulumi.Input[int]] = None,
             secondary_shared_key: Optional[pulumi.Input[str]] = None,
@@ -130,10 +134,11 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
+        :param pulumi.Input[int] reservation_capcity_in_gb_per_day: The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
         :param pulumi.Input[str] secondary_shared_key: The Secondary shared key for the Log Analytics Workspace.
-        :param pulumi.Input[str] sku: Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
+        :param pulumi.Input[str] sku: Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] workspace_id: The Workspace (or Customer) ID for the Log Analytics Workspace.
         """
@@ -148,6 +153,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         __props__["name"] = name
         __props__["portal_url"] = portal_url
         __props__["primary_shared_key"] = primary_shared_key
+        __props__["reservation_capcity_in_gb_per_day"] = reservation_capcity_in_gb_per_day
         __props__["resource_group_name"] = resource_group_name
         __props__["retention_in_days"] = retention_in_days
         __props__["secondary_shared_key"] = secondary_shared_key
@@ -207,6 +213,14 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         return pulumi.get(self, "primary_shared_key")
 
     @property
+    @pulumi.getter(name="reservationCapcityInGbPerDay")
+    def reservation_capcity_in_gb_per_day(self) -> pulumi.Output[Optional[int]]:
+        """
+        The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        """
+        return pulumi.get(self, "reservation_capcity_in_gb_per_day")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
@@ -234,7 +248,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
+        Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
         """
         return pulumi.get(self, "sku")
 

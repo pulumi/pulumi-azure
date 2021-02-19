@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetClusterNodePoolResult',
@@ -19,7 +20,7 @@ class GetClusterNodePoolResult:
     """
     A collection of values returned by getClusterNodePool.
     """
-    def __init__(__self__, availability_zones=None, enable_auto_scaling=None, enable_node_public_ip=None, eviction_policy=None, id=None, kubernetes_cluster_name=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_count=None, node_labels=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, priority=None, proximity_placement_group_id=None, resource_group_name=None, spot_max_price=None, tags=None, vm_size=None, vnet_subnet_id=None):
+    def __init__(__self__, availability_zones=None, enable_auto_scaling=None, enable_node_public_ip=None, eviction_policy=None, id=None, kubernetes_cluster_name=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_count=None, node_labels=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, priority=None, proximity_placement_group_id=None, resource_group_name=None, spot_max_price=None, tags=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -89,6 +90,9 @@ class GetClusterNodePoolResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if upgrade_settings and not isinstance(upgrade_settings, list):
+            raise TypeError("Expected argument 'upgrade_settings' to be a list")
+        pulumi.set(__self__, "upgrade_settings", upgrade_settings)
         if vm_size and not isinstance(vm_size, str):
             raise TypeError("Expected argument 'vm_size' to be a str")
         pulumi.set(__self__, "vm_size", vm_size)
@@ -272,6 +276,14 @@ class GetClusterNodePoolResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="upgradeSettings")
+    def upgrade_settings(self) -> Sequence['outputs.GetClusterNodePoolUpgradeSettingResult']:
+        """
+        A `upgrade_settings` block as documented below.
+        """
+        return pulumi.get(self, "upgrade_settings")
+
+    @property
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> str:
         """
@@ -317,6 +329,7 @@ class AwaitableGetClusterNodePoolResult(GetClusterNodePoolResult):
             resource_group_name=self.resource_group_name,
             spot_max_price=self.spot_max_price,
             tags=self.tags,
+            upgrade_settings=self.upgrade_settings,
             vm_size=self.vm_size,
             vnet_subnet_id=self.vnet_subnet_id)
 
@@ -379,5 +392,6 @@ def get_cluster_node_pool(kubernetes_cluster_name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         spot_max_price=__ret__.spot_max_price,
         tags=__ret__.tags,
+        upgrade_settings=__ret__.upgrade_settings,
         vm_size=__ret__.vm_size,
         vnet_subnet_id=__ret__.vnet_subnet_id)

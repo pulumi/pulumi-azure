@@ -143,6 +143,10 @@ export interface GetClusterNodePoolResult {
      */
     readonly tags: {[key: string]: string};
     /**
+     * A `upgradeSettings` block as documented below.
+     */
+    readonly upgradeSettings: outputs.containerservice.GetClusterNodePoolUpgradeSetting[];
+    /**
      * The size of the Virtual Machines used in the Virtual Machine Scale Set backing this Node Pool.
      */
     readonly vmSize: string;

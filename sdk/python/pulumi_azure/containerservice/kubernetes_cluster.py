@@ -20,6 +20,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  addon_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']]] = None,
                  api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_scaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']]] = None,
+                 automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
                  default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
@@ -87,6 +88,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']] addon_profile: A `addon_profile` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to whitelist for incoming traffic to the masters.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
+        :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `none`, `patch`, `rapid`, and `stable`. The default value is `none`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -126,6 +128,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__['addon_profile'] = addon_profile
             __props__['api_server_authorized_ip_ranges'] = api_server_authorized_ip_ranges
             __props__['auto_scaler_profile'] = auto_scaler_profile
+            __props__['automatic_channel_upgrade'] = automatic_channel_upgrade
             if default_node_pool is None and not opts.urn:
                 raise TypeError("Missing required property 'default_node_pool'")
             __props__['default_node_pool'] = default_node_pool
@@ -175,6 +178,7 @@ class KubernetesCluster(pulumi.CustomResource):
             addon_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']]] = None,
             api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             auto_scaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']]] = None,
+            automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
             default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
             dns_prefix: Optional[pulumi.Input[str]] = None,
@@ -212,6 +216,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']] addon_profile: A `addon_profile` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to whitelist for incoming traffic to the masters.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
+        :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `none`, `patch`, `rapid`, and `stable`. The default value is `none`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -245,6 +250,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__["addon_profile"] = addon_profile
         __props__["api_server_authorized_ip_ranges"] = api_server_authorized_ip_ranges
         __props__["auto_scaler_profile"] = auto_scaler_profile
+        __props__["automatic_channel_upgrade"] = automatic_channel_upgrade
         __props__["default_node_pool"] = default_node_pool
         __props__["disk_encryption_set_id"] = disk_encryption_set_id
         __props__["dns_prefix"] = dns_prefix
@@ -297,6 +303,14 @@ class KubernetesCluster(pulumi.CustomResource):
         A `auto_scaler_profile` block as defined below.
         """
         return pulumi.get(self, "auto_scaler_profile")
+
+    @property
+    @pulumi.getter(name="automaticChannelUpgrade")
+    def automatic_channel_upgrade(self) -> pulumi.Output[Optional[str]]:
+        """
+        The upgrade channel for this Kubernetes Cluster. Possible values are `none`, `patch`, `rapid`, and `stable`. The default value is `none`.
+        """
+        return pulumi.get(self, "automatic_channel_upgrade")
 
     @property
     @pulumi.getter(name="defaultNodePool")

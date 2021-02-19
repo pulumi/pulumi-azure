@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -167,6 +168,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A `upgradeSettings` block as documented below.
+     */
+    public readonly upgradeSettings!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolUpgradeSettings | undefined>;
+    /**
      * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
      */
     public readonly vmSize!: pulumi.Output<string>;
@@ -210,6 +215,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
             inputs["spotMaxPrice"] = state ? state.spotMaxPrice : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["upgradeSettings"] = state ? state.upgradeSettings : undefined;
             inputs["vmSize"] = state ? state.vmSize : undefined;
             inputs["vnetSubnetId"] = state ? state.vnetSubnetId : undefined;
         } else {
@@ -242,6 +248,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
             inputs["spotMaxPrice"] = args ? args.spotMaxPrice : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["upgradeSettings"] = args ? args.upgradeSettings : undefined;
             inputs["vmSize"] = args ? args.vmSize : undefined;
             inputs["vnetSubnetId"] = args ? args.vnetSubnetId : undefined;
         }
@@ -345,6 +352,10 @@ export interface KubernetesClusterNodePoolState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * A `upgradeSettings` block as documented below.
+     */
+    readonly upgradeSettings?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolUpgradeSettings>;
+    /**
      * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
      */
     readonly vmSize?: pulumi.Input<string>;
@@ -446,6 +457,10 @@ export interface KubernetesClusterNodePoolArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `upgradeSettings` block as documented below.
+     */
+    readonly upgradeSettings?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolUpgradeSettings>;
     /**
      * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
      */

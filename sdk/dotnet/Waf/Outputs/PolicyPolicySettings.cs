@@ -18,6 +18,9 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly bool? Enabled;
         public readonly int? FileUploadLimitInMb;
+        /// <summary>
+        /// The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `128`. Defaults to `128`.
+        /// </summary>
         public readonly int? MaxRequestBodySizeInKb;
         /// <summary>
         /// Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.

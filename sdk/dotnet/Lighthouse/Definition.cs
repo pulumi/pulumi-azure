@@ -36,6 +36,7 @@ namespace Pulumi.Azure.Lighthouse
     ///                 {
     ///                     PrincipalId = "00000000-0000-0000-0000-000000000000",
     ///                     RoleDefinitionId = contributor.Apply(contributor =&gt; contributor.RoleDefinitionId),
+    ///                     PrincipalDisplayName = "Tier 1 Support",
     ///                 },
     ///             },
     ///         });

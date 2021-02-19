@@ -464,6 +464,8 @@ func (o GetResourcesResourceArrayOutput) Index(i pulumi.IntInput) GetResourcesRe
 type GetSubscriptionsSubscription struct {
 	// The subscription display name.
 	DisplayName string `pulumi:"displayName"`
+	// The ID of this subscription.
+	Id string `pulumi:"id"`
 	// The subscription location placement ID.
 	LocationPlacementId string `pulumi:"locationPlacementId"`
 	// The subscription quota ID.
@@ -494,6 +496,8 @@ type GetSubscriptionsSubscriptionInput interface {
 type GetSubscriptionsSubscriptionArgs struct {
 	// The subscription display name.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The ID of this subscription.
+	Id pulumi.StringInput `pulumi:"id"`
 	// The subscription location placement ID.
 	LocationPlacementId pulumi.StringInput `pulumi:"locationPlacementId"`
 	// The subscription quota ID.
@@ -564,6 +568,11 @@ func (o GetSubscriptionsSubscriptionOutput) ToGetSubscriptionsSubscriptionOutput
 // The subscription display name.
 func (o GetSubscriptionsSubscriptionOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSubscriptionsSubscription) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The ID of this subscription.
+func (o GetSubscriptionsSubscriptionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubscriptionsSubscription) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The subscription location placement ID.

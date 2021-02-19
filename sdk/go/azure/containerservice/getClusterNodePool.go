@@ -98,6 +98,8 @@ type GetClusterNodePoolResult struct {
 	SpotMaxPrice float64 `pulumi:"spotMaxPrice"`
 	// A mapping of tags assigned to the Kubernetes Cluster Node Pool.
 	Tags map[string]string `pulumi:"tags"`
+	// A `upgradeSettings` block as documented below.
+	UpgradeSettings []GetClusterNodePoolUpgradeSetting `pulumi:"upgradeSettings"`
 	// The size of the Virtual Machines used in the Virtual Machine Scale Set backing this Node Pool.
 	VmSize string `pulumi:"vmSize"`
 	// The ID of the Subnet in which this Node Pool exists.

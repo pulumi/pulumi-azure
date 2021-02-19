@@ -72,6 +72,18 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("scanInterval")]
         public Input<string>? ScanInterval { get; set; }
 
+        /// <summary>
+        /// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
+        /// </summary>
+        [Input("skipNodesWithLocalStorage")]
+        public Input<bool>? SkipNodesWithLocalStorage { get; set; }
+
+        /// <summary>
+        /// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+        /// </summary>
+        [Input("skipNodesWithSystemPods")]
+        public Input<bool>? SkipNodesWithSystemPods { get; set; }
+
         public KubernetesClusterAutoScalerProfileGetArgs()
         {
         }

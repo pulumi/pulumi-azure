@@ -415,6 +415,7 @@ class PolicyPolicySettingsArgs:
                  request_body_check: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] enabled: Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
+        :param pulumi.Input[int] max_request_body_size_in_kb: The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `128`. Defaults to `128`.
         :param pulumi.Input[str] mode: Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
         :param pulumi.Input[bool] request_body_check: Is Request Body Inspection enabled? Defaults to `true`.
         """
@@ -453,6 +454,9 @@ class PolicyPolicySettingsArgs:
     @property
     @pulumi.getter(name="maxRequestBodySizeInKb")
     def max_request_body_size_in_kb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `128`. Defaults to `128`.
+        """
         return pulumi.get(self, "max_request_body_size_in_kb")
 
     @max_request_body_size_in_kb.setter
