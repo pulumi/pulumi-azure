@@ -63,6 +63,7 @@ __all__ = [
     'ServiceSignIn',
     'ServiceSignUp',
     'ServiceSignUpTermsOfService',
+    'ServiceTenantAccess',
     'ServiceVirtualNetworkConfiguration',
     'GetApiSubscriptionKeyParameterNameResult',
     'GetServiceAdditionalLocationResult',
@@ -2529,7 +2530,7 @@ class ServiceIdentity(dict):
         """
         :param Sequence[str] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
-        :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
+        :param str tenant_id: The identifier for the tenant access information contract.
         :param str type: Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         if identity_ids is not None:
@@ -2561,7 +2562,7 @@ class ServiceIdentity(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         """
-        The Tenant ID associated with this Managed Service Identity.
+        The identifier for the tenant access information contract.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -2931,6 +2932,63 @@ class ServiceSignUpTermsOfService(dict):
         The Terms of Service which users are required to agree to in order to sign up.
         """
         return pulumi.get(self, "text")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceTenantAccess(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 primary_key: Optional[str] = None,
+                 secondary_key: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param bool enabled: Should the access to the management api be enabled?
+        :param str primary_key: Primary access key for the tenant access information contract.
+        :param str secondary_key: Secondary access key for the tenant access information contract.
+        :param str tenant_id: The identifier for the tenant access information contract.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
+        if secondary_key is not None:
+            pulumi.set(__self__, "secondary_key", secondary_key)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Should the access to the management api be enabled?
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[str]:
+        """
+        Primary access key for the tenant access information contract.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> Optional[str]:
+        """
+        Secondary access key for the tenant access information contract.
+        """
+        return pulumi.get(self, "secondary_key")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The identifier for the tenant access information contract.
+        """
+        return pulumi.get(self, "tenant_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

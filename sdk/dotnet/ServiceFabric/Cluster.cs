@@ -183,6 +183,9 @@ namespace Pulumi.Azure.ServiceFabric
         [Output("upgradeMode")]
         public Output<string> UpgradeMode { get; private set; } = null!;
 
+        [Output("upgradePolicy")]
+        public Output<Outputs.ClusterUpgradePolicy?> UpgradePolicy { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
         /// </summary>
@@ -385,6 +388,9 @@ namespace Pulumi.Azure.ServiceFabric
         [Input("upgradeMode", required: true)]
         public Input<string> UpgradeMode { get; set; } = null!;
 
+        [Input("upgradePolicy")]
+        public Input<Inputs.ClusterUpgradePolicyArgs>? UpgradePolicy { get; set; }
+
         /// <summary>
         /// Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
         /// </summary>
@@ -553,6 +559,9 @@ namespace Pulumi.Azure.ServiceFabric
         /// </summary>
         [Input("upgradeMode")]
         public Input<string>? UpgradeMode { get; set; }
+
+        [Input("upgradePolicy")]
+        public Input<Inputs.ClusterUpgradePolicyGetArgs>? UpgradePolicy { get; set; }
 
         /// <summary>
         /// Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.

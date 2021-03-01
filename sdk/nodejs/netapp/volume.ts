@@ -56,6 +56,12 @@ import * as utilities from "../utilities";
  *     subnetId: exampleSubnet.id,
  *     protocols: ["NFSv4.1"],
  *     storageQuotaInGb: 100,
+ *     dataProtectionReplication: {
+ *         endpointType: "dst",
+ *         remoteVolumeLocation: azurerm_resource_group.example_primary.location,
+ *         remoteVolumeResourceId: azurerm_netapp_volume.example_primary.id,
+ *         replicationFrequency: "_10minutely",
+ *     },
  * });
  * ```
  *
@@ -99,6 +105,7 @@ export class Volume extends pulumi.CustomResource {
      * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
     public readonly accountName!: pulumi.Output<string>;
+    public readonly dataProtectionReplication!: pulumi.Output<outputs.netapp.VolumeDataProtectionReplication | undefined>;
     /**
      * One or more `exportPolicyRule` block defined below.
      */
@@ -162,6 +169,7 @@ export class Volume extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VolumeState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
+            inputs["dataProtectionReplication"] = state ? state.dataProtectionReplication : undefined;
             inputs["exportPolicyRules"] = state ? state.exportPolicyRules : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["mountIpAddresses"] = state ? state.mountIpAddresses : undefined;
@@ -198,6 +206,7 @@ export class Volume extends pulumi.CustomResource {
                 throw new Error("Missing required property 'volumePath'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["dataProtectionReplication"] = args ? args.dataProtectionReplication : undefined;
             inputs["exportPolicyRules"] = args ? args.exportPolicyRules : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -226,6 +235,7 @@ export interface VolumeState {
      * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
     readonly accountName?: pulumi.Input<string>;
+    readonly dataProtectionReplication?: pulumi.Input<inputs.netapp.VolumeDataProtectionReplication>;
     /**
      * One or more `exportPolicyRule` block defined below.
      */
@@ -284,6 +294,7 @@ export interface VolumeArgs {
      * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
     readonly accountName: pulumi.Input<string>;
+    readonly dataProtectionReplication?: pulumi.Input<inputs.netapp.VolumeDataProtectionReplication>;
     /**
      * One or more `exportPolicyRule` block defined below.
      */

@@ -34,6 +34,39 @@ class WebTest(pulumi.CustomResource):
         """
         Manages an Application Insights WebTest.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location="West Europe",
+            resource_group_name=example_resource_group.name,
+            application_type="web")
+        example_web_test = azure.appinsights.WebTest("exampleWebTest",
+            location=example_insights.location,
+            resource_group_name=example_resource_group.name,
+            application_insights_id=example_insights.id,
+            kind="ping",
+            frequency=300,
+            timeout=60,
+            enabled=True,
+            geo_locations=[
+                "us-tx-sn1-azr",
+                "us-il-ch1-azr",
+            ],
+            configuration=\"\"\"<WebTest Name="WebTest1" Id="ABD48585-0831-40CB-9069-682EA6BB3583" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="" ResultsLocale="">
+          <Items>
+            <Request Method="GET" Guid="a5f10126-e4cd-570d-961c-cea43999a200" Version="1.1" Url="http://microsoft.com" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="200" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+          </Items>
+        </WebTest>
+        \"\"\")
+        pulumi.export("webtestId", example_web_test.id)
+        pulumi.export("webtestsSyntheticId", example_web_test.synthetic_monitor_id)
+        ```
+
         ## Import
 
         Application Insights Web Tests can be imported using the `resource id`, e.g.
@@ -45,17 +78,18 @@ class WebTest(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] configuration: An XML configuration specification for a WebTest.
+        :param pulumi.Input[str] configuration: An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
         :param pulumi.Input[str] description: Purpose/user defined descriptive test for this WebTest.
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
-        :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Default is `300`.
+        :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
-        :param pulumi.Input[str] kind: = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
-        :param pulumi.Input[str] location: The location of the resource group.
+        :param pulumi.Input[str] kind: = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
         :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a
                new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
         :param pulumi.Input[bool] retry_enabled: Allow for retries should this WebTest fail.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] timeout: Seconds until this WebTest will timeout and fail. Default is `30`.
         """
         if __name__ is not None:
@@ -131,17 +165,18 @@ class WebTest(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] configuration: An XML configuration specification for a WebTest.
+        :param pulumi.Input[str] configuration: An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
         :param pulumi.Input[str] description: Purpose/user defined descriptive test for this WebTest.
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
-        :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Default is `300`.
+        :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
-        :param pulumi.Input[str] kind: = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
-        :param pulumi.Input[str] location: The location of the resource group.
+        :param pulumi.Input[str] kind: = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
         :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a
                new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
         :param pulumi.Input[bool] retry_enabled: Allow for retries should this WebTest fail.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] timeout: Seconds until this WebTest will timeout and fail. Default is `30`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -176,7 +211,7 @@ class WebTest(pulumi.CustomResource):
     @pulumi.getter
     def configuration(self) -> pulumi.Output[str]:
         """
-        An XML configuration specification for a WebTest.
+        An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
         """
         return pulumi.get(self, "configuration")
 
@@ -200,7 +235,7 @@ class WebTest(pulumi.CustomResource):
     @pulumi.getter
     def frequency(self) -> pulumi.Output[Optional[int]]:
         """
-        Interval in seconds between test runs for this WebTest. Default is `300`.
+        Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
         """
         return pulumi.get(self, "frequency")
 
@@ -216,7 +251,7 @@ class WebTest(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[str]:
         """
-        = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+        = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kind")
 
@@ -224,7 +259,7 @@ class WebTest(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The location of the resource group.
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
         """
         return pulumi.get(self, "location")
 
@@ -240,6 +275,9 @@ class WebTest(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
+        """
+        The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
+        """
         return pulumi.get(self, "resource_group_name")
 
     @property
@@ -259,7 +297,7 @@ class WebTest(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Resource tags.
+        A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 

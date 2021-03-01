@@ -25,7 +25,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public Input<bool>? CacheEnabled { get; set; }
 
         /// <summary>
-        /// Defines cache behaviour in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+        /// Defines cache behaviour in relation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
         /// </summary>
         [Input("cacheQueryParameterStripDirective")]
         public Input<string>? CacheQueryParameterStripDirective { get; set; }

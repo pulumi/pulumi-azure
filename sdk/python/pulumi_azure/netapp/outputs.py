@@ -10,7 +10,9 @@ from .. import _utilities, _tables
 
 __all__ = [
     'AccountActiveDirectory',
+    'VolumeDataProtectionReplication',
     'VolumeExportPolicyRule',
+    'GetVolumeDataProtectionReplicationResult',
 ]
 
 @pulumi.output_type
@@ -85,6 +87,61 @@ class AccountActiveDirectory(dict):
         The Organizational Unit (OU) within the Active Directory Domain.
         """
         return pulumi.get(self, "organizational_unit")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VolumeDataProtectionReplication(dict):
+    def __init__(__self__, *,
+                 remote_volume_location: str,
+                 remote_volume_resource_id: str,
+                 replication_frequency: str,
+                 endpoint_type: Optional[str] = None):
+        """
+        :param str remote_volume_location: Primary volume's location.
+        :param str remote_volume_resource_id: Primary volume's resource id.
+        :param str replication_frequency: Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
+        :param str endpoint_type: The endpoint type, default value is `dst` for destination.
+        """
+        pulumi.set(__self__, "remote_volume_location", remote_volume_location)
+        pulumi.set(__self__, "remote_volume_resource_id", remote_volume_resource_id)
+        pulumi.set(__self__, "replication_frequency", replication_frequency)
+        if endpoint_type is not None:
+            pulumi.set(__self__, "endpoint_type", endpoint_type)
+
+    @property
+    @pulumi.getter(name="remoteVolumeLocation")
+    def remote_volume_location(self) -> str:
+        """
+        Primary volume's location.
+        """
+        return pulumi.get(self, "remote_volume_location")
+
+    @property
+    @pulumi.getter(name="remoteVolumeResourceId")
+    def remote_volume_resource_id(self) -> str:
+        """
+        Primary volume's resource id.
+        """
+        return pulumi.get(self, "remote_volume_resource_id")
+
+    @property
+    @pulumi.getter(name="replicationFrequency")
+    def replication_frequency(self) -> str:
+        """
+        Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
+        """
+        return pulumi.get(self, "replication_frequency")
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> Optional[str]:
+        """
+        The endpoint type, default value is `dst` for destination.
+        """
+        return pulumi.get(self, "endpoint_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -192,5 +249,38 @@ class VolumeExportPolicyRule(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GetVolumeDataProtectionReplicationResult(dict):
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 remote_volume_location: str,
+                 remote_volume_resource_id: str,
+                 replication_schedule: str):
+        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        pulumi.set(__self__, "remote_volume_location", remote_volume_location)
+        pulumi.set(__self__, "remote_volume_resource_id", remote_volume_resource_id)
+        pulumi.set(__self__, "replication_schedule", replication_schedule)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="remoteVolumeLocation")
+    def remote_volume_location(self) -> str:
+        return pulumi.get(self, "remote_volume_location")
+
+    @property
+    @pulumi.getter(name="remoteVolumeResourceId")
+    def remote_volume_resource_id(self) -> str:
+        return pulumi.get(self, "remote_volume_resource_id")
+
+    @property
+    @pulumi.getter(name="replicationSchedule")
+    def replication_schedule(self) -> str:
+        return pulumi.get(self, "replication_schedule")
 
 

@@ -24,6 +24,9 @@ __all__ = [
     'ClusterReverseProxyCertificate',
     'ClusterReverseProxyCertificateCommonNames',
     'ClusterReverseProxyCertificateCommonNamesCommonName',
+    'ClusterUpgradePolicy',
+    'ClusterUpgradePolicyDeltaHealthPolicy',
+    'ClusterUpgradePolicyHealthPolicy',
     'MeshApplicationService',
     'MeshApplicationServiceCodePackage',
     'MeshApplicationServiceCodePackageResources',
@@ -658,6 +661,176 @@ class ClusterReverseProxyCertificateCommonNamesCommonName(dict):
         The Issuer Thumbprint of the Certificate.
         """
         return pulumi.get(self, "certificate_issuer_thumbprint")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterUpgradePolicy(dict):
+    def __init__(__self__, *,
+                 delta_health_policy: Optional['outputs.ClusterUpgradePolicyDeltaHealthPolicy'] = None,
+                 force_restart_enabled: Optional[bool] = None,
+                 health_check_retry_timeout: Optional[str] = None,
+                 health_check_stable_duration: Optional[str] = None,
+                 health_check_wait_duration: Optional[str] = None,
+                 health_policy: Optional['outputs.ClusterUpgradePolicyHealthPolicy'] = None,
+                 upgrade_domain_timeout: Optional[str] = None,
+                 upgrade_replica_set_check_timeout: Optional[str] = None,
+                 upgrade_timeout: Optional[str] = None):
+        """
+        :param 'ClusterUpgradePolicyDeltaHealthPolicyArgs' delta_health_policy: A `delta_health_policy` block as defined below
+        :param str health_check_retry_timeout: Specifies the duration, in "hh:mm:ss" string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to `00:45:00`.
+        :param str health_check_stable_duration: Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to `00:01:00`.
+        :param str health_check_wait_duration: Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain. Defaults to `00:00:30`.
+        :param 'ClusterUpgradePolicyHealthPolicyArgs' health_policy: A `health_policy` block as defined below
+        :param str upgrade_domain_timeout: Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes to upgrade a single upgrade domain. After this period, the upgrade fails. Defaults to `02:00:00`.
+        :param str upgrade_replica_set_check_timeout: Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits for a replica set to reconfigure into a safe state, if it is not already in a safe state, before Service Fabric proceeds with the upgrade. Defaults to `10675199.02:48:05.4775807`.
+        :param str upgrade_timeout: Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes for the entire upgrade. After this period, the upgrade fails. Defaults to `12:00:00`.
+        """
+        if delta_health_policy is not None:
+            pulumi.set(__self__, "delta_health_policy", delta_health_policy)
+        if force_restart_enabled is not None:
+            pulumi.set(__self__, "force_restart_enabled", force_restart_enabled)
+        if health_check_retry_timeout is not None:
+            pulumi.set(__self__, "health_check_retry_timeout", health_check_retry_timeout)
+        if health_check_stable_duration is not None:
+            pulumi.set(__self__, "health_check_stable_duration", health_check_stable_duration)
+        if health_check_wait_duration is not None:
+            pulumi.set(__self__, "health_check_wait_duration", health_check_wait_duration)
+        if health_policy is not None:
+            pulumi.set(__self__, "health_policy", health_policy)
+        if upgrade_domain_timeout is not None:
+            pulumi.set(__self__, "upgrade_domain_timeout", upgrade_domain_timeout)
+        if upgrade_replica_set_check_timeout is not None:
+            pulumi.set(__self__, "upgrade_replica_set_check_timeout", upgrade_replica_set_check_timeout)
+        if upgrade_timeout is not None:
+            pulumi.set(__self__, "upgrade_timeout", upgrade_timeout)
+
+    @property
+    @pulumi.getter(name="deltaHealthPolicy")
+    def delta_health_policy(self) -> Optional['outputs.ClusterUpgradePolicyDeltaHealthPolicy']:
+        """
+        A `delta_health_policy` block as defined below
+        """
+        return pulumi.get(self, "delta_health_policy")
+
+    @property
+    @pulumi.getter(name="forceRestartEnabled")
+    def force_restart_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "force_restart_enabled")
+
+    @property
+    @pulumi.getter(name="healthCheckRetryTimeout")
+    def health_check_retry_timeout(self) -> Optional[str]:
+        """
+        Specifies the duration, in "hh:mm:ss" string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to `00:45:00`.
+        """
+        return pulumi.get(self, "health_check_retry_timeout")
+
+    @property
+    @pulumi.getter(name="healthCheckStableDuration")
+    def health_check_stable_duration(self) -> Optional[str]:
+        """
+        Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to `00:01:00`.
+        """
+        return pulumi.get(self, "health_check_stable_duration")
+
+    @property
+    @pulumi.getter(name="healthCheckWaitDuration")
+    def health_check_wait_duration(self) -> Optional[str]:
+        """
+        Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain. Defaults to `00:00:30`.
+        """
+        return pulumi.get(self, "health_check_wait_duration")
+
+    @property
+    @pulumi.getter(name="healthPolicy")
+    def health_policy(self) -> Optional['outputs.ClusterUpgradePolicyHealthPolicy']:
+        """
+        A `health_policy` block as defined below
+        """
+        return pulumi.get(self, "health_policy")
+
+    @property
+    @pulumi.getter(name="upgradeDomainTimeout")
+    def upgrade_domain_timeout(self) -> Optional[str]:
+        """
+        Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes to upgrade a single upgrade domain. After this period, the upgrade fails. Defaults to `02:00:00`.
+        """
+        return pulumi.get(self, "upgrade_domain_timeout")
+
+    @property
+    @pulumi.getter(name="upgradeReplicaSetCheckTimeout")
+    def upgrade_replica_set_check_timeout(self) -> Optional[str]:
+        """
+        Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits for a replica set to reconfigure into a safe state, if it is not already in a safe state, before Service Fabric proceeds with the upgrade. Defaults to `10675199.02:48:05.4775807`.
+        """
+        return pulumi.get(self, "upgrade_replica_set_check_timeout")
+
+    @property
+    @pulumi.getter(name="upgradeTimeout")
+    def upgrade_timeout(self) -> Optional[str]:
+        """
+        Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes for the entire upgrade. After this period, the upgrade fails. Defaults to `12:00:00`.
+        """
+        return pulumi.get(self, "upgrade_timeout")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterUpgradePolicyDeltaHealthPolicy(dict):
+    def __init__(__self__, *,
+                 max_delta_unhealthy_applications_percent: Optional[int] = None,
+                 max_delta_unhealthy_nodes_percent: Optional[int] = None,
+                 max_upgrade_domain_delta_unhealthy_nodes_percent: Optional[int] = None):
+        if max_delta_unhealthy_applications_percent is not None:
+            pulumi.set(__self__, "max_delta_unhealthy_applications_percent", max_delta_unhealthy_applications_percent)
+        if max_delta_unhealthy_nodes_percent is not None:
+            pulumi.set(__self__, "max_delta_unhealthy_nodes_percent", max_delta_unhealthy_nodes_percent)
+        if max_upgrade_domain_delta_unhealthy_nodes_percent is not None:
+            pulumi.set(__self__, "max_upgrade_domain_delta_unhealthy_nodes_percent", max_upgrade_domain_delta_unhealthy_nodes_percent)
+
+    @property
+    @pulumi.getter(name="maxDeltaUnhealthyApplicationsPercent")
+    def max_delta_unhealthy_applications_percent(self) -> Optional[int]:
+        return pulumi.get(self, "max_delta_unhealthy_applications_percent")
+
+    @property
+    @pulumi.getter(name="maxDeltaUnhealthyNodesPercent")
+    def max_delta_unhealthy_nodes_percent(self) -> Optional[int]:
+        return pulumi.get(self, "max_delta_unhealthy_nodes_percent")
+
+    @property
+    @pulumi.getter(name="maxUpgradeDomainDeltaUnhealthyNodesPercent")
+    def max_upgrade_domain_delta_unhealthy_nodes_percent(self) -> Optional[int]:
+        return pulumi.get(self, "max_upgrade_domain_delta_unhealthy_nodes_percent")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterUpgradePolicyHealthPolicy(dict):
+    def __init__(__self__, *,
+                 max_unhealthy_applications_percent: Optional[int] = None,
+                 max_unhealthy_nodes_percent: Optional[int] = None):
+        if max_unhealthy_applications_percent is not None:
+            pulumi.set(__self__, "max_unhealthy_applications_percent", max_unhealthy_applications_percent)
+        if max_unhealthy_nodes_percent is not None:
+            pulumi.set(__self__, "max_unhealthy_nodes_percent", max_unhealthy_nodes_percent)
+
+    @property
+    @pulumi.getter(name="maxUnhealthyApplicationsPercent")
+    def max_unhealthy_applications_percent(self) -> Optional[int]:
+        return pulumi.get(self, "max_unhealthy_applications_percent")
+
+    @property
+    @pulumi.getter(name="maxUnhealthyNodesPercent")
+    def max_unhealthy_nodes_percent(self) -> Optional[int]:
+        return pulumi.get(self, "max_unhealthy_nodes_percent")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

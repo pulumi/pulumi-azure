@@ -2053,6 +2053,584 @@ func (o ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput) Index(i 
 	}).(ClusterReverseProxyCertificateCommonNamesCommonNameOutput)
 }
 
+type ClusterUpgradePolicy struct {
+	// A `deltaHealthPolicy` block as defined below
+	DeltaHealthPolicy   *ClusterUpgradePolicyDeltaHealthPolicy `pulumi:"deltaHealthPolicy"`
+	ForceRestartEnabled *bool                                  `pulumi:"forceRestartEnabled"`
+	// Specifies the duration, in "hh:mm:ss" string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to `00:45:00`.
+	HealthCheckRetryTimeout *string `pulumi:"healthCheckRetryTimeout"`
+	// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to `00:01:00`.
+	HealthCheckStableDuration *string `pulumi:"healthCheckStableDuration"`
+	// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain. Defaults to `00:00:30`.
+	HealthCheckWaitDuration *string `pulumi:"healthCheckWaitDuration"`
+	// A `healthPolicy` block as defined below
+	HealthPolicy *ClusterUpgradePolicyHealthPolicy `pulumi:"healthPolicy"`
+	// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes to upgrade a single upgrade domain. After this period, the upgrade fails. Defaults to `02:00:00`.
+	UpgradeDomainTimeout *string `pulumi:"upgradeDomainTimeout"`
+	// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits for a replica set to reconfigure into a safe state, if it is not already in a safe state, before Service Fabric proceeds with the upgrade. Defaults to `10675199.02:48:05.4775807`.
+	UpgradeReplicaSetCheckTimeout *string `pulumi:"upgradeReplicaSetCheckTimeout"`
+	// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes for the entire upgrade. After this period, the upgrade fails. Defaults to `12:00:00`.
+	UpgradeTimeout *string `pulumi:"upgradeTimeout"`
+}
+
+// ClusterUpgradePolicyInput is an input type that accepts ClusterUpgradePolicyArgs and ClusterUpgradePolicyOutput values.
+// You can construct a concrete instance of `ClusterUpgradePolicyInput` via:
+//
+//          ClusterUpgradePolicyArgs{...}
+type ClusterUpgradePolicyInput interface {
+	pulumi.Input
+
+	ToClusterUpgradePolicyOutput() ClusterUpgradePolicyOutput
+	ToClusterUpgradePolicyOutputWithContext(context.Context) ClusterUpgradePolicyOutput
+}
+
+type ClusterUpgradePolicyArgs struct {
+	// A `deltaHealthPolicy` block as defined below
+	DeltaHealthPolicy   ClusterUpgradePolicyDeltaHealthPolicyPtrInput `pulumi:"deltaHealthPolicy"`
+	ForceRestartEnabled pulumi.BoolPtrInput                           `pulumi:"forceRestartEnabled"`
+	// Specifies the duration, in "hh:mm:ss" string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to `00:45:00`.
+	HealthCheckRetryTimeout pulumi.StringPtrInput `pulumi:"healthCheckRetryTimeout"`
+	// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to `00:01:00`.
+	HealthCheckStableDuration pulumi.StringPtrInput `pulumi:"healthCheckStableDuration"`
+	// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain. Defaults to `00:00:30`.
+	HealthCheckWaitDuration pulumi.StringPtrInput `pulumi:"healthCheckWaitDuration"`
+	// A `healthPolicy` block as defined below
+	HealthPolicy ClusterUpgradePolicyHealthPolicyPtrInput `pulumi:"healthPolicy"`
+	// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes to upgrade a single upgrade domain. After this period, the upgrade fails. Defaults to `02:00:00`.
+	UpgradeDomainTimeout pulumi.StringPtrInput `pulumi:"upgradeDomainTimeout"`
+	// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits for a replica set to reconfigure into a safe state, if it is not already in a safe state, before Service Fabric proceeds with the upgrade. Defaults to `10675199.02:48:05.4775807`.
+	UpgradeReplicaSetCheckTimeout pulumi.StringPtrInput `pulumi:"upgradeReplicaSetCheckTimeout"`
+	// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes for the entire upgrade. After this period, the upgrade fails. Defaults to `12:00:00`.
+	UpgradeTimeout pulumi.StringPtrInput `pulumi:"upgradeTimeout"`
+}
+
+func (ClusterUpgradePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUpgradePolicy)(nil)).Elem()
+}
+
+func (i ClusterUpgradePolicyArgs) ToClusterUpgradePolicyOutput() ClusterUpgradePolicyOutput {
+	return i.ToClusterUpgradePolicyOutputWithContext(context.Background())
+}
+
+func (i ClusterUpgradePolicyArgs) ToClusterUpgradePolicyOutputWithContext(ctx context.Context) ClusterUpgradePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyOutput)
+}
+
+func (i ClusterUpgradePolicyArgs) ToClusterUpgradePolicyPtrOutput() ClusterUpgradePolicyPtrOutput {
+	return i.ToClusterUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterUpgradePolicyArgs) ToClusterUpgradePolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyOutput).ToClusterUpgradePolicyPtrOutputWithContext(ctx)
+}
+
+// ClusterUpgradePolicyPtrInput is an input type that accepts ClusterUpgradePolicyArgs, ClusterUpgradePolicyPtr and ClusterUpgradePolicyPtrOutput values.
+// You can construct a concrete instance of `ClusterUpgradePolicyPtrInput` via:
+//
+//          ClusterUpgradePolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterUpgradePolicyPtrInput interface {
+	pulumi.Input
+
+	ToClusterUpgradePolicyPtrOutput() ClusterUpgradePolicyPtrOutput
+	ToClusterUpgradePolicyPtrOutputWithContext(context.Context) ClusterUpgradePolicyPtrOutput
+}
+
+type clusterUpgradePolicyPtrType ClusterUpgradePolicyArgs
+
+func ClusterUpgradePolicyPtr(v *ClusterUpgradePolicyArgs) ClusterUpgradePolicyPtrInput {
+	return (*clusterUpgradePolicyPtrType)(v)
+}
+
+func (*clusterUpgradePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterUpgradePolicy)(nil)).Elem()
+}
+
+func (i *clusterUpgradePolicyPtrType) ToClusterUpgradePolicyPtrOutput() ClusterUpgradePolicyPtrOutput {
+	return i.ToClusterUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterUpgradePolicyPtrType) ToClusterUpgradePolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyPtrOutput)
+}
+
+type ClusterUpgradePolicyOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUpgradePolicy)(nil)).Elem()
+}
+
+func (o ClusterUpgradePolicyOutput) ToClusterUpgradePolicyOutput() ClusterUpgradePolicyOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicyOutput) ToClusterUpgradePolicyOutputWithContext(ctx context.Context) ClusterUpgradePolicyOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicyOutput) ToClusterUpgradePolicyPtrOutput() ClusterUpgradePolicyPtrOutput {
+	return o.ToClusterUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterUpgradePolicyOutput) ToClusterUpgradePolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicy) *ClusterUpgradePolicy {
+		return &v
+	}).(ClusterUpgradePolicyPtrOutput)
+}
+
+// A `deltaHealthPolicy` block as defined below
+func (o ClusterUpgradePolicyOutput) DeltaHealthPolicy() ClusterUpgradePolicyDeltaHealthPolicyPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicy) *ClusterUpgradePolicyDeltaHealthPolicy { return v.DeltaHealthPolicy }).(ClusterUpgradePolicyDeltaHealthPolicyPtrOutput)
+}
+
+func (o ClusterUpgradePolicyOutput) ForceRestartEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicy) *bool { return v.ForceRestartEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the duration, in "hh:mm:ss" string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to `00:45:00`.
+func (o ClusterUpgradePolicyOutput) HealthCheckRetryTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicy) *string { return v.HealthCheckRetryTimeout }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to `00:01:00`.
+func (o ClusterUpgradePolicyOutput) HealthCheckStableDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicy) *string { return v.HealthCheckStableDuration }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain. Defaults to `00:00:30`.
+func (o ClusterUpgradePolicyOutput) HealthCheckWaitDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicy) *string { return v.HealthCheckWaitDuration }).(pulumi.StringPtrOutput)
+}
+
+// A `healthPolicy` block as defined below
+func (o ClusterUpgradePolicyOutput) HealthPolicy() ClusterUpgradePolicyHealthPolicyPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicy) *ClusterUpgradePolicyHealthPolicy { return v.HealthPolicy }).(ClusterUpgradePolicyHealthPolicyPtrOutput)
+}
+
+// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes to upgrade a single upgrade domain. After this period, the upgrade fails. Defaults to `02:00:00`.
+func (o ClusterUpgradePolicyOutput) UpgradeDomainTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicy) *string { return v.UpgradeDomainTimeout }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits for a replica set to reconfigure into a safe state, if it is not already in a safe state, before Service Fabric proceeds with the upgrade. Defaults to `10675199.02:48:05.4775807`.
+func (o ClusterUpgradePolicyOutput) UpgradeReplicaSetCheckTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicy) *string { return v.UpgradeReplicaSetCheckTimeout }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes for the entire upgrade. After this period, the upgrade fails. Defaults to `12:00:00`.
+func (o ClusterUpgradePolicyOutput) UpgradeTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicy) *string { return v.UpgradeTimeout }).(pulumi.StringPtrOutput)
+}
+
+type ClusterUpgradePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterUpgradePolicy)(nil)).Elem()
+}
+
+func (o ClusterUpgradePolicyPtrOutput) ToClusterUpgradePolicyPtrOutput() ClusterUpgradePolicyPtrOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicyPtrOutput) ToClusterUpgradePolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyPtrOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicyPtrOutput) Elem() ClusterUpgradePolicyOutput {
+	return o.ApplyT(func(v *ClusterUpgradePolicy) ClusterUpgradePolicy { return *v }).(ClusterUpgradePolicyOutput)
+}
+
+// A `deltaHealthPolicy` block as defined below
+func (o ClusterUpgradePolicyPtrOutput) DeltaHealthPolicy() ClusterUpgradePolicyDeltaHealthPolicyPtrOutput {
+	return o.ApplyT(func(v *ClusterUpgradePolicy) *ClusterUpgradePolicyDeltaHealthPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.DeltaHealthPolicy
+	}).(ClusterUpgradePolicyDeltaHealthPolicyPtrOutput)
+}
+
+func (o ClusterUpgradePolicyPtrOutput) ForceRestartEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterUpgradePolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ForceRestartEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the duration, in "hh:mm:ss" string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to `00:45:00`.
+func (o ClusterUpgradePolicyPtrOutput) HealthCheckRetryTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterUpgradePolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheckRetryTimeout
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to `00:01:00`.
+func (o ClusterUpgradePolicyPtrOutput) HealthCheckStableDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterUpgradePolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheckStableDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain. Defaults to `00:00:30`.
+func (o ClusterUpgradePolicyPtrOutput) HealthCheckWaitDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterUpgradePolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheckWaitDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `healthPolicy` block as defined below
+func (o ClusterUpgradePolicyPtrOutput) HealthPolicy() ClusterUpgradePolicyHealthPolicyPtrOutput {
+	return o.ApplyT(func(v *ClusterUpgradePolicy) *ClusterUpgradePolicyHealthPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.HealthPolicy
+	}).(ClusterUpgradePolicyHealthPolicyPtrOutput)
+}
+
+// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes to upgrade a single upgrade domain. After this period, the upgrade fails. Defaults to `02:00:00`.
+func (o ClusterUpgradePolicyPtrOutput) UpgradeDomainTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterUpgradePolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpgradeDomainTimeout
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits for a replica set to reconfigure into a safe state, if it is not already in a safe state, before Service Fabric proceeds with the upgrade. Defaults to `10675199.02:48:05.4775807`.
+func (o ClusterUpgradePolicyPtrOutput) UpgradeReplicaSetCheckTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterUpgradePolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpgradeReplicaSetCheckTimeout
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes for the entire upgrade. After this period, the upgrade fails. Defaults to `12:00:00`.
+func (o ClusterUpgradePolicyPtrOutput) UpgradeTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterUpgradePolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpgradeTimeout
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterUpgradePolicyDeltaHealthPolicy struct {
+	MaxDeltaUnhealthyApplicationsPercent       *int `pulumi:"maxDeltaUnhealthyApplicationsPercent"`
+	MaxDeltaUnhealthyNodesPercent              *int `pulumi:"maxDeltaUnhealthyNodesPercent"`
+	MaxUpgradeDomainDeltaUnhealthyNodesPercent *int `pulumi:"maxUpgradeDomainDeltaUnhealthyNodesPercent"`
+}
+
+// ClusterUpgradePolicyDeltaHealthPolicyInput is an input type that accepts ClusterUpgradePolicyDeltaHealthPolicyArgs and ClusterUpgradePolicyDeltaHealthPolicyOutput values.
+// You can construct a concrete instance of `ClusterUpgradePolicyDeltaHealthPolicyInput` via:
+//
+//          ClusterUpgradePolicyDeltaHealthPolicyArgs{...}
+type ClusterUpgradePolicyDeltaHealthPolicyInput interface {
+	pulumi.Input
+
+	ToClusterUpgradePolicyDeltaHealthPolicyOutput() ClusterUpgradePolicyDeltaHealthPolicyOutput
+	ToClusterUpgradePolicyDeltaHealthPolicyOutputWithContext(context.Context) ClusterUpgradePolicyDeltaHealthPolicyOutput
+}
+
+type ClusterUpgradePolicyDeltaHealthPolicyArgs struct {
+	MaxDeltaUnhealthyApplicationsPercent       pulumi.IntPtrInput `pulumi:"maxDeltaUnhealthyApplicationsPercent"`
+	MaxDeltaUnhealthyNodesPercent              pulumi.IntPtrInput `pulumi:"maxDeltaUnhealthyNodesPercent"`
+	MaxUpgradeDomainDeltaUnhealthyNodesPercent pulumi.IntPtrInput `pulumi:"maxUpgradeDomainDeltaUnhealthyNodesPercent"`
+}
+
+func (ClusterUpgradePolicyDeltaHealthPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUpgradePolicyDeltaHealthPolicy)(nil)).Elem()
+}
+
+func (i ClusterUpgradePolicyDeltaHealthPolicyArgs) ToClusterUpgradePolicyDeltaHealthPolicyOutput() ClusterUpgradePolicyDeltaHealthPolicyOutput {
+	return i.ToClusterUpgradePolicyDeltaHealthPolicyOutputWithContext(context.Background())
+}
+
+func (i ClusterUpgradePolicyDeltaHealthPolicyArgs) ToClusterUpgradePolicyDeltaHealthPolicyOutputWithContext(ctx context.Context) ClusterUpgradePolicyDeltaHealthPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyDeltaHealthPolicyOutput)
+}
+
+func (i ClusterUpgradePolicyDeltaHealthPolicyArgs) ToClusterUpgradePolicyDeltaHealthPolicyPtrOutput() ClusterUpgradePolicyDeltaHealthPolicyPtrOutput {
+	return i.ToClusterUpgradePolicyDeltaHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterUpgradePolicyDeltaHealthPolicyArgs) ToClusterUpgradePolicyDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyDeltaHealthPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyDeltaHealthPolicyOutput).ToClusterUpgradePolicyDeltaHealthPolicyPtrOutputWithContext(ctx)
+}
+
+// ClusterUpgradePolicyDeltaHealthPolicyPtrInput is an input type that accepts ClusterUpgradePolicyDeltaHealthPolicyArgs, ClusterUpgradePolicyDeltaHealthPolicyPtr and ClusterUpgradePolicyDeltaHealthPolicyPtrOutput values.
+// You can construct a concrete instance of `ClusterUpgradePolicyDeltaHealthPolicyPtrInput` via:
+//
+//          ClusterUpgradePolicyDeltaHealthPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterUpgradePolicyDeltaHealthPolicyPtrInput interface {
+	pulumi.Input
+
+	ToClusterUpgradePolicyDeltaHealthPolicyPtrOutput() ClusterUpgradePolicyDeltaHealthPolicyPtrOutput
+	ToClusterUpgradePolicyDeltaHealthPolicyPtrOutputWithContext(context.Context) ClusterUpgradePolicyDeltaHealthPolicyPtrOutput
+}
+
+type clusterUpgradePolicyDeltaHealthPolicyPtrType ClusterUpgradePolicyDeltaHealthPolicyArgs
+
+func ClusterUpgradePolicyDeltaHealthPolicyPtr(v *ClusterUpgradePolicyDeltaHealthPolicyArgs) ClusterUpgradePolicyDeltaHealthPolicyPtrInput {
+	return (*clusterUpgradePolicyDeltaHealthPolicyPtrType)(v)
+}
+
+func (*clusterUpgradePolicyDeltaHealthPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterUpgradePolicyDeltaHealthPolicy)(nil)).Elem()
+}
+
+func (i *clusterUpgradePolicyDeltaHealthPolicyPtrType) ToClusterUpgradePolicyDeltaHealthPolicyPtrOutput() ClusterUpgradePolicyDeltaHealthPolicyPtrOutput {
+	return i.ToClusterUpgradePolicyDeltaHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterUpgradePolicyDeltaHealthPolicyPtrType) ToClusterUpgradePolicyDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyDeltaHealthPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyDeltaHealthPolicyPtrOutput)
+}
+
+type ClusterUpgradePolicyDeltaHealthPolicyOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradePolicyDeltaHealthPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUpgradePolicyDeltaHealthPolicy)(nil)).Elem()
+}
+
+func (o ClusterUpgradePolicyDeltaHealthPolicyOutput) ToClusterUpgradePolicyDeltaHealthPolicyOutput() ClusterUpgradePolicyDeltaHealthPolicyOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicyDeltaHealthPolicyOutput) ToClusterUpgradePolicyDeltaHealthPolicyOutputWithContext(ctx context.Context) ClusterUpgradePolicyDeltaHealthPolicyOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicyDeltaHealthPolicyOutput) ToClusterUpgradePolicyDeltaHealthPolicyPtrOutput() ClusterUpgradePolicyDeltaHealthPolicyPtrOutput {
+	return o.ToClusterUpgradePolicyDeltaHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterUpgradePolicyDeltaHealthPolicyOutput) ToClusterUpgradePolicyDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyDeltaHealthPolicyPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicyDeltaHealthPolicy) *ClusterUpgradePolicyDeltaHealthPolicy {
+		return &v
+	}).(ClusterUpgradePolicyDeltaHealthPolicyPtrOutput)
+}
+func (o ClusterUpgradePolicyDeltaHealthPolicyOutput) MaxDeltaUnhealthyApplicationsPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicyDeltaHealthPolicy) *int { return v.MaxDeltaUnhealthyApplicationsPercent }).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterUpgradePolicyDeltaHealthPolicyOutput) MaxDeltaUnhealthyNodesPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicyDeltaHealthPolicy) *int { return v.MaxDeltaUnhealthyNodesPercent }).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterUpgradePolicyDeltaHealthPolicyOutput) MaxUpgradeDomainDeltaUnhealthyNodesPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicyDeltaHealthPolicy) *int {
+		return v.MaxUpgradeDomainDeltaUnhealthyNodesPercent
+	}).(pulumi.IntPtrOutput)
+}
+
+type ClusterUpgradePolicyDeltaHealthPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterUpgradePolicyDeltaHealthPolicy)(nil)).Elem()
+}
+
+func (o ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) ToClusterUpgradePolicyDeltaHealthPolicyPtrOutput() ClusterUpgradePolicyDeltaHealthPolicyPtrOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) ToClusterUpgradePolicyDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyDeltaHealthPolicyPtrOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) Elem() ClusterUpgradePolicyDeltaHealthPolicyOutput {
+	return o.ApplyT(func(v *ClusterUpgradePolicyDeltaHealthPolicy) ClusterUpgradePolicyDeltaHealthPolicy { return *v }).(ClusterUpgradePolicyDeltaHealthPolicyOutput)
+}
+
+func (o ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) MaxDeltaUnhealthyApplicationsPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterUpgradePolicyDeltaHealthPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxDeltaUnhealthyApplicationsPercent
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) MaxDeltaUnhealthyNodesPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterUpgradePolicyDeltaHealthPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxDeltaUnhealthyNodesPercent
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) MaxUpgradeDomainDeltaUnhealthyNodesPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterUpgradePolicyDeltaHealthPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxUpgradeDomainDeltaUnhealthyNodesPercent
+	}).(pulumi.IntPtrOutput)
+}
+
+type ClusterUpgradePolicyHealthPolicy struct {
+	MaxUnhealthyApplicationsPercent *int `pulumi:"maxUnhealthyApplicationsPercent"`
+	MaxUnhealthyNodesPercent        *int `pulumi:"maxUnhealthyNodesPercent"`
+}
+
+// ClusterUpgradePolicyHealthPolicyInput is an input type that accepts ClusterUpgradePolicyHealthPolicyArgs and ClusterUpgradePolicyHealthPolicyOutput values.
+// You can construct a concrete instance of `ClusterUpgradePolicyHealthPolicyInput` via:
+//
+//          ClusterUpgradePolicyHealthPolicyArgs{...}
+type ClusterUpgradePolicyHealthPolicyInput interface {
+	pulumi.Input
+
+	ToClusterUpgradePolicyHealthPolicyOutput() ClusterUpgradePolicyHealthPolicyOutput
+	ToClusterUpgradePolicyHealthPolicyOutputWithContext(context.Context) ClusterUpgradePolicyHealthPolicyOutput
+}
+
+type ClusterUpgradePolicyHealthPolicyArgs struct {
+	MaxUnhealthyApplicationsPercent pulumi.IntPtrInput `pulumi:"maxUnhealthyApplicationsPercent"`
+	MaxUnhealthyNodesPercent        pulumi.IntPtrInput `pulumi:"maxUnhealthyNodesPercent"`
+}
+
+func (ClusterUpgradePolicyHealthPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUpgradePolicyHealthPolicy)(nil)).Elem()
+}
+
+func (i ClusterUpgradePolicyHealthPolicyArgs) ToClusterUpgradePolicyHealthPolicyOutput() ClusterUpgradePolicyHealthPolicyOutput {
+	return i.ToClusterUpgradePolicyHealthPolicyOutputWithContext(context.Background())
+}
+
+func (i ClusterUpgradePolicyHealthPolicyArgs) ToClusterUpgradePolicyHealthPolicyOutputWithContext(ctx context.Context) ClusterUpgradePolicyHealthPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyHealthPolicyOutput)
+}
+
+func (i ClusterUpgradePolicyHealthPolicyArgs) ToClusterUpgradePolicyHealthPolicyPtrOutput() ClusterUpgradePolicyHealthPolicyPtrOutput {
+	return i.ToClusterUpgradePolicyHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterUpgradePolicyHealthPolicyArgs) ToClusterUpgradePolicyHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyHealthPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyHealthPolicyOutput).ToClusterUpgradePolicyHealthPolicyPtrOutputWithContext(ctx)
+}
+
+// ClusterUpgradePolicyHealthPolicyPtrInput is an input type that accepts ClusterUpgradePolicyHealthPolicyArgs, ClusterUpgradePolicyHealthPolicyPtr and ClusterUpgradePolicyHealthPolicyPtrOutput values.
+// You can construct a concrete instance of `ClusterUpgradePolicyHealthPolicyPtrInput` via:
+//
+//          ClusterUpgradePolicyHealthPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterUpgradePolicyHealthPolicyPtrInput interface {
+	pulumi.Input
+
+	ToClusterUpgradePolicyHealthPolicyPtrOutput() ClusterUpgradePolicyHealthPolicyPtrOutput
+	ToClusterUpgradePolicyHealthPolicyPtrOutputWithContext(context.Context) ClusterUpgradePolicyHealthPolicyPtrOutput
+}
+
+type clusterUpgradePolicyHealthPolicyPtrType ClusterUpgradePolicyHealthPolicyArgs
+
+func ClusterUpgradePolicyHealthPolicyPtr(v *ClusterUpgradePolicyHealthPolicyArgs) ClusterUpgradePolicyHealthPolicyPtrInput {
+	return (*clusterUpgradePolicyHealthPolicyPtrType)(v)
+}
+
+func (*clusterUpgradePolicyHealthPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterUpgradePolicyHealthPolicy)(nil)).Elem()
+}
+
+func (i *clusterUpgradePolicyHealthPolicyPtrType) ToClusterUpgradePolicyHealthPolicyPtrOutput() ClusterUpgradePolicyHealthPolicyPtrOutput {
+	return i.ToClusterUpgradePolicyHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterUpgradePolicyHealthPolicyPtrType) ToClusterUpgradePolicyHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyHealthPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyHealthPolicyPtrOutput)
+}
+
+type ClusterUpgradePolicyHealthPolicyOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradePolicyHealthPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUpgradePolicyHealthPolicy)(nil)).Elem()
+}
+
+func (o ClusterUpgradePolicyHealthPolicyOutput) ToClusterUpgradePolicyHealthPolicyOutput() ClusterUpgradePolicyHealthPolicyOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicyHealthPolicyOutput) ToClusterUpgradePolicyHealthPolicyOutputWithContext(ctx context.Context) ClusterUpgradePolicyHealthPolicyOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicyHealthPolicyOutput) ToClusterUpgradePolicyHealthPolicyPtrOutput() ClusterUpgradePolicyHealthPolicyPtrOutput {
+	return o.ToClusterUpgradePolicyHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterUpgradePolicyHealthPolicyOutput) ToClusterUpgradePolicyHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyHealthPolicyPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicyHealthPolicy) *ClusterUpgradePolicyHealthPolicy {
+		return &v
+	}).(ClusterUpgradePolicyHealthPolicyPtrOutput)
+}
+func (o ClusterUpgradePolicyHealthPolicyOutput) MaxUnhealthyApplicationsPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicyHealthPolicy) *int { return v.MaxUnhealthyApplicationsPercent }).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterUpgradePolicyHealthPolicyOutput) MaxUnhealthyNodesPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicyHealthPolicy) *int { return v.MaxUnhealthyNodesPercent }).(pulumi.IntPtrOutput)
+}
+
+type ClusterUpgradePolicyHealthPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradePolicyHealthPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterUpgradePolicyHealthPolicy)(nil)).Elem()
+}
+
+func (o ClusterUpgradePolicyHealthPolicyPtrOutput) ToClusterUpgradePolicyHealthPolicyPtrOutput() ClusterUpgradePolicyHealthPolicyPtrOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicyHealthPolicyPtrOutput) ToClusterUpgradePolicyHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyHealthPolicyPtrOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicyHealthPolicyPtrOutput) Elem() ClusterUpgradePolicyHealthPolicyOutput {
+	return o.ApplyT(func(v *ClusterUpgradePolicyHealthPolicy) ClusterUpgradePolicyHealthPolicy { return *v }).(ClusterUpgradePolicyHealthPolicyOutput)
+}
+
+func (o ClusterUpgradePolicyHealthPolicyPtrOutput) MaxUnhealthyApplicationsPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterUpgradePolicyHealthPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxUnhealthyApplicationsPercent
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterUpgradePolicyHealthPolicyPtrOutput) MaxUnhealthyNodesPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterUpgradePolicyHealthPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxUnhealthyNodesPercent
+	}).(pulumi.IntPtrOutput)
+}
+
 type MeshApplicationService struct {
 	// Any number `codePackage` block as described below.
 	CodePackages []MeshApplicationServiceCodePackage `pulumi:"codePackages"`
@@ -2592,6 +3170,12 @@ func init() {
 	pulumi.RegisterOutputType(ClusterReverseProxyCertificateCommonNamesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterReverseProxyCertificateCommonNamesCommonNameOutput{})
 	pulumi.RegisterOutputType(ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradePolicyOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradePolicyPtrOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradePolicyDeltaHealthPolicyOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradePolicyDeltaHealthPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradePolicyHealthPolicyOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradePolicyHealthPolicyPtrOutput{})
 	pulumi.RegisterOutputType(MeshApplicationServiceOutput{})
 	pulumi.RegisterOutputType(MeshApplicationServiceArrayOutput{})
 	pulumi.RegisterOutputType(MeshApplicationServiceCodePackageOutput{})

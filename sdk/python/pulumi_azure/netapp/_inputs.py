@@ -10,6 +10,7 @@ from .. import _utilities, _tables
 
 __all__ = [
     'AccountActiveDirectoryArgs',
+    'VolumeDataProtectionReplicationArgs',
     'VolumeExportPolicyRuleArgs',
 ]
 
@@ -109,6 +110,74 @@ class AccountActiveDirectoryArgs:
     @organizational_unit.setter
     def organizational_unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "organizational_unit", value)
+
+
+@pulumi.input_type
+class VolumeDataProtectionReplicationArgs:
+    def __init__(__self__, *,
+                 remote_volume_location: pulumi.Input[str],
+                 remote_volume_resource_id: pulumi.Input[str],
+                 replication_frequency: pulumi.Input[str],
+                 endpoint_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] remote_volume_location: Primary volume's location.
+        :param pulumi.Input[str] remote_volume_resource_id: Primary volume's resource id.
+        :param pulumi.Input[str] replication_frequency: Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
+        :param pulumi.Input[str] endpoint_type: The endpoint type, default value is `dst` for destination.
+        """
+        pulumi.set(__self__, "remote_volume_location", remote_volume_location)
+        pulumi.set(__self__, "remote_volume_resource_id", remote_volume_resource_id)
+        pulumi.set(__self__, "replication_frequency", replication_frequency)
+        if endpoint_type is not None:
+            pulumi.set(__self__, "endpoint_type", endpoint_type)
+
+    @property
+    @pulumi.getter(name="remoteVolumeLocation")
+    def remote_volume_location(self) -> pulumi.Input[str]:
+        """
+        Primary volume's location.
+        """
+        return pulumi.get(self, "remote_volume_location")
+
+    @remote_volume_location.setter
+    def remote_volume_location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "remote_volume_location", value)
+
+    @property
+    @pulumi.getter(name="remoteVolumeResourceId")
+    def remote_volume_resource_id(self) -> pulumi.Input[str]:
+        """
+        Primary volume's resource id.
+        """
+        return pulumi.get(self, "remote_volume_resource_id")
+
+    @remote_volume_resource_id.setter
+    def remote_volume_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "remote_volume_resource_id", value)
+
+    @property
+    @pulumi.getter(name="replicationFrequency")
+    def replication_frequency(self) -> pulumi.Input[str]:
+        """
+        Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
+        """
+        return pulumi.get(self, "replication_frequency")
+
+    @replication_frequency.setter
+    def replication_frequency(self, value: pulumi.Input[str]):
+        pulumi.set(self, "replication_frequency", value)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint type, default value is `dst` for destination.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_type", value)
 
 
 @pulumi.input_type

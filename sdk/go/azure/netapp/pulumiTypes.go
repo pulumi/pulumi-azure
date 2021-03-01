@@ -236,6 +236,194 @@ func (o AccountActiveDirectoryPtrOutput) Username() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type VolumeDataProtectionReplication struct {
+	// The endpoint type, default value is `dst` for destination.
+	EndpointType *string `pulumi:"endpointType"`
+	// Primary volume's location.
+	RemoteVolumeLocation string `pulumi:"remoteVolumeLocation"`
+	// Primary volume's resource id.
+	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
+	// Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
+	ReplicationFrequency string `pulumi:"replicationFrequency"`
+}
+
+// VolumeDataProtectionReplicationInput is an input type that accepts VolumeDataProtectionReplicationArgs and VolumeDataProtectionReplicationOutput values.
+// You can construct a concrete instance of `VolumeDataProtectionReplicationInput` via:
+//
+//          VolumeDataProtectionReplicationArgs{...}
+type VolumeDataProtectionReplicationInput interface {
+	pulumi.Input
+
+	ToVolumeDataProtectionReplicationOutput() VolumeDataProtectionReplicationOutput
+	ToVolumeDataProtectionReplicationOutputWithContext(context.Context) VolumeDataProtectionReplicationOutput
+}
+
+type VolumeDataProtectionReplicationArgs struct {
+	// The endpoint type, default value is `dst` for destination.
+	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
+	// Primary volume's location.
+	RemoteVolumeLocation pulumi.StringInput `pulumi:"remoteVolumeLocation"`
+	// Primary volume's resource id.
+	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
+	// Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
+	ReplicationFrequency pulumi.StringInput `pulumi:"replicationFrequency"`
+}
+
+func (VolumeDataProtectionReplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (i VolumeDataProtectionReplicationArgs) ToVolumeDataProtectionReplicationOutput() VolumeDataProtectionReplicationOutput {
+	return i.ToVolumeDataProtectionReplicationOutputWithContext(context.Background())
+}
+
+func (i VolumeDataProtectionReplicationArgs) ToVolumeDataProtectionReplicationOutputWithContext(ctx context.Context) VolumeDataProtectionReplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeDataProtectionReplicationOutput)
+}
+
+func (i VolumeDataProtectionReplicationArgs) ToVolumeDataProtectionReplicationPtrOutput() VolumeDataProtectionReplicationPtrOutput {
+	return i.ToVolumeDataProtectionReplicationPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeDataProtectionReplicationArgs) ToVolumeDataProtectionReplicationPtrOutputWithContext(ctx context.Context) VolumeDataProtectionReplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeDataProtectionReplicationOutput).ToVolumeDataProtectionReplicationPtrOutputWithContext(ctx)
+}
+
+// VolumeDataProtectionReplicationPtrInput is an input type that accepts VolumeDataProtectionReplicationArgs, VolumeDataProtectionReplicationPtr and VolumeDataProtectionReplicationPtrOutput values.
+// You can construct a concrete instance of `VolumeDataProtectionReplicationPtrInput` via:
+//
+//          VolumeDataProtectionReplicationArgs{...}
+//
+//  or:
+//
+//          nil
+type VolumeDataProtectionReplicationPtrInput interface {
+	pulumi.Input
+
+	ToVolumeDataProtectionReplicationPtrOutput() VolumeDataProtectionReplicationPtrOutput
+	ToVolumeDataProtectionReplicationPtrOutputWithContext(context.Context) VolumeDataProtectionReplicationPtrOutput
+}
+
+type volumeDataProtectionReplicationPtrType VolumeDataProtectionReplicationArgs
+
+func VolumeDataProtectionReplicationPtr(v *VolumeDataProtectionReplicationArgs) VolumeDataProtectionReplicationPtrInput {
+	return (*volumeDataProtectionReplicationPtrType)(v)
+}
+
+func (*volumeDataProtectionReplicationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (i *volumeDataProtectionReplicationPtrType) ToVolumeDataProtectionReplicationPtrOutput() VolumeDataProtectionReplicationPtrOutput {
+	return i.ToVolumeDataProtectionReplicationPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeDataProtectionReplicationPtrType) ToVolumeDataProtectionReplicationPtrOutputWithContext(ctx context.Context) VolumeDataProtectionReplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeDataProtectionReplicationPtrOutput)
+}
+
+type VolumeDataProtectionReplicationOutput struct{ *pulumi.OutputState }
+
+func (VolumeDataProtectionReplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (o VolumeDataProtectionReplicationOutput) ToVolumeDataProtectionReplicationOutput() VolumeDataProtectionReplicationOutput {
+	return o
+}
+
+func (o VolumeDataProtectionReplicationOutput) ToVolumeDataProtectionReplicationOutputWithContext(ctx context.Context) VolumeDataProtectionReplicationOutput {
+	return o
+}
+
+func (o VolumeDataProtectionReplicationOutput) ToVolumeDataProtectionReplicationPtrOutput() VolumeDataProtectionReplicationPtrOutput {
+	return o.ToVolumeDataProtectionReplicationPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeDataProtectionReplicationOutput) ToVolumeDataProtectionReplicationPtrOutputWithContext(ctx context.Context) VolumeDataProtectionReplicationPtrOutput {
+	return o.ApplyT(func(v VolumeDataProtectionReplication) *VolumeDataProtectionReplication {
+		return &v
+	}).(VolumeDataProtectionReplicationPtrOutput)
+}
+
+// The endpoint type, default value is `dst` for destination.
+func (o VolumeDataProtectionReplicationOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeDataProtectionReplication) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
+}
+
+// Primary volume's location.
+func (o VolumeDataProtectionReplicationOutput) RemoteVolumeLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeDataProtectionReplication) string { return v.RemoteVolumeLocation }).(pulumi.StringOutput)
+}
+
+// Primary volume's resource id.
+func (o VolumeDataProtectionReplicationOutput) RemoteVolumeResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeDataProtectionReplication) string { return v.RemoteVolumeResourceId }).(pulumi.StringOutput)
+}
+
+// Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
+func (o VolumeDataProtectionReplicationOutput) ReplicationFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeDataProtectionReplication) string { return v.ReplicationFrequency }).(pulumi.StringOutput)
+}
+
+type VolumeDataProtectionReplicationPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeDataProtectionReplicationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (o VolumeDataProtectionReplicationPtrOutput) ToVolumeDataProtectionReplicationPtrOutput() VolumeDataProtectionReplicationPtrOutput {
+	return o
+}
+
+func (o VolumeDataProtectionReplicationPtrOutput) ToVolumeDataProtectionReplicationPtrOutputWithContext(ctx context.Context) VolumeDataProtectionReplicationPtrOutput {
+	return o
+}
+
+func (o VolumeDataProtectionReplicationPtrOutput) Elem() VolumeDataProtectionReplicationOutput {
+	return o.ApplyT(func(v *VolumeDataProtectionReplication) VolumeDataProtectionReplication { return *v }).(VolumeDataProtectionReplicationOutput)
+}
+
+// The endpoint type, default value is `dst` for destination.
+func (o VolumeDataProtectionReplicationPtrOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeDataProtectionReplication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Primary volume's location.
+func (o VolumeDataProtectionReplicationPtrOutput) RemoteVolumeLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeDataProtectionReplication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RemoteVolumeLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Primary volume's resource id.
+func (o VolumeDataProtectionReplicationPtrOutput) RemoteVolumeResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeDataProtectionReplication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RemoteVolumeResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
+func (o VolumeDataProtectionReplicationPtrOutput) ReplicationFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeDataProtectionReplication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReplicationFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
 type VolumeExportPolicyRule struct {
 	// A list of allowed clients IPv4 addresses.
 	AllowedClients []string `pulumi:"allowedClients"`
@@ -414,9 +602,125 @@ func (o VolumeExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) VolumeExport
 	}).(VolumeExportPolicyRuleOutput)
 }
 
+type GetVolumeDataProtectionReplication struct {
+	EndpointType           string `pulumi:"endpointType"`
+	RemoteVolumeLocation   string `pulumi:"remoteVolumeLocation"`
+	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
+	ReplicationSchedule    string `pulumi:"replicationSchedule"`
+}
+
+// GetVolumeDataProtectionReplicationInput is an input type that accepts GetVolumeDataProtectionReplicationArgs and GetVolumeDataProtectionReplicationOutput values.
+// You can construct a concrete instance of `GetVolumeDataProtectionReplicationInput` via:
+//
+//          GetVolumeDataProtectionReplicationArgs{...}
+type GetVolumeDataProtectionReplicationInput interface {
+	pulumi.Input
+
+	ToGetVolumeDataProtectionReplicationOutput() GetVolumeDataProtectionReplicationOutput
+	ToGetVolumeDataProtectionReplicationOutputWithContext(context.Context) GetVolumeDataProtectionReplicationOutput
+}
+
+type GetVolumeDataProtectionReplicationArgs struct {
+	EndpointType           pulumi.StringInput `pulumi:"endpointType"`
+	RemoteVolumeLocation   pulumi.StringInput `pulumi:"remoteVolumeLocation"`
+	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
+	ReplicationSchedule    pulumi.StringInput `pulumi:"replicationSchedule"`
+}
+
+func (GetVolumeDataProtectionReplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (i GetVolumeDataProtectionReplicationArgs) ToGetVolumeDataProtectionReplicationOutput() GetVolumeDataProtectionReplicationOutput {
+	return i.ToGetVolumeDataProtectionReplicationOutputWithContext(context.Background())
+}
+
+func (i GetVolumeDataProtectionReplicationArgs) ToGetVolumeDataProtectionReplicationOutputWithContext(ctx context.Context) GetVolumeDataProtectionReplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeDataProtectionReplicationOutput)
+}
+
+// GetVolumeDataProtectionReplicationArrayInput is an input type that accepts GetVolumeDataProtectionReplicationArray and GetVolumeDataProtectionReplicationArrayOutput values.
+// You can construct a concrete instance of `GetVolumeDataProtectionReplicationArrayInput` via:
+//
+//          GetVolumeDataProtectionReplicationArray{ GetVolumeDataProtectionReplicationArgs{...} }
+type GetVolumeDataProtectionReplicationArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeDataProtectionReplicationArrayOutput() GetVolumeDataProtectionReplicationArrayOutput
+	ToGetVolumeDataProtectionReplicationArrayOutputWithContext(context.Context) GetVolumeDataProtectionReplicationArrayOutput
+}
+
+type GetVolumeDataProtectionReplicationArray []GetVolumeDataProtectionReplicationInput
+
+func (GetVolumeDataProtectionReplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (i GetVolumeDataProtectionReplicationArray) ToGetVolumeDataProtectionReplicationArrayOutput() GetVolumeDataProtectionReplicationArrayOutput {
+	return i.ToGetVolumeDataProtectionReplicationArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeDataProtectionReplicationArray) ToGetVolumeDataProtectionReplicationArrayOutputWithContext(ctx context.Context) GetVolumeDataProtectionReplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeDataProtectionReplicationArrayOutput)
+}
+
+type GetVolumeDataProtectionReplicationOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeDataProtectionReplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (o GetVolumeDataProtectionReplicationOutput) ToGetVolumeDataProtectionReplicationOutput() GetVolumeDataProtectionReplicationOutput {
+	return o
+}
+
+func (o GetVolumeDataProtectionReplicationOutput) ToGetVolumeDataProtectionReplicationOutputWithContext(ctx context.Context) GetVolumeDataProtectionReplicationOutput {
+	return o
+}
+
+func (o GetVolumeDataProtectionReplicationOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeDataProtectionReplication) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+func (o GetVolumeDataProtectionReplicationOutput) RemoteVolumeLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeDataProtectionReplication) string { return v.RemoteVolumeLocation }).(pulumi.StringOutput)
+}
+
+func (o GetVolumeDataProtectionReplicationOutput) RemoteVolumeResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeDataProtectionReplication) string { return v.RemoteVolumeResourceId }).(pulumi.StringOutput)
+}
+
+func (o GetVolumeDataProtectionReplicationOutput) ReplicationSchedule() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeDataProtectionReplication) string { return v.ReplicationSchedule }).(pulumi.StringOutput)
+}
+
+type GetVolumeDataProtectionReplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeDataProtectionReplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (o GetVolumeDataProtectionReplicationArrayOutput) ToGetVolumeDataProtectionReplicationArrayOutput() GetVolumeDataProtectionReplicationArrayOutput {
+	return o
+}
+
+func (o GetVolumeDataProtectionReplicationArrayOutput) ToGetVolumeDataProtectionReplicationArrayOutputWithContext(ctx context.Context) GetVolumeDataProtectionReplicationArrayOutput {
+	return o
+}
+
+func (o GetVolumeDataProtectionReplicationArrayOutput) Index(i pulumi.IntInput) GetVolumeDataProtectionReplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeDataProtectionReplication {
+		return vs[0].([]GetVolumeDataProtectionReplication)[vs[1].(int)]
+	}).(GetVolumeDataProtectionReplicationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(AccountActiveDirectoryPtrOutput{})
+	pulumi.RegisterOutputType(VolumeDataProtectionReplicationOutput{})
+	pulumi.RegisterOutputType(VolumeDataProtectionReplicationPtrOutput{})
 	pulumi.RegisterOutputType(VolumeExportPolicyRuleOutput{})
 	pulumi.RegisterOutputType(VolumeExportPolicyRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetVolumeDataProtectionReplicationOutput{})
+	pulumi.RegisterOutputType(GetVolumeDataProtectionReplicationArrayOutput{})
 }

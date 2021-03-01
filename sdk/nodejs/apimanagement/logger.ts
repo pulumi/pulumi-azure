@@ -30,6 +30,7 @@ import * as utilities from "../utilities";
  * const exampleLogger = new azure.apimanagement.Logger("exampleLogger", {
  *     apiManagementName: exampleService.name,
  *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceId: exampleInsights.id,
  *     applicationInsights: {
  *         instrumentationKey: exampleInsights.instrumentationKey,
  *     },
@@ -100,6 +101,10 @@ export class Logger extends pulumi.CustomResource {
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * The target resource id which will be linked in the API-Management portal page.
+     */
+    public readonly resourceId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Logger resource with the given unique name, arguments, and options.
@@ -121,6 +126,7 @@ export class Logger extends pulumi.CustomResource {
             inputs["eventhub"] = state ? state.eventhub : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["resourceId"] = state ? state.resourceId : undefined;
         } else {
             const args = argsOrState as LoggerArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -136,6 +142,7 @@ export class Logger extends pulumi.CustomResource {
             inputs["eventhub"] = args ? args.eventhub : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceId"] = args ? args.resourceId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -176,6 +183,10 @@ export interface LoggerState {
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The target resource id which will be linked in the API-Management portal page.
+     */
+    readonly resourceId?: pulumi.Input<string>;
 }
 
 /**
@@ -210,4 +221,8 @@ export interface LoggerArgs {
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The target resource id which will be linked in the API-Management portal page.
+     */
+    readonly resourceId?: pulumi.Input<string>;
 }

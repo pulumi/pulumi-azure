@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// The Tenant ID associated with this Managed Service Identity.
+        /// The identifier for the tenant access information contract.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>

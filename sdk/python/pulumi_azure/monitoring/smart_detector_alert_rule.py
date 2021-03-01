@@ -26,6 +26,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  severity: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throttling_duration: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -77,6 +78,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which the Monitor Smart Detector Alert Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_resource_ids: Specifies the scopes of this Smart Detector Alert Rule.
         :param pulumi.Input[str] severity: Specifies the severity of this Smart Detector Alert Rule. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3` or `Sev4`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] throttling_duration: Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
         """
         if __name__ is not None:
@@ -117,6 +119,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
             if severity is None and not opts.urn:
                 raise TypeError("Missing required property 'severity'")
             __props__['severity'] = severity
+            __props__['tags'] = tags
             __props__['throttling_duration'] = throttling_duration
         super(SmartDetectorAlertRule, __self__).__init__(
             'azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule',
@@ -137,6 +140,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             scope_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             severity: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             throttling_duration: Optional[pulumi.Input[str]] = None) -> 'SmartDetectorAlertRule':
         """
         Get an existing SmartDetectorAlertRule resource's state with the given name, id, and optional extra
@@ -154,6 +158,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which the Monitor Smart Detector Alert Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_resource_ids: Specifies the scopes of this Smart Detector Alert Rule.
         :param pulumi.Input[str] severity: Specifies the severity of this Smart Detector Alert Rule. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3` or `Sev4`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] throttling_duration: Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -169,6 +174,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["scope_resource_ids"] = scope_resource_ids
         __props__["severity"] = severity
+        __props__["tags"] = tags
         __props__["throttling_duration"] = throttling_duration
         return SmartDetectorAlertRule(resource_name, opts=opts, __props__=__props__)
 
@@ -243,6 +249,14 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         Specifies the severity of this Smart Detector Alert Rule. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3` or `Sev4`.
         """
         return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="throttlingDuration")

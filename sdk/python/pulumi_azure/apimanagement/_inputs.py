@@ -62,6 +62,7 @@ __all__ = [
     'ServiceSignInArgs',
     'ServiceSignUpArgs',
     'ServiceSignUpTermsOfServiceArgs',
+    'ServiceTenantAccessArgs',
     'ServiceVirtualNetworkConfigurationArgs',
 ]
 
@@ -3061,7 +3062,7 @@ class ServiceIdentityArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
-        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The identifier for the tenant access information contract.
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         if identity_ids is not None:
@@ -3101,7 +3102,7 @@ class ServiceIdentityArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Tenant ID associated with this Managed Service Identity.
+        The identifier for the tenant access information contract.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -3568,6 +3569,76 @@ class ServiceSignUpTermsOfServiceArgs:
     @text.setter
     def text(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text", value)
+
+
+@pulumi.input_type
+class ServiceTenantAccessArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 primary_key: Optional[pulumi.Input[str]] = None,
+                 secondary_key: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Should the access to the management api be enabled?
+        :param pulumi.Input[str] primary_key: Primary access key for the tenant access information contract.
+        :param pulumi.Input[str] secondary_key: Secondary access key for the tenant access information contract.
+        :param pulumi.Input[str] tenant_id: The identifier for the tenant access information contract.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
+        if secondary_key is not None:
+            pulumi.set(__self__, "secondary_key", secondary_key)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Should the access to the management api be enabled?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Primary access key for the tenant access information contract.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @primary_key.setter
+    def primary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_key", value)
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secondary access key for the tenant access information contract.
+        """
+        return pulumi.get(self, "secondary_key")
+
+    @secondary_key.setter
+    def secondary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_key", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for the tenant access information contract.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type

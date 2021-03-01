@@ -72,7 +72,7 @@ type Container struct {
 	HasImmutabilityPolicy pulumi.BoolOutput `pulumi:"hasImmutabilityPolicy"`
 	// Is there a Legal Hold configured on this Storage Container?
 	HasLegalHold pulumi.BoolOutput `pulumi:"hasLegalHold"`
-	// A mapping of MetaData for this Container.
+	// A mapping of MetaData for this Container. All metadata keys should be lowercase.
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// The name of the Container which should be created within the Storage Account.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -120,7 +120,7 @@ type containerState struct {
 	HasImmutabilityPolicy *bool `pulumi:"hasImmutabilityPolicy"`
 	// Is there a Legal Hold configured on this Storage Container?
 	HasLegalHold *bool `pulumi:"hasLegalHold"`
-	// A mapping of MetaData for this Container.
+	// A mapping of MetaData for this Container. All metadata keys should be lowercase.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the Container which should be created within the Storage Account.
 	Name *string `pulumi:"name"`
@@ -137,7 +137,7 @@ type ContainerState struct {
 	HasImmutabilityPolicy pulumi.BoolPtrInput
 	// Is there a Legal Hold configured on this Storage Container?
 	HasLegalHold pulumi.BoolPtrInput
-	// A mapping of MetaData for this Container.
+	// A mapping of MetaData for this Container. All metadata keys should be lowercase.
 	Metadata pulumi.StringMapInput
 	// The name of the Container which should be created within the Storage Account.
 	Name pulumi.StringPtrInput
@@ -154,7 +154,7 @@ func (ContainerState) ElementType() reflect.Type {
 type containerArgs struct {
 	// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
 	ContainerAccessType *string `pulumi:"containerAccessType"`
-	// A mapping of MetaData for this Container.
+	// A mapping of MetaData for this Container. All metadata keys should be lowercase.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the Container which should be created within the Storage Account.
 	Name *string `pulumi:"name"`
@@ -166,7 +166,7 @@ type containerArgs struct {
 type ContainerArgs struct {
 	// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
 	ContainerAccessType pulumi.StringPtrInput
-	// A mapping of MetaData for this Container.
+	// A mapping of MetaData for this Container. All metadata keys should be lowercase.
 	Metadata pulumi.StringMapInput
 	// The name of the Container which should be created within the Storage Account.
 	Name pulumi.StringPtrInput

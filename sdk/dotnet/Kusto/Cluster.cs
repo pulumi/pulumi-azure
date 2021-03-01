@@ -147,7 +147,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string> Uri { get; private set; } = null!;
 
         /// <summary>
-        /// A `virtual_network_configuration` block as defined below.
+        /// A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("virtualNetworkConfiguration")]
         public Output<Outputs.ClusterVirtualNetworkConfiguration?> VirtualNetworkConfiguration { get; private set; } = null!;
@@ -301,7 +301,7 @@ namespace Pulumi.Azure.Kusto
         }
 
         /// <summary>
-        /// A `virtual_network_configuration` block as defined below.
+        /// A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualNetworkConfiguration")]
         public Input<Inputs.ClusterVirtualNetworkConfigurationArgs>? VirtualNetworkConfiguration { get; set; }
@@ -434,7 +434,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? Uri { get; set; }
 
         /// <summary>
-        /// A `virtual_network_configuration` block as defined below.
+        /// A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualNetworkConfiguration")]
         public Input<Inputs.ClusterVirtualNetworkConfigurationGetArgs>? VirtualNetworkConfiguration { get; set; }

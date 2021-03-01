@@ -1071,7 +1071,7 @@ export namespace apimanagement {
          */
         principalId: string;
         /**
-         * The Tenant ID associated with this Managed Service Identity.
+         * The identifier for the tenant access information contract.
          */
         tenantId: string;
         /**
@@ -1196,6 +1196,25 @@ export namespace apimanagement {
          * The Terms of Service which users are required to agree to in order to sign up.
          */
         text?: string;
+    }
+
+    export interface ServiceTenantAccess {
+        /**
+         * Should the access to the management api be enabled?
+         */
+        enabled: boolean;
+        /**
+         * Primary access key for the tenant access information contract.
+         */
+        primaryKey: string;
+        /**
+         * Secondary access key for the tenant access information contract.
+         */
+        secondaryKey: string;
+        /**
+         * The identifier for the tenant access information contract.
+         */
+        tenantId: string;
     }
 
     export interface ServiceVirtualNetworkConfiguration {
@@ -1344,6 +1363,32 @@ export namespace appconfiguration {
 }
 
 export namespace appplatform {
+    export interface GetSpringCloudAppIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+         */
+        tenantId: string;
+        /**
+         * The Type of Managed Identity assigned to the Spring Cloud Application.
+         */
+        type: string;
+    }
+
+    export interface GetSpringCloudAppPersistentDisk {
+        /**
+         * The mount path of the persistent disk.
+         */
+        mountPath: string;
+        /**
+         * The size of the persistent disk in GB.
+         */
+        sizeInGb: number;
+    }
+
     export interface GetSpringCloudServiceConfigServerGitSetting {
         /**
          * A `httpBasicAuth` block as defined below.
@@ -8683,6 +8728,169 @@ export namespace costmanagement {
     }
 }
 
+export namespace databoxedge {
+    export interface DeviceDeviceProperty {
+        /**
+         * The Data Box Edge/Gateway device local capacity in MB.
+         */
+        capacity: number;
+        /**
+         * Type of compute roles configured.
+         */
+        configuredRoleTypes: string[];
+        /**
+         * The Data Box Edge/Gateway device culture.
+         */
+        culture: string;
+        /**
+         * The device software version number of the device (eg: 1.2.18105.6).
+         */
+        hcsVersion: string;
+        /**
+         * The Data Box Edge/Gateway device model.
+         */
+        model: string;
+        /**
+         * The number of nodes in the cluster.
+         */
+        nodeCount: number;
+        /**
+         * The Serial Number of Data Box Edge/Gateway device.
+         */
+        serialNumber: string;
+        /**
+         * The Data Box Edge/Gateway device software version.
+         */
+        softwareVersion: string;
+        /**
+         * The status of the Data Box Edge/Gateway device.
+         */
+        status: string;
+        /**
+         * The Data Box Edge/Gateway device timezone.
+         */
+        timeZone: string;
+        /**
+         * The type of the Data Box Edge/Gateway device.
+         */
+        type: string;
+    }
+
+    export interface OrderContact {
+        /**
+         * The name of the company. Changing this forces a new Databox Edge Order to be created.
+         */
+        companyName: string;
+        /**
+         * A list of email address to send order notification to. Changing this forces a new Databox Edge Order to be created.
+         */
+        emails: string[];
+        /**
+         * The contact person name. Changing this forces a new Databox Edge Order to be created.
+         */
+        name: string;
+        /**
+         * The phone number. Changing this forces a new Databox Edge Order to be created.
+         */
+        phoneNumber: string;
+    }
+
+    export interface OrderReturnTracking {
+        /**
+         * Name of the carrier used in the delivery.
+         */
+        carrierName: string;
+        /**
+         * Serial number of the device being tracked.
+         */
+        serialNumber: string;
+        /**
+         * The ID of the tracking.
+         */
+        trackingId: string;
+        /**
+         * Tracking URL of the shipment.
+         */
+        trackingUrl: string;
+    }
+
+    export interface OrderShipmentAddress {
+        /**
+         * The list of upto 3 lines for address information. Changing this forces a new Databox Edge Order to be created.
+         */
+        addresses: string[];
+        /**
+         * The city name. Changing this forces a new Databox Edge Order to be created.
+         */
+        city: string;
+        /**
+         * The name of the country to ship the Databox Edge Device to. Valid values are "Algeria", "Argentina", "Australia", "Austria", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belgium", "Bermuda", "Bolivia", "Bosnia and Herzegovina", "Brazil", "Bulgaria", "Canada", "Cayman Islands", "Chile", "Colombia", "Costa Rica", "Croatia", "Cyprus", "Czechia", "CÃ´te D'ivoire", "Denmark", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Estonia", "Ethiopia", "Finland", "France", "Georgia", "Germany", "Ghana", "Greece", "Guatemala", "Honduras", "Hong Kong SAR", "Hungary", "Iceland", "India", "Indonesia", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kuwait", "Kyrgyzstan", "Latvia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macao SAR", "Malaysia", "Malta", "Mauritius", "Mexico", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Namibia", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Nigeria", "Norway", "Oman", "Pakistan", "Palestinian Authority", "Panama", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico", "Qatar", "Republic of Korea", "Romania", "Russia", "Rwanda", "Saint Kitts And Nevis", "Saudi Arabia", "Senegal", "Serbia", "Singapore", "Slovakia", "Slovenia", "South Africa", "Spain", "Sri Lanka", "Sweden", "Switzerland", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Trinidad And Tobago", "Tunisia", "Turkey", "Turkmenistan", "U.S. Virgin Islands", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Venezuela", "Vietnam", "Yemen", "Zambia" or "Zimbabwe". Changing this forces a new Databox Edge Order to be created.
+         */
+        country: string;
+        /**
+         * The postal code. Changing this forces a new Databox Edge Order to be created.
+         */
+        postalCode: string;
+        /**
+         * The name of the state to ship the Databox Edge Device to. Changing this forces a new Databox Edge Order to be created.
+         */
+        state: string;
+    }
+
+    export interface OrderShipmentHistory {
+        /**
+         * Dictionary to hold generic information which is not stored by the already existing properties.
+         */
+        additionalDetails: {[key: string]: string};
+        /**
+         * Comments related to this status change.
+         */
+        comments: string;
+        /**
+         * Time of status update.
+         */
+        lastUpdate: string;
+    }
+
+    export interface OrderShipmentTracking {
+        /**
+         * Name of the carrier used in the delivery.
+         */
+        carrierName: string;
+        /**
+         * Serial number of the device being tracked.
+         */
+        serialNumber: string;
+        /**
+         * The ID of the tracking.
+         */
+        trackingId: string;
+        /**
+         * Tracking URL of the shipment.
+         */
+        trackingUrl: string;
+    }
+
+    export interface OrderStatus {
+        /**
+         * Dictionary to hold generic information which is not stored by the already existing properties.
+         */
+        additionalDetails: {[key: string]: string};
+        /**
+         * Comments related to this status change.
+         */
+        comments: string;
+        /**
+         * The current status of the order. Possible values include `Untracked`, `AwaitingFulfilment`, `AwaitingPreparation`, `AwaitingShipment`, `Shipped`, `Arriving`, `Delivered`, `ReplacementRequested`, `LostDevice`, `Declined`, `ReturnInitiated`, `AwaitingReturnShipment`, `ShippedBack` or `CollectedAtMicrosoft`.
+         */
+        info: string;
+        /**
+         * Time of status update.
+         */
+        lastUpdate: string;
+    }
+}
+
 export namespace databricks {
     export interface WorkspaceCustomParameters {
         /**
@@ -9019,11 +9227,11 @@ export namespace datafactory {
         /**
          * Administrator login name for the SQL Server.
          */
-        administratorLogin: string;
+        administratorLogin?: string;
         /**
          * Administrator login password for the SQL Server.
          */
-        administratorPassword: string;
+        administratorPassword?: string;
         /**
          * Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
          */
@@ -9067,11 +9275,11 @@ export namespace datafactory {
         /**
          * Administrator login name for the SQL Server.
          */
-        administratorLogin: string;
+        administratorLogin?: string;
         /**
          * Administrator login password for the SQL Server.
          */
-        administratorPassword: string;
+        administratorPassword?: string;
         /**
          * Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
          */
@@ -10753,7 +10961,7 @@ export namespace frontdoor {
          */
         enabled?: boolean;
         /**
-         * One or more `matchCondition` block defined below.
+         * One or more `matchCondition` block defined below. Can support up to `10` `matchCondition` blocks.
          */
         matchConditions?: outputs.frontdoor.FirewallPolicyCustomRuleMatchCondition[];
         /**
@@ -10780,7 +10988,7 @@ export namespace frontdoor {
 
     export interface FirewallPolicyCustomRuleMatchCondition {
         /**
-         * Up to `100` possible values to match.
+         * Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters long.
          */
         matchValues: string[];
         /**
@@ -11126,7 +11334,7 @@ export namespace frontdoor {
          */
         cacheEnabled?: boolean;
         /**
-         * Defines cache behaviour in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+         * Defines cache behaviour in relation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
          */
         cacheQueryParameterStripDirective?: string;
         /**
@@ -16724,6 +16932,32 @@ export namespace netapp {
         username: string;
     }
 
+    export interface GetVolumeDataProtectionReplication {
+        endpointType: string;
+        remoteVolumeLocation: string;
+        remoteVolumeResourceId: string;
+        replicationSchedule: string;
+    }
+
+    export interface VolumeDataProtectionReplication {
+        /**
+         * The endpoint type, default value is `dst` for destination.
+         */
+        endpointType?: string;
+        /**
+         * Primary volume's location.
+         */
+        remoteVolumeLocation: string;
+        /**
+         * Primary volume's resource id.
+         */
+        remoteVolumeResourceId: string;
+        /**
+         * Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
+         */
+        replicationFrequency: string;
+    }
+
     export interface VolumeExportPolicyRule {
         /**
          * A list of allowed clients IPv4 addresses.
@@ -20400,6 +20634,18 @@ export namespace redis {
         rdbStorageConnectionString?: string;
     }
 
+    export interface EnterpriseDatabaseModule {
+        /**
+         * Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+         */
+        args?: string;
+        /**
+         * The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
+         */
+        name: string;
+        version: string;
+    }
+
     export interface GetCachePatchSchedule {
         /**
          * the Weekday name for the patch item
@@ -20953,6 +21199,53 @@ export namespace servicefabric {
         certificateIssuerThumbprint?: string;
     }
 
+    export interface ClusterUpgradePolicy {
+        /**
+         * A `deltaHealthPolicy` block as defined below
+         */
+        deltaHealthPolicy?: outputs.servicefabric.ClusterUpgradePolicyDeltaHealthPolicy;
+        forceRestartEnabled?: boolean;
+        /**
+         * Specifies the duration, in "hh:mm:ss" string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to `00:45:00`.
+         */
+        healthCheckRetryTimeout?: string;
+        /**
+         * Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to `00:01:00`.
+         */
+        healthCheckStableDuration?: string;
+        /**
+         * Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain. Defaults to `00:00:30`.
+         */
+        healthCheckWaitDuration?: string;
+        /**
+         * A `healthPolicy` block as defined below
+         */
+        healthPolicy?: outputs.servicefabric.ClusterUpgradePolicyHealthPolicy;
+        /**
+         * Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes to upgrade a single upgrade domain. After this period, the upgrade fails. Defaults to `02:00:00`.
+         */
+        upgradeDomainTimeout?: string;
+        /**
+         * Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits for a replica set to reconfigure into a safe state, if it is not already in a safe state, before Service Fabric proceeds with the upgrade. Defaults to `10675199.02:48:05.4775807`.
+         */
+        upgradeReplicaSetCheckTimeout?: string;
+        /**
+         * Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes for the entire upgrade. After this period, the upgrade fails. Defaults to `12:00:00`.
+         */
+        upgradeTimeout?: string;
+    }
+
+    export interface ClusterUpgradePolicyDeltaHealthPolicy {
+        maxDeltaUnhealthyApplicationsPercent?: number;
+        maxDeltaUnhealthyNodesPercent?: number;
+        maxUpgradeDomainDeltaUnhealthyNodesPercent?: number;
+    }
+
+    export interface ClusterUpgradePolicyHealthPolicy {
+        maxUnhealthyApplicationsPercent?: number;
+        maxUnhealthyNodesPercent?: number;
+    }
+
     export interface MeshApplicationService {
         /**
          * Any number `codePackage` block as described below.
@@ -21173,7 +21466,7 @@ export namespace sql {
          */
         storageEndpoint?: string;
         /**
-         * Should the default server policy be used? Defaults to `Disabled`.
+         * @deprecated This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider
          */
         useServerDefault?: string;
     }

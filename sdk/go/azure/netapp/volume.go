@@ -94,6 +94,12 @@ import (
 // 				pulumi.String("NFSv4.1"),
 // 			},
 // 			StorageQuotaInGb: pulumi.Int(100),
+// 			DataProtectionReplication: &netapp.VolumeDataProtectionReplicationArgs{
+// 				EndpointType:           pulumi.String("dst"),
+// 				RemoteVolumeLocation:   pulumi.Any(azurerm_resource_group.Example_primary.Location),
+// 				RemoteVolumeResourceId: pulumi.Any(azurerm_netapp_volume.Example_primary.Id),
+// 				ReplicationFrequency:   pulumi.String("_10minutely"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -114,7 +120,8 @@ type Volume struct {
 	pulumi.CustomResourceState
 
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-	AccountName pulumi.StringOutput `pulumi:"accountName"`
+	AccountName               pulumi.StringOutput                      `pulumi:"accountName"`
+	DataProtectionReplication VolumeDataProtectionReplicationPtrOutput `pulumi:"dataProtectionReplication"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayOutput `pulumi:"exportPolicyRules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -192,7 +199,8 @@ func GetVolume(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Volume resources.
 type volumeState struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-	AccountName *string `pulumi:"accountName"`
+	AccountName               *string                          `pulumi:"accountName"`
+	DataProtectionReplication *VolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules []VolumeExportPolicyRule `pulumi:"exportPolicyRules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -221,7 +229,8 @@ type volumeState struct {
 
 type VolumeState struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-	AccountName pulumi.StringPtrInput
+	AccountName               pulumi.StringPtrInput
+	DataProtectionReplication VolumeDataProtectionReplicationPtrInput
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -254,7 +263,8 @@ func (VolumeState) ElementType() reflect.Type {
 
 type volumeArgs struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-	AccountName string `pulumi:"accountName"`
+	AccountName               string                           `pulumi:"accountName"`
+	DataProtectionReplication *VolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules []VolumeExportPolicyRule `pulumi:"exportPolicyRules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -282,7 +292,8 @@ type volumeArgs struct {
 // The set of arguments for constructing a Volume resource.
 type VolumeArgs struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-	AccountName pulumi.StringInput
+	AccountName               pulumi.StringInput
+	DataProtectionReplication VolumeDataProtectionReplicationPtrInput
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

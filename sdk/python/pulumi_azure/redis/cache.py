@@ -103,7 +103,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]] patch_schedules: A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]] patch_schedules: A list of `patch_schedule` blocks as defined below.
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
@@ -211,7 +211,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]] patch_schedules: A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]] patch_schedules: A list of `patch_schedule` blocks as defined below.
         :param pulumi.Input[int] port: The non-SSL Port of the Redis Instance
         :param pulumi.Input[str] primary_access_key: The Primary Access Key for the Redis Instance
         :param pulumi.Input[str] primary_connection_string: The primary connection string of the Redis Instance.
@@ -319,7 +319,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter(name="patchSchedules")
     def patch_schedules(self) -> pulumi.Output[Optional[Sequence['outputs.CachePatchSchedule']]]:
         """
-        A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
+        A list of `patch_schedule` blocks as defined below.
         """
         return pulumi.get(self, "patch_schedules")
 

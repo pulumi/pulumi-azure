@@ -183,7 +183,6 @@ class DatabaseThreatDetectionPolicy(dict):
         :param str state: The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
         :param str storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
         :param str storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
-        :param str use_server_default: Should the default server policy be used? Defaults to `Disabled`.
         """
         if disabled_alerts is not None:
             pulumi.set(__self__, "disabled_alerts", disabled_alerts)
@@ -261,9 +260,6 @@ class DatabaseThreatDetectionPolicy(dict):
     @property
     @pulumi.getter(name="useServerDefault")
     def use_server_default(self) -> Optional[str]:
-        """
-        Should the default server policy be used? Defaults to `Disabled`.
-        """
         return pulumi.get(self, "use_server_default")
 
     def _translate_property(self, prop):

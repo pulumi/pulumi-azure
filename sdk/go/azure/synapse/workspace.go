@@ -97,7 +97,7 @@ type Workspace struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Workspace managed resource group.
 	ManagedResourceGroupName pulumi.StringOutput `pulumi:"managedResourceGroupName"`
-	// Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
+	// Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
 	ManagedVirtualNetworkEnabled pulumi.BoolPtrOutput `pulumi:"managedVirtualNetworkEnabled"`
 	// Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -170,7 +170,7 @@ type workspaceState struct {
 	Location *string `pulumi:"location"`
 	// Workspace managed resource group.
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
-	// Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
+	// Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
 	ManagedVirtualNetworkEnabled *bool `pulumi:"managedVirtualNetworkEnabled"`
 	// Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -203,7 +203,7 @@ type WorkspaceState struct {
 	Location pulumi.StringPtrInput
 	// Workspace managed resource group.
 	ManagedResourceGroupName pulumi.StringPtrInput
-	// Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
+	// Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
 	ManagedVirtualNetworkEnabled pulumi.BoolPtrInput
 	// Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -236,7 +236,7 @@ type workspaceArgs struct {
 	Location *string `pulumi:"location"`
 	// Workspace managed resource group.
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
-	// Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
+	// Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
 	ManagedVirtualNetworkEnabled *bool `pulumi:"managedVirtualNetworkEnabled"`
 	// Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -266,7 +266,7 @@ type WorkspaceArgs struct {
 	Location pulumi.StringPtrInput
 	// Workspace managed resource group.
 	ManagedResourceGroupName pulumi.StringPtrInput
-	// Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
+	// Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
 	ManagedVirtualNetworkEnabled pulumi.BoolPtrInput
 	// Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput

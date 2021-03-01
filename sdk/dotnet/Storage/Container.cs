@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Storage
         public Output<bool> HasLegalHold { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of MetaData for this Container.
+        /// A mapping of MetaData for this Container. All metadata keys should be lowercase.
         /// </summary>
         [Output("metadata")]
         public Output<ImmutableDictionary<string, string>> Metadata { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.Storage
         private InputMap<string>? _metadata;
 
         /// <summary>
-        /// A mapping of MetaData for this Container.
+        /// A mapping of MetaData for this Container. All metadata keys should be lowercase.
         /// </summary>
         public InputMap<string> Metadata
         {
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.Storage
         private InputMap<string>? _metadata;
 
         /// <summary>
-        /// A mapping of MetaData for this Container.
+        /// A mapping of MetaData for this Container. All metadata keys should be lowercase.
         /// </summary>
         public InputMap<string> Metadata
         {

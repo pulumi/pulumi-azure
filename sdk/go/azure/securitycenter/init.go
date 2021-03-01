@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection":
 		r, err = NewAdvancedThreatProtection(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:securitycenter/assessmentMetadata:AssessmentMetadata":
+		r, err = NewAssessmentMetadata(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:securitycenter/autoProvisioning:AutoProvisioning":
 		r, err = NewAutoProvisioning(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:securitycenter/automation:Automation":
@@ -50,6 +52,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"securitycenter/advancedThreatProtection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"securitycenter/assessmentMetadata",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

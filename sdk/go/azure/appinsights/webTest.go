@@ -13,6 +13,59 @@ import (
 
 // Manages an Application Insights WebTest.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/appinsights"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+// 			Location:          pulumi.String("West Europe"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ApplicationType:   pulumi.String("web"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleWebTest, err := appinsights.NewWebTest(ctx, "exampleWebTest", &appinsights.WebTestArgs{
+// 			Location:              exampleInsights.Location,
+// 			ResourceGroupName:     exampleResourceGroup.Name,
+// 			ApplicationInsightsId: exampleInsights.ID(),
+// 			Kind:                  pulumi.String("ping"),
+// 			Frequency:             pulumi.Int(300),
+// 			Timeout:               pulumi.Int(60),
+// 			Enabled:               pulumi.Bool(true),
+// 			GeoLocations: pulumi.StringArray{
+// 				pulumi.String("us-tx-sn1-azr"),
+// 				pulumi.String("us-il-ch1-azr"),
+// 			},
+// 			Configuration: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "<WebTest Name=\"WebTest1\" Id=\"ABD48585-0831-40CB-9069-682EA6BB3583\" Enabled=\"True\" CssProjectStructure=\"\" CssIteration=\"\" Timeout=\"0\" WorkItemIds=\"\" xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\" Description=\"\" CredentialUserName=\"\" CredentialPassword=\"\" PreAuthenticate=\"True\" Proxy=\"default\" StopOnError=\"False\" RecordedResultFile=\"\" ResultsLocale=\"\">\n", "  <Items>\n", "    <Request Method=\"GET\" Guid=\"a5f10126-e4cd-570d-961c-cea43999a200\" Version=\"1.1\" Url=\"http://microsoft.com\" ThinkTime=\"0\" Timeout=\"300\" ParseDependentRequests=\"True\" FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\" ResponseTimeGoal=\"0\" Encoding=\"utf-8\" ExpectedHttpStatusCode=\"200\" ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" />\n", "  </Items>\n", "</WebTest>\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("webtestId", exampleWebTest.ID())
+// 		ctx.Export("webtestsSyntheticId", exampleWebTest.SyntheticMonitorId)
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Application Insights Web Tests can be imported using the `resource id`, e.g.
@@ -25,28 +78,29 @@ type WebTest struct {
 
 	// The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId pulumi.StringOutput `pulumi:"applicationInsightsId"`
-	// An XML configuration specification for a WebTest.
+	// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
 	Configuration pulumi.StringOutput `pulumi:"configuration"`
 	// Purpose/user defined descriptive test for this WebTest.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Is the test actively being monitored.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Interval in seconds between test runs for this WebTest. Default is `300`.
+	// Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
 	Frequency pulumi.IntPtrOutput `pulumi:"frequency"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	GeoLocations pulumi.StringArrayOutput `pulumi:"geoLocations"`
-	// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+	// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
 	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The location of the resource group.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Application Insights WebTest. Changing this forces a
 	// new resource to be created.
-	Name              pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Allow for retries should this WebTest fail.
 	RetryEnabled       pulumi.BoolPtrOutput `pulumi:"retryEnabled"`
 	SyntheticMonitorId pulumi.StringOutput  `pulumi:"syntheticMonitorId"`
-	// Resource tags.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Seconds until this WebTest will timeout and fail. Default is `30`.
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
@@ -98,28 +152,29 @@ func GetWebTest(ctx *pulumi.Context,
 type webTestState struct {
 	// The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId *string `pulumi:"applicationInsightsId"`
-	// An XML configuration specification for a WebTest.
+	// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
 	Configuration *string `pulumi:"configuration"`
 	// Purpose/user defined descriptive test for this WebTest.
 	Description *string `pulumi:"description"`
 	// Is the test actively being monitored.
 	Enabled *bool `pulumi:"enabled"`
-	// Interval in seconds between test runs for this WebTest. Default is `300`.
+	// Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
 	Frequency *int `pulumi:"frequency"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	GeoLocations []string `pulumi:"geoLocations"`
-	// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+	// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
 	Kind *string `pulumi:"kind"`
-	// The location of the resource group.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Application Insights WebTest. Changing this forces a
 	// new resource to be created.
-	Name              *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Allow for retries should this WebTest fail.
 	RetryEnabled       *bool   `pulumi:"retryEnabled"`
 	SyntheticMonitorId *string `pulumi:"syntheticMonitorId"`
-	// Resource tags.
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Seconds until this WebTest will timeout and fail. Default is `30`.
 	Timeout *int `pulumi:"timeout"`
@@ -128,28 +183,29 @@ type webTestState struct {
 type WebTestState struct {
 	// The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId pulumi.StringPtrInput
-	// An XML configuration specification for a WebTest.
+	// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
 	Configuration pulumi.StringPtrInput
 	// Purpose/user defined descriptive test for this WebTest.
 	Description pulumi.StringPtrInput
 	// Is the test actively being monitored.
 	Enabled pulumi.BoolPtrInput
-	// Interval in seconds between test runs for this WebTest. Default is `300`.
+	// Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
 	Frequency pulumi.IntPtrInput
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	GeoLocations pulumi.StringArrayInput
-	// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+	// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
 	Kind pulumi.StringPtrInput
-	// The location of the resource group.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Application Insights WebTest. Changing this forces a
 	// new resource to be created.
-	Name              pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
 	ResourceGroupName pulumi.StringPtrInput
 	// Allow for retries should this WebTest fail.
 	RetryEnabled       pulumi.BoolPtrInput
 	SyntheticMonitorId pulumi.StringPtrInput
-	// Resource tags.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Seconds until this WebTest will timeout and fail. Default is `30`.
 	Timeout pulumi.IntPtrInput
@@ -162,27 +218,28 @@ func (WebTestState) ElementType() reflect.Type {
 type webTestArgs struct {
 	// The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId string `pulumi:"applicationInsightsId"`
-	// An XML configuration specification for a WebTest.
+	// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
 	Configuration string `pulumi:"configuration"`
 	// Purpose/user defined descriptive test for this WebTest.
 	Description *string `pulumi:"description"`
 	// Is the test actively being monitored.
 	Enabled *bool `pulumi:"enabled"`
-	// Interval in seconds between test runs for this WebTest. Default is `300`.
+	// Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
 	Frequency *int `pulumi:"frequency"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	GeoLocations []string `pulumi:"geoLocations"`
-	// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+	// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
 	Kind string `pulumi:"kind"`
-	// The location of the resource group.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Application Insights WebTest. Changing this forces a
 	// new resource to be created.
-	Name              *string `pulumi:"name"`
-	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	Name *string `pulumi:"name"`
+	// The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Allow for retries should this WebTest fail.
 	RetryEnabled *bool `pulumi:"retryEnabled"`
-	// Resource tags.
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Seconds until this WebTest will timeout and fail. Default is `30`.
 	Timeout *int `pulumi:"timeout"`
@@ -192,27 +249,28 @@ type webTestArgs struct {
 type WebTestArgs struct {
 	// The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId pulumi.StringInput
-	// An XML configuration specification for a WebTest.
+	// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
 	Configuration pulumi.StringInput
 	// Purpose/user defined descriptive test for this WebTest.
 	Description pulumi.StringPtrInput
 	// Is the test actively being monitored.
 	Enabled pulumi.BoolPtrInput
-	// Interval in seconds between test runs for this WebTest. Default is `300`.
+	// Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
 	Frequency pulumi.IntPtrInput
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	GeoLocations pulumi.StringArrayInput
-	// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+	// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
 	Kind pulumi.StringInput
-	// The location of the resource group.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Application Insights WebTest. Changing this forces a
 	// new resource to be created.
-	Name              pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
 	ResourceGroupName pulumi.StringInput
 	// Allow for retries should this WebTest fail.
 	RetryEnabled pulumi.BoolPtrInput
-	// Resource tags.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Seconds until this WebTest will timeout and fail. Default is `30`.
 	Timeout pulumi.IntPtrInput

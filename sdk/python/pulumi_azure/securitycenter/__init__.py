@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .advanced_threat_protection import *
+from .assessment_metadata import *
 from .auto_provisioning import *
 from .automation import *
 from .contact import *
@@ -27,6 +28,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection":
                 return AdvancedThreatProtection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:securitycenter/assessmentMetadata:AssessmentMetadata":
+                return AssessmentMetadata(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:securitycenter/autoProvisioning:AutoProvisioning":
                 return AutoProvisioning(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:securitycenter/automation:Automation":
@@ -45,6 +48,7 @@ def _register_module():
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("azure", "securitycenter/advancedThreatProtection", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "securitycenter/assessmentMetadata", _module_instance)
     pulumi.runtime.register_resource_module("azure", "securitycenter/autoProvisioning", _module_instance)
     pulumi.runtime.register_resource_module("azure", "securitycenter/automation", _module_instance)
     pulumi.runtime.register_resource_module("azure", "securitycenter/contact", _module_instance)

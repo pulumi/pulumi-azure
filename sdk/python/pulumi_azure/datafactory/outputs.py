@@ -760,37 +760,23 @@ class FactoryVstsConfiguration(dict):
 @pulumi.output_type
 class IntegrationRuntimeManagedCatalogInfo(dict):
     def __init__(__self__, *,
-                 administrator_login: str,
-                 administrator_password: str,
                  server_endpoint: str,
+                 administrator_login: Optional[str] = None,
+                 administrator_password: Optional[str] = None,
                  pricing_tier: Optional[str] = None):
         """
+        :param str server_endpoint: The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
         :param str administrator_login: Administrator login name for the SQL Server.
         :param str administrator_password: Administrator login password for the SQL Server.
-        :param str server_endpoint: The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
         :param str pricing_tier: Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
         """
-        pulumi.set(__self__, "administrator_login", administrator_login)
-        pulumi.set(__self__, "administrator_password", administrator_password)
         pulumi.set(__self__, "server_endpoint", server_endpoint)
+        if administrator_login is not None:
+            pulumi.set(__self__, "administrator_login", administrator_login)
+        if administrator_password is not None:
+            pulumi.set(__self__, "administrator_password", administrator_password)
         if pricing_tier is not None:
             pulumi.set(__self__, "pricing_tier", pricing_tier)
-
-    @property
-    @pulumi.getter(name="administratorLogin")
-    def administrator_login(self) -> str:
-        """
-        Administrator login name for the SQL Server.
-        """
-        return pulumi.get(self, "administrator_login")
-
-    @property
-    @pulumi.getter(name="administratorPassword")
-    def administrator_password(self) -> str:
-        """
-        Administrator login password for the SQL Server.
-        """
-        return pulumi.get(self, "administrator_password")
 
     @property
     @pulumi.getter(name="serverEndpoint")
@@ -799,6 +785,22 @@ class IntegrationRuntimeManagedCatalogInfo(dict):
         The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
         """
         return pulumi.get(self, "server_endpoint")
+
+    @property
+    @pulumi.getter(name="administratorLogin")
+    def administrator_login(self) -> Optional[str]:
+        """
+        Administrator login name for the SQL Server.
+        """
+        return pulumi.get(self, "administrator_login")
+
+    @property
+    @pulumi.getter(name="administratorPassword")
+    def administrator_password(self) -> Optional[str]:
+        """
+        Administrator login password for the SQL Server.
+        """
+        return pulumi.get(self, "administrator_password")
 
     @property
     @pulumi.getter(name="pricingTier")
@@ -900,37 +902,23 @@ class IntegrationRuntimeSelfHostedRbacAuthorization(dict):
 @pulumi.output_type
 class IntegrationRuntimeSsisCatalogInfo(dict):
     def __init__(__self__, *,
-                 administrator_login: str,
-                 administrator_password: str,
                  server_endpoint: str,
+                 administrator_login: Optional[str] = None,
+                 administrator_password: Optional[str] = None,
                  pricing_tier: Optional[str] = None):
         """
+        :param str server_endpoint: The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
         :param str administrator_login: Administrator login name for the SQL Server.
         :param str administrator_password: Administrator login password for the SQL Server.
-        :param str server_endpoint: The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
         :param str pricing_tier: Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
         """
-        pulumi.set(__self__, "administrator_login", administrator_login)
-        pulumi.set(__self__, "administrator_password", administrator_password)
         pulumi.set(__self__, "server_endpoint", server_endpoint)
+        if administrator_login is not None:
+            pulumi.set(__self__, "administrator_login", administrator_login)
+        if administrator_password is not None:
+            pulumi.set(__self__, "administrator_password", administrator_password)
         if pricing_tier is not None:
             pulumi.set(__self__, "pricing_tier", pricing_tier)
-
-    @property
-    @pulumi.getter(name="administratorLogin")
-    def administrator_login(self) -> str:
-        """
-        Administrator login name for the SQL Server.
-        """
-        return pulumi.get(self, "administrator_login")
-
-    @property
-    @pulumi.getter(name="administratorPassword")
-    def administrator_password(self) -> str:
-        """
-        Administrator login password for the SQL Server.
-        """
-        return pulumi.get(self, "administrator_password")
 
     @property
     @pulumi.getter(name="serverEndpoint")
@@ -939,6 +927,22 @@ class IntegrationRuntimeSsisCatalogInfo(dict):
         The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
         """
         return pulumi.get(self, "server_endpoint")
+
+    @property
+    @pulumi.getter(name="administratorLogin")
+    def administrator_login(self) -> Optional[str]:
+        """
+        Administrator login name for the SQL Server.
+        """
+        return pulumi.get(self, "administrator_login")
+
+    @property
+    @pulumi.getter(name="administratorPassword")
+    def administrator_password(self) -> Optional[str]:
+        """
+        Administrator login password for the SQL Server.
+        """
+        return pulumi.get(self, "administrator_password")
 
     @property
     @pulumi.getter(name="pricingTier")

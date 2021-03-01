@@ -15,14 +15,14 @@ namespace Pulumi.Azure.DataFactory.Inputs
         /// <summary>
         /// Administrator login name for the SQL Server.
         /// </summary>
-        [Input("administratorLogin", required: true)]
-        public Input<string> AdministratorLogin { get; set; } = null!;
+        [Input("administratorLogin")]
+        public Input<string>? AdministratorLogin { get; set; }
 
         /// <summary>
         /// Administrator login password for the SQL Server.
         /// </summary>
-        [Input("administratorPassword", required: true)]
-        public Input<string> AdministratorPassword { get; set; } = null!;
+        [Input("administratorPassword")]
+        public Input<string>? AdministratorPassword { get; set; }
 
         /// <summary>
         /// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.

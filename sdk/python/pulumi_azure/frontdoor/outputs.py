@@ -132,7 +132,7 @@ class FirewallPolicyCustomRule(dict):
         :param str name: Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         :param str type: The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
         :param bool enabled: Is the rule is enabled or disabled? Defaults to `true`.
-        :param Sequence['FirewallPolicyCustomRuleMatchConditionArgs'] match_conditions: One or more `match_condition` block defined below.
+        :param Sequence['FirewallPolicyCustomRuleMatchConditionArgs'] match_conditions: One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
         :param int priority: The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
         :param int rate_limit_duration_in_minutes: The rate limit duration in minutes. Defaults to `1`.
         :param int rate_limit_threshold: The rate limit threshold. Defaults to `10`.
@@ -187,7 +187,7 @@ class FirewallPolicyCustomRule(dict):
     @pulumi.getter(name="matchConditions")
     def match_conditions(self) -> Optional[Sequence['outputs.FirewallPolicyCustomRuleMatchCondition']]:
         """
-        One or more `match_condition` block defined below.
+        One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
         """
         return pulumi.get(self, "match_conditions")
 
@@ -229,7 +229,7 @@ class FirewallPolicyCustomRuleMatchCondition(dict):
                  selector: Optional[str] = None,
                  transforms: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] match_values: Up to `100` possible values to match.
+        :param Sequence[str] match_values: Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters long.
         :param str match_variable: The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
         :param str operator: Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
         :param bool negation_condition: Should the result of the condition be negated.
@@ -250,7 +250,7 @@ class FirewallPolicyCustomRuleMatchCondition(dict):
     @pulumi.getter(name="matchValues")
     def match_values(self) -> Sequence[str]:
         """
-        Up to `100` possible values to match.
+        Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters long.
         """
         return pulumi.get(self, "match_values")
 
@@ -1214,7 +1214,7 @@ class FrontdoorRoutingRuleForwardingConfiguration(dict):
         """
         :param str backend_pool_name: Specifies the name of the Backend Pool to forward the incoming traffic to.
         :param bool cache_enabled: Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
-        :param str cache_query_parameter_strip_directive: Defines cache behaviour in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+        :param str cache_query_parameter_strip_directive: Defines cache behaviour in relation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
         :param bool cache_use_dynamic_compression: Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
         :param str custom_forwarding_path: Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path.
         :param str forwarding_protocol: Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
@@ -1251,7 +1251,7 @@ class FrontdoorRoutingRuleForwardingConfiguration(dict):
     @pulumi.getter(name="cacheQueryParameterStripDirective")
     def cache_query_parameter_strip_directive(self) -> Optional[str]:
         """
-        Defines cache behaviour in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+        Defines cache behaviour in relation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
         """
         return pulumi.get(self, "cache_query_parameter_strip_directive")
 

@@ -11,6 +11,7 @@ from .. import _utilities, _tables
 __all__ = [
     'CachePatchScheduleArgs',
     'CacheRedisConfigurationArgs',
+    'EnterpriseDatabaseModuleArgs',
 ]
 
 @pulumi.input_type
@@ -258,5 +259,55 @@ class CacheRedisConfigurationArgs:
     @rdb_storage_connection_string.setter
     def rdb_storage_connection_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rdb_storage_connection_string", value)
+
+
+@pulumi.input_type
+class EnterpriseDatabaseModuleArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 args: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] args: Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+        """
+        pulumi.set(__self__, "name", name)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[pulumi.Input[str]]:
+        """
+        Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+        """
+        return pulumi.get(self, "args")
+
+    @args.setter
+    def args(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "args", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 

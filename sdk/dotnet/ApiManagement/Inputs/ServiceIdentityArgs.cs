@@ -31,7 +31,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The Tenant ID associated with this Managed Service Identity.
+        /// The identifier for the tenant access information contract.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

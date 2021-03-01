@@ -71,8 +71,8 @@ type LinkedServiceAzureBlobStorage struct {
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
-	// The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
-	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
+	// The connection string. Conflicts with `sasUri`.
+	ConnectionString pulumi.StringPtrOutput `pulumi:"connectionString"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
@@ -85,6 +85,16 @@ type LinkedServiceAzureBlobStorage struct {
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The SAS URI. Conflicts with `connectionString`.
+	SasUri pulumi.StringPtrOutput `pulumi:"sasUri"`
+	// The service principal id in which to authenticate against the Azure Blob Storage account. Required if `servicePrincipalKey` is set.
+	ServicePrincipalId pulumi.StringPtrOutput `pulumi:"servicePrincipalId"`
+	// The service principal key in which to authenticate against the AAzure Blob Storage account.  Required if `servicePrincipalId` is set.
+	ServicePrincipalKey pulumi.StringPtrOutput `pulumi:"servicePrincipalKey"`
+	// The tenant id or name in which to authenticate against the Azure Blob Storage account.
+	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
+	// Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+	UseManagedIdentity pulumi.BoolPtrOutput `pulumi:"useManagedIdentity"`
 }
 
 // NewLinkedServiceAzureBlobStorage registers a new resource with the given unique name, arguments, and options.
@@ -94,9 +104,6 @@ func NewLinkedServiceAzureBlobStorage(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConnectionString == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionString'")
-	}
 	if args.DataFactoryName == nil {
 		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
 	}
@@ -129,7 +136,7 @@ type linkedServiceAzureBlobStorageState struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
-	// The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
+	// The connection string. Conflicts with `sasUri`.
 	ConnectionString *string `pulumi:"connectionString"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryName *string `pulumi:"dataFactoryName"`
@@ -143,6 +150,16 @@ type linkedServiceAzureBlobStorageState struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The SAS URI. Conflicts with `connectionString`.
+	SasUri *string `pulumi:"sasUri"`
+	// The service principal id in which to authenticate against the Azure Blob Storage account. Required if `servicePrincipalKey` is set.
+	ServicePrincipalId *string `pulumi:"servicePrincipalId"`
+	// The service principal key in which to authenticate against the AAzure Blob Storage account.  Required if `servicePrincipalId` is set.
+	ServicePrincipalKey *string `pulumi:"servicePrincipalKey"`
+	// The tenant id or name in which to authenticate against the Azure Blob Storage account.
+	TenantId *string `pulumi:"tenantId"`
+	// Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+	UseManagedIdentity *bool `pulumi:"useManagedIdentity"`
 }
 
 type LinkedServiceAzureBlobStorageState struct {
@@ -150,7 +167,7 @@ type LinkedServiceAzureBlobStorageState struct {
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
-	// The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
+	// The connection string. Conflicts with `sasUri`.
 	ConnectionString pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryName pulumi.StringPtrInput
@@ -164,6 +181,16 @@ type LinkedServiceAzureBlobStorageState struct {
 	Parameters pulumi.StringMapInput
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName pulumi.StringPtrInput
+	// The SAS URI. Conflicts with `connectionString`.
+	SasUri pulumi.StringPtrInput
+	// The service principal id in which to authenticate against the Azure Blob Storage account. Required if `servicePrincipalKey` is set.
+	ServicePrincipalId pulumi.StringPtrInput
+	// The service principal key in which to authenticate against the AAzure Blob Storage account.  Required if `servicePrincipalId` is set.
+	ServicePrincipalKey pulumi.StringPtrInput
+	// The tenant id or name in which to authenticate against the Azure Blob Storage account.
+	TenantId pulumi.StringPtrInput
+	// Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+	UseManagedIdentity pulumi.BoolPtrInput
 }
 
 func (LinkedServiceAzureBlobStorageState) ElementType() reflect.Type {
@@ -175,8 +202,8 @@ type linkedServiceAzureBlobStorageArgs struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
-	// The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
-	ConnectionString string `pulumi:"connectionString"`
+	// The connection string. Conflicts with `sasUri`.
+	ConnectionString *string `pulumi:"connectionString"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryName string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
@@ -189,6 +216,16 @@ type linkedServiceAzureBlobStorageArgs struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The SAS URI. Conflicts with `connectionString`.
+	SasUri *string `pulumi:"sasUri"`
+	// The service principal id in which to authenticate against the Azure Blob Storage account. Required if `servicePrincipalKey` is set.
+	ServicePrincipalId *string `pulumi:"servicePrincipalId"`
+	// The service principal key in which to authenticate against the AAzure Blob Storage account.  Required if `servicePrincipalId` is set.
+	ServicePrincipalKey *string `pulumi:"servicePrincipalKey"`
+	// The tenant id or name in which to authenticate against the Azure Blob Storage account.
+	TenantId *string `pulumi:"tenantId"`
+	// Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+	UseManagedIdentity *bool `pulumi:"useManagedIdentity"`
 }
 
 // The set of arguments for constructing a LinkedServiceAzureBlobStorage resource.
@@ -197,8 +234,8 @@ type LinkedServiceAzureBlobStorageArgs struct {
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
-	// The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
-	ConnectionString pulumi.StringInput
+	// The connection string. Conflicts with `sasUri`.
+	ConnectionString pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryName pulumi.StringInput
 	// The description for the Data Factory Linked Service.
@@ -211,6 +248,16 @@ type LinkedServiceAzureBlobStorageArgs struct {
 	Parameters pulumi.StringMapInput
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName pulumi.StringInput
+	// The SAS URI. Conflicts with `connectionString`.
+	SasUri pulumi.StringPtrInput
+	// The service principal id in which to authenticate against the Azure Blob Storage account. Required if `servicePrincipalKey` is set.
+	ServicePrincipalId pulumi.StringPtrInput
+	// The service principal key in which to authenticate against the AAzure Blob Storage account.  Required if `servicePrincipalId` is set.
+	ServicePrincipalKey pulumi.StringPtrInput
+	// The tenant id or name in which to authenticate against the Azure Blob Storage account.
+	TenantId pulumi.StringPtrInput
+	// Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+	UseManagedIdentity pulumi.BoolPtrInput
 }
 
 func (LinkedServiceAzureBlobStorageArgs) ElementType() reflect.Type {

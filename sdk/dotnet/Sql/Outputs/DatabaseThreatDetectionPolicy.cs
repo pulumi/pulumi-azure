@@ -41,9 +41,6 @@ namespace Pulumi.Azure.Sql.Outputs
         /// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         /// </summary>
         public readonly string? StorageEndpoint;
-        /// <summary>
-        /// Should the default server policy be used? Defaults to `Disabled`.
-        /// </summary>
         public readonly string? UseServerDefault;
 
         [OutputConstructor]

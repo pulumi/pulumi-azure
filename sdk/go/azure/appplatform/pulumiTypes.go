@@ -1740,6 +1740,227 @@ func (o SpringCloudServiceTracePtrOutput) InstrumentationKey() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetSpringCloudAppIdentity struct {
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+	TenantId string `pulumi:"tenantId"`
+	// The Type of Managed Identity assigned to the Spring Cloud Application.
+	Type string `pulumi:"type"`
+}
+
+// GetSpringCloudAppIdentityInput is an input type that accepts GetSpringCloudAppIdentityArgs and GetSpringCloudAppIdentityOutput values.
+// You can construct a concrete instance of `GetSpringCloudAppIdentityInput` via:
+//
+//          GetSpringCloudAppIdentityArgs{...}
+type GetSpringCloudAppIdentityInput interface {
+	pulumi.Input
+
+	ToGetSpringCloudAppIdentityOutput() GetSpringCloudAppIdentityOutput
+	ToGetSpringCloudAppIdentityOutputWithContext(context.Context) GetSpringCloudAppIdentityOutput
+}
+
+type GetSpringCloudAppIdentityArgs struct {
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The Type of Managed Identity assigned to the Spring Cloud Application.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetSpringCloudAppIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpringCloudAppIdentity)(nil)).Elem()
+}
+
+func (i GetSpringCloudAppIdentityArgs) ToGetSpringCloudAppIdentityOutput() GetSpringCloudAppIdentityOutput {
+	return i.ToGetSpringCloudAppIdentityOutputWithContext(context.Background())
+}
+
+func (i GetSpringCloudAppIdentityArgs) ToGetSpringCloudAppIdentityOutputWithContext(ctx context.Context) GetSpringCloudAppIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudAppIdentityOutput)
+}
+
+// GetSpringCloudAppIdentityArrayInput is an input type that accepts GetSpringCloudAppIdentityArray and GetSpringCloudAppIdentityArrayOutput values.
+// You can construct a concrete instance of `GetSpringCloudAppIdentityArrayInput` via:
+//
+//          GetSpringCloudAppIdentityArray{ GetSpringCloudAppIdentityArgs{...} }
+type GetSpringCloudAppIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetSpringCloudAppIdentityArrayOutput() GetSpringCloudAppIdentityArrayOutput
+	ToGetSpringCloudAppIdentityArrayOutputWithContext(context.Context) GetSpringCloudAppIdentityArrayOutput
+}
+
+type GetSpringCloudAppIdentityArray []GetSpringCloudAppIdentityInput
+
+func (GetSpringCloudAppIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpringCloudAppIdentity)(nil)).Elem()
+}
+
+func (i GetSpringCloudAppIdentityArray) ToGetSpringCloudAppIdentityArrayOutput() GetSpringCloudAppIdentityArrayOutput {
+	return i.ToGetSpringCloudAppIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetSpringCloudAppIdentityArray) ToGetSpringCloudAppIdentityArrayOutputWithContext(ctx context.Context) GetSpringCloudAppIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudAppIdentityArrayOutput)
+}
+
+type GetSpringCloudAppIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetSpringCloudAppIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpringCloudAppIdentity)(nil)).Elem()
+}
+
+func (o GetSpringCloudAppIdentityOutput) ToGetSpringCloudAppIdentityOutput() GetSpringCloudAppIdentityOutput {
+	return o
+}
+
+func (o GetSpringCloudAppIdentityOutput) ToGetSpringCloudAppIdentityOutputWithContext(ctx context.Context) GetSpringCloudAppIdentityOutput {
+	return o
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+func (o GetSpringCloudAppIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudAppIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+func (o GetSpringCloudAppIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudAppIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The Type of Managed Identity assigned to the Spring Cloud Application.
+func (o GetSpringCloudAppIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudAppIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetSpringCloudAppIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSpringCloudAppIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpringCloudAppIdentity)(nil)).Elem()
+}
+
+func (o GetSpringCloudAppIdentityArrayOutput) ToGetSpringCloudAppIdentityArrayOutput() GetSpringCloudAppIdentityArrayOutput {
+	return o
+}
+
+func (o GetSpringCloudAppIdentityArrayOutput) ToGetSpringCloudAppIdentityArrayOutputWithContext(ctx context.Context) GetSpringCloudAppIdentityArrayOutput {
+	return o
+}
+
+func (o GetSpringCloudAppIdentityArrayOutput) Index(i pulumi.IntInput) GetSpringCloudAppIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSpringCloudAppIdentity {
+		return vs[0].([]GetSpringCloudAppIdentity)[vs[1].(int)]
+	}).(GetSpringCloudAppIdentityOutput)
+}
+
+type GetSpringCloudAppPersistentDisk struct {
+	// The mount path of the persistent disk.
+	MountPath string `pulumi:"mountPath"`
+	// The size of the persistent disk in GB.
+	SizeInGb int `pulumi:"sizeInGb"`
+}
+
+// GetSpringCloudAppPersistentDiskInput is an input type that accepts GetSpringCloudAppPersistentDiskArgs and GetSpringCloudAppPersistentDiskOutput values.
+// You can construct a concrete instance of `GetSpringCloudAppPersistentDiskInput` via:
+//
+//          GetSpringCloudAppPersistentDiskArgs{...}
+type GetSpringCloudAppPersistentDiskInput interface {
+	pulumi.Input
+
+	ToGetSpringCloudAppPersistentDiskOutput() GetSpringCloudAppPersistentDiskOutput
+	ToGetSpringCloudAppPersistentDiskOutputWithContext(context.Context) GetSpringCloudAppPersistentDiskOutput
+}
+
+type GetSpringCloudAppPersistentDiskArgs struct {
+	// The mount path of the persistent disk.
+	MountPath pulumi.StringInput `pulumi:"mountPath"`
+	// The size of the persistent disk in GB.
+	SizeInGb pulumi.IntInput `pulumi:"sizeInGb"`
+}
+
+func (GetSpringCloudAppPersistentDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpringCloudAppPersistentDisk)(nil)).Elem()
+}
+
+func (i GetSpringCloudAppPersistentDiskArgs) ToGetSpringCloudAppPersistentDiskOutput() GetSpringCloudAppPersistentDiskOutput {
+	return i.ToGetSpringCloudAppPersistentDiskOutputWithContext(context.Background())
+}
+
+func (i GetSpringCloudAppPersistentDiskArgs) ToGetSpringCloudAppPersistentDiskOutputWithContext(ctx context.Context) GetSpringCloudAppPersistentDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudAppPersistentDiskOutput)
+}
+
+// GetSpringCloudAppPersistentDiskArrayInput is an input type that accepts GetSpringCloudAppPersistentDiskArray and GetSpringCloudAppPersistentDiskArrayOutput values.
+// You can construct a concrete instance of `GetSpringCloudAppPersistentDiskArrayInput` via:
+//
+//          GetSpringCloudAppPersistentDiskArray{ GetSpringCloudAppPersistentDiskArgs{...} }
+type GetSpringCloudAppPersistentDiskArrayInput interface {
+	pulumi.Input
+
+	ToGetSpringCloudAppPersistentDiskArrayOutput() GetSpringCloudAppPersistentDiskArrayOutput
+	ToGetSpringCloudAppPersistentDiskArrayOutputWithContext(context.Context) GetSpringCloudAppPersistentDiskArrayOutput
+}
+
+type GetSpringCloudAppPersistentDiskArray []GetSpringCloudAppPersistentDiskInput
+
+func (GetSpringCloudAppPersistentDiskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpringCloudAppPersistentDisk)(nil)).Elem()
+}
+
+func (i GetSpringCloudAppPersistentDiskArray) ToGetSpringCloudAppPersistentDiskArrayOutput() GetSpringCloudAppPersistentDiskArrayOutput {
+	return i.ToGetSpringCloudAppPersistentDiskArrayOutputWithContext(context.Background())
+}
+
+func (i GetSpringCloudAppPersistentDiskArray) ToGetSpringCloudAppPersistentDiskArrayOutputWithContext(ctx context.Context) GetSpringCloudAppPersistentDiskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudAppPersistentDiskArrayOutput)
+}
+
+type GetSpringCloudAppPersistentDiskOutput struct{ *pulumi.OutputState }
+
+func (GetSpringCloudAppPersistentDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpringCloudAppPersistentDisk)(nil)).Elem()
+}
+
+func (o GetSpringCloudAppPersistentDiskOutput) ToGetSpringCloudAppPersistentDiskOutput() GetSpringCloudAppPersistentDiskOutput {
+	return o
+}
+
+func (o GetSpringCloudAppPersistentDiskOutput) ToGetSpringCloudAppPersistentDiskOutputWithContext(ctx context.Context) GetSpringCloudAppPersistentDiskOutput {
+	return o
+}
+
+// The mount path of the persistent disk.
+func (o GetSpringCloudAppPersistentDiskOutput) MountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudAppPersistentDisk) string { return v.MountPath }).(pulumi.StringOutput)
+}
+
+// The size of the persistent disk in GB.
+func (o GetSpringCloudAppPersistentDiskOutput) SizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSpringCloudAppPersistentDisk) int { return v.SizeInGb }).(pulumi.IntOutput)
+}
+
+type GetSpringCloudAppPersistentDiskArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSpringCloudAppPersistentDiskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpringCloudAppPersistentDisk)(nil)).Elem()
+}
+
+func (o GetSpringCloudAppPersistentDiskArrayOutput) ToGetSpringCloudAppPersistentDiskArrayOutput() GetSpringCloudAppPersistentDiskArrayOutput {
+	return o
+}
+
+func (o GetSpringCloudAppPersistentDiskArrayOutput) ToGetSpringCloudAppPersistentDiskArrayOutputWithContext(ctx context.Context) GetSpringCloudAppPersistentDiskArrayOutput {
+	return o
+}
+
+func (o GetSpringCloudAppPersistentDiskArrayOutput) Index(i pulumi.IntInput) GetSpringCloudAppPersistentDiskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSpringCloudAppPersistentDisk {
+		return vs[0].([]GetSpringCloudAppPersistentDisk)[vs[1].(int)]
+	}).(GetSpringCloudAppPersistentDiskOutput)
+}
+
 type GetSpringCloudServiceConfigServerGitSetting struct {
 	// A `httpBasicAuth` block as defined below.
 	HttpBasicAuths []GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth `pulumi:"httpBasicAuths"`
@@ -2526,6 +2747,10 @@ func init() {
 	pulumi.RegisterOutputType(SpringCloudServiceNetworkPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceTraceOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceTracePtrOutput{})
+	pulumi.RegisterOutputType(GetSpringCloudAppIdentityOutput{})
+	pulumi.RegisterOutputType(GetSpringCloudAppIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetSpringCloudAppPersistentDiskOutput{})
+	pulumi.RegisterOutputType(GetSpringCloudAppPersistentDiskArrayOutput{})
 	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingOutput{})
 	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput{})

@@ -65,6 +65,10 @@ export class SpringCloudApp extends pulumi.CustomResource {
     }
 
     /**
+     * The Fully Qualified DNS Name of the Spring Application in the service.
+     */
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    /**
      * Is only https allowed? Defaults to `false`.
      */
     public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
@@ -110,6 +114,7 @@ export class SpringCloudApp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudAppState | undefined;
+            inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["httpsOnly"] = state ? state.httpsOnly : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["isPublic"] = state ? state.isPublic : undefined;
@@ -133,6 +138,7 @@ export class SpringCloudApp extends pulumi.CustomResource {
             inputs["persistentDisk"] = args ? args.persistentDisk : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["fqdn"] = undefined /*out*/;
             inputs["url"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -146,6 +152,10 @@ export class SpringCloudApp extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SpringCloudApp resources.
  */
 export interface SpringCloudAppState {
+    /**
+     * The Fully Qualified DNS Name of the Spring Application in the service.
+     */
+    readonly fqdn?: pulumi.Input<string>;
     /**
      * Is only https allowed? Defaults to `false`.
      */

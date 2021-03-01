@@ -109,6 +109,10 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
      */
     public readonly severity!: pulumi.Output<string>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
      */
     public readonly throttlingDuration!: pulumi.Output<string | undefined>;
@@ -135,6 +139,7 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["scopeResourceIds"] = state ? state.scopeResourceIds : undefined;
             inputs["severity"] = state ? state.severity : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["throttlingDuration"] = state ? state.throttlingDuration : undefined;
         } else {
             const args = argsOrState as SmartDetectorAlertRuleArgs | undefined;
@@ -165,6 +170,7 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scopeResourceIds"] = args ? args.scopeResourceIds : undefined;
             inputs["severity"] = args ? args.severity : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["throttlingDuration"] = args ? args.throttlingDuration : undefined;
         }
         if (!opts.version) {
@@ -215,6 +221,10 @@ export interface SmartDetectorAlertRuleState {
      */
     readonly severity?: pulumi.Input<string>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
      */
     readonly throttlingDuration?: pulumi.Input<string>;
@@ -260,6 +270,10 @@ export interface SmartDetectorAlertRuleArgs {
      * Specifies the severity of this Smart Detector Alert Rule. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3` or `Sev4`.
      */
     readonly severity: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
      */

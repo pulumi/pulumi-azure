@@ -2212,9 +2212,9 @@ func (o FactoryVstsConfigurationPtrOutput) TenantId() pulumi.StringPtrOutput {
 
 type IntegrationRuntimeManagedCatalogInfo struct {
 	// Administrator login name for the SQL Server.
-	AdministratorLogin string `pulumi:"administratorLogin"`
+	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// Administrator login password for the SQL Server.
-	AdministratorPassword string `pulumi:"administratorPassword"`
+	AdministratorPassword *string `pulumi:"administratorPassword"`
 	// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
 	PricingTier *string `pulumi:"pricingTier"`
 	// The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
@@ -2234,9 +2234,9 @@ type IntegrationRuntimeManagedCatalogInfoInput interface {
 
 type IntegrationRuntimeManagedCatalogInfoArgs struct {
 	// Administrator login name for the SQL Server.
-	AdministratorLogin pulumi.StringInput `pulumi:"administratorLogin"`
+	AdministratorLogin pulumi.StringPtrInput `pulumi:"administratorLogin"`
 	// Administrator login password for the SQL Server.
-	AdministratorPassword pulumi.StringInput `pulumi:"administratorPassword"`
+	AdministratorPassword pulumi.StringPtrInput `pulumi:"administratorPassword"`
 	// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
 	PricingTier pulumi.StringPtrInput `pulumi:"pricingTier"`
 	// The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
@@ -2321,13 +2321,13 @@ func (o IntegrationRuntimeManagedCatalogInfoOutput) ToIntegrationRuntimeManagedC
 }
 
 // Administrator login name for the SQL Server.
-func (o IntegrationRuntimeManagedCatalogInfoOutput) AdministratorLogin() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationRuntimeManagedCatalogInfo) string { return v.AdministratorLogin }).(pulumi.StringOutput)
+func (o IntegrationRuntimeManagedCatalogInfoOutput) AdministratorLogin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeManagedCatalogInfo) *string { return v.AdministratorLogin }).(pulumi.StringPtrOutput)
 }
 
 // Administrator login password for the SQL Server.
-func (o IntegrationRuntimeManagedCatalogInfoOutput) AdministratorPassword() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationRuntimeManagedCatalogInfo) string { return v.AdministratorPassword }).(pulumi.StringOutput)
+func (o IntegrationRuntimeManagedCatalogInfoOutput) AdministratorPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeManagedCatalogInfo) *string { return v.AdministratorPassword }).(pulumi.StringPtrOutput)
 }
 
 // Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
@@ -2364,7 +2364,7 @@ func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) AdministratorLogin() pulu
 		if v == nil {
 			return nil
 		}
-		return &v.AdministratorLogin
+		return v.AdministratorLogin
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2374,7 +2374,7 @@ func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) AdministratorPassword() p
 		if v == nil {
 			return nil
 		}
-		return &v.AdministratorPassword
+		return v.AdministratorPassword
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2799,9 +2799,9 @@ func (o IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput) Index(i pulumi
 
 type IntegrationRuntimeSsisCatalogInfo struct {
 	// Administrator login name for the SQL Server.
-	AdministratorLogin string `pulumi:"administratorLogin"`
+	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// Administrator login password for the SQL Server.
-	AdministratorPassword string `pulumi:"administratorPassword"`
+	AdministratorPassword *string `pulumi:"administratorPassword"`
 	// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
 	PricingTier *string `pulumi:"pricingTier"`
 	// The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
@@ -2821,9 +2821,9 @@ type IntegrationRuntimeSsisCatalogInfoInput interface {
 
 type IntegrationRuntimeSsisCatalogInfoArgs struct {
 	// Administrator login name for the SQL Server.
-	AdministratorLogin pulumi.StringInput `pulumi:"administratorLogin"`
+	AdministratorLogin pulumi.StringPtrInput `pulumi:"administratorLogin"`
 	// Administrator login password for the SQL Server.
-	AdministratorPassword pulumi.StringInput `pulumi:"administratorPassword"`
+	AdministratorPassword pulumi.StringPtrInput `pulumi:"administratorPassword"`
 	// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
 	PricingTier pulumi.StringPtrInput `pulumi:"pricingTier"`
 	// The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
@@ -2908,13 +2908,13 @@ func (o IntegrationRuntimeSsisCatalogInfoOutput) ToIntegrationRuntimeSsisCatalog
 }
 
 // Administrator login name for the SQL Server.
-func (o IntegrationRuntimeSsisCatalogInfoOutput) AdministratorLogin() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) string { return v.AdministratorLogin }).(pulumi.StringOutput)
+func (o IntegrationRuntimeSsisCatalogInfoOutput) AdministratorLogin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) *string { return v.AdministratorLogin }).(pulumi.StringPtrOutput)
 }
 
 // Administrator login password for the SQL Server.
-func (o IntegrationRuntimeSsisCatalogInfoOutput) AdministratorPassword() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) string { return v.AdministratorPassword }).(pulumi.StringOutput)
+func (o IntegrationRuntimeSsisCatalogInfoOutput) AdministratorPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) *string { return v.AdministratorPassword }).(pulumi.StringPtrOutput)
 }
 
 // Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
@@ -2951,7 +2951,7 @@ func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) AdministratorLogin() pulumi.
 		if v == nil {
 			return nil
 		}
-		return &v.AdministratorLogin
+		return v.AdministratorLogin
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2961,7 +2961,7 @@ func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) AdministratorPassword() pulu
 		if v == nil {
 			return nil
 		}
-		return &v.AdministratorPassword
+		return v.AdministratorPassword
 	}).(pulumi.StringPtrOutput)
 }
 

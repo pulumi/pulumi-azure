@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:redis/cache:Cache":
 		r, err = NewCache(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:redis/enterpriseCluster:EnterpriseCluster":
+		r, err = NewEnterpriseCluster(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:redis/enterpriseDatabase:EnterpriseDatabase":
+		r, err = NewEnterpriseDatabase(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:redis/firewallRule:FirewallRule":
 		r, err = NewFirewallRule(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:redis/linkedServer:LinkedServer":
@@ -42,6 +46,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"redis/cache",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"redis/enterpriseCluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"redis/enterpriseDatabase",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -110,7 +110,7 @@ namespace Pulumi.Azure.Redis
         public readonly string MinimumTlsVersion;
         public readonly string Name;
         /// <summary>
-        /// A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
+        /// A list of `patch_schedule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCachePatchScheduleResult> PatchSchedules;
         /// <summary>

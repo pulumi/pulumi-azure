@@ -156,7 +156,7 @@ class GetCacheResult:
     @pulumi.getter(name="patchSchedules")
     def patch_schedules(self) -> Sequence['outputs.GetCachePatchScheduleResult']:
         """
-        A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
+        A list of `patch_schedule` blocks as defined below.
         """
         return pulumi.get(self, "patch_schedules")
 

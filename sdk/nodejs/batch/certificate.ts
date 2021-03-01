@@ -60,7 +60,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
+     * The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
@@ -157,7 +157,7 @@ export interface CertificateState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
+     * The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
      */
     readonly password?: pulumi.Input<string>;
     /**
@@ -192,7 +192,7 @@ export interface CertificateArgs {
      */
     readonly format: pulumi.Input<string>;
     /**
-     * The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
+     * The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
      */
     readonly password?: pulumi.Input<string>;
     /**

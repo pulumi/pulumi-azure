@@ -80,6 +80,7 @@ namespace Pulumi.Azure.NetApp
     public sealed class GetVolumeResult
     {
         public readonly string AccountName;
+        public readonly ImmutableArray<Outputs.GetVolumeDataProtectionReplicationResult> DataProtectionReplications;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -117,6 +118,8 @@ namespace Pulumi.Azure.NetApp
         private GetVolumeResult(
             string accountName,
 
+            ImmutableArray<Outputs.GetVolumeDataProtectionReplicationResult> dataProtectionReplications,
+
             string id,
 
             string location,
@@ -140,6 +143,7 @@ namespace Pulumi.Azure.NetApp
             string volumePath)
         {
             AccountName = accountName;
+            DataProtectionReplications = dataProtectionReplications;
             Id = id;
             Location = location;
             MountIpAddresses = mountIpAddresses;

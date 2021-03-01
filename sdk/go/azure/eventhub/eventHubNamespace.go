@@ -61,7 +61,7 @@ type EventHubNamespace struct {
 
 	// Is Auto Inflate enabled for the EventHub Namespace?
 	AutoInflateEnabled pulumi.BoolPtrOutput `pulumi:"autoInflateEnabled"`
-	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
+	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `20`, but can be increased in blocks of 20 on a committed purchase basis.
 	Capacity pulumi.IntPtrOutput `pulumi:"capacity"`
 	// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
 	DedicatedClusterId pulumi.StringPtrOutput `pulumi:"dedicatedClusterId"`
@@ -138,7 +138,7 @@ func GetEventHubNamespace(ctx *pulumi.Context,
 type eventHubNamespaceState struct {
 	// Is Auto Inflate enabled for the EventHub Namespace?
 	AutoInflateEnabled *bool `pulumi:"autoInflateEnabled"`
-	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
+	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `20`, but can be increased in blocks of 20 on a committed purchase basis.
 	Capacity *int `pulumi:"capacity"`
 	// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
 	DedicatedClusterId *string `pulumi:"dedicatedClusterId"`
@@ -181,7 +181,7 @@ type eventHubNamespaceState struct {
 type EventHubNamespaceState struct {
 	// Is Auto Inflate enabled for the EventHub Namespace?
 	AutoInflateEnabled pulumi.BoolPtrInput
-	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
+	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `20`, but can be increased in blocks of 20 on a committed purchase basis.
 	Capacity pulumi.IntPtrInput
 	// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
 	DedicatedClusterId pulumi.StringPtrInput
@@ -228,7 +228,7 @@ func (EventHubNamespaceState) ElementType() reflect.Type {
 type eventHubNamespaceArgs struct {
 	// Is Auto Inflate enabled for the EventHub Namespace?
 	AutoInflateEnabled *bool `pulumi:"autoInflateEnabled"`
-	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
+	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `20`, but can be increased in blocks of 20 on a committed purchase basis.
 	Capacity *int `pulumi:"capacity"`
 	// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
 	DedicatedClusterId *string `pulumi:"dedicatedClusterId"`
@@ -256,7 +256,7 @@ type eventHubNamespaceArgs struct {
 type EventHubNamespaceArgs struct {
 	// Is Auto Inflate enabled for the EventHub Namespace?
 	AutoInflateEnabled pulumi.BoolPtrInput
-	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
+	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `20`, but can be increased in blocks of 20 on a committed purchase basis.
 	Capacity pulumi.IntPtrInput
 	// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
 	DedicatedClusterId pulumi.StringPtrInput

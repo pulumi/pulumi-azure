@@ -107,7 +107,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT` and `Microsoft Cloud App Security`.
+        /// The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
         /// </summary>
         [Output("productFilter")]
         public Output<string> ProductFilter { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT` and `Microsoft Cloud App Security`.
+        /// The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
         /// </summary>
         [Input("productFilter", required: true)]
         public Input<string> ProductFilter { get; set; } = null!;
@@ -322,7 +322,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT` and `Microsoft Cloud App Security`.
+        /// The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
         /// </summary>
         [Input("productFilter")]
         public Input<string>? ProductFilter { get; set; }

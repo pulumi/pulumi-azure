@@ -36,6 +36,7 @@ class Cluster(pulumi.CustomResource):
                  reverse_proxy_certificate_common_names: Optional[pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateCommonNamesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
+                 upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']]] = None,
                  vm_image: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -144,6 +145,7 @@ class Cluster(pulumi.CustomResource):
             if upgrade_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'upgrade_mode'")
             __props__['upgrade_mode'] = upgrade_mode
+            __props__['upgrade_policy'] = upgrade_policy
             if vm_image is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_image'")
             __props__['vm_image'] = vm_image
@@ -178,6 +180,7 @@ class Cluster(pulumi.CustomResource):
             reverse_proxy_certificate_common_names: Optional[pulumi.Input[pulumi.InputType['ClusterReverseProxyCertificateCommonNamesArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             upgrade_mode: Optional[pulumi.Input[str]] = None,
+            upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']]] = None,
             vm_image: Optional[pulumi.Input[str]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
@@ -232,6 +235,7 @@ class Cluster(pulumi.CustomResource):
         __props__["reverse_proxy_certificate_common_names"] = reverse_proxy_certificate_common_names
         __props__["tags"] = tags
         __props__["upgrade_mode"] = upgrade_mode
+        __props__["upgrade_policy"] = upgrade_policy
         __props__["vm_image"] = vm_image
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
@@ -394,6 +398,11 @@ class Cluster(pulumi.CustomResource):
         Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
         """
         return pulumi.get(self, "upgrade_mode")
+
+    @property
+    @pulumi.getter(name="upgradePolicy")
+    def upgrade_policy(self) -> pulumi.Output[Optional['outputs.ClusterUpgradePolicy']]:
+        return pulumi.get(self, "upgrade_policy")
 
     @property
     @pulumi.getter(name="vmImage")

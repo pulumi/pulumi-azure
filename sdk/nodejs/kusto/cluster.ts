@@ -125,7 +125,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly uri!: pulumi.Output<string>;
     /**
-     * A `virtualNetworkConfiguration` block as defined below.
+     * A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly virtualNetworkConfiguration!: pulumi.Output<outputs.kusto.ClusterVirtualNetworkConfiguration | undefined>;
     /**
@@ -261,7 +261,7 @@ export interface ClusterState {
      */
     readonly uri?: pulumi.Input<string>;
     /**
-     * A `virtualNetworkConfiguration` block as defined below.
+     * A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
     readonly virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.ClusterVirtualNetworkConfiguration>;
     /**
@@ -327,7 +327,7 @@ export interface ClusterArgs {
      */
     readonly trustedExternalTenants?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A `virtualNetworkConfiguration` block as defined below.
+     * A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
     readonly virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.ClusterVirtualNetworkConfiguration>;
     /**

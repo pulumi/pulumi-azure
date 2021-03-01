@@ -12,6 +12,58 @@ namespace Pulumi.Azure.AppInsights
     /// <summary>
     /// Manages an Application Insights WebTest.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ApplicationType = "web",
+    ///         });
+    ///         var exampleWebTest = new Azure.AppInsights.WebTest("exampleWebTest", new Azure.AppInsights.WebTestArgs
+    ///         {
+    ///             Location = exampleInsights.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ApplicationInsightsId = exampleInsights.Id,
+    ///             Kind = "ping",
+    ///             Frequency = 300,
+    ///             Timeout = 60,
+    ///             Enabled = true,
+    ///             GeoLocations = 
+    ///             {
+    ///                 "us-tx-sn1-azr",
+    ///                 "us-il-ch1-azr",
+    ///             },
+    ///             Configuration = @"&lt;WebTest Name=""WebTest1"" Id=""ABD48585-0831-40CB-9069-682EA6BB3583"" Enabled=""True"" CssProjectStructure="""" CssIteration="""" Timeout=""0"" WorkItemIds="""" xmlns=""http://microsoft.com/schemas/VisualStudio/TeamTest/2010"" Description="""" CredentialUserName="""" CredentialPassword="""" PreAuthenticate=""True"" Proxy=""default"" StopOnError=""False"" RecordedResultFile="""" ResultsLocale=""""&gt;
+    ///   &lt;Items&gt;
+    ///     &lt;Request Method=""GET"" Guid=""a5f10126-e4cd-570d-961c-cea43999a200"" Version=""1.1"" Url=""http://microsoft.com"" ThinkTime=""0"" Timeout=""300"" ParseDependentRequests=""True"" FollowRedirects=""True"" RecordResult=""True"" Cache=""False"" ResponseTimeGoal=""0"" Encoding=""utf-8"" ExpectedHttpStatusCode=""200"" ExpectedResponseUrl="""" ReportingName="""" IgnoreHttpStatusCode=""False"" /&gt;
+    ///   &lt;/Items&gt;
+    /// &lt;/WebTest&gt;
+    /// ",
+    ///         });
+    ///         this.WebtestId = exampleWebTest.Id;
+    ///         this.WebtestsSyntheticId = exampleWebTest.SyntheticMonitorId;
+    ///     }
+    /// 
+    ///     [Output("webtestId")]
+    ///     public Output&lt;string&gt; WebtestId { get; set; }
+    ///     [Output("webtestsSyntheticId")]
+    ///     public Output&lt;string&gt; WebtestsSyntheticId { get; set; }
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Application Insights Web Tests can be imported using the `resource id`, e.g.
@@ -30,7 +82,7 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> ApplicationInsightsId { get; private set; } = null!;
 
         /// <summary>
-        /// An XML configuration specification for a WebTest.
+        /// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
         /// </summary>
         [Output("configuration")]
         public Output<string> Configuration { get; private set; } = null!;
@@ -48,7 +100,7 @@ namespace Pulumi.Azure.AppInsights
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Interval in seconds between test runs for this WebTest. Default is `300`.
+        /// Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
         /// </summary>
         [Output("frequency")]
         public Output<int?> Frequency { get; private set; } = null!;
@@ -60,13 +112,13 @@ namespace Pulumi.Azure.AppInsights
         public Output<ImmutableArray<string>> GeoLocations { get; private set; } = null!;
 
         /// <summary>
-        /// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+        /// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// The location of the resource group.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -78,6 +130,9 @@ namespace Pulumi.Azure.AppInsights
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
+        /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
@@ -91,7 +146,7 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> SyntheticMonitorId { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -155,7 +210,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<string> ApplicationInsightsId { get; set; } = null!;
 
         /// <summary>
-        /// An XML configuration specification for a WebTest.
+        /// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
         /// </summary>
         [Input("configuration", required: true)]
         public Input<string> Configuration { get; set; } = null!;
@@ -173,7 +228,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Interval in seconds between test runs for this WebTest. Default is `300`.
+        /// Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
         /// </summary>
         [Input("frequency")]
         public Input<int>? Frequency { get; set; }
@@ -191,13 +246,13 @@ namespace Pulumi.Azure.AppInsights
         }
 
         /// <summary>
-        /// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+        /// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
-        /// The location of the resource group.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -209,6 +264,9 @@ namespace Pulumi.Azure.AppInsights
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
+        /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
@@ -222,7 +280,7 @@ namespace Pulumi.Azure.AppInsights
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -250,7 +308,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<string>? ApplicationInsightsId { get; set; }
 
         /// <summary>
-        /// An XML configuration specification for a WebTest.
+        /// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
         /// </summary>
         [Input("configuration")]
         public Input<string>? Configuration { get; set; }
@@ -268,7 +326,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Interval in seconds between test runs for this WebTest. Default is `300`.
+        /// Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
         /// </summary>
         [Input("frequency")]
         public Input<int>? Frequency { get; set; }
@@ -286,13 +344,13 @@ namespace Pulumi.Azure.AppInsights
         }
 
         /// <summary>
-        /// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+        /// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// The location of the resource group.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -304,6 +362,9 @@ namespace Pulumi.Azure.AppInsights
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
+        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
@@ -320,7 +381,7 @@ namespace Pulumi.Azure.AppInsights
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {

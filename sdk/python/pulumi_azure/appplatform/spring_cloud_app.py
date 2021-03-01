@@ -94,6 +94,7 @@ class SpringCloudApp(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['fqdn'] = None
             __props__['url'] = None
         super(SpringCloudApp, __self__).__init__(
             'azure:appplatform/springCloudApp:SpringCloudApp',
@@ -105,6 +106,7 @@ class SpringCloudApp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            fqdn: Optional[pulumi.Input[str]] = None,
             https_only: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']]] = None,
             is_public: Optional[pulumi.Input[bool]] = None,
@@ -120,6 +122,7 @@ class SpringCloudApp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] fqdn: The Fully Qualified DNS Name of the Spring Application in the service.
         :param pulumi.Input[bool] https_only: Is only https allowed? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_public: Does the Spring Cloud Application have public endpoint? Defaults to `false`.
@@ -133,6 +136,7 @@ class SpringCloudApp(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["fqdn"] = fqdn
         __props__["https_only"] = https_only
         __props__["identity"] = identity
         __props__["is_public"] = is_public
@@ -142,6 +146,14 @@ class SpringCloudApp(pulumi.CustomResource):
         __props__["service_name"] = service_name
         __props__["url"] = url
         return SpringCloudApp(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> pulumi.Output[str]:
+        """
+        The Fully Qualified DNS Name of the Spring Application in the service.
+        """
+        return pulumi.get(self, "fqdn")
 
     @property
     @pulumi.getter(name="httpsOnly")

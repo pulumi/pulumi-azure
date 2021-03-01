@@ -18,6 +18,7 @@ class Volume(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 data_protection_replication: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']]] = None,
                  export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -78,7 +79,13 @@ class Volume(pulumi.CustomResource):
             service_level="Premium",
             subnet_id=example_subnet.id,
             protocols=["NFSv4.1"],
-            storage_quota_in_gb=100)
+            storage_quota_in_gb=100,
+            data_protection_replication=azure.netapp.VolumeDataProtectionReplicationArgs(
+                endpoint_type="dst",
+                remote_volume_location=azurerm_resource_group["example_primary"]["location"],
+                remote_volume_resource_id=azurerm_netapp_volume["example_primary"]["id"],
+                replication_frequency="_10minutely",
+            ))
         ```
 
         ## Import
@@ -124,6 +131,7 @@ class Volume(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            __props__['data_protection_replication'] = data_protection_replication
             __props__['export_policy_rules'] = export_policy_rules
             __props__['location'] = location
             __props__['name'] = name
@@ -159,6 +167,7 @@ class Volume(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: Optional[pulumi.Input[str]] = None,
+            data_protection_replication: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']]] = None,
             export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             mount_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -197,6 +206,7 @@ class Volume(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["account_name"] = account_name
+        __props__["data_protection_replication"] = data_protection_replication
         __props__["export_policy_rules"] = export_policy_rules
         __props__["location"] = location
         __props__["mount_ip_addresses"] = mount_ip_addresses
@@ -218,6 +228,11 @@ class Volume(pulumi.CustomResource):
         The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="dataProtectionReplication")
+    def data_protection_replication(self) -> pulumi.Output[Optional['outputs.VolumeDataProtectionReplication']]:
+        return pulumi.get(self, "data_protection_replication")
 
     @property
     @pulumi.getter(name="exportPolicyRules")
