@@ -66,6 +66,7 @@ export interface GetVolumeArgs {
  */
 export interface GetVolumeResult {
     readonly accountName: string;
+    readonly dataProtectionReplications: outputs.netapp.GetVolumeDataProtectionReplication[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */

@@ -98,6 +98,8 @@ type SmartDetectorAlertRule struct {
 	ScopeResourceIds pulumi.StringArrayOutput `pulumi:"scopeResourceIds"`
 	// Specifies the severity of this Smart Detector Alert Rule. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3` or `Sev4`.
 	Severity pulumi.StringOutput `pulumi:"severity"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
 	ThrottlingDuration pulumi.StringPtrOutput `pulumi:"throttlingDuration"`
 }
@@ -167,6 +169,8 @@ type smartDetectorAlertRuleState struct {
 	ScopeResourceIds []string `pulumi:"scopeResourceIds"`
 	// Specifies the severity of this Smart Detector Alert Rule. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3` or `Sev4`.
 	Severity *string `pulumi:"severity"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
 	ThrottlingDuration *string `pulumi:"throttlingDuration"`
 }
@@ -190,6 +194,8 @@ type SmartDetectorAlertRuleState struct {
 	ScopeResourceIds pulumi.StringArrayInput
 	// Specifies the severity of this Smart Detector Alert Rule. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3` or `Sev4`.
 	Severity pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
 	ThrottlingDuration pulumi.StringPtrInput
 }
@@ -217,6 +223,8 @@ type smartDetectorAlertRuleArgs struct {
 	ScopeResourceIds []string `pulumi:"scopeResourceIds"`
 	// Specifies the severity of this Smart Detector Alert Rule. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3` or `Sev4`.
 	Severity string `pulumi:"severity"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
 	ThrottlingDuration *string `pulumi:"throttlingDuration"`
 }
@@ -241,6 +249,8 @@ type SmartDetectorAlertRuleArgs struct {
 	ScopeResourceIds pulumi.StringArrayInput
 	// Specifies the severity of this Smart Detector Alert Rule. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3` or `Sev4`.
 	Severity pulumi.StringInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
 	ThrottlingDuration pulumi.StringPtrInput
 }

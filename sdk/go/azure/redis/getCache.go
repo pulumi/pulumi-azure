@@ -69,7 +69,7 @@ type LookupCacheResult struct {
 	// The minimum TLS version.
 	MinimumTlsVersion string `pulumi:"minimumTlsVersion"`
 	Name              string `pulumi:"name"`
-	// A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
+	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules []GetCachePatchSchedule `pulumi:"patchSchedules"`
 	// The non-SSL Port of the Redis Instance
 	Port int `pulumi:"port"`

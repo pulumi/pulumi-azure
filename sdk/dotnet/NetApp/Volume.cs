@@ -87,6 +87,13 @@ namespace Pulumi.Azure.NetApp
     ///                 "NFSv4.1",
     ///             },
     ///             StorageQuotaInGb = 100,
+    ///             DataProtectionReplication = new Azure.NetApp.Inputs.VolumeDataProtectionReplicationArgs
+    ///             {
+    ///                 EndpointType = "dst",
+    ///                 RemoteVolumeLocation = azurerm_resource_group.Example_primary.Location,
+    ///                 RemoteVolumeResourceId = azurerm_netapp_volume.Example_primary.Id,
+    ///                 ReplicationFrequency = "_10minutely",
+    ///             },
     ///         });
     ///     }
     /// 
@@ -109,6 +116,9 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Output("accountName")]
         public Output<string> AccountName { get; private set; } = null!;
+
+        [Output("dataProtectionReplication")]
+        public Output<Outputs.VolumeDataProtectionReplication?> DataProtectionReplication { get; private set; } = null!;
 
         /// <summary>
         /// One or more `export_policy_rule` block defined below.
@@ -234,6 +244,9 @@ namespace Pulumi.Azure.NetApp
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
+        [Input("dataProtectionReplication")]
+        public Input<Inputs.VolumeDataProtectionReplicationArgs>? DataProtectionReplication { get; set; }
+
         [Input("exportPolicyRules")]
         private InputList<Inputs.VolumeExportPolicyRuleArgs>? _exportPolicyRules;
 
@@ -330,6 +343,9 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
+
+        [Input("dataProtectionReplication")]
+        public Input<Inputs.VolumeDataProtectionReplicationGetArgs>? DataProtectionReplication { get; set; }
 
         [Input("exportPolicyRules")]
         private InputList<Inputs.VolumeExportPolicyRuleGetArgs>? _exportPolicyRules;

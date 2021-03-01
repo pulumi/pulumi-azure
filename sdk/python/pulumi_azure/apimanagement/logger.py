@@ -24,6 +24,7 @@ class Logger(pulumi.CustomResource):
                  eventhub: Optional[pulumi.Input[pulumi.InputType['LoggerEventhubArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -50,6 +51,7 @@ class Logger(pulumi.CustomResource):
         example_logger = azure.apimanagement.Logger("exampleLogger",
             api_management_name=example_service.name,
             resource_group_name=example_resource_group.name,
+            resource_id=example_insights.id,
             application_insights=azure.apimanagement.LoggerApplicationInsightsArgs(
                 instrumentation_key=example_insights.instrumentation_key,
             ))
@@ -72,6 +74,7 @@ class Logger(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LoggerEventhubArgs']] eventhub: An `eventhub` block as documented below.
         :param pulumi.Input[str] name: The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_id: The target resource id which will be linked in the API-Management portal page.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -101,6 +104,7 @@ class Logger(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['resource_id'] = resource_id
         super(Logger, __self__).__init__(
             'azure:apimanagement/logger:Logger',
             resource_name,
@@ -117,7 +121,8 @@ class Logger(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             eventhub: Optional[pulumi.Input[pulumi.InputType['LoggerEventhubArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None) -> 'Logger':
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            resource_id: Optional[pulumi.Input[str]] = None) -> 'Logger':
         """
         Get an existing Logger resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -132,6 +137,7 @@ class Logger(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LoggerEventhubArgs']] eventhub: An `eventhub` block as documented below.
         :param pulumi.Input[str] name: The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_id: The target resource id which will be linked in the API-Management portal page.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -144,6 +150,7 @@ class Logger(pulumi.CustomResource):
         __props__["eventhub"] = eventhub
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
+        __props__["resource_id"] = resource_id
         return Logger(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -201,6 +208,14 @@ class Logger(pulumi.CustomResource):
         The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The target resource id which will be linked in the API-Management portal page.
+        """
+        return pulumi.get(self, "resource_id")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

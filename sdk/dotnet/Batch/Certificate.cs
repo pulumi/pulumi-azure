@@ -48,7 +48,7 @@ namespace Pulumi.Azure.Batch
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
+        /// The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.Batch
         public Input<string> Format { get; set; } = null!;
 
         /// <summary>
-        /// The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
+        /// The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.Batch
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
+        /// The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }

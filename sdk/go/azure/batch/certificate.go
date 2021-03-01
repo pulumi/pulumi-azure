@@ -31,7 +31,7 @@ type Certificate struct {
 	Format pulumi.StringOutput `pulumi:"format"`
 	// The generated name of the certificate.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
+	// The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// The public key of the certificate.
 	PublicData pulumi.StringOutput `pulumi:"publicData"`
@@ -97,7 +97,7 @@ type certificateState struct {
 	Format *string `pulumi:"format"`
 	// The generated name of the certificate.
 	Name *string `pulumi:"name"`
-	// The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
+	// The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
 	Password *string `pulumi:"password"`
 	// The public key of the certificate.
 	PublicData *string `pulumi:"publicData"`
@@ -117,7 +117,7 @@ type CertificateState struct {
 	Format pulumi.StringPtrInput
 	// The generated name of the certificate.
 	Name pulumi.StringPtrInput
-	// The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
+	// The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
 	Password pulumi.StringPtrInput
 	// The public key of the certificate.
 	PublicData pulumi.StringPtrInput
@@ -139,7 +139,7 @@ type certificateArgs struct {
 	Certificate string `pulumi:"certificate"`
 	// The format of the certificate. Possible values are `Cer` or `Pfx`.
 	Format string `pulumi:"format"`
-	// The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
+	// The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
 	Password *string `pulumi:"password"`
 	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -156,7 +156,7 @@ type CertificateArgs struct {
 	Certificate pulumi.StringInput
 	// The format of the certificate. Possible values are `Cer` or `Pfx`.
 	Format pulumi.StringInput
-	// The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
+	// The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
 	Password pulumi.StringPtrInput
 	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

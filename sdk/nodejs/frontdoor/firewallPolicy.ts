@@ -120,7 +120,7 @@ import * as utilities from "../utilities";
  * FrontDoor Web Application Firewall Policy can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:frontdoor/firewallPolicy:FirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/example-fdwafpolicy
+ *  $ pulumi import azure:frontdoor/firewallPolicy:FirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/examplefdwafpolicy
  * ```
  */
 export class FirewallPolicy extends pulumi.CustomResource {

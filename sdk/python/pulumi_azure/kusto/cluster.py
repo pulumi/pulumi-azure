@@ -80,7 +80,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterSkuArgs']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster.
-        :param pulumi.Input[pulumi.InputType['ClusterVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ClusterVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
@@ -170,7 +170,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster.
         :param pulumi.Input[str] uri: The FQDN of the Azure Kusto Cluster.
-        :param pulumi.Input[pulumi.InputType['ClusterVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ClusterVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -320,7 +320,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="virtualNetworkConfiguration")
     def virtual_network_configuration(self) -> pulumi.Output[Optional['outputs.ClusterVirtualNetworkConfiguration']]:
         """
-        A `virtual_network_configuration` block as defined below.
+        A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_configuration")
 

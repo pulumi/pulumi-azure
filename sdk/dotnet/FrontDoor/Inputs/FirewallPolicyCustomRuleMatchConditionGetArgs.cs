@@ -16,7 +16,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         private InputList<string>? _matchValues;
 
         /// <summary>
-        /// Up to `100` possible values to match.
+        /// Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters long.
         /// </summary>
         public InputList<string> MatchValues
         {

@@ -16,11 +16,11 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// <summary>
         /// Administrator login name for the SQL Server.
         /// </summary>
-        public readonly string AdministratorLogin;
+        public readonly string? AdministratorLogin;
         /// <summary>
         /// Administrator login password for the SQL Server.
         /// </summary>
-        public readonly string AdministratorPassword;
+        public readonly string? AdministratorPassword;
         /// <summary>
         /// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
         /// </summary>
@@ -32,9 +32,9 @@ namespace Pulumi.Azure.DataFactory.Outputs
 
         [OutputConstructor]
         private IntegrationRuntimeSsisCatalogInfo(
-            string administratorLogin,
+            string? administratorLogin,
 
-            string administratorPassword,
+            string? administratorPassword,
 
             string? pricingTier,
 

@@ -76,9 +76,9 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
      */
     public readonly annotations!: pulumi.Output<string[] | undefined>;
     /**
-     * The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
+     * The connection string. Conflicts with `sasUri`.
      */
-    public readonly connectionString!: pulumi.Output<string>;
+    public readonly connectionString!: pulumi.Output<string | undefined>;
     /**
      * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -103,6 +103,26 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
      * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * The SAS URI. Conflicts with `connectionString`.
+     */
+    public readonly sasUri!: pulumi.Output<string | undefined>;
+    /**
+     * The service principal id in which to authenticate against the Azure Blob Storage account. Required if `servicePrincipalKey` is set.
+     */
+    public readonly servicePrincipalId!: pulumi.Output<string | undefined>;
+    /**
+     * The service principal key in which to authenticate against the AAzure Blob Storage account.  Required if `servicePrincipalId` is set.
+     */
+    public readonly servicePrincipalKey!: pulumi.Output<string | undefined>;
+    /**
+     * The tenant id or name in which to authenticate against the Azure Blob Storage account.
+     */
+    public readonly tenantId!: pulumi.Output<string | undefined>;
+    /**
+     * Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+     */
+    public readonly useManagedIdentity!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a LinkedServiceAzureBlobStorage resource with the given unique name, arguments, and options.
@@ -126,11 +146,13 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["sasUri"] = state ? state.sasUri : undefined;
+            inputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
+            inputs["servicePrincipalKey"] = state ? state.servicePrincipalKey : undefined;
+            inputs["tenantId"] = state ? state.tenantId : undefined;
+            inputs["useManagedIdentity"] = state ? state.useManagedIdentity : undefined;
         } else {
             const args = argsOrState as LinkedServiceAzureBlobStorageArgs | undefined;
-            if ((!args || args.connectionString === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'connectionString'");
-            }
             if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryName'");
             }
@@ -146,6 +168,11 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sasUri"] = args ? args.sasUri : undefined;
+            inputs["servicePrincipalId"] = args ? args.servicePrincipalId : undefined;
+            inputs["servicePrincipalKey"] = args ? args.servicePrincipalKey : undefined;
+            inputs["tenantId"] = args ? args.tenantId : undefined;
+            inputs["useManagedIdentity"] = args ? args.useManagedIdentity : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -167,7 +194,7 @@ export interface LinkedServiceAzureBlobStorageState {
      */
     readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
+     * The connection string. Conflicts with `sasUri`.
      */
     readonly connectionString?: pulumi.Input<string>;
     /**
@@ -194,6 +221,26 @@ export interface LinkedServiceAzureBlobStorageState {
      * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The SAS URI. Conflicts with `connectionString`.
+     */
+    readonly sasUri?: pulumi.Input<string>;
+    /**
+     * The service principal id in which to authenticate against the Azure Blob Storage account. Required if `servicePrincipalKey` is set.
+     */
+    readonly servicePrincipalId?: pulumi.Input<string>;
+    /**
+     * The service principal key in which to authenticate against the AAzure Blob Storage account.  Required if `servicePrincipalId` is set.
+     */
+    readonly servicePrincipalKey?: pulumi.Input<string>;
+    /**
+     * The tenant id or name in which to authenticate against the Azure Blob Storage account.
+     */
+    readonly tenantId?: pulumi.Input<string>;
+    /**
+     * Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+     */
+    readonly useManagedIdentity?: pulumi.Input<boolean>;
 }
 
 /**
@@ -209,9 +256,9 @@ export interface LinkedServiceAzureBlobStorageArgs {
      */
     readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
+     * The connection string. Conflicts with `sasUri`.
      */
-    readonly connectionString: pulumi.Input<string>;
+    readonly connectionString?: pulumi.Input<string>;
     /**
      * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -236,4 +283,24 @@ export interface LinkedServiceAzureBlobStorageArgs {
      * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The SAS URI. Conflicts with `connectionString`.
+     */
+    readonly sasUri?: pulumi.Input<string>;
+    /**
+     * The service principal id in which to authenticate against the Azure Blob Storage account. Required if `servicePrincipalKey` is set.
+     */
+    readonly servicePrincipalId?: pulumi.Input<string>;
+    /**
+     * The service principal key in which to authenticate against the AAzure Blob Storage account.  Required if `servicePrincipalId` is set.
+     */
+    readonly servicePrincipalKey?: pulumi.Input<string>;
+    /**
+     * The tenant id or name in which to authenticate against the Azure Blob Storage account.
+     */
+    readonly tenantId?: pulumi.Input<string>;
+    /**
+     * Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+     */
+    readonly useManagedIdentity?: pulumi.Input<boolean>;
 }

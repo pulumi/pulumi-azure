@@ -28,7 +28,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         private InputList<Inputs.FirewallPolicyCustomRuleMatchConditionArgs>? _matchConditions;
 
         /// <summary>
-        /// One or more `match_condition` block defined below.
+        /// One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
         /// </summary>
         public InputList<Inputs.FirewallPolicyCustomRuleMatchConditionArgs> MatchConditions
         {

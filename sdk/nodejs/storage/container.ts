@@ -78,7 +78,7 @@ export class Container extends pulumi.CustomResource {
      */
     public /*out*/ readonly hasLegalHold!: pulumi.Output<boolean>;
     /**
-     * A mapping of MetaData for this Container.
+     * A mapping of MetaData for this Container. All metadata keys should be lowercase.
      */
     public readonly metadata!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -151,7 +151,7 @@ export interface ContainerState {
      */
     readonly hasLegalHold?: pulumi.Input<boolean>;
     /**
-     * A mapping of MetaData for this Container.
+     * A mapping of MetaData for this Container. All metadata keys should be lowercase.
      */
     readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -177,7 +177,7 @@ export interface ContainerArgs {
      */
     readonly containerAccessType?: pulumi.Input<string>;
     /**
-     * A mapping of MetaData for this Container.
+     * A mapping of MetaData for this Container. All metadata keys should be lowercase.
      */
     readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

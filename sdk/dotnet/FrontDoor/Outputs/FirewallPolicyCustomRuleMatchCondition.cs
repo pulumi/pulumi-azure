@@ -14,7 +14,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
     public sealed class FirewallPolicyCustomRuleMatchCondition
     {
         /// <summary>
-        /// Up to `100` possible values to match.
+        /// Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters long.
         /// </summary>
         public readonly ImmutableArray<string> MatchValues;
         /// <summary>

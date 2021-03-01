@@ -97,12 +97,12 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enable multi-master support for this Cosmos DB account.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
         :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
@@ -218,14 +218,14 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_strings: A list of connection strings available for this CosmosDB account.
         :param pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enable multi-master support for this Cosmos DB account.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the CosmosDB account.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
         :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
@@ -292,7 +292,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def capabilities(self) -> pulumi.Output[Optional[Sequence['outputs.AccountCapability']]]:
         """
-        The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
+        The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         """
         return pulumi.get(self, "capabilities")
 
@@ -348,7 +348,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="geoLocations")
     def geo_locations(self) -> pulumi.Output[Sequence['outputs.AccountGeoLocation']]:
         """
-        Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
+        Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
         """
         return pulumi.get(self, "geo_locations")
 

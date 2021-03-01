@@ -57,6 +57,12 @@ namespace Pulumi.Azure.AppPlatform
     public partial class SpringCloudApp : Pulumi.CustomResource
     {
         /// <summary>
+        /// The Fully Qualified DNS Name of the Spring Application in the service.
+        /// </summary>
+        [Output("fqdn")]
+        public Output<string> Fqdn { get; private set; } = null!;
+
+        /// <summary>
         /// Is only https allowed? Defaults to `false`.
         /// </summary>
         [Output("httpsOnly")]
@@ -199,6 +205,12 @@ namespace Pulumi.Azure.AppPlatform
 
     public sealed class SpringCloudAppState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Fully Qualified DNS Name of the Spring Application in the service.
+        /// </summary>
+        [Input("fqdn")]
+        public Input<string>? Fqdn { get; set; }
+
         /// <summary>
         /// Is only https allowed? Defaults to `false`.
         /// </summary>

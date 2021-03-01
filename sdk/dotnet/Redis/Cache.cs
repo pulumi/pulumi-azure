@@ -126,7 +126,7 @@ namespace Pulumi.Azure.Redis
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
+        /// A list of `patch_schedule` blocks as defined below.
         /// </summary>
         [Output("patchSchedules")]
         public Output<ImmutableArray<Outputs.CachePatchSchedule>> PatchSchedules { get; private set; } = null!;
@@ -309,7 +309,7 @@ namespace Pulumi.Azure.Redis
         private InputList<Inputs.CachePatchScheduleArgs>? _patchSchedules;
 
         /// <summary>
-        /// A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
+        /// A list of `patch_schedule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CachePatchScheduleArgs> PatchSchedules
         {
@@ -432,7 +432,7 @@ namespace Pulumi.Azure.Redis
         private InputList<Inputs.CachePatchScheduleGetArgs>? _patchSchedules;
 
         /// <summary>
-        /// A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
+        /// A list of `patch_schedule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CachePatchScheduleGetArgs> PatchSchedules
         {

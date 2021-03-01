@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./advancedThreatProtection";
+export * from "./assessmentMetadata";
 export * from "./autoProvisioning";
 export * from "./automation";
 export * from "./contact";
@@ -15,6 +16,7 @@ export * from "./workspace";
 
 // Import resources to register:
 import { AdvancedThreatProtection } from "./advancedThreatProtection";
+import { AssessmentMetadata } from "./assessmentMetadata";
 import { AutoProvisioning } from "./autoProvisioning";
 import { Automation } from "./automation";
 import { Contact } from "./contact";
@@ -28,6 +30,8 @@ const _module = {
         switch (type) {
             case "azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection":
                 return new AdvancedThreatProtection(name, <any>undefined, { urn })
+            case "azure:securitycenter/assessmentMetadata:AssessmentMetadata":
+                return new AssessmentMetadata(name, <any>undefined, { urn })
             case "azure:securitycenter/autoProvisioning:AutoProvisioning":
                 return new AutoProvisioning(name, <any>undefined, { urn })
             case "azure:securitycenter/automation:Automation":
@@ -46,6 +50,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "securitycenter/advancedThreatProtection", _module)
+pulumi.runtime.registerResourceModule("azure", "securitycenter/assessmentMetadata", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/autoProvisioning", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/automation", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/contact", _module)

@@ -174,6 +174,12 @@ namespace Pulumi.Azure.AppPlatform
         [Output("serviceName")]
         public Output<string> ServiceName { get; private set; } = null!;
 
+        /// <summary>
+        /// The thumbprint of the Spring Cloud certificate.
+        /// </summary>
+        [Output("thumbprint")]
+        public Output<string> Thumbprint { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a SpringCloudCertificate resource with the given unique name, arguments, and options.
@@ -274,6 +280,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
+
+        /// <summary>
+        /// The thumbprint of the Spring Cloud certificate.
+        /// </summary>
+        [Input("thumbprint")]
+        public Input<string>? Thumbprint { get; set; }
 
         public SpringCloudCertificateState()
         {

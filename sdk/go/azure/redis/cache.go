@@ -103,7 +103,7 @@ type Cache struct {
 	// The name of the Redis instance. Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
+	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules CachePatchScheduleArrayOutput `pulumi:"patchSchedules"`
 	// The non-SSL Port of the Redis Instance
 	Port pulumi.IntOutput `pulumi:"port"`
@@ -194,7 +194,7 @@ type cacheState struct {
 	// The name of the Redis instance. Changing this forces a
 	// new resource to be created.
 	Name *string `pulumi:"name"`
-	// A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
+	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules []CachePatchSchedule `pulumi:"patchSchedules"`
 	// The non-SSL Port of the Redis Instance
 	Port *int `pulumi:"port"`
@@ -245,7 +245,7 @@ type CacheState struct {
 	// The name of the Redis instance. Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringPtrInput
-	// A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
+	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules CachePatchScheduleArrayInput
 	// The non-SSL Port of the Redis Instance
 	Port pulumi.IntPtrInput
@@ -298,7 +298,7 @@ type cacheArgs struct {
 	// The name of the Redis instance. Changing this forces a
 	// new resource to be created.
 	Name *string `pulumi:"name"`
-	// A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
+	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules []CachePatchSchedule `pulumi:"patchSchedules"`
 	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
 	PrivateStaticIpAddress *string `pulumi:"privateStaticIpAddress"`
@@ -336,7 +336,7 @@ type CacheArgs struct {
 	// The name of the Redis instance. Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringPtrInput
-	// A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
+	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules CachePatchScheduleArrayInput
 	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
 	PrivateStaticIpAddress pulumi.StringPtrInput

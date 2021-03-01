@@ -34,6 +34,7 @@ import * as cosmosdb from "./cosmosdb";
 import * as costmanagement from "./costmanagement";
 import * as dashboard from "./dashboard";
 import * as databasemigration from "./databasemigration";
+import * as databoxedge from "./databoxedge";
 import * as databricks from "./databricks";
 import * as datafactory from "./datafactory";
 import * as datalake from "./datalake";
@@ -129,6 +130,7 @@ export {
     costmanagement,
     dashboard,
     databasemigration,
+    databoxedge,
     databricks,
     datafactory,
     datalake,

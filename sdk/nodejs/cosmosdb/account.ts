@@ -96,7 +96,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly analyticalStorageEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
+     * The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
      */
     public readonly capabilities!: pulumi.Output<outputs.cosmosdb.AccountCapability[] | undefined>;
     /**
@@ -124,7 +124,7 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
-     * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
+     * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location. Value is a `geoLocation` block as defined below.
      */
     public readonly geoLocations!: pulumi.Output<outputs.cosmosdb.AccountGeoLocation[]>;
     /**
@@ -316,7 +316,7 @@ export interface AccountState {
      */
     readonly analyticalStorageEnabled?: pulumi.Input<boolean>;
     /**
-     * The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
+     * The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
      */
     readonly capabilities?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountCapability>[]>;
     /**
@@ -344,7 +344,7 @@ export interface AccountState {
      */
     readonly endpoint?: pulumi.Input<string>;
     /**
-     * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
+     * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location. Value is a `geoLocation` block as defined below.
      */
     readonly geoLocations?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountGeoLocation>[]>;
     /**
@@ -442,7 +442,7 @@ export interface AccountArgs {
      */
     readonly analyticalStorageEnabled?: pulumi.Input<boolean>;
     /**
-     * The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
+     * The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
      */
     readonly capabilities?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountCapability>[]>;
     /**
@@ -462,7 +462,7 @@ export interface AccountArgs {
      */
     readonly enableMultipleWriteLocations?: pulumi.Input<boolean>;
     /**
-     * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
+     * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location. Value is a `geoLocation` block as defined below.
      */
     readonly geoLocations: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountGeoLocation>[]>;
     /**

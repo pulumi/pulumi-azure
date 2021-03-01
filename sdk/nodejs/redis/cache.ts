@@ -122,7 +122,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
+     * A list of `patchSchedule` blocks as defined below.
      */
     public readonly patchSchedules!: pulumi.Output<outputs.redis.CachePatchSchedule[] | undefined>;
     /**
@@ -302,7 +302,7 @@ export interface CacheState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
+     * A list of `patchSchedule` blocks as defined below.
      */
     readonly patchSchedules?: pulumi.Input<pulumi.Input<inputs.redis.CachePatchSchedule>[]>;
     /**
@@ -398,7 +398,7 @@ export interface CacheArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
+     * A list of `patchSchedule` blocks as defined below.
      */
     readonly patchSchedules?: pulumi.Input<pulumi.Input<inputs.redis.CachePatchSchedule>[]>;
     /**

@@ -3,10 +3,12 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_spring_cloud_app import *
 from .get_spring_cloud_service import *
 from .spring_cloud_active_deployment import *
 from .spring_cloud_app import *
 from .spring_cloud_certificate import *
+from .spring_cloud_custom_domain import *
 from .spring_cloud_java_deployment import *
 from .spring_cloud_service import *
 from ._inputs import *
@@ -30,6 +32,8 @@ def _register_module():
                 return SpringCloudApp(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:appplatform/springCloudCertificate:SpringCloudCertificate":
                 return SpringCloudCertificate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain":
+                return SpringCloudCustomDomain(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:appplatform/springCloudJavaDeployment:SpringCloudJavaDeployment":
                 return SpringCloudJavaDeployment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:appplatform/springCloudService:SpringCloudService":
@@ -42,6 +46,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "appplatform/springCloudActiveDeployment", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appplatform/springCloudApp", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appplatform/springCloudCertificate", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appplatform/springCloudCustomDomain", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appplatform/springCloudJavaDeployment", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appplatform/springCloudService", _module_instance)
 

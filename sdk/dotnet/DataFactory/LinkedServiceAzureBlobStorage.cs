@@ -73,10 +73,10 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
         /// <summary>
-        /// The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
+        /// The connection string. Conflicts with `sas_uri`.
         /// </summary>
         [Output("connectionString")]
-        public Output<string> ConnectionString { get; private set; } = null!;
+        public Output<string?> ConnectionString { get; private set; } = null!;
 
         /// <summary>
         /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
@@ -113,6 +113,36 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// The SAS URI. Conflicts with `connection_string`.
+        /// </summary>
+        [Output("sasUri")]
+        public Output<string?> SasUri { get; private set; } = null!;
+
+        /// <summary>
+        /// The service principal id in which to authenticate against the Azure Blob Storage account. Required if `service_principal_key` is set.
+        /// </summary>
+        [Output("servicePrincipalId")]
+        public Output<string?> ServicePrincipalId { get; private set; } = null!;
+
+        /// <summary>
+        /// The service principal key in which to authenticate against the AAzure Blob Storage account.  Required if `service_principal_id` is set.
+        /// </summary>
+        [Output("servicePrincipalKey")]
+        public Output<string?> ServicePrincipalKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The tenant id or name in which to authenticate against the Azure Blob Storage account.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string?> TenantId { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`
+        /// </summary>
+        [Output("useManagedIdentity")]
+        public Output<bool?> UseManagedIdentity { get; private set; } = null!;
 
 
         /// <summary>
@@ -185,10 +215,10 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
+        /// The connection string. Conflicts with `sas_uri`.
         /// </summary>
-        [Input("connectionString", required: true)]
-        public Input<string> ConnectionString { get; set; } = null!;
+        [Input("connectionString")]
+        public Input<string>? ConnectionString { get; set; }
 
         /// <summary>
         /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
@@ -232,6 +262,36 @@ namespace Pulumi.Azure.DataFactory
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The SAS URI. Conflicts with `connection_string`.
+        /// </summary>
+        [Input("sasUri")]
+        public Input<string>? SasUri { get; set; }
+
+        /// <summary>
+        /// The service principal id in which to authenticate against the Azure Blob Storage account. Required if `service_principal_key` is set.
+        /// </summary>
+        [Input("servicePrincipalId")]
+        public Input<string>? ServicePrincipalId { get; set; }
+
+        /// <summary>
+        /// The service principal key in which to authenticate against the AAzure Blob Storage account.  Required if `service_principal_id` is set.
+        /// </summary>
+        [Input("servicePrincipalKey")]
+        public Input<string>? ServicePrincipalKey { get; set; }
+
+        /// <summary>
+        /// The tenant id or name in which to authenticate against the Azure Blob Storage account.
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
+        /// <summary>
+        /// Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`
+        /// </summary>
+        [Input("useManagedIdentity")]
+        public Input<bool>? UseManagedIdentity { get; set; }
+
         public LinkedServiceAzureBlobStorageArgs()
         {
         }
@@ -264,7 +324,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
+        /// The connection string. Conflicts with `sas_uri`.
         /// </summary>
         [Input("connectionString")]
         public Input<string>? ConnectionString { get; set; }
@@ -310,6 +370,36 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The SAS URI. Conflicts with `connection_string`.
+        /// </summary>
+        [Input("sasUri")]
+        public Input<string>? SasUri { get; set; }
+
+        /// <summary>
+        /// The service principal id in which to authenticate against the Azure Blob Storage account. Required if `service_principal_key` is set.
+        /// </summary>
+        [Input("servicePrincipalId")]
+        public Input<string>? ServicePrincipalId { get; set; }
+
+        /// <summary>
+        /// The service principal key in which to authenticate against the AAzure Blob Storage account.  Required if `service_principal_id` is set.
+        /// </summary>
+        [Input("servicePrincipalKey")]
+        public Input<string>? ServicePrincipalKey { get; set; }
+
+        /// <summary>
+        /// The tenant id or name in which to authenticate against the Azure Blob Storage account.
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
+        /// <summary>
+        /// Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`
+        /// </summary>
+        [Input("useManagedIdentity")]
+        public Input<bool>? UseManagedIdentity { get; set; }
 
         public LinkedServiceAzureBlobStorageState()
         {

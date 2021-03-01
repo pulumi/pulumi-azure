@@ -68,6 +68,7 @@ const (
 	azureCostManagement        = "CostManagement"        // CostManagement
 	azureDashboard             = "Dashboard"             // Dashboard
 	azureDatabaseMigration     = "DatabaseMigration"     // Database Migration
+	azureDataboxEdge           = "DataboxEdge"           // Databox Edge
 	azureDataFactory           = "DataFactory"           // Data Factory
 	azureDatalake              = "DataLake"              // Data Lake
 	azureDataShare             = "DataShare"             // DataShare
@@ -476,6 +477,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_spring_cloud_certificate":       {Tok: azureResource(azureAppPlatform, "SpringCloudCertificate")},
 			"azurerm_spring_cloud_active_deployment": {Tok: azureResource(azureAppPlatform, "SpringCloudActiveDeployment")},
 			"azurerm_spring_cloud_java_deployment":   {Tok: azureResource(azureAppPlatform, "SpringCloudJavaDeployment")},
+			"azurerm_spring_cloud_custom_domain":     {Tok: azureResource(azureAppPlatform, "SpringCloudCustomDomain")},
 
 			// Automation
 			"azurerm_automation_account":                {Tok: azureResource(azureAutomation, "Account")},
@@ -687,6 +689,10 @@ func Provider() tfbridge.ProviderInfo {
 
 			// DataBricks
 			"azurerm_databricks_workspace": {Tok: azureResource(azureDataBricks, "Workspace")},
+
+			//Databox
+			"azurerm_databox_edge_device": {Tok: azureResource(azureDataboxEdge, "Device")},
+			"azurerm_databox_edge_order":  {Tok: azureResource(azureDataboxEdge, "Order")},
 
 			// DataFactory
 			"azurerm_data_factory":                    {Tok: azureResource(azureDataFactory, "Factory")},
@@ -1338,8 +1344,10 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"azurerm_redis_firewall_rule": {Tok: azureResource(azureRedis, "FirewallRule")},
-			"azurerm_redis_linked_server": {Tok: azureResource(azureRedis, "LinkedServer")},
+			"azurerm_redis_firewall_rule":       {Tok: azureResource(azureRedis, "FirewallRule")},
+			"azurerm_redis_linked_server":       {Tok: azureResource(azureRedis, "LinkedServer")},
+			"azurerm_redis_enterprise_cluster":  {Tok: azureResource(azureRedis, "EnterpriseCluster")},
+			"azurerm_redis_enterprise_database": {Tok: azureResource(azureRedis, "EnterpriseDatabase")},
 
 			// Relay
 			"azurerm_relay_namespace":         {Tok: azureResource(azureRelay, "Namespace")},
@@ -1353,6 +1361,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_security_center_setting":              {Tok: azureResource(azureSecurityCenter, "Setting")},
 			"azurerm_security_center_auto_provisioning":    {Tok: azureResource(azureSecurityCenter, "AutoProvisioning")},
 			"azurerm_security_center_automation":           {Tok: azureResource(azureSecurityCenter, "Automation")},
+			"azurerm_security_center_assessment_metadata":  {Tok: azureResource(azureSecurityCenter, "AssessmentMetadata")},
 
 			// Service Fabric
 			"azurerm_service_fabric_cluster":            {Tok: azureResource(azureServiceFabric, "Cluster")},
@@ -1504,6 +1513,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_kusto_eventhub_data_connection":     {Tok: azureResource(azureKusto, "EventhubDataConnection")},
 			"azurerm_kusto_database_principal":           {Tok: azureResource(azureKusto, "DatabasePrincipal")},
 			"azurerm_kusto_cluster_principal_assignment": {Tok: azureResource(azureKusto, "ClusterPrincipalAssignment")},
+			"azurerm_kusto_iothub_data_connection":       {Tok: azureResource(azureKusto, "IotHubDataConnection")},
 			"azurerm_kusto_attached_database_configuration": {
 				Tok: azureResource(azureKusto, "AttachedDatabaseConfiguration"),
 			},
@@ -1937,12 +1947,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_app_configuration": {
 				Tok: azureDataSource(azureAppConfiguration, "getConfigurationStore"),
 			},
-			"azurerm_servicebus_subscription":        {Tok: azureDataSource(azureServiceBus, "getSubscription")},
-			"azurerm_machine_learning_workspace":     {Tok: azureDataSource(azureMachineLearning, "getWorkspace")},
-			"azurerm_managed_application_definition": {Tok: azureDataSource(azureManagedApplication, "getDefinition")},
-			"azurerm_spring_cloud_service": {
-				Tok: azureDataSource(azureAppPlatform, "getSpringCloudService"),
-			},
+			"azurerm_servicebus_subscription":         {Tok: azureDataSource(azureServiceBus, "getSubscription")},
+			"azurerm_machine_learning_workspace":      {Tok: azureDataSource(azureMachineLearning, "getWorkspace")},
+			"azurerm_managed_application_definition":  {Tok: azureDataSource(azureManagedApplication, "getDefinition")},
+			"azurerm_spring_cloud_service":            {Tok: azureDataSource(azureAppPlatform, "getSpringCloudService")},
+			"azurerm_spring_cloud_app":                {Tok: azureDataSource(azureAppPlatform, "getSpringCloudApp")},
 			"azurerm_private_dns_zone":                {Tok: azureDataSource(azurePrivateDNS, "getDnsZone")},
 			"azurerm_sentinel_alert_rule":             {Tok: azureDataSource(azureSentinel, "getAlertRule")},
 			"azurerm_sentinel_alert_rule_template":    {Tok: azureDataSource(azureSentinel, "getAlertRuleTemplate")},

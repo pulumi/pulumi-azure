@@ -150,6 +150,10 @@ export class SpringCloudCertificate extends pulumi.CustomResource {
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
     public readonly serviceName!: pulumi.Output<string>;
+    /**
+     * The thumbprint of the Spring Cloud certificate.
+     */
+    public /*out*/ readonly thumbprint!: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudCertificate resource with the given unique name, arguments, and options.
@@ -168,6 +172,7 @@ export class SpringCloudCertificate extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["serviceName"] = state ? state.serviceName : undefined;
+            inputs["thumbprint"] = state ? state.thumbprint : undefined;
         } else {
             const args = argsOrState as SpringCloudCertificateArgs | undefined;
             if ((!args || args.keyVaultCertificateId === undefined) && !opts.urn) {
@@ -183,6 +188,7 @@ export class SpringCloudCertificate extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["thumbprint"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -211,6 +217,10 @@ export interface SpringCloudCertificateState {
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
     readonly serviceName?: pulumi.Input<string>;
+    /**
+     * The thumbprint of the Spring Cloud certificate.
+     */
+    readonly thumbprint?: pulumi.Input<string>;
 }
 
 /**

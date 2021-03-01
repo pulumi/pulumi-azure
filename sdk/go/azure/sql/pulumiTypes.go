@@ -458,7 +458,7 @@ type DatabaseThreatDetectionPolicy struct {
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
-	// Should the default server policy be used? Defaults to `Disabled`.
+	// Deprecated: This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider
 	UseServerDefault *string `pulumi:"useServerDefault"`
 }
 
@@ -488,7 +488,7 @@ type DatabaseThreatDetectionPolicyArgs struct {
 	StorageAccountAccessKey pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 	StorageEndpoint pulumi.StringPtrInput `pulumi:"storageEndpoint"`
-	// Should the default server policy be used? Defaults to `Disabled`.
+	// Deprecated: This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider
 	UseServerDefault pulumi.StringPtrInput `pulumi:"useServerDefault"`
 }
 
@@ -604,7 +604,7 @@ func (o DatabaseThreatDetectionPolicyOutput) StorageEndpoint() pulumi.StringPtrO
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// Should the default server policy be used? Defaults to `Disabled`.
+// Deprecated: This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider
 func (o DatabaseThreatDetectionPolicyOutput) UseServerDefault() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.UseServerDefault }).(pulumi.StringPtrOutput)
 }
@@ -697,7 +697,7 @@ func (o DatabaseThreatDetectionPolicyPtrOutput) StorageEndpoint() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Should the default server policy be used? Defaults to `Disabled`.
+// Deprecated: This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider
 func (o DatabaseThreatDetectionPolicyPtrOutput) UseServerDefault() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
 		if v == nil {

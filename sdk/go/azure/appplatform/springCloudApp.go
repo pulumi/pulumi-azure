@@ -64,6 +64,8 @@ import (
 type SpringCloudApp struct {
 	pulumi.CustomResourceState
 
+	// The Fully Qualified DNS Name of the Spring Application in the service.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// Is only https allowed? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
@@ -117,6 +119,8 @@ func GetSpringCloudApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpringCloudApp resources.
 type springCloudAppState struct {
+	// The Fully Qualified DNS Name of the Spring Application in the service.
+	Fqdn *string `pulumi:"fqdn"`
 	// Is only https allowed? Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
@@ -136,6 +140,8 @@ type springCloudAppState struct {
 }
 
 type SpringCloudAppState struct {
+	// The Fully Qualified DNS Name of the Spring Application in the service.
+	Fqdn pulumi.StringPtrInput
 	// Is only https allowed? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.

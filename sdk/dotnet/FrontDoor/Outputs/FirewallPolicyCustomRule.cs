@@ -22,7 +22,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// One or more `match_condition` block defined below.
+        /// One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyCustomRuleMatchCondition> MatchConditions;
         /// <summary>

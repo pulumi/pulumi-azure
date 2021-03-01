@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewDatabasePrincipalAssignment(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:kusto/eventhubDataConnection:EventhubDataConnection":
 		r, err = NewEventhubDataConnection(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:kusto/iotHubDataConnection:IotHubDataConnection":
+		r, err = NewIotHubDataConnection(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -87,6 +89,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"kusto/eventhubDataConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"kusto/iotHubDataConnection",
 		&module{version},
 	)
 }

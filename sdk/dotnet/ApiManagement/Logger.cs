@@ -44,6 +44,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         {
     ///             ApiManagementName = exampleService.Name,
     ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ResourceId = exampleInsights.Id,
     ///             ApplicationInsights = new Azure.ApiManagement.Inputs.LoggerApplicationInsightsArgs
     ///             {
     ///                 InstrumentationKey = exampleInsights.InstrumentationKey,
@@ -106,6 +107,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// The target resource id which will be linked in the API-Management portal page.
+        /// </summary>
+        [Output("resourceId")]
+        public Output<string?> ResourceId { get; private set; } = null!;
 
 
         /// <summary>
@@ -195,6 +202,12 @@ namespace Pulumi.Azure.ApiManagement
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The target resource id which will be linked in the API-Management portal page.
+        /// </summary>
+        [Input("resourceId")]
+        public Input<string>? ResourceId { get; set; }
+
         public LoggerArgs()
         {
         }
@@ -243,6 +256,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The target resource id which will be linked in the API-Management portal page.
+        /// </summary>
+        [Input("resourceId")]
+        public Input<string>? ResourceId { get; set; }
 
         public LoggerState()
         {

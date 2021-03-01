@@ -97,7 +97,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<bool?> AnalyticalStorageEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
+        /// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         /// </summary>
         [Output("capabilities")]
         public Output<ImmutableArray<Outputs.AccountCapability>> Capabilities { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
+        /// Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
         /// </summary>
         [Output("geoLocations")]
         public Output<ImmutableArray<Outputs.AccountGeoLocation>> GeoLocations { get; private set; } = null!;
@@ -314,7 +314,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.AccountCapabilityArgs>? _capabilities;
 
         /// <summary>
-        /// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
+        /// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountCapabilityArgs> Capabilities
         {
@@ -350,7 +350,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.AccountGeoLocationArgs>? _geoLocations;
 
         /// <summary>
-        /// Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
+        /// Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountGeoLocationArgs> GeoLocations
         {
@@ -453,7 +453,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.AccountCapabilityGetArgs>? _capabilities;
 
         /// <summary>
-        /// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
+        /// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountCapabilityGetArgs> Capabilities
         {
@@ -507,7 +507,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.AccountGeoLocationGetArgs>? _geoLocations;
 
         /// <summary>
-        /// Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
+        /// Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountGeoLocationGetArgs> GeoLocations
         {

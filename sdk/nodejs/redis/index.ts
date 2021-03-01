@@ -6,12 +6,16 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./cache";
+export * from "./enterpriseCluster";
+export * from "./enterpriseDatabase";
 export * from "./firewallRule";
 export * from "./getCache";
 export * from "./linkedServer";
 
 // Import resources to register:
 import { Cache } from "./cache";
+import { EnterpriseCluster } from "./enterpriseCluster";
+import { EnterpriseDatabase } from "./enterpriseDatabase";
 import { FirewallRule } from "./firewallRule";
 import { LinkedServer } from "./linkedServer";
 
@@ -21,6 +25,10 @@ const _module = {
         switch (type) {
             case "azure:redis/cache:Cache":
                 return new Cache(name, <any>undefined, { urn })
+            case "azure:redis/enterpriseCluster:EnterpriseCluster":
+                return new EnterpriseCluster(name, <any>undefined, { urn })
+            case "azure:redis/enterpriseDatabase:EnterpriseDatabase":
+                return new EnterpriseDatabase(name, <any>undefined, { urn })
             case "azure:redis/firewallRule:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
             case "azure:redis/linkedServer:LinkedServer":
@@ -31,5 +39,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "redis/cache", _module)
+pulumi.runtime.registerResourceModule("azure", "redis/enterpriseCluster", _module)
+pulumi.runtime.registerResourceModule("azure", "redis/enterpriseDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "redis/firewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "redis/linkedServer", _module)

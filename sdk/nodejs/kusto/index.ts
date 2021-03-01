@@ -14,6 +14,7 @@ export * from "./databasePrincipal";
 export * from "./databasePrincipalAssignment";
 export * from "./eventhubDataConnection";
 export * from "./getCluster";
+export * from "./iotHubDataConnection";
 
 // Import resources to register:
 import { AttachedDatabaseConfiguration } from "./attachedDatabaseConfiguration";
@@ -24,6 +25,7 @@ import { Database } from "./database";
 import { DatabasePrincipal } from "./databasePrincipal";
 import { DatabasePrincipalAssignment } from "./databasePrincipalAssignment";
 import { EventhubDataConnection } from "./eventhubDataConnection";
+import { IotHubDataConnection } from "./iotHubDataConnection";
 
 const _module = {
     version: utilities.getVersion(),
@@ -45,6 +47,8 @@ const _module = {
                 return new DatabasePrincipalAssignment(name, <any>undefined, { urn })
             case "azure:kusto/eventhubDataConnection:EventhubDataConnection":
                 return new EventhubDataConnection(name, <any>undefined, { urn })
+            case "azure:kusto/iotHubDataConnection:IotHubDataConnection":
+                return new IotHubDataConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -58,3 +62,4 @@ pulumi.runtime.registerResourceModule("azure", "kusto/database", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/databasePrincipal", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/databasePrincipalAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/eventhubDataConnection", _module)
+pulumi.runtime.registerResourceModule("azure", "kusto/iotHubDataConnection", _module)

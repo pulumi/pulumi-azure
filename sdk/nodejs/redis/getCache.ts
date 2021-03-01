@@ -86,7 +86,7 @@ export interface GetCacheResult {
     readonly minimumTlsVersion: string;
     readonly name: string;
     /**
-     * A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
+     * A list of `patchSchedule` blocks as defined below.
      */
     readonly patchSchedules: outputs.redis.GetCachePatchSchedule[];
     /**

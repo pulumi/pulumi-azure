@@ -156,7 +156,7 @@ class FirewallPolicyCustomRuleArgs:
         :param pulumi.Input[str] name: Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         :param pulumi.Input[str] type: The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
         :param pulumi.Input[bool] enabled: Is the rule is enabled or disabled? Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleMatchConditionArgs']]] match_conditions: One or more `match_condition` block defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleMatchConditionArgs']]] match_conditions: One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
         :param pulumi.Input[int] priority: The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
         :param pulumi.Input[int] rate_limit_duration_in_minutes: The rate limit duration in minutes. Defaults to `1`.
         :param pulumi.Input[int] rate_limit_threshold: The rate limit threshold. Defaults to `10`.
@@ -227,7 +227,7 @@ class FirewallPolicyCustomRuleArgs:
     @pulumi.getter(name="matchConditions")
     def match_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleMatchConditionArgs']]]]:
         """
-        One or more `match_condition` block defined below.
+        One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
         """
         return pulumi.get(self, "match_conditions")
 
@@ -282,7 +282,7 @@ class FirewallPolicyCustomRuleMatchConditionArgs:
                  selector: Optional[pulumi.Input[str]] = None,
                  transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: Up to `100` possible values to match.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters long.
         :param pulumi.Input[str] match_variable: The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
         :param pulumi.Input[str] operator: Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
         :param pulumi.Input[bool] negation_condition: Should the result of the condition be negated.
@@ -303,7 +303,7 @@ class FirewallPolicyCustomRuleMatchConditionArgs:
     @pulumi.getter(name="matchValues")
     def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Up to `100` possible values to match.
+        Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters long.
         """
         return pulumi.get(self, "match_values")
 
@@ -1523,7 +1523,7 @@ class FrontdoorRoutingRuleForwardingConfigurationArgs:
         """
         :param pulumi.Input[str] backend_pool_name: Specifies the name of the Backend Pool to forward the incoming traffic to.
         :param pulumi.Input[bool] cache_enabled: Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
-        :param pulumi.Input[str] cache_query_parameter_strip_directive: Defines cache behaviour in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+        :param pulumi.Input[str] cache_query_parameter_strip_directive: Defines cache behaviour in relation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
         :param pulumi.Input[bool] cache_use_dynamic_compression: Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
         :param pulumi.Input[str] custom_forwarding_path: Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path.
         :param pulumi.Input[str] forwarding_protocol: Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
@@ -1568,7 +1568,7 @@ class FrontdoorRoutingRuleForwardingConfigurationArgs:
     @pulumi.getter(name="cacheQueryParameterStripDirective")
     def cache_query_parameter_strip_directive(self) -> Optional[pulumi.Input[str]]:
         """
-        Defines cache behaviour in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+        Defines cache behaviour in relation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
         """
         return pulumi.get(self, "cache_query_parameter_strip_directive")
 

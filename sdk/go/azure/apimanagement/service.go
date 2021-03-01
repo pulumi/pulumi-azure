@@ -116,6 +116,8 @@ type Service struct {
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A `tenantAccess` block as defined below.
+	TenantAccess ServiceTenantAccessOutput `pulumi:"tenantAccess"`
 	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration ServiceVirtualNetworkConfigurationPtrOutput `pulumi:"virtualNetworkConfiguration"`
 	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
@@ -214,6 +216,8 @@ type serviceState struct {
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A `tenantAccess` block as defined below.
+	TenantAccess *ServiceTenantAccess `pulumi:"tenantAccess"`
 	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration *ServiceVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
 	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
@@ -272,6 +276,8 @@ type ServiceState struct {
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
+	// A `tenantAccess` block as defined below.
+	TenantAccess ServiceTenantAccessPtrInput
 	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration ServiceVirtualNetworkConfigurationPtrInput
 	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
@@ -318,6 +324,8 @@ type serviceArgs struct {
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A `tenantAccess` block as defined below.
+	TenantAccess *ServiceTenantAccess `pulumi:"tenantAccess"`
 	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration *ServiceVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
 	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
@@ -361,6 +369,8 @@ type ServiceArgs struct {
 	SkuName pulumi.StringInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
+	// A `tenantAccess` block as defined below.
+	TenantAccess ServiceTenantAccessPtrInput
 	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration ServiceVirtualNetworkConfigurationPtrInput
 	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.

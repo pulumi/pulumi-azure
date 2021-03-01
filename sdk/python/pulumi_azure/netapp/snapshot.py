@@ -94,7 +94,6 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the NetApp Snapshot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] volume_name: The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
@@ -125,6 +124,9 @@ class Snapshot(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if tags is not None and not opts.urn:
+                warnings.warn("""This property as been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.""", DeprecationWarning)
+                pulumi.log.warn("tags is deprecated: This property as been deprecated as the API no longer supports tags and will be removed in version 3.0 of the provider.")
             __props__['tags'] = tags
             if volume_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_name'")
@@ -158,7 +160,6 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the NetApp Snapshot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] volume_name: The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -217,9 +218,6 @@ class Snapshot(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A mapping of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @property

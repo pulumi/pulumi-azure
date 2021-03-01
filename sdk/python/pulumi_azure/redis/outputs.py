@@ -11,6 +11,7 @@ from .. import _utilities, _tables
 __all__ = [
     'CachePatchSchedule',
     'CacheRedisConfiguration',
+    'EnterpriseDatabaseModule',
     'GetCachePatchScheduleResult',
     'GetCacheRedisConfigurationResult',
 ]
@@ -199,6 +200,47 @@ class CacheRedisConfiguration(dict):
         The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
         """
         return pulumi.get(self, "rdb_storage_connection_string")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EnterpriseDatabaseModule(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 args: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        :param str name: The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
+        :param str args: Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+        """
+        pulumi.set(__self__, "name", name)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[str]:
+        """
+        Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+        """
+        return pulumi.get(self, "args")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        return pulumi.get(self, "version")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

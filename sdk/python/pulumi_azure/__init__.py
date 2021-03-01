@@ -33,6 +33,7 @@ from . import (
     costmanagement,
     dashboard,
     databasemigration,
+    databoxedge,
     databricks,
     datafactory,
     datalake,

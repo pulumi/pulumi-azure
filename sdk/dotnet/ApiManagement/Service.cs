@@ -215,6 +215,12 @@ namespace Pulumi.Azure.ApiManagement
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// A `tenant_access` block as defined below.
+        /// </summary>
+        [Output("tenantAccess")]
+        public Output<Outputs.ServiceTenantAccess> TenantAccess { get; private set; } = null!;
+
+        /// <summary>
         /// A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         /// </summary>
         [Output("virtualNetworkConfiguration")]
@@ -392,6 +398,12 @@ namespace Pulumi.Azure.ApiManagement
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A `tenant_access` block as defined below.
+        /// </summary>
+        [Input("tenantAccess")]
+        public Input<Inputs.ServiceTenantAccessArgs>? TenantAccess { get; set; }
 
         /// <summary>
         /// A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
@@ -592,6 +604,12 @@ namespace Pulumi.Azure.ApiManagement
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A `tenant_access` block as defined below.
+        /// </summary>
+        [Input("tenantAccess")]
+        public Input<Inputs.ServiceTenantAccessGetArgs>? TenantAccess { get; set; }
 
         /// <summary>
         /// A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.

@@ -161,6 +161,8 @@ type SpringCloudCertificate struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
+	// The thumbprint of the Spring Cloud certificate.
+	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
 }
 
 // NewSpringCloudCertificate registers a new resource with the given unique name, arguments, and options.
@@ -209,6 +211,8 @@ type springCloudCertificateState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	ServiceName *string `pulumi:"serviceName"`
+	// The thumbprint of the Spring Cloud certificate.
+	Thumbprint *string `pulumi:"thumbprint"`
 }
 
 type SpringCloudCertificateState struct {
@@ -220,6 +224,8 @@ type SpringCloudCertificateState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	ServiceName pulumi.StringPtrInput
+	// The thumbprint of the Spring Cloud certificate.
+	Thumbprint pulumi.StringPtrInput
 }
 
 func (SpringCloudCertificateState) ElementType() reflect.Type {

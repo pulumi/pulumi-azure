@@ -107,7 +107,8 @@ type Cluster struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
-	UpgradeMode pulumi.StringOutput `pulumi:"upgradeMode"`
+	UpgradeMode   pulumi.StringOutput           `pulumi:"upgradeMode"`
+	UpgradePolicy ClusterUpgradePolicyPtrOutput `pulumi:"upgradePolicy"`
 	// Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
 	VmImage pulumi.StringOutput `pulumi:"vmImage"`
 }
@@ -198,7 +199,8 @@ type clusterState struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
-	UpgradeMode *string `pulumi:"upgradeMode"`
+	UpgradeMode   *string               `pulumi:"upgradeMode"`
+	UpgradePolicy *ClusterUpgradePolicy `pulumi:"upgradePolicy"`
 	// Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
 	VmImage *string `pulumi:"vmImage"`
 }
@@ -243,7 +245,8 @@ type ClusterState struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
-	UpgradeMode pulumi.StringPtrInput
+	UpgradeMode   pulumi.StringPtrInput
+	UpgradePolicy ClusterUpgradePolicyPtrInput
 	// Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
 	VmImage pulumi.StringPtrInput
 }
@@ -290,7 +293,8 @@ type clusterArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
-	UpgradeMode string `pulumi:"upgradeMode"`
+	UpgradeMode   string                `pulumi:"upgradeMode"`
+	UpgradePolicy *ClusterUpgradePolicy `pulumi:"upgradePolicy"`
 	// Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
 	VmImage string `pulumi:"vmImage"`
 }
@@ -334,7 +338,8 @@ type ClusterArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
-	UpgradeMode pulumi.StringInput
+	UpgradeMode   pulumi.StringInput
+	UpgradePolicy ClusterUpgradePolicyPtrInput
 	// Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
 	VmImage pulumi.StringInput
 }

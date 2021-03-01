@@ -149,6 +149,7 @@ export class Cluster extends pulumi.CustomResource {
      * Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
      */
     public readonly upgradeMode!: pulumi.Output<string>;
+    public readonly upgradePolicy!: pulumi.Output<outputs.servicefabric.ClusterUpgradePolicy | undefined>;
     /**
      * Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
      */
@@ -187,6 +188,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["reverseProxyCertificateCommonNames"] = state ? state.reverseProxyCertificateCommonNames : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["upgradeMode"] = state ? state.upgradeMode : undefined;
+            inputs["upgradePolicy"] = state ? state.upgradePolicy : undefined;
             inputs["vmImage"] = state ? state.vmImage : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
@@ -227,6 +229,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["reverseProxyCertificateCommonNames"] = args ? args.reverseProxyCertificateCommonNames : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["upgradeMode"] = args ? args.upgradeMode : undefined;
+            inputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
             inputs["vmImage"] = args ? args.vmImage : undefined;
             inputs["clusterEndpoint"] = undefined /*out*/;
         }
@@ -321,6 +324,7 @@ export interface ClusterState {
      * Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
      */
     readonly upgradeMode?: pulumi.Input<string>;
+    readonly upgradePolicy?: pulumi.Input<inputs.servicefabric.ClusterUpgradePolicy>;
     /**
      * Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
      */
@@ -407,6 +411,7 @@ export interface ClusterArgs {
      * Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
      */
     readonly upgradeMode: pulumi.Input<string>;
+    readonly upgradePolicy?: pulumi.Input<inputs.servicefabric.ClusterUpgradePolicy>;
     /**
      * Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
      */

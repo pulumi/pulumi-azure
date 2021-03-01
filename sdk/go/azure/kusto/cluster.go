@@ -91,7 +91,7 @@ type Cluster struct {
 	TrustedExternalTenants pulumi.StringArrayOutput `pulumi:"trustedExternalTenants"`
 	// The FQDN of the Azure Kusto Cluster.
 	Uri pulumi.StringOutput `pulumi:"uri"`
-	// A `virtualNetworkConfiguration` block as defined below.
+	// A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
 	VirtualNetworkConfiguration ClusterVirtualNetworkConfigurationPtrOutput `pulumi:"virtualNetworkConfiguration"`
 	// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
@@ -162,7 +162,7 @@ type clusterState struct {
 	TrustedExternalTenants []string `pulumi:"trustedExternalTenants"`
 	// The FQDN of the Azure Kusto Cluster.
 	Uri *string `pulumi:"uri"`
-	// A `virtualNetworkConfiguration` block as defined below.
+	// A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
 	VirtualNetworkConfiguration *ClusterVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
 	// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
 	Zones []string `pulumi:"zones"`
@@ -199,7 +199,7 @@ type ClusterState struct {
 	TrustedExternalTenants pulumi.StringArrayInput
 	// The FQDN of the Azure Kusto Cluster.
 	Uri pulumi.StringPtrInput
-	// A `virtualNetworkConfiguration` block as defined below.
+	// A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
 	VirtualNetworkConfiguration ClusterVirtualNetworkConfigurationPtrInput
 	// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayInput
@@ -236,7 +236,7 @@ type clusterArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies a list of tenant IDs that are trusted by the cluster.
 	TrustedExternalTenants []string `pulumi:"trustedExternalTenants"`
-	// A `virtualNetworkConfiguration` block as defined below.
+	// A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
 	VirtualNetworkConfiguration *ClusterVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
 	// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
 	Zones []string `pulumi:"zones"`
@@ -270,7 +270,7 @@ type ClusterArgs struct {
 	Tags pulumi.StringMapInput
 	// Specifies a list of tenant IDs that are trusted by the cluster.
 	TrustedExternalTenants pulumi.StringArrayInput
-	// A `virtualNetworkConfiguration` block as defined below.
+	// A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
 	VirtualNetworkConfiguration ClusterVirtualNetworkConfigurationPtrInput
 	// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayInput

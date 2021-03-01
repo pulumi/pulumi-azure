@@ -6717,7 +6717,7 @@ type ServiceIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	// The Tenant ID associated with this Managed Service Identity.
+	// The identifier for the tenant access information contract.
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type *string `pulumi:"type"`
@@ -6739,7 +6739,7 @@ type ServiceIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The Tenant ID associated with this Managed Service Identity.
+	// The identifier for the tenant access information contract.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -6832,7 +6832,7 @@ func (o ServiceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The Tenant ID associated with this Managed Service Identity.
+// The identifier for the tenant access information contract.
 func (o ServiceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -6880,7 +6880,7 @@ func (o ServiceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Tenant ID associated with this Managed Service Identity.
+// The identifier for the tenant access information contract.
 func (o ServiceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIdentity) *string {
 		if v == nil {
@@ -8063,6 +8063,194 @@ func (o ServiceSignUpTermsOfServicePtrOutput) Text() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceTenantAccess struct {
+	// Should the access to the management api be enabled?
+	Enabled bool `pulumi:"enabled"`
+	// Primary access key for the tenant access information contract.
+	PrimaryKey *string `pulumi:"primaryKey"`
+	// Secondary access key for the tenant access information contract.
+	SecondaryKey *string `pulumi:"secondaryKey"`
+	// The identifier for the tenant access information contract.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// ServiceTenantAccessInput is an input type that accepts ServiceTenantAccessArgs and ServiceTenantAccessOutput values.
+// You can construct a concrete instance of `ServiceTenantAccessInput` via:
+//
+//          ServiceTenantAccessArgs{...}
+type ServiceTenantAccessInput interface {
+	pulumi.Input
+
+	ToServiceTenantAccessOutput() ServiceTenantAccessOutput
+	ToServiceTenantAccessOutputWithContext(context.Context) ServiceTenantAccessOutput
+}
+
+type ServiceTenantAccessArgs struct {
+	// Should the access to the management api be enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Primary access key for the tenant access information contract.
+	PrimaryKey pulumi.StringPtrInput `pulumi:"primaryKey"`
+	// Secondary access key for the tenant access information contract.
+	SecondaryKey pulumi.StringPtrInput `pulumi:"secondaryKey"`
+	// The identifier for the tenant access information contract.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (ServiceTenantAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTenantAccess)(nil)).Elem()
+}
+
+func (i ServiceTenantAccessArgs) ToServiceTenantAccessOutput() ServiceTenantAccessOutput {
+	return i.ToServiceTenantAccessOutputWithContext(context.Background())
+}
+
+func (i ServiceTenantAccessArgs) ToServiceTenantAccessOutputWithContext(ctx context.Context) ServiceTenantAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTenantAccessOutput)
+}
+
+func (i ServiceTenantAccessArgs) ToServiceTenantAccessPtrOutput() ServiceTenantAccessPtrOutput {
+	return i.ToServiceTenantAccessPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceTenantAccessArgs) ToServiceTenantAccessPtrOutputWithContext(ctx context.Context) ServiceTenantAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTenantAccessOutput).ToServiceTenantAccessPtrOutputWithContext(ctx)
+}
+
+// ServiceTenantAccessPtrInput is an input type that accepts ServiceTenantAccessArgs, ServiceTenantAccessPtr and ServiceTenantAccessPtrOutput values.
+// You can construct a concrete instance of `ServiceTenantAccessPtrInput` via:
+//
+//          ServiceTenantAccessArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceTenantAccessPtrInput interface {
+	pulumi.Input
+
+	ToServiceTenantAccessPtrOutput() ServiceTenantAccessPtrOutput
+	ToServiceTenantAccessPtrOutputWithContext(context.Context) ServiceTenantAccessPtrOutput
+}
+
+type serviceTenantAccessPtrType ServiceTenantAccessArgs
+
+func ServiceTenantAccessPtr(v *ServiceTenantAccessArgs) ServiceTenantAccessPtrInput {
+	return (*serviceTenantAccessPtrType)(v)
+}
+
+func (*serviceTenantAccessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceTenantAccess)(nil)).Elem()
+}
+
+func (i *serviceTenantAccessPtrType) ToServiceTenantAccessPtrOutput() ServiceTenantAccessPtrOutput {
+	return i.ToServiceTenantAccessPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceTenantAccessPtrType) ToServiceTenantAccessPtrOutputWithContext(ctx context.Context) ServiceTenantAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTenantAccessPtrOutput)
+}
+
+type ServiceTenantAccessOutput struct{ *pulumi.OutputState }
+
+func (ServiceTenantAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTenantAccess)(nil)).Elem()
+}
+
+func (o ServiceTenantAccessOutput) ToServiceTenantAccessOutput() ServiceTenantAccessOutput {
+	return o
+}
+
+func (o ServiceTenantAccessOutput) ToServiceTenantAccessOutputWithContext(ctx context.Context) ServiceTenantAccessOutput {
+	return o
+}
+
+func (o ServiceTenantAccessOutput) ToServiceTenantAccessPtrOutput() ServiceTenantAccessPtrOutput {
+	return o.ToServiceTenantAccessPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceTenantAccessOutput) ToServiceTenantAccessPtrOutputWithContext(ctx context.Context) ServiceTenantAccessPtrOutput {
+	return o.ApplyT(func(v ServiceTenantAccess) *ServiceTenantAccess {
+		return &v
+	}).(ServiceTenantAccessPtrOutput)
+}
+
+// Should the access to the management api be enabled?
+func (o ServiceTenantAccessOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ServiceTenantAccess) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Primary access key for the tenant access information contract.
+func (o ServiceTenantAccessOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceTenantAccess) *string { return v.PrimaryKey }).(pulumi.StringPtrOutput)
+}
+
+// Secondary access key for the tenant access information contract.
+func (o ServiceTenantAccessOutput) SecondaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceTenantAccess) *string { return v.SecondaryKey }).(pulumi.StringPtrOutput)
+}
+
+// The identifier for the tenant access information contract.
+func (o ServiceTenantAccessOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceTenantAccess) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ServiceTenantAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceTenantAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceTenantAccess)(nil)).Elem()
+}
+
+func (o ServiceTenantAccessPtrOutput) ToServiceTenantAccessPtrOutput() ServiceTenantAccessPtrOutput {
+	return o
+}
+
+func (o ServiceTenantAccessPtrOutput) ToServiceTenantAccessPtrOutputWithContext(ctx context.Context) ServiceTenantAccessPtrOutput {
+	return o
+}
+
+func (o ServiceTenantAccessPtrOutput) Elem() ServiceTenantAccessOutput {
+	return o.ApplyT(func(v *ServiceTenantAccess) ServiceTenantAccess { return *v }).(ServiceTenantAccessOutput)
+}
+
+// Should the access to the management api be enabled?
+func (o ServiceTenantAccessPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceTenantAccess) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Primary access key for the tenant access information contract.
+func (o ServiceTenantAccessPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceTenantAccess) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secondary access key for the tenant access information contract.
+func (o ServiceTenantAccessPtrOutput) SecondaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceTenantAccess) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identifier for the tenant access information contract.
+func (o ServiceTenantAccessPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceTenantAccess) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -9379,6 +9567,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceSignUpPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSignUpTermsOfServiceOutput{})
 	pulumi.RegisterOutputType(ServiceSignUpTermsOfServicePtrOutput{})
+	pulumi.RegisterOutputType(ServiceTenantAccessOutput{})
+	pulumi.RegisterOutputType(ServiceTenantAccessPtrOutput{})
 	pulumi.RegisterOutputType(ServiceVirtualNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceVirtualNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GetApiSubscriptionKeyParameterNameOutput{})

@@ -4,6 +4,8 @@
 
 # Export this package's modules as members:
 from .cache import *
+from .enterprise_cluster import *
+from .enterprise_database import *
 from .firewall_rule import *
 from .get_cache import *
 from .linked_server import *
@@ -24,6 +26,10 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure:redis/cache:Cache":
                 return Cache(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:redis/enterpriseCluster:EnterpriseCluster":
+                return EnterpriseCluster(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:redis/enterpriseDatabase:EnterpriseDatabase":
+                return EnterpriseDatabase(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:redis/firewallRule:FirewallRule":
                 return FirewallRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:redis/linkedServer:LinkedServer":
@@ -34,6 +40,8 @@ def _register_module():
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("azure", "redis/cache", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "redis/enterpriseCluster", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "redis/enterpriseDatabase", _module_instance)
     pulumi.runtime.register_resource_module("azure", "redis/firewallRule", _module_instance)
     pulumi.runtime.register_resource_module("azure", "redis/linkedServer", _module_instance)
 

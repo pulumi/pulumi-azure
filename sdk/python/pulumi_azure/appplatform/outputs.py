@@ -20,6 +20,8 @@ __all__ = [
     'SpringCloudServiceConfigServerGitSettingSshAuth',
     'SpringCloudServiceNetwork',
     'SpringCloudServiceTrace',
+    'GetSpringCloudAppIdentityResult',
+    'GetSpringCloudAppPersistentDiskResult',
     'GetSpringCloudServiceConfigServerGitSettingResult',
     'GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthResult',
     'GetSpringCloudServiceConfigServerGitSettingRepositoryResult',
@@ -544,6 +546,75 @@ class SpringCloudServiceTrace(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GetSpringCloudAppIdentityResult(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+        :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+        :param str type: The Type of Managed Identity assigned to the Spring Cloud Application.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The Type of Managed Identity assigned to the Spring Cloud Application.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetSpringCloudAppPersistentDiskResult(dict):
+    def __init__(__self__, *,
+                 mount_path: str,
+                 size_in_gb: int):
+        """
+        :param str mount_path: The mount path of the persistent disk.
+        :param int size_in_gb: The size of the persistent disk in GB.
+        """
+        pulumi.set(__self__, "mount_path", mount_path)
+        pulumi.set(__self__, "size_in_gb", size_in_gb)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> str:
+        """
+        The mount path of the persistent disk.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @property
+    @pulumi.getter(name="sizeInGb")
+    def size_in_gb(self) -> int:
+        """
+        The size of the persistent disk in GB.
+        """
+        return pulumi.get(self, "size_in_gb")
 
 
 @pulumi.output_type

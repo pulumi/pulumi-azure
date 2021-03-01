@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetVolumeResult',
@@ -19,10 +20,13 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, account_name=None, id=None, location=None, mount_ip_addresses=None, name=None, pool_name=None, protocols=None, resource_group_name=None, service_level=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None):
+    def __init__(__self__, account_name=None, data_protection_replications=None, id=None, location=None, mount_ip_addresses=None, name=None, pool_name=None, protocols=None, resource_group_name=None, service_level=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
+        if data_protection_replications and not isinstance(data_protection_replications, list):
+            raise TypeError("Expected argument 'data_protection_replications' to be a list")
+        pulumi.set(__self__, "data_protection_replications", data_protection_replications)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -61,6 +65,11 @@ class GetVolumeResult:
     @pulumi.getter(name="accountName")
     def account_name(self) -> str:
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="dataProtectionReplications")
+    def data_protection_replications(self) -> Sequence['outputs.GetVolumeDataProtectionReplicationResult']:
+        return pulumi.get(self, "data_protection_replications")
 
     @property
     @pulumi.getter
@@ -146,6 +155,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             yield self
         return GetVolumeResult(
             account_name=self.account_name,
+            data_protection_replications=self.data_protection_replications,
             id=self.id,
             location=self.location,
             mount_ip_addresses=self.mount_ip_addresses,
@@ -199,6 +209,7 @@ def get_volume(account_name: Optional[str] = None,
 
     return AwaitableGetVolumeResult(
         account_name=__ret__.account_name,
+        data_protection_replications=__ret__.data_protection_replications,
         id=__ret__.id,
         location=__ret__.location,
         mount_ip_addresses=__ret__.mount_ip_addresses,

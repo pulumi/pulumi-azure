@@ -63,7 +63,7 @@ class EventHubNamespace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
-        :param pulumi.Input[int] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
+        :param pulumi.Input[int] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `20`, but can be increased in blocks of 20 on a committed purchase basis.
         :param pulumi.Input[str] dedicated_cluster_id: Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['EventHubNamespaceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -150,7 +150,7 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
-        :param pulumi.Input[int] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
+        :param pulumi.Input[int] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `20`, but can be increased in blocks of 20 on a committed purchase basis.
         :param pulumi.Input[str] dedicated_cluster_id: Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] default_primary_connection_string: The primary connection string for the authorization
                rule `RootManageSharedAccessKey`.
@@ -208,7 +208,7 @@ class EventHubNamespace(pulumi.CustomResource):
     @pulumi.getter
     def capacity(self) -> pulumi.Output[Optional[int]]:
         """
-        Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
+        Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `20`, but can be increased in blocks of 20 on a committed purchase basis.
         """
         return pulumi.get(self, "capacity")
 

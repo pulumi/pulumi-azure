@@ -34,6 +34,7 @@ class Service(pulumi.CustomResource):
                  sign_up: Optional[pulumi.Input[pulumi.InputType['ServiceSignUpArgs']]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_access: Optional[pulumi.Input[pulumi.InputType['ServiceTenantAccessArgs']]] = None,
                  virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']]] = None,
                  virtual_network_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -97,6 +98,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceSignUpArgs']] sign_up: A `sign_up` block as defined below.
         :param pulumi.Input[str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
+        :param pulumi.Input[pulumi.InputType['ServiceTenantAccessArgs']] tenant_access: A `tenant_access` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. 
                > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
@@ -143,6 +145,7 @@ class Service(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
             __props__['tags'] = tags
+            __props__['tenant_access'] = tenant_access
             __props__['virtual_network_configuration'] = virtual_network_configuration
             __props__['virtual_network_type'] = virtual_network_type
             __props__['developer_portal_url'] = None
@@ -188,6 +191,7 @@ class Service(pulumi.CustomResource):
             sign_up: Optional[pulumi.Input[pulumi.InputType['ServiceSignUpArgs']]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tenant_access: Optional[pulumi.Input[pulumi.InputType['ServiceTenantAccessArgs']]] = None,
             virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']]] = None,
             virtual_network_type: Optional[pulumi.Input[str]] = None) -> 'Service':
         """
@@ -222,6 +226,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceSignUpArgs']] sign_up: A `sign_up` block as defined below.
         :param pulumi.Input[str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
+        :param pulumi.Input[pulumi.InputType['ServiceTenantAccessArgs']] tenant_access: A `tenant_access` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. 
                > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
@@ -255,6 +260,7 @@ class Service(pulumi.CustomResource):
         __props__["sign_up"] = sign_up
         __props__["sku_name"] = sku_name
         __props__["tags"] = tags
+        __props__["tenant_access"] = tenant_access
         __props__["virtual_network_configuration"] = virtual_network_configuration
         __props__["virtual_network_type"] = virtual_network_type
         return Service(resource_name, opts=opts, __props__=__props__)
@@ -458,6 +464,14 @@ class Service(pulumi.CustomResource):
         A mapping of tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tenantAccess")
+    def tenant_access(self) -> pulumi.Output['outputs.ServiceTenantAccess']:
+        """
+        A `tenant_access` block as defined below.
+        """
+        return pulumi.get(self, "tenant_access")
 
     @property
     @pulumi.getter(name="virtualNetworkConfiguration")

@@ -41,7 +41,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: Specifies the name of the Batch account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] certificate: The base64-encoded contents of the certificate.
         :param pulumi.Input[str] format: The format of the certificate. Possible values are `Cer` or `Pfx`.
-        :param pulumi.Input[str] password: The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
+        :param pulumi.Input[str] password: The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] thumbprint: The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
         """
@@ -113,7 +113,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] certificate: The base64-encoded contents of the certificate.
         :param pulumi.Input[str] format: The format of the certificate. Possible values are `Cer` or `Pfx`.
         :param pulumi.Input[str] name: The generated name of the certificate.
-        :param pulumi.Input[str] password: The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
+        :param pulumi.Input[str] password: The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
         :param pulumi.Input[str] public_data: The public key of the certificate.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] thumbprint: The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
@@ -169,7 +169,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[str]]:
         """
-        The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
+        The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
         """
         return pulumi.get(self, "password")
 

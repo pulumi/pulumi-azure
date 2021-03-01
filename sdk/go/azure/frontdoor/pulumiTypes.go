@@ -260,7 +260,7 @@ type FirewallPolicyCustomRule struct {
 	Action string `pulumi:"action"`
 	// Is the rule is enabled or disabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// One or more `matchCondition` block defined below.
+	// One or more `matchCondition` block defined below. Can support up to `10` `matchCondition` blocks.
 	MatchConditions []FirewallPolicyCustomRuleMatchCondition `pulumi:"matchConditions"`
 	// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
 	Name string `pulumi:"name"`
@@ -290,7 +290,7 @@ type FirewallPolicyCustomRuleArgs struct {
 	Action pulumi.StringInput `pulumi:"action"`
 	// Is the rule is enabled or disabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// One or more `matchCondition` block defined below.
+	// One or more `matchCondition` block defined below. Can support up to `10` `matchCondition` blocks.
 	MatchConditions FirewallPolicyCustomRuleMatchConditionArrayInput `pulumi:"matchConditions"`
 	// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -365,7 +365,7 @@ func (o FirewallPolicyCustomRuleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyCustomRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// One or more `matchCondition` block defined below.
+// One or more `matchCondition` block defined below. Can support up to `10` `matchCondition` blocks.
 func (o FirewallPolicyCustomRuleOutput) MatchConditions() FirewallPolicyCustomRuleMatchConditionArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyCustomRule) []FirewallPolicyCustomRuleMatchCondition { return v.MatchConditions }).(FirewallPolicyCustomRuleMatchConditionArrayOutput)
 }
@@ -416,7 +416,7 @@ func (o FirewallPolicyCustomRuleArrayOutput) Index(i pulumi.IntInput) FirewallPo
 }
 
 type FirewallPolicyCustomRuleMatchCondition struct {
-	// Up to `100` possible values to match.
+	// Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters long.
 	MatchValues []string `pulumi:"matchValues"`
 	// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
 	MatchVariable string `pulumi:"matchVariable"`
@@ -442,7 +442,7 @@ type FirewallPolicyCustomRuleMatchConditionInput interface {
 }
 
 type FirewallPolicyCustomRuleMatchConditionArgs struct {
-	// Up to `100` possible values to match.
+	// Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters long.
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
@@ -507,7 +507,7 @@ func (o FirewallPolicyCustomRuleMatchConditionOutput) ToFirewallPolicyCustomRule
 	return o
 }
 
-// Up to `100` possible values to match.
+// Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters long.
 func (o FirewallPolicyCustomRuleMatchConditionOutput) MatchValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyCustomRuleMatchCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }
@@ -2433,7 +2433,7 @@ type FrontdoorRoutingRuleForwardingConfiguration struct {
 	BackendPoolName string `pulumi:"backendPoolName"`
 	// Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
 	CacheEnabled *bool `pulumi:"cacheEnabled"`
-	// Defines cache behaviour in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+	// Defines cache behaviour in relation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
 	CacheQueryParameterStripDirective *string `pulumi:"cacheQueryParameterStripDirective"`
 	// Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
 	CacheUseDynamicCompression *bool `pulumi:"cacheUseDynamicCompression"`
@@ -2459,7 +2459,7 @@ type FrontdoorRoutingRuleForwardingConfigurationArgs struct {
 	BackendPoolName pulumi.StringInput `pulumi:"backendPoolName"`
 	// Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
 	CacheEnabled pulumi.BoolPtrInput `pulumi:"cacheEnabled"`
-	// Defines cache behaviour in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+	// Defines cache behaviour in relation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
 	CacheQueryParameterStripDirective pulumi.StringPtrInput `pulumi:"cacheQueryParameterStripDirective"`
 	// Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
 	CacheUseDynamicCompression pulumi.BoolPtrInput `pulumi:"cacheUseDynamicCompression"`
@@ -2556,7 +2556,7 @@ func (o FrontdoorRoutingRuleForwardingConfigurationOutput) CacheEnabled() pulumi
 	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Defines cache behaviour in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+// Defines cache behaviour in relation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
 func (o FrontdoorRoutingRuleForwardingConfigurationOutput) CacheQueryParameterStripDirective() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *string {
 		return v.CacheQueryParameterStripDirective
@@ -2618,7 +2618,7 @@ func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) CacheEnabled() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Defines cache behaviour in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+// Defines cache behaviour in relation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) CacheQueryParameterStripDirective() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRoutingRuleForwardingConfiguration) *string {
 		if v == nil {

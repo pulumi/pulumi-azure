@@ -54,6 +54,7 @@ import (
 // 		_, err = apimanagement.NewLogger(ctx, "exampleLogger", &apimanagement.LoggerArgs{
 // 			ApiManagementName: exampleService.Name,
 // 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ResourceId:        exampleInsights.ID(),
 // 			ApplicationInsights: &apimanagement.LoggerApplicationInsightsArgs{
 // 				InstrumentationKey: exampleInsights.InstrumentationKey,
 // 			},
@@ -90,6 +91,8 @@ type Logger struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The target resource id which will be linked in the API-Management portal page.
+	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
 }
 
 // NewLogger registers a new resource with the given unique name, arguments, and options.
@@ -141,6 +144,8 @@ type loggerState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The target resource id which will be linked in the API-Management portal page.
+	ResourceId *string `pulumi:"resourceId"`
 }
 
 type LoggerState struct {
@@ -158,6 +163,8 @@ type LoggerState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The target resource id which will be linked in the API-Management portal page.
+	ResourceId pulumi.StringPtrInput
 }
 
 func (LoggerState) ElementType() reflect.Type {
@@ -179,6 +186,8 @@ type loggerArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The target resource id which will be linked in the API-Management portal page.
+	ResourceId *string `pulumi:"resourceId"`
 }
 
 // The set of arguments for constructing a Logger resource.
@@ -197,6 +206,8 @@ type LoggerArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// The target resource id which will be linked in the API-Management portal page.
+	ResourceId pulumi.StringPtrInput
 }
 
 func (LoggerArgs) ElementType() reflect.Type {

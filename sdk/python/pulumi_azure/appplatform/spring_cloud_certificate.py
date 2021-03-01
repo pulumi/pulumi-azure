@@ -152,6 +152,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['thumbprint'] = None
         super(SpringCloudCertificate, __self__).__init__(
             'azure:appplatform/springCloudCertificate:SpringCloudCertificate',
             resource_name,
@@ -165,7 +166,8 @@ class SpringCloudCertificate(pulumi.CustomResource):
             key_vault_certificate_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            service_name: Optional[pulumi.Input[str]] = None) -> 'SpringCloudCertificate':
+            service_name: Optional[pulumi.Input[str]] = None,
+            thumbprint: Optional[pulumi.Input[str]] = None) -> 'SpringCloudCertificate':
         """
         Get an existing SpringCloudCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -177,6 +179,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] thumbprint: The thumbprint of the Spring Cloud certificate.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -186,6 +189,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         __props__["service_name"] = service_name
+        __props__["thumbprint"] = thumbprint
         return SpringCloudCertificate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -219,6 +223,14 @@ class SpringCloudCertificate(pulumi.CustomResource):
         Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "service_name")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> pulumi.Output[str]:
+        """
+        The thumbprint of the Spring Cloud certificate.
+        """
+        return pulumi.get(self, "thumbprint")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

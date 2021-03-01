@@ -126,6 +126,12 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> Severity { get; private set; } = null!;
 
         /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
         /// </summary>
         [Output("throttlingDuration")]
@@ -237,6 +243,18 @@ namespace Pulumi.Azure.Monitoring
         [Input("severity", required: true)]
         public Input<string> Severity { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
         /// </summary>
@@ -309,6 +327,18 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Input("severity")]
         public Input<string>? Severity { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
