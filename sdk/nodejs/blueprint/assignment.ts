@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     version: "v1.0.0",
  * }));
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {
- *     location: "westeurope",
+ *     location: "West Europe",
  *     tags: {
  *         Environment: "example",
  *     },

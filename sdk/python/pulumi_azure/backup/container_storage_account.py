@@ -32,7 +32,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West US")
+        rg = azure.core.ResourceGroup("rg", location="West Europe")
         vault = azure.recoveryservices.Vault("vault",
             location=rg.location,
             resource_group_name=rg.name,

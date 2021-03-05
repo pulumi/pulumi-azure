@@ -109,6 +109,7 @@ class Secret(pulumi.CustomResource):
                 raise TypeError("Missing required property 'value'")
             __props__['value'] = value
             __props__['version'] = None
+            __props__['versionless_id'] = None
         super(Secret, __self__).__init__(
             'azure:keyvault/secret:Secret',
             resource_name,
@@ -126,7 +127,8 @@ class Secret(pulumi.CustomResource):
             not_before_date: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             value: Optional[pulumi.Input[str]] = None,
-            version: Optional[pulumi.Input[str]] = None) -> 'Secret':
+            version: Optional[pulumi.Input[str]] = None,
+            versionless_id: Optional[pulumi.Input[str]] = None) -> 'Secret':
         """
         Get an existing Secret resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -142,6 +144,7 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] value: Specifies the value of the Key Vault Secret.
         :param pulumi.Input[str] version: The current version of the Key Vault Secret.
+        :param pulumi.Input[str] versionless_id: The Base ID of the Key Vault Secret.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -155,6 +158,7 @@ class Secret(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["value"] = value
         __props__["version"] = version
+        __props__["versionless_id"] = versionless_id
         return Secret(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -220,6 +224,14 @@ class Secret(pulumi.CustomResource):
         The current version of the Key Vault Secret.
         """
         return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="versionlessId")
+    def versionless_id(self) -> pulumi.Output[str]:
+        """
+        The Base ID of the Key Vault Secret.
+        """
+        return pulumi.get(self, "versionless_id")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

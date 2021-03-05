@@ -37,7 +37,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="EastUS2")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         vault = azure.keyvault.get_key_vault(name="example-vault",
             resource_group_name="example-vault-rg")
         example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
     ///         {
@@ -140,6 +140,9 @@ namespace Pulumi.Azure.Network
         [Output("activeActive")]
         public Output<bool> ActiveActive { get; private set; } = null!;
 
+        /// <summary>
+        /// A block of `bgp_settings`.
+        /// </summary>
         [Output("bgpSettings")]
         public Output<Outputs.VirtualNetworkGatewayBgpSettings> BgpSettings { get; private set; } = null!;
 
@@ -300,6 +303,9 @@ namespace Pulumi.Azure.Network
         [Input("activeActive")]
         public Input<bool>? ActiveActive { get; set; }
 
+        /// <summary>
+        /// A block of `bgp_settings`.
+        /// </summary>
         [Input("bgpSettings")]
         public Input<Inputs.VirtualNetworkGatewayBgpSettingsArgs>? BgpSettings { get; set; }
 
@@ -433,6 +439,9 @@ namespace Pulumi.Azure.Network
         [Input("activeActive")]
         public Input<bool>? ActiveActive { get; set; }
 
+        /// <summary>
+        /// A block of `bgp_settings`.
+        /// </summary>
         [Input("bgpSettings")]
         public Input<Inputs.VirtualNetworkGatewayBgpSettingsGetArgs>? BgpSettings { get; set; }
 

@@ -24,6 +24,7 @@ class Service(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ServiceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 upstream_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceUpstreamEndpointArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -50,6 +51,15 @@ class Service(pulumi.CustomResource):
             features=[azure.signalr.ServiceFeatureArgs(
                 flag="ServiceMode",
                 value="Default",
+            )],
+            upstream_endpoints=[azure.signalr.ServiceUpstreamEndpointArgs(
+                category_patterns=[
+                    "connections",
+                    "messages",
+                ],
+                event_patterns=["*"],
+                hub_patterns=["hub1"],
+                url_template="http://foo.com",
             )])
         ```
 
@@ -70,6 +80,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ServiceSkuArgs']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceUpstreamEndpointArgs']]]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -99,6 +110,7 @@ class Service(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['upstream_endpoints'] = upstream_endpoints
             __props__['hostname'] = None
             __props__['ip_address'] = None
             __props__['primary_access_key'] = None
@@ -131,7 +143,8 @@ class Service(pulumi.CustomResource):
             secondary_connection_string: Optional[pulumi.Input[str]] = None,
             server_port: Optional[pulumi.Input[int]] = None,
             sku: Optional[pulumi.Input[pulumi.InputType['ServiceSkuArgs']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Service':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            upstream_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceUpstreamEndpointArgs']]]]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -154,6 +167,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[int] server_port: The publicly accessible port of the SignalR service which is designed for customer server side use.
         :param pulumi.Input[pulumi.InputType['ServiceSkuArgs']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceUpstreamEndpointArgs']]]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -174,6 +188,7 @@ class Service(pulumi.CustomResource):
         __props__["server_port"] = server_port
         __props__["sku"] = sku
         __props__["tags"] = tags
+        __props__["upstream_endpoints"] = upstream_endpoints
         return Service(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -295,6 +310,14 @@ class Service(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="upstreamEndpoints")
+    def upstream_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceUpstreamEndpoint']]]:
+        """
+        An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+        """
+        return pulumi.get(self, "upstream_endpoints")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

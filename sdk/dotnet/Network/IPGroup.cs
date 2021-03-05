@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Network
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "westus",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleIPGroup = new Azure.Network.IPGroup("exampleIPGroup", new Azure.Network.IPGroupArgs
     ///         {

@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     name: "secret-sauce",
  *     keyVaultId: exampleKeyVault.id,
  * }));
- * export const examplePem = data.azurerm_key_vault_certificate.example.pem;
+ * export const examplePem = exampleCertificateData.then(exampleCertificateData => exampleCertificateData.pem);
  * ```
  */
 export function getCertificateData(args: GetCertificateDataArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateDataResult> {

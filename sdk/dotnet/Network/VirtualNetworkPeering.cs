@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Network
     ///     {
     ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = "West Europe",
     ///         });
     ///         var example_1VirtualNetwork = new Azure.Network.VirtualNetwork("example-1VirtualNetwork", new Azure.Network.VirtualNetworkArgs
     ///         {

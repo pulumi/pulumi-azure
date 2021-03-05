@@ -17,6 +17,7 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  enable_disk_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_purge: Optional[pulumi.Input[bool]] = None,
                  enable_streaming_ingest: Optional[pulumi.Input[bool]] = None,
@@ -44,7 +45,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="East US")
+        rg = azure.core.ResourceGroup("rg", location="West Europe")
         example = azure.kusto.Cluster("example",
             location=rg.location,
             resource_group_name=rg.name,
@@ -67,11 +68,12 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_disk_encryption: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] enable_purge: Specifies if the purge operations are enabled.
         :param pulumi.Input[bool] enable_streaming_ingest: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[str] engine: . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
-        :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: A identity block.
+        :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An identity block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
@@ -100,6 +102,7 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['double_encryption_enabled'] = double_encryption_enabled
             __props__['enable_disk_encryption'] = enable_disk_encryption
             __props__['enable_purge'] = enable_purge
             __props__['enable_streaming_ingest'] = enable_streaming_ingest
@@ -132,6 +135,7 @@ class Cluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             data_ingestion_uri: Optional[pulumi.Input[str]] = None,
+            double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             enable_disk_encryption: Optional[pulumi.Input[bool]] = None,
             enable_purge: Optional[pulumi.Input[bool]] = None,
             enable_streaming_ingest: Optional[pulumi.Input[bool]] = None,
@@ -156,11 +160,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_ingestion_uri: The Kusto Cluster URI to be used for data ingestion.
+        :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_disk_encryption: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] enable_purge: Specifies if the purge operations are enabled.
         :param pulumi.Input[bool] enable_streaming_ingest: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[str] engine: . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
-        :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: A identity block.
+        :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An identity block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
@@ -178,6 +183,7 @@ class Cluster(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["data_ingestion_uri"] = data_ingestion_uri
+        __props__["double_encryption_enabled"] = double_encryption_enabled
         __props__["enable_disk_encryption"] = enable_disk_encryption
         __props__["enable_purge"] = enable_purge
         __props__["enable_streaming_ingest"] = enable_streaming_ingest
@@ -203,6 +209,14 @@ class Cluster(pulumi.CustomResource):
         The Kusto Cluster URI to be used for data ingestion.
         """
         return pulumi.get(self, "data_ingestion_uri")
+
+    @property
+    @pulumi.getter(name="doubleEncryptionEnabled")
+    def double_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "double_encryption_enabled")
 
     @property
     @pulumi.getter(name="enableDiskEncryption")
@@ -240,7 +254,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output['outputs.ClusterIdentity']:
         """
-        A identity block.
+        An identity block.
         """
         return pulumi.get(self, "identity")
 

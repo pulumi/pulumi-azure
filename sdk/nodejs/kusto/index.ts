@@ -12,6 +12,7 @@ export * from "./clusterPrincipalAssignment";
 export * from "./database";
 export * from "./databasePrincipal";
 export * from "./databasePrincipalAssignment";
+export * from "./eventGridDataConnection";
 export * from "./eventhubDataConnection";
 export * from "./getCluster";
 export * from "./iotHubDataConnection";
@@ -24,6 +25,7 @@ import { ClusterPrincipalAssignment } from "./clusterPrincipalAssignment";
 import { Database } from "./database";
 import { DatabasePrincipal } from "./databasePrincipal";
 import { DatabasePrincipalAssignment } from "./databasePrincipalAssignment";
+import { EventGridDataConnection } from "./eventGridDataConnection";
 import { EventhubDataConnection } from "./eventhubDataConnection";
 import { IotHubDataConnection } from "./iotHubDataConnection";
 
@@ -45,6 +47,8 @@ const _module = {
                 return new DatabasePrincipal(name, <any>undefined, { urn })
             case "azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment":
                 return new DatabasePrincipalAssignment(name, <any>undefined, { urn })
+            case "azure:kusto/eventGridDataConnection:EventGridDataConnection":
+                return new EventGridDataConnection(name, <any>undefined, { urn })
             case "azure:kusto/eventhubDataConnection:EventhubDataConnection":
                 return new EventhubDataConnection(name, <any>undefined, { urn })
             case "azure:kusto/iotHubDataConnection:IotHubDataConnection":
@@ -61,5 +65,6 @@ pulumi.runtime.registerResourceModule("azure", "kusto/clusterPrincipalAssignment
 pulumi.runtime.registerResourceModule("azure", "kusto/database", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/databasePrincipal", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/databasePrincipalAssignment", _module)
+pulumi.runtime.registerResourceModule("azure", "kusto/eventGridDataConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/eventhubDataConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/iotHubDataConnection", _module)

@@ -12,6 +12,7 @@ from . import outputs
 __all__ = [
     'Features',
     'FeaturesKeyVault',
+    'FeaturesLogAnalyticsWorkspace',
     'FeaturesNetwork',
     'FeaturesTemplateDeployment',
     'FeaturesVirtualMachine',
@@ -22,12 +23,15 @@ __all__ = [
 class Features(dict):
     def __init__(__self__, *,
                  key_vault: Optional['outputs.FeaturesKeyVault'] = None,
+                 log_analytics_workspace: Optional['outputs.FeaturesLogAnalyticsWorkspace'] = None,
                  network: Optional['outputs.FeaturesNetwork'] = None,
                  template_deployment: Optional['outputs.FeaturesTemplateDeployment'] = None,
                  virtual_machine: Optional['outputs.FeaturesVirtualMachine'] = None,
                  virtual_machine_scale_set: Optional['outputs.FeaturesVirtualMachineScaleSet'] = None):
         if key_vault is not None:
             pulumi.set(__self__, "key_vault", key_vault)
+        if log_analytics_workspace is not None:
+            pulumi.set(__self__, "log_analytics_workspace", log_analytics_workspace)
         if network is not None:
             pulumi.set(__self__, "network", network)
         if template_deployment is not None:
@@ -41,6 +45,11 @@ class Features(dict):
     @pulumi.getter(name="keyVault")
     def key_vault(self) -> Optional['outputs.FeaturesKeyVault']:
         return pulumi.get(self, "key_vault")
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspace")
+    def log_analytics_workspace(self) -> Optional['outputs.FeaturesLogAnalyticsWorkspace']:
+        return pulumi.get(self, "log_analytics_workspace")
 
     @property
     @pulumi.getter
@@ -85,6 +94,21 @@ class FeaturesKeyVault(dict):
     @pulumi.getter(name="recoverSoftDeletedKeyVaults")
     def recover_soft_deleted_key_vaults(self) -> Optional[bool]:
         return pulumi.get(self, "recover_soft_deleted_key_vaults")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FeaturesLogAnalyticsWorkspace(dict):
+    def __init__(__self__, *,
+                 permanently_delete_on_destroy: bool):
+        pulumi.set(__self__, "permanently_delete_on_destroy", permanently_delete_on_destroy)
+
+    @property
+    @pulumi.getter(name="permanentlyDeleteOnDestroy")
+    def permanently_delete_on_destroy(self) -> bool:
+        return pulumi.get(self, "permanently_delete_on_destroy")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

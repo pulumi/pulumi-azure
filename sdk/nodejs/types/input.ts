@@ -6,6 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 
 export interface ProviderFeatures {
     keyVault?: pulumi.Input<inputs.ProviderFeaturesKeyVault>;
+    logAnalyticsWorkspace?: pulumi.Input<inputs.ProviderFeaturesLogAnalyticsWorkspace>;
     network?: pulumi.Input<inputs.ProviderFeaturesNetwork>;
     templateDeployment?: pulumi.Input<inputs.ProviderFeaturesTemplateDeployment>;
     virtualMachine?: pulumi.Input<inputs.ProviderFeaturesVirtualMachine>;
@@ -15,6 +16,10 @@ export interface ProviderFeatures {
 export interface ProviderFeaturesKeyVault {
     purgeSoftDeleteOnDestroy?: pulumi.Input<boolean>;
     recoverSoftDeletedKeyVaults?: pulumi.Input<boolean>;
+}
+
+export interface ProviderFeaturesLogAnalyticsWorkspace {
+    permanentlyDeleteOnDestroy: pulumi.Input<boolean>;
 }
 
 export interface ProviderFeaturesNetwork {
@@ -2949,6 +2954,42 @@ export namespace automation {
          * Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
          */
         occurrence: pulumi.Input<number>;
+    }
+}
+
+export namespace avs {
+    export interface PrivateCloudCircuit {
+        /**
+         * The ID of the ExpressRoute Circuit.
+         */
+        expressRouteId?: pulumi.Input<string>;
+        /**
+         * The ID of the ExpressRoute Circuit private peering.
+         */
+        expressRoutePrivatePeeringId?: pulumi.Input<string>;
+        /**
+         * The CIDR of the primary subnet.
+         */
+        primarySubnetCidr?: pulumi.Input<string>;
+        /**
+         * The CIDR of the secondary subnet.
+         */
+        secondarySubnetCidr?: pulumi.Input<string>;
+    }
+
+    export interface PrivateCloudManagementCluster {
+        /**
+         * A list of hosts in the management cluster.
+         */
+        hosts?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the  management cluster.
+         */
+        id?: pulumi.Input<number>;
+        /**
+         * The size of the management cluster. This field can not updated with `internetConnectionEnabled` together.
+         */
+        size: pulumi.Input<number>;
     }
 }
 
@@ -7894,9 +7935,6 @@ export namespace dns {
          * The expire time for the SOA record. Defaults to `2419200`.
          */
         expireTime?: pulumi.Input<number>;
-        /**
-         * The fully qualified domain name of the Record Set.
-         */
         fqdn?: pulumi.Input<string>;
         /**
          * The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
@@ -12272,19 +12310,19 @@ export namespace keyvault {
 export namespace kusto {
     export interface ClusterIdentity {
         /**
-         * The list of user identities associated with the Kusto cluster.
+         * A list of IDs for User Assigned Managed Identity resources to be assigned.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
+         * The Principal ID associated with this System Assigned Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
+         * The Tenant ID associated with this System Assigned Managed Service Identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned` (where Azure will generate a Service Principal for you).
+         * Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -12306,7 +12344,7 @@ export namespace kusto {
          */
         capacity?: pulumi.Input<number>;
         /**
-         * The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
+         * The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E64i_v3`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`.
          */
         name: pulumi.Input<string>;
     }
@@ -13263,6 +13301,10 @@ export namespace monitoring {
 
     export interface ActionGroupWebhookReceiver {
         /**
+         * The `aadAuth` block as defined below
+         */
+        aadAuth?: pulumi.Input<inputs.monitoring.ActionGroupWebhookReceiverAadAuth>;
+        /**
          * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
          */
         name: pulumi.Input<string>;
@@ -13274,6 +13316,21 @@ export namespace monitoring {
          * Enables or disables the common alert schema.
          */
         useCommonAlertSchema?: pulumi.Input<boolean>;
+    }
+
+    export interface ActionGroupWebhookReceiverAadAuth {
+        /**
+         * The identifier uri for aad auth.
+         */
+        identifierUri?: pulumi.Input<string>;
+        /**
+         * The webhook application object Id for aad auth.
+         */
+        objectId: pulumi.Input<string>;
+        /**
+         * The tenant id for aad auth.
+         */
+        tenantId?: pulumi.Input<string>;
     }
 
     export interface ActionRuleActionGroupCondition {
@@ -14084,6 +14141,7 @@ export namespace monitoring {
 
 export namespace mssql {
     export interface DatabaseExtendedAuditingPolicy {
+        logMonitoringEnabled?: pulumi.Input<boolean>;
         /**
          * Specifies the number of days to retain logs for in the storage account.
          */
@@ -14091,7 +14149,7 @@ export namespace mssql {
         /**
          * Specifies the access key to use for the auditing storage account.
          */
-        storageAccountAccessKey: pulumi.Input<string>;
+        storageAccountAccessKey?: pulumi.Input<string>;
         /**
          * Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
          */
@@ -14099,7 +14157,7 @@ export namespace mssql {
         /**
          * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
          */
-        storageEndpoint: pulumi.Input<string>;
+        storageEndpoint?: pulumi.Input<string>;
     }
 
     export interface DatabaseLongTermRetentionPolicy {
@@ -14217,21 +14275,25 @@ export namespace mssql {
 
     export interface ServerExtendedAuditingPolicy {
         /**
+         * (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+         */
+        logMonitoringEnabled?: pulumi.Input<boolean>;
+        /**
          * (Optional) Specifies the number of days to retain logs for in the storage account.
          */
         retentionInDays?: pulumi.Input<number>;
         /**
-         * (Required)  Specifies the access key to use for the auditing storage account.
+         * (Optional)  Specifies the access key to use for the auditing storage account.
          */
-        storageAccountAccessKey: pulumi.Input<string>;
+        storageAccountAccessKey?: pulumi.Input<string>;
         /**
          * (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
          */
         storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
         /**
-         * (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+         * (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
          */
-        storageEndpoint: pulumi.Input<string>;
+        storageEndpoint?: pulumi.Input<string>;
     }
 
     export interface ServerIdentity {
@@ -16502,12 +16564,32 @@ export namespace network {
          */
         peerWeight?: pulumi.Input<number>;
         /**
-         * The BGP peer IP address of the virtual network
-         * gateway. This address is needed to configure the created gateway as a BGP Peer
-         * on the on-premises VPN devices. The IP address must be part of the subnet of
-         * the Virtual Network Gateway. Changing this forces a new resource to be created.
+         * @deprecated Deprecated in favor of `bgp_settings.0.peering_addresses.0.default_addresses.0`
          */
         peeringAddress?: pulumi.Input<string>;
+        /**
+         * A list of `peeringAddresses` as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
+         */
+        peeringAddresses?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayBgpSettingsPeeringAddress>[]>;
+    }
+
+    export interface VirtualNetworkGatewayBgpSettingsPeeringAddress {
+        /**
+         * A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
+         */
+        apipaAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of peering address assigned to the BGP peer of the Virtual Network Gateway.
+         */
+        defaultAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ipConfiguration` blocks defined, this property is **required** to specify.
+         */
+        ipConfigurationName?: pulumi.Input<string>;
+        /**
+         * A list of tunnel IP addresses assigned to the BGP peer of the Virtual Network Gateway.
+         */
+        tunnelIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface VirtualNetworkGatewayConnectionIpsecPolicy {
@@ -18070,6 +18152,25 @@ export namespace signalr {
          */
         name: pulumi.Input<string>;
     }
+
+    export interface ServiceUpstreamEndpoint {
+        /**
+         * The categories to match on, or `*` for all.
+         */
+        categoryPatterns: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The events to match on, or `*` for all.
+         */
+        eventPatterns: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The hubs to match on, or `*` for all.
+         */
+        hubPatterns: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
+         */
+        urlTemplate: pulumi.Input<string>;
+    }
 }
 
 export namespace siterecovery {
@@ -18118,6 +18219,7 @@ export namespace siterecovery {
 
 export namespace sql {
     export interface DatabaseExtendedAuditingPolicy {
+        logMonitoringEnabled?: pulumi.Input<boolean>;
         /**
          * Specifies the number of days to retain logs for in the storage account.
          */
@@ -18125,7 +18227,7 @@ export namespace sql {
         /**
          * Specifies the access key to use for the auditing storage account.
          */
-        storageAccountAccessKey: pulumi.Input<string>;
+        storageAccountAccessKey?: pulumi.Input<string>;
         /**
          * Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
          */
@@ -18133,7 +18235,7 @@ export namespace sql {
         /**
          * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
          */
-        storageEndpoint: pulumi.Input<string>;
+        storageEndpoint?: pulumi.Input<string>;
     }
 
     export interface DatabaseImport {
@@ -18237,21 +18339,25 @@ export namespace sql {
 
     export interface SqlServerExtendedAuditingPolicy {
         /**
+         * (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+         */
+        logMonitoringEnabled?: pulumi.Input<boolean>;
+        /**
          * (Optional) Specifies the number of days to retain logs for in the storage account.
          */
         retentionInDays?: pulumi.Input<number>;
         /**
-         * (Required)  Specifies the access key to use for the auditing storage account.
+         * (Optional)  Specifies the access key to use for the auditing storage account.
          */
-        storageAccountAccessKey: pulumi.Input<string>;
+        storageAccountAccessKey?: pulumi.Input<string>;
         /**
          * (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
          */
         storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
         /**
-         * (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+         * (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
          */
-        storageEndpoint: pulumi.Input<string>;
+        storageEndpoint?: pulumi.Input<string>;
     }
 
     export interface SqlServerIdentity {
@@ -19191,9 +19297,12 @@ export namespace waf {
 
     export interface PolicyPolicySettings {
         /**
-         * Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
+         * Describes if the policy is in enabled state or disabled state. Defaults to `true`.
          */
         enabled?: pulumi.Input<boolean>;
+        /**
+         * The File Upload Limit in MB. Accepted values are in the range `1` to `750`. Defaults to `100`.
+         */
         fileUploadLimitInMb?: pulumi.Input<number>;
         /**
          * The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `128`. Defaults to `128`.

@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Dashboard
     ///         var current = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
     ///         var my_group = new Azure.Core.ResourceGroup("my-group", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "uksouth",
+    ///             Location = "West Europe",
     ///         });
     ///         var my_board = new Azure.Dashboard.Dashboard("my-board", new Azure.Dashboard.DashboardArgs
     ///         {

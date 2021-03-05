@@ -37,7 +37,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleSubscription, err := core.GetSubscription(ctx, nil, nil)
+// 		exampleSubscription, err := core.LookupSubscription(ctx, nil, nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -57,7 +57,7 @@ import (
 // 			return err
 // 		}
 // 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("westeurope"),
+// 			Location: pulumi.String("West Europe"),
 // 			Tags: pulumi.StringMap{
 // 				"Environment": pulumi.String("example"),
 // 			},

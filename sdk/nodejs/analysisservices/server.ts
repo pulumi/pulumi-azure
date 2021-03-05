@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {location: "northeurope"});
+ * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
  * const server = new azure.analysisservices.Server("server", {
  *     location: "northeurope",
  *     resourceGroupName: rg.name,

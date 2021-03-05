@@ -35,38 +35,32 @@ __all__ = [
 @pulumi.output_type
 class DatabaseExtendedAuditingPolicy(dict):
     def __init__(__self__, *,
-                 storage_account_access_key: str,
-                 storage_endpoint: str,
+                 log_monitoring_enabled: Optional[bool] = None,
                  retention_in_days: Optional[int] = None,
-                 storage_account_access_key_is_secondary: Optional[bool] = None):
+                 storage_account_access_key: Optional[str] = None,
+                 storage_account_access_key_is_secondary: Optional[bool] = None,
+                 storage_endpoint: Optional[str] = None):
         """
-        :param str storage_account_access_key: Specifies the access key to use for the auditing storage account.
-        :param str storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
         :param int retention_in_days: Specifies the number of days to retain logs for in the storage account.
+        :param str storage_account_access_key: Specifies the access key to use for the auditing storage account.
         :param bool storage_account_access_key_is_secondary: Specifies whether `storage_account_access_key` value is the storage's secondary key.
+        :param str storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
         """
-        pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
-        pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+        if log_monitoring_enabled is not None:
+            pulumi.set(__self__, "log_monitoring_enabled", log_monitoring_enabled)
         if retention_in_days is not None:
             pulumi.set(__self__, "retention_in_days", retention_in_days)
+        if storage_account_access_key is not None:
+            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_account_access_key_is_secondary is not None:
             pulumi.set(__self__, "storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
+        if storage_endpoint is not None:
+            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
 
     @property
-    @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> str:
-        """
-        Specifies the access key to use for the auditing storage account.
-        """
-        return pulumi.get(self, "storage_account_access_key")
-
-    @property
-    @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> str:
-        """
-        Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-        """
-        return pulumi.get(self, "storage_endpoint")
+    @pulumi.getter(name="logMonitoringEnabled")
+    def log_monitoring_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "log_monitoring_enabled")
 
     @property
     @pulumi.getter(name="retentionInDays")
@@ -77,12 +71,28 @@ class DatabaseExtendedAuditingPolicy(dict):
         return pulumi.get(self, "retention_in_days")
 
     @property
+    @pulumi.getter(name="storageAccountAccessKey")
+    def storage_account_access_key(self) -> Optional[str]:
+        """
+        Specifies the access key to use for the auditing storage account.
+        """
+        return pulumi.get(self, "storage_account_access_key")
+
+    @property
     @pulumi.getter(name="storageAccountAccessKeyIsSecondary")
     def storage_account_access_key_is_secondary(self) -> Optional[bool]:
         """
         Specifies whether `storage_account_access_key` value is the storage's secondary key.
         """
         return pulumi.get(self, "storage_account_access_key_is_secondary")
+
+    @property
+    @pulumi.getter(name="storageEndpoint")
+    def storage_endpoint(self) -> Optional[str]:
+        """
+        Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+        """
+        return pulumi.get(self, "storage_endpoint")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -428,38 +438,36 @@ class ServerAzureadAdministrator(dict):
 @pulumi.output_type
 class ServerExtendedAuditingPolicy(dict):
     def __init__(__self__, *,
-                 storage_account_access_key: str,
-                 storage_endpoint: str,
+                 log_monitoring_enabled: Optional[bool] = None,
                  retention_in_days: Optional[int] = None,
-                 storage_account_access_key_is_secondary: Optional[bool] = None):
+                 storage_account_access_key: Optional[str] = None,
+                 storage_account_access_key_is_secondary: Optional[bool] = None,
+                 storage_endpoint: Optional[str] = None):
         """
-        :param str storage_account_access_key: (Required)  Specifies the access key to use for the auditing storage account.
-        :param str storage_endpoint: (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+        :param bool log_monitoring_enabled: (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
         :param int retention_in_days: (Optional) Specifies the number of days to retain logs for in the storage account.
+        :param str storage_account_access_key: (Optional)  Specifies the access key to use for the auditing storage account.
         :param bool storage_account_access_key_is_secondary: (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
+        :param str storage_endpoint: (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
         """
-        pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
-        pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+        if log_monitoring_enabled is not None:
+            pulumi.set(__self__, "log_monitoring_enabled", log_monitoring_enabled)
         if retention_in_days is not None:
             pulumi.set(__self__, "retention_in_days", retention_in_days)
+        if storage_account_access_key is not None:
+            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_account_access_key_is_secondary is not None:
             pulumi.set(__self__, "storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
+        if storage_endpoint is not None:
+            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
 
     @property
-    @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> str:
+    @pulumi.getter(name="logMonitoringEnabled")
+    def log_monitoring_enabled(self) -> Optional[bool]:
         """
-        (Required)  Specifies the access key to use for the auditing storage account.
+        (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
         """
-        return pulumi.get(self, "storage_account_access_key")
-
-    @property
-    @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> str:
-        """
-        (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-        """
-        return pulumi.get(self, "storage_endpoint")
+        return pulumi.get(self, "log_monitoring_enabled")
 
     @property
     @pulumi.getter(name="retentionInDays")
@@ -470,12 +478,28 @@ class ServerExtendedAuditingPolicy(dict):
         return pulumi.get(self, "retention_in_days")
 
     @property
+    @pulumi.getter(name="storageAccountAccessKey")
+    def storage_account_access_key(self) -> Optional[str]:
+        """
+        (Optional)  Specifies the access key to use for the auditing storage account.
+        """
+        return pulumi.get(self, "storage_account_access_key")
+
+    @property
     @pulumi.getter(name="storageAccountAccessKeyIsSecondary")
     def storage_account_access_key_is_secondary(self) -> Optional[bool]:
         """
         (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
         """
         return pulumi.get(self, "storage_account_access_key_is_secondary")
+
+    @property
+    @pulumi.getter(name="storageEndpoint")
+    def storage_endpoint(self) -> Optional[str]:
+        """
+        (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+        """
+        return pulumi.get(self, "storage_endpoint")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

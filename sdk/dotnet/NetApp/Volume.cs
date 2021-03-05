@@ -92,7 +92,7 @@ namespace Pulumi.Azure.NetApp
     ///                 EndpointType = "dst",
     ///                 RemoteVolumeLocation = azurerm_resource_group.Example_primary.Location,
     ///                 RemoteVolumeResourceId = azurerm_netapp_volume.Example_primary.Id,
-    ///                 ReplicationFrequency = "_10minutely",
+    ///                 ReplicationFrequency = "10minutes",
     ///             },
     ///         });
     ///     }
@@ -151,7 +151,7 @@ namespace Pulumi.Azure.NetApp
         public Output<string> PoolName { get; private set; } = null!;
 
         /// <summary>
-        /// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
+        /// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         /// </summary>
         [Output("protocols")]
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
@@ -281,7 +281,7 @@ namespace Pulumi.Azure.NetApp
         private InputList<string>? _protocols;
 
         /// <summary>
-        /// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
+        /// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         /// </summary>
         public InputList<string> Protocols
         {
@@ -393,7 +393,7 @@ namespace Pulumi.Azure.NetApp
         private InputList<string>? _protocols;
 
         /// <summary>
-        /// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
+        /// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         /// </summary>
         public InputList<string> Protocols
         {

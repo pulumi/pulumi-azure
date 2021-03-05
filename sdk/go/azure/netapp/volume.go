@@ -98,7 +98,7 @@ import (
 // 				EndpointType:           pulumi.String("dst"),
 // 				RemoteVolumeLocation:   pulumi.Any(azurerm_resource_group.Example_primary.Location),
 // 				RemoteVolumeResourceId: pulumi.Any(azurerm_netapp_volume.Example_primary.Id),
-// 				ReplicationFrequency:   pulumi.String("_10minutely"),
+// 				ReplicationFrequency:   pulumi.String("10minutes"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -132,7 +132,7 @@ type Volume struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName pulumi.StringOutput `pulumi:"poolName"`
-	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
+	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/create-volumes-dual-protocol) document.
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
 	// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -211,7 +211,7 @@ type volumeState struct {
 	Name *string `pulumi:"name"`
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName *string `pulumi:"poolName"`
-	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
+	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/create-volumes-dual-protocol) document.
 	Protocols []string `pulumi:"protocols"`
 	// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -241,7 +241,7 @@ type VolumeState struct {
 	Name pulumi.StringPtrInput
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName pulumi.StringPtrInput
-	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
+	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/create-volumes-dual-protocol) document.
 	Protocols pulumi.StringArrayInput
 	// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -273,7 +273,7 @@ type volumeArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName string `pulumi:"poolName"`
-	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
+	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/create-volumes-dual-protocol) document.
 	Protocols []string `pulumi:"protocols"`
 	// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -302,7 +302,7 @@ type VolumeArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName pulumi.StringInput
-	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
+	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/create-volumes-dual-protocol) document.
 	Protocols pulumi.StringArrayInput
 	// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

@@ -53,7 +53,7 @@ class EventSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        default_resource_group = azure.core.ResourceGroup("defaultResourceGroup", location="West US 2")
+        default_resource_group = azure.core.ResourceGroup("defaultResourceGroup", location="West Europe")
         default_account = azure.storage.Account("defaultAccount",
             resource_group_name=default_resource_group.name,
             location=default_resource_group.location,

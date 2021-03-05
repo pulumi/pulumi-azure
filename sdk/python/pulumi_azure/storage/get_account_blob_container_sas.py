@@ -188,7 +188,7 @@ def get_account_blob_container_sas(cache_control: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    rg = azure.core.ResourceGroup("rg", location="westus")
+    rg = azure.core.ResourceGroup("rg", location="West Europe")
     storage = azure.storage.Account("storage",
         resource_group_name=rg.name,
         location=rg.location,

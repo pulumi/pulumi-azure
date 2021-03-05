@@ -24,7 +24,7 @@ namespace Pulumi.Azure.DataLake
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "northeurope",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleStore = new Azure.DataLake.Store("exampleStore", new Azure.DataLake.StoreArgs
     ///         {

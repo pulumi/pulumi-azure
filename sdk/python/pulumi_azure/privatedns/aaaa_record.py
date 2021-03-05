@@ -33,7 +33,7 @@ class AAAARecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="West US")
+        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="West Europe")
         test_zone = azure.privatedns.Zone("testZone", resource_group_name=test_resource_group.name)
         test_aaaa_record = azure.privatedns.AAAARecord("testAAAARecord",
             zone_name=test_zone.name,

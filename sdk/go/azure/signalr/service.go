@@ -52,6 +52,21 @@ import (
 // 					Value: pulumi.String("Default"),
 // 				},
 // 			},
+// 			UpstreamEndpoints: signalr.ServiceUpstreamEndpointArray{
+// 				&signalr.ServiceUpstreamEndpointArgs{
+// 					CategoryPatterns: pulumi.StringArray{
+// 						pulumi.String("connections"),
+// 						pulumi.String("messages"),
+// 					},
+// 					EventPatterns: pulumi.StringArray{
+// 						pulumi.String("*"),
+// 					},
+// 					HubPatterns: pulumi.StringArray{
+// 						pulumi.String("hub1"),
+// 					},
+// 					UrlTemplate: pulumi.String("http://foo.com"),
+// 				},
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -101,6 +116,8 @@ type Service struct {
 	Sku ServiceSkuOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+	UpstreamEndpoints ServiceUpstreamEndpointArrayOutput `pulumi:"upstreamEndpoints"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -168,6 +185,8 @@ type serviceState struct {
 	Sku *ServiceSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+	UpstreamEndpoints []ServiceUpstreamEndpoint `pulumi:"upstreamEndpoints"`
 }
 
 type ServiceState struct {
@@ -201,6 +220,8 @@ type ServiceState struct {
 	Sku ServiceSkuPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+	UpstreamEndpoints ServiceUpstreamEndpointArrayInput
 }
 
 func (ServiceState) ElementType() reflect.Type {
@@ -222,6 +243,8 @@ type serviceArgs struct {
 	Sku ServiceSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+	UpstreamEndpoints []ServiceUpstreamEndpoint `pulumi:"upstreamEndpoints"`
 }
 
 // The set of arguments for constructing a Service resource.
@@ -240,6 +263,8 @@ type ServiceArgs struct {
 	Sku ServiceSkuInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+	UpstreamEndpoints ServiceUpstreamEndpointArrayInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {

@@ -37,7 +37,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="eastus")
+        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="West Europe")
         test_network_security_group = azure.network.NetworkSecurityGroup("testNetworkSecurityGroup",
             location=test_resource_group.location,
             resource_group_name=test_resource_group.name)

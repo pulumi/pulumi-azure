@@ -55,8 +55,10 @@ const (
 	azureAttestation           = "Attestation"           // Attestation
 	azureAutomation            = "Automation"            // Automation
 	azureAuthorization         = "Authorization"         // Authorization
+	azureAvs                   = "Avs"                   // Avs
 	azureBackup                = "Backup"                // Backup
 	azureBatch                 = "Batch"                 // Batch
+	azureBilling               = "Billing"               // Billing
 	azureBlueprint             = "Blueprint"             // Blueprint
 	azureBot                   = "Bot"                   // Bot
 	azureCDN                   = "Cdn"                   // CDN
@@ -586,6 +588,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_subscription_template_deployment":   {Tok: azureResource(azureCore, "SubscriptionTemplateDeployment")},
 			"azurerm_custom_provider":                    {Tok: azureResource(azureCore, "CustomProvider")},
 			"azurerm_resource_provider_registration":     {Tok: azureResource(azureCore, "ResourceProviderRegistration")},
+			"azurerm_subscription":                       {Tok: azureResource(azureCore, "Subscription")},
 
 			// CDN
 			"azurerm_cdn_endpoint": {Tok: azureResource(azureCDN, "Endpoint")},
@@ -1178,9 +1181,25 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
-			"azurerm_virtual_wan":                        {Tok: azureResource(azureNetwork, "VirtualWan")},
-			"azurerm_virtual_network_peering":            {Tok: azureResource(azureNetwork, "VirtualNetworkPeering")},
-			"azurerm_virtual_network_gateway":            {Tok: azureResource(azureNetwork, "VirtualNetworkGateway")},
+			"azurerm_virtual_wan":             {Tok: azureResource(azureNetwork, "VirtualWan")},
+			"azurerm_virtual_network_peering": {Tok: azureResource(azureNetwork, "VirtualNetworkPeering")},
+			"azurerm_virtual_network_gateway": {
+				Tok: azureResource(azureNetwork, "VirtualNetworkGateway"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"bgp_settings": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"peering_address": {
+									Name: "peeringAddress",
+								},
+								"peering_addresses": {
+									Name: "peeringAddresses",
+								},
+							},
+						},
+					},
+				},
+			},
 			"azurerm_virtual_network_gateway_connection": {Tok: azureResource(azureNetwork, "VirtualNetworkGatewayConnection")},
 			"azurerm_local_network_gateway":              {Tok: azureResource(azureNetwork, "LocalNetworkGateway")},
 			"azurerm_application_gateway": {
@@ -1523,6 +1542,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_kusto_cluster_customer_managed_key": {
 				Tok: azureResource(azureKusto, "ClusterCustomerManagedKey"),
 			},
+			"azurerm_kusto_eventgrid_data_connection": {Tok: azureResource(azureKusto, "EventGridDataConnection")},
 
 			// Frontdoor
 			"azurerm_frontdoor": {
@@ -1651,6 +1671,18 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: azureResource(azureSentinel, "AlertRuleScheduled"),
 			},
 			"azurerm_sentinel_alert_rule_fusion": {Tok: azureResource(azureSentinel, "AlertRuleFusion")},
+			"azurerm_sentinel_data_connector_aws_cloud_trail": {
+				Tok: azureResource(azureSentinel, "DataConnectorAwsCloudTrail"),
+			},
+			"azurerm_sentinel_data_connector_azure_active_directory": {
+				Tok: azureResource(azureSentinel, "DataConnectorAzureActiveDirectory"),
+			},
+			"azurerm_sentinel_data_connector_office_365": {
+				Tok: azureResource(azureSentinel, "DataConnectorOffice365"),
+			},
+			"azurerm_sentinel_data_connector_threat_intelligence": {
+				Tok: azureResource(azureSentinel, "DataConnectorThreatIntelligence"),
+			},
 
 			// Eventgrid
 			"azurerm_eventgrid_domain_topic": {Tok: azureResource(azureEventGrid, "DomainTopic")},
@@ -1692,6 +1724,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Azure Stack
 			"azurerm_stack_hci_cluster": {Tok: azureResource(azureStack, "HciCluster")},
+
+			// VMWare
+			"azurerm_vmware_private_cloud": {Tok: azureResource(azureAvs, "PrivateCloud")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -1947,26 +1982,29 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_app_configuration": {
 				Tok: azureDataSource(azureAppConfiguration, "getConfigurationStore"),
 			},
-			"azurerm_servicebus_subscription":         {Tok: azureDataSource(azureServiceBus, "getSubscription")},
-			"azurerm_machine_learning_workspace":      {Tok: azureDataSource(azureMachineLearning, "getWorkspace")},
-			"azurerm_managed_application_definition":  {Tok: azureDataSource(azureManagedApplication, "getDefinition")},
-			"azurerm_spring_cloud_service":            {Tok: azureDataSource(azureAppPlatform, "getSpringCloudService")},
-			"azurerm_spring_cloud_app":                {Tok: azureDataSource(azureAppPlatform, "getSpringCloudApp")},
-			"azurerm_private_dns_zone":                {Tok: azureDataSource(azurePrivateDNS, "getDnsZone")},
-			"azurerm_sentinel_alert_rule":             {Tok: azureDataSource(azureSentinel, "getAlertRule")},
-			"azurerm_sentinel_alert_rule_template":    {Tok: azureDataSource(azureSentinel, "getAlertRuleTemplate")},
-			"azurerm_maintenance_configuration":       {Tok: azureDataSource(azureMaintenance, "getConfiguration")},
-			"azurerm_advisor_recommendations":         {Tok: azureDataSource(advisor, "getRecommendations")},
-			"azurerm_blueprint_definition":            {Tok: azureDataSource(azureBlueprint, "getDefinition")},
-			"azurerm_blueprint_published_version":     {Tok: azureDataSource(azureBlueprint, "getPublishedVersion")},
-			"azurerm_web_application_firewall_policy": {Tok: azureDataSource(azureWaf, "getFirewallPolicy")},
-			"azurerm_synapse_workspace":               {Tok: azureDataSource(azureSynapse, "getWorkspace")},
-			"azurerm_attestation_provider":            {Tok: azureDataSource(azureAttestation, "getProvider")},
-			"azurerm_databricks_workspace":            {Tok: azureDataSource(azureDataBricks, "getWorkspace")},
-			"azurerm_mysql_server":                    {Tok: azureDataSource(azureMySQL, "getServer")},
-			"azurerm_cognitive_account":               {Tok: azureDataSource(azureCognitive, "getAccount")},
-			"azurerm_digital_twins_instance":          {Tok: azureDataSource(azureDigitalTwins, "getInstance")},
-			"azurerm_search_service":                  {Tok: azureDataSource(azureSearch, "getService")},
+			"azurerm_servicebus_subscription":          {Tok: azureDataSource(azureServiceBus, "getSubscription")},
+			"azurerm_machine_learning_workspace":       {Tok: azureDataSource(azureMachineLearning, "getWorkspace")},
+			"azurerm_managed_application_definition":   {Tok: azureDataSource(azureManagedApplication, "getDefinition")},
+			"azurerm_spring_cloud_service":             {Tok: azureDataSource(azureAppPlatform, "getSpringCloudService")},
+			"azurerm_spring_cloud_app":                 {Tok: azureDataSource(azureAppPlatform, "getSpringCloudApp")},
+			"azurerm_private_dns_zone":                 {Tok: azureDataSource(azurePrivateDNS, "getDnsZone")},
+			"azurerm_sentinel_alert_rule":              {Tok: azureDataSource(azureSentinel, "getAlertRule")},
+			"azurerm_sentinel_alert_rule_template":     {Tok: azureDataSource(azureSentinel, "getAlertRuleTemplate")},
+			"azurerm_maintenance_configuration":        {Tok: azureDataSource(azureMaintenance, "getConfiguration")},
+			"azurerm_advisor_recommendations":          {Tok: azureDataSource(advisor, "getRecommendations")},
+			"azurerm_blueprint_definition":             {Tok: azureDataSource(azureBlueprint, "getDefinition")},
+			"azurerm_blueprint_published_version":      {Tok: azureDataSource(azureBlueprint, "getPublishedVersion")},
+			"azurerm_web_application_firewall_policy":  {Tok: azureDataSource(azureWaf, "getFirewallPolicy")},
+			"azurerm_synapse_workspace":                {Tok: azureDataSource(azureSynapse, "getWorkspace")},
+			"azurerm_attestation_provider":             {Tok: azureDataSource(azureAttestation, "getProvider")},
+			"azurerm_databricks_workspace":             {Tok: azureDataSource(azureDataBricks, "getWorkspace")},
+			"azurerm_mysql_server":                     {Tok: azureDataSource(azureMySQL, "getServer")},
+			"azurerm_cognitive_account":                {Tok: azureDataSource(azureCognitive, "getAccount")},
+			"azurerm_digital_twins_instance":           {Tok: azureDataSource(azureDigitalTwins, "getInstance")},
+			"azurerm_search_service":                   {Tok: azureDataSource(azureSearch, "getService")},
+			"azurerm_vmware_private_cloud":             {Tok: azureDataSource(azureAvs, "getPrivateCloud")},
+			"azurerm_billing_enrollment_account_scope": {Tok: azureDataSource(azureBilling, "getEnrollmentAccountScope")},
+			"azurerm_billing_mca_account_scope":        {Tok: azureDataSource(azureBilling, "getMcaAccountScope")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

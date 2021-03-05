@@ -209,6 +209,12 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.LinuxVirtualMachineIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+        /// </summary>
+        [Output("licenseType")]
+        public Output<string?> LicenseType { get; private set; } = null!;
+
+        /// <summary>
         /// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -483,6 +489,12 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.LinuxVirtualMachineIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+        /// </summary>
+        [Input("licenseType")]
+        public Input<string>? LicenseType { get; set; }
+
+        /// <summary>
         /// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -704,6 +716,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("identity")]
         public Input<Inputs.LinuxVirtualMachineIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+        /// </summary>
+        [Input("licenseType")]
+        public Input<string>? LicenseType { get; set; }
 
         /// <summary>
         /// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.

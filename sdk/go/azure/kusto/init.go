@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewDatabasePrincipal(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment":
 		r, err = NewDatabasePrincipalAssignment(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:kusto/eventGridDataConnection:EventGridDataConnection":
+		r, err = NewEventGridDataConnection(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:kusto/eventhubDataConnection:EventhubDataConnection":
 		r, err = NewEventhubDataConnection(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:kusto/iotHubDataConnection:IotHubDataConnection":
@@ -84,6 +86,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"kusto/databasePrincipalAssignment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"kusto/eventGridDataConnection",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

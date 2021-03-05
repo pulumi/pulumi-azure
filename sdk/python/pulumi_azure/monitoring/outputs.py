@@ -20,6 +20,7 @@ __all__ = [
     'ActionGroupSmsReceiver',
     'ActionGroupVoiceReceiver',
     'ActionGroupWebhookReceiver',
+    'ActionGroupWebhookReceiverAadAuth',
     'ActionRuleActionGroupCondition',
     'ActionRuleActionGroupConditionAlertContext',
     'ActionRuleActionGroupConditionAlertRuleId',
@@ -573,14 +574,18 @@ class ActionGroupWebhookReceiver(dict):
     def __init__(__self__, *,
                  name: str,
                  service_uri: str,
+                 aad_auth: Optional['outputs.ActionGroupWebhookReceiverAadAuth'] = None,
                  use_common_alert_schema: Optional[bool] = None):
         """
         :param str name: The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         :param str service_uri: The URI where webhooks should be sent.
+        :param 'ActionGroupWebhookReceiverAadAuthArgs' aad_auth: The `aad_auth` block as defined below
         :param bool use_common_alert_schema: Enables or disables the common alert schema.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service_uri", service_uri)
+        if aad_auth is not None:
+            pulumi.set(__self__, "aad_auth", aad_auth)
         if use_common_alert_schema is not None:
             pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
 
@@ -601,12 +606,65 @@ class ActionGroupWebhookReceiver(dict):
         return pulumi.get(self, "service_uri")
 
     @property
+    @pulumi.getter(name="aadAuth")
+    def aad_auth(self) -> Optional['outputs.ActionGroupWebhookReceiverAadAuth']:
+        """
+        The `aad_auth` block as defined below
+        """
+        return pulumi.get(self, "aad_auth")
+
+    @property
     @pulumi.getter(name="useCommonAlertSchema")
     def use_common_alert_schema(self) -> Optional[bool]:
         """
         Enables or disables the common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ActionGroupWebhookReceiverAadAuth(dict):
+    def __init__(__self__, *,
+                 object_id: str,
+                 identifier_uri: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str object_id: The webhook application object Id for aad auth.
+        :param str identifier_uri: The identifier uri for aad auth.
+        :param str tenant_id: The tenant id for aad auth.
+        """
+        pulumi.set(__self__, "object_id", object_id)
+        if identifier_uri is not None:
+            pulumi.set(__self__, "identifier_uri", identifier_uri)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> str:
+        """
+        The webhook application object Id for aad auth.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="identifierUri")
+    def identifier_uri(self) -> Optional[str]:
+        """
+        The identifier uri for aad auth.
+        """
+        return pulumi.get(self, "identifier_uri")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The tenant id for aad auth.
+        """
+        return pulumi.get(self, "tenant_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

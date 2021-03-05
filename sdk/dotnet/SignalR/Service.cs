@@ -53,6 +53,26 @@ namespace Pulumi.Azure.SignalR
     ///                     Value = "Default",
     ///                 },
     ///             },
+    ///             UpstreamEndpoints = 
+    ///             {
+    ///                 new Azure.SignalR.Inputs.ServiceUpstreamEndpointArgs
+    ///                 {
+    ///                     CategoryPatterns = 
+    ///                     {
+    ///                         "connections",
+    ///                         "messages",
+    ///                     },
+    ///                     EventPatterns = 
+    ///                     {
+    ///                         "*",
+    ///                     },
+    ///                     HubPatterns = 
+    ///                     {
+    ///                         "hub1",
+    ///                     },
+    ///                     UrlTemplate = "http://foo.com",
+    ///                 },
+    ///             },
     ///         });
     ///     }
     /// 
@@ -160,6 +180,12 @@ namespace Pulumi.Azure.SignalR
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+        /// </summary>
+        [Output("upstreamEndpoints")]
+        public Output<ImmutableArray<Outputs.ServiceUpstreamEndpoint>> UpstreamEndpoints { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Service resource with the given unique name, arguments, and options.
@@ -264,6 +290,18 @@ namespace Pulumi.Azure.SignalR
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("upstreamEndpoints")]
+        private InputList<Inputs.ServiceUpstreamEndpointArgs>? _upstreamEndpoints;
+
+        /// <summary>
+        /// An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+        /// </summary>
+        public InputList<Inputs.ServiceUpstreamEndpointArgs> UpstreamEndpoints
+        {
+            get => _upstreamEndpoints ?? (_upstreamEndpoints = new InputList<Inputs.ServiceUpstreamEndpointArgs>());
+            set => _upstreamEndpoints = value;
         }
 
         public ServiceArgs()
@@ -379,6 +417,18 @@ namespace Pulumi.Azure.SignalR
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("upstreamEndpoints")]
+        private InputList<Inputs.ServiceUpstreamEndpointGetArgs>? _upstreamEndpoints;
+
+        /// <summary>
+        /// An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+        /// </summary>
+        public InputList<Inputs.ServiceUpstreamEndpointGetArgs> UpstreamEndpoints
+        {
+            get => _upstreamEndpoints ?? (_upstreamEndpoints = new InputList<Inputs.ServiceUpstreamEndpointGetArgs>());
+            set => _upstreamEndpoints = value;
         }
 
         public ServiceState()

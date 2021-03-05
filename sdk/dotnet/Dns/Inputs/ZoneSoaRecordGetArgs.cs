@@ -24,9 +24,6 @@ namespace Pulumi.Azure.Dns.Inputs
         [Input("expireTime")]
         public Input<int>? ExpireTime { get; set; }
 
-        /// <summary>
-        /// The fully qualified domain name of the Record Set.
-        /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
 

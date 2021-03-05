@@ -33,7 +33,7 @@ class Workspace(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="eastus")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         workspace = azure.desktopvirtualization.Workspace("workspace",
             location=example.location,
             resource_group_name=example.name,

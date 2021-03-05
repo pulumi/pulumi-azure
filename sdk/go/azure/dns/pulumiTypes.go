@@ -456,9 +456,8 @@ type ZoneSoaRecord struct {
 	// The email contact for the SOA record.
 	Email string `pulumi:"email"`
 	// The expire time for the SOA record. Defaults to `2419200`.
-	ExpireTime *int `pulumi:"expireTime"`
-	// The fully qualified domain name of the Record Set.
-	Fqdn *string `pulumi:"fqdn"`
+	ExpireTime *int    `pulumi:"expireTime"`
+	Fqdn       *string `pulumi:"fqdn"`
 	// The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
 	HostName string `pulumi:"hostName"`
 	// The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
@@ -490,9 +489,8 @@ type ZoneSoaRecordArgs struct {
 	// The email contact for the SOA record.
 	Email pulumi.StringInput `pulumi:"email"`
 	// The expire time for the SOA record. Defaults to `2419200`.
-	ExpireTime pulumi.IntPtrInput `pulumi:"expireTime"`
-	// The fully qualified domain name of the Record Set.
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
+	ExpireTime pulumi.IntPtrInput    `pulumi:"expireTime"`
+	Fqdn       pulumi.StringPtrInput `pulumi:"fqdn"`
 	// The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
@@ -596,7 +594,6 @@ func (o ZoneSoaRecordOutput) ExpireTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ZoneSoaRecord) *int { return v.ExpireTime }).(pulumi.IntPtrOutput)
 }
 
-// The fully qualified domain name of the Record Set.
 func (o ZoneSoaRecordOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ZoneSoaRecord) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
@@ -674,7 +671,6 @@ func (o ZoneSoaRecordPtrOutput) ExpireTime() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The fully qualified domain name of the Record Set.
 func (o ZoneSoaRecordPtrOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ZoneSoaRecord) *string {
 		if v == nil {

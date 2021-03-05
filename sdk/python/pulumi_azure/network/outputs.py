@@ -105,6 +105,7 @@ __all__ = [
     'VirtualHubRouteTableRoute',
     'VirtualNetworkDdosProtectionPlan',
     'VirtualNetworkGatewayBgpSettings',
+    'VirtualNetworkGatewayBgpSettingsPeeringAddress',
     'VirtualNetworkGatewayConnectionIpsecPolicy',
     'VirtualNetworkGatewayConnectionTrafficSelectorPolicy',
     'VirtualNetworkGatewayCustomRoute',
@@ -5835,15 +5836,13 @@ class VirtualNetworkGatewayBgpSettings(dict):
     def __init__(__self__, *,
                  asn: Optional[int] = None,
                  peer_weight: Optional[int] = None,
-                 peering_address: Optional[str] = None):
+                 peering_address: Optional[str] = None,
+                 peering_addresses: Optional[Sequence['outputs.VirtualNetworkGatewayBgpSettingsPeeringAddress']] = None):
         """
         :param int asn: The Autonomous System Number (ASN) to use as part of the BGP.
         :param int peer_weight: The weight added to routes which have been learned
                through BGP peering. Valid values can be between `0` and `100`.
-        :param str peering_address: The BGP peer IP address of the virtual network
-               gateway. This address is needed to configure the created gateway as a BGP Peer
-               on the on-premises VPN devices. The IP address must be part of the subnet of
-               the Virtual Network Gateway. Changing this forces a new resource to be created.
+        :param Sequence['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs'] peering_addresses: A list of `peering_addresses` as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
         """
         if asn is not None:
             pulumi.set(__self__, "asn", asn)
@@ -5851,6 +5850,8 @@ class VirtualNetworkGatewayBgpSettings(dict):
             pulumi.set(__self__, "peer_weight", peer_weight)
         if peering_address is not None:
             pulumi.set(__self__, "peering_address", peering_address)
+        if peering_addresses is not None:
+            pulumi.set(__self__, "peering_addresses", peering_addresses)
 
     @property
     @pulumi.getter
@@ -5872,13 +5873,73 @@ class VirtualNetworkGatewayBgpSettings(dict):
     @property
     @pulumi.getter(name="peeringAddress")
     def peering_address(self) -> Optional[str]:
-        """
-        The BGP peer IP address of the virtual network
-        gateway. This address is needed to configure the created gateway as a BGP Peer
-        on the on-premises VPN devices. The IP address must be part of the subnet of
-        the Virtual Network Gateway. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "peering_address")
+
+    @property
+    @pulumi.getter(name="peeringAddresses")
+    def peering_addresses(self) -> Optional[Sequence['outputs.VirtualNetworkGatewayBgpSettingsPeeringAddress']]:
+        """
+        A list of `peering_addresses` as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
+        """
+        return pulumi.get(self, "peering_addresses")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNetworkGatewayBgpSettingsPeeringAddress(dict):
+    def __init__(__self__, *,
+                 apipa_addresses: Optional[Sequence[str]] = None,
+                 default_addresses: Optional[Sequence[str]] = None,
+                 ip_configuration_name: Optional[str] = None,
+                 tunnel_ip_addresses: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] apipa_addresses: A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
+        :param Sequence[str] default_addresses: A list of peering address assigned to the BGP peer of the Virtual Network Gateway.
+        :param str ip_configuration_name: The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ip_configuration` blocks defined, this property is **required** to specify.
+        :param Sequence[str] tunnel_ip_addresses: A list of tunnel IP addresses assigned to the BGP peer of the Virtual Network Gateway.
+        """
+        if apipa_addresses is not None:
+            pulumi.set(__self__, "apipa_addresses", apipa_addresses)
+        if default_addresses is not None:
+            pulumi.set(__self__, "default_addresses", default_addresses)
+        if ip_configuration_name is not None:
+            pulumi.set(__self__, "ip_configuration_name", ip_configuration_name)
+        if tunnel_ip_addresses is not None:
+            pulumi.set(__self__, "tunnel_ip_addresses", tunnel_ip_addresses)
+
+    @property
+    @pulumi.getter(name="apipaAddresses")
+    def apipa_addresses(self) -> Optional[Sequence[str]]:
+        """
+        A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
+        """
+        return pulumi.get(self, "apipa_addresses")
+
+    @property
+    @pulumi.getter(name="defaultAddresses")
+    def default_addresses(self) -> Optional[Sequence[str]]:
+        """
+        A list of peering address assigned to the BGP peer of the Virtual Network Gateway.
+        """
+        return pulumi.get(self, "default_addresses")
+
+    @property
+    @pulumi.getter(name="ipConfigurationName")
+    def ip_configuration_name(self) -> Optional[str]:
+        """
+        The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ip_configuration` blocks defined, this property is **required** to specify.
+        """
+        return pulumi.get(self, "ip_configuration_name")
+
+    @property
+    @pulumi.getter(name="tunnelIpAddresses")
+    def tunnel_ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        A list of tunnel IP addresses assigned to the BGP peer of the Virtual Network Gateway.
+        """
+        return pulumi.get(self, "tunnel_ip_addresses")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

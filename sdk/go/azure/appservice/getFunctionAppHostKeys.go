@@ -55,6 +55,8 @@ type GetFunctionAppHostKeysArgs struct {
 type GetFunctionAppHostKeysResult struct {
 	// Function App resource's default function key.
 	DefaultFunctionKey string `pulumi:"defaultFunctionKey"`
+	// Function App resource's Event Grid Extension Config system key.
+	EventGridExtensionConfigKey string `pulumi:"eventGridExtensionConfigKey"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Function App resource's secret key

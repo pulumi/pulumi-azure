@@ -24,7 +24,7 @@ namespace Pulumi.Azure.DevTest
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleLab = new Azure.DevTest.Lab("exampleLab", new Azure.DevTest.LabArgs
     ///         {

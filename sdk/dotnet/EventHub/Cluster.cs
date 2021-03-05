@@ -24,7 +24,7 @@ namespace Pulumi.Azure.EventHub
     ///     {
     ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US 2",
+    ///             Location = "West Europe",
     ///         });
     ///         var test = new Azure.EventHub.Cluster("test", new Azure.EventHub.ClusterArgs
     ///         {

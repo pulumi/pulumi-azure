@@ -41,7 +41,7 @@ namespace Pulumi.Azure.KeyVault
         ///             Name = "secret-sauce",
         ///             KeyVaultId = exampleKeyVault.Id,
         ///         })));
-        ///         this.ExamplePem = data.Azurerm_key_vault_certificate.Example.Pem;
+        ///         this.ExamplePem = exampleCertificateData.Apply(exampleCertificateData =&gt; exampleCertificateData.Pem);
         ///     }
         /// 
         ///     [Output("examplePem")]

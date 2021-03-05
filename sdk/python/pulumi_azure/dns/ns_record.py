@@ -33,7 +33,7 @@ class NsRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
         example_ns_record = azure.dns.NsRecord("exampleNsRecord",
             zone_name=example_zone.name,

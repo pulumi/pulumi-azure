@@ -20,8 +20,10 @@ import * as appservice from "./appservice";
 import * as attestation from "./attestation";
 import * as authorization from "./authorization";
 import * as automation from "./automation";
+import * as avs from "./avs";
 import * as backup from "./backup";
 import * as batch from "./batch";
+import * as billing from "./billing";
 import * as blueprint from "./blueprint";
 import * as bot from "./bot";
 import * as cdn from "./cdn";
@@ -116,8 +118,10 @@ export {
     attestation,
     authorization,
     automation,
+    avs,
     backup,
     batch,
+    billing,
     blueprint,
     bot,
     cdn,

@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Monitoring
     ///     {
     ///         var mainResourceGroup = new Azure.Core.ResourceGroup("mainResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = "West Europe",
     ///         });
     ///         var toMonitor = new Azure.Storage.Account("toMonitor", new Azure.Storage.AccountArgs
     ///         {
@@ -95,7 +95,7 @@ namespace Pulumi.Azure.Monitoring
     /// Metric Alerts can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:monitoring/metricAlert:MetricAlert main /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/microsoft.insights/metricalerts/example-metricalert
+    ///  $ pulumi import azure:monitoring/metricAlert:MetricAlert main /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/microsoft.insights/metricAlerts/example-metricalert
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/metricAlert:MetricAlert")]

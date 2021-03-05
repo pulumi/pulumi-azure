@@ -21,9 +21,6 @@ namespace Pulumi.Azure.Dns.Outputs
         /// The expire time for the SOA record. Defaults to `2419200`.
         /// </summary>
         public readonly int? ExpireTime;
-        /// <summary>
-        /// The fully qualified domain name of the Record Set.
-        /// </summary>
         public readonly string? Fqdn;
         /// <summary>
         /// The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.

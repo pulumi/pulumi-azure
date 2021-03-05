@@ -151,7 +151,7 @@ def get_account_sas(connection_string: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westus")
+    example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
     example_account = azure.storage.Account("exampleAccount",
         resource_group_name=example_resource_group.name,
         location="westus",

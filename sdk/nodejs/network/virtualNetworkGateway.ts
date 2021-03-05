@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
@@ -123,6 +123,9 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      * Defaults to `false`.
      */
     public readonly activeActive!: pulumi.Output<boolean>;
+    /**
+     * A block of `bgpSettings`.
+     */
     public readonly bgpSettings!: pulumi.Output<outputs.network.VirtualNetworkGatewayBgpSettings>;
     public readonly customRoute!: pulumi.Output<outputs.network.VirtualNetworkGatewayCustomRoute | undefined>;
     /**
@@ -277,6 +280,9 @@ export interface VirtualNetworkGatewayState {
      * Defaults to `false`.
      */
     readonly activeActive?: pulumi.Input<boolean>;
+    /**
+     * A block of `bgpSettings`.
+     */
     readonly bgpSettings?: pulumi.Input<inputs.network.VirtualNetworkGatewayBgpSettings>;
     readonly customRoute?: pulumi.Input<inputs.network.VirtualNetworkGatewayCustomRoute>;
     /**
@@ -365,6 +371,9 @@ export interface VirtualNetworkGatewayArgs {
      * Defaults to `false`.
      */
     readonly activeActive?: pulumi.Input<boolean>;
+    /**
+     * A block of `bgpSettings`.
+     */
     readonly bgpSettings?: pulumi.Input<inputs.network.VirtualNetworkGatewayBgpSettings>;
     readonly customRoute?: pulumi.Input<inputs.network.VirtualNetworkGatewayCustomRoute>;
     /**

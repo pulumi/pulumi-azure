@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Kusto
     ///     {
     ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "East US",
+    ///             Location = "West Europe",
     ///         });
     ///         var example = new Azure.Kusto.Cluster("example", new Azure.Kusto.ClusterArgs
     ///         {
@@ -63,6 +63,12 @@ namespace Pulumi.Azure.Kusto
         public Output<string> DataIngestionUri { get; private set; } = null!;
 
         /// <summary>
+        /// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("doubleEncryptionEnabled")]
+        public Output<bool?> DoubleEncryptionEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies if the cluster's disks are encrypted.
         /// </summary>
         [Output("enableDiskEncryption")]
@@ -87,7 +93,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// A identity block.
+        /// An identity block.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ClusterIdentity> Identity { get; private set; } = null!;
@@ -205,6 +211,12 @@ namespace Pulumi.Azure.Kusto
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("doubleEncryptionEnabled")]
+        public Input<bool>? DoubleEncryptionEnabled { get; set; }
+
+        /// <summary>
         /// Specifies if the cluster's disks are encrypted.
         /// </summary>
         [Input("enableDiskEncryption")]
@@ -229,7 +241,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// A identity block.
+        /// An identity block.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ClusterIdentityArgs>? Identity { get; set; }
@@ -332,6 +344,12 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? DataIngestionUri { get; set; }
 
         /// <summary>
+        /// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("doubleEncryptionEnabled")]
+        public Input<bool>? DoubleEncryptionEnabled { get; set; }
+
+        /// <summary>
         /// Specifies if the cluster's disks are encrypted.
         /// </summary>
         [Input("enableDiskEncryption")]
@@ -356,7 +374,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// A identity block.
+        /// An identity block.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ClusterIdentityGetArgs>? Identity { get; set; }

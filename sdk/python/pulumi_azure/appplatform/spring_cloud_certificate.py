@@ -32,7 +32,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="Southeast Asia")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         current = azure.core.get_client_config()
         example_service_principal = azuread.get_service_principal(display_name="Azure Spring Cloud Domain-Management")
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",

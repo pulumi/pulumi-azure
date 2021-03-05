@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {location: "northeurope"});
+ * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
  * const exampleAccount = new azure.storage.Account("exampleAccount", {
  *     resourceGroupName: azurerm_resource_group.example.name,
  *     location: azurerm_resource_group.example.location,

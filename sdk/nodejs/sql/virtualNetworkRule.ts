@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "West US"});
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const vnet = new azure.network.VirtualNetwork("vnet", {
  *     addressSpaces: ["10.7.29.0/29"],
  *     location: example.location,

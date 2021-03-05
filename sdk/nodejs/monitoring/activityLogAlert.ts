@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const mainResourceGroup = new azure.core.ResourceGroup("mainResourceGroup", {location: "West US"});
+ * const mainResourceGroup = new azure.core.ResourceGroup("mainResourceGroup", {location: "West Europe"});
  * const mainActionGroup = new azure.monitoring.ActionGroup("mainActionGroup", {
  *     resourceGroupName: mainResourceGroup.name,
  *     shortName: "p0action",

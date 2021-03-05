@@ -151,7 +151,7 @@ def get_certificate_data(key_vault_id: Optional[str] = None,
         resource_group_name="some-resource-group")
     example_certificate_data = azure.keyvault.get_certificate_data(name="secret-sauce",
         key_vault_id=example_key_vault.id)
-    pulumi.export("examplePem", data["azurerm_key_vault_certificate"]["example"]["pem"])
+    pulumi.export("examplePem", example_certificate_data.pem)
     ```
 
 

@@ -32,7 +32,7 @@ class IPGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westus")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_ip_group = azure.network.IPGroup("exampleIPGroup",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,

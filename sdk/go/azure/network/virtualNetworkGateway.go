@@ -31,7 +31,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West US"),
+// 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -120,9 +120,10 @@ type VirtualNetworkGateway struct {
 	// will be created. An active-active gateway requires a `HighPerformance` or an
 	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
-	ActiveActive pulumi.BoolOutput                         `pulumi:"activeActive"`
-	BgpSettings  VirtualNetworkGatewayBgpSettingsOutput    `pulumi:"bgpSettings"`
-	CustomRoute  VirtualNetworkGatewayCustomRoutePtrOutput `pulumi:"customRoute"`
+	ActiveActive pulumi.BoolOutput `pulumi:"activeActive"`
+	// A block of `bgpSettings`.
+	BgpSettings VirtualNetworkGatewayBgpSettingsOutput    `pulumi:"bgpSettings"`
+	CustomRoute VirtualNetworkGatewayCustomRoutePtrOutput `pulumi:"customRoute"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunnelling*). Refer to the
@@ -217,9 +218,10 @@ type virtualNetworkGatewayState struct {
 	// will be created. An active-active gateway requires a `HighPerformance` or an
 	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
-	ActiveActive *bool                             `pulumi:"activeActive"`
-	BgpSettings  *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
-	CustomRoute  *VirtualNetworkGatewayCustomRoute `pulumi:"customRoute"`
+	ActiveActive *bool `pulumi:"activeActive"`
+	// A block of `bgpSettings`.
+	BgpSettings *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
+	CustomRoute *VirtualNetworkGatewayCustomRoute `pulumi:"customRoute"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunnelling*). Refer to the
@@ -275,8 +277,9 @@ type VirtualNetworkGatewayState struct {
 	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
 	ActiveActive pulumi.BoolPtrInput
-	BgpSettings  VirtualNetworkGatewayBgpSettingsPtrInput
-	CustomRoute  VirtualNetworkGatewayCustomRoutePtrInput
+	// A block of `bgpSettings`.
+	BgpSettings VirtualNetworkGatewayBgpSettingsPtrInput
+	CustomRoute VirtualNetworkGatewayCustomRoutePtrInput
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunnelling*). Refer to the
@@ -335,9 +338,10 @@ type virtualNetworkGatewayArgs struct {
 	// will be created. An active-active gateway requires a `HighPerformance` or an
 	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
-	ActiveActive *bool                             `pulumi:"activeActive"`
-	BgpSettings  *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
-	CustomRoute  *VirtualNetworkGatewayCustomRoute `pulumi:"customRoute"`
+	ActiveActive *bool `pulumi:"activeActive"`
+	// A block of `bgpSettings`.
+	BgpSettings *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
+	CustomRoute *VirtualNetworkGatewayCustomRoute `pulumi:"customRoute"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunnelling*). Refer to the
@@ -394,8 +398,9 @@ type VirtualNetworkGatewayArgs struct {
 	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
 	ActiveActive pulumi.BoolPtrInput
-	BgpSettings  VirtualNetworkGatewayBgpSettingsPtrInput
-	CustomRoute  VirtualNetworkGatewayCustomRoutePtrInput
+	// A block of `bgpSettings`.
+	BgpSettings VirtualNetworkGatewayBgpSettingsPtrInput
+	CustomRoute VirtualNetworkGatewayCustomRoutePtrInput
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunnelling*). Refer to the

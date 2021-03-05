@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "West US 2"});
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const test = new azure.eventhub.Cluster("test", {
  *     resourceGroupName: azurerm_resource_group.test.name,
  *     location: azurerm_resource_group.test.location,

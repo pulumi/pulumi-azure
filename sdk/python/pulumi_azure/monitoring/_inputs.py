@@ -19,6 +19,7 @@ __all__ = [
     'ActionGroupSmsReceiverArgs',
     'ActionGroupVoiceReceiverArgs',
     'ActionGroupWebhookReceiverArgs',
+    'ActionGroupWebhookReceiverAadAuthArgs',
     'ActionRuleActionGroupConditionArgs',
     'ActionRuleActionGroupConditionAlertContextArgs',
     'ActionRuleActionGroupConditionAlertRuleIdArgs',
@@ -669,14 +670,18 @@ class ActionGroupWebhookReceiverArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  service_uri: pulumi.Input[str],
+                 aad_auth: Optional[pulumi.Input['ActionGroupWebhookReceiverAadAuthArgs']] = None,
                  use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] name: The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         :param pulumi.Input[str] service_uri: The URI where webhooks should be sent.
+        :param pulumi.Input['ActionGroupWebhookReceiverAadAuthArgs'] aad_auth: The `aad_auth` block as defined below
         :param pulumi.Input[bool] use_common_alert_schema: Enables or disables the common alert schema.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service_uri", service_uri)
+        if aad_auth is not None:
+            pulumi.set(__self__, "aad_auth", aad_auth)
         if use_common_alert_schema is not None:
             pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
 
@@ -705,6 +710,18 @@ class ActionGroupWebhookReceiverArgs:
         pulumi.set(self, "service_uri", value)
 
     @property
+    @pulumi.getter(name="aadAuth")
+    def aad_auth(self) -> Optional[pulumi.Input['ActionGroupWebhookReceiverAadAuthArgs']]:
+        """
+        The `aad_auth` block as defined below
+        """
+        return pulumi.get(self, "aad_auth")
+
+    @aad_auth.setter
+    def aad_auth(self, value: Optional[pulumi.Input['ActionGroupWebhookReceiverAadAuthArgs']]):
+        pulumi.set(self, "aad_auth", value)
+
+    @property
     @pulumi.getter(name="useCommonAlertSchema")
     def use_common_alert_schema(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -715,6 +732,60 @@ class ActionGroupWebhookReceiverArgs:
     @use_common_alert_schema.setter
     def use_common_alert_schema(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_common_alert_schema", value)
+
+
+@pulumi.input_type
+class ActionGroupWebhookReceiverAadAuthArgs:
+    def __init__(__self__, *,
+                 object_id: pulumi.Input[str],
+                 identifier_uri: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] object_id: The webhook application object Id for aad auth.
+        :param pulumi.Input[str] identifier_uri: The identifier uri for aad auth.
+        :param pulumi.Input[str] tenant_id: The tenant id for aad auth.
+        """
+        pulumi.set(__self__, "object_id", object_id)
+        if identifier_uri is not None:
+            pulumi.set(__self__, "identifier_uri", identifier_uri)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> pulumi.Input[str]:
+        """
+        The webhook application object Id for aad auth.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_id", value)
+
+    @property
+    @pulumi.getter(name="identifierUri")
+    def identifier_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier uri for aad auth.
+        """
+        return pulumi.get(self, "identifier_uri")
+
+    @identifier_uri.setter
+    def identifier_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identifier_uri", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenant id for aad auth.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type

@@ -27,7 +27,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("East US"),
+// 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -63,6 +63,8 @@ type Cluster struct {
 
 	// The Kusto Cluster URI to be used for data ingestion.
 	DataIngestionUri pulumi.StringOutput `pulumi:"dataIngestionUri"`
+	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	DoubleEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"doubleEncryptionEnabled"`
 	// Specifies if the cluster's disks are encrypted.
 	EnableDiskEncryption pulumi.BoolPtrOutput `pulumi:"enableDiskEncryption"`
 	// Specifies if the purge operations are enabled.
@@ -71,7 +73,7 @@ type Cluster struct {
 	EnableStreamingIngest pulumi.BoolPtrOutput `pulumi:"enableStreamingIngest"`
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
-	// A identity block.
+	// An identity block.
 	Identity ClusterIdentityOutput `pulumi:"identity"`
 	// An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
 	LanguageExtensions pulumi.StringArrayOutput `pulumi:"languageExtensions"`
@@ -134,6 +136,8 @@ func GetCluster(ctx *pulumi.Context,
 type clusterState struct {
 	// The Kusto Cluster URI to be used for data ingestion.
 	DataIngestionUri *string `pulumi:"dataIngestionUri"`
+	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
 	// Specifies if the cluster's disks are encrypted.
 	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
 	// Specifies if the purge operations are enabled.
@@ -142,7 +146,7 @@ type clusterState struct {
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine *string `pulumi:"engine"`
-	// A identity block.
+	// An identity block.
 	Identity *ClusterIdentity `pulumi:"identity"`
 	// An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
 	LanguageExtensions []string `pulumi:"languageExtensions"`
@@ -171,6 +175,8 @@ type clusterState struct {
 type ClusterState struct {
 	// The Kusto Cluster URI to be used for data ingestion.
 	DataIngestionUri pulumi.StringPtrInput
+	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	DoubleEncryptionEnabled pulumi.BoolPtrInput
 	// Specifies if the cluster's disks are encrypted.
 	EnableDiskEncryption pulumi.BoolPtrInput
 	// Specifies if the purge operations are enabled.
@@ -179,7 +185,7 @@ type ClusterState struct {
 	EnableStreamingIngest pulumi.BoolPtrInput
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine pulumi.StringPtrInput
-	// A identity block.
+	// An identity block.
 	Identity ClusterIdentityPtrInput
 	// An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
 	LanguageExtensions pulumi.StringArrayInput
@@ -210,6 +216,8 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
+	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
 	// Specifies if the cluster's disks are encrypted.
 	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
 	// Specifies if the purge operations are enabled.
@@ -218,7 +226,7 @@ type clusterArgs struct {
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine *string `pulumi:"engine"`
-	// A identity block.
+	// An identity block.
 	Identity *ClusterIdentity `pulumi:"identity"`
 	// An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
 	LanguageExtensions []string `pulumi:"languageExtensions"`
@@ -244,6 +252,8 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
+	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	DoubleEncryptionEnabled pulumi.BoolPtrInput
 	// Specifies if the cluster's disks are encrypted.
 	EnableDiskEncryption pulumi.BoolPtrInput
 	// Specifies if the purge operations are enabled.
@@ -252,7 +262,7 @@ type ClusterArgs struct {
 	EnableStreamingIngest pulumi.BoolPtrInput
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine pulumi.StringPtrInput
-	// A identity block.
+	// An identity block.
 	Identity ClusterIdentityPtrInput
 	// An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
 	LanguageExtensions pulumi.StringArrayInput

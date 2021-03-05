@@ -68,6 +68,12 @@ namespace Pulumi.Azure.MSSql
     public partial class ServerExtendedAuditingPolicy : Pulumi.CustomResource
     {
         /// <summary>
+        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+        /// </summary>
+        [Output("logMonitoringEnabled")]
+        public Output<bool?> LogMonitoringEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The number of days to retain logs for in the storage account.
         /// </summary>
         [Output("retentionInDays")]
@@ -95,7 +101,7 @@ namespace Pulumi.Azure.MSSql
         /// The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
         /// </summary>
         [Output("storageEndpoint")]
-        public Output<string> StorageEndpoint { get; private set; } = null!;
+        public Output<string?> StorageEndpoint { get; private set; } = null!;
 
 
         /// <summary>
@@ -144,6 +150,12 @@ namespace Pulumi.Azure.MSSql
     public sealed class ServerExtendedAuditingPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+        /// </summary>
+        [Input("logMonitoringEnabled")]
+        public Input<bool>? LogMonitoringEnabled { get; set; }
+
+        /// <summary>
         /// The number of days to retain logs for in the storage account.
         /// </summary>
         [Input("retentionInDays")]
@@ -170,8 +182,8 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
         /// </summary>
-        [Input("storageEndpoint", required: true)]
-        public Input<string> StorageEndpoint { get; set; } = null!;
+        [Input("storageEndpoint")]
+        public Input<string>? StorageEndpoint { get; set; }
 
         public ServerExtendedAuditingPolicyArgs()
         {
@@ -180,6 +192,12 @@ namespace Pulumi.Azure.MSSql
 
     public sealed class ServerExtendedAuditingPolicyState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+        /// </summary>
+        [Input("logMonitoringEnabled")]
+        public Input<bool>? LogMonitoringEnabled { get; set; }
+
         /// <summary>
         /// The number of days to retain logs for in the storage account.
         /// </summary>

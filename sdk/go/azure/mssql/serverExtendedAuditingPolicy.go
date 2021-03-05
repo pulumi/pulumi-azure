@@ -79,6 +79,8 @@ import (
 type ServerExtendedAuditingPolicy struct {
 	pulumi.CustomResourceState
 
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+	LogMonitoringEnabled pulumi.BoolPtrOutput `pulumi:"logMonitoringEnabled"`
 	// The number of days to retain logs for in the storage account.
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
 	// The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
@@ -88,7 +90,7 @@ type ServerExtendedAuditingPolicy struct {
 	// Is `storageAccountAccessKey` value the storage's secondary key?
 	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrOutput `pulumi:"storageAccountAccessKeyIsSecondary"`
 	// The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
-	StorageEndpoint pulumi.StringOutput `pulumi:"storageEndpoint"`
+	StorageEndpoint pulumi.StringPtrOutput `pulumi:"storageEndpoint"`
 }
 
 // NewServerExtendedAuditingPolicy registers a new resource with the given unique name, arguments, and options.
@@ -100,9 +102,6 @@ func NewServerExtendedAuditingPolicy(ctx *pulumi.Context,
 
 	if args.ServerId == nil {
 		return nil, errors.New("invalid value for required argument 'ServerId'")
-	}
-	if args.StorageEndpoint == nil {
-		return nil, errors.New("invalid value for required argument 'StorageEndpoint'")
 	}
 	var resource ServerExtendedAuditingPolicy
 	err := ctx.RegisterResource("azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy", name, args, &resource, opts...)
@@ -126,6 +125,8 @@ func GetServerExtendedAuditingPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerExtendedAuditingPolicy resources.
 type serverExtendedAuditingPolicyState struct {
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
 	// The number of days to retain logs for in the storage account.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
@@ -139,6 +140,8 @@ type serverExtendedAuditingPolicyState struct {
 }
 
 type ServerExtendedAuditingPolicyState struct {
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+	LogMonitoringEnabled pulumi.BoolPtrInput
 	// The number of days to retain logs for in the storage account.
 	RetentionInDays pulumi.IntPtrInput
 	// The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
@@ -156,6 +159,8 @@ func (ServerExtendedAuditingPolicyState) ElementType() reflect.Type {
 }
 
 type serverExtendedAuditingPolicyArgs struct {
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
 	// The number of days to retain logs for in the storage account.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
@@ -165,11 +170,13 @@ type serverExtendedAuditingPolicyArgs struct {
 	// Is `storageAccountAccessKey` value the storage's secondary key?
 	StorageAccountAccessKeyIsSecondary *bool `pulumi:"storageAccountAccessKeyIsSecondary"`
 	// The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
-	StorageEndpoint string `pulumi:"storageEndpoint"`
+	StorageEndpoint *string `pulumi:"storageEndpoint"`
 }
 
 // The set of arguments for constructing a ServerExtendedAuditingPolicy resource.
 type ServerExtendedAuditingPolicyArgs struct {
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+	LogMonitoringEnabled pulumi.BoolPtrInput
 	// The number of days to retain logs for in the storage account.
 	RetentionInDays pulumi.IntPtrInput
 	// The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
@@ -179,7 +186,7 @@ type ServerExtendedAuditingPolicyArgs struct {
 	// Is `storageAccountAccessKey` value the storage's secondary key?
 	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput
 	// The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
-	StorageEndpoint pulumi.StringInput
+	StorageEndpoint pulumi.StringPtrInput
 }
 
 func (ServerExtendedAuditingPolicyArgs) ElementType() reflect.Type {

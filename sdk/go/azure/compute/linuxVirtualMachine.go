@@ -63,6 +63,8 @@ type LinuxVirtualMachine struct {
 	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
 	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineIdentityPtrOutput `pulumi:"identity"`
+	// Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
@@ -183,6 +185,8 @@ type linuxVirtualMachineState struct {
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// An `identity` block as defined below.
 	Identity *LinuxVirtualMachineIdentity `pulumi:"identity"`
+	// Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+	LicenseType *string `pulumi:"licenseType"`
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
@@ -260,6 +264,8 @@ type LinuxVirtualMachineState struct {
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineIdentityPtrInput
+	// Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+	LicenseType pulumi.StringPtrInput
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
@@ -341,6 +347,8 @@ type linuxVirtualMachineArgs struct {
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// An `identity` block as defined below.
 	Identity *LinuxVirtualMachineIdentity `pulumi:"identity"`
+	// Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+	LicenseType *string `pulumi:"licenseType"`
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
@@ -409,6 +417,8 @@ type LinuxVirtualMachineArgs struct {
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineIdentityPtrInput
+	// Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+	LicenseType pulumi.StringPtrInput
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.

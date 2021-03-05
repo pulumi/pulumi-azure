@@ -45,7 +45,7 @@ class MetricAlert(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        main_resource_group = azure.core.ResourceGroup("mainResourceGroup", location="West US")
+        main_resource_group = azure.core.ResourceGroup("mainResourceGroup", location="West Europe")
         to_monitor = azure.storage.Account("toMonitor",
             resource_group_name=main_resource_group.name,
             location=main_resource_group.location,
@@ -84,7 +84,7 @@ class MetricAlert(pulumi.CustomResource):
         Metric Alerts can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:monitoring/metricAlert:MetricAlert main /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/microsoft.insights/metricalerts/example-metricalert
+         $ pulumi import azure:monitoring/metricAlert:MetricAlert main /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/microsoft.insights/metricAlerts/example-metricalert
         ```
 
         :param str resource_name: The name of the resource.

@@ -66,7 +66,7 @@ class VirtualMachine(pulumi.CustomResource):
         prefix = config.get("prefix")
         if prefix is None:
             prefix = "tfvmex"
-        main_resource_group = azure.core.ResourceGroup("mainResourceGroup", location="West US 2")
+        main_resource_group = azure.core.ResourceGroup("mainResourceGroup", location="West Europe")
         main_virtual_network = azure.network.VirtualNetwork("mainVirtualNetwork",
             address_spaces=["10.0.0.0/16"],
             location=main_resource_group.location,

@@ -31,7 +31,7 @@ namespace Pulumi.Azure.FrontDoor
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "EastUS2",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleFrontdoor = new Azure.FrontDoor.Frontdoor("exampleFrontdoor", new Azure.FrontDoor.FrontdoorArgs
     ///         {

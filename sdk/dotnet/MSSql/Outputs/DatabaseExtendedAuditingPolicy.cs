@@ -13,6 +13,7 @@ namespace Pulumi.Azure.MSSql.Outputs
     [OutputType]
     public sealed class DatabaseExtendedAuditingPolicy
     {
+        public readonly bool? LogMonitoringEnabled;
         /// <summary>
         /// Specifies the number of days to retain logs for in the storage account.
         /// </summary>
@@ -20,7 +21,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// <summary>
         /// Specifies the access key to use for the auditing storage account.
         /// </summary>
-        public readonly string StorageAccountAccessKey;
+        public readonly string? StorageAccountAccessKey;
         /// <summary>
         /// Specifies whether `storage_account_access_key` value is the storage's secondary key.
         /// </summary>
@@ -28,18 +29,21 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// <summary>
         /// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
         /// </summary>
-        public readonly string StorageEndpoint;
+        public readonly string? StorageEndpoint;
 
         [OutputConstructor]
         private DatabaseExtendedAuditingPolicy(
+            bool? logMonitoringEnabled,
+
             int? retentionInDays,
 
-            string storageAccountAccessKey,
+            string? storageAccountAccessKey,
 
             bool? storageAccountAccessKeyIsSecondary,
 
-            string storageEndpoint)
+            string? storageEndpoint)
         {
+            LogMonitoringEnabled = logMonitoringEnabled;
             RetentionInDays = retentionInDays;
             StorageAccountAccessKey = storageAccountAccessKey;
             StorageAccountAccessKeyIsSecondary = storageAccountAccessKeyIsSecondary;

@@ -39,7 +39,7 @@ class Image(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_image = azure.compute.Image("exampleImage",
             location="West US",
             resource_group_name=example_resource_group.name,
@@ -56,7 +56,7 @@ class Image(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_image = azure.compute.Image("exampleImage",
             location="West US",
             resource_group_name=example_resource_group.name,

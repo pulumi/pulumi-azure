@@ -183,7 +183,6 @@ class ZoneSoaRecord(dict):
         :param str email: The email contact for the SOA record.
         :param str host_name: The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
         :param int expire_time: The expire time for the SOA record. Defaults to `2419200`.
-        :param str fqdn: The fully qualified domain name of the Record Set.
         :param int minimum_ttl: The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
         :param int refresh_time: The refresh time for the SOA record. Defaults to `3600`.
         :param int retry_time: The retry time for the SOA record. Defaults to `300`.
@@ -237,9 +236,6 @@ class ZoneSoaRecord(dict):
     @property
     @pulumi.getter
     def fqdn(self) -> Optional[str]:
-        """
-        The fully qualified domain name of the Record Set.
-        """
         return pulumi.get(self, "fqdn")
 
     @property

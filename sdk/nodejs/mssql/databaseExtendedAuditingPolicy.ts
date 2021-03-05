@@ -79,6 +79,7 @@ export class DatabaseExtendedAuditingPolicy extends pulumi.CustomResource {
      * The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
      */
     public readonly databaseId!: pulumi.Output<string>;
+    public readonly logMonitoringEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The number of days to retain logs for in the storage account.
      */
@@ -94,7 +95,7 @@ export class DatabaseExtendedAuditingPolicy extends pulumi.CustomResource {
     /**
      * The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
      */
-    public readonly storageEndpoint!: pulumi.Output<string>;
+    public readonly storageEndpoint!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DatabaseExtendedAuditingPolicy resource with the given unique name, arguments, and options.
@@ -110,6 +111,7 @@ export class DatabaseExtendedAuditingPolicy extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DatabaseExtendedAuditingPolicyState | undefined;
             inputs["databaseId"] = state ? state.databaseId : undefined;
+            inputs["logMonitoringEnabled"] = state ? state.logMonitoringEnabled : undefined;
             inputs["retentionInDays"] = state ? state.retentionInDays : undefined;
             inputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
             inputs["storageAccountAccessKeyIsSecondary"] = state ? state.storageAccountAccessKeyIsSecondary : undefined;
@@ -119,10 +121,8 @@ export class DatabaseExtendedAuditingPolicy extends pulumi.CustomResource {
             if ((!args || args.databaseId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseId'");
             }
-            if ((!args || args.storageEndpoint === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageEndpoint'");
-            }
             inputs["databaseId"] = args ? args.databaseId : undefined;
+            inputs["logMonitoringEnabled"] = args ? args.logMonitoringEnabled : undefined;
             inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
             inputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
             inputs["storageAccountAccessKeyIsSecondary"] = args ? args.storageAccountAccessKeyIsSecondary : undefined;
@@ -143,6 +143,7 @@ export interface DatabaseExtendedAuditingPolicyState {
      * The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
      */
     readonly databaseId?: pulumi.Input<string>;
+    readonly logMonitoringEnabled?: pulumi.Input<boolean>;
     /**
      * The number of days to retain logs for in the storage account.
      */
@@ -169,6 +170,7 @@ export interface DatabaseExtendedAuditingPolicyArgs {
      * The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
      */
     readonly databaseId: pulumi.Input<string>;
+    readonly logMonitoringEnabled?: pulumi.Input<boolean>;
     /**
      * The number of days to retain logs for in the storage account.
      */
@@ -184,5 +186,5 @@ export interface DatabaseExtendedAuditingPolicyArgs {
     /**
      * The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
      */
-    readonly storageEndpoint: pulumi.Input<string>;
+    readonly storageEndpoint?: pulumi.Input<string>;
 }

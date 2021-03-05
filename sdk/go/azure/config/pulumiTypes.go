@@ -12,6 +12,7 @@ import (
 
 type Features struct {
 	KeyVault               *FeaturesKeyVault               `pulumi:"keyVault"`
+	LogAnalyticsWorkspace  *FeaturesLogAnalyticsWorkspace  `pulumi:"logAnalyticsWorkspace"`
 	Network                *FeaturesNetwork                `pulumi:"network"`
 	TemplateDeployment     *FeaturesTemplateDeployment     `pulumi:"templateDeployment"`
 	VirtualMachine         *FeaturesVirtualMachine         `pulumi:"virtualMachine"`
@@ -31,6 +32,7 @@ type FeaturesInput interface {
 
 type FeaturesArgs struct {
 	KeyVault               FeaturesKeyVaultPtrInput               `pulumi:"keyVault"`
+	LogAnalyticsWorkspace  FeaturesLogAnalyticsWorkspacePtrInput  `pulumi:"logAnalyticsWorkspace"`
 	Network                FeaturesNetworkPtrInput                `pulumi:"network"`
 	TemplateDeployment     FeaturesTemplateDeploymentPtrInput     `pulumi:"templateDeployment"`
 	VirtualMachine         FeaturesVirtualMachinePtrInput         `pulumi:"virtualMachine"`
@@ -65,6 +67,10 @@ func (o FeaturesOutput) ToFeaturesOutputWithContext(ctx context.Context) Feature
 
 func (o FeaturesOutput) KeyVault() FeaturesKeyVaultPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesKeyVault { return v.KeyVault }).(FeaturesKeyVaultPtrOutput)
+}
+
+func (o FeaturesOutput) LogAnalyticsWorkspace() FeaturesLogAnalyticsWorkspacePtrOutput {
+	return o.ApplyT(func(v Features) *FeaturesLogAnalyticsWorkspace { return v.LogAnalyticsWorkspace }).(FeaturesLogAnalyticsWorkspacePtrOutput)
 }
 
 func (o FeaturesOutput) Network() FeaturesNetworkPtrOutput {
@@ -221,6 +227,132 @@ func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedKeyVaults() pulumi.BoolPtrO
 			return nil
 		}
 		return v.RecoverSoftDeletedKeyVaults
+	}).(pulumi.BoolPtrOutput)
+}
+
+type FeaturesLogAnalyticsWorkspace struct {
+	PermanentlyDeleteOnDestroy bool `pulumi:"permanentlyDeleteOnDestroy"`
+}
+
+// FeaturesLogAnalyticsWorkspaceInput is an input type that accepts FeaturesLogAnalyticsWorkspaceArgs and FeaturesLogAnalyticsWorkspaceOutput values.
+// You can construct a concrete instance of `FeaturesLogAnalyticsWorkspaceInput` via:
+//
+//          FeaturesLogAnalyticsWorkspaceArgs{...}
+type FeaturesLogAnalyticsWorkspaceInput interface {
+	pulumi.Input
+
+	ToFeaturesLogAnalyticsWorkspaceOutput() FeaturesLogAnalyticsWorkspaceOutput
+	ToFeaturesLogAnalyticsWorkspaceOutputWithContext(context.Context) FeaturesLogAnalyticsWorkspaceOutput
+}
+
+type FeaturesLogAnalyticsWorkspaceArgs struct {
+	PermanentlyDeleteOnDestroy pulumi.BoolInput `pulumi:"permanentlyDeleteOnDestroy"`
+}
+
+func (FeaturesLogAnalyticsWorkspaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesLogAnalyticsWorkspace)(nil)).Elem()
+}
+
+func (i FeaturesLogAnalyticsWorkspaceArgs) ToFeaturesLogAnalyticsWorkspaceOutput() FeaturesLogAnalyticsWorkspaceOutput {
+	return i.ToFeaturesLogAnalyticsWorkspaceOutputWithContext(context.Background())
+}
+
+func (i FeaturesLogAnalyticsWorkspaceArgs) ToFeaturesLogAnalyticsWorkspaceOutputWithContext(ctx context.Context) FeaturesLogAnalyticsWorkspaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesLogAnalyticsWorkspaceOutput)
+}
+
+func (i FeaturesLogAnalyticsWorkspaceArgs) ToFeaturesLogAnalyticsWorkspacePtrOutput() FeaturesLogAnalyticsWorkspacePtrOutput {
+	return i.ToFeaturesLogAnalyticsWorkspacePtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesLogAnalyticsWorkspaceArgs) ToFeaturesLogAnalyticsWorkspacePtrOutputWithContext(ctx context.Context) FeaturesLogAnalyticsWorkspacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesLogAnalyticsWorkspaceOutput).ToFeaturesLogAnalyticsWorkspacePtrOutputWithContext(ctx)
+}
+
+// FeaturesLogAnalyticsWorkspacePtrInput is an input type that accepts FeaturesLogAnalyticsWorkspaceArgs, FeaturesLogAnalyticsWorkspacePtr and FeaturesLogAnalyticsWorkspacePtrOutput values.
+// You can construct a concrete instance of `FeaturesLogAnalyticsWorkspacePtrInput` via:
+//
+//          FeaturesLogAnalyticsWorkspaceArgs{...}
+//
+//  or:
+//
+//          nil
+type FeaturesLogAnalyticsWorkspacePtrInput interface {
+	pulumi.Input
+
+	ToFeaturesLogAnalyticsWorkspacePtrOutput() FeaturesLogAnalyticsWorkspacePtrOutput
+	ToFeaturesLogAnalyticsWorkspacePtrOutputWithContext(context.Context) FeaturesLogAnalyticsWorkspacePtrOutput
+}
+
+type featuresLogAnalyticsWorkspacePtrType FeaturesLogAnalyticsWorkspaceArgs
+
+func FeaturesLogAnalyticsWorkspacePtr(v *FeaturesLogAnalyticsWorkspaceArgs) FeaturesLogAnalyticsWorkspacePtrInput {
+	return (*featuresLogAnalyticsWorkspacePtrType)(v)
+}
+
+func (*featuresLogAnalyticsWorkspacePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesLogAnalyticsWorkspace)(nil)).Elem()
+}
+
+func (i *featuresLogAnalyticsWorkspacePtrType) ToFeaturesLogAnalyticsWorkspacePtrOutput() FeaturesLogAnalyticsWorkspacePtrOutput {
+	return i.ToFeaturesLogAnalyticsWorkspacePtrOutputWithContext(context.Background())
+}
+
+func (i *featuresLogAnalyticsWorkspacePtrType) ToFeaturesLogAnalyticsWorkspacePtrOutputWithContext(ctx context.Context) FeaturesLogAnalyticsWorkspacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesLogAnalyticsWorkspacePtrOutput)
+}
+
+type FeaturesLogAnalyticsWorkspaceOutput struct{ *pulumi.OutputState }
+
+func (FeaturesLogAnalyticsWorkspaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesLogAnalyticsWorkspace)(nil)).Elem()
+}
+
+func (o FeaturesLogAnalyticsWorkspaceOutput) ToFeaturesLogAnalyticsWorkspaceOutput() FeaturesLogAnalyticsWorkspaceOutput {
+	return o
+}
+
+func (o FeaturesLogAnalyticsWorkspaceOutput) ToFeaturesLogAnalyticsWorkspaceOutputWithContext(ctx context.Context) FeaturesLogAnalyticsWorkspaceOutput {
+	return o
+}
+
+func (o FeaturesLogAnalyticsWorkspaceOutput) ToFeaturesLogAnalyticsWorkspacePtrOutput() FeaturesLogAnalyticsWorkspacePtrOutput {
+	return o.ToFeaturesLogAnalyticsWorkspacePtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesLogAnalyticsWorkspaceOutput) ToFeaturesLogAnalyticsWorkspacePtrOutputWithContext(ctx context.Context) FeaturesLogAnalyticsWorkspacePtrOutput {
+	return o.ApplyT(func(v FeaturesLogAnalyticsWorkspace) *FeaturesLogAnalyticsWorkspace {
+		return &v
+	}).(FeaturesLogAnalyticsWorkspacePtrOutput)
+}
+func (o FeaturesLogAnalyticsWorkspaceOutput) PermanentlyDeleteOnDestroy() pulumi.BoolOutput {
+	return o.ApplyT(func(v FeaturesLogAnalyticsWorkspace) bool { return v.PermanentlyDeleteOnDestroy }).(pulumi.BoolOutput)
+}
+
+type FeaturesLogAnalyticsWorkspacePtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesLogAnalyticsWorkspacePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesLogAnalyticsWorkspace)(nil)).Elem()
+}
+
+func (o FeaturesLogAnalyticsWorkspacePtrOutput) ToFeaturesLogAnalyticsWorkspacePtrOutput() FeaturesLogAnalyticsWorkspacePtrOutput {
+	return o
+}
+
+func (o FeaturesLogAnalyticsWorkspacePtrOutput) ToFeaturesLogAnalyticsWorkspacePtrOutputWithContext(ctx context.Context) FeaturesLogAnalyticsWorkspacePtrOutput {
+	return o
+}
+
+func (o FeaturesLogAnalyticsWorkspacePtrOutput) Elem() FeaturesLogAnalyticsWorkspaceOutput {
+	return o.ApplyT(func(v *FeaturesLogAnalyticsWorkspace) FeaturesLogAnalyticsWorkspace { return *v }).(FeaturesLogAnalyticsWorkspaceOutput)
+}
+
+func (o FeaturesLogAnalyticsWorkspacePtrOutput) PermanentlyDeleteOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesLogAnalyticsWorkspace) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.PermanentlyDeleteOnDestroy
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -747,6 +879,8 @@ func init() {
 	pulumi.RegisterOutputType(FeaturesOutput{})
 	pulumi.RegisterOutputType(FeaturesKeyVaultOutput{})
 	pulumi.RegisterOutputType(FeaturesKeyVaultPtrOutput{})
+	pulumi.RegisterOutputType(FeaturesLogAnalyticsWorkspaceOutput{})
+	pulumi.RegisterOutputType(FeaturesLogAnalyticsWorkspacePtrOutput{})
 	pulumi.RegisterOutputType(FeaturesNetworkOutput{})
 	pulumi.RegisterOutputType(FeaturesNetworkPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesTemplateDeploymentOutput{})

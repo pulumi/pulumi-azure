@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Blueprint
     ///         });
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "westeurope",
+    ///             Location = "West Europe",
     ///             Tags = 
     ///             {
     ///                 { "Environment", "example" },

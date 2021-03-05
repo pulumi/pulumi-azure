@@ -35,7 +35,7 @@ class TxtRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West US")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         test_zone = azure.privatedns.Zone("testZone", resource_group_name=azurerm_resource_group["test"]["name"])
         test_txt_record = azure.privatedns.TxtRecord("testTxtRecord",
             resource_group_name=azurerm_resource_group["test"]["name"],

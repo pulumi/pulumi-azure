@@ -12,6 +12,9 @@ namespace Pulumi.Azure.MSSql.Inputs
 
     public sealed class DatabaseExtendedAuditingPolicyGetArgs : Pulumi.ResourceArgs
     {
+        [Input("logMonitoringEnabled")]
+        public Input<bool>? LogMonitoringEnabled { get; set; }
+
         /// <summary>
         /// Specifies the number of days to retain logs for in the storage account.
         /// </summary>
@@ -21,8 +24,8 @@ namespace Pulumi.Azure.MSSql.Inputs
         /// <summary>
         /// Specifies the access key to use for the auditing storage account.
         /// </summary>
-        [Input("storageAccountAccessKey", required: true)]
-        public Input<string> StorageAccountAccessKey { get; set; } = null!;
+        [Input("storageAccountAccessKey")]
+        public Input<string>? StorageAccountAccessKey { get; set; }
 
         /// <summary>
         /// Specifies whether `storage_account_access_key` value is the storage's secondary key.
@@ -33,8 +36,8 @@ namespace Pulumi.Azure.MSSql.Inputs
         /// <summary>
         /// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
         /// </summary>
-        [Input("storageEndpoint", required: true)]
-        public Input<string> StorageEndpoint { get; set; } = null!;
+        [Input("storageEndpoint")]
+        public Input<string>? StorageEndpoint { get; set; }
 
         public DatabaseExtendedAuditingPolicyGetArgs()
         {

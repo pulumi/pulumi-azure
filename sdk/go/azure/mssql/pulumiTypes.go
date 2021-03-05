@@ -11,14 +11,15 @@ import (
 )
 
 type DatabaseExtendedAuditingPolicyType struct {
+	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
 	// Specifies the number of days to retain logs for in the storage account.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// Specifies the access key to use for the auditing storage account.
-	StorageAccountAccessKey string `pulumi:"storageAccountAccessKey"`
+	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
 	StorageAccountAccessKeyIsSecondary *bool `pulumi:"storageAccountAccessKeyIsSecondary"`
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-	StorageEndpoint string `pulumi:"storageEndpoint"`
+	StorageEndpoint *string `pulumi:"storageEndpoint"`
 }
 
 // DatabaseExtendedAuditingPolicyTypeInput is an input type that accepts DatabaseExtendedAuditingPolicyTypeArgs and DatabaseExtendedAuditingPolicyTypeOutput values.
@@ -33,14 +34,15 @@ type DatabaseExtendedAuditingPolicyTypeInput interface {
 }
 
 type DatabaseExtendedAuditingPolicyTypeArgs struct {
+	LogMonitoringEnabled pulumi.BoolPtrInput `pulumi:"logMonitoringEnabled"`
 	// Specifies the number of days to retain logs for in the storage account.
 	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
 	// Specifies the access key to use for the auditing storage account.
-	StorageAccountAccessKey pulumi.StringInput `pulumi:"storageAccountAccessKey"`
+	StorageAccountAccessKey pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
 	// Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
 	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput `pulumi:"storageAccountAccessKeyIsSecondary"`
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-	StorageEndpoint pulumi.StringInput `pulumi:"storageEndpoint"`
+	StorageEndpoint pulumi.StringPtrInput `pulumi:"storageEndpoint"`
 }
 
 func (DatabaseExtendedAuditingPolicyTypeArgs) ElementType() reflect.Type {
@@ -119,6 +121,9 @@ func (o DatabaseExtendedAuditingPolicyTypeOutput) ToDatabaseExtendedAuditingPoli
 		return &v
 	}).(DatabaseExtendedAuditingPolicyTypePtrOutput)
 }
+func (o DatabaseExtendedAuditingPolicyTypeOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatabaseExtendedAuditingPolicyType) *bool { return v.LogMonitoringEnabled }).(pulumi.BoolPtrOutput)
+}
 
 // Specifies the number of days to retain logs for in the storage account.
 func (o DatabaseExtendedAuditingPolicyTypeOutput) RetentionInDays() pulumi.IntPtrOutput {
@@ -126,8 +131,8 @@ func (o DatabaseExtendedAuditingPolicyTypeOutput) RetentionInDays() pulumi.IntPt
 }
 
 // Specifies the access key to use for the auditing storage account.
-func (o DatabaseExtendedAuditingPolicyTypeOutput) StorageAccountAccessKey() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseExtendedAuditingPolicyType) string { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
+func (o DatabaseExtendedAuditingPolicyTypeOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseExtendedAuditingPolicyType) *string { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
@@ -136,8 +141,8 @@ func (o DatabaseExtendedAuditingPolicyTypeOutput) StorageAccountAccessKeyIsSecon
 }
 
 // Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-func (o DatabaseExtendedAuditingPolicyTypeOutput) StorageEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseExtendedAuditingPolicyType) string { return v.StorageEndpoint }).(pulumi.StringOutput)
+func (o DatabaseExtendedAuditingPolicyTypeOutput) StorageEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseExtendedAuditingPolicyType) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }
 
 type DatabaseExtendedAuditingPolicyTypePtrOutput struct{ *pulumi.OutputState }
@@ -158,6 +163,15 @@ func (o DatabaseExtendedAuditingPolicyTypePtrOutput) Elem() DatabaseExtendedAudi
 	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicyType) DatabaseExtendedAuditingPolicyType { return *v }).(DatabaseExtendedAuditingPolicyTypeOutput)
 }
 
+func (o DatabaseExtendedAuditingPolicyTypePtrOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicyType) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LogMonitoringEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the number of days to retain logs for in the storage account.
 func (o DatabaseExtendedAuditingPolicyTypePtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicyType) *int {
@@ -174,7 +188,7 @@ func (o DatabaseExtendedAuditingPolicyTypePtrOutput) StorageAccountAccessKey() p
 		if v == nil {
 			return nil
 		}
-		return &v.StorageAccountAccessKey
+		return v.StorageAccountAccessKey
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -194,7 +208,7 @@ func (o DatabaseExtendedAuditingPolicyTypePtrOutput) StorageEndpoint() pulumi.St
 		if v == nil {
 			return nil
 		}
-		return &v.StorageEndpoint
+		return v.StorageEndpoint
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1386,14 +1400,16 @@ func (o ServerAzureadAdministratorPtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 type ServerExtendedAuditingPolicyType struct {
+	// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
 	// (Optional) Specifies the number of days to retain logs for in the storage account.
 	RetentionInDays *int `pulumi:"retentionInDays"`
-	// (Required)  Specifies the access key to use for the auditing storage account.
-	StorageAccountAccessKey string `pulumi:"storageAccountAccessKey"`
+	// (Optional)  Specifies the access key to use for the auditing storage account.
+	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
 	StorageAccountAccessKeyIsSecondary *bool `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-	StorageEndpoint string `pulumi:"storageEndpoint"`
+	// (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+	StorageEndpoint *string `pulumi:"storageEndpoint"`
 }
 
 // ServerExtendedAuditingPolicyTypeInput is an input type that accepts ServerExtendedAuditingPolicyTypeArgs and ServerExtendedAuditingPolicyTypeOutput values.
@@ -1408,14 +1424,16 @@ type ServerExtendedAuditingPolicyTypeInput interface {
 }
 
 type ServerExtendedAuditingPolicyTypeArgs struct {
+	// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+	LogMonitoringEnabled pulumi.BoolPtrInput `pulumi:"logMonitoringEnabled"`
 	// (Optional) Specifies the number of days to retain logs for in the storage account.
 	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
-	// (Required)  Specifies the access key to use for the auditing storage account.
-	StorageAccountAccessKey pulumi.StringInput `pulumi:"storageAccountAccessKey"`
+	// (Optional)  Specifies the access key to use for the auditing storage account.
+	StorageAccountAccessKey pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
 	// (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
 	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-	StorageEndpoint pulumi.StringInput `pulumi:"storageEndpoint"`
+	// (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+	StorageEndpoint pulumi.StringPtrInput `pulumi:"storageEndpoint"`
 }
 
 func (ServerExtendedAuditingPolicyTypeArgs) ElementType() reflect.Type {
@@ -1495,14 +1513,19 @@ func (o ServerExtendedAuditingPolicyTypeOutput) ToServerExtendedAuditingPolicyTy
 	}).(ServerExtendedAuditingPolicyTypePtrOutput)
 }
 
+// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+func (o ServerExtendedAuditingPolicyTypeOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) *bool { return v.LogMonitoringEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // (Optional) Specifies the number of days to retain logs for in the storage account.
 func (o ServerExtendedAuditingPolicyTypeOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
-// (Required)  Specifies the access key to use for the auditing storage account.
-func (o ServerExtendedAuditingPolicyTypeOutput) StorageAccountAccessKey() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) string { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
+// (Optional)  Specifies the access key to use for the auditing storage account.
+func (o ServerExtendedAuditingPolicyTypeOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) *string { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
@@ -1510,9 +1533,9 @@ func (o ServerExtendedAuditingPolicyTypeOutput) StorageAccountAccessKeyIsSeconda
 	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) *bool { return v.StorageAccountAccessKeyIsSecondary }).(pulumi.BoolPtrOutput)
 }
 
-// (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-func (o ServerExtendedAuditingPolicyTypeOutput) StorageEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) string { return v.StorageEndpoint }).(pulumi.StringOutput)
+// (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+func (o ServerExtendedAuditingPolicyTypeOutput) StorageEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }
 
 type ServerExtendedAuditingPolicyTypePtrOutput struct{ *pulumi.OutputState }
@@ -1533,6 +1556,16 @@ func (o ServerExtendedAuditingPolicyTypePtrOutput) Elem() ServerExtendedAuditing
 	return o.ApplyT(func(v *ServerExtendedAuditingPolicyType) ServerExtendedAuditingPolicyType { return *v }).(ServerExtendedAuditingPolicyTypeOutput)
 }
 
+// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+func (o ServerExtendedAuditingPolicyTypePtrOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServerExtendedAuditingPolicyType) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LogMonitoringEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // (Optional) Specifies the number of days to retain logs for in the storage account.
 func (o ServerExtendedAuditingPolicyTypePtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServerExtendedAuditingPolicyType) *int {
@@ -1543,13 +1576,13 @@ func (o ServerExtendedAuditingPolicyTypePtrOutput) RetentionInDays() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// (Required)  Specifies the access key to use for the auditing storage account.
+// (Optional)  Specifies the access key to use for the auditing storage account.
 func (o ServerExtendedAuditingPolicyTypePtrOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerExtendedAuditingPolicyType) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.StorageAccountAccessKey
+		return v.StorageAccountAccessKey
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1563,13 +1596,13 @@ func (o ServerExtendedAuditingPolicyTypePtrOutput) StorageAccountAccessKeyIsSeco
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+// (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
 func (o ServerExtendedAuditingPolicyTypePtrOutput) StorageEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerExtendedAuditingPolicyType) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.StorageEndpoint
+		return v.StorageEndpoint
 	}).(pulumi.StringPtrOutput)
 }
 

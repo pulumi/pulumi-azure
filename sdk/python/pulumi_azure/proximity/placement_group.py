@@ -31,7 +31,7 @@ class PlacementGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_placement_group = azure.proximity.PlacementGroup("examplePlacementGroup",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,

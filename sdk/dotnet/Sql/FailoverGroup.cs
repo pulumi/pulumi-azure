@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Sql
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "uksouth",
+    ///             Location = "West Europe",
     ///         });
     ///         var primary = new Azure.Sql.SqlServer("primary", new Azure.Sql.SqlServerArgs
     ///         {

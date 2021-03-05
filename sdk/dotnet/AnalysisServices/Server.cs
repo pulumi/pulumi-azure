@@ -24,7 +24,7 @@ namespace Pulumi.Azure.AnalysisServices
     ///     {
     ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "northeurope",
+    ///             Location = "West Europe",
     ///         });
     ///         var server = new Azure.AnalysisServices.Server("server", new Azure.AnalysisServices.ServerArgs
     ///         {

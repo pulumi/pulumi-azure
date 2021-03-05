@@ -25,7 +25,7 @@ namespace Pulumi.Azure.MySql
     ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleServer = new Azure.MySql.Server("exampleServer", new Azure.MySql.ServerArgs
     ///         {

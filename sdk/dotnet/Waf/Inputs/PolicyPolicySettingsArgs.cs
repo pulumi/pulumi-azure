@@ -13,11 +13,14 @@ namespace Pulumi.Azure.Waf.Inputs
     public sealed class PolicyPolicySettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
+        /// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The File Upload Limit in MB. Accepted values are in the range `1` to `750`. Defaults to `100`.
+        /// </summary>
         [Input("fileUploadLimitInMb")]
         public Input<int>? FileUploadLimitInMb { get; set; }
 

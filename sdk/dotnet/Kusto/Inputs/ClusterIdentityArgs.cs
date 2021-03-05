@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Kusto.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// The list of user identities associated with the Kusto cluster.
+        /// A list of IDs for User Assigned Managed Identity resources to be assigned.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -25,19 +25,19 @@ namespace Pulumi.Azure.Kusto.Inputs
         }
 
         /// <summary>
-        /// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
+        /// The Principal ID associated with this System Assigned Managed Service Identity.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
+        /// The Tenant ID associated with this System Assigned Managed Service Identity.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned` (where Azure will generate a Service Principal for you).
+        /// Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

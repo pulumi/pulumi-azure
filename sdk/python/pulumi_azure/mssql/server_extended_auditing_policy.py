@@ -15,6 +15,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
@@ -64,6 +65,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
         :param pulumi.Input[str] server_id: The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
@@ -87,14 +89,13 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['log_monitoring_enabled'] = log_monitoring_enabled
             __props__['retention_in_days'] = retention_in_days
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
             __props__['server_id'] = server_id
             __props__['storage_account_access_key'] = storage_account_access_key
             __props__['storage_account_access_key_is_secondary'] = storage_account_access_key_is_secondary
-            if storage_endpoint is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_endpoint'")
             __props__['storage_endpoint'] = storage_endpoint
         super(ServerExtendedAuditingPolicy, __self__).__init__(
             'azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy',
@@ -106,6 +107,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
             retention_in_days: Optional[pulumi.Input[int]] = None,
             server_id: Optional[pulumi.Input[str]] = None,
             storage_account_access_key: Optional[pulumi.Input[str]] = None,
@@ -118,6 +120,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
         :param pulumi.Input[str] server_id: The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
@@ -128,12 +131,21 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["log_monitoring_enabled"] = log_monitoring_enabled
         __props__["retention_in_days"] = retention_in_days
         __props__["server_id"] = server_id
         __props__["storage_account_access_key"] = storage_account_access_key
         __props__["storage_account_access_key_is_secondary"] = storage_account_access_key_is_secondary
         __props__["storage_endpoint"] = storage_endpoint
         return ServerExtendedAuditingPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="logMonitoringEnabled")
+    def log_monitoring_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+        """
+        return pulumi.get(self, "log_monitoring_enabled")
 
     @property
     @pulumi.getter(name="retentionInDays")
@@ -169,7 +181,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> pulumi.Output[str]:
+    def storage_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
         """

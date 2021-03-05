@@ -8,6 +8,10 @@ import * as utilities from "../utilities";
 export * from "./alertRuleFusion";
 export * from "./alertRuleMsSecurityIncident";
 export * from "./alertRuleScheduled";
+export * from "./dataConnectorAwsCloudTrail";
+export * from "./dataConnectorAzureActiveDirectory";
+export * from "./dataConnectorOffice365";
+export * from "./dataConnectorThreatIntelligence";
 export * from "./getAlertRule";
 export * from "./getAlertRuleTemplate";
 
@@ -15,6 +19,10 @@ export * from "./getAlertRuleTemplate";
 import { AlertRuleFusion } from "./alertRuleFusion";
 import { AlertRuleMsSecurityIncident } from "./alertRuleMsSecurityIncident";
 import { AlertRuleScheduled } from "./alertRuleScheduled";
+import { DataConnectorAwsCloudTrail } from "./dataConnectorAwsCloudTrail";
+import { DataConnectorAzureActiveDirectory } from "./dataConnectorAzureActiveDirectory";
+import { DataConnectorOffice365 } from "./dataConnectorOffice365";
+import { DataConnectorThreatIntelligence } from "./dataConnectorThreatIntelligence";
 
 const _module = {
     version: utilities.getVersion(),
@@ -26,6 +34,14 @@ const _module = {
                 return new AlertRuleMsSecurityIncident(name, <any>undefined, { urn })
             case "azure:sentinel/alertRuleScheduled:AlertRuleScheduled":
                 return new AlertRuleScheduled(name, <any>undefined, { urn })
+            case "azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail":
+                return new DataConnectorAwsCloudTrail(name, <any>undefined, { urn })
+            case "azure:sentinel/dataConnectorAzureActiveDirectory:DataConnectorAzureActiveDirectory":
+                return new DataConnectorAzureActiveDirectory(name, <any>undefined, { urn })
+            case "azure:sentinel/dataConnectorOffice365:DataConnectorOffice365":
+                return new DataConnectorOffice365(name, <any>undefined, { urn })
+            case "azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence":
+                return new DataConnectorThreatIntelligence(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -34,3 +50,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleFusion", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleMsSecurityIncident", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleScheduled", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorAwsCloudTrail", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorAzureActiveDirectory", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOffice365", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorThreatIntelligence", _module)

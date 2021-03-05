@@ -25,7 +25,7 @@ namespace Pulumi.Azure.OperationalInsights
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "westeurope",
+    ///             Location = "West Europe",
     ///         });
     ///         var workspace = new Random.RandomId("workspace", new Random.RandomIdArgs
     ///         {

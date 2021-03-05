@@ -77,6 +77,9 @@ namespace Pulumi.Azure.MSSql
         [Output("databaseId")]
         public Output<string> DatabaseId { get; private set; } = null!;
 
+        [Output("logMonitoringEnabled")]
+        public Output<bool?> LogMonitoringEnabled { get; private set; } = null!;
+
         /// <summary>
         /// The number of days to retain logs for in the storage account.
         /// </summary>
@@ -99,7 +102,7 @@ namespace Pulumi.Azure.MSSql
         /// The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
         /// </summary>
         [Output("storageEndpoint")]
-        public Output<string> StorageEndpoint { get; private set; } = null!;
+        public Output<string?> StorageEndpoint { get; private set; } = null!;
 
 
         /// <summary>
@@ -153,6 +156,9 @@ namespace Pulumi.Azure.MSSql
         [Input("databaseId", required: true)]
         public Input<string> DatabaseId { get; set; } = null!;
 
+        [Input("logMonitoringEnabled")]
+        public Input<bool>? LogMonitoringEnabled { get; set; }
+
         /// <summary>
         /// The number of days to retain logs for in the storage account.
         /// </summary>
@@ -174,8 +180,8 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
         /// </summary>
-        [Input("storageEndpoint", required: true)]
-        public Input<string> StorageEndpoint { get; set; } = null!;
+        [Input("storageEndpoint")]
+        public Input<string>? StorageEndpoint { get; set; }
 
         public DatabaseExtendedAuditingPolicyArgs()
         {
@@ -189,6 +195,9 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("databaseId")]
         public Input<string>? DatabaseId { get; set; }
+
+        [Input("logMonitoringEnabled")]
+        public Input<bool>? LogMonitoringEnabled { get; set; }
 
         /// <summary>
         /// The number of days to retain logs for in the storage account.

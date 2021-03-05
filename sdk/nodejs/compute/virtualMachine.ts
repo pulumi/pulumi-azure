@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * const config = new pulumi.Config();
  * const prefix = config.get("prefix") || "tfvmex";
- * const mainResourceGroup = new azure.core.ResourceGroup("mainResourceGroup", {location: "West US 2"});
+ * const mainResourceGroup = new azure.core.ResourceGroup("mainResourceGroup", {location: "West Europe"});
  * const mainVirtualNetwork = new azure.network.VirtualNetwork("mainVirtualNetwork", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: mainResourceGroup.location,

@@ -28,7 +28,7 @@ namespace Pulumi.Azure.FrontDoor
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "EastUS2",
+    ///             Location = "West Europe",
     ///         });
     ///         var vault = Output.Create(Azure.KeyVault.GetKeyVault.InvokeAsync(new Azure.KeyVault.GetKeyVaultArgs
     ///         {

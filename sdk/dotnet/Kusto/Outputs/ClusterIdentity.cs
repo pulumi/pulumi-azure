@@ -14,19 +14,19 @@ namespace Pulumi.Azure.Kusto.Outputs
     public sealed class ClusterIdentity
     {
         /// <summary>
-        /// The list of user identities associated with the Kusto cluster.
+        /// A list of IDs for User Assigned Managed Identity resources to be assigned.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
+        /// The Principal ID associated with this System Assigned Managed Service Identity.
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
+        /// The Tenant ID associated with this System Assigned Managed Service Identity.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned` (where Azure will generate a Service Principal for you).
+        /// Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly string Type;
 

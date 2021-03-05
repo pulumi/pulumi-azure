@@ -24,7 +24,7 @@ namespace Pulumi.Azure.DataBricks
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleWorkspace = new Azure.DataBricks.Workspace("exampleWorkspace", new Azure.DataBricks.WorkspaceArgs
     ///         {

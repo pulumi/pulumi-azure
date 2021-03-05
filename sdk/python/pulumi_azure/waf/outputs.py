@@ -348,7 +348,8 @@ class PolicyPolicySettings(dict):
                  mode: Optional[str] = None,
                  request_body_check: Optional[bool] = None):
         """
-        :param bool enabled: Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
+        :param bool enabled: Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+        :param int file_upload_limit_in_mb: The File Upload Limit in MB. Accepted values are in the range `1` to `750`. Defaults to `100`.
         :param int max_request_body_size_in_kb: The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `128`. Defaults to `128`.
         :param str mode: Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
         :param bool request_body_check: Is Request Body Inspection enabled? Defaults to `true`.
@@ -368,13 +369,16 @@ class PolicyPolicySettings(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
+        Describes if the policy is in enabled state or disabled state. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="fileUploadLimitInMb")
     def file_upload_limit_in_mb(self) -> Optional[int]:
+        """
+        The File Upload Limit in MB. Accepted values are in the range `1` to `750`. Defaults to `100`.
+        """
         return pulumi.get(self, "file_upload_limit_in_mb")
 
     @property

@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Core
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleTemplateDeployment = new Azure.Core.TemplateDeployment("exampleTemplateDeployment", new Azure.Core.TemplateDeploymentArgs
     ///         {

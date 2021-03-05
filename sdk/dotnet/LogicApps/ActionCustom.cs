@@ -24,7 +24,7 @@ namespace Pulumi.Azure.LogicApps
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "East US",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new Azure.LogicApps.WorkflowArgs
     ///         {
