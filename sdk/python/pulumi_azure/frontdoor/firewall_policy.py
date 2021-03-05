@@ -39,7 +39,7 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US 2")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_firewall_policy = azure.frontdoor.FirewallPolicy("exampleFirewallPolicy",
             resource_group_name=example_resource_group.name,
             enabled=True,

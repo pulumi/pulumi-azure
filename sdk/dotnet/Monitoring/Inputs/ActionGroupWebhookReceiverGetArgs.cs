@@ -13,6 +13,12 @@ namespace Pulumi.Azure.Monitoring.Inputs
     public sealed class ActionGroupWebhookReceiverGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The `aad_auth` block as defined below
+        /// </summary>
+        [Input("aadAuth")]
+        public Input<Inputs.ActionGroupWebhookReceiverAadAuthGetArgs>? AadAuth { get; set; }
+
+        /// <summary>
         /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         /// </summary>
         [Input("name", required: true)]

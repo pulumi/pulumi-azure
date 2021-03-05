@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Dns
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleZone = new Azure.Dns.Zone("exampleZone", new Azure.Dns.ZoneArgs
     ///         {

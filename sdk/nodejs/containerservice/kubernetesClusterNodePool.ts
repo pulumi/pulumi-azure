@@ -6,43 +6,6 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Node Pool within a Kubernetes Cluster
- *
- * > **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
- *
- * ## Example Usage
- *
- * This example provisions a basic Kubernetes Node Pool.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("exampleKubernetesCluster", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     dnsPrefix: "exampleaks1",
- *     defaultNodePool: {
- *         name: "default",
- *         nodeCount: 1,
- *         vmSize: "Standard_D2_v2",
- *     },
- *     servicePrincipal: {
- *         clientId: "00000000-0000-0000-0000-000000000000",
- *         clientSecret: "00000000000000000000000000000000",
- *     },
- * });
- * const exampleKubernetesClusterNodePool = new azure.containerservice.KubernetesClusterNodePool("exampleKubernetesClusterNodePool", {
- *     kubernetesClusterId: exampleKubernetesCluster.id,
- *     vmSize: "Standard_DS2_v2",
- *     nodeCount: 1,
- *     tags: {
- *         Environment: "Production",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.

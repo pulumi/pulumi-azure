@@ -35,7 +35,7 @@ namespace Pulumi.Azure.Compute
     ///         var prefix = config.Get("prefix") ?? "tfvmex";
     ///         var mainResourceGroup = new Azure.Core.ResourceGroup("mainResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US 2",
+    ///             Location = "West Europe",
     ///         });
     ///         var mainVirtualNetwork = new Azure.Network.VirtualNetwork("mainVirtualNetwork", new Azure.Network.VirtualNetworkArgs
     ///         {

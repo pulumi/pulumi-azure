@@ -26,7 +26,7 @@ namespace Pulumi.Azure.DataFactory
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "northeurope",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleFunctionApp = exampleResourceGroup.Name.Apply(name =&gt; Azure.AppService.GetFunctionApp.InvokeAsync(new Azure.AppService.GetFunctionAppArgs
     ///         {

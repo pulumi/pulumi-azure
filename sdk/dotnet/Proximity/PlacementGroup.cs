@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Proximity
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = "West Europe",
     ///         });
     ///         var examplePlacementGroup = new Azure.Proximity.PlacementGroup("examplePlacementGroup", new Azure.Proximity.PlacementGroupArgs
     ///         {

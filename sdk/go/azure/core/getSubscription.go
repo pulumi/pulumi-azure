@@ -21,7 +21,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetSubscription(ctx, nil, nil)
+// 		current, err := core.LookupSubscription(ctx, nil, nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -30,8 +30,8 @@ import (
 // 	})
 // }
 // ```
-func GetSubscription(ctx *pulumi.Context, args *GetSubscriptionArgs, opts ...pulumi.InvokeOption) (*GetSubscriptionResult, error) {
-	var rv GetSubscriptionResult
+func LookupSubscription(ctx *pulumi.Context, args *LookupSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupSubscriptionResult, error) {
+	var rv LookupSubscriptionResult
 	err := ctx.Invoke("azure:core/getSubscription:getSubscription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -40,13 +40,13 @@ func GetSubscription(ctx *pulumi.Context, args *GetSubscriptionArgs, opts ...pul
 }
 
 // A collection of arguments for invoking getSubscription.
-type GetSubscriptionArgs struct {
+type LookupSubscriptionArgs struct {
 	// Specifies the ID of the subscription. If this argument is omitted, the subscription ID of the current Azure Resource Manager provider is used.
 	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 // A collection of values returned by getSubscription.
-type GetSubscriptionResult struct {
+type LookupSubscriptionResult struct {
 	// The subscription display name.
 	DisplayName string `pulumi:"displayName"`
 	// The provider-assigned unique ID for this managed resource.

@@ -6,6 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 
 export interface ProviderFeatures {
     keyVault?: outputs.ProviderFeaturesKeyVault;
+    logAnalyticsWorkspace?: outputs.ProviderFeaturesLogAnalyticsWorkspace;
     network?: outputs.ProviderFeaturesNetwork;
     templateDeployment?: outputs.ProviderFeaturesTemplateDeployment;
     virtualMachine?: outputs.ProviderFeaturesVirtualMachine;
@@ -15,6 +16,10 @@ export interface ProviderFeatures {
 export interface ProviderFeaturesKeyVault {
     purgeSoftDeleteOnDestroy?: boolean;
     recoverSoftDeletedKeyVaults?: boolean;
+}
+
+export interface ProviderFeaturesLogAnalyticsWorkspace {
+    permanentlyDeleteOnDestroy?: boolean;
 }
 
 export interface ProviderFeaturesNetwork {
@@ -3805,6 +3810,76 @@ export namespace automation {
     }
 }
 
+export namespace avs {
+    export interface GetPrivateCloudCircuit {
+        /**
+         * The ID of the ExpressRoute Circuit.
+         */
+        expressRouteId: string;
+        /**
+         * The ID of the ExpressRoute Circuit private peering.
+         */
+        expressRoutePrivatePeeringId: string;
+        /**
+         * The CIDR of the primary subnet.
+         */
+        primarySubnetCidr: string;
+        /**
+         * The CIDR of the secondary subnet.
+         */
+        secondarySubnetCidr: string;
+    }
+
+    export interface GetPrivateCloudManagementCluster {
+        /**
+         * The list of the hosts in the management cluster.
+         */
+        hosts: string[];
+        /**
+         * The ID of the management cluster.
+         */
+        id: number;
+        /**
+         * The size of the management cluster.
+         */
+        size: number;
+    }
+
+    export interface PrivateCloudCircuit {
+        /**
+         * The ID of the ExpressRoute Circuit.
+         */
+        expressRouteId: string;
+        /**
+         * The ID of the ExpressRoute Circuit private peering.
+         */
+        expressRoutePrivatePeeringId: string;
+        /**
+         * The CIDR of the primary subnet.
+         */
+        primarySubnetCidr: string;
+        /**
+         * The CIDR of the secondary subnet.
+         */
+        secondarySubnetCidr: string;
+    }
+
+    export interface PrivateCloudManagementCluster {
+        /**
+         * A list of hosts in the management cluster.
+         */
+        hosts: string[];
+        /**
+         * The ID of the  management cluster.
+         */
+        id: number;
+        /**
+         * The size of the management cluster. This field can not updated with `internetConnectionEnabled` together.
+         */
+        size: number;
+    }
+}
+
 export namespace backup {
     export interface PolicyFileShareBackup {
         /**
@@ -7094,6 +7169,7 @@ export namespace compute {
 export namespace config {
     export interface Features {
         keyVault?: outputs.config.FeaturesKeyVault;
+        logAnalyticsWorkspace?: outputs.config.FeaturesLogAnalyticsWorkspace;
         network?: outputs.config.FeaturesNetwork;
         templateDeployment?: outputs.config.FeaturesTemplateDeployment;
         virtualMachine?: outputs.config.FeaturesVirtualMachine;
@@ -7103,6 +7179,10 @@ export namespace config {
     export interface FeaturesKeyVault {
         purgeSoftDeleteOnDestroy?: boolean;
         recoverSoftDeletedKeyVaults?: boolean;
+    }
+
+    export interface FeaturesLogAnalyticsWorkspace {
+        permanentlyDeleteOnDestroy: boolean;
     }
 
     export interface FeaturesNetwork {
@@ -9686,9 +9766,6 @@ export namespace dns {
          * The expire time for the SOA record. Defaults to `2419200`.
          */
         expireTime?: number;
-        /**
-         * The fully qualified domain name of the Record Set.
-         */
         fqdn: string;
         /**
          * The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
@@ -14297,19 +14374,19 @@ export namespace keyvault {
 export namespace kusto {
     export interface ClusterIdentity {
         /**
-         * The list of user identities associated with the Kusto cluster.
+         * A list of IDs for User Assigned Managed Identity resources to be assigned.
          */
-        identityIds: string[];
+        identityIds?: string[];
         /**
-         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
+         * The Principal ID associated with this System Assigned Managed Service Identity.
          */
         principalId: string;
         /**
-         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
+         * The Tenant ID associated with this System Assigned Managed Service Identity.
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned` (where Azure will generate a Service Principal for you).
+         * Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
          */
         type: string;
     }
@@ -14331,7 +14408,7 @@ export namespace kusto {
          */
         capacity: number;
         /**
-         * The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
+         * The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E64i_v3`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`.
          */
         name: string;
     }
@@ -15370,6 +15447,10 @@ export namespace monitoring {
 
     export interface ActionGroupWebhookReceiver {
         /**
+         * The `aadAuth` block as defined below
+         */
+        aadAuth?: outputs.monitoring.ActionGroupWebhookReceiverAadAuth;
+        /**
          * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
          */
         name: string;
@@ -15381,6 +15462,21 @@ export namespace monitoring {
          * Enables or disables the common alert schema.
          */
         useCommonAlertSchema?: boolean;
+    }
+
+    export interface ActionGroupWebhookReceiverAadAuth {
+        /**
+         * The identifier uri for aad auth.
+         */
+        identifierUri: string;
+        /**
+         * The webhook application object Id for aad auth.
+         */
+        objectId: string;
+        /**
+         * The tenant id for aad auth.
+         */
+        tenantId: string;
     }
 
     export interface ActionRuleActionGroupCondition {
@@ -16450,6 +16546,7 @@ export namespace monitoring {
 
 export namespace mssql {
     export interface DatabaseExtendedAuditingPolicy {
+        logMonitoringEnabled?: boolean;
         /**
          * Specifies the number of days to retain logs for in the storage account.
          */
@@ -16457,7 +16554,7 @@ export namespace mssql {
         /**
          * Specifies the access key to use for the auditing storage account.
          */
-        storageAccountAccessKey: string;
+        storageAccountAccessKey?: string;
         /**
          * Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
          */
@@ -16465,7 +16562,7 @@ export namespace mssql {
         /**
          * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
          */
-        storageEndpoint: string;
+        storageEndpoint?: string;
     }
 
     export interface DatabaseLongTermRetentionPolicy {
@@ -16598,21 +16695,25 @@ export namespace mssql {
 
     export interface ServerExtendedAuditingPolicy {
         /**
+         * (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+         */
+        logMonitoringEnabled?: boolean;
+        /**
          * (Optional) Specifies the number of days to retain logs for in the storage account.
          */
         retentionInDays?: number;
         /**
-         * (Required)  Specifies the access key to use for the auditing storage account.
+         * (Optional)  Specifies the access key to use for the auditing storage account.
          */
-        storageAccountAccessKey: string;
+        storageAccountAccessKey?: string;
         /**
          * (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
          */
         storageAccountAccessKeyIsSecondary?: boolean;
         /**
-         * (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+         * (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
          */
-        storageEndpoint: string;
+        storageEndpoint?: string;
     }
 
     export interface ServerIdentity {
@@ -19471,12 +19572,32 @@ export namespace network {
          */
         peerWeight?: number;
         /**
-         * The BGP peer IP address of the virtual network
-         * gateway. This address is needed to configure the created gateway as a BGP Peer
-         * on the on-premises VPN devices. The IP address must be part of the subnet of
-         * the Virtual Network Gateway. Changing this forces a new resource to be created.
+         * @deprecated Deprecated in favor of `bgp_settings.0.peering_addresses.0.default_addresses.0`
          */
         peeringAddress: string;
+        /**
+         * A list of `peeringAddresses` as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
+         */
+        peeringAddresses?: outputs.network.VirtualNetworkGatewayBgpSettingsPeeringAddress[];
+    }
+
+    export interface VirtualNetworkGatewayBgpSettingsPeeringAddress {
+        /**
+         * A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
+         */
+        apipaAddresses?: string[];
+        /**
+         * A list of peering address assigned to the BGP peer of the Virtual Network Gateway.
+         */
+        defaultAddresses: string[];
+        /**
+         * The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ipConfiguration` blocks defined, this property is **required** to specify.
+         */
+        ipConfigurationName: string;
+        /**
+         * A list of tunnel IP addresses assigned to the BGP peer of the Virtual Network Gateway.
+         */
+        tunnelIpAddresses: string[];
     }
 
     export interface VirtualNetworkGatewayConnectionIpsecPolicy {
@@ -21339,6 +21460,25 @@ export namespace signalr {
          */
         name: string;
     }
+
+    export interface ServiceUpstreamEndpoint {
+        /**
+         * The categories to match on, or `*` for all.
+         */
+        categoryPatterns: string[];
+        /**
+         * The events to match on, or `*` for all.
+         */
+        eventPatterns: string[];
+        /**
+         * The hubs to match on, or `*` for all.
+         */
+        hubPatterns: string[];
+        /**
+         * The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
+         */
+        urlTemplate: string;
+    }
 }
 
 export namespace siterecovery {
@@ -21387,6 +21527,7 @@ export namespace siterecovery {
 
 export namespace sql {
     export interface DatabaseExtendedAuditingPolicy {
+        logMonitoringEnabled?: boolean;
         /**
          * Specifies the number of days to retain logs for in the storage account.
          */
@@ -21394,7 +21535,7 @@ export namespace sql {
         /**
          * Specifies the access key to use for the auditing storage account.
          */
-        storageAccountAccessKey: string;
+        storageAccountAccessKey?: string;
         /**
          * Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
          */
@@ -21402,7 +21543,7 @@ export namespace sql {
         /**
          * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
          */
-        storageEndpoint: string;
+        storageEndpoint?: string;
     }
 
     export interface DatabaseImport {
@@ -21521,21 +21662,25 @@ export namespace sql {
 
     export interface SqlServerExtendedAuditingPolicy {
         /**
+         * (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+         */
+        logMonitoringEnabled?: boolean;
+        /**
          * (Optional) Specifies the number of days to retain logs for in the storage account.
          */
         retentionInDays?: number;
         /**
-         * (Required)  Specifies the access key to use for the auditing storage account.
+         * (Optional)  Specifies the access key to use for the auditing storage account.
          */
-        storageAccountAccessKey: string;
+        storageAccountAccessKey?: string;
         /**
          * (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
          */
         storageAccountAccessKeyIsSecondary?: boolean;
         /**
-         * (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+         * (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
          */
-        storageEndpoint: string;
+        storageEndpoint?: string;
     }
 
     export interface SqlServerIdentity {
@@ -22545,9 +22690,12 @@ export namespace waf {
 
     export interface PolicyPolicySettings {
         /**
-         * Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
+         * Describes if the policy is in enabled state or disabled state. Defaults to `true`.
          */
         enabled?: boolean;
+        /**
+         * The File Upload Limit in MB. Accepted values are in the range `1` to `750`. Defaults to `100`.
+         */
         fileUploadLimitInMb?: number;
         /**
          * The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `128`. Defaults to `128`.

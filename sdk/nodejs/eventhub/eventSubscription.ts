@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const defaultResourceGroup = new azure.core.ResourceGroup("defaultResourceGroup", {location: "West US 2"});
+ * const defaultResourceGroup = new azure.core.ResourceGroup("defaultResourceGroup", {location: "West Europe"});
  * const defaultAccount = new azure.storage.Account("defaultAccount", {
  *     resourceGroupName: defaultResourceGroup.name,
  *     location: defaultResourceGroup.location,

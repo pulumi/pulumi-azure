@@ -27,6 +27,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewAlertRuleMsSecurityIncident(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:sentinel/alertRuleScheduled:AlertRuleScheduled":
 		r, err = NewAlertRuleScheduled(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail":
+		r, err = NewDataConnectorAwsCloudTrail(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:sentinel/dataConnectorAzureActiveDirectory:DataConnectorAzureActiveDirectory":
+		r, err = NewDataConnectorAzureActiveDirectory(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:sentinel/dataConnectorOffice365:DataConnectorOffice365":
+		r, err = NewDataConnectorOffice365(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence":
+		r, err = NewDataConnectorThreatIntelligence(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -52,6 +60,26 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"sentinel/alertRuleScheduled",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/dataConnectorAwsCloudTrail",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/dataConnectorAzureActiveDirectory",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/dataConnectorOffice365",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/dataConnectorThreatIntelligence",
 		&module{version},
 	)
 }

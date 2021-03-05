@@ -24,7 +24,7 @@ namespace Pulumi.Azure.DataboxEdge
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "East US",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleDevice = new Azure.DataboxEdge.Device("exampleDevice", new Azure.DataboxEdge.DeviceArgs
     ///         {

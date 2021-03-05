@@ -37,7 +37,7 @@ class RegistryWebhook(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West US")
+        rg = azure.core.ResourceGroup("rg", location="West Europe")
         acr = azure.containerservice.Registry("acr",
             resource_group_name=rg.name,
             location=rg.location,

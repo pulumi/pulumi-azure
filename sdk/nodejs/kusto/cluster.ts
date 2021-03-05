@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {location: "East US"});
+ * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
  * const example = new azure.kusto.Cluster("example", {
  *     location: rg.location,
  *     resourceGroupName: rg.name,
@@ -69,6 +69,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly dataIngestionUri!: pulumi.Output<string>;
     /**
+     * Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    public readonly doubleEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies if the cluster's disks are encrypted.
      */
     public readonly enableDiskEncryption!: pulumi.Output<boolean | undefined>;
@@ -85,7 +89,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<string | undefined>;
     /**
-     * A identity block.
+     * An identity block.
      */
     public readonly identity!: pulumi.Output<outputs.kusto.ClusterIdentity>;
     /**
@@ -147,6 +151,7 @@ export class Cluster extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
             inputs["dataIngestionUri"] = state ? state.dataIngestionUri : undefined;
+            inputs["doubleEncryptionEnabled"] = state ? state.doubleEncryptionEnabled : undefined;
             inputs["enableDiskEncryption"] = state ? state.enableDiskEncryption : undefined;
             inputs["enablePurge"] = state ? state.enablePurge : undefined;
             inputs["enableStreamingIngest"] = state ? state.enableStreamingIngest : undefined;
@@ -171,6 +176,7 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["doubleEncryptionEnabled"] = args ? args.doubleEncryptionEnabled : undefined;
             inputs["enableDiskEncryption"] = args ? args.enableDiskEncryption : undefined;
             inputs["enablePurge"] = args ? args.enablePurge : undefined;
             inputs["enableStreamingIngest"] = args ? args.enableStreamingIngest : undefined;
@@ -205,6 +211,10 @@ export interface ClusterState {
      */
     readonly dataIngestionUri?: pulumi.Input<string>;
     /**
+     * Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    readonly doubleEncryptionEnabled?: pulumi.Input<boolean>;
+    /**
      * Specifies if the cluster's disks are encrypted.
      */
     readonly enableDiskEncryption?: pulumi.Input<boolean>;
@@ -221,7 +231,7 @@ export interface ClusterState {
      */
     readonly engine?: pulumi.Input<string>;
     /**
-     * A identity block.
+     * An identity block.
      */
     readonly identity?: pulumi.Input<inputs.kusto.ClusterIdentity>;
     /**
@@ -275,6 +285,10 @@ export interface ClusterState {
  */
 export interface ClusterArgs {
     /**
+     * Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    readonly doubleEncryptionEnabled?: pulumi.Input<boolean>;
+    /**
      * Specifies if the cluster's disks are encrypted.
      */
     readonly enableDiskEncryption?: pulumi.Input<boolean>;
@@ -291,7 +305,7 @@ export interface ClusterArgs {
      */
     readonly engine?: pulumi.Input<string>;
     /**
-     * A identity block.
+     * An identity block.
      */
     readonly identity?: pulumi.Input<inputs.kusto.ClusterIdentity>;
     /**

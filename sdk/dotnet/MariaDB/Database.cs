@@ -24,7 +24,7 @@ namespace Pulumi.Azure.MariaDB
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "westeurope",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleServer = new Azure.MariaDB.Server("exampleServer", new Azure.MariaDB.ServerArgs
     ///         {

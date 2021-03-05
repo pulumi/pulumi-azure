@@ -43,7 +43,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="northeurope")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_account = example_resource_group.name.apply(lambda name: azure.storage.get_account(name="storageaccountname",
             resource_group_name=name))
         example_factory = azure.datafactory.Factory("exampleFactory",

@@ -19,10 +19,13 @@ class GetFunctionAppHostKeysResult:
     """
     A collection of values returned by getFunctionAppHostKeys.
     """
-    def __init__(__self__, default_function_key=None, id=None, master_key=None, name=None, primary_key=None, resource_group_name=None):
+    def __init__(__self__, default_function_key=None, event_grid_extension_config_key=None, id=None, master_key=None, name=None, primary_key=None, resource_group_name=None):
         if default_function_key and not isinstance(default_function_key, str):
             raise TypeError("Expected argument 'default_function_key' to be a str")
         pulumi.set(__self__, "default_function_key", default_function_key)
+        if event_grid_extension_config_key and not isinstance(event_grid_extension_config_key, str):
+            raise TypeError("Expected argument 'event_grid_extension_config_key' to be a str")
+        pulumi.set(__self__, "event_grid_extension_config_key", event_grid_extension_config_key)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -50,6 +53,14 @@ class GetFunctionAppHostKeysResult:
         Function App resource's default function key.
         """
         return pulumi.get(self, "default_function_key")
+
+    @property
+    @pulumi.getter(name="eventGridExtensionConfigKey")
+    def event_grid_extension_config_key(self) -> str:
+        """
+        Function App resource's Event Grid Extension Config system key.
+        """
+        return pulumi.get(self, "event_grid_extension_config_key")
 
     @property
     @pulumi.getter
@@ -90,6 +101,7 @@ class AwaitableGetFunctionAppHostKeysResult(GetFunctionAppHostKeysResult):
             yield self
         return GetFunctionAppHostKeysResult(
             default_function_key=self.default_function_key,
+            event_grid_extension_config_key=self.event_grid_extension_config_key,
             id=self.id,
             master_key=self.master_key,
             name=self.name,
@@ -130,6 +142,7 @@ def get_function_app_host_keys(name: Optional[str] = None,
 
     return AwaitableGetFunctionAppHostKeysResult(
         default_function_key=__ret__.default_function_key,
+        event_grid_extension_config_key=__ret__.event_grid_extension_config_key,
         id=__ret__.id,
         master_key=__ret__.master_key,
         name=__ret__.name,

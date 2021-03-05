@@ -25,7 +25,7 @@ namespace Pulumi.Azure.PostgreSql
     ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleServer = new Azure.PostgreSql.Server("exampleServer", new Azure.PostgreSql.ServerArgs
     ///         {

@@ -38,12 +38,12 @@ import (
 // 		if param := cfg.Get("videoLink"); param != "" {
 // 			videoLink = param
 // 		}
-// 		current, err := core.GetSubscription(ctx, nil, nil)
+// 		current, err := core.LookupSubscription(ctx, nil, nil)
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = core.NewResourceGroup(ctx, "my_group", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("uksouth"),
+// 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err

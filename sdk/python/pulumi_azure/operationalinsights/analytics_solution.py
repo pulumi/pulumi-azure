@@ -37,7 +37,7 @@ class AnalyticsSolution(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westeurope")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         workspace = random.RandomId("workspace",
             keepers={
                 "group_name": example_resource_group.name,

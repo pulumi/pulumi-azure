@@ -24,7 +24,7 @@ namespace Pulumi.Azure.EventGrid
     ///     {
     ///         var defaultResourceGroup = new Azure.Core.ResourceGroup("defaultResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US 2",
+    ///             Location = "West Europe",
     ///         });
     ///         var defaultAccount = new Azure.Storage.Account("defaultAccount", new Azure.Storage.AccountArgs
     ///         {

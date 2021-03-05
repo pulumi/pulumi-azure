@@ -37,7 +37,7 @@ class DatabasePrincipal(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        rg = azure.core.ResourceGroup("rg", location="East US")
+        rg = azure.core.ResourceGroup("rg", location="West Europe")
         cluster = azure.kusto.Cluster("cluster",
             location=rg.location,
             resource_group_name=rg.name,

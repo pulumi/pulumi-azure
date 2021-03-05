@@ -24,7 +24,7 @@ namespace Pulumi.Azure.AppPlatform
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "Southeast Asia",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new Azure.AppPlatform.SpringCloudServiceArgs
     ///         {

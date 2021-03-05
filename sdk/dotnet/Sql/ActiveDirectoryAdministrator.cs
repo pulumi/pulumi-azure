@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Sql
     ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new Azure.Sql.SqlServerArgs
     ///         {

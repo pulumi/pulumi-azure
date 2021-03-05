@@ -110,6 +110,7 @@ namespace Pulumi.Azure
              public class Features
              {
                 public Pulumi.Azure.Config.Types.FeaturesKeyVault? KeyVault { get; set; } = null!;
+                public Pulumi.Azure.Config.Types.FeaturesLogAnalyticsWorkspace? LogAnalyticsWorkspace { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesNetwork? Network { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesTemplateDeployment? TemplateDeployment { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesVirtualMachine? VirtualMachine { get; set; } = null!;
@@ -120,6 +121,11 @@ namespace Pulumi.Azure
              {
                 public bool? PurgeSoftDeleteOnDestroy { get; set; }
                 public bool? RecoverSoftDeletedKeyVaults { get; set; }
+            }
+
+             public class FeaturesLogAnalyticsWorkspace
+             {
+                public bool PermanentlyDeleteOnDestroy { get; set; }
             }
 
              public class FeaturesNetwork

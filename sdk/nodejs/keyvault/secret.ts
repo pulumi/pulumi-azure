@@ -111,6 +111,10 @@ export class Secret extends pulumi.CustomResource {
      * The current version of the Key Vault Secret.
      */
     public /*out*/ readonly version!: pulumi.Output<string>;
+    /**
+     * The Base ID of the Key Vault Secret.
+     */
+    public /*out*/ readonly versionlessId!: pulumi.Output<string>;
 
     /**
      * Create a Secret resource with the given unique name, arguments, and options.
@@ -133,6 +137,7 @@ export class Secret extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
             inputs["value"] = state ? state.value : undefined;
             inputs["version"] = state ? state.version : undefined;
+            inputs["versionlessId"] = state ? state.versionlessId : undefined;
         } else {
             const args = argsOrState as SecretArgs | undefined;
             if ((!args || args.keyVaultId === undefined) && !opts.urn) {
@@ -149,6 +154,7 @@ export class Secret extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["value"] = args ? args.value : undefined;
             inputs["version"] = undefined /*out*/;
+            inputs["versionlessId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -193,6 +199,10 @@ export interface SecretState {
      * The current version of the Key Vault Secret.
      */
     readonly version?: pulumi.Input<string>;
+    /**
+     * The Base ID of the Key Vault Secret.
+     */
+    readonly versionlessId?: pulumi.Input<string>;
 }
 
 /**

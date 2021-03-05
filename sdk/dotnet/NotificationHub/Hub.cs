@@ -24,7 +24,7 @@ namespace Pulumi.Azure.NotificationHub
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "Australia East",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleNamespace = new Azure.NotificationHub.Namespace("exampleNamespace", new Azure.NotificationHub.NamespaceArgs
     ///         {

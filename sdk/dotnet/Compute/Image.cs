@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Compute
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleImage = new Azure.Compute.Image("exampleImage", new Azure.Compute.ImageArgs
     ///         {
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Compute
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleImage = new Azure.Compute.Image("exampleImage", new Azure.Compute.ImageArgs
     ///         {

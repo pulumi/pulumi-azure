@@ -12,6 +12,7 @@ __all__ = [
     'ServiceCorArgs',
     'ServiceFeatureArgs',
     'ServiceSkuArgs',
+    'ServiceUpstreamEndpointArgs',
 ]
 
 @pulumi.input_type
@@ -108,5 +109,72 @@ class ServiceSkuArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ServiceUpstreamEndpointArgs:
+    def __init__(__self__, *,
+                 category_patterns: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 event_patterns: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 hub_patterns: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 url_template: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] category_patterns: The categories to match on, or `*` for all.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_patterns: The events to match on, or `*` for all.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] hub_patterns: The hubs to match on, or `*` for all.
+        :param pulumi.Input[str] url_template: The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
+        """
+        pulumi.set(__self__, "category_patterns", category_patterns)
+        pulumi.set(__self__, "event_patterns", event_patterns)
+        pulumi.set(__self__, "hub_patterns", hub_patterns)
+        pulumi.set(__self__, "url_template", url_template)
+
+    @property
+    @pulumi.getter(name="categoryPatterns")
+    def category_patterns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The categories to match on, or `*` for all.
+        """
+        return pulumi.get(self, "category_patterns")
+
+    @category_patterns.setter
+    def category_patterns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "category_patterns", value)
+
+    @property
+    @pulumi.getter(name="eventPatterns")
+    def event_patterns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The events to match on, or `*` for all.
+        """
+        return pulumi.get(self, "event_patterns")
+
+    @event_patterns.setter
+    def event_patterns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "event_patterns", value)
+
+    @property
+    @pulumi.getter(name="hubPatterns")
+    def hub_patterns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The hubs to match on, or `*` for all.
+        """
+        return pulumi.get(self, "hub_patterns")
+
+    @hub_patterns.setter
+    def hub_patterns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "hub_patterns", value)
+
+    @property
+    @pulumi.getter(name="urlTemplate")
+    def url_template(self) -> pulumi.Input[str]:
+        """
+        The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
+        """
+        return pulumi.get(self, "url_template")
+
+    @url_template.setter
+    def url_template(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url_template", value)
 
 

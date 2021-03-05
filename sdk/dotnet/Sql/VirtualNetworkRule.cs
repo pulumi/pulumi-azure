@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Sql
     ///     {
     ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = "West Europe",
     ///         });
     ///         var vnet = new Azure.Network.VirtualNetwork("vnet", new Azure.Network.VirtualNetworkArgs
     ///         {

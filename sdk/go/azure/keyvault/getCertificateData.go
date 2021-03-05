@@ -33,14 +33,14 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = keyvault.GetCertificateData(ctx, &keyvault.GetCertificateDataArgs{
+// 		exampleCertificateData, err := keyvault.GetCertificateData(ctx, &keyvault.GetCertificateDataArgs{
 // 			Name:       "secret-sauce",
 // 			KeyVaultId: exampleKeyVault.Id,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		ctx.Export("examplePem", data.Azurerm_key_vault_certificate.Example.Pem)
+// 		ctx.Export("examplePem", exampleCertificateData.Pem)
 // 		return nil
 // 	})
 // }

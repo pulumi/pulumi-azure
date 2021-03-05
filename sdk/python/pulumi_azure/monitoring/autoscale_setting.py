@@ -37,7 +37,7 @@ class AutoscaleSetting(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_scale_set = azure.compute.ScaleSet("exampleScaleSet")
         # ...
         example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
@@ -110,7 +110,7 @@ class AutoscaleSetting(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_scale_set = azure.compute.ScaleSet("exampleScaleSet")
         # ...
         example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
@@ -187,7 +187,7 @@ class AutoscaleSetting(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_scale_set = azure.compute.ScaleSet("exampleScaleSet")
         # ...
         example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",

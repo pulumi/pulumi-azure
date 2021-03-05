@@ -34,7 +34,7 @@ class CNameRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
         example_c_name_record = azure.dns.CNameRecord("exampleCNameRecord",
             zone_name=example_zone.name,
@@ -48,7 +48,7 @@ class CNameRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
         target = azure.dns.CNameRecord("target",
             zone_name=example_zone.name,

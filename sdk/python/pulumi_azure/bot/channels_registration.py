@@ -39,7 +39,7 @@ class ChannelsRegistration(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="northeurope")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
             location="global",
             resource_group_name=example_resource_group.name,

@@ -29,6 +29,15 @@ import * as utilities from "../utilities";
  *         flag: "ServiceMode",
  *         value: "Default",
  *     }],
+ *     upstreamEndpoints: [{
+ *         categoryPatterns: [
+ *             "connections",
+ *             "messages",
+ *         ],
+ *         eventPatterns: ["*"],
+ *         hubPatterns: ["hub1"],
+ *         urlTemplate: "http://foo.com",
+ *     }],
  * });
  * ```
  *
@@ -128,6 +137,10 @@ export class Service extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+     */
+    public readonly upstreamEndpoints!: pulumi.Output<outputs.signalr.ServiceUpstreamEndpoint[] | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -157,6 +170,7 @@ export class Service extends pulumi.CustomResource {
             inputs["serverPort"] = state ? state.serverPort : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["upstreamEndpoints"] = state ? state.upstreamEndpoints : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -172,6 +186,7 @@ export class Service extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["upstreamEndpoints"] = args ? args.upstreamEndpoints : undefined;
             inputs["hostname"] = undefined /*out*/;
             inputs["ipAddress"] = undefined /*out*/;
             inputs["primaryAccessKey"] = undefined /*out*/;
@@ -252,6 +267,10 @@ export interface ServiceState {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+     */
+    readonly upstreamEndpoints?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceUpstreamEndpoint>[]>;
 }
 
 /**
@@ -286,4 +305,8 @@ export interface ServiceArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+     */
+    readonly upstreamEndpoints?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceUpstreamEndpoint>[]>;
 }

@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewResourceGroupTemplateDeployment(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:core/resourceProviderRegistration:ResourceProviderRegistration":
 		r, err = NewResourceProviderRegistration(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:core/subscription:Subscription":
+		r, err = NewSubscription(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment":
 		r, err = NewSubscriptionTemplateDeployment(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:core/templateDeployment:TemplateDeployment":
@@ -63,6 +65,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"core/resourceProviderRegistration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"core/subscription",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

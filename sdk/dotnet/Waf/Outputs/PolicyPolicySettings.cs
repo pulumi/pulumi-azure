@@ -14,9 +14,12 @@ namespace Pulumi.Azure.Waf.Outputs
     public sealed class PolicyPolicySettings
     {
         /// <summary>
-        /// Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
+        /// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
         /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// The File Upload Limit in MB. Accepted values are in the range `1` to `750`. Defaults to `100`.
+        /// </summary>
         public readonly int? FileUploadLimitInMb;
         /// <summary>
         /// The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `128`. Defaults to `128`.

@@ -6,6 +6,10 @@
 from .alert_rule_fusion import *
 from .alert_rule_ms_security_incident import *
 from .alert_rule_scheduled import *
+from .data_connector_aws_cloud_trail import *
+from .data_connector_azure_active_directory import *
+from .data_connector_office365 import *
+from .data_connector_threat_intelligence import *
 from .get_alert_rule import *
 from .get_alert_rule_template import *
 from ._inputs import *
@@ -29,6 +33,14 @@ def _register_module():
                 return AlertRuleMsSecurityIncident(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:sentinel/alertRuleScheduled:AlertRuleScheduled":
                 return AlertRuleScheduled(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail":
+                return DataConnectorAwsCloudTrail(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:sentinel/dataConnectorAzureActiveDirectory:DataConnectorAzureActiveDirectory":
+                return DataConnectorAzureActiveDirectory(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:sentinel/dataConnectorOffice365:DataConnectorOffice365":
+                return DataConnectorOffice365(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence":
+                return DataConnectorThreatIntelligence(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
@@ -37,5 +49,9 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "sentinel/alertRuleFusion", _module_instance)
     pulumi.runtime.register_resource_module("azure", "sentinel/alertRuleMsSecurityIncident", _module_instance)
     pulumi.runtime.register_resource_module("azure", "sentinel/alertRuleScheduled", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "sentinel/dataConnectorAwsCloudTrail", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "sentinel/dataConnectorAzureActiveDirectory", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "sentinel/dataConnectorOffice365", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "sentinel/dataConnectorThreatIntelligence", _module_instance)
 
 _register_module()

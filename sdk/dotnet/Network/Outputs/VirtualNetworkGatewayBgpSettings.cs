@@ -22,13 +22,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// through BGP peering. Valid values can be between `0` and `100`.
         /// </summary>
         public readonly int? PeerWeight;
-        /// <summary>
-        /// The BGP peer IP address of the virtual network
-        /// gateway. This address is needed to configure the created gateway as a BGP Peer
-        /// on the on-premises VPN devices. The IP address must be part of the subnet of
-        /// the Virtual Network Gateway. Changing this forces a new resource to be created.
-        /// </summary>
         public readonly string? PeeringAddress;
+        /// <summary>
+        /// A list of `peering_addresses` as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualNetworkGatewayBgpSettingsPeeringAddress> PeeringAddresses;
 
         [OutputConstructor]
         private VirtualNetworkGatewayBgpSettings(
@@ -36,11 +34,14 @@ namespace Pulumi.Azure.Network.Outputs
 
             int? peerWeight,
 
-            string? peeringAddress)
+            string? peeringAddress,
+
+            ImmutableArray<Outputs.VirtualNetworkGatewayBgpSettingsPeeringAddress> peeringAddresses)
         {
             Asn = asn;
             PeerWeight = peerWeight;
             PeeringAddress = peeringAddress;
+            PeeringAddresses = peeringAddresses;
         }
     }
 }

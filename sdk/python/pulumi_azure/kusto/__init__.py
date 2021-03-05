@@ -10,6 +10,7 @@ from .cluster_principal_assignment import *
 from .database import *
 from .database_principal import *
 from .database_principal_assignment import *
+from .event_grid_data_connection import *
 from .eventhub_data_connection import *
 from .get_cluster import *
 from .iot_hub_data_connection import *
@@ -42,6 +43,8 @@ def _register_module():
                 return DatabasePrincipal(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment":
                 return DatabasePrincipalAssignment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:kusto/eventGridDataConnection:EventGridDataConnection":
+                return EventGridDataConnection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:kusto/eventhubDataConnection:EventhubDataConnection":
                 return EventhubDataConnection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:kusto/iotHubDataConnection:IotHubDataConnection":
@@ -58,6 +61,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "kusto/database", _module_instance)
     pulumi.runtime.register_resource_module("azure", "kusto/databasePrincipal", _module_instance)
     pulumi.runtime.register_resource_module("azure", "kusto/databasePrincipalAssignment", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "kusto/eventGridDataConnection", _module_instance)
     pulumi.runtime.register_resource_module("azure", "kusto/eventhubDataConnection", _module_instance)
     pulumi.runtime.register_resource_module("azure", "kusto/iotHubDataConnection", _module_instance)
 

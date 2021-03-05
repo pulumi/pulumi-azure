@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     },
  *     byteLength: 8,
  * });
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleTrafficManagerProfile = new azure.network.TrafficManagerProfile("exampleTrafficManagerProfile", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     trafficRoutingMethod: "Weighted",

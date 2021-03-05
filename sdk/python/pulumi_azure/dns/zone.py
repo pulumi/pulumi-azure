@@ -33,7 +33,7 @@ class Zone(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West US")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         example_public = azure.dns.Zone("example-public", resource_group_name=example.name)
         example_private = azure.privatedns.Zone("example-private", resource_group_name=example.name)
         ```

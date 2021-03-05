@@ -34,7 +34,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
             address_spaces=["10.7.29.0/29"],
             location=example_resource_group.location,

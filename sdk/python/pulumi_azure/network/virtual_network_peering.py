@@ -36,7 +36,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West US")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         example_1_virtual_network = azure.network.VirtualNetwork("example-1VirtualNetwork",
             resource_group_name=example.name,
             address_spaces=["10.0.1.0/24"],

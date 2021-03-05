@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "eastus"});
+ * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "West Europe"});
  * const testNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("testNetworkSecurityGroup", {
  *     location: testResourceGroup.location,
  *     resourceGroupName: testResourceGroup.name,

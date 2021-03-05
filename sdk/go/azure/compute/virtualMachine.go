@@ -43,7 +43,7 @@ import (
 // 			prefix = param
 // 		}
 // 		mainResourceGroup, err := core.NewResourceGroup(ctx, "mainResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West US 2"),
+// 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err

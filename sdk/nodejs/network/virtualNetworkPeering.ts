@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "West US"});
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const example_1VirtualNetwork = new azure.network.VirtualNetwork("example-1VirtualNetwork", {
  *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.1.0/24"],

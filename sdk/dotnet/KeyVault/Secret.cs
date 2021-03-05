@@ -125,6 +125,12 @@ namespace Pulumi.Azure.KeyVault
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
+        /// <summary>
+        /// The Base ID of the Key Vault Secret.
+        /// </summary>
+        [Output("versionlessId")]
+        public Output<string> VersionlessId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Secret resource with the given unique name, arguments, and options.
@@ -279,6 +285,12 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
+
+        /// <summary>
+        /// The Base ID of the Key Vault Secret.
+        /// </summary>
+        [Input("versionlessId")]
+        public Input<string>? VersionlessId { get; set; }
 
         public SecretState()
         {

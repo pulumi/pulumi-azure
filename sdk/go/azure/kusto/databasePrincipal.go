@@ -33,7 +33,7 @@ import (
 // 			return err
 // 		}
 // 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("East US"),
+// 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err

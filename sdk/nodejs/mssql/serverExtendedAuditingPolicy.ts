@@ -75,6 +75,10 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+     */
+    public readonly logMonitoringEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The number of days to retain logs for in the storage account.
      */
     public readonly retentionInDays!: pulumi.Output<number | undefined>;
@@ -93,7 +97,7 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
     /**
      * The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
      */
-    public readonly storageEndpoint!: pulumi.Output<string>;
+    public readonly storageEndpoint!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServerExtendedAuditingPolicy resource with the given unique name, arguments, and options.
@@ -108,6 +112,7 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerExtendedAuditingPolicyState | undefined;
+            inputs["logMonitoringEnabled"] = state ? state.logMonitoringEnabled : undefined;
             inputs["retentionInDays"] = state ? state.retentionInDays : undefined;
             inputs["serverId"] = state ? state.serverId : undefined;
             inputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
@@ -118,9 +123,7 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
             if ((!args || args.serverId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            if ((!args || args.storageEndpoint === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageEndpoint'");
-            }
+            inputs["logMonitoringEnabled"] = args ? args.logMonitoringEnabled : undefined;
             inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
             inputs["serverId"] = args ? args.serverId : undefined;
             inputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
@@ -138,6 +141,10 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServerExtendedAuditingPolicy resources.
  */
 export interface ServerExtendedAuditingPolicyState {
+    /**
+     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+     */
+    readonly logMonitoringEnabled?: pulumi.Input<boolean>;
     /**
      * The number of days to retain logs for in the storage account.
      */
@@ -165,6 +172,10 @@ export interface ServerExtendedAuditingPolicyState {
  */
 export interface ServerExtendedAuditingPolicyArgs {
     /**
+     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+     */
+    readonly logMonitoringEnabled?: pulumi.Input<boolean>;
+    /**
      * The number of days to retain logs for in the storage account.
      */
     readonly retentionInDays?: pulumi.Input<number>;
@@ -183,5 +194,5 @@ export interface ServerExtendedAuditingPolicyArgs {
     /**
      * The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
      */
-    readonly storageEndpoint: pulumi.Input<string>;
+    readonly storageEndpoint?: pulumi.Input<string>;
 }

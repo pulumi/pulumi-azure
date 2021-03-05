@@ -37,7 +37,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West US")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         home = azure.network.LocalNetworkGateway("home",
             resource_group_name=example.name,
             location=example.location,

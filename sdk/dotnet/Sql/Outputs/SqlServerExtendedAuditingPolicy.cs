@@ -14,32 +14,39 @@ namespace Pulumi.Azure.Sql.Outputs
     public sealed class SqlServerExtendedAuditingPolicy
     {
         /// <summary>
+        /// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+        /// </summary>
+        public readonly bool? LogMonitoringEnabled;
+        /// <summary>
         /// (Optional) Specifies the number of days to retain logs for in the storage account.
         /// </summary>
         public readonly int? RetentionInDays;
         /// <summary>
-        /// (Required)  Specifies the access key to use for the auditing storage account.
+        /// (Optional)  Specifies the access key to use for the auditing storage account.
         /// </summary>
-        public readonly string StorageAccountAccessKey;
+        public readonly string? StorageAccountAccessKey;
         /// <summary>
         /// (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
         /// </summary>
         public readonly bool? StorageAccountAccessKeyIsSecondary;
         /// <summary>
-        /// (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+        /// (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
         /// </summary>
-        public readonly string StorageEndpoint;
+        public readonly string? StorageEndpoint;
 
         [OutputConstructor]
         private SqlServerExtendedAuditingPolicy(
+            bool? logMonitoringEnabled,
+
             int? retentionInDays,
 
-            string storageAccountAccessKey,
+            string? storageAccountAccessKey,
 
             bool? storageAccountAccessKeyIsSecondary,
 
-            string storageEndpoint)
+            string? storageEndpoint)
         {
+            LogMonitoringEnabled = logMonitoringEnabled;
             RetentionInDays = retentionInDays;
             StorageAccountAccessKey = storageAccountAccessKey;
             StorageAccountAccessKeyIsSecondary = storageAccountAccessKeyIsSecondary;

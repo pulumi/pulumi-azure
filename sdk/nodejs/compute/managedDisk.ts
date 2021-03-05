@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US 2"});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleManagedDisk = new azure.compute.ManagedDisk("exampleManagedDisk", {
  *     location: "West US 2",
  *     resourceGroupName: exampleResourceGroup.name,
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "West US 2"});
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const source = new azure.compute.ManagedDisk("source", {
  *     location: "West US 2",
  *     resourceGroupName: example.name,

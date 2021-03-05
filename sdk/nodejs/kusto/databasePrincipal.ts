@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const rg = new azure.core.ResourceGroup("rg", {location: "East US"});
+ * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
  * const cluster = new azure.kusto.Cluster("cluster", {
  *     location: rg.location,
  *     resourceGroupName: rg.name,

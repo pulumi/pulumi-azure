@@ -39,7 +39,7 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="northeurope")
+        rg = azure.core.ResourceGroup("rg", location="West Europe")
         server = azure.analysisservices.Server("server",
             location="northeurope",
             resource_group_name=rg.name,

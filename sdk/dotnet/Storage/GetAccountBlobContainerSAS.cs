@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Storage
         ///     {
         ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
         ///         {
-        ///             Location = "westus",
+        ///             Location = "West Europe",
         ///         });
         ///         var storage = new Azure.Storage.Account("storage", new Azure.Storage.AccountArgs
         ///         {

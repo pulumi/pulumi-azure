@@ -363,6 +363,130 @@ func (o ServiceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServiceUpstreamEndpoint struct {
+	// The categories to match on, or `*` for all.
+	CategoryPatterns []string `pulumi:"categoryPatterns"`
+	// The events to match on, or `*` for all.
+	EventPatterns []string `pulumi:"eventPatterns"`
+	// The hubs to match on, or `*` for all.
+	HubPatterns []string `pulumi:"hubPatterns"`
+	// The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
+	UrlTemplate string `pulumi:"urlTemplate"`
+}
+
+// ServiceUpstreamEndpointInput is an input type that accepts ServiceUpstreamEndpointArgs and ServiceUpstreamEndpointOutput values.
+// You can construct a concrete instance of `ServiceUpstreamEndpointInput` via:
+//
+//          ServiceUpstreamEndpointArgs{...}
+type ServiceUpstreamEndpointInput interface {
+	pulumi.Input
+
+	ToServiceUpstreamEndpointOutput() ServiceUpstreamEndpointOutput
+	ToServiceUpstreamEndpointOutputWithContext(context.Context) ServiceUpstreamEndpointOutput
+}
+
+type ServiceUpstreamEndpointArgs struct {
+	// The categories to match on, or `*` for all.
+	CategoryPatterns pulumi.StringArrayInput `pulumi:"categoryPatterns"`
+	// The events to match on, or `*` for all.
+	EventPatterns pulumi.StringArrayInput `pulumi:"eventPatterns"`
+	// The hubs to match on, or `*` for all.
+	HubPatterns pulumi.StringArrayInput `pulumi:"hubPatterns"`
+	// The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
+	UrlTemplate pulumi.StringInput `pulumi:"urlTemplate"`
+}
+
+func (ServiceUpstreamEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceUpstreamEndpoint)(nil)).Elem()
+}
+
+func (i ServiceUpstreamEndpointArgs) ToServiceUpstreamEndpointOutput() ServiceUpstreamEndpointOutput {
+	return i.ToServiceUpstreamEndpointOutputWithContext(context.Background())
+}
+
+func (i ServiceUpstreamEndpointArgs) ToServiceUpstreamEndpointOutputWithContext(ctx context.Context) ServiceUpstreamEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceUpstreamEndpointOutput)
+}
+
+// ServiceUpstreamEndpointArrayInput is an input type that accepts ServiceUpstreamEndpointArray and ServiceUpstreamEndpointArrayOutput values.
+// You can construct a concrete instance of `ServiceUpstreamEndpointArrayInput` via:
+//
+//          ServiceUpstreamEndpointArray{ ServiceUpstreamEndpointArgs{...} }
+type ServiceUpstreamEndpointArrayInput interface {
+	pulumi.Input
+
+	ToServiceUpstreamEndpointArrayOutput() ServiceUpstreamEndpointArrayOutput
+	ToServiceUpstreamEndpointArrayOutputWithContext(context.Context) ServiceUpstreamEndpointArrayOutput
+}
+
+type ServiceUpstreamEndpointArray []ServiceUpstreamEndpointInput
+
+func (ServiceUpstreamEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceUpstreamEndpoint)(nil)).Elem()
+}
+
+func (i ServiceUpstreamEndpointArray) ToServiceUpstreamEndpointArrayOutput() ServiceUpstreamEndpointArrayOutput {
+	return i.ToServiceUpstreamEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceUpstreamEndpointArray) ToServiceUpstreamEndpointArrayOutputWithContext(ctx context.Context) ServiceUpstreamEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceUpstreamEndpointArrayOutput)
+}
+
+type ServiceUpstreamEndpointOutput struct{ *pulumi.OutputState }
+
+func (ServiceUpstreamEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceUpstreamEndpoint)(nil)).Elem()
+}
+
+func (o ServiceUpstreamEndpointOutput) ToServiceUpstreamEndpointOutput() ServiceUpstreamEndpointOutput {
+	return o
+}
+
+func (o ServiceUpstreamEndpointOutput) ToServiceUpstreamEndpointOutputWithContext(ctx context.Context) ServiceUpstreamEndpointOutput {
+	return o
+}
+
+// The categories to match on, or `*` for all.
+func (o ServiceUpstreamEndpointOutput) CategoryPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceUpstreamEndpoint) []string { return v.CategoryPatterns }).(pulumi.StringArrayOutput)
+}
+
+// The events to match on, or `*` for all.
+func (o ServiceUpstreamEndpointOutput) EventPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceUpstreamEndpoint) []string { return v.EventPatterns }).(pulumi.StringArrayOutput)
+}
+
+// The hubs to match on, or `*` for all.
+func (o ServiceUpstreamEndpointOutput) HubPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceUpstreamEndpoint) []string { return v.HubPatterns }).(pulumi.StringArrayOutput)
+}
+
+// The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
+func (o ServiceUpstreamEndpointOutput) UrlTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceUpstreamEndpoint) string { return v.UrlTemplate }).(pulumi.StringOutput)
+}
+
+type ServiceUpstreamEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceUpstreamEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceUpstreamEndpoint)(nil)).Elem()
+}
+
+func (o ServiceUpstreamEndpointArrayOutput) ToServiceUpstreamEndpointArrayOutput() ServiceUpstreamEndpointArrayOutput {
+	return o
+}
+
+func (o ServiceUpstreamEndpointArrayOutput) ToServiceUpstreamEndpointArrayOutputWithContext(ctx context.Context) ServiceUpstreamEndpointArrayOutput {
+	return o
+}
+
+func (o ServiceUpstreamEndpointArrayOutput) Index(i pulumi.IntInput) ServiceUpstreamEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceUpstreamEndpoint {
+		return vs[0].([]ServiceUpstreamEndpoint)[vs[1].(int)]
+	}).(ServiceUpstreamEndpointOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceCorOutput{})
 	pulumi.RegisterOutputType(ServiceCorArrayOutput{})
@@ -370,4 +494,6 @@ func init() {
 	pulumi.RegisterOutputType(ServiceFeatureArrayOutput{})
 	pulumi.RegisterOutputType(ServiceSkuOutput{})
 	pulumi.RegisterOutputType(ServiceSkuPtrOutput{})
+	pulumi.RegisterOutputType(ServiceUpstreamEndpointOutput{})
+	pulumi.RegisterOutputType(ServiceUpstreamEndpointArrayOutput{})
 }

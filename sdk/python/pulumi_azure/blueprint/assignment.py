@@ -50,7 +50,7 @@ class Assignment(pulumi.CustomResource):
             blueprint_name=example_definition.name,
             version="v1.0.0")
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup",
-            location="westeurope",
+            location="West Europe",
             tags={
                 "Environment": "example",
             })

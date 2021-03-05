@@ -104,6 +104,7 @@ __all__ = [
     'VirtualHubRouteTableRouteArgs',
     'VirtualNetworkDdosProtectionPlanArgs',
     'VirtualNetworkGatewayBgpSettingsArgs',
+    'VirtualNetworkGatewayBgpSettingsPeeringAddressArgs',
     'VirtualNetworkGatewayConnectionIpsecPolicyArgs',
     'VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs',
     'VirtualNetworkGatewayCustomRouteArgs',
@@ -7181,22 +7182,25 @@ class VirtualNetworkGatewayBgpSettingsArgs:
     def __init__(__self__, *,
                  asn: Optional[pulumi.Input[int]] = None,
                  peer_weight: Optional[pulumi.Input[int]] = None,
-                 peering_address: Optional[pulumi.Input[str]] = None):
+                 peering_address: Optional[pulumi.Input[str]] = None,
+                 peering_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs']]]] = None):
         """
         :param pulumi.Input[int] asn: The Autonomous System Number (ASN) to use as part of the BGP.
         :param pulumi.Input[int] peer_weight: The weight added to routes which have been learned
                through BGP peering. Valid values can be between `0` and `100`.
-        :param pulumi.Input[str] peering_address: The BGP peer IP address of the virtual network
-               gateway. This address is needed to configure the created gateway as a BGP Peer
-               on the on-premises VPN devices. The IP address must be part of the subnet of
-               the Virtual Network Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs']]] peering_addresses: A list of `peering_addresses` as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
         """
         if asn is not None:
             pulumi.set(__self__, "asn", asn)
         if peer_weight is not None:
             pulumi.set(__self__, "peer_weight", peer_weight)
         if peering_address is not None:
+            warnings.warn("""Deprecated in favor of `bgp_settings.0.peering_addresses.0.default_addresses.0`""", DeprecationWarning)
+            pulumi.log.warn("peering_address is deprecated: Deprecated in favor of `bgp_settings.0.peering_addresses.0.default_addresses.0`")
+        if peering_address is not None:
             pulumi.set(__self__, "peering_address", peering_address)
+        if peering_addresses is not None:
+            pulumi.set(__self__, "peering_addresses", peering_addresses)
 
     @property
     @pulumi.getter
@@ -7226,17 +7230,94 @@ class VirtualNetworkGatewayBgpSettingsArgs:
     @property
     @pulumi.getter(name="peeringAddress")
     def peering_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The BGP peer IP address of the virtual network
-        gateway. This address is needed to configure the created gateway as a BGP Peer
-        on the on-premises VPN devices. The IP address must be part of the subnet of
-        the Virtual Network Gateway. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "peering_address")
 
     @peering_address.setter
     def peering_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "peering_address", value)
+
+    @property
+    @pulumi.getter(name="peeringAddresses")
+    def peering_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs']]]]:
+        """
+        A list of `peering_addresses` as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
+        """
+        return pulumi.get(self, "peering_addresses")
+
+    @peering_addresses.setter
+    def peering_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs']]]]):
+        pulumi.set(self, "peering_addresses", value)
+
+
+@pulumi.input_type
+class VirtualNetworkGatewayBgpSettingsPeeringAddressArgs:
+    def __init__(__self__, *,
+                 apipa_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 default_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ip_configuration_name: Optional[pulumi.Input[str]] = None,
+                 tunnel_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] apipa_addresses: A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_addresses: A list of peering address assigned to the BGP peer of the Virtual Network Gateway.
+        :param pulumi.Input[str] ip_configuration_name: The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ip_configuration` blocks defined, this property is **required** to specify.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel_ip_addresses: A list of tunnel IP addresses assigned to the BGP peer of the Virtual Network Gateway.
+        """
+        if apipa_addresses is not None:
+            pulumi.set(__self__, "apipa_addresses", apipa_addresses)
+        if default_addresses is not None:
+            pulumi.set(__self__, "default_addresses", default_addresses)
+        if ip_configuration_name is not None:
+            pulumi.set(__self__, "ip_configuration_name", ip_configuration_name)
+        if tunnel_ip_addresses is not None:
+            pulumi.set(__self__, "tunnel_ip_addresses", tunnel_ip_addresses)
+
+    @property
+    @pulumi.getter(name="apipaAddresses")
+    def apipa_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
+        """
+        return pulumi.get(self, "apipa_addresses")
+
+    @apipa_addresses.setter
+    def apipa_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "apipa_addresses", value)
+
+    @property
+    @pulumi.getter(name="defaultAddresses")
+    def default_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of peering address assigned to the BGP peer of the Virtual Network Gateway.
+        """
+        return pulumi.get(self, "default_addresses")
+
+    @default_addresses.setter
+    def default_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "default_addresses", value)
+
+    @property
+    @pulumi.getter(name="ipConfigurationName")
+    def ip_configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ip_configuration` blocks defined, this property is **required** to specify.
+        """
+        return pulumi.get(self, "ip_configuration_name")
+
+    @ip_configuration_name.setter
+    def ip_configuration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_configuration_name", value)
+
+    @property
+    @pulumi.getter(name="tunnelIpAddresses")
+    def tunnel_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of tunnel IP addresses assigned to the BGP peer of the Virtual Network Gateway.
+        """
+        return pulumi.get(self, "tunnel_ip_addresses")
+
+    @tunnel_ip_addresses.setter
+    def tunnel_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tunnel_ip_addresses", value)
 
 
 @pulumi.input_type

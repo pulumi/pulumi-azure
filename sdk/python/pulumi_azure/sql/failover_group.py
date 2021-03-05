@@ -37,7 +37,7 @@ class FailoverGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="uksouth")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         primary = azure.sql.SqlServer("primary",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,

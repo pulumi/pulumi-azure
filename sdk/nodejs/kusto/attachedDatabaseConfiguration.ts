@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {location: "East US"});
+ * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
  * const followerCluster = new azure.kusto.Cluster("followerCluster", {
  *     location: rg.location,
  *     resourceGroupName: rg.name,

@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Bot
     ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "northeurope",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleWebApp = new Azure.Bot.WebApp("exampleWebApp", new Azure.Bot.WebAppArgs
     ///         {

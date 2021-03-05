@@ -24,7 +24,7 @@ namespace Pulumi.Azure.DataFactory
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "northeurope",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
     ///         {

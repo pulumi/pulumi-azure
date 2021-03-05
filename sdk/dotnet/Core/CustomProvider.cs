@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Core
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "northeurope",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleCustomProvider = new Azure.Core.CustomProvider("exampleCustomProvider", new Azure.Core.CustomProviderArgs
     ///         {

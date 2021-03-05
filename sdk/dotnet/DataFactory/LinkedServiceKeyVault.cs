@@ -25,7 +25,7 @@ namespace Pulumi.Azure.DataFactory
     ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "eastus",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
     ///         {

@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "West US"});
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const testZone = new azure.privatedns.Zone("testZone", {resourceGroupName: azurerm_resource_group.test.name});
  * const testTxtRecord = new azure.privatedns.TxtRecord("testTxtRecord", {
  *     resourceGroupName: azurerm_resource_group.test.name,

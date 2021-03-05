@@ -11,6 +11,7 @@ from . import _utilities, _tables
 __all__ = [
     'ProviderFeaturesArgs',
     'ProviderFeaturesKeyVaultArgs',
+    'ProviderFeaturesLogAnalyticsWorkspaceArgs',
     'ProviderFeaturesNetworkArgs',
     'ProviderFeaturesTemplateDeploymentArgs',
     'ProviderFeaturesVirtualMachineArgs',
@@ -21,12 +22,15 @@ __all__ = [
 class ProviderFeaturesArgs:
     def __init__(__self__, *,
                  key_vault: Optional[pulumi.Input['ProviderFeaturesKeyVaultArgs']] = None,
+                 log_analytics_workspace: Optional[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArgs']] = None,
                  network: Optional[pulumi.Input['ProviderFeaturesNetworkArgs']] = None,
                  template_deployment: Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArgs']] = None,
                  virtual_machine: Optional[pulumi.Input['ProviderFeaturesVirtualMachineArgs']] = None,
                  virtual_machine_scale_set: Optional[pulumi.Input['ProviderFeaturesVirtualMachineScaleSetArgs']] = None):
         if key_vault is not None:
             pulumi.set(__self__, "key_vault", key_vault)
+        if log_analytics_workspace is not None:
+            pulumi.set(__self__, "log_analytics_workspace", log_analytics_workspace)
         if network is not None:
             pulumi.set(__self__, "network", network)
         if template_deployment is not None:
@@ -44,6 +48,15 @@ class ProviderFeaturesArgs:
     @key_vault.setter
     def key_vault(self, value: Optional[pulumi.Input['ProviderFeaturesKeyVaultArgs']]):
         pulumi.set(self, "key_vault", value)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspace")
+    def log_analytics_workspace(self) -> Optional[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArgs']]:
+        return pulumi.get(self, "log_analytics_workspace")
+
+    @log_analytics_workspace.setter
+    def log_analytics_workspace(self, value: Optional[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArgs']]):
+        pulumi.set(self, "log_analytics_workspace", value)
 
     @property
     @pulumi.getter
@@ -109,6 +122,22 @@ class ProviderFeaturesKeyVaultArgs:
     @recover_soft_deleted_key_vaults.setter
     def recover_soft_deleted_key_vaults(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "recover_soft_deleted_key_vaults", value)
+
+
+@pulumi.input_type
+class ProviderFeaturesLogAnalyticsWorkspaceArgs:
+    def __init__(__self__, *,
+                 permanently_delete_on_destroy: pulumi.Input[bool]):
+        pulumi.set(__self__, "permanently_delete_on_destroy", permanently_delete_on_destroy)
+
+    @property
+    @pulumi.getter(name="permanentlyDeleteOnDestroy")
+    def permanently_delete_on_destroy(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "permanently_delete_on_destroy")
+
+    @permanently_delete_on_destroy.setter
+    def permanently_delete_on_destroy(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "permanently_delete_on_destroy", value)
 
 
 @pulumi.input_type

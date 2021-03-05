@@ -14121,11 +14121,10 @@ type VirtualNetworkGatewayBgpSettings struct {
 	// The weight added to routes which have been learned
 	// through BGP peering. Valid values can be between `0` and `100`.
 	PeerWeight *int `pulumi:"peerWeight"`
-	// The BGP peer IP address of the virtual network
-	// gateway. This address is needed to configure the created gateway as a BGP Peer
-	// on the on-premises VPN devices. The IP address must be part of the subnet of
-	// the Virtual Network Gateway. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of `bgp_settings.0.peering_addresses.0.default_addresses.0`
 	PeeringAddress *string `pulumi:"peeringAddress"`
+	// A list of `peeringAddresses` as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
+	PeeringAddresses []VirtualNetworkGatewayBgpSettingsPeeringAddress `pulumi:"peeringAddresses"`
 }
 
 // VirtualNetworkGatewayBgpSettingsInput is an input type that accepts VirtualNetworkGatewayBgpSettingsArgs and VirtualNetworkGatewayBgpSettingsOutput values.
@@ -14145,11 +14144,10 @@ type VirtualNetworkGatewayBgpSettingsArgs struct {
 	// The weight added to routes which have been learned
 	// through BGP peering. Valid values can be between `0` and `100`.
 	PeerWeight pulumi.IntPtrInput `pulumi:"peerWeight"`
-	// The BGP peer IP address of the virtual network
-	// gateway. This address is needed to configure the created gateway as a BGP Peer
-	// on the on-premises VPN devices. The IP address must be part of the subnet of
-	// the Virtual Network Gateway. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of `bgp_settings.0.peering_addresses.0.default_addresses.0`
 	PeeringAddress pulumi.StringPtrInput `pulumi:"peeringAddress"`
+	// A list of `peeringAddresses` as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
+	PeeringAddresses VirtualNetworkGatewayBgpSettingsPeeringAddressArrayInput `pulumi:"peeringAddresses"`
 }
 
 func (VirtualNetworkGatewayBgpSettingsArgs) ElementType() reflect.Type {
@@ -14240,12 +14238,16 @@ func (o VirtualNetworkGatewayBgpSettingsOutput) PeerWeight() pulumi.IntPtrOutput
 	return o.ApplyT(func(v VirtualNetworkGatewayBgpSettings) *int { return v.PeerWeight }).(pulumi.IntPtrOutput)
 }
 
-// The BGP peer IP address of the virtual network
-// gateway. This address is needed to configure the created gateway as a BGP Peer
-// on the on-premises VPN devices. The IP address must be part of the subnet of
-// the Virtual Network Gateway. Changing this forces a new resource to be created.
+// Deprecated: Deprecated in favor of `bgp_settings.0.peering_addresses.0.default_addresses.0`
 func (o VirtualNetworkGatewayBgpSettingsOutput) PeeringAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayBgpSettings) *string { return v.PeeringAddress }).(pulumi.StringPtrOutput)
+}
+
+// A list of `peeringAddresses` as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
+func (o VirtualNetworkGatewayBgpSettingsOutput) PeeringAddresses() VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayBgpSettings) []VirtualNetworkGatewayBgpSettingsPeeringAddress {
+		return v.PeeringAddresses
+	}).(VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput)
 }
 
 type VirtualNetworkGatewayBgpSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -14287,10 +14289,7 @@ func (o VirtualNetworkGatewayBgpSettingsPtrOutput) PeerWeight() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// The BGP peer IP address of the virtual network
-// gateway. This address is needed to configure the created gateway as a BGP Peer
-// on the on-premises VPN devices. The IP address must be part of the subnet of
-// the Virtual Network Gateway. Changing this forces a new resource to be created.
+// Deprecated: Deprecated in favor of `bgp_settings.0.peering_addresses.0.default_addresses.0`
 func (o VirtualNetworkGatewayBgpSettingsPtrOutput) PeeringAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayBgpSettings) *string {
 		if v == nil {
@@ -14298,6 +14297,140 @@ func (o VirtualNetworkGatewayBgpSettingsPtrOutput) PeeringAddress() pulumi.Strin
 		}
 		return v.PeeringAddress
 	}).(pulumi.StringPtrOutput)
+}
+
+// A list of `peeringAddresses` as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
+func (o VirtualNetworkGatewayBgpSettingsPtrOutput) PeeringAddresses() VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayBgpSettings) []VirtualNetworkGatewayBgpSettingsPeeringAddress {
+		if v == nil {
+			return nil
+		}
+		return v.PeeringAddresses
+	}).(VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput)
+}
+
+type VirtualNetworkGatewayBgpSettingsPeeringAddress struct {
+	// A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
+	ApipaAddresses []string `pulumi:"apipaAddresses"`
+	// A list of peering address assigned to the BGP peer of the Virtual Network Gateway.
+	DefaultAddresses []string `pulumi:"defaultAddresses"`
+	// The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ipConfiguration` blocks defined, this property is **required** to specify.
+	IpConfigurationName *string `pulumi:"ipConfigurationName"`
+	// A list of tunnel IP addresses assigned to the BGP peer of the Virtual Network Gateway.
+	TunnelIpAddresses []string `pulumi:"tunnelIpAddresses"`
+}
+
+// VirtualNetworkGatewayBgpSettingsPeeringAddressInput is an input type that accepts VirtualNetworkGatewayBgpSettingsPeeringAddressArgs and VirtualNetworkGatewayBgpSettingsPeeringAddressOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayBgpSettingsPeeringAddressInput` via:
+//
+//          VirtualNetworkGatewayBgpSettingsPeeringAddressArgs{...}
+type VirtualNetworkGatewayBgpSettingsPeeringAddressInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayBgpSettingsPeeringAddressOutput() VirtualNetworkGatewayBgpSettingsPeeringAddressOutput
+	ToVirtualNetworkGatewayBgpSettingsPeeringAddressOutputWithContext(context.Context) VirtualNetworkGatewayBgpSettingsPeeringAddressOutput
+}
+
+type VirtualNetworkGatewayBgpSettingsPeeringAddressArgs struct {
+	// A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
+	ApipaAddresses pulumi.StringArrayInput `pulumi:"apipaAddresses"`
+	// A list of peering address assigned to the BGP peer of the Virtual Network Gateway.
+	DefaultAddresses pulumi.StringArrayInput `pulumi:"defaultAddresses"`
+	// The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ipConfiguration` blocks defined, this property is **required** to specify.
+	IpConfigurationName pulumi.StringPtrInput `pulumi:"ipConfigurationName"`
+	// A list of tunnel IP addresses assigned to the BGP peer of the Virtual Network Gateway.
+	TunnelIpAddresses pulumi.StringArrayInput `pulumi:"tunnelIpAddresses"`
+}
+
+func (VirtualNetworkGatewayBgpSettingsPeeringAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayBgpSettingsPeeringAddress)(nil)).Elem()
+}
+
+func (i VirtualNetworkGatewayBgpSettingsPeeringAddressArgs) ToVirtualNetworkGatewayBgpSettingsPeeringAddressOutput() VirtualNetworkGatewayBgpSettingsPeeringAddressOutput {
+	return i.ToVirtualNetworkGatewayBgpSettingsPeeringAddressOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayBgpSettingsPeeringAddressArgs) ToVirtualNetworkGatewayBgpSettingsPeeringAddressOutputWithContext(ctx context.Context) VirtualNetworkGatewayBgpSettingsPeeringAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayBgpSettingsPeeringAddressOutput)
+}
+
+// VirtualNetworkGatewayBgpSettingsPeeringAddressArrayInput is an input type that accepts VirtualNetworkGatewayBgpSettingsPeeringAddressArray and VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayBgpSettingsPeeringAddressArrayInput` via:
+//
+//          VirtualNetworkGatewayBgpSettingsPeeringAddressArray{ VirtualNetworkGatewayBgpSettingsPeeringAddressArgs{...} }
+type VirtualNetworkGatewayBgpSettingsPeeringAddressArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput() VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput
+	ToVirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutputWithContext(context.Context) VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput
+}
+
+type VirtualNetworkGatewayBgpSettingsPeeringAddressArray []VirtualNetworkGatewayBgpSettingsPeeringAddressInput
+
+func (VirtualNetworkGatewayBgpSettingsPeeringAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkGatewayBgpSettingsPeeringAddress)(nil)).Elem()
+}
+
+func (i VirtualNetworkGatewayBgpSettingsPeeringAddressArray) ToVirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput() VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput {
+	return i.ToVirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayBgpSettingsPeeringAddressArray) ToVirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput)
+}
+
+type VirtualNetworkGatewayBgpSettingsPeeringAddressOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayBgpSettingsPeeringAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayBgpSettingsPeeringAddress)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayBgpSettingsPeeringAddressOutput) ToVirtualNetworkGatewayBgpSettingsPeeringAddressOutput() VirtualNetworkGatewayBgpSettingsPeeringAddressOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayBgpSettingsPeeringAddressOutput) ToVirtualNetworkGatewayBgpSettingsPeeringAddressOutputWithContext(ctx context.Context) VirtualNetworkGatewayBgpSettingsPeeringAddressOutput {
+	return o
+}
+
+// A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
+func (o VirtualNetworkGatewayBgpSettingsPeeringAddressOutput) ApipaAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayBgpSettingsPeeringAddress) []string { return v.ApipaAddresses }).(pulumi.StringArrayOutput)
+}
+
+// A list of peering address assigned to the BGP peer of the Virtual Network Gateway.
+func (o VirtualNetworkGatewayBgpSettingsPeeringAddressOutput) DefaultAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayBgpSettingsPeeringAddress) []string { return v.DefaultAddresses }).(pulumi.StringArrayOutput)
+}
+
+// The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ipConfiguration` blocks defined, this property is **required** to specify.
+func (o VirtualNetworkGatewayBgpSettingsPeeringAddressOutput) IpConfigurationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayBgpSettingsPeeringAddress) *string { return v.IpConfigurationName }).(pulumi.StringPtrOutput)
+}
+
+// A list of tunnel IP addresses assigned to the BGP peer of the Virtual Network Gateway.
+func (o VirtualNetworkGatewayBgpSettingsPeeringAddressOutput) TunnelIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayBgpSettingsPeeringAddress) []string { return v.TunnelIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+type VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkGatewayBgpSettingsPeeringAddress)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput) ToVirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput() VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput) ToVirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput) Index(i pulumi.IntInput) VirtualNetworkGatewayBgpSettingsPeeringAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkGatewayBgpSettingsPeeringAddress {
+		return vs[0].([]VirtualNetworkGatewayBgpSettingsPeeringAddress)[vs[1].(int)]
+	}).(VirtualNetworkGatewayBgpSettingsPeeringAddressOutput)
 }
 
 type VirtualNetworkGatewayConnectionIpsecPolicy struct {
@@ -21940,6 +22073,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkDdosProtectionPlanPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayBgpSettingsOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayBgpSettingsPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayBgpSettingsPeeringAddressOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionIpsecPolicyOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput{})

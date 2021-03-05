@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Waf
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US 2",
+    ///             Location = "West Europe",
     ///         });
     ///         var examplePolicy = new Azure.Waf.Policy("examplePolicy", new Azure.Waf.PolicyArgs
     ///         {

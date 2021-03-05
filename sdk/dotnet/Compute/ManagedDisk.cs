@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Compute
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US 2",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleManagedDisk = new Azure.Compute.ManagedDisk("exampleManagedDisk", new Azure.Compute.ManagedDiskArgs
     ///         {
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Compute
     ///     {
     ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US 2",
+    ///             Location = "West Europe",
     ///         });
     ///         var source = new Azure.Compute.ManagedDisk("source", new Azure.Compute.ManagedDiskArgs
     ///         {

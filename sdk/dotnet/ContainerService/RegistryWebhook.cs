@@ -24,7 +24,7 @@ namespace Pulumi.Azure.ContainerService
     ///     {
     ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = "West Europe",
     ///         });
     ///         var acr = new Azure.ContainerService.Registry("acr", new Azure.ContainerService.RegistryArgs
     ///         {

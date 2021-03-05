@@ -47,7 +47,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -121,6 +121,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                will be created. An active-active gateway requires a `HighPerformance` or an
                `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
                Defaults to `false`.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayBgpSettingsArgs']] bgp_settings: A block of `bgp_settings`.
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
                through which outbound Internet traffic from the virtual network in which the
                gateway is created will be routed (*forced tunnelling*). Refer to the
@@ -234,6 +235,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                will be created. An active-active gateway requires a `HighPerformance` or an
                `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
                Defaults to `false`.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayBgpSettingsArgs']] bgp_settings: A block of `bgp_settings`.
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
                through which outbound Internet traffic from the virtual network in which the
                gateway is created will be routed (*forced tunnelling*). Refer to the
@@ -305,6 +307,9 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @property
     @pulumi.getter(name="bgpSettings")
     def bgp_settings(self) -> pulumi.Output['outputs.VirtualNetworkGatewayBgpSettings']:
+        """
+        A block of `bgp_settings`.
+        """
         return pulumi.get(self, "bgp_settings")
 
     @property

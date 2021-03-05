@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {location: "westus"});
+ * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
  * const storage = new azure.storage.Account("storage", {
  *     resourceGroupName: rg.name,
  *     location: rg.location,

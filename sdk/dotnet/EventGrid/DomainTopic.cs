@@ -24,7 +24,7 @@ namespace Pulumi.Azure.EventGrid
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US 2",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleDomain = new Azure.EventGrid.Domain("exampleDomain", new Azure.EventGrid.DomainArgs
     ///         {

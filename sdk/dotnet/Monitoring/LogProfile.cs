@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Monitoring
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "eastus",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
     ///         {

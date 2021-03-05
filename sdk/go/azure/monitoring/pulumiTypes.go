@@ -1118,6 +1118,8 @@ func (o ActionGroupVoiceReceiverArrayOutput) Index(i pulumi.IntInput) ActionGrou
 }
 
 type ActionGroupWebhookReceiver struct {
+	// The `aadAuth` block as defined below
+	AadAuth *ActionGroupWebhookReceiverAadAuth `pulumi:"aadAuth"`
 	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 	Name string `pulumi:"name"`
 	// The URI where webhooks should be sent.
@@ -1138,6 +1140,8 @@ type ActionGroupWebhookReceiverInput interface {
 }
 
 type ActionGroupWebhookReceiverArgs struct {
+	// The `aadAuth` block as defined below
+	AadAuth ActionGroupWebhookReceiverAadAuthPtrInput `pulumi:"aadAuth"`
 	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The URI where webhooks should be sent.
@@ -1197,6 +1201,11 @@ func (o ActionGroupWebhookReceiverOutput) ToActionGroupWebhookReceiverOutputWith
 	return o
 }
 
+// The `aadAuth` block as defined below
+func (o ActionGroupWebhookReceiverOutput) AadAuth() ActionGroupWebhookReceiverAadAuthPtrOutput {
+	return o.ApplyT(func(v ActionGroupWebhookReceiver) *ActionGroupWebhookReceiverAadAuth { return v.AadAuth }).(ActionGroupWebhookReceiverAadAuthPtrOutput)
+}
+
 // The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 func (o ActionGroupWebhookReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupWebhookReceiver) string { return v.Name }).(pulumi.StringOutput)
@@ -1230,6 +1239,175 @@ func (o ActionGroupWebhookReceiverArrayOutput) Index(i pulumi.IntInput) ActionGr
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionGroupWebhookReceiver {
 		return vs[0].([]ActionGroupWebhookReceiver)[vs[1].(int)]
 	}).(ActionGroupWebhookReceiverOutput)
+}
+
+type ActionGroupWebhookReceiverAadAuth struct {
+	// The identifier uri for aad auth.
+	IdentifierUri *string `pulumi:"identifierUri"`
+	// The webhook application object Id for aad auth.
+	ObjectId string `pulumi:"objectId"`
+	// The tenant id for aad auth.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// ActionGroupWebhookReceiverAadAuthInput is an input type that accepts ActionGroupWebhookReceiverAadAuthArgs and ActionGroupWebhookReceiverAadAuthOutput values.
+// You can construct a concrete instance of `ActionGroupWebhookReceiverAadAuthInput` via:
+//
+//          ActionGroupWebhookReceiverAadAuthArgs{...}
+type ActionGroupWebhookReceiverAadAuthInput interface {
+	pulumi.Input
+
+	ToActionGroupWebhookReceiverAadAuthOutput() ActionGroupWebhookReceiverAadAuthOutput
+	ToActionGroupWebhookReceiverAadAuthOutputWithContext(context.Context) ActionGroupWebhookReceiverAadAuthOutput
+}
+
+type ActionGroupWebhookReceiverAadAuthArgs struct {
+	// The identifier uri for aad auth.
+	IdentifierUri pulumi.StringPtrInput `pulumi:"identifierUri"`
+	// The webhook application object Id for aad auth.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+	// The tenant id for aad auth.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (ActionGroupWebhookReceiverAadAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionGroupWebhookReceiverAadAuth)(nil)).Elem()
+}
+
+func (i ActionGroupWebhookReceiverAadAuthArgs) ToActionGroupWebhookReceiverAadAuthOutput() ActionGroupWebhookReceiverAadAuthOutput {
+	return i.ToActionGroupWebhookReceiverAadAuthOutputWithContext(context.Background())
+}
+
+func (i ActionGroupWebhookReceiverAadAuthArgs) ToActionGroupWebhookReceiverAadAuthOutputWithContext(ctx context.Context) ActionGroupWebhookReceiverAadAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupWebhookReceiverAadAuthOutput)
+}
+
+func (i ActionGroupWebhookReceiverAadAuthArgs) ToActionGroupWebhookReceiverAadAuthPtrOutput() ActionGroupWebhookReceiverAadAuthPtrOutput {
+	return i.ToActionGroupWebhookReceiverAadAuthPtrOutputWithContext(context.Background())
+}
+
+func (i ActionGroupWebhookReceiverAadAuthArgs) ToActionGroupWebhookReceiverAadAuthPtrOutputWithContext(ctx context.Context) ActionGroupWebhookReceiverAadAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupWebhookReceiverAadAuthOutput).ToActionGroupWebhookReceiverAadAuthPtrOutputWithContext(ctx)
+}
+
+// ActionGroupWebhookReceiverAadAuthPtrInput is an input type that accepts ActionGroupWebhookReceiverAadAuthArgs, ActionGroupWebhookReceiverAadAuthPtr and ActionGroupWebhookReceiverAadAuthPtrOutput values.
+// You can construct a concrete instance of `ActionGroupWebhookReceiverAadAuthPtrInput` via:
+//
+//          ActionGroupWebhookReceiverAadAuthArgs{...}
+//
+//  or:
+//
+//          nil
+type ActionGroupWebhookReceiverAadAuthPtrInput interface {
+	pulumi.Input
+
+	ToActionGroupWebhookReceiverAadAuthPtrOutput() ActionGroupWebhookReceiverAadAuthPtrOutput
+	ToActionGroupWebhookReceiverAadAuthPtrOutputWithContext(context.Context) ActionGroupWebhookReceiverAadAuthPtrOutput
+}
+
+type actionGroupWebhookReceiverAadAuthPtrType ActionGroupWebhookReceiverAadAuthArgs
+
+func ActionGroupWebhookReceiverAadAuthPtr(v *ActionGroupWebhookReceiverAadAuthArgs) ActionGroupWebhookReceiverAadAuthPtrInput {
+	return (*actionGroupWebhookReceiverAadAuthPtrType)(v)
+}
+
+func (*actionGroupWebhookReceiverAadAuthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionGroupWebhookReceiverAadAuth)(nil)).Elem()
+}
+
+func (i *actionGroupWebhookReceiverAadAuthPtrType) ToActionGroupWebhookReceiverAadAuthPtrOutput() ActionGroupWebhookReceiverAadAuthPtrOutput {
+	return i.ToActionGroupWebhookReceiverAadAuthPtrOutputWithContext(context.Background())
+}
+
+func (i *actionGroupWebhookReceiverAadAuthPtrType) ToActionGroupWebhookReceiverAadAuthPtrOutputWithContext(ctx context.Context) ActionGroupWebhookReceiverAadAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupWebhookReceiverAadAuthPtrOutput)
+}
+
+type ActionGroupWebhookReceiverAadAuthOutput struct{ *pulumi.OutputState }
+
+func (ActionGroupWebhookReceiverAadAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionGroupWebhookReceiverAadAuth)(nil)).Elem()
+}
+
+func (o ActionGroupWebhookReceiverAadAuthOutput) ToActionGroupWebhookReceiverAadAuthOutput() ActionGroupWebhookReceiverAadAuthOutput {
+	return o
+}
+
+func (o ActionGroupWebhookReceiverAadAuthOutput) ToActionGroupWebhookReceiverAadAuthOutputWithContext(ctx context.Context) ActionGroupWebhookReceiverAadAuthOutput {
+	return o
+}
+
+func (o ActionGroupWebhookReceiverAadAuthOutput) ToActionGroupWebhookReceiverAadAuthPtrOutput() ActionGroupWebhookReceiverAadAuthPtrOutput {
+	return o.ToActionGroupWebhookReceiverAadAuthPtrOutputWithContext(context.Background())
+}
+
+func (o ActionGroupWebhookReceiverAadAuthOutput) ToActionGroupWebhookReceiverAadAuthPtrOutputWithContext(ctx context.Context) ActionGroupWebhookReceiverAadAuthPtrOutput {
+	return o.ApplyT(func(v ActionGroupWebhookReceiverAadAuth) *ActionGroupWebhookReceiverAadAuth {
+		return &v
+	}).(ActionGroupWebhookReceiverAadAuthPtrOutput)
+}
+
+// The identifier uri for aad auth.
+func (o ActionGroupWebhookReceiverAadAuthOutput) IdentifierUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionGroupWebhookReceiverAadAuth) *string { return v.IdentifierUri }).(pulumi.StringPtrOutput)
+}
+
+// The webhook application object Id for aad auth.
+func (o ActionGroupWebhookReceiverAadAuthOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionGroupWebhookReceiverAadAuth) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// The tenant id for aad auth.
+func (o ActionGroupWebhookReceiverAadAuthOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionGroupWebhookReceiverAadAuth) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ActionGroupWebhookReceiverAadAuthPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionGroupWebhookReceiverAadAuthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionGroupWebhookReceiverAadAuth)(nil)).Elem()
+}
+
+func (o ActionGroupWebhookReceiverAadAuthPtrOutput) ToActionGroupWebhookReceiverAadAuthPtrOutput() ActionGroupWebhookReceiverAadAuthPtrOutput {
+	return o
+}
+
+func (o ActionGroupWebhookReceiverAadAuthPtrOutput) ToActionGroupWebhookReceiverAadAuthPtrOutputWithContext(ctx context.Context) ActionGroupWebhookReceiverAadAuthPtrOutput {
+	return o
+}
+
+func (o ActionGroupWebhookReceiverAadAuthPtrOutput) Elem() ActionGroupWebhookReceiverAadAuthOutput {
+	return o.ApplyT(func(v *ActionGroupWebhookReceiverAadAuth) ActionGroupWebhookReceiverAadAuth { return *v }).(ActionGroupWebhookReceiverAadAuthOutput)
+}
+
+// The identifier uri for aad auth.
+func (o ActionGroupWebhookReceiverAadAuthPtrOutput) IdentifierUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionGroupWebhookReceiverAadAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentifierUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The webhook application object Id for aad auth.
+func (o ActionGroupWebhookReceiverAadAuthPtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionGroupWebhookReceiverAadAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant id for aad auth.
+func (o ActionGroupWebhookReceiverAadAuthPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionGroupWebhookReceiverAadAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
 }
 
 type ActionRuleActionGroupCondition struct {
@@ -10896,6 +11074,8 @@ func init() {
 	pulumi.RegisterOutputType(ActionGroupVoiceReceiverArrayOutput{})
 	pulumi.RegisterOutputType(ActionGroupWebhookReceiverOutput{})
 	pulumi.RegisterOutputType(ActionGroupWebhookReceiverArrayOutput{})
+	pulumi.RegisterOutputType(ActionGroupWebhookReceiverAadAuthOutput{})
+	pulumi.RegisterOutputType(ActionGroupWebhookReceiverAadAuthPtrOutput{})
 	pulumi.RegisterOutputType(ActionRuleActionGroupConditionOutput{})
 	pulumi.RegisterOutputType(ActionRuleActionGroupConditionPtrOutput{})
 	pulumi.RegisterOutputType(ActionRuleActionGroupConditionAlertContextOutput{})

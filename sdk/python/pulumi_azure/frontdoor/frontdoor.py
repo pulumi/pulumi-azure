@@ -49,7 +49,7 @@ class Frontdoor(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="EastUS2")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
             location="EastUS2",
             resource_group_name=example_resource_group.name,

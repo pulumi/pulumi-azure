@@ -167,6 +167,10 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.compute.LinuxVirtualMachineIdentity | undefined>;
     /**
+     * Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+     */
+    public readonly licenseType!: pulumi.Output<string | undefined>;
+    /**
      * The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -283,6 +287,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
             inputs["extensionsTimeBudget"] = state ? state.extensionsTimeBudget : undefined;
             inputs["identity"] = state ? state.identity : undefined;
+            inputs["licenseType"] = state ? state.licenseType : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["maxBidPrice"] = state ? state.maxBidPrice : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -337,6 +342,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
             inputs["extensionsTimeBudget"] = args ? args.extensionsTimeBudget : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["licenseType"] = args ? args.licenseType : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maxBidPrice"] = args ? args.maxBidPrice : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -431,6 +437,10 @@ export interface LinuxVirtualMachineState {
      * An `identity` block as defined below.
      */
     readonly identity?: pulumi.Input<inputs.compute.LinuxVirtualMachineIdentity>;
+    /**
+     * Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+     */
+    readonly licenseType?: pulumi.Input<string>;
     /**
      * The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
      */
@@ -585,6 +595,10 @@ export interface LinuxVirtualMachineArgs {
      * An `identity` block as defined below.
      */
     readonly identity?: pulumi.Input<inputs.compute.LinuxVirtualMachineIdentity>;
+    /**
+     * Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+     */
+    readonly licenseType?: pulumi.Input<string>;
     /**
      * The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
      */

@@ -44,7 +44,7 @@ class ActionGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
             resource_group_name=example_resource_group.name,
             short_name="p0action",

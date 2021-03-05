@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class ActionGroupWebhookReceiver
     {
         /// <summary>
+        /// The `aad_auth` block as defined below
+        /// </summary>
+        public readonly Outputs.ActionGroupWebhookReceiverAadAuth? AadAuth;
+        /// <summary>
         /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         /// </summary>
         public readonly string Name;
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
         [OutputConstructor]
         private ActionGroupWebhookReceiver(
+            Outputs.ActionGroupWebhookReceiverAadAuth? aadAuth,
+
             string name,
 
             string serviceUri,
 
             bool? useCommonAlertSchema)
         {
+            AadAuth = aadAuth;
             Name = name;
             ServiceUri = serviceUri;
             UseCommonAlertSchema = useCommonAlertSchema;

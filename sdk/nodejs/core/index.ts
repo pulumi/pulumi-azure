@@ -15,6 +15,7 @@ export * from "./getUserAssignedIdentity";
 export * from "./resourceGroup";
 export * from "./resourceGroupTemplateDeployment";
 export * from "./resourceProviderRegistration";
+export * from "./subscription";
 export * from "./subscriptionTemplateDeployment";
 export * from "./templateDeployment";
 export * from "./zMixins";
@@ -24,6 +25,7 @@ import { CustomProvider } from "./customProvider";
 import { ResourceGroup } from "./resourceGroup";
 import { ResourceGroupTemplateDeployment } from "./resourceGroupTemplateDeployment";
 import { ResourceProviderRegistration } from "./resourceProviderRegistration";
+import { Subscription } from "./subscription";
 import { SubscriptionTemplateDeployment } from "./subscriptionTemplateDeployment";
 import { TemplateDeployment } from "./templateDeployment";
 
@@ -39,6 +41,8 @@ const _module = {
                 return new ResourceGroupTemplateDeployment(name, <any>undefined, { urn })
             case "azure:core/resourceProviderRegistration:ResourceProviderRegistration":
                 return new ResourceProviderRegistration(name, <any>undefined, { urn })
+            case "azure:core/subscription:Subscription":
+                return new Subscription(name, <any>undefined, { urn })
             case "azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment":
                 return new SubscriptionTemplateDeployment(name, <any>undefined, { urn })
             case "azure:core/templateDeployment:TemplateDeployment":
@@ -52,5 +56,6 @@ pulumi.runtime.registerResourceModule("azure", "core/customProvider", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceGroupTemplateDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceProviderRegistration", _module)
+pulumi.runtime.registerResourceModule("azure", "core/subscription", _module)
 pulumi.runtime.registerResourceModule("azure", "core/subscriptionTemplateDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "core/templateDeployment", _module)

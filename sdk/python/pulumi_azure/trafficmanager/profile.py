@@ -48,7 +48,7 @@ class Profile(pulumi.CustomResource):
                 "azi_id": 1,
             },
             byte_length=8)
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
             resource_group_name=example_resource_group.name,
             traffic_routing_method="Weighted",

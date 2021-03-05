@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const mainResourceGroup = new azure.core.ResourceGroup("mainResourceGroup", {location: "West US"});
+ * const mainResourceGroup = new azure.core.ResourceGroup("mainResourceGroup", {location: "West Europe"});
  * const toMonitor = new azure.storage.Account("toMonitor", {
  *     resourceGroupName: mainResourceGroup.name,
  *     location: mainResourceGroup.location,
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  * Metric Alerts can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:monitoring/metricAlert:MetricAlert main /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/microsoft.insights/metricalerts/example-metricalert
+ *  $ pulumi import azure:monitoring/metricAlert:MetricAlert main /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/microsoft.insights/metricAlerts/example-metricalert
  * ```
  */
 export class MetricAlert extends pulumi.CustomResource {

@@ -873,9 +873,10 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput) Index(i pu
 }
 
 type PolicyPolicySettings struct {
-	// Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
-	Enabled             *bool `pulumi:"enabled"`
-	FileUploadLimitInMb *int  `pulumi:"fileUploadLimitInMb"`
+	// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// The File Upload Limit in MB. Accepted values are in the range `1` to `750`. Defaults to `100`.
+	FileUploadLimitInMb *int `pulumi:"fileUploadLimitInMb"`
 	// The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `128`. Defaults to `128`.
 	MaxRequestBodySizeInKb *int `pulumi:"maxRequestBodySizeInKb"`
 	// Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
@@ -896,9 +897,10 @@ type PolicyPolicySettingsInput interface {
 }
 
 type PolicyPolicySettingsArgs struct {
-	// Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
-	Enabled             pulumi.BoolPtrInput `pulumi:"enabled"`
-	FileUploadLimitInMb pulumi.IntPtrInput  `pulumi:"fileUploadLimitInMb"`
+	// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The File Upload Limit in MB. Accepted values are in the range `1` to `750`. Defaults to `100`.
+	FileUploadLimitInMb pulumi.IntPtrInput `pulumi:"fileUploadLimitInMb"`
 	// The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `128`. Defaults to `128`.
 	MaxRequestBodySizeInKb pulumi.IntPtrInput `pulumi:"maxRequestBodySizeInKb"`
 	// Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
@@ -984,11 +986,12 @@ func (o PolicyPolicySettingsOutput) ToPolicyPolicySettingsPtrOutputWithContext(c
 	}).(PolicyPolicySettingsPtrOutput)
 }
 
-// Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
+// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
 func (o PolicyPolicySettingsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettings) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The File Upload Limit in MB. Accepted values are in the range `1` to `750`. Defaults to `100`.
 func (o PolicyPolicySettingsOutput) FileUploadLimitInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettings) *int { return v.FileUploadLimitInMb }).(pulumi.IntPtrOutput)
 }
@@ -1026,7 +1029,7 @@ func (o PolicyPolicySettingsPtrOutput) Elem() PolicyPolicySettingsOutput {
 	return o.ApplyT(func(v *PolicyPolicySettings) PolicyPolicySettings { return *v }).(PolicyPolicySettingsOutput)
 }
 
-// Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
+// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
 func (o PolicyPolicySettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PolicyPolicySettings) *bool {
 		if v == nil {
@@ -1036,6 +1039,7 @@ func (o PolicyPolicySettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The File Upload Limit in MB. Accepted values are in the range `1` to `750`. Defaults to `100`.
 func (o PolicyPolicySettingsPtrOutput) FileUploadLimitInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PolicyPolicySettings) *int {
 		if v == nil {

@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Kusto
     ///     {
     ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "East US",
+    ///             Location = "West Europe",
     ///         });
     ///         var cluster = new Azure.Kusto.Cluster("cluster", new Azure.Kusto.ClusterArgs
     ///         {

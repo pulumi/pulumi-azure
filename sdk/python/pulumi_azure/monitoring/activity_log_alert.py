@@ -37,7 +37,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        main_resource_group = azure.core.ResourceGroup("mainResourceGroup", location="West US")
+        main_resource_group = azure.core.ResourceGroup("mainResourceGroup", location="West Europe")
         main_action_group = azure.monitoring.ActionGroup("mainActionGroup",
             resource_group_name=main_resource_group.name,
             short_name="p0action",

@@ -24,7 +24,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     ///     {
     ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "eastus",
+    ///             Location = "West Europe",
     ///         });
     ///         var pooledbreadthfirst = new Azure.DesktopVirtualization.HostPool("pooledbreadthfirst", new Azure.DesktopVirtualization.HostPoolArgs
     ///         {

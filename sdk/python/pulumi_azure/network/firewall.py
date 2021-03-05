@@ -42,7 +42,7 @@ class Firewall(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="North Europe")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
             address_spaces=["10.0.0.0/16"],
             location=example_resource_group.location,

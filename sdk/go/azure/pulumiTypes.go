@@ -12,6 +12,7 @@ import (
 
 type ProviderFeatures struct {
 	KeyVault               *ProviderFeaturesKeyVault               `pulumi:"keyVault"`
+	LogAnalyticsWorkspace  *ProviderFeaturesLogAnalyticsWorkspace  `pulumi:"logAnalyticsWorkspace"`
 	Network                *ProviderFeaturesNetwork                `pulumi:"network"`
 	TemplateDeployment     *ProviderFeaturesTemplateDeployment     `pulumi:"templateDeployment"`
 	VirtualMachine         *ProviderFeaturesVirtualMachine         `pulumi:"virtualMachine"`
@@ -31,6 +32,7 @@ type ProviderFeaturesInput interface {
 
 type ProviderFeaturesArgs struct {
 	KeyVault               ProviderFeaturesKeyVaultPtrInput               `pulumi:"keyVault"`
+	LogAnalyticsWorkspace  ProviderFeaturesLogAnalyticsWorkspacePtrInput  `pulumi:"logAnalyticsWorkspace"`
 	Network                ProviderFeaturesNetworkPtrInput                `pulumi:"network"`
 	TemplateDeployment     ProviderFeaturesTemplateDeploymentPtrInput     `pulumi:"templateDeployment"`
 	VirtualMachine         ProviderFeaturesVirtualMachinePtrInput         `pulumi:"virtualMachine"`
@@ -117,6 +119,10 @@ func (o ProviderFeaturesOutput) KeyVault() ProviderFeaturesKeyVaultPtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesKeyVault { return v.KeyVault }).(ProviderFeaturesKeyVaultPtrOutput)
 }
 
+func (o ProviderFeaturesOutput) LogAnalyticsWorkspace() ProviderFeaturesLogAnalyticsWorkspacePtrOutput {
+	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesLogAnalyticsWorkspace { return v.LogAnalyticsWorkspace }).(ProviderFeaturesLogAnalyticsWorkspacePtrOutput)
+}
+
 func (o ProviderFeaturesOutput) Network() ProviderFeaturesNetworkPtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesNetwork { return v.Network }).(ProviderFeaturesNetworkPtrOutput)
 }
@@ -158,6 +164,15 @@ func (o ProviderFeaturesPtrOutput) KeyVault() ProviderFeaturesKeyVaultPtrOutput 
 		}
 		return v.KeyVault
 	}).(ProviderFeaturesKeyVaultPtrOutput)
+}
+
+func (o ProviderFeaturesPtrOutput) LogAnalyticsWorkspace() ProviderFeaturesLogAnalyticsWorkspacePtrOutput {
+	return o.ApplyT(func(v *ProviderFeatures) *ProviderFeaturesLogAnalyticsWorkspace {
+		if v == nil {
+			return nil
+		}
+		return v.LogAnalyticsWorkspace
+	}).(ProviderFeaturesLogAnalyticsWorkspacePtrOutput)
 }
 
 func (o ProviderFeaturesPtrOutput) Network() ProviderFeaturesNetworkPtrOutput {
@@ -334,6 +349,132 @@ func (o ProviderFeaturesKeyVaultPtrOutput) RecoverSoftDeletedKeyVaults() pulumi.
 			return nil
 		}
 		return v.RecoverSoftDeletedKeyVaults
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ProviderFeaturesLogAnalyticsWorkspace struct {
+	PermanentlyDeleteOnDestroy bool `pulumi:"permanentlyDeleteOnDestroy"`
+}
+
+// ProviderFeaturesLogAnalyticsWorkspaceInput is an input type that accepts ProviderFeaturesLogAnalyticsWorkspaceArgs and ProviderFeaturesLogAnalyticsWorkspaceOutput values.
+// You can construct a concrete instance of `ProviderFeaturesLogAnalyticsWorkspaceInput` via:
+//
+//          ProviderFeaturesLogAnalyticsWorkspaceArgs{...}
+type ProviderFeaturesLogAnalyticsWorkspaceInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesLogAnalyticsWorkspaceOutput() ProviderFeaturesLogAnalyticsWorkspaceOutput
+	ToProviderFeaturesLogAnalyticsWorkspaceOutputWithContext(context.Context) ProviderFeaturesLogAnalyticsWorkspaceOutput
+}
+
+type ProviderFeaturesLogAnalyticsWorkspaceArgs struct {
+	PermanentlyDeleteOnDestroy pulumi.BoolInput `pulumi:"permanentlyDeleteOnDestroy"`
+}
+
+func (ProviderFeaturesLogAnalyticsWorkspaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesLogAnalyticsWorkspace)(nil)).Elem()
+}
+
+func (i ProviderFeaturesLogAnalyticsWorkspaceArgs) ToProviderFeaturesLogAnalyticsWorkspaceOutput() ProviderFeaturesLogAnalyticsWorkspaceOutput {
+	return i.ToProviderFeaturesLogAnalyticsWorkspaceOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesLogAnalyticsWorkspaceArgs) ToProviderFeaturesLogAnalyticsWorkspaceOutputWithContext(ctx context.Context) ProviderFeaturesLogAnalyticsWorkspaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesLogAnalyticsWorkspaceOutput)
+}
+
+func (i ProviderFeaturesLogAnalyticsWorkspaceArgs) ToProviderFeaturesLogAnalyticsWorkspacePtrOutput() ProviderFeaturesLogAnalyticsWorkspacePtrOutput {
+	return i.ToProviderFeaturesLogAnalyticsWorkspacePtrOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesLogAnalyticsWorkspaceArgs) ToProviderFeaturesLogAnalyticsWorkspacePtrOutputWithContext(ctx context.Context) ProviderFeaturesLogAnalyticsWorkspacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesLogAnalyticsWorkspaceOutput).ToProviderFeaturesLogAnalyticsWorkspacePtrOutputWithContext(ctx)
+}
+
+// ProviderFeaturesLogAnalyticsWorkspacePtrInput is an input type that accepts ProviderFeaturesLogAnalyticsWorkspaceArgs, ProviderFeaturesLogAnalyticsWorkspacePtr and ProviderFeaturesLogAnalyticsWorkspacePtrOutput values.
+// You can construct a concrete instance of `ProviderFeaturesLogAnalyticsWorkspacePtrInput` via:
+//
+//          ProviderFeaturesLogAnalyticsWorkspaceArgs{...}
+//
+//  or:
+//
+//          nil
+type ProviderFeaturesLogAnalyticsWorkspacePtrInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesLogAnalyticsWorkspacePtrOutput() ProviderFeaturesLogAnalyticsWorkspacePtrOutput
+	ToProviderFeaturesLogAnalyticsWorkspacePtrOutputWithContext(context.Context) ProviderFeaturesLogAnalyticsWorkspacePtrOutput
+}
+
+type providerFeaturesLogAnalyticsWorkspacePtrType ProviderFeaturesLogAnalyticsWorkspaceArgs
+
+func ProviderFeaturesLogAnalyticsWorkspacePtr(v *ProviderFeaturesLogAnalyticsWorkspaceArgs) ProviderFeaturesLogAnalyticsWorkspacePtrInput {
+	return (*providerFeaturesLogAnalyticsWorkspacePtrType)(v)
+}
+
+func (*providerFeaturesLogAnalyticsWorkspacePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesLogAnalyticsWorkspace)(nil)).Elem()
+}
+
+func (i *providerFeaturesLogAnalyticsWorkspacePtrType) ToProviderFeaturesLogAnalyticsWorkspacePtrOutput() ProviderFeaturesLogAnalyticsWorkspacePtrOutput {
+	return i.ToProviderFeaturesLogAnalyticsWorkspacePtrOutputWithContext(context.Background())
+}
+
+func (i *providerFeaturesLogAnalyticsWorkspacePtrType) ToProviderFeaturesLogAnalyticsWorkspacePtrOutputWithContext(ctx context.Context) ProviderFeaturesLogAnalyticsWorkspacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesLogAnalyticsWorkspacePtrOutput)
+}
+
+type ProviderFeaturesLogAnalyticsWorkspaceOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesLogAnalyticsWorkspaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesLogAnalyticsWorkspace)(nil)).Elem()
+}
+
+func (o ProviderFeaturesLogAnalyticsWorkspaceOutput) ToProviderFeaturesLogAnalyticsWorkspaceOutput() ProviderFeaturesLogAnalyticsWorkspaceOutput {
+	return o
+}
+
+func (o ProviderFeaturesLogAnalyticsWorkspaceOutput) ToProviderFeaturesLogAnalyticsWorkspaceOutputWithContext(ctx context.Context) ProviderFeaturesLogAnalyticsWorkspaceOutput {
+	return o
+}
+
+func (o ProviderFeaturesLogAnalyticsWorkspaceOutput) ToProviderFeaturesLogAnalyticsWorkspacePtrOutput() ProviderFeaturesLogAnalyticsWorkspacePtrOutput {
+	return o.ToProviderFeaturesLogAnalyticsWorkspacePtrOutputWithContext(context.Background())
+}
+
+func (o ProviderFeaturesLogAnalyticsWorkspaceOutput) ToProviderFeaturesLogAnalyticsWorkspacePtrOutputWithContext(ctx context.Context) ProviderFeaturesLogAnalyticsWorkspacePtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesLogAnalyticsWorkspace) *ProviderFeaturesLogAnalyticsWorkspace {
+		return &v
+	}).(ProviderFeaturesLogAnalyticsWorkspacePtrOutput)
+}
+func (o ProviderFeaturesLogAnalyticsWorkspaceOutput) PermanentlyDeleteOnDestroy() pulumi.BoolOutput {
+	return o.ApplyT(func(v ProviderFeaturesLogAnalyticsWorkspace) bool { return v.PermanentlyDeleteOnDestroy }).(pulumi.BoolOutput)
+}
+
+type ProviderFeaturesLogAnalyticsWorkspacePtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesLogAnalyticsWorkspacePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesLogAnalyticsWorkspace)(nil)).Elem()
+}
+
+func (o ProviderFeaturesLogAnalyticsWorkspacePtrOutput) ToProviderFeaturesLogAnalyticsWorkspacePtrOutput() ProviderFeaturesLogAnalyticsWorkspacePtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesLogAnalyticsWorkspacePtrOutput) ToProviderFeaturesLogAnalyticsWorkspacePtrOutputWithContext(ctx context.Context) ProviderFeaturesLogAnalyticsWorkspacePtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesLogAnalyticsWorkspacePtrOutput) Elem() ProviderFeaturesLogAnalyticsWorkspaceOutput {
+	return o.ApplyT(func(v *ProviderFeaturesLogAnalyticsWorkspace) ProviderFeaturesLogAnalyticsWorkspace { return *v }).(ProviderFeaturesLogAnalyticsWorkspaceOutput)
+}
+
+func (o ProviderFeaturesLogAnalyticsWorkspacePtrOutput) PermanentlyDeleteOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesLogAnalyticsWorkspace) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.PermanentlyDeleteOnDestroy
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -861,6 +1002,8 @@ func init() {
 	pulumi.RegisterOutputType(ProviderFeaturesPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesKeyVaultOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesKeyVaultPtrOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesLogAnalyticsWorkspaceOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesLogAnalyticsWorkspacePtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesNetworkOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesNetworkPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesTemplateDeploymentOutput{})

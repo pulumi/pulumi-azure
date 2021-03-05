@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Monitoring
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new Azure.Compute.ScaleSetArgs
     ///         {
@@ -135,7 +135,7 @@ namespace Pulumi.Azure.Monitoring
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new Azure.Compute.ScaleSetArgs
     ///         {
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.Monitoring
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new Azure.Compute.ScaleSetArgs
     ///         {

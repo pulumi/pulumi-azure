@@ -12,6 +12,7 @@ __all__ = [
     'ServiceCor',
     'ServiceFeature',
     'ServiceSku',
+    'ServiceUpstreamEndpoint',
 ]
 
 @pulumi.output_type
@@ -94,6 +95,60 @@ class ServiceSku(dict):
         Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
         """
         return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceUpstreamEndpoint(dict):
+    def __init__(__self__, *,
+                 category_patterns: Sequence[str],
+                 event_patterns: Sequence[str],
+                 hub_patterns: Sequence[str],
+                 url_template: str):
+        """
+        :param Sequence[str] category_patterns: The categories to match on, or `*` for all.
+        :param Sequence[str] event_patterns: The events to match on, or `*` for all.
+        :param Sequence[str] hub_patterns: The hubs to match on, or `*` for all.
+        :param str url_template: The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
+        """
+        pulumi.set(__self__, "category_patterns", category_patterns)
+        pulumi.set(__self__, "event_patterns", event_patterns)
+        pulumi.set(__self__, "hub_patterns", hub_patterns)
+        pulumi.set(__self__, "url_template", url_template)
+
+    @property
+    @pulumi.getter(name="categoryPatterns")
+    def category_patterns(self) -> Sequence[str]:
+        """
+        The categories to match on, or `*` for all.
+        """
+        return pulumi.get(self, "category_patterns")
+
+    @property
+    @pulumi.getter(name="eventPatterns")
+    def event_patterns(self) -> Sequence[str]:
+        """
+        The events to match on, or `*` for all.
+        """
+        return pulumi.get(self, "event_patterns")
+
+    @property
+    @pulumi.getter(name="hubPatterns")
+    def hub_patterns(self) -> Sequence[str]:
+        """
+        The hubs to match on, or `*` for all.
+        """
+        return pulumi.get(self, "hub_patterns")
+
+    @property
+    @pulumi.getter(name="urlTemplate")
+    def url_template(self) -> str:
+        """
+        The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
+        """
+        return pulumi.get(self, "url_template")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

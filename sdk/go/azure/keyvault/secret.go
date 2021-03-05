@@ -101,6 +101,8 @@ type Secret struct {
 	Value pulumi.StringOutput `pulumi:"value"`
 	// The current version of the Key Vault Secret.
 	Version pulumi.StringOutput `pulumi:"version"`
+	// The Base ID of the Key Vault Secret.
+	VersionlessId pulumi.StringOutput `pulumi:"versionlessId"`
 }
 
 // NewSecret registers a new resource with the given unique name, arguments, and options.
@@ -154,6 +156,8 @@ type secretState struct {
 	Value *string `pulumi:"value"`
 	// The current version of the Key Vault Secret.
 	Version *string `pulumi:"version"`
+	// The Base ID of the Key Vault Secret.
+	VersionlessId *string `pulumi:"versionlessId"`
 }
 
 type SecretState struct {
@@ -173,6 +177,8 @@ type SecretState struct {
 	Value pulumi.StringPtrInput
 	// The current version of the Key Vault Secret.
 	Version pulumi.StringPtrInput
+	// The Base ID of the Key Vault Secret.
+	VersionlessId pulumi.StringPtrInput
 }
 
 func (SecretState) ElementType() reflect.Type {

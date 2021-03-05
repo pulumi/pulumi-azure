@@ -24,7 +24,7 @@ namespace Pulumi.Azure.AppPlatform
     ///     {
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Location = "Southeast Asia",
+    ///             Location = "West Europe",
     ///         });
     ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
     ///         {
