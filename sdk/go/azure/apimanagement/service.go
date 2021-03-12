@@ -77,7 +77,7 @@ type Service struct {
 	// The URL of the Gateway for the API Management Service.
 	GatewayUrl pulumi.StringOutput `pulumi:"gatewayUrl"`
 	// A `hostnameConfiguration` block as defined below.
-	HostnameConfiguration ServiceHostnameConfigurationPtrOutput `pulumi:"hostnameConfiguration"`
+	HostnameConfiguration ServiceHostnameConfigurationOutput `pulumi:"hostnameConfiguration"`
 	// An `identity` block is documented below.
 	Identity ServiceIdentityPtrOutput `pulumi:"identity"`
 	// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.

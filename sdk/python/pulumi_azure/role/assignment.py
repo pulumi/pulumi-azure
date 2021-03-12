@@ -19,6 +19,9 @@ class Assignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 condition: Optional[pulumi.Input[str]] = None,
+                 condition_version: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None,
@@ -125,6 +128,9 @@ class Assignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
@@ -150,6 +156,9 @@ class Assignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['condition'] = condition
+            __props__['condition_version'] = condition_version
+            __props__['description'] = description
             __props__['name'] = name
             if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")
@@ -171,6 +180,9 @@ class Assignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            condition: Optional[pulumi.Input[str]] = None,
+            condition_version: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             principal_id: Optional[pulumi.Input[str]] = None,
             principal_type: Optional[pulumi.Input[str]] = None,
@@ -185,6 +197,9 @@ class Assignment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_type: The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
@@ -197,6 +212,9 @@ class Assignment(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["condition"] = condition
+        __props__["condition_version"] = condition_version
+        __props__["description"] = description
         __props__["name"] = name
         __props__["principal_id"] = principal_id
         __props__["principal_type"] = principal_type
@@ -205,6 +223,30 @@ class Assignment(pulumi.CustomResource):
         __props__["scope"] = scope
         __props__["skip_service_principal_aad_check"] = skip_service_principal_aad_check
         return Assignment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> pulumi.Output[Optional[str]]:
+        """
+        The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter(name="conditionVersion")
+    def condition_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "condition_version")
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description for this Role Assignment. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter

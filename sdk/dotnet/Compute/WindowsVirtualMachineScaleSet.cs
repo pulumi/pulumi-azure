@@ -203,7 +203,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> ExtensionsTimeBudget { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        /// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         /// </summary>
         [Output("healthProbeId")]
         public Output<string?> HealthProbeId { get; private set; } = null!;
@@ -549,7 +549,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ExtensionsTimeBudget { get; set; }
 
         /// <summary>
-        /// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        /// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         /// </summary>
         [Input("healthProbeId")]
         public Input<string>? HealthProbeId { get; set; }
@@ -880,7 +880,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ExtensionsTimeBudget { get; set; }
 
         /// <summary>
-        /// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        /// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         /// </summary>
         [Input("healthProbeId")]
         public Input<string>? HealthProbeId { get; set; }

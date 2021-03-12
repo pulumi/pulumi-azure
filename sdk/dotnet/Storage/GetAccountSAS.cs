@@ -64,8 +64,8 @@ namespace Pulumi.Azure.Storage
         ///                 Table = false,
         ///                 File = false,
         ///             },
-        ///             Start = "2018-03-21",
-        ///             Expiry = "2020-03-21",
+        ///             Start = "2018-03-21T00:00:00Z",
+        ///             Expiry = "2020-03-21T00:00:00Z",
         ///             Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsArgs
         ///             {
         ///                 Read = true,

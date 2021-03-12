@@ -87,6 +87,7 @@ import * as powerbi from "./powerbi";
 import * as privatedns from "./privatedns";
 import * as privatelink from "./privatelink";
 import * as proximity from "./proximity";
+import * as purview from "./purview";
 import * as recoveryservices from "./recoveryservices";
 import * as redis from "./redis";
 import * as relay from "./relay";
@@ -185,6 +186,7 @@ export {
     privatedns,
     privatelink,
     proximity,
+    purview,
     recoveryservices,
     redis,
     relay,

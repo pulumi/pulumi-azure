@@ -159,7 +159,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly privateClusterEnabled!: pulumi.Output<boolean>;
     /**
-     * Either the ID of Private DNS Zone which should be delegated to this Cluster, or `System` to have AKS manage this.
+     * Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
      */
     public readonly privateDnsZoneId!: pulumi.Output<string>;
     /**
@@ -379,7 +379,7 @@ export interface KubernetesClusterState {
      */
     readonly privateClusterEnabled?: pulumi.Input<boolean>;
     /**
-     * Either the ID of Private DNS Zone which should be delegated to this Cluster, or `System` to have AKS manage this.
+     * Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
      */
     readonly privateDnsZoneId?: pulumi.Input<string>;
     /**
@@ -482,7 +482,7 @@ export interface KubernetesClusterArgs {
      */
     readonly privateClusterEnabled?: pulumi.Input<boolean>;
     /**
-     * Either the ID of Private DNS Zone which should be delegated to this Cluster, or `System` to have AKS manage this.
+     * Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
      */
     readonly privateDnsZoneId?: pulumi.Input<string>;
     /**

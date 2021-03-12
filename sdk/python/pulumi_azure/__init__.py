@@ -86,6 +86,7 @@ from . import (
     privatedns,
     privatelink,
     proximity,
+    purview,
     recoveryservices,
     redis,
     relay,

@@ -10,11 +10,57 @@ from .. import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'AssessmentStatus',
     'AutomationAction',
     'AutomationSource',
     'AutomationSourceRuleSet',
     'AutomationSourceRuleSetRule',
 ]
+
+@pulumi.output_type
+class AssessmentStatus(dict):
+    def __init__(__self__, *,
+                 code: str,
+                 cause: Optional[str] = None,
+                 description: Optional[str] = None):
+        """
+        :param str code: Specifies the programmatic code of the assessment status. Possible values are `Healthy`, `Unhealthy` and `NotApplicable`.
+        :param str cause: Specifies the cause of the assessment status.
+        :param str description: Specifies the human readable description of the assessment status.
+        """
+        pulumi.set(__self__, "code", code)
+        if cause is not None:
+            pulumi.set(__self__, "cause", cause)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        Specifies the programmatic code of the assessment status. Possible values are `Healthy`, `Unhealthy` and `NotApplicable`.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def cause(self) -> Optional[str]:
+        """
+        Specifies the cause of the assessment status.
+        """
+        return pulumi.get(self, "cause")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Specifies the human readable description of the assessment status.
+        """
+        return pulumi.get(self, "description")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class AutomationAction(dict):

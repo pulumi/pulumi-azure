@@ -87,6 +87,7 @@ namespace Pulumi.Azure.NetApp
     ///                 "NFSv4.1",
     ///             },
     ///             StorageQuotaInGb = 100,
+    ///             CreateFromSnapshotResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1",
     ///             DataProtectionReplication = new Azure.NetApp.Inputs.VolumeDataProtectionReplicationArgs
     ///             {
     ///                 EndpointType = "dst",
@@ -116,6 +117,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Output("accountName")]
         public Output<string> AccountName { get; private set; } = null!;
+
+        /// <summary>
+        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+        /// </summary>
+        [Output("createFromSnapshotResourceId")]
+        public Output<string> CreateFromSnapshotResourceId { get; private set; } = null!;
 
         [Output("dataProtectionReplication")]
         public Output<Outputs.VolumeDataProtectionReplication?> DataProtectionReplication { get; private set; } = null!;
@@ -244,6 +251,12 @@ namespace Pulumi.Azure.NetApp
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
+        /// <summary>
+        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+        /// </summary>
+        [Input("createFromSnapshotResourceId")]
+        public Input<string>? CreateFromSnapshotResourceId { get; set; }
+
         [Input("dataProtectionReplication")]
         public Input<Inputs.VolumeDataProtectionReplicationArgs>? DataProtectionReplication { get; set; }
 
@@ -343,6 +356,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
+
+        /// <summary>
+        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+        /// </summary>
+        [Input("createFromSnapshotResourceId")]
+        public Input<string>? CreateFromSnapshotResourceId { get; set; }
 
         [Input("dataProtectionReplication")]
         public Input<Inputs.VolumeDataProtectionReplicationGetArgs>? DataProtectionReplication { get; set; }

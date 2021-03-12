@@ -13,6 +13,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
     [OutputType]
     public sealed class GetActionGroupWebhookReceiverResult
     {
+        public readonly ImmutableArray<Outputs.GetActionGroupWebhookReceiverAadAuthResult> AadAuths;
         /// <summary>
         /// Specifies the name of the Action Group.
         /// </summary>
@@ -24,16 +25,19 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// <summary>
         /// Indicates whether to use common alert schema.
         /// </summary>
-        public readonly bool? UseCommonAlertSchema;
+        public readonly bool UseCommonAlertSchema;
 
         [OutputConstructor]
         private GetActionGroupWebhookReceiverResult(
+            ImmutableArray<Outputs.GetActionGroupWebhookReceiverAadAuthResult> aadAuths,
+
             string name,
 
             string serviceUri,
 
-            bool? useCommonAlertSchema)
+            bool useCommonAlertSchema)
         {
+            AadAuths = aadAuths;
             Name = name;
             ServiceUri = serviceUri;
             UseCommonAlertSchema = useCommonAlertSchema;

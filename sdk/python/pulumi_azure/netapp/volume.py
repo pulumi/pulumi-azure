@@ -18,6 +18,7 @@ class Volume(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
                  data_protection_replication: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']]] = None,
                  export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -80,6 +81,7 @@ class Volume(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             protocols=["NFSv4.1"],
             storage_quota_in_gb=100,
+            create_from_snapshot_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1",
             data_protection_replication=azure.netapp.VolumeDataProtectionReplicationArgs(
                 endpoint_type="dst",
                 remote_volume_location=azurerm_resource_group["example_primary"]["location"],
@@ -99,6 +101,7 @@ class Volume(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
@@ -131,6 +134,7 @@ class Volume(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            __props__['create_from_snapshot_resource_id'] = create_from_snapshot_resource_id
             __props__['data_protection_replication'] = data_protection_replication
             __props__['export_policy_rules'] = export_policy_rules
             __props__['location'] = location
@@ -167,6 +171,7 @@ class Volume(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: Optional[pulumi.Input[str]] = None,
+            create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
             data_protection_replication: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']]] = None,
             export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -188,6 +193,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
@@ -206,6 +212,7 @@ class Volume(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["account_name"] = account_name
+        __props__["create_from_snapshot_resource_id"] = create_from_snapshot_resource_id
         __props__["data_protection_replication"] = data_protection_replication
         __props__["export_policy_rules"] = export_policy_rules
         __props__["location"] = location
@@ -228,6 +235,14 @@ class Volume(pulumi.CustomResource):
         The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="createFromSnapshotResourceId")
+    def create_from_snapshot_resource_id(self) -> pulumi.Output[str]:
+        """
+        Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+        """
+        return pulumi.get(self, "create_from_snapshot_resource_id")
 
     @property
     @pulumi.getter(name="dataProtectionReplication")

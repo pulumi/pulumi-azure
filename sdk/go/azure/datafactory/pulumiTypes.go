@@ -1378,6 +1378,459 @@ func (o DatasetMysqlSchemaColumnArrayOutput) Index(i pulumi.IntInput) DatasetMys
 	}).(DatasetMysqlSchemaColumnOutput)
 }
 
+type DatasetParquetAzureBlobStorageLocation struct {
+	// The container on the Azure Blob Storage Account hosting the file.
+	Container string `pulumi:"container"`
+	// The filename of the file on the web server.
+	Filename string `pulumi:"filename"`
+	// The folder path to the file on the web server.
+	Path string `pulumi:"path"`
+}
+
+// DatasetParquetAzureBlobStorageLocationInput is an input type that accepts DatasetParquetAzureBlobStorageLocationArgs and DatasetParquetAzureBlobStorageLocationOutput values.
+// You can construct a concrete instance of `DatasetParquetAzureBlobStorageLocationInput` via:
+//
+//          DatasetParquetAzureBlobStorageLocationArgs{...}
+type DatasetParquetAzureBlobStorageLocationInput interface {
+	pulumi.Input
+
+	ToDatasetParquetAzureBlobStorageLocationOutput() DatasetParquetAzureBlobStorageLocationOutput
+	ToDatasetParquetAzureBlobStorageLocationOutputWithContext(context.Context) DatasetParquetAzureBlobStorageLocationOutput
+}
+
+type DatasetParquetAzureBlobStorageLocationArgs struct {
+	// The container on the Azure Blob Storage Account hosting the file.
+	Container pulumi.StringInput `pulumi:"container"`
+	// The filename of the file on the web server.
+	Filename pulumi.StringInput `pulumi:"filename"`
+	// The folder path to the file on the web server.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (DatasetParquetAzureBlobStorageLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetParquetAzureBlobStorageLocation)(nil)).Elem()
+}
+
+func (i DatasetParquetAzureBlobStorageLocationArgs) ToDatasetParquetAzureBlobStorageLocationOutput() DatasetParquetAzureBlobStorageLocationOutput {
+	return i.ToDatasetParquetAzureBlobStorageLocationOutputWithContext(context.Background())
+}
+
+func (i DatasetParquetAzureBlobStorageLocationArgs) ToDatasetParquetAzureBlobStorageLocationOutputWithContext(ctx context.Context) DatasetParquetAzureBlobStorageLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetParquetAzureBlobStorageLocationOutput)
+}
+
+func (i DatasetParquetAzureBlobStorageLocationArgs) ToDatasetParquetAzureBlobStorageLocationPtrOutput() DatasetParquetAzureBlobStorageLocationPtrOutput {
+	return i.ToDatasetParquetAzureBlobStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetParquetAzureBlobStorageLocationArgs) ToDatasetParquetAzureBlobStorageLocationPtrOutputWithContext(ctx context.Context) DatasetParquetAzureBlobStorageLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetParquetAzureBlobStorageLocationOutput).ToDatasetParquetAzureBlobStorageLocationPtrOutputWithContext(ctx)
+}
+
+// DatasetParquetAzureBlobStorageLocationPtrInput is an input type that accepts DatasetParquetAzureBlobStorageLocationArgs, DatasetParquetAzureBlobStorageLocationPtr and DatasetParquetAzureBlobStorageLocationPtrOutput values.
+// You can construct a concrete instance of `DatasetParquetAzureBlobStorageLocationPtrInput` via:
+//
+//          DatasetParquetAzureBlobStorageLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetParquetAzureBlobStorageLocationPtrInput interface {
+	pulumi.Input
+
+	ToDatasetParquetAzureBlobStorageLocationPtrOutput() DatasetParquetAzureBlobStorageLocationPtrOutput
+	ToDatasetParquetAzureBlobStorageLocationPtrOutputWithContext(context.Context) DatasetParquetAzureBlobStorageLocationPtrOutput
+}
+
+type datasetParquetAzureBlobStorageLocationPtrType DatasetParquetAzureBlobStorageLocationArgs
+
+func DatasetParquetAzureBlobStorageLocationPtr(v *DatasetParquetAzureBlobStorageLocationArgs) DatasetParquetAzureBlobStorageLocationPtrInput {
+	return (*datasetParquetAzureBlobStorageLocationPtrType)(v)
+}
+
+func (*datasetParquetAzureBlobStorageLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetParquetAzureBlobStorageLocation)(nil)).Elem()
+}
+
+func (i *datasetParquetAzureBlobStorageLocationPtrType) ToDatasetParquetAzureBlobStorageLocationPtrOutput() DatasetParquetAzureBlobStorageLocationPtrOutput {
+	return i.ToDatasetParquetAzureBlobStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetParquetAzureBlobStorageLocationPtrType) ToDatasetParquetAzureBlobStorageLocationPtrOutputWithContext(ctx context.Context) DatasetParquetAzureBlobStorageLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetParquetAzureBlobStorageLocationPtrOutput)
+}
+
+type DatasetParquetAzureBlobStorageLocationOutput struct{ *pulumi.OutputState }
+
+func (DatasetParquetAzureBlobStorageLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetParquetAzureBlobStorageLocation)(nil)).Elem()
+}
+
+func (o DatasetParquetAzureBlobStorageLocationOutput) ToDatasetParquetAzureBlobStorageLocationOutput() DatasetParquetAzureBlobStorageLocationOutput {
+	return o
+}
+
+func (o DatasetParquetAzureBlobStorageLocationOutput) ToDatasetParquetAzureBlobStorageLocationOutputWithContext(ctx context.Context) DatasetParquetAzureBlobStorageLocationOutput {
+	return o
+}
+
+func (o DatasetParquetAzureBlobStorageLocationOutput) ToDatasetParquetAzureBlobStorageLocationPtrOutput() DatasetParquetAzureBlobStorageLocationPtrOutput {
+	return o.ToDatasetParquetAzureBlobStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetParquetAzureBlobStorageLocationOutput) ToDatasetParquetAzureBlobStorageLocationPtrOutputWithContext(ctx context.Context) DatasetParquetAzureBlobStorageLocationPtrOutput {
+	return o.ApplyT(func(v DatasetParquetAzureBlobStorageLocation) *DatasetParquetAzureBlobStorageLocation {
+		return &v
+	}).(DatasetParquetAzureBlobStorageLocationPtrOutput)
+}
+
+// The container on the Azure Blob Storage Account hosting the file.
+func (o DatasetParquetAzureBlobStorageLocationOutput) Container() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetParquetAzureBlobStorageLocation) string { return v.Container }).(pulumi.StringOutput)
+}
+
+// The filename of the file on the web server.
+func (o DatasetParquetAzureBlobStorageLocationOutput) Filename() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetParquetAzureBlobStorageLocation) string { return v.Filename }).(pulumi.StringOutput)
+}
+
+// The folder path to the file on the web server.
+func (o DatasetParquetAzureBlobStorageLocationOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetParquetAzureBlobStorageLocation) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type DatasetParquetAzureBlobStorageLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetParquetAzureBlobStorageLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetParquetAzureBlobStorageLocation)(nil)).Elem()
+}
+
+func (o DatasetParquetAzureBlobStorageLocationPtrOutput) ToDatasetParquetAzureBlobStorageLocationPtrOutput() DatasetParquetAzureBlobStorageLocationPtrOutput {
+	return o
+}
+
+func (o DatasetParquetAzureBlobStorageLocationPtrOutput) ToDatasetParquetAzureBlobStorageLocationPtrOutputWithContext(ctx context.Context) DatasetParquetAzureBlobStorageLocationPtrOutput {
+	return o
+}
+
+func (o DatasetParquetAzureBlobStorageLocationPtrOutput) Elem() DatasetParquetAzureBlobStorageLocationOutput {
+	return o.ApplyT(func(v *DatasetParquetAzureBlobStorageLocation) DatasetParquetAzureBlobStorageLocation { return *v }).(DatasetParquetAzureBlobStorageLocationOutput)
+}
+
+// The container on the Azure Blob Storage Account hosting the file.
+func (o DatasetParquetAzureBlobStorageLocationPtrOutput) Container() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetParquetAzureBlobStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Container
+	}).(pulumi.StringPtrOutput)
+}
+
+// The filename of the file on the web server.
+func (o DatasetParquetAzureBlobStorageLocationPtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetParquetAzureBlobStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Filename
+	}).(pulumi.StringPtrOutput)
+}
+
+// The folder path to the file on the web server.
+func (o DatasetParquetAzureBlobStorageLocationPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetParquetAzureBlobStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatasetParquetHttpServerLocation struct {
+	// The filename of the file on the web server.
+	Filename string `pulumi:"filename"`
+	// The folder path to the file on the web server.
+	Path string `pulumi:"path"`
+	// The base URL to the web server hosting the file.
+	RelativeUrl string `pulumi:"relativeUrl"`
+}
+
+// DatasetParquetHttpServerLocationInput is an input type that accepts DatasetParquetHttpServerLocationArgs and DatasetParquetHttpServerLocationOutput values.
+// You can construct a concrete instance of `DatasetParquetHttpServerLocationInput` via:
+//
+//          DatasetParquetHttpServerLocationArgs{...}
+type DatasetParquetHttpServerLocationInput interface {
+	pulumi.Input
+
+	ToDatasetParquetHttpServerLocationOutput() DatasetParquetHttpServerLocationOutput
+	ToDatasetParquetHttpServerLocationOutputWithContext(context.Context) DatasetParquetHttpServerLocationOutput
+}
+
+type DatasetParquetHttpServerLocationArgs struct {
+	// The filename of the file on the web server.
+	Filename pulumi.StringInput `pulumi:"filename"`
+	// The folder path to the file on the web server.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The base URL to the web server hosting the file.
+	RelativeUrl pulumi.StringInput `pulumi:"relativeUrl"`
+}
+
+func (DatasetParquetHttpServerLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetParquetHttpServerLocation)(nil)).Elem()
+}
+
+func (i DatasetParquetHttpServerLocationArgs) ToDatasetParquetHttpServerLocationOutput() DatasetParquetHttpServerLocationOutput {
+	return i.ToDatasetParquetHttpServerLocationOutputWithContext(context.Background())
+}
+
+func (i DatasetParquetHttpServerLocationArgs) ToDatasetParquetHttpServerLocationOutputWithContext(ctx context.Context) DatasetParquetHttpServerLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetParquetHttpServerLocationOutput)
+}
+
+func (i DatasetParquetHttpServerLocationArgs) ToDatasetParquetHttpServerLocationPtrOutput() DatasetParquetHttpServerLocationPtrOutput {
+	return i.ToDatasetParquetHttpServerLocationPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetParquetHttpServerLocationArgs) ToDatasetParquetHttpServerLocationPtrOutputWithContext(ctx context.Context) DatasetParquetHttpServerLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetParquetHttpServerLocationOutput).ToDatasetParquetHttpServerLocationPtrOutputWithContext(ctx)
+}
+
+// DatasetParquetHttpServerLocationPtrInput is an input type that accepts DatasetParquetHttpServerLocationArgs, DatasetParquetHttpServerLocationPtr and DatasetParquetHttpServerLocationPtrOutput values.
+// You can construct a concrete instance of `DatasetParquetHttpServerLocationPtrInput` via:
+//
+//          DatasetParquetHttpServerLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetParquetHttpServerLocationPtrInput interface {
+	pulumi.Input
+
+	ToDatasetParquetHttpServerLocationPtrOutput() DatasetParquetHttpServerLocationPtrOutput
+	ToDatasetParquetHttpServerLocationPtrOutputWithContext(context.Context) DatasetParquetHttpServerLocationPtrOutput
+}
+
+type datasetParquetHttpServerLocationPtrType DatasetParquetHttpServerLocationArgs
+
+func DatasetParquetHttpServerLocationPtr(v *DatasetParquetHttpServerLocationArgs) DatasetParquetHttpServerLocationPtrInput {
+	return (*datasetParquetHttpServerLocationPtrType)(v)
+}
+
+func (*datasetParquetHttpServerLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetParquetHttpServerLocation)(nil)).Elem()
+}
+
+func (i *datasetParquetHttpServerLocationPtrType) ToDatasetParquetHttpServerLocationPtrOutput() DatasetParquetHttpServerLocationPtrOutput {
+	return i.ToDatasetParquetHttpServerLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetParquetHttpServerLocationPtrType) ToDatasetParquetHttpServerLocationPtrOutputWithContext(ctx context.Context) DatasetParquetHttpServerLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetParquetHttpServerLocationPtrOutput)
+}
+
+type DatasetParquetHttpServerLocationOutput struct{ *pulumi.OutputState }
+
+func (DatasetParquetHttpServerLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetParquetHttpServerLocation)(nil)).Elem()
+}
+
+func (o DatasetParquetHttpServerLocationOutput) ToDatasetParquetHttpServerLocationOutput() DatasetParquetHttpServerLocationOutput {
+	return o
+}
+
+func (o DatasetParquetHttpServerLocationOutput) ToDatasetParquetHttpServerLocationOutputWithContext(ctx context.Context) DatasetParquetHttpServerLocationOutput {
+	return o
+}
+
+func (o DatasetParquetHttpServerLocationOutput) ToDatasetParquetHttpServerLocationPtrOutput() DatasetParquetHttpServerLocationPtrOutput {
+	return o.ToDatasetParquetHttpServerLocationPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetParquetHttpServerLocationOutput) ToDatasetParquetHttpServerLocationPtrOutputWithContext(ctx context.Context) DatasetParquetHttpServerLocationPtrOutput {
+	return o.ApplyT(func(v DatasetParquetHttpServerLocation) *DatasetParquetHttpServerLocation {
+		return &v
+	}).(DatasetParquetHttpServerLocationPtrOutput)
+}
+
+// The filename of the file on the web server.
+func (o DatasetParquetHttpServerLocationOutput) Filename() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetParquetHttpServerLocation) string { return v.Filename }).(pulumi.StringOutput)
+}
+
+// The folder path to the file on the web server.
+func (o DatasetParquetHttpServerLocationOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetParquetHttpServerLocation) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The base URL to the web server hosting the file.
+func (o DatasetParquetHttpServerLocationOutput) RelativeUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetParquetHttpServerLocation) string { return v.RelativeUrl }).(pulumi.StringOutput)
+}
+
+type DatasetParquetHttpServerLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetParquetHttpServerLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetParquetHttpServerLocation)(nil)).Elem()
+}
+
+func (o DatasetParquetHttpServerLocationPtrOutput) ToDatasetParquetHttpServerLocationPtrOutput() DatasetParquetHttpServerLocationPtrOutput {
+	return o
+}
+
+func (o DatasetParquetHttpServerLocationPtrOutput) ToDatasetParquetHttpServerLocationPtrOutputWithContext(ctx context.Context) DatasetParquetHttpServerLocationPtrOutput {
+	return o
+}
+
+func (o DatasetParquetHttpServerLocationPtrOutput) Elem() DatasetParquetHttpServerLocationOutput {
+	return o.ApplyT(func(v *DatasetParquetHttpServerLocation) DatasetParquetHttpServerLocation { return *v }).(DatasetParquetHttpServerLocationOutput)
+}
+
+// The filename of the file on the web server.
+func (o DatasetParquetHttpServerLocationPtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetParquetHttpServerLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Filename
+	}).(pulumi.StringPtrOutput)
+}
+
+// The folder path to the file on the web server.
+func (o DatasetParquetHttpServerLocationPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetParquetHttpServerLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// The base URL to the web server hosting the file.
+func (o DatasetParquetHttpServerLocationPtrOutput) RelativeUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetParquetHttpServerLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RelativeUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatasetParquetSchemaColumn struct {
+	// The description of the column.
+	Description *string `pulumi:"description"`
+	// The name of the column.
+	Name string `pulumi:"name"`
+	// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+	Type *string `pulumi:"type"`
+}
+
+// DatasetParquetSchemaColumnInput is an input type that accepts DatasetParquetSchemaColumnArgs and DatasetParquetSchemaColumnOutput values.
+// You can construct a concrete instance of `DatasetParquetSchemaColumnInput` via:
+//
+//          DatasetParquetSchemaColumnArgs{...}
+type DatasetParquetSchemaColumnInput interface {
+	pulumi.Input
+
+	ToDatasetParquetSchemaColumnOutput() DatasetParquetSchemaColumnOutput
+	ToDatasetParquetSchemaColumnOutputWithContext(context.Context) DatasetParquetSchemaColumnOutput
+}
+
+type DatasetParquetSchemaColumnArgs struct {
+	// The description of the column.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name of the column.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (DatasetParquetSchemaColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetParquetSchemaColumn)(nil)).Elem()
+}
+
+func (i DatasetParquetSchemaColumnArgs) ToDatasetParquetSchemaColumnOutput() DatasetParquetSchemaColumnOutput {
+	return i.ToDatasetParquetSchemaColumnOutputWithContext(context.Background())
+}
+
+func (i DatasetParquetSchemaColumnArgs) ToDatasetParquetSchemaColumnOutputWithContext(ctx context.Context) DatasetParquetSchemaColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetParquetSchemaColumnOutput)
+}
+
+// DatasetParquetSchemaColumnArrayInput is an input type that accepts DatasetParquetSchemaColumnArray and DatasetParquetSchemaColumnArrayOutput values.
+// You can construct a concrete instance of `DatasetParquetSchemaColumnArrayInput` via:
+//
+//          DatasetParquetSchemaColumnArray{ DatasetParquetSchemaColumnArgs{...} }
+type DatasetParquetSchemaColumnArrayInput interface {
+	pulumi.Input
+
+	ToDatasetParquetSchemaColumnArrayOutput() DatasetParquetSchemaColumnArrayOutput
+	ToDatasetParquetSchemaColumnArrayOutputWithContext(context.Context) DatasetParquetSchemaColumnArrayOutput
+}
+
+type DatasetParquetSchemaColumnArray []DatasetParquetSchemaColumnInput
+
+func (DatasetParquetSchemaColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetParquetSchemaColumn)(nil)).Elem()
+}
+
+func (i DatasetParquetSchemaColumnArray) ToDatasetParquetSchemaColumnArrayOutput() DatasetParquetSchemaColumnArrayOutput {
+	return i.ToDatasetParquetSchemaColumnArrayOutputWithContext(context.Background())
+}
+
+func (i DatasetParquetSchemaColumnArray) ToDatasetParquetSchemaColumnArrayOutputWithContext(ctx context.Context) DatasetParquetSchemaColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetParquetSchemaColumnArrayOutput)
+}
+
+type DatasetParquetSchemaColumnOutput struct{ *pulumi.OutputState }
+
+func (DatasetParquetSchemaColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetParquetSchemaColumn)(nil)).Elem()
+}
+
+func (o DatasetParquetSchemaColumnOutput) ToDatasetParquetSchemaColumnOutput() DatasetParquetSchemaColumnOutput {
+	return o
+}
+
+func (o DatasetParquetSchemaColumnOutput) ToDatasetParquetSchemaColumnOutputWithContext(ctx context.Context) DatasetParquetSchemaColumnOutput {
+	return o
+}
+
+// The description of the column.
+func (o DatasetParquetSchemaColumnOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetParquetSchemaColumn) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the column.
+func (o DatasetParquetSchemaColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetParquetSchemaColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+func (o DatasetParquetSchemaColumnOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetParquetSchemaColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type DatasetParquetSchemaColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (DatasetParquetSchemaColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetParquetSchemaColumn)(nil)).Elem()
+}
+
+func (o DatasetParquetSchemaColumnArrayOutput) ToDatasetParquetSchemaColumnArrayOutput() DatasetParquetSchemaColumnArrayOutput {
+	return o
+}
+
+func (o DatasetParquetSchemaColumnArrayOutput) ToDatasetParquetSchemaColumnArrayOutputWithContext(ctx context.Context) DatasetParquetSchemaColumnArrayOutput {
+	return o
+}
+
+func (o DatasetParquetSchemaColumnArrayOutput) Index(i pulumi.IntInput) DatasetParquetSchemaColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetParquetSchemaColumn {
+		return vs[0].([]DatasetParquetSchemaColumn)[vs[1].(int)]
+	}).(DatasetParquetSchemaColumnOutput)
+}
+
 type DatasetPostgresqlSchemaColumn struct {
 	// The description of the column.
 	Description *string `pulumi:"description"`
@@ -4146,6 +4599,12 @@ func init() {
 	pulumi.RegisterOutputType(DatasetJsonSchemaColumnArrayOutput{})
 	pulumi.RegisterOutputType(DatasetMysqlSchemaColumnOutput{})
 	pulumi.RegisterOutputType(DatasetMysqlSchemaColumnArrayOutput{})
+	pulumi.RegisterOutputType(DatasetParquetAzureBlobStorageLocationOutput{})
+	pulumi.RegisterOutputType(DatasetParquetAzureBlobStorageLocationPtrOutput{})
+	pulumi.RegisterOutputType(DatasetParquetHttpServerLocationOutput{})
+	pulumi.RegisterOutputType(DatasetParquetHttpServerLocationPtrOutput{})
+	pulumi.RegisterOutputType(DatasetParquetSchemaColumnOutput{})
+	pulumi.RegisterOutputType(DatasetParquetSchemaColumnArrayOutput{})
 	pulumi.RegisterOutputType(DatasetPostgresqlSchemaColumnOutput{})
 	pulumi.RegisterOutputType(DatasetPostgresqlSchemaColumnArrayOutput{})
 	pulumi.RegisterOutputType(DatasetSqlServerTableSchemaColumnOutput{})

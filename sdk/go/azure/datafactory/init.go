@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewDatasetJson(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:datafactory/datasetMysql:DatasetMysql":
 		r, err = NewDatasetMysql(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:datafactory/datasetParquet:DatasetParquet":
+		r, err = NewDatasetParquet(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:datafactory/datasetPostgresql:DatasetPostgresql":
 		r, err = NewDatasetPostgresql(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable":
@@ -121,6 +123,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"datafactory/datasetMysql",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"datafactory/datasetParquet",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

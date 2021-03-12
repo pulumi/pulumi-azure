@@ -10263,12 +10263,13 @@ func (o GetActionGroupVoiceReceiverArrayOutput) Index(i pulumi.IntInput) GetActi
 }
 
 type GetActionGroupWebhookReceiver struct {
+	AadAuths []GetActionGroupWebhookReceiverAadAuth `pulumi:"aadAuths"`
 	// Specifies the name of the Action Group.
 	Name string `pulumi:"name"`
 	// The URI where webhooks should be sent.
 	ServiceUri string `pulumi:"serviceUri"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
 }
 
 // GetActionGroupWebhookReceiverInput is an input type that accepts GetActionGroupWebhookReceiverArgs and GetActionGroupWebhookReceiverOutput values.
@@ -10283,12 +10284,13 @@ type GetActionGroupWebhookReceiverInput interface {
 }
 
 type GetActionGroupWebhookReceiverArgs struct {
+	AadAuths GetActionGroupWebhookReceiverAadAuthArrayInput `pulumi:"aadAuths"`
 	// Specifies the name of the Action Group.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The URI where webhooks should be sent.
 	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
 }
 
 func (GetActionGroupWebhookReceiverArgs) ElementType() reflect.Type {
@@ -10342,6 +10344,10 @@ func (o GetActionGroupWebhookReceiverOutput) ToGetActionGroupWebhookReceiverOutp
 	return o
 }
 
+func (o GetActionGroupWebhookReceiverOutput) AadAuths() GetActionGroupWebhookReceiverAadAuthArrayOutput {
+	return o.ApplyT(func(v GetActionGroupWebhookReceiver) []GetActionGroupWebhookReceiverAadAuth { return v.AadAuths }).(GetActionGroupWebhookReceiverAadAuthArrayOutput)
+}
+
 // Specifies the name of the Action Group.
 func (o GetActionGroupWebhookReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetActionGroupWebhookReceiver) string { return v.Name }).(pulumi.StringOutput)
@@ -10353,8 +10359,8 @@ func (o GetActionGroupWebhookReceiverOutput) ServiceUri() pulumi.StringOutput {
 }
 
 // Indicates whether to use common alert schema.
-func (o GetActionGroupWebhookReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetActionGroupWebhookReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
+func (o GetActionGroupWebhookReceiverOutput) UseCommonAlertSchema() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetActionGroupWebhookReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
 }
 
 type GetActionGroupWebhookReceiverArrayOutput struct{ *pulumi.OutputState }
@@ -10375,6 +10381,112 @@ func (o GetActionGroupWebhookReceiverArrayOutput) Index(i pulumi.IntInput) GetAc
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionGroupWebhookReceiver {
 		return vs[0].([]GetActionGroupWebhookReceiver)[vs[1].(int)]
 	}).(GetActionGroupWebhookReceiverOutput)
+}
+
+type GetActionGroupWebhookReceiverAadAuth struct {
+	IdentifierUri string `pulumi:"identifierUri"`
+	ObjectId      string `pulumi:"objectId"`
+	TenantId      string `pulumi:"tenantId"`
+}
+
+// GetActionGroupWebhookReceiverAadAuthInput is an input type that accepts GetActionGroupWebhookReceiverAadAuthArgs and GetActionGroupWebhookReceiverAadAuthOutput values.
+// You can construct a concrete instance of `GetActionGroupWebhookReceiverAadAuthInput` via:
+//
+//          GetActionGroupWebhookReceiverAadAuthArgs{...}
+type GetActionGroupWebhookReceiverAadAuthInput interface {
+	pulumi.Input
+
+	ToGetActionGroupWebhookReceiverAadAuthOutput() GetActionGroupWebhookReceiverAadAuthOutput
+	ToGetActionGroupWebhookReceiverAadAuthOutputWithContext(context.Context) GetActionGroupWebhookReceiverAadAuthOutput
+}
+
+type GetActionGroupWebhookReceiverAadAuthArgs struct {
+	IdentifierUri pulumi.StringInput `pulumi:"identifierUri"`
+	ObjectId      pulumi.StringInput `pulumi:"objectId"`
+	TenantId      pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (GetActionGroupWebhookReceiverAadAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionGroupWebhookReceiverAadAuth)(nil)).Elem()
+}
+
+func (i GetActionGroupWebhookReceiverAadAuthArgs) ToGetActionGroupWebhookReceiverAadAuthOutput() GetActionGroupWebhookReceiverAadAuthOutput {
+	return i.ToGetActionGroupWebhookReceiverAadAuthOutputWithContext(context.Background())
+}
+
+func (i GetActionGroupWebhookReceiverAadAuthArgs) ToGetActionGroupWebhookReceiverAadAuthOutputWithContext(ctx context.Context) GetActionGroupWebhookReceiverAadAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupWebhookReceiverAadAuthOutput)
+}
+
+// GetActionGroupWebhookReceiverAadAuthArrayInput is an input type that accepts GetActionGroupWebhookReceiverAadAuthArray and GetActionGroupWebhookReceiverAadAuthArrayOutput values.
+// You can construct a concrete instance of `GetActionGroupWebhookReceiverAadAuthArrayInput` via:
+//
+//          GetActionGroupWebhookReceiverAadAuthArray{ GetActionGroupWebhookReceiverAadAuthArgs{...} }
+type GetActionGroupWebhookReceiverAadAuthArrayInput interface {
+	pulumi.Input
+
+	ToGetActionGroupWebhookReceiverAadAuthArrayOutput() GetActionGroupWebhookReceiverAadAuthArrayOutput
+	ToGetActionGroupWebhookReceiverAadAuthArrayOutputWithContext(context.Context) GetActionGroupWebhookReceiverAadAuthArrayOutput
+}
+
+type GetActionGroupWebhookReceiverAadAuthArray []GetActionGroupWebhookReceiverAadAuthInput
+
+func (GetActionGroupWebhookReceiverAadAuthArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetActionGroupWebhookReceiverAadAuth)(nil)).Elem()
+}
+
+func (i GetActionGroupWebhookReceiverAadAuthArray) ToGetActionGroupWebhookReceiverAadAuthArrayOutput() GetActionGroupWebhookReceiverAadAuthArrayOutput {
+	return i.ToGetActionGroupWebhookReceiverAadAuthArrayOutputWithContext(context.Background())
+}
+
+func (i GetActionGroupWebhookReceiverAadAuthArray) ToGetActionGroupWebhookReceiverAadAuthArrayOutputWithContext(ctx context.Context) GetActionGroupWebhookReceiverAadAuthArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupWebhookReceiverAadAuthArrayOutput)
+}
+
+type GetActionGroupWebhookReceiverAadAuthOutput struct{ *pulumi.OutputState }
+
+func (GetActionGroupWebhookReceiverAadAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionGroupWebhookReceiverAadAuth)(nil)).Elem()
+}
+
+func (o GetActionGroupWebhookReceiverAadAuthOutput) ToGetActionGroupWebhookReceiverAadAuthOutput() GetActionGroupWebhookReceiverAadAuthOutput {
+	return o
+}
+
+func (o GetActionGroupWebhookReceiverAadAuthOutput) ToGetActionGroupWebhookReceiverAadAuthOutputWithContext(ctx context.Context) GetActionGroupWebhookReceiverAadAuthOutput {
+	return o
+}
+
+func (o GetActionGroupWebhookReceiverAadAuthOutput) IdentifierUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionGroupWebhookReceiverAadAuth) string { return v.IdentifierUri }).(pulumi.StringOutput)
+}
+
+func (o GetActionGroupWebhookReceiverAadAuthOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionGroupWebhookReceiverAadAuth) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+func (o GetActionGroupWebhookReceiverAadAuthOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionGroupWebhookReceiverAadAuth) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+type GetActionGroupWebhookReceiverAadAuthArrayOutput struct{ *pulumi.OutputState }
+
+func (GetActionGroupWebhookReceiverAadAuthArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetActionGroupWebhookReceiverAadAuth)(nil)).Elem()
+}
+
+func (o GetActionGroupWebhookReceiverAadAuthArrayOutput) ToGetActionGroupWebhookReceiverAadAuthArrayOutput() GetActionGroupWebhookReceiverAadAuthArrayOutput {
+	return o
+}
+
+func (o GetActionGroupWebhookReceiverAadAuthArrayOutput) ToGetActionGroupWebhookReceiverAadAuthArrayOutputWithContext(ctx context.Context) GetActionGroupWebhookReceiverAadAuthArrayOutput {
+	return o
+}
+
+func (o GetActionGroupWebhookReceiverAadAuthArrayOutput) Index(i pulumi.IntInput) GetActionGroupWebhookReceiverAadAuthOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionGroupWebhookReceiverAadAuth {
+		return vs[0].([]GetActionGroupWebhookReceiverAadAuth)[vs[1].(int)]
+	}).(GetActionGroupWebhookReceiverAadAuthOutput)
 }
 
 type GetLogProfileRetentionPolicy struct {
@@ -11193,6 +11305,8 @@ func init() {
 	pulumi.RegisterOutputType(GetActionGroupVoiceReceiverArrayOutput{})
 	pulumi.RegisterOutputType(GetActionGroupWebhookReceiverOutput{})
 	pulumi.RegisterOutputType(GetActionGroupWebhookReceiverArrayOutput{})
+	pulumi.RegisterOutputType(GetActionGroupWebhookReceiverAadAuthOutput{})
+	pulumi.RegisterOutputType(GetActionGroupWebhookReceiverAadAuthArrayOutput{})
 	pulumi.RegisterOutputType(GetLogProfileRetentionPolicyOutput{})
 	pulumi.RegisterOutputType(GetLogProfileRetentionPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetScheduledQueryRulesAlertActionOutput{})

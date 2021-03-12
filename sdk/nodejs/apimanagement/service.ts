@@ -96,7 +96,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * A `hostnameConfiguration` block as defined below.
      */
-    public readonly hostnameConfiguration!: pulumi.Output<outputs.apimanagement.ServiceHostnameConfiguration | undefined>;
+    public readonly hostnameConfiguration!: pulumi.Output<outputs.apimanagement.ServiceHostnameConfiguration>;
     /**
      * An `identity` block is documented below.
      */

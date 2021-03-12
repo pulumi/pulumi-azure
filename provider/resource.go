@@ -118,6 +118,7 @@ const (
 	azureProximity             = "Proximity"             // Proximity
 	azurePrivateDNS            = "PrivateDns"            // Private DNS
 	azurePrivateLink           = "PrivateLink"           // PrivateLink
+	azurePurview               = "Purview"               // Purview
 	azureRecoveryServices      = "RecoveryServices"      // Recovery Services
 	azureRedis                 = "Redis"                 // RedisCache
 	azureRelay                 = "Relay"                 // Relay
@@ -764,6 +765,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_data_factory_integration_runtime_azure":      {Tok: azureResource(azureDataFactory, "IntegrationRuntimeRule")},
 			"azurerm_data_factory_integration_runtime_azure_ssis": {Tok: azureResource(azureDataFactory, "IntegrationRuntimeSsis")},
+			"azurerm_data_factory_dataset_parquet":                {Tok: azureResource(azureDataFactory, "DatasetParquet")},
 
 			// Data Lake
 			"azurerm_data_lake_analytics_account":       {Tok: azureResource(azureDatalake, "AnalyticsAccount")},
@@ -1373,14 +1375,17 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_relay_hybrid_connection": {Tok: azureResource(azureRelay, "HybridConnection")},
 
 			// Security Center
-			"azurerm_security_center_contact":              {Tok: azureResource(azureSecurityCenter, "Contact")},
-			"azurerm_security_center_subscription_pricing": {Tok: azureResource(azureSecurityCenter, "SubscriptionPricing")},
-			"azurerm_security_center_workspace":            {Tok: azureResource(azureSecurityCenter, "Workspace")},
-			"azurerm_advanced_threat_protection":           {Tok: azureResource(azureSecurityCenter, "AdvancedThreatProtection")},
-			"azurerm_security_center_setting":              {Tok: azureResource(azureSecurityCenter, "Setting")},
-			"azurerm_security_center_auto_provisioning":    {Tok: azureResource(azureSecurityCenter, "AutoProvisioning")},
-			"azurerm_security_center_automation":           {Tok: azureResource(azureSecurityCenter, "Automation")},
-			"azurerm_security_center_assessment_metadata":  {Tok: azureResource(azureSecurityCenter, "AssessmentMetadata")},
+			"azurerm_security_center_contact":                         {Tok: azureResource(azureSecurityCenter, "Contact")},
+			"azurerm_security_center_subscription_pricing":            {Tok: azureResource(azureSecurityCenter, "SubscriptionPricing")},
+			"azurerm_security_center_workspace":                       {Tok: azureResource(azureSecurityCenter, "Workspace")},
+			"azurerm_advanced_threat_protection":                      {Tok: azureResource(azureSecurityCenter, "AdvancedThreatProtection")},
+			"azurerm_security_center_setting":                         {Tok: azureResource(azureSecurityCenter, "Setting")},
+			"azurerm_security_center_auto_provisioning":               {Tok: azureResource(azureSecurityCenter, "AutoProvisioning")},
+			"azurerm_security_center_automation":                      {Tok: azureResource(azureSecurityCenter, "Automation")},
+			"azurerm_security_center_assessment_metadata":             {Tok: azureResource(azureSecurityCenter, "AssessmentMetadata")},
+			"azurerm_security_center_server_vulnerability_assessment": {Tok: azureResource(azureSecurityCenter, "ServerVulnerabilityAssessment")},
+			"azurerm_security_center_assessment":                      {Tok: azureResource(azureSecurityCenter, "Assessment")},
+			"azurerm_security_center_assessment_policy":               {Tok: azureResource(azureSecurityCenter, "AssessmentPolicy")},
 
 			// Service Fabric
 			"azurerm_service_fabric_cluster":            {Tok: azureResource(azureServiceFabric, "Cluster")},
@@ -1683,6 +1688,15 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_sentinel_data_connector_threat_intelligence": {
 				Tok: azureResource(azureSentinel, "DataConnectorThreatIntelligence"),
 			},
+			"azurerm_sentinel_data_connector_azure_advanced_threat_protection": {
+				Tok: azureResource(azureSentinel, "DataConnectorAzureAdvancedThreadProtection"),
+			},
+			"azurerm_sentinel_data_connector_azure_security_center": {
+				Tok: azureResource(azureSentinel, "DataConnectorAzureSecurityCenter"),
+			},
+			"azurerm_sentinel_data_connector_microsoft_cloud_app_security": {
+				Tok: azureResource(azureSentinel, "DataConnectorMicrosoftCloudAppSecurity"),
+			},
 
 			// Eventgrid
 			"azurerm_eventgrid_domain_topic": {Tok: azureResource(azureEventGrid, "DomainTopic")},
@@ -1727,6 +1741,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			// VMWare
 			"azurerm_vmware_private_cloud": {Tok: azureResource(azureAvs, "PrivateCloud")},
+
+			// Purview
+			"azurerm_purview_account": {Tok: azureResource(azurePurview, "Account")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},

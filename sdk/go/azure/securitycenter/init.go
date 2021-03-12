@@ -23,14 +23,20 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection":
 		r, err = NewAdvancedThreatProtection(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:securitycenter/assessment:Assessment":
+		r, err = NewAssessment(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:securitycenter/assessmentMetadata:AssessmentMetadata":
 		r, err = NewAssessmentMetadata(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:securitycenter/assessmentPolicy:AssessmentPolicy":
+		r, err = NewAssessmentPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:securitycenter/autoProvisioning:AutoProvisioning":
 		r, err = NewAutoProvisioning(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:securitycenter/automation:Automation":
 		r, err = NewAutomation(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:securitycenter/contact:Contact":
 		r, err = NewContact(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:securitycenter/serverVulnerabilityAssessment:ServerVulnerabilityAssessment":
+		r, err = NewServerVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:securitycenter/setting:Setting":
 		r, err = NewSetting(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:securitycenter/subscriptionPricing:SubscriptionPricing":
@@ -56,7 +62,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"securitycenter/assessment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"securitycenter/assessmentMetadata",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"securitycenter/assessmentPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -72,6 +88,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"securitycenter/contact",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"securitycenter/serverVulnerabilityAssessment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
