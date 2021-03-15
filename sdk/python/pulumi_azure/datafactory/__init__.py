@@ -9,6 +9,7 @@ from .dataset_delimited_text import *
 from .dataset_http import *
 from .dataset_json import *
 from .dataset_mysql import *
+from .dataset_parquet import *
 from .dataset_postgresql import *
 from .dataset_sql_server_table import *
 from .factory import *
@@ -61,6 +62,8 @@ def _register_module():
                 return DatasetJson(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:datafactory/datasetMysql:DatasetMysql":
                 return DatasetMysql(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:datafactory/datasetParquet:DatasetParquet":
+                return DatasetParquet(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:datafactory/datasetPostgresql:DatasetPostgresql":
                 return DatasetPostgresql(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable":
@@ -120,6 +123,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "datafactory/datasetHttp", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/datasetJson", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/datasetMysql", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "datafactory/datasetParquet", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/datasetPostgresql", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/datasetSqlServerTable", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/factory", _module_instance)

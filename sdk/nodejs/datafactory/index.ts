@@ -11,6 +11,7 @@ export * from "./datasetDelimitedText";
 export * from "./datasetHttp";
 export * from "./datasetJson";
 export * from "./datasetMysql";
+export * from "./datasetParquet";
 export * from "./datasetPostgresql";
 export * from "./datasetSqlServerTable";
 export * from "./factory";
@@ -44,6 +45,7 @@ import { DatasetDelimitedText } from "./datasetDelimitedText";
 import { DatasetHttp } from "./datasetHttp";
 import { DatasetJson } from "./datasetJson";
 import { DatasetMysql } from "./datasetMysql";
+import { DatasetParquet } from "./datasetParquet";
 import { DatasetPostgresql } from "./datasetPostgresql";
 import { DatasetSqlServerTable } from "./datasetSqlServerTable";
 import { Factory } from "./factory";
@@ -85,6 +87,8 @@ const _module = {
                 return new DatasetJson(name, <any>undefined, { urn })
             case "azure:datafactory/datasetMysql:DatasetMysql":
                 return new DatasetMysql(name, <any>undefined, { urn })
+            case "azure:datafactory/datasetParquet:DatasetParquet":
+                return new DatasetParquet(name, <any>undefined, { urn })
             case "azure:datafactory/datasetPostgresql:DatasetPostgresql":
                 return new DatasetPostgresql(name, <any>undefined, { urn })
             case "azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable":
@@ -144,6 +148,7 @@ pulumi.runtime.registerResourceModule("azure", "datafactory/datasetDelimitedText
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetHttp", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetJson", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetMysql", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/datasetParquet", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetPostgresql", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetSqlServerTable", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/factory", _module)

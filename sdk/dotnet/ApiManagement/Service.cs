@@ -98,7 +98,7 @@ namespace Pulumi.Azure.ApiManagement
         /// A `hostname_configuration` block as defined below.
         /// </summary>
         [Output("hostnameConfiguration")]
-        public Output<Outputs.ServiceHostnameConfiguration?> HostnameConfiguration { get; private set; } = null!;
+        public Output<Outputs.ServiceHostnameConfiguration> HostnameConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// An `identity` block is documented below.

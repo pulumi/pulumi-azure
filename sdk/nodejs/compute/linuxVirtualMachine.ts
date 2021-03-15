@@ -195,6 +195,10 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly plan!: pulumi.Output<outputs.compute.LinuxVirtualMachinePlan | undefined>;
     /**
+     * Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
+     */
+    public readonly platformFaultDomain!: pulumi.Output<number | undefined>;
+    /**
      * Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
      */
     public readonly priority!: pulumi.Output<string | undefined>;
@@ -294,6 +298,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
             inputs["osDisk"] = state ? state.osDisk : undefined;
             inputs["plan"] = state ? state.plan : undefined;
+            inputs["platformFaultDomain"] = state ? state.platformFaultDomain : undefined;
             inputs["priority"] = state ? state.priority : undefined;
             inputs["privateIpAddress"] = state ? state.privateIpAddress : undefined;
             inputs["privateIpAddresses"] = state ? state.privateIpAddresses : undefined;
@@ -349,6 +354,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["networkInterfaceIds"] = args ? args.networkInterfaceIds : undefined;
             inputs["osDisk"] = args ? args.osDisk : undefined;
             inputs["plan"] = args ? args.plan : undefined;
+            inputs["platformFaultDomain"] = args ? args.platformFaultDomain : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["provisionVmAgent"] = args ? args.provisionVmAgent : undefined;
             inputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
@@ -465,6 +471,10 @@ export interface LinuxVirtualMachineState {
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
     readonly plan?: pulumi.Input<inputs.compute.LinuxVirtualMachinePlan>;
+    /**
+     * Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
+     */
+    readonly platformFaultDomain?: pulumi.Input<number>;
     /**
      * Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
      */
@@ -623,6 +633,10 @@ export interface LinuxVirtualMachineArgs {
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
     readonly plan?: pulumi.Input<inputs.compute.LinuxVirtualMachinePlan>;
+    /**
+     * Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
+     */
+    readonly platformFaultDomain?: pulumi.Input<number>;
     /**
      * Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
      */

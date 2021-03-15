@@ -146,7 +146,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
-        :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetIdentityArgs']] identity: A `identity` block as defined below.
         :param pulumi.Input[int] instances: The number of Virtual Machines in the Scale Set.
         :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
@@ -324,7 +324,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
-        :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetIdentityArgs']] identity: A `identity` block as defined below.
         :param pulumi.Input[int] instances: The number of Virtual Machines in the Scale Set.
         :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
@@ -535,7 +535,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter(name="healthProbeId")
     def health_probe_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         """
         return pulumi.get(self, "health_probe_id")
 

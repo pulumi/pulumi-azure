@@ -3360,6 +3360,8 @@ func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) Index(
 type KubernetesClusterAutoScalerProfile struct {
 	// Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
 	BalanceSimilarNodeGroups *bool `pulumi:"balanceSimilarNodeGroups"`
+	// Expander to use. Possible values are `least-waste`, `priority`, `max-pods` and `random`. Defaults to `random`.
+	Expander *string `pulumi:"expander"`
 	// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
 	MaxGracefulTerminationSec *string `pulumi:"maxGracefulTerminationSec"`
 	// For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.
@@ -3398,6 +3400,8 @@ type KubernetesClusterAutoScalerProfileInput interface {
 type KubernetesClusterAutoScalerProfileArgs struct {
 	// Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
 	BalanceSimilarNodeGroups pulumi.BoolPtrInput `pulumi:"balanceSimilarNodeGroups"`
+	// Expander to use. Possible values are `least-waste`, `priority`, `max-pods` and `random`. Defaults to `random`.
+	Expander pulumi.StringPtrInput `pulumi:"expander"`
 	// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
 	MaxGracefulTerminationSec pulumi.StringPtrInput `pulumi:"maxGracefulTerminationSec"`
 	// For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.
@@ -3504,6 +3508,11 @@ func (o KubernetesClusterAutoScalerProfileOutput) BalanceSimilarNodeGroups() pul
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *bool { return v.BalanceSimilarNodeGroups }).(pulumi.BoolPtrOutput)
 }
 
+// Expander to use. Possible values are `least-waste`, `priority`, `max-pods` and `random`. Defaults to `random`.
+func (o KubernetesClusterAutoScalerProfileOutput) Expander() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.Expander }).(pulumi.StringPtrOutput)
+}
+
 // Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
 func (o KubernetesClusterAutoScalerProfileOutput) MaxGracefulTerminationSec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.MaxGracefulTerminationSec }).(pulumi.StringPtrOutput)
@@ -3585,6 +3594,16 @@ func (o KubernetesClusterAutoScalerProfilePtrOutput) BalanceSimilarNodeGroups() 
 		}
 		return v.BalanceSimilarNodeGroups
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Expander to use. Possible values are `least-waste`, `priority`, `max-pods` and `random`. Defaults to `random`.
+func (o KubernetesClusterAutoScalerProfilePtrOutput) Expander() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Expander
+	}).(pulumi.StringPtrOutput)
 }
 
 // Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.

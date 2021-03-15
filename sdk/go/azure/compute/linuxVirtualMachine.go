@@ -77,6 +77,8 @@ type LinuxVirtualMachine struct {
 	OsDisk LinuxVirtualMachineOsDiskOutput `pulumi:"osDisk"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan LinuxVirtualMachinePlanPtrOutput `pulumi:"plan"`
+	// Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
+	PlatformFaultDomain pulumi.IntPtrOutput `pulumi:"platformFaultDomain"`
 	// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrOutput `pulumi:"priority"`
 	// The Primary Private IP Address assigned to this Virtual Machine.
@@ -199,6 +201,8 @@ type linuxVirtualMachineState struct {
 	OsDisk *LinuxVirtualMachineOsDisk `pulumi:"osDisk"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *LinuxVirtualMachinePlan `pulumi:"plan"`
+	// Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
+	PlatformFaultDomain *int `pulumi:"platformFaultDomain"`
 	// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority *string `pulumi:"priority"`
 	// The Primary Private IP Address assigned to this Virtual Machine.
@@ -278,6 +282,8 @@ type LinuxVirtualMachineState struct {
 	OsDisk LinuxVirtualMachineOsDiskPtrInput
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan LinuxVirtualMachinePlanPtrInput
+	// Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
+	PlatformFaultDomain pulumi.IntPtrInput
 	// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrInput
 	// The Primary Private IP Address assigned to this Virtual Machine.
@@ -361,6 +367,8 @@ type linuxVirtualMachineArgs struct {
 	OsDisk LinuxVirtualMachineOsDisk `pulumi:"osDisk"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *LinuxVirtualMachinePlan `pulumi:"plan"`
+	// Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
+	PlatformFaultDomain *int `pulumi:"platformFaultDomain"`
 	// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority *string `pulumi:"priority"`
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
@@ -431,6 +439,8 @@ type LinuxVirtualMachineArgs struct {
 	OsDisk LinuxVirtualMachineOsDiskInput
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan LinuxVirtualMachinePlanPtrInput
+	// Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
+	PlatformFaultDomain pulumi.IntPtrInput
 	// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrInput
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.

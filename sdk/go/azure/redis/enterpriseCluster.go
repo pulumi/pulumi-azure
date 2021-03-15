@@ -56,6 +56,8 @@ type EnterpriseCluster struct {
 	pulumi.CustomResourceState
 
 	// DNS name of the cluster endpoint.
+	//
+	// Deprecated: This field currently is not yet being returned from the service API, please see https://github.com/Azure/azure-sdk-for-go/issues/14420 for more information
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
 	// The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -68,6 +70,8 @@ type EnterpriseCluster struct {
 	// A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Version of redis the cluster supports, e.g. '6'.
+	//
+	// Deprecated: This field currently is not yet being returned from the service API, please see https://github.com/Azure/azure-sdk-for-go/issues/14420 for more information
 	Version pulumi.StringOutput `pulumi:"version"`
 	// A list of a one or more Availability Zones, where the Redis Cache should be allocated. Possible values are: `1`, `2` and `3`. Changing this forces a new Redis Enterprise Cluster to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
@@ -109,6 +113,8 @@ func GetEnterpriseCluster(ctx *pulumi.Context,
 // Input properties used for looking up and filtering EnterpriseCluster resources.
 type enterpriseClusterState struct {
 	// DNS name of the cluster endpoint.
+	//
+	// Deprecated: This field currently is not yet being returned from the service API, please see https://github.com/Azure/azure-sdk-for-go/issues/14420 for more information
 	Hostname *string `pulumi:"hostname"`
 	// The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	Location *string `pulumi:"location"`
@@ -121,6 +127,8 @@ type enterpriseClusterState struct {
 	// A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
 	Tags map[string]string `pulumi:"tags"`
 	// Version of redis the cluster supports, e.g. '6'.
+	//
+	// Deprecated: This field currently is not yet being returned from the service API, please see https://github.com/Azure/azure-sdk-for-go/issues/14420 for more information
 	Version *string `pulumi:"version"`
 	// A list of a one or more Availability Zones, where the Redis Cache should be allocated. Possible values are: `1`, `2` and `3`. Changing this forces a new Redis Enterprise Cluster to be created.
 	Zones []string `pulumi:"zones"`
@@ -128,6 +136,8 @@ type enterpriseClusterState struct {
 
 type EnterpriseClusterState struct {
 	// DNS name of the cluster endpoint.
+	//
+	// Deprecated: This field currently is not yet being returned from the service API, please see https://github.com/Azure/azure-sdk-for-go/issues/14420 for more information
 	Hostname pulumi.StringPtrInput
 	// The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	Location pulumi.StringPtrInput
@@ -140,6 +150,8 @@ type EnterpriseClusterState struct {
 	// A mapping of tags which should be assigned to the Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
 	Tags pulumi.StringMapInput
 	// Version of redis the cluster supports, e.g. '6'.
+	//
+	// Deprecated: This field currently is not yet being returned from the service API, please see https://github.com/Azure/azure-sdk-for-go/issues/14420 for more information
 	Version pulumi.StringPtrInput
 	// A list of a one or more Availability Zones, where the Redis Cache should be allocated. Possible values are: `1`, `2` and `3`. Changing this forces a new Redis Enterprise Cluster to be created.
 	Zones pulumi.StringArrayInput

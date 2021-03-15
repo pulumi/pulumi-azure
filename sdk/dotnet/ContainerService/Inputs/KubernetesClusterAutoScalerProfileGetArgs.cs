@@ -19,6 +19,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<bool>? BalanceSimilarNodeGroups { get; set; }
 
         /// <summary>
+        /// Expander to use. Possible values are `least-waste`, `priority`, `max-pods` and `random`. Defaults to `random`.
+        /// </summary>
+        [Input("expander")]
+        public Input<string>? Expander { get; set; }
+
+        /// <summary>
         /// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
         /// </summary>
         [Input("maxGracefulTerminationSec")]

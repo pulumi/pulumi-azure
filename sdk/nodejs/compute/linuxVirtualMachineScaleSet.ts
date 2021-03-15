@@ -167,7 +167,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly extensionsTimeBudget!: pulumi.Output<string | undefined>;
     /**
-     * The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
+     * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */
     public readonly healthProbeId!: pulumi.Output<string | undefined>;
     /**
@@ -477,7 +477,7 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     readonly extensionsTimeBudget?: pulumi.Input<string>;
     /**
-     * The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
+     * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */
     readonly healthProbeId?: pulumi.Input<string>;
     /**
@@ -659,7 +659,7 @@ export interface LinuxVirtualMachineScaleSetArgs {
      */
     readonly extensionsTimeBudget?: pulumi.Input<string>;
     /**
-     * The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
+     * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */
     readonly healthProbeId?: pulumi.Input<string>;
     /**

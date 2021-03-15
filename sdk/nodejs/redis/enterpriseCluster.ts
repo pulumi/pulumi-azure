@@ -59,6 +59,8 @@ export class EnterpriseCluster extends pulumi.CustomResource {
 
     /**
      * DNS name of the cluster endpoint.
+     *
+     * @deprecated This field currently is not yet being returned from the service API, please see https://github.com/Azure/azure-sdk-for-go/issues/14420 for more information
      */
     public /*out*/ readonly hostname!: pulumi.Output<string>;
     /**
@@ -83,6 +85,8 @@ export class EnterpriseCluster extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Version of redis the cluster supports, e.g. '6'.
+     *
+     * @deprecated This field currently is not yet being returned from the service API, please see https://github.com/Azure/azure-sdk-for-go/issues/14420 for more information
      */
     public /*out*/ readonly version!: pulumi.Output<string>;
     /**
@@ -141,6 +145,8 @@ export class EnterpriseCluster extends pulumi.CustomResource {
 export interface EnterpriseClusterState {
     /**
      * DNS name of the cluster endpoint.
+     *
+     * @deprecated This field currently is not yet being returned from the service API, please see https://github.com/Azure/azure-sdk-for-go/issues/14420 for more information
      */
     readonly hostname?: pulumi.Input<string>;
     /**
@@ -165,6 +171,8 @@ export interface EnterpriseClusterState {
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Version of redis the cluster supports, e.g. '6'.
+     *
+     * @deprecated This field currently is not yet being returned from the service API, please see https://github.com/Azure/azure-sdk-for-go/issues/14420 for more information
      */
     readonly version?: pulumi.Input<string>;
     /**

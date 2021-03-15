@@ -81,6 +81,7 @@ __all__ = [
     'GetActionGroupSmsReceiverResult',
     'GetActionGroupVoiceReceiverResult',
     'GetActionGroupWebhookReceiverResult',
+    'GetActionGroupWebhookReceiverAadAuthResult',
     'GetLogProfileRetentionPolicyResult',
     'GetScheduledQueryRulesAlertActionResult',
     'GetScheduledQueryRulesAlertTriggerResult',
@@ -3499,18 +3500,24 @@ class GetActionGroupVoiceReceiverResult(dict):
 @pulumi.output_type
 class GetActionGroupWebhookReceiverResult(dict):
     def __init__(__self__, *,
+                 aad_auths: Sequence['outputs.GetActionGroupWebhookReceiverAadAuthResult'],
                  name: str,
                  service_uri: str,
-                 use_common_alert_schema: Optional[bool] = None):
+                 use_common_alert_schema: bool):
         """
         :param str name: Specifies the name of the Action Group.
         :param str service_uri: The URI where webhooks should be sent.
         :param bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
+        pulumi.set(__self__, "aad_auths", aad_auths)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service_uri", service_uri)
-        if use_common_alert_schema is not None:
-            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+        pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @property
+    @pulumi.getter(name="aadAuths")
+    def aad_auths(self) -> Sequence['outputs.GetActionGroupWebhookReceiverAadAuthResult']:
+        return pulumi.get(self, "aad_auths")
 
     @property
     @pulumi.getter
@@ -3530,11 +3537,37 @@ class GetActionGroupWebhookReceiverResult(dict):
 
     @property
     @pulumi.getter(name="useCommonAlertSchema")
-    def use_common_alert_schema(self) -> Optional[bool]:
+    def use_common_alert_schema(self) -> bool:
         """
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
+
+
+@pulumi.output_type
+class GetActionGroupWebhookReceiverAadAuthResult(dict):
+    def __init__(__self__, *,
+                 identifier_uri: str,
+                 object_id: str,
+                 tenant_id: str):
+        pulumi.set(__self__, "identifier_uri", identifier_uri)
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="identifierUri")
+    def identifier_uri(self) -> str:
+        return pulumi.get(self, "identifier_uri")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> str:
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type

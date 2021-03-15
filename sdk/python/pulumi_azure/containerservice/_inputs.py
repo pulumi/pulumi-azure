@@ -1442,6 +1442,7 @@ class KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs:
 class KubernetesClusterAutoScalerProfileArgs:
     def __init__(__self__, *,
                  balance_similar_node_groups: Optional[pulumi.Input[bool]] = None,
+                 expander: Optional[pulumi.Input[str]] = None,
                  max_graceful_termination_sec: Optional[pulumi.Input[str]] = None,
                  new_pod_scale_up_delay: Optional[pulumi.Input[str]] = None,
                  scale_down_delay_after_add: Optional[pulumi.Input[str]] = None,
@@ -1455,6 +1456,7 @@ class KubernetesClusterAutoScalerProfileArgs:
                  skip_nodes_with_system_pods: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] balance_similar_node_groups: Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
+        :param pulumi.Input[str] expander: Expander to use. Possible values are `least-waste`, `priority`, `max-pods` and `random`. Defaults to `random`.
         :param pulumi.Input[str] max_graceful_termination_sec: Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
         :param pulumi.Input[str] new_pod_scale_up_delay: For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.
         :param pulumi.Input[str] scale_down_delay_after_add: How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
@@ -1469,6 +1471,8 @@ class KubernetesClusterAutoScalerProfileArgs:
         """
         if balance_similar_node_groups is not None:
             pulumi.set(__self__, "balance_similar_node_groups", balance_similar_node_groups)
+        if expander is not None:
+            pulumi.set(__self__, "expander", expander)
         if max_graceful_termination_sec is not None:
             pulumi.set(__self__, "max_graceful_termination_sec", max_graceful_termination_sec)
         if new_pod_scale_up_delay is not None:
@@ -1503,6 +1507,18 @@ class KubernetesClusterAutoScalerProfileArgs:
     @balance_similar_node_groups.setter
     def balance_similar_node_groups(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "balance_similar_node_groups", value)
+
+    @property
+    @pulumi.getter
+    def expander(self) -> Optional[pulumi.Input[str]]:
+        """
+        Expander to use. Possible values are `least-waste`, `priority`, `max-pods` and `random`. Defaults to `random`.
+        """
+        return pulumi.get(self, "expander")
+
+    @expander.setter
+    def expander(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expander", value)
 
     @property
     @pulumi.getter(name="maxGracefulTerminationSec")

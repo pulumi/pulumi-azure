@@ -13,6 +13,8 @@ import (
 
 // Manages the Security Center Assessment Metadata for Azure Security Center.
 //
+// > **NOTE:** This resource has been deprecated in favour of the `securitycenter.AssessmentPolicy` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
+//
 // ## Example Usage
 //
 // ```go

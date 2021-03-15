@@ -19,6 +19,9 @@ __all__ = [
     'DatasetJsonHttpServerLocation',
     'DatasetJsonSchemaColumn',
     'DatasetMysqlSchemaColumn',
+    'DatasetParquetAzureBlobStorageLocation',
+    'DatasetParquetHttpServerLocation',
+    'DatasetParquetSchemaColumn',
     'DatasetPostgresqlSchemaColumn',
     'DatasetSqlServerTableSchemaColumn',
     'FactoryGithubConfiguration',
@@ -438,6 +441,137 @@ class DatasetJsonSchemaColumn(dict):
 
 @pulumi.output_type
 class DatasetMysqlSchemaColumn(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 description: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str name: The name of the column.
+        :param str description: The description of the column.
+        :param str type: Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        """
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the column.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DatasetParquetAzureBlobStorageLocation(dict):
+    def __init__(__self__, *,
+                 container: str,
+                 filename: str,
+                 path: str):
+        """
+        :param str container: The container on the Azure Blob Storage Account hosting the file.
+        :param str filename: The filename of the file on the web server.
+        :param str path: The folder path to the file on the web server.
+        """
+        pulumi.set(__self__, "container", container)
+        pulumi.set(__self__, "filename", filename)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def container(self) -> str:
+        """
+        The container on the Azure Blob Storage Account hosting the file.
+        """
+        return pulumi.get(self, "container")
+
+    @property
+    @pulumi.getter
+    def filename(self) -> str:
+        """
+        The filename of the file on the web server.
+        """
+        return pulumi.get(self, "filename")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The folder path to the file on the web server.
+        """
+        return pulumi.get(self, "path")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DatasetParquetHttpServerLocation(dict):
+    def __init__(__self__, *,
+                 filename: str,
+                 path: str,
+                 relative_url: str):
+        """
+        :param str filename: The filename of the file on the web server.
+        :param str path: The folder path to the file on the web server.
+        :param str relative_url: The base URL to the web server hosting the file.
+        """
+        pulumi.set(__self__, "filename", filename)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "relative_url", relative_url)
+
+    @property
+    @pulumi.getter
+    def filename(self) -> str:
+        """
+        The filename of the file on the web server.
+        """
+        return pulumi.get(self, "filename")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The folder path to the file on the web server.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="relativeUrl")
+    def relative_url(self) -> str:
+        """
+        The base URL to the web server hosting the file.
+        """
+        return pulumi.get(self, "relative_url")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DatasetParquetSchemaColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  description: Optional[str] = None,

@@ -251,6 +251,12 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.LinuxVirtualMachinePlan?> Plan { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
+        /// </summary>
+        [Output("platformFaultDomain")]
+        public Output<int?> PlatformFaultDomain { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("priority")]
@@ -537,6 +543,12 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.LinuxVirtualMachinePlanArgs>? Plan { get; set; }
 
         /// <summary>
+        /// Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
+        /// </summary>
+        [Input("platformFaultDomain")]
+        public Input<int>? PlatformFaultDomain { get; set; }
+
+        /// <summary>
         /// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("priority")]
@@ -764,6 +776,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("plan")]
         public Input<Inputs.LinuxVirtualMachinePlanGetArgs>? Plan { get; set; }
+
+        /// <summary>
+        /// Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
+        /// </summary>
+        [Input("platformFaultDomain")]
+        public Input<int>? PlatformFaultDomain { get; set; }
 
         /// <summary>
         /// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.

@@ -138,6 +138,18 @@ export class Assignment extends pulumi.CustomResource {
     }
 
     /**
+     * The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+     */
+    public readonly condition!: pulumi.Output<string | undefined>;
+    /**
+     * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+     */
+    public readonly conditionVersion!: pulumi.Output<string | undefined>;
+    /**
+     * The description for this Role Assignment. Changing this forces a new resource to be created.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -182,6 +194,9 @@ export class Assignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssignmentState | undefined;
+            inputs["condition"] = state ? state.condition : undefined;
+            inputs["conditionVersion"] = state ? state.conditionVersion : undefined;
+            inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["principalId"] = state ? state.principalId : undefined;
             inputs["principalType"] = state ? state.principalType : undefined;
@@ -197,6 +212,9 @@ export class Assignment extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
+            inputs["condition"] = args ? args.condition : undefined;
+            inputs["conditionVersion"] = args ? args.conditionVersion : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["principalId"] = args ? args.principalId : undefined;
             inputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
@@ -216,6 +234,18 @@ export class Assignment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Assignment resources.
  */
 export interface AssignmentState {
+    /**
+     * The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+     */
+    readonly condition?: pulumi.Input<string>;
+    /**
+     * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+     */
+    readonly conditionVersion?: pulumi.Input<string>;
+    /**
+     * The description for this Role Assignment. Changing this forces a new resource to be created.
+     */
+    readonly description?: pulumi.Input<string>;
     /**
      * A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
      */
@@ -250,6 +280,18 @@ export interface AssignmentState {
  * The set of arguments for constructing a Assignment resource.
  */
 export interface AssignmentArgs {
+    /**
+     * The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+     */
+    readonly condition?: pulumi.Input<string>;
+    /**
+     * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+     */
+    readonly conditionVersion?: pulumi.Input<string>;
+    /**
+     * The description for this Role Assignment. Changing this forces a new resource to be created.
+     */
+    readonly description?: pulumi.Input<string>;
     /**
      * A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
      */

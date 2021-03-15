@@ -31,6 +31,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewDataConnectorAwsCloudTrail(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:sentinel/dataConnectorAzureActiveDirectory:DataConnectorAzureActiveDirectory":
 		r, err = NewDataConnectorAzureActiveDirectory(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:sentinel/dataConnectorAzureAdvancedThreadProtection:DataConnectorAzureAdvancedThreadProtection":
+		r, err = NewDataConnectorAzureAdvancedThreadProtection(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:sentinel/dataConnectorAzureSecurityCenter:DataConnectorAzureSecurityCenter":
+		r, err = NewDataConnectorAzureSecurityCenter(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity":
+		r, err = NewDataConnectorMicrosoftCloudAppSecurity(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:sentinel/dataConnectorOffice365:DataConnectorOffice365":
 		r, err = NewDataConnectorOffice365(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence":
@@ -70,6 +76,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"sentinel/dataConnectorAzureActiveDirectory",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/dataConnectorAzureAdvancedThreadProtection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/dataConnectorAzureSecurityCenter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/dataConnectorMicrosoftCloudAppSecurity",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

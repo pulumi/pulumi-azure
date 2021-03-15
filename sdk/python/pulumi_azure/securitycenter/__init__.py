@@ -4,10 +4,13 @@
 
 # Export this package's modules as members:
 from .advanced_threat_protection import *
+from .assessment import *
 from .assessment_metadata import *
+from .assessment_policy import *
 from .auto_provisioning import *
 from .automation import *
 from .contact import *
+from .server_vulnerability_assessment import *
 from .setting import *
 from .subscription_pricing import *
 from .workspace import *
@@ -28,14 +31,20 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection":
                 return AdvancedThreatProtection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:securitycenter/assessment:Assessment":
+                return Assessment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:securitycenter/assessmentMetadata:AssessmentMetadata":
                 return AssessmentMetadata(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:securitycenter/assessmentPolicy:AssessmentPolicy":
+                return AssessmentPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:securitycenter/autoProvisioning:AutoProvisioning":
                 return AutoProvisioning(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:securitycenter/automation:Automation":
                 return Automation(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:securitycenter/contact:Contact":
                 return Contact(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:securitycenter/serverVulnerabilityAssessment:ServerVulnerabilityAssessment":
+                return ServerVulnerabilityAssessment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:securitycenter/setting:Setting":
                 return Setting(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:securitycenter/subscriptionPricing:SubscriptionPricing":
@@ -48,10 +57,13 @@ def _register_module():
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("azure", "securitycenter/advancedThreatProtection", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "securitycenter/assessment", _module_instance)
     pulumi.runtime.register_resource_module("azure", "securitycenter/assessmentMetadata", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "securitycenter/assessmentPolicy", _module_instance)
     pulumi.runtime.register_resource_module("azure", "securitycenter/autoProvisioning", _module_instance)
     pulumi.runtime.register_resource_module("azure", "securitycenter/automation", _module_instance)
     pulumi.runtime.register_resource_module("azure", "securitycenter/contact", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "securitycenter/serverVulnerabilityAssessment", _module_instance)
     pulumi.runtime.register_resource_module("azure", "securitycenter/setting", _module_instance)
     pulumi.runtime.register_resource_module("azure", "securitycenter/subscriptionPricing", _module_instance)
     pulumi.runtime.register_resource_module("azure", "securitycenter/workspace", _module_instance)

@@ -18,6 +18,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? BalanceSimilarNodeGroups;
         /// <summary>
+        /// Expander to use. Possible values are `least-waste`, `priority`, `max-pods` and `random`. Defaults to `random`.
+        /// </summary>
+        public readonly string? Expander;
+        /// <summary>
         /// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
         /// </summary>
         public readonly string? MaxGracefulTerminationSec;
@@ -66,6 +70,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
         private KubernetesClusterAutoScalerProfile(
             bool? balanceSimilarNodeGroups,
 
+            string? expander,
+
             string? maxGracefulTerminationSec,
 
             string? newPodScaleUpDelay,
@@ -89,6 +95,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             bool? skipNodesWithSystemPods)
         {
             BalanceSimilarNodeGroups = balanceSimilarNodeGroups;
+            Expander = expander;
             MaxGracefulTerminationSec = maxGracefulTerminationSec;
             NewPodScaleUpDelay = newPodScaleUpDelay;
             ScaleDownDelayAfterAdd = scaleDownDelayAfterAdd;

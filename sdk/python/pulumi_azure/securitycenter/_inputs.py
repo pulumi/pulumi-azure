@@ -9,11 +9,66 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
+    'AssessmentStatusArgs',
     'AutomationActionArgs',
     'AutomationSourceArgs',
     'AutomationSourceRuleSetArgs',
     'AutomationSourceRuleSetRuleArgs',
 ]
+
+@pulumi.input_type
+class AssessmentStatusArgs:
+    def __init__(__self__, *,
+                 code: pulumi.Input[str],
+                 cause: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] code: Specifies the programmatic code of the assessment status. Possible values are `Healthy`, `Unhealthy` and `NotApplicable`.
+        :param pulumi.Input[str] cause: Specifies the cause of the assessment status.
+        :param pulumi.Input[str] description: Specifies the human readable description of the assessment status.
+        """
+        pulumi.set(__self__, "code", code)
+        if cause is not None:
+            pulumi.set(__self__, "cause", cause)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def code(self) -> pulumi.Input[str]:
+        """
+        Specifies the programmatic code of the assessment status. Possible values are `Healthy`, `Unhealthy` and `NotApplicable`.
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: pulumi.Input[str]):
+        pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter
+    def cause(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the cause of the assessment status.
+        """
+        return pulumi.get(self, "cause")
+
+    @cause.setter
+    def cause(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cause", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the human readable description of the assessment status.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
 
 @pulumi.input_type
 class AutomationActionArgs:

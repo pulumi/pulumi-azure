@@ -5803,19 +5803,19 @@ export namespace compute {
 
     export interface LinuxVirtualMachineScaleSetRollingUpgradePolicy {
         /**
-         * The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
+         * The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
          */
         maxBatchInstancePercent: number;
         /**
-         * The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
+         * The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
          */
         maxUnhealthyInstancePercent: number;
         /**
-         * The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
+         * The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
          */
         maxUnhealthyUpgradedInstancePercent: number;
         /**
-         * The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
+         * The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
          */
         pauseTimeBetweenBatches: string;
     }
@@ -7036,19 +7036,19 @@ export namespace compute {
 
     export interface WindowsVirtualMachineScaleSetRollingUpgradePolicy {
         /**
-         * The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
+         * The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
          */
         maxBatchInstancePercent: number;
         /**
-         * The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
+         * The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
          */
         maxUnhealthyInstancePercent: number;
         /**
-         * The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
+         * The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
          */
         maxUnhealthyUpgradedInstancePercent: number;
         /**
-         * The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
+         * The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
          */
         pauseTimeBetweenBatches: string;
     }
@@ -7921,6 +7921,10 @@ export namespace containerservice {
          * Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
          */
         balanceSimilarNodeGroups?: boolean;
+        /**
+         * Expander to use. Possible values are `least-waste`, `priority`, `max-pods` and `random`. Defaults to `random`.
+         */
+        expander: string;
         /**
          * Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
          */
@@ -9129,6 +9133,51 @@ export namespace datafactory {
     }
 
     export interface DatasetMysqlSchemaColumn {
+        /**
+         * The description of the column.
+         */
+        description?: string;
+        /**
+         * The name of the column.
+         */
+        name: string;
+        /**
+         * Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+         */
+        type?: string;
+    }
+
+    export interface DatasetParquetAzureBlobStorageLocation {
+        /**
+         * The container on the Azure Blob Storage Account hosting the file.
+         */
+        container: string;
+        /**
+         * The filename of the file on the web server.
+         */
+        filename: string;
+        /**
+         * The folder path to the file on the web server.
+         */
+        path: string;
+    }
+
+    export interface DatasetParquetHttpServerLocation {
+        /**
+         * The filename of the file on the web server.
+         */
+        filename: string;
+        /**
+         * The folder path to the file on the web server.
+         */
+        path: string;
+        /**
+         * The base URL to the web server hosting the file.
+         */
+        relativeUrl: string;
+    }
+
+    export interface DatasetParquetSchemaColumn {
         /**
          * The description of the column.
          */
@@ -16230,6 +16279,7 @@ export namespace monitoring {
     }
 
     export interface GetActionGroupWebhookReceiver {
+        aadAuths: outputs.monitoring.GetActionGroupWebhookReceiverAadAuth[];
         /**
          * Specifies the name of the Action Group.
          */
@@ -16241,7 +16291,13 @@ export namespace monitoring {
         /**
          * Indicates whether to use common alert schema.
          */
-        useCommonAlertSchema?: boolean;
+        useCommonAlertSchema: boolean;
+    }
+
+    export interface GetActionGroupWebhookReceiverAadAuth {
+        identifierUri: string;
+        objectId: string;
+        tenantId: string;
     }
 
     export interface GetLogProfileRetentionPolicy {
@@ -20688,6 +20744,23 @@ export namespace privatelink {
     }
 }
 
+export namespace purview {
+    export interface AccountIdentity {
+        /**
+         * The ID of the Principal (Client) in Azure Active Directory.
+         */
+        principalId: string;
+        /**
+         * The ID of the Azure Active Directory Tenant.
+         */
+        tenantId: string;
+        /**
+         * The type of Managed Identity assigned to this Purview Account.
+         */
+        type: string;
+    }
+}
+
 export namespace recoveryservices {
     export interface VaultIdentity {
         principalId: string;
@@ -20906,6 +20979,21 @@ export namespace search {
 }
 
 export namespace securitycenter {
+    export interface AssessmentStatus {
+        /**
+         * Specifies the cause of the assessment status.
+         */
+        cause?: string;
+        /**
+         * Specifies the programmatic code of the assessment status. Possible values are `Healthy`, `Unhealthy` and `NotApplicable`.
+         */
+        code: string;
+        /**
+         * Specifies the human readable description of the assessment status.
+         */
+        description?: string;
+    }
+
     export interface AutomationAction {
         /**
          * A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.

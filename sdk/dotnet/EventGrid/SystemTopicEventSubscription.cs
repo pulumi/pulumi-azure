@@ -12,6 +12,57 @@ namespace Pulumi.Azure.EventGrid
     /// <summary>
     /// Manages an EventGrid System Topic Event Subscription.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "staging" },
+    ///             },
+    ///         });
+    ///         var exampleQueue = new Azure.Storage.Queue("exampleQueue", new Azure.Storage.QueueArgs
+    ///         {
+    ///             StorageAccountName = exampleAccount.Name,
+    ///         });
+    ///         var exampleSystemTopic = new Azure.EventGrid.SystemTopic("exampleSystemTopic", new Azure.EventGrid.SystemTopicArgs
+    ///         {
+    ///             Location = "Global",
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SourceArmResourceId = exampleResourceGroup.Id,
+    ///             TopicType = "Microsoft.Resources.ResourceGroups",
+    ///         });
+    ///         var exampleSystemTopicEventSubscription = new Azure.EventGrid.SystemTopicEventSubscription("exampleSystemTopicEventSubscription", new Azure.EventGrid.SystemTopicEventSubscriptionArgs
+    ///         {
+    ///             SystemTopic = azurerm_system_topic.Example.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             StorageQueueEndpoint = new Azure.EventGrid.Inputs.SystemTopicEventSubscriptionStorageQueueEndpointArgs
+    ///             {
+    ///                 StorageAccountId = exampleAccount.Id,
+    ///                 QueueName = exampleQueue.Name,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// EventGrid System Topic Event Subscriptions can be imported using the `resource id`, e.g.

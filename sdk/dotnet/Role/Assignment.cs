@@ -181,6 +181,24 @@ namespace Pulumi.Azure.Role
     public partial class Assignment : Pulumi.CustomResource
     {
         /// <summary>
+        /// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("condition")]
+        public Output<string?> Condition { get; private set; } = null!;
+
+        /// <summary>
+        /// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("conditionVersion")]
+        public Output<string?> ConditionVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The description for this Role Assignment. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -269,6 +287,24 @@ namespace Pulumi.Azure.Role
     public sealed class AssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("condition")]
+        public Input<string>? Condition { get; set; }
+
+        /// <summary>
+        /// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("conditionVersion")]
+        public Input<string>? ConditionVersion { get; set; }
+
+        /// <summary>
+        /// The description for this Role Assignment. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -311,6 +347,24 @@ namespace Pulumi.Azure.Role
 
     public sealed class AssignmentState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("condition")]
+        public Input<string>? Condition { get; set; }
+
+        /// <summary>
+        /// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("conditionVersion")]
+        public Input<string>? ConditionVersion { get; set; }
+
+        /// <summary>
+        /// The description for this Role Assignment. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
         /// <summary>
         /// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         /// </summary>

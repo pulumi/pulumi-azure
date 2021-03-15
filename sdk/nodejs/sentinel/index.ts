@@ -10,6 +10,9 @@ export * from "./alertRuleMsSecurityIncident";
 export * from "./alertRuleScheduled";
 export * from "./dataConnectorAwsCloudTrail";
 export * from "./dataConnectorAzureActiveDirectory";
+export * from "./dataConnectorAzureAdvancedThreadProtection";
+export * from "./dataConnectorAzureSecurityCenter";
+export * from "./dataConnectorMicrosoftCloudAppSecurity";
 export * from "./dataConnectorOffice365";
 export * from "./dataConnectorThreatIntelligence";
 export * from "./getAlertRule";
@@ -21,6 +24,9 @@ import { AlertRuleMsSecurityIncident } from "./alertRuleMsSecurityIncident";
 import { AlertRuleScheduled } from "./alertRuleScheduled";
 import { DataConnectorAwsCloudTrail } from "./dataConnectorAwsCloudTrail";
 import { DataConnectorAzureActiveDirectory } from "./dataConnectorAzureActiveDirectory";
+import { DataConnectorAzureAdvancedThreadProtection } from "./dataConnectorAzureAdvancedThreadProtection";
+import { DataConnectorAzureSecurityCenter } from "./dataConnectorAzureSecurityCenter";
+import { DataConnectorMicrosoftCloudAppSecurity } from "./dataConnectorMicrosoftCloudAppSecurity";
 import { DataConnectorOffice365 } from "./dataConnectorOffice365";
 import { DataConnectorThreatIntelligence } from "./dataConnectorThreatIntelligence";
 
@@ -38,6 +44,12 @@ const _module = {
                 return new DataConnectorAwsCloudTrail(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorAzureActiveDirectory:DataConnectorAzureActiveDirectory":
                 return new DataConnectorAzureActiveDirectory(name, <any>undefined, { urn })
+            case "azure:sentinel/dataConnectorAzureAdvancedThreadProtection:DataConnectorAzureAdvancedThreadProtection":
+                return new DataConnectorAzureAdvancedThreadProtection(name, <any>undefined, { urn })
+            case "azure:sentinel/dataConnectorAzureSecurityCenter:DataConnectorAzureSecurityCenter":
+                return new DataConnectorAzureSecurityCenter(name, <any>undefined, { urn })
+            case "azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity":
+                return new DataConnectorMicrosoftCloudAppSecurity(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorOffice365:DataConnectorOffice365":
                 return new DataConnectorOffice365(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence":
@@ -52,5 +64,8 @@ pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleMsSecurityInci
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleScheduled", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorAwsCloudTrail", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorAzureActiveDirectory", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorAzureAdvancedThreadProtection", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorAzureSecurityCenter", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorMicrosoftCloudAppSecurity", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOffice365", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorThreatIntelligence", _module)

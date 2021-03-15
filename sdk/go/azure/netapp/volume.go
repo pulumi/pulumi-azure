@@ -93,7 +93,8 @@ import (
 // 			Protocols: pulumi.StringArray{
 // 				pulumi.String("NFSv4.1"),
 // 			},
-// 			StorageQuotaInGb: pulumi.Int(100),
+// 			StorageQuotaInGb:             pulumi.Int(100),
+// 			CreateFromSnapshotResourceId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1"),
 // 			DataProtectionReplication: &netapp.VolumeDataProtectionReplicationArgs{
 // 				EndpointType:           pulumi.String("dst"),
 // 				RemoteVolumeLocation:   pulumi.Any(azurerm_resource_group.Example_primary.Location),
@@ -120,8 +121,10 @@ type Volume struct {
 	pulumi.CustomResourceState
 
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-	AccountName               pulumi.StringOutput                      `pulumi:"accountName"`
-	DataProtectionReplication VolumeDataProtectionReplicationPtrOutput `pulumi:"dataProtectionReplication"`
+	AccountName pulumi.StringOutput `pulumi:"accountName"`
+	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`.
+	CreateFromSnapshotResourceId pulumi.StringOutput                      `pulumi:"createFromSnapshotResourceId"`
+	DataProtectionReplication    VolumeDataProtectionReplicationPtrOutput `pulumi:"dataProtectionReplication"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayOutput `pulumi:"exportPolicyRules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -199,8 +202,10 @@ func GetVolume(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Volume resources.
 type volumeState struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-	AccountName               *string                          `pulumi:"accountName"`
-	DataProtectionReplication *VolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
+	AccountName *string `pulumi:"accountName"`
+	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`.
+	CreateFromSnapshotResourceId *string                          `pulumi:"createFromSnapshotResourceId"`
+	DataProtectionReplication    *VolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules []VolumeExportPolicyRule `pulumi:"exportPolicyRules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -229,8 +234,10 @@ type volumeState struct {
 
 type VolumeState struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-	AccountName               pulumi.StringPtrInput
-	DataProtectionReplication VolumeDataProtectionReplicationPtrInput
+	AccountName pulumi.StringPtrInput
+	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`.
+	CreateFromSnapshotResourceId pulumi.StringPtrInput
+	DataProtectionReplication    VolumeDataProtectionReplicationPtrInput
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -263,8 +270,10 @@ func (VolumeState) ElementType() reflect.Type {
 
 type volumeArgs struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-	AccountName               string                           `pulumi:"accountName"`
-	DataProtectionReplication *VolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
+	AccountName string `pulumi:"accountName"`
+	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`.
+	CreateFromSnapshotResourceId *string                          `pulumi:"createFromSnapshotResourceId"`
+	DataProtectionReplication    *VolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules []VolumeExportPolicyRule `pulumi:"exportPolicyRules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -292,8 +301,10 @@ type volumeArgs struct {
 // The set of arguments for constructing a Volume resource.
 type VolumeArgs struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-	AccountName               pulumi.StringInput
-	DataProtectionReplication VolumeDataProtectionReplicationPtrInput
+	AccountName pulumi.StringInput
+	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`.
+	CreateFromSnapshotResourceId pulumi.StringPtrInput
+	DataProtectionReplication    VolumeDataProtectionReplicationPtrInput
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

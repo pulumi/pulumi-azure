@@ -4108,13 +4108,13 @@ func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Publisher() pulumi.StringPtrOu
 }
 
 type LinuxVirtualMachineScaleSetRollingUpgradePolicy struct {
-	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
+	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 	MaxBatchInstancePercent int `pulumi:"maxBatchInstancePercent"`
-	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
+	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
 	MaxUnhealthyInstancePercent int `pulumi:"maxUnhealthyInstancePercent"`
-	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
+	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
 	MaxUnhealthyUpgradedInstancePercent int `pulumi:"maxUnhealthyUpgradedInstancePercent"`
-	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
+	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 	PauseTimeBetweenBatches string `pulumi:"pauseTimeBetweenBatches"`
 }
 
@@ -4130,13 +4130,13 @@ type LinuxVirtualMachineScaleSetRollingUpgradePolicyInput interface {
 }
 
 type LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs struct {
-	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
+	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 	MaxBatchInstancePercent pulumi.IntInput `pulumi:"maxBatchInstancePercent"`
-	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
+	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
 	MaxUnhealthyInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyInstancePercent"`
-	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
+	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
 	MaxUnhealthyUpgradedInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyUpgradedInstancePercent"`
-	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
+	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 	PauseTimeBetweenBatches pulumi.StringInput `pulumi:"pauseTimeBetweenBatches"`
 }
 
@@ -4217,24 +4217,24 @@ func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) ToLinuxVirtualMac
 	}).(LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
 }
 
-// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
+// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxBatchInstancePercent() pulumi.IntOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxBatchInstancePercent }).(pulumi.IntOutput)
 }
 
-// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
+// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxUnhealthyInstancePercent() pulumi.IntOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntOutput)
 }
 
-// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
+// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxUnhealthyUpgradedInstancePercent() pulumi.IntOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int {
 		return v.MaxUnhealthyUpgradedInstancePercent
 	}).(pulumi.IntOutput)
 }
 
-// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
+// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) PauseTimeBetweenBatches() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) string { return v.PauseTimeBetweenBatches }).(pulumi.StringOutput)
 }
@@ -4259,7 +4259,7 @@ func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) Elem() LinuxVi
 	}).(LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput)
 }
 
-// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
+// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxBatchInstancePercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetRollingUpgradePolicy) *int {
 		if v == nil {
@@ -4269,7 +4269,7 @@ func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxBatchInstan
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
+// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyInstancePercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetRollingUpgradePolicy) *int {
 		if v == nil {
@@ -4279,7 +4279,7 @@ func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyIn
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
+// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyUpgradedInstancePercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetRollingUpgradePolicy) *int {
 		if v == nil {
@@ -4289,7 +4289,7 @@ func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyUp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
+// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) PauseTimeBetweenBatches() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetRollingUpgradePolicy) *string {
 		if v == nil {
@@ -15690,13 +15690,13 @@ func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Publisher() pulumi.StringPtr
 }
 
 type WindowsVirtualMachineScaleSetRollingUpgradePolicy struct {
-	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
+	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 	MaxBatchInstancePercent int `pulumi:"maxBatchInstancePercent"`
-	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
+	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
 	MaxUnhealthyInstancePercent int `pulumi:"maxUnhealthyInstancePercent"`
-	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
+	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
 	MaxUnhealthyUpgradedInstancePercent int `pulumi:"maxUnhealthyUpgradedInstancePercent"`
-	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
+	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 	PauseTimeBetweenBatches string `pulumi:"pauseTimeBetweenBatches"`
 }
 
@@ -15712,13 +15712,13 @@ type WindowsVirtualMachineScaleSetRollingUpgradePolicyInput interface {
 }
 
 type WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs struct {
-	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
+	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 	MaxBatchInstancePercent pulumi.IntInput `pulumi:"maxBatchInstancePercent"`
-	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
+	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
 	MaxUnhealthyInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyInstancePercent"`
-	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
+	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
 	MaxUnhealthyUpgradedInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyUpgradedInstancePercent"`
-	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
+	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 	PauseTimeBetweenBatches pulumi.StringInput `pulumi:"pauseTimeBetweenBatches"`
 }
 
@@ -15799,24 +15799,24 @@ func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) ToWindowsVirtua
 	}).(WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
 }
 
-// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
+// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxBatchInstancePercent() pulumi.IntOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxBatchInstancePercent }).(pulumi.IntOutput)
 }
 
-// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
+// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxUnhealthyInstancePercent() pulumi.IntOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntOutput)
 }
 
-// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
+// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxUnhealthyUpgradedInstancePercent() pulumi.IntOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int {
 		return v.MaxUnhealthyUpgradedInstancePercent
 	}).(pulumi.IntOutput)
 }
 
-// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
+// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) PauseTimeBetweenBatches() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) string { return v.PauseTimeBetweenBatches }).(pulumi.StringOutput)
 }
@@ -15841,7 +15841,7 @@ func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) Elem() Windo
 	}).(WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput)
 }
 
-// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
+// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxBatchInstancePercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetRollingUpgradePolicy) *int {
 		if v == nil {
@@ -15851,7 +15851,7 @@ func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxBatchInst
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
+// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyInstancePercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetRollingUpgradePolicy) *int {
 		if v == nil {
@@ -15861,7 +15861,7 @@ func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthy
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
+// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyUpgradedInstancePercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetRollingUpgradePolicy) *int {
 		if v == nil {
@@ -15871,7 +15871,7 @@ func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthy
 	}).(pulumi.IntPtrOutput)
 }
 
-// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
+// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) PauseTimeBetweenBatches() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetRollingUpgradePolicy) *string {
 		if v == nil {

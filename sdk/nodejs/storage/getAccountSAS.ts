@@ -44,8 +44,8 @@ import * as utilities from "../utilities";
  *         table: false,
  *         file: false,
  *     },
- *     start: "2018-03-21",
- *     expiry: "2020-03-21",
+ *     start: "2018-03-21T00:00:00Z",
+ *     expiry: "2020-03-21T00:00:00Z",
  *     permissions: {
  *         read: true,
  *         write: true,

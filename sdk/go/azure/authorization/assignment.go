@@ -221,6 +221,12 @@ import (
 type Assignment struct {
 	pulumi.CustomResourceState
 
+	// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+	Condition pulumi.StringPtrOutput `pulumi:"condition"`
+	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+	ConditionVersion pulumi.StringPtrOutput `pulumi:"conditionVersion"`
+	// The description for this Role Assignment. Changing this forces a new resource to be created.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
@@ -278,6 +284,12 @@ func GetAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Assignment resources.
 type assignmentState struct {
+	// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+	Condition *string `pulumi:"condition"`
+	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+	ConditionVersion *string `pulumi:"conditionVersion"`
+	// The description for this Role Assignment. Changing this forces a new resource to be created.
+	Description *string `pulumi:"description"`
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
@@ -295,6 +307,12 @@ type assignmentState struct {
 }
 
 type AssignmentState struct {
+	// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+	Condition pulumi.StringPtrInput
+	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+	ConditionVersion pulumi.StringPtrInput
+	// The description for this Role Assignment. Changing this forces a new resource to be created.
+	Description pulumi.StringPtrInput
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
@@ -316,6 +334,12 @@ func (AssignmentState) ElementType() reflect.Type {
 }
 
 type assignmentArgs struct {
+	// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+	Condition *string `pulumi:"condition"`
+	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+	ConditionVersion *string `pulumi:"conditionVersion"`
+	// The description for this Role Assignment. Changing this forces a new resource to be created.
+	Description *string `pulumi:"description"`
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
@@ -332,6 +356,12 @@ type assignmentArgs struct {
 
 // The set of arguments for constructing a Assignment resource.
 type AssignmentArgs struct {
+	// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+	Condition pulumi.StringPtrInput
+	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+	ConditionVersion pulumi.StringPtrInput
+	// The description for this Role Assignment. Changing this forces a new resource to be created.
+	Description pulumi.StringPtrInput
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.

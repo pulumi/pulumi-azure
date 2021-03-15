@@ -40,6 +40,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  os_disk: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']]] = None,
                  patch_mode: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachinePlanArgs']]] = None,
+                 platform_fault_domain: Optional[pulumi.Input[int]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
@@ -146,6 +147,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachinePlanArgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] platform_fault_domain: Specifies the Platform Fault Domain in which this Windows Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Windows Virtual Machine to be created.
         :param pulumi.Input[str] priority: Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
@@ -208,6 +210,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             __props__['os_disk'] = os_disk
             __props__['patch_mode'] = patch_mode
             __props__['plan'] = plan
+            __props__['platform_fault_domain'] = platform_fault_domain
             __props__['priority'] = priority
             __props__['provision_vm_agent'] = provision_vm_agent
             __props__['proximity_placement_group_id'] = proximity_placement_group_id
@@ -263,6 +266,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             os_disk: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']]] = None,
             patch_mode: Optional[pulumi.Input[str]] = None,
             plan: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachinePlanArgs']]] = None,
+            platform_fault_domain: Optional[pulumi.Input[int]] = None,
             priority: Optional[pulumi.Input[str]] = None,
             private_ip_address: Optional[pulumi.Input[str]] = None,
             private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -311,6 +315,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachinePlanArgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] platform_fault_domain: Specifies the Platform Fault Domain in which this Windows Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Windows Virtual Machine to be created.
         :param pulumi.Input[str] priority: Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_ip_address: The Primary Private IP Address assigned to this Virtual Machine.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: A list of Private IP Addresses assigned to this Virtual Machine.
@@ -357,6 +362,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__["os_disk"] = os_disk
         __props__["patch_mode"] = patch_mode
         __props__["plan"] = plan
+        __props__["platform_fault_domain"] = platform_fault_domain
         __props__["priority"] = priority
         __props__["private_ip_address"] = private_ip_address
         __props__["private_ip_addresses"] = private_ip_addresses
@@ -560,6 +566,14 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         A `plan` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter(name="platformFaultDomain")
+    def platform_fault_domain(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the Platform Fault Domain in which this Windows Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Windows Virtual Machine to be created.
+        """
+        return pulumi.get(self, "platform_fault_domain")
 
     @property
     @pulumi.getter

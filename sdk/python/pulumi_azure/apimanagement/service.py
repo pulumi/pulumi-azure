@@ -307,7 +307,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostnameConfiguration")
-    def hostname_configuration(self) -> pulumi.Output[Optional['outputs.ServiceHostnameConfiguration']]:
+    def hostname_configuration(self) -> pulumi.Output['outputs.ServiceHostnameConfiguration']:
         """
         A `hostname_configuration` block as defined below.
         """

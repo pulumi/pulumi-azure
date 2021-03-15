@@ -19,6 +19,9 @@ __all__ = [
     'DatasetJsonHttpServerLocationArgs',
     'DatasetJsonSchemaColumnArgs',
     'DatasetMysqlSchemaColumnArgs',
+    'DatasetParquetAzureBlobStorageLocationArgs',
+    'DatasetParquetHttpServerLocationArgs',
+    'DatasetParquetSchemaColumnArgs',
     'DatasetPostgresqlSchemaColumnArgs',
     'DatasetSqlServerTableSchemaColumnArgs',
     'FactoryGithubConfigurationArgs',
@@ -516,6 +519,164 @@ class DatasetJsonSchemaColumnArgs:
 
 @pulumi.input_type
 class DatasetMysqlSchemaColumnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the column.
+        :param pulumi.Input[str] description: The description of the column.
+        :param pulumi.Input[str] type: Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        """
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the column.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the column.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class DatasetParquetAzureBlobStorageLocationArgs:
+    def __init__(__self__, *,
+                 container: pulumi.Input[str],
+                 filename: pulumi.Input[str],
+                 path: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] container: The container on the Azure Blob Storage Account hosting the file.
+        :param pulumi.Input[str] filename: The filename of the file on the web server.
+        :param pulumi.Input[str] path: The folder path to the file on the web server.
+        """
+        pulumi.set(__self__, "container", container)
+        pulumi.set(__self__, "filename", filename)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def container(self) -> pulumi.Input[str]:
+        """
+        The container on the Azure Blob Storage Account hosting the file.
+        """
+        return pulumi.get(self, "container")
+
+    @container.setter
+    def container(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container", value)
+
+    @property
+    @pulumi.getter
+    def filename(self) -> pulumi.Input[str]:
+        """
+        The filename of the file on the web server.
+        """
+        return pulumi.get(self, "filename")
+
+    @filename.setter
+    def filename(self, value: pulumi.Input[str]):
+        pulumi.set(self, "filename", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        The folder path to the file on the web server.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class DatasetParquetHttpServerLocationArgs:
+    def __init__(__self__, *,
+                 filename: pulumi.Input[str],
+                 path: pulumi.Input[str],
+                 relative_url: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] filename: The filename of the file on the web server.
+        :param pulumi.Input[str] path: The folder path to the file on the web server.
+        :param pulumi.Input[str] relative_url: The base URL to the web server hosting the file.
+        """
+        pulumi.set(__self__, "filename", filename)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "relative_url", relative_url)
+
+    @property
+    @pulumi.getter
+    def filename(self) -> pulumi.Input[str]:
+        """
+        The filename of the file on the web server.
+        """
+        return pulumi.get(self, "filename")
+
+    @filename.setter
+    def filename(self, value: pulumi.Input[str]):
+        pulumi.set(self, "filename", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        The folder path to the file on the web server.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="relativeUrl")
+    def relative_url(self) -> pulumi.Input[str]:
+        """
+        The base URL to the web server hosting the file.
+        """
+        return pulumi.get(self, "relative_url")
+
+    @relative_url.setter
+    def relative_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "relative_url", value)
+
+
+@pulumi.input_type
+class DatasetParquetSchemaColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
