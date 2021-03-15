@@ -3236,7 +3236,7 @@ class ServiceSecurityArgs:
             pulumi.set(__self__, "enable_frontend_tls11", enable_frontend_tls11)
         if enable_triple_des_ciphers is not None:
             warnings.warn("""this has been renamed to the boolean attribute `triple_des_ciphers_enabled`.""", DeprecationWarning)
-            pulumi.log.warn("enable_triple_des_ciphers is deprecated: this has been renamed to the boolean attribute `triple_des_ciphers_enabled`.")
+            pulumi.log.warn("""enable_triple_des_ciphers is deprecated: this has been renamed to the boolean attribute `triple_des_ciphers_enabled`.""")
         if enable_triple_des_ciphers is not None:
             pulumi.set(__self__, "enable_triple_des_ciphers", enable_triple_des_ciphers)
         if tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled is not None:

@@ -98,7 +98,7 @@ class KeyVault(pulumi.CustomResource):
             __props__['sku_name'] = sku_name
             if soft_delete_enabled is not None and not opts.urn:
                 warnings.warn("""Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.""", DeprecationWarning)
-                pulumi.log.warn("soft_delete_enabled is deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.")
+                pulumi.log.warn("""soft_delete_enabled is deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.""")
             __props__['soft_delete_enabled'] = soft_delete_enabled
             __props__['soft_delete_retention_days'] = soft_delete_retention_days
             __props__['tags'] = tags

@@ -25,22 +25,22 @@ class ServerStorageProfileArgs:
         """
         if auto_grow is not None:
             warnings.warn("""this has been moved to the top level boolean attribute `auto_grow_enabled` and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("auto_grow is deprecated: this has been moved to the top level boolean attribute `auto_grow_enabled` and will be removed in version 3.0 of the provider.")
+            pulumi.log.warn("""auto_grow is deprecated: this has been moved to the top level boolean attribute `auto_grow_enabled` and will be removed in version 3.0 of the provider.""")
         if auto_grow is not None:
             pulumi.set(__self__, "auto_grow", auto_grow)
         if backup_retention_days is not None:
             warnings.warn("""this has been moved to the top level and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("backup_retention_days is deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.")
+            pulumi.log.warn("""backup_retention_days is deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.""")
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
         if geo_redundant_backup is not None:
             warnings.warn("""this has been moved to the top level boolean attribute `geo_redundant_backup_enabled` and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("geo_redundant_backup is deprecated: this has been moved to the top level boolean attribute `geo_redundant_backup_enabled` and will be removed in version 3.0 of the provider.")
+            pulumi.log.warn("""geo_redundant_backup is deprecated: this has been moved to the top level boolean attribute `geo_redundant_backup_enabled` and will be removed in version 3.0 of the provider.""")
         if geo_redundant_backup is not None:
             pulumi.set(__self__, "geo_redundant_backup", geo_redundant_backup)
         if storage_mb is not None:
             warnings.warn("""this has been moved to the top level and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("storage_mb is deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.")
+            pulumi.log.warn("""storage_mb is deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.""")
         if storage_mb is not None:
             pulumi.set(__self__, "storage_mb", storage_mb)
 

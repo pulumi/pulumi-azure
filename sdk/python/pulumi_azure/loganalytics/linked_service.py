@@ -92,7 +92,7 @@ class LinkedService(pulumi.CustomResource):
 
             if linked_service_name is not None and not opts.urn:
                 warnings.warn("""This field has been deprecated and will be removed in a future version of the provider""", DeprecationWarning)
-                pulumi.log.warn("linked_service_name is deprecated: This field has been deprecated and will be removed in a future version of the provider")
+                pulumi.log.warn("""linked_service_name is deprecated: This field has been deprecated and will be removed in a future version of the provider""")
             __props__['linked_service_name'] = linked_service_name
             __props__['read_access_id'] = read_access_id
             if resource_group_name is None and not opts.urn:
@@ -100,13 +100,13 @@ class LinkedService(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             if resource_id is not None and not opts.urn:
                 warnings.warn("""This field has been deprecated in favour of `read_access_id` and will be removed in a future version of the provider""", DeprecationWarning)
-                pulumi.log.warn("resource_id is deprecated: This field has been deprecated in favour of `read_access_id` and will be removed in a future version of the provider")
+                pulumi.log.warn("""resource_id is deprecated: This field has been deprecated in favour of `read_access_id` and will be removed in a future version of the provider""")
             __props__['resource_id'] = resource_id
             __props__['tags'] = tags
             __props__['workspace_id'] = workspace_id
             if workspace_name is not None and not opts.urn:
                 warnings.warn("""This field has been deprecated in favour of `workspace_id` and will be removed in a future version of the provider""", DeprecationWarning)
-                pulumi.log.warn("workspace_name is deprecated: This field has been deprecated in favour of `workspace_id` and will be removed in a future version of the provider")
+                pulumi.log.warn("""workspace_name is deprecated: This field has been deprecated in favour of `workspace_id` and will be removed in a future version of the provider""")
             __props__['workspace_name'] = workspace_name
             __props__['write_access_id'] = write_access_id
             __props__['name'] = None

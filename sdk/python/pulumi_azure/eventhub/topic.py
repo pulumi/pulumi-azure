@@ -100,7 +100,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic
                supports ordering. Defaults to false.
         """
-        pulumi.log.warn("Topic is deprecated: azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic")
+        pulumi.log.warn("""Topic is deprecated: azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -143,7 +143,7 @@ class HBaseClusterGatewayArgs:
         pulumi.set(__self__, "username", username)
         if enabled is not None:
             warnings.warn("""HDInsight doesn't support disabling gateway anymore""", DeprecationWarning)
-            pulumi.log.warn("enabled is deprecated: HDInsight doesn't support disabling gateway anymore")
+            pulumi.log.warn("""enabled is deprecated: HDInsight doesn't support disabling gateway anymore""")
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
@@ -656,7 +656,7 @@ class HBaseClusterRolesWorkerNodeArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if min_instance_count is not None:
             warnings.warn("""this has been deprecated from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("min_instance_count is deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider")
+            pulumi.log.warn("""min_instance_count is deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider""")
         if min_instance_count is not None:
             pulumi.set(__self__, "min_instance_count", min_instance_count)
         if password is not None:
@@ -1022,7 +1022,7 @@ class HadoopClusterGatewayArgs:
         pulumi.set(__self__, "username", username)
         if enabled is not None:
             warnings.warn("""HDInsight doesn't support disabling gateway anymore""", DeprecationWarning)
-            pulumi.log.warn("enabled is deprecated: HDInsight doesn't support disabling gateway anymore")
+            pulumi.log.warn("""enabled is deprecated: HDInsight doesn't support disabling gateway anymore""")
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
@@ -1640,7 +1640,7 @@ class HadoopClusterRolesWorkerNodeArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if min_instance_count is not None:
             warnings.warn("""this has been deprecated from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("min_instance_count is deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider")
+            pulumi.log.warn("""min_instance_count is deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider""")
         if min_instance_count is not None:
             pulumi.set(__self__, "min_instance_count", min_instance_count)
         if password is not None:
@@ -2000,7 +2000,7 @@ class InteractiveQueryClusterGatewayArgs:
         pulumi.set(__self__, "username", username)
         if enabled is not None:
             warnings.warn("""HDInsight doesn't support disabling gateway anymore""", DeprecationWarning)
-            pulumi.log.warn("enabled is deprecated: HDInsight doesn't support disabling gateway anymore")
+            pulumi.log.warn("""enabled is deprecated: HDInsight doesn't support disabling gateway anymore""")
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
@@ -2513,7 +2513,7 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if min_instance_count is not None:
             warnings.warn("""this has been deprecated from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("min_instance_count is deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider")
+            pulumi.log.warn("""min_instance_count is deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider""")
         if min_instance_count is not None:
             pulumi.set(__self__, "min_instance_count", min_instance_count)
         if password is not None:
@@ -2879,7 +2879,7 @@ class KafkaClusterGatewayArgs:
         pulumi.set(__self__, "username", username)
         if enabled is not None:
             warnings.warn("""HDInsight doesn't support disabling gateway anymore""", DeprecationWarning)
-            pulumi.log.warn("enabled is deprecated: HDInsight doesn't support disabling gateway anymore")
+            pulumi.log.warn("""enabled is deprecated: HDInsight doesn't support disabling gateway anymore""")
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
@@ -3534,7 +3534,7 @@ class KafkaClusterRolesWorkerNodeArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if min_instance_count is not None:
             warnings.warn("""this has been deprecated from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("min_instance_count is deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider")
+            pulumi.log.warn("""min_instance_count is deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider""")
         if min_instance_count is not None:
             pulumi.set(__self__, "min_instance_count", min_instance_count)
         if password is not None:
@@ -3890,7 +3890,7 @@ class MLServicesClusterGatewayArgs:
         pulumi.set(__self__, "username", username)
         if enabled is not None:
             warnings.warn("""HDInsight doesn't support disabling gateway anymore""", DeprecationWarning)
-            pulumi.log.warn("enabled is deprecated: HDInsight doesn't support disabling gateway anymore")
+            pulumi.log.warn("""enabled is deprecated: HDInsight doesn't support disabling gateway anymore""")
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
@@ -4226,7 +4226,7 @@ class MLServicesClusterRolesWorkerNodeArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if min_instance_count is not None:
             warnings.warn("""this has been deprecated from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("min_instance_count is deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider")
+            pulumi.log.warn("""min_instance_count is deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider""")
         if min_instance_count is not None:
             pulumi.set(__self__, "min_instance_count", min_instance_count)
         if password is not None:
@@ -4503,7 +4503,7 @@ class RServerClusterGatewayArgs:
         pulumi.set(__self__, "username", username)
         if enabled is not None:
             warnings.warn("""HDInsight doesn't support disabling gateway anymore""", DeprecationWarning)
-            pulumi.log.warn("enabled is deprecated: HDInsight doesn't support disabling gateway anymore")
+            pulumi.log.warn("""enabled is deprecated: HDInsight doesn't support disabling gateway anymore""")
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
@@ -4839,7 +4839,7 @@ class RServerClusterRolesWorkerNodeArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if min_instance_count is not None:
             warnings.warn("""this has been deprecated from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("min_instance_count is deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider")
+            pulumi.log.warn("""min_instance_count is deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider""")
         if min_instance_count is not None:
             pulumi.set(__self__, "min_instance_count", min_instance_count)
         if password is not None:
@@ -5138,7 +5138,7 @@ class SparkClusterGatewayArgs:
         pulumi.set(__self__, "username", username)
         if enabled is not None:
             warnings.warn("""HDInsight doesn't support disabling gateway anymore""", DeprecationWarning)
-            pulumi.log.warn("enabled is deprecated: HDInsight doesn't support disabling gateway anymore")
+            pulumi.log.warn("""enabled is deprecated: HDInsight doesn't support disabling gateway anymore""")
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
@@ -5651,7 +5651,7 @@ class SparkClusterRolesWorkerNodeArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if min_instance_count is not None:
             warnings.warn("""this has been deprecated from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("min_instance_count is deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider")
+            pulumi.log.warn("""min_instance_count is deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider""")
         if min_instance_count is not None:
             pulumi.set(__self__, "min_instance_count", min_instance_count)
         if password is not None:
@@ -6017,7 +6017,7 @@ class StormClusterGatewayArgs:
         pulumi.set(__self__, "username", username)
         if enabled is not None:
             warnings.warn("""HDInsight doesn't support disabling gateway anymore""", DeprecationWarning)
-            pulumi.log.warn("enabled is deprecated: HDInsight doesn't support disabling gateway anymore")
+            pulumi.log.warn("""enabled is deprecated: HDInsight doesn't support disabling gateway anymore""")
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
@@ -6530,7 +6530,7 @@ class StormClusterRolesWorkerNodeArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if min_instance_count is not None:
             warnings.warn("""this has been deprecated from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("min_instance_count is deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider")
+            pulumi.log.warn("""min_instance_count is deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider""")
         if min_instance_count is not None:
             pulumi.set(__self__, "min_instance_count", min_instance_count)
         if password is not None:

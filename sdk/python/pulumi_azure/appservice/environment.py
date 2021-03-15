@@ -117,7 +117,7 @@ class Environment(pulumi.CustomResource):
             __props__['tags'] = tags
             if user_whitelisted_ip_ranges is not None and not opts.urn:
                 warnings.warn("""this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format""", DeprecationWarning)
-                pulumi.log.warn("user_whitelisted_ip_ranges is deprecated: this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format")
+                pulumi.log.warn("""user_whitelisted_ip_ranges is deprecated: this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format""")
             __props__['user_whitelisted_ip_ranges'] = user_whitelisted_ip_ranges
             __props__['location'] = None
         super(Environment, __self__).__init__(

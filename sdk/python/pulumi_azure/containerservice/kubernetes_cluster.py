@@ -148,7 +148,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__['private_dns_zone_id'] = private_dns_zone_id
             if private_link_enabled is not None and not opts.urn:
                 warnings.warn("""Deprecated in favour of `private_cluster_enabled`""", DeprecationWarning)
-                pulumi.log.warn("private_link_enabled is deprecated: Deprecated in favour of `private_cluster_enabled`")
+                pulumi.log.warn("""private_link_enabled is deprecated: Deprecated in favour of `private_cluster_enabled`""")
             __props__['private_link_enabled'] = private_link_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

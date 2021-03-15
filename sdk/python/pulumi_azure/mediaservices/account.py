@@ -75,7 +75,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
                ---
         """
-        pulumi.log.warn("Account is deprecated: azure.mediaservices.Account has been deprecated in favor of azure.media.ServiceAccount")
+        pulumi.log.warn("""Account is deprecated: azure.mediaservices.Account has been deprecated in favor of azure.media.ServiceAccount""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

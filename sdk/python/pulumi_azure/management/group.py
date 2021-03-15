@@ -79,7 +79,7 @@ class Group(pulumi.CustomResource):
             __props__['display_name'] = display_name
             if group_id is not None and not opts.urn:
                 warnings.warn("""Deprecated in favour of `name`""", DeprecationWarning)
-                pulumi.log.warn("group_id is deprecated: Deprecated in favour of `name`")
+                pulumi.log.warn("""group_id is deprecated: Deprecated in favour of `name`""")
             __props__['group_id'] = group_id
             __props__['name'] = name
             __props__['parent_management_group_id'] = parent_management_group_id

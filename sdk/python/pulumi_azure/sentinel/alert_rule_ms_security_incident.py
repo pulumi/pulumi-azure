@@ -108,7 +108,7 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
             __props__['severity_filters'] = severity_filters
             if text_whitelists is not None and not opts.urn:
                 warnings.warn("""this property has been renamed to display_name_filter to better match the SDK & API""", DeprecationWarning)
-                pulumi.log.warn("text_whitelists is deprecated: this property has been renamed to display_name_filter to better match the SDK & API")
+                pulumi.log.warn("""text_whitelists is deprecated: this property has been renamed to display_name_filter to better match the SDK & API""")
             __props__['text_whitelists'] = text_whitelists
         super(AlertRuleMsSecurityIncident, __self__).__init__(
             'azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident',

@@ -156,7 +156,7 @@ class Diagnostic(pulumi.CustomResource):
             __props__['backend_response'] = backend_response
             if enabled is not None and not opts.urn:
                 warnings.warn("""this property has been removed from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
-                pulumi.log.warn("enabled is deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider")
+                pulumi.log.warn("""enabled is deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider""")
             __props__['enabled'] = enabled
             __props__['frontend_request'] = frontend_request
             __props__['frontend_response'] = frontend_response

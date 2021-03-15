@@ -71,7 +71,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.log.warn("Domain is deprecated: azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain")
+        pulumi.log.warn("""Domain is deprecated: azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

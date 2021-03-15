@@ -1147,12 +1147,12 @@ class FrontdoorFrontendEndpointArgs:
         pulumi.set(__self__, "name", name)
         if custom_https_configuration is not None:
             warnings.warn("""Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource""", DeprecationWarning)
-            pulumi.log.warn("custom_https_configuration is deprecated: Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource")
+            pulumi.log.warn("""custom_https_configuration is deprecated: Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource""")
         if custom_https_configuration is not None:
             pulumi.set(__self__, "custom_https_configuration", custom_https_configuration)
         if custom_https_provisioning_enabled is not None:
             warnings.warn("""Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource""", DeprecationWarning)
-            pulumi.log.warn("custom_https_provisioning_enabled is deprecated: Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource")
+            pulumi.log.warn("""custom_https_provisioning_enabled is deprecated: Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource""")
         if custom_https_provisioning_enabled is not None:
             pulumi.set(__self__, "custom_https_provisioning_enabled", custom_https_provisioning_enabled)
         if id is not None:

@@ -82,7 +82,7 @@ class BackendAddressPool(pulumi.CustomResource):
 
             if backend_addresses is not None and not opts.urn:
                 warnings.warn("""This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.""", DeprecationWarning)
-                pulumi.log.warn("backend_addresses is deprecated: This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.")
+                pulumi.log.warn("""backend_addresses is deprecated: This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.""")
             __props__['backend_addresses'] = backend_addresses
             if loadbalancer_id is None and not opts.urn:
                 raise TypeError("Missing required property 'loadbalancer_id'")
@@ -90,7 +90,7 @@ class BackendAddressPool(pulumi.CustomResource):
             __props__['name'] = name
             if resource_group_name is not None and not opts.urn:
                 warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
-                pulumi.log.warn("resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider")
+                pulumi.log.warn("""resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
             __props__['resource_group_name'] = resource_group_name
             __props__['backend_ip_configurations'] = None
             __props__['load_balancing_rules'] = None

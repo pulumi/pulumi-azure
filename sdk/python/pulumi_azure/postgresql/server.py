@@ -139,14 +139,14 @@ class Server(pulumi.CustomResource):
             __props__['sku_name'] = sku_name
             if ssl_enforcement is not None and not opts.urn:
                 warnings.warn("""this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-                pulumi.log.warn("ssl_enforcement is deprecated: this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.")
+                pulumi.log.warn("""ssl_enforcement is deprecated: this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.""")
             __props__['ssl_enforcement'] = ssl_enforcement
             __props__['ssl_enforcement_enabled'] = ssl_enforcement_enabled
             __props__['ssl_minimal_tls_version_enforced'] = ssl_minimal_tls_version_enforced
             __props__['storage_mb'] = storage_mb
             if storage_profile is not None and not opts.urn:
                 warnings.warn("""all storage_profile properties have been move to the top level. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
-                pulumi.log.warn("storage_profile is deprecated: all storage_profile properties have been move to the top level. This block will be removed in version 3.0 of the provider.")
+                pulumi.log.warn("""storage_profile is deprecated: all storage_profile properties have been move to the top level. This block will be removed in version 3.0 of the provider.""")
             __props__['storage_profile'] = storage_profile
             __props__['tags'] = tags
             __props__['threat_detection_policy'] = threat_detection_policy

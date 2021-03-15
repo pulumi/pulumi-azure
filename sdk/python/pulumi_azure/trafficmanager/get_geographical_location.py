@@ -72,7 +72,7 @@ def get_geographical_location(name: Optional[str] = None,
 
     :param str name: Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
     """
-    pulumi.log.warn("get_geographical_location is deprecated: azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager")
+    pulumi.log.warn("""get_geographical_location is deprecated: azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager""")
     __args__ = dict()
     __args__['name'] = name
     if opts is None:

@@ -3785,7 +3785,7 @@ class FirewallPolicyDnsArgs:
         """
         if network_rule_fqdn_enabled is not None:
             warnings.warn("""This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("network_rule_fqdn_enabled is deprecated: This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.")
+            pulumi.log.warn("""network_rule_fqdn_enabled is deprecated: This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.""")
         if network_rule_fqdn_enabled is not None:
             pulumi.set(__self__, "network_rule_fqdn_enabled", network_rule_fqdn_enabled)
         if proxy_enabled is not None:
@@ -4608,17 +4608,17 @@ class NetworkConnectionMonitorDestinationArgs:
         """
         if address is not None:
             warnings.warn("""The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""", DeprecationWarning)
-            pulumi.log.warn("address is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.")
+            pulumi.log.warn("""address is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""")
         if address is not None:
             pulumi.set(__self__, "address", address)
         if port is not None:
             warnings.warn("""The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""", DeprecationWarning)
-            pulumi.log.warn("port is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.")
+            pulumi.log.warn("""port is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""")
         if port is not None:
             pulumi.set(__self__, "port", port)
         if virtual_machine_id is not None:
             warnings.warn("""The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""", DeprecationWarning)
-            pulumi.log.warn("virtual_machine_id is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.")
+            pulumi.log.warn("""virtual_machine_id is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""")
         if virtual_machine_id is not None:
             pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
 
@@ -4818,12 +4818,12 @@ class NetworkConnectionMonitorSourceArgs:
         """
         if port is not None:
             warnings.warn("""The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""", DeprecationWarning)
-            pulumi.log.warn("port is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.")
+            pulumi.log.warn("""port is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""")
         if port is not None:
             pulumi.set(__self__, "port", port)
         if virtual_machine_id is not None:
             warnings.warn("""The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""", DeprecationWarning)
-            pulumi.log.warn("virtual_machine_id is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.")
+            pulumi.log.warn("""virtual_machine_id is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""")
         if virtual_machine_id is not None:
             pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
 
@@ -7196,7 +7196,7 @@ class VirtualNetworkGatewayBgpSettingsArgs:
             pulumi.set(__self__, "peer_weight", peer_weight)
         if peering_address is not None:
             warnings.warn("""Deprecated in favor of `bgp_settings.0.peering_addresses.0.default_addresses.0`""", DeprecationWarning)
-            pulumi.log.warn("peering_address is deprecated: Deprecated in favor of `bgp_settings.0.peering_addresses.0.default_addresses.0`")
+            pulumi.log.warn("""peering_address is deprecated: Deprecated in favor of `bgp_settings.0.peering_addresses.0.default_addresses.0`""")
         if peering_address is not None:
             pulumi.set(__self__, "peering_address", peering_address)
         if peering_addresses is not None:

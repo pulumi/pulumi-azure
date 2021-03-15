@@ -104,7 +104,7 @@ class Subnet(pulumi.CustomResource):
 
             if address_prefix is not None and not opts.urn:
                 warnings.warn("""Use the `address_prefixes` property instead.""", DeprecationWarning)
-                pulumi.log.warn("address_prefix is deprecated: Use the `address_prefixes` property instead.")
+                pulumi.log.warn("""address_prefix is deprecated: Use the `address_prefixes` property instead.""")
             __props__['address_prefix'] = address_prefix
             __props__['address_prefixes'] = address_prefixes
             __props__['delegations'] = delegations

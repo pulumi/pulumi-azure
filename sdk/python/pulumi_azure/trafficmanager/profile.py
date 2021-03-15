@@ -89,7 +89,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] traffic_routing_method: Specifies the algorithm used to route traffic, possible values are:
         :param pulumi.Input[bool] traffic_view_enabled: Indicates whether Traffic View is enabled for the Traffic Manager profile.
         """
-        pulumi.log.warn("Profile is deprecated: azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile")
+        pulumi.log.warn("""Profile is deprecated: azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

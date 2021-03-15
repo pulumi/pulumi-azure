@@ -27,7 +27,7 @@ class GetGroupResult:
             raise TypeError("Expected argument 'group_id' to be a str")
         if group_id is not None:
             warnings.warn("""Deprecated in favour of `name`""", DeprecationWarning)
-            pulumi.log.warn("group_id is deprecated: Deprecated in favour of `name`")
+            pulumi.log.warn("""group_id is deprecated: Deprecated in favour of `name`""")
 
         pulumi.set(__self__, "group_id", group_id)
         if id and not isinstance(id, str):

@@ -92,7 +92,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
         """
-        pulumi.log.warn("Queue is deprecated: azure.eventhub.Queue has been deprecated in favor of azure.servicebus.Queue")
+        pulumi.log.warn("""Queue is deprecated: azure.eventhub.Queue has been deprecated in favor of azure.servicebus.Queue""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

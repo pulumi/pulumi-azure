@@ -33,7 +33,7 @@ class GetFunctionAppHostKeysResult:
             raise TypeError("Expected argument 'master_key' to be a str")
         if master_key is not None:
             warnings.warn("""This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes""", DeprecationWarning)
-            pulumi.log.warn("master_key is deprecated: This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes")
+            pulumi.log.warn("""master_key is deprecated: This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes""")
 
         pulumi.set(__self__, "master_key", master_key)
         if name and not isinstance(name, str):
