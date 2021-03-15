@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.51.0 (2021-03-15)
 * Upgrade to v2.51.0 of the AzureRM Terraform Provider
 * Upgrade to pulumi-terraform-bridge v2.21.0
 * Release macOS arm64 binary
-
----
 
 ## 3.50.0 (2021-03-07)
 * Upgrade to v2.50.0 of the AzureRM Terraform Provider
