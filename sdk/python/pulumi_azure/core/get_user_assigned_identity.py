@@ -133,7 +133,7 @@ def get_user_assigned_identity(name: Optional[str] = None,
     :param str name: The name of the User Assigned Identity.
     :param str resource_group_name: The name of the Resource Group in which the User Assigned Identity exists.
     """
-    pulumi.log.warn("get_user_assigned_identity is deprecated: azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity")
+    pulumi.log.warn("""get_user_assigned_identity is deprecated: azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

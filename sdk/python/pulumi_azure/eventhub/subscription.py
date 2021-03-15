@@ -91,7 +91,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] status: The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[str] topic_name: The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         """
-        pulumi.log.warn("Subscription is deprecated: azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription")
+        pulumi.log.warn("""Subscription is deprecated: azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

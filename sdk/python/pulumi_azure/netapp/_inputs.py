@@ -205,17 +205,17 @@ class VolumeExportPolicyRuleArgs:
         pulumi.set(__self__, "rule_index", rule_index)
         if cifs_enabled is not None:
             warnings.warn("""Deprecated in favour of `protocols_enabled`""", DeprecationWarning)
-            pulumi.log.warn("cifs_enabled is deprecated: Deprecated in favour of `protocols_enabled`")
+            pulumi.log.warn("""cifs_enabled is deprecated: Deprecated in favour of `protocols_enabled`""")
         if cifs_enabled is not None:
             pulumi.set(__self__, "cifs_enabled", cifs_enabled)
         if nfsv3_enabled is not None:
             warnings.warn("""Deprecated in favour of `protocols_enabled`""", DeprecationWarning)
-            pulumi.log.warn("nfsv3_enabled is deprecated: Deprecated in favour of `protocols_enabled`")
+            pulumi.log.warn("""nfsv3_enabled is deprecated: Deprecated in favour of `protocols_enabled`""")
         if nfsv3_enabled is not None:
             pulumi.set(__self__, "nfsv3_enabled", nfsv3_enabled)
         if nfsv4_enabled is not None:
             warnings.warn("""Deprecated in favour of `protocols_enabled`""", DeprecationWarning)
-            pulumi.log.warn("nfsv4_enabled is deprecated: Deprecated in favour of `protocols_enabled`")
+            pulumi.log.warn("""nfsv4_enabled is deprecated: Deprecated in favour of `protocols_enabled`""")
         if nfsv4_enabled is not None:
             pulumi.set(__self__, "nfsv4_enabled", nfsv4_enabled)
         if protocols_enabled is not None:

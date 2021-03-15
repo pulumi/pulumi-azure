@@ -127,7 +127,7 @@ class Endpoint(pulumi.CustomResource):
                endpoint, this must be specified for Profiles using the  `Weighted` traffic
                routing method. Supports values between 1 and 1000.
         """
-        pulumi.log.warn("Endpoint is deprecated: azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint")
+        pulumi.log.warn("""Endpoint is deprecated: azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

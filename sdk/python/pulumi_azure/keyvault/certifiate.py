@@ -155,7 +155,7 @@ class Certifiate(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.log.warn("Certifiate is deprecated: azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate")
+        pulumi.log.warn("""Certifiate is deprecated: azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

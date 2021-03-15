@@ -152,7 +152,7 @@ class Frontdoor(pulumi.CustomResource):
             __props__['load_balancer_enabled'] = load_balancer_enabled
             if location is not None and not opts.urn:
                 warnings.warn("""Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location""", DeprecationWarning)
-                pulumi.log.warn("location is deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location")
+                pulumi.log.warn("""location is deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location""")
             __props__['location'] = location
             __props__['name'] = name
             if resource_group_name is None and not opts.urn:

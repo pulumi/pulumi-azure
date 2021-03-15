@@ -88,7 +88,7 @@ class ManangementLock(pulumi.CustomResource):
         :param pulumi.Input[str] notes: Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope: Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
         """
-        pulumi.log.warn("ManangementLock is deprecated: azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock")
+        pulumi.log.warn("""ManangementLock is deprecated: azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

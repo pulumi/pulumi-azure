@@ -251,7 +251,7 @@ class DatabaseThreatDetectionPolicyArgs:
             pulumi.set(__self__, "storage_endpoint", storage_endpoint)
         if use_server_default is not None:
             warnings.warn("""This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider""", DeprecationWarning)
-            pulumi.log.warn("use_server_default is deprecated: This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider")
+            pulumi.log.warn("""use_server_default is deprecated: This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider""")
         if use_server_default is not None:
             pulumi.set(__self__, "use_server_default", use_server_default)
 

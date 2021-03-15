@@ -124,7 +124,7 @@ class Server(pulumi.CustomResource):
             __props__['connection_policy'] = connection_policy
             if extended_auditing_policy is not None and not opts.urn:
                 warnings.warn("""the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
-                pulumi.log.warn("extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.")
+                pulumi.log.warn("""extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""")
             __props__['extended_auditing_policy'] = extended_auditing_policy
             __props__['identity'] = identity
             __props__['location'] = location

@@ -104,13 +104,13 @@ class Provider(pulumi.ProviderResource):
                 metadata_url = (_utilities.get_env('ARM_METADATA_URL') or '')
             if metadata_url is not None and not opts.urn:
                 warnings.warn("""use `metadata_host` instead""", DeprecationWarning)
-                pulumi.log.warn("metadata_url is deprecated: use `metadata_host` instead")
+                pulumi.log.warn("""metadata_url is deprecated: use `metadata_host` instead""")
             __props__['metadata_url'] = metadata_url
             __props__['msi_endpoint'] = msi_endpoint
             __props__['partner_id'] = partner_id
             if skip_credentials_validation is not None and not opts.urn:
                 warnings.warn("""This field is deprecated and will be removed in version 3.0 of the Azure Provider""", DeprecationWarning)
-                pulumi.log.warn("skip_credentials_validation is deprecated: This field is deprecated and will be removed in version 3.0 of the Azure Provider")
+                pulumi.log.warn("""skip_credentials_validation is deprecated: This field is deprecated and will be removed in version 3.0 of the Azure Provider""")
             __props__['skip_credentials_validation'] = pulumi.Output.from_input(skip_credentials_validation).apply(pulumi.runtime.to_json) if skip_credentials_validation is not None else None
             if skip_provider_registration is None:
                 skip_provider_registration = (_utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)

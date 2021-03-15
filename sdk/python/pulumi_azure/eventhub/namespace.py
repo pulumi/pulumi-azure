@@ -68,7 +68,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
         """
-        pulumi.log.warn("Namespace is deprecated: azure.eventhub.Namespace has been deprecated in favor of azure.servicebus.Namespace")
+        pulumi.log.warn("""Namespace is deprecated: azure.eventhub.Namespace has been deprecated in favor of azure.servicebus.Namespace""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
