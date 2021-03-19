@@ -57,7 +57,6 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alternate_name: An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
         :param pulumi.Input[str] name: Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partner_namespace_id: The ID of the EventHub Namespace to replicate to.
@@ -80,6 +79,9 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if alternate_name is not None and not opts.urn:
+                warnings.warn("""This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893""", DeprecationWarning)
+                pulumi.log.warn("""alternate_name is deprecated: This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893""")
             __props__['alternate_name'] = alternate_name
             __props__['name'] = name
             if namespace_name is None and not opts.urn:
@@ -113,7 +115,6 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alternate_name: An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
         :param pulumi.Input[str] name: Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partner_namespace_id: The ID of the EventHub Namespace to replicate to.
@@ -133,9 +134,6 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
     @property
     @pulumi.getter(name="alternateName")
     def alternate_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
-        """
         return pulumi.get(self, "alternate_name")
 
     @property

@@ -104,8 +104,6 @@ class Subscription(pulumi.CustomResource):
             __props__['secondary_key'] = secondary_key
             __props__['state'] = state
             __props__['subscription_id'] = subscription_id
-            if user_id is None and not opts.urn:
-                raise TypeError("Missing required property 'user_id'")
             __props__['user_id'] = user_id
         super(Subscription, __self__).__init__(
             'azure:apimanagement/subscription:Subscription',
@@ -227,7 +225,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> pulumi.Output[str]:
+    def user_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
         """

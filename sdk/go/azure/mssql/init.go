@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewDatabaseVulnerabilityAssessmentRuleBaseline(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:mssql/elasticPool:ElasticPool":
 		r, err = NewElasticPool(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:mssql/firewallRule:FirewallRule":
+		r, err = NewFirewallRule(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:mssql/server:Server":
 		r, err = NewServer(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy":
@@ -39,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewServerVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:mssql/virtualMachine:VirtualMachine":
 		r, err = NewVirtualMachine(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:mssql/virtualNetworkRule:VirtualNetworkRule":
+		r, err = NewVirtualNetworkRule(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -73,6 +77,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"mssql/firewallRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"mssql/server",
 		&module{version},
 	)
@@ -94,6 +103,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"mssql/virtualMachine",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mssql/virtualNetworkRule",
 		&module{version},
 	)
 }

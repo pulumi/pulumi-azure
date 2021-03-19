@@ -71,7 +71,7 @@ import (
 type EventhubNamespaceDisasterRecoveryConfig struct {
 	pulumi.CustomResourceState
 
-	// An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
+	// Deprecated: This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893
 	AlternateName pulumi.StringPtrOutput `pulumi:"alternateName"`
 	// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -121,7 +121,7 @@ func GetEventhubNamespaceDisasterRecoveryConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventhubNamespaceDisasterRecoveryConfig resources.
 type eventhubNamespaceDisasterRecoveryConfigState struct {
-	// An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
+	// Deprecated: This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893
 	AlternateName *string `pulumi:"alternateName"`
 	// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -134,7 +134,7 @@ type eventhubNamespaceDisasterRecoveryConfigState struct {
 }
 
 type EventhubNamespaceDisasterRecoveryConfigState struct {
-	// An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
+	// Deprecated: This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893
 	AlternateName pulumi.StringPtrInput
 	// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -151,7 +151,7 @@ func (EventhubNamespaceDisasterRecoveryConfigState) ElementType() reflect.Type {
 }
 
 type eventhubNamespaceDisasterRecoveryConfigArgs struct {
-	// An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
+	// Deprecated: This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893
 	AlternateName *string `pulumi:"alternateName"`
 	// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -165,7 +165,7 @@ type eventhubNamespaceDisasterRecoveryConfigArgs struct {
 
 // The set of arguments for constructing a EventhubNamespaceDisasterRecoveryConfig resource.
 type EventhubNamespaceDisasterRecoveryConfigArgs struct {
-	// An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
+	// Deprecated: This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893
 	AlternateName pulumi.StringPtrInput
 	// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput

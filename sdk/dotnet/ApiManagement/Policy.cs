@@ -71,6 +71,9 @@ namespace Pulumi.Azure.ApiManagement
         [Output("apiManagementId")]
         public Output<string> ApiManagementId { get; private set; } = null!;
 
+        /// <summary>
+        /// The XML Content for this Policy as a string.
+        /// </summary>
         [Output("xmlContent")]
         public Output<string> XmlContent { get; private set; } = null!;
 
@@ -132,6 +135,9 @@ namespace Pulumi.Azure.ApiManagement
         [Input("apiManagementId", required: true)]
         public Input<string> ApiManagementId { get; set; } = null!;
 
+        /// <summary>
+        /// The XML Content for this Policy as a string.
+        /// </summary>
         [Input("xmlContent")]
         public Input<string>? XmlContent { get; set; }
 
@@ -154,6 +160,9 @@ namespace Pulumi.Azure.ApiManagement
         [Input("apiManagementId")]
         public Input<string>? ApiManagementId { get; set; }
 
+        /// <summary>
+        /// The XML Content for this Policy as a string.
+        /// </summary>
         [Input("xmlContent")]
         public Input<string>? XmlContent { get; set; }
 

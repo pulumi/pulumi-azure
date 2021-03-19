@@ -63,7 +63,7 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
      * The list of string CIDRs representing the
      * address spaces the gateway exposes.
      */
-    public readonly addressSpaces!: pulumi.Output<string[]>;
+    public readonly addressSpaces!: pulumi.Output<string[] | undefined>;
     /**
      * A `bgpSettings` block as defined below containing the
      * Local Network Gateway's BGP speaker settings.
@@ -120,9 +120,6 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as LocalNetworkGatewayArgs | undefined;
-            if ((!args || args.addressSpaces === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'addressSpaces'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -193,7 +190,7 @@ export interface LocalNetworkGatewayArgs {
      * The list of string CIDRs representing the
      * address spaces the gateway exposes.
      */
-    readonly addressSpaces: pulumi.Input<pulumi.Input<string>[]>;
+    readonly addressSpaces?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `bgpSettings` block as defined below containing the
      * Local Network Gateway's BGP speaker settings.

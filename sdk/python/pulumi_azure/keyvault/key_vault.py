@@ -37,6 +37,39 @@ class KeyVault(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
+        Manages a Key Vault.
+
+        ## Disclaimers
+
+        > **Note:** It's possible to define Key Vault Access Policies both within the `keyvault.KeyVault` resource via the `access_policy` block and by using the `keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
+
+        > **Note:** This provider will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` configuration within the Provider configuration block.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            enabled_for_disk_encryption=True,
+            tenant_id=current.tenant_id,
+            soft_delete_retention_days=7,
+            purge_protection_enabled=False,
+            sku_name="standard",
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+                tenant_id=current.tenant_id,
+                object_id=current.object_id,
+                key_permissions=["Get"],
+                secret_permissions=["Get"],
+                storage_permissions=["Get"],
+            )])
+        ```
+
         ## Import
 
         Key Vault's can be imported using the `resource id`, e.g.

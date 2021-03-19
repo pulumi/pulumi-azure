@@ -39,6 +39,7 @@ class Definition(pulumi.CustomResource):
         example = azure.lighthouse.Definition("example",
             description="This is a lighthouse definition created IaC",
             managing_tenant_id="00000000-0000-0000-0000-000000000000",
+            scope="/subscriptions/00000000-0000-0000-0000-000000000000",
             authorizations=[azure.lighthouse.DefinitionAuthorizationArgs(
                 principal_id="00000000-0000-0000-0000-000000000000",
                 role_definition_id=contributor.role_definition_id,
@@ -61,6 +62,7 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[str] lighthouse_definition_id: A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managing_tenant_id: The ID of the managing tenant.
         :param pulumi.Input[str] name: The name of the Lighthouse Definition.
+        :param pulumi.Input[str] scope: The ID of the managed subscription.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,6 +121,7 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[str] lighthouse_definition_id: A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managing_tenant_id: The ID of the managing tenant.
         :param pulumi.Input[str] name: The name of the Lighthouse Definition.
+        :param pulumi.Input[str] scope: The ID of the managed subscription.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -175,6 +178,9 @@ class Definition(pulumi.CustomResource):
     @property
     @pulumi.getter
     def scope(self) -> pulumi.Output[str]:
+        """
+        The ID of the managed subscription.
+        """
         return pulumi.get(self, "scope")
 
     def translate_output_property(self, prop):

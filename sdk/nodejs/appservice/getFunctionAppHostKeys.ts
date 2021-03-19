@@ -19,8 +19,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: azurerm_resource_group.example.name,
  * });
  * ```
- *
- * > **Note:** All arguments including the secret value will be stored in the raw state as plain-text, including `defaultFunctionKey` and `masterKey`. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  */
 export function getFunctionAppHostKeys(args: GetFunctionAppHostKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionAppHostKeysResult> {
     if (!opts) {

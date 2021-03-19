@@ -76,6 +76,9 @@ export class Policy extends pulumi.CustomResource {
      * The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
      */
     public readonly apiManagementId!: pulumi.Output<string>;
+    /**
+     * The XML Content for this Policy as a string.
+     */
     public readonly xmlContent!: pulumi.Output<string>;
     /**
      * A link to a Policy XML Document, which must be publicly available.
@@ -122,6 +125,9 @@ export interface PolicyState {
      * The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
      */
     readonly apiManagementId?: pulumi.Input<string>;
+    /**
+     * The XML Content for this Policy as a string.
+     */
     readonly xmlContent?: pulumi.Input<string>;
     /**
      * A link to a Policy XML Document, which must be publicly available.
@@ -137,6 +143,9 @@ export interface PolicyArgs {
      * The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
      */
     readonly apiManagementId: pulumi.Input<string>;
+    /**
+     * The XML Content for this Policy as a string.
+     */
     readonly xmlContent?: pulumi.Input<string>;
     /**
      * A link to a Policy XML Document, which must be publicly available.

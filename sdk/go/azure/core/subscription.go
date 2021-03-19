@@ -11,6 +11,103 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Manages an Alias for a Subscription - which adds an Alias to an existing Subscription, allowing it to be managed in the provider - or create a new Subscription with a new Alias.
+//
+// > **NOTE:** Destroying a Subscription controlled by this resource will place the Subscription into a cancelled state. It is possible to re-activate a subscription within 90-days of cancellation, after which time the Subscription is irrevocably deleted, and the Subscription ID cannot be re-used. For further information see [here](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/cancel-azure-subscription#what-happens-after-subscription-cancellation). Users can optionally delete a Subscription once 72 hours have passed, however, this functionality is not suitable for this provider. A `Deleted` subscription cannot be reactivated.
+//
+// > **NOTE:** It is not possible to destroy (cancel) a subscription if it contains resources. If resources are present that are not managed by the provider then these will need to be removed before the Subscription can be destroyed.
+//
+// > **NOTE:** Azure supports Multiple Aliases per Subscription, however, to reliably manage this resource in this provider only a single Alias is supported.
+//
+// ## Example Usage
+// ### Creating A New Alias And Subscription For An Enrollment Account
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/billing"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleEnrollmentAccountScope, err := billing.GetEnrollmentAccountScope(ctx, &billing.GetEnrollmentAccountScopeArgs{
+// 			BillingAccountName:    "1234567890",
+// 			EnrollmentAccountName: "0123456",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = core.NewSubscription(ctx, "exampleSubscription", &core.SubscriptionArgs{
+// 			SubscriptionName: pulumi.String("My Example EA Subscription"),
+// 			BillingScopeId:   pulumi.String(exampleEnrollmentAccountScope.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Creating A New Alias And Subscription For A Microsoft Customer Account
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/billing"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleMcaAccountScope, err := billing.GetMcaAccountScope(ctx, &billing.GetMcaAccountScopeArgs{
+// 			BillingAccountName: "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+// 			BillingProfileName: "PE2Q-NOIT-BG7-TGB",
+// 			InvoiceSectionName: "MTT4-OBS7-PJA-TGB",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = core.NewSubscription(ctx, "exampleSubscription", &core.SubscriptionArgs{
+// 			SubscriptionName: pulumi.String("My Example MCA Subscription"),
+// 			BillingScopeId:   pulumi.String(exampleMcaAccountScope.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Adding An Alias To An Existing Subscription
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := core.NewSubscription(ctx, "example", &core.SubscriptionArgs{
+// 			Alias:            pulumi.String("examplesub"),
+// 			SubscriptionId:   pulumi.String("12345678-12234-5678-9012-123456789012"),
+// 			SubscriptionName: pulumi.String("My Example Subscription"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Subscriptions can be imported using the `resource id`, e.g.
@@ -19,11 +116,11 @@ import (
 //  $ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
 // ```
 //
-//  In this scenario, the `subscription_id` property can be completed and Terraform will assume control of the existing subscription by creating an Alias. e.g.
+//  In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. e.g.
 type Subscription struct {
 	pulumi.CustomResourceState
 
-	// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
+	// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
 	Alias          pulumi.StringOutput    `pulumi:"alias"`
 	BillingScopeId pulumi.StringPtrOutput `pulumi:"billingScopeId"`
 	// The ID of the Subscription. Cannot be specified with `billingAccount`, `billingProfile`, `enrollmentAccount`, or `invoiceSection` Changing this forces a new Subscription to be created.
@@ -69,7 +166,7 @@ func GetSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Subscription resources.
 type subscriptionState struct {
-	// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
+	// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
 	Alias          *string `pulumi:"alias"`
 	BillingScopeId *string `pulumi:"billingScopeId"`
 	// The ID of the Subscription. Cannot be specified with `billingAccount`, `billingProfile`, `enrollmentAccount`, or `invoiceSection` Changing this forces a new Subscription to be created.
@@ -84,7 +181,7 @@ type subscriptionState struct {
 }
 
 type SubscriptionState struct {
-	// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
+	// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
 	Alias          pulumi.StringPtrInput
 	BillingScopeId pulumi.StringPtrInput
 	// The ID of the Subscription. Cannot be specified with `billingAccount`, `billingProfile`, `enrollmentAccount`, or `invoiceSection` Changing this forces a new Subscription to be created.
@@ -103,7 +200,7 @@ func (SubscriptionState) ElementType() reflect.Type {
 }
 
 type subscriptionArgs struct {
-	// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
+	// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
 	Alias          *string `pulumi:"alias"`
 	BillingScopeId *string `pulumi:"billingScopeId"`
 	// The ID of the Subscription. Cannot be specified with `billingAccount`, `billingProfile`, `enrollmentAccount`, or `invoiceSection` Changing this forces a new Subscription to be created.
@@ -116,7 +213,7 @@ type subscriptionArgs struct {
 
 // The set of arguments for constructing a Subscription resource.
 type SubscriptionArgs struct {
-	// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
+	// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
 	Alias          pulumi.StringPtrInput
 	BillingScopeId pulumi.StringPtrInput
 	// The ID of the Subscription. Cannot be specified with `billingAccount`, `billingProfile`, `enrollmentAccount`, or `invoiceSection` Changing this forces a new Subscription to be created.

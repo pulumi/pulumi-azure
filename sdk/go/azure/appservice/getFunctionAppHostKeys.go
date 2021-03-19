@@ -32,8 +32,6 @@ import (
 // 	})
 // }
 // ```
-//
-// > **Note:** All arguments including the secret value will be stored in the raw state as plain-text, including `defaultFunctionKey` and `masterKey`. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 func GetFunctionAppHostKeys(ctx *pulumi.Context, args *GetFunctionAppHostKeysArgs, opts ...pulumi.InvokeOption) (*GetFunctionAppHostKeysResult, error) {
 	var rv GetFunctionAppHostKeysResult
 	err := ctx.Invoke("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", args, &rv, opts...)

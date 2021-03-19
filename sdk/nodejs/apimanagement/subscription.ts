@@ -105,7 +105,7 @@ export class Subscription extends pulumi.CustomResource {
     /**
      * The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
      */
-    public readonly userId!: pulumi.Output<string>;
+    public readonly userId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Subscription resource with the given unique name, arguments, and options.
@@ -140,9 +140,6 @@ export class Subscription extends pulumi.CustomResource {
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.userId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'userId'");
             }
             inputs["allowTracing"] = args ? args.allowTracing : undefined;
             inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
@@ -239,5 +236,5 @@ export interface SubscriptionArgs {
     /**
      * The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
      */
-    readonly userId: pulumi.Input<string>;
+    readonly userId?: pulumi.Input<string>;
 }

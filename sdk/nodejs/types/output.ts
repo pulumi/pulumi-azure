@@ -7922,7 +7922,7 @@ export namespace containerservice {
          */
         balanceSimilarNodeGroups?: boolean;
         /**
-         * Expander to use. Possible values are `least-waste`, `priority`, `max-pods` and `random`. Defaults to `random`.
+         * Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
          */
         expander: string;
         /**

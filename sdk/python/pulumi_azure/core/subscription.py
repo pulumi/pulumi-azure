@@ -24,6 +24,52 @@ class Subscription(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
+        Manages an Alias for a Subscription - which adds an Alias to an existing Subscription, allowing it to be managed in the provider - or create a new Subscription with a new Alias.
+
+        > **NOTE:** Destroying a Subscription controlled by this resource will place the Subscription into a cancelled state. It is possible to re-activate a subscription within 90-days of cancellation, after which time the Subscription is irrevocably deleted, and the Subscription ID cannot be re-used. For further information see [here](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/cancel-azure-subscription#what-happens-after-subscription-cancellation). Users can optionally delete a Subscription once 72 hours have passed, however, this functionality is not suitable for this provider. A `Deleted` subscription cannot be reactivated.
+
+        > **NOTE:** It is not possible to destroy (cancel) a subscription if it contains resources. If resources are present that are not managed by the provider then these will need to be removed before the Subscription can be destroyed.
+
+        > **NOTE:** Azure supports Multiple Aliases per Subscription, however, to reliably manage this resource in this provider only a single Alias is supported.
+
+        ## Example Usage
+        ### Creating A New Alias And Subscription For An Enrollment Account
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_enrollment_account_scope = azure.billing.get_enrollment_account_scope(billing_account_name="1234567890",
+            enrollment_account_name="0123456")
+        example_subscription = azure.core.Subscription("exampleSubscription",
+            subscription_name="My Example EA Subscription",
+            billing_scope_id=example_enrollment_account_scope.id)
+        ```
+        ### Creating A New Alias And Subscription For A Microsoft Customer Account
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_mca_account_scope = azure.billing.get_mca_account_scope(billing_account_name="e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+            billing_profile_name="PE2Q-NOIT-BG7-TGB",
+            invoice_section_name="MTT4-OBS7-PJA-TGB")
+        example_subscription = azure.core.Subscription("exampleSubscription",
+            subscription_name="My Example MCA Subscription",
+            billing_scope_id=example_mca_account_scope.id)
+        ```
+        ### Adding An Alias To An Existing Subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.Subscription("example",
+            alias="examplesub",
+            subscription_id="12345678-12234-5678-9012-123456789012",
+            subscription_name="My Example Subscription")
+        ```
+
         ## Import
 
         Subscriptions can be imported using the `resource id`, e.g.
@@ -32,11 +78,11 @@ class Subscription(pulumi.CustomResource):
          $ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
         ```
 
-         In this scenario, the `subscription_id` property can be completed and Terraform will assume control of the existing subscription by creating an Alias. e.g.
+         In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. e.g.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alias: The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
+        :param pulumi.Input[str] alias: The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
         :param pulumi.Input[str] subscription_id: The ID of the Subscription. Cannot be specified with `billing_account`, `billing_profile`, `enrollment_account`, or `invoice_section` Changing this forces a new Subscription to be created.
         :param pulumi.Input[str] subscription_name: The Name of the Subscription. This is the Display Name in the portal.
         :param pulumi.Input[str] workload: The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
@@ -91,7 +137,7 @@ class Subscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alias: The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
+        :param pulumi.Input[str] alias: The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
         :param pulumi.Input[str] subscription_id: The ID of the Subscription. Cannot be specified with `billing_account`, `billing_profile`, `enrollment_account`, or `invoice_section` Changing this forces a new Subscription to be created.
         :param pulumi.Input[str] subscription_name: The Name of the Subscription. This is the Display Name in the portal.
         :param pulumi.Input[str] tenant_id: The ID of the Tenant to which the subscription belongs.
@@ -114,7 +160,7 @@ class Subscription(pulumi.CustomResource):
     @pulumi.getter
     def alias(self) -> pulumi.Output[str]:
         """
-        The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
+        The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
         """
         return pulumi.get(self, "alias")
 
