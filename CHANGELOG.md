@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to pulumi-terraform-bridge v2.22.1
-  **Please Note:** This includes a bug fix to the refresh operation regarding arrays
+_(none)_
 
 ---
+
+## 3.52.1 (2021-03-22)
+* Upgrade to pulumi-terraform-bridge v2.22.1
+  **Please Note:** This includes a bug fix to the refresh operation regarding arrays
 
 ## 3.52.0 (2021-03-22)
 * Upgrade to v2.52.0 of the AzureRM Terraform Provider
