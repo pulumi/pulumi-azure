@@ -1089,6 +1089,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_server":                            {Tok: azureResource(azureMSSQL, "Server")},
 			"azurerm_mssql_database_extended_auditing_policy": {Tok: azureResource(azureMSSQL, "DatabaseExtendedAuditingPolicy")},
 			"azurerm_mssql_server_extended_auditing_policy":   {Tok: azureResource(azureMSSQL, "ServerExtendedAuditingPolicy")},
+			"azurerm_mssql_firewall_rule":                     {Tok: azureResource(azureMSSQL, "FirewallRule")},
+			"azurerm_mssql_virtual_network_rule":              {Tok: azureResource(azureMSSQL, "VirtualNetworkRule")},
 
 			// MySQL
 			"azurerm_mysql_configuration": {

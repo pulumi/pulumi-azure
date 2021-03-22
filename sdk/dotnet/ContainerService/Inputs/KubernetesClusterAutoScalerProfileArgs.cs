@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<bool>? BalanceSimilarNodeGroups { get; set; }
 
         /// <summary>
-        /// Expander to use. Possible values are `least-waste`, `priority`, `max-pods` and `random`. Defaults to `random`.
+        /// Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
         /// </summary>
         [Input("expander")]
         public Input<string>? Expander { get; set; }

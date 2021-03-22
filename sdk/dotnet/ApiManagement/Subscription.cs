@@ -125,7 +125,7 @@ namespace Pulumi.Azure.ApiManagement
         /// The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Output("userId")]
-        public Output<string> UserId { get; private set; } = null!;
+        public Output<string?> UserId { get; private set; } = null!;
 
 
         /// <summary>
@@ -224,8 +224,8 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("userId", required: true)]
-        public Input<string> UserId { get; set; } = null!;
+        [Input("userId")]
+        public Input<string>? UserId { get; set; }
 
         public SubscriptionArgs()
         {

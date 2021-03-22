@@ -10,6 +10,41 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory
 {
     /// <summary>
+    /// Manages an Azure Data Factory Managed Integration Runtime.
+    /// 
+    /// &gt; **NOTE:** The `azure.datafactory.IntegrationRuntimeManaged` resource has been superseded by the `azure.datafactory.IntegrationRuntimeSsis` resource. We recommend using the `azure.datafactory.IntegrationRuntimeSsis` resource for new deployments.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleIntegrationRuntimeManaged = new Azure.DataFactory.IntegrationRuntimeManaged("exampleIntegrationRuntimeManaged", new Azure.DataFactory.IntegrationRuntimeManagedArgs
+    ///         {
+    ///             DataFactoryName = exampleFactory.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             NodeSize = "Standard_D8_v3",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Factory Integration Managed Runtimes can be imported using the `resource id`, e.g.

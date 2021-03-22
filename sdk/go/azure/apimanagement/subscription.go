@@ -90,7 +90,7 @@ type Subscription struct {
 	// An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
 	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
 	// The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
-	UserId pulumi.StringOutput `pulumi:"userId"`
+	UserId pulumi.StringPtrOutput `pulumi:"userId"`
 }
 
 // NewSubscription registers a new resource with the given unique name, arguments, and options.
@@ -108,9 +108,6 @@ func NewSubscription(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.UserId == nil {
-		return nil, errors.New("invalid value for required argument 'UserId'")
 	}
 	var resource Subscription
 	err := ctx.RegisterResource("azure:apimanagement/subscription:Subscription", name, args, &resource, opts...)
@@ -197,7 +194,7 @@ type subscriptionArgs struct {
 	// An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
-	UserId string `pulumi:"userId"`
+	UserId *string `pulumi:"userId"`
 }
 
 // The set of arguments for constructing a Subscription resource.
@@ -219,7 +216,7 @@ type SubscriptionArgs struct {
 	// An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
 	SubscriptionId pulumi.StringPtrInput
 	// The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
-	UserId pulumi.StringInput
+	UserId pulumi.StringPtrInput
 }
 
 func (SubscriptionArgs) ElementType() reflect.Type {

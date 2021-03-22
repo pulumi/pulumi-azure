@@ -7,6 +7,7 @@ from .database import *
 from .database_extended_auditing_policy import *
 from .database_vulnerability_assessment_rule_baseline import *
 from .elastic_pool import *
+from .firewall_rule import *
 from .get_database import *
 from .get_elastic_pool import *
 from .get_server import *
@@ -15,6 +16,7 @@ from .server_extended_auditing_policy import *
 from .server_security_alert_policy import *
 from .server_vulnerability_assessment import *
 from .virtual_machine import *
+from .virtual_network_rule import *
 from ._inputs import *
 from . import outputs
 
@@ -38,6 +40,8 @@ def _register_module():
                 return DatabaseVulnerabilityAssessmentRuleBaseline(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:mssql/elasticPool:ElasticPool":
                 return ElasticPool(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:mssql/firewallRule:FirewallRule":
+                return FirewallRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:mssql/server:Server":
                 return Server(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy":
@@ -48,6 +52,8 @@ def _register_module():
                 return ServerVulnerabilityAssessment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:mssql/virtualMachine:VirtualMachine":
                 return VirtualMachine(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:mssql/virtualNetworkRule:VirtualNetworkRule":
+                return VirtualNetworkRule(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
@@ -57,10 +63,12 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "mssql/databaseExtendedAuditingPolicy", _module_instance)
     pulumi.runtime.register_resource_module("azure", "mssql/databaseVulnerabilityAssessmentRuleBaseline", _module_instance)
     pulumi.runtime.register_resource_module("azure", "mssql/elasticPool", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "mssql/firewallRule", _module_instance)
     pulumi.runtime.register_resource_module("azure", "mssql/server", _module_instance)
     pulumi.runtime.register_resource_module("azure", "mssql/serverExtendedAuditingPolicy", _module_instance)
     pulumi.runtime.register_resource_module("azure", "mssql/serverSecurityAlertPolicy", _module_instance)
     pulumi.runtime.register_resource_module("azure", "mssql/serverVulnerabilityAssessment", _module_instance)
     pulumi.runtime.register_resource_module("azure", "mssql/virtualMachine", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "mssql/virtualNetworkRule", _module_instance)
 
 _register_module()

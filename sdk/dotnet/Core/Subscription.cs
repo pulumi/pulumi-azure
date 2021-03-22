@@ -10,6 +10,85 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Core
 {
     /// <summary>
+    /// Manages an Alias for a Subscription - which adds an Alias to an existing Subscription, allowing it to be managed in the provider - or create a new Subscription with a new Alias.
+    /// 
+    /// &gt; **NOTE:** Destroying a Subscription controlled by this resource will place the Subscription into a cancelled state. It is possible to re-activate a subscription within 90-days of cancellation, after which time the Subscription is irrevocably deleted, and the Subscription ID cannot be re-used. For further information see [here](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/cancel-azure-subscription#what-happens-after-subscription-cancellation). Users can optionally delete a Subscription once 72 hours have passed, however, this functionality is not suitable for this provider. A `Deleted` subscription cannot be reactivated.
+    /// 
+    /// &gt; **NOTE:** It is not possible to destroy (cancel) a subscription if it contains resources. If resources are present that are not managed by the provider then these will need to be removed before the Subscription can be destroyed.
+    /// 
+    /// &gt; **NOTE:** Azure supports Multiple Aliases per Subscription, however, to reliably manage this resource in this provider only a single Alias is supported.
+    /// 
+    /// ## Example Usage
+    /// ### Creating A New Alias And Subscription For An Enrollment Account
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleEnrollmentAccountScope = Output.Create(Azure.Billing.GetEnrollmentAccountScope.InvokeAsync(new Azure.Billing.GetEnrollmentAccountScopeArgs
+    ///         {
+    ///             BillingAccountName = "1234567890",
+    ///             EnrollmentAccountName = "0123456",
+    ///         }));
+    ///         var exampleSubscription = new Azure.Core.Subscription("exampleSubscription", new Azure.Core.SubscriptionArgs
+    ///         {
+    ///             SubscriptionName = "My Example EA Subscription",
+    ///             BillingScopeId = exampleEnrollmentAccountScope.Apply(exampleEnrollmentAccountScope =&gt; exampleEnrollmentAccountScope.Id),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Creating A New Alias And Subscription For A Microsoft Customer Account
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleMcaAccountScope = Output.Create(Azure.Billing.GetMcaAccountScope.InvokeAsync(new Azure.Billing.GetMcaAccountScopeArgs
+    ///         {
+    ///             BillingAccountName = "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+    ///             BillingProfileName = "PE2Q-NOIT-BG7-TGB",
+    ///             InvoiceSectionName = "MTT4-OBS7-PJA-TGB",
+    ///         }));
+    ///         var exampleSubscription = new Azure.Core.Subscription("exampleSubscription", new Azure.Core.SubscriptionArgs
+    ///         {
+    ///             SubscriptionName = "My Example MCA Subscription",
+    ///             BillingScopeId = exampleMcaAccountScope.Apply(exampleMcaAccountScope =&gt; exampleMcaAccountScope.Id),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Adding An Alias To An Existing Subscription
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Azure.Core.Subscription("example", new Azure.Core.SubscriptionArgs
+    ///         {
+    ///             Alias = "examplesub",
+    ///             SubscriptionId = "12345678-12234-5678-9012-123456789012",
+    ///             SubscriptionName = "My Example Subscription",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Subscriptions can be imported using the `resource id`, e.g.
@@ -18,13 +97,13 @@ namespace Pulumi.Azure.Core
     ///  $ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
     /// ```
     /// 
-    ///  In this scenario, the `subscription_id` property can be completed and Terraform will assume control of the existing subscription by creating an Alias. e.g.
+    ///  In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. e.g.
     /// </summary>
     [AzureResourceType("azure:core/subscription:Subscription")]
     public partial class Subscription : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
+        /// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
         /// </summary>
         [Output("alias")]
         public Output<string> Alias { get; private set; } = null!;
@@ -106,7 +185,7 @@ namespace Pulumi.Azure.Core
     public sealed class SubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
+        /// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
         /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
@@ -140,7 +219,7 @@ namespace Pulumi.Azure.Core
     public sealed class SubscriptionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
+        /// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
         /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }

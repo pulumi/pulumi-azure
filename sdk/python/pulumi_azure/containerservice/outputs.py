@@ -1224,7 +1224,7 @@ class KubernetesClusterAutoScalerProfile(dict):
                  skip_nodes_with_system_pods: Optional[bool] = None):
         """
         :param bool balance_similar_node_groups: Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
-        :param str expander: Expander to use. Possible values are `least-waste`, `priority`, `max-pods` and `random`. Defaults to `random`.
+        :param str expander: Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
         :param str max_graceful_termination_sec: Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
         :param str new_pod_scale_up_delay: For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.
         :param str scale_down_delay_after_add: How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
@@ -1276,7 +1276,7 @@ class KubernetesClusterAutoScalerProfile(dict):
     @pulumi.getter
     def expander(self) -> Optional[str]:
         """
-        Expander to use. Possible values are `least-waste`, `priority`, `max-pods` and `random`. Defaults to `random`.
+        Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
         """
         return pulumi.get(self, "expander")
 

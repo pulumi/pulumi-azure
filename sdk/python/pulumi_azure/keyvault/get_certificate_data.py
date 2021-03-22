@@ -136,9 +136,6 @@ def get_certificate_data(key_vault_id: Optional[str] = None,
     """
     Use this data source to access data stored in an existing Key Vault Certificate.
 
-    > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
-    [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-
     > **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
 
     ## Example Usage

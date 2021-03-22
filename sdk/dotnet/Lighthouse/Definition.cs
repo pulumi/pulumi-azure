@@ -30,6 +30,7 @@ namespace Pulumi.Azure.Lighthouse
     ///         {
     ///             Description = "This is a lighthouse definition created IaC",
     ///             ManagingTenantId = "00000000-0000-0000-0000-000000000000",
+    ///             Scope = "/subscriptions/00000000-0000-0000-0000-000000000000",
     ///             Authorizations = 
     ///             {
     ///                 new Azure.Lighthouse.Inputs.DefinitionAuthorizationArgs
@@ -86,6 +87,9 @@ namespace Pulumi.Azure.Lighthouse
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the managed subscription.
+        /// </summary>
         [Output("scope")]
         public Output<string> Scope { get; private set; } = null!;
 
@@ -171,6 +175,9 @@ namespace Pulumi.Azure.Lighthouse
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ID of the managed subscription.
+        /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
 
@@ -217,6 +224,9 @@ namespace Pulumi.Azure.Lighthouse
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ID of the managed subscription.
+        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 

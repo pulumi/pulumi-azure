@@ -14,9 +14,6 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Use this data source to access information about an existing Key Vault Certificate.
         /// 
-        /// &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
-        /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}

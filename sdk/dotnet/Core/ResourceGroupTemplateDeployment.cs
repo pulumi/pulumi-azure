@@ -14,49 +14,6 @@ namespace Pulumi.Azure.Core
     /// 
     /// &gt; **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. You can opt-out of this by setting the `delete_nested_items_during_deletion` field within the `template_deployment` block of the `features` block to `false`.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Azure.Core.ResourceGroupTemplateDeployment("example", new Azure.Core.ResourceGroupTemplateDeploymentArgs
-    ///         {
-    ///             DeploymentMode = "Complete",
-    ///             ResourceGroupName = "example-group",
-    ///             TemplateContent = @"{
-    ///   ""$schema"": ""https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#"",
-    ///   ""contentVersion"": ""1.0.0.0"",
-    ///   ""parameters"": {},
-    ///   ""variables"": {},
-    ///   ""resources"": [
-    ///     {
-    ///       ""type"": ""Microsoft.Network/virtualNetworks"",
-    ///       ""apiVersion"": ""2020-05-01"",
-    ///       ""name"": ""acctest-network"",
-    ///       ""location"": ""[resourceGroup().location]"",
-    ///       ""properties"": {
-    ///         ""addressSpace"": {
-    ///           ""addressPrefixes"": [
-    ///             ""10.0.0.0/16""
-    ///           ]
-    ///         }
-    ///       }
-    ///     }
-    ///   ]
-    /// }
-    /// 
-    /// ",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Resource Group Template Deployments can be imported using the `resource id`, e.g.

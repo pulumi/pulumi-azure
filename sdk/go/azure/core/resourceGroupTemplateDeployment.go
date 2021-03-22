@@ -15,33 +15,6 @@ import (
 //
 // > **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. You can opt-out of this by setting the `deleteNestedItemsDuringDeletion` field within the `templateDeployment` block of the `features` block to `false`.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"fmt"
-//
-// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := core.NewResourceGroupTemplateDeployment(ctx, "example", &core.ResourceGroupTemplateDeploymentArgs{
-// 			DeploymentMode:    pulumi.String("Complete"),
-// 			ResourceGroupName: pulumi.String("example-group"),
-// 			TemplateContent:   pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"", "$", "schema\": \"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#\",\n", "  \"contentVersion\": \"1.0.0.0\",\n", "  \"parameters\": {},\n", "  \"variables\": {},\n", "  \"resources\": [\n", "    {\n", "      \"type\": \"Microsoft.Network/virtualNetworks\",\n", "      \"apiVersion\": \"2020-05-01\",\n", "      \"name\": \"acctest-network\",\n", "      \"location\": \"[resourceGroup().location]\",\n", "      \"properties\": {\n", "        \"addressSpace\": {\n", "          \"addressPrefixes\": [\n", "            \"10.0.0.0/16\"\n", "          ]\n", "        }\n", "      }\n", "    }\n", "  ]\n", "}\n", "\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // Resource Group Template Deployments can be imported using the `resource id`, e.g.

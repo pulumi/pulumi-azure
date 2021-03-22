@@ -12,9 +12,6 @@ namespace Pulumi.Azure.MSSql
     /// <summary>
     /// Manages a Microsoft SQL Azure Database Server.
     /// 
-    /// &gt; **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
-    /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

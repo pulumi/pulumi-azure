@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  * const example = new azure.lighthouse.Definition("example", {
  *     description: "This is a lighthouse definition created IaC",
  *     managingTenantId: "00000000-0000-0000-0000-000000000000",
+ *     scope: "/subscriptions/00000000-0000-0000-0000-000000000000",
  *     authorizations: [{
  *         principalId: "00000000-0000-0000-0000-000000000000",
  *         roleDefinitionId: contributor.then(contributor => contributor.roleDefinitionId),
@@ -84,6 +85,9 @@ export class Definition extends pulumi.CustomResource {
      * The name of the Lighthouse Definition.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ID of the managed subscription.
+     */
     public readonly scope!: pulumi.Output<string>;
 
     /**
@@ -154,6 +158,9 @@ export interface DefinitionState {
      * The name of the Lighthouse Definition.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The ID of the managed subscription.
+     */
     readonly scope?: pulumi.Input<string>;
 }
 
@@ -181,5 +188,8 @@ export interface DefinitionArgs {
      * The name of the Lighthouse Definition.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The ID of the managed subscription.
+     */
     readonly scope: pulumi.Input<string>;
 }

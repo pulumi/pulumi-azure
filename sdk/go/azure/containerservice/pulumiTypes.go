@@ -3360,7 +3360,7 @@ func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) Index(
 type KubernetesClusterAutoScalerProfile struct {
 	// Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
 	BalanceSimilarNodeGroups *bool `pulumi:"balanceSimilarNodeGroups"`
-	// Expander to use. Possible values are `least-waste`, `priority`, `max-pods` and `random`. Defaults to `random`.
+	// Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
 	Expander *string `pulumi:"expander"`
 	// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
 	MaxGracefulTerminationSec *string `pulumi:"maxGracefulTerminationSec"`
@@ -3400,7 +3400,7 @@ type KubernetesClusterAutoScalerProfileInput interface {
 type KubernetesClusterAutoScalerProfileArgs struct {
 	// Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
 	BalanceSimilarNodeGroups pulumi.BoolPtrInput `pulumi:"balanceSimilarNodeGroups"`
-	// Expander to use. Possible values are `least-waste`, `priority`, `max-pods` and `random`. Defaults to `random`.
+	// Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
 	Expander pulumi.StringPtrInput `pulumi:"expander"`
 	// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
 	MaxGracefulTerminationSec pulumi.StringPtrInput `pulumi:"maxGracefulTerminationSec"`
@@ -3508,7 +3508,7 @@ func (o KubernetesClusterAutoScalerProfileOutput) BalanceSimilarNodeGroups() pul
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *bool { return v.BalanceSimilarNodeGroups }).(pulumi.BoolPtrOutput)
 }
 
-// Expander to use. Possible values are `least-waste`, `priority`, `max-pods` and `random`. Defaults to `random`.
+// Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
 func (o KubernetesClusterAutoScalerProfileOutput) Expander() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.Expander }).(pulumi.StringPtrOutput)
 }
@@ -3596,7 +3596,7 @@ func (o KubernetesClusterAutoScalerProfilePtrOutput) BalanceSimilarNodeGroups() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Expander to use. Possible values are `least-waste`, `priority`, `max-pods` and `random`. Defaults to `random`.
+// Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
 func (o KubernetesClusterAutoScalerProfilePtrOutput) Expander() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *string {
 		if v == nil {

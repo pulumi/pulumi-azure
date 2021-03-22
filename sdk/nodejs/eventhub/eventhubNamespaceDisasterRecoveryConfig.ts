@@ -68,7 +68,7 @@ export class EventhubNamespaceDisasterRecoveryConfig extends pulumi.CustomResour
     }
 
     /**
-     * An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
+     * @deprecated This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893
      */
     public readonly alternateName!: pulumi.Output<string | undefined>;
     /**
@@ -135,7 +135,7 @@ export class EventhubNamespaceDisasterRecoveryConfig extends pulumi.CustomResour
  */
 export interface EventhubNamespaceDisasterRecoveryConfigState {
     /**
-     * An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
+     * @deprecated This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893
      */
     readonly alternateName?: pulumi.Input<string>;
     /**
@@ -161,7 +161,7 @@ export interface EventhubNamespaceDisasterRecoveryConfigState {
  */
 export interface EventhubNamespaceDisasterRecoveryConfigArgs {
     /**
-     * An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
+     * @deprecated This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893
      */
     readonly alternateName?: pulumi.Input<string>;
     /**

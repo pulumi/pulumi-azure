@@ -125,8 +125,6 @@ def get_function_app_host_keys(name: Optional[str] = None,
         resource_group_name=azurerm_resource_group["example"]["name"])
     ```
 
-    > **Note:** All arguments including the secret value will be stored in the raw state as plain-text, including `default_function_key` and `master_key`. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-
 
     :param str name: The name of the Function App.
     :param str resource_group_name: The name of the Resource Group where the Function App exists.

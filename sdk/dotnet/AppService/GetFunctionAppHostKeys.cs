@@ -35,8 +35,6 @@ namespace Pulumi.Azure.AppService
         /// 
         /// }
         /// ```
-        /// 
-        /// &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text, including `default_function_key` and `master_key`. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

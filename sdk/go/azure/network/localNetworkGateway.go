@@ -88,9 +88,6 @@ func NewLocalNetworkGateway(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AddressSpaces == nil {
-		return nil, errors.New("invalid value for required argument 'AddressSpaces'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}

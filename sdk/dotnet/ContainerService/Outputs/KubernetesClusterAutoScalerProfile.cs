@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? BalanceSimilarNodeGroups;
         /// <summary>
-        /// Expander to use. Possible values are `least-waste`, `priority`, `max-pods` and `random`. Defaults to `random`.
+        /// Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
         /// </summary>
         public readonly string? Expander;
         /// <summary>

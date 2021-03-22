@@ -27,7 +27,8 @@ type Policy struct {
 
 	// The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
 	ApiManagementId pulumi.StringOutput `pulumi:"apiManagementId"`
-	XmlContent      pulumi.StringOutput `pulumi:"xmlContent"`
+	// The XML Content for this Policy as a string.
+	XmlContent pulumi.StringOutput `pulumi:"xmlContent"`
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink pulumi.StringPtrOutput `pulumi:"xmlLink"`
 }
@@ -66,7 +67,8 @@ func GetPolicy(ctx *pulumi.Context,
 type policyState struct {
 	// The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
 	ApiManagementId *string `pulumi:"apiManagementId"`
-	XmlContent      *string `pulumi:"xmlContent"`
+	// The XML Content for this Policy as a string.
+	XmlContent *string `pulumi:"xmlContent"`
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink *string `pulumi:"xmlLink"`
 }
@@ -74,7 +76,8 @@ type policyState struct {
 type PolicyState struct {
 	// The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
 	ApiManagementId pulumi.StringPtrInput
-	XmlContent      pulumi.StringPtrInput
+	// The XML Content for this Policy as a string.
+	XmlContent pulumi.StringPtrInput
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink pulumi.StringPtrInput
 }
@@ -85,8 +88,9 @@ func (PolicyState) ElementType() reflect.Type {
 
 type policyArgs struct {
 	// The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
-	ApiManagementId string  `pulumi:"apiManagementId"`
-	XmlContent      *string `pulumi:"xmlContent"`
+	ApiManagementId string `pulumi:"apiManagementId"`
+	// The XML Content for this Policy as a string.
+	XmlContent *string `pulumi:"xmlContent"`
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink *string `pulumi:"xmlLink"`
 }
@@ -95,7 +99,8 @@ type policyArgs struct {
 type PolicyArgs struct {
 	// The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
 	ApiManagementId pulumi.StringInput
-	XmlContent      pulumi.StringPtrInput
+	// The XML Content for this Policy as a string.
+	XmlContent pulumi.StringPtrInput
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink pulumi.StringPtrInput
 }

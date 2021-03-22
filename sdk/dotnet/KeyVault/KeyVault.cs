@@ -10,6 +10,64 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault
 {
     /// <summary>
+    /// Manages a Key Vault.
+    /// 
+    /// ## Disclaimers
+    /// 
+    /// &gt; **Note:** It's possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `access_policy` block and by using the `azure.keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
+    /// 
+    /// &gt; **Note:** This provider will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` configuration within the Provider configuration block.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             EnabledForDiskEncryption = true,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             SoftDeleteRetentionDays = 7,
+    ///             PurgeProtectionEnabled = false,
+    ///             SkuName = "standard",
+    ///             AccessPolicies = 
+    ///             {
+    ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///                 {
+    ///                     TenantId = current.Apply(current =&gt; current.TenantId),
+    ///                     ObjectId = current.Apply(current =&gt; current.ObjectId),
+    ///                     KeyPermissions = 
+    ///                     {
+    ///                         "Get",
+    ///                     },
+    ///                     SecretPermissions = 
+    ///                     {
+    ///                         "Get",
+    ///                     },
+    ///                     StoragePermissions = 
+    ///                     {
+    ///                         "Get",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Key Vault's can be imported using the `resource id`, e.g.

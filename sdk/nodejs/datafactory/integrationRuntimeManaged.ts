@@ -6,6 +6,29 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
+ * Manages an Azure Data Factory Managed Integration Runtime.
+ *
+ * > **NOTE:** The `azure.datafactory.IntegrationRuntimeManaged` resource has been superseded by the `azure.datafactory.IntegrationRuntimeSsis` resource. We recommend using the `azure.datafactory.IntegrationRuntimeSsis` resource for new deployments.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleIntegrationRuntimeManaged = new azure.datafactory.IntegrationRuntimeManaged("exampleIntegrationRuntimeManaged", {
+ *     dataFactoryName: exampleFactory.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     nodeSize: "Standard_D8_v3",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Data Factory Integration Managed Runtimes can be imported using the `resource id`, e.g.

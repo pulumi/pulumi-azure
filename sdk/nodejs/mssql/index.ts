@@ -9,6 +9,7 @@ export * from "./database";
 export * from "./databaseExtendedAuditingPolicy";
 export * from "./databaseVulnerabilityAssessmentRuleBaseline";
 export * from "./elasticPool";
+export * from "./firewallRule";
 export * from "./getDatabase";
 export * from "./getElasticPool";
 export * from "./getServer";
@@ -17,17 +18,20 @@ export * from "./serverExtendedAuditingPolicy";
 export * from "./serverSecurityAlertPolicy";
 export * from "./serverVulnerabilityAssessment";
 export * from "./virtualMachine";
+export * from "./virtualNetworkRule";
 
 // Import resources to register:
 import { Database } from "./database";
 import { DatabaseExtendedAuditingPolicy } from "./databaseExtendedAuditingPolicy";
 import { DatabaseVulnerabilityAssessmentRuleBaseline } from "./databaseVulnerabilityAssessmentRuleBaseline";
 import { ElasticPool } from "./elasticPool";
+import { FirewallRule } from "./firewallRule";
 import { Server } from "./server";
 import { ServerExtendedAuditingPolicy } from "./serverExtendedAuditingPolicy";
 import { ServerSecurityAlertPolicy } from "./serverSecurityAlertPolicy";
 import { ServerVulnerabilityAssessment } from "./serverVulnerabilityAssessment";
 import { VirtualMachine } from "./virtualMachine";
+import { VirtualNetworkRule } from "./virtualNetworkRule";
 
 const _module = {
     version: utilities.getVersion(),
@@ -41,6 +45,8 @@ const _module = {
                 return new DatabaseVulnerabilityAssessmentRuleBaseline(name, <any>undefined, { urn })
             case "azure:mssql/elasticPool:ElasticPool":
                 return new ElasticPool(name, <any>undefined, { urn })
+            case "azure:mssql/firewallRule:FirewallRule":
+                return new FirewallRule(name, <any>undefined, { urn })
             case "azure:mssql/server:Server":
                 return new Server(name, <any>undefined, { urn })
             case "azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy":
@@ -51,6 +57,8 @@ const _module = {
                 return new ServerVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure:mssql/virtualMachine:VirtualMachine":
                 return new VirtualMachine(name, <any>undefined, { urn })
+            case "azure:mssql/virtualNetworkRule:VirtualNetworkRule":
+                return new VirtualNetworkRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -60,8 +68,10 @@ pulumi.runtime.registerResourceModule("azure", "mssql/database", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/databaseExtendedAuditingPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/databaseVulnerabilityAssessmentRuleBaseline", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/elasticPool", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/firewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/server", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/serverExtendedAuditingPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/serverSecurityAlertPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/serverVulnerabilityAssessment", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/virtualMachine", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/virtualNetworkRule", _module)

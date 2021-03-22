@@ -86,8 +86,6 @@ class LocalNetworkGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if address_spaces is None and not opts.urn:
-                raise TypeError("Missing required property 'address_spaces'")
             __props__['address_spaces'] = address_spaces
             __props__['bgp_settings'] = bgp_settings
             __props__['gateway_address'] = gateway_address
@@ -153,7 +151,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressSpaces")
-    def address_spaces(self) -> pulumi.Output[Sequence[str]]:
+    def address_spaces(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The list of string CIDRs representing the
         address spaces the gateway exposes.

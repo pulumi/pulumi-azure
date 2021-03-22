@@ -36,6 +36,7 @@ import (
 // 		_, err = lighthouse.NewDefinition(ctx, "example", &lighthouse.DefinitionArgs{
 // 			Description:      pulumi.String("This is a lighthouse definition created IaC"),
 // 			ManagingTenantId: pulumi.String("00000000-0000-0000-0000-000000000000"),
+// 			Scope:            pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000"),
 // 			Authorizations: lighthouse.DefinitionAuthorizationArray{
 // 				&lighthouse.DefinitionAuthorizationArgs{
 // 					PrincipalId:          pulumi.String("00000000-0000-0000-0000-000000000000"),
@@ -71,7 +72,8 @@ type Definition struct {
 	// The ID of the managing tenant.
 	ManagingTenantId pulumi.StringOutput `pulumi:"managingTenantId"`
 	// The name of the Lighthouse Definition.
-	Name  pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The ID of the managed subscription.
 	Scope pulumi.StringOutput `pulumi:"scope"`
 }
 
@@ -122,7 +124,8 @@ type definitionState struct {
 	// The ID of the managing tenant.
 	ManagingTenantId *string `pulumi:"managingTenantId"`
 	// The name of the Lighthouse Definition.
-	Name  *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The ID of the managed subscription.
 	Scope *string `pulumi:"scope"`
 }
 
@@ -136,7 +139,8 @@ type DefinitionState struct {
 	// The ID of the managing tenant.
 	ManagingTenantId pulumi.StringPtrInput
 	// The name of the Lighthouse Definition.
-	Name  pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The ID of the managed subscription.
 	Scope pulumi.StringPtrInput
 }
 
@@ -154,8 +158,9 @@ type definitionArgs struct {
 	// The ID of the managing tenant.
 	ManagingTenantId string `pulumi:"managingTenantId"`
 	// The name of the Lighthouse Definition.
-	Name  *string `pulumi:"name"`
-	Scope string  `pulumi:"scope"`
+	Name *string `pulumi:"name"`
+	// The ID of the managed subscription.
+	Scope string `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a Definition resource.
@@ -169,7 +174,8 @@ type DefinitionArgs struct {
 	// The ID of the managing tenant.
 	ManagingTenantId pulumi.StringInput
 	// The name of the Lighthouse Definition.
-	Name  pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The ID of the managed subscription.
 	Scope pulumi.StringInput
 }
 

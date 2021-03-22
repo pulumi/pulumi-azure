@@ -30,8 +30,6 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between Azure SQL Database and Azure Data Factory.
 
-        > **Note:** All arguments including the connection_string will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-
         ## Example Usage
 
         ```python

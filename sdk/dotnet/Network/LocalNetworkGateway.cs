@@ -151,7 +151,7 @@ namespace Pulumi.Azure.Network
 
     public sealed class LocalNetworkGatewayArgs : Pulumi.ResourceArgs
     {
-        [Input("addressSpaces", required: true)]
+        [Input("addressSpaces")]
         private InputList<string>? _addressSpaces;
 
         /// <summary>

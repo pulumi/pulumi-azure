@@ -60,6 +60,7 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_id: The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
+        :param pulumi.Input[str] xml_content: The XML Content for this Policy as a string.
         :param pulumi.Input[str] xml_link: A link to a Policy XML Document, which must be publicly available.
         """
         if __name__ is not None:
@@ -105,6 +106,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_id: The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
+        :param pulumi.Input[str] xml_content: The XML Content for this Policy as a string.
         :param pulumi.Input[str] xml_link: A link to a Policy XML Document, which must be publicly available.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -127,6 +129,9 @@ class Policy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="xmlContent")
     def xml_content(self) -> pulumi.Output[str]:
+        """
+        The XML Content for this Policy as a string.
+        """
         return pulumi.get(self, "xml_content")
 
     @property

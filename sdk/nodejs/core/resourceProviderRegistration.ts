@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manages the registration of a Resource Provider - which allows access to the API's supported by this Resource Provider.
+ *
+ * > The Azure Provider will automatically register all of the Resource Providers which it supports on launch (unless opted-out using the `skipProviderRegistration` field within the provider block).
+ *
+ * !> **Note:** The errors returned from the Azure API when a Resource Provider is unregistered are unclear (example `API version '2019-01-01' was not found for 'Microsoft.Foo'`) - please ensure that all of the necessary Resource Providers you're using are registered - if in doubt **we strongly recommend letting the provider register these for you**.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceProviderRegistration("example", {});
+ * ```
+ *
  * ## Import
  *
  * Resource Provider Registrations can be imported using the `resource id`, e.g.
