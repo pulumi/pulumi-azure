@@ -8,9 +8,104 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+<<<<<<< HEAD
+=======
+// Manages an Azure Front Door instance.
+//
+// Azure Front Door Service is Microsoft's highly available and scalable web application acceleration platform and global HTTP(s) load balancer. It provides built-in DDoS protection and application layer security and caching. Front Door enables you to build applications that maximize and automate high-availability and performance for your end-users. Use Front Door with Azure services including Web/Mobile Apps, Cloud Services and Virtual Machines – or combine it with on-premises services for hybrid deployments and smooth cloud migration.
+//
+// Below are some of the key scenarios that Azure Front Door Service addresses:
+// * Use Front Door to improve application scale and availability with instant multi-region failover
+// * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
+// * Use Front Door for application layer security and DDoS protection for your application.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/frontdoor"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = frontdoor.NewFrontdoor(ctx, "exampleFrontdoor", &frontdoor.FrontdoorArgs{
+// 			Location:                                pulumi.String("EastUS2"),
+// 			ResourceGroupName:                       exampleResourceGroup.Name,
+// 			EnforceBackendPoolsCertificateNameCheck: pulumi.Bool(false),
+// 			RoutingRules: frontdoor.FrontdoorRoutingRuleArray{
+// 				&frontdoor.FrontdoorRoutingRuleArgs{
+// 					Name: pulumi.String("exampleRoutingRule1"),
+// 					AcceptedProtocols: pulumi.StringArray{
+// 						pulumi.String("Http"),
+// 						pulumi.String("Https"),
+// 					},
+// 					PatternsToMatches: pulumi.StringArray{
+// 						pulumi.String("/*"),
+// 					},
+// 					FrontendEndpoints: pulumi.StringArray{
+// 						pulumi.String("exampleFrontendEndpoint1"),
+// 					},
+// 					ForwardingConfiguration: &frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs{
+// 						ForwardingProtocol: pulumi.String("MatchRequest"),
+// 						BackendPoolName:    pulumi.String("exampleBackendBing"),
+// 					},
+// 				},
+// 			},
+// 			BackendPoolLoadBalancings: frontdoor.FrontdoorBackendPoolLoadBalancingArray{
+// 				&frontdoor.FrontdoorBackendPoolLoadBalancingArgs{
+// 					Name: pulumi.String("exampleLoadBalancingSettings1"),
+// 				},
+// 			},
+// 			BackendPoolHealthProbes: frontdoor.FrontdoorBackendPoolHealthProbeArray{
+// 				&frontdoor.FrontdoorBackendPoolHealthProbeArgs{
+// 					Name: pulumi.String("exampleHealthProbeSetting1"),
+// 				},
+// 			},
+// 			BackendPools: frontdoor.FrontdoorBackendPoolArray{
+// 				&frontdoor.FrontdoorBackendPoolArgs{
+// 					Name: pulumi.String("exampleBackendBing"),
+// 					Backends: frontdoor.FrontdoorBackendPoolBackendArray{
+// 						&frontdoor.FrontdoorBackendPoolBackendArgs{
+// 							HostHeader: pulumi.String("www.bing.com"),
+// 							Address:    pulumi.String("www.bing.com"),
+// 							HttpPort:   pulumi.Int(80),
+// 							HttpsPort:  pulumi.Int(443),
+// 						},
+// 					},
+// 					LoadBalancingName: pulumi.String("exampleLoadBalancingSettings1"),
+// 					HealthProbeName:   pulumi.String("exampleHealthProbeSetting1"),
+// 				},
+// 			},
+// 			FrontendEndpoints: frontdoor.FrontdoorFrontendEndpointArray{
+// 				&frontdoor.FrontdoorFrontendEndpointArgs{
+// 					Name:                           pulumi.String("exampleFrontendEndpoint1"),
+// 					HostName:                       pulumi.String("example-FrontDoor.azurefd.net"),
+// 					CustomHttpsProvisioningEnabled: pulumi.Bool(false),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+>>>>>>> e63c3b324 (Regenerate SDK)
 // ## Import
 //
 // Front Doors can be imported using the `resource id`, e.g.
