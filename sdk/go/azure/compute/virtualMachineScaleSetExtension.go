@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Manages an Extension for a Virtual Machine Scale Set.
@@ -24,8 +24,8 @@ import (
 // 	"encoding/json"
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/compute"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/compute"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
