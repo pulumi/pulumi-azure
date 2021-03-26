@@ -20,7 +20,7 @@ class GetSpringCloudAppResult:
     """
     A collection of values returned by getSpringCloudApp.
     """
-    def __init__(__self__, fqdn=None, https_only=None, id=None, identities=None, is_public=None, name=None, persistent_disks=None, resource_group_name=None, service_name=None, url=None):
+    def __init__(__self__, fqdn=None, https_only=None, id=None, identities=None, is_public=None, name=None, persistent_disks=None, resource_group_name=None, service_name=None, tls_enabled=None, url=None):
         if fqdn and not isinstance(fqdn, str):
             raise TypeError("Expected argument 'fqdn' to be a str")
         pulumi.set(__self__, "fqdn", fqdn)
@@ -48,6 +48,9 @@ class GetSpringCloudAppResult:
         if service_name and not isinstance(service_name, str):
             raise TypeError("Expected argument 'service_name' to be a str")
         pulumi.set(__self__, "service_name", service_name)
+        if tls_enabled and not isinstance(tls_enabled, bool):
+            raise TypeError("Expected argument 'tls_enabled' to be a bool")
+        pulumi.set(__self__, "tls_enabled", tls_enabled)
         if url and not isinstance(url, str):
             raise TypeError("Expected argument 'url' to be a str")
         pulumi.set(__self__, "url", url)
@@ -116,6 +119,14 @@ class GetSpringCloudAppResult:
         return pulumi.get(self, "service_name")
 
     @property
+    @pulumi.getter(name="tlsEnabled")
+    def tls_enabled(self) -> bool:
+        """
+        Is End to End TLS Enabled?
+        """
+        return pulumi.get(self, "tls_enabled")
+
+    @property
     @pulumi.getter
     def url(self) -> str:
         """
@@ -139,6 +150,7 @@ class AwaitableGetSpringCloudAppResult(GetSpringCloudAppResult):
             persistent_disks=self.persistent_disks,
             resource_group_name=self.resource_group_name,
             service_name=self.service_name,
+            tls_enabled=self.tls_enabled,
             url=self.url)
 
 
@@ -186,4 +198,5 @@ def get_spring_cloud_app(name: Optional[str] = None,
         persistent_disks=__ret__.persistent_disks,
         resource_group_name=__ret__.resource_group_name,
         service_name=__ret__.service_name,
+        tls_enabled=__ret__.tls_enabled,
         url=__ret__.url)

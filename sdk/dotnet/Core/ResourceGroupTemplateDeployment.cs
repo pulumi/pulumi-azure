@@ -68,10 +68,16 @@ namespace Pulumi.Azure.Core
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The contents of the ARM Template which should be deployed into this Resource Group.
+        /// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
         /// </summary>
         [Output("templateContent")]
         public Output<string> TemplateContent { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+        /// </summary>
+        [Output("templateSpecVersionId")]
+        public Output<string?> TemplateSpecVersionId { get; private set; } = null!;
 
 
         /// <summary>
@@ -162,10 +168,16 @@ namespace Pulumi.Azure.Core
         }
 
         /// <summary>
-        /// The contents of the ARM Template which should be deployed into this Resource Group.
+        /// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
         /// </summary>
-        [Input("templateContent", required: true)]
-        public Input<string> TemplateContent { get; set; } = null!;
+        [Input("templateContent")]
+        public Input<string>? TemplateContent { get; set; }
+
+        /// <summary>
+        /// The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+        /// </summary>
+        [Input("templateSpecVersionId")]
+        public Input<string>? TemplateSpecVersionId { get; set; }
 
         public ResourceGroupTemplateDeploymentArgs()
         {
@@ -223,10 +235,16 @@ namespace Pulumi.Azure.Core
         }
 
         /// <summary>
-        /// The contents of the ARM Template which should be deployed into this Resource Group.
+        /// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
         /// </summary>
         [Input("templateContent")]
         public Input<string>? TemplateContent { get; set; }
+
+        /// <summary>
+        /// The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+        /// </summary>
+        [Input("templateSpecVersionId")]
+        public Input<string>? TemplateSpecVersionId { get; set; }
 
         public ResourceGroupTemplateDeploymentState()
         {

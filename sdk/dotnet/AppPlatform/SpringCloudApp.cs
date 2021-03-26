@@ -105,6 +105,12 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> ServiceName { get; private set; } = null!;
 
         /// <summary>
+        /// Is End to End TLS Enabled? Defaults to `false`.
+        /// </summary>
+        [Output("tlsEnabled")]
+        public Output<bool?> TlsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The public endpoint of the Spring Cloud Application.
         /// </summary>
         [Output("url")]
@@ -198,6 +204,12 @@ namespace Pulumi.Azure.AppPlatform
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
 
+        /// <summary>
+        /// Is End to End TLS Enabled? Defaults to `false`.
+        /// </summary>
+        [Input("tlsEnabled")]
+        public Input<bool>? TlsEnabled { get; set; }
+
         public SpringCloudAppArgs()
         {
         }
@@ -252,6 +264,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
+
+        /// <summary>
+        /// Is End to End TLS Enabled? Defaults to `false`.
+        /// </summary>
+        [Input("tlsEnabled")]
+        public Input<bool>? TlsEnabled { get; set; }
 
         /// <summary>
         /// The public endpoint of the Spring Cloud Application.

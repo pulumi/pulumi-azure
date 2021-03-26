@@ -98,6 +98,10 @@ export class SubscriptionTemplateDeployment extends pulumi.CustomResource {
      * The contents of the ARM Template which should be deployed into this Subscription.
      */
     public readonly templateContent!: pulumi.Output<string>;
+    /**
+     * The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `templateContent`.
+     */
+    public readonly templateSpecVersionId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SubscriptionTemplateDeployment resource with the given unique name, arguments, and options.
@@ -106,7 +110,7 @@ export class SubscriptionTemplateDeployment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SubscriptionTemplateDeploymentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: SubscriptionTemplateDeploymentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SubscriptionTemplateDeploymentArgs | SubscriptionTemplateDeploymentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -119,17 +123,16 @@ export class SubscriptionTemplateDeployment extends pulumi.CustomResource {
             inputs["parametersContent"] = state ? state.parametersContent : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["templateContent"] = state ? state.templateContent : undefined;
+            inputs["templateSpecVersionId"] = state ? state.templateSpecVersionId : undefined;
         } else {
             const args = argsOrState as SubscriptionTemplateDeploymentArgs | undefined;
-            if ((!args || args.templateContent === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'templateContent'");
-            }
             inputs["debugLevel"] = args ? args.debugLevel : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parametersContent"] = args ? args.parametersContent : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["templateContent"] = args ? args.templateContent : undefined;
+            inputs["templateSpecVersionId"] = args ? args.templateSpecVersionId : undefined;
             inputs["outputContent"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -171,6 +174,10 @@ export interface SubscriptionTemplateDeploymentState {
      * The contents of the ARM Template which should be deployed into this Subscription.
      */
     readonly templateContent?: pulumi.Input<string>;
+    /**
+     * The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `templateContent`.
+     */
+    readonly templateSpecVersionId?: pulumi.Input<string>;
 }
 
 /**
@@ -200,5 +207,9 @@ export interface SubscriptionTemplateDeploymentArgs {
     /**
      * The contents of the ARM Template which should be deployed into this Subscription.
      */
-    readonly templateContent: pulumi.Input<string>;
+    readonly templateContent?: pulumi.Input<string>;
+    /**
+     * The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `templateContent`.
+     */
+    readonly templateSpecVersionId?: pulumi.Input<string>;
 }

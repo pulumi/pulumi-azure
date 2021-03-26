@@ -22,6 +22,7 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_content: Optional[pulumi.Input[str]] = None,
+                 template_spec_version_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -46,7 +47,8 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
         :param pulumi.Input[str] parameters_content: The contents of the ARM Template parameters file - containing a JSON list of parameters.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Resource Group Template Deployment should exist. Changing this forces a new Resource Group Template Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Group Template Deployment.
-        :param pulumi.Input[str] template_content: The contents of the ARM Template which should be deployed into this Resource Group.
+        :param pulumi.Input[str] template_content: The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+        :param pulumi.Input[str] template_spec_version_id: The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,9 +77,8 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if template_content is None and not opts.urn:
-                raise TypeError("Missing required property 'template_content'")
             __props__['template_content'] = template_content
+            __props__['template_spec_version_id'] = template_spec_version_id
             __props__['output_content'] = None
         super(ResourceGroupTemplateDeployment, __self__).__init__(
             'azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment',
@@ -96,7 +97,8 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
             parameters_content: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            template_content: Optional[pulumi.Input[str]] = None) -> 'ResourceGroupTemplateDeployment':
+            template_content: Optional[pulumi.Input[str]] = None,
+            template_spec_version_id: Optional[pulumi.Input[str]] = None) -> 'ResourceGroupTemplateDeployment':
         """
         Get an existing ResourceGroupTemplateDeployment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -111,7 +113,8 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
         :param pulumi.Input[str] parameters_content: The contents of the ARM Template parameters file - containing a JSON list of parameters.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Resource Group Template Deployment should exist. Changing this forces a new Resource Group Template Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Group Template Deployment.
-        :param pulumi.Input[str] template_content: The contents of the ARM Template which should be deployed into this Resource Group.
+        :param pulumi.Input[str] template_content: The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+        :param pulumi.Input[str] template_spec_version_id: The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -125,6 +128,7 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["tags"] = tags
         __props__["template_content"] = template_content
+        __props__["template_spec_version_id"] = template_spec_version_id
         return ResourceGroupTemplateDeployment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -187,9 +191,17 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
     @pulumi.getter(name="templateContent")
     def template_content(self) -> pulumi.Output[str]:
         """
-        The contents of the ARM Template which should be deployed into this Resource Group.
+        The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
         """
         return pulumi.get(self, "template_content")
+
+    @property
+    @pulumi.getter(name="templateSpecVersionId")
+    def template_spec_version_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+        """
+        return pulumi.get(self, "template_spec_version_id")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

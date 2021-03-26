@@ -7,8 +7,10 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./getNamespace";
 export * from "./getNamespaceAuthorizationRule";
+export * from "./getQueue";
 export * from "./getQueueAuthorizationRule";
 export * from "./getSubscription";
+export * from "./getTopic";
 export * from "./getTopicAuthorizationRule";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";

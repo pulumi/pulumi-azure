@@ -5,8 +5,10 @@
 # Export this package's modules as members:
 from .get_namespace import *
 from .get_namespace_authorization_rule import *
+from .get_queue import *
 from .get_queue_authorization_rule import *
 from .get_subscription import *
+from .get_topic import *
 from .get_topic_authorization_rule import *
 from .namespace import *
 from .namespace_authorization_rule import *

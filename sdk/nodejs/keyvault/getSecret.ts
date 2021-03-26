@@ -75,4 +75,5 @@ export interface GetSecretResult {
      * The current version of the Key Vault Secret.
      */
     readonly version: string;
+    readonly versionlessId: string;
 }

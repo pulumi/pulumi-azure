@@ -87,6 +87,10 @@ export interface GetSpringCloudAppResult {
     readonly resourceGroupName: string;
     readonly serviceName: string;
     /**
+     * Is End to End TLS Enabled?
+     */
+    readonly tlsEnabled: boolean;
+    /**
      * The public endpoint of the Spring Cloud Application.
      */
     readonly url: string;

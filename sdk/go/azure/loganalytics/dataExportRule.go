@@ -80,7 +80,7 @@ type DataExportRule struct {
 
 	// The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
 	DestinationResourceId pulumi.StringOutput `pulumi:"destinationResourceId"`
-	// Is this Log Analytics Data Export Rule when enabled? Possible values include `true` or `false`. Defaults to `false`.
+	// Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The ID of the created Data Export Rule.
 	ExportRuleId pulumi.StringOutput `pulumi:"exportRuleId"`
@@ -137,7 +137,7 @@ func GetDataExportRule(ctx *pulumi.Context,
 type dataExportRuleState struct {
 	// The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
 	DestinationResourceId *string `pulumi:"destinationResourceId"`
-	// Is this Log Analytics Data Export Rule when enabled? Possible values include `true` or `false`. Defaults to `false`.
+	// Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the created Data Export Rule.
 	ExportRuleId *string `pulumi:"exportRuleId"`
@@ -154,7 +154,7 @@ type dataExportRuleState struct {
 type DataExportRuleState struct {
 	// The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
 	DestinationResourceId pulumi.StringPtrInput
-	// Is this Log Analytics Data Export Rule when enabled? Possible values include `true` or `false`. Defaults to `false`.
+	// Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput
 	// The ID of the created Data Export Rule.
 	ExportRuleId pulumi.StringPtrInput
@@ -175,7 +175,7 @@ func (DataExportRuleState) ElementType() reflect.Type {
 type dataExportRuleArgs struct {
 	// The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
 	DestinationResourceId string `pulumi:"destinationResourceId"`
-	// Is this Log Analytics Data Export Rule when enabled? Possible values include `true` or `false`. Defaults to `false`.
+	// Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the Log Analytics Data Export Rule. Changing this forces a new Log Analytics Data Export Rule to be created.
 	Name *string `pulumi:"name"`
@@ -191,7 +191,7 @@ type dataExportRuleArgs struct {
 type DataExportRuleArgs struct {
 	// The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
 	DestinationResourceId pulumi.StringInput
-	// Is this Log Analytics Data Export Rule when enabled? Possible values include `true` or `false`. Defaults to `false`.
+	// Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput
 	// The name of the Log Analytics Data Export Rule. Changing this forces a new Log Analytics Data Export Rule to be created.
 	Name pulumi.StringPtrInput

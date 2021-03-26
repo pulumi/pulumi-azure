@@ -80,7 +80,7 @@ export class Definition extends pulumi.CustomResource {
     /**
      * A `permissions` block as defined below.
      */
-    public readonly permissions!: pulumi.Output<outputs.role.DefinitionPermission[]>;
+    public readonly permissions!: pulumi.Output<outputs.role.DefinitionPermission[] | undefined>;
     /**
      * A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
      */
@@ -119,9 +119,6 @@ export class Definition extends pulumi.CustomResource {
             inputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as DefinitionArgs | undefined;
-            if ((!args || args.permissions === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'permissions'");
-            }
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -193,7 +190,7 @@ export interface DefinitionArgs {
     /**
      * A `permissions` block as defined below.
      */
-    readonly permissions: pulumi.Input<pulumi.Input<inputs.role.DefinitionPermission>[]>;
+    readonly permissions?: pulumi.Input<pulumi.Input<inputs.role.DefinitionPermission>[]>;
     /**
      * A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
      */

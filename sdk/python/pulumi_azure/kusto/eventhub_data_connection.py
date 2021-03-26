@@ -20,6 +20,7 @@ class EventhubDataConnection(pulumi.CustomResource):
                  consumer_group: Optional[pulumi.Input[str]] = None,
                  data_format: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  eventhub_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mapping_rule_name: Optional[pulumi.Input[str]] = None,
@@ -93,6 +94,7 @@ class EventhubDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] consumer_group: Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies a list of system properties for the Event Hub.
         :param pulumi.Input[str] eventhub_id: Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
@@ -128,6 +130,7 @@ class EventhubDataConnection(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
+            __props__['event_system_properties'] = event_system_properties
             if eventhub_id is None and not opts.urn:
                 raise TypeError("Missing required property 'eventhub_id'")
             __props__['eventhub_id'] = eventhub_id
@@ -153,6 +156,7 @@ class EventhubDataConnection(pulumi.CustomResource):
             consumer_group: Optional[pulumi.Input[str]] = None,
             data_format: Optional[pulumi.Input[str]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
+            event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             eventhub_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             mapping_rule_name: Optional[pulumi.Input[str]] = None,
@@ -171,6 +175,7 @@ class EventhubDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] consumer_group: Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies a list of system properties for the Event Hub.
         :param pulumi.Input[str] eventhub_id: Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
@@ -187,6 +192,7 @@ class EventhubDataConnection(pulumi.CustomResource):
         __props__["consumer_group"] = consumer_group
         __props__["data_format"] = data_format
         __props__["database_name"] = database_name
+        __props__["event_system_properties"] = event_system_properties
         __props__["eventhub_id"] = eventhub_id
         __props__["location"] = location
         __props__["mapping_rule_name"] = mapping_rule_name
@@ -234,6 +240,14 @@ class EventhubDataConnection(pulumi.CustomResource):
         Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="eventSystemProperties")
+    def event_system_properties(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Specifies a list of system properties for the Event Hub.
+        """
+        return pulumi.get(self, "event_system_properties")
 
     @property
     @pulumi.getter(name="eventhubId")

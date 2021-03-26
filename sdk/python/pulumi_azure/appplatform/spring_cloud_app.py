@@ -24,6 +24,7 @@ class SpringCloudApp(pulumi.CustomResource):
                  persistent_disk: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
+                 tls_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -65,6 +66,7 @@ class SpringCloudApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']] persistent_disk: An `persistent_disk` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] tls_enabled: Is End to End TLS Enabled? Defaults to `false`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -94,6 +96,7 @@ class SpringCloudApp(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['tls_enabled'] = tls_enabled
             __props__['fqdn'] = None
             __props__['url'] = None
         super(SpringCloudApp, __self__).__init__(
@@ -114,6 +117,7 @@ class SpringCloudApp(pulumi.CustomResource):
             persistent_disk: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             service_name: Optional[pulumi.Input[str]] = None,
+            tls_enabled: Optional[pulumi.Input[bool]] = None,
             url: Optional[pulumi.Input[str]] = None) -> 'SpringCloudApp':
         """
         Get an existing SpringCloudApp resource's state with the given name, id, and optional extra
@@ -130,6 +134,7 @@ class SpringCloudApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']] persistent_disk: An `persistent_disk` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] tls_enabled: Is End to End TLS Enabled? Defaults to `false`.
         :param pulumi.Input[str] url: The public endpoint of the Spring Cloud Application.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -144,6 +149,7 @@ class SpringCloudApp(pulumi.CustomResource):
         __props__["persistent_disk"] = persistent_disk
         __props__["resource_group_name"] = resource_group_name
         __props__["service_name"] = service_name
+        __props__["tls_enabled"] = tls_enabled
         __props__["url"] = url
         return SpringCloudApp(resource_name, opts=opts, __props__=__props__)
 
@@ -210,6 +216,14 @@ class SpringCloudApp(pulumi.CustomResource):
         Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "service_name")
+
+    @property
+    @pulumi.getter(name="tlsEnabled")
+    def tls_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is End to End TLS Enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "tls_enabled")
 
     @property
     @pulumi.getter

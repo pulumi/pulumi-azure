@@ -70,6 +70,8 @@ type LookupSpringCloudAppResult struct {
 	PersistentDisks   []GetSpringCloudAppPersistentDisk `pulumi:"persistentDisks"`
 	ResourceGroupName string                            `pulumi:"resourceGroupName"`
 	ServiceName       string                            `pulumi:"serviceName"`
+	// Is End to End TLS Enabled?
+	TlsEnabled bool `pulumi:"tlsEnabled"`
 	// The public endpoint of the Spring Cloud Application.
 	Url string `pulumi:"url"`
 }

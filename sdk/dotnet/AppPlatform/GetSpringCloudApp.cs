@@ -104,6 +104,10 @@ namespace Pulumi.Azure.AppPlatform
         public readonly string ResourceGroupName;
         public readonly string ServiceName;
         /// <summary>
+        /// Is End to End TLS Enabled?
+        /// </summary>
+        public readonly bool TlsEnabled;
+        /// <summary>
         /// The public endpoint of the Spring Cloud Application.
         /// </summary>
         public readonly string Url;
@@ -128,6 +132,8 @@ namespace Pulumi.Azure.AppPlatform
 
             string serviceName,
 
+            bool tlsEnabled,
+
             string url)
         {
             Fqdn = fqdn;
@@ -139,6 +145,7 @@ namespace Pulumi.Azure.AppPlatform
             PersistentDisks = persistentDisks;
             ResourceGroupName = resourceGroupName;
             ServiceName = serviceName;
+            TlsEnabled = tlsEnabled;
             Url = url;
         }
     }

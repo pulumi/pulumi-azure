@@ -12,9 +12,15 @@ namespace Pulumi.Azure.Monitoring.Inputs
 
     public sealed class ScheduledQueryRulesAlertTriggerMetricTriggerArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Evaluation of metric on a particular column.
+        /// </summary>
         [Input("metricColumn", required: true)]
         public Input<string> MetricColumn { get; set; } = null!;
 
+        /// <summary>
+        /// Metric Trigger Type - 'Consecutive' or 'Total'.
+        /// </summary>
         [Input("metricTriggerType", required: true)]
         public Input<string> MetricTriggerType { get; set; } = null!;
 

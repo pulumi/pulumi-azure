@@ -74,9 +74,13 @@ export class ResourceGroupTemplateDeployment extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The contents of the ARM Template which should be deployed into this Resource Group.
+     * The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
      */
     public readonly templateContent!: pulumi.Output<string>;
+    /**
+     * The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
+     */
+    public readonly templateSpecVersionId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ResourceGroupTemplateDeployment resource with the given unique name, arguments, and options.
@@ -99,6 +103,7 @@ export class ResourceGroupTemplateDeployment extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["templateContent"] = state ? state.templateContent : undefined;
+            inputs["templateSpecVersionId"] = state ? state.templateSpecVersionId : undefined;
         } else {
             const args = argsOrState as ResourceGroupTemplateDeploymentArgs | undefined;
             if ((!args || args.deploymentMode === undefined) && !opts.urn) {
@@ -107,9 +112,6 @@ export class ResourceGroupTemplateDeployment extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.templateContent === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'templateContent'");
-            }
             inputs["debugLevel"] = args ? args.debugLevel : undefined;
             inputs["deploymentMode"] = args ? args.deploymentMode : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -117,6 +119,7 @@ export class ResourceGroupTemplateDeployment extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["templateContent"] = args ? args.templateContent : undefined;
+            inputs["templateSpecVersionId"] = args ? args.templateSpecVersionId : undefined;
             inputs["outputContent"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -159,9 +162,13 @@ export interface ResourceGroupTemplateDeploymentState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The contents of the ARM Template which should be deployed into this Resource Group.
+     * The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
      */
     readonly templateContent?: pulumi.Input<string>;
+    /**
+     * The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
+     */
+    readonly templateSpecVersionId?: pulumi.Input<string>;
 }
 
 /**
@@ -193,7 +200,11 @@ export interface ResourceGroupTemplateDeploymentArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The contents of the ARM Template which should be deployed into this Resource Group.
+     * The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
      */
-    readonly templateContent: pulumi.Input<string>;
+    readonly templateContent?: pulumi.Input<string>;
+    /**
+     * The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
+     */
+    readonly templateSpecVersionId?: pulumi.Input<string>;
 }

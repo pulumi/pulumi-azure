@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewSubscriptionTemplateDeployment(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:core/templateDeployment:TemplateDeployment":
 		r, err = NewTemplateDeployment(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:core/tenantTemplateDeployment:TenantTemplateDeployment":
+		r, err = NewTenantTemplateDeployment(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -80,6 +82,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"core/templateDeployment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"core/tenantTemplateDeployment",
 		&module{version},
 	)
 }

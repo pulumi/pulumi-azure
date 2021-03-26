@@ -14653,6 +14653,21 @@ export namespace logicapps {
          */
         actionResult: string;
     }
+
+    export interface TriggerRecurrenceSchedule {
+        /**
+         * Specifies a list of hours when the trigger should run. Valid values are between 0 and 23.
+         */
+        atTheseHours?: number[];
+        /**
+         * Specifies a list of minutes when the trigger should run. Valid values are between 0 and 59.
+         */
+        atTheseMinutes?: number[];
+        /**
+         * Specifies a list of days when the trigger should run. Valid values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
+         */
+        onTheseDays?: string[];
+    }
 }
 
 export namespace machinelearning {
@@ -16534,6 +16549,9 @@ export namespace monitoring {
     }
 
     export interface ScheduledQueryRulesAlertTrigger {
+        /**
+         * A `metricTrigger` block as defined above. Trigger condition for metric query rule.
+         */
         metricTrigger?: outputs.monitoring.ScheduledQueryRulesAlertTriggerMetricTrigger;
         /**
          * Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
@@ -16546,7 +16564,13 @@ export namespace monitoring {
     }
 
     export interface ScheduledQueryRulesAlertTriggerMetricTrigger {
+        /**
+         * Evaluation of metric on a particular column.
+         */
         metricColumn: string;
+        /**
+         * Metric Trigger Type - 'Consecutive' or 'Total'.
+         */
         metricTriggerType: string;
         /**
          * Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.

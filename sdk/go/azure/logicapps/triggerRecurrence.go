@@ -70,6 +70,8 @@ type TriggerRecurrence struct {
 	LogicAppId pulumi.StringOutput `pulumi:"logicAppId"`
 	// Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A `schedule` block as specified below.
+	Schedule TriggerRecurrenceSchedulePtrOutput `pulumi:"schedule"`
 	// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
 	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
 	// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
@@ -122,6 +124,8 @@ type triggerRecurrenceState struct {
 	LogicAppId *string `pulumi:"logicAppId"`
 	// Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `schedule` block as specified below.
+	Schedule *TriggerRecurrenceSchedule `pulumi:"schedule"`
 	// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
 	StartTime *string `pulumi:"startTime"`
 	// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
@@ -137,6 +141,8 @@ type TriggerRecurrenceState struct {
 	LogicAppId pulumi.StringPtrInput
 	// Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `schedule` block as specified below.
+	Schedule TriggerRecurrenceSchedulePtrInput
 	// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
 	StartTime pulumi.StringPtrInput
 	// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
@@ -156,6 +162,8 @@ type triggerRecurrenceArgs struct {
 	LogicAppId string `pulumi:"logicAppId"`
 	// Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `schedule` block as specified below.
+	Schedule *TriggerRecurrenceSchedule `pulumi:"schedule"`
 	// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
 	StartTime *string `pulumi:"startTime"`
 	// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
@@ -172,6 +180,8 @@ type TriggerRecurrenceArgs struct {
 	LogicAppId pulumi.StringInput
 	// Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `schedule` block as specified below.
+	Schedule TriggerRecurrenceSchedulePtrInput
 	// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
 	StartTime pulumi.StringPtrInput
 	// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)

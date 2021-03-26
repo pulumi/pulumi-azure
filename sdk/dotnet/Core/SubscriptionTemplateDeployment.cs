@@ -101,6 +101,12 @@ namespace Pulumi.Azure.Core
         [Output("templateContent")]
         public Output<string> TemplateContent { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`.
+        /// </summary>
+        [Output("templateSpecVersionId")]
+        public Output<string?> TemplateSpecVersionId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a SubscriptionTemplateDeployment resource with the given unique name, arguments, and options.
@@ -109,7 +115,7 @@ namespace Pulumi.Azure.Core
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public SubscriptionTemplateDeployment(string name, SubscriptionTemplateDeploymentArgs args, CustomResourceOptions? options = null)
+        public SubscriptionTemplateDeployment(string name, SubscriptionTemplateDeploymentArgs? args = null, CustomResourceOptions? options = null)
             : base("azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment", name, args ?? new SubscriptionTemplateDeploymentArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -186,8 +192,14 @@ namespace Pulumi.Azure.Core
         /// <summary>
         /// The contents of the ARM Template which should be deployed into this Subscription.
         /// </summary>
-        [Input("templateContent", required: true)]
-        public Input<string> TemplateContent { get; set; } = null!;
+        [Input("templateContent")]
+        public Input<string>? TemplateContent { get; set; }
+
+        /// <summary>
+        /// The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`.
+        /// </summary>
+        [Input("templateSpecVersionId")]
+        public Input<string>? TemplateSpecVersionId { get; set; }
 
         public SubscriptionTemplateDeploymentArgs()
         {
@@ -243,6 +255,12 @@ namespace Pulumi.Azure.Core
         /// </summary>
         [Input("templateContent")]
         public Input<string>? TemplateContent { get; set; }
+
+        /// <summary>
+        /// The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`.
+        /// </summary>
+        [Input("templateSpecVersionId")]
+        public Input<string>? TemplateSpecVersionId { get; set; }
 
         public SubscriptionTemplateDeploymentState()
         {

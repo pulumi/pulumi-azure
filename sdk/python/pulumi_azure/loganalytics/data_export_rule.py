@@ -62,7 +62,7 @@ class DataExportRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_resource_id: The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
-        :param pulumi.Input[bool] enabled: Is this Log Analytics Data Export Rule when enabled? Possible values include `true` or `false`. Defaults to `false`.
+        :param pulumi.Input[bool] enabled: Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the Log Analytics Data Export Rule. Changing this forces a new Log Analytics Data Export Rule to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Data Export should exist. Changing this forces a new Log Analytics Data Export Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] table_names: A list of table names to export to the destination resource, for example: `["Heartbeat", "SecurityEvent"]`.
@@ -125,7 +125,7 @@ class DataExportRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_resource_id: The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
-        :param pulumi.Input[bool] enabled: Is this Log Analytics Data Export Rule when enabled? Possible values include `true` or `false`. Defaults to `false`.
+        :param pulumi.Input[bool] enabled: Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
         :param pulumi.Input[str] export_rule_id: The ID of the created Data Export Rule.
         :param pulumi.Input[str] name: The name of the Log Analytics Data Export Rule. Changing this forces a new Log Analytics Data Export Rule to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Data Export should exist. Changing this forces a new Log Analytics Data Export Rule to be created.
@@ -157,7 +157,7 @@ class DataExportRule(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is this Log Analytics Data Export Rule when enabled? Possible values include `true` or `false`. Defaults to `false`.
+        Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
         """
         return pulumi.get(self, "enabled")
 

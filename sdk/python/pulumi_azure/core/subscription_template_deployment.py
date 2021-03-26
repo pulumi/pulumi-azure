@@ -21,6 +21,7 @@ class SubscriptionTemplateDeployment(pulumi.CustomResource):
                  parameters_content: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_content: Optional[pulumi.Input[str]] = None,
+                 template_spec_version_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -70,6 +71,7 @@ class SubscriptionTemplateDeployment(pulumi.CustomResource):
         :param pulumi.Input[str] parameters_content: The contents of the ARM Template parameters file - containing a JSON list of parameters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Subscription Template Deployment.
         :param pulumi.Input[str] template_content: The contents of the ARM Template which should be deployed into this Subscription.
+        :param pulumi.Input[str] template_spec_version_id: The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -93,9 +95,8 @@ class SubscriptionTemplateDeployment(pulumi.CustomResource):
             __props__['name'] = name
             __props__['parameters_content'] = parameters_content
             __props__['tags'] = tags
-            if template_content is None and not opts.urn:
-                raise TypeError("Missing required property 'template_content'")
             __props__['template_content'] = template_content
+            __props__['template_spec_version_id'] = template_spec_version_id
             __props__['output_content'] = None
         super(SubscriptionTemplateDeployment, __self__).__init__(
             'azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment',
@@ -113,7 +114,8 @@ class SubscriptionTemplateDeployment(pulumi.CustomResource):
             output_content: Optional[pulumi.Input[str]] = None,
             parameters_content: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            template_content: Optional[pulumi.Input[str]] = None) -> 'SubscriptionTemplateDeployment':
+            template_content: Optional[pulumi.Input[str]] = None,
+            template_spec_version_id: Optional[pulumi.Input[str]] = None) -> 'SubscriptionTemplateDeployment':
         """
         Get an existing SubscriptionTemplateDeployment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -128,6 +130,7 @@ class SubscriptionTemplateDeployment(pulumi.CustomResource):
         :param pulumi.Input[str] parameters_content: The contents of the ARM Template parameters file - containing a JSON list of parameters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Subscription Template Deployment.
         :param pulumi.Input[str] template_content: The contents of the ARM Template which should be deployed into this Subscription.
+        :param pulumi.Input[str] template_spec_version_id: The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -140,6 +143,7 @@ class SubscriptionTemplateDeployment(pulumi.CustomResource):
         __props__["parameters_content"] = parameters_content
         __props__["tags"] = tags
         __props__["template_content"] = template_content
+        __props__["template_spec_version_id"] = template_spec_version_id
         return SubscriptionTemplateDeployment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -197,6 +201,14 @@ class SubscriptionTemplateDeployment(pulumi.CustomResource):
         The contents of the ARM Template which should be deployed into this Subscription.
         """
         return pulumi.get(self, "template_content")
+
+    @property
+    @pulumi.getter(name="templateSpecVersionId")
+    def template_spec_version_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`.
+        """
+        return pulumi.get(self, "template_spec_version_id")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

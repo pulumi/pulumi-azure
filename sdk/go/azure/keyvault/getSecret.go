@@ -63,5 +63,6 @@ type LookupSecretResult struct {
 	// The value of the Key Vault Secret.
 	Value string `pulumi:"value"`
 	// The current version of the Key Vault Secret.
-	Version string `pulumi:"version"`
+	Version       string `pulumi:"version"`
+	VersionlessId string `pulumi:"versionlessId"`
 }

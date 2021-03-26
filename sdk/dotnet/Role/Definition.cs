@@ -172,7 +172,7 @@ namespace Pulumi.Azure.Role
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("permissions", required: true)]
+        [Input("permissions")]
         private InputList<Inputs.DefinitionPermissionArgs>? _permissions;
 
         /// <summary>

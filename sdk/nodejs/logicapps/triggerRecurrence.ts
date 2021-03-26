@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -78,6 +79,10 @@ export class TriggerRecurrence extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A `schedule` block as specified below.
+     */
+    public readonly schedule!: pulumi.Output<outputs.logicapps.TriggerRecurrenceSchedule | undefined>;
+    /**
      * Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
      */
     public readonly startTime!: pulumi.Output<string | undefined>;
@@ -103,6 +108,7 @@ export class TriggerRecurrence extends pulumi.CustomResource {
             inputs["interval"] = state ? state.interval : undefined;
             inputs["logicAppId"] = state ? state.logicAppId : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["schedule"] = state ? state.schedule : undefined;
             inputs["startTime"] = state ? state.startTime : undefined;
             inputs["timeZone"] = state ? state.timeZone : undefined;
         } else {
@@ -120,6 +126,7 @@ export class TriggerRecurrence extends pulumi.CustomResource {
             inputs["interval"] = args ? args.interval : undefined;
             inputs["logicAppId"] = args ? args.logicAppId : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["schedule"] = args ? args.schedule : undefined;
             inputs["startTime"] = args ? args.startTime : undefined;
             inputs["timeZone"] = args ? args.timeZone : undefined;
         }
@@ -151,6 +158,10 @@ export interface TriggerRecurrenceState {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * A `schedule` block as specified below.
+     */
+    readonly schedule?: pulumi.Input<inputs.logicapps.TriggerRecurrenceSchedule>;
+    /**
      * Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
      */
     readonly startTime?: pulumi.Input<string>;
@@ -180,6 +191,10 @@ export interface TriggerRecurrenceArgs {
      * Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A `schedule` block as specified below.
+     */
+    readonly schedule?: pulumi.Input<inputs.logicapps.TriggerRecurrenceSchedule>;
     /**
      * Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
      */

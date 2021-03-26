@@ -88,9 +88,6 @@ func NewDefinition(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Permissions == nil {
-		return nil, errors.New("invalid value for required argument 'Permissions'")
-	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
