@@ -2041,7 +2041,7 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/node-fetch": "^2.5.8",
 			},
 			Dependencies: map[string]string{
-				"@pulumi/pulumi":                "^2.17.0",
+				"@pulumi/pulumi":                "^3.0.0-alpha.0",
 				"azure-eventgrid":               "^1.6.0",
 				"@azure/functions":              "=1.2.2",
 				"@azure/ms-rest-azure-js":       "^2.0.1",
@@ -2104,7 +2104,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=2.15.0,<3.0.0",
+				"pulumi": ">=3.0.0a1,<4.0.0", // https://www.python.org/dev/peps/pep-0440/#handling-of-pre-releases
 			},
 		},
 		Golang: &tfbridge.GolangInfo{
@@ -2118,7 +2118,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "2.*",
+				"Pulumi":                       "3.*-*", // this will cover the alphas while we are in the testing phase
 				"System.Collections.Immutable": "1.6.0",
 			},
 			Overlay: &tfbridge.OverlayInfo{
