@@ -75,7 +75,7 @@ export class DataExportRule extends pulumi.CustomResource {
      */
     public readonly destinationResourceId!: pulumi.Output<string>;
     /**
-     * Is this Log Analytics Data Export Rule when enabled? Possible values include `true` or `false`. Defaults to `false`.
+     * Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -157,7 +157,7 @@ export interface DataExportRuleState {
      */
     readonly destinationResourceId?: pulumi.Input<string>;
     /**
-     * Is this Log Analytics Data Export Rule when enabled? Possible values include `true` or `false`. Defaults to `false`.
+     * Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
@@ -191,7 +191,7 @@ export interface DataExportRuleArgs {
      */
     readonly destinationResourceId: pulumi.Input<string>;
     /**
-     * Is this Log Analytics Data Export Rule when enabled? Possible values include `true` or `false`. Defaults to `false`.
+     * Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**

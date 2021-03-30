@@ -11,6 +11,7 @@ export * from "./getResourceGroup";
 export * from "./getResources";
 export * from "./getSubscription";
 export * from "./getSubscriptions";
+export * from "./getTemplateSpecVersion";
 export * from "./getUserAssignedIdentity";
 export * from "./resourceGroup";
 export * from "./resourceGroupTemplateDeployment";
@@ -18,6 +19,7 @@ export * from "./resourceProviderRegistration";
 export * from "./subscription";
 export * from "./subscriptionTemplateDeployment";
 export * from "./templateDeployment";
+export * from "./tenantTemplateDeployment";
 export * from "./zMixins";
 
 // Import resources to register:
@@ -28,6 +30,7 @@ import { ResourceProviderRegistration } from "./resourceProviderRegistration";
 import { Subscription } from "./subscription";
 import { SubscriptionTemplateDeployment } from "./subscriptionTemplateDeployment";
 import { TemplateDeployment } from "./templateDeployment";
+import { TenantTemplateDeployment } from "./tenantTemplateDeployment";
 
 const _module = {
     version: utilities.getVersion(),
@@ -47,6 +50,8 @@ const _module = {
                 return new SubscriptionTemplateDeployment(name, <any>undefined, { urn })
             case "azure:core/templateDeployment:TemplateDeployment":
                 return new TemplateDeployment(name, <any>undefined, { urn })
+            case "azure:core/tenantTemplateDeployment:TenantTemplateDeployment":
+                return new TenantTemplateDeployment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -59,3 +64,4 @@ pulumi.runtime.registerResourceModule("azure", "core/resourceProviderRegistratio
 pulumi.runtime.registerResourceModule("azure", "core/subscription", _module)
 pulumi.runtime.registerResourceModule("azure", "core/subscriptionTemplateDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "core/templateDeployment", _module)
+pulumi.runtime.registerResourceModule("azure", "core/tenantTemplateDeployment", _module)

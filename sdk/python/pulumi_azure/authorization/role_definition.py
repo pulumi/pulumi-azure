@@ -83,8 +83,6 @@ class RoleDefinition(pulumi.CustomResource):
             __props__['assignable_scopes'] = assignable_scopes
             __props__['description'] = description
             __props__['name'] = name
-            if permissions is None and not opts.urn:
-                raise TypeError("Missing required property 'permissions'")
             __props__['permissions'] = permissions
             __props__['role_definition_id'] = role_definition_id
             if scope is None and not opts.urn:
@@ -164,7 +162,7 @@ class RoleDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def permissions(self) -> pulumi.Output[Sequence['outputs.RoleDefinitionPermission']]:
+    def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.RoleDefinitionPermission']]]:
         """
         A `permissions` block as defined below.
         """

@@ -96,6 +96,10 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly networkRuleSet!: pulumi.Output<outputs.containerservice.RegistryNetworkRuleSet>;
     /**
+     * Whether public network access is allowed for the container registry. Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -141,6 +145,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["loginServer"] = state ? state.loginServer : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["networkRuleSet"] = state ? state.networkRuleSet : undefined;
+            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
             inputs["sku"] = state ? state.sku : undefined;
@@ -157,6 +162,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
+            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
             inputs["sku"] = args ? args.sku : undefined;
@@ -211,6 +217,10 @@ export interface RegistryState {
      */
     readonly networkRuleSet?: pulumi.Input<inputs.containerservice.RegistryNetworkRuleSet>;
     /**
+     * Whether public network access is allowed for the container registry. Defaults to `true`.
+     */
+    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
      * The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
@@ -260,6 +270,10 @@ export interface RegistryArgs {
      * A `networkRuleSet` block as documented below.
      */
     readonly networkRuleSet?: pulumi.Input<inputs.containerservice.RegistryNetworkRuleSet>;
+    /**
+     * Whether public network access is allowed for the container registry. Defaults to `true`.
+     */
+    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
      */

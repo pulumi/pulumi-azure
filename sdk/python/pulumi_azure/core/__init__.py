@@ -9,6 +9,7 @@ from .get_resource_group import *
 from .get_resources import *
 from .get_subscription import *
 from .get_subscriptions import *
+from .get_template_spec_version import *
 from .get_user_assigned_identity import *
 from .resource_group import *
 from .resource_group_template_deployment import *
@@ -16,6 +17,7 @@ from .resource_provider_registration import *
 from .subscription import *
 from .subscription_template_deployment import *
 from .template_deployment import *
+from .tenant_template_deployment import *
 from ._inputs import *
 from . import outputs
 
@@ -45,6 +47,8 @@ def _register_module():
                 return SubscriptionTemplateDeployment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:core/templateDeployment:TemplateDeployment":
                 return TemplateDeployment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:core/tenantTemplateDeployment:TenantTemplateDeployment":
+                return TenantTemplateDeployment(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
@@ -57,5 +61,6 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "core/subscription", _module_instance)
     pulumi.runtime.register_resource_module("azure", "core/subscriptionTemplateDeployment", _module_instance)
     pulumi.runtime.register_resource_module("azure", "core/templateDeployment", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "core/tenantTemplateDeployment", _module_instance)
 
 _register_module()

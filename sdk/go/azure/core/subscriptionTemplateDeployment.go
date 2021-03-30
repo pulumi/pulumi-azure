@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -63,18 +62,17 @@ type SubscriptionTemplateDeployment struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The contents of the ARM Template which should be deployed into this Subscription.
 	TemplateContent pulumi.StringOutput `pulumi:"templateContent"`
+	// The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `templateContent`.
+	TemplateSpecVersionId pulumi.StringPtrOutput `pulumi:"templateSpecVersionId"`
 }
 
 // NewSubscriptionTemplateDeployment registers a new resource with the given unique name, arguments, and options.
 func NewSubscriptionTemplateDeployment(ctx *pulumi.Context,
 	name string, args *SubscriptionTemplateDeploymentArgs, opts ...pulumi.ResourceOption) (*SubscriptionTemplateDeployment, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &SubscriptionTemplateDeploymentArgs{}
 	}
 
-	if args.TemplateContent == nil {
-		return nil, errors.New("invalid value for required argument 'TemplateContent'")
-	}
 	var resource SubscriptionTemplateDeployment
 	err := ctx.RegisterResource("azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment", name, args, &resource, opts...)
 	if err != nil {
@@ -111,6 +109,8 @@ type subscriptionTemplateDeploymentState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The contents of the ARM Template which should be deployed into this Subscription.
 	TemplateContent *string `pulumi:"templateContent"`
+	// The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `templateContent`.
+	TemplateSpecVersionId *string `pulumi:"templateSpecVersionId"`
 }
 
 type SubscriptionTemplateDeploymentState struct {
@@ -128,6 +128,8 @@ type SubscriptionTemplateDeploymentState struct {
 	Tags pulumi.StringMapInput
 	// The contents of the ARM Template which should be deployed into this Subscription.
 	TemplateContent pulumi.StringPtrInput
+	// The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `templateContent`.
+	TemplateSpecVersionId pulumi.StringPtrInput
 }
 
 func (SubscriptionTemplateDeploymentState) ElementType() reflect.Type {
@@ -146,7 +148,9 @@ type subscriptionTemplateDeploymentArgs struct {
 	// A mapping of tags which should be assigned to the Subscription Template Deployment.
 	Tags map[string]string `pulumi:"tags"`
 	// The contents of the ARM Template which should be deployed into this Subscription.
-	TemplateContent string `pulumi:"templateContent"`
+	TemplateContent *string `pulumi:"templateContent"`
+	// The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `templateContent`.
+	TemplateSpecVersionId *string `pulumi:"templateSpecVersionId"`
 }
 
 // The set of arguments for constructing a SubscriptionTemplateDeployment resource.
@@ -162,7 +166,9 @@ type SubscriptionTemplateDeploymentArgs struct {
 	// A mapping of tags which should be assigned to the Subscription Template Deployment.
 	Tags pulumi.StringMapInput
 	// The contents of the ARM Template which should be deployed into this Subscription.
-	TemplateContent pulumi.StringInput
+	TemplateContent pulumi.StringPtrInput
+	// The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `templateContent`.
+	TemplateSpecVersionId pulumi.StringPtrInput
 }
 
 func (SubscriptionTemplateDeploymentArgs) ElementType() reflect.Type {

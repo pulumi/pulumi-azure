@@ -39,8 +39,10 @@ type ResourceGroupTemplateDeployment struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Resource Group Template Deployment.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The contents of the ARM Template which should be deployed into this Resource Group.
+	// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
 	TemplateContent pulumi.StringOutput `pulumi:"templateContent"`
+	// The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
+	TemplateSpecVersionId pulumi.StringPtrOutput `pulumi:"templateSpecVersionId"`
 }
 
 // NewResourceGroupTemplateDeployment registers a new resource with the given unique name, arguments, and options.
@@ -55,9 +57,6 @@ func NewResourceGroupTemplateDeployment(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.TemplateContent == nil {
-		return nil, errors.New("invalid value for required argument 'TemplateContent'")
 	}
 	var resource ResourceGroupTemplateDeployment
 	err := ctx.RegisterResource("azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment", name, args, &resource, opts...)
@@ -95,8 +94,10 @@ type resourceGroupTemplateDeploymentState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Resource Group Template Deployment.
 	Tags map[string]string `pulumi:"tags"`
-	// The contents of the ARM Template which should be deployed into this Resource Group.
+	// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
 	TemplateContent *string `pulumi:"templateContent"`
+	// The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
+	TemplateSpecVersionId *string `pulumi:"templateSpecVersionId"`
 }
 
 type ResourceGroupTemplateDeploymentState struct {
@@ -114,8 +115,10 @@ type ResourceGroupTemplateDeploymentState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Resource Group Template Deployment.
 	Tags pulumi.StringMapInput
-	// The contents of the ARM Template which should be deployed into this Resource Group.
+	// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
 	TemplateContent pulumi.StringPtrInput
+	// The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
+	TemplateSpecVersionId pulumi.StringPtrInput
 }
 
 func (ResourceGroupTemplateDeploymentState) ElementType() reflect.Type {
@@ -135,8 +138,10 @@ type resourceGroupTemplateDeploymentArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Resource Group Template Deployment.
 	Tags map[string]string `pulumi:"tags"`
-	// The contents of the ARM Template which should be deployed into this Resource Group.
-	TemplateContent string `pulumi:"templateContent"`
+	// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
+	TemplateContent *string `pulumi:"templateContent"`
+	// The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
+	TemplateSpecVersionId *string `pulumi:"templateSpecVersionId"`
 }
 
 // The set of arguments for constructing a ResourceGroupTemplateDeployment resource.
@@ -153,8 +158,10 @@ type ResourceGroupTemplateDeploymentArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags which should be assigned to the Resource Group Template Deployment.
 	Tags pulumi.StringMapInput
-	// The contents of the ARM Template which should be deployed into this Resource Group.
-	TemplateContent pulumi.StringInput
+	// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
+	TemplateContent pulumi.StringPtrInput
+	// The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
+	TemplateSpecVersionId pulumi.StringPtrInput
 }
 
 func (ResourceGroupTemplateDeploymentArgs) ElementType() reflect.Type {

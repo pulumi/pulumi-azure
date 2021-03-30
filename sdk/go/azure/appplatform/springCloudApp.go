@@ -80,6 +80,8 @@ type SpringCloudApp struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
+	// Is End to End TLS Enabled? Defaults to `false`.
+	TlsEnabled pulumi.BoolPtrOutput `pulumi:"tlsEnabled"`
 	// The public endpoint of the Spring Cloud Application.
 	Url pulumi.StringOutput `pulumi:"url"`
 }
@@ -135,6 +137,8 @@ type springCloudAppState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	ServiceName *string `pulumi:"serviceName"`
+	// Is End to End TLS Enabled? Defaults to `false`.
+	TlsEnabled *bool `pulumi:"tlsEnabled"`
 	// The public endpoint of the Spring Cloud Application.
 	Url *string `pulumi:"url"`
 }
@@ -156,6 +160,8 @@ type SpringCloudAppState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	ServiceName pulumi.StringPtrInput
+	// Is End to End TLS Enabled? Defaults to `false`.
+	TlsEnabled pulumi.BoolPtrInput
 	// The public endpoint of the Spring Cloud Application.
 	Url pulumi.StringPtrInput
 }
@@ -179,6 +185,8 @@ type springCloudAppArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	ServiceName string `pulumi:"serviceName"`
+	// Is End to End TLS Enabled? Defaults to `false`.
+	TlsEnabled *bool `pulumi:"tlsEnabled"`
 }
 
 // The set of arguments for constructing a SpringCloudApp resource.
@@ -197,6 +205,8 @@ type SpringCloudAppArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	ServiceName pulumi.StringInput
+	// Is End to End TLS Enabled? Defaults to `false`.
+	TlsEnabled pulumi.BoolPtrInput
 }
 
 func (SpringCloudAppArgs) ElementType() reflect.Type {

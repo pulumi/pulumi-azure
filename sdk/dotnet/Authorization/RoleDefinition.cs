@@ -175,7 +175,7 @@ namespace Pulumi.Azure.Authorization
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("permissions", required: true)]
+        [Input("permissions")]
         private InputList<Inputs.RoleDefinitionPermissionArgs>? _permissions;
 
         /// <summary>

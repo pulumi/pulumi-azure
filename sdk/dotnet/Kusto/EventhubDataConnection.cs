@@ -123,6 +123,12 @@ namespace Pulumi.Azure.Kusto
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies a list of system properties for the Event Hub.
+        /// </summary>
+        [Output("eventSystemProperties")]
+        public Output<ImmutableArray<string>> EventSystemProperties { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
         /// </summary>
         [Output("eventhubId")]
@@ -234,6 +240,18 @@ namespace Pulumi.Azure.Kusto
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
+        [Input("eventSystemProperties")]
+        private InputList<string>? _eventSystemProperties;
+
+        /// <summary>
+        /// Specifies a list of system properties for the Event Hub.
+        /// </summary>
+        public InputList<string> EventSystemProperties
+        {
+            get => _eventSystemProperties ?? (_eventSystemProperties = new InputList<string>());
+            set => _eventSystemProperties = value;
+        }
+
         /// <summary>
         /// Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
         /// </summary>
@@ -306,6 +324,18 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
+
+        [Input("eventSystemProperties")]
+        private InputList<string>? _eventSystemProperties;
+
+        /// <summary>
+        /// Specifies a list of system properties for the Event Hub.
+        /// </summary>
+        public InputList<string> EventSystemProperties
+        {
+            get => _eventSystemProperties ?? (_eventSystemProperties = new InputList<string>());
+            set => _eventSystemProperties = value;
+        }
 
         /// <summary>
         /// Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.

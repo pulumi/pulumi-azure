@@ -91,6 +91,7 @@ namespace Pulumi.Azure.KeyVault
         /// The current version of the Key Vault Secret.
         /// </summary>
         public readonly string Version;
+        public readonly string VersionlessId;
 
         [OutputConstructor]
         private GetSecretResult(
@@ -106,7 +107,9 @@ namespace Pulumi.Azure.KeyVault
 
             string value,
 
-            string version)
+            string version,
+
+            string versionlessId)
         {
             ContentType = contentType;
             Id = id;
@@ -115,6 +118,7 @@ namespace Pulumi.Azure.KeyVault
             Tags = tags;
             Value = value;
             Version = version;
+            VersionlessId = versionlessId;
         }
     }
 }

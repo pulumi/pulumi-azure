@@ -12,6 +12,9 @@ namespace Pulumi.Azure.Monitoring.Inputs
 
     public sealed class ScheduledQueryRulesAlertTriggerArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `metric_trigger` block as defined above. Trigger condition for metric query rule.
+        /// </summary>
         [Input("metricTrigger")]
         public Input<Inputs.ScheduledQueryRulesAlertTriggerMetricTriggerArgs>? MetricTrigger { get; set; }
 

@@ -97,6 +97,10 @@ export class SpringCloudApp extends pulumi.CustomResource {
      */
     public readonly serviceName!: pulumi.Output<string>;
     /**
+     * Is End to End TLS Enabled? Defaults to `false`.
+     */
+    public readonly tlsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The public endpoint of the Spring Cloud Application.
      */
     public /*out*/ readonly url!: pulumi.Output<string>;
@@ -122,6 +126,7 @@ export class SpringCloudApp extends pulumi.CustomResource {
             inputs["persistentDisk"] = state ? state.persistentDisk : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["serviceName"] = state ? state.serviceName : undefined;
+            inputs["tlsEnabled"] = state ? state.tlsEnabled : undefined;
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as SpringCloudAppArgs | undefined;
@@ -138,6 +143,7 @@ export class SpringCloudApp extends pulumi.CustomResource {
             inputs["persistentDisk"] = args ? args.persistentDisk : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["tlsEnabled"] = args ? args.tlsEnabled : undefined;
             inputs["fqdn"] = undefined /*out*/;
             inputs["url"] = undefined /*out*/;
         }
@@ -185,6 +191,10 @@ export interface SpringCloudAppState {
      */
     readonly serviceName?: pulumi.Input<string>;
     /**
+     * Is End to End TLS Enabled? Defaults to `false`.
+     */
+    readonly tlsEnabled?: pulumi.Input<boolean>;
+    /**
      * The public endpoint of the Spring Cloud Application.
      */
     readonly url?: pulumi.Input<string>;
@@ -222,4 +232,8 @@ export interface SpringCloudAppArgs {
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Is End to End TLS Enabled? Defaults to `false`.
+     */
+    readonly tlsEnabled?: pulumi.Input<boolean>;
 }

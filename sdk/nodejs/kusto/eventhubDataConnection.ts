@@ -116,6 +116,10 @@ export class EventhubDataConnection extends pulumi.CustomResource {
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
+     * Specifies a list of system properties for the Event Hub.
+     */
+    public readonly eventSystemProperties!: pulumi.Output<string[]>;
+    /**
      * Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
     public readonly eventhubId!: pulumi.Output<string>;
@@ -158,6 +162,7 @@ export class EventhubDataConnection extends pulumi.CustomResource {
             inputs["consumerGroup"] = state ? state.consumerGroup : undefined;
             inputs["dataFormat"] = state ? state.dataFormat : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
+            inputs["eventSystemProperties"] = state ? state.eventSystemProperties : undefined;
             inputs["eventhubId"] = state ? state.eventhubId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["mappingRuleName"] = state ? state.mappingRuleName : undefined;
@@ -186,6 +191,7 @@ export class EventhubDataConnection extends pulumi.CustomResource {
             inputs["consumerGroup"] = args ? args.consumerGroup : undefined;
             inputs["dataFormat"] = args ? args.dataFormat : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
+            inputs["eventSystemProperties"] = args ? args.eventSystemProperties : undefined;
             inputs["eventhubId"] = args ? args.eventhubId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
@@ -224,6 +230,10 @@ export interface EventhubDataConnectionState {
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
     readonly databaseName?: pulumi.Input<string>;
+    /**
+     * Specifies a list of system properties for the Event Hub.
+     */
+    readonly eventSystemProperties?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
@@ -274,6 +284,10 @@ export interface EventhubDataConnectionArgs {
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
     readonly databaseName: pulumi.Input<string>;
+    /**
+     * Specifies a list of system properties for the Event Hub.
+     */
+    readonly eventSystemProperties?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
      */

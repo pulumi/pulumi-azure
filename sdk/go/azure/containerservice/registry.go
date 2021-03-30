@@ -76,6 +76,8 @@ type Registry struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkRuleSet` block as documented below.
 	NetworkRuleSet RegistryNetworkRuleSetOutput `pulumi:"networkRuleSet"`
+	// Whether public network access is allowed for the container registry. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `retentionPolicy` block as documented below.
@@ -138,6 +140,8 @@ type registryState struct {
 	Name *string `pulumi:"name"`
 	// A `networkRuleSet` block as documented below.
 	NetworkRuleSet *RegistryNetworkRuleSet `pulumi:"networkRuleSet"`
+	// Whether public network access is allowed for the container registry. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `retentionPolicy` block as documented below.
@@ -169,6 +173,8 @@ type RegistryState struct {
 	Name pulumi.StringPtrInput
 	// A `networkRuleSet` block as documented below.
 	NetworkRuleSet RegistryNetworkRuleSetPtrInput
+	// Whether public network access is allowed for the container registry. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `retentionPolicy` block as documented below.
@@ -198,6 +204,8 @@ type registryArgs struct {
 	Name *string `pulumi:"name"`
 	// A `networkRuleSet` block as documented below.
 	NetworkRuleSet *RegistryNetworkRuleSet `pulumi:"networkRuleSet"`
+	// Whether public network access is allowed for the container registry. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `retentionPolicy` block as documented below.
@@ -224,6 +232,8 @@ type RegistryArgs struct {
 	Name pulumi.StringPtrInput
 	// A `networkRuleSet` block as documented below.
 	NetworkRuleSet RegistryNetworkRuleSetPtrInput
+	// Whether public network access is allowed for the container registry. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `retentionPolicy` block as documented below.

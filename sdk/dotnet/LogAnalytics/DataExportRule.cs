@@ -73,7 +73,7 @@ namespace Pulumi.Azure.LogAnalytics
         public Output<string> DestinationResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Is this Log Analytics Data Export Rule when enabled? Possible values include `true` or `false`. Defaults to `false`.
+        /// Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Azure.LogAnalytics
         public Input<string> DestinationResourceId { get; set; } = null!;
 
         /// <summary>
-        /// Is this Log Analytics Data Export Rule when enabled? Possible values include `true` or `false`. Defaults to `false`.
+        /// Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.LogAnalytics
         public Input<string>? DestinationResourceId { get; set; }
 
         /// <summary>
-        /// Is this Log Analytics Data Export Rule when enabled? Possible values include `true` or `false`. Defaults to `false`.
+        /// Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

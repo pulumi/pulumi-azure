@@ -13,7 +13,13 @@ namespace Pulumi.Azure.Monitoring.Outputs
     [OutputType]
     public sealed class ScheduledQueryRulesAlertTriggerMetricTrigger
     {
+        /// <summary>
+        /// Evaluation of metric on a particular column.
+        /// </summary>
         public readonly string MetricColumn;
+        /// <summary>
+        /// Metric Trigger Type - 'Consecutive' or 'Total'.
+        /// </summary>
         public readonly string MetricTriggerType;
         /// <summary>
         /// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.

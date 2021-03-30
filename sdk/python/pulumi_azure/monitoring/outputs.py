@@ -2851,6 +2851,7 @@ class ScheduledQueryRulesAlertTrigger(dict):
         """
         :param str operator: Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
         :param float threshold: Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+        :param 'ScheduledQueryRulesAlertTriggerMetricTriggerArgs' metric_trigger: A `metric_trigger` block as defined above. Trigger condition for metric query rule.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "threshold", threshold)
@@ -2876,6 +2877,9 @@ class ScheduledQueryRulesAlertTrigger(dict):
     @property
     @pulumi.getter(name="metricTrigger")
     def metric_trigger(self) -> Optional['outputs.ScheduledQueryRulesAlertTriggerMetricTrigger']:
+        """
+        A `metric_trigger` block as defined above. Trigger condition for metric query rule.
+        """
         return pulumi.get(self, "metric_trigger")
 
     def _translate_property(self, prop):
@@ -2890,6 +2894,8 @@ class ScheduledQueryRulesAlertTriggerMetricTrigger(dict):
                  operator: str,
                  threshold: float):
         """
+        :param str metric_column: Evaluation of metric on a particular column.
+        :param str metric_trigger_type: Metric Trigger Type - 'Consecutive' or 'Total'.
         :param str operator: Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
         :param float threshold: The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
         """
@@ -2901,11 +2907,17 @@ class ScheduledQueryRulesAlertTriggerMetricTrigger(dict):
     @property
     @pulumi.getter(name="metricColumn")
     def metric_column(self) -> str:
+        """
+        Evaluation of metric on a particular column.
+        """
         return pulumi.get(self, "metric_column")
 
     @property
     @pulumi.getter(name="metricTriggerType")
     def metric_trigger_type(self) -> str:
+        """
+        Metric Trigger Type - 'Consecutive' or 'Total'.
+        """
         return pulumi.get(self, "metric_trigger_type")
 
     @property

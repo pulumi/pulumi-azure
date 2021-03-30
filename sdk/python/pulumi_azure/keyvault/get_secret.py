@@ -19,7 +19,7 @@ class GetSecretResult:
     """
     A collection of values returned by getSecret.
     """
-    def __init__(__self__, content_type=None, id=None, key_vault_id=None, name=None, tags=None, value=None, version=None):
+    def __init__(__self__, content_type=None, id=None, key_vault_id=None, name=None, tags=None, value=None, version=None, versionless_id=None):
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         pulumi.set(__self__, "content_type", content_type)
@@ -41,6 +41,9 @@ class GetSecretResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+        if versionless_id and not isinstance(versionless_id, str):
+            raise TypeError("Expected argument 'versionless_id' to be a str")
+        pulumi.set(__self__, "versionless_id", versionless_id)
 
     @property
     @pulumi.getter(name="contentType")
@@ -92,6 +95,11 @@ class GetSecretResult:
         """
         return pulumi.get(self, "version")
 
+    @property
+    @pulumi.getter(name="versionlessId")
+    def versionless_id(self) -> str:
+        return pulumi.get(self, "versionless_id")
+
 
 class AwaitableGetSecretResult(GetSecretResult):
     # pylint: disable=using-constant-test
@@ -105,7 +113,8 @@ class AwaitableGetSecretResult(GetSecretResult):
             name=self.name,
             tags=self.tags,
             value=self.value,
-            version=self.version)
+            version=self.version,
+            versionless_id=self.versionless_id)
 
 
 def get_secret(key_vault_id: Optional[str] = None,
@@ -145,4 +154,5 @@ def get_secret(key_vault_id: Optional[str] = None,
         name=__ret__.name,
         tags=__ret__.tags,
         value=__ret__.value,
-        version=__ret__.version)
+        version=__ret__.version,
+        versionless_id=__ret__.versionless_id)

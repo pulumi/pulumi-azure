@@ -118,6 +118,8 @@ type EventhubDataConnection struct {
 	DataFormat pulumi.StringPtrOutput `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	// Specifies a list of system properties for the Event Hub.
+	EventSystemProperties pulumi.StringArrayOutput `pulumi:"eventSystemProperties"`
 	// Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubId pulumi.StringOutput `pulumi:"eventhubId"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
@@ -186,6 +188,8 @@ type eventhubDataConnectionState struct {
 	DataFormat *string `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
+	// Specifies a list of system properties for the Event Hub.
+	EventSystemProperties []string `pulumi:"eventSystemProperties"`
 	// Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubId *string `pulumi:"eventhubId"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
@@ -211,6 +215,8 @@ type EventhubDataConnectionState struct {
 	DataFormat pulumi.StringPtrInput
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
+	// Specifies a list of system properties for the Event Hub.
+	EventSystemProperties pulumi.StringArrayInput
 	// Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubId pulumi.StringPtrInput
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
@@ -240,6 +246,8 @@ type eventhubDataConnectionArgs struct {
 	DataFormat *string `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
+	// Specifies a list of system properties for the Event Hub.
+	EventSystemProperties []string `pulumi:"eventSystemProperties"`
 	// Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubId string `pulumi:"eventhubId"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
@@ -266,6 +274,8 @@ type EventhubDataConnectionArgs struct {
 	DataFormat pulumi.StringPtrInput
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
+	// Specifies a list of system properties for the Event Hub.
+	EventSystemProperties pulumi.StringArrayInput
 	// Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubId pulumi.StringInput
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.

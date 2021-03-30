@@ -590,6 +590,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_custom_provider":                    {Tok: azureResource(azureCore, "CustomProvider")},
 			"azurerm_resource_provider_registration":     {Tok: azureResource(azureCore, "ResourceProviderRegistration")},
 			"azurerm_subscription":                       {Tok: azureResource(azureCore, "Subscription")},
+			"azurerm_tenant_template_deployment":         {Tok: azureResource(azureCore, "TenantTemplateDeployment")},
 
 			// CDN
 			"azurerm_cdn_endpoint": {Tok: azureResource(azureCDN, "Endpoint")},
@@ -1746,6 +1747,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Purview
 			"azurerm_purview_account": {Tok: azureResource(azurePurview, "Account")},
+
+			// Management
+			"azurerm_management_group_template_deployment": {Tok: azureResource(azureManagement, "GroupTemplateDeployment")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -1917,6 +1921,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_firewall":              {Tok: azureDataSource(azureNetwork, "getFirewall")},
 			"azurerm_subscription":          {Tok: azureDataSource(azureCore, "getSubscription")},
+			"azurerm_template_spec_version": {Tok: azureDataSource(azureCore, "getTemplateSpecVersion")},
 			"azurerm_policy_definition":     {Tok: azureDataSource(azurePolicy, "getPolicyDefintion")},
 			"azurerm_policy_set_definition": {Tok: azureDataSource(azurePolicy, "getPolicySetDefinition")},
 			"azurerm_platform_image":        {Tok: azureDataSource(azureCompute, "getPlatformImage")},
@@ -1998,6 +2003,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_servicebus_queue_authorization_rule": {
 				Tok: azureDataSource(azureServiceBus, "getQueueAuthorizationRule"),
 			},
+			"azurerm_servicebus_queue": {Tok: azureDataSource(azureServiceBus, "getQueue")},
+			"azurerm_servicebus_topic": {Tok: azureDataSource(azureServiceBus, "getTopic")},
 			"azurerm_app_configuration": {
 				Tok: azureDataSource(azureAppConfiguration, "getConfigurationStore"),
 			},
