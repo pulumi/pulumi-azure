@@ -1338,7 +1338,7 @@ class KubernetesClusterAddonProfileOmsAgentArgs:
         """
         :param pulumi.Input[bool] enabled: Is the OMS Agent Enabled?
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs']]] oms_agent_identities: An `oms_agent_identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs']]] oms_agent_identities: An `oms_agent_identity` block is exported. The exported attributes are defined below.
         """
         pulumi.set(__self__, "enabled", enabled)
         if log_analytics_workspace_id is not None:
@@ -1374,7 +1374,7 @@ class KubernetesClusterAddonProfileOmsAgentArgs:
     @pulumi.getter(name="omsAgentIdentities")
     def oms_agent_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs']]]]:
         """
-        An `oms_agent_identity` block as defined below.
+        An `oms_agent_identity` block is exported. The exported attributes are defined below.
         """
         return pulumi.get(self, "oms_agent_identities")
 

@@ -138,6 +138,10 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly customRules!: pulumi.Output<outputs.waf.PolicyCustomRule[] | undefined>;
     /**
+     * A list of HTTP Listener IDs from an `azure.network.ApplicationGateway`.
+     */
+    public readonly httpListenerIds!: pulumi.Output<string[] | undefined>;
+    /**
      * Resource location. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -149,6 +153,10 @@ export class Policy extends pulumi.CustomResource {
      * The name of the policy. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A list of URL Path Map Path Rule IDs from an `azure.network.ApplicationGateway`.
+     */
+    public readonly pathBasedRuleIds!: pulumi.Output<string[] | undefined>;
     /**
      * A `policySettings` block as defined below.
      */
@@ -176,9 +184,11 @@ export class Policy extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
             inputs["customRules"] = state ? state.customRules : undefined;
+            inputs["httpListenerIds"] = state ? state.httpListenerIds : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["managedRules"] = state ? state.managedRules : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["pathBasedRuleIds"] = state ? state.pathBasedRuleIds : undefined;
             inputs["policySettings"] = state ? state.policySettings : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -191,9 +201,11 @@ export class Policy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["customRules"] = args ? args.customRules : undefined;
+            inputs["httpListenerIds"] = args ? args.httpListenerIds : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["managedRules"] = args ? args.managedRules : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["pathBasedRuleIds"] = args ? args.pathBasedRuleIds : undefined;
             inputs["policySettings"] = args ? args.policySettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -214,6 +226,10 @@ export interface PolicyState {
      */
     readonly customRules?: pulumi.Input<pulumi.Input<inputs.waf.PolicyCustomRule>[]>;
     /**
+     * A list of HTTP Listener IDs from an `azure.network.ApplicationGateway`.
+     */
+    readonly httpListenerIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Resource location. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
@@ -225,6 +241,10 @@ export interface PolicyState {
      * The name of the policy. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A list of URL Path Map Path Rule IDs from an `azure.network.ApplicationGateway`.
+     */
+    readonly pathBasedRuleIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `policySettings` block as defined below.
      */
@@ -248,6 +268,10 @@ export interface PolicyArgs {
      */
     readonly customRules?: pulumi.Input<pulumi.Input<inputs.waf.PolicyCustomRule>[]>;
     /**
+     * A list of HTTP Listener IDs from an `azure.network.ApplicationGateway`.
+     */
+    readonly httpListenerIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Resource location. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
@@ -259,6 +283,10 @@ export interface PolicyArgs {
      * The name of the policy. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A list of URL Path Map Path Rule IDs from an `azure.network.ApplicationGateway`.
+     */
+    readonly pathBasedRuleIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `policySettings` block as defined below.
      */

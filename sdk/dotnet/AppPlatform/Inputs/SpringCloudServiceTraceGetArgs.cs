@@ -18,6 +18,12 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         [Input("instrumentationKey", required: true)]
         public Input<string> InstrumentationKey { get; set; } = null!;
 
+        /// <summary>
+        /// The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
+        /// </summary>
+        [Input("sampleRate")]
+        public Input<double>? SampleRate { get; set; }
+
         public SpringCloudServiceTraceGetArgs()
         {
         }

@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class AccountBlobProperties
     {
         /// <summary>
+        /// A `container_delete_retention_policy` block as defined below.
+        /// </summary>
+        public readonly Outputs.AccountBlobPropertiesContainerDeleteRetentionPolicy? ContainerDeleteRetentionPolicy;
+        /// <summary>
         /// A `cors_rule` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AccountBlobPropertiesCorsRule> CorsRules;
@@ -24,10 +28,13 @@ namespace Pulumi.Azure.Storage.Outputs
 
         [OutputConstructor]
         private AccountBlobProperties(
+            Outputs.AccountBlobPropertiesContainerDeleteRetentionPolicy? containerDeleteRetentionPolicy,
+
             ImmutableArray<Outputs.AccountBlobPropertiesCorsRule> corsRules,
 
             Outputs.AccountBlobPropertiesDeleteRetentionPolicy? deleteRetentionPolicy)
         {
+            ContainerDeleteRetentionPolicy = containerDeleteRetentionPolicy;
             CorsRules = corsRules;
             DeleteRetentionPolicy = deleteRetentionPolicy;
         }

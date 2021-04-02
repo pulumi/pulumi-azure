@@ -23,13 +23,13 @@ import (
 type SpringCloudCustomDomain struct {
 	pulumi.CustomResourceState
 
-	// Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain.
+	// Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
 	CertificateName pulumi.StringPtrOutput `pulumi:"certificateName"`
 	// Specifies the name of the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the resource ID of the Spring Cloud Application. Changing this forces a new resource to be created.
 	SpringCloudAppId pulumi.StringOutput `pulumi:"springCloudAppId"`
-	// Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
+	// Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificateName` is specified. Changing this forces a new resource to be created.
 	Thumbprint pulumi.StringPtrOutput `pulumi:"thumbprint"`
 }
 
@@ -65,24 +65,24 @@ func GetSpringCloudCustomDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpringCloudCustomDomain resources.
 type springCloudCustomDomainState struct {
-	// Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain.
+	// Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
 	CertificateName *string `pulumi:"certificateName"`
 	// Specifies the name of the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the resource ID of the Spring Cloud Application. Changing this forces a new resource to be created.
 	SpringCloudAppId *string `pulumi:"springCloudAppId"`
-	// Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
+	// Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificateName` is specified. Changing this forces a new resource to be created.
 	Thumbprint *string `pulumi:"thumbprint"`
 }
 
 type SpringCloudCustomDomainState struct {
-	// Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain.
+	// Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
 	CertificateName pulumi.StringPtrInput
 	// Specifies the name of the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the resource ID of the Spring Cloud Application. Changing this forces a new resource to be created.
 	SpringCloudAppId pulumi.StringPtrInput
-	// Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
+	// Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificateName` is specified. Changing this forces a new resource to be created.
 	Thumbprint pulumi.StringPtrInput
 }
 
@@ -91,25 +91,25 @@ func (SpringCloudCustomDomainState) ElementType() reflect.Type {
 }
 
 type springCloudCustomDomainArgs struct {
-	// Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain.
+	// Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
 	CertificateName *string `pulumi:"certificateName"`
 	// Specifies the name of the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the resource ID of the Spring Cloud Application. Changing this forces a new resource to be created.
 	SpringCloudAppId string `pulumi:"springCloudAppId"`
-	// Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
+	// Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificateName` is specified. Changing this forces a new resource to be created.
 	Thumbprint *string `pulumi:"thumbprint"`
 }
 
 // The set of arguments for constructing a SpringCloudCustomDomain resource.
 type SpringCloudCustomDomainArgs struct {
-	// Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain.
+	// Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
 	CertificateName pulumi.StringPtrInput
 	// Specifies the name of the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the resource ID of the Spring Cloud Application. Changing this forces a new resource to be created.
 	SpringCloudAppId pulumi.StringInput
-	// Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
+	// Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificateName` is specified. Changing this forces a new resource to be created.
 	Thumbprint pulumi.StringPtrInput
 }
 

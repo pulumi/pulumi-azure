@@ -102,6 +102,8 @@ type Firewall struct {
 	ManagementIpConfiguration FirewallManagementIpConfigurationPtrOutput `pulumi:"managementIpConfiguration"`
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
+	PrivateIpRanges pulumi.StringArrayOutput `pulumi:"privateIpRanges"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
@@ -162,6 +164,8 @@ type firewallState struct {
 	ManagementIpConfiguration *FirewallManagementIpConfiguration `pulumi:"managementIpConfiguration"`
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
+	PrivateIpRanges []string `pulumi:"privateIpRanges"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
@@ -191,6 +195,8 @@ type FirewallState struct {
 	ManagementIpConfiguration FirewallManagementIpConfigurationPtrInput
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
+	PrivateIpRanges pulumi.StringArrayInput
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
@@ -224,6 +230,8 @@ type firewallArgs struct {
 	ManagementIpConfiguration *FirewallManagementIpConfiguration `pulumi:"managementIpConfiguration"`
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
+	PrivateIpRanges []string `pulumi:"privateIpRanges"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
@@ -254,6 +262,8 @@ type FirewallArgs struct {
 	ManagementIpConfiguration FirewallManagementIpConfigurationPtrInput
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
+	PrivateIpRanges pulumi.StringArrayInput
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.

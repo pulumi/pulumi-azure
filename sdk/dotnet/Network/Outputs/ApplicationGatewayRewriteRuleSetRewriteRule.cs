@@ -33,6 +33,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// Rule sequence of the rewrite rule that determines the order of execution in a set.
         /// </summary>
         public readonly int RuleSequence;
+        /// <summary>
+        /// One `url` block as defined above
+        /// ---
+        /// </summary>
+        public readonly Outputs.ApplicationGatewayRewriteRuleSetRewriteRuleUrl? Url;
 
         [OutputConstructor]
         private ApplicationGatewayRewriteRuleSetRewriteRule(
@@ -44,13 +49,16 @@ namespace Pulumi.Azure.Network.Outputs
 
             ImmutableArray<Outputs.ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration> responseHeaderConfigurations,
 
-            int ruleSequence)
+            int ruleSequence,
+
+            Outputs.ApplicationGatewayRewriteRuleSetRewriteRuleUrl? url)
         {
             Conditions = conditions;
             Name = name;
             RequestHeaderConfigurations = requestHeaderConfigurations;
             ResponseHeaderConfigurations = responseHeaderConfigurations;
             RuleSequence = ruleSequence;
+            Url = url;
         }
     }
 }

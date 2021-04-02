@@ -79,6 +79,12 @@ namespace Pulumi.Azure.Hpc
         public Output<int> CacheSizeInGb { get; private set; } = null!;
 
         /// <summary>
+        /// A `default_access_policy` block as defined below.
+        /// </summary>
+        [Output("defaultAccessPolicy")]
+        public Output<Outputs.CacheDefaultAccessPolicy> DefaultAccessPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -109,7 +115,7 @@ namespace Pulumi.Azure.Hpc
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether root squash property is enabled for this HPC Cache.
+        /// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
         /// </summary>
         [Output("rootSquashEnabled")]
         public Output<bool> RootSquashEnabled { get; private set; } = null!;
@@ -179,6 +185,12 @@ namespace Pulumi.Azure.Hpc
         public Input<int> CacheSizeInGb { get; set; } = null!;
 
         /// <summary>
+        /// A `default_access_policy` block as defined below.
+        /// </summary>
+        [Input("defaultAccessPolicy")]
+        public Input<Inputs.CacheDefaultAccessPolicyArgs>? DefaultAccessPolicy { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -203,7 +215,7 @@ namespace Pulumi.Azure.Hpc
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Whether root squash property is enabled for this HPC Cache.
+        /// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
         /// </summary>
         [Input("rootSquashEnabled")]
         public Input<bool>? RootSquashEnabled { get; set; }
@@ -232,6 +244,12 @@ namespace Pulumi.Azure.Hpc
         /// </summary>
         [Input("cacheSizeInGb")]
         public Input<int>? CacheSizeInGb { get; set; }
+
+        /// <summary>
+        /// A `default_access_policy` block as defined below.
+        /// </summary>
+        [Input("defaultAccessPolicy")]
+        public Input<Inputs.CacheDefaultAccessPolicyGetArgs>? DefaultAccessPolicy { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
@@ -270,7 +288,7 @@ namespace Pulumi.Azure.Hpc
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Whether root squash property is enabled for this HPC Cache.
+        /// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
         /// </summary>
         [Input("rootSquashEnabled")]
         public Input<bool>? RootSquashEnabled { get; set; }

@@ -724,9 +724,9 @@ export namespace apimanagement {
         /**
          * The password for the certificate.
          */
-        certificatePassword: pulumi.Input<string>;
+        certificatePassword?: pulumi.Input<string>;
         /**
-         * The Base64 Encoded PFX Certificate.
+         * The Base64 Encoded PFX or Base64 Encoded X.509 Certificate.
          */
         encodedCertificate: pulumi.Input<string>;
         /**
@@ -1292,6 +1292,10 @@ export namespace appplatform {
          * The Instrumentation Key used for Application Insights.
          */
         instrumentationKey: pulumi.Input<string>;
+        /**
+         * The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
+         */
+        sampleRate?: pulumi.Input<number>;
     }
 }
 
@@ -4119,6 +4123,23 @@ export namespace cdn {
     }
 }
 
+export namespace cognitive {
+    export interface AccountNetworkAcls {
+        /**
+         * The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
+         */
+        defaultAction: pulumi.Input<string>;
+        /**
+         * One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
+         */
+        ipRules?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * One or more Subnet ID's which should be able to access this Cognitive Account.
+         */
+        virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+}
+
 export namespace compute {
     export interface BastionHostIpConfiguration {
         /**
@@ -6312,7 +6333,7 @@ export namespace containerservice {
          */
         logAnalyticsWorkspaceId?: pulumi.Input<string>;
         /**
-         * An `omsAgentIdentity` block as defined below.
+         * An `omsAgentIdentity` block is exported. The exported attributes are defined below.
          */
         omsAgentIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity>[]>;
     }
@@ -11588,6 +11609,83 @@ export namespace healthcare {
 }
 
 export namespace hpc {
+    export interface CacheAccessPolicyAccessRule {
+        /**
+         * The access level for this rule. Possible values are: `rw`, `ro`, `no`.
+         */
+        access: pulumi.Input<string>;
+        /**
+         * The anonymous GID used when `rootSquashEnabled` is `true`.
+         */
+        anonymousGid?: pulumi.Input<number>;
+        /**
+         * The anonymous UID used when `rootSquashEnabled` is `true`.
+         */
+        anonymousUid?: pulumi.Input<number>;
+        /**
+         * The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
+         */
+        filter?: pulumi.Input<string>;
+        /**
+         * Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+         */
+        rootSquashEnabled?: pulumi.Input<boolean>;
+        /**
+         * The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+         */
+        scope: pulumi.Input<string>;
+        /**
+         * Whether allow access to subdirectories under the root export? Defaults to `false`.
+         */
+        submountAccessEnabled?: pulumi.Input<boolean>;
+        /**
+         * Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+         */
+        suidEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface CacheDefaultAccessPolicy {
+        /**
+         * One to three `accessRule` blocks as defined above.
+         */
+        accessRules: pulumi.Input<pulumi.Input<inputs.hpc.CacheDefaultAccessPolicyAccessRule>[]>;
+    }
+
+    export interface CacheDefaultAccessPolicyAccessRule {
+        /**
+         * The access level for this rule. Possible values are: `rw`, `ro`, `no`.
+         */
+        access: pulumi.Input<string>;
+        /**
+         * The anonymous GID used when `rootSquashEnabled` is `true`.
+         */
+        anonymousGid?: pulumi.Input<number>;
+        /**
+         * The anonymous UID used when `rootSquashEnabled` is `true`.
+         */
+        anonymousUid?: pulumi.Input<number>;
+        /**
+         * The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
+         */
+        filter?: pulumi.Input<string>;
+        /**
+         * Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+         */
+        rootSquashEnabled?: pulumi.Input<boolean>;
+        /**
+         * The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+         */
+        scope: pulumi.Input<string>;
+        /**
+         * Whether allow access to subdirectories under the root export? Defaults to `false`.
+         */
+        submountAccessEnabled?: pulumi.Input<boolean>;
+        /**
+         * Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+         */
+        suidEnabled?: pulumi.Input<boolean>;
+    }
+
     export interface CacheNfsTargetNamespaceJunction {
         /**
          * The client-facing file path of this NFS target within the HPC Cache NFS Target.
@@ -12861,6 +12959,116 @@ export namespace media {
          * The name of the output Asset. Changing this forces a new Media Job to be created.
          */
         name: pulumi.Input<string>;
+    }
+
+    export interface LiveEventCrossSiteAccessPolicy {
+        /**
+         * The content of clientaccesspolicy.xml used by Silverlight.
+         */
+        clientAccessPolicy?: pulumi.Input<string>;
+        /**
+         * The content of the Cross Domain Policy (`crossdomain.xml`).
+         */
+        crossDomainPolicy?: pulumi.Input<string>;
+    }
+
+    export interface LiveEventEncoding {
+        /**
+         * Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+         */
+        keyFrameInterval?: pulumi.Input<string>;
+        /**
+         * The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, the default preset is `Default1080p`. Changing this forces a new resource to be created.
+         */
+        presetName?: pulumi.Input<string>;
+        /**
+         * Specifies how the input video will be resized to fit the desired output resolution(s). Allowed values are `None`, `AutoFit` or `AutoSize`. Default is `None`.
+         */
+        stretchMode?: pulumi.Input<string>;
+        /**
+         * Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface LiveEventInput {
+        /**
+         * A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created.
+         */
+        accessToken?: pulumi.Input<string>;
+        endpoints?: pulumi.Input<pulumi.Input<inputs.media.LiveEventInputEndpoint>[]>;
+        /**
+         * One or more `ipAccessControlAllow` blocks as defined below.
+         */
+        ipAccessControlAllows?: pulumi.Input<pulumi.Input<inputs.media.LiveEventInputIpAccessControlAllow>[]>;
+        /**
+         * ISO 8601 time duration of the key frame interval duration of the input. This value sets the `EXT-X-TARGETDURATION` property in the HLS output. For example, use PT2S to indicate 2 seconds. This field cannot be set when `type` is set to `Encoding`.
+         */
+        keyFrameIntervalDuration?: pulumi.Input<string>;
+        /**
+         * The input protocol for the live event. Allowed values are `FragmentedMP4` and `RTMP`. Changing this forces a new resource to be created.
+         */
+        streamingProtocol?: pulumi.Input<string>;
+    }
+
+    export interface LiveEventInputEndpoint {
+        protocol?: pulumi.Input<string>;
+        url?: pulumi.Input<string>;
+    }
+
+    export interface LiveEventInputIpAccessControlAllow {
+        /**
+         * The IP address or CIDR range.
+         */
+        address?: pulumi.Input<string>;
+        /**
+         * The friendly name for the IP address range.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The subnet mask prefix length (see CIDR notation).
+         */
+        subnetPrefixLength?: pulumi.Input<number>;
+    }
+
+    export interface LiveEventPreview {
+        /**
+         * An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streamingPolicyName` field. Changing this forces a new resource to be created.
+         */
+        alternativeMediaId?: pulumi.Input<string>;
+        endpoints?: pulumi.Input<pulumi.Input<inputs.media.LiveEventPreviewEndpoint>[]>;
+        /**
+         * One or more `ipAccessControlAllow` blocks as defined above.
+         */
+        ipAccessControlAllows?: pulumi.Input<pulumi.Input<inputs.media.LiveEventPreviewIpAccessControlAllow>[]>;
+        /**
+         * The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
+         */
+        previewLocator?: pulumi.Input<string>;
+        /**
+         * The name of streaming policy used for the live event preview. Changing this forces a new resource to be created.
+         */
+        streamingPolicyName?: pulumi.Input<string>;
+    }
+
+    export interface LiveEventPreviewEndpoint {
+        protocol?: pulumi.Input<string>;
+        url?: pulumi.Input<string>;
+    }
+
+    export interface LiveEventPreviewIpAccessControlAllow {
+        /**
+         * The IP address or CIDR range.
+         */
+        address?: pulumi.Input<string>;
+        /**
+         * The friendly name for the IP address range.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The subnet mask prefix length (see CIDR notation).
+         */
+        subnetPrefixLength?: pulumi.Input<number>;
     }
 
     export interface ServiceAccountIdentity {
@@ -15181,6 +15389,11 @@ export namespace network {
          * Rule sequence of the rewrite rule that determines the order of execution in a set.
          */
         ruleSequence: pulumi.Input<number>;
+        /**
+         * One `url` block as defined above
+         * ---
+         */
+        url?: pulumi.Input<inputs.network.ApplicationGatewayRewriteRuleSetRewriteRuleUrl>;
     }
 
     export interface ApplicationGatewayRewriteRuleSetRewriteRuleCondition {
@@ -15222,6 +15435,21 @@ export namespace network {
          * Header value of the header configuration. To delete a response header set this property to an empty string.
          */
         headerValue: pulumi.Input<string>;
+    }
+
+    export interface ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
+        /**
+         * The URL path to rewrite.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The query string to rewrite.
+         */
+        queryString?: pulumi.Input<string>;
+        /**
+         * Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+         */
+        reroute?: pulumi.Input<boolean>;
     }
 
     export interface ApplicationGatewaySku {
@@ -18484,6 +18712,10 @@ export namespace sql {
 export namespace storage {
     export interface AccountBlobProperties {
         /**
+         * A `containerDeleteRetentionPolicy` block as defined below.
+         */
+        containerDeleteRetentionPolicy?: pulumi.Input<inputs.storage.AccountBlobPropertiesContainerDeleteRetentionPolicy>;
+        /**
          * A `corsRule` block as defined below.
          */
         corsRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountBlobPropertiesCorsRule>[]>;
@@ -18491,6 +18723,13 @@ export namespace storage {
          * A `deleteRetentionPolicy` block as defined below.
          */
         deleteRetentionPolicy?: pulumi.Input<inputs.storage.AccountBlobPropertiesDeleteRetentionPolicy>;
+    }
+
+    export interface AccountBlobPropertiesContainerDeleteRetentionPolicy {
+        /**
+         * Specifies the number of days that the container should be retained, between `1` and `365` days. Defaults to `7`.
+         */
+        days?: pulumi.Input<number>;
     }
 
     export interface AccountBlobPropertiesCorsRule {

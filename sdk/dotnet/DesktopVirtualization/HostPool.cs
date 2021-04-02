@@ -32,6 +32,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             FriendlyName = "pooleddepthfirst",
     ///             ValidateEnvironment = true,
+    ///             CustomRdpProperties = "audiocapturemode:i:1;audiomode:i:0;",
     ///             Description = "Acceptance Test: A pooled host pool - pooleddepthfirst",
     ///             Type = "Pooled",
     ///             MaximumSessionsAllowed = 50,
@@ -53,6 +54,12 @@ namespace Pulumi.Azure.DesktopVirtualization
     [AzureResourceType("azure:desktopvirtualization/hostPool:HostPool")]
     public partial class HostPool : Pulumi.CustomResource
     {
+        /// <summary>
+        /// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+        /// </summary>
+        [Output("customRdpProperties")]
+        public Output<string?> CustomRdpProperties { get; private set; } = null!;
+
         /// <summary>
         /// A description for the Virtual Desktop Host Pool.
         /// </summary>
@@ -135,6 +142,9 @@ namespace Pulumi.Azure.DesktopVirtualization
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// Allows you to test service changes before they are deployed to production. Defaults to `false`.
+        /// </summary>
         [Output("validateEnvironment")]
         public Output<bool?> ValidateEnvironment { get; private set; } = null!;
 
@@ -184,6 +194,12 @@ namespace Pulumi.Azure.DesktopVirtualization
 
     public sealed class HostPoolArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+        /// </summary>
+        [Input("customRdpProperties")]
+        public Input<string>? CustomRdpProperties { get; set; }
+
         /// <summary>
         /// A description for the Virtual Desktop Host Pool.
         /// </summary>
@@ -272,6 +288,9 @@ namespace Pulumi.Azure.DesktopVirtualization
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Allows you to test service changes before they are deployed to production. Defaults to `false`.
+        /// </summary>
         [Input("validateEnvironment")]
         public Input<bool>? ValidateEnvironment { get; set; }
 
@@ -282,6 +301,12 @@ namespace Pulumi.Azure.DesktopVirtualization
 
     public sealed class HostPoolState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+        /// </summary>
+        [Input("customRdpProperties")]
+        public Input<string>? CustomRdpProperties { get; set; }
+
         /// <summary>
         /// A description for the Virtual Desktop Host Pool.
         /// </summary>
@@ -370,6 +395,9 @@ namespace Pulumi.Azure.DesktopVirtualization
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// Allows you to test service changes before they are deployed to production. Defaults to `false`.
+        /// </summary>
         [Input("validateEnvironment")]
         public Input<bool>? ValidateEnvironment { get; set; }
 

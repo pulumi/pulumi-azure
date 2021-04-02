@@ -11,6 +11,8 @@ import (
 )
 
 type AccountBlobProperties struct {
+	// A `containerDeleteRetentionPolicy` block as defined below.
+	ContainerDeleteRetentionPolicy *AccountBlobPropertiesContainerDeleteRetentionPolicy `pulumi:"containerDeleteRetentionPolicy"`
 	// A `corsRule` block as defined below.
 	CorsRules []AccountBlobPropertiesCorsRule `pulumi:"corsRules"`
 	// A `deleteRetentionPolicy` block as defined below.
@@ -29,6 +31,8 @@ type AccountBlobPropertiesInput interface {
 }
 
 type AccountBlobPropertiesArgs struct {
+	// A `containerDeleteRetentionPolicy` block as defined below.
+	ContainerDeleteRetentionPolicy AccountBlobPropertiesContainerDeleteRetentionPolicyPtrInput `pulumi:"containerDeleteRetentionPolicy"`
 	// A `corsRule` block as defined below.
 	CorsRules AccountBlobPropertiesCorsRuleArrayInput `pulumi:"corsRules"`
 	// A `deleteRetentionPolicy` block as defined below.
@@ -112,6 +116,13 @@ func (o AccountBlobPropertiesOutput) ToAccountBlobPropertiesPtrOutputWithContext
 	}).(AccountBlobPropertiesPtrOutput)
 }
 
+// A `containerDeleteRetentionPolicy` block as defined below.
+func (o AccountBlobPropertiesOutput) ContainerDeleteRetentionPolicy() AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput {
+	return o.ApplyT(func(v AccountBlobProperties) *AccountBlobPropertiesContainerDeleteRetentionPolicy {
+		return v.ContainerDeleteRetentionPolicy
+	}).(AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput)
+}
+
 // A `corsRule` block as defined below.
 func (o AccountBlobPropertiesOutput) CorsRules() AccountBlobPropertiesCorsRuleArrayOutput {
 	return o.ApplyT(func(v AccountBlobProperties) []AccountBlobPropertiesCorsRule { return v.CorsRules }).(AccountBlobPropertiesCorsRuleArrayOutput)
@@ -142,6 +153,16 @@ func (o AccountBlobPropertiesPtrOutput) Elem() AccountBlobPropertiesOutput {
 	return o.ApplyT(func(v *AccountBlobProperties) AccountBlobProperties { return *v }).(AccountBlobPropertiesOutput)
 }
 
+// A `containerDeleteRetentionPolicy` block as defined below.
+func (o AccountBlobPropertiesPtrOutput) ContainerDeleteRetentionPolicy() AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput {
+	return o.ApplyT(func(v *AccountBlobProperties) *AccountBlobPropertiesContainerDeleteRetentionPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerDeleteRetentionPolicy
+	}).(AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput)
+}
+
 // A `corsRule` block as defined below.
 func (o AccountBlobPropertiesPtrOutput) CorsRules() AccountBlobPropertiesCorsRuleArrayOutput {
 	return o.ApplyT(func(v *AccountBlobProperties) []AccountBlobPropertiesCorsRule {
@@ -160,6 +181,139 @@ func (o AccountBlobPropertiesPtrOutput) DeleteRetentionPolicy() AccountBlobPrope
 		}
 		return v.DeleteRetentionPolicy
 	}).(AccountBlobPropertiesDeleteRetentionPolicyPtrOutput)
+}
+
+type AccountBlobPropertiesContainerDeleteRetentionPolicy struct {
+	// Specifies the number of days that the container should be retained, between `1` and `365` days. Defaults to `7`.
+	Days *int `pulumi:"days"`
+}
+
+// AccountBlobPropertiesContainerDeleteRetentionPolicyInput is an input type that accepts AccountBlobPropertiesContainerDeleteRetentionPolicyArgs and AccountBlobPropertiesContainerDeleteRetentionPolicyOutput values.
+// You can construct a concrete instance of `AccountBlobPropertiesContainerDeleteRetentionPolicyInput` via:
+//
+//          AccountBlobPropertiesContainerDeleteRetentionPolicyArgs{...}
+type AccountBlobPropertiesContainerDeleteRetentionPolicyInput interface {
+	pulumi.Input
+
+	ToAccountBlobPropertiesContainerDeleteRetentionPolicyOutput() AccountBlobPropertiesContainerDeleteRetentionPolicyOutput
+	ToAccountBlobPropertiesContainerDeleteRetentionPolicyOutputWithContext(context.Context) AccountBlobPropertiesContainerDeleteRetentionPolicyOutput
+}
+
+type AccountBlobPropertiesContainerDeleteRetentionPolicyArgs struct {
+	// Specifies the number of days that the container should be retained, between `1` and `365` days. Defaults to `7`.
+	Days pulumi.IntPtrInput `pulumi:"days"`
+}
+
+func (AccountBlobPropertiesContainerDeleteRetentionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountBlobPropertiesContainerDeleteRetentionPolicy)(nil)).Elem()
+}
+
+func (i AccountBlobPropertiesContainerDeleteRetentionPolicyArgs) ToAccountBlobPropertiesContainerDeleteRetentionPolicyOutput() AccountBlobPropertiesContainerDeleteRetentionPolicyOutput {
+	return i.ToAccountBlobPropertiesContainerDeleteRetentionPolicyOutputWithContext(context.Background())
+}
+
+func (i AccountBlobPropertiesContainerDeleteRetentionPolicyArgs) ToAccountBlobPropertiesContainerDeleteRetentionPolicyOutputWithContext(ctx context.Context) AccountBlobPropertiesContainerDeleteRetentionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesContainerDeleteRetentionPolicyOutput)
+}
+
+func (i AccountBlobPropertiesContainerDeleteRetentionPolicyArgs) ToAccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput() AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput {
+	return i.ToAccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i AccountBlobPropertiesContainerDeleteRetentionPolicyArgs) ToAccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutputWithContext(ctx context.Context) AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesContainerDeleteRetentionPolicyOutput).ToAccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutputWithContext(ctx)
+}
+
+// AccountBlobPropertiesContainerDeleteRetentionPolicyPtrInput is an input type that accepts AccountBlobPropertiesContainerDeleteRetentionPolicyArgs, AccountBlobPropertiesContainerDeleteRetentionPolicyPtr and AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput values.
+// You can construct a concrete instance of `AccountBlobPropertiesContainerDeleteRetentionPolicyPtrInput` via:
+//
+//          AccountBlobPropertiesContainerDeleteRetentionPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountBlobPropertiesContainerDeleteRetentionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToAccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput() AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput
+	ToAccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutputWithContext(context.Context) AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput
+}
+
+type accountBlobPropertiesContainerDeleteRetentionPolicyPtrType AccountBlobPropertiesContainerDeleteRetentionPolicyArgs
+
+func AccountBlobPropertiesContainerDeleteRetentionPolicyPtr(v *AccountBlobPropertiesContainerDeleteRetentionPolicyArgs) AccountBlobPropertiesContainerDeleteRetentionPolicyPtrInput {
+	return (*accountBlobPropertiesContainerDeleteRetentionPolicyPtrType)(v)
+}
+
+func (*accountBlobPropertiesContainerDeleteRetentionPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountBlobPropertiesContainerDeleteRetentionPolicy)(nil)).Elem()
+}
+
+func (i *accountBlobPropertiesContainerDeleteRetentionPolicyPtrType) ToAccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput() AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput {
+	return i.ToAccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *accountBlobPropertiesContainerDeleteRetentionPolicyPtrType) ToAccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutputWithContext(ctx context.Context) AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput)
+}
+
+type AccountBlobPropertiesContainerDeleteRetentionPolicyOutput struct{ *pulumi.OutputState }
+
+func (AccountBlobPropertiesContainerDeleteRetentionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountBlobPropertiesContainerDeleteRetentionPolicy)(nil)).Elem()
+}
+
+func (o AccountBlobPropertiesContainerDeleteRetentionPolicyOutput) ToAccountBlobPropertiesContainerDeleteRetentionPolicyOutput() AccountBlobPropertiesContainerDeleteRetentionPolicyOutput {
+	return o
+}
+
+func (o AccountBlobPropertiesContainerDeleteRetentionPolicyOutput) ToAccountBlobPropertiesContainerDeleteRetentionPolicyOutputWithContext(ctx context.Context) AccountBlobPropertiesContainerDeleteRetentionPolicyOutput {
+	return o
+}
+
+func (o AccountBlobPropertiesContainerDeleteRetentionPolicyOutput) ToAccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput() AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput {
+	return o.ToAccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o AccountBlobPropertiesContainerDeleteRetentionPolicyOutput) ToAccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutputWithContext(ctx context.Context) AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput {
+	return o.ApplyT(func(v AccountBlobPropertiesContainerDeleteRetentionPolicy) *AccountBlobPropertiesContainerDeleteRetentionPolicy {
+		return &v
+	}).(AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput)
+}
+
+// Specifies the number of days that the container should be retained, between `1` and `365` days. Defaults to `7`.
+func (o AccountBlobPropertiesContainerDeleteRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AccountBlobPropertiesContainerDeleteRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
+}
+
+type AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountBlobPropertiesContainerDeleteRetentionPolicy)(nil)).Elem()
+}
+
+func (o AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput) ToAccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput() AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput) ToAccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutputWithContext(ctx context.Context) AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput) Elem() AccountBlobPropertiesContainerDeleteRetentionPolicyOutput {
+	return o.ApplyT(func(v *AccountBlobPropertiesContainerDeleteRetentionPolicy) AccountBlobPropertiesContainerDeleteRetentionPolicy {
+		return *v
+	}).(AccountBlobPropertiesContainerDeleteRetentionPolicyOutput)
+}
+
+// Specifies the number of days that the container should be retained, between `1` and `365` days. Defaults to `7`.
+func (o AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccountBlobPropertiesContainerDeleteRetentionPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Days
+	}).(pulumi.IntPtrOutput)
 }
 
 type AccountBlobPropertiesCorsRule struct {
@@ -4337,6 +4491,8 @@ func (o GetPolicyRuleFilterArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleFi
 func init() {
 	pulumi.RegisterOutputType(AccountBlobPropertiesOutput{})
 	pulumi.RegisterOutputType(AccountBlobPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AccountBlobPropertiesContainerDeleteRetentionPolicyOutput{})
+	pulumi.RegisterOutputType(AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(AccountBlobPropertiesCorsRuleOutput{})
 	pulumi.RegisterOutputType(AccountBlobPropertiesCorsRuleArrayOutput{})
 	pulumi.RegisterOutputType(AccountBlobPropertiesDeleteRetentionPolicyOutput{})

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -62,6 +63,10 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
+     * The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+     */
+    public readonly customSubdomainName!: pulumi.Output<string | undefined>;
+    /**
      * The endpoint used to connect to the Cognitive Service Account.
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
@@ -77,6 +82,10 @@ export class Account extends pulumi.CustomResource {
      * Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A `networkAcls` block as defined below.
+     */
+    public readonly networkAcls!: pulumi.Output<outputs.cognitive.AccountNetworkAcls | undefined>;
     /**
      * A primary access key which can be used to connect to the Cognitive Service Account.
      */
@@ -115,10 +124,12 @@ export class Account extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
+            inputs["customSubdomainName"] = state ? state.customSubdomainName : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["kind"] = state ? state.kind : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["networkAcls"] = state ? state.networkAcls : undefined;
             inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
             inputs["qnaRuntimeEndpoint"] = state ? state.qnaRuntimeEndpoint : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -136,9 +147,11 @@ export class Account extends pulumi.CustomResource {
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
+            inputs["customSubdomainName"] = args ? args.customSubdomainName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["networkAcls"] = args ? args.networkAcls : undefined;
             inputs["qnaRuntimeEndpoint"] = args ? args.qnaRuntimeEndpoint : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
@@ -159,6 +172,10 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountState {
     /**
+     * The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+     */
+    readonly customSubdomainName?: pulumi.Input<string>;
+    /**
      * The endpoint used to connect to the Cognitive Service Account.
      */
     readonly endpoint?: pulumi.Input<string>;
@@ -174,6 +191,10 @@ export interface AccountState {
      * Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A `networkAcls` block as defined below.
+     */
+    readonly networkAcls?: pulumi.Input<inputs.cognitive.AccountNetworkAcls>;
     /**
      * A primary access key which can be used to connect to the Cognitive Service Account.
      */
@@ -205,6 +226,10 @@ export interface AccountState {
  */
 export interface AccountArgs {
     /**
+     * The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+     */
+    readonly customSubdomainName?: pulumi.Input<string>;
+    /**
      * Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
      */
     readonly kind: pulumi.Input<string>;
@@ -216,6 +241,10 @@ export interface AccountArgs {
      * Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A `networkAcls` block as defined below.
+     */
+    readonly networkAcls?: pulumi.Input<inputs.cognitive.AccountNetworkAcls>;
     /**
      * A URL to link a QnAMaker cognitive account to a QnA runtime.
      */

@@ -17,6 +17,7 @@ class HostPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_rdp_properties: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  load_balancer_type: Optional[pulumi.Input[str]] = None,
@@ -48,6 +49,7 @@ class HostPool(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             friendly_name="pooleddepthfirst",
             validate_environment=True,
+            custom_rdp_properties="audiocapturemode:i:1;audiomode:i:0;",
             description="Acceptance Test: A pooled host pool - pooleddepthfirst",
             type="Pooled",
             maximum_sessions_allowed=50,
@@ -64,6 +66,7 @@ class HostPool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
         :param pulumi.Input[str] description: A description for the Virtual Desktop Host Pool.
         :param pulumi.Input[str] friendly_name: A friendly name for the Virtual Desktop Host Pool.
         :param pulumi.Input[str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
@@ -86,6 +89,7 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the Virtual Desktop Host Pool. Valid options are
                `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+        :param pulumi.Input[bool] validate_environment: Allows you to test service changes before they are deployed to production. Defaults to `false`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -104,6 +108,7 @@ class HostPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['custom_rdp_properties'] = custom_rdp_properties
             __props__['description'] = description
             __props__['friendly_name'] = friendly_name
             if load_balancer_type is None and not opts.urn:
@@ -133,6 +138,7 @@ class HostPool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            custom_rdp_properties: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             friendly_name: Optional[pulumi.Input[str]] = None,
             load_balancer_type: Optional[pulumi.Input[str]] = None,
@@ -153,6 +159,7 @@ class HostPool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
         :param pulumi.Input[str] description: A description for the Virtual Desktop Host Pool.
         :param pulumi.Input[str] friendly_name: A friendly name for the Virtual Desktop Host Pool.
         :param pulumi.Input[str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
@@ -175,11 +182,13 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the Virtual Desktop Host Pool. Valid options are
                `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+        :param pulumi.Input[bool] validate_environment: Allows you to test service changes before they are deployed to production. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
+        __props__["custom_rdp_properties"] = custom_rdp_properties
         __props__["description"] = description
         __props__["friendly_name"] = friendly_name
         __props__["load_balancer_type"] = load_balancer_type
@@ -194,6 +203,14 @@ class HostPool(pulumi.CustomResource):
         __props__["type"] = type
         __props__["validate_environment"] = validate_environment
         return HostPool(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="customRdpProperties")
+    def custom_rdp_properties(self) -> pulumi.Output[Optional[str]]:
+        """
+        A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+        """
+        return pulumi.get(self, "custom_rdp_properties")
 
     @property
     @pulumi.getter
@@ -304,6 +321,9 @@ class HostPool(pulumi.CustomResource):
     @property
     @pulumi.getter(name="validateEnvironment")
     def validate_environment(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Allows you to test service changes before they are deployed to production. Defaults to `false`.
+        """
         return pulumi.get(self, "validate_environment")
 
     def translate_output_property(self, prop):

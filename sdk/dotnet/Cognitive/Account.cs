@@ -54,6 +54,12 @@ namespace Pulumi.Azure.Cognitive
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
+        /// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("customSubdomainName")]
+        public Output<string?> CustomSubdomainName { get; private set; } = null!;
+
+        /// <summary>
         /// The endpoint used to connect to the Cognitive Service Account.
         /// </summary>
         [Output("endpoint")]
@@ -76,6 +82,12 @@ namespace Pulumi.Azure.Cognitive
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// A `network_acls` block as defined below.
+        /// </summary>
+        [Output("networkAcls")]
+        public Output<Outputs.AccountNetworkAcls?> NetworkAcls { get; private set; } = null!;
 
         /// <summary>
         /// A primary access key which can be used to connect to the Cognitive Service Account.
@@ -160,6 +172,12 @@ namespace Pulumi.Azure.Cognitive
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("customSubdomainName")]
+        public Input<string>? CustomSubdomainName { get; set; }
+
+        /// <summary>
         /// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("kind", required: true)]
@@ -176,6 +194,12 @@ namespace Pulumi.Azure.Cognitive
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// A `network_acls` block as defined below.
+        /// </summary>
+        [Input("networkAcls")]
+        public Input<Inputs.AccountNetworkAclsArgs>? NetworkAcls { get; set; }
 
         /// <summary>
         /// A URL to link a QnAMaker cognitive account to a QnA runtime.
@@ -215,6 +239,12 @@ namespace Pulumi.Azure.Cognitive
     public sealed class AccountState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("customSubdomainName")]
+        public Input<string>? CustomSubdomainName { get; set; }
+
+        /// <summary>
         /// The endpoint used to connect to the Cognitive Service Account.
         /// </summary>
         [Input("endpoint")]
@@ -237,6 +267,12 @@ namespace Pulumi.Azure.Cognitive
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// A `network_acls` block as defined below.
+        /// </summary>
+        [Input("networkAcls")]
+        public Input<Inputs.AccountNetworkAclsGetArgs>? NetworkAcls { get; set; }
 
         /// <summary>
         /// A primary access key which can be used to connect to the Cognitive Service Account.

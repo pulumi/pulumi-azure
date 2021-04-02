@@ -2053,31 +2053,24 @@ class ServiceAdditionalLocationVirtualNetworkConfiguration(dict):
 @pulumi.output_type
 class ServiceCertificate(dict):
     def __init__(__self__, *,
-                 certificate_password: str,
                  encoded_certificate: str,
-                 store_name: str):
+                 store_name: str,
+                 certificate_password: Optional[str] = None):
         """
-        :param str certificate_password: The password for the certificate.
-        :param str encoded_certificate: The Base64 Encoded PFX Certificate.
+        :param str encoded_certificate: The Base64 Encoded PFX or Base64 Encoded X.509 Certificate.
         :param str store_name: The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
+        :param str certificate_password: The password for the certificate.
         """
-        pulumi.set(__self__, "certificate_password", certificate_password)
         pulumi.set(__self__, "encoded_certificate", encoded_certificate)
         pulumi.set(__self__, "store_name", store_name)
-
-    @property
-    @pulumi.getter(name="certificatePassword")
-    def certificate_password(self) -> str:
-        """
-        The password for the certificate.
-        """
-        return pulumi.get(self, "certificate_password")
+        if certificate_password is not None:
+            pulumi.set(__self__, "certificate_password", certificate_password)
 
     @property
     @pulumi.getter(name="encodedCertificate")
     def encoded_certificate(self) -> str:
         """
-        The Base64 Encoded PFX Certificate.
+        The Base64 Encoded PFX or Base64 Encoded X.509 Certificate.
         """
         return pulumi.get(self, "encoded_certificate")
 
@@ -2088,6 +2081,14 @@ class ServiceCertificate(dict):
         The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
         """
         return pulumi.get(self, "store_name")
+
+    @property
+    @pulumi.getter(name="certificatePassword")
+    def certificate_password(self) -> Optional[str]:
+        """
+        The password for the certificate.
+        """
+        return pulumi.get(self, "certificate_password")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -7,11 +7,13 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./getGroup";
 export * from "./group";
+export * from "./groupSubscriptionAssociation";
 export * from "./groupTemplateDeployment";
 export * from "./lock";
 
 // Import resources to register:
 import { Group } from "./group";
+import { GroupSubscriptionAssociation } from "./groupSubscriptionAssociation";
 import { GroupTemplateDeployment } from "./groupTemplateDeployment";
 import { Lock } from "./lock";
 
@@ -21,6 +23,8 @@ const _module = {
         switch (type) {
             case "azure:management/group:Group":
                 return new Group(name, <any>undefined, { urn })
+            case "azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation":
+                return new GroupSubscriptionAssociation(name, <any>undefined, { urn })
             case "azure:management/groupTemplateDeployment:GroupTemplateDeployment":
                 return new GroupTemplateDeployment(name, <any>undefined, { urn })
             case "azure:management/lock:Lock":
@@ -31,5 +35,6 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "management/group", _module)
+pulumi.runtime.registerResourceModule("azure", "management/groupSubscriptionAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "management/groupTemplateDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "management/lock", _module)

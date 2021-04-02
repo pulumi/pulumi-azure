@@ -74,7 +74,7 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
      */
     public readonly annotations!: pulumi.Output<string[] | undefined>;
     /**
-     * The connection string. Conflicts with `sasUri`.
+     * The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
      */
     public readonly connectionString!: pulumi.Output<string | undefined>;
     /**
@@ -102,9 +102,13 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The SAS URI. Conflicts with `connectionString`.
+     * The SAS URI. Conflicts with `connectionString` and `serviceEndpoint`.
      */
     public readonly sasUri!: pulumi.Output<string | undefined>;
+    /**
+     * The Service Endpoint. Conflicts with `connectionString` and `sasUri`. Required with `useManagedIdentity`.
+     */
+    public readonly serviceEndpoint!: pulumi.Output<string | undefined>;
     /**
      * The service principal id in which to authenticate against the Azure Blob Storage account. Required if `servicePrincipalKey` is set.
      */
@@ -118,7 +122,7 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
      */
     public readonly tenantId!: pulumi.Output<string | undefined>;
     /**
-     * Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+     * Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`.
      */
     public readonly useManagedIdentity!: pulumi.Output<boolean | undefined>;
 
@@ -145,6 +149,7 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
             inputs["parameters"] = state ? state.parameters : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sasUri"] = state ? state.sasUri : undefined;
+            inputs["serviceEndpoint"] = state ? state.serviceEndpoint : undefined;
             inputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
             inputs["servicePrincipalKey"] = state ? state.servicePrincipalKey : undefined;
             inputs["tenantId"] = state ? state.tenantId : undefined;
@@ -167,6 +172,7 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sasUri"] = args ? args.sasUri : undefined;
+            inputs["serviceEndpoint"] = args ? args.serviceEndpoint : undefined;
             inputs["servicePrincipalId"] = args ? args.servicePrincipalId : undefined;
             inputs["servicePrincipalKey"] = args ? args.servicePrincipalKey : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
@@ -192,7 +198,7 @@ export interface LinkedServiceAzureBlobStorageState {
      */
     readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The connection string. Conflicts with `sasUri`.
+     * The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
      */
     readonly connectionString?: pulumi.Input<string>;
     /**
@@ -220,9 +226,13 @@ export interface LinkedServiceAzureBlobStorageState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The SAS URI. Conflicts with `connectionString`.
+     * The SAS URI. Conflicts with `connectionString` and `serviceEndpoint`.
      */
     readonly sasUri?: pulumi.Input<string>;
+    /**
+     * The Service Endpoint. Conflicts with `connectionString` and `sasUri`. Required with `useManagedIdentity`.
+     */
+    readonly serviceEndpoint?: pulumi.Input<string>;
     /**
      * The service principal id in which to authenticate against the Azure Blob Storage account. Required if `servicePrincipalKey` is set.
      */
@@ -236,7 +246,7 @@ export interface LinkedServiceAzureBlobStorageState {
      */
     readonly tenantId?: pulumi.Input<string>;
     /**
-     * Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+     * Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`.
      */
     readonly useManagedIdentity?: pulumi.Input<boolean>;
 }
@@ -254,7 +264,7 @@ export interface LinkedServiceAzureBlobStorageArgs {
      */
     readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The connection string. Conflicts with `sasUri`.
+     * The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
      */
     readonly connectionString?: pulumi.Input<string>;
     /**
@@ -282,9 +292,13 @@ export interface LinkedServiceAzureBlobStorageArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The SAS URI. Conflicts with `connectionString`.
+     * The SAS URI. Conflicts with `connectionString` and `serviceEndpoint`.
      */
     readonly sasUri?: pulumi.Input<string>;
+    /**
+     * The Service Endpoint. Conflicts with `connectionString` and `sasUri`. Required with `useManagedIdentity`.
+     */
+    readonly serviceEndpoint?: pulumi.Input<string>;
     /**
      * The service principal id in which to authenticate against the Azure Blob Storage account. Required if `servicePrincipalKey` is set.
      */
@@ -298,7 +312,7 @@ export interface LinkedServiceAzureBlobStorageArgs {
      */
     readonly tenantId?: pulumi.Input<string>;
     /**
-     * Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+     * Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`.
      */
     readonly useManagedIdentity?: pulumi.Input<boolean>;
 }

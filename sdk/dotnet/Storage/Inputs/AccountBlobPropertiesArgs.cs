@@ -12,6 +12,12 @@ namespace Pulumi.Azure.Storage.Inputs
 
     public sealed class AccountBlobPropertiesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `container_delete_retention_policy` block as defined below.
+        /// </summary>
+        [Input("containerDeleteRetentionPolicy")]
+        public Input<Inputs.AccountBlobPropertiesContainerDeleteRetentionPolicyArgs>? ContainerDeleteRetentionPolicy { get; set; }
+
         [Input("corsRules")]
         private InputList<Inputs.AccountBlobPropertiesCorsRuleArgs>? _corsRules;
 

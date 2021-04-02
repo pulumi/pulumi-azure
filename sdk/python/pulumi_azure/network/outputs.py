@@ -32,6 +32,7 @@ __all__ = [
     'ApplicationGatewayRewriteRuleSetRewriteRuleCondition',
     'ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration',
     'ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration',
+    'ApplicationGatewayRewriteRuleSetRewriteRuleUrl',
     'ApplicationGatewaySku',
     'ApplicationGatewaySslCertificate',
     'ApplicationGatewaySslPolicy',
@@ -1529,13 +1530,16 @@ class ApplicationGatewayRewriteRuleSetRewriteRule(dict):
                  rule_sequence: int,
                  conditions: Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleCondition']] = None,
                  request_header_configurations: Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration']] = None,
-                 response_header_configurations: Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration']] = None):
+                 response_header_configurations: Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration']] = None,
+                 url: Optional['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleUrl'] = None):
         """
         :param str name: Unique name of the rewrite rule block
         :param int rule_sequence: Rule sequence of the rewrite rule that determines the order of execution in a set.
         :param Sequence['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs'] conditions: One or more `condition` blocks as defined above.
         :param Sequence['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs'] request_header_configurations: One or more `request_header_configuration` blocks as defined above.
         :param Sequence['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs'] response_header_configurations: One or more `response_header_configuration` blocks as defined above.
+        :param 'ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs' url: One `url` block as defined above
+               ---
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "rule_sequence", rule_sequence)
@@ -1545,6 +1549,8 @@ class ApplicationGatewayRewriteRuleSetRewriteRule(dict):
             pulumi.set(__self__, "request_header_configurations", request_header_configurations)
         if response_header_configurations is not None:
             pulumi.set(__self__, "response_header_configurations", response_header_configurations)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -1585,6 +1591,15 @@ class ApplicationGatewayRewriteRuleSetRewriteRule(dict):
         One or more `response_header_configuration` blocks as defined above.
         """
         return pulumi.get(self, "response_header_configurations")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleUrl']:
+        """
+        One `url` block as defined above
+        ---
+        """
+        return pulumi.get(self, "url")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1705,6 +1720,52 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration(dic
         Header value of the header configuration. To delete a response header set this property to an empty string.
         """
         return pulumi.get(self, "header_value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ApplicationGatewayRewriteRuleSetRewriteRuleUrl(dict):
+    def __init__(__self__, *,
+                 path: Optional[str] = None,
+                 query_string: Optional[str] = None,
+                 reroute: Optional[bool] = None):
+        """
+        :param str path: The URL path to rewrite.
+        :param str query_string: The query string to rewrite.
+        :param bool reroute: Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+        """
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
+        if reroute is not None:
+            pulumi.set(__self__, "reroute", reroute)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The URL path to rewrite.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> Optional[str]:
+        """
+        The query string to rewrite.
+        """
+        return pulumi.get(self, "query_string")
+
+    @property
+    @pulumi.getter
+    def reroute(self) -> Optional[bool]:
+        """
+        Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+        """
+        return pulumi.get(self, "reroute")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

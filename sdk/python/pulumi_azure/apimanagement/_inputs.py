@@ -2470,35 +2470,24 @@ class ServiceAdditionalLocationVirtualNetworkConfigurationArgs:
 @pulumi.input_type
 class ServiceCertificateArgs:
     def __init__(__self__, *,
-                 certificate_password: pulumi.Input[str],
                  encoded_certificate: pulumi.Input[str],
-                 store_name: pulumi.Input[str]):
+                 store_name: pulumi.Input[str],
+                 certificate_password: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] certificate_password: The password for the certificate.
-        :param pulumi.Input[str] encoded_certificate: The Base64 Encoded PFX Certificate.
+        :param pulumi.Input[str] encoded_certificate: The Base64 Encoded PFX or Base64 Encoded X.509 Certificate.
         :param pulumi.Input[str] store_name: The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
+        :param pulumi.Input[str] certificate_password: The password for the certificate.
         """
-        pulumi.set(__self__, "certificate_password", certificate_password)
         pulumi.set(__self__, "encoded_certificate", encoded_certificate)
         pulumi.set(__self__, "store_name", store_name)
-
-    @property
-    @pulumi.getter(name="certificatePassword")
-    def certificate_password(self) -> pulumi.Input[str]:
-        """
-        The password for the certificate.
-        """
-        return pulumi.get(self, "certificate_password")
-
-    @certificate_password.setter
-    def certificate_password(self, value: pulumi.Input[str]):
-        pulumi.set(self, "certificate_password", value)
+        if certificate_password is not None:
+            pulumi.set(__self__, "certificate_password", certificate_password)
 
     @property
     @pulumi.getter(name="encodedCertificate")
     def encoded_certificate(self) -> pulumi.Input[str]:
         """
-        The Base64 Encoded PFX Certificate.
+        The Base64 Encoded PFX or Base64 Encoded X.509 Certificate.
         """
         return pulumi.get(self, "encoded_certificate")
 
@@ -2517,6 +2506,18 @@ class ServiceCertificateArgs:
     @store_name.setter
     def store_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "store_name", value)
+
+    @property
+    @pulumi.getter(name="certificatePassword")
+    def certificate_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password for the certificate.
+        """
+        return pulumi.get(self, "certificate_password")
+
+    @certificate_password.setter
+    def certificate_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_password", value)
 
 
 @pulumi.input_type

@@ -30,6 +30,8 @@ class ManagementGroup(pulumi.CustomResource):
         """
         Manages a Management Group.
 
+        !> **Note:** Configuring `subscription_ids` is not supported when using the `management.GroupSubscriptionAssociation` resource, results will be unpredictable.
+
         ## Example Usage
 
         ```python
@@ -162,7 +164,7 @@ class ManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionIds")
-    def subscription_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def subscription_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of Subscription GUIDs which should be assigned to the Management Group.
         """

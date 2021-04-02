@@ -23,6 +23,7 @@ class Registry(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_rule_set: Optional[pulumi.Input[pulumi.InputType['RegistryNetworkRuleSetArgs']]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 quarantine_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_policy: Optional[pulumi.Input[pulumi.InputType['RegistryRetentionPolicyArgs']]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
@@ -69,6 +70,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['RegistryNetworkRuleSetArgs']] network_rule_set: A `network_rule_set` block as documented below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
+        :param pulumi.Input[bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['RegistryRetentionPolicyArgs']] retention_policy: A `retention_policy` block as documented below.
         :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
@@ -99,6 +101,7 @@ class Registry(pulumi.CustomResource):
             __props__['name'] = name
             __props__['network_rule_set'] = network_rule_set
             __props__['public_network_access_enabled'] = public_network_access_enabled
+            __props__['quarantine_policy_enabled'] = quarantine_policy_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -129,6 +132,7 @@ class Registry(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             network_rule_set: Optional[pulumi.Input[pulumi.InputType['RegistryNetworkRuleSetArgs']]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+            quarantine_policy_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             retention_policy: Optional[pulumi.Input[pulumi.InputType['RegistryRetentionPolicyArgs']]] = None,
             sku: Optional[pulumi.Input[str]] = None,
@@ -151,6 +155,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['RegistryNetworkRuleSetArgs']] network_rule_set: A `network_rule_set` block as documented below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
+        :param pulumi.Input[bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['RegistryRetentionPolicyArgs']] retention_policy: A `retention_policy` block as documented below.
         :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
@@ -171,6 +176,7 @@ class Registry(pulumi.CustomResource):
         __props__["name"] = name
         __props__["network_rule_set"] = network_rule_set
         __props__["public_network_access_enabled"] = public_network_access_enabled
+        __props__["quarantine_policy_enabled"] = quarantine_policy_enabled
         __props__["resource_group_name"] = resource_group_name
         __props__["retention_policy"] = retention_policy
         __props__["sku"] = sku
@@ -250,6 +256,14 @@ class Registry(pulumi.CustomResource):
         Whether public network access is allowed for the container registry. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
+
+    @property
+    @pulumi.getter(name="quarantinePolicyEnabled")
+    def quarantine_policy_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "quarantine_policy_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

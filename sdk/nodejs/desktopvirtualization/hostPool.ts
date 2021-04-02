@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     friendlyName: "pooleddepthfirst",
  *     validateEnvironment: true,
+ *     customRdpProperties: "audiocapturemode:i:1;audiomode:i:0;",
  *     description: "Acceptance Test: A pooled host pool - pooleddepthfirst",
  *     type: "Pooled",
  *     maximumSessionsAllowed: 50,
@@ -63,6 +64,10 @@ export class HostPool extends pulumi.CustomResource {
         return obj['__pulumiType'] === HostPool.__pulumiType;
     }
 
+    /**
+     * A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+     */
+    public readonly customRdpProperties!: pulumi.Output<string | undefined>;
     /**
      * A description for the Virtual Desktop Host Pool.
      */
@@ -121,6 +126,9 @@ export class HostPool extends pulumi.CustomResource {
      * `Personal` or `Pooled`. Changing the type forces a new resource to be created.
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * Allows you to test service changes before they are deployed to production. Defaults to `false`.
+     */
     public readonly validateEnvironment!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -136,6 +144,7 @@ export class HostPool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HostPoolState | undefined;
+            inputs["customRdpProperties"] = state ? state.customRdpProperties : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["friendlyName"] = state ? state.friendlyName : undefined;
             inputs["loadBalancerType"] = state ? state.loadBalancerType : undefined;
@@ -160,6 +169,7 @@ export class HostPool extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            inputs["customRdpProperties"] = args ? args.customRdpProperties : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["friendlyName"] = args ? args.friendlyName : undefined;
             inputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
@@ -185,6 +195,10 @@ export class HostPool extends pulumi.CustomResource {
  * Input properties used for looking up and filtering HostPool resources.
  */
 export interface HostPoolState {
+    /**
+     * A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+     */
+    readonly customRdpProperties?: pulumi.Input<string>;
     /**
      * A description for the Virtual Desktop Host Pool.
      */
@@ -243,6 +257,9 @@ export interface HostPoolState {
      * `Personal` or `Pooled`. Changing the type forces a new resource to be created.
      */
     readonly type?: pulumi.Input<string>;
+    /**
+     * Allows you to test service changes before they are deployed to production. Defaults to `false`.
+     */
     readonly validateEnvironment?: pulumi.Input<boolean>;
 }
 
@@ -250,6 +267,10 @@ export interface HostPoolState {
  * The set of arguments for constructing a HostPool resource.
  */
 export interface HostPoolArgs {
+    /**
+     * A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+     */
+    readonly customRdpProperties?: pulumi.Input<string>;
     /**
      * A description for the Virtual Desktop Host Pool.
      */
@@ -308,5 +329,8 @@ export interface HostPoolArgs {
      * `Personal` or `Pooled`. Changing the type forces a new resource to be created.
      */
     readonly type: pulumi.Input<string>;
+    /**
+     * Allows you to test service changes before they are deployed to production. Defaults to `false`.
+     */
     readonly validateEnvironment?: pulumi.Input<boolean>;
 }

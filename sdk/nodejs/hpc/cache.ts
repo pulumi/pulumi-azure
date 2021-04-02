@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -78,6 +79,10 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly cacheSizeInGb!: pulumi.Output<number>;
     /**
+     * A `defaultAccessPolicy` block as defined below.
+     */
+    public readonly defaultAccessPolicy!: pulumi.Output<outputs.hpc.CacheDefaultAccessPolicy>;
+    /**
      * Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -98,7 +103,9 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Whether root squash property is enabled for this HPC Cache.
+     * Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+     *
+     * @deprecated This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
      */
     public readonly rootSquashEnabled!: pulumi.Output<boolean>;
     /**
@@ -124,6 +131,7 @@ export class Cache extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as CacheState | undefined;
             inputs["cacheSizeInGb"] = state ? state.cacheSizeInGb : undefined;
+            inputs["defaultAccessPolicy"] = state ? state.defaultAccessPolicy : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["mountAddresses"] = state ? state.mountAddresses : undefined;
             inputs["mtu"] = state ? state.mtu : undefined;
@@ -147,6 +155,7 @@ export class Cache extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subnetId'");
             }
             inputs["cacheSizeInGb"] = args ? args.cacheSizeInGb : undefined;
+            inputs["defaultAccessPolicy"] = args ? args.defaultAccessPolicy : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["mtu"] = args ? args.mtu : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -172,6 +181,10 @@ export interface CacheState {
      */
     readonly cacheSizeInGb?: pulumi.Input<number>;
     /**
+     * A `defaultAccessPolicy` block as defined below.
+     */
+    readonly defaultAccessPolicy?: pulumi.Input<inputs.hpc.CacheDefaultAccessPolicy>;
+    /**
      * Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
@@ -192,7 +205,9 @@ export interface CacheState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * Whether root squash property is enabled for this HPC Cache.
+     * Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+     *
+     * @deprecated This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
      */
     readonly rootSquashEnabled?: pulumi.Input<boolean>;
     /**
@@ -214,6 +229,10 @@ export interface CacheArgs {
      */
     readonly cacheSizeInGb: pulumi.Input<number>;
     /**
+     * A `defaultAccessPolicy` block as defined below.
+     */
+    readonly defaultAccessPolicy?: pulumi.Input<inputs.hpc.CacheDefaultAccessPolicy>;
+    /**
      * Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
@@ -230,7 +249,9 @@ export interface CacheArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Whether root squash property is enabled for this HPC Cache.
+     * Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+     *
+     * @deprecated This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
      */
     readonly rootSquashEnabled?: pulumi.Input<boolean>;
     /**

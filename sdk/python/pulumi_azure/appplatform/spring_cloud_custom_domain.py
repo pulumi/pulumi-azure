@@ -35,10 +35,10 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate_name: Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain.
+        :param pulumi.Input[str] certificate_name: Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the resource ID of the Spring Cloud Application. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] thumbprint: Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] thumbprint: Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificate_name` is specified. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -84,10 +84,10 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate_name: Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain.
+        :param pulumi.Input[str] certificate_name: Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the resource ID of the Spring Cloud Application. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] thumbprint: Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] thumbprint: Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificate_name` is specified. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -103,7 +103,7 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain.
+        Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
         """
         return pulumi.get(self, "certificate_name")
 
@@ -127,7 +127,7 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
     @pulumi.getter
     def thumbprint(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
+        Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificate_name` is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "thumbprint")
 

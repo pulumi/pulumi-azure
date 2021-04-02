@@ -1742,6 +1742,1180 @@ func (o JobOutputAssetArrayOutput) Index(i pulumi.IntInput) JobOutputAssetOutput
 	}).(JobOutputAssetOutput)
 }
 
+type LiveEventCrossSiteAccessPolicy struct {
+	// The content of clientaccesspolicy.xml used by Silverlight.
+	ClientAccessPolicy *string `pulumi:"clientAccessPolicy"`
+	// The content of the Cross Domain Policy (`crossdomain.xml`).
+	CrossDomainPolicy *string `pulumi:"crossDomainPolicy"`
+}
+
+// LiveEventCrossSiteAccessPolicyInput is an input type that accepts LiveEventCrossSiteAccessPolicyArgs and LiveEventCrossSiteAccessPolicyOutput values.
+// You can construct a concrete instance of `LiveEventCrossSiteAccessPolicyInput` via:
+//
+//          LiveEventCrossSiteAccessPolicyArgs{...}
+type LiveEventCrossSiteAccessPolicyInput interface {
+	pulumi.Input
+
+	ToLiveEventCrossSiteAccessPolicyOutput() LiveEventCrossSiteAccessPolicyOutput
+	ToLiveEventCrossSiteAccessPolicyOutputWithContext(context.Context) LiveEventCrossSiteAccessPolicyOutput
+}
+
+type LiveEventCrossSiteAccessPolicyArgs struct {
+	// The content of clientaccesspolicy.xml used by Silverlight.
+	ClientAccessPolicy pulumi.StringPtrInput `pulumi:"clientAccessPolicy"`
+	// The content of the Cross Domain Policy (`crossdomain.xml`).
+	CrossDomainPolicy pulumi.StringPtrInput `pulumi:"crossDomainPolicy"`
+}
+
+func (LiveEventCrossSiteAccessPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventCrossSiteAccessPolicy)(nil)).Elem()
+}
+
+func (i LiveEventCrossSiteAccessPolicyArgs) ToLiveEventCrossSiteAccessPolicyOutput() LiveEventCrossSiteAccessPolicyOutput {
+	return i.ToLiveEventCrossSiteAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i LiveEventCrossSiteAccessPolicyArgs) ToLiveEventCrossSiteAccessPolicyOutputWithContext(ctx context.Context) LiveEventCrossSiteAccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventCrossSiteAccessPolicyOutput)
+}
+
+func (i LiveEventCrossSiteAccessPolicyArgs) ToLiveEventCrossSiteAccessPolicyPtrOutput() LiveEventCrossSiteAccessPolicyPtrOutput {
+	return i.ToLiveEventCrossSiteAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i LiveEventCrossSiteAccessPolicyArgs) ToLiveEventCrossSiteAccessPolicyPtrOutputWithContext(ctx context.Context) LiveEventCrossSiteAccessPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventCrossSiteAccessPolicyOutput).ToLiveEventCrossSiteAccessPolicyPtrOutputWithContext(ctx)
+}
+
+// LiveEventCrossSiteAccessPolicyPtrInput is an input type that accepts LiveEventCrossSiteAccessPolicyArgs, LiveEventCrossSiteAccessPolicyPtr and LiveEventCrossSiteAccessPolicyPtrOutput values.
+// You can construct a concrete instance of `LiveEventCrossSiteAccessPolicyPtrInput` via:
+//
+//          LiveEventCrossSiteAccessPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type LiveEventCrossSiteAccessPolicyPtrInput interface {
+	pulumi.Input
+
+	ToLiveEventCrossSiteAccessPolicyPtrOutput() LiveEventCrossSiteAccessPolicyPtrOutput
+	ToLiveEventCrossSiteAccessPolicyPtrOutputWithContext(context.Context) LiveEventCrossSiteAccessPolicyPtrOutput
+}
+
+type liveEventCrossSiteAccessPolicyPtrType LiveEventCrossSiteAccessPolicyArgs
+
+func LiveEventCrossSiteAccessPolicyPtr(v *LiveEventCrossSiteAccessPolicyArgs) LiveEventCrossSiteAccessPolicyPtrInput {
+	return (*liveEventCrossSiteAccessPolicyPtrType)(v)
+}
+
+func (*liveEventCrossSiteAccessPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventCrossSiteAccessPolicy)(nil)).Elem()
+}
+
+func (i *liveEventCrossSiteAccessPolicyPtrType) ToLiveEventCrossSiteAccessPolicyPtrOutput() LiveEventCrossSiteAccessPolicyPtrOutput {
+	return i.ToLiveEventCrossSiteAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *liveEventCrossSiteAccessPolicyPtrType) ToLiveEventCrossSiteAccessPolicyPtrOutputWithContext(ctx context.Context) LiveEventCrossSiteAccessPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventCrossSiteAccessPolicyPtrOutput)
+}
+
+type LiveEventCrossSiteAccessPolicyOutput struct{ *pulumi.OutputState }
+
+func (LiveEventCrossSiteAccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventCrossSiteAccessPolicy)(nil)).Elem()
+}
+
+func (o LiveEventCrossSiteAccessPolicyOutput) ToLiveEventCrossSiteAccessPolicyOutput() LiveEventCrossSiteAccessPolicyOutput {
+	return o
+}
+
+func (o LiveEventCrossSiteAccessPolicyOutput) ToLiveEventCrossSiteAccessPolicyOutputWithContext(ctx context.Context) LiveEventCrossSiteAccessPolicyOutput {
+	return o
+}
+
+func (o LiveEventCrossSiteAccessPolicyOutput) ToLiveEventCrossSiteAccessPolicyPtrOutput() LiveEventCrossSiteAccessPolicyPtrOutput {
+	return o.ToLiveEventCrossSiteAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o LiveEventCrossSiteAccessPolicyOutput) ToLiveEventCrossSiteAccessPolicyPtrOutputWithContext(ctx context.Context) LiveEventCrossSiteAccessPolicyPtrOutput {
+	return o.ApplyT(func(v LiveEventCrossSiteAccessPolicy) *LiveEventCrossSiteAccessPolicy {
+		return &v
+	}).(LiveEventCrossSiteAccessPolicyPtrOutput)
+}
+
+// The content of clientaccesspolicy.xml used by Silverlight.
+func (o LiveEventCrossSiteAccessPolicyOutput) ClientAccessPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventCrossSiteAccessPolicy) *string { return v.ClientAccessPolicy }).(pulumi.StringPtrOutput)
+}
+
+// The content of the Cross Domain Policy (`crossdomain.xml`).
+func (o LiveEventCrossSiteAccessPolicyOutput) CrossDomainPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventCrossSiteAccessPolicy) *string { return v.CrossDomainPolicy }).(pulumi.StringPtrOutput)
+}
+
+type LiveEventCrossSiteAccessPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (LiveEventCrossSiteAccessPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventCrossSiteAccessPolicy)(nil)).Elem()
+}
+
+func (o LiveEventCrossSiteAccessPolicyPtrOutput) ToLiveEventCrossSiteAccessPolicyPtrOutput() LiveEventCrossSiteAccessPolicyPtrOutput {
+	return o
+}
+
+func (o LiveEventCrossSiteAccessPolicyPtrOutput) ToLiveEventCrossSiteAccessPolicyPtrOutputWithContext(ctx context.Context) LiveEventCrossSiteAccessPolicyPtrOutput {
+	return o
+}
+
+func (o LiveEventCrossSiteAccessPolicyPtrOutput) Elem() LiveEventCrossSiteAccessPolicyOutput {
+	return o.ApplyT(func(v *LiveEventCrossSiteAccessPolicy) LiveEventCrossSiteAccessPolicy { return *v }).(LiveEventCrossSiteAccessPolicyOutput)
+}
+
+// The content of clientaccesspolicy.xml used by Silverlight.
+func (o LiveEventCrossSiteAccessPolicyPtrOutput) ClientAccessPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventCrossSiteAccessPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientAccessPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The content of the Cross Domain Policy (`crossdomain.xml`).
+func (o LiveEventCrossSiteAccessPolicyPtrOutput) CrossDomainPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventCrossSiteAccessPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossDomainPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+type LiveEventEncoding struct {
+	// Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
+	// The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, the default preset is `Default1080p`. Changing this forces a new resource to be created.
+	PresetName *string `pulumi:"presetName"`
+	// Specifies how the input video will be resized to fit the desired output resolution(s). Allowed values are `None`, `AutoFit` or `AutoSize`. Default is `None`.
+	StretchMode *string `pulumi:"stretchMode"`
+	// Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+	Type *string `pulumi:"type"`
+}
+
+// LiveEventEncodingInput is an input type that accepts LiveEventEncodingArgs and LiveEventEncodingOutput values.
+// You can construct a concrete instance of `LiveEventEncodingInput` via:
+//
+//          LiveEventEncodingArgs{...}
+type LiveEventEncodingInput interface {
+	pulumi.Input
+
+	ToLiveEventEncodingOutput() LiveEventEncodingOutput
+	ToLiveEventEncodingOutputWithContext(context.Context) LiveEventEncodingOutput
+}
+
+type LiveEventEncodingArgs struct {
+	// Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
+	// The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, the default preset is `Default1080p`. Changing this forces a new resource to be created.
+	PresetName pulumi.StringPtrInput `pulumi:"presetName"`
+	// Specifies how the input video will be resized to fit the desired output resolution(s). Allowed values are `None`, `AutoFit` or `AutoSize`. Default is `None`.
+	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+	// Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (LiveEventEncodingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventEncoding)(nil)).Elem()
+}
+
+func (i LiveEventEncodingArgs) ToLiveEventEncodingOutput() LiveEventEncodingOutput {
+	return i.ToLiveEventEncodingOutputWithContext(context.Background())
+}
+
+func (i LiveEventEncodingArgs) ToLiveEventEncodingOutputWithContext(ctx context.Context) LiveEventEncodingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEncodingOutput)
+}
+
+func (i LiveEventEncodingArgs) ToLiveEventEncodingPtrOutput() LiveEventEncodingPtrOutput {
+	return i.ToLiveEventEncodingPtrOutputWithContext(context.Background())
+}
+
+func (i LiveEventEncodingArgs) ToLiveEventEncodingPtrOutputWithContext(ctx context.Context) LiveEventEncodingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEncodingOutput).ToLiveEventEncodingPtrOutputWithContext(ctx)
+}
+
+// LiveEventEncodingPtrInput is an input type that accepts LiveEventEncodingArgs, LiveEventEncodingPtr and LiveEventEncodingPtrOutput values.
+// You can construct a concrete instance of `LiveEventEncodingPtrInput` via:
+//
+//          LiveEventEncodingArgs{...}
+//
+//  or:
+//
+//          nil
+type LiveEventEncodingPtrInput interface {
+	pulumi.Input
+
+	ToLiveEventEncodingPtrOutput() LiveEventEncodingPtrOutput
+	ToLiveEventEncodingPtrOutputWithContext(context.Context) LiveEventEncodingPtrOutput
+}
+
+type liveEventEncodingPtrType LiveEventEncodingArgs
+
+func LiveEventEncodingPtr(v *LiveEventEncodingArgs) LiveEventEncodingPtrInput {
+	return (*liveEventEncodingPtrType)(v)
+}
+
+func (*liveEventEncodingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventEncoding)(nil)).Elem()
+}
+
+func (i *liveEventEncodingPtrType) ToLiveEventEncodingPtrOutput() LiveEventEncodingPtrOutput {
+	return i.ToLiveEventEncodingPtrOutputWithContext(context.Background())
+}
+
+func (i *liveEventEncodingPtrType) ToLiveEventEncodingPtrOutputWithContext(ctx context.Context) LiveEventEncodingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEncodingPtrOutput)
+}
+
+type LiveEventEncodingOutput struct{ *pulumi.OutputState }
+
+func (LiveEventEncodingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventEncoding)(nil)).Elem()
+}
+
+func (o LiveEventEncodingOutput) ToLiveEventEncodingOutput() LiveEventEncodingOutput {
+	return o
+}
+
+func (o LiveEventEncodingOutput) ToLiveEventEncodingOutputWithContext(ctx context.Context) LiveEventEncodingOutput {
+	return o
+}
+
+func (o LiveEventEncodingOutput) ToLiveEventEncodingPtrOutput() LiveEventEncodingPtrOutput {
+	return o.ToLiveEventEncodingPtrOutputWithContext(context.Background())
+}
+
+func (o LiveEventEncodingOutput) ToLiveEventEncodingPtrOutputWithContext(ctx context.Context) LiveEventEncodingPtrOutput {
+	return o.ApplyT(func(v LiveEventEncoding) *LiveEventEncoding {
+		return &v
+	}).(LiveEventEncodingPtrOutput)
+}
+
+// Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+func (o LiveEventEncodingOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventEncoding) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
+}
+
+// The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, the default preset is `Default1080p`. Changing this forces a new resource to be created.
+func (o LiveEventEncodingOutput) PresetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventEncoding) *string { return v.PresetName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies how the input video will be resized to fit the desired output resolution(s). Allowed values are `None`, `AutoFit` or `AutoSize`. Default is `None`.
+func (o LiveEventEncodingOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventEncoding) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
+}
+
+// Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+func (o LiveEventEncodingOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventEncoding) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type LiveEventEncodingPtrOutput struct{ *pulumi.OutputState }
+
+func (LiveEventEncodingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventEncoding)(nil)).Elem()
+}
+
+func (o LiveEventEncodingPtrOutput) ToLiveEventEncodingPtrOutput() LiveEventEncodingPtrOutput {
+	return o
+}
+
+func (o LiveEventEncodingPtrOutput) ToLiveEventEncodingPtrOutputWithContext(ctx context.Context) LiveEventEncodingPtrOutput {
+	return o
+}
+
+func (o LiveEventEncodingPtrOutput) Elem() LiveEventEncodingOutput {
+	return o.ApplyT(func(v *LiveEventEncoding) LiveEventEncoding { return *v }).(LiveEventEncodingOutput)
+}
+
+// Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+func (o LiveEventEncodingPtrOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventEncoding) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyFrameInterval
+	}).(pulumi.StringPtrOutput)
+}
+
+// The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, the default preset is `Default1080p`. Changing this forces a new resource to be created.
+func (o LiveEventEncodingPtrOutput) PresetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventEncoding) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PresetName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies how the input video will be resized to fit the desired output resolution(s). Allowed values are `None`, `AutoFit` or `AutoSize`. Default is `None`.
+func (o LiveEventEncodingPtrOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventEncoding) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StretchMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+func (o LiveEventEncodingPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventEncoding) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type LiveEventInputType struct {
+	// A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created.
+	AccessToken *string                  `pulumi:"accessToken"`
+	Endpoints   []LiveEventInputEndpoint `pulumi:"endpoints"`
+	// One or more `ipAccessControlAllow` blocks as defined below.
+	IpAccessControlAllows []LiveEventInputIpAccessControlAllow `pulumi:"ipAccessControlAllows"`
+	// ISO 8601 time duration of the key frame interval duration of the input. This value sets the `EXT-X-TARGETDURATION` property in the HLS output. For example, use PT2S to indicate 2 seconds. This field cannot be set when `type` is set to `Encoding`.
+	KeyFrameIntervalDuration *string `pulumi:"keyFrameIntervalDuration"`
+	// The input protocol for the live event. Allowed values are `FragmentedMP4` and `RTMP`. Changing this forces a new resource to be created.
+	StreamingProtocol *string `pulumi:"streamingProtocol"`
+}
+
+// LiveEventInputTypeInput is an input type that accepts LiveEventInputTypeArgs and LiveEventInputTypeOutput values.
+// You can construct a concrete instance of `LiveEventInputTypeInput` via:
+//
+//          LiveEventInputTypeArgs{...}
+type LiveEventInputTypeInput interface {
+	pulumi.Input
+
+	ToLiveEventInputTypeOutput() LiveEventInputTypeOutput
+	ToLiveEventInputTypeOutputWithContext(context.Context) LiveEventInputTypeOutput
+}
+
+type LiveEventInputTypeArgs struct {
+	// A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created.
+	AccessToken pulumi.StringPtrInput            `pulumi:"accessToken"`
+	Endpoints   LiveEventInputEndpointArrayInput `pulumi:"endpoints"`
+	// One or more `ipAccessControlAllow` blocks as defined below.
+	IpAccessControlAllows LiveEventInputIpAccessControlAllowArrayInput `pulumi:"ipAccessControlAllows"`
+	// ISO 8601 time duration of the key frame interval duration of the input. This value sets the `EXT-X-TARGETDURATION` property in the HLS output. For example, use PT2S to indicate 2 seconds. This field cannot be set when `type` is set to `Encoding`.
+	KeyFrameIntervalDuration pulumi.StringPtrInput `pulumi:"keyFrameIntervalDuration"`
+	// The input protocol for the live event. Allowed values are `FragmentedMP4` and `RTMP`. Changing this forces a new resource to be created.
+	StreamingProtocol pulumi.StringPtrInput `pulumi:"streamingProtocol"`
+}
+
+func (LiveEventInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputType)(nil)).Elem()
+}
+
+func (i LiveEventInputTypeArgs) ToLiveEventInputTypeOutput() LiveEventInputTypeOutput {
+	return i.ToLiveEventInputTypeOutputWithContext(context.Background())
+}
+
+func (i LiveEventInputTypeArgs) ToLiveEventInputTypeOutputWithContext(ctx context.Context) LiveEventInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTypeOutput)
+}
+
+func (i LiveEventInputTypeArgs) ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput {
+	return i.ToLiveEventInputTypePtrOutputWithContext(context.Background())
+}
+
+func (i LiveEventInputTypeArgs) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTypeOutput).ToLiveEventInputTypePtrOutputWithContext(ctx)
+}
+
+// LiveEventInputTypePtrInput is an input type that accepts LiveEventInputTypeArgs, LiveEventInputTypePtr and LiveEventInputTypePtrOutput values.
+// You can construct a concrete instance of `LiveEventInputTypePtrInput` via:
+//
+//          LiveEventInputTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type LiveEventInputTypePtrInput interface {
+	pulumi.Input
+
+	ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput
+	ToLiveEventInputTypePtrOutputWithContext(context.Context) LiveEventInputTypePtrOutput
+}
+
+type liveEventInputTypePtrType LiveEventInputTypeArgs
+
+func LiveEventInputTypePtr(v *LiveEventInputTypeArgs) LiveEventInputTypePtrInput {
+	return (*liveEventInputTypePtrType)(v)
+}
+
+func (*liveEventInputTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventInputType)(nil)).Elem()
+}
+
+func (i *liveEventInputTypePtrType) ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput {
+	return i.ToLiveEventInputTypePtrOutputWithContext(context.Background())
+}
+
+func (i *liveEventInputTypePtrType) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTypePtrOutput)
+}
+
+type LiveEventInputTypeOutput struct{ *pulumi.OutputState }
+
+func (LiveEventInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputType)(nil)).Elem()
+}
+
+func (o LiveEventInputTypeOutput) ToLiveEventInputTypeOutput() LiveEventInputTypeOutput {
+	return o
+}
+
+func (o LiveEventInputTypeOutput) ToLiveEventInputTypeOutputWithContext(ctx context.Context) LiveEventInputTypeOutput {
+	return o
+}
+
+func (o LiveEventInputTypeOutput) ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput {
+	return o.ToLiveEventInputTypePtrOutputWithContext(context.Background())
+}
+
+func (o LiveEventInputTypeOutput) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
+	return o.ApplyT(func(v LiveEventInputType) *LiveEventInputType {
+		return &v
+	}).(LiveEventInputTypePtrOutput)
+}
+
+// A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created.
+func (o LiveEventInputTypeOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputType) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
+func (o LiveEventInputTypeOutput) Endpoints() LiveEventInputEndpointArrayOutput {
+	return o.ApplyT(func(v LiveEventInputType) []LiveEventInputEndpoint { return v.Endpoints }).(LiveEventInputEndpointArrayOutput)
+}
+
+// One or more `ipAccessControlAllow` blocks as defined below.
+func (o LiveEventInputTypeOutput) IpAccessControlAllows() LiveEventInputIpAccessControlAllowArrayOutput {
+	return o.ApplyT(func(v LiveEventInputType) []LiveEventInputIpAccessControlAllow { return v.IpAccessControlAllows }).(LiveEventInputIpAccessControlAllowArrayOutput)
+}
+
+// ISO 8601 time duration of the key frame interval duration of the input. This value sets the `EXT-X-TARGETDURATION` property in the HLS output. For example, use PT2S to indicate 2 seconds. This field cannot be set when `type` is set to `Encoding`.
+func (o LiveEventInputTypeOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputType) *string { return v.KeyFrameIntervalDuration }).(pulumi.StringPtrOutput)
+}
+
+// The input protocol for the live event. Allowed values are `FragmentedMP4` and `RTMP`. Changing this forces a new resource to be created.
+func (o LiveEventInputTypeOutput) StreamingProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputType) *string { return v.StreamingProtocol }).(pulumi.StringPtrOutput)
+}
+
+type LiveEventInputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (LiveEventInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventInputType)(nil)).Elem()
+}
+
+func (o LiveEventInputTypePtrOutput) ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput {
+	return o
+}
+
+func (o LiveEventInputTypePtrOutput) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
+	return o
+}
+
+func (o LiveEventInputTypePtrOutput) Elem() LiveEventInputTypeOutput {
+	return o.ApplyT(func(v *LiveEventInputType) LiveEventInputType { return *v }).(LiveEventInputTypeOutput)
+}
+
+// A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created.
+func (o LiveEventInputTypePtrOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LiveEventInputTypePtrOutput) Endpoints() LiveEventInputEndpointArrayOutput {
+	return o.ApplyT(func(v *LiveEventInputType) []LiveEventInputEndpoint {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoints
+	}).(LiveEventInputEndpointArrayOutput)
+}
+
+// One or more `ipAccessControlAllow` blocks as defined below.
+func (o LiveEventInputTypePtrOutput) IpAccessControlAllows() LiveEventInputIpAccessControlAllowArrayOutput {
+	return o.ApplyT(func(v *LiveEventInputType) []LiveEventInputIpAccessControlAllow {
+		if v == nil {
+			return nil
+		}
+		return v.IpAccessControlAllows
+	}).(LiveEventInputIpAccessControlAllowArrayOutput)
+}
+
+// ISO 8601 time duration of the key frame interval duration of the input. This value sets the `EXT-X-TARGETDURATION` property in the HLS output. For example, use PT2S to indicate 2 seconds. This field cannot be set when `type` is set to `Encoding`.
+func (o LiveEventInputTypePtrOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyFrameIntervalDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// The input protocol for the live event. Allowed values are `FragmentedMP4` and `RTMP`. Changing this forces a new resource to be created.
+func (o LiveEventInputTypePtrOutput) StreamingProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StreamingProtocol
+	}).(pulumi.StringPtrOutput)
+}
+
+type LiveEventInputEndpoint struct {
+	Protocol *string `pulumi:"protocol"`
+	Url      *string `pulumi:"url"`
+}
+
+// LiveEventInputEndpointInput is an input type that accepts LiveEventInputEndpointArgs and LiveEventInputEndpointOutput values.
+// You can construct a concrete instance of `LiveEventInputEndpointInput` via:
+//
+//          LiveEventInputEndpointArgs{...}
+type LiveEventInputEndpointInput interface {
+	pulumi.Input
+
+	ToLiveEventInputEndpointOutput() LiveEventInputEndpointOutput
+	ToLiveEventInputEndpointOutputWithContext(context.Context) LiveEventInputEndpointOutput
+}
+
+type LiveEventInputEndpointArgs struct {
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	Url      pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (LiveEventInputEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputEndpoint)(nil)).Elem()
+}
+
+func (i LiveEventInputEndpointArgs) ToLiveEventInputEndpointOutput() LiveEventInputEndpointOutput {
+	return i.ToLiveEventInputEndpointOutputWithContext(context.Background())
+}
+
+func (i LiveEventInputEndpointArgs) ToLiveEventInputEndpointOutputWithContext(ctx context.Context) LiveEventInputEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputEndpointOutput)
+}
+
+// LiveEventInputEndpointArrayInput is an input type that accepts LiveEventInputEndpointArray and LiveEventInputEndpointArrayOutput values.
+// You can construct a concrete instance of `LiveEventInputEndpointArrayInput` via:
+//
+//          LiveEventInputEndpointArray{ LiveEventInputEndpointArgs{...} }
+type LiveEventInputEndpointArrayInput interface {
+	pulumi.Input
+
+	ToLiveEventInputEndpointArrayOutput() LiveEventInputEndpointArrayOutput
+	ToLiveEventInputEndpointArrayOutputWithContext(context.Context) LiveEventInputEndpointArrayOutput
+}
+
+type LiveEventInputEndpointArray []LiveEventInputEndpointInput
+
+func (LiveEventInputEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventInputEndpoint)(nil)).Elem()
+}
+
+func (i LiveEventInputEndpointArray) ToLiveEventInputEndpointArrayOutput() LiveEventInputEndpointArrayOutput {
+	return i.ToLiveEventInputEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i LiveEventInputEndpointArray) ToLiveEventInputEndpointArrayOutputWithContext(ctx context.Context) LiveEventInputEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputEndpointArrayOutput)
+}
+
+type LiveEventInputEndpointOutput struct{ *pulumi.OutputState }
+
+func (LiveEventInputEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputEndpoint)(nil)).Elem()
+}
+
+func (o LiveEventInputEndpointOutput) ToLiveEventInputEndpointOutput() LiveEventInputEndpointOutput {
+	return o
+}
+
+func (o LiveEventInputEndpointOutput) ToLiveEventInputEndpointOutputWithContext(ctx context.Context) LiveEventInputEndpointOutput {
+	return o
+}
+
+func (o LiveEventInputEndpointOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputEndpoint) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+func (o LiveEventInputEndpointOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputEndpoint) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type LiveEventInputEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (LiveEventInputEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventInputEndpoint)(nil)).Elem()
+}
+
+func (o LiveEventInputEndpointArrayOutput) ToLiveEventInputEndpointArrayOutput() LiveEventInputEndpointArrayOutput {
+	return o
+}
+
+func (o LiveEventInputEndpointArrayOutput) ToLiveEventInputEndpointArrayOutputWithContext(ctx context.Context) LiveEventInputEndpointArrayOutput {
+	return o
+}
+
+func (o LiveEventInputEndpointArrayOutput) Index(i pulumi.IntInput) LiveEventInputEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveEventInputEndpoint {
+		return vs[0].([]LiveEventInputEndpoint)[vs[1].(int)]
+	}).(LiveEventInputEndpointOutput)
+}
+
+type LiveEventInputIpAccessControlAllow struct {
+	// The IP address or CIDR range.
+	Address *string `pulumi:"address"`
+	// The friendly name for the IP address range.
+	Name *string `pulumi:"name"`
+	// The subnet mask prefix length (see CIDR notation).
+	SubnetPrefixLength *int `pulumi:"subnetPrefixLength"`
+}
+
+// LiveEventInputIpAccessControlAllowInput is an input type that accepts LiveEventInputIpAccessControlAllowArgs and LiveEventInputIpAccessControlAllowOutput values.
+// You can construct a concrete instance of `LiveEventInputIpAccessControlAllowInput` via:
+//
+//          LiveEventInputIpAccessControlAllowArgs{...}
+type LiveEventInputIpAccessControlAllowInput interface {
+	pulumi.Input
+
+	ToLiveEventInputIpAccessControlAllowOutput() LiveEventInputIpAccessControlAllowOutput
+	ToLiveEventInputIpAccessControlAllowOutputWithContext(context.Context) LiveEventInputIpAccessControlAllowOutput
+}
+
+type LiveEventInputIpAccessControlAllowArgs struct {
+	// The IP address or CIDR range.
+	Address pulumi.StringPtrInput `pulumi:"address"`
+	// The friendly name for the IP address range.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The subnet mask prefix length (see CIDR notation).
+	SubnetPrefixLength pulumi.IntPtrInput `pulumi:"subnetPrefixLength"`
+}
+
+func (LiveEventInputIpAccessControlAllowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputIpAccessControlAllow)(nil)).Elem()
+}
+
+func (i LiveEventInputIpAccessControlAllowArgs) ToLiveEventInputIpAccessControlAllowOutput() LiveEventInputIpAccessControlAllowOutput {
+	return i.ToLiveEventInputIpAccessControlAllowOutputWithContext(context.Background())
+}
+
+func (i LiveEventInputIpAccessControlAllowArgs) ToLiveEventInputIpAccessControlAllowOutputWithContext(ctx context.Context) LiveEventInputIpAccessControlAllowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputIpAccessControlAllowOutput)
+}
+
+// LiveEventInputIpAccessControlAllowArrayInput is an input type that accepts LiveEventInputIpAccessControlAllowArray and LiveEventInputIpAccessControlAllowArrayOutput values.
+// You can construct a concrete instance of `LiveEventInputIpAccessControlAllowArrayInput` via:
+//
+//          LiveEventInputIpAccessControlAllowArray{ LiveEventInputIpAccessControlAllowArgs{...} }
+type LiveEventInputIpAccessControlAllowArrayInput interface {
+	pulumi.Input
+
+	ToLiveEventInputIpAccessControlAllowArrayOutput() LiveEventInputIpAccessControlAllowArrayOutput
+	ToLiveEventInputIpAccessControlAllowArrayOutputWithContext(context.Context) LiveEventInputIpAccessControlAllowArrayOutput
+}
+
+type LiveEventInputIpAccessControlAllowArray []LiveEventInputIpAccessControlAllowInput
+
+func (LiveEventInputIpAccessControlAllowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventInputIpAccessControlAllow)(nil)).Elem()
+}
+
+func (i LiveEventInputIpAccessControlAllowArray) ToLiveEventInputIpAccessControlAllowArrayOutput() LiveEventInputIpAccessControlAllowArrayOutput {
+	return i.ToLiveEventInputIpAccessControlAllowArrayOutputWithContext(context.Background())
+}
+
+func (i LiveEventInputIpAccessControlAllowArray) ToLiveEventInputIpAccessControlAllowArrayOutputWithContext(ctx context.Context) LiveEventInputIpAccessControlAllowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputIpAccessControlAllowArrayOutput)
+}
+
+type LiveEventInputIpAccessControlAllowOutput struct{ *pulumi.OutputState }
+
+func (LiveEventInputIpAccessControlAllowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputIpAccessControlAllow)(nil)).Elem()
+}
+
+func (o LiveEventInputIpAccessControlAllowOutput) ToLiveEventInputIpAccessControlAllowOutput() LiveEventInputIpAccessControlAllowOutput {
+	return o
+}
+
+func (o LiveEventInputIpAccessControlAllowOutput) ToLiveEventInputIpAccessControlAllowOutputWithContext(ctx context.Context) LiveEventInputIpAccessControlAllowOutput {
+	return o
+}
+
+// The IP address or CIDR range.
+func (o LiveEventInputIpAccessControlAllowOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputIpAccessControlAllow) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+// The friendly name for the IP address range.
+func (o LiveEventInputIpAccessControlAllowOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputIpAccessControlAllow) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The subnet mask prefix length (see CIDR notation).
+func (o LiveEventInputIpAccessControlAllowOutput) SubnetPrefixLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LiveEventInputIpAccessControlAllow) *int { return v.SubnetPrefixLength }).(pulumi.IntPtrOutput)
+}
+
+type LiveEventInputIpAccessControlAllowArrayOutput struct{ *pulumi.OutputState }
+
+func (LiveEventInputIpAccessControlAllowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventInputIpAccessControlAllow)(nil)).Elem()
+}
+
+func (o LiveEventInputIpAccessControlAllowArrayOutput) ToLiveEventInputIpAccessControlAllowArrayOutput() LiveEventInputIpAccessControlAllowArrayOutput {
+	return o
+}
+
+func (o LiveEventInputIpAccessControlAllowArrayOutput) ToLiveEventInputIpAccessControlAllowArrayOutputWithContext(ctx context.Context) LiveEventInputIpAccessControlAllowArrayOutput {
+	return o
+}
+
+func (o LiveEventInputIpAccessControlAllowArrayOutput) Index(i pulumi.IntInput) LiveEventInputIpAccessControlAllowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveEventInputIpAccessControlAllow {
+		return vs[0].([]LiveEventInputIpAccessControlAllow)[vs[1].(int)]
+	}).(LiveEventInputIpAccessControlAllowOutput)
+}
+
+type LiveEventPreview struct {
+	// An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streamingPolicyName` field. Changing this forces a new resource to be created.
+	AlternativeMediaId *string                    `pulumi:"alternativeMediaId"`
+	Endpoints          []LiveEventPreviewEndpoint `pulumi:"endpoints"`
+	// One or more `ipAccessControlAllow` blocks as defined above.
+	IpAccessControlAllows []LiveEventPreviewIpAccessControlAllow `pulumi:"ipAccessControlAllows"`
+	// The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
+	PreviewLocator *string `pulumi:"previewLocator"`
+	// The name of streaming policy used for the live event preview. Changing this forces a new resource to be created.
+	StreamingPolicyName *string `pulumi:"streamingPolicyName"`
+}
+
+// LiveEventPreviewInput is an input type that accepts LiveEventPreviewArgs and LiveEventPreviewOutput values.
+// You can construct a concrete instance of `LiveEventPreviewInput` via:
+//
+//          LiveEventPreviewArgs{...}
+type LiveEventPreviewInput interface {
+	pulumi.Input
+
+	ToLiveEventPreviewOutput() LiveEventPreviewOutput
+	ToLiveEventPreviewOutputWithContext(context.Context) LiveEventPreviewOutput
+}
+
+type LiveEventPreviewArgs struct {
+	// An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streamingPolicyName` field. Changing this forces a new resource to be created.
+	AlternativeMediaId pulumi.StringPtrInput              `pulumi:"alternativeMediaId"`
+	Endpoints          LiveEventPreviewEndpointArrayInput `pulumi:"endpoints"`
+	// One or more `ipAccessControlAllow` blocks as defined above.
+	IpAccessControlAllows LiveEventPreviewIpAccessControlAllowArrayInput `pulumi:"ipAccessControlAllows"`
+	// The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
+	PreviewLocator pulumi.StringPtrInput `pulumi:"previewLocator"`
+	// The name of streaming policy used for the live event preview. Changing this forces a new resource to be created.
+	StreamingPolicyName pulumi.StringPtrInput `pulumi:"streamingPolicyName"`
+}
+
+func (LiveEventPreviewArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventPreview)(nil)).Elem()
+}
+
+func (i LiveEventPreviewArgs) ToLiveEventPreviewOutput() LiveEventPreviewOutput {
+	return i.ToLiveEventPreviewOutputWithContext(context.Background())
+}
+
+func (i LiveEventPreviewArgs) ToLiveEventPreviewOutputWithContext(ctx context.Context) LiveEventPreviewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewOutput)
+}
+
+func (i LiveEventPreviewArgs) ToLiveEventPreviewPtrOutput() LiveEventPreviewPtrOutput {
+	return i.ToLiveEventPreviewPtrOutputWithContext(context.Background())
+}
+
+func (i LiveEventPreviewArgs) ToLiveEventPreviewPtrOutputWithContext(ctx context.Context) LiveEventPreviewPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewOutput).ToLiveEventPreviewPtrOutputWithContext(ctx)
+}
+
+// LiveEventPreviewPtrInput is an input type that accepts LiveEventPreviewArgs, LiveEventPreviewPtr and LiveEventPreviewPtrOutput values.
+// You can construct a concrete instance of `LiveEventPreviewPtrInput` via:
+//
+//          LiveEventPreviewArgs{...}
+//
+//  or:
+//
+//          nil
+type LiveEventPreviewPtrInput interface {
+	pulumi.Input
+
+	ToLiveEventPreviewPtrOutput() LiveEventPreviewPtrOutput
+	ToLiveEventPreviewPtrOutputWithContext(context.Context) LiveEventPreviewPtrOutput
+}
+
+type liveEventPreviewPtrType LiveEventPreviewArgs
+
+func LiveEventPreviewPtr(v *LiveEventPreviewArgs) LiveEventPreviewPtrInput {
+	return (*liveEventPreviewPtrType)(v)
+}
+
+func (*liveEventPreviewPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventPreview)(nil)).Elem()
+}
+
+func (i *liveEventPreviewPtrType) ToLiveEventPreviewPtrOutput() LiveEventPreviewPtrOutput {
+	return i.ToLiveEventPreviewPtrOutputWithContext(context.Background())
+}
+
+func (i *liveEventPreviewPtrType) ToLiveEventPreviewPtrOutputWithContext(ctx context.Context) LiveEventPreviewPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewPtrOutput)
+}
+
+type LiveEventPreviewOutput struct{ *pulumi.OutputState }
+
+func (LiveEventPreviewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventPreview)(nil)).Elem()
+}
+
+func (o LiveEventPreviewOutput) ToLiveEventPreviewOutput() LiveEventPreviewOutput {
+	return o
+}
+
+func (o LiveEventPreviewOutput) ToLiveEventPreviewOutputWithContext(ctx context.Context) LiveEventPreviewOutput {
+	return o
+}
+
+func (o LiveEventPreviewOutput) ToLiveEventPreviewPtrOutput() LiveEventPreviewPtrOutput {
+	return o.ToLiveEventPreviewPtrOutputWithContext(context.Background())
+}
+
+func (o LiveEventPreviewOutput) ToLiveEventPreviewPtrOutputWithContext(ctx context.Context) LiveEventPreviewPtrOutput {
+	return o.ApplyT(func(v LiveEventPreview) *LiveEventPreview {
+		return &v
+	}).(LiveEventPreviewPtrOutput)
+}
+
+// An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streamingPolicyName` field. Changing this forces a new resource to be created.
+func (o LiveEventPreviewOutput) AlternativeMediaId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventPreview) *string { return v.AlternativeMediaId }).(pulumi.StringPtrOutput)
+}
+
+func (o LiveEventPreviewOutput) Endpoints() LiveEventPreviewEndpointArrayOutput {
+	return o.ApplyT(func(v LiveEventPreview) []LiveEventPreviewEndpoint { return v.Endpoints }).(LiveEventPreviewEndpointArrayOutput)
+}
+
+// One or more `ipAccessControlAllow` blocks as defined above.
+func (o LiveEventPreviewOutput) IpAccessControlAllows() LiveEventPreviewIpAccessControlAllowArrayOutput {
+	return o.ApplyT(func(v LiveEventPreview) []LiveEventPreviewIpAccessControlAllow { return v.IpAccessControlAllows }).(LiveEventPreviewIpAccessControlAllowArrayOutput)
+}
+
+// The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
+func (o LiveEventPreviewOutput) PreviewLocator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventPreview) *string { return v.PreviewLocator }).(pulumi.StringPtrOutput)
+}
+
+// The name of streaming policy used for the live event preview. Changing this forces a new resource to be created.
+func (o LiveEventPreviewOutput) StreamingPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventPreview) *string { return v.StreamingPolicyName }).(pulumi.StringPtrOutput)
+}
+
+type LiveEventPreviewPtrOutput struct{ *pulumi.OutputState }
+
+func (LiveEventPreviewPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventPreview)(nil)).Elem()
+}
+
+func (o LiveEventPreviewPtrOutput) ToLiveEventPreviewPtrOutput() LiveEventPreviewPtrOutput {
+	return o
+}
+
+func (o LiveEventPreviewPtrOutput) ToLiveEventPreviewPtrOutputWithContext(ctx context.Context) LiveEventPreviewPtrOutput {
+	return o
+}
+
+func (o LiveEventPreviewPtrOutput) Elem() LiveEventPreviewOutput {
+	return o.ApplyT(func(v *LiveEventPreview) LiveEventPreview { return *v }).(LiveEventPreviewOutput)
+}
+
+// An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streamingPolicyName` field. Changing this forces a new resource to be created.
+func (o LiveEventPreviewPtrOutput) AlternativeMediaId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventPreview) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AlternativeMediaId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LiveEventPreviewPtrOutput) Endpoints() LiveEventPreviewEndpointArrayOutput {
+	return o.ApplyT(func(v *LiveEventPreview) []LiveEventPreviewEndpoint {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoints
+	}).(LiveEventPreviewEndpointArrayOutput)
+}
+
+// One or more `ipAccessControlAllow` blocks as defined above.
+func (o LiveEventPreviewPtrOutput) IpAccessControlAllows() LiveEventPreviewIpAccessControlAllowArrayOutput {
+	return o.ApplyT(func(v *LiveEventPreview) []LiveEventPreviewIpAccessControlAllow {
+		if v == nil {
+			return nil
+		}
+		return v.IpAccessControlAllows
+	}).(LiveEventPreviewIpAccessControlAllowArrayOutput)
+}
+
+// The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
+func (o LiveEventPreviewPtrOutput) PreviewLocator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventPreview) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PreviewLocator
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of streaming policy used for the live event preview. Changing this forces a new resource to be created.
+func (o LiveEventPreviewPtrOutput) StreamingPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventPreview) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StreamingPolicyName
+	}).(pulumi.StringPtrOutput)
+}
+
+type LiveEventPreviewEndpoint struct {
+	Protocol *string `pulumi:"protocol"`
+	Url      *string `pulumi:"url"`
+}
+
+// LiveEventPreviewEndpointInput is an input type that accepts LiveEventPreviewEndpointArgs and LiveEventPreviewEndpointOutput values.
+// You can construct a concrete instance of `LiveEventPreviewEndpointInput` via:
+//
+//          LiveEventPreviewEndpointArgs{...}
+type LiveEventPreviewEndpointInput interface {
+	pulumi.Input
+
+	ToLiveEventPreviewEndpointOutput() LiveEventPreviewEndpointOutput
+	ToLiveEventPreviewEndpointOutputWithContext(context.Context) LiveEventPreviewEndpointOutput
+}
+
+type LiveEventPreviewEndpointArgs struct {
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	Url      pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (LiveEventPreviewEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventPreviewEndpoint)(nil)).Elem()
+}
+
+func (i LiveEventPreviewEndpointArgs) ToLiveEventPreviewEndpointOutput() LiveEventPreviewEndpointOutput {
+	return i.ToLiveEventPreviewEndpointOutputWithContext(context.Background())
+}
+
+func (i LiveEventPreviewEndpointArgs) ToLiveEventPreviewEndpointOutputWithContext(ctx context.Context) LiveEventPreviewEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewEndpointOutput)
+}
+
+// LiveEventPreviewEndpointArrayInput is an input type that accepts LiveEventPreviewEndpointArray and LiveEventPreviewEndpointArrayOutput values.
+// You can construct a concrete instance of `LiveEventPreviewEndpointArrayInput` via:
+//
+//          LiveEventPreviewEndpointArray{ LiveEventPreviewEndpointArgs{...} }
+type LiveEventPreviewEndpointArrayInput interface {
+	pulumi.Input
+
+	ToLiveEventPreviewEndpointArrayOutput() LiveEventPreviewEndpointArrayOutput
+	ToLiveEventPreviewEndpointArrayOutputWithContext(context.Context) LiveEventPreviewEndpointArrayOutput
+}
+
+type LiveEventPreviewEndpointArray []LiveEventPreviewEndpointInput
+
+func (LiveEventPreviewEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventPreviewEndpoint)(nil)).Elem()
+}
+
+func (i LiveEventPreviewEndpointArray) ToLiveEventPreviewEndpointArrayOutput() LiveEventPreviewEndpointArrayOutput {
+	return i.ToLiveEventPreviewEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i LiveEventPreviewEndpointArray) ToLiveEventPreviewEndpointArrayOutputWithContext(ctx context.Context) LiveEventPreviewEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewEndpointArrayOutput)
+}
+
+type LiveEventPreviewEndpointOutput struct{ *pulumi.OutputState }
+
+func (LiveEventPreviewEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventPreviewEndpoint)(nil)).Elem()
+}
+
+func (o LiveEventPreviewEndpointOutput) ToLiveEventPreviewEndpointOutput() LiveEventPreviewEndpointOutput {
+	return o
+}
+
+func (o LiveEventPreviewEndpointOutput) ToLiveEventPreviewEndpointOutputWithContext(ctx context.Context) LiveEventPreviewEndpointOutput {
+	return o
+}
+
+func (o LiveEventPreviewEndpointOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventPreviewEndpoint) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+func (o LiveEventPreviewEndpointOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventPreviewEndpoint) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type LiveEventPreviewEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (LiveEventPreviewEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventPreviewEndpoint)(nil)).Elem()
+}
+
+func (o LiveEventPreviewEndpointArrayOutput) ToLiveEventPreviewEndpointArrayOutput() LiveEventPreviewEndpointArrayOutput {
+	return o
+}
+
+func (o LiveEventPreviewEndpointArrayOutput) ToLiveEventPreviewEndpointArrayOutputWithContext(ctx context.Context) LiveEventPreviewEndpointArrayOutput {
+	return o
+}
+
+func (o LiveEventPreviewEndpointArrayOutput) Index(i pulumi.IntInput) LiveEventPreviewEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveEventPreviewEndpoint {
+		return vs[0].([]LiveEventPreviewEndpoint)[vs[1].(int)]
+	}).(LiveEventPreviewEndpointOutput)
+}
+
+type LiveEventPreviewIpAccessControlAllow struct {
+	// The IP address or CIDR range.
+	Address *string `pulumi:"address"`
+	// The friendly name for the IP address range.
+	Name *string `pulumi:"name"`
+	// The subnet mask prefix length (see CIDR notation).
+	SubnetPrefixLength *int `pulumi:"subnetPrefixLength"`
+}
+
+// LiveEventPreviewIpAccessControlAllowInput is an input type that accepts LiveEventPreviewIpAccessControlAllowArgs and LiveEventPreviewIpAccessControlAllowOutput values.
+// You can construct a concrete instance of `LiveEventPreviewIpAccessControlAllowInput` via:
+//
+//          LiveEventPreviewIpAccessControlAllowArgs{...}
+type LiveEventPreviewIpAccessControlAllowInput interface {
+	pulumi.Input
+
+	ToLiveEventPreviewIpAccessControlAllowOutput() LiveEventPreviewIpAccessControlAllowOutput
+	ToLiveEventPreviewIpAccessControlAllowOutputWithContext(context.Context) LiveEventPreviewIpAccessControlAllowOutput
+}
+
+type LiveEventPreviewIpAccessControlAllowArgs struct {
+	// The IP address or CIDR range.
+	Address pulumi.StringPtrInput `pulumi:"address"`
+	// The friendly name for the IP address range.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The subnet mask prefix length (see CIDR notation).
+	SubnetPrefixLength pulumi.IntPtrInput `pulumi:"subnetPrefixLength"`
+}
+
+func (LiveEventPreviewIpAccessControlAllowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventPreviewIpAccessControlAllow)(nil)).Elem()
+}
+
+func (i LiveEventPreviewIpAccessControlAllowArgs) ToLiveEventPreviewIpAccessControlAllowOutput() LiveEventPreviewIpAccessControlAllowOutput {
+	return i.ToLiveEventPreviewIpAccessControlAllowOutputWithContext(context.Background())
+}
+
+func (i LiveEventPreviewIpAccessControlAllowArgs) ToLiveEventPreviewIpAccessControlAllowOutputWithContext(ctx context.Context) LiveEventPreviewIpAccessControlAllowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewIpAccessControlAllowOutput)
+}
+
+// LiveEventPreviewIpAccessControlAllowArrayInput is an input type that accepts LiveEventPreviewIpAccessControlAllowArray and LiveEventPreviewIpAccessControlAllowArrayOutput values.
+// You can construct a concrete instance of `LiveEventPreviewIpAccessControlAllowArrayInput` via:
+//
+//          LiveEventPreviewIpAccessControlAllowArray{ LiveEventPreviewIpAccessControlAllowArgs{...} }
+type LiveEventPreviewIpAccessControlAllowArrayInput interface {
+	pulumi.Input
+
+	ToLiveEventPreviewIpAccessControlAllowArrayOutput() LiveEventPreviewIpAccessControlAllowArrayOutput
+	ToLiveEventPreviewIpAccessControlAllowArrayOutputWithContext(context.Context) LiveEventPreviewIpAccessControlAllowArrayOutput
+}
+
+type LiveEventPreviewIpAccessControlAllowArray []LiveEventPreviewIpAccessControlAllowInput
+
+func (LiveEventPreviewIpAccessControlAllowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventPreviewIpAccessControlAllow)(nil)).Elem()
+}
+
+func (i LiveEventPreviewIpAccessControlAllowArray) ToLiveEventPreviewIpAccessControlAllowArrayOutput() LiveEventPreviewIpAccessControlAllowArrayOutput {
+	return i.ToLiveEventPreviewIpAccessControlAllowArrayOutputWithContext(context.Background())
+}
+
+func (i LiveEventPreviewIpAccessControlAllowArray) ToLiveEventPreviewIpAccessControlAllowArrayOutputWithContext(ctx context.Context) LiveEventPreviewIpAccessControlAllowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewIpAccessControlAllowArrayOutput)
+}
+
+type LiveEventPreviewIpAccessControlAllowOutput struct{ *pulumi.OutputState }
+
+func (LiveEventPreviewIpAccessControlAllowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventPreviewIpAccessControlAllow)(nil)).Elem()
+}
+
+func (o LiveEventPreviewIpAccessControlAllowOutput) ToLiveEventPreviewIpAccessControlAllowOutput() LiveEventPreviewIpAccessControlAllowOutput {
+	return o
+}
+
+func (o LiveEventPreviewIpAccessControlAllowOutput) ToLiveEventPreviewIpAccessControlAllowOutputWithContext(ctx context.Context) LiveEventPreviewIpAccessControlAllowOutput {
+	return o
+}
+
+// The IP address or CIDR range.
+func (o LiveEventPreviewIpAccessControlAllowOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventPreviewIpAccessControlAllow) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+// The friendly name for the IP address range.
+func (o LiveEventPreviewIpAccessControlAllowOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventPreviewIpAccessControlAllow) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The subnet mask prefix length (see CIDR notation).
+func (o LiveEventPreviewIpAccessControlAllowOutput) SubnetPrefixLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LiveEventPreviewIpAccessControlAllow) *int { return v.SubnetPrefixLength }).(pulumi.IntPtrOutput)
+}
+
+type LiveEventPreviewIpAccessControlAllowArrayOutput struct{ *pulumi.OutputState }
+
+func (LiveEventPreviewIpAccessControlAllowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventPreviewIpAccessControlAllow)(nil)).Elem()
+}
+
+func (o LiveEventPreviewIpAccessControlAllowArrayOutput) ToLiveEventPreviewIpAccessControlAllowArrayOutput() LiveEventPreviewIpAccessControlAllowArrayOutput {
+	return o
+}
+
+func (o LiveEventPreviewIpAccessControlAllowArrayOutput) ToLiveEventPreviewIpAccessControlAllowArrayOutputWithContext(ctx context.Context) LiveEventPreviewIpAccessControlAllowArrayOutput {
+	return o
+}
+
+func (o LiveEventPreviewIpAccessControlAllowArrayOutput) Index(i pulumi.IntInput) LiveEventPreviewIpAccessControlAllowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveEventPreviewIpAccessControlAllow {
+		return vs[0].([]LiveEventPreviewIpAccessControlAllow)[vs[1].(int)]
+	}).(LiveEventPreviewIpAccessControlAllowOutput)
+}
+
 type ServiceAccountIdentity struct {
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -4983,6 +6157,22 @@ func init() {
 	pulumi.RegisterOutputType(JobInputAssetPtrOutput{})
 	pulumi.RegisterOutputType(JobOutputAssetOutput{})
 	pulumi.RegisterOutputType(JobOutputAssetArrayOutput{})
+	pulumi.RegisterOutputType(LiveEventCrossSiteAccessPolicyOutput{})
+	pulumi.RegisterOutputType(LiveEventCrossSiteAccessPolicyPtrOutput{})
+	pulumi.RegisterOutputType(LiveEventEncodingOutput{})
+	pulumi.RegisterOutputType(LiveEventEncodingPtrOutput{})
+	pulumi.RegisterOutputType(LiveEventInputTypeOutput{})
+	pulumi.RegisterOutputType(LiveEventInputTypePtrOutput{})
+	pulumi.RegisterOutputType(LiveEventInputEndpointOutput{})
+	pulumi.RegisterOutputType(LiveEventInputEndpointArrayOutput{})
+	pulumi.RegisterOutputType(LiveEventInputIpAccessControlAllowOutput{})
+	pulumi.RegisterOutputType(LiveEventInputIpAccessControlAllowArrayOutput{})
+	pulumi.RegisterOutputType(LiveEventPreviewOutput{})
+	pulumi.RegisterOutputType(LiveEventPreviewPtrOutput{})
+	pulumi.RegisterOutputType(LiveEventPreviewEndpointOutput{})
+	pulumi.RegisterOutputType(LiveEventPreviewEndpointArrayOutput{})
+	pulumi.RegisterOutputType(LiveEventPreviewIpAccessControlAllowOutput{})
+	pulumi.RegisterOutputType(LiveEventPreviewIpAccessControlAllowArrayOutput{})
 	pulumi.RegisterOutputType(ServiceAccountIdentityOutput{})
 	pulumi.RegisterOutputType(ServiceAccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAccountStorageAccountOutput{})

@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewContentKeyPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:media/job:Job":
 		r, err = NewJob(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:media/liveEvent:LiveEvent":
+		r, err = NewLiveEvent(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:media/serviceAccount:ServiceAccount":
 		r, err = NewServiceAccount(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:media/streamingEndpoint:StreamingEndpoint":
@@ -62,6 +64,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"media/job",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"media/liveEvent",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

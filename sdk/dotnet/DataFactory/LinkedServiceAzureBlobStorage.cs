@@ -71,7 +71,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
         /// <summary>
-        /// The connection string. Conflicts with `sas_uri`.
+        /// The connection string. Conflicts with `sas_uri` and `service_endpoint`.
         /// </summary>
         [Output("connectionString")]
         public Output<string?> ConnectionString { get; private set; } = null!;
@@ -113,10 +113,16 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The SAS URI. Conflicts with `connection_string`.
+        /// The SAS URI. Conflicts with `connection_string` and `service_endpoint`.
         /// </summary>
         [Output("sasUri")]
         public Output<string?> SasUri { get; private set; } = null!;
+
+        /// <summary>
+        /// The Service Endpoint. Conflicts with `connection_string` and `sas_uri`. Required with `use_managed_identity`.
+        /// </summary>
+        [Output("serviceEndpoint")]
+        public Output<string?> ServiceEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// The service principal id in which to authenticate against the Azure Blob Storage account. Required if `service_principal_key` is set.
@@ -137,7 +143,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> TenantId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`
+        /// Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`.
         /// </summary>
         [Output("useManagedIdentity")]
         public Output<bool?> UseManagedIdentity { get; private set; } = null!;
@@ -213,7 +219,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The connection string. Conflicts with `sas_uri`.
+        /// The connection string. Conflicts with `sas_uri` and `service_endpoint`.
         /// </summary>
         [Input("connectionString")]
         public Input<string>? ConnectionString { get; set; }
@@ -261,10 +267,16 @@ namespace Pulumi.Azure.DataFactory
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SAS URI. Conflicts with `connection_string`.
+        /// The SAS URI. Conflicts with `connection_string` and `service_endpoint`.
         /// </summary>
         [Input("sasUri")]
         public Input<string>? SasUri { get; set; }
+
+        /// <summary>
+        /// The Service Endpoint. Conflicts with `connection_string` and `sas_uri`. Required with `use_managed_identity`.
+        /// </summary>
+        [Input("serviceEndpoint")]
+        public Input<string>? ServiceEndpoint { get; set; }
 
         /// <summary>
         /// The service principal id in which to authenticate against the Azure Blob Storage account. Required if `service_principal_key` is set.
@@ -285,7 +297,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`
+        /// Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`.
         /// </summary>
         [Input("useManagedIdentity")]
         public Input<bool>? UseManagedIdentity { get; set; }
@@ -322,7 +334,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The connection string. Conflicts with `sas_uri`.
+        /// The connection string. Conflicts with `sas_uri` and `service_endpoint`.
         /// </summary>
         [Input("connectionString")]
         public Input<string>? ConnectionString { get; set; }
@@ -370,10 +382,16 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The SAS URI. Conflicts with `connection_string`.
+        /// The SAS URI. Conflicts with `connection_string` and `service_endpoint`.
         /// </summary>
         [Input("sasUri")]
         public Input<string>? SasUri { get; set; }
+
+        /// <summary>
+        /// The Service Endpoint. Conflicts with `connection_string` and `sas_uri`. Required with `use_managed_identity`.
+        /// </summary>
+        [Input("serviceEndpoint")]
+        public Input<string>? ServiceEndpoint { get; set; }
 
         /// <summary>
         /// The service principal id in which to authenticate against the Azure Blob Storage account. Required if `service_principal_key` is set.
@@ -394,7 +412,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`
+        /// Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`.
         /// </summary>
         [Input("useManagedIdentity")]
         public Input<bool>? UseManagedIdentity { get; set; }

@@ -15,6 +15,7 @@ class CacheBlobTarget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_policy_name: Optional[pulumi.Input[str]] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_path: Optional[pulumi.Input[str]] = None,
@@ -82,6 +83,7 @@ class CacheBlobTarget(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_policy_name: The name of the access policy applied to this target.
         :param pulumi.Input[str] cache_name: The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the HPC Cache Blob Target. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_path: The client-facing file path of the HPC Cache Blob Target.
@@ -105,6 +107,7 @@ class CacheBlobTarget(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['access_policy_name'] = access_policy_name
             if cache_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_name'")
             __props__['cache_name'] = cache_name
@@ -128,6 +131,7 @@ class CacheBlobTarget(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            access_policy_name: Optional[pulumi.Input[str]] = None,
             cache_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             namespace_path: Optional[pulumi.Input[str]] = None,
@@ -140,6 +144,7 @@ class CacheBlobTarget(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_policy_name: The name of the access policy applied to this target.
         :param pulumi.Input[str] cache_name: The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the HPC Cache Blob Target. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_path: The client-facing file path of the HPC Cache Blob Target.
@@ -150,12 +155,21 @@ class CacheBlobTarget(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["access_policy_name"] = access_policy_name
         __props__["cache_name"] = cache_name
         __props__["name"] = name
         __props__["namespace_path"] = namespace_path
         __props__["resource_group_name"] = resource_group_name
         __props__["storage_container_id"] = storage_container_id
         return CacheBlobTarget(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="accessPolicyName")
+    def access_policy_name(self) -> pulumi.Output[str]:
+        """
+        The name of the access policy applied to this target.
+        """
+        return pulumi.get(self, "access_policy_name")
 
     @property
     @pulumi.getter(name="cacheName")

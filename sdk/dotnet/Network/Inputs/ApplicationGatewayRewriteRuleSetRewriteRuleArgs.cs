@@ -60,6 +60,13 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("ruleSequence", required: true)]
         public Input<int> RuleSequence { get; set; } = null!;
 
+        /// <summary>
+        /// One `url` block as defined above
+        /// ---
+        /// </summary>
+        [Input("url")]
+        public Input<Inputs.ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs>? Url { get; set; }
+
         public ApplicationGatewayRewriteRuleSetRewriteRuleArgs()
         {
         }

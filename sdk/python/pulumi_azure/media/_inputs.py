@@ -18,6 +18,14 @@ __all__ = [
     'ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs',
     'JobInputAssetArgs',
     'JobOutputAssetArgs',
+    'LiveEventCrossSiteAccessPolicyArgs',
+    'LiveEventEncodingArgs',
+    'LiveEventInputArgs',
+    'LiveEventInputEndpointArgs',
+    'LiveEventInputIpAccessControlAllowArgs',
+    'LiveEventPreviewArgs',
+    'LiveEventPreviewEndpointArgs',
+    'LiveEventPreviewIpAccessControlAllowArgs',
     'ServiceAccountIdentityArgs',
     'ServiceAccountStorageAccountArgs',
     'StreamingEndpointAccessControlArgs',
@@ -931,6 +939,450 @@ class JobOutputAssetArgs:
     @label.setter
     def label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "label", value)
+
+
+@pulumi.input_type
+class LiveEventCrossSiteAccessPolicyArgs:
+    def __init__(__self__, *,
+                 client_access_policy: Optional[pulumi.Input[str]] = None,
+                 cross_domain_policy: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_access_policy: The content of clientaccesspolicy.xml used by Silverlight.
+        :param pulumi.Input[str] cross_domain_policy: The content of the Cross Domain Policy (`crossdomain.xml`).
+        """
+        if client_access_policy is not None:
+            pulumi.set(__self__, "client_access_policy", client_access_policy)
+        if cross_domain_policy is not None:
+            pulumi.set(__self__, "cross_domain_policy", cross_domain_policy)
+
+    @property
+    @pulumi.getter(name="clientAccessPolicy")
+    def client_access_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content of clientaccesspolicy.xml used by Silverlight.
+        """
+        return pulumi.get(self, "client_access_policy")
+
+    @client_access_policy.setter
+    def client_access_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_access_policy", value)
+
+    @property
+    @pulumi.getter(name="crossDomainPolicy")
+    def cross_domain_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content of the Cross Domain Policy (`crossdomain.xml`).
+        """
+        return pulumi.get(self, "cross_domain_policy")
+
+    @cross_domain_policy.setter
+    def cross_domain_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cross_domain_policy", value)
+
+
+@pulumi.input_type
+class LiveEventEncodingArgs:
+    def __init__(__self__, *,
+                 key_frame_interval: Optional[pulumi.Input[str]] = None,
+                 preset_name: Optional[pulumi.Input[str]] = None,
+                 stretch_mode: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key_frame_interval: Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+        :param pulumi.Input[str] preset_name: The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, the default preset is `Default1080p`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] stretch_mode: Specifies how the input video will be resized to fit the desired output resolution(s). Allowed values are `None`, `AutoFit` or `AutoSize`. Default is `None`.
+        :param pulumi.Input[str] type: Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+        """
+        if key_frame_interval is not None:
+            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+        if preset_name is not None:
+            pulumi.set(__self__, "preset_name", preset_name)
+        if stretch_mode is not None:
+            pulumi.set(__self__, "stretch_mode", stretch_mode)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="keyFrameInterval")
+    def key_frame_interval(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+        """
+        return pulumi.get(self, "key_frame_interval")
+
+    @key_frame_interval.setter
+    def key_frame_interval(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_frame_interval", value)
+
+    @property
+    @pulumi.getter(name="presetName")
+    def preset_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, the default preset is `Default1080p`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "preset_name")
+
+    @preset_name.setter
+    def preset_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preset_name", value)
+
+    @property
+    @pulumi.getter(name="stretchMode")
+    def stretch_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies how the input video will be resized to fit the desired output resolution(s). Allowed values are `None`, `AutoFit` or `AutoSize`. Default is `None`.
+        """
+        return pulumi.get(self, "stretch_mode")
+
+    @stretch_mode.setter
+    def stretch_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stretch_mode", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class LiveEventInputArgs:
+    def __init__(__self__, *,
+                 access_token: Optional[pulumi.Input[str]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputEndpointArgs']]]] = None,
+                 ip_access_control_allows: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputIpAccessControlAllowArgs']]]] = None,
+                 key_frame_interval_duration: Optional[pulumi.Input[str]] = None,
+                 streaming_protocol: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] access_token: A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['LiveEventInputIpAccessControlAllowArgs']]] ip_access_control_allows: One or more `ip_access_control_allow` blocks as defined below.
+        :param pulumi.Input[str] key_frame_interval_duration: ISO 8601 time duration of the key frame interval duration of the input. This value sets the `EXT-X-TARGETDURATION` property in the HLS output. For example, use PT2S to indicate 2 seconds. This field cannot be set when `type` is set to `Encoding`.
+        :param pulumi.Input[str] streaming_protocol: The input protocol for the live event. Allowed values are `FragmentedMP4` and `RTMP`. Changing this forces a new resource to be created.
+        """
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
+        if ip_access_control_allows is not None:
+            pulumi.set(__self__, "ip_access_control_allows", ip_access_control_allows)
+        if key_frame_interval_duration is not None:
+            pulumi.set(__self__, "key_frame_interval_duration", key_frame_interval_duration)
+        if streaming_protocol is not None:
+            pulumi.set(__self__, "streaming_protocol", streaming_protocol)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputEndpointArgs']]]]:
+        return pulumi.get(self, "endpoints")
+
+    @endpoints.setter
+    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputEndpointArgs']]]]):
+        pulumi.set(self, "endpoints", value)
+
+    @property
+    @pulumi.getter(name="ipAccessControlAllows")
+    def ip_access_control_allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputIpAccessControlAllowArgs']]]]:
+        """
+        One or more `ip_access_control_allow` blocks as defined below.
+        """
+        return pulumi.get(self, "ip_access_control_allows")
+
+    @ip_access_control_allows.setter
+    def ip_access_control_allows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputIpAccessControlAllowArgs']]]]):
+        pulumi.set(self, "ip_access_control_allows", value)
+
+    @property
+    @pulumi.getter(name="keyFrameIntervalDuration")
+    def key_frame_interval_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        ISO 8601 time duration of the key frame interval duration of the input. This value sets the `EXT-X-TARGETDURATION` property in the HLS output. For example, use PT2S to indicate 2 seconds. This field cannot be set when `type` is set to `Encoding`.
+        """
+        return pulumi.get(self, "key_frame_interval_duration")
+
+    @key_frame_interval_duration.setter
+    def key_frame_interval_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_frame_interval_duration", value)
+
+    @property
+    @pulumi.getter(name="streamingProtocol")
+    def streaming_protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The input protocol for the live event. Allowed values are `FragmentedMP4` and `RTMP`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "streaming_protocol")
+
+    @streaming_protocol.setter
+    def streaming_protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "streaming_protocol", value)
+
+
+@pulumi.input_type
+class LiveEventInputEndpointArgs:
+    def __init__(__self__, *,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class LiveEventInputIpAccessControlAllowArgs:
+    def __init__(__self__, *,
+                 address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 subnet_prefix_length: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] address: The IP address or CIDR range.
+        :param pulumi.Input[str] name: The friendly name for the IP address range.
+        :param pulumi.Input[int] subnet_prefix_length: The subnet mask prefix length (see CIDR notation).
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if subnet_prefix_length is not None:
+            pulumi.set(__self__, "subnet_prefix_length", subnet_prefix_length)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address or CIDR range.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The friendly name for the IP address range.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="subnetPrefixLength")
+    def subnet_prefix_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        The subnet mask prefix length (see CIDR notation).
+        """
+        return pulumi.get(self, "subnet_prefix_length")
+
+    @subnet_prefix_length.setter
+    def subnet_prefix_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "subnet_prefix_length", value)
+
+
+@pulumi.input_type
+class LiveEventPreviewArgs:
+    def __init__(__self__, *,
+                 alternative_media_id: Optional[pulumi.Input[str]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewEndpointArgs']]]] = None,
+                 ip_access_control_allows: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewIpAccessControlAllowArgs']]]] = None,
+                 preview_locator: Optional[pulumi.Input[str]] = None,
+                 streaming_policy_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] alternative_media_id: An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streaming_policy_name` field. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewIpAccessControlAllowArgs']]] ip_access_control_allows: One or more `ip_access_control_allow` blocks as defined above.
+        :param pulumi.Input[str] preview_locator: The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] streaming_policy_name: The name of streaming policy used for the live event preview. Changing this forces a new resource to be created.
+        """
+        if alternative_media_id is not None:
+            pulumi.set(__self__, "alternative_media_id", alternative_media_id)
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
+        if ip_access_control_allows is not None:
+            pulumi.set(__self__, "ip_access_control_allows", ip_access_control_allows)
+        if preview_locator is not None:
+            pulumi.set(__self__, "preview_locator", preview_locator)
+        if streaming_policy_name is not None:
+            pulumi.set(__self__, "streaming_policy_name", streaming_policy_name)
+
+    @property
+    @pulumi.getter(name="alternativeMediaId")
+    def alternative_media_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streaming_policy_name` field. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "alternative_media_id")
+
+    @alternative_media_id.setter
+    def alternative_media_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alternative_media_id", value)
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewEndpointArgs']]]]:
+        return pulumi.get(self, "endpoints")
+
+    @endpoints.setter
+    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewEndpointArgs']]]]):
+        pulumi.set(self, "endpoints", value)
+
+    @property
+    @pulumi.getter(name="ipAccessControlAllows")
+    def ip_access_control_allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewIpAccessControlAllowArgs']]]]:
+        """
+        One or more `ip_access_control_allow` blocks as defined above.
+        """
+        return pulumi.get(self, "ip_access_control_allows")
+
+    @ip_access_control_allows.setter
+    def ip_access_control_allows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewIpAccessControlAllowArgs']]]]):
+        pulumi.set(self, "ip_access_control_allows", value)
+
+    @property
+    @pulumi.getter(name="previewLocator")
+    def preview_locator(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "preview_locator")
+
+    @preview_locator.setter
+    def preview_locator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preview_locator", value)
+
+    @property
+    @pulumi.getter(name="streamingPolicyName")
+    def streaming_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of streaming policy used for the live event preview. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "streaming_policy_name")
+
+    @streaming_policy_name.setter
+    def streaming_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "streaming_policy_name", value)
+
+
+@pulumi.input_type
+class LiveEventPreviewEndpointArgs:
+    def __init__(__self__, *,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class LiveEventPreviewIpAccessControlAllowArgs:
+    def __init__(__self__, *,
+                 address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 subnet_prefix_length: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] address: The IP address or CIDR range.
+        :param pulumi.Input[str] name: The friendly name for the IP address range.
+        :param pulumi.Input[int] subnet_prefix_length: The subnet mask prefix length (see CIDR notation).
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if subnet_prefix_length is not None:
+            pulumi.set(__self__, "subnet_prefix_length", subnet_prefix_length)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address or CIDR range.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The friendly name for the IP address range.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="subnetPrefixLength")
+    def subnet_prefix_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        The subnet mask prefix length (see CIDR notation).
+        """
+        return pulumi.get(self, "subnet_prefix_length")
+
+    @subnet_prefix_length.setter
+    def subnet_prefix_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "subnet_prefix_length", value)
 
 
 @pulumi.input_type
