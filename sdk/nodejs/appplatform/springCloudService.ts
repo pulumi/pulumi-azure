@@ -34,6 +34,7 @@ import * as utilities from "../utilities";
  *     },
  *     trace: {
  *         instrumentationKey: exampleInsights.instrumentationKey,
+ *         sampleRate: 10,
  *     },
  *     tags: {
  *         Env: "staging",

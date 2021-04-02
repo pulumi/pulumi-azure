@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 __all__ = ['Cache']
 
@@ -16,6 +18,7 @@ class Cache(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_size_in_gb: Optional[pulumi.Input[int]] = None,
+                 default_access_policy: Optional[pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -67,11 +70,12 @@ class Cache(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
         :param pulumi.Input[str] name: The name of the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] root_squash_enabled: Whether root squash property is enabled for this HPC Cache.
+        :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
         :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         """
@@ -95,12 +99,16 @@ class Cache(pulumi.CustomResource):
             if cache_size_in_gb is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_size_in_gb'")
             __props__['cache_size_in_gb'] = cache_size_in_gb
+            __props__['default_access_policy'] = default_access_policy
             __props__['location'] = location
             __props__['mtu'] = mtu
             __props__['name'] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if root_squash_enabled is not None and not opts.urn:
+                warnings.warn("""This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.""", DeprecationWarning)
+                pulumi.log.warn("""root_squash_enabled is deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.""")
             __props__['root_squash_enabled'] = root_squash_enabled
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
@@ -120,6 +128,7 @@ class Cache(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cache_size_in_gb: Optional[pulumi.Input[int]] = None,
+            default_access_policy: Optional[pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             mount_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             mtu: Optional[pulumi.Input[int]] = None,
@@ -136,12 +145,13 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_addresses: A list of IP Addresses where the HPC Cache can be mounted.
         :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
         :param pulumi.Input[str] name: The name of the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] root_squash_enabled: Whether root squash property is enabled for this HPC Cache.
+        :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
         :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         """
@@ -150,6 +160,7 @@ class Cache(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["cache_size_in_gb"] = cache_size_in_gb
+        __props__["default_access_policy"] = default_access_policy
         __props__["location"] = location
         __props__["mount_addresses"] = mount_addresses
         __props__["mtu"] = mtu
@@ -167,6 +178,14 @@ class Cache(pulumi.CustomResource):
         The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cache_size_in_gb")
+
+    @property
+    @pulumi.getter(name="defaultAccessPolicy")
+    def default_access_policy(self) -> pulumi.Output['outputs.CacheDefaultAccessPolicy']:
+        """
+        A `default_access_policy` block as defined below.
+        """
+        return pulumi.get(self, "default_access_policy")
 
     @property
     @pulumi.getter
@@ -212,7 +231,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter(name="rootSquashEnabled")
     def root_squash_enabled(self) -> pulumi.Output[bool]:
         """
-        Whether root squash property is enabled for this HPC Cache.
+        Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
         """
         return pulumi.get(self, "root_squash_enabled")
 

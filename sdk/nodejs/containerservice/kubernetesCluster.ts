@@ -86,7 +86,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly autoScalerProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterAutoScalerProfile>;
     /**
-     * The upgrade channel for this Kubernetes Cluster. Possible values are `none`, `patch`, `rapid`, and `stable`. The default value is `none`.
+     * The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
      */
     public readonly automaticChannelUpgrade!: pulumi.Output<string | undefined>;
     /**
@@ -306,7 +306,7 @@ export interface KubernetesClusterState {
      */
     readonly autoScalerProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterAutoScalerProfile>;
     /**
-     * The upgrade channel for this Kubernetes Cluster. Possible values are `none`, `patch`, `rapid`, and `stable`. The default value is `none`.
+     * The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
      */
     readonly automaticChannelUpgrade?: pulumi.Input<string>;
     /**
@@ -433,7 +433,7 @@ export interface KubernetesClusterArgs {
      */
     readonly autoScalerProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterAutoScalerProfile>;
     /**
-     * The upgrade channel for this Kubernetes Cluster. Possible values are `none`, `patch`, `rapid`, and `stable`. The default value is `none`.
+     * The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
      */
     readonly automaticChannelUpgrade?: pulumi.Input<string>;
     /**

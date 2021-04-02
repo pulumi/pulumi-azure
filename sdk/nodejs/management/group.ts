@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Management Group.
  *
+ * !> **Note:** Configuring `subscriptionIds` is not supported when using the `azure.management.GroupSubscriptionAssociation` resource, results will be unpredictable.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -83,7 +85,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * A list of Subscription GUIDs which should be assigned to the Management Group.
      */
-    public readonly subscriptionIds!: pulumi.Output<string[] | undefined>;
+    public readonly subscriptionIds!: pulumi.Output<string[]>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.

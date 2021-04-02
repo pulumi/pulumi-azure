@@ -44,7 +44,7 @@ export class SpringCloudCustomDomain extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain.
+     * Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
      */
     public readonly certificateName!: pulumi.Output<string | undefined>;
     /**
@@ -56,7 +56,7 @@ export class SpringCloudCustomDomain extends pulumi.CustomResource {
      */
     public readonly springCloudAppId!: pulumi.Output<string>;
     /**
-     * Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
+     * Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificateName` is specified. Changing this forces a new resource to be created.
      */
     public readonly thumbprint!: pulumi.Output<string | undefined>;
 
@@ -99,7 +99,7 @@ export class SpringCloudCustomDomain extends pulumi.CustomResource {
  */
 export interface SpringCloudCustomDomainState {
     /**
-     * Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain.
+     * Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
      */
     readonly certificateName?: pulumi.Input<string>;
     /**
@@ -111,7 +111,7 @@ export interface SpringCloudCustomDomainState {
      */
     readonly springCloudAppId?: pulumi.Input<string>;
     /**
-     * Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
+     * Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificateName` is specified. Changing this forces a new resource to be created.
      */
     readonly thumbprint?: pulumi.Input<string>;
 }
@@ -121,7 +121,7 @@ export interface SpringCloudCustomDomainState {
  */
 export interface SpringCloudCustomDomainArgs {
     /**
-     * Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain.
+     * Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
      */
     readonly certificateName?: pulumi.Input<string>;
     /**
@@ -133,7 +133,7 @@ export interface SpringCloudCustomDomainArgs {
      */
     readonly springCloudAppId: pulumi.Input<string>;
     /**
-     * Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
+     * Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificateName` is specified. Changing this forces a new resource to be created.
      */
     readonly thumbprint?: pulumi.Input<string>;
 }

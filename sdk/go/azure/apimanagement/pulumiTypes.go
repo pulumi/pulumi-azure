@@ -5716,8 +5716,8 @@ func (o ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput) SubnetId(
 
 type ServiceCertificate struct {
 	// The password for the certificate.
-	CertificatePassword string `pulumi:"certificatePassword"`
-	// The Base64 Encoded PFX Certificate.
+	CertificatePassword *string `pulumi:"certificatePassword"`
+	// The Base64 Encoded PFX or Base64 Encoded X.509 Certificate.
 	EncodedCertificate string `pulumi:"encodedCertificate"`
 	// The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
 	StoreName string `pulumi:"storeName"`
@@ -5736,8 +5736,8 @@ type ServiceCertificateInput interface {
 
 type ServiceCertificateArgs struct {
 	// The password for the certificate.
-	CertificatePassword pulumi.StringInput `pulumi:"certificatePassword"`
-	// The Base64 Encoded PFX Certificate.
+	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// The Base64 Encoded PFX or Base64 Encoded X.509 Certificate.
 	EncodedCertificate pulumi.StringInput `pulumi:"encodedCertificate"`
 	// The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
 	StoreName pulumi.StringInput `pulumi:"storeName"`
@@ -5795,11 +5795,11 @@ func (o ServiceCertificateOutput) ToServiceCertificateOutputWithContext(ctx cont
 }
 
 // The password for the certificate.
-func (o ServiceCertificateOutput) CertificatePassword() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceCertificate) string { return v.CertificatePassword }).(pulumi.StringOutput)
+func (o ServiceCertificateOutput) CertificatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceCertificate) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
-// The Base64 Encoded PFX Certificate.
+// The Base64 Encoded PFX or Base64 Encoded X.509 Certificate.
 func (o ServiceCertificateOutput) EncodedCertificate() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceCertificate) string { return v.EncodedCertificate }).(pulumi.StringOutput)
 }

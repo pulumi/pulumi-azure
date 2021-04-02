@@ -122,7 +122,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * SKU/edition of the Machine Learning Workspace, possible values are `Basic` for a basic workspace or `Enterprise` for a feature rich workspace. Defaults to `Basic`.
+     * SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
      */
     public readonly skuName!: pulumi.Output<string | undefined>;
     /**
@@ -243,7 +243,7 @@ export interface WorkspaceState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * SKU/edition of the Machine Learning Workspace, possible values are `Basic` for a basic workspace or `Enterprise` for a feature rich workspace. Defaults to `Basic`.
+     * SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
      */
     readonly skuName?: pulumi.Input<string>;
     /**
@@ -301,7 +301,7 @@ export interface WorkspaceArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * SKU/edition of the Machine Learning Workspace, possible values are `Basic` for a basic workspace or `Enterprise` for a feature rich workspace. Defaults to `Basic`.
+     * SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
      */
     readonly skuName?: pulumi.Input<string>;
     /**

@@ -1033,6 +1033,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_media_streaming_locator":  {Tok: azureResource(azureMedia, "StreamingLocator")},
 			"azurerm_media_content_key_policy": {Tok: azureResource(azureMedia, "ContentKeyPolicy")},
 			"azurerm_media_streaming_policy":   {Tok: azureResource(azureMedia, "StreamingPolicy")},
+			"azurerm_media_live_event":         {Tok: azureResource(azureMedia, "LiveEvent")},
 
 			// Monitoring resources
 			"azurerm_monitor_action_group": {
@@ -1640,9 +1641,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_iotcentral_application": {Tok: azureResource(azureIotCentral, "Application")},
 
 			// HPC
-			"azurerm_hpc_cache":             {Tok: azureResource(azureHpc, "Cache")},
-			"azurerm_hpc_cache_blob_target": {Tok: azureResource(azureHpc, "CacheBlobTarget")},
-			"azurerm_hpc_cache_nfs_target":  {Tok: azureResource(azureHpc, "CacheNfsTarget")},
+			"azurerm_hpc_cache":               {Tok: azureResource(azureHpc, "Cache")},
+			"azurerm_hpc_cache_blob_target":   {Tok: azureResource(azureHpc, "CacheBlobTarget")},
+			"azurerm_hpc_cache_nfs_target":    {Tok: azureResource(azureHpc, "CacheNfsTarget")},
+			"azurerm_hpc_cache_access_policy": {Tok: azureResource(azureHpc, "CacheAccessPolicy")},
 
 			// Mixed Reality
 			"azurerm_spatial_anchors_account": {Tok: azureResource(azureMixedReality, "SpatialAnchorsAccount")},
@@ -1749,7 +1751,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_purview_account": {Tok: azureResource(azurePurview, "Account")},
 
 			// Management
-			"azurerm_management_group_template_deployment": {Tok: azureResource(azureManagement, "GroupTemplateDeployment")},
+			"azurerm_management_group_template_deployment":      {Tok: azureResource(azureManagement, "GroupTemplateDeployment")},
+			"azurerm_management_group_subscription_association": {Tok: azureResource(azureManagement, "GroupSubscriptionAssociation")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},

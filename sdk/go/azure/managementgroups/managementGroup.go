@@ -12,6 +12,8 @@ import (
 
 // Manages a Management Group.
 //
+// !> **Note:** Configuring `subscriptionIds` is not supported when using the `management.GroupSubscriptionAssociation` resource, results will be unpredictable.
+//
 // ## Example Usage
 //
 // ```go

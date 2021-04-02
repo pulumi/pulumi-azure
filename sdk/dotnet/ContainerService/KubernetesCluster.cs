@@ -89,7 +89,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterAutoScalerProfile> AutoScalerProfile { get; private set; } = null!;
 
         /// <summary>
-        /// The upgrade channel for this Kubernetes Cluster. Possible values are `none`, `patch`, `rapid`, and `stable`. The default value is `none`.
+        /// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
         /// </summary>
         [Output("automaticChannelUpgrade")]
         public Output<string?> AutomaticChannelUpgrade { get; private set; } = null!;
@@ -321,7 +321,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterAutoScalerProfileArgs>? AutoScalerProfile { get; set; }
 
         /// <summary>
-        /// The upgrade channel for this Kubernetes Cluster. Possible values are `none`, `patch`, `rapid`, and `stable`. The default value is `none`.
+        /// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
         /// </summary>
         [Input("automaticChannelUpgrade")]
         public Input<string>? AutomaticChannelUpgrade { get; set; }
@@ -478,7 +478,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterAutoScalerProfileGetArgs>? AutoScalerProfile { get; set; }
 
         /// <summary>
-        /// The upgrade channel for this Kubernetes Cluster. Possible values are `none`, `patch`, `rapid`, and `stable`. The default value is `none`.
+        /// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
         /// </summary>
         [Input("automaticChannelUpgrade")]
         public Input<string>? AutomaticChannelUpgrade { get; set; }

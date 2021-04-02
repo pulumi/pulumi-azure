@@ -136,7 +136,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// SKU/edition of the Machine Learning Workspace, possible values are `Basic` for a basic workspace or `Enterprise` for a feature rich workspace. Defaults to `Basic`.
+        /// SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         /// </summary>
         [Output("skuName")]
         public Output<string?> SkuName { get; private set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// SKU/edition of the Machine Learning Workspace, possible values are `Basic` for a basic workspace or `Enterprise` for a feature rich workspace. Defaults to `Basic`.
+        /// SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -351,7 +351,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// SKU/edition of the Machine Learning Workspace, possible values are `Basic` for a basic workspace or `Enterprise` for a feature rich workspace. Defaults to `Basic`.
+        /// SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

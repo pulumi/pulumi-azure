@@ -103,6 +103,10 @@ export class Firewall extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
+     */
+    public readonly privateIpRanges!: pulumi.Output<string[] | undefined>;
+    /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -150,6 +154,7 @@ export class Firewall extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["managementIpConfiguration"] = state ? state.managementIpConfiguration : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["privateIpRanges"] = state ? state.privateIpRanges : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
             inputs["skuTier"] = state ? state.skuTier : undefined;
@@ -168,6 +173,7 @@ export class Firewall extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["managementIpConfiguration"] = args ? args.managementIpConfiguration : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["privateIpRanges"] = args ? args.privateIpRanges : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["skuTier"] = args ? args.skuTier : undefined;
@@ -211,6 +217,10 @@ export interface FirewallState {
      * Specifies the name of the Firewall. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
+     */
+    readonly privateIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
@@ -269,6 +279,10 @@ export interface FirewallArgs {
      * Specifies the name of the Firewall. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
+     */
+    readonly privateIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */

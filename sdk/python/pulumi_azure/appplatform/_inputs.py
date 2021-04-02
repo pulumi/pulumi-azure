@@ -634,11 +634,15 @@ class SpringCloudServiceNetworkArgs:
 @pulumi.input_type
 class SpringCloudServiceTraceArgs:
     def __init__(__self__, *,
-                 instrumentation_key: pulumi.Input[str]):
+                 instrumentation_key: pulumi.Input[str],
+                 sample_rate: Optional[pulumi.Input[float]] = None):
         """
         :param pulumi.Input[str] instrumentation_key: The Instrumentation Key used for Application Insights.
+        :param pulumi.Input[float] sample_rate: The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
         """
         pulumi.set(__self__, "instrumentation_key", instrumentation_key)
+        if sample_rate is not None:
+            pulumi.set(__self__, "sample_rate", sample_rate)
 
     @property
     @pulumi.getter(name="instrumentationKey")
@@ -651,5 +655,17 @@ class SpringCloudServiceTraceArgs:
     @instrumentation_key.setter
     def instrumentation_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "instrumentation_key", value)
+
+    @property
+    @pulumi.getter(name="sampleRate")
+    def sample_rate(self) -> Optional[pulumi.Input[float]]:
+        """
+        The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
+        """
+        return pulumi.get(self, "sample_rate")
+
+    @sample_rate.setter
+    def sample_rate(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "sample_rate", value)
 
 

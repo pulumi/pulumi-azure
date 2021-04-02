@@ -78,6 +78,8 @@ type Registry struct {
 	NetworkRuleSet RegistryNetworkRuleSetOutput `pulumi:"networkRuleSet"`
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
+	// Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+	QuarantinePolicyEnabled pulumi.BoolPtrOutput `pulumi:"quarantinePolicyEnabled"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `retentionPolicy` block as documented below.
@@ -142,6 +144,8 @@ type registryState struct {
 	NetworkRuleSet *RegistryNetworkRuleSet `pulumi:"networkRuleSet"`
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
+	// Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+	QuarantinePolicyEnabled *bool `pulumi:"quarantinePolicyEnabled"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `retentionPolicy` block as documented below.
@@ -175,6 +179,8 @@ type RegistryState struct {
 	NetworkRuleSet RegistryNetworkRuleSetPtrInput
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
+	// Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+	QuarantinePolicyEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `retentionPolicy` block as documented below.
@@ -206,6 +212,8 @@ type registryArgs struct {
 	NetworkRuleSet *RegistryNetworkRuleSet `pulumi:"networkRuleSet"`
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
+	// Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+	QuarantinePolicyEnabled *bool `pulumi:"quarantinePolicyEnabled"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `retentionPolicy` block as documented below.
@@ -234,6 +242,8 @@ type RegistryArgs struct {
 	NetworkRuleSet RegistryNetworkRuleSetPtrInput
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
+	// Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+	QuarantinePolicyEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `retentionPolicy` block as documented below.

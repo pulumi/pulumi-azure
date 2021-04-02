@@ -89,7 +89,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic` for a basic workspace or `Enterprise` for a feature rich workspace. Defaults to `Basic`.
+        :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
@@ -173,7 +173,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic` for a basic workspace or `Enterprise` for a feature rich workspace. Defaults to `Basic`.
+        :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
@@ -280,7 +280,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[Optional[str]]:
         """
-        SKU/edition of the Machine Learning Workspace, possible values are `Basic` for a basic workspace or `Enterprise` for a feature rich workspace. Defaults to `Basic`.
+        SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         """
         return pulumi.get(self, "sku_name")
 

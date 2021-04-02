@@ -118,6 +118,12 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
+        /// </summary>
+        [Output("privateIpRanges")]
+        public Output<ImmutableArray<string>> PrivateIpRanges { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -253,6 +259,18 @@ namespace Pulumi.Azure.Network
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("privateIpRanges")]
+        private InputList<string>? _privateIpRanges;
+
+        /// <summary>
+        /// A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
+        /// </summary>
+        public InputList<string> PrivateIpRanges
+        {
+            get => _privateIpRanges ?? (_privateIpRanges = new InputList<string>());
+            set => _privateIpRanges = value;
+        }
+
         /// <summary>
         /// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         /// </summary>
@@ -361,6 +379,18 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("privateIpRanges")]
+        private InputList<string>? _privateIpRanges;
+
+        /// <summary>
+        /// A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
+        /// </summary>
+        public InputList<string> PrivateIpRanges
+        {
+            get => _privateIpRanges ?? (_privateIpRanges = new InputList<string>());
+            set => _privateIpRanges = value;
+        }
 
         /// <summary>
         /// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.

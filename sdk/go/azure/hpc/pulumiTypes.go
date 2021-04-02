@@ -10,6 +10,457 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type CacheAccessPolicyAccessRule struct {
+	// The access level for this rule. Possible values are: `rw`, `ro`, `no`.
+	Access string `pulumi:"access"`
+	// The anonymous GID used when `rootSquashEnabled` is `true`.
+	AnonymousGid *int `pulumi:"anonymousGid"`
+	// The anonymous UID used when `rootSquashEnabled` is `true`.
+	AnonymousUid *int `pulumi:"anonymousUid"`
+	// The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
+	Filter *string `pulumi:"filter"`
+	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+	RootSquashEnabled *bool `pulumi:"rootSquashEnabled"`
+	// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+	Scope string `pulumi:"scope"`
+	// Whether allow access to subdirectories under the root export? Defaults to `false`.
+	SubmountAccessEnabled *bool `pulumi:"submountAccessEnabled"`
+	// Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+	SuidEnabled *bool `pulumi:"suidEnabled"`
+}
+
+// CacheAccessPolicyAccessRuleInput is an input type that accepts CacheAccessPolicyAccessRuleArgs and CacheAccessPolicyAccessRuleOutput values.
+// You can construct a concrete instance of `CacheAccessPolicyAccessRuleInput` via:
+//
+//          CacheAccessPolicyAccessRuleArgs{...}
+type CacheAccessPolicyAccessRuleInput interface {
+	pulumi.Input
+
+	ToCacheAccessPolicyAccessRuleOutput() CacheAccessPolicyAccessRuleOutput
+	ToCacheAccessPolicyAccessRuleOutputWithContext(context.Context) CacheAccessPolicyAccessRuleOutput
+}
+
+type CacheAccessPolicyAccessRuleArgs struct {
+	// The access level for this rule. Possible values are: `rw`, `ro`, `no`.
+	Access pulumi.StringInput `pulumi:"access"`
+	// The anonymous GID used when `rootSquashEnabled` is `true`.
+	AnonymousGid pulumi.IntPtrInput `pulumi:"anonymousGid"`
+	// The anonymous UID used when `rootSquashEnabled` is `true`.
+	AnonymousUid pulumi.IntPtrInput `pulumi:"anonymousUid"`
+	// The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
+	Filter pulumi.StringPtrInput `pulumi:"filter"`
+	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+	RootSquashEnabled pulumi.BoolPtrInput `pulumi:"rootSquashEnabled"`
+	// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+	Scope pulumi.StringInput `pulumi:"scope"`
+	// Whether allow access to subdirectories under the root export? Defaults to `false`.
+	SubmountAccessEnabled pulumi.BoolPtrInput `pulumi:"submountAccessEnabled"`
+	// Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+	SuidEnabled pulumi.BoolPtrInput `pulumi:"suidEnabled"`
+}
+
+func (CacheAccessPolicyAccessRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheAccessPolicyAccessRule)(nil)).Elem()
+}
+
+func (i CacheAccessPolicyAccessRuleArgs) ToCacheAccessPolicyAccessRuleOutput() CacheAccessPolicyAccessRuleOutput {
+	return i.ToCacheAccessPolicyAccessRuleOutputWithContext(context.Background())
+}
+
+func (i CacheAccessPolicyAccessRuleArgs) ToCacheAccessPolicyAccessRuleOutputWithContext(ctx context.Context) CacheAccessPolicyAccessRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheAccessPolicyAccessRuleOutput)
+}
+
+// CacheAccessPolicyAccessRuleArrayInput is an input type that accepts CacheAccessPolicyAccessRuleArray and CacheAccessPolicyAccessRuleArrayOutput values.
+// You can construct a concrete instance of `CacheAccessPolicyAccessRuleArrayInput` via:
+//
+//          CacheAccessPolicyAccessRuleArray{ CacheAccessPolicyAccessRuleArgs{...} }
+type CacheAccessPolicyAccessRuleArrayInput interface {
+	pulumi.Input
+
+	ToCacheAccessPolicyAccessRuleArrayOutput() CacheAccessPolicyAccessRuleArrayOutput
+	ToCacheAccessPolicyAccessRuleArrayOutputWithContext(context.Context) CacheAccessPolicyAccessRuleArrayOutput
+}
+
+type CacheAccessPolicyAccessRuleArray []CacheAccessPolicyAccessRuleInput
+
+func (CacheAccessPolicyAccessRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CacheAccessPolicyAccessRule)(nil)).Elem()
+}
+
+func (i CacheAccessPolicyAccessRuleArray) ToCacheAccessPolicyAccessRuleArrayOutput() CacheAccessPolicyAccessRuleArrayOutput {
+	return i.ToCacheAccessPolicyAccessRuleArrayOutputWithContext(context.Background())
+}
+
+func (i CacheAccessPolicyAccessRuleArray) ToCacheAccessPolicyAccessRuleArrayOutputWithContext(ctx context.Context) CacheAccessPolicyAccessRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheAccessPolicyAccessRuleArrayOutput)
+}
+
+type CacheAccessPolicyAccessRuleOutput struct{ *pulumi.OutputState }
+
+func (CacheAccessPolicyAccessRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheAccessPolicyAccessRule)(nil)).Elem()
+}
+
+func (o CacheAccessPolicyAccessRuleOutput) ToCacheAccessPolicyAccessRuleOutput() CacheAccessPolicyAccessRuleOutput {
+	return o
+}
+
+func (o CacheAccessPolicyAccessRuleOutput) ToCacheAccessPolicyAccessRuleOutputWithContext(ctx context.Context) CacheAccessPolicyAccessRuleOutput {
+	return o
+}
+
+// The access level for this rule. Possible values are: `rw`, `ro`, `no`.
+func (o CacheAccessPolicyAccessRuleOutput) Access() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheAccessPolicyAccessRule) string { return v.Access }).(pulumi.StringOutput)
+}
+
+// The anonymous GID used when `rootSquashEnabled` is `true`.
+func (o CacheAccessPolicyAccessRuleOutput) AnonymousGid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CacheAccessPolicyAccessRule) *int { return v.AnonymousGid }).(pulumi.IntPtrOutput)
+}
+
+// The anonymous UID used when `rootSquashEnabled` is `true`.
+func (o CacheAccessPolicyAccessRuleOutput) AnonymousUid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CacheAccessPolicyAccessRule) *int { return v.AnonymousUid }).(pulumi.IntPtrOutput)
+}
+
+// The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
+func (o CacheAccessPolicyAccessRuleOutput) Filter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheAccessPolicyAccessRule) *string { return v.Filter }).(pulumi.StringPtrOutput)
+}
+
+// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+func (o CacheAccessPolicyAccessRuleOutput) RootSquashEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheAccessPolicyAccessRule) *bool { return v.RootSquashEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+func (o CacheAccessPolicyAccessRuleOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheAccessPolicyAccessRule) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+// Whether allow access to subdirectories under the root export? Defaults to `false`.
+func (o CacheAccessPolicyAccessRuleOutput) SubmountAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheAccessPolicyAccessRule) *bool { return v.SubmountAccessEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+func (o CacheAccessPolicyAccessRuleOutput) SuidEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheAccessPolicyAccessRule) *bool { return v.SuidEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type CacheAccessPolicyAccessRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (CacheAccessPolicyAccessRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CacheAccessPolicyAccessRule)(nil)).Elem()
+}
+
+func (o CacheAccessPolicyAccessRuleArrayOutput) ToCacheAccessPolicyAccessRuleArrayOutput() CacheAccessPolicyAccessRuleArrayOutput {
+	return o
+}
+
+func (o CacheAccessPolicyAccessRuleArrayOutput) ToCacheAccessPolicyAccessRuleArrayOutputWithContext(ctx context.Context) CacheAccessPolicyAccessRuleArrayOutput {
+	return o
+}
+
+func (o CacheAccessPolicyAccessRuleArrayOutput) Index(i pulumi.IntInput) CacheAccessPolicyAccessRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CacheAccessPolicyAccessRule {
+		return vs[0].([]CacheAccessPolicyAccessRule)[vs[1].(int)]
+	}).(CacheAccessPolicyAccessRuleOutput)
+}
+
+type CacheDefaultAccessPolicy struct {
+	// One to three `accessRule` blocks as defined above.
+	AccessRules []CacheDefaultAccessPolicyAccessRule `pulumi:"accessRules"`
+}
+
+// CacheDefaultAccessPolicyInput is an input type that accepts CacheDefaultAccessPolicyArgs and CacheDefaultAccessPolicyOutput values.
+// You can construct a concrete instance of `CacheDefaultAccessPolicyInput` via:
+//
+//          CacheDefaultAccessPolicyArgs{...}
+type CacheDefaultAccessPolicyInput interface {
+	pulumi.Input
+
+	ToCacheDefaultAccessPolicyOutput() CacheDefaultAccessPolicyOutput
+	ToCacheDefaultAccessPolicyOutputWithContext(context.Context) CacheDefaultAccessPolicyOutput
+}
+
+type CacheDefaultAccessPolicyArgs struct {
+	// One to three `accessRule` blocks as defined above.
+	AccessRules CacheDefaultAccessPolicyAccessRuleArrayInput `pulumi:"accessRules"`
+}
+
+func (CacheDefaultAccessPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheDefaultAccessPolicy)(nil)).Elem()
+}
+
+func (i CacheDefaultAccessPolicyArgs) ToCacheDefaultAccessPolicyOutput() CacheDefaultAccessPolicyOutput {
+	return i.ToCacheDefaultAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i CacheDefaultAccessPolicyArgs) ToCacheDefaultAccessPolicyOutputWithContext(ctx context.Context) CacheDefaultAccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDefaultAccessPolicyOutput)
+}
+
+func (i CacheDefaultAccessPolicyArgs) ToCacheDefaultAccessPolicyPtrOutput() CacheDefaultAccessPolicyPtrOutput {
+	return i.ToCacheDefaultAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i CacheDefaultAccessPolicyArgs) ToCacheDefaultAccessPolicyPtrOutputWithContext(ctx context.Context) CacheDefaultAccessPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDefaultAccessPolicyOutput).ToCacheDefaultAccessPolicyPtrOutputWithContext(ctx)
+}
+
+// CacheDefaultAccessPolicyPtrInput is an input type that accepts CacheDefaultAccessPolicyArgs, CacheDefaultAccessPolicyPtr and CacheDefaultAccessPolicyPtrOutput values.
+// You can construct a concrete instance of `CacheDefaultAccessPolicyPtrInput` via:
+//
+//          CacheDefaultAccessPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheDefaultAccessPolicyPtrInput interface {
+	pulumi.Input
+
+	ToCacheDefaultAccessPolicyPtrOutput() CacheDefaultAccessPolicyPtrOutput
+	ToCacheDefaultAccessPolicyPtrOutputWithContext(context.Context) CacheDefaultAccessPolicyPtrOutput
+}
+
+type cacheDefaultAccessPolicyPtrType CacheDefaultAccessPolicyArgs
+
+func CacheDefaultAccessPolicyPtr(v *CacheDefaultAccessPolicyArgs) CacheDefaultAccessPolicyPtrInput {
+	return (*cacheDefaultAccessPolicyPtrType)(v)
+}
+
+func (*cacheDefaultAccessPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheDefaultAccessPolicy)(nil)).Elem()
+}
+
+func (i *cacheDefaultAccessPolicyPtrType) ToCacheDefaultAccessPolicyPtrOutput() CacheDefaultAccessPolicyPtrOutput {
+	return i.ToCacheDefaultAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheDefaultAccessPolicyPtrType) ToCacheDefaultAccessPolicyPtrOutputWithContext(ctx context.Context) CacheDefaultAccessPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDefaultAccessPolicyPtrOutput)
+}
+
+type CacheDefaultAccessPolicyOutput struct{ *pulumi.OutputState }
+
+func (CacheDefaultAccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheDefaultAccessPolicy)(nil)).Elem()
+}
+
+func (o CacheDefaultAccessPolicyOutput) ToCacheDefaultAccessPolicyOutput() CacheDefaultAccessPolicyOutput {
+	return o
+}
+
+func (o CacheDefaultAccessPolicyOutput) ToCacheDefaultAccessPolicyOutputWithContext(ctx context.Context) CacheDefaultAccessPolicyOutput {
+	return o
+}
+
+func (o CacheDefaultAccessPolicyOutput) ToCacheDefaultAccessPolicyPtrOutput() CacheDefaultAccessPolicyPtrOutput {
+	return o.ToCacheDefaultAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o CacheDefaultAccessPolicyOutput) ToCacheDefaultAccessPolicyPtrOutputWithContext(ctx context.Context) CacheDefaultAccessPolicyPtrOutput {
+	return o.ApplyT(func(v CacheDefaultAccessPolicy) *CacheDefaultAccessPolicy {
+		return &v
+	}).(CacheDefaultAccessPolicyPtrOutput)
+}
+
+// One to three `accessRule` blocks as defined above.
+func (o CacheDefaultAccessPolicyOutput) AccessRules() CacheDefaultAccessPolicyAccessRuleArrayOutput {
+	return o.ApplyT(func(v CacheDefaultAccessPolicy) []CacheDefaultAccessPolicyAccessRule { return v.AccessRules }).(CacheDefaultAccessPolicyAccessRuleArrayOutput)
+}
+
+type CacheDefaultAccessPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheDefaultAccessPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheDefaultAccessPolicy)(nil)).Elem()
+}
+
+func (o CacheDefaultAccessPolicyPtrOutput) ToCacheDefaultAccessPolicyPtrOutput() CacheDefaultAccessPolicyPtrOutput {
+	return o
+}
+
+func (o CacheDefaultAccessPolicyPtrOutput) ToCacheDefaultAccessPolicyPtrOutputWithContext(ctx context.Context) CacheDefaultAccessPolicyPtrOutput {
+	return o
+}
+
+func (o CacheDefaultAccessPolicyPtrOutput) Elem() CacheDefaultAccessPolicyOutput {
+	return o.ApplyT(func(v *CacheDefaultAccessPolicy) CacheDefaultAccessPolicy { return *v }).(CacheDefaultAccessPolicyOutput)
+}
+
+// One to three `accessRule` blocks as defined above.
+func (o CacheDefaultAccessPolicyPtrOutput) AccessRules() CacheDefaultAccessPolicyAccessRuleArrayOutput {
+	return o.ApplyT(func(v *CacheDefaultAccessPolicy) []CacheDefaultAccessPolicyAccessRule {
+		if v == nil {
+			return nil
+		}
+		return v.AccessRules
+	}).(CacheDefaultAccessPolicyAccessRuleArrayOutput)
+}
+
+type CacheDefaultAccessPolicyAccessRule struct {
+	// The access level for this rule. Possible values are: `rw`, `ro`, `no`.
+	Access string `pulumi:"access"`
+	// The anonymous GID used when `rootSquashEnabled` is `true`.
+	AnonymousGid *int `pulumi:"anonymousGid"`
+	// The anonymous UID used when `rootSquashEnabled` is `true`.
+	AnonymousUid *int `pulumi:"anonymousUid"`
+	// The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
+	Filter *string `pulumi:"filter"`
+	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+	RootSquashEnabled *bool `pulumi:"rootSquashEnabled"`
+	// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+	Scope string `pulumi:"scope"`
+	// Whether allow access to subdirectories under the root export? Defaults to `false`.
+	SubmountAccessEnabled *bool `pulumi:"submountAccessEnabled"`
+	// Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+	SuidEnabled *bool `pulumi:"suidEnabled"`
+}
+
+// CacheDefaultAccessPolicyAccessRuleInput is an input type that accepts CacheDefaultAccessPolicyAccessRuleArgs and CacheDefaultAccessPolicyAccessRuleOutput values.
+// You can construct a concrete instance of `CacheDefaultAccessPolicyAccessRuleInput` via:
+//
+//          CacheDefaultAccessPolicyAccessRuleArgs{...}
+type CacheDefaultAccessPolicyAccessRuleInput interface {
+	pulumi.Input
+
+	ToCacheDefaultAccessPolicyAccessRuleOutput() CacheDefaultAccessPolicyAccessRuleOutput
+	ToCacheDefaultAccessPolicyAccessRuleOutputWithContext(context.Context) CacheDefaultAccessPolicyAccessRuleOutput
+}
+
+type CacheDefaultAccessPolicyAccessRuleArgs struct {
+	// The access level for this rule. Possible values are: `rw`, `ro`, `no`.
+	Access pulumi.StringInput `pulumi:"access"`
+	// The anonymous GID used when `rootSquashEnabled` is `true`.
+	AnonymousGid pulumi.IntPtrInput `pulumi:"anonymousGid"`
+	// The anonymous UID used when `rootSquashEnabled` is `true`.
+	AnonymousUid pulumi.IntPtrInput `pulumi:"anonymousUid"`
+	// The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
+	Filter pulumi.StringPtrInput `pulumi:"filter"`
+	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+	RootSquashEnabled pulumi.BoolPtrInput `pulumi:"rootSquashEnabled"`
+	// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+	Scope pulumi.StringInput `pulumi:"scope"`
+	// Whether allow access to subdirectories under the root export? Defaults to `false`.
+	SubmountAccessEnabled pulumi.BoolPtrInput `pulumi:"submountAccessEnabled"`
+	// Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+	SuidEnabled pulumi.BoolPtrInput `pulumi:"suidEnabled"`
+}
+
+func (CacheDefaultAccessPolicyAccessRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheDefaultAccessPolicyAccessRule)(nil)).Elem()
+}
+
+func (i CacheDefaultAccessPolicyAccessRuleArgs) ToCacheDefaultAccessPolicyAccessRuleOutput() CacheDefaultAccessPolicyAccessRuleOutput {
+	return i.ToCacheDefaultAccessPolicyAccessRuleOutputWithContext(context.Background())
+}
+
+func (i CacheDefaultAccessPolicyAccessRuleArgs) ToCacheDefaultAccessPolicyAccessRuleOutputWithContext(ctx context.Context) CacheDefaultAccessPolicyAccessRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDefaultAccessPolicyAccessRuleOutput)
+}
+
+// CacheDefaultAccessPolicyAccessRuleArrayInput is an input type that accepts CacheDefaultAccessPolicyAccessRuleArray and CacheDefaultAccessPolicyAccessRuleArrayOutput values.
+// You can construct a concrete instance of `CacheDefaultAccessPolicyAccessRuleArrayInput` via:
+//
+//          CacheDefaultAccessPolicyAccessRuleArray{ CacheDefaultAccessPolicyAccessRuleArgs{...} }
+type CacheDefaultAccessPolicyAccessRuleArrayInput interface {
+	pulumi.Input
+
+	ToCacheDefaultAccessPolicyAccessRuleArrayOutput() CacheDefaultAccessPolicyAccessRuleArrayOutput
+	ToCacheDefaultAccessPolicyAccessRuleArrayOutputWithContext(context.Context) CacheDefaultAccessPolicyAccessRuleArrayOutput
+}
+
+type CacheDefaultAccessPolicyAccessRuleArray []CacheDefaultAccessPolicyAccessRuleInput
+
+func (CacheDefaultAccessPolicyAccessRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CacheDefaultAccessPolicyAccessRule)(nil)).Elem()
+}
+
+func (i CacheDefaultAccessPolicyAccessRuleArray) ToCacheDefaultAccessPolicyAccessRuleArrayOutput() CacheDefaultAccessPolicyAccessRuleArrayOutput {
+	return i.ToCacheDefaultAccessPolicyAccessRuleArrayOutputWithContext(context.Background())
+}
+
+func (i CacheDefaultAccessPolicyAccessRuleArray) ToCacheDefaultAccessPolicyAccessRuleArrayOutputWithContext(ctx context.Context) CacheDefaultAccessPolicyAccessRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDefaultAccessPolicyAccessRuleArrayOutput)
+}
+
+type CacheDefaultAccessPolicyAccessRuleOutput struct{ *pulumi.OutputState }
+
+func (CacheDefaultAccessPolicyAccessRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheDefaultAccessPolicyAccessRule)(nil)).Elem()
+}
+
+func (o CacheDefaultAccessPolicyAccessRuleOutput) ToCacheDefaultAccessPolicyAccessRuleOutput() CacheDefaultAccessPolicyAccessRuleOutput {
+	return o
+}
+
+func (o CacheDefaultAccessPolicyAccessRuleOutput) ToCacheDefaultAccessPolicyAccessRuleOutputWithContext(ctx context.Context) CacheDefaultAccessPolicyAccessRuleOutput {
+	return o
+}
+
+// The access level for this rule. Possible values are: `rw`, `ro`, `no`.
+func (o CacheDefaultAccessPolicyAccessRuleOutput) Access() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheDefaultAccessPolicyAccessRule) string { return v.Access }).(pulumi.StringOutput)
+}
+
+// The anonymous GID used when `rootSquashEnabled` is `true`.
+func (o CacheDefaultAccessPolicyAccessRuleOutput) AnonymousGid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CacheDefaultAccessPolicyAccessRule) *int { return v.AnonymousGid }).(pulumi.IntPtrOutput)
+}
+
+// The anonymous UID used when `rootSquashEnabled` is `true`.
+func (o CacheDefaultAccessPolicyAccessRuleOutput) AnonymousUid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CacheDefaultAccessPolicyAccessRule) *int { return v.AnonymousUid }).(pulumi.IntPtrOutput)
+}
+
+// The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
+func (o CacheDefaultAccessPolicyAccessRuleOutput) Filter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheDefaultAccessPolicyAccessRule) *string { return v.Filter }).(pulumi.StringPtrOutput)
+}
+
+// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+func (o CacheDefaultAccessPolicyAccessRuleOutput) RootSquashEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheDefaultAccessPolicyAccessRule) *bool { return v.RootSquashEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+func (o CacheDefaultAccessPolicyAccessRuleOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheDefaultAccessPolicyAccessRule) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+// Whether allow access to subdirectories under the root export? Defaults to `false`.
+func (o CacheDefaultAccessPolicyAccessRuleOutput) SubmountAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheDefaultAccessPolicyAccessRule) *bool { return v.SubmountAccessEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+func (o CacheDefaultAccessPolicyAccessRuleOutput) SuidEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheDefaultAccessPolicyAccessRule) *bool { return v.SuidEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type CacheDefaultAccessPolicyAccessRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (CacheDefaultAccessPolicyAccessRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CacheDefaultAccessPolicyAccessRule)(nil)).Elem()
+}
+
+func (o CacheDefaultAccessPolicyAccessRuleArrayOutput) ToCacheDefaultAccessPolicyAccessRuleArrayOutput() CacheDefaultAccessPolicyAccessRuleArrayOutput {
+	return o
+}
+
+func (o CacheDefaultAccessPolicyAccessRuleArrayOutput) ToCacheDefaultAccessPolicyAccessRuleArrayOutputWithContext(ctx context.Context) CacheDefaultAccessPolicyAccessRuleArrayOutput {
+	return o
+}
+
+func (o CacheDefaultAccessPolicyAccessRuleArrayOutput) Index(i pulumi.IntInput) CacheDefaultAccessPolicyAccessRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CacheDefaultAccessPolicyAccessRule {
+		return vs[0].([]CacheDefaultAccessPolicyAccessRule)[vs[1].(int)]
+	}).(CacheDefaultAccessPolicyAccessRuleOutput)
+}
+
 type CacheNfsTargetNamespaceJunction struct {
 	// The client-facing file path of this NFS target within the HPC Cache NFS Target.
 	NamespacePath string `pulumi:"namespacePath"`
@@ -126,6 +577,12 @@ func (o CacheNfsTargetNamespaceJunctionArrayOutput) Index(i pulumi.IntInput) Cac
 }
 
 func init() {
+	pulumi.RegisterOutputType(CacheAccessPolicyAccessRuleOutput{})
+	pulumi.RegisterOutputType(CacheAccessPolicyAccessRuleArrayOutput{})
+	pulumi.RegisterOutputType(CacheDefaultAccessPolicyOutput{})
+	pulumi.RegisterOutputType(CacheDefaultAccessPolicyPtrOutput{})
+	pulumi.RegisterOutputType(CacheDefaultAccessPolicyAccessRuleOutput{})
+	pulumi.RegisterOutputType(CacheDefaultAccessPolicyAccessRuleArrayOutput{})
 	pulumi.RegisterOutputType(CacheNfsTargetNamespaceJunctionOutput{})
 	pulumi.RegisterOutputType(CacheNfsTargetNamespaceJunctionArrayOutput{})
 }

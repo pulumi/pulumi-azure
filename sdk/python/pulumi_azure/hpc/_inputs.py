@@ -9,8 +9,299 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
+    'CacheAccessPolicyAccessRuleArgs',
+    'CacheDefaultAccessPolicyArgs',
+    'CacheDefaultAccessPolicyAccessRuleArgs',
     'CacheNfsTargetNamespaceJunctionArgs',
 ]
+
+@pulumi.input_type
+class CacheAccessPolicyAccessRuleArgs:
+    def __init__(__self__, *,
+                 access: pulumi.Input[str],
+                 scope: pulumi.Input[str],
+                 anonymous_gid: Optional[pulumi.Input[int]] = None,
+                 anonymous_uid: Optional[pulumi.Input[int]] = None,
+                 filter: Optional[pulumi.Input[str]] = None,
+                 root_squash_enabled: Optional[pulumi.Input[bool]] = None,
+                 submount_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 suid_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] access: The access level for this rule. Possible values are: `rw`, `ro`, `no`.
+        :param pulumi.Input[str] scope: The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+        :param pulumi.Input[int] anonymous_gid: The anonymous GID used when `root_squash_enabled` is `true`.
+        :param pulumi.Input[int] anonymous_uid: The anonymous UID used when `root_squash_enabled` is `true`.
+        :param pulumi.Input[str] filter: The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
+        :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+        :param pulumi.Input[bool] submount_access_enabled: Whether allow access to subdirectories under the root export? Defaults to `false`.
+        :param pulumi.Input[bool] suid_enabled: Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+        """
+        pulumi.set(__self__, "access", access)
+        pulumi.set(__self__, "scope", scope)
+        if anonymous_gid is not None:
+            pulumi.set(__self__, "anonymous_gid", anonymous_gid)
+        if anonymous_uid is not None:
+            pulumi.set(__self__, "anonymous_uid", anonymous_uid)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if root_squash_enabled is not None:
+            pulumi.set(__self__, "root_squash_enabled", root_squash_enabled)
+        if submount_access_enabled is not None:
+            pulumi.set(__self__, "submount_access_enabled", submount_access_enabled)
+        if suid_enabled is not None:
+            pulumi.set(__self__, "suid_enabled", suid_enabled)
+
+    @property
+    @pulumi.getter
+    def access(self) -> pulumi.Input[str]:
+        """
+        The access level for this rule. Possible values are: `rw`, `ro`, `no`.
+        """
+        return pulumi.get(self, "access")
+
+    @access.setter
+    def access(self, value: pulumi.Input[str]):
+        pulumi.set(self, "access", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="anonymousGid")
+    def anonymous_gid(self) -> Optional[pulumi.Input[int]]:
+        """
+        The anonymous GID used when `root_squash_enabled` is `true`.
+        """
+        return pulumi.get(self, "anonymous_gid")
+
+    @anonymous_gid.setter
+    def anonymous_gid(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "anonymous_gid", value)
+
+    @property
+    @pulumi.getter(name="anonymousUid")
+    def anonymous_uid(self) -> Optional[pulumi.Input[int]]:
+        """
+        The anonymous UID used when `root_squash_enabled` is `true`.
+        """
+        return pulumi.get(self, "anonymous_uid")
+
+    @anonymous_uid.setter
+    def anonymous_uid(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "anonymous_uid", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter(name="rootSquashEnabled")
+    def root_squash_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+        """
+        return pulumi.get(self, "root_squash_enabled")
+
+    @root_squash_enabled.setter
+    def root_squash_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "root_squash_enabled", value)
+
+    @property
+    @pulumi.getter(name="submountAccessEnabled")
+    def submount_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether allow access to subdirectories under the root export? Defaults to `false`.
+        """
+        return pulumi.get(self, "submount_access_enabled")
+
+    @submount_access_enabled.setter
+    def submount_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "submount_access_enabled", value)
+
+    @property
+    @pulumi.getter(name="suidEnabled")
+    def suid_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+        """
+        return pulumi.get(self, "suid_enabled")
+
+    @suid_enabled.setter
+    def suid_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "suid_enabled", value)
+
+
+@pulumi.input_type
+class CacheDefaultAccessPolicyArgs:
+    def __init__(__self__, *,
+                 access_rules: pulumi.Input[Sequence[pulumi.Input['CacheDefaultAccessPolicyAccessRuleArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['CacheDefaultAccessPolicyAccessRuleArgs']]] access_rules: One to three `access_rule` blocks as defined above.
+        """
+        pulumi.set(__self__, "access_rules", access_rules)
+
+    @property
+    @pulumi.getter(name="accessRules")
+    def access_rules(self) -> pulumi.Input[Sequence[pulumi.Input['CacheDefaultAccessPolicyAccessRuleArgs']]]:
+        """
+        One to three `access_rule` blocks as defined above.
+        """
+        return pulumi.get(self, "access_rules")
+
+    @access_rules.setter
+    def access_rules(self, value: pulumi.Input[Sequence[pulumi.Input['CacheDefaultAccessPolicyAccessRuleArgs']]]):
+        pulumi.set(self, "access_rules", value)
+
+
+@pulumi.input_type
+class CacheDefaultAccessPolicyAccessRuleArgs:
+    def __init__(__self__, *,
+                 access: pulumi.Input[str],
+                 scope: pulumi.Input[str],
+                 anonymous_gid: Optional[pulumi.Input[int]] = None,
+                 anonymous_uid: Optional[pulumi.Input[int]] = None,
+                 filter: Optional[pulumi.Input[str]] = None,
+                 root_squash_enabled: Optional[pulumi.Input[bool]] = None,
+                 submount_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 suid_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] access: The access level for this rule. Possible values are: `rw`, `ro`, `no`.
+        :param pulumi.Input[str] scope: The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+        :param pulumi.Input[int] anonymous_gid: The anonymous GID used when `root_squash_enabled` is `true`.
+        :param pulumi.Input[int] anonymous_uid: The anonymous UID used when `root_squash_enabled` is `true`.
+        :param pulumi.Input[str] filter: The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
+        :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+        :param pulumi.Input[bool] submount_access_enabled: Whether allow access to subdirectories under the root export? Defaults to `false`.
+        :param pulumi.Input[bool] suid_enabled: Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+        """
+        pulumi.set(__self__, "access", access)
+        pulumi.set(__self__, "scope", scope)
+        if anonymous_gid is not None:
+            pulumi.set(__self__, "anonymous_gid", anonymous_gid)
+        if anonymous_uid is not None:
+            pulumi.set(__self__, "anonymous_uid", anonymous_uid)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if root_squash_enabled is not None:
+            pulumi.set(__self__, "root_squash_enabled", root_squash_enabled)
+        if submount_access_enabled is not None:
+            pulumi.set(__self__, "submount_access_enabled", submount_access_enabled)
+        if suid_enabled is not None:
+            pulumi.set(__self__, "suid_enabled", suid_enabled)
+
+    @property
+    @pulumi.getter
+    def access(self) -> pulumi.Input[str]:
+        """
+        The access level for this rule. Possible values are: `rw`, `ro`, `no`.
+        """
+        return pulumi.get(self, "access")
+
+    @access.setter
+    def access(self, value: pulumi.Input[str]):
+        pulumi.set(self, "access", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="anonymousGid")
+    def anonymous_gid(self) -> Optional[pulumi.Input[int]]:
+        """
+        The anonymous GID used when `root_squash_enabled` is `true`.
+        """
+        return pulumi.get(self, "anonymous_gid")
+
+    @anonymous_gid.setter
+    def anonymous_gid(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "anonymous_gid", value)
+
+    @property
+    @pulumi.getter(name="anonymousUid")
+    def anonymous_uid(self) -> Optional[pulumi.Input[int]]:
+        """
+        The anonymous UID used when `root_squash_enabled` is `true`.
+        """
+        return pulumi.get(self, "anonymous_uid")
+
+    @anonymous_uid.setter
+    def anonymous_uid(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "anonymous_uid", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter(name="rootSquashEnabled")
+    def root_squash_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+        """
+        return pulumi.get(self, "root_squash_enabled")
+
+    @root_squash_enabled.setter
+    def root_squash_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "root_squash_enabled", value)
+
+    @property
+    @pulumi.getter(name="submountAccessEnabled")
+    def submount_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether allow access to subdirectories under the root export? Defaults to `false`.
+        """
+        return pulumi.get(self, "submount_access_enabled")
+
+    @submount_access_enabled.setter
+    def submount_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "submount_access_enabled", value)
+
+    @property
+    @pulumi.getter(name="suidEnabled")
+    def suid_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+        """
+        return pulumi.get(self, "suid_enabled")
+
+    @suid_enabled.setter
+    def suid_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "suid_enabled", value)
+
 
 @pulumi.input_type
 class CacheNfsTargetNamespaceJunctionArgs:

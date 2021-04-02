@@ -100,6 +100,10 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+     */
+    public readonly quarantinePolicyEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -146,6 +150,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["networkRuleSet"] = state ? state.networkRuleSet : undefined;
             inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            inputs["quarantinePolicyEnabled"] = state ? state.quarantinePolicyEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
             inputs["sku"] = state ? state.sku : undefined;
@@ -163,6 +168,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
             inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
+            inputs["quarantinePolicyEnabled"] = args ? args.quarantinePolicyEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
             inputs["sku"] = args ? args.sku : undefined;
@@ -221,6 +227,10 @@ export interface RegistryState {
      */
     readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
+     * Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+     */
+    readonly quarantinePolicyEnabled?: pulumi.Input<boolean>;
+    /**
      * The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
@@ -274,6 +284,10 @@ export interface RegistryArgs {
      * Whether public network access is allowed for the container registry. Defaults to `true`.
      */
     readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
+     * Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+     */
+    readonly quarantinePolicyEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
      */

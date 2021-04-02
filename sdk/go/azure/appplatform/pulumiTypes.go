@@ -1612,6 +1612,8 @@ func (o SpringCloudServiceNetworkPtrOutput) ServiceRuntimeSubnetId() pulumi.Stri
 type SpringCloudServiceTrace struct {
 	// The Instrumentation Key used for Application Insights.
 	InstrumentationKey string `pulumi:"instrumentationKey"`
+	// The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
+	SampleRate *float64 `pulumi:"sampleRate"`
 }
 
 // SpringCloudServiceTraceInput is an input type that accepts SpringCloudServiceTraceArgs and SpringCloudServiceTraceOutput values.
@@ -1628,6 +1630,8 @@ type SpringCloudServiceTraceInput interface {
 type SpringCloudServiceTraceArgs struct {
 	// The Instrumentation Key used for Application Insights.
 	InstrumentationKey pulumi.StringInput `pulumi:"instrumentationKey"`
+	// The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
+	SampleRate pulumi.Float64PtrInput `pulumi:"sampleRate"`
 }
 
 func (SpringCloudServiceTraceArgs) ElementType() reflect.Type {
@@ -1712,6 +1716,11 @@ func (o SpringCloudServiceTraceOutput) InstrumentationKey() pulumi.StringOutput 
 	return o.ApplyT(func(v SpringCloudServiceTrace) string { return v.InstrumentationKey }).(pulumi.StringOutput)
 }
 
+// The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
+func (o SpringCloudServiceTraceOutput) SampleRate() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SpringCloudServiceTrace) *float64 { return v.SampleRate }).(pulumi.Float64PtrOutput)
+}
+
 type SpringCloudServiceTracePtrOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudServiceTracePtrOutput) ElementType() reflect.Type {
@@ -1738,6 +1747,16 @@ func (o SpringCloudServiceTracePtrOutput) InstrumentationKey() pulumi.StringPtrO
 		}
 		return &v.InstrumentationKey
 	}).(pulumi.StringPtrOutput)
+}
+
+// The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
+func (o SpringCloudServiceTracePtrOutput) SampleRate() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SpringCloudServiceTrace) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.SampleRate
+	}).(pulumi.Float64PtrOutput)
 }
 
 type GetSpringCloudAppIdentity struct {

@@ -6,6 +6,7 @@
 from .asset import *
 from .content_key_policy import *
 from .job import *
+from .live_event import *
 from .service_account import *
 from .streaming_endpoint import *
 from .streaming_locator import *
@@ -32,6 +33,8 @@ def _register_module():
                 return ContentKeyPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:media/job:Job":
                 return Job(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:media/liveEvent:LiveEvent":
+                return LiveEvent(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:media/serviceAccount:ServiceAccount":
                 return ServiceAccount(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:media/streamingEndpoint:StreamingEndpoint":
@@ -50,6 +53,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "media/asset", _module_instance)
     pulumi.runtime.register_resource_module("azure", "media/contentKeyPolicy", _module_instance)
     pulumi.runtime.register_resource_module("azure", "media/job", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "media/liveEvent", _module_instance)
     pulumi.runtime.register_resource_module("azure", "media/serviceAccount", _module_instance)
     pulumi.runtime.register_resource_module("azure", "media/streamingEndpoint", _module_instance)
     pulumi.runtime.register_resource_module("azure", "media/streamingLocator", _module_instance)

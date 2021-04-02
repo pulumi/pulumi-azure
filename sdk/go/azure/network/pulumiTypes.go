@@ -2706,6 +2706,9 @@ type ApplicationGatewayRewriteRuleSetRewriteRule struct {
 	ResponseHeaderConfigurations []ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration `pulumi:"responseHeaderConfigurations"`
 	// Rule sequence of the rewrite rule that determines the order of execution in a set.
 	RuleSequence int `pulumi:"ruleSequence"`
+	// One `url` block as defined above
+	// ---
+	Url *ApplicationGatewayRewriteRuleSetRewriteRuleUrl `pulumi:"url"`
 }
 
 // ApplicationGatewayRewriteRuleSetRewriteRuleInput is an input type that accepts ApplicationGatewayRewriteRuleSetRewriteRuleArgs and ApplicationGatewayRewriteRuleSetRewriteRuleOutput values.
@@ -2730,6 +2733,9 @@ type ApplicationGatewayRewriteRuleSetRewriteRuleArgs struct {
 	ResponseHeaderConfigurations ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayInput `pulumi:"responseHeaderConfigurations"`
 	// Rule sequence of the rewrite rule that determines the order of execution in a set.
 	RuleSequence pulumi.IntInput `pulumi:"ruleSequence"`
+	// One `url` block as defined above
+	// ---
+	Url ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrInput `pulumi:"url"`
 }
 
 func (ApplicationGatewayRewriteRuleSetRewriteRuleArgs) ElementType() reflect.Type {
@@ -2812,6 +2818,14 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleOutput) ResponseHeaderConfigu
 // Rule sequence of the rewrite rule that determines the order of execution in a set.
 func (o ApplicationGatewayRewriteRuleSetRewriteRuleOutput) RuleSequence() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSetRewriteRule) int { return v.RuleSequence }).(pulumi.IntOutput)
+}
+
+// One `url` block as defined above
+// ---
+func (o ApplicationGatewayRewriteRuleSetRewriteRuleOutput) Url() ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSetRewriteRule) *ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
+		return v.Url
+	}).(ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput)
 }
 
 type ApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput struct{ *pulumi.OutputState }
@@ -3176,6 +3190,177 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationAr
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration {
 		return vs[0].([]ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration)[vs[1].(int)]
 	}).(ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput)
+}
+
+type ApplicationGatewayRewriteRuleSetRewriteRuleUrl struct {
+	// The URL path to rewrite.
+	Path *string `pulumi:"path"`
+	// The query string to rewrite.
+	QueryString *string `pulumi:"queryString"`
+	// Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+	Reroute *bool `pulumi:"reroute"`
+}
+
+// ApplicationGatewayRewriteRuleSetRewriteRuleUrlInput is an input type that accepts ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs and ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput values.
+// You can construct a concrete instance of `ApplicationGatewayRewriteRuleSetRewriteRuleUrlInput` via:
+//
+//          ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs{...}
+type ApplicationGatewayRewriteRuleSetRewriteRuleUrlInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput() ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput
+	ToApplicationGatewayRewriteRuleSetRewriteRuleUrlOutputWithContext(context.Context) ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput
+}
+
+type ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs struct {
+	// The URL path to rewrite.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The query string to rewrite.
+	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
+	// Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+	Reroute pulumi.BoolPtrInput `pulumi:"reroute"`
+}
+
+func (ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayRewriteRuleSetRewriteRuleUrl)(nil)).Elem()
+}
+
+func (i ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs) ToApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput() ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput {
+	return i.ToApplicationGatewayRewriteRuleSetRewriteRuleUrlOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs) ToApplicationGatewayRewriteRuleSetRewriteRuleUrlOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput)
+}
+
+func (i ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs) ToApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput() ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput {
+	return i.ToApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs) ToApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput).ToApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutputWithContext(ctx)
+}
+
+// ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrInput is an input type that accepts ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs, ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtr and ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput values.
+// You can construct a concrete instance of `ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrInput` via:
+//
+//          ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput() ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput
+	ToApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutputWithContext(context.Context) ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput
+}
+
+type applicationGatewayRewriteRuleSetRewriteRuleUrlPtrType ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs
+
+func ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtr(v *ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs) ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrInput {
+	return (*applicationGatewayRewriteRuleSetRewriteRuleUrlPtrType)(v)
+}
+
+func (*applicationGatewayRewriteRuleSetRewriteRuleUrlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGatewayRewriteRuleSetRewriteRuleUrl)(nil)).Elem()
+}
+
+func (i *applicationGatewayRewriteRuleSetRewriteRuleUrlPtrType) ToApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput() ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput {
+	return i.ToApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationGatewayRewriteRuleSetRewriteRuleUrlPtrType) ToApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput)
+}
+
+type ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayRewriteRuleSetRewriteRuleUrl)(nil)).Elem()
+}
+
+func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) ToApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput() ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput {
+	return o
+}
+
+func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) ToApplicationGatewayRewriteRuleSetRewriteRuleUrlOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput {
+	return o
+}
+
+func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) ToApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput() ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput {
+	return o.ToApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) ToApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
+		return &v
+	}).(ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput)
+}
+
+// The URL path to rewrite.
+func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The query string to rewrite.
+func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *string { return v.QueryString }).(pulumi.StringPtrOutput)
+}
+
+// Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) Reroute() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *bool { return v.Reroute }).(pulumi.BoolPtrOutput)
+}
+
+type ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGatewayRewriteRuleSetRewriteRuleUrl)(nil)).Elem()
+}
+
+func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) ToApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput() ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput {
+	return o
+}
+
+func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) ToApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput {
+	return o
+}
+
+func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) Elem() ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput {
+	return o.ApplyT(func(v *ApplicationGatewayRewriteRuleSetRewriteRuleUrl) ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
+		return *v
+	}).(ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput)
+}
+
+// The URL path to rewrite.
+func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// The query string to rewrite.
+func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryString
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) Reroute() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Reroute
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ApplicationGatewaySku struct {
@@ -21928,6 +22113,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewaySkuOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewaySkuPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewaySslCertificateOutput{})

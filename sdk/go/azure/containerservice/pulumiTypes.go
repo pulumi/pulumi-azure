@@ -3076,7 +3076,7 @@ type KubernetesClusterAddonProfileOmsAgent struct {
 	Enabled bool `pulumi:"enabled"`
 	// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
-	// An `omsAgentIdentity` block as defined below.
+	// An `omsAgentIdentity` block is exported. The exported attributes are defined below.
 	OmsAgentIdentities []KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity `pulumi:"omsAgentIdentities"`
 }
 
@@ -3096,7 +3096,7 @@ type KubernetesClusterAddonProfileOmsAgentArgs struct {
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput `pulumi:"logAnalyticsWorkspaceId"`
-	// An `omsAgentIdentity` block as defined below.
+	// An `omsAgentIdentity` block is exported. The exported attributes are defined below.
 	OmsAgentIdentities KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput `pulumi:"omsAgentIdentities"`
 }
 
@@ -3187,7 +3187,7 @@ func (o KubernetesClusterAddonProfileOmsAgentOutput) LogAnalyticsWorkspaceId() p
 	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgent) *string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringPtrOutput)
 }
 
-// An `omsAgentIdentity` block as defined below.
+// An `omsAgentIdentity` block is exported. The exported attributes are defined below.
 func (o KubernetesClusterAddonProfileOmsAgentOutput) OmsAgentIdentities() KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgent) []KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
 		return v.OmsAgentIdentities
@@ -3232,7 +3232,7 @@ func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) LogAnalyticsWorkspaceId(
 	}).(pulumi.StringPtrOutput)
 }
 
-// An `omsAgentIdentity` block as defined below.
+// An `omsAgentIdentity` block is exported. The exported attributes are defined below.
 func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) OmsAgentIdentities() KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterAddonProfileOmsAgent) []KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
 		if v == nil {

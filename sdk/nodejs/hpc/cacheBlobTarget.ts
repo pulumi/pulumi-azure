@@ -99,6 +99,10 @@ export class CacheBlobTarget extends pulumi.CustomResource {
     }
 
     /**
+     * The name of the access policy applied to this target.
+     */
+    public readonly accessPolicyName!: pulumi.Output<string>;
+    /**
      * The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
      */
     public readonly cacheName!: pulumi.Output<string>;
@@ -132,6 +136,7 @@ export class CacheBlobTarget extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CacheBlobTargetState | undefined;
+            inputs["accessPolicyName"] = state ? state.accessPolicyName : undefined;
             inputs["cacheName"] = state ? state.cacheName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namespacePath"] = state ? state.namespacePath : undefined;
@@ -151,6 +156,7 @@ export class CacheBlobTarget extends pulumi.CustomResource {
             if ((!args || args.storageContainerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageContainerId'");
             }
+            inputs["accessPolicyName"] = args ? args.accessPolicyName : undefined;
             inputs["cacheName"] = args ? args.cacheName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespacePath"] = args ? args.namespacePath : undefined;
@@ -168,6 +174,10 @@ export class CacheBlobTarget extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CacheBlobTarget resources.
  */
 export interface CacheBlobTargetState {
+    /**
+     * The name of the access policy applied to this target.
+     */
+    readonly accessPolicyName?: pulumi.Input<string>;
     /**
      * The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
      */
@@ -194,6 +204,10 @@ export interface CacheBlobTargetState {
  * The set of arguments for constructing a CacheBlobTarget resource.
  */
 export interface CacheBlobTargetArgs {
+    /**
+     * The name of the access policy applied to this target.
+     */
+    readonly accessPolicyName?: pulumi.Input<string>;
     /**
      * The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
      */

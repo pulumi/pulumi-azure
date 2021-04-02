@@ -109,6 +109,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+        /// </summary>
+        [Output("quarantinePolicyEnabled")]
+        public Output<bool?> QuarantinePolicyEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -233,6 +239,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
+        /// Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+        /// </summary>
+        [Input("quarantinePolicyEnabled")]
+        public Input<bool>? QuarantinePolicyEnabled { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -340,6 +352,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
+        /// Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+        /// </summary>
+        [Input("quarantinePolicyEnabled")]
+        public Input<bool>? QuarantinePolicyEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.

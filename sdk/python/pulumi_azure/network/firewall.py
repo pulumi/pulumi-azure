@@ -23,6 +23,7 @@ class Firewall(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  management_ip_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
@@ -82,6 +83,7 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']] management_ip_configuration: A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Firewall. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_ranges: A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_tier: Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
@@ -113,6 +115,7 @@ class Firewall(pulumi.CustomResource):
             __props__['location'] = location
             __props__['management_ip_configuration'] = management_ip_configuration
             __props__['name'] = name
+            __props__['private_ip_ranges'] = private_ip_ranges
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -138,6 +141,7 @@ class Firewall(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             management_ip_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             sku_tier: Optional[pulumi.Input[str]] = None,
@@ -158,6 +162,7 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']] management_ip_configuration: A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Firewall. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_ranges: A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_tier: Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
@@ -176,6 +181,7 @@ class Firewall(pulumi.CustomResource):
         __props__["location"] = location
         __props__["management_ip_configuration"] = management_ip_configuration
         __props__["name"] = name
+        __props__["private_ip_ranges"] = private_ip_ranges
         __props__["resource_group_name"] = resource_group_name
         __props__["sku_name"] = sku_name
         __props__["sku_tier"] = sku_tier
@@ -232,6 +238,14 @@ class Firewall(pulumi.CustomResource):
         Specifies the name of the Firewall. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateIpRanges")
+    def private_ip_ranges(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
+        """
+        return pulumi.get(self, "private_ip_ranges")
 
     @property
     @pulumi.getter(name="resourceGroupName")

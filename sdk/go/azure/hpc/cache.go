@@ -84,6 +84,8 @@ type Cache struct {
 
 	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
 	CacheSizeInGb pulumi.IntOutput `pulumi:"cacheSizeInGb"`
+	// A `defaultAccessPolicy` block as defined below.
+	DefaultAccessPolicy CacheDefaultAccessPolicyOutput `pulumi:"defaultAccessPolicy"`
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A list of IP Addresses where the HPC Cache can be mounted.
@@ -94,7 +96,9 @@ type Cache struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Whether root squash property is enabled for this HPC Cache.
+	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+	//
+	// Deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
 	RootSquashEnabled pulumi.BoolOutput `pulumi:"rootSquashEnabled"`
 	// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
@@ -145,6 +149,8 @@ func GetCache(ctx *pulumi.Context,
 type cacheState struct {
 	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
 	CacheSizeInGb *int `pulumi:"cacheSizeInGb"`
+	// A `defaultAccessPolicy` block as defined below.
+	DefaultAccessPolicy *CacheDefaultAccessPolicy `pulumi:"defaultAccessPolicy"`
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// A list of IP Addresses where the HPC Cache can be mounted.
@@ -155,7 +161,9 @@ type cacheState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Whether root squash property is enabled for this HPC Cache.
+	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+	//
+	// Deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
 	RootSquashEnabled *bool `pulumi:"rootSquashEnabled"`
 	// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
@@ -166,6 +174,8 @@ type cacheState struct {
 type CacheState struct {
 	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
 	CacheSizeInGb pulumi.IntPtrInput
+	// A `defaultAccessPolicy` block as defined below.
+	DefaultAccessPolicy CacheDefaultAccessPolicyPtrInput
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// A list of IP Addresses where the HPC Cache can be mounted.
@@ -176,7 +186,9 @@ type CacheState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Whether root squash property is enabled for this HPC Cache.
+	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+	//
+	// Deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
 	RootSquashEnabled pulumi.BoolPtrInput
 	// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
@@ -191,6 +203,8 @@ func (CacheState) ElementType() reflect.Type {
 type cacheArgs struct {
 	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
 	CacheSizeInGb int `pulumi:"cacheSizeInGb"`
+	// A `defaultAccessPolicy` block as defined below.
+	DefaultAccessPolicy *CacheDefaultAccessPolicy `pulumi:"defaultAccessPolicy"`
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
@@ -199,7 +213,9 @@ type cacheArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Whether root squash property is enabled for this HPC Cache.
+	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+	//
+	// Deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
 	RootSquashEnabled *bool `pulumi:"rootSquashEnabled"`
 	// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
 	SkuName string `pulumi:"skuName"`
@@ -211,6 +227,8 @@ type cacheArgs struct {
 type CacheArgs struct {
 	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
 	CacheSizeInGb pulumi.IntInput
+	// A `defaultAccessPolicy` block as defined below.
+	DefaultAccessPolicy CacheDefaultAccessPolicyPtrInput
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
@@ -219,7 +237,9 @@ type CacheArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Whether root squash property is enabled for this HPC Cache.
+	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+	//
+	// Deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
 	RootSquashEnabled pulumi.BoolPtrInput
 	// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringInput

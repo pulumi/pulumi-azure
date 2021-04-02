@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .cache import *
+from .cache_access_policy import *
 from .cache_blob_target import *
 from .cache_nfs_target import *
 from ._inputs import *
@@ -23,6 +24,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure:hpc/cache:Cache":
                 return Cache(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:hpc/cacheAccessPolicy:CacheAccessPolicy":
+                return CacheAccessPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:hpc/cacheBlobTarget:CacheBlobTarget":
                 return CacheBlobTarget(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:hpc/cacheNfsTarget:CacheNfsTarget":
@@ -33,6 +36,7 @@ def _register_module():
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("azure", "hpc/cache", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "hpc/cacheAccessPolicy", _module_instance)
     pulumi.runtime.register_resource_module("azure", "hpc/cacheBlobTarget", _module_instance)
     pulumi.runtime.register_resource_module("azure", "hpc/cacheNfsTarget", _module_instance)
 

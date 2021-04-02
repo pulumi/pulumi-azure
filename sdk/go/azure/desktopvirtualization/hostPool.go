@@ -37,6 +37,7 @@ import (
 // 			ResourceGroupName:      exampleResourceGroup.Name,
 // 			FriendlyName:           pulumi.String("pooleddepthfirst"),
 // 			ValidateEnvironment:    pulumi.Bool(true),
+// 			CustomRdpProperties:    pulumi.String("audiocapturemode:i:1;audiomode:i:0;"),
 // 			Description:            pulumi.String("Acceptance Test: A pooled host pool - pooleddepthfirst"),
 // 			Type:                   pulumi.String("Pooled"),
 // 			MaximumSessionsAllowed: pulumi.Int(50),
@@ -60,6 +61,8 @@ import (
 type HostPool struct {
 	pulumi.CustomResourceState
 
+	// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+	CustomRdpProperties pulumi.StringPtrOutput `pulumi:"customRdpProperties"`
 	// A description for the Virtual Desktop Host Pool.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A friendly name for the Virtual Desktop Host Pool.
@@ -93,7 +96,8 @@ type HostPool struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the Virtual Desktop Host Pool. Valid options are
 	// `Personal` or `Pooled`. Changing the type forces a new resource to be created.
-	Type                pulumi.StringOutput  `pulumi:"type"`
+	Type pulumi.StringOutput `pulumi:"type"`
+	// Allows you to test service changes before they are deployed to production. Defaults to `false`.
 	ValidateEnvironment pulumi.BoolPtrOutput `pulumi:"validateEnvironment"`
 }
 
@@ -135,6 +139,8 @@ func GetHostPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HostPool resources.
 type hostPoolState struct {
+	// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+	CustomRdpProperties *string `pulumi:"customRdpProperties"`
 	// A description for the Virtual Desktop Host Pool.
 	Description *string `pulumi:"description"`
 	// A friendly name for the Virtual Desktop Host Pool.
@@ -168,11 +174,14 @@ type hostPoolState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the Virtual Desktop Host Pool. Valid options are
 	// `Personal` or `Pooled`. Changing the type forces a new resource to be created.
-	Type                *string `pulumi:"type"`
-	ValidateEnvironment *bool   `pulumi:"validateEnvironment"`
+	Type *string `pulumi:"type"`
+	// Allows you to test service changes before they are deployed to production. Defaults to `false`.
+	ValidateEnvironment *bool `pulumi:"validateEnvironment"`
 }
 
 type HostPoolState struct {
+	// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+	CustomRdpProperties pulumi.StringPtrInput
 	// A description for the Virtual Desktop Host Pool.
 	Description pulumi.StringPtrInput
 	// A friendly name for the Virtual Desktop Host Pool.
@@ -206,7 +215,8 @@ type HostPoolState struct {
 	Tags pulumi.StringMapInput
 	// The type of the Virtual Desktop Host Pool. Valid options are
 	// `Personal` or `Pooled`. Changing the type forces a new resource to be created.
-	Type                pulumi.StringPtrInput
+	Type pulumi.StringPtrInput
+	// Allows you to test service changes before they are deployed to production. Defaults to `false`.
 	ValidateEnvironment pulumi.BoolPtrInput
 }
 
@@ -215,6 +225,8 @@ func (HostPoolState) ElementType() reflect.Type {
 }
 
 type hostPoolArgs struct {
+	// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+	CustomRdpProperties *string `pulumi:"customRdpProperties"`
 	// A description for the Virtual Desktop Host Pool.
 	Description *string `pulumi:"description"`
 	// A friendly name for the Virtual Desktop Host Pool.
@@ -248,12 +260,15 @@ type hostPoolArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the Virtual Desktop Host Pool. Valid options are
 	// `Personal` or `Pooled`. Changing the type forces a new resource to be created.
-	Type                string `pulumi:"type"`
-	ValidateEnvironment *bool  `pulumi:"validateEnvironment"`
+	Type string `pulumi:"type"`
+	// Allows you to test service changes before they are deployed to production. Defaults to `false`.
+	ValidateEnvironment *bool `pulumi:"validateEnvironment"`
 }
 
 // The set of arguments for constructing a HostPool resource.
 type HostPoolArgs struct {
+	// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+	CustomRdpProperties pulumi.StringPtrInput
 	// A description for the Virtual Desktop Host Pool.
 	Description pulumi.StringPtrInput
 	// A friendly name for the Virtual Desktop Host Pool.
@@ -287,7 +302,8 @@ type HostPoolArgs struct {
 	Tags pulumi.StringMapInput
 	// The type of the Virtual Desktop Host Pool. Valid options are
 	// `Personal` or `Pooled`. Changing the type forces a new resource to be created.
-	Type                pulumi.StringInput
+	Type pulumi.StringInput
+	// Allows you to test service changes before they are deployed to production. Defaults to `false`.
 	ValidateEnvironment pulumi.BoolPtrInput
 }
 

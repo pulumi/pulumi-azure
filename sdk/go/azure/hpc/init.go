@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:hpc/cache:Cache":
 		r, err = NewCache(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:hpc/cacheAccessPolicy:CacheAccessPolicy":
+		r, err = NewCacheAccessPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:hpc/cacheBlobTarget:CacheBlobTarget":
 		r, err = NewCacheBlobTarget(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:hpc/cacheNfsTarget:CacheNfsTarget":
@@ -42,6 +44,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"hpc/cache",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"hpc/cacheAccessPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

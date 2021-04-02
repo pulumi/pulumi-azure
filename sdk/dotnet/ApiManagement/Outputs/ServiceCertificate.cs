@@ -16,9 +16,9 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// <summary>
         /// The password for the certificate.
         /// </summary>
-        public readonly string CertificatePassword;
+        public readonly string? CertificatePassword;
         /// <summary>
-        /// The Base64 Encoded PFX Certificate.
+        /// The Base64 Encoded PFX or Base64 Encoded X.509 Certificate.
         /// </summary>
         public readonly string EncodedCertificate;
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
         [OutputConstructor]
         private ServiceCertificate(
-            string certificatePassword,
+            string? certificatePassword,
 
             string encodedCertificate,
 

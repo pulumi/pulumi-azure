@@ -15,11 +15,11 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         /// <summary>
         /// The password for the certificate.
         /// </summary>
-        [Input("certificatePassword", required: true)]
-        public Input<string> CertificatePassword { get; set; } = null!;
+        [Input("certificatePassword")]
+        public Input<string>? CertificatePassword { get; set; }
 
         /// <summary>
-        /// The Base64 Encoded PFX Certificate.
+        /// The Base64 Encoded PFX or Base64 Encoded X.509 Certificate.
         /// </summary>
         [Input("encodedCertificate", required: true)]
         public Input<string> EncodedCertificate { get; set; } = null!;

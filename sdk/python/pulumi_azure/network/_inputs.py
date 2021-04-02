@@ -31,6 +31,7 @@ __all__ = [
     'ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs',
     'ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs',
     'ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs',
+    'ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs',
     'ApplicationGatewaySkuArgs',
     'ApplicationGatewaySslCertificateArgs',
     'ApplicationGatewaySslPolicyArgs',
@@ -1857,13 +1858,16 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleArgs:
                  rule_sequence: pulumi.Input[int],
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs']]]] = None,
                  request_header_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs']]]] = None,
-                 response_header_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs']]]] = None):
+                 response_header_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs']]]] = None,
+                 url: Optional[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs']] = None):
         """
         :param pulumi.Input[str] name: Unique name of the rewrite rule block
         :param pulumi.Input[int] rule_sequence: Rule sequence of the rewrite rule that determines the order of execution in a set.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs']]] conditions: One or more `condition` blocks as defined above.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs']]] request_header_configurations: One or more `request_header_configuration` blocks as defined above.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs']]] response_header_configurations: One or more `response_header_configuration` blocks as defined above.
+        :param pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs'] url: One `url` block as defined above
+               ---
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "rule_sequence", rule_sequence)
@@ -1873,6 +1877,8 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleArgs:
             pulumi.set(__self__, "request_header_configurations", request_header_configurations)
         if response_header_configurations is not None:
             pulumi.set(__self__, "response_header_configurations", response_header_configurations)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -1933,6 +1939,19 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleArgs:
     @response_header_configurations.setter
     def response_header_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs']]]]):
         pulumi.set(self, "response_header_configurations", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs']]:
+        """
+        One `url` block as defined above
+        ---
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs']]):
+        pulumi.set(self, "url", value)
 
 
 @pulumi.input_type
@@ -2076,6 +2095,61 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs
     @header_value.setter
     def header_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "header_value", value)
+
+
+@pulumi.input_type
+class ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs:
+    def __init__(__self__, *,
+                 path: Optional[pulumi.Input[str]] = None,
+                 query_string: Optional[pulumi.Input[str]] = None,
+                 reroute: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] path: The URL path to rewrite.
+        :param pulumi.Input[str] query_string: The query string to rewrite.
+        :param pulumi.Input[bool] reroute: Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+        """
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
+        if reroute is not None:
+            pulumi.set(__self__, "reroute", reroute)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL path to rewrite.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The query string to rewrite.
+        """
+        return pulumi.get(self, "query_string")
+
+    @query_string.setter
+    def query_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_string", value)
+
+    @property
+    @pulumi.getter
+    def reroute(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+        """
+        return pulumi.get(self, "reroute")
+
+    @reroute.setter
+    def reroute(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "reroute", value)
 
 
 @pulumi.input_type

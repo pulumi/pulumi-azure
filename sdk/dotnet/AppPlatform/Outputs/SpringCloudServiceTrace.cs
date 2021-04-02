@@ -17,11 +17,19 @@ namespace Pulumi.Azure.AppPlatform.Outputs
         /// The Instrumentation Key used for Application Insights.
         /// </summary>
         public readonly string InstrumentationKey;
+        /// <summary>
+        /// The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
+        /// </summary>
+        public readonly double? SampleRate;
 
         [OutputConstructor]
-        private SpringCloudServiceTrace(string instrumentationKey)
+        private SpringCloudServiceTrace(
+            string instrumentationKey,
+
+            double? sampleRate)
         {
             InstrumentationKey = instrumentationKey;
+            SampleRate = sampleRate;
         }
     }
 }

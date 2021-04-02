@@ -59,6 +59,8 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
+	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+	CustomSubdomainName pulumi.StringPtrOutput `pulumi:"customSubdomainName"`
 	// The endpoint used to connect to the Cognitive Service Account.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
@@ -67,6 +69,8 @@ type Account struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A `networkAcls` block as defined below.
+	NetworkAcls AccountNetworkAclsPtrOutput `pulumi:"networkAcls"`
 	// A primary access key which can be used to connect to the Cognitive Service Account.
 	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
 	// A URL to link a QnAMaker cognitive account to a QnA runtime.
@@ -119,6 +123,8 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
+	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+	CustomSubdomainName *string `pulumi:"customSubdomainName"`
 	// The endpoint used to connect to the Cognitive Service Account.
 	Endpoint *string `pulumi:"endpoint"`
 	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
@@ -127,6 +133,8 @@ type accountState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `networkAcls` block as defined below.
+	NetworkAcls *AccountNetworkAcls `pulumi:"networkAcls"`
 	// A primary access key which can be used to connect to the Cognitive Service Account.
 	PrimaryAccessKey *string `pulumi:"primaryAccessKey"`
 	// A URL to link a QnAMaker cognitive account to a QnA runtime.
@@ -142,6 +150,8 @@ type accountState struct {
 }
 
 type AccountState struct {
+	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+	CustomSubdomainName pulumi.StringPtrInput
 	// The endpoint used to connect to the Cognitive Service Account.
 	Endpoint pulumi.StringPtrInput
 	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
@@ -150,6 +160,8 @@ type AccountState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `networkAcls` block as defined below.
+	NetworkAcls AccountNetworkAclsPtrInput
 	// A primary access key which can be used to connect to the Cognitive Service Account.
 	PrimaryAccessKey pulumi.StringPtrInput
 	// A URL to link a QnAMaker cognitive account to a QnA runtime.
@@ -169,12 +181,16 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+	CustomSubdomainName *string `pulumi:"customSubdomainName"`
 	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	Kind string `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `networkAcls` block as defined below.
+	NetworkAcls *AccountNetworkAcls `pulumi:"networkAcls"`
 	// A URL to link a QnAMaker cognitive account to a QnA runtime.
 	QnaRuntimeEndpoint *string `pulumi:"qnaRuntimeEndpoint"`
 	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
@@ -187,12 +203,16 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+	CustomSubdomainName pulumi.StringPtrInput
 	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	Kind pulumi.StringInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `networkAcls` block as defined below.
+	NetworkAcls AccountNetworkAclsPtrInput
 	// A URL to link a QnAMaker cognitive account to a QnA runtime.
 	QnaRuntimeEndpoint pulumi.StringPtrInput
 	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.

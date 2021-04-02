@@ -11,6 +11,7 @@ from . import outputs
 
 __all__ = [
     'AccountBlobProperties',
+    'AccountBlobPropertiesContainerDeleteRetentionPolicy',
     'AccountBlobPropertiesCorsRule',
     'AccountBlobPropertiesDeleteRetentionPolicy',
     'AccountCustomDomain',
@@ -48,16 +49,28 @@ __all__ = [
 @pulumi.output_type
 class AccountBlobProperties(dict):
     def __init__(__self__, *,
+                 container_delete_retention_policy: Optional['outputs.AccountBlobPropertiesContainerDeleteRetentionPolicy'] = None,
                  cors_rules: Optional[Sequence['outputs.AccountBlobPropertiesCorsRule']] = None,
                  delete_retention_policy: Optional['outputs.AccountBlobPropertiesDeleteRetentionPolicy'] = None):
         """
+        :param 'AccountBlobPropertiesContainerDeleteRetentionPolicyArgs' container_delete_retention_policy: A `container_delete_retention_policy` block as defined below.
         :param Sequence['AccountBlobPropertiesCorsRuleArgs'] cors_rules: A `cors_rule` block as defined below.
         :param 'AccountBlobPropertiesDeleteRetentionPolicyArgs' delete_retention_policy: A `delete_retention_policy` block as defined below.
         """
+        if container_delete_retention_policy is not None:
+            pulumi.set(__self__, "container_delete_retention_policy", container_delete_retention_policy)
         if cors_rules is not None:
             pulumi.set(__self__, "cors_rules", cors_rules)
         if delete_retention_policy is not None:
             pulumi.set(__self__, "delete_retention_policy", delete_retention_policy)
+
+    @property
+    @pulumi.getter(name="containerDeleteRetentionPolicy")
+    def container_delete_retention_policy(self) -> Optional['outputs.AccountBlobPropertiesContainerDeleteRetentionPolicy']:
+        """
+        A `container_delete_retention_policy` block as defined below.
+        """
+        return pulumi.get(self, "container_delete_retention_policy")
 
     @property
     @pulumi.getter(name="corsRules")
@@ -74,6 +87,28 @@ class AccountBlobProperties(dict):
         A `delete_retention_policy` block as defined below.
         """
         return pulumi.get(self, "delete_retention_policy")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AccountBlobPropertiesContainerDeleteRetentionPolicy(dict):
+    def __init__(__self__, *,
+                 days: Optional[int] = None):
+        """
+        :param int days: Specifies the number of days that the container should be retained, between `1` and `365` days. Defaults to `7`.
+        """
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[int]:
+        """
+        Specifies the number of days that the container should be retained, between `1` and `365` days. Defaults to `7`.
+        """
+        return pulumi.get(self, "days")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:management/group:Group":
 		r, err = NewGroup(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation":
+		r, err = NewGroupSubscriptionAssociation(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:management/groupTemplateDeployment:GroupTemplateDeployment":
 		r, err = NewGroupTemplateDeployment(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:management/lock:Lock":
@@ -42,6 +44,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"management/group",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"management/groupSubscriptionAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

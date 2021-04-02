@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./asset";
 export * from "./contentKeyPolicy";
 export * from "./job";
+export * from "./liveEvent";
 export * from "./serviceAccount";
 export * from "./streamingEndpoint";
 export * from "./streamingLocator";
@@ -18,6 +19,7 @@ export * from "./transform";
 import { Asset } from "./asset";
 import { ContentKeyPolicy } from "./contentKeyPolicy";
 import { Job } from "./job";
+import { LiveEvent } from "./liveEvent";
 import { ServiceAccount } from "./serviceAccount";
 import { StreamingEndpoint } from "./streamingEndpoint";
 import { StreamingLocator } from "./streamingLocator";
@@ -34,6 +36,8 @@ const _module = {
                 return new ContentKeyPolicy(name, <any>undefined, { urn })
             case "azure:media/job:Job":
                 return new Job(name, <any>undefined, { urn })
+            case "azure:media/liveEvent:LiveEvent":
+                return new LiveEvent(name, <any>undefined, { urn })
             case "azure:media/serviceAccount:ServiceAccount":
                 return new ServiceAccount(name, <any>undefined, { urn })
             case "azure:media/streamingEndpoint:StreamingEndpoint":
@@ -52,6 +56,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "media/asset", _module)
 pulumi.runtime.registerResourceModule("azure", "media/contentKeyPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "media/job", _module)
+pulumi.runtime.registerResourceModule("azure", "media/liveEvent", _module)
 pulumi.runtime.registerResourceModule("azure", "media/serviceAccount", _module)
 pulumi.runtime.registerResourceModule("azure", "media/streamingEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "media/streamingLocator", _module)

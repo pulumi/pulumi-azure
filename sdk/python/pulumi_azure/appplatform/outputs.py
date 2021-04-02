@@ -530,11 +530,15 @@ class SpringCloudServiceNetwork(dict):
 @pulumi.output_type
 class SpringCloudServiceTrace(dict):
     def __init__(__self__, *,
-                 instrumentation_key: str):
+                 instrumentation_key: str,
+                 sample_rate: Optional[float] = None):
         """
         :param str instrumentation_key: The Instrumentation Key used for Application Insights.
+        :param float sample_rate: The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
         """
         pulumi.set(__self__, "instrumentation_key", instrumentation_key)
+        if sample_rate is not None:
+            pulumi.set(__self__, "sample_rate", sample_rate)
 
     @property
     @pulumi.getter(name="instrumentationKey")
@@ -543,6 +547,14 @@ class SpringCloudServiceTrace(dict):
         The Instrumentation Key used for Application Insights.
         """
         return pulumi.get(self, "instrumentation_key")
+
+    @property
+    @pulumi.getter(name="sampleRate")
+    def sample_rate(self) -> Optional[float]:
+        """
+        The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
+        """
+        return pulumi.get(self, "sample_rate")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
